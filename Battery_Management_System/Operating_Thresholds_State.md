@@ -17,7 +17,7 @@ These operating points can be programmed into the BMU over the CAN bus using the
 
 The SOC vs Voltage curve for a typical Lithium chemistry cell is shown below, along with the location of the various thresholds.
 
-{% include image.html file="IMPS_BMU_State_of_charge.gif" alt="IMPS_BMU_State_of_charge" %}
+![BMU State of Charge](IMPS_BMU_State_of_charge.gif)
 
 ### OVER VOLTAGE THRESHOLD
 This voltage should be set to the maximum acceptable voltage for the cell.  If it is ever exceeded, then the BMS will move to the Error state and open the contactors immediately to protect the pack.
@@ -149,4 +149,4 @@ The BMU contains hardware that is capable of sensing if the HV battery pack conn
 
 A failed pack isolation test will not prevent operation of the system, but should be flagged by the user interface for the system (eg dashboard display) and indicate to the user to seek servicing. 
 
-{% include links.html %}
+

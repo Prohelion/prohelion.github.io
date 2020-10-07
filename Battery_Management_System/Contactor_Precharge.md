@@ -39,7 +39,7 @@ Refer to the BMS datasheet for continuous and peak current and voltage ratings o
 ### CONTACTOR 12V SUPPLY CONNECTOR
 The connector used for the Contactor 12V supply input is a 2-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.
 
-{% include image.html file="IMPS_BMS_Contactor_Connector.gif" alt="IMPS_BMS_Contactor_Connector" %}
+![BMS Contactor Connector](IMPS_BMS_Contactor_Connector.gif)
 
 This connection should be wired to the vehicle 12V DC supply via the emergency stop switch (if fitted), the G-force impact switch, an optional HV disable switch, and a fuse.  It requires a low impedance connection to the vehicle battery, since most contactors draw a large current inrush during turn-on, and a poor connection will result in contactor chattering and/or precharge fault trips. 
 
@@ -48,8 +48,7 @@ This connection draws no current when the BMS is in the off state, and does not 
 ### CONTACTOR OUTPUT CONNECTORS
 The connectors used for the Contactor drive outputs are a 4-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps. The colours shown match those used by the Gigavac GX11 and GX12 family of contactors.
 
-{% include image.html file="IMPS_BMS_Contactor_Output.gif" alt="IMPS_BMS_Contactor_Output" %}
-
+![BMS Contactor Output](IMPS_BMS_Contactor_Output.gif)
 
 ## PRECHARGE
 ### CONCEPT
@@ -142,4 +141,4 @@ Selection of fuse type and current rating is beyond the scope of this document, 
 ## CONTACTOR SELECTION
 The three contactors used to break the HV DC connections must be appropriately rated for the currents and voltages seen during both normal use and during fault situations.  Typical parts used in automotive sized packs are the Tyco EV200 or the Gigavac GX11 or GX12 series.  Selection of these parts is beyond the scope of this document.
 
-{% include links.html %}
+

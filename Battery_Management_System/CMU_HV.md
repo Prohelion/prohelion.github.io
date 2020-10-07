@@ -32,12 +32,12 @@ All connections to the BMU are along one edge, simplifying wire routing inside y
 ### DIMENSIONS
 The BMU PCB size and mounting holes are shown below.  Dimensions in mm.
 
-{% include image.html file="IMPS_BMU_PCB.png" alt="IMPS_BMU_PCB" %}
+![BMU PCB](IMPS_BMU_PCB.png)
 
 ### CONNECTORS OVERVIEW
 The following illustration shows the connections on the BMU:
 
-{% include image.html file="IMPS_BMU_Connectors.png" alt="IMPS_BMU_Connectors" %}
+![BMU Connectors](IMPS_BMU_Connectors.png)
 
 Refer to the relevant sections of this document for more details on the pinout and wiring for each connector.
 
@@ -65,8 +65,7 @@ The Battery HV– and Shunt sense wires should be twisted together to minimise n
 ## HV SENSE CONNECTOR
 The connector used for the HV Sense is a 10-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those recommended in most EV wiring standards for HV DC wiring.
 
-{% include image.html file="IMPS_HV_Sense_Connector.gif" alt="IMPS_HV_Sense_Connector" %}
-
+![HV Sense Connector](IMPS_HV_Sense_Connector.gif)
 
 The sense points are as follows:
 *         Vehicle HV+ Sense               Vehicle side of Contactor 2
@@ -104,4 +103,4 @@ The SOC reading is reset to 'full' when the first bypass shunt has activated dur
 ### OVERCURRENT SHUTDOWN
 The BMU has the capability to shut down the pack by opening the contactors if the pack current exceeds a fixed threshold.  This function is not currently implemented in the default firmware, but will be added at a later date.
 
-{% include links.html %}
+
