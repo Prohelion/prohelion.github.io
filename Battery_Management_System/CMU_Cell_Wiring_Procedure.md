@@ -1,12 +1,11 @@
 ---
 title: CMU Cell Wiring Procedure
-tags: [I.M.P.S., Cell Wiring]
-keywords: I.M.P.S., Cell Wiring
-last_updated: November 22, 2019
+tags: [Cell Wiring]
+keywords: Cell Wiring
 summary: ""
-sidebar: imps_sidebar
-permalink: CMU_Cell_Wiring_Procedure.html
-folder: IMPS
+sidebar: bmu_sidebar
+permalink: Battery_Management_System/CMU_Cell_Wiring_Procedure.html
+folder: Battery_Management_System
 ---
 
 ## 1. INTRODUCTION

@@ -1,10 +1,11 @@
 ---
-title: CMU and HV
-keywords: BMS, 
+title: CMU Overview
+keywords: BMS, CMU
 summary: ""
-sidebar: imps_sidebar
-permalink: BMS_CMU_HV.html
-folder: I.M.P.S.
+sidebar: bmu_sidebar
+permalink: Battery_Management_System/CMU_Overview.html
+folder: Battery_Management_System
+
 ---
 
 ## CMU CAN BUS

@@ -1,10 +1,10 @@
 ---
-title: Communications Protocol
-keywords: [I.M.P.S., BMU Communications Protocol]
+title: BMU Communications Protocol
+keywords: [BMU Communications Protocol]
 summary: ""
-sidebar: imps_sidebar
-permalink: BMU_Communications_Protocol.md
-folder: I.M.P.S.
+sidebar: bmu_sidebar
+permalink: Battery_Management_System/BMU_Communications_Protocol.html
+folder: Battery_Management_System
 ---
 
 ## 1. INTRODUCTION

@@ -2,9 +2,9 @@
 title: Operating Thresholds and State
 keywords: BMS, 
 summary: ""
-sidebar: imps_sidebar
-permalink: BMS_Operating_Thresholds_State.html
-folder: I.M.P.S.
+sidebar: bmu_sidebar
+permalink: Battery_Management_System/Operating_Thresholds_State.html
+folder: Battery_Management_System
 ---
 
 ## CONTACTOR SELECTION
