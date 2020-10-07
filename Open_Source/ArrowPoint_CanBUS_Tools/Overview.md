@@ -32,5 +32,3 @@ The application is compatible with
 The Wifi connection should be broadcasting CANbus data using the Tritium CANbus identifiers.
 
 Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-CANbus-Tools](https://github.com/Prohelion/ArrowPoint-CANbus-Tools)
-
-{% include links.html %}
