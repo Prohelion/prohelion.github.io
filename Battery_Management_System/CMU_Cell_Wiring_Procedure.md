@@ -21,7 +21,7 @@ Please read through the entire assembly procedure, as well as the BMS User's Man
 ## 2. CMU
 The 8-cell CMU has the connections for the cell voltage and temperature sensing at one end of the circuit board.  The CAN bus ribbon cable connector is at the other end of the board.  The CMU is shown below:
 
-![CMU](imps_cmu.jpg)
+![CMU](/images/imps_cmu.jpg)
 
 The cell sense connector is a 12-way 3mm Molex Microfit connector, with locking ramp.  8 pins are used for cell voltage sensing, one pin for cell ground, and two for a temperature sensing thermistor, leaving one pin unused.  
 
@@ -29,13 +29,13 @@ The mating housing is Molex part number 43645-1200, and the 20-24 AWG crimps par
 
 The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those used in the recommended cable.
 
-![Pinout](imps_pinout.gif)
+![Pinout](/images/imps_pinout.gif)
 
 The CMU senses anywhere from one to eight cells.  Cell 0 must always be the first cell connected with Cell 0– connected to its negative terminal.  If one cell is being monitored, it should be connected to Cell 0; if two are monitored, they should be connected to Cell 0 and Cell 1, and so on.    
 
 The temperature sensor must be electrically isolated from the cells, and would normally be positioned to monitor the temperature of Cell 0.  Gluing the thermistor to the cell or cell terminal is usually the most convenient option. Schematically, the connections are shown in the following diagram, which shows one full 8-cell CMU (CMU 1), and one CMU monitoring four cells (CMU 2). Note the connection order to the CMU, this is done to simplify the wiring layout in later steps.
 
-![Connections](imps_connection.png)
+![Connections](/images/imps_connection.png)
 
 ## 3. WIRING HARNESS
 The cell voltage sense harness should be wired with cable rugged enough to tolerate some abrasion due to vibration in the battery pack, with a voltage rating of several hundred volts (in case it touches a cell further along the series string) and with a resistance such that the balance current won't cause significant changes in the cell voltage reading. It should be small enough diameter to fit into the microfit housing and crimps, but not too small to crimp into the ring terminals that connect to the cell. 
@@ -54,45 +54,45 @@ Work out where you want the CMU to be located.  It should be fastened to the wal
 
 The appropriate length of cable has been placed on the assembly jig and cut to length in the following photo:
 
-![Cut to length](imps_cuttolength.jpg)
+![Cut to length](/images/imps_cuttolength.jpg)
 
 ### 4.3 MARK FOR TRIMMING
 The reason for choosing the pinout of the voltage sense connector on the CMU is to make the wiring harness simpler and neater.  Each wire branches out from the edge of the ribbon, with the ribbon being trimmed down narrower as it approaches Cell 7.  The following picture shows the cut points for trimming marked onto the cable. 
 
 The Brown wire is not used, and can be removed completely and used for the thermistor wiring.  The Red wire branches out to Cell 0+, and the Black to Cell 0–. The White wire to Cell 1+, Orange to Cell 2+, and so on. Each cut will be one wire deeper into the ribbon.
 
-![Mark for trim](imps_markfortrim.jpg)
+![Mark for trim](/images/imps_markfortrim.jpg)
 
 ### 4.4 TRIM
 Cut in on the marks, and then from the marks to the end of the ribbon.  The cut pieces can then be removed, as shown below:
 
-![Trim](imps_trim.jpg)
+![Trim](/images/imps_trim.jpg)
 
 ### 4.5 SPILT BRANCHES
 Cut back along from each mark by one cell length, and split the resulting stub off in the direction of each cell, as shown below:
 
-![Split](imps_split.jpg)
+![Split](/images/imps_split.jpg)
 
 ### 4.6 SEPERATE CMU END
 Cut the cable back between strands by 10mm or so at the CMU end, to allow fitting the microfit connector.
 
-![CMU end seperation](imps_cmuend.png)
+![CMU end seperation](/images/imps_cmuend.png)
 
 ### 4.7 STRIP BRANCHES
 Strip around 10mm from the end of each branch, to allow folding back on itself and therefore obtaining a better crimp (double copper into crimp). 
 
-![Strip Branches](imps_stripbranches.jpg)
+![Strip Branches](/images/imps_stripbranches.jpg)
 
 Fold back the stripped length, as shown below:
 
-![Fold](imps_fold.png)
+![Fold](/images/imps_fold.png)
 
 Use the proper crimp tool to crimp on the ring terminals for the cell connections.
 
 ### 4.8 FIT MICROFIT CRIMPS
 Strip back the CMU end of the cable by 2 – 2.5mm and use the correct tool to crimp on the molex crimps.  Pay careful attention to which way is 'up' when orienting the crimps and the housing.  The following photo shows the correct relationship. Refer to Appendix A for component sources and Appendix B for crimping instructions.
 
-![Fit Microfit Crimps](imps_fitcrimp.jpg)
+![Fit Microfit Crimps](/images/imps_fitcrimp.jpg)
 
 ### 4.9 ADD THERMSITOR WIRING
 Use one of the offcuts from the previous steps to make a two-wire cable to the thermistor, and crimp it into the microfit connector in the appropriate location.
