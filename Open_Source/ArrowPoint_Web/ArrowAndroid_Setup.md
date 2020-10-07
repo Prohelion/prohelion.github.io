@@ -14,5 +14,3 @@ Installation of the ArrowPoint App requires the installation of the Android Stud
 
 ## Running the Solution
 The tablet will look to get CANBus information from a WiFi Connection point. TeamArrow has used this solution in the past by running three Wifi Access points, one in the solar car and one in the chase and lead car, allowing the tablet to connect to whichever one has the strongest signal. Because the solar car is typically made out of carbon fibre, which does a great job of blocking Wifi signals, we would suggest taking care where you install the Wifi access points to maximise the stability of the connection in the vehicle.
-
-{% include links.html %}
