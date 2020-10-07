@@ -13,7 +13,7 @@ The Prohelion Battery Management System (BMS) provides full battery management h
 
 [BMS Contactor Precharge and Engagement](Battery_Management_System/Contactor_Precharge.md)
 
-[BMS Operating States and Thresholds](Battery_Management_System/Operating_Thesholds_State.md)
+[BMS Operating States and Thresholds](Battery_Management_System/Operating_Thresholds_State.md)
 
 [BMS Inputs, Outputs and Controls](Battery_Management_System/Inputs_Outputs_Controls.md)
 
