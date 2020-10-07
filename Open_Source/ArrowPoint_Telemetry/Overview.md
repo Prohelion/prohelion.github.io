@@ -35,7 +35,7 @@ The application is compatible with
 
 * Prohelion Battery Packs
 * Tritium WaveSculpters
-* Tritium BMUs and CMUs
+* Prohelion and Tritium BMUs and CMUs
 
 Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](../Troubleshooting.md).
 

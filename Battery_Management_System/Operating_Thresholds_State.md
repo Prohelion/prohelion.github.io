@@ -13,7 +13,7 @@ The three contactors used to break the HV DC connections must be appropriately r
 ## OPERATING THRESHOLDS
 There are six user-settable thresholds that control the operation of the BMS. These should be set based on the maximum acceptable limits for the cells used in the battery pack, along with reference to the charge/discharge curves for selecting the balancing points. 
 
-These operating points can be programmed into the BMU over the CAN bus using the BMS Setup software and a Tritium CAN-Ethernet bridge.  Settings that are required at the CMUs are passed to them from the BMU when the system starts.
+These operating points can be programmed into the BMU over the CAN bus using the BMS Setup software and a CAN-Ethernet bridge.  Settings that are required at the CMUs are passed to them from the BMU when the system starts.
 
 The SOC vs Voltage curve for a typical Lithium chemistry cell is shown below, along with the location of the various thresholds.
 
@@ -52,7 +52,7 @@ This temperature should be set to the maximum acceptable operating temperature f
 ## CHARGER CONTROL
 To charge and balance the pack correctly the BMS must be able to control the charging current in a continuous manner.  Therefore, a charger that is able to be controlled remotely is required.  Battery management systems and chargers that use on/off control will result in slow and/or poor balancing of cells. 
 
-Suitable chargers that the BMS currently supports are the Brusa NLG series, and the TC Charger range with CAN-bus option.  Please contact Tritium regarding support for other types of chargers.
+Suitable chargers that the BMS currently supports are the Brusa NLG series, and the TC Charger range with CAN-bus option.  Please contact Prohelion regarding support for other types of chargers.
 
 The BMU runs a PID control loop based on maximum individual cell voltage, with the aim of raising it up to the Balance Threshold voltage.  It will issue current setpoint commands to the charger to achieve this goal.
 
@@ -79,7 +79,7 @@ The BMS can be in any one of six states, depending on operating conditions, comm
 
 *         Run
 
-States transition from one to another based on various thresholds and timers, and on user commands from the Tritium EV Driver Controls via the CAN bus, as detailed in the following sections.
+States transition from one to another based on various thresholds and timers, and on user commands from the Driver Controls via the CAN bus, as detailed in the following sections.
 
 ### ERROR
 The BMS is in the Error state if any of the following conditions are true:

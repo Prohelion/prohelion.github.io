@@ -32,6 +32,6 @@ The application is compatible with
 * Tritium WaveSculpters
 * Tritium BMUs and CMUs
 
-The Wifi connection should be broadcasting CANbus data using the Tritium CANbus identifiers.
+The Wifi connection should be broadcasting CANbus data using the Prohelion and Tritium CANbus identifiers.
 
 Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Android](https://github.com/Prohelion/ArrowPoint-Android)

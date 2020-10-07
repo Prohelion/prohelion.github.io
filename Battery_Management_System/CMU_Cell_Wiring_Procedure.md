@@ -10,7 +10,7 @@ folder: IMPS
 ---
 
 ## 1. INTRODUCTION
-This document describes how to make the cell voltage sense wiring harness for the Tritium 8-cell Cell Management Unit (CMU).  The examples shown are for 60Ah prismatic type LiFePO4 cells, although the procedure will be similar for other shapes and sizes of cell. 
+This document describes how to make the cell voltage sense wiring harness for the Prohelion 8-cell Cell Management Unit (CMU).  The examples shown are for 60Ah prismatic type LiFePO4 cells, although the procedure will be similar for other shapes and sizes of cell. 
 
 
 Please read through the entire assembly procedure, as well as the BMS User's Manual (TRI67.011) before commencing work.
@@ -40,7 +40,7 @@ The temperature sensor must be electrically isolated from the cells, and would n
 ## 3. WIRING HARNESS
 The cell voltage sense harness should be wired with cable rugged enough to tolerate some abrasion due to vibration in the battery pack, with a voltage rating of several hundred volts (in case it touches a cell further along the series string) and with a resistance such that the balance current won't cause significant changes in the cell voltage reading. It should be small enough diameter to fit into the microfit housing and crimps, but not too small to crimp into the ring terminals that connect to the cell. 
 
-Tritium has identified a suitable cable as part from Pro Power, part number 05B91510. This is the cable used in the pictures for the next section of this document. 
+Prohelion has identified a suitable cable as part from Pro Power, part number 05B91510. This is the cable used in the pictures for the next section of this document. 
 
 The ring terminals used to connect to the cell should be suitable for the cable chosen. Doubling the stripped cable over may bring it up to a suitable size for a wider selection of terminals.
 
