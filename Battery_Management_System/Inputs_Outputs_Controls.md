@@ -37,7 +37,7 @@ The connector also provides 12V and GND pins, which are sourced from the 12V con
 ### RELAY OUTPUT CONNECTOR
 The connector used for the Relay output is a 6-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps. 
 
-![BMU Relay Output Connector](IMPS_BMU_Relay_Output_Connector.gif)
+![BMU Relay Output Connector](/images/IMPS_BMU_Relay_Output_Connector.gif)
 
 The +12V and Ground pins in this connector are wired (on the BMU PCB) to the Contactor 12V supply connector, and can be jumpered across to the relay pins to provide 12V output on relay active or inactive, switch loads to ground, etc, depending on the jumper arrangement.
 

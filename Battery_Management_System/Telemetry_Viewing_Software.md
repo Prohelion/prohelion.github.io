@@ -9,7 +9,7 @@ folder: I.M.P.S.
 ## TELEMETRY VIEWING SOFTWARE
 The screenshot below shows the BMS Viewing software.  Please note that this functionality is now included as part of the Profinity software suite provided by Prohelion.
 
-![BMU Telemetry](IMPS_BMU_Telemetry.jpg)
+![BMU Telemetry](/images/IMPS_BMU_Telemetry.jpg)
 
 The top section shows data from the BMU, while the lower section shows CMU data – one row per CMU.
 
