@@ -8,7 +8,7 @@ folder: I.M.P.S.
 ---
 
 ## INTRODUCTION
-This document describes the interface, installation, and usage requirements for the Tritium Battery Management System (BMS). 
+This document describes the interface, installation, and usage requirements for the Prohelion Battery Management System (BMS). 
 
 The BMS provides an easy way to monitor and control an Electric Vehicle battery pack, and can work seamlessly with Tritium's WaveSculptor motor controllers.  It is a mature design with five previous product generations of real-world experience with various types of cells, form factors, and vehicles.
 
@@ -56,14 +56,14 @@ To achieve management over the cells and pack, it controls:
 
 *         Battery charger charging current setpoint
 
-Individual cell voltages are the most critical measurement taken by the system, and in the Tritium BMS are measured using two separate, redundant circuits, each with it's own analog circuitry, A/D converter, and reference. 
+Individual cell voltages are the most critical measurement taken by the system, and in the Prohelion BMS are measured using two separate, redundant circuits, each with it's own analog circuitry, A/D converter, and reference. 
 
 All measurements are cross-checked, and any fault in the system can be identified and reported.  This system not only gives reliable and accurate cell voltage measurements, it gives trusted measurements. 
 
-The Tritium BMS reports if any measurements are not trustworthy, and this information can be acted on by a higher-level system in the vehicle, for instance by notifying the driver that the vehicle requires servicing.
+The Prohelion BMS reports if any measurements are not trustworthy, and this information can be acted on by a higher-level system in the vehicle, for instance by notifying the driver that the vehicle requires servicing.
 
 ## WARNINGS
-A properly designed BMS system will protect a battery pack from being operated outside of acceptable limits.  However, a poorly implemented system may not provide the expected protection – the Tritium BMS must be installed in a professional and competent manner to function as designed.
+A properly designed BMS system will protect a battery pack from being operated outside of acceptable limits.  However, a poorly implemented system may not provide the expected protection – the Prohelion BMS must be installed in a professional and competent manner to function as designed.
 
 Attention should also be paid to the larger system that the vehicle is part of, especially the systems associated with charging and the infrastructure to support it.  As well as using the BMS to protect the pack, additional systems should be provided as backup as part of the charging infrastructure, for instance: fitting of smoke detectors; overcurrent and RCD protection in the AC supply; regular physical checks of charge cabling and connections; regular review of telemetry data for abnormal readings. 
 

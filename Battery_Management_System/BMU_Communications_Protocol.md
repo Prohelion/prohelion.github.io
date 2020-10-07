@@ -8,7 +8,7 @@ folder: I.M.P.S.
 ---
 
 ## 1. INTRODUCTION
-This document describes the communications protocol used between the Battery Management Unit (BMU) and the vehicle in the Tritium BMS. 
+This document describes the communications protocol used between the Battery Management Unit (BMU) and the vehicle in the Prohelion BMS. 
 
 Internal communications between the BMS BMU and BMS Cell Management Units (CMUs) are described in another document (TRI67.009), but should not be needed for a typical end-user.
 
@@ -2147,9 +2147,9 @@ This packet is transmitted by the BMU to show extended pack status data.
 Do not transmit data on reserved IDs, as this may trigger configuration or bootload events and mode changes.
 
 ## 6. INCOMING CAN PACKETS
-The BMU is expecting regular (>5Hz) CAN packets from Tritium's EV Driver Controls, with the current state of the switches.  Specifically, it is looking for the current state of the IGNITION RUN and IGNITION START switches, to use in controlling the precharge state machine. 
+The BMU is expecting regular (>5Hz) CAN packets from EV Driver Controls, with the current state of the switches.  Specifically, it is looking for the current state of the IGNITION RUN and IGNITION START switches, to use in controlling the precharge state machine. 
 
-The base ID of the EVDC can be set in the BMS configuration software, with the switch position packet being sent at +5 above the base ID.  By default the EVDC base ID is 0x500, making the switch position ID at 0x505.
+The base ID of the EVDC can be set in the BMS configuration software, with the switch position packet being sent at +5 above the base ID.  By default the EVDC base ID is expected to be 0x500, making the switch position ID at 0x505.
 
 ### 6.1 EV DRIVER CONTROLS SWITCH POSITION
 This packet is transmitted by the EVDC to show switch status.
