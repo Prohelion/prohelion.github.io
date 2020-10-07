@@ -25,5 +25,3 @@ Alerts are configured by modifying the alerts.csv file located in /app/src/main/
 | ControllerTemp | - | 50 |
 
 If any of these thresholds are passed then the tablet will display an alert on the screen. This is very useful in race environment as if you have any communication failure between the chase car and solar car (which has happened to TeamArrow a lot) the driver can operate the car with confidence that they will be alerted to a major issue.
-
-{% include links.html %}
