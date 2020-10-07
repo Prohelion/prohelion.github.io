@@ -5,14 +5,14 @@ keywords: ArrowPoint, Telemetry, Usage
 last_updated: November 22, 2019
 summary:
 sidebar: arrowpoint_sidebar
-permalink: ArrowTelemetry_Usage.html
+permalink: Usage.md
 folder: ArrowPoint
 ---
 
 ## Telemetry System 
 The core telemetry system can be accessed by going to [http://localhost:9000](http://localhost:9000), if the system is running you will see a page that looks like this.
 
-{% include image.html file="telemetry_login.png" alt="telemetry_login" caption="Telemetry Login" %}
+![Telemetry Login](/images/telemetry_login.png)
 
 If you see the screen then you will able to log in with the default account
 
@@ -24,14 +24,16 @@ If you see the screen then you will able to log in with the default account
 
 At which point you should be presented with the dashboard that looks like this.
 
-{% include image.html file="telemetry_dashboard.png" alt="telemetry_dashboard" caption="Telemetry Dashboard" %}
+![Telemetry Dashboard](/images/telemetry_dashboard.png)
+
 
 ## Splunk 
 Complex reporting is handled in the Telemetry system by splunk, which can be accessed by going to the url [http://localhost:8000](http://localhost:8000)
 
 If everything is running correctly, you should see a screen that looks like this
 
-{% include image.html file="telemetry_splunklogin.png" alt="telemetry_splunklogin" caption="Splunk Login" %}
+![Splunk Login](/images/telemetry_splunklogin.png)
+
 
 If you see the screen then you will able to log in with the default account
 
@@ -39,11 +41,13 @@ If you see the screen then you will able to log in with the default account
 
 **Password**: passw0rd!
 
-{% include image.html file="telemetry_splunkdashboard.png" alt="telemetry_splunkdashboard" caption="Splunk Dashboard" %}
+
+
+![Splunk Dashboard](/images/telemetry_splunkdashboard.png`)
 
 Click on the Prohelion Telemetry Application and then the Dashboards menu item to see that available reporting dashboards
 
-{% include image.html file="telemetry_splunkreport.png" alt="telemetry_splunkreport" caption="Splunk Report" %}
+![Splunk Report](/images/telemetry_splunkreport.png)
 
 
 ## PgAdmin 
@@ -53,16 +57,19 @@ PgAdmin allows you direct access to the underlying TimescaleDB (Postgres) databa
 
 **Password**: passw0rd!
 
-{% include image.html file="telemetry_pgadminlogin.png" alt="telemetry_pgadminlogin" caption="PgAdmin login" %}
+
+
+![PgAdmin login](/images/telemetry_pgadminlogin.png)
 
 Once you have logged in, connect to the database instance in the menu on the left and reenter the database password.
 
 **Password**: passw0rd!
 
-{% include image.html file="telemetry_pgadmindatabase.png" alt="telemetry_pgadmindatabase" caption="PgAdmin Database" %}
+
+
+![PgAdmin Database](/images/telemetry_pgadmindatabase.png)
 
 You are now connected to the database instance, the tables for the application are stored in the public schema.
 
 
 
-{% include links.html %}

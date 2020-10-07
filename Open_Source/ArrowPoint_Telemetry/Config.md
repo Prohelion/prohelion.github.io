@@ -5,7 +5,7 @@ keywords: ArrowPoint, Telemetry, Config
 last_updated: November 22, 2019
 summary:
 sidebar: arrowpoint_sidebar
-permalink: ArrowTelemetry_Config.html
+permalink: Config.html
 folder: ArrowPoint
 ---
 
@@ -161,4 +161,3 @@ An example file is included with the code in the directory \ArrowPoint-Telemetry
 Once the file has been loaded, Spunk should work as expected.
 
 
-{% include links.html %}

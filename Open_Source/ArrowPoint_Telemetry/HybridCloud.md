@@ -5,7 +5,7 @@ keywords: ArrowPoint, Telemetry, HybridCloud
 last_updated: November 22, 2019
 summary: "ArrowPoint Telemetry supports complex physical configurations, including in chase car, cloud and hybrid configurations"
 sidebar: arrowpoint_sidebar
-permalink: ArrowTelemetry_HybridCloud.html
+permalink: HybridCloud.html
 folder: ArrowPoint
 ---
 
@@ -15,4 +15,3 @@ For the European Solar Challenge in 2018, TeamArrow used this feature to enable 
 
 The forwarding feature is enabled by setting the enable.data.forward option inside the application.properties file.  Information on setting this file up can be found on the Configuration page.
 
-{% include links.html %}
