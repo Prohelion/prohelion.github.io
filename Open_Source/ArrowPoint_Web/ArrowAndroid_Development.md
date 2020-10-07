@@ -20,6 +20,4 @@ Not all Android hardware is able to receive UDP packets and typically this capab
 This applications receives 100's of CANbus packets per second and as such puts significant strain on the battery, also the screen runs all the time. We have typically found that we need a tablet per sector when running an event like World Solar Challenge. TeamArrow carries multiple tablets in the fleet and always has a few on charge at any time.
 
 ## Issues or Suggestions
-If you have any issues with the code or discover bugs then we would encourage you to log them on the issues page here [https://github.com/Prohelion/ArrowPoint-Android/issues](https://github.com/Prohelion/ArrowPoint-Android/issues) or have a go at fixing them and then send us a pull request with details of what you have done. If you are fixing a bug, please log it as per the [Contribution File](https://github.com/Chrishaywood/ProhelionDocs/blob/master/CONTRIBUTING.md) instructions so that we have an idea on what you are attempting to do. Also check out the Software Troubleshooting page for more information.
-
-{% include links.html %}
+If you have any issues with the code or discover bugs then we would encourage you to log them on the issues page here [https://github.com/Prohelion/ArrowPoint-Android/issues](https://github.com/Prohelion/ArrowPoint-Android/issues) or have a go at fixing them and then send us a pull request with details of what you have done.
