@@ -26,5 +26,3 @@ The tool is relatively simple to use. Log in and connect to the CANbus network, 
 You can then access a range of tools on the menu for logging / recording or replaying CANbus traffic as well as sending and simulating data in the system.
 
 {% include image.html file="canbus_tools.png" alt="canbus_tools" caption="Example CANbus tools" %}
-
-{% include links.html %}
