@@ -139,5 +139,3 @@ Maintainers need to do the following to push out a release:
 [make a pull request]: https://help.github.com/articles/creating-a-pull-request
 [git rebasing]: http://git-scm.com/book/en/Git-Branching-Rebasing
 [interactive rebase]: https://help.github.com/articles/interactive-rebase
-
-{% include links.html %}
