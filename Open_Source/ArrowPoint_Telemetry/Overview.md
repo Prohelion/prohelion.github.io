@@ -5,7 +5,7 @@ keywords: ArrowPoint, Telemetry, Overview
 last_updated: November 22, 2019
 summary:
 sidebar: arrowpoint_sidebar
-permalink: ArrowTelemetry_Overview.html
+permalink: Overview.md
 folder: ArrowPoint
 ---
 ## Introduction
@@ -15,12 +15,11 @@ The out of the box implementation is designed for use in Solar or Electric racin
 
 The solution captures and stores all telemetry data in a race environment and has been used to capture over 60,000,000 data points in previous events and testing and can manage, track and store around 400 data points a second when running on a i7 laptop. It provides reporting (via [Splunk](https://www.splunk.com/)) across full data sets via a web interface and allows teams to build and track massive data sets via dashboards and dynamically modifiable searches.
 
-{% include image.html file="telemetry_analysis.png" alt="telemetry_analysis" caption="Example of the Arrowpoint Dashboard" %}
+![Example of the Arrowpoint Dashboard](/images/telemetry_analysis.png)
 
 The ArrowPoint-Telemetry system is very light weight (considering what it is doing!) and [TeamArrow](http://www.teamarrow.com.au/) have historically run it on a single CPU laptop, which we tuck on the seat in the chase car or can be run in the cloud (we use Amazon EC2) when coupled with the ArrowPoint-Tablet for data relay.
 
-Examples of the software in use can be seen here - [https://www.youtube.com/watch?reload=9&v=lWkXEb8v1tk](https://www.youtube.com/watch?reload=9&v=lWkXEb8v1tk
-)
+Examples of the software in use can be seen here - [https://www.youtube.com/watch?reload=9&v=lWkXEb8v1tk](https://www.youtube.com/watch?reload=9&v=lWkXEb8v1tk)
 
 ## Features
 For the full feature list see the Telemetry System Features section, but at a high level the application provides
@@ -38,6 +37,5 @@ The application is compatible with
 * Tritium WaveSculpters
 * Tritium BMUs and CMUs
 
-Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](Arrow_SoftwareTroubleshooting.html).
+Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](../Troubleshooting.md).
 
-{% include links.html %}

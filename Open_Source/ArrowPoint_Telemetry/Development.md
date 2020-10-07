@@ -13,5 +13,3 @@ If you are interested in contributing to the solution, please see our contributi
 
 [https://github.com/Prohelion/ArrowPoint-Telemetry/blob/master/CONTRIBUTING.md](https://github.com/Prohelion/ArrowPoint-Telemetry/blob/master/CONTRIBUTING.md
 )
-
-{% include links.html %}

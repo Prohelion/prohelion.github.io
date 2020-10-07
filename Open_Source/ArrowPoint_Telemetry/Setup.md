@@ -5,7 +5,7 @@ keywords: ArrowPoint, Telemetry, Setup
 last_updated: November 22, 2019
 summary:
 sidebar: arrowpoint_sidebar
-permalink: ArrowTelemetry_Setup.html
+permalink: Setup.md
 folder: ArrowPoint
 ---
 
@@ -24,7 +24,6 @@ The system has been tested on Windows 10 and Amazon EC2 Unix, but should run on 
 * [Apache Maven](https://maven.apache.org/)
 * [Git](https://git-scm.com/) – We would suggest [Atlassian SourceTree](https://www.sourcetreeapp.com/) if you are new to Git as it is a bit easier to use than Git on the command line
 * [Spring Tool Suite](https://spring.io/tools3/sts/all) – If you want to change the code or contribute to the project
-
 
 
 ## Docker based Install
@@ -142,4 +141,3 @@ PgAdmin Console: [http://localhost:5080](http://localhost:5080) - Login: admin@p
 </tr>
 </tbody>
 </table>
-{% include links.html %}

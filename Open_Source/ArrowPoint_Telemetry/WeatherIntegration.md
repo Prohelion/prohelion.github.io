@@ -5,7 +5,7 @@ keywords: ArrowPoint, Telemetry, Weather
 last_updated: November 22, 2019
 summary: "Weather data can be fed directly in to the system and used to support strategy decisions"
 sidebar: arrowpoint_sidebar
-permalink: ArrowTelemetry_WeatherIntegration.html
+permalink: WeatherIntegration.md
 folder: ArrowPoint
 ---
 
@@ -13,14 +13,13 @@ The Telemetry system can connect to weather stations to collect information in r
 
 [https://www.lufft.com/products/compact-weather-sensors-293/ws700-umb-smart-weather-sensor-1830/](https://www.lufft.com/products/compact-weather-sensors-293/ws700-umb-smart-weather-sensor-1830/)
 
-{% include image.html file="telemetry_weathersensor.png" alt="telemetry_weathersensor" caption="Smart Weather Sensor" %}
+![Smart Weather Sensor](/images/telemetry_weathersensor.png)
 
 Lufft sensors are connected to the Telemetry system via a Serial to Ethernet bridge such as this one
 
 [https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134](https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134)
 
-{% include image.html file="telemetry_ethernetconverter.jpg" alt="telemetry_ethernetconverter" caption="Serial to Ethernet Converting" %}
+![Serial to Ethernet Converting](/images/telemetry_weathersensor.png`)
 
 The telemetry system then uses telnet to poll the device at regular intervals and extract the current weather data. That information is then broadcast on the network as CANbus packets for other devices to receive.
 
-{% include links.html %}
