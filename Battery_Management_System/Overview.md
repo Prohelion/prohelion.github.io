@@ -14,7 +14,7 @@ The BMS provides an easy way to monitor and control an Electric Vehicle battery 
 
 The BMS consists of two components: multiple Cell Management Units (CMU), which measure and control the individual cells in the battery pack; and a single BMS Master Unit (BMU) which interfaces between the CMUs and the vehicle, controls precharge and other safety systems, and provides total pack telemetry.
 
-![Battery Management System](IMPS_Battery_Management_System.gif)
+![Battery Management System](/images/IMPS_Battery_Management_System.gif)
 
 ## BMS FUNCTION
 The function of the BMS is threefold, in order of priority:
@@ -93,12 +93,12 @@ Wiring should be appropriately strain relieved to withstand the vibration typica
 
 ### DIMENSIONS
 
-![BMU Connectors](IMPS_BMU_Connectors.png)
+![BMU Connectors](/images/IMPS_BMU_Connectors.png)
 
 ### CONNECTORS OVERVIEW
 The following illustration shows the connections and indicators on the CMU:
 
-![BMU Dimensions](IMPS_BMU_Dimensions.png)
+![BMU Dimensions](/images/IMPS_BMU_Dimensions.png)
 
 ### ISOLATION
 The CMU is isolated from the CMU CAN bus, and therefore from the vehicle chassis and other CMUs, with an isolation barrier rated for 1000V DC.  This allows the HV battery pack to be fully floating from the vehicle chassis, as is required by most EV construction standards (eg NCOP14 in Australia).
@@ -118,7 +118,7 @@ The red LED illuminates when any of the eight cells are balancing.  This LED ill
 ### CELL VOLTAGE & TEMPERATURE SENSE CONNECTOR
 The connector used for the Cell Voltage Sense is a 12-way single-row 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those used in the recommended cable.
 
-![Cell Voltage](IMPS_CELL_VOLTAGE.gif)
+![Cell Voltage](/images/IMPS_CELL_VOLTAGE.gif)
 
 ### Temperature Sensor
 The recommended cell temperature sensor to use is a Murata 10k NTC bead type thermistor (NXFT15XH103FA2B100) with 100mm leads. The thermistor should be attached to a part of the cell that is a good representation of the internal temperature, such as a cell terminal (Care MUST be taken that the sensor is appropriately insulated from the terminal).
