@@ -7,9 +7,9 @@ permalink: BMS_Telemetry_Viewing_Software.html
 folder: I.M.P.S.
 ---
 ## TELEMETRY VIEWING SOFTWARE
-The screenshot below shows the BMS Viewing software.
+The screenshot below shows the BMS Viewing software.  Please note that this functionality is now included as part of the Profinity software suite provided by Prohelion.
 
-{% include image.html file="IMPS_BMU_Telemetry.jpg" alt="IMPS_BMU_Telemetry" %}
+![BMU Telemetry](IMPS_BMU_Telemetry.jpg)
 
 The top section shows data from the BMU, while the lower section shows CMU data – one row per CMU.
 
@@ -85,27 +85,7 @@ The data is highlighted in various ways to quickly understand the system status
 
 *         Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a mid-gray background
 
-### COMMAND LINE OPTIONS
-In addition to double clicking on the executable, the BMS Viewing software can also run from the command line, where certain options can be set. The supported command line options are described below:
-
-**-s (serial number)**
-
-This is used to specify the serial number of the BMU to connect to on the CAN bus when launched
-
-**-f (filename)** 
-
-Specifying a filename will enable logging in the BMS_Viewer and all data will logged to the filename.
-
-**-l**
-
-Using -l on the command line will enable logging in the BMS_Viewer and will automatically choose a filename, combining the serial number of the connected BMU device and the timestamp when the program was launched. Note that when using this option that the log file will be rolled over at midnight each day.
-
-**-u (rate)** 
-
-This option is used to determine the logging rate. Currently one can choose between 0.2, 1, 10, and 60 second update rates.
-
-example: BMS_Viewer.exe -s9566 -l -u10
 
 
 
-{% include links.html %}
+

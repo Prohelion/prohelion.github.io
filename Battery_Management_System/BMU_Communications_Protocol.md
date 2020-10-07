@@ -3,7 +3,7 @@ title: Communications Protocol
 keywords: [I.M.P.S., BMU Communications Protocol]
 summary: ""
 sidebar: imps_sidebar
-permalink: BMS_BMU_Communications_Protocol.html
+permalink: BMU_Communications_Protocol.md
 folder: I.M.P.S.
 ---
 
@@ -2268,5 +2268,3 @@ This packet is transmitted by the EVDC to show switch status.
   </td>
  </tr>
 </tbody></table>
-
-{% include links.html %}
