@@ -1,10 +1,11 @@
 ---
-title: Pump and Vehicle CANBUS
+title: Inputs, Outputs and Controls
 keywords: BMS, 
 summary: ""
-sidebar: imps_sidebar
-permalink: BMS_Pump_Vehicle_CANBUS.html
-folder: I.M.P.S.
+sidebar: bmu_sidebar
+permalink: Battery_Management_System/Inputs_Outputs_Controls.html
+folder: Battery_Management_System
+
 ---
 
 ## FAN/PUMP CONTROL

@@ -1,10 +1,10 @@
 ---
-title: Telemetry Viewing Software
-keywords: BMS, 
+title: BMS Telemetry Viewing Software
+keywords: BMS, Telemetry
 summary: ""
-sidebar: imps_sidebar
-permalink: BMS_Telemetry_Viewing_Software.html
-folder: I.M.P.S.
+sidebar: bmu_sidebar
+permalink: Battery_Management_System/BMS_Telemetry_Viewing_Software.html
+folder: Battery_Management_System
 ---
 ## TELEMETRY VIEWING SOFTWARE
 The screenshot below shows the BMS Viewing software.  Please note that this functionality is now included as part of the Profinity software suite provided by Prohelion.

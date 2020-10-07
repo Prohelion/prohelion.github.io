@@ -2,9 +2,9 @@
 title: BMS Overview
 keywords: BMS, 
 summary: ""
-sidebar: imps_sidebar
-permalink: BMS_Overview.html
-folder: I.M.P.S.
+sidebar: bmu_sidebar
+permalink: Battery_Management_System/Overview.html
+folder: Battery_Management_System
 ---
 
 ## INTRODUCTION

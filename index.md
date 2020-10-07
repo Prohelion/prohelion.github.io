@@ -19,7 +19,7 @@ The Prohelion Battery Management System (BMS) provides full battery management h
 
 [BMU Communications Protocol](Battery_Management_System/BMU_Communications_Protocol.md)
 
-[Telemety Viewing Software](Battery_Management_System/Telemetry_Viewing_Software.md)
+[Telemety Viewing Software](Battery_Management_System/BMS_Telemetry_Viewing_Software.md)
 
 ## Cell Management Unit (CMU)
 
