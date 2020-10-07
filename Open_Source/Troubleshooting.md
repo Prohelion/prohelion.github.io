@@ -27,5 +27,3 @@ If you are having an issue please let us know.  The best option is via GitHub wh
 
 
 If you know the solution to your issue, please help us by forking the code and creating a fix.  You can find information on contributing to the code in the Contributing.md file that is located in the root directory of each product, here is a link to the ArrowPoint Telemetry one [https://github.com/Prohelion/ArrowPoint-Telemetry/blob/master/CONTRIBUTING.md](https://github.com/Prohelion/ArrowPoint-Telemetry/blob/master/CONTRIBUTING.md)
-
-{% include links.html %}
