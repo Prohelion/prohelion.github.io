@@ -21,6 +21,4 @@ Losing radio communications is a really common problem when your driver is in a 
 
 By having a solution like this it allows you to communicate with your driver, even if you are just sending messages to them. We use the horn at times to signal that the driver has received the message, on the [System Details & Customisable Alerts](ArrowAndroid_SystemDetails.html) page you can see if they are pressing the horn, we included that switch, because it is often hard to hear from 100 meters behind in the case car.
 
-{% include image.html file="android_messaging.png" alt="android_messaging" caption="Example of the Arrowpoint Android messaging system" %}
-
-{% include links.html %}
+![Example of the Arrowpoint Android messaging system](/images/android_messaging.png)
