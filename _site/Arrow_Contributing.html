@@ -1,0 +1,981 @@
+
+
+<!DOCTYPE html>
+
+	<html lang="en-US">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+		
+			<title>ArrowPoint Contributing | Prohelion</title>
+		
+		
+		
+			<meta name="keywords" content="ArrowPoint, Contributing">
+		
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,400i,500,500i,700,700i">
+		<link rel="stylesheet" href="/dox-theme/assets/css/style.css">
+	</head>
+	<body>
+		
+			<div class="c-offcanvas">
+				<div class="c-offcanvas__inner">
+					
+						<ul class="c-nav c-nav--stacked u-mx-auto">
+							
+								<li><a href="https://www.prohelion.com">Prohelion Website</a></li>
+							
+						</ul><!-- /.c-nav -->
+					
+					
+						
+							<a href="/" class="c-btn c-btn--md c-btn--gray u-text-md">
+								Documentation Homepage
+								<div class="c-btn__icon">
+									<i class="o-icon o-icon--book"></i>
+								</div>
+							</a>
+						
+					
+				</div><!-- /.c-offcanvas__inner -->
+			</div><!-- /.c-offcanvas -->
+		
+
+		
+			<header class="c-header u-text-white">
+				<div class="o-container">
+					<div class="o-row">
+						<div class="o-col-12">
+							<div class="u-flex u-items-center">
+								
+									<div class="c-logo">
+										<a href="/" class="c-logo__link">
+											<img src="/dox-theme/assets/images/layout/logo.png">
+										</a><!-- /.c-logo__link -->
+									</div><!-- /.c-logo -->
+								
+								
+									<div class="u-flex u-items-center u-ml-auto">
+										
+											<ul class="c-nav u-mb-0 u-hidden u-block@lg">
+												
+													
+													<li class=""><a href="https://www.prohelion.com">Prohelion Website</a></li>
+												
+											</ul><!-- /.c-nav -->
+										
+										
+											<div class="u-ml-5 u-hidden u-block@lg">
+												
+													<a href="/" class="c-btn c-btn--md c-btn--white u-text-md">
+														Documentation Homepage
+														<div class="c-btn__icon">
+															<i class="o-icon o-icon--book"></i>
+														</div>
+													</a>
+												
+											</div>
+										
+									</div>
+								
+								<button class="c-hamburger-icon c-hamburger-icon--slider c-hamburger-icon--white js-hamburger-icon js-offcanvas-toggle u-ml-auto u-hidden@lg" type="button">
+									<span class="c-hamburger-icon__box">
+										<span class="c-hamburger-icon__inner"></span>
+									</span><!-- /.c-hamburger-icon__box -->
+								</button><!-- /.c-hamburger-icon -->
+							</div>
+						</div><!-- /.o-col -->
+					</div><!-- /.o-row -->
+				</div><!-- /.o-container -->
+			</header><!-- /.c-header -->
+		
+
+
+
+
+
+
+
+
+
+
+	<div class="u-pt-8 u-pb-5">
+		<div class="o-container">
+			<div class="o-row">
+				
+					<div class="o-col-8@lg o-col-7@xl">
+						<div class="c-post u-mb-3@lg js-post">
+							<h2 id="contributing">Contributing</h2>
+
+<p>First off, thank you for considering contributing to the Prohelion ArrowPoint Telemetry tools. Prohelion is made up of former 
+and current electric vehicle racers from around the world and we have always enjoyed the support of the community in the events 
+we have been involved with.  By open sourcing our software we are hoping to support other teams based on our
+learnings and experience, by contributing to the code we apprecite you helping as well.</p>
+
+<h2 id="where-do-i-go-from-here">Where do I go from here?</h2>
+
+<p>If you’ve noticed a bug or have a question <a href="https://github.com/Prohelion/ArrowPoint-Telemetry/issues?q=something">search the issue tracker</a> to see if
+someone else in the community has already created a ticket. If not, go ahead and
+<a href="https://github.com/Prohelion/ArrowPoint-Telemetry/issues/new">make one</a>!</p>
+
+<h2 id="fork--create-a-branch">Fork &amp; create a branch</h2>
+
+<p>If this is something you think you can fix, then <a href="https://help.github.com/articles/fork-a-repo">fork the Prohelion software</a> and
+create a branch with a descriptive name.</p>
+
+<p>A good branch name would be (where issue #325 is the ticket you’re working on):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-b</span> 325-add-japanese-translations
+</code></pre></div></div>
+
+<h2 id="get-the-test-suite-running">Get the test suite running</h2>
+
+<p>Not all of our software has test cases or test coverage (feel free to contribute!), but where there 
+are test cases please make sure you have a 100% pass rates before trying to contribute code back to us.</p>
+
+<h2 id="did-you-find-a-bug">Did you find a bug?</h2>
+
+<ul>
+  <li>
+    <p><strong>Ensure the bug was not already reported</strong> by <a href="https://github.com/Prohelion/ArrowPoint-Telemetry/issues?q=">searching all issues</a>.</p>
+  </li>
+  <li>
+    <p>If you’re unable to find an open issue addressing the problem,
+<a href="https://github.com/Prohelion/ArrowPoint-Telemetry/issues/new">open a new one</a>. Be sure to include a <strong>title and clear
+description</strong>, as much relevant information as possible, and a <strong>code sample</strong>
+or an <strong>executable test case</strong> demonstrating the expected behavior that is not
+occurring.</p>
+  </li>
+</ul>
+
+<h2 id="implement-your-fix-or-feature">Implement your fix or feature</h2>
+
+<p>At this point, you’re ready to make your changes! Feel free to ask for help;
+everyone is a beginner at first :smile_cat:</p>
+
+<h2 id="view-your-changes-in-across-multiple-broswers-or-tablets">View your changes in across multiple broswers or tablets</h2>
+
+<p>One of the biggest challenges we have with our code is making sure that it works across a range of
+tablets / PCs / phones and the various technologies that people bring in to race environments.</p>
+
+<p>Please try and test as much as possible across multiple platforms.</p>
+
+<h2 id="get-the-style-right">Get the style right</h2>
+
+<p>Your patch should follow the same conventions &amp; pass the same code quality
+checks as the rest of the project.</p>
+
+<h2 id="make-a-pull-request">Make a Pull Request</h2>
+
+<p>At this point, you should switch back to your master branch and make sure it’s
+up to date with the Prohelion ArrowPoint-Tablet master branch:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add upstream git@github.com:Prohelion/ArrowPoint-Telemetry.git
+git checkout master
+git pull upstream master
+</code></pre></div></div>
+
+<p>Then update your feature branch from your local copy of master, and push it!</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout 325-add-japanese-translations
+git rebase master
+git push <span class="nt">--set-upstream</span> origin 325-add-japanese-translations
+</code></pre></div></div>
+
+<p>Finally, go to GitHub and <a href="https://help.github.com/articles/creating-a-pull-request">make a Pull Request</a> :D</p>
+
+<h2 id="keeping-your-pull-request-updated">Keeping your Pull Request updated</h2>
+
+<p>If a maintainer asks you to “rebase” your PR, they’re saying that a lot of code
+has changed, and that you need to update your branch so it’s easier to merge.</p>
+
+<p>To learn more about rebasing in Git, there are a lot of <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">good</a>
+<a href="https://help.github.com/articles/interactive-rebase">resources</a> but here’s the suggested workflow:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout 325-add-japanese-translations
+git pull <span class="nt">--rebase</span> upstream master
+git push <span class="nt">--force-with-lease</span> 325-add-japanese-translations
+</code></pre></div></div>
+
+<h2 id="merging-a-pull-request-maintainers-only">Merging a Pull Request (maintainers only)</h2>
+
+<p>A Pull Request can only be merged into master by a maintainer if:</p>
+
+<ul>
+  <li>It is passing all test cases</li>
+  <li>It has been approved by at least two maintainers. If it was a maintainer who
+opened the Pull Request, only one extra approval is needed.</li>
+  <li>It has no requested changes.</li>
+  <li>It is up to date with current master.</li>
+</ul>
+
+<p>Any maintainer is allowed to merge a Pull Request if all of these conditions are
+met.</p>
+
+<h2 id="shipping-a-release-maintainers-only">Shipping a release (maintainers only)</h2>
+
+<p>Maintainers need to do the following to push out a release:</p>
+
+<ul>
+  <li>Make sure all pull requests are in and that changelog is current</li>
+  <li>Update <code class="language-plaintext highlighter-rouge">version.rb</code> file and changelog with new version number</li>
+  <li>
+    <p>If it’s not a patch level release, create a stable branch for that release,
+otherwise switch to the stable branch corresponding to the patch release you
+want to ship:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+git fetch ArrowPoint-Telemetry
+git rebase ArrowPoint-Telemetry/master
+<span class="c"># If the release is 2.1.x then this should be: 2-1-stable</span>
+git checkout <span class="nt">-b</span> N-N-stable
+git push ArrowPoint-Tablet N-N-stable:N-N-stable
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+							
+							
+						</div><!-- /.c-post -->
+					</div><!-- /.o-col -->
+								
+				
+					<div class="o-col-3@lg o-offset-1@lg o-offset-2@xl">
+						<ul class="c-page-nav u-sticky u-pin-t-6 u-mt-4 u-mt-1@lg u-mb-1 u-mb-4@lg">
+														
+							
+								
+									
+										
+											<li>
+												<a href="/Microservice.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Microservice</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/GPSIntegration.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry GPS</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/GoogleEarth.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Google Earth</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/HybridCloud.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry HybridCloud</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Overview.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Overview</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Reporting.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Reporting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Security.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Security</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Setup.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Setup</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Splunk.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Splunk</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Usage.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Usage</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/WeatherIntegration.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Weather Integration</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Arrow_Contributing.html">
+													<p class="c-page-nav__heading">ArrowPoint Contributing</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Arrow_SoftwareTroubleshooting.html">
+													<p class="c-page-nav__heading">ArrowPoint Troubleshooting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Dashboard.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Dashboard</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Development.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Development</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_GPS.html">
+													<p class="c-page-nav__heading">ArrowPoint Android GPS</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Graphing.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Graphing</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Messaging.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Private Messaging</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Overview.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Overview</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Setup.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Setup</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Solar.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Solar</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_SystemDetails.html">
+													<p class="c-page-nav__heading">ArrowPoint Android System Details</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Alerting.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Alerting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/BulkImporting.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Bulk Importing</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Capture.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Capture</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Config.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Config</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowTelemetry_Development.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Development</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/FleetBroadcasting.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Broadcasting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/FleetMessaging.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Fleet Messaging</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+						</ul><!-- /.c-page-nav -->
+					</div><!-- /.o-col -->
+				
+			</div><!-- /.o-row -->
+		</div><!-- /.o-container -->
+	</div>
+
+
+
+
+	<div class="u-bg-primary u-text-white u-pt-3 u-pt-4@sm u-pb-3 u-pb-4@sm">
+		<div class="o-container">
+			<div class="o-row">
+				<div class="o-col-12 u-text-center">
+					<div class="u-inline-block u-flex@sm">
+						
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+					</div>
+				</div><!-- /.o-col -->
+			</div><!-- /.o-row -->
+		</div><!-- /.o-container -->
+	</div>
+
+
+
+
+	
+
+		
+			<footer class="c-footer">
+				<div class="o-container">
+					<div class="o-row">
+						<div class="o-col-12 u-mt-6 u-mt-8@md u-mb-4 u-mb-6@md">
+							
+								<p class="c-logo u-mb-1">
+									Prohelion Documentation
+								</p><!-- /.c-logo -->
+							
+							
+								<p>Copyright &copy; 2020. - Prohelion Pty Ltd <br>All rights reserved.</p>
+							
+						</div><!-- /.o-col -->
+					</div><!-- /.o-row -->
+				</div><!-- /.o-container -->
+			</footer><!-- /.c-footer -->
+		
+
+		<script type="text/javascript" src="/dox-theme/assets/js/vendor/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/dox-theme/assets/js/scripts.min.js"></script>
+
+		
+
+	</body>
+</html>
+
+

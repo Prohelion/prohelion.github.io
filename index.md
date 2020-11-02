@@ -1,58 +1,49 @@
-# Prohelion Docs
+---
+# Page settings
+layout: homepage # Choose layout: "default", "homepage" or "documentation-archive"
+title: Prohelion Documentation
+description: Documentation for Prohelions tools
+keywords: Prohelion, Profinity, CanBUS Tools, CanBUS Utilities
 
-[docs.prohelion.com](https://docs.prohelion.com)docs.prohelion.com is your go to site for all documentation on getting the most from our products.  Here you will find our technical documents, how to guides and general information on using the products.
+# Hero section
+hero:
+    title: Download Profinity
+    text: Prohelion's Battery and CanBUS management solution
+    background_image: # Paste image URL to display image in background of hero section
+    buttons: # Add buttons below, there are examples with all available options
+        - label: Download (Windows)
+          url: https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi
+          external_url: true # Set to "false" if you're pointing to inner page
+          style: filled # Choose style: "filled" or "bordered"
+          icon: download # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
 
-If you have any questions or concerns, please contact us via https://www.prohelion.com/contact-us/
-
-# Battery Management System
-
-The Prohelion Battery Management System (BMS) provides full battery management hardware for both mobile and stationary batteries.  The Prohelion BMS consists of two seperate components, the Battery Management Unit (BMU) and the Cell Management Unit (CMU).
-
-## Battery Management Unit (BMU)
-
-[BMS Overview](Battery_Management_System/Overview.md)
-
-[BMS Contactor Precharge and Engagement](Battery_Management_System/Contactor_Precharge.md)
-
-[BMS Operating States and Thresholds](Battery_Management_System/Operating_Thresholds_State.md)
-
-[BMS Inputs, Outputs and Controls](Battery_Management_System/Inputs_Outputs_Controls.md)
-
-[BMU Communications Protocol](Battery_Management_System/BMU_Communications_Protocol.md)
-
-[Telemety Viewing Software](Battery_Management_System/BMS_Telemetry_Viewing_Software.md)
-
-## Cell Management Unit (CMU)
-
-[CMU Overview](Battery_Management_System/CMU_Overview.md)
-
-[CMU Cell Wiring Procedures](Battery_Management_System/CMU_Cell_Wiring_Procedure.md)
-
-
-# Sofware
-
-## Profinity
-
-Prohelion provides software solutions that can be used for general CanBUS work and also provide specific support for our products. Profinity is our core software tool, it can be used for general CanBUS development or to management solutions developed by us or using Prohelion products.
-
-[Profinity](Profinity/Overview.md)
-
-## Open Source Solutions
-
-Prohelion evolved from electric vehicle racing TeamArrow and during that time we developed software solutions used for Solar Car Racing.  These days Prohelion continues to support the Solar Car Racing community by providing open source solutions for racing based on our origional products.
-
-[ArrowPoint Tablet](Open_Source/ArowPoint_Tablet/Overview.md)
-ArrowPoint 
-
-[ArrowPoint Telemetry](Open_Source/ArowPoint_Telemetry/Overview.md)
-
-[CanBUS Tools](Open_Source/ArowPoint_CanBUS_Tools/Overview.md)
-CanBUS Tools is the origional Open Source Version of the [Profinity](Profinity/Overview.md) toolkit.  [Profinity](Profinity/Overview.md) is not open source but does allow extensions via scripting but is the recomended solution for modern CanBUS management.  CanBUS Tools is provided as Open Source for people who are interested in developing CanBUS solutions in c# and .net core, but is not being actively developed by Prohelion.
-
-
-
-
-
-
-
-
+# Features section
+features:
+    rows: # Add feature rows below, there are examples with all available options
+        - title: Commercially Supported Products
+          description: Document for our commercial tools for Battery Management and CanBUS power users.
+          grid: # Add feature grid items below, there are examples with all available options
+              - title: Battery Management System (BMU)
+                description: Prohelion's world class battery management system, used for racing, automotive and fixed location solutions
+                icon: battery-charging # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
+                url: Battery_Management_System/Overview.html
+              - title: Profinity
+                description: Our battery and CanBUS management software solution.
+                icon: check-circle
+                url: Profinity/Overview.html
+        - title: Open Source Products
+          description: Prohelion provided a number of Open Source products to support our racing heratige and electric vehicle teams from around the world, called ArrowPoint
+          grid:
+              - title: ArrowPoint Tablet
+                description: Android Tablet application for monitoring batteries and solar arrays built using Prohelion technologies.
+                icon: tablet
+                url: ArrowPoint_Tablet/Overview.html
+              - title: ArrowPoint Telemetry
+                description: A data capture and fleet management solution for solar electric and electric vehicle racing car teams
+                icon: activity
+                url: ArrowPoint_Telemetry/Overview.html
+              - title: ArrowPoint CanBUS Tools
+                description: Before Profinity (download above) we used the ArrowPoint CanBUS tools, this release is provided open source to help you learn how to develop CanBUS solutions
+                icon: server
+                url: ArrowPoint_CanBUS_Tools/Overview.html
+---
