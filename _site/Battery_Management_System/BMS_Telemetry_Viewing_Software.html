@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+
+	<html lang="en-US">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+		
+			<title>BMS Telemetry Viewing Software | Prohelion</title>
+		
+		
+		
+			<meta name="keywords" content="BMS, Telemetry">
+		
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,400i,500,500i,700,700i">
+		<link rel="stylesheet" href="/dox-theme/assets/css/style.css">
+	</head>
+	<body>
+		
+			<div class="c-offcanvas">
+				<div class="c-offcanvas__inner">
+					
+						<ul class="c-nav c-nav--stacked u-mx-auto">
+							
+								<li><a href="https://www.prohelion.com">Prohelion Website</a></li>
+							
+						</ul><!-- /.c-nav -->
+					
+					
+						
+							<a href="/" class="c-btn c-btn--md c-btn--gray u-text-md">
+								Documentation Homepage
+								<div class="c-btn__icon">
+									<i class="o-icon o-icon--book"></i>
+								</div>
+							</a>
+						
+					
+				</div><!-- /.c-offcanvas__inner -->
+			</div><!-- /.c-offcanvas -->
+		
+
+		
+			<header class="c-header u-text-white">
+				<div class="o-container">
+					<div class="o-row">
+						<div class="o-col-12">
+							<div class="u-flex u-items-center">
+								
+									<div class="c-logo">
+										<a href="/" class="c-logo__link">
+											<img src="/dox-theme/assets/images/layout/logo.png">
+										</a><!-- /.c-logo__link -->
+									</div><!-- /.c-logo -->
+								
+								
+									<div class="u-flex u-items-center u-ml-auto">
+										
+											<ul class="c-nav u-mb-0 u-hidden u-block@lg">
+												
+													
+													<li class=""><a href="https://www.prohelion.com">Prohelion Website</a></li>
+												
+											</ul><!-- /.c-nav -->
+										
+										
+											<div class="u-ml-5 u-hidden u-block@lg">
+												
+													<a href="/" class="c-btn c-btn--md c-btn--white u-text-md">
+														Documentation Homepage
+														<div class="c-btn__icon">
+															<i class="o-icon o-icon--book"></i>
+														</div>
+													</a>
+												
+											</div>
+										
+									</div>
+								
+								<button class="c-hamburger-icon c-hamburger-icon--slider c-hamburger-icon--white js-hamburger-icon js-offcanvas-toggle u-ml-auto u-hidden@lg" type="button">
+									<span class="c-hamburger-icon__box">
+										<span class="c-hamburger-icon__inner"></span>
+									</span><!-- /.c-hamburger-icon__box -->
+								</button><!-- /.c-hamburger-icon -->
+							</div>
+						</div><!-- /.o-col -->
+					</div><!-- /.o-row -->
+				</div><!-- /.o-container -->
+			</header><!-- /.c-header -->
+		
+
+
+
+
+
+
+
+
+
+
+	<div class="u-pt-8 u-pb-5">
+		<div class="o-container">
+			<div class="o-row">
+				
+					<div class="o-col-8@lg o-col-7@xl">
+						<div class="c-post u-mb-3@lg js-post">
+							<h2 id="telemetry-viewing-software">TELEMETRY VIEWING SOFTWARE</h2>
+<p>The screenshot below shows the BMS Viewing software.  Please note that this functionality is now included as part of the Profinity software suite provided by Prohelion.</p>
+
+<p><img src="/images/IMPS_BMU_Telemetry.jpg" alt="BMU Telemetry" /></p>
+
+<p>The top section shows data from the BMU, while the lower section shows CMU data – one row per CMU.</p>
+
+<h3 id="bmu-data">BMU DATA</h3>
+<p>The top row of BMU data presents the following information (left to right):</p>
+
+<ul>
+  <li>
+    <p>Minimum voltage cell in the pack, and its voltage.  The example shows Node (CMU) 8, Cell 6 is minimum, at 3293mV</p>
+  </li>
+  <li>
+    <p>Maximum voltage cell in the pack, and its voltage.  The example shows Node (CMU) 12, Cell 4 is maximum, at 3316mV</p>
+  </li>
+  <li>
+    <p>Minimum temperature cell in the pack, and it’s temperature</p>
+  </li>
+  <li>
+    <p>Maximum temperature cell in the pack, and it’s temperature</p>
+  </li>
+  <li>
+    <p>Total pack voltage</p>
+  </li>
+  <li>
+    <p>Total pack current</p>
+  </li>
+  <li>
+    <p>Balance threshold voltage</p>
+  </li>
+  <li>
+    <p>Balance threshold minimum voltage (balance voltage – hysteresis)</p>
+  </li>
+  <li>
+    <p>CMU count in system</p>
+  </li>
+</ul>
+
+<p>The next row shows Precharge status information on the left:</p>
+
+<ul>
+  <li>
+    <p>Current state (Idle, Precharge, Run, etc)</p>
+  </li>
+  <li>
+    <p>Contactor 12V supply voltage presence (mV on v4 or older BMUs)</p>
+  </li>
+</ul>
+
+<p>The bottom row in the BMU section shows the various status flags:</p>
+
+<ul>
+  <li>
+    <p>CMU Power supply OK</p>
+  </li>
+  <li>
+    <p>Any cell OverVoltage</p>
+  </li>
+  <li>
+    <p>Any cell UnderVoltage</p>
+  </li>
+  <li>
+    <p>Any cell OverTemperature</p>
+  </li>
+  <li>
+    <p>Any cell untrusted</p>
+  </li>
+  <li>
+    <p>CMU and vehicle timeout errors The right-hand side shows</p>
+  </li>
+  <li>
+    <p>Fan speed for both fans</p>
+  </li>
+  <li>
+    <p>SOC and Balance SOC in Ah</p>
+  </li>
+  <li>
+    <p>SOC and Balance SOC in %</p>
+  </li>
+</ul>
+
+<h3 id="cmu-data">CMU DATA</h3>
+<p>The lower section of the program shows telemetry data from the CMUs, one row per CMU.  The information shown is:</p>
+
+<ul>
+  <li>
+    <p>CMU Serial number</p>
+  </li>
+  <li>
+    <p>CMU circuit board (PCB) temperature</p>
+  </li>
+  <li>
+    <p>CMU external (cell) temperature</p>
+  </li>
+  <li>
+    <p>1–8 cell voltage measurements</p>
+  </li>
+</ul>
+
+<p>The data is highlighted in various ways to quickly understand the system status</p>
+
+<ul>
+  <li>
+    <p>CMU serial number alternates between a white and light blue background each time a packet is received from that CMU</p>
+  </li>
+  <li>
+    <p>Trust errors for a cell voltage have a yellow background</p>
+  </li>
+  <li>
+    <p>Cells outside the min and max voltage limits have a red background</p>
+  </li>
+  <li>
+    <p>Cells currently balancing have a blue background</p>
+  </li>
+  <li>
+    <p>The minimum and maximum cells have bold text</p>
+  </li>
+  <li>
+    <p>Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a mid-gray background</p>
+  </li>
+</ul>
+
+
+							
+							
+						</div><!-- /.c-post -->
+					</div><!-- /.o-col -->
+								
+				
+					<div class="o-col-3@lg o-offset-1@lg o-offset-2@xl">
+						<ul class="c-page-nav u-sticky u-pin-t-6 u-mt-4 u-mt-1@lg u-mb-1 u-mb-4@lg">
+														
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+										
+											<li class="is-active">
+												<a href="/Battery_Management_System/Overview.html">
+													<p class="c-page-nav__heading">BMS Overview</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+										
+											<li class="is-active">
+												<a href="/Battery_Management_System/CMU_Overview.html">
+													<p class="c-page-nav__heading">CMU Overview</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+								
+							
+								
+									
+										
+											<li class="is-active">
+												<a href="/Battery_Management_System/Contactor_Precharge.html">
+													<p class="c-page-nav__heading">Contactor and Precharge</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li class="is-active">
+												<a href="/Battery_Management_System/Operating_Thresholds_State.html">
+													<p class="c-page-nav__heading">Operating Thresholds and State</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li class="is-active">
+												<a href="/Battery_Management_System/Inputs_Outputs_Controls.html">
+													<p class="c-page-nav__heading">Inputs, Outputs and Controls</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li class="is-active">
+												<a href="/Battery_Management_System/BMS_Telemetry_Viewing_Software.html">
+													<p class="c-page-nav__heading">BMS Telemetry Viewing Software</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li class="is-active">
+												<a href="/Battery_Management_System/CMU_Cell_Wiring_Procedure.html">
+													<p class="c-page-nav__heading">CMU Cell Wiring Procedure</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Battery_Management_System/BMU_Communications_Protocol.html">
+													<p class="c-page-nav__heading">BMU Communications Protocol</p>
+												</a>
+											</li>
+										
+									
+								
+							
+						</ul><!-- /.c-page-nav -->
+					</div><!-- /.o-col -->
+				
+			</div><!-- /.o-row -->
+		</div><!-- /.o-container -->
+	</div>
+
+
+
+
+	<div class="u-bg-primary u-text-white u-pt-3 u-pt-4@sm u-pb-3 u-pb-4@sm">
+		<div class="o-container">
+			<div class="o-row">
+				<div class="o-col-12 u-text-center">
+					<div class="u-inline-block u-flex@sm">
+						
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+										<a href="/Battery_Management_System/Inputs_Outputs_Controls.html" class="c-arrow-link c-arrow-link--prev u-mr-auto">Inputs, Outputs and Controls</a>
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+										<a href="/Battery_Management_System/BMU_Communications_Protocol.html" class="c-arrow-link c-arrow-link--next u-ml-auto">BMU Communications Protocol</a>
+									
+																	
+															
+						
+					</div>
+				</div><!-- /.o-col -->
+			</div><!-- /.o-row -->
+		</div><!-- /.o-container -->
+	</div>
+
+
+
+
+	
+
+		
+			<footer class="c-footer">
+				<div class="o-container">
+					<div class="o-row">
+						<div class="o-col-12 u-mt-6 u-mt-8@md u-mb-4 u-mb-6@md">
+							
+								<p class="c-logo u-mb-1">
+									Prohelion Documentation
+								</p><!-- /.c-logo -->
+							
+							
+								<p>Copyright &copy; 2020. - Prohelion Pty Ltd <br>All rights reserved.</p>
+							
+						</div><!-- /.o-col -->
+					</div><!-- /.o-row -->
+				</div><!-- /.o-container -->
+			</footer><!-- /.c-footer -->
+		
+
+		<script type="text/javascript" src="/dox-theme/assets/js/vendor/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/dox-theme/assets/js/scripts.min.js"></script>
+
+		
+
+	</body>
+</html>
+
+

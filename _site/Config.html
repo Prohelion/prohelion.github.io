@@ -1,0 +1,1262 @@
+
+
+<!DOCTYPE html>
+
+	<html lang="en-US">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+		
+			<title>ArrowPoint Telemetry Config | Prohelion</title>
+		
+		
+		
+			<meta name="keywords" content="ArrowPoint, Telemetry, Config">
+		
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,400i,500,500i,700,700i">
+		<link rel="stylesheet" href="/dox-theme/assets/css/style.css">
+	</head>
+	<body>
+		
+			<div class="c-offcanvas">
+				<div class="c-offcanvas__inner">
+					
+						<ul class="c-nav c-nav--stacked u-mx-auto">
+							
+								<li><a href="https://www.prohelion.com">Prohelion Website</a></li>
+							
+						</ul><!-- /.c-nav -->
+					
+					
+						
+							<a href="/" class="c-btn c-btn--md c-btn--gray u-text-md">
+								Documentation Homepage
+								<div class="c-btn__icon">
+									<i class="o-icon o-icon--book"></i>
+								</div>
+							</a>
+						
+					
+				</div><!-- /.c-offcanvas__inner -->
+			</div><!-- /.c-offcanvas -->
+		
+
+		
+			<header class="c-header u-text-white">
+				<div class="o-container">
+					<div class="o-row">
+						<div class="o-col-12">
+							<div class="u-flex u-items-center">
+								
+									<div class="c-logo">
+										<a href="/" class="c-logo__link">
+											<img src="/dox-theme/assets/images/layout/logo.png">
+										</a><!-- /.c-logo__link -->
+									</div><!-- /.c-logo -->
+								
+								
+									<div class="u-flex u-items-center u-ml-auto">
+										
+											<ul class="c-nav u-mb-0 u-hidden u-block@lg">
+												
+													
+													<li class=""><a href="https://www.prohelion.com">Prohelion Website</a></li>
+												
+											</ul><!-- /.c-nav -->
+										
+										
+											<div class="u-ml-5 u-hidden u-block@lg">
+												
+													<a href="/" class="c-btn c-btn--md c-btn--white u-text-md">
+														Documentation Homepage
+														<div class="c-btn__icon">
+															<i class="o-icon o-icon--book"></i>
+														</div>
+													</a>
+												
+											</div>
+										
+									</div>
+								
+								<button class="c-hamburger-icon c-hamburger-icon--slider c-hamburger-icon--white js-hamburger-icon js-offcanvas-toggle u-ml-auto u-hidden@lg" type="button">
+									<span class="c-hamburger-icon__box">
+										<span class="c-hamburger-icon__inner"></span>
+									</span><!-- /.c-hamburger-icon__box -->
+								</button><!-- /.c-hamburger-icon -->
+							</div>
+						</div><!-- /.o-col -->
+					</div><!-- /.o-row -->
+				</div><!-- /.o-container -->
+			</header><!-- /.c-header -->
+		
+
+
+
+
+
+
+
+
+
+
+	<div class="u-pt-8 u-pb-5">
+		<div class="o-container">
+			<div class="o-row">
+				
+					<div class="o-col-8@lg o-col-7@xl">
+						<div class="c-post u-mb-3@lg js-post">
+							<h2 id="introduction">Introduction</h2>
+<p>There are two main ways that the Telemetry system is configured. Firstly the actual application itself is configured via the use of an application.properties file that is located in the source code. This file is loaded by Spring Boot as part of the application initialization and used to configure the application behaviors. The second way the application is configured is to change the CANbus ids that are used to track devices in your vehicle, this change is documented separately below.</p>
+
+<h2 id="changing-the-applicationproperties">Changing the application.properties</h2>
+<p>The Telemetry system is configured via the use of a properties file which is stored in the telemetry code based under the directory</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Install Directory]\ArrowPoint-Telemetry\src\main\resources\application.properties
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Telemetry Configuration</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Application</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>telemetry.username=admin</td>
+      <td>Username for the login page</td>
+    </tr>
+    <tr>
+      <td>telemetry.password=password</td>
+      <td>Password for the login page</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>[Splunk]</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enable.splunk.connector = true</td>
+      <td>Enable the splunk connector to relay telemetry information to Splunk (true / false)</td>
+    </tr>
+    <tr>
+      <td>splunk.host=splunkenterprise</td>
+      <td>Name of the host running Splunk, in the Docker configuration this container is called splunkenterprise. If you have installed Splunk seperately this should be the hostname of your host</td>
+    </tr>
+    <tr>
+      <td>splunk.port=8089</td>
+      <td>Port that the Splunk API interface is running on, by default this is 8089</td>
+    </tr>
+    <tr>
+      <td>splunk.username=admin</td>
+      <td>Splunk admin username</td>
+    </tr>
+    <tr>
+      <td>splunk.password=password</td>
+      <td>Splunk admin password</td>
+    </tr>
+    <tr>
+      <td>splunk.owner=admin</td>
+      <td>Splunk data owner typically also admin</td>
+    </tr>
+    <tr>
+      <td>splunk.scheme=https</td>
+      <td>Protocol used to relay data to Splunk, by default this should be https</td>
+    </tr>
+    <tr>
+      <td>splunk.tcpwriter.port=9999</td>
+      <td>Data is relayed by the Splunk TCP writer, this is the default port for that component</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Weather Data Connection</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enable.weather.connector = false</td>
+      <td>Enable the weather station data connector</td>
+    </tr>
+    <tr>
+      <td>weather.host = 192.168.1.42</td>
+      <td>IP address of the weather station TCP to Serial Bridge</td>
+    </tr>
+    <tr>
+      <td>weather.port = 100</td>
+      <td>Telnet port for connecting to the weather station</td>
+    </tr>
+    <tr>
+      <td>weather.timeout = 1000</td>
+      <td>Timeout value for the Telnet Connection</td>
+    </tr>
+    <tr>
+      <td>weather.poll.interval = 5000</td>
+      <td>Poll interval for the weather station in milli-seconds</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>GPS Connection Listener</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enable.gps.connector = false</td>
+      <td>Enable the GPS connection</td>
+    </tr>
+    <tr>
+      <td>gps.host = 192.168.1.60</td>
+      <td>Host for the GPS connection (this is typically the IP address of the server running the telemetry application)</td>
+    </tr>
+    <tr>
+      <td>gps.port = 11123</td>
+      <td>Port that the conenctor run on (note that this port should be setup to handle inbound connections)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Telemetry Data Forwarder</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enable.data.forward = false</td>
+      <td>Enable the telemtry data forwarder, which will forward telemetry data to another telemetery instance</td>
+    </tr>
+    <tr>
+      <td>data.forward.cron = 0 * * * * *</td>
+      <td>CRON schedule on which the latest data will be forwarded</td>
+    </tr>
+    <tr>
+      <td>data.forward.url =</td>
+      <td>URL to which the data should be forwarded, the url should end in the url forward-data.json for example http://ec2-33-159-9-132.eu-central-1.compute.amazonaws.com:9000/forward-data.json</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Alerting and Lights</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enable.alerts = true</td>
+      <td>Enable the external lighting system for alerting</td>
+    </tr>
+    <tr>
+      <td>alerts.dir = C:/config/alerts/</td>
+      <td>Directory to find the alert script files</td>
+    </tr>
+    <tr>
+      <td>alerts.values.file = C:/config/alerts/Alert_Values.csv</td>
+      <td>Values to alert on</td>
+    </tr>
+    <tr>
+      <td>alerts.flags.file = C:/config/alerts/Flag_Values.csv</td>
+      <td>CANbus Flag Messages</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Route</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enable.route = false</td>
+      <td>Enable the routing functionality for tracking vehicle progress</td>
+    </tr>
+    <tr>
+      <td>route.file = C:/config/route/routedata.csv</td>
+      <td>Route file containing the route information</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>UDP Receive and Broadcast</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>udp.host = 239.255.60.60</td>
+      <td>Host IP address used to broardcast UDP packets for tranmitting sourced data like the weather data and placing it on to the CANbus IP network</td>
+    </tr>
+    <tr>
+      <td>udp.port = 4876</td>
+      <td>What port should the UDP traffic be broardcast on</td>
+    </tr>
+    <tr>
+      <td>udp.local.address = 127.0.0.1</td>
+      <td>Local address use for UDP broardcasts</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Can File Loader</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>can.loader.directory = file:///tmp</td>
+      <td>Directory where CANbus files that you want to bulk load should be placed</td>
+    </tr>
+    <tr>
+      <td>can.loader.pattern = *.csv</td>
+      <td>Extension of the CANbus files</td>
+    </tr>
+    <tr>
+      <td>can.loader.poll.interval = 5000</td>
+      <td>How often should the system check this folder for bulk loads</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Infrastructure Configuration</strong></td>
+      <td>These settings should only be changed if you are looking to change how the application itself behaves, they do not change the functional behaviour of the application. The <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html">Spring Boot Documentation</a> is the best source of information on these settings</td>
+    </tr>
+    <tr>
+      <td>spring.application.name=Prohelion Telemetry</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>spring.mvc.favicon.enabled = false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>server.port = 9000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>server.servlet.contextPath=/</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>server.servlet.session.timeout=3600</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Thymeleaf Configuration</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>spring.thymeleaf.cache=false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>spring.thymeleaf.enabled=true</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>spring.thymeleaf.prefix=classpath:/templates/</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>spring.thymeleaf.suffix=.html</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>DataSource Configuration</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>jdbc.driverClassName=org.postgresql.Driver</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>jdbc.url = jdbc:postgresql://timescaledb:5432/teamarrow</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>jdbc.user = teamarrow</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>jdbc.pass =<strong>REMOVE</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>init-db = false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Hibernate Configuration</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>hibernate.show_sql=false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>hibernate.hbm2ddl.auto=validate</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Debugging Configuration</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>logging.level.org.springframework.web=INFO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>logging.level.org.hibernate=ERROR</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Use for SQL debugging</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>#logging.level.org.hibernate.SQL=INFO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>#logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>#logging.level.org.springframework.transaction.interceptor=TRACE</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="changing-the-canbus-ids-in-the-telemetry-application">Changing the CANbus ID’s in the Telemetry Application</h2>
+<p>Changing the CANbus IDs is currently a bit complex and requires a few steps. The actual IDs are stored and managed from the Timescale DB (postgres) instance that runs behind the Telemetry system in docker. The docker system automatically runs the setup scripts to create these IDs when the instance is first created. You will find those setup scripts in /docker/TimescaleDB directory.</p>
+
+<p>The build script builds an init.sql file based on a DDL stored elsewhere in the code</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>del init.sql
+type ..\..\data_model\ddl\postgres.sql &gt; init.sql
+type ..\..\data_model\ddl\functions.sql &gt;&gt; init.sql
+type ..\..\data_model\ddl\referencedata.sql &gt;&gt; init.sql
+
+docker build --no-cache -t prohelion/timescaledb-with-data:0.4 .
+
+rem del *.sql
+</code></pre></div></div>
+
+<ul>
+  <li>postgres.sql sets up the structures, this generally should not need to be changed</li>
+  <li>fuctions.sql set up a set of functions in the database to help us manage the data, again this should not need to be changed</li>
+  <li>referencedata.sql is where all the CANbus ID’s are setup and defined. This file will likely need to change for your configuration</li>
+</ul>
+
+<p>The following example show how a single CANbus data_pnt ‘Flash Serial’ is configured.</p>
+<ul>
+  <li>The device type sets up if the device is analog or digital</li>
+  <li>The device itself is defined (in this case it is the BMS DC2DC board)</li>
+  <li>The device has a thing that can be measured, this will have CanId (in this case it is 100 hex)</li>
+  <li>The measurement has two components, both are integers, one ‘Flash Serial’ exists at CAN_DATA_OFFST 0 and the other ‘Device Id’ at CAN_DATA_OFFST 4</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>insert into dev_type(DEV_TYPE_ID, DEV_TYPE) values (1, 'Analog');
+insert into dev_type(DEV_TYPE_ID, DEV_TYPE) values (2, 'Binary');
+
+insert into dev(DEV_ID, DEV_NAME, DEV_ABBREV) values (10, 'BMS DC-DC Board', 'BMS-DC-DC');
+
+insert into msrmnt(MSRMNT_ID, MSRMNT_NAME, MSRMNT_TYPE, CAN_ID, DEV_ID_FK, DEV_TYPE_ID_FK, REPRTNG_FRQ) values (80, 'BMS DC-DC Heartbeat', 'DC-DC_Heartbeat', hex_to_int('100'), 10, 1, 1);
+
+-- DC-DC
+insert into data_pnt(DATA_PNT_ID, DATA_PNT_CAN_ID, NAME, DESCR, DATA_LEN, CAN_DATA_OFFST, DATA_TYPE, LOW_ERR_THRHLD, LOW_WRNG_THRHLD, HIGH_WRNG_THRHLD, HIGH_ERR_THRHLD, MSRMNT_ID_FK, UNITS) values (1, hex_to_int('1004'), 'Flash Serial', 'Flash Serial', 4,  4 ,'int', 0, 0, 0, 0, 80, 'NA');
+insert into data_pnt(DATA_PNT_ID, DATA_PNT_CAN_ID, NAME, DESCR, DATA_LEN, CAN_DATA_OFFST, DATA_TYPE, LOW_ERR_THRHLD, LOW_WRNG_THRHLD, HIGH_WRNG_THRHLD, HIGH_ERR_THRHLD, MSRMNT_ID_FK, UNITS) values (2, hex_to_int('1000'), 'Device Id', 'Device Id', 4,  0 ,'int', 0, 0, 0, 0, 80, 'NA');
+</code></pre></div></div>
+
+<p>Once the changes have been made, you will need to rebuild your docker file using <strong>/docker/TimescaleDB/build.cmd</strong> and then restart the application. What we should now see is that the information shows up in the menu and options like so.</p>
+
+<h2 id="changing-the-canbus-ids-in-splunk">Changing the CANbus ID’s in Splunk</h2>
+<p>Splunk uses a lookup table to convert raw CANbus Ids to text names. Currently if you change your CANbus IDs then you will need to regenerate this lookup file and provide it to Splunk. You can do this buy running the following SQL against the timescaledb database from within PgAdmin which you can access via <a href="http://localhost:5080">http://localhost:5080</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT data_pnt_can_id, data_pnt_name, dev_name, msrmnt_name FROM public.splunk_lookup_data;
+</code></pre></div></div>
+
+<p>The resulting file should be exported saved as DataPoint_CanID.csv and then loaded in to Splunk in the data lookup table files menu <a href="http://localhost:8000/en-GB/manager/launcher/data/lookup-table-files">http://localhost:8000/en-GB/manager/launcher/data/lookup-table-files</a>.</p>
+
+<p>An example file is included with the code in the directory \ArrowPoint-Telemetry\config\lookups if you are looking for an example of how this file should appear.</p>
+
+<p>Once the file has been loaded, Spunk should work as expected.</p>
+
+
+							
+							
+						</div><!-- /.c-post -->
+					</div><!-- /.o-col -->
+								
+				
+					<div class="o-col-3@lg o-offset-1@lg o-offset-2@xl">
+						<ul class="c-page-nav u-sticky u-pin-t-6 u-mt-4 u-mt-1@lg u-mb-1 u-mb-4@lg">
+														
+							
+								
+									
+										
+											<li>
+												<a href="/Microservice.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Microservice</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/GPSIntegration.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry GPS</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/GoogleEarth.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Google Earth</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/HybridCloud.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry HybridCloud</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Overview.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Overview</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Reporting.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Reporting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Security.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Security</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Setup.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Setup</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Splunk.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Splunk</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Usage.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Usage</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/WeatherIntegration.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Weather Integration</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Arrow_Contributing.html">
+													<p class="c-page-nav__heading">ArrowPoint Contributing</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Arrow_SoftwareTroubleshooting.html">
+													<p class="c-page-nav__heading">ArrowPoint Troubleshooting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Dashboard.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Dashboard</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Development.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Development</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_GPS.html">
+													<p class="c-page-nav__heading">ArrowPoint Android GPS</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Graphing.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Graphing</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Messaging.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Private Messaging</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Overview.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Overview</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Setup.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Setup</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_Solar.html">
+													<p class="c-page-nav__heading">ArrowPoint Android Solar</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowAndroid_SystemDetails.html">
+													<p class="c-page-nav__heading">ArrowPoint Android System Details</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Alerting.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Alerting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/BulkImporting.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Bulk Importing</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Capture.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Capture</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/Config.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Config</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/ArrowTelemetry_Development.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Development</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/FleetBroadcasting.html">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Broadcasting</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+										
+											<li>
+												<a href="/FleetMessaging.md">
+													<p class="c-page-nav__heading">ArrowPoint Telemetry Fleet Messaging</p>
+												</a>
+											</li>
+										
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+								
+									
+								
+							
+						</ul><!-- /.c-page-nav -->
+					</div><!-- /.o-col -->
+				
+			</div><!-- /.o-row -->
+		</div><!-- /.o-container -->
+	</div>
+
+
+
+
+	<div class="u-bg-primary u-text-white u-pt-3 u-pt-4@sm u-pb-3 u-pb-4@sm">
+		<div class="o-container">
+			<div class="o-row">
+				<div class="o-col-12 u-text-center">
+					<div class="u-inline-block u-flex@sm">
+						
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+								
+									
+									
+									
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+							
+																	
+															
+						
+					</div>
+				</div><!-- /.o-col -->
+			</div><!-- /.o-row -->
+		</div><!-- /.o-container -->
+	</div>
+
+
+
+
+	
+
+		
+			<footer class="c-footer">
+				<div class="o-container">
+					<div class="o-row">
+						<div class="o-col-12 u-mt-6 u-mt-8@md u-mb-4 u-mb-6@md">
+							
+								<p class="c-logo u-mb-1">
+									Prohelion Documentation
+								</p><!-- /.c-logo -->
+							
+							
+								<p>Copyright &copy; 2020. - Prohelion Pty Ltd <br>All rights reserved.</p>
+							
+						</div><!-- /.o-col -->
+					</div><!-- /.o-row -->
+				</div><!-- /.o-container -->
+			</footer><!-- /.c-footer -->
+		
+
+		<script type="text/javascript" src="/dox-theme/assets/js/vendor/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/dox-theme/assets/js/scripts.min.js"></script>
+
+		
+
+	</body>
+</html>
+
+
