@@ -23,13 +23,13 @@
 									{% if page.folder == document.folder %}
 										{% if page.order >= document.order %}
 											<li class="is-active">
-												<a href="{{ document.url }}">
+												<a href="{{ document.url | relative_url }}">
 													<p class="c-page-nav__heading">{{ document.title }}</p>
 												</a>
 											</li>
 										{% else %}
 											<li>
-												<a href="{{ document.url }}">
+												<a href="{{ document.url | relative_url  }}">
 													<p class="c-page-nav__heading">{{ document.title }}</p>
 												</a>
 											</li>
@@ -59,9 +59,9 @@
 									{% assign next_document = document.order | minus: 1 %}
 									{% assign previous_document = document.order | plus: 1 %}
 									{% if next_document == page.order %}
-										<a href="{{ document.url }}" class="c-arrow-link c-arrow-link--next u-ml-auto">{{ document.title }}</a>
+										<a href="{{ document.url | relative_url }}" class="c-arrow-link c-arrow-link--next u-ml-auto">{{ document.title }}</a>
 									{% elsif previous_document == page.order %}
-										<a href="{{ document.url }}" class="c-arrow-link c-arrow-link--prev u-mr-auto">{{ document.title }}</a>
+										<a href="{{ document.url | relative_url }}" class="c-arrow-link c-arrow-link--prev u-mr-auto">{{ document.title }}</a>
 									{% endif %}
 								{% endif %}									
 							{% endif %}								
