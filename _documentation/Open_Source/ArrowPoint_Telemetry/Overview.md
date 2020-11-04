@@ -22,7 +22,7 @@ The out of the box implementation is designed for use in Solar or Electric racin
 
 The solution captures and stores all telemetry data in a race environment and has been used to capture over 60,000,000 data points in previous events and testing and can manage, track and store around 400 data points a second when running on a i7 laptop. It provides reporting (via [Splunk](https://www.splunk.com/)) across full data sets via a web interface and allows teams to build and track massive data sets via dashboards and dynamically modifiable searches.
 
-![Example of the Arrowpoint Dashboard](/images/telemetry_analysis.png)
+![Example of the Arrowpoint Dashboard]({{site.dox.baseurl}}/images/telemetry_analysis.png)
 
 The ArrowPoint-Telemetry system is very light weight (considering what it is doing!) and [TeamArrow](http://www.teamarrow.com.au/) have historically run it on a single CPU laptop, which we tuck on the seat in the chase car or can be run in the cloud (we use Amazon EC2) when coupled with the ArrowPoint-Tablet for data relay.
 

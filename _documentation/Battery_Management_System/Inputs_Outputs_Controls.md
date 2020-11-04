@@ -20,7 +20,7 @@ The BMS firmware switches both outputs on when the BMS is in Run mode (once prec
 ### FAN/PUMP CONNECTORS
 The connector used for the pump/fan outputs is a 3-way 2.54mm pitch Molex KK connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps. 
 
-![BMU Fan Connectors](/images/IMPS_BMU_Fan_Connectors.gif)
+![BMU Fan Connectors]({{site.dox.baseurl}}/images/IMPS_BMU_Fan_Connectors.gif)
 
 The pinout follows the standard used for PC cooling fans and pumps, as found on
 
@@ -38,7 +38,7 @@ The connector also provides 12V and GND pins, which are sourced from the 12V con
 ### RELAY OUTPUT CONNECTOR
 The connector used for the Relay output is a 6-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps. 
 
-![BMU Relay Output Connector](/images/IMPS_BMU_Relay_Output_Connector.gif)
+![BMU Relay Output Connector]({{site.dox.baseurl}}/images/IMPS_BMU_Relay_Output_Connector.gif)
 
 The +12V and Ground pins in this connector are wired (on the BMU PCB) to the Contactor 12V supply connector, and can be jumpered across to the relay pins to provide 12V output on relay active or inactive, switch loads to ground, etc, depending on the jumper arrangement.
 
@@ -52,7 +52,7 @@ In the range of Tritium EV products, including the WaveSculptor 200, EV Driver
 
 Controls, and BMU, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
-![BMU Vechicle CAN BUS Topology](/images/IMPS_BMU_Vechicle_CAN_BUS_Topology.jpg)
+![BMU Vechicle CAN BUS Topology]({{site.dox.baseurl}}/images/IMPS_BMU_Vechicle_CAN_BUS_Topology.jpg)
 
 The BMU uses the vehicle CAN bus to receive operating and configuration commands and transmit telemetry, as well as a source of low-voltage DC power to operate the electronics.
 
@@ -66,7 +66,7 @@ The optimal choice of cable is 7mm Devicenet CANbus 'thin' cable, with 24AWG (da
 ### VEHICLE CAN BUS CONNECTORS
 The connector used on the BMU and other Tritium devices for the CAN connection is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.
 
-![BMU Vehicle CanBUS Connectors](/images/IMPS_BMU_Vehicle_CAN_BUS_Connectors.gif)
+![BMU Vehicle CanBUS Connectors]({{site.dox.baseurl}}/images/IMPS_BMU_Vehicle_CAN_BUS_Connectors.gif)
 
 ### CAN SHIELDING
 If the recommended braided shield is used in the cable, then terminate it to the SHIELD pin (lower-left corner on the connector) on both CAN IN and CAN OUT connectors on each device. 

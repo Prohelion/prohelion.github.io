@@ -14,4 +14,4 @@ The GPS tracking function is still a work in progress at this point, but we inte
 
 At the moment, it simply shows your current latitude and longitude.
 
-![Example of the Arrowpoint Android GPS system](/images/android_gps.png)
+![Example of the Arrowpoint Android GPS system]({{site.dox.baseurl}}/images/android_gps.png)

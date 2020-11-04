@@ -120,7 +120,7 @@ The red LED illuminates when any of the eight cells are balancing.  This LED ill
 ### CELL VOLTAGE & TEMPERATURE SENSE CONNECTOR
 The connector used for the Cell Voltage Sense is a 12-way single-row 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those used in the recommended cable.
 
-![Cell Voltage](/images/IMPS_CELL_VOLTAGE.gif)
+![Cell Voltage]({{site.dox.baseurl}}/images/IMPS_CELL_VOLTAGE.gif)
 
 ### Temperature Sensor
 The recommended cell temperature sensor to use is a Murata 10k NTC bead type thermistor (NXFT15XH103FA2B100) with 100mm leads. The thermistor should be attached to a part of the cell that is a good representation of the internal temperature, such as a cell terminal (Care MUST be taken that the sensor is appropriately insulated from the terminal).

@@ -11,7 +11,7 @@ order: 3
 ## Telemetry System Usage
 The core telemetry system can be accessed by going to [http://localhost:9000](http://localhost:9000), if the system is running you will see a page that looks like this.
 
-![Telemetry Login](/images/telemetry_login.png)
+![Telemetry Login]({{site.dox.baseurl}}/images/telemetry_login.png)
 
 If you see the screen then you will able to log in with the default account
 
@@ -23,7 +23,7 @@ If you see the screen then you will able to log in with the default account
 
 At which point you should be presented with the dashboard that looks like this.
 
-![Telemetry Dashboard](/images/telemetry_dashboard.png)
+![Telemetry Dashboard]({{site.dox.baseurl}}/images/telemetry_dashboard.png)
 
 
 ## Splunk 
@@ -31,7 +31,7 @@ Complex reporting is handled in the Telemetry system by splunk, which can be acc
 
 If everything is running correctly, you should see a screen that looks like this
 
-![Splunk Login](/images/telemetry_splunklogin.png)
+![Splunk Login]({{site.dox.baseurl}}/images/telemetry_splunklogin.png)
 
 
 If you see the screen then you will able to log in with the default account
@@ -42,11 +42,11 @@ If you see the screen then you will able to log in with the default account
 
 
 
-![Splunk Dashboard](/images/telemetry_splunkdashboard.png)
+![Splunk Dashboard]({{site.dox.baseurl}}/images/telemetry_splunkdashboard.png)
 
 Click on the Prohelion Telemetry Application and then the Dashboards menu item to see that available reporting dashboards
 
-![Splunk Report](/images/telemetry_splunkreport.png)
+![Splunk Report]({{site.dox.baseurl}}/images/telemetry_splunkreport.png)
 
 
 ## PgAdmin 
@@ -58,7 +58,7 @@ PgAdmin allows you direct access to the underlying TimescaleDB (Postgres) databa
 
 
 
-![PgAdmin login](/images/telemetry_pgadminlogin.png)
+![PgAdmin login]({{site.dox.baseurl}}/images/telemetry_pgadminlogin.png)
 
 Once you have logged in, connect to the database instance in the menu on the left and reenter the database password.
 
@@ -66,7 +66,7 @@ Once you have logged in, connect to the database instance in the menu on the lef
 
 
 
-![PgAdmin Database](/images/telemetry_pgadmindatabase.png)
+![PgAdmin Database]({{site.dox.baseurl}}/images/telemetry_pgadmindatabase.png)
 
 You are now connected to the database instance, the tables for the application are stored in the public schema.
 

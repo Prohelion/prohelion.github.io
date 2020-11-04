@@ -17,7 +17,7 @@ We us the iPhone app GPS2IP to capture the GPS data and push it to the telemetry
 
 [https://itunes.apple.com/us/app/gps-2-ip/id408625926?mt=8](https://itunes.apple.com/us/app/gps-2-ip/id408625926?mt=8)
 
-![Iphone GPS Coordinate example](/images/telemetry_GPS.png)
+![Iphone GPS Coordinate example]({{site.dox.baseurl}}/images/telemetry_GPS.png)
 
 The reason we use an iPhone app is simply redundancy and ease of development. The iPhone is typically mounted on the dash of the chase car and connected to the in car Wifi network. It captures GPS data and then transmits it to the Telemetry application which is listening on a socket for the GPS data. The Telemetry application then broadcasts the GPS data as CANbus packets for other devices to receive.
 
@@ -25,7 +25,7 @@ The Telemetry system integrates with Google Earth to allow you to visualize your
 
 The route is created based on the \config\route\routedata.csv file and the displayed strategies are taken from the \config\Strategy Drop Folder directory. Note that the telemetry tool does not actually create a strategy for you, it simply visualizes your current strategy. You will need to produce your own tool to create a strategy file in the correct format (information on the format is below).
 
-![Example of the Google Earth Pro interface](/images/telemetry_googleearth.png)
+![Example of the Google Earth Pro interface]({{site.dox.baseurl}}/images/telemetry_googleearth.png)
 
 Selecting current speed on the menu shows where the car will be on the road using your current speed. By selecting current speed (+1) you will see where you will be if you were to go 1kph faster etc.
 
