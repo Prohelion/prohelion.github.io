@@ -24,7 +24,7 @@ The solution captures and stores all telemetry data in a race environment and ha
 
 ![Example of the Arrowpoint Dashboard]({{site.dox.baseurl}}/images/telemetry_analysis.png)
 
-The ArrowPoint-Telemetry system is very light weight (considering what it is doing!) and [TeamArrow](http://www.teamarrow.com.au/) have historically run it on a single CPU laptop, which we tuck on the seat in the chase car or can be run in the cloud (we use Amazon EC2) when coupled with the ArrowPoint-Tablet for data relay.
+The ArrowPoint-Telemetry system is very light weight (considering what it is doing!) and [TeamArrow](https://www.teamarrow.com.au/) have historically run it on a single CPU laptop, which we tuck on the seat in the chase car or can be run in the cloud (we use Amazon EC2) when coupled with the ArrowPoint-Tablet for data relay.
 
 Examples of the software in use can be seen here - [https://www.youtube.com/watch?reload=9&v=lWkXEb8v1tk](https://www.youtube.com/watch?reload=9&v=lWkXEb8v1tk)
 
@@ -44,5 +44,5 @@ The application is compatible with
 * Tritium WaveSculpters
 * Prohelion and Tritium BMUs and CMUs
 
-Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](../Troubleshooting.html).
+Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](../Open_Source/Troubleshooting.html).
 
