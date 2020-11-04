@@ -19,7 +19,7 @@ hero:
 
 ArrowPoint CANbus Tools is a Windows based platform designed to receive and display telemetry information from an WiFi access point in real time.  Its functionality has been replaced by Prohelion's Profinity tools, so we are providing it to the community as an Open Source solution to help you learn more about CanBUS development and approaches.
 
-The out of the box implementation is designed for use in Solar or Electric racing cars that use technology from [Prohelion](http://www.prohelion.com/) or [Tritium](https://www.tritium.com.au/). This solution was originally developed by [TeamArrow](http://www.teamarrow.com.au/) and has been used in racing environments since 2015.
+The out of the box implementation is designed for use in Solar or Electric racing cars that use technology from [Prohelion](https://www.prohelion.com/) or [Tritium](https://www.tritium.com.au/). This solution was originally developed by [TeamArrow](https://www.teamarrow.com.au/) and has been used in racing environments since 2015.
 
 If you are interested in contributing to the solution, please see our [Contribution File](https://github.com/Prohelion/ArrowPoint-CANbus-Tools/blob/master/CONTRIBUTING.md) 
 
