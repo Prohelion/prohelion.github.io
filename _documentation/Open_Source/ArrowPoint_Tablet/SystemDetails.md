@@ -14,7 +14,7 @@ This screen shows information on key systems that may go out of range as well as
 
 The ArrowPoint App also features a stand alone alerting system that will display alerts on the screen when various Can packets pass set thresholds. The alerts are then shown in the bottom panel.
 
-![Example of the Arrowpoint Android Alerts](/images/android_alerts.png)
+![Example of the Arrowpoint Android Alerts]({{site.dox.baseurl}}/images/android_alerts.png)
 
 Alerts are configured by modifying the alerts.csv file located in /app/src/main/res/raw/alerts.csv below is an example file
 

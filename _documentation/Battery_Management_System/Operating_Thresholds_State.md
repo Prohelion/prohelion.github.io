@@ -18,7 +18,7 @@ These operating points can be programmed into the BMU over the CAN bus using the
 
 The SOC vs Voltage curve for a typical Lithium chemistry cell is shown below, along with the location of the various thresholds.
 
-![BMU State of Charge](/images/IMPS_BMU_State_of_charge.gif)
+![BMU State of Charge]({{site.dox.baseurl}}/images/IMPS_BMU_State_of_charge.gif)
 
 ### OVER VOLTAGE THRESHOLD
 This voltage should be set to the maximum acceptable voltage for the cell.  If it is ever exceeded, then the BMS will move to the Error state and open the contactors immediately to protect the pack.

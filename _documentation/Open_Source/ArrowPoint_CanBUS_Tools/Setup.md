@@ -20,8 +20,8 @@ or
 ## Usage
 The tool is relatively simple to use. Log in and connect to the CANbus network, typically the default settings will work fine.
 
-![CanBUS Settings](/images/canbus_settings.png)
+![CanBUS Settings]({{site.dox.baseurl}}/images/canbus_settings.png)
 
 You can then access a range of tools on the menu for logging / recording or replaying CANbus traffic as well as sending and simulating data in the system.
 
-![CanBUS Tools](/images/canbus_tools.png)
+![CanBUS Tools]({{site.dox.baseurl}}/images/canbus_tools.png)

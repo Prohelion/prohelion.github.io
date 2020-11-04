@@ -33,12 +33,12 @@ All connections to the BMU are along one edge, simplifying wire routing inside y
 ### DIMENSIONS
 The BMU PCB size and mounting holes are shown below.  Dimensions in mm.
 
-![BMU PCB](/images/IMPS_BMU_PCB.png)
+![BMU PCB]({{site.dox.baseurl}}/images/IMPS_BMU_PCB.png)
 
 ### CONNECTORS OVERVIEW
 The following illustration shows the connections on the BMU:
 
-![BMU Connectors](/images/IMPS_BMU_Connectors.png)
+![BMU Connectors]({{site.dox.baseurl}}/images/IMPS_BMU_Connectors.png)
 
 Refer to the relevant sections of this document for more details on the pinout and wiring for each connector.
 
@@ -66,7 +66,7 @@ The Battery HV– and Shunt sense wires should be twisted together to minimise n
 ## HV SENSE CONNECTOR
 The connector used for the HV Sense is a 10-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those recommended in most EV wiring standards for HV DC wiring.
 
-![HV Sense Connector](/images/IMPS_HV_Sense_Connector.gif)
+![HV Sense Connector]({{site.dox.baseurl}}/images/IMPS_HV_Sense_Connector.gif)
 
 The sense points are as follows:
 *         Vehicle HV+ Sense               Vehicle side of Contactor 2
