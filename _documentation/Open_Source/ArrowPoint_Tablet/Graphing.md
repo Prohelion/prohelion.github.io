@@ -12,6 +12,6 @@ order: 4
 ## Graphing
 The graphing dashboard allows you to do basic graphing of key attributes on the tablet, this is generally useful when team members want to know something but don’t want to be bothering the strategy or telemetry teams.
 
-Because the ArrowPoint Telemetry application is written to be mobile friendly, if a team member needs more information they can also use their phone or tablet to log in to the [Telemetry Reporting](ArrowTelemetry_Reporting.html) or use the [Integration with Splunk](ArrowTelemetry_Splunk.html) to do more complex reporting.
+Because the ArrowPoint Telemetry application is written to be mobile friendly, if a team member needs more information they can also use their phone or tablet to log in to the [Telemetry Reporting](../ArrowPoint_Telemetry/Reporting.html) or use the [Integration with Splunk](../ArrowPoint_Telemetry/Splunk.html) to do more complex reporting.
 
 ![Example of the Arrowpoint Android Graphing system]({{site.dox.baseurl}}/images/android_graphing.png)

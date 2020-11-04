@@ -29,7 +29,7 @@ The route is created based on the \config\route\routedata.csv file and the displ
 
 Selecting current speed on the menu shows where the car will be on the road using your current speed. By selecting current speed (+1) you will see where you will be if you were to go 1kph faster etc.
 
-When [GPS Integration](GPSIntegration.html) is enabled, the car itself will appear on the map showing your current location.
+When GPS Integration is enabled, the car itself will appear on the map showing your current location.
 
 However, as the vehicle is not currently on the route, it’s not showing in the image above.
 
