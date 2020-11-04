@@ -137,4 +137,3 @@ Maintainers need to do the following to push out a release:
 [master template]: https://github.com/Prohelion/ArrowPoint-Telemetry/blob/master/tasks/bug_report_template.rb
 [make a pull request]: https://help.github.com/articles/creating-a-pull-request
 [git rebasing]: http://git-scm.com/book/en/Git-Branching-Rebasing
-[interactive rebase]: https://help.github.com/articles/interactive-rebase
