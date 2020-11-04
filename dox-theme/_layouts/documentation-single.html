@@ -3,7 +3,7 @@
 {% include hero.html classes='u-bg-primary u-text-white u-pt-16 u-pb-13' emphasize=true indent=true %}
 
 {% if page.content or site.documentation %}
-	<div class="u-pt-8 u-pb-5">
+	<div class="u-pt-8 u-pb-5" style="margin-top: 50px;"> 
 		<div class="o-container">
 			<div class="o-row">
 				{% if page.content %}
@@ -23,13 +23,13 @@
 									{% if page.folder == document.folder %}
 										{% if page.order >= document.order %}
 											<li class="is-active">
-												<a href="{{ document.url | relative_url }}">
+												<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}{{ document.url }}">
 													<p class="c-page-nav__heading">{{ document.title }}</p>
 												</a>
 											</li>
 										{% else %}
 											<li>
-												<a href="{{ document.url | relative_url  }}">
+												<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}{{ document.url }}">
 													<p class="c-page-nav__heading">{{ document.title }}</p>
 												</a>
 											</li>
@@ -59,9 +59,9 @@
 									{% assign next_document = document.order | minus: 1 %}
 									{% assign previous_document = document.order | plus: 1 %}
 									{% if next_document == page.order %}
-										<a href="{{ document.url | relative_url }}" class="c-arrow-link c-arrow-link--next u-ml-auto">{{ document.title }}</a>
+										<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}{{ document.url }}" class="c-arrow-link c-arrow-link--next u-ml-auto">{{ document.title }}</a>
 									{% elsif previous_document == page.order %}
-										<a href="{{ document.url | relative_url }}" class="c-arrow-link c-arrow-link--prev u-mr-auto">{{ document.title }}</a>
+										<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}{{ document.url }}" class="c-arrow-link c-arrow-link--prev u-mr-auto">{{ document.title }}</a>
 									{% endif %}
 								{% endif %}									
 							{% endif %}								

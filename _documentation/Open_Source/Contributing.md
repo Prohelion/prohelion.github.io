@@ -4,9 +4,8 @@ tags: [ArrowPoint, Contributing]
 keywords: ArrowPoint, Contributing
 last_updated: November 22, 2019
 summary:
-sidebar: arrowpoint_sidebar
-permalink: Arrow_Contributing.html
-folder: ArrowPoint
+permalink: Open_Source/Contributing.html
+folder: Open_Source
 ---
 
 ## Contributing

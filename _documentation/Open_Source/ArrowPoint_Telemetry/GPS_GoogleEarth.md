@@ -1,13 +1,25 @@
 ---
-title: ArrowPoint Telemetry Google Earth
+title: GPS & Google Earth
 tags: [ArrowPoint, Telemetry, Google Earth]
 keywords: ArrowPoint, Telemetry, Google Earth
 last_updated: November 22, 2019
 summary: "Output your location and strategy on to Google Earth maps. This is super useful when plotting strategy and trying to figure out where you are going to camp at 5pm or when you are going to hit a checkpoint."
-sidebar: arrowpoint_sidebar
-permalink: GoogleEarth.md
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/GPS_GoogleEarth.html
+folder: ArrowPoint_Telemetry
+order: 9
 ---
+
+## GPS and Google Earth Integration
+
+The Telemetry system can track your current location which can then be displayed on Google Maps.
+
+We us the iPhone app GPS2IP to capture the GPS data and push it to the telemetry system
+
+[https://itunes.apple.com/us/app/gps-2-ip/id408625926?mt=8](https://itunes.apple.com/us/app/gps-2-ip/id408625926?mt=8)
+
+![Iphone GPS Coordinate example](/images/telemetry_GPS.png)
+
+The reason we use an iPhone app is simply redundancy and ease of development. The iPhone is typically mounted on the dash of the chase car and connected to the in car Wifi network. It captures GPS data and then transmits it to the Telemetry application which is listening on a socket for the GPS data. The Telemetry application then broadcasts the GPS data as CANbus packets for other devices to receive.
 
 The Telemetry system integrates with Google Earth to allow you to visualize your strategy and plan landing spots later in the day. For this feature to work you need to have Google Earth installed and then go to the Fleet Management page in the telemetry system ([http://localhost:9000/fleet.html](http://localhost:9000/fleet.html)) and click the strategy speed predictions link. The system will then produce a KML file and Google Earth (or whatever KML visualization tool you use will load).
 

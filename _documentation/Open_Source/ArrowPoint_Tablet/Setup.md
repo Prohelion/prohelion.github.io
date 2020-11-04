@@ -1,12 +1,11 @@
 ---
-title: ArrowPoint Android Setup
+title: Setup
 tags: [ArrowPoint, Android, Setup]
 keywords: ArrowPoint, Android, Setup
 last_updated: November 22, 2019
-summary:
-sidebar: arrowpoint_sidebar
-permalink: ArrowAndroid_Setup.html
-folder: ArrowPoint
+permalink: ArrowPoint_Tablet/Setup.html
+folder: ArrowPoint_Tablet
+order: 1
 ---
 
 ## Installation on the Tablet or Phone

@@ -1,15 +1,15 @@
 ---
-title: ArrowPoint Telemetry Config
+title: Configuration
 tags: [ArrowPoint, Telemetry, Config]
 keywords: ArrowPoint, Telemetry, Config
 last_updated: November 22, 2019
 summary:
-sidebar: arrowpoint_sidebar
-permalink: Config.html
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/Config.html
+folder: ArrowPoint_Telemetry
+order: 2
 ---
 
-## Introduction
+## Configuration
 There are two main ways that the Telemetry system is configured. Firstly the actual application itself is configured via the use of an application.properties file that is located in the source code. This file is loaded by Spring Boot as part of the application initialization and used to configure the application behaviors. The second way the application is configured is to change the CANbus ids that are used to track devices in your vehicle, this change is documented separately below.
 
 

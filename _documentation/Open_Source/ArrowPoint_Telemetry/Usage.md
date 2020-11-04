@@ -1,15 +1,14 @@
 ---
-title: ArrowPoint Telemetry Usage
+title: Basic Usage
 tags: [ArrowPoint, Telemetry, Usage]
 keywords: ArrowPoint, Telemetry, Usage
 last_updated: November 22, 2019
-summary:
-sidebar: arrowpoint_sidebar
-permalink: Usage.md
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/Basic_Usage.html
+folder: ArrowPoint_Telemetry
+order: 3
 ---
 
-## Telemetry System 
+## Telemetry System Usage
 The core telemetry system can be accessed by going to [http://localhost:9000](http://localhost:9000), if the system is running you will see a page that looks like this.
 
 ![Telemetry Login](/images/telemetry_login.png)
@@ -43,7 +42,7 @@ If you see the screen then you will able to log in with the default account
 
 
 
-![Splunk Dashboard](/images/telemetry_splunkdashboard.png`)
+![Splunk Dashboard](/images/telemetry_splunkdashboard.png)
 
 Click on the Prohelion Telemetry Application and then the Dashboards menu item to see that available reporting dashboards
 

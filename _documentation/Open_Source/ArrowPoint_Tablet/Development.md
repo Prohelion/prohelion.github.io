@@ -1,12 +1,12 @@
 ---
-title: ArrowPoint Android Development
+title: Development
 tags: [ArrowPoint, Android, Development]
 keywords: ArrowPoint, Android, Development
 last_updated: November 22, 2019
 summary:
-sidebar: arrowpoint_sidebar
-permalink: ArrowAndroid_Development.html
-folder: ArrowPoint
+permalink: ArrowPoint_Tablet/Development.html
+folder: ArrowPoint_Tablet
+order: 8
 ---
 
 ## Compilation and Development

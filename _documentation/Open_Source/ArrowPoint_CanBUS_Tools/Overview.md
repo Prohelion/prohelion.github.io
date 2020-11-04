@@ -5,7 +5,6 @@ tags: [ArrowPoint, CANbus, Overview]
 keywords: ArrowPoint, CANbus, Overview
 last_updated: November 22, 2019
 summary: 
-sidebar: arrowpoint_sidebar
 permalink: ArrowPoint_CanBUS_Tools/Overview.html
 folder: ArrowPoint_CanBUS_Tools
 order: 0
@@ -15,6 +14,8 @@ hero:
     title: ArrowPoint CanBUS Tools
     text: Open Source toolkit for working and learning about CanBUS.
 ---
+
+## Introduction
 
 ArrowPoint CANbus Tools is a Windows based platform designed to receive and display telemetry information from an WiFi access point in real time.  Its functionality has been replaced by Prohelion's Profinity tools, so we are providing it to the community as an Open Source solution to help you learn more about CanBUS development and approaches.
 

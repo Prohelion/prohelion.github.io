@@ -1,13 +1,15 @@
 ---
-title: ArrowPoint Telemetry Bulk Importing
+title: Bulk Importing
 tags: [ArrowPoint, Telemetry, Bulk Importing]
 keywords: ArrowPoint, Telemetry, Bulk Importing
 last_updated: November 22, 2019
 summary: "CANbus logs that have been recorded via the Prohelion or Tritium CANbus tools can be bulk loaded in to the solution"
-sidebar: arrowpoint_sidebar
-permalink: BulkImporting.html
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/Bulk Importing.html
+folder: ArrowPoint_Telemetry
+order: 15
 ---
+
+## Bulk Importing
 
 The system provides the ability for CANbus files that have been recorded by either the [ArrowPoint CANbus Tools](../ArrowPoint_CanBUS_Tools/Overview.md) or the Tritium Can Logger to be bulk loaded in to the telemetry system.
 

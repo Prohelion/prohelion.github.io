@@ -4,9 +4,8 @@ tags: [ArrowPoint, Troubleshooting]
 keywords: ArrowPoint, Troubleshooting
 last_updated: November 22, 2019
 summary:
-sidebar: arrowpoint_sidebar
-permalink: Arrow_SoftwareTroubleshooting.html
-folder: ArrowPoint
+permalink: Open_Source/Troubleshooting.html
+folder: Open_Source
 ---
 
 ## CANbus data is not appearing in the applications or tablet

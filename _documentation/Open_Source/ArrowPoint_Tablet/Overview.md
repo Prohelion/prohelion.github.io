@@ -1,12 +1,16 @@
 ---
-title: ArrowPoint Android Overview
+title: Overview
 tags: [ArrowPoint, Android, Overview]
 keywords: ArrowPoint, Android, Overview
 last_updated: November 22, 2019
-summary: 
-sidebar: arrowpoint_sidebar
-permalink: ArrowAndroid_Overview.html
-folder: ArrowPoint
+permalink: ArrowPoint_Tablet/Overview.html
+folder: ArrowPoint_Tablet
+order: 0
+
+# Hero section
+hero:
+    title: ArrowPoint Tablet
+    text: Android Tablet application for managing Prohelion hardware and racing cars
 ---
 
 ## Introduction

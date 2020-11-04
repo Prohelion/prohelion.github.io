@@ -1,15 +1,16 @@
 ---
-title: ArrowPoint Android Private Messaging
+title: Fleet Messaging
 tags: [ArrowPoint, Android, Private_Messaging]
 keywords: ArrowPoint, Android, Private_Messaging
 last_updated: November 22, 2019
 summary: "Allows for private messaging between solar car, lead and chase car and the Telemetry system."
-sidebar: arrowpoint_sidebar
-permalink: ArrowAndroid_Messaging.html
-folder: ArrowPoint
+permalink: ArrowPoint_Tablet/Fleet_Messaging.html
+folder: ArrowPoint_Tablet
+order: 5
 ---
 
-The private messaging system works in collaboration with the [Fleet Private Messaging](ArrowTelemetry_FleetMessaging.html) system in the Telemetry system to allow you to send private messages from App to App or Telemetry to App in the fleet over the TCP / CANbus network
+## Fleet Messaging
+The private messaging system works in collaboration with the [Fleet Private Messaging](../ArrowPoint_Telemetry/Fleet_Messaging.html) system in the Telemetry system to allow you to send private messages from App to App or Telemetry to App in the fleet over the TCP / CANbus network
 
 The application has been designed to try and make it easy to use while driving by having pre set messages.
 

@@ -1,5 +1,5 @@
 {% if include.style == 'alternative' %}
-	{% assign header_classes = 'c-header u-text-white' %}
+	{% assign header_classes = 'c-header u-text-white u-bg-primary' %}
 	{% assign cta_classes = 'c-btn c-btn--md c-btn--white u-text-md' %}
 	{% assign hamburger_cta_classes = 'c-hamburger-icon c-hamburger-icon--slider c-hamburger-icon--white js-hamburger-icon js-offcanvas-toggle u-ml-auto u-hidden@lg' %}
 {% else %}
@@ -29,9 +29,9 @@
 		{% if page.keywords %}
 			<meta name="keywords" content="{{ page.keywords }}">
 		{% endif %}
-		<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+		<link rel="icon" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,400i,500,500i,700,700i">
-		<link rel="stylesheet" href="{{ '/dox-theme/assets/css/style.css' | relative_url }}">
+		<link rel="stylesheet" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/dox-theme/assets/css/style.css">
 	</head>
 	<body>
 		{% if site.dox.header.nav or site.dox.header.cta %}
