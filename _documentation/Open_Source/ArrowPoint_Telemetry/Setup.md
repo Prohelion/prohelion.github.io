@@ -1,15 +1,15 @@
 ---
-title: ArrowPoint Telemetry Setup
+title: Setup
 tags: [ArrowPoint, Telemetry, Setup]
 keywords: ArrowPoint, Telemetry, Setup
 last_updated: November 22, 2019
 summary:
-sidebar: arrowpoint_sidebar
-permalink: Setup.md
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/Setup.html
+folder: ArrowPoint_Telemetry
+order: 1
 ---
 
-## Introduction
+## Setup Requirements
 The ArrowPoint Telemetry system is designed to very light weight in terms of physical infrastructure.
 
 In a race environment TeamArrow runs the entire system on a single i7 laptop with an SSD hard drive. However, since the solution does store substantial amounts of information we would recommend at a minimum a 256GB SSD with 100GB free storage for a race environment.

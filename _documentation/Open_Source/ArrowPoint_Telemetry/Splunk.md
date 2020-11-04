@@ -1,13 +1,15 @@
 ---
-title: ArrowPoint Telemetry Splunk
+title: Splunk
 tags: [ArrowPoint, Telemetry, Splunk]
 keywords: ArrowPoint, Telemetry, Splunk
 last_updated: November 22, 2019
 summary: "Report across massive datasets in near realtime using Splunk"
-sidebar: arrowpoint_sidebar
-permalink: Splunk.md
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/Splunk.html
+folder: ArrowPoint_Telemetry
+order: 13
 ---
+
+## Splunk Integration
 
 If enabled in the Configuration the Telemetry system will send data to splunk for reporting and management. From here you can undertake complex data analysis using tools like the Long Term Analysis tool, which allows you to view any data points across any time range
 

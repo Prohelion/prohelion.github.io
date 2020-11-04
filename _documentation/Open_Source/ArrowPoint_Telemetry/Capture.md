@@ -1,13 +1,15 @@
 ---
-title: ArrowPoint Telemetry Capture
+title: Telemetry Capture
 tags: [ArrowPoint, Telemetry, Capture]
 keywords: ArrowPoint, Telemetry, Capture
 last_updated: November 22, 2019
 summary: "The system captures and stores CANbus data from a configurable range of devices in the car."
-sidebar: arrowpoint_sidebar
-permalink: Capture.html
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/Capture.html
+folder: ArrowPoint_Telemetry
+order: 4
 ---
+
+## Telemetry Capture
 
 Telemetry information is constantly captured by the Telemetry system via CANbus messages on the network.  The information is then stored in the database and via the [Integration with Splunk](Splunk.md) you are also able to report on it from there.
 

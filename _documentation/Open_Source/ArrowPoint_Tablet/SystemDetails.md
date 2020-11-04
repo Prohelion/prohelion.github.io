@@ -1,14 +1,15 @@
 ---
-title: ArrowPoint Android System Details
+title: System Details & Alerts
 tags: [ArrowPoint, Android, System Details]
 keywords: ArrowPoint, Android, System Details
 last_updated: November 22, 2019
 summary: "Shows all of the key system details around what the state of the vehicle is and the temperature and performance of key systems"
-sidebar: arrowpoint_sidebar
-permalink: ArrowAndroid_SystemDetails.html
-folder: ArrowPoint
+permalink: ArrowPoint_Tablet/SystemDetails.html
+folder: ArrowPoint_Tablet
+order: 6
 ---
 
+## System Details and Alerts
 This screen shows information on key systems that may go out of range as well as the current state of the vehicle (Neutral / Drive / Reverse) is regen being used (it currently is in the picture below as it's red), is the driver braking (no) and are they using the Horn (no).
 
 The ArrowPoint App also features a stand alone alerting system that will display alerts on the screen when various Can packets pass set thresholds. The alerts are then shown in the bottom panel.

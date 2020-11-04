@@ -1,14 +1,21 @@
 ---
-title: ArrowPoint Telemetry Overview
+title: Overview
 tags: [ArrowPoint, Telemetry, Overview]
 keywords: ArrowPoint, Telemetry, Overview
 last_updated: November 22, 2019
 summary:
-sidebar: arrowpoint_sidebar
-permalink: Overview.md
-folder: ArrowPoint
+permalink: ArrowPoint_Telemetry/Overview.html
+folder: ArrowPoint_Telemetry
+order: 0
+
+# Hero section
+hero:
+    title: ArrowPoint Telemetry
+    text: Telemetry, Reporting and Fleet Management Software for Solar Car Racing
 ---
+
 ## Introduction
+
 The ArrowPoint Telemetry Solution is designed to provide telemetry capture and management information for managing a race car.
 
 The out of the box implementation is designed for use in Solar or Electric racing cars that use technology from [Prohelion](http://www.prohelion.com/) or [Tritium](https://www.tritium.com.au/). This solution was originally developed by [TeamArrow](http://www.teamarrow.com.au/) and has been used in racing environments since 2013. TeamArrow continue to use this application as the heart of its telemetry and strategy management solutions.
