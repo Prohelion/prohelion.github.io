@@ -1,3 +1,6 @@
 # Theme settings
 dox:
     baseurl: /Ddocs
+    header:
+        cta:
+            url: /Ddocs
