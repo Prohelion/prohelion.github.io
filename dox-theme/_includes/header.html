@@ -93,7 +93,7 @@
 													{% else %}
 														{% assign item_classes = '' %}
 													{% endif %}
-													<li class="{{ item_classes }}"><a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}{{ item.item_url }}">{{ item.item_name }}</a></li>
+													<li class="{{ item_classes }}"><a href="{{ item.item_url }}">{{ item.item_name }}</a></li>
 												{% endfor %}
 											</ul><!-- /.c-nav -->
 										{% endif %}
