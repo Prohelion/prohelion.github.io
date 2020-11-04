@@ -13,7 +13,7 @@ order: 10
 
 The Telemetry system acts as a base station to re-broadcast non CANbus data as CANbus for example
 
-* Weather data from the [Weather Systems Integration](WeatherIntegration.html)
+* Weather data from the [Weather Systems Integration](Weather.html)
 * GPS data from the [GPS Integration](GPS_GoogleEarth.html)
 * Privates Messages from the [Private Messaging system](Fleet_Messaging.html) 
 

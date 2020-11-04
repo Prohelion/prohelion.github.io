@@ -27,7 +27,7 @@ The application provides
 * A [Driver Dashboard](Dashboard.html) showing all key information for the driver (we use this as our in car dashboard in the Arrow1)
 * A [Solar Energy Dashboard](Solar.html) showing key solar data and battery information
 * [Customisable Alerts](SystemDetails.html) that can be used to alert the team or driver to systems going out of range or offline
-* [Private Messaging](Messaging.html) for inter-fleet communications that does not require the radio
+* [Private Messaging](Fleet_Messaging.html) for inter-fleet communications that does not require the radio
 * A [Graphing Dashboard](Graphing.html) that can be used to graph information over time
 * [Basic GPS tracking](GPS.html) system to track the car location
 
