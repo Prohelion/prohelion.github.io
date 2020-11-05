@@ -1,0 +1,9 @@
+I"³<h2 id="reporting">Reporting</h2>
+
+<p>The telemetry system allows you to do basic reporting by selecting the device that you want to report on off the menu</p>
+
+<p><img src="/images/telemetry_reporting.png" alt="Example of the Telemetry Reporting" /></p>
+
+<p>Note that for more advanced reporting we would suggest using the <a href="Splunk.html">Integration with Splunk</a> which allows you to do very complex and rich reporting.</p>
+
+:ET

@@ -1,0 +1,30 @@
+I"´<h2 id="introduction">Introduction</h2>
+
+<p>ArrowPoint CANbus Tools is a Windows based platform designed to receive and display telemetry information from an WiFi access point in real time.  Its functionality has been replaced by Prohelionâ€™s Profinity tools, so we are providing it to the community as an Open Source solution to help you learn more about CanBUS development and approaches.</p>
+
+<p>The out of the box implementation is designed for use in Solar or Electric racing cars that use technology from <a href="https://www.prohelion.com/">Prohelion</a> or <a href="https://www.tritium.com.au/">Tritium</a>. This solution was originally developed by <a href="https://www.teamarrow.com.au/">TeamArrow</a> and has been used in racing environments since 2015.</p>
+
+<p>If you are interested in contributing to the solution, please see our <a href="https://github.com/Prohelion/ArrowPoint-CANbus-Tools/blob/master/CONTRIBUTING.md">Contribution File</a></p>
+
+<p>The application provides</p>
+
+<ul>
+  <li>The ability to view and transmit CANbus packets</li>
+  <li>The ability to log CANbus packets and replay them</li>
+  <li>Simulate a driver controller</li>
+  <li>Simulate a motor controller</li>
+</ul>
+
+<p>The application is compatible with</p>
+
+<ul>
+  <li>Prohelion Battery Packs</li>
+  <li>Prohelion and Tritium Driver Controllers</li>
+  <li>Tritium WaveSculpters</li>
+  <li>Tritium BMUs and CMUs</li>
+</ul>
+
+<p>The Wifi connection should be broadcasting CANbus data using the Tritium CANbus identifiers.</p>
+
+<p>Any issues please or question, please raise them on our GitHub account at <a href="https://github.com/Prohelion/ArrowPoint-CANbus-Tools">https://github.com/Prohelion/ArrowPoint-CANbus-Tools</a></p>
+:ET
