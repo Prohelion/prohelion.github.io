@@ -11,3 +11,5 @@ order: 9
 ## CAN Bus DBC
 
 Nothing here yet
+
+![CAN DBC Viewer]({{site.dox.baseurl}}/images/Profinity/dbc_canbus_message.png)

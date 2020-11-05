@@ -11,3 +11,7 @@ order: 1
 ## Profiles
 
 Nothing here yet
+
+![Profinity]({{site.dox.baseurl}}/images/Profinity/profile.png)
+
+![Profinity]({{site.dox.baseurl}}/images/Profinity/profile_properties.png)

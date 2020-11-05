@@ -16,3 +16,5 @@ hero:
 ## Introduction
 
 Nothing here yet
+
+![Profinity]({{site.dox.baseurl}}/images/Profinity/profinity_overview.png)

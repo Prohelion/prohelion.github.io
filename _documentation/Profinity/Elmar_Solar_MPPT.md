@@ -11,3 +11,5 @@ order: 7
 ## Elmar Solar MPPT
 
 Nothing here yet
+
+![Elmar Solar MPPT]({{site.dox.baseurl}}/images/Profinity/elmar_mppt.png)
