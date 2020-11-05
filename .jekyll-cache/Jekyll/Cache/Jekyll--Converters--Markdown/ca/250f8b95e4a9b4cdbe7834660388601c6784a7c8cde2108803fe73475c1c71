@@ -1,0 +1,279 @@
+I"<h2 id="alerting">Alerting</h2>
+
+<p>The Telemetry system has the ability to be connected to an external light that can alert you when CANbas based items go out of range.</p>
+
+<p>Alerting is done via a visual cue using USB HID Visual Signal Indicators from Delcom Products</p>
+
+<p><a href="https://www.delcomproducts.com/productdetails.asp?PartNumber=904007">https://www.delcomproducts.com/productdetails.asp?PartNumber=904007</a></p>
+
+<p><img src="/images/telemetry_BeaconBlackSide.jpg" alt="Beacon Black Side" /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Device</td>
+      <td>Measurement</td>
+      <td>CanId</td>
+      <td>dataPointCanId</td>
+      <td>Warning Threshold</td>
+      <td>Alert Threshold</td>
+      <td>Shutdown Threshold</td>
+      <td>Alert Type</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>Min Cell Voltage</td>
+      <td>6F80</td>
+      <td>28544</td>
+      <td>2900</td>
+      <td>2750</td>
+      <td>2600</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>Max Cell Temp</td>
+      <td>6F92</td>
+      <td>28562</td>
+      <td>500</td>
+      <td>550</td>
+      <td>600</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>CMU 1 PCB Temp</td>
+      <td>6014</td>
+      <td>24596</td>
+      <td>750</td>
+      <td>800</td>
+      <td>850</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>CMU 2 PCB Temp</td>
+      <td>6044</td>
+      <td>24644</td>
+      <td>750</td>
+      <td>800</td>
+      <td>850</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>CMU 3 PCB Temp</td>
+      <td>6074</td>
+      <td>24692</td>
+      <td>750</td>
+      <td>800</td>
+      <td>850</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>CMU 4 PCB Temp</td>
+      <td>60A4</td>
+      <td>24740</td>
+      <td>750</td>
+      <td>800</td>
+      <td>850</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>CMU 5 PCB Temp</td>
+      <td>60D4</td>
+      <td>24788</td>
+      <td>750</td>
+      <td>800</td>
+      <td>850</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS</td>
+      <td>Overvoltage</td>
+      <td>6F82</td>
+      <td>28546</td>
+      <td>4100</td>
+      <td>4150</td>
+      <td>4200</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>WaveSculpter</td>
+      <td>Motor Temp</td>
+      <td>40B0</td>
+      <td>16560</td>
+      <td>90</td>
+      <td>100</td>
+      <td>120</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>WaveSculpter</td>
+      <td>Heatsink Temp</td>
+      <td>40B4</td>
+      <td>16564</td>
+      <td>60</td>
+      <td>65</td>
+      <td>80</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>WaveSculpter</td>
+      <td>DSP Operating Temp</td>
+      <td>40C0</td>
+      <td>16576</td>
+      <td>80</td>
+      <td>90</td>
+      <td>100</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>Arrays</td>
+      <td>Array 1 Power</td>
+      <td>3410</td>
+      <td>13328</td>
+      <td>0.1</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>Percentage</td>
+    </tr>
+    <tr>
+      <td>Arrays</td>
+      <td>Array 2 Power</td>
+      <td>3420</td>
+      <td>13344</td>
+      <td>0.1</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>Percentage</td>
+    </tr>
+    <tr>
+      <td>Arrays</td>
+      <td>Array 3 Power</td>
+      <td>3430</td>
+      <td>13360</td>
+      <td>0.1</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>Percentage</td>
+    </tr>
+    <tr>
+      <td>Arrays</td>
+      <td>Total Array Power</td>
+      <td>3440</td>
+      <td>13376</td>
+      <td>100</td>
+      <td>10</td>
+      <td>0</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>BMS-DC_DC Max Cell Temp</td>
+      <td>1030</td>
+      <td>4144</td>
+      <td>50</td>
+      <td>55</td>
+      <td>60</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Min Cell 1 Voltage</td>
+      <td>1040</td>
+      <td>4160</td>
+      <td>2900</td>
+      <td>2750</td>
+      <td>2600</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Min Cell 2 Voltage</td>
+      <td>1042</td>
+      <td>4162</td>
+      <td>2900</td>
+      <td>2750</td>
+      <td>2600</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Min Cell 3 Voltage</td>
+      <td>1044</td>
+      <td>4164</td>
+      <td>2900</td>
+      <td>2750</td>
+      <td>2600</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Min Cell 4 Voltage</td>
+      <td>1046</td>
+      <td>4166</td>
+      <td>2900</td>
+      <td>2750</td>
+      <td>2600</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Max Cell 1 Voltage</td>
+      <td>1040</td>
+      <td>4160</td>
+      <td>4100</td>
+      <td>4150</td>
+      <td>4200</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Max Cell 2 Voltage</td>
+      <td>1042</td>
+      <td>4162</td>
+      <td>4100</td>
+      <td>4150</td>
+      <td>4200</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Max Cell 3 Voltage</td>
+      <td>1044</td>
+      <td>4164</td>
+      <td>4100</td>
+      <td>4150</td>
+      <td>4200</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>BMS-DC_DC</td>
+      <td>Max Cell 4 Voltage</td>
+      <td>1046</td>
+      <td>4166</td>
+      <td>4100</td>
+      <td>4150</td>
+      <td>4200</td>
+      <td>High</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each CanId is set a range of values which if exceeded trigger a visual alert to notify the chase car that there are systems moving out of range. The system can look for values that are high or low.</p>
+
+<p>For example if</p>
+
+<ul>
+  <li>
+    <p>BMS-DC_DC Max Cell 4 Voltage goes beyond 4100 mv or 4.1 volts then the light will change colour from green to orange</p>
+  </li>
+  <li>
+    <p>If the total array power drops below 100w the system will start to throw warnings</p>
+  </li>
+</ul>
+
+:ET

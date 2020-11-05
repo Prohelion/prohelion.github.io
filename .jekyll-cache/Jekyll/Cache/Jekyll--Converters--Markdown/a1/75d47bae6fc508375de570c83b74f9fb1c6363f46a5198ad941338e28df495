@@ -1,0 +1,12 @@
+I"â<h2 id="bulk-importing">Bulk Importing</h2>
+
+<p>The system provides the ability for CANbus files that have been recorded by either the <a href="../ArrowPoint_CanBUS_Tools/Overview.html">ArrowPoint CANbus Tools</a> or the Tritium Can Logger to be bulk loaded in to the telemetry system.</p>
+
+<p>This is particularly useful if you want to analyse previously recorded CANbus files in the reporting tools such as Splunk.  An example canlog.csv file can be found in the root directory of the source code for the Telemetry system.</p>
+
+<p>To load a file place it in the</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Install Dir]/canbus_bulkloaddirectory.
+</code></pre></div></div>
+
+:ET

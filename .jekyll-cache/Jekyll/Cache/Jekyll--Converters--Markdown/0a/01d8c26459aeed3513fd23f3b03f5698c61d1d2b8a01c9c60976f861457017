@@ -1,0 +1,31 @@
+I"Ä	<h2 id="introduction">Introduction</h2>
+<p>The ArrowPoint for Android Solution is an Android App designed to receive and display telemetry information from an WiFi access point in real time. It is a very useful tool in a race environment as every team member can have a copy installed on their own phone or tablet and get instant insights in to the performance of the vehicle.</p>
+
+<p><img src="/images/android_dashboard.png" alt="Example of the Arrowpoint Dashboard" /></p>
+
+<p>The out of the box implementation is designed for use in Solar or Electric racing cars that use technology from <a href="https://www.prohelion.com">Prohelion</a> or <a href="https://www.tritium.com.au">Tritium</a>. This solution was originally developed by <a href="https://www.teamarrow.com.au/">TeamArrow</a> and has been used in racing environments since 2015. <a href="https://www.teamarrow.com.au/">TeamArrow</a> continue to use this application both as the in car dashboard as well as a solution for the entire fleet to communicate and monitor the car.</p>
+
+<p>Examples of the software in use can be seen here - <a href="https://www.youtube.com/watch?reload=9&amp;v=lWkXEb8v1tk">https://www.youtube.com/watch?reload=9&amp;v=lWkXEb8v1tk</a></p>
+
+<h2 id="features">Features</h2>
+<p>The application provides</p>
+<ul>
+  <li>A <a href="Dashboard.html">Driver Dashboard</a> showing all key information for the driver (we use this as our in car dashboard in the Arrow1)</li>
+  <li>A <a href="Solar.html">Solar Energy Dashboard</a> showing key solar data and battery information</li>
+  <li><a href="SystemDetails.html">Customisable Alerts</a> that can be used to alert the team or driver to systems going out of range or offline</li>
+  <li><a href="Fleet_Messaging.html">Private Messaging</a> for inter-fleet communications that does not require the radio</li>
+  <li>A <a href="Graphing.html">Graphing Dashboard</a> that can be used to graph information over time</li>
+  <li><a href="GPS.html">Basic GPS tracking</a> system to track the car location</li>
+</ul>
+
+<p>The application is compatible with</p>
+<ul>
+  <li>Prohelion Battery Packs</li>
+  <li>Tritium WaveSculpters</li>
+  <li>Tritium BMUs and CMUs</li>
+</ul>
+
+<p>The Wifi connection should be broadcasting CANbus data using the Prohelion and Tritium CANbus identifiers.</p>
+
+<p>Any issues please or question, please raise them on our GitHub account at <a href="https://github.com/Prohelion/ArrowPoint-Android">https://github.com/Prohelion/ArrowPoint-Android</a></p>
+:ET
