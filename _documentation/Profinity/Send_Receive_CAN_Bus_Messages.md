@@ -11,3 +11,10 @@ order: 4
 ## Sending and Receiving CanBUS Messages
 
 Nothing here yet
+
+
+![Receive CAN Packets]({{site.dox.baseurl}}/images/Profinity/receive_can_packets.png)
+
+![Send CAN Packet like this]({{site.dox.baseurl}}/images/Profinity/receive_send_like_this.png)
+
+![Send CAN Packet]({{site.dox.baseurl}}/images/Profinity/send_can_packet.png)

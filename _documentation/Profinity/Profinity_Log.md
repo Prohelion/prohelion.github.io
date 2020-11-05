@@ -11,3 +11,5 @@ order: 10
 ## Profinity Log
 
 Nothing here yet
+
+![Profinity Log]({{site.dox.baseurl}}/images/Profinity/profinity_log_viewer.png)

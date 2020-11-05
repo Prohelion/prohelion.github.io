@@ -11,3 +11,5 @@ order: 8
 ## Tritium Wavesculpter
 
 Nothing here yet
+
+![Tritium Wavesculpter]({{site.dox.baseurl}}/images/Profinity/wavesculpter.png)

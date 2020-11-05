@@ -11,3 +11,7 @@ order: 6
 ## Prohelion Batteries
 
 Nothing here yet
+
+![Prohelion BMU]({{site.dox.baseurl}}/images/Profinity/prohelion_bmu.png)
+
+![Prohelion v12]({{site.dox.baseurl}}/images/Profinity/prohelion_v12.png)
