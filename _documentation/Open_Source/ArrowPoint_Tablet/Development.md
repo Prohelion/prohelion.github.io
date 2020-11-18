@@ -10,7 +10,7 @@ order: 8
 ---
 
 ## Compilation and Development
-If you are planning to contribute to the development of this tool, please see our [Contribution File](https://github.com/Prohelion/ArrowPoint-CAN Bus-Tools/blob/master/CONTRIBUTING.md) on GitHub.
+If you are planning to contribute to the development of this tool, please see our [Contribution File](https://github.com/Prohelion/ArrowPoint-CANbus-Tools/blob/master/CONTRIBUTING.md) on GitHub.
 
 As mentioned above, compilation and development requires [Android Studio](https://developer.android.com/studio).
 
