@@ -21,10 +21,10 @@ hero:
 features:
     rows: # Add feature rows below, there are examples with all available options
         - title: Commercially Supported Products
-          description: Documentation for our Prohelion tools for Professional Battery Management and CAN Bus power users.
+          description: Documentation on our Prohelion tools for Professional Battery Management and CAN Bus power users.
           grid: # Add feature grid items below, there are examples with all available options
               - title: Battery Management System (BMU)
-                description: Prohelion's world class battery management system, used for racing, automotive and fixed location solutions
+                description: Prohelions world class battery management system, used for racing, automotive and fixed location solutions
                 icon: battery-charging 
                 url: Battery_Management_System_PDF/Overview.html
               - title: Profinity
@@ -32,7 +32,7 @@ features:
                 icon: check-circle
                 url: Profinity/Overview.html
         - title: Open Source Products
-          description: Prohelion provided a number of Open Source products to support our racing heratige and electric vehicle teams from around the world, called ArrowPoint
+          description: Prohelion provided a number of Open Source products to support our racing heritage and electric vehicle teams from around the world, called ArrowPoint
           grid:
               - title: ArrowPoint Tablet
                 description: Android Tablet application for monitoring batteries and solar arrays built using Prohelion technologies.
