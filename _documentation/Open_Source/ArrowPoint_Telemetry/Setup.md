@@ -20,7 +20,7 @@ The system has been tested on Windows 10 and Amazon EC2 Unix, but should run on 
 * Windows 10 or Linux OS
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)– If you are planning to use the Docker container model
     * If you are not using docker you will also need to install Postgres 10, PgAdmin and optionally Splunk
-* [Java 8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/index.html) we would suggest you download the Java Development Kit or JDK
+* [Java 8 or higher](https://www.oracle.com/java/technologies/javase-downloads.html) we would suggest you download the Java Development Kit or JDK
 * [Apache Maven](https://maven.apache.org/)
 * [Git](https://git-scm.com/) – We would suggest [Atlassian SourceTree](https://www.sourcetreeapp.com/) if you are new to Git as it is a bit easier to use than Git on the command line
 * [Spring Tool Suite](https://spring.io/tools3/sts/all) – If you want to change the code or contribute to the project
