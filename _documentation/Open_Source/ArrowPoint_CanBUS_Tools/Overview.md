@@ -5,8 +5,8 @@ tags: [ArrowPoint, CAN Bus, Overview]
 keywords: ArrowPoint, CAN Bus, Overview
 last_updated: November 22, 2019
 summary: 
-permalink: ArrowPoint_CAN Bus_Tools/Overview.html
-folder: ArrowPoint_CAN Bus_Tools
+permalink: ArrowPoint_CanBUS_Tools/Overview.html
+folder: ArrowPoint_CanBUS_Tools
 order: 0
 
 # Hero section
