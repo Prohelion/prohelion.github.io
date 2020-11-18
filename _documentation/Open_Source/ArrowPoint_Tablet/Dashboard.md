@@ -9,7 +9,8 @@ folder: ArrowPoint_Tablet
 order: 2
 ---
 
-## Dashboard
+## ArrowPoint Dashboard
+
 The Driver Dashboard as the name suggests is designed to provide information to the driver. In the Arrow1 TeamArrow used this system as the actual dashboard in the car. If [Customisable Alerts](SystemDetails.html) are triggered in the App software these are also shown on the screen so the driver has instant notification of an issue.
 
 ![android_dashboard]({{site.dox.baseurl}}/images/android_dashboard.png)
