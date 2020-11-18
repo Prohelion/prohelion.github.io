@@ -18,7 +18,7 @@ Adapters can be added in one of two ways, either via Auto Discovery or Manually.
 
 The supported CAN Bus adapters can be automatically found via the Auto Discovery mechanism.  If an adapter is defined and visible on the network then clicking the CAN Adapters button on the menu or right clicking on the Profile and selecting 'Add Adapter Via Autodiscovery' will work.
 
-In the Autodiscovery window you will find all of the adapters that are currently visible to Profinity.  If your adapter does not show up here then you may have configuration issues that need to be addressed, check the [CAN Adapter FAQ](CAN_Adapter_FAQ.html) for more information
+In the Autodiscovery window you will find all of the adapters that are currently visible to Profinity.  If your adapter does not show up here then you may have configuration issues that need to be addressed.
 
 ![Add an Adapter via AutoDiscovery]({{site.dox.baseurl}}/images/Profinity/add_adapter_autodiscovery.png)
 
