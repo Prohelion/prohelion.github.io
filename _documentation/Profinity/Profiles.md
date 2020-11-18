@@ -8,17 +8,13 @@ folder: Profinity
 order: 1
 ---
 
-# Profiles
+# Profinity Profiles
 
 A Profile is the core mechanism by which Profinity maintains the configuration of your system.  Profiles typically consist of one or more CAN Bus adapters, which are used to connect to the CAN network as well as devices that you might be managing.
 
-Profinity keep track of your profile and loads the most recently used one each time you start the tool.
+Profinity keeps track of your profile and loads the most recently used one each time you start the tool.
 
 The Profile panel is typically located on the left side of your screen and if you close the profile you can open it again by pressing the Profile button on the menu.
-
-Profinity ships with an example profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar and Tritium technologies.  If you wish to use this profile we would suggest copying it from the /Profiles/Templates folder that it is installed in to in to your Profile folder as Templates are overwitten on each install.
-
-Otherwise you can create your own Profiles or a new Profile, but pushing the New Profile button on the menu.
 
 ![Profinity]({{site.dox.baseurl}}/images/Profinity/profile.png)
 
@@ -28,6 +24,10 @@ The colors in a profile indicate the state of the device.
 - Yellow: The device is available, but is either not sending data or is a warning state
 - Red: The device is in an error state
 - Grey: The device is not available, connected or not visible on the network
+
+Profinity ships with an example profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar and Tritium technologies.  If you wish to use this profile we would suggest copying it from the /Profiles/Templates folder that it is installed in to in to your Profile folder as Templates are overwitten on each install.
+
+Otherwise you can create your own Profiles or a new Profile, but pushing the New Profile button on the menu.
 
 ## Profile Files
 
@@ -48,5 +48,3 @@ Properties can also be set when the item is first created in the [New Items](Add
 ![Profinity]({{site.dox.baseurl}}/images/Profinity/profile_properties.png)
 
 The properties shown will depend on the device.  Some devices have a range of values that are allowed for a property and if an invalid property is entered then an error will be shown.  Information on the property is shown at the very bottom of the property panel.
-
-The properties shodnw
