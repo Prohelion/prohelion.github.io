@@ -8,8 +8,12 @@ folder: Profinity
 order: 8
 ---
 
-## Tritium Wavesculpter
+# Tritium WaveSculpter
 
-Nothing here yet
+[Tritium](https://www.tritiumcharging.com/) make the world lead WaveSculpter Motor Inverter, used by racing teams around the world.  With 99.2% cruising efficiency the WaveSculpter family is a go to choice for most high efficiency electric vehicle racing teams.
 
-![Tritium Wavesculpter]({{site.dox.baseurl}}/images/Profinity/wavesculpter.png)
+Profinity provides integrated management of the WaveSculpter products and you can access the WaveSculpter dashboard by adding a WaveSculpter to your [Profile](Profiles.html). 
+
+From there right mouse client to access the WaveSculpter Dashboard or to access the CAN Bus Messages and Signals.
+
+![Tritium WaveSculpter]({{site.dox.baseurl}}/images/Profinity/wavesculpter.png)

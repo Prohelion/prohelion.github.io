@@ -11,13 +11,19 @@ order: 0
 hero:
     title: Profinity
     text: Prohlelion's CanBUS, Battery, Solar and DBC Management Solution
+    buttons: # Add buttons below, there are examples with all available options
+        - label: Download (for Windows)
+          url: https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi
+          external_url: true 
+          style: filled
+          icon: download 
 ---
 
 # Introduction to Profinity
 
 Profinity is a system management platform developed by Prohelion to manage our products and other systems built around a CAN Bus based architecture.
 
-Pofinity is built around the concept of [profiles](Profiles.html), which is a set of configured devices in your system.  By switching between profiles you can support multiple configurations across different sites of different conbinations of technologies.
+Profinity is built around the concept of [profiles](Profiles.html), which is a set of configured devices in your system.  By switching between profiles you can support multiple configurations across different sites of different conbinations of technologies.
 
 ![Profinity]({{site.dox.baseurl}}/images/Profinity/profinity_overview.png)
 
