@@ -15,7 +15,7 @@ CAN Bus is based on the UDP protocol, which is fire and forget and does not guar
 
 To do this in Windows find your Network Connection and disable anything that is not required.  For example below this PC has both WiFi, Ethernet 5 (which is actually a docking station ethernet connection via USB) and Ethernet 2 a TAP or VPN connection.  Having all these connections running increases the chance that you UDP traffic is coming down or going up the wrong link.  Be careful disabling vEthernet connections as these are part of Docker and are required for it to run.
 
-![CAN Bus Troubleshooting]({{site.dox.baseurl}}/images/CAN Bus_troubleshoot.png)
+![CAN Bus Troubleshooting]({{site.dox.baseurl}}/images/canbus_troubleshoot.png)
 
 ## Getting help with an Issue
 If you are having an issue please let us know.  The best option is via GitHub where you can log a bug against the product that is giving you an issue.
