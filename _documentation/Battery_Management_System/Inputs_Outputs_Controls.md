@@ -61,12 +61,12 @@ The CAN data lines (CAN-H and CAN-L) must be implemented with twisted-pair wire 
 
 Power should also be provided along the CAN cable, ideally with another twisted pair to minimise noise pickup.  An overall shield can also be advantageous. 
 
-The optimal choice of cable is 7mm Devicenet CANbus 'thin' cable, with 24AWG (data) + 22AWG (power) twisted pairs and a braided shield.  Using this cable will result in a robust installation, with high immunity to noise, low voltage drop in the power cable, and reliable CAN communications.  Using alternative cabling will usually result in problems during operation.
+The optimal choice of cable is 7mm Devicenet CAN Bus 'thin' cable, with 24AWG (data) + 22AWG (power) twisted pairs and a braided shield.  Using this cable will result in a robust installation, with high immunity to noise, low voltage drop in the power cable, and reliable CAN communications.  Using alternative cabling will usually result in problems during operation.
 
 ### VEHICLE CAN BUS CONNECTORS
 The connector used on the BMU and other Tritium devices for the CAN connection is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.
 
-![BMU Vehicle CanBUS Connectors]({{site.dox.baseurl}}/images/IMPS_BMU_Vehicle_CAN_BUS_Connectors.gif)
+![BMU Vehicle CAN Bus Connectors]({{site.dox.baseurl}}/images/IMPS_BMU_Vehicle_CAN_BUS_Connectors.gif)
 
 ### CAN SHIELDING
 If the recommended braided shield is used in the cable, then terminate it to the SHIELD pin (lower-left corner on the connector) on both CAN IN and CAN OUT connectors on each device. 

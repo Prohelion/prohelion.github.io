@@ -1,16 +1,16 @@
 ---
-title: CanBUS Adapters
-tags: [Profinity, CanBUS, CanBUS DBC, DBC, Overview]
-keywords: Profinity, CanBUS, CanBUS DBC, DBC, Overview
+title: CAN Bus Adapters
+tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
+keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
 permalink: Profinity/CAN_Bus_Adapters.html
 folder: Profinity
 order: 2
 ---
 
-# CanBUS Adapters
+# CAN Bus Adapters
 
-An adapter is the technology that you use to connect Profinity to your CAN Bus network.  Profinity supported adapters include the [Prohelion](www.prohelion.com) and Tritum CAN Bus bridges as well as Socketcan using the [SocketCanD](https://github.com/linux-can/socketcand) technology.
+An adapter is the technology that you use to connect Profinity to your CAN Bus network.  Profinity supported adapters include the [Prohelion](https://www.prohelion.com) and Tritium CAN Bus bridges as well as Socketcan using the [SocketCanD](https://github.com/linux-can/socketcand) technology.
 
 Adapters can be added in one of two ways, either via Auto Discovery or Manually.
 

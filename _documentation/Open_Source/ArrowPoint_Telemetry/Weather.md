@@ -23,5 +23,5 @@ Lufft sensors are connected to the Telemetry system via a Serial to Ethernet bri
 
 ![Serial to Ethernet Converting]({{site.dox.baseurl}}/images/telemetry_ethernetconverter.jpg)
 
-The telemetry system then uses telnet to poll the device at regular intervals and extract the current weather data. That information is then broadcast on the network as CANbus packets for other devices to receive.
+The telemetry system then uses telnet to poll the device at regular intervals and extract the current weather data. That information is then broadcast on the network as CAN Bus packets for other devices to receive.
 

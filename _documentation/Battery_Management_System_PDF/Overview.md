@@ -3,7 +3,7 @@
 layout: homepage # Choose layout: "default", "homepage" or "documentation-archive"
 title: Prohelion Battery Management System
 description: Documentation for the Prohelion BMU and CMU
-keywords: Prohelion, Profinity, CanBUS Tools, BMU, CMU
+keywords: Prohelion, Profinity, CAN Bus Tools, BMU, CMU
 permalink: Battery_Management_System_PDF/Overview.html
 folder: Battery_Management_System_PDF
 
@@ -37,7 +37,7 @@ features:
         - title: Supporting Software          
           grid:
               - title: Profinity
-                description: Our battery and CanBUS management software solution.
+                description: Our battery and CAN Bus management software solution.
                 icon: check-circle
                 url: ../Profinity/Overview.html
 ---

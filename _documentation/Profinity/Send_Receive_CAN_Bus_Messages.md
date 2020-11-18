@@ -1,7 +1,7 @@
 ---
 title: Send / Receive CAN Messages
-tags: [Profinity, CanBUS, CanBUS DBC, DBC, Overview]
-keywords: Profinity, CanBUS, CanBUS DBC, DBC, Overview
+tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
+keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
 permalink: Profinity/Send_Receive_CAN_Bus_Messages.html
 folder: Profinity
