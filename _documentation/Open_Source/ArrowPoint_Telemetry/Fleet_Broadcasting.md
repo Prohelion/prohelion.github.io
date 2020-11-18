@@ -11,11 +11,11 @@ order: 10
 
 ## Fleet Broadcasting
 
-The Telemetry system acts as a base station to re-broadcast non CANbus data as CANbus for example
+The Telemetry system acts as a base station to re-broadcast non CAN Bus data as CAN Bus for example
 
 * Weather data from the [Weather Systems Integration](Weather.html)
 * GPS data from the [GPS Integration](GPS_GoogleEarth.html)
 * Privates Messages from the [Private Messaging system](Fleet_Messaging.html) 
 
-Are all relayed to CANbus packets by the Telemetry system.
+Are all relayed to CAN Bus packets by the Telemetry system.
 

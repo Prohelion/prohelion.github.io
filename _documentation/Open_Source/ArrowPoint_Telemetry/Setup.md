@@ -40,7 +40,7 @@ docker-compose.yml
 This file contains the configuration information to run the software in Docker.
 
 ## Known Issue
-Docker does not support UDP traffic on its virtual network. As such the telemetry system cannot receive traffic from the CANbus devices such as the Tritum Wavesculpter. To get around this issue the infrastructure required to run the Telemetry system runs in Docker apart from the core application which runs as a stand alone Spring Boot Application and hence can access the UDP network directly.
+Docker does not support UDP traffic on its virtual network. As such the telemetry system cannot receive traffic from the CAN Bus devices such as the Tritum Wavesculpter. To get around this issue the infrastructure required to run the Telemetry system runs in Docker apart from the core application which runs as a stand alone Spring Boot Application and hence can access the UDP network directly.
 
 ## Installation Steps
 
@@ -99,7 +99,7 @@ mvn spring-boot:run
 </tr>
 <tr>
 <td markdown="span">5</td>
-<td markdown="span">To simulate some CANbus traffic to see the system operating you can run the command
+<td markdown="span">To simulate some CAN Bus traffic to see the system operating you can run the command
 <code class="codeblock">
 carUtilities.cmd
 </code>
@@ -112,7 +112,7 @@ What utility would you like to run?
 0) Exit
 1) Cruise Control Test
 2) Cruise Control Step Test
-3) CanBus Log Replayer
+3) CAN Bus Log Replayer
 
 Make your selection > 3
 
@@ -122,7 +122,7 @@ D:/temp/car-park-test.csv
 Enter the log you wish to replay > canlog.csv
 Do you wish to loop the file (Y/N) > Y
 </code>
-You should then see the CANbus log being replayed with many items like this
+You should then see the CAN Bus log being replayed with many items like this
 <code class="codeblock">
 Delay = 0 : CanPackey time = 09:23:58.792   , id =  0x501 , data= 0x3F0B17E5457A0000
 </code>

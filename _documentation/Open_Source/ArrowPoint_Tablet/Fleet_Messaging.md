@@ -10,7 +10,7 @@ order: 5
 ---
 
 ## Fleet Messaging
-The private messaging system works in collaboration with the [Fleet Private Messaging](../ArrowPoint_Telemetry/Fleet_Messaging.html) system in the Telemetry system to allow you to send private messages from App to App or Telemetry to App in the fleet over the TCP / CANbus network
+The private messaging system works in collaboration with the [Fleet Private Messaging](../ArrowPoint_Telemetry/Fleet_Messaging.html) system in the Telemetry system to allow you to send private messages from App to App or Telemetry to App in the fleet over the TCP / CAN Bus network
 
 The application has been designed to try and make it easy to use while driving by having pre set messages.
 

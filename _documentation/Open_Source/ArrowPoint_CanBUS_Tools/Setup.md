@@ -1,15 +1,15 @@
 ---
 title: Setup
-tags: [ArrowPoint, CANbus, Setup]
-keywords: ArrowPoint, CANbus, Setup
+tags: [ArrowPoint, CAN Bus, Setup]
+keywords: ArrowPoint, CAN Bus, Setup
 last_updated: November 22, 2019
 summary: 
-permalink: ArrowPoint_CanBUS_Tools/Setup.html
-folder: ArrowPoint_CanBUS_Tools
+permalink: ArrowPoint_CAN Bus_Tools/Setup.html
+folder: ArrowPoint_CAN Bus_Tools
 order: 1
 ---
 ## Installation
-Installation of the ArrowPoint-CANbus tools can be achieved simply by running the ArrowPointDiagnosticTool.exe in the following directory: 
+Installation of the ArrowPoint-CAN Bus tools can be achieved simply by running the ArrowPointDiagnosticTool.exe in the following directory: 
 
 \ArrowWareDiagnosticTool\bin\Debug 
 
@@ -18,10 +18,10 @@ or
 \ArrowWareDiagnosticTool\bin\Run directories
 
 ## Usage
-The tool is relatively simple to use. Log in and connect to the CANbus network, typically the default settings will work fine.
+The tool is relatively simple to use. Log in and connect to the CAN Bus network, typically the default settings will work fine.
 
-![CanBUS Settings]({{site.dox.baseurl}}/images/canbus_settings.png)
+![CAN Bus Settings]({{site.dox.baseurl}}/images/CAN Bus_settings.png)
 
-You can then access a range of tools on the menu for logging / recording or replaying CANbus traffic as well as sending and simulating data in the system.
+You can then access a range of tools on the menu for logging / recording or replaying CAN Bus traffic as well as sending and simulating data in the system.
 
-![CanBUS Tools]({{site.dox.baseurl}}/images/canbus_tools.png)
+![CAN Bus Tools]({{site.dox.baseurl}}/images/CAN Bus_tools.png)
