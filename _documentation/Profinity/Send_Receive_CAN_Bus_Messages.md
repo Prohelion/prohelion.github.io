@@ -10,7 +10,7 @@ order: 4
 
 # Send / Receiving CAN Bus Messages
 
-Profinity can monitor CAN Bus traffic on your network and also allows you to transmitt message back on the CAN network from within the Profinity toolset.
+Profinity can monitor CAN Bus traffic on your network and also allows you to transmit message back on the CAN network from within the Profinity toolset.
 
 Messages can be transmitted either via the Send CAN window which is documented below or also via the [CAN Replay](Logging_Replaying_CAN_Bus_Messages.html) tool.
 
@@ -20,7 +20,7 @@ Click on the Receive CAN Packets menu item to see a view of all the CAN Bus mess
 
 ![Receive CAN Packets]({{site.dox.baseurl}}/images/Profinity/receive_can_packets.png)
 
-The options at the bottom of this window allow you to filter the messages by CAN ID and change various other settings like the Endian representation of the message (Big Endian vs Little Endian) and exlude local traffic (traffic from Profinity) if the adapter supports that (not all adapters support local filtering).
+The options at the bottom of this window allow you to filter the messages by CAN ID and change various other settings like the Endian representation of the message (Big Endian vs Little Endian) and exclude local traffic (traffic from Profinity) if the adapter supports that (not all adapters support local filtering).
 
 ## Send CAN Message like this
 

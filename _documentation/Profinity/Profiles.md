@@ -25,7 +25,7 @@ The colors in a profile indicate the state of the device.
 - Red: The device is in an error state
 - Grey: The device is not available, connected or not visible on the network
 
-Profinity ships with an example profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar and Tritium technologies.  If you wish to use this profile we would suggest copying it from the /Profiles/Templates folder that it is installed in to in to your Profile folder as Templates are overwitten on each install.
+Profinity ships with an example profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar and Tritium technologies.  If you wish to use this profile we would suggest copying it from the /Profiles/Templates folder that it is installed in to in to your Profile folder as Templates are over witten on each install.
 
 Otherwise you can create your own Profiles or a new Profile, but pushing the New Profile button on the menu.
 
@@ -35,7 +35,7 @@ In Profinity the profiles themselves are stored by default as files in
 
 `/Documents/Prohelion/Profinity/Profiles`
 
-While it is possible to edit the profile file directly we do not recomend you do so. 
+While it is possible to edit the profile file directly we do not recommend you do so. 
 
 Storing the file in this way makes it easy to share a Profile and if it makes sense if your environment, profiles can be stored on network drives or other shares such as Google Drive or Dropbox.
 
@@ -43,7 +43,7 @@ Storing the file in this way makes it easy to share a Profile and if it makes se
 
 Each item in the profile has a set of properties that define the configuration of the item.  These properties can be accessed by right mouse clicking on the item and selecting properties.  The properties then appear at the bottom of the profile panel.
 
-Properties can also be set when the item is first created in the [New Items](Adding_New_Items.html) dialog box.
+Properties can also be set when the item is first created in the [New Items](Adding_New_Items.html) window.
 
 ![Profinity]({{site.dox.baseurl}}/images/Profinity/profile_properties.png)
 

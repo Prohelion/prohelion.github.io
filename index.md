@@ -11,7 +11,7 @@ hero:
     text: Prohelion's Battery and CanBUS management solution
     background_image: # Paste image URL to display image in background of hero section
     buttons: # Add buttons below, there are examples with all available options
-        - label: Download (Windows)
+        - label: Download (for Windows)
           url: https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi
           external_url: true # Set to "false" if you're pointing to inner page
           style: filled # Choose style: "filled" or "bordered"
@@ -21,14 +21,14 @@ hero:
 features:
     rows: # Add feature rows below, there are examples with all available options
         - title: Commercially Supported Products
-          description: Document for our commercial tools for Battery Management and CanBUS power users.
+          description: Documentation for our Prohelion tools for Professional Battery Management and CanBUS power users.
           grid: # Add feature grid items below, there are examples with all available options
               - title: Battery Management System (BMU)
                 description: Prohelion's world class battery management system, used for racing, automotive and fixed location solutions
-                icon: battery-charging # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
-                url: Battery_Management_System/Overview.html
+                icon: battery-charging 
+                url: Battery_Management_System_PDF/Overview.html
               - title: Profinity
-                description: Our battery and CanBUS management software solution.
+                description: Modern software for managing Prohelion Batteries and other CAN Bus based solutions.
                 icon: check-circle
                 url: Profinity/Overview.html
         - title: Open Source Products

@@ -23,7 +23,7 @@ The CAN Bus logger has three main modes of operation, you can either
 | Log Mode              | Details                                                                             |
 | --------------------- | ----------------------------------------------------------------------------------- |
 | Log Locally to Disk   | Writes the log files to your local file system.                                     |
-| Log Remotely via FTP  | As well as logging locally this option takes the log file and places it on a remote FTP server for offsite analysis.        |
+| Log Remotely via FTP  | As well as logging locally this option takes the log file and places it on a remote FTP server for off site analysis.        |
 | Log Remotely via SFTP | As per FTP, but this time a Secure FTP (SFTP) end point is used as the destination. | 
 
 Depending on the mode you select, Profinity will present you with different destination options.  For FTP and SFTP it is necessary to provide the destination server, username and password.  For local logging only a directory is required.
@@ -40,7 +40,7 @@ Finally the logger allows you to set the frequency of rotation.  Rotation means 
 
 ![Data Logger]({{site.dox.baseurl}}/images/Profinity/data_logger.png)
 
-Logging configurations are currently stored seperately to the profile and you can also load and existing config or save a new logging config on this screen.
+Logging configurations are currently stored separately to the profile and you can also load and existing config or save a new logging config on this screen.
 
 ## Data Validation
 

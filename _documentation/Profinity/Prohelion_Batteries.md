@@ -14,9 +14,9 @@ Prohelion design and sells Battery Management Systems (BMS) designed for both au
 
 The Prohelion Battery Management technology is built around three main components.  The Battery Management Unit (BMU) which consists of a master board and a number of Cell Management Units (CMU)'s.  In addition to the BMU and CMUs a typical Prohelion battery may also contain a 12v Control System which monitors the onboard 12v capabilities.  For more information on these products, please see the main [Prohelion Website](https://www.prohelion.com).
 
-Profinity supports the management and monitoring of the BMU's, CMU's and 12v systems via your profile.  
+Profinity supports the management and monitoring of the BMUs, CMUs and 12v systems via your profile.  
 
-A typical battery will generally only have one BMU, but larger packs or split packs like the ones used in racing can involve two or more BMU's.  If your pack is configured like that then you simply add multiple BMUs to your profile with different base CAN addresses.
+A typical battery will generally only have one BMU, but larger packs or split packs like the ones used in racing can involve two or more BMUs.  If your pack is configured like that then you simply add multiple BMUs to your profile with different base CAN addresses.
 
 ## BMU Management
 
