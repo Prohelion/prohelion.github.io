@@ -1,17 +1,0 @@
-I"<h2 id="weather-integration">Weather Integration</h2>
-
-<p>The Telemetry system can connect to weather stations to collect information in real time on the weather including wind speeds and solar irradiance. We use and recommend Lufft weather sensors such as the WS700-UMB, which are mounted on pole on top of the chase car. These devices can monitor wind speeds as well as solar radiation levels, air temperatures and humidity.</p>
-
-<p><a href="https://www.lufft.com/products/compact-weather-sensors-293/ws700-umb-smart-weather-sensor-1830/">https://www.lufft.com/products/compact-weather-sensors-293/ws700-umb-smart-weather-sensor-1830/</a></p>
-
-<p><img src="/images/telemetry_weathersensor.png" alt="Smart Weather Sensor" /></p>
-
-<p>Lufft sensors are connected to the Telemetry system via a Serial to Ethernet bridge such as this one</p>
-
-<p><a href="https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134">https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134</a></p>
-
-<p><img src="/images/telemetry_ethernetconverter.jpg" alt="Serial to Ethernet Converting" /></p>
-
-<p>The telemetry system then uses telnet to poll the device at regular intervals and extract the current weather data. That information is then broadcast on the network as CANbus packets for other devices to receive.</p>
-
-:ET

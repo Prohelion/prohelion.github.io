@@ -1,9 +1,0 @@
-I"6<h2 id="fleet-messaging">Fleet Messaging</h2>
-
-<p>Under the Fleet Management menu item in the Telemetry system you will find a Fleet Message Management box.  From here you can chose to send private messages via the Wifi network to other vehicles in the fleet.</p>
-
-<p><img src="/images/telemetry_fleetmessage.png" alt="Example of the Fleet Messaging system" /></p>
-
-<p>This system works with the <a href="../ArrowPoint_Tablet/Overview.html">ArrowPoint Tablet application</a>, allowing messages to be sent to Tablets in the fleet.  Messages are sent via CANbus.</p>
-
-:ET
