@@ -9,7 +9,7 @@ permalink: sitemap.xml
 
     {% for page in site.documentation %}
     <url>
-        <loc>{{page.url}}</loc>
+        <loc>https://docs.prohelion.com{{page.url}}</loc>
         <lastmod>{{site.time | date: '%Y-%m-%d' }}</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
