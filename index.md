@@ -9,7 +9,7 @@ keywords: Prohelion, Profinity, CAN Bus Tools, CAN Bus Utilities
 hero:
     title: Download Profinity
     text: Prohelion's Battery and CAN Bus management solution
-    background_image: # Paste image URL to display image in background of hero section
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Download (for Windows)
           url: https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi

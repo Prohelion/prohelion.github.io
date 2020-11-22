@@ -12,6 +12,7 @@ order: 0
 hero:
     title: ArrowPoint Telemetry
     text: Telemetry, Reporting and Fleet Management Software for Solar Car Racing
+    background_image: /images/Prohelion_Battery.jpg
 ---
 
 ## Introduction
