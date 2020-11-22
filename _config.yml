@@ -8,9 +8,9 @@ dox:
         logo:
             text: 
             image: Prohelion_Title_Logo_Small.png
+            url: https://www.prohelion.com
         nav:
-            - item_name: Prohelion Website
-              item_url: https://www.prohelion.com
+            - item_name:
         cta:
             label: Documentation Homepage
             url: /
