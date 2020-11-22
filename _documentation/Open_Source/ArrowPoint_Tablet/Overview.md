@@ -11,6 +11,7 @@ order: 0
 hero:
     title: ArrowPoint Tablet
     text: Android Tablet application for managing Prohelion hardware and racing cars
+    background_image: /images/Prohelion_Battery.jpg
 ---
 
 ## Introduction
