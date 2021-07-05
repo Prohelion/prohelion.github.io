@@ -31,6 +31,13 @@ features:
                 description: Modern software for managing Prohelion Batteries and other CAN Bus based solutions.
                 icon: check-circle
                 url: Profinity/Overview.html
+        - title: Frequently Asked Questions (FAQs)
+          description: Answers to the commonly asked questions that we get on our core products
+          grid:
+              - title: CAN-Ethernet Bridge
+                description: Getting the most out of or troubleshooting your CAN-Ethernet Bridge
+                icon: wifi
+                url: FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/Overview.html
         - title: Open Source Products
           description: Prohelion provided a number of Open Source products to support our racing heritage and electric vehicle teams from around the world, called ArrowPoint
           grid:
