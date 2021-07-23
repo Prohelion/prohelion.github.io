@@ -1,0 +1,24 @@
+{
+	"folders": [
+        {
+            "path": "_documentation/Profinity"
+        },
+        {
+            "path": "_documentation/Frequently_Asked_Questions"
+        },
+        {
+            "path": "_documentation/Open_Source"
+        },
+        {
+            "path": "_documentation/Battery_Management_System"
+        },
+        {
+            "path": "_documentation/Battery_Management_System_PDF"
+        }
+    ],
+    "settings": {
+        "cSpell.words": [
+            "Grafana"
+        ]
+    }
+}
