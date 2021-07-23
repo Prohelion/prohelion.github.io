@@ -40,7 +40,7 @@ docker-compose.yml
 This file contains the configuration information to run the software in Docker.
 
 ## Known Issue
-Docker does not support UDP traffic on its virtual network. As such the telemetry system cannot receive traffic from the CAN Bus devices such as the Tritum Wavesculpter. To get around this issue the infrastructure required to run the Telemetry system runs in Docker apart from the core application which runs as a stand alone Spring Boot Application and hence can access the UDP network directly.
+Docker does not support UDP traffic on its virtual network. As such the telemetry system cannot receive traffic from the CAN Bus devices such as the Tritum WaveSculptor. To get around this issue the infrastructure required to run the Telemetry system runs in Docker apart from the core application which runs as a stand alone Spring Boot Application and hence can access the UDP network directly.
 
 ## Installation Steps
 

@@ -5,7 +5,7 @@ keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
 permalink: Profinity/CAN_Bus_DBC.html
 folder: Profinity
-order: 9
+order: 11
 ---
 
 # CAN Bus DBC
@@ -20,4 +20,4 @@ To use the DBC viewer with a third party DBC file you need to [create a new item
 
 Once this has been done then you will see the item in your profile and by right mouse clicking on it you can access information about its Messages and Signals.
 
-Many of the other components supported by Profinity such as the [Elmar Solar MPPT](Elmar_Solar_MPPT.html) and the [Tritium WaveSculpter](Tritium_Wavesculpter.html) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.
+Many of the other components supported by Profinity such as the [Elmar Solar MPPT](Elmar_Solar_MPPT.html) and the [Tritium WaveSculptor](Tritium_WaveSculptor.html) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.

@@ -28,9 +28,9 @@ Alerting is done via a visual cue using USB HID Visual Signal Indicators from De
 | BMS           | CMU 4 PCB Temp            | 60A4  | 24740             | 750               | 800               | 850                   | High          |
 | BMS           | CMU 5 PCB Temp            | 60D4  | 24788             | 750               | 800               | 850                   | High          |
 | BMS           | Overvoltage               | 6F82  | 28546             | 4100              | 4150              | 4200                  | High          |
-| WaveSculpter  | Motor Temp                | 40B0  | 16560             | 90                | 100               | 120                   | High          |
-| WaveSculpter  | Heatsink Temp             | 40B4  | 16564             | 60                | 65                | 80                    | High          |
-| WaveSculpter  | DSP Operating Temp        | 40C0  | 16576             | 80                | 90                | 100                   | High          |
+| WaveSculptor  | Motor Temp                | 40B0  | 16560             | 90                | 100               | 120                   | High          |
+| WaveSculptor  | Heatsink Temp             | 40B4  | 16564             | 60                | 65                | 80                    | High          |
+| WaveSculptor  | DSP Operating Temp        | 40C0  | 16576             | 80                | 90                | 100                   | High          |
 | Arrays        | Array 1 Power             | 3410  | 13328             | 0.1               | 1.2               | 1.2                   | Percentage    |
 | Arrays        | Array 2 Power             | 3420  | 13344             | 0.1               | 1.2               | 1.2                   | Percentage    |
 | Arrays        | Array 3 Power             | 3430  | 13360             | 0.1               | 1.2               | 1.2                   | Percentage    |

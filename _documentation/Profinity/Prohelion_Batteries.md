@@ -2,10 +2,10 @@
 title: Prohelion Batteries
 tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
 keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: November 3, 2020
+last_updated: June 26, 2021
 permalink: Profinity/Prohelion_Batteries.html
 folder: Profinity
-order: 6
+order: 8
 ---
 
 # Prohelion Batteries
@@ -51,7 +51,9 @@ The next row shows Precharge status information on the left:
 
 *         Contactor 12V supply voltage presence (mV on v4 or older BMUs)
 
-The bottom row in the BMU section shows the various status flags:
+The buttons in the BMU section shows the various status flags, some flags are normal and show green when engaged, if buttons are showing orange or red then consult the BMU manual for more information.
+
+Note that when not engaged or receiving messages from the control module the BMU will drop back to its safe precharge state which is the error state.  Consult the BMU documentation for more information but note that that error state can be part of normal operation.
 
 *         CMU Power supply OK
 

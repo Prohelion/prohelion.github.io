@@ -34,7 +34,7 @@ The application provides
 
 The application is compatible with
 * Prohelion Battery Packs
-* Tritium WaveSculpters
+* Tritium WaveSculptors
 * Tritium BMUs and CMUs
 
 The Wifi connection should be broadcasting CAN Bus data using the Prohelion and Tritium CAN Bus identifiers.
