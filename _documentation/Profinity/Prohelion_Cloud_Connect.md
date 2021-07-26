@@ -16,11 +16,9 @@ When you add a Cloud Connect device to your profile Profinity will start automat
 
 Prohelion Cloud Connect is a great solution for allow teams to work remotely and jointly analyse and diagnose problems.  
 
-??? Image here
-
 A core concept of Prohelion Cloud Connect is the idea of the transmitting node and the receiving nodes.
 
-** Transmitting Node **
+### Transmitting Node
 
 When Prohelion Cloud Connect is added to a profile, the machine on which this first occurs is marked as the transmitting instance of Profinity. Any data transmitted in to this Prohelion Cloud Connect stream must be transmitted from this instance of Profinity.
 
@@ -28,7 +26,7 @@ Sharing the Cloud Connect URL not only shares the data it allow enables a copy o
 
 If a change is made to the [Profile](Profiles.html) on the transmitting node, for example a new device is configured or a change is made to one of hte configuration parameters, then that change is automatically sent to each of the receiving nodes of Profinity and within a few seconds you should see the profiles of the receiving nodes update as well.
 
-** Receiving Node **
+### Receiving Node
 
 A receiving node is one that has used a received URL to connect to the Prohelion Cloud Connect Steam.
 
