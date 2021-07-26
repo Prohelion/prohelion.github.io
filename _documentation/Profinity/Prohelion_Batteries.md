@@ -88,7 +88,9 @@ The data is highlighted in various ways to quickly understand the system status
 
 *         Cells currently balancing have a blue background
 
-*         The minimum and maximum cells have bold text
+*         The minimum and maximum cells have bold text and are colour coded (green shows highest voltage, brown lowest)
+
+*         Cell in yellow have trust errors
 
 *         Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a mid-gray background
 
