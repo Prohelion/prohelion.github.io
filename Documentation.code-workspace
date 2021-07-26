@@ -14,6 +14,9 @@
         },
         {
             "path": "_documentation/Battery_Management_System_PDF"
+        },
+        {
+            "path": "dox-theme"
         }
     ],
     "settings": {
