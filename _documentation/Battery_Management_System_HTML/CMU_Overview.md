@@ -3,8 +3,8 @@ title: CMU Overview
 keywords: BMS, CMU
 summary: ""
 sidebar: bmu_sidebar
-permalink: Battery_Management_System/CMU_Overview.html
-folder: Battery_Management_System
+permalink: Battery_Management_System_HTML/CMU_Overview.html
+folder: Battery_Management_System_HTML
 order: 1
 ---
 

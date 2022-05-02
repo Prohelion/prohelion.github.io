@@ -3,8 +3,8 @@ title: BMU Communications Protocol
 keywords: [BMU Communications Protocol]
 summary: ""
 sidebar: bmu_sidebar
-permalink: Battery_Management_System/BMU_Communications_Protocol.html
-folder: Battery_Management_System
+permalink: Battery_Management_System_HTML/BMU_Communications_Protocol.html
+folder: Battery_Management_System_HTML
 order: 6
 ---
 

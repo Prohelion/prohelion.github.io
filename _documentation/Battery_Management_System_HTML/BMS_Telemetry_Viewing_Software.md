@@ -3,8 +3,8 @@ title: BMS Telemetry Viewing Software
 keywords: BMS, Telemetry
 summary: ""
 sidebar: bmu_sidebar
-permalink: Battery_Management_System/BMS_Telemetry_Viewing_Software.html
-folder: Battery_Management_System
+permalink: Battery_Management_System_HTML/BMS_Telemetry_Viewing_Software.html
+folder: Battery_Management_System_HTML
 order: 5
 ---
 ## TELEMETRY VIEWING SOFTWARE

@@ -3,8 +3,8 @@ title: Inputs, Outputs and Controls
 keywords: BMS, 
 summary: ""
 sidebar: bmu_sidebar
-permalink: Battery_Management_System/Inputs_Outputs_Controls.html
-folder: Battery_Management_System
+permalink: Battery_Management_System_HTML/Inputs_Outputs_Controls.html
+folder: Battery_Management_System_HTML
 order: 4
 ---
 
