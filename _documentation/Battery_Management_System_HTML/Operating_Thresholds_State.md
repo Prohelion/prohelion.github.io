@@ -3,8 +3,8 @@ title: Operating Thresholds and State
 keywords: BMS, 
 summary: ""
 sidebar: bmu_sidebar
-permalink: Battery_Management_System/Operating_Thresholds_State.html
-folder: Battery_Management_System
+permalink: Battery_Management_System_HTML/Operating_Thresholds_State.html
+folder: Battery_Management_System_HTML
 order: 3
 ---
 

@@ -13,10 +13,19 @@
             "path": "_documentation/Battery_Management_System"
         },
         {
-            "path": "_documentation/Battery_Management_System_PDF"
+            "path": "dox-theme"
         },
         {
-            "path": "dox-theme"
+            "path": "_documentation/Electric_Vehicle_Driver_Controls"
+        },
+        {
+            "path": "_documentation/MPPT_Solar_Peak_Power_Trackers"
+        },
+        {
+            "path": "_documentation/WaveSculptor_Motor_Controllers"
+        },
+        {
+            "path": "_documentation/CAN_Bus_To_Ethernet_Bridge"
         }
     ],
     "settings": {

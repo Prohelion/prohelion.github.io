@@ -3,8 +3,8 @@ title: Contactor and Precharge
 keywords: BMS, 
 summary: ""
 sidebar: bmu_sidebar
-permalink: Battery_Management_System/Contactor_Precharge.html
-folder: Battery_Management_System
+permalink: Battery_Management_System_HTML/Contactor_Precharge.html
+folder: BBattery_Management_System_HTML
 order: 2
 ---
 

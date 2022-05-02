@@ -4,8 +4,8 @@ tags: [Cell Wiring]
 keywords: Cell Wiring
 summary: ""
 sidebar: bmu_sidebar
-permalink: Battery_Management_System/CMU_Cell_Wiring_Procedure.html
-folder: Battery_Management_System
+permalink: Battery_Management_System_HTML/CMU_Cell_Wiring_Procedure.html
+folder: Battery_Management_System_HTML
 order: 5
 ---
 
