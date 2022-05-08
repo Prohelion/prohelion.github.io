@@ -28,15 +28,15 @@ features:
               - title: Elmar 3A MPPT
                 description: Datasheet and User guide for the 3A Solar MPPT
                 icon: sun
-                url: /assets/pdfs/MPPT_Solar_Peak_Power_Trackers/Elmar_Solar_MPPT_3A__2019.pdf
+                url: /assets/pdfs/MPPT_Solar_Peak_Power_Trackers/Elmar Solar MPPT 3A 2019.pdf
               - title: Elmar Race MPPT
                 description: A Solar Power Tracker designed for solar racing and mobile applications
                 icon: sun
-                url: /assets/pdfs/MPPT_Solar_Peak_Power_Trackers/Elmar_Solar_MPPT_Race_2021.pdf
+                url: /assets/pdfs/MPPT_Solar_Peak_Power_Trackers/Elmar Solar MPPT Race 2021.pdf
               - title: Elmar Best MPPT
                 description: The highest performance MPPT in the Elmar solar power tracker range
                 icon: sun
-                url: /assets/pdfs/MPPT_Solar_Peak_Power_Trackers/Elmar_Solar_MPPT_Best_2021.pdf
+                url: /assets/pdfs/MPPT_Solar_Peak_Power_Trackers/Elmar Solar MPPT Best 2021.pdf
         - title: Supporting Software          
           grid:
               - title: Profinity

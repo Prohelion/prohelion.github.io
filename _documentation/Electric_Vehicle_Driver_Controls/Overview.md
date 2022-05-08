@@ -28,7 +28,7 @@ features:
               - title: Driver Controls
                 description: User Manual for the Prohelion Driver Control Unit
                 icon: truck
-                url: /assets/pdfs/Electric_Vehicle_Driver_Controls/PHLN86.002v4-EV-Driver-Controls-Users-Manual.pdf              
+                url: /assets/pdfs/Electric_Vehicle_Driver_Controls/PHLN86.002v1 EV Driver Controls Users Manual.pdf
         - title: Supporting Software          
           grid:
               - title: Profinity
