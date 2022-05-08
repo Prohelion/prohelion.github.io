@@ -19,7 +19,7 @@ dox:
         logo:
             text: Prohelion Documentation
             image:
-        text: Copyright &copy; 2020. - Prohelion Pty Ltd <br>All rights reserved.
+        text: Copyright &copy; 2022. - Prohelion Pty Ltd <br>All rights reserved.
     google_analytics:
         tracking_code: UA-159429892-1
     comments:
