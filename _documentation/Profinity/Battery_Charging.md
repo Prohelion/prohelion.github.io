@@ -33,7 +33,7 @@ The Signet Power Supplies that support a programmable TCP interface can be contr
 
 **ITech Power Supplies**
 
-[ITech](www.itech.sh) provides a large range of bi-directional power supplies that are supported by the Profinity solution.  Profinity uses ITech's TCP interface for controlling the supply at this time we do not support the ITech CAN bus interface.
+[ITech](https://www.itech.sh/en/) provides a large range of bi-directional power supplies that are supported by the Profinity solution.  Profinity uses ITech's TCP interface for controlling the supply at this time we do not support the ITech CAN bus interface.
 
 ## Charging Steps
 
