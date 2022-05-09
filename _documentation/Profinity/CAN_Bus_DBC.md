@@ -5,7 +5,7 @@ keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
 permalink: Profinity/CAN_Bus_DBC.html
 folder: Profinity
-order: 11
+order: 12
 ---
 
 # CAN Bus DBC

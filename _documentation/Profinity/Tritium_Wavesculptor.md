@@ -5,7 +5,7 @@ keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
 permalink: Profinity/Tritium_WaveSculptor.html
 folder: Profinity
-order: 10
+order: 11
 ---
 
 # Tritium WaveSculptor
