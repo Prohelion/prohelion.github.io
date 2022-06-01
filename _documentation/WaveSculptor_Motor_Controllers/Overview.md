@@ -33,6 +33,10 @@ features:
                 description: User Manual for the Prohelion WaveSculptor22
                 icon: rotate-cw
                 url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.004v1 WaveSculptor22 Users Manual.pdf
+              - title: Inductor Coil Construction Guide
+                description: How to build a set of 50μH 100Arms (peak) inductors suitable for use with a Prohelion WaveSculptor motor controller
+                icon: rotate-cw
+                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN30.001v1 Inductor Construction Guide.pdf
         - title: WaveSculptor200 Motor Controllers
           description: High power, ultra efficient motor controllers for up to 165kVA peak loads
           grid: # Add feature grid items below, there are examples with all available options
