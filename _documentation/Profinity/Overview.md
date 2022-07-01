@@ -1,5 +1,5 @@
 ---
-title: Prohelion Overview
+title: Profinity Overview
 tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
 keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
