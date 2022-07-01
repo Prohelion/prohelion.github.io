@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Prohelion Overview
 tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
 keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
@@ -10,7 +10,7 @@ order: 0
 # Hero section
 hero:
     title: Profinity
-    text: Prohlelion's CAN Bus, Battery, Solar and DBC Management Solution
+    text: Prohelion's CAN Bus, Battery, Solar and DBC Management Solution
     background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Download (for Windows)
