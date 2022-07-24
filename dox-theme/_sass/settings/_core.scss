@@ -23,7 +23,9 @@ $color-white: #fff !default;
 $color-gray-30: #f7f8f9 !default;
 $color-gray-50: #e1e2e3 !default;
 $color-gray-100: #bbb !default;
-$color-gray-300: #575c61 !default;
+$color-gray-300: #6B7482 !default;
+$color-dark-blue: #232C3A !default;
+$color-red: #D7182A !default;
 
 /**
  * Base
@@ -63,8 +65,8 @@ $colors: (
 $font-size-base: 16px !default;
 $font-size-base-mobile: 14px !default;
 $line-height-base: 1.75 !default;
-$font-family-base: 'IBM Plex Sans', sans-serif !default;
-$font-family-monospace: 'IBM Plex Mono', monospace !default;
+$font-family-base: 'Lato', sans-serif !default;
+$font-family-monospace: 'Lato', monospace !default;
 
 /**
  * Weights
@@ -86,7 +88,12 @@ $font-size-h4: 1.5rem !default;
 $font-size-h5: 1.375rem !default;
 $font-size-h6: 1.25rem !default;
 
-
+$font-color-h1: $color-dark-blue !default;
+$font-color-h2: $color-dark-blue !default;
+$font-color-h3: $color-dark-blue !default;
+$font-color-h4: $color-red !default;
+$font-color-h5: $color-dark-blue !default;
+$font-color-h6: $color-dark-blue !default;
 
 /* Spacing
    ========================================================================== */

@@ -1,0 +1,36 @@
+{
+	"folders": [
+        {
+            "path": "_documentation/Profinity"
+        },
+        {
+            "path": "_documentation/Frequently_Asked_Questions"
+        },
+        {
+            "path": "_documentation/Open_Source"
+        },
+        {
+            "path": "_documentation/Battery_Management_System"
+        },
+        {
+            "path": "dox-theme"
+        },
+        {
+            "path": "_documentation/Electric_Vehicle_Driver_Controls"
+        },
+        {
+            "path": "_documentation/MPPT_Solar_Peak_Power_Trackers"
+        },
+        {
+            "path": "_documentation/WaveSculptor_Motor_Controllers"
+        },
+        {
+            "path": "_documentation/CAN_Bus_To_Ethernet_Bridge"
+        }
+    ],
+    "settings": {
+        "cSpell.words": [
+            "Grafana"
+        ]
+    }
+}

@@ -12,6 +12,7 @@ order: 0
 hero:
     title: ArrowPoint Telemetry
     text: Telemetry, Reporting and Fleet Management Software for Solar Car Racing
+    background_image: /images/Prohelion_Battery.jpg
 ---
 
 ## Introduction
@@ -41,7 +42,7 @@ For the full feature list see the Telemetry System Features section, but at a hi
 The application is compatible with
 
 * Prohelion Battery Packs
-* Tritium WaveSculpters
+* Tritium WaveSculptors
 * Prohelion and Tritium BMUs and CMUs
 
 Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](../Open_Source/Troubleshooting.html).

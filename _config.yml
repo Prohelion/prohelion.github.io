@@ -8,9 +8,9 @@ dox:
         logo:
             text: 
             image: Prohelion_Title_Logo_Small.png
+            url: https://www.prohelion.com
         nav:
-            - item_name: Prohelion Website
-              item_url: https://www.prohelion.com
+            - item_name:
         cta:
             label: Documentation Homepage
             url: /
@@ -19,7 +19,7 @@ dox:
         logo:
             text: Prohelion Documentation
             image:
-        text: Copyright &copy; 2020. - Prohelion Pty Ltd <br>All rights reserved.
+        text: Copyright &copy; 2022. - Prohelion Pty Ltd <br>All rights reserved.
     google_analytics:
         tracking_code: G-FPHZWP3H2R
     comments:

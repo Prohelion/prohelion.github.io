@@ -29,7 +29,7 @@
 		{% if page.keywords %}
 			<meta name="keywords" content="{{ page.keywords }}">
 		{% endif %}
-		<link rel="icon" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}/{% endif %}favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,400i,500,500i,700,700i">
 		<link rel="stylesheet" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/dox-theme/assets/css/style.css">
 	</head>
@@ -69,16 +69,16 @@
 								{% if site.dox.header.logo.text %}
 									{% if page.url == "/" %}
 										<h1 class="c-logo u-mb-0 js-logo">
-											<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/" class="c-logo__link">{{ site.dox.header.logo.text }}</a>
+											<a href="{{ site.dox.header.logo.url }}" class="c-logo__link">{{ site.dox.header.logo.text }}</a>
 										</h1><!-- /.c-logo -->
 									{% else %}
 										<p class="c-logo u-mb-0 js-logo">
-											<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/" class="c-logo__link">{{ site.dox.header.logo.text }}</a>
+											<a href="{{ site.dox.header.logo.url }}" class="c-logo__link">{{ site.dox.header.logo.text }}</a>
 										</p><!-- /.c-logo -->
 									{% endif %}
 								{% elsif site.dox.header.logo.image %}
 									<div class="c-logo">
-										<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/" class="c-logo__link">
+										<a href="{{ site.dox.header.logo.url }}" class="c-logo__link">
 											<img src="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/dox-theme/assets/images/layout/logo.png">
 										</a><!-- /.c-logo__link -->
 									</div><!-- /.c-logo -->
