@@ -1,16 +1,16 @@
 ---
-title: Log / Replay CAN Messages
+title: Log / Replay CAN
 tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
 keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: November 3, 2020
+last_updated: July 24, 2022
 permalink: Profinity/Logging_Replaying_CAN_Bus_Messages.html
 folder: Profinity
-order: 5
+order: 6
 ---
 
 # Log / Replay CAN Bus Messages
 
-Profinity provides the ability to both log and replay messages off your CAN Bus network.
+Profinity provides the ability to both log and replay messages off your CAN Bus network as well as the ability to log CanBUS data to timeseries databases like InfluxDB and Prometheus.  
 
 To log a set of CAN Bus messages first add an adapter to your [Profile](Profiles.html) and then connect to the adapter.  
 
@@ -18,7 +18,13 @@ It's always worth checking that you are actually receiving CAN Bus messages by u
 
 ## Logging CAN Bus
 
-The CAN Bus logger has three main modes of operation, you can either
+There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](InfluxDB_Prometheus_Integration.html).
+
+All loggers are configured in the same manner, by adding a logging device to the Profile.
+
+## File / FTP / SFTP Based Loggers
+
+File based loggers in Profinity have three potential modes of operation, you can either
 
 | Log Mode              | Details                                                                             |
 | --------------------- | ----------------------------------------------------------------------------------- |
@@ -26,7 +32,7 @@ The CAN Bus logger has three main modes of operation, you can either
 | Log Remotely via FTP  | As well as logging locally this option takes the log file and places it on a remote FTP server for off site analysis.        |
 | Log Remotely via SFTP | As per FTP, but this time a Secure FTP (SFTP) end point is used as the destination. | 
 
-Depending on the mode you select, Profinity will present you with different destination options.  For FTP and SFTP it is necessary to provide the destination server, username and password.  For local logging only a directory is required.
+Depending on the item you select, Profinity will present you with different destination options.  For FTP and SFTP it is necessary to provide the destination server, username and password.  For local logging only a directory is required.
 
 The logger also gives you the ability to manage Archive and Compression settings, if you wish to archive your messages you must provide an archive directory.
 
@@ -40,9 +46,9 @@ Finally the logger allows you to set the frequency of rotation.  Rotation means 
 
 ![Data Logger]({{site.dox.baseurl}}/images/Profinity/data_logger.png)
 
-Logging configurations are currently stored separately to the profile and you can also load and existing config or save a new logging config on this screen.
+Logging configurations are stored as part of your profile so when you load a profile, if you have the logger setup to automatically start then it will start logging automatically.
 
-## Data Validation
+### Data Validation
 
 Profinity uses data entry validation to ensure the information you provide is valid.  
 
@@ -60,8 +66,12 @@ To use this tool simply select the log file and it will start replaying.  There 
 | --------------------- | ------------------------------------------------- |
 | Include / Exclude IDs | Instruct the log replayer to only include or exclude values between these two CAN Bus IDs |
 | Loop log file replay  | When the log file reaches the end, automatically loop back to the start |
-| Transmit CAN Bus over Network | Normally the log file is only replayed locally, by selecting the Transmit option the log file is transmitted over any active CAN Bus adapters |
+| Transmit CAN Bus over Network | Normally the log file is only replayed locally, by selecting the Transmit option the log file is transmitted over any active CAN-Ethernet Bridges |
 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
 
 ![Data Log Replayer]({{site.dox.baseurl}}/images/Profinity/log_replayer.png)
+
+## Time Series Based Loggers
+
+Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](InfluxDB_Prometheus_Integration.html).
