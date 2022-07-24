@@ -2,10 +2,10 @@
 title: Adding to the Profile
 tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
 keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: November 3, 2020
+last_updated: July 24, 2022
 permalink: Profinity/Adding_New_Items.html
 folder: Profinity
-order: 3
+order: 2
 ---
 
 # Adding new items to your Profile

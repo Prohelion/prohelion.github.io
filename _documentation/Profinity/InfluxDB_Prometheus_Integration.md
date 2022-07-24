@@ -5,12 +5,14 @@ keywords: Profinity, CAN Bus, InfluxDB, Prometheus
 last_updated: July 22, 2021
 permalink: Profinity/InfluxDB_Prometheus_Integration.html
 folder: Profinity
-order: 6
+order: 8
 ---
 
 # InfluxDB and Prometheus Logging
 
 Profinity provides the ability to both [log and replay messages](Logging_Replaying_CAN_Bus_Messages.html) off your CAN Bus network as well as the ability to log CAN Bus data to timeseries databases like InfluxDB and Prometheus.
+
+![Data Log Replayer]({{site.dox.baseurl}}/images/Profinity/InfluxDB.png)
 
 [InfluxDB](https://www.influxdata.com) is an all in one solution with data storage and visualisation included in a single tool.  [Prometheus](https://prometheus.io) just provides data storage and is typically coupled with [Grafana](https://grafana.com) for visualisation.  
 
@@ -18,20 +20,31 @@ All of these tools are available in commercially supported and Open Source (comm
 
 ## InfluxDB
 
-To log your CAN Bus data to [InfluxDB](https://www.influxdata.com/) firstly install InfluxDB and get it up and running.
+To log your CAN Bus data to [InfluxDB](https://www.influxdata.com/) v1 or v2 firstly install InfluxDB and get it up and running.
 
-Logging the data is simple, just add a InfluxDB device to your profile and configure the following options.
+<div class="callout callout--warning">
+    <p><strong>InfluxDB Versions are Important</strong> 
+    Make sure you are using the right version of the InfluxDB Logger as Profinity's v1 and v2 logger support Influx v1 and v2 which use different protocols.
+    </p>
+</div>
 
-| Setting               | Purpose                                                       |
-| --------------------- | ------------------------------------------------------------- |
-| InfluxDB Bucket       | What InfluxDB bucket do you want to store your data in?       |
-| InfluxDB Organisation | What InfluxDB organisation do you want to use?                |
-| InfluxDB Token        | Security token for the user you are connecting to InfluxDB as |
-| InfluxDB URL          | Endpoint URL that InfluxDB is running on                      |
+Logging the data is simple, just add a InfluxDB device to your profile and configure the following options. 
 
-Once these settings have been set correctly you should be able to see data flowing in to InfluxDB, if you don't check the [Logs](Profinity_Log.html) for more details.  If everything is working you can very easily start displaying graphs like this
+| Setting               | Purpose                                                               |
+| --------------------- | --------------------------------------------------------------------- |
+| InfluxDB Bucket       | What InfluxDB bucket do you want to store your data in?               |
+| InfluxDB Organisation | What InfluxDB organisation do you want to use?                        |
+| InfluxDB Token        | Security token for the user you are connecting to InfluxDB as         |
+| InfluxDB URL          | Endpoint URL that InfluxDB is running on                              |
+| InfluxDB Health Check | Asks the logger to regularly perform a health check on the connection |
 
-![Data Log Replayer]({{site.dox.baseurl}}/images/Profinity/InfluxDB.png)
+Once these settings have been set correctly you should be able to see data flowing in to InfluxDB, if you don't check the [Logs](Profinity_Log.html) for more details.  
+
+<div class="callout callout--warning">
+    <p><strong>InfluxDB Cloud HealthCheck Warning</strong> 
+    InfluxDB cloud does not support the InfluxDB Health Check API and therefore you need to switch InfluxDB Health Check to false when using the cloud solution for storing your data.
+    </p>
+</div>
 
 ## Prometheus
 
