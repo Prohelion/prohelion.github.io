@@ -2,10 +2,10 @@
 title: CAN Bus DBC
 tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
 keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: November 3, 2020
+last_updated: July 24, 2022
 permalink: Profinity/CAN_Bus_DBC.html
 folder: Profinity
-order: 12
+order: 7
 ---
 
 # CAN Bus DBC

@@ -2,10 +2,10 @@
 title: Prohelion Cloud Connect
 tags: [Profinity, CAN Bus, Cloud, Cloud Connect]
 keywords: Profinity, CAN Bus, Cloud, Cloud Connect
-last_updated: July 4, 2021
+last_updated: July 24, 2022
 permalink: Profinity/Prohelion_Cloud_Connect.html
 folder: Profinity
-order: 7
+order: 9
 ---
 
 # Prohelion Cloud Connect
