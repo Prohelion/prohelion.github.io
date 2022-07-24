@@ -18,7 +18,7 @@ Profinity on Windows supported adapters include the [Prohelion](https://www.proh
     <p><strong>When running the Peak CAN to USB Adapter</strong>It is necessary to install the driver for the device before starting Profinity.  Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity and then AutoDiscovered the adapter as per normal</p>
 </div>
 
-When running Profinity on [Docker or Linux](Profinity_Docker_Linux_MacOS.html) additional support is also provided for the native SocketCAN Adapter.
+When running Profinity on [Docker or Linux](Profinity_Server.html) additional support is also provided for the native SocketCAN Adapter.
 
 Adapters can be added in one of two ways, either via Auto Discovery or Manually.
 

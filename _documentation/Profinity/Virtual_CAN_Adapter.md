@@ -3,7 +3,7 @@ title: Virtual CAN Bus Adapter
 tags: [Profinity, CAN Bus, CANBus, Virtual, Hub]
 keywords: Profinity, CAN Bus, CANBus, Virtual, Hub
 last_updated: July 24, 2022
-permalink: Profinity/Prohelion_Virtual_CAN_Bus_Adapter.html
+permalink: Profinity/Virtual_CAN_Adapter.html
 folder: Profinity
 order: 4
 ---
