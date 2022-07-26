@@ -2,15 +2,15 @@
 title: Log / Replay CAN
 tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
 keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: June 26, 2021
+last_updated: July 24, 2022
 permalink: Profinity/Logging_Replaying_CAN_Bus_Messages.html
 folder: Profinity
-order: 5
+order: 6
 ---
 
 # Log / Replay CAN Bus Messages
 
-Profinity provides the ability to both log and replay messages off your CAN Bus network as well as the ability to log CanBUS data to timeseries databases like InfluxDB and Prometheus.
+Profinity provides the ability to both log and replay messages off your CAN Bus network as well as the ability to log CanBUS data to timeseries databases like InfluxDB and Prometheus.  
 
 To log a set of CAN Bus messages first add an adapter to your [Profile](Profiles.html) and then connect to the adapter.  
 
@@ -18,9 +18,11 @@ It's always worth checking that you are actually receiving CAN Bus messages by u
 
 ## Logging CAN Bus
 
-There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases.
+There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](InfluxDB_Prometheus_Integration.html).
 
 All loggers are configured in the same manner, by adding a logging device to the Profile.
+
+## File / FTP / SFTP Based Loggers
 
 File based loggers in Profinity have three potential modes of operation, you can either
 
@@ -46,7 +48,7 @@ Finally the logger allows you to set the frequency of rotation.  Rotation means 
 
 Logging configurations are stored as part of your profile so when you load a profile, if you have the logger setup to automatically start then it will start logging automatically.
 
-## Data Validation
+### Data Validation
 
 Profinity uses data entry validation to ensure the information you provide is valid.  
 
@@ -69,3 +71,7 @@ To use this tool simply select the log file and it will start replaying.  There 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
 
 ![Data Log Replayer]({{site.dox.baseurl}}/images/Profinity/log_replayer.png)
+
+## Time Series Based Loggers
+
+Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](InfluxDB_Prometheus_Integration.html).
