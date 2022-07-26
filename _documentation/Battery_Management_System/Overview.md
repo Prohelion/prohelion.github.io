@@ -22,7 +22,7 @@ features:
               - title: BMU User Manual
                 description: User Manual for the Prohelion Battery Management Unit (BMU)
                 icon: battery-charging
-                url: /assets/pdfs/Battery_Management_System/PHLN67.011v1 BMS Users Manual.pdf
+                url: /assets/pdfs/Battery_Management_System/PHLN67.011v2 BMS Users Manual.pdf
               - title: BMU Wiring Diagram
                 description: Tips and Tricks on the correct procedures for wiring a Prohelion BMU
                 icon: check-circle
