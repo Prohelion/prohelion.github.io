@@ -5,7 +5,7 @@ keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
 last_updated: November 3, 2020
 permalink: Profinity/Elmar_Solar_MPPT.html
 folder: Profinity
-order: 10
+order: 16
 ---
 
 ## Elmar Solar MPPT

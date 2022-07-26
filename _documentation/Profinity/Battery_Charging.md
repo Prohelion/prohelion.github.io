@@ -5,7 +5,7 @@ keywords: Profinity, Battery, Charging
 last_updated: May 9, 2022
 permalink: Profinity/Battery_Charging.html
 folder: Profinity
-order: 9
+order: 14
 ---
 
 # Profinity Battery Charging

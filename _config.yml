@@ -21,7 +21,7 @@ dox:
             image:
         text: Copyright &copy; 2022. - Prohelion Pty Ltd <br>All rights reserved.
     google_analytics:
-        tracking_code: UA-159429892-1
+        tracking_code: G-FPHZWP3H2R
     comments:
         disqus_forum_shortname: # Add your Disqus forum shortname to activate comments site-wide
 
