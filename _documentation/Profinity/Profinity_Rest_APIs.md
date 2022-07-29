@@ -49,7 +49,7 @@ To access the APIs you will need to both enable the Profinity integrated web ser
       Swagger: true
 ```
 
-Restart Profinity and you should now be able to go to the [Rest APIs Swagger Interface](http://localhost:5000/swagger) where you will be able to see the specifications for the API's and test their capabilities.
+Restart Profinity and you should now be able to go to the Rest APIs Swagger Interface at http://localhost:5000/swagger, or whatever port and interface combination you have setup followed by /swagger and from there you will be able to see the specifications for the API's and test their capabilities.
 
 Requests to retrieve CAN Packet information allow you to retrieve the packet either via CAN Id or using a DBC Message and Signal.
 
