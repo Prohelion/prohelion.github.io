@@ -32,9 +32,9 @@ features:
                 icon: server
                 url: /assets/pdfs/Battery_Management_System/PHLN67.006v1 Assembly Procedure CMU Cell Wiring.pdf
               - title: BMU Communications Protocol
-                description: Details on the CAN Bus messages used to drive the Prohelion BMU
+                description: Information on the CAN Bus messages used to start and control the Prohelion BMU
                 icon: message-square
-                url: /assets/pdfs/Battery_Management_System/PHLN67.010v1 BMS BMU Communications Protocol.pdf           
+                url: /assets/pdfs/Battery_Management_System/PHLN67.010v2 BMS BMU Communications Protocol.pdf           
         - title: Supporting Software          
           grid:
               - title: Profinity
