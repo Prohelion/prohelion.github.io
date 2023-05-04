@@ -35,4 +35,8 @@ features:
                 description: Our battery and CAN Bus management software solution.
                 icon: check-circle
                 url: ../Profinity/Overview.html
+              - title: EV Driver Controls Firmware
+                description: Our open-source firmware repository for the EV Driver Controls.
+                icon: code
+                url: https://github.com/Prohelion/EV-Driver-Controls
 ---
