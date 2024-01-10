@@ -1,11 +1,11 @@
 ---
-# Page settings
-layout: homepage # Choose layout: "default", "homepage" or "documentation-archive"
 title: Prohelion Driver Controls
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
+tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: Electric_Vehicle_Driver_Controls/Overview.html
 folder: Electric_Vehicle_Driver_Controls
+order: 0
 
 # Hero section
 hero:
@@ -17,26 +17,15 @@ hero:
           url: https://www.prohelion.com/shop/accessories/ev-driver-controls/
           external_url: true 
           style: filled
-          icon: credit-card         
-
-# Features section
-features:
-    rows: # Add feature rows below, there are examples with all available options
-        - title: Electric Vehicle Driver Controls
-          description: Prohelion provides an out of the box solution for developing an Electric Vehicle driver control platform
-          grid: # Add feature grid items below, there are examples with all available options
-              - title: Driver Controls
-                description: User Manual for the Prohelion Driver Control Unit
-                icon: truck
-                url: /assets/pdfs/Electric_Vehicle_Driver_Controls/PHLN86.002v1 EV Driver Controls Users Manual.pdf
-        - title: Supporting Software          
-          grid:
-              - title: Profinity
-                description: Our battery and CAN Bus management software solution.
-                icon: check-circle
-                url: ../Profinity/Overview.html
-              - title: EV Driver Controls Firmware
-                description: Our open-source firmware repository for the EV Driver Controls.
-                icon: code
-                url: https://github.com/Prohelion/EV-Driver-Controls
+          icon: credit-card 
 ---
+
+# EV Driver Controls User's Manual
+
+This document describes the interface, installation, and usage requirements for the Prohelion EV Driver Controls product.  It also provides information on programming the device to implement custom functionality.
+
+The EV Driver Controls provide an easy way to control a Prohelion WaveSculptor motor controller.  The driver controls come programmed from the factory configured with sensible default values that will work in a plug-and-play manner with a motor controller.
+
+The EV Driver Controls provide analog and digital inputs, used to generate commands to the motor controller.  It also provides both analog and digital outputs to drive dashboard gauges and error and status LEDs.
+
+The microcontroller firmware for the device (written in 'C') is available on the Prohelion website under an open-source BSD license, as are the hardware schematics and component overlays.
