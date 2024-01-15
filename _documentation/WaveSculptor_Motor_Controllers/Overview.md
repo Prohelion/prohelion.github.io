@@ -32,7 +32,7 @@ features:
               - title: WaveSculptor22 User Manual
                 description: User Manual for the Prohelion WaveSculptor22
                 icon: user
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.004v1 WaveSculptor22 Users Manual.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Overview.html
               - title: Inductor Coil Construction Guide
                 description: How to build a set of 50μH 100Arms (peak) inductors suitable for use with the Prohelion WaveSculptor22
                 icon: rotate-cw

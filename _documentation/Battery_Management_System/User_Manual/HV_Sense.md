@@ -36,7 +36,7 @@ The connector used for the HV Sense is a 10-way 4.2mm pitch Molex MiniFit Jr con
 
 # HV Sense Fusing 
 
-All HV Sense connections should be fused with an appropriately rated fuse for the type of wire used for the sense connection.  This fuse should be low current (since the sense wiring uses small wires) and rated for the full DC pack voltage.  The fuse should be located towards the supply end of the sense wiring. 
+All HV Sense connections should be fused with an appropriately rated fuse for the type of wire used for the sense connection.  This fuse should be low current (since the sense wiring uses small wires) and rated for the full DC pack voltage.  The fuse should be located towards the supply end of the sense wiring. See [Fusing](Fusing). 
 
 
 

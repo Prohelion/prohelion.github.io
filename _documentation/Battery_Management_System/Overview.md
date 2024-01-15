@@ -30,11 +30,11 @@ features:
               - title: Cell Management Unit (CMU)
                 description: Assembly and mounting procedures for the Prohelion CMU and wiring harness
                 icon: server
-                url: /assets/pdfs/Battery_Management_System/PHLN67.006v1 Assembly Procedure CMU Cell Wiring.pdf
+                url: /Battery_Management_System/Cell_Management_Unit/Overview.html
               - title: BMU Communications Protocol
                 description: Information on the CAN Bus messages used to start and control the Prohelion BMU
                 icon: message-square
-                url: /assets/pdfs/Battery_Management_System/PHLN67.010v2 BMS BMU Communications Protocol.pdf           
+                url: /Battery_Management_System/BMU_Communications_Protocol/Overview.html         
         - title: Supporting Software          
           grid:
               - title: Profinity

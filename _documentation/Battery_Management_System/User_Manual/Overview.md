@@ -38,3 +38,6 @@ The BMS consists of two components: multiple [Cell Management Units](Cell_Manage
 <strong>Cell:</strong> A single physical unit, or permanently connected parallel group of units.  A parallel group functions electrically as a larger capacity single unit
 
 <strong>Battery:</strong> A series-connected group of cells 
+
+(TODO) - all descriptions need to be altered (+key words etc.)
+
