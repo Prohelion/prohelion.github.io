@@ -16,7 +16,7 @@ These operating points can be programmed into the BMU over the CAN bus using the
 
 The SOC vs Voltage curve for a typical Lithium chemistry cell is shown below, along with the location of the various thresholds. 
 
-i
+![State of Charge vs Voltage Curve]({{site.dox.baseurl}}/images/BMS_User_Manual/Operating_Thresholds.png)
 
 ## Over Voltage Threshold 
 
