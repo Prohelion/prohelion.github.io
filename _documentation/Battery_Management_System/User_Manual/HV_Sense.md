@@ -10,7 +10,7 @@ order: 6
 
 # HV Sense
 
-The HV Sense connector allows the BMU to measure the total pack voltage (pack side of the contactors), total DC bus voltage (vehicle side of the contactors), and total pack current flow.  This information is used to control precharge and pack safety, and to calculate pack Ah usage and SOC. 
+The HV Sense connector allows the BMU to measure the total pack voltage (pack side of the contactors), total DC bus voltage (vehicle side of the contactors), and total pack current flow.  This information is used to control precharge and pack safety, and to calculate pack Amp-Hours (Ah) usage and SOC. 
 
 The HV Sense connector and associated electronics are isolated from the remainder of the BMU.  Take care when routing wiring around this connector to maintain good isolation between it and the rest of the vehicle system. 
 
@@ -24,7 +24,7 @@ The Battery HV– and Shunt sense wires should be twisted together to minimise n
 
 The connector used for the HV Sense is a 10-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those recommended in most EV wiring standards for HV DC wiring. 
 
-i
+![HV Sense Connector]({{site.dox.baseurl}}/images/BMS_User_Manual/HV_Sense_Connector.png)
 
 | The sense points are as following:                 
 |----------------------------------------------------|

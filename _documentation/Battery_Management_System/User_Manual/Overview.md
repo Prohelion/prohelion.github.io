@@ -1,5 +1,5 @@
 ---
-title: BMS User's Manual
+title: BMS User Manual
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
@@ -20,17 +20,18 @@ hero:
           icon: credit-card 
 ---
 
-# Battery Management System User's Manual
+# Battery Management System User Manual
 
 This document describes the interface, installation, and usage requirements for the Prohelion Battery Management System (BMS).   
 
 The BMS provides an easy way to monitor and control an Electric Vehicle battery pack, and can work seamlessly with Prohelion's WaveSculptor motor controllers.  It is a mature design with five previous product generations of real-world experience with various types of cells, form factors, and vehicles. 
 
-i
+![Battery Management System]({{site.dox.baseurl}}/images/BMS_User_Manual/Introduction_1.png)
 
 The BMS consists of two components: multiple [Cell Management Units](Cell_Management_Unit) (CMU), which measure and control the individual cells in the battery pack; and a single [BMS Master Unit](BMS_Master_Unit) (BMU) which interfaces between the CMUs and the vehicle, controls precharge and other safety systems, and provides total pack telemetry.
 
-i
+![Battery Management System]({{site.dox.baseurl}}/images/BMS_User_Manual/Introduction_2.png)
+![Battery Management System]({{site.dox.baseurl}}/images/BMS_User_Manual/Introduction_3.png)
 
 ## Terminology
 
