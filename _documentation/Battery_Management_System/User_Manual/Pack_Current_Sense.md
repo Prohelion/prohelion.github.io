@@ -12,7 +12,7 @@ order: 7
 
 The BMU provides a mechanism for measuring pack current using a resistive shunt.  This is preferred over hall-effect based sensors as it provides much lower drift, allowing more accurate State of Charge (SOC) integration calculation.   
 
-The shunt must be located in the Battery HV– connection of the pack, as shown in the BMS wiring diagram in the Appendix. (TODO)
+The shunt must be located in the Battery HV– connection of the pack, as shown in the BMS wiring diagram in the [Appendix](Appendix)
 
 ## Shunt Selection
 

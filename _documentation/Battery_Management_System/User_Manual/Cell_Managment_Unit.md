@@ -8,7 +8,7 @@ folder: Battery_Management_System/User_Manual
 order: 4 
 ---
 
-# Cell Management Unit
+# Cell Management Unit (todo)
 
 ## Form Factor 
 
