@@ -5,22 +5,22 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Cooling.html
 folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
-order: 6
+order: 5
 ---
 
 # Cooling
 
 ## Overview
 
-The WaveSculptor22 will usually require some form of external heatsinking.  The extent of this will depend on the ambient operating temperature, the motor current and duty cycle, and operating voltage.  Once these are known, the heat that is required to be removed from the controller can be calculated from its efficiency.
+The WaveSculptor will usually require some form of external heatsinking.  The extent of this will depend on the ambient operating temperature, the motor current and duty cycle, and operating voltage.  Once these are known, the heat that is required to be removed from the controller can be calculated from its efficiency.
 
-There will be a wide variety of possible cooling solutions, which is why the WaveSculptor22 has been designed for technically qualified users to choose their own optimal solution for their exact vehicle and use scenario.
+There will be a wide variety of possible cooling solutions, which is why the WaveSculptor has been designed for technically qualified users to choose their own optimal solution for their exact vehicle and use scenario.
 
 The aim of the cooling solution provided by the end user is to keep the WaveSculptor cold plate temperature below the limit specified in the datasheet.  Above this point, the motor controller will automatically reduce the motor output current to protect itself, resulting in reduced performance for your vehicle.
 
 ## Efficiency
 
-The power electronic switching devices in the WaveSculptor22 are MOSFETs, and the majority of loss in the motor controller comes from these devices.
+The power electronic switching devices in the WaveSculptor are MOSFETs, and the majority of loss in the motor controller comes from these devices.
 
 Losses in a MOSFET are split into conduction and switching loss.  Conduction loss is easy to characterise and model, but there are many MOSFET switching mechanisms that create loss.  To simplify analysis, and covering the bulk of the loss in any case, this summary considers the four major switching loss types: off switching, on switching, reverse recovery, and capacitive switching loss.
 
@@ -28,7 +28,7 @@ All of these losses have a very strong relationship to input voltage and output 
 
 ### Test Methodology
 
-To produce the efficiency curves in the datasheet, and the modelling information in this document, the switching losses in the WaveSculptor were measured directly, by analysing the current and voltage switching waveforms.  
+To produce the efficiency curves in the [datasheet](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1%20WaveSculptor22%20Datasheet.pdf), and the modelling information in this document, the switching losses in the WaveSculptor were measured directly, by analysing the current and voltage switching waveforms.  
 
 Conduction losses were simply derived from the measured phase to phase resistance of the WaveSculptor.
 
@@ -36,45 +36,43 @@ A high bandwidth system was used to acquire the switching waveforms, and data sh
 
 ### Power Loss
 
-The power loss of the WaveScuptor22 operating with 160V DC bus voltage is shown in the diagram below:
+The power loss of the WaveScuptor operating with 160V DC bus voltage is shown in the diagram below:
 
-i
+![Power loss of WaveSculptor22 diagram]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/cooling.gif)
 
 ### Predicting Loss
 
 To allow solar racing teams to predict the WaveSculptor power loss, both for heatsink calculations and for race strategy algorithms, the following estimate of controller losses can be used:
 
-P_loss=R_eq I_o^2+(αI_o+β)V_bus+〖Cf〗_eq V_bus^2
+𝐏𝗅𝗈𝗌𝗌 = 𝐑𝖾𝗊𝐈𝗈² + (𝛼𝐈𝗈 + β)𝐕𝖻𝗎𝗌 + 𝐂𝑓𝖾𝗊𝐕𝖻𝗎𝗌²
 
-where
+where:
 
-I_o is the output current of the controller in Arms
-V_bus is the bus voltage (battery voltage) of the controller
-R_eq is the equivalent resistance of the entire controller
-α is the linear component of the switching loss (per unit of bus voltage)
-β is the constant component of the switching loss (per unit of bus voltage)
-〖Cf〗_eq is the equivalent capacitance*frequency product of the entire controller
-
-fix (todo)
+*   <strong>𝐈𝗈</strong> is the output current of the controller in Arms
+*   <strong>𝐕𝖻𝗎𝗌</strong> is the bus voltage (battery voltage) of the controller
+*   <strong>𝐑𝖾𝗊</strong> is the equivalent resistance of the entire controller
+*   <strong>α</strong> is the linear component of the switching loss (per unit of bus voltage)
+*   <strong>β</strong> is the constant component of the switching loss (per unit of bus voltage)
+*   <strong>𝐂𝑓𝖾𝗊</strong> is the equivalent capacitance*frequency product of the entire controller
 
 The table below gives the constants for WaveSculptor22:
 
-| Constant | WaveSculptor22:
+| Constant | WaveSculptor22 MOSFETs:
 |-------|-------|
-| todo | 1.0800E-2|
-| todo | 3.3450E-3 |
-| todo | 1.8153E-2|
-| todo | 1.5625E-4|
+| 𝐑𝖾𝗊 | 1.0800E-2|
+| 𝛼 | 3.3450E-3 |
+| β | 1.8153E-2|
+| 𝐂𝑓𝖾𝗊 | 1.5625E-4|
 
 ## Heatsink Requirements
 
 Once the total motor controller loss can be calculated, an expected motor current and duty cycle is required to be able to calculate the heatsinking requirements of the controller.  This will depend on such things as the mass of the vehicle, rolling and aero resistance, and expected speeds and accelerations.  The more accurately this information is known, the more optimal the heatsink can be.
 
-Two scenarios are outlined below: the continuous use case; and the short term peak power case.
+Two scenarios are outlined below: the continuous use case; and the short term peak power use case.
 
 ### Continuous Use
 
-Say your vehicle uses a 160V DC bus, and requires 30A motor current continuously to maintain cruising speed on the highway.  The ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the datasheet for the correct value.
+Say your vehicle uses a 160V DC bus, and requires 30A motor current continuously to maintain cruising speed on the highway.  The ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the [datasheet](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1%20WaveSculptor22%20Datasheet.pdf) for the correct value.
 
 The graph above shows that at this voltage and current, the motor controller will be producing around 35W of loss.
 
@@ -92,7 +90,7 @@ Note that the above calculations are the minimum requirement.  Allowance should 
 
 ### Short Term Peak Power Use
 
-As a further example, say that your vehicle uses a 160V DC bus, and requires 80A motor current for two minutes to do a fast qualifying time.  The graph above shows that the motor controller will be producing around 120W of loss at this power level.  Ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the datasheet for the correct value.  Assume that the vehicle begins the qualifying lap with a heatsink at ambient temperature.
+As a further example, say that your vehicle uses a 160V DC bus, and requires 80A motor current for two minutes to do a fast qualifying time.  The graph above shows that the motor controller will be producing around 120W of loss at this power level.  Ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the [datasheet](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1%20WaveSculptor22%20Datasheet.pdf) for the correct value.  Assume that the vehicle begins the qualifying lap with a heatsink at ambient temperature.
 
 Heat from the controller in this type of scenario could possibly be stored, rather than immediately rejected to ambient.  In the situation above, the total energy required to be adsorbed by the heatsink is 120W * 120 seconds = 14.4kJ.  Using an aluminium block (specific heat = 0.897J/g°C) and a 30°C temperature rise would require a mass of m = Q/∆T.c =14.4kJ/30°C*0.897 = 535g.  Using a thin aluminium case containing water (specific heat = 4.186J/g°C, almost 5x better than aluminium) would reduce this mass to 115g.
 
@@ -104,13 +102,13 @@ Alternatively, other types of system such as one using a small volume of circula
 
 ## Mechanical Interface 
 
-The WaveSculptor22 provides a large flat surface to attach to your cooling solution.  Refer to the mechanical drawing available on the WaveSculptor22 page on the Prohelion website for dimensions and details.
-Use a thin layer of thermal grease or conformable thermal gap filler pad to fill any air gaps between the WaveSculptor22 cold plate and your heatsink, and provide the best thermal path between the two.  This material is not required to be electrically insulating.
+The WaveSculptor provides a large flat surface to attach to your cooling solution.  Refer to the mechanical drawing available on the [WaveSculptor22 page on the Prohelion website](https://www.prohelion.com/shop/wavesculptor-motor-controller/wavesculptor22-motor-controller/)(todo?) for dimensions and details.
+Use a thin layer of thermal grease or conformable thermal gap filler pad to fill any air gaps between the WaveSculptor cold plate and your heatsink, and provide the best thermal path between the two.  This material is not required to be electrically insulating.
 
 Attach the heatsink to the cold plate using eight M4 screws threading into the tapped inserts in the motor controller base, making certain to note the maximum screw depth specified in the datasheet.  
 
-<strong>Exceeding this depth will force the screw into internal components of the motor controller, almost certainly damaging it.</strong>
-
-
+<div class="callout callout--warning">
+    <p><strong>Warning</strong> Exceeding this depth will force the screw into internal components of the motor controller, almost certainly damaging it.</p>
+</div>
 
 

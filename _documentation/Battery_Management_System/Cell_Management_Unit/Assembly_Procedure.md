@@ -62,7 +62,7 @@ Use the proper crimp tool to crimp on the ring terminals for the cell connection
 
 ## Fit Microfit Crimps
 
-Strip back the CMU end of the cable by 2 – 2.5mm and use the correct tool to crimp on the molex crimps.  Pay careful attention to which way is 'up' when orienting the crimps and the housing.  The following photo shows the correct relationship. Refer to [Appendix A](Appendix) for component sources and [Appendix B](appendix) for crimping instructions.
+Strip back the CMU end of the cable by 2 – 2.5mm and use the correct tool to crimp on the molex crimps.  Pay careful attention to which way is 'up' when orienting the crimps and the housing.  The following photo shows the correct relationship. Refer to [Appendix A](Appendix_A) for component sources and [Appendix B](appendix_B) for crimping instructions.
 
 i
 

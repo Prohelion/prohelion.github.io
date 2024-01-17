@@ -5,7 +5,7 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/High_Power_Connections.html
 folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
-order: 11
+order: 10
 ---
 
 # High Power Connections 
@@ -14,11 +14,11 @@ It is important to correctly terminate the high power wiring for successful long
 
 High power connections should not be soldered for vehicle applications, as the solder wicks up inside the copper strands and creates a stress point, which can fatigue and break due to the vibration present in a vehicle.
 
-For a guide to good quality crimping of the high power connections, please read Appendix B of this document.
+For a guide to good quality crimping of the high power connections, please read [Appendix B](appendix_B) of this document.
 
 Copper oxidation is a threat to the long-term reliability of both the crimp and the bolted joint to the controller.  Use a thin smear of anti-oxidation electrical jointing compound on the contact surface of the crimp lug when bolting the cable to the controller, as shown in the diagram below.  
 
-i
+![anti-oxidation diagram]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/High_Power_Connections.png)
 
 The bolts are permanently assembled into the motor controller, and are prevented from rotating by a nylon holder.  
 

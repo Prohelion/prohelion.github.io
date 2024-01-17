@@ -5,7 +5,7 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Mounting.html
 folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
-order: 4
+order: 3
 ---
 
 # Mounting
@@ -20,14 +20,14 @@ The WaveSculptor may be mounted in any orientation including upside-down.
 
 Tool access (2mm hex key) is required at both ends of the motor controller to be able to remove the lid and make the high power bolt connections.
 
-## Environmental
+### Environmental
 
 The WaveSculptor is not rated to withstand water spray or drips.  Mount it in a dry location.  A good location will probably also have some ambient airflow, to help with heatsinking.
 
-## Heatsinking
+### Heatsinking
 
 The WaveSculptor is not rated to withstand water spray or drips.  Mount it in a dry location.  A good location will probably also have some ambient airflow, to help with heatsinking.
 
-## Cable Positioning
+### Cable Positioning
 
 The WaveSculptor has been designed with all cables and connections to the device at the front edge, to allow simplified positioning in your vehicle. The DC bus and motor phase cables can be quite stiff, make sure to allow enough room in front of the controller so that they can bend at greater than minimum radius.  
