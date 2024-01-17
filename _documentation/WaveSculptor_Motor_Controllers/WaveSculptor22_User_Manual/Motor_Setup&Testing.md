@@ -5,10 +5,10 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Motor_Setup&Testing.html
 folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
-order: 12
+order: 11
 ---
 
-## Motor Setup & Testing
+# Motor Setup & Testing
 
 ## Low Power Setup 
 
@@ -48,7 +48,8 @@ To stop with regen braking:
 
 Now that the motor is configured correctly, set the Bus Current to 100%, if it is not already.  Change the Velocity slider to around 10%.  Now, gradually increase the Motor Current slider, and the motor should smoothly accelerate to a moderate speed.
 
-Zero the motor current, then zero the velocity, and the motor should smoothly coast to a stop.  
+Zero the motor current, then zero the velocity, and the motor should smoothly coast to a stop.
+  
 Now set the velocity slider to 100%.  Once again, gradually increase the motor current.  The motor should smoothly accelerate to a faster speed than before.  Zero the motor current, then zero the velocity.  
 
 If using batteries, now test regen braking.  Set velocity to 100%.  Gradually increase motor current.  Now, with the motor spinning, set motor current to around 10%.  Zero the velocity.  The motor will regen brake to a halt.  Since it does not have the mass of a vehicle to damp the system, it may then oscillate slightly forwards and backwards – this should be relatively minimal if the vehicle mass was set to 30kg as outlined in the previous section.  Zero the motor current when near zero speed to stop this happening.

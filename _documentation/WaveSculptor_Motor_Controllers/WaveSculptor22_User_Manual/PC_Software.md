@@ -5,25 +5,25 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/PC_Software.html
 folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
-order: 8
+order: 7
 ---
 
 # PC Software
 
 ## Ethernet Bridge Installation
 
-Refer to the CAN-Ethernet bridge User's Manual for installation and setup of this piece of hardware.
+Refer to the [CAN-Ethernet bridge User's Manual]() for installation and setup of this piece of hardware.
 
 Connect the Ethernet bridge via a CAN bus cable to the WaveSculptor.  Use 120 ohm termination resistors between the CAN-H and CAN-L lines at both items.
 
-i
+![Ethernet connection]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/PC_Software.gif)
 
 ## PC Software
 
-Refer to the Software Download section on the WaveSculptor 22 product page for the Configuration & Setup software tool 
+Refer to the [Software Download section on the WaveSculptor 22 product page]() for the Configuration & Setup software tool 
 download.
 
-Refer to the Software User's Manual for installation and usage instructions. (todo)
+Refer to the [Software User's Manual]() for installation and usage instructions. (todo)
 
 ## Low Voltage & CAN Bus Testing
 

@@ -5,7 +5,7 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/High_Power_testing.html
 folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
-order: 13
+order: 12
 ---
 
 # High Power Testing

@@ -22,12 +22,13 @@ hero:
 
 # WaveSculptor22
 
-This document describes the operation, connections, mounting, communications, cooling, and how to get started with and use the Prohelion WaveSculptor 22 Motor Controller.
+This document describes the operation, connections, [mounting](mounting), communications, [cooling](cooling), and how to [get started](getting_started) with and use the Prohelion WaveSculptor22 Motor Controller.
 
-i
+![WaveSculptor22 Motor Controller]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/Introduction.png)
 
 <div class="callout callout--warning">
     <p><strong>WARNING</strong> This Product processes and uses potentially lethal voltages and currents. Do not provide power or operate with the cover removed. 
     To be opened and connected to by authorised personnel only.</p>
 </div>
+
 
