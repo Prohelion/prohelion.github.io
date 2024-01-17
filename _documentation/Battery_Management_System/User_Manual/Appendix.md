@@ -5,7 +5,7 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: Battery_Management_System/User_Manual/Appendix.html
 folder: Battery_Management_System/User_Manual
-order: 20
+order: 21
 ---
 
 # Additional Documentation 
@@ -15,3 +15,4 @@ order: 20
 
 *   Refer to [PRH67.010 BMU Communications Protocol](https://www.prohelion.com/wp-content/uploads/2020/03/PRH67.010v2-BMS-BMU-Communications-Protocol.pdf) for CAN packet format and specifications. 
 
+*   refer to [Vishay RH PDF](https://www.vishay.com/docs/50013/rh.pdf) for off-the-shelf Heatsink Encased Wirewound Power Resistors 

@@ -18,7 +18,7 @@ The shunt must be located in the Battery HV– connection of the pack, as shown 
 
 The BMU Shunt Sense input has a full-scale range of ±25mV, relative to the Battery HV– Sense input.  This allows the use of a standard 50mV shunt running at half its rated current to minimise heat buildup and thermal drift effects, since it will be installed inside the battery pack.   
 
-Choose a full-scale range slightly over the expected maximum battery current.  As an example, a Prohelion WaveSculptor200 motor controller driving an induction motor may have an expected maximum power consumption of 90kW.  At a 400V battery voltage, this is 225A.  Choose a full scale of 250A to allow some headroom on the measurement.  Since we wish to use a standard 50mV shunt at half rating, you would therefore select a 500A/50mV shunt. 
+Choose a full-scale range slightly over the expected maximum battery current.  As an example, a Prohelion [WaveSculptor200](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html) motor controller driving an induction motor may have an expected maximum power consumption of 90kW.  At a 400V battery voltage, this is 225A.  Choose a full scale of 250A to allow some headroom on the measurement.  Since we wish to use a standard 50mV shunt at half rating, you would therefore select a 500A/50mV shunt. 
 
 The value of the shunt can be set in the user-interface software. 
 

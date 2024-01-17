@@ -144,7 +144,7 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 || 2||      DC Bus over voltage |
 || 1||      Software over current |
 || 0||      Hardware over current |
-| Limit Flags | 15...0 | Uint16 | Flags Indicate which control loop is limiting the output current of the motor controller |
+| Limit Flags | 15..0 | Uint16 | Flags Indicate which control loop is limiting the output current of the motor controller |
 || <strong>Bits</strong>||<strong>Parameter</strong>
 || 15..7|| Reserved |
 || 6||      IPM Temperature or Motor Temperature |

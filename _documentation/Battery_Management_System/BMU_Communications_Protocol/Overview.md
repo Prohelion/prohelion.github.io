@@ -22,8 +22,8 @@ hero:
 
 # BMS BMU Vehicle Communications Protocol
 
-This document describes the communications protocol used between the [Battery Management Unit](http://localhost:4000/Battery_Management_System/User_Manual/Overview.html)(BMU) and the vehicle in the Prohelion Battery Management System (BMS).  
-Internal communications between the BMS BMU and BMS [Cell Management Units]() (CMUs) are described in another document (TRI67.009) but should not be needed for a typical end-user. (todo)
+This document describes the communications protocol used between the [Battery Management Unit](http://localhost:4000/Battery_Management_System/User_Manual/Overview.html) (BMU) and the vehicle in the Prohelion Battery Management System (BMS).  
+Internal communications between the BMS BMU and BMS Cell Management Units (CMUs) are described in another [document]? (TRI67.009) but should not be needed for a typical end-user. (todo)
 
 ---
 

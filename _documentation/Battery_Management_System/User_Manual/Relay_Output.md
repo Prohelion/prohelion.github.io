@@ -12,7 +12,7 @@ order: 18
 
 The BMU provides a voltage-free relay output to use for signalling devices in the vehicle that are not capable of receiving CAN bus data.  This can be used, for example, to control the 'enable' input of a DC/DC converter or drive a relay or HV contactor.   A coil suppression diode must be used if driving this type of load. 
 
-Refer to the datasheet for current and voltage ratings of the relay. 
+Refer to the [datasheet]()? for current and voltage ratings of the relay. 
 
 The relay is active when the BMS is in Run mode.   
 
@@ -26,4 +26,4 @@ The connector used for the Relay output is a 6-way 4.2mm pitch Molex MiniFit Jr 
 
 The +12V and Ground pins in this connector are wired (on the BMU PCB) to the Contactor 12V supply connector, and can be jumpered across to the relay pins to provide 12V output on relay active or inactive, switch loads to ground, etc, depending on the jumper arrangement. 
 
-The Relay pins in this connector are wired directly to a small relay on the BMU PCB.  Refer to the datasheet for the ratings on this relay. 
+The Relay pins in this connector are wired directly to a small relay on the BMU PCB.  Refer to the [datasheet]()? for the ratings on this relay. 
