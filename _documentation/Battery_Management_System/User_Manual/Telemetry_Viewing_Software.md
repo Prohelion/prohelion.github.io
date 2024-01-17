@@ -5,7 +5,7 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: Battery_Management_System/User_Manual/Telemetry_Viewing_Software.html
 folder: Battery_Management_System/User_Manual
-order: 19
+order: 20
 ---
 
 # Telemetry Viewing Software
@@ -72,23 +72,23 @@ The data is highlighted in various ways to quickly understand the system status
 
 In addition to double clicking on the executable, the BMS Viewing software can also run from the command line, where certain options can be set. The supported command line options are described below: 
 
--s <serial number>
+<strong>-s </serial number></strong>
 
 This is used to specify the serial number of the BMU to connect to on the CAN bus when launched 
 
-<strong> -f <filename>
+<strong> -f </filename>
 
 Specifying a filename will enable logging in the BMS_Viewer and all data will logged to the filename. 
 
 <strong> -l
 
-Using -l on the command line will enable logging in the BMS_Viewer and will automatically choose a filename, combining the serial number of the connected BMU device and the timestamp when the program was launched. Note that when using this option that the log file will be rolled over at midnight each day. 
+Using <strong>-l</strong> on the command line will enable logging in the BMS_Viewer and will automatically choose a filename, combining the serial number of the connected BMU device and the timestamp when the program was launched. Note that when using this option that the log file will be rolled over at midnight each day. 
 
-<strong> -u <rate>
+<strong> -u </rate>
 
 This option is used to determine the logging rate. Currently one can choose between 0.2, 1, 10, and 60 second update rates. 
 
-example: BMS_Viewer.exe -s9566 -l -u10 
+Example: BMS_Viewer.exe -s9566 -l -u10 
 
-FIX (TODO) (above)
+
 

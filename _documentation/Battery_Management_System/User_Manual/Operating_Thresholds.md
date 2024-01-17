@@ -26,7 +26,7 @@ This voltage should be set to the maximum acceptable voltage for the cell.  If i
 
 This voltage is the target setpoint for the charging control algorithm, and will be the voltage that the cells are charged to in normal operation.  It should be chosen to be part-way up the 'knee' in the voltage charge curve, so that the cells can be easily seen to be at different SOC and therefore balanced accurately.   
 
-Choosing this number to be higher (closer towards the Over Voltage Threshold) will give a slightly increased useable capacity of the pack, but will make it more likely that sudden regen braking will push a cell above the Over Voltage Threshold and shut down the system without warning.  Pushing the usual charge voltage to the maximum rating of the cell may also reduce cell cycle life – refer to the cell datasheet for specific information on this aspect, as it is highly dependant on cell chemistry and manufacturing techniques. 
+Choosing this number to be higher (closer towards the Over Voltage Threshold) will give a slightly increased useable capacity of the pack, but will make it more likely that sudden regen braking will push a cell above the Over Voltage Threshold and shut down the system without warning.  Pushing the usual charge voltage to the maximum rating of the cell may also reduce cell cycle life – refer to the [cell datasheet](?) for specific information on this aspect, as it is highly dependant on cell chemistry and manufacturing techniques. 
 
 When any cell exceeds this voltage, the cell balance (shunt) resistor for that cell is switched on, and begins to discharge that cell at approximately 250mA.  The shunt resistor remains switched on until the cell falls below the Balance Threshold by the Balance Threshold Hysteresis value. 
 

@@ -59,7 +59,7 @@ features:
               - title: WaveSculptor200 User Manual
                 description: User Manual for the Prohelion WaveSculptor200
                 icon: rotate-cw
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN74.021v1 WaveSculptor200 Users Manual.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html
         - title: WaveSculptor Motor Interfaces
           description: Motor Interfaces bridge the controller to your motor. Different interface boards are used depending on your motors capabilities
           grid: # Add feature grid items below, there are examples with all available options

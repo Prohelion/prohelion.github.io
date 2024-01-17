@@ -5,7 +5,7 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: Battery_Management_System/Cell_Management_Unit/Wiring_Harness.html
 folder: Battery_Management_System/Cell_Management_System
-order: 2
+order: 1
 ---
 
 # Wiring Harness

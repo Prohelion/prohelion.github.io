@@ -3,8 +3,8 @@ title: Appendix C
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
-permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Appendix_C.html
-folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
+permalink: WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/appendix_C.html
+folder: WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual
 order: 16
 ---
 
@@ -47,7 +47,7 @@ The data field in all frames is fixed at 8 bytes (64 bits) which allows space fo
 |<strong>Low Float</strong>|||
 |s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
 |^|^^^|^|
-|31|30 23 22|0|a
+|31|30 23 22|0|
 
 Figure 3. Format of the data field in a data frame (???) (todo)
 
@@ -106,7 +106,7 @@ To run the motor in velocity (cruise) control mode, set the current to your maxi
 
 Data frames containing telemetry values are periodically broadcast onto the bus by the WaveSculptor.  Broadcast of these values can be individually enabled and disabled via the Windows configuration software. 
 
-Any of these telemetry values can be requested at any time (no matter if enabled or disabled) by sending the appropriate RTR packet on the CAN bus.  For example, with a WaveSculptor22 configured at base address 0x400, your device should send an empty packet onto the CAN bus with an ID of 0x402 and the RTR bit set.  The WaveSculptor22 will reply immediately with a packet from ID 0x402 containing the latest bus voltage and current readings.
+Any of these telemetry values can be requested at any time (no matter if enabled or disabled) by sending the appropriate RTR packet on the CAN bus.  For example, with a WaveSculpto200 configured at base address 0x400, your device should send an empty packet onto the CAN bus with an ID of 0x402 and the RTR bit set.  The WaveSculptor200 will reply immediately with a packet from ID 0x402 containing the latest bus voltage and current readings.
 
 ### Identification Information 
 
@@ -117,7 +117,7 @@ Any of these telemetry values can be requested at any time (no matter if enabled
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
 | Serial Number | 63..32 | Uint32 | Device serial number, allocated at manufacture. |
-| Prohelion ID | 31..0 | Uint32 | Device identifier. 0x00004003 |
+| Prohelion ID | 31..0 | Uint32 | Device identifier. 0x00004002 |
 
 The periodic broadcast of this message cannot be disabled. It is needed to find the motor controller on the network if the base address is lost or mis-configured.
 
@@ -127,23 +127,38 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 
 <strong>Interval: 200ms</strong> 
 
-| <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Units</strong> | <strong>Description</strong>  
+| <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
 | Receive Error Count | 63..56 | Uint8 | The DSP CAN receive error counter (CAN 2.0) |
 | Transmit Error Count | 55..48 | Uint8 | The DSP CAN transmission error counter (CAN 2.0) |
-| Active Motor | 47..32 | Uint16 | The index of the active motor currently being used. |
-| Error Flags | 31..16 | Uint16 | Flags Indicate Error |
+| Error Flags (Extended) | 47..40 | Uint8 | Flags Indicate Extended Errors (V3 Only) |
 ||<strong>Bits</strong>||<strong>Parameter</strong>|
-|| 15..9|| Reserved |
-|| 8||      Motor Over Speed (15% overshoot above max RPM) |
-|| 7||      Desaturation Fault (IGBT desaturation, IGBT driver OVLO)
-|| 6||      15V Rail under voltage lock out (UVLO)
-|| 5||      Config read error (some values may be reset to defaults)
-|| 4||      Watchdog caused last reset|
-|| 3||      Bad motor position hall sequence |
-|| 2||      DC Bus over voltage |
-|| 1||      Software over current |
-|| 0||      Hardware over current |
+|| 7|| Desaturation fault – Phase A Low Gate |
+|| 6|| Desaturation fault – Phase A High Gate |
+|| 5|| Desaturation fault – Phase B Low Gate |
+|| 4|| Desaturation fault – Phase B High Gate |
+|| 3|| Desaturation fault – Phase C Low Gate |
+|| 2|| Desaturation fault – Phase C High Gate |
+|| 1|| Hardware over current – Phase C |
+|| 0|| Hardware over current – Phase B |
+| Active Motor | 39..32| Uint8 | The index of the active motor currently being used |
+| Error Flags | 31..16 | Uint16 | Flags Indicate Errors |
+|| <strong>Bits</strong>||<strong>Parameter</strong>|
+|| 15..14|| Reserved |
+|| 13|| Hardware over Voltage |
+|| 12|| Output over Voltage (Debug only) |
+|| 11|| Bad PWM (Debug only) |
+|| 10|| Unknown error source (Debug only) |
+|| 9|| Motor Over Speed (15% overshoot above max RPM)
+|| 8|| Motor Interface communications fault |
+|| 7|| Desaturation fault (IGBT desaturation, IGBT driver UVLO) |
+|| 6|| 15V rail under voltage lock out (UVLO)|
+|| 5|| Config read errors (some values may be reset to defaults) |
+|| 4|| Watchdog caused last reset |
+|| 3|| Bad Motor position hall sequence |
+|| 2|| DC Bus over voltage |
+|| 1|| Software over current |
+|| 0|| Hardware over current |
 | Limit Flags | 15..0 | Uint16 | Flags Indicate which control loop is limiting the output current of the motor controller |
 || <strong>Bits</strong>||<strong>Parameter</strong>
 || 15..7|| Reserved |
@@ -155,7 +170,7 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 || 1||      Motor Current |
 || 0||      Output Voltage PWM |
 
-### Bus Measurement
+## Bus Measurement 
 
 <strong>ID: Motor Controller Base Address + 0x02</strong> 
 
@@ -163,8 +178,8 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Units</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
-| Bus Current | 63..32 | A | Current drawn from the DC bus by the controller. |
-| Bus Voltage | 31..0 | V | DC bus voltage at the controller. |
+| Bus Current | 63..32 | A | Current drawn from the DC bus by the controller.|
+| Unused | 31..0 | V | DC bus voltage at the controller.|
 
 ### Velocity Measurement 
 
@@ -187,7 +202,6 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 |----------------------------------------------------|
 | Phase C Current | 63..32 | Aᵣₘₛ| RMS current in motor Phase C. |
 | Motor Velocity | 31..0 | Aᵣₘₛ | RMS current in motor Phase B.|
-
 
 While the motor is rotating at speed these two currents should be equal. At extremely low commutation speeds these two currents will only match in one third of the motor position, the other two thirds will involve current also flowing in Phase A.
 
@@ -257,7 +271,7 @@ While the motor is rotating at speed these two currents should be equal. At extr
 | Reserved | 63...32 | - | - |
 | Reserved | 31...0 | - | - |
 
-### Heat-sink & Motor Temperature Measurement 
+### IMP Phase A & Motor Temperature Measurement 
 
 <strong>ID: Motor Controller Base Address + 0x0B</strong> 
 
@@ -265,10 +279,10 @@ While the motor is rotating at speed these two currents should be equal. At extr
 
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
-| Heat-sink Temp | 63..32 | °C | Internal temperature of Heat-sink (case) |
-| Motor Temp | 31..0 |•C | Internal temperature of the motor.|
+| IMP Phase A Temp | 63...32 | °C | Internal temperature of phase A in main IPM.|
+| Motor Temp | 31...0 | °C | Internal temperature of the motor. |
 
-### DSP Board Temperature Measurement
+### IMP Phase B & DSP Board Temperature Measurement
 
 <strong>ID: Motor Controller Base Address + 0x0C</strong> 
 
@@ -276,10 +290,10 @@ While the motor is rotating at speed these two currents should be equal. At extr
 
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
-| Rserved | 63..32 | - | - |
-| DSP Board Temp | 31..0 | •C | Temperature of the DSP board.|
+| IMP Phase B Temp | 63...32 | °C | Internal temperature of phase B in main IPM.|
+| DSP Board Temp | 31...0 | °C | Temperature of the DSP board. |
 
-### Reserved 
+### IMP Phase C Temperature Measurement 
 
 <strong>ID: Motor Controller Base Address + 0x0D</strong> 
 
@@ -287,11 +301,11 @@ While the motor is rotating at speed these two currents should be equal. At extr
 
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
-| Reserved | 63..32 | - | - |
-| Reserved | 31..0 | - | - |
+| IMP Phase C Temp | 63...32 | °C | Internal temperature of phase C in main IPM.|
+| Reserved | 31...0 | °C | - |
 
-### Odometer & Bus AmpHours Measurement 
-
+### Odometer & Bus AmpHours Measuremen
+ 
 <strong>ID: Motor Controller Base Address + 0x0E</strong> 
 
 <strong>Interval: 1 second</strong> 
@@ -299,9 +313,9 @@ While the motor is rotating at speed these two currents should be equal. At extr
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
 | DC Bus AmpHours | 63...32 | Ah | Charge flow into the controller DC bus from the time of reset.|
-| Odometer | 31...0 | m | Distance the vehicle has travelled since reset.|
+| Odometer | 31...0 | m | Distance the vehicle has travelled since reset|
 
-### Slip Speed Measurement
+### Slip Speed Measurement 
 
 <strong>ID: Motor Controller Base Address + 0x17</strong> 
 
@@ -328,4 +342,5 @@ Send this command to change the active motor. Note that the controller will save
 Example to set the active motor to motor slot 5:
 
 <strong>CAN ID = 0x412, Data = 0x00 05 54 4F 4D 54 43 41</strong>
+
 

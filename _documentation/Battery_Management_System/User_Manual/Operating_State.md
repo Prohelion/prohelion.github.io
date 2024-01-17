@@ -12,12 +12,12 @@ order: 15
 
 The BMS can be in any one of six states, depending on operating conditions, commands, and errors.  The states are reported on the CAN bus, and shown in the BMS Viewer software.  The states are, in the most commonly seen sequence: 
 
-*   <strong>Error 
-*   <strong>Idle 
-*   <strong>Enable 
-*   <strong>Measure 
-*   <strong>Precharge 
-*   <strong>Run 
+*   Error 
+*   Idle 
+*   Enable 
+*   Measure 
+*   Precharge 
+*   Run 
 
 States transition from one to another based on various thresholds and timers, and on user commands from the Prohelion EV Driver Controls via the CAN bus, as detailed in the following sections. 
 

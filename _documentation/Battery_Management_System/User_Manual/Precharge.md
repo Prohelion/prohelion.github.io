@@ -53,7 +53,7 @@ The expected precharge time is given by the time constant TAU = R (Ohms) * C (Fa
 
 Choosing a >500W resistor is unnecessary, as this rating is only needed for a short amount of time during normal operation.  However, the resistor cannot be too small, as if a fault situation occurs, such as a short circuit in the motor controller, then this power will be dissipated continuously for the entire expected precharge time, until the precharge controller realises that precharging has not occurred properly and goes into an error state.  For safety, the resistor in the example system should be chosen to tolerate a one-off event, starting at the expected maximum ambient temperature, of 430W for 1.5 seconds. 
 
-Searching through available off-the-shelf options from Digikey, the RH series from Vishay is chosen as a likely candidate.  According to the datasheet located at   http://www.vishay.com/docs/50013/rh.pdf , (todo) for short time overloads, a power rating of 12x the nominal power is acceptable for a 2 second duration.  Using a 50W resistor, this equates to an overload rating of 600W, starting at an ambient of 25°C.   
+Searching through available off-the-shelf options from Digikey, the RH series from Vishay is chosen as a likely candidate.  According to the [datasheet](https://www.vishay.com/docs/50013/rh.pdf) (see also, [Appendix](appendix)) for short time overloads, a power rating of 12x the nominal power is acceptable for a 2 second duration.  Using a 50W resistor, this equates to an overload rating of 600W, starting at an ambient of 25°C.   
 
 Therefore, this 50W resistor is acceptable for the external resistor in this application based on maximum fault power. 
 
@@ -67,7 +67,7 @@ Therefore, a <strong>470 ohm, 50W, RH series wirewound aluminium resistor </stro
 
 Note that the BMS must be programmed with the correct timeout value, so as it knows what the expected precharge time is.  If this is not done, then the precharge controller will either expect precharge to have finished when it has not, resulting in an error state, or it will expect precharge to take much longer than it really does, resulting in a potential overload and a fire in the external resistor if there is a system fault. 
 
-# Caveats
+## Caveats
 
 Be aware that loads that draw current during precharge will cause the precharge sequence to fail and/or the precharge resistor to overheat.  This is because the current drawn by the load will slow or possibly prevent the output voltage from rising, meaning precharge never completes in the expected time.   
 
