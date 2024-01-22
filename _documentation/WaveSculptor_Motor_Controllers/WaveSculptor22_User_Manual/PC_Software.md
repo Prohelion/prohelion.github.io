@@ -23,7 +23,7 @@ Connect the Ethernet bridge via a CAN bus cable to the WaveSculptor.  Use 120 oh
 Refer to the [Software Download section on the WaveSculptor 22 product page]() for the Configuration & Setup software tool 
 download.
 
-Refer to the [Software User's Manual]() for installation and usage instructions. (todo)
+Refer to the [Software User's Manual]()? for installation and usage instructions. (todo)
 
 ## Low Voltage & CAN Bus Testing
 

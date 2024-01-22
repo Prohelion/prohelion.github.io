@@ -26,14 +26,12 @@ This document describes how to make the cell voltage sense wiring harness for th
 
 Please read through the entire assembly procedure, as well as the [BMS User's Manual](http://localhost:4000/Battery_Management_System/User_Manual/Overview.html) before commencing work.
 
-\centering
 <div class="callout callout--danger">
     <p><strong>Working Around Batteries in Dangerous</strong> Not only are lethal high voltages present, but individual cells can also put out thousands of amps when shorted, for example with a stray wire or dropped tool, throwing out arcs and molten metal.</p>
     <p>Check the legal requirements in your jurisdiction for using licensed technicians for this type of work.</p>
     <p>Wear eye protection! Use insulated tools! Take extreme caution!</p>
     <p>Go slow. think through every step before doing it.</p>
 </div>
-\centering 
 
 The 8-cell CMU has the connections for the cell voltage and temperature sensing at one end of the circuit board.  The CAN bus ribbon cable connector is at the other end of the board.  
 
