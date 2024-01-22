@@ -7,6 +7,7 @@ permalink: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Getting_Sta
 folder: WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual
 order: 1
 ---
+
 # Getting Started
 
 Work through this manual in sequence, using this checklist as you go.
@@ -30,9 +31,6 @@ Work through this manual in sequence, using this checklist as you go.
 *   Motor test at high voltage, wheels off ground, using driver controls hardware
 *   Private road test
 *   On-road vehicle test
-
-## Unpacking and Preparation 
-
 Check that all items on the packing list are in the box and undamaged.  Contact the shipping company and Prohelion if there is obvious outer box damage during transport.  Contact Prohelion immediately if there is a discrepancy with the items or other damage.  
 
 You will require the following specialised tools for installing the WaveSculptor motor controller:
