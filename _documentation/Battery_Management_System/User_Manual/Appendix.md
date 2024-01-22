@@ -13,6 +13,6 @@ order: 21
 
 *   Refer to [PRH67.006 Assembly Procedure PDF](https://www.prohelion.com/wp-content/uploads/2020/03/PRH67.006v3-Assembly-Procedure-CMU-Cell-Wiring.pdf) for CMU wiring harness construction guidelines and recommended part numbers. 
 
-*   Refer to [PRH67.010 BMU Communications Protocol](https://www.prohelion.com/wp-content/uploads/2020/03/PRH67.010v2-BMS-BMU-Communications-Protocol.pdf) for CAN packet format and specifications. 
+*   Refer to [PRH67.010 BMU Communications Protocol](http://localhost:4000/Battery_Management_System/BMU_Communications_Protocol/Overview.html) for CAN packet format and specifications. 
 
 *   refer to [Vishay RH PDF](https://www.vishay.com/docs/50013/rh.pdf) for off-the-shelf Heatsink Encased Wirewound Power Resistors 

@@ -18,8 +18,7 @@ This packet is transmitted by the BMU and allows it to be located and identified
 |----------------------------------------------------|
 | <strong>Interval</strong>       | <strong>1 Hz</strong>| 
 |----------------------------------------------------|
-| data_u32[0] | * v5 and later: Devide ID: 0x00001000 
-|               * v4 and earlier: ASCII ID string: 'T', 'O', '6', '7' |
+| data_u32[0] | v5 and later: Devide ID: 0x00001000 v4 and earlier: <br> ASCII ID string: 'T', 'O', '6', '7' 
 | data_u32[1] | Device serial number as programmed at the factory |
 
 fix (todo)
