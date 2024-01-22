@@ -28,7 +28,7 @@ features:
               - title: WaveSculptor22 Datasheet
                 description: Datasheet for the Prohelion WaveSculptor22
                 icon: file-text
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1 WaveSculptor22 Datasheet.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet/Overview.html
               - title: WaveSculptor22 User Manual
                 description: User Manual for the Prohelion WaveSculptor22
                 icon: user

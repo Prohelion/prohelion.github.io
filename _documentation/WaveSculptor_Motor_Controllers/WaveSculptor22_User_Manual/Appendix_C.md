@@ -47,7 +47,7 @@ The data field in all frames is fixed at 8 bytes (64 bits) which allows space fo
 |<strong>Low Float</strong>|||
 |s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
 |^|^^^|^|
-|31|30 23 22|0|a
+|31|30 23 22|0|
 
 Figure 3. Format of the data field in a data frame (???) (todo)
 

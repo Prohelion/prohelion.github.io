@@ -21,8 +21,6 @@ This packet is transmitted by the BMU and allows it to be located and identified
 | data_u32[0] | v5 and later: Devide ID: 0x00001000 v4 and earlier: <br> ASCII ID string: 'T', 'O', '6', '7' 
 | data_u32[1] | Device serial number as programmed at the factory |
 
-fix (todo)
-
 ## CMU Status, Temperature and Voltage Telemetry
 
 These packets are transmitted by the CMUs and contain the telemetry values from the cells.  The BMU will relay these packets through to the vehicle CAN bus if configured to do so – this is enabled by default.
