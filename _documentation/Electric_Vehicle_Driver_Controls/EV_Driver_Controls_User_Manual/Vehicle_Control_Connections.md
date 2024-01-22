@@ -3,8 +3,8 @@ title: Vehicle Control Connections
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 last_updated: January 10, 2024
-permalink: Electric_Vehicle_Driver_Controls/Vehicle_Control_Connections.html
-folder: Electric_Vehicle_Driver_Controls
+permalink: Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/Vehicle_Control_Connections.html
+folder: Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual
 order: 4
 ---
 

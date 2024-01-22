@@ -1,31 +1,49 @@
 ---
-title: Prohelion Driver Controls
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
-tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
-keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
+# Page settings
+layout: homepage # Choose layout: "default", "homepage" or "documentation-archive"
+title: Prohelion Electric Vehicle Driver Controls
+description: Documentation for the Prohelion CAN Bus to Ethernet Bridge
+keywords: Prohelion, Profinity, CAN Bus Tools, CANBus, CAN to Ethernet
 permalink: Electric_Vehicle_Driver_Controls/Overview.html
 folder: Electric_Vehicle_Driver_Controls
-order: 0
 
 # Hero section
 hero:
-    title: Driver Controls Unit
-    text: Developing an Electric Vehicle? The Prohelion Driver Controller Unit is designed to give you a head start with an off the shelf control platform to get you driving sooner.
+    title: Electric Vehicle Driver Controls
+    text: Prohelion’s CAN-Ethernet bridge makes it easy to form a virtual link between physically separated CAN networks. The CAN/Ethernet network arrangement is extremely flexible – you can connect the bridge point to point, over a local network or even via the internet using a Virtual Private Network (VPN). The CAN-Ethernet bridge is compatible with all Prohelion products. (todo)
     background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
-        - label: Order a Prohelion Driver Control
-          url: https://www.prohelion.com/shop/accessories/ev-driver-controls/
+        - label: Order a CAN to Ethernet Bridge
+          url: https://www.prohelion.com/shop/accessories/can-ethernet-bridge/
           external_url: true 
           style: filled
           icon: credit-card 
+
+# Features section
+features:
+    rows: # Add feature rows below, there are examples with all available options
+        - title: Prohelion CAN Bus to Ethernet Bridge
+          description: Documentation for the Prohelion CAN to Ethernet Bridge
+          grid: # Add feature grid items below, there are examples with all available options
+              - title: User Manual
+                description: User Manual for the Prohelion EV Driver Controls
+                icon: wifi
+                url: /Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/Overview.html 
+              - title: Communications Protocol
+                description: Information on EV Driver Controls CAN Bus Communications Protocol Specification
+                icon: wifi
+                url: /Electric_Vehicle_Driver_Controls/EV_Driver_Controls_Communications_protocol/Overview.html     
+        - title: Frequently Asked Questions (FAQs)
+          description: Answers to the commonly asked questions that we get on our core products
+          grid:
+              - title: CAN to Ethernet Bridge
+                description: Getting the most out of or troubleshooting your CAN to Ethernet Bridge
+                icon: wifi
+                url: /FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/Overview.html  
+        - title: Supporting Software          
+          grid:
+              - title: Profinity
+                description: Our battery and CAN Bus management software solution.
+                icon: check-circle
+                url: ../Profinity/Overview.html
 ---
-
-# EV Driver Controls User's Manual
-
-This document describes the interface, installation, and usage requirements for the Prohelion EV Driver Controls product.  It also provides information on programming the device to implement custom functionality.
-
-The EV Driver Controls provide an easy way to control a Prohelion WaveSculptor motor controller.  The driver controls come programmed from the factory configured with sensible default values that will work in a plug-and-play manner with a motor controller.
-
-The EV Driver Controls provide analog and digital inputs, used to generate commands to the motor controller.  It also provides both analog and digital outputs to drive dashboard gauges and error and status LEDs.
-
-The microcontroller firmware for the device (written in 'C') is available on the Prohelion website under an open-source BSD license, as are the hardware schematics and component overlays.

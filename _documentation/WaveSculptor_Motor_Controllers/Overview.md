@@ -60,21 +60,33 @@ features:
                 description: User Manual for the Prohelion WaveSculptor200
                 icon: rotate-cw
                 url: /WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html
+              - title: WaveSculptor200 Motor Drive (?todo)
+                description: Motor Sense Comm Spec for WaveSculptor200
+                icon: rotate-cw
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_Motor_Sense_Comms_Spec/Overview.html
         - title: WaveSculptor Motor Interfaces
           description: Motor Interfaces bridge the controller to your motor. Different interface boards are used depending on your motors capabilities
           grid: # Add feature grid items below, there are examples with all available options
               - title: Type 1 - Motor Interface
-                description: Interface board for motors with Halls and Thermistor
+                description: Interface board for motors with Halls & Thermistor
                 icon: rotate-cw
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN74.026v1 Motor Interface Datasheet Type 1.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_1/Overview.html
+              - title: Type 2 - Motor Interface
+                description: Interface board for motors with Encoder & Thermistor
+                icon: rotate-cw
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_2/Overview.html
               - title: Type 3 - Motor Interface
                 description: Interface board for motors with Resolver & Pt100
                 icon: rotate-cw
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN74.032v1 Motor Interface Datasheet Type 3.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_3/Overview.html
+              - title: Type 6 - Motor Interface
+                description: Interface board for motors with Encoder & Thermistor
+                icon: rotate-cw
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_6/Overview.html
               - title: Type 7 - Motor Interface
                 description: Interface board for motors with Resolver & Thermistor
                 icon: rotate-cw
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN74.028v1 Motor Interface Datasheet Type 7.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_7/Overview.html
         - title: Supporting Software                  
           grid:
               - title: Profinity
