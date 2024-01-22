@@ -16,14 +16,29 @@ The 8-byte data on the CAN bus is formatted using a 'union' overlay structure in
 
 The structure is defined on the (16-bit) MSP430 as follows:
 
+~~~ c++
 typedef union _group_64 {
-*   unsigned char data_u8[8];
-	*   char data_8[8];
-	*   unsigned int data_u16[4];
-	*   int data_16[4];
-	*   unsigned long data_u32[2];
-	*   long data_32[2];
-
+	float data_fp[2];
+	unsigned char data_u8[8];
+	char data_8[8];
+	unsigned int data_u16[4];
+	int data_16[4];
+	unsigned long data_u32[2];
+	long data_32[2];
 } group_64;
+~~~
+
+~~~ c++
+typedef union _group_64 { 
+    float data_fp[2]; 
+    unsigned char data_u8[8]; 
+    char data_8[8]; 
+    unsigned int data_u16[4]; 
+    int data_16[4]; 
+    unsigned long data_u32[2]; 
+    long data_32[2];
+} group_64;
+~~~
+??
 
 Data values data_u8[0] through to data_u8[7] are the bytes transmitted on the CAN bus.

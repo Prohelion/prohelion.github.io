@@ -10,7 +10,7 @@ order: 3
 
 # Appendix A: Recommended Component Sources
 
-| <strong>Part description</strong>       
+| Part description  |     
 |----------------------------------------------------|
 | Manufacturer | Manafacturer Part Number |
 | Suggested Supplier| Supplier Part Number |
