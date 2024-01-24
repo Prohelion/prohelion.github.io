@@ -14,7 +14,7 @@ As a high-level description, the WaveSculptor takes high voltage DC from a batte
 
 Power flow is bi-directional, so it can also perform regenerative braking (regen) where power flows from the motor back into the batteries.  It is a four-quadrant device, which means that it can drive or regen in both forwards and reverse directions.
 
-Ignoring the losses in the system (refer to the [datasheet](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1%20WaveSculptor22%20Datasheet.pdf) for efficiency curves for the WaveSculptor), total power through the motor controller is conserved.  It does not create energy, it just converts it from one form (DC) to another (AC).  
+Ignoring the losses in the system (refer to the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet/Overview.html) for efficiency curves for the WaveSculptor), total power through the motor controller is conserved.  It does not create energy, it just converts it from one form (DC) to another (AC).  
 
 ## A Note on Motor and Battery Currents
 

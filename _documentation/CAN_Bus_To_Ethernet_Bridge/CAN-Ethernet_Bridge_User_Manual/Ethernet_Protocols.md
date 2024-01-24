@@ -1,5 +1,5 @@
 ---
-title: Eternet Protocols
+title: Ethernet Protocols
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls

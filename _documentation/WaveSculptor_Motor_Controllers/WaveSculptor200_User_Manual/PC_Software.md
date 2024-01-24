@@ -12,11 +12,11 @@ order: 7
 
 ## Ethernet Bridge Installation
 
-Refer to the [CAN-Ethernet bridge User's Manual]() for installation and setup of this piece of hardware.
+Refer to the [CAN-Ethernet bridge User's Manual](http://localhost:4000/CAN_Bus_To_Ethernet_Bridge/CAN-Ethernet_Bridge_User_Manual/Overview.html) for installation and setup of this piece of hardware.
 
 Connect the Ethernet bridge via a CAN bus cable to the WaveSculptor. Use 120 ohm termination resistors between the CAN-H and CAN-L lines at both items.
 
-i
+![WaveSculptor 200 Motor Controller]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/Ethernet-bridge-installation.gif)
 
 ## PC Software
 

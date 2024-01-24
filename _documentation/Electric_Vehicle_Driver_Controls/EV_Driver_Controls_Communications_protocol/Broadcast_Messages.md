@@ -14,7 +14,7 @@ order: 2
 
 ### Identification Information
 
-<strong>ID: Driver Controls Base Address + 0</strong> 
+<strong>ID: Driver Controls Base Address + 00</strong> 
 
 <strong>Interval: 1 Second</strong> 
 
@@ -29,7 +29,7 @@ The periodic broadcast of this message cannot be disabled. It is needed to help 
 
 ### Motor Drive Command
 
-<strong>ID: Driver Controls Base Address + 1</strong> 
+<strong>ID: Driver Controls Base Address + 01</strong> 
 
 <strong>Interval: 100ms</strong> 
 
@@ -42,7 +42,7 @@ The WaveSculptor motor controller must receive a Motor Drive Command frame at le
 
 ### Motor Power Command
 
-<strong>ID: Driver Controls Base Address + 2</strong> 
+<strong>ID: Driver Controls Base Address + 02</strong> 
 
 <strong>Interval: 100ms or as needed</strong> 
 
@@ -53,7 +53,7 @@ The WaveSculptor motor controller must receive a Motor Drive Command frame at le
 
 ### Reset Command
 
-<strong>ID: Driver Controls Base Address + 3</strong> 
+<strong>ID: Driver Controls Base Address + 03</strong> 
 
 <strong>Interval: no fixed interval, not used during normal operation</strong> 
 
@@ -68,34 +68,14 @@ Send a command from this address to reset the WaveSculptor.
 
 ### Switch position / activity
 
-<strong>ID: Driver Controls Base Address + 4</strong> 
+<strong>ID: Driver Controls Base Address + 04</strong> 
 
 <strong>Interval: 100ms</strong> 
 
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
 | Switch Position | 63..32 | Uint32 | Current position of the switch inputs on the driver controls module DB37 connector: |
-||<strong>Bits</strong>||<strong>Parameter</strong>|
-|| 31..18|| Unused |
-|| 17|| Right Indicator output (90 per minute) |
-|| 16|| Left indicator output (90 per minute) |
-|| 15|| Unused |
-|| 14|| Onboard (internal) debug button|
-|| 13|| Encoder 1 pushbutton |
-|| 12|| Encoder 2 pushbutton |
-|| 11|| Right indicator switch |
-|| 10|| Left indicator switch |
-|| 9|| Hazards switch |
-|| 8|| Horn switch |
-|| 7|| Ignition – Accessory position |
-|| 6|| Ignition – ON (Run) position|
-|| 5|| Direction (0 = Forward, 1 = Reverse)|
-|| 4|| Brake 1 switch |
-|| 3|| Brake 2 switch|
-|| 2|| Lights – Side / Running lights switch|
-|| 1|| Lights – Low Beam switch |
-|| 0|| Lights – High Beam switch |
+|||<strong>Bits</strong>|<strong>Parameter</strong>|
+||| 31..18<br>17<br>16<br>15<br>14<br>13<br>12<br>11<br>10<br>9<br>8<br>7<br>6<br>5<br>4<br>3<br>2<br>1<br>0| Unused<br>Right Indicator output (90 per minute)<br>Left indicator output (90 per minute)<br>Unused<br>Onboard (internal) debug button<br>Encoder 1 pushbutton<br>Encoder 2 pushbutton<br>Right indicator switch<br>Left indicator switch<br>Hazards switch<br>Horn switch<br>Ignition – Accessory position<br>Ignition – ON (Run) position<br>Direction (0 = Forward, 1 = Reverse)<br>Brake 1 switch<br>Brake 2 switch<br>Lights – Side / Running lights switch<br>Lights – Low Beam switch<br>Lights – High Beam switch |
 | Switch Activity | 31..0 | Uint32 | Shows if the switch has changed state since the last time this CAN frame was sent. |
-|||| 1 = switch has changed |
-|||| 0 = no change |
-|||| Bit positions are identical to the Switch Position bitfield shown above. |
+|||| 1 = switch has changed<br>0 = no change<br>Bit positions are identical to the Switch Position bitfield shown above. |

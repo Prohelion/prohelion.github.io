@@ -49,7 +49,7 @@ Insert the wire into the crimp.  Hold your finger over the inspection hole to st
 
 <strong>Step 5:</strong>
 
-Set your hex crimp tool to the same size as the crimp lug.  In the example photos here, we have used 35mm² cable, lugs, and crimp tool.  To crimp with the proper force, you will need either a 'bolt cutter' type crimp tool, as shown in the photo above, with handles around 600mm (2') long, or a hydraulic tool with an appropriate crimp die set.
+Set your hex crimp tool to the same size as the crimp lug.  In the example photos here, we have used 35mm<sup>2</sup> cable, lugs, and crimp tool.  To crimp with the proper force, you will need either a 'bolt cutter' type crimp tool, as shown in the photo above, with handles around 600mm (2') long, or a hydraulic tool with an appropriate crimp die set.
 
 ![Step 5]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/AppB_4.jpg)
 

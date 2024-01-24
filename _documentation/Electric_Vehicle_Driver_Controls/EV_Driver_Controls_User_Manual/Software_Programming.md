@@ -14,13 +14,13 @@ The driver controls are based around a Texas Instruments (TI) MSP430 16-bit embe
 
 ## Schematics & Source Code
 
-Schematics and PCB component position overlays in PDF format are available for download on the Prohelion website.  A [zip file](https://github.com/Prohelion/EV-Driver-Controls) is also provided containing the default source code for the microcontroller, written in 'C' and available under a BSD open-source license.  
+Schematics and PCB component position overlays in PDF format are available for download on the Prohelion website.  A zip file is also provided containing the default source code for the microcontroller, written in 'C' and available under a BSD open-source license.  ?? (todo)
 
 Please refer to these references if developing custom firmware for the driver controls.
 
 ## Toolchain
 
-The example default code provided is configured to work with the freely-available open-source MSP430 GCC toolchain, which provides a command-line driven compiler, binutils, download, and real-time debug capability through a JTAG header present on the driver controls PCB.  The debug functionality requires purchase of a USB programmer from Texas Instruments.  Please refer to the README file with the source code for download and installation instructions.
+The example default code provided is configured to work with the freely-available open-source MSP430 GCC toolchain, which provides a command-line driven compiler, binutils, download, and real-time debug capability through a JTAG header present on the driver controls PCB.  The debug functionality requires purchase of a USB programmer from Texas Instruments.  Please refer to the [README]()? file with the source code for download and installation instructions.
 
 ## Code Download
 

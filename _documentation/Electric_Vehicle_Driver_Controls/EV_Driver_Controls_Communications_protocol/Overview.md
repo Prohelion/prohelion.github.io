@@ -1,5 +1,5 @@
 ---
-title: EV Driver Controls Communications Protocol
+title: Overview
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls

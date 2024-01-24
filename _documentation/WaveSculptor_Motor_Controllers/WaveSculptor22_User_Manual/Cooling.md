@@ -28,7 +28,7 @@ All of these losses have a very strong relationship to input voltage and output 
 
 ### Test Methodology
 
-To produce the efficiency curves in the [datasheet](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1%20WaveSculptor22%20Datasheet.pdf), and the modelling information in this document, the switching losses in the WaveSculptor were measured directly, by analysing the current and voltage switching waveforms.  
+To produce the efficiency curves in the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet/Overview.html), and the modelling information in this document, the switching losses in the WaveSculptor were measured directly, by analysing the current and voltage switching waveforms.  
 
 Conduction losses were simply derived from the measured phase to phase resistance of the WaveSculptor.
 
@@ -72,7 +72,7 @@ Two scenarios are outlined below: the continuous use case; and the short term pe
 
 ### Continuous Use
 
-Say your vehicle uses a 160V DC bus, and requires 30A motor current continuously to maintain cruising speed on the highway.  The ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the [datasheet](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1%20WaveSculptor22%20Datasheet.pdf) for the correct value.
+Say your vehicle uses a 160V DC bus, and requires 30A motor current continuously to maintain cruising speed on the highway.  The ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet/Overview.html) for the correct value.
 
 The graph above shows that at this voltage and current, the motor controller will be producing around 35W of loss.
 
@@ -90,7 +90,7 @@ Note that the above calculations are the minimum requirement.  Allowance should 
 
 ### Short Term Peak Power Use
 
-As a further example, say that your vehicle uses a 160V DC bus, and requires 80A motor current for two minutes to do a fast qualifying time.  The graph above shows that the motor controller will be producing around 120W of loss at this power level.  Ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the [datasheet](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN88.003v1%20WaveSculptor22%20Datasheet.pdf) for the correct value.  Assume that the vehicle begins the qualifying lap with a heatsink at ambient temperature.
+As a further example, say that your vehicle uses a 160V DC bus, and requires 80A motor current for two minutes to do a fast qualifying time.  The graph above shows that the motor controller will be producing around 120W of loss at this power level.  Ambient temperature is high, at 40°C, and the maximum cold plate temperature specified in the datasheet is 70°C – please check the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet/Overview.html) for the correct value.  Assume that the vehicle begins the qualifying lap with a heatsink at ambient temperature.
 
 Heat from the controller in this type of scenario could possibly be stored, rather than immediately rejected to ambient.  In the situation above, the total energy required to be adsorbed by the heatsink is 120W * 120 seconds = 14.4kJ.  Using an aluminium block (specific heat = 0.897J/g°C) and a 30°C temperature rise would require a mass of m = Q/∆T.c =14.4kJ/30°C*0.897 = 535g.  Using a thin aluminium case containing water (specific heat = 4.186J/g°C, almost 5x better than aluminium) would reduce this mass to 115g.
 

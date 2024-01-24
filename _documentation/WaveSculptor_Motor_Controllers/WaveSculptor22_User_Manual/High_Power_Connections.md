@@ -50,7 +50,7 @@ The positions of the various connections are shown on the front panel of the con
 
 ## Testing
 
-At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the “Motor Setup & Testing” section of this document.
+At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the [Motor Setup & Testing](Motor_Setup&Testing) section of this document.
 
 ## Precharge 
 

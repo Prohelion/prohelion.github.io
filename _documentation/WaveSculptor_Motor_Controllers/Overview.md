@@ -40,7 +40,7 @@ features:
               - title: WaveSculptor22 Software User Manual
                 description: User Manual for the software application to configuring and manage the Prohelion WaveSculptor22
                 icon: user
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN74.040v1 WaveSculptor Config software users manual.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/Overview.html
               - title: WaveSculptor22 Mechanical Drawing
                 description: Mechanical Drawing for the Prohelion WaveSculptor22
                 icon: file
