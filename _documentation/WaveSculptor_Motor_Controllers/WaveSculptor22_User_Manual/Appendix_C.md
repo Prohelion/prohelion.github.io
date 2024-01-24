@@ -21,7 +21,7 @@ The CAN protocol uses data frames for most communication.  Remote frames are als
 |Bit Length	|1	|11	|6	|8 Bytes	|16	|2	|7|
 ||	Start	|Identifier	|Control	|Data Field	|CRC	|Ack	|End|
 
-Figure 1. CAN Data frame
+Figure 1. CAN Data frame (TODO)
 
 ### Identifier
 
@@ -33,7 +33,7 @@ The term Base Address is used instead of Device Identifier in the Windows config
 |10-5|4-0|
 | Device Idendifier | Message Identifier |
 
-Figure 2. CAN Device Identifier Address Format
+Figure 2. CAN Device Identifier Address Format (TODO)
 
 ### Data Field 
 
@@ -133,27 +133,11 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 | Transmit Error Count | 55..48 | Uint8 | The DSP CAN transmission error counter (CAN 2.0) |
 | Active Motor | 47..32 | Uint16 | The index of the active motor currently being used. |
 | Error Flags | 31..16 | Uint16 | Flags Indicate Error |
-||<strong>Bits</strong>||<strong>Parameter</strong>|
-|| 15..9|| Reserved |
-|| 8||      Motor Over Speed (15% overshoot above max RPM) |
-|| 7||      Desaturation Fault (IGBT desaturation, IGBT driver OVLO)
-|| 6||      15V Rail under voltage lock out (UVLO)
-|| 5||      Config read error (some values may be reset to defaults)
-|| 4||      Watchdog caused last reset|
-|| 3||      Bad motor position hall sequence |
-|| 2||      DC Bus over voltage |
-|| 1||      Software over current |
-|| 0||      Hardware over current |
+|||<strong>Bits</strong>|<strong>Parameter</strong>|
+||| 15..9<br>8<br>7<br><br>6<br>5<br><br>4<br>3<br>2<br>1<br>0| Reserved<br>Motor Over Speed (15% overshoot above max RPM)<br>Desaturation Fault (IGBT desaturation, IGBT driver OVLO)<br>15V Rail under voltage lock out (UVLO)<br>Config read error (some values may be reset to defaults)<br>Watchdog caused last reset<br>Bad motor position hall sequence<br>DC Bus over voltage<br>Software over current<br>Hardware over current |
 | Limit Flags | 15..0 | Uint16 | Flags Indicate which control loop is limiting the output current of the motor controller |
-|| <strong>Bits</strong>||<strong>Parameter</strong>
-|| 15..7|| Reserved |
-|| 6||      IPM Temperature or Motor Temperature |
-|| 5||      Bus Volatge Lower Limit |
-|| 4||      Bus Voltage Upper Limit |
-|| 3||      Bus Current |
-|| 2||      Velocity |
-|| 1||      Motor Current |
-|| 0||      Output Voltage PWM |
+||| <strong>Bits</strong>|<strong>Parameter</strong>
+||| 15..7<br>6<br>5<br>4<br>3<br>2<br>1<br>0| Reserved<br>IPM Temperature or Motor Temperature<br>Bus Volatge Lower Limit<br>Bus Voltage Upper Limit<br>Bus Current<br>Velocity<br>Motor Current<br>Output Voltage PWM |
 
 ### Bus Measurement
 
@@ -185,8 +169,8 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Units</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
-| Phase C Current | 63..32 | Aᵣₘₛ| RMS current in motor Phase C. |
-| Motor Velocity | 31..0 | Aᵣₘₛ | RMS current in motor Phase B.|
+| Phase C Current | 63..32 | A<sub>rms</sub>| RMS current in motor Phase C. |
+| Motor Velocity | 31..0 | A<sub>rms</sub> | RMS current in motor Phase B.|
 
 
 While the motor is rotating at speed these two currents should be equal. At extremely low commutation speeds these two currents will only match in one third of the motor position, the other two thirds will involve current also flowing in Phase A.
@@ -266,7 +250,7 @@ While the motor is rotating at speed these two currents should be equal. At extr
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
 | Heat-sink Temp | 63..32 | °C | Internal temperature of Heat-sink (case) |
-| Motor Temp | 31..0 |•C | Internal temperature of the motor.|
+| Motor Temp | 31..0 | °C | Internal temperature of the motor.|
 
 ### DSP Board Temperature Measurement
 
@@ -277,7 +261,7 @@ While the motor is rotating at speed these two currents should be equal. At extr
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Type</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
 | Rserved | 63..32 | - | - |
-| DSP Board Temp | 31..0 | •C | Temperature of the DSP board.|
+| DSP Board Temp | 31..0 | °C | Temperature of the DSP board.|
 
 ### Reserved 
 

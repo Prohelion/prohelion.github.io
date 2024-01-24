@@ -22,12 +22,13 @@ These settings can be changed using the CAN–Ethernet Bridge Configuration Tool
 
 The CAN–Ethernet Bridge Configuration application provides three functions.  First, it enables users to modify the Bridge Configuration of the bridges connected to the network.  Secondly, it allows users to view the bridges connected to their network and select the bridge corresponding to the virtual network that they wish to use.  Third, it allows updating the bridge firmware.
 
-Figure 5(todo) shows a screenshot of the configuration tool.  
+Figure 5 shows a screenshot of the configuration tool.  
 
-i
+![Figure 5:CAN-Ethernet Bridge Configuration Tool]({{site.dox.baseurl}}/images/CAN-Ethernet_Bridge_User_Manual/CAN-Ethernet_Bridge_Configuration_tool.gif)
 
-The listbox on the left shows detected CAN–Ethernet bridges.  
-Details about the selected bridge are shown on the right.  
+Figure 5: CAN-Ethernet Bridge Configuration Tool
+
+The listbox on the left shows detected CAN–Ethernet bridges.Details about the selected bridge are shown on the right.  
 These details are:
 
 *   <strong>Bridge MAC:</strong> The MAC address of the bridge.  This is unique for each bridge, and is fixed in the factory and cannot be changed.
@@ -51,11 +52,13 @@ The CAN–Ethernet Bridge Loader wizard provides the ability to load updated fir
 
 Figure 6 shows a screenshot of the loader tool.  
 
-i
+![Figure 6:CAN-Ethernet Bridge Loader Tool]({{site.dox.baseurl}}/images/CAN-Ethernet_Bridge_User_Manual/CAN-Ethernet_Bridge_loader_tool.gif)
+
+Figure 6: CAN-Ethernet Bridge Loader Tool
 
 To use the tool, complete the following steps:
 
-*   <strong>Step 1:</strong> Download the latest firmware image file (.teb) from the Prohelion website
+*   <strong>Step 1:</strong> Download the latest firmware image file (.teb) from the [Prohelion website]()?
 *   <strong>Step 2:</strong> Run CanBridgeConfig, select the bridge to load, and click Load Firmware
 *   <strong>Step 3:</strong> Browse to where the image file is saved and select the file
 *   <strong>Step 4:</strong> Check that the temporary IP address that will be assigned is sensible. In most cases the utility will choose a valid address on the same subnet, and the default will not require changing

@@ -1,5 +1,5 @@
 ---
-title: CAN-Ethernet Bridge User Manual
+title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
@@ -24,12 +24,12 @@ hero:
 
 This document describes the usage of the Prohelion CAN–Ethernet bridge, including the accompanying configuration software.
 
-i
+![CAN-Ethernet Bridge]({{site.dox.baseurl}}/images/CAN-Ethernet_Bridge_User_Manual/introduction.png)
 
 The Prohelion CAN–Ethernet bridge allows easy access to a CAN bus from a PC. No installation is required, so the device can be used with any PC with an Ethernet interface. Furthermore, an already present Ethernet network can be used to route CAN messages: with a bridge connected to a router on the network, all PCs attached to that router will become part of the virtual CAN bus. It is also possible to combine multiple physically separate CAN buses into one virtual bus, or use them as separate virtual buses on the same network.
 
 ## CAN Bridge Hardware
 
-The CAN-Ethernet bridge uses the standard CAN bus pinout on the male DB9 connector.  Refer to the [datasheet]() for the specifications on this connector.  
+The CAN-Ethernet bridge uses the standard CAN bus pinout on the male DB9 connector.  Refer to the [datasheet]()? for the specifications on this connector.  
 
 

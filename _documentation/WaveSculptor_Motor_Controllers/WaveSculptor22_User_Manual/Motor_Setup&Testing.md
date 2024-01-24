@@ -22,7 +22,7 @@ Run the PC software, and provide 12V along the CAN cable to power up the motor c
 
 ## Phasorsense - BLDC Motors
 
-If you are using a BLDC or other permanent magnet motor, refer to the [software user's manual]() for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.
+If you are using a BLDC or other permanent magnet motor, refer to the [software user's manual]()? for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.
 
 Next, run the parameter extraction routine, which calculates motor parameters.  Save the results into one of the ten available motor configuration slots.  In the general configuration screen, set this motor slot as the “Active Motor”.
 
@@ -58,7 +58,7 @@ If using batteries, now test regen braking.  Set velocity to 100%.  Gradually in
 
 Remove the CAN cable and termination resistor from the CAN-Ethernet bridge, and connect them both to the EV Driver Controls hardware.  
 
-Provide 12V power to the driver controls.  Go through the startup sequence as described in the Driver Controls User's Manual.  Depending on the exact firmware you have this will usually involve turning the key to the start position, and selecting forward gear in the driver controls. 
+Provide 12V power to the driver controls.  Go through the startup sequence as described in the [Driver Controls User's Manual](http://localhost:4000/Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/Overview.html).  Depending on the exact firmware you have this will usually involve turning the key to the start position, and selecting forward gear in the driver controls. 
 
 Use the accelerator (gas) pedal to run the motor.  Complete the following checks:
 *   Driving forwards

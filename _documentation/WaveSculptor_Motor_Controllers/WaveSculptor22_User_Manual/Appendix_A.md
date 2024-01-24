@@ -44,12 +44,12 @@ order: 14
 | BethTherm | 10KD6A372I |
 | Farnell | 970-7298 |
 
-| <strong>High Power 16mm² M6 bolt lug connections</strong>       
+| <strong>High Power 16mm<sup>2</sup> M6 bolt lug connections</strong>       
 |----------------------------------------------------|
 | Cabac | CAA 16-6 |
 | Local Electrical Supplier | - |
 
-| <strong>High Power Cabling - 16mm² high temp orange</strong>       
+| <strong>High Power Cabling - 16mm<sup>2</sup> high temp orange</strong>       
 |----------------------------------------------------|
 | Tycab Australia | ZDFX151102-OR |
 | Local Electrical supplier | - |

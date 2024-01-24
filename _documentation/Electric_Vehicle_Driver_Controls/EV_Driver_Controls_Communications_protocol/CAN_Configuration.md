@@ -21,7 +21,7 @@ The CAN protocol uses data frames for most communication.  Remote frames are als
 |Bit Length	|1	|11	|6	|8 Bytes	|16	|2	|7|
 ||	Start	|Identifier	|Control	|Data Field	|CRC	|Ack	|End|
 
-Figure 1. CAN Data frame
+Figure 1. CAN Data frame (todo)
 
 ### Identifier
 
@@ -31,7 +31,7 @@ The identifier field has been split into two sections for Prohelion devices. Bit
 |10-5|4-0|
 | Device Idendifier | Message Identifier |
 
-Figure 2. CAN Device Identifier Address Format
+Figure 2. CAN Device Identifier Address Format (todo)
 
 ### Data Field
 

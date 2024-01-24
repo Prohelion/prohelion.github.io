@@ -12,7 +12,7 @@ order: 1
 
 Work through this manual in sequence, using this checklist as you go:
 *   Items arrived in good condition
-*   Read and understood the datasheet
+*   Read and understood the [datasheet]()?
 *   Read and understood this document
 *   A good mounting location chosen
 *   Cooling system installed and purged of air

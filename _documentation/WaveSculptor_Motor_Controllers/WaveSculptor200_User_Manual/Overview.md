@@ -1,5 +1,5 @@
 ---
-title: WaveSculptor200 User Manual 
+title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
@@ -24,7 +24,7 @@ hero:
 
 This document describes the operation, connections, mounting, communications, cooling and how to get started with and use the Prohelion WaveSculptor 200 Motor Controller.
 
-i
+![WaveSculptor 200 Motor Controller]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/Introduction.png)
 
 <div class="callout callout--warning">
     <p><strong>Warning</strong> This product processes and uses potentially lethal voltages and currents.  Do not provide power or operate with the cover removed.  

@@ -1,5 +1,5 @@
 ---
-title: WaveSculptor22 User Manual 
+title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
@@ -20,9 +20,9 @@ hero:
           icon: credit-card 
 ---
 
-# WaveSculptor22
+# WaveSculptor22 User Manual
 
-This document describes the operation, connections, [mounting](mounting), communications, [cooling](cooling), and how to [get started](getting_started) with and use the Prohelion WaveSculptor22 Motor Controller.
+This document describes the operation, connections, mounting, communications, cooling, and how to get started with and use the Prohelion WaveSculptor22 Motor Controller.
 
 ![WaveSculptor22 Motor Controller]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/Introduction.png)
 

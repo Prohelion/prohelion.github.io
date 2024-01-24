@@ -19,7 +19,7 @@ The liquid cooling system consists of four main components. They are:
 *   Radiator
 *   Reservoir
 
-They should be connected as shown below.  Tracing the liquid flow path around the circuit, the pump should be directly after the reservoir, to minimise dry running the pump when installing the system.  The radiator should be directly after the WaveSculptor, to cool the liquid as soon as possible and minimise the temperature that the pump is exposed to.
+They should be connected as shown below. (no image on document???) Tracing the liquid flow path around the circuit, the pump should be directly after the reservoir, to minimise dry running the pump when installing the system.  The radiator should be directly after the WaveSculptor, to cool the liquid as soon as possible and minimise the temperature that the pump is exposed to.
 
 Additional components can be added to the system. Recommended items are:
 
@@ -38,7 +38,7 @@ The coolant flow path inside the WaveSculptor is a 'U' shape along one side from
 
 When mounted horizontally, it does not matter which way coolant flows in the waterblock, so connect the inlet and outlet in the way that simplifies the tube routing in your vehicle.
 
-When mounted vertically (the middle picture in the [Choosing a Location]() section) then the inlet should be below the outlet.  Doing this will simplify bleeding air from the system.
+When mounted vertically (the middle picture in the [Choosing a Location](mounting) section) then the inlet should be below the outlet.  Doing this will simplify bleeding air from the system.
 
 ## Radiator
 

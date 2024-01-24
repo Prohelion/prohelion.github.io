@@ -77,7 +77,7 @@ Prohelion can provide a CAN bus driver controls device.  This interfaces to peda
 
 As the communications specification is open, the WaveSculptor can also be operated from custom driver controls hardware specific to your vehicle, or from a Windows PC running either the provided Prohelion software, or custom software of your choice.
 
-Please refer to the driver controls datasheet and user's manual on our website for further details. (todo)
+Please refer to the [Driver Controls Datasheet]()? and [User Manual](http://localhost:4000/Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/Overview.html) on our website for further details. 
 
 ## System Expansion
 

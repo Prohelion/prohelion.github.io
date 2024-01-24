@@ -32,11 +32,11 @@ features:
               - title: Ethernet Interface
                 description: Information on how the Bridge represents CAN Bus data over TCP and UDP
                 icon: wifi
-                url: /assets/pdfs/CAN_Bus_To_Ethernet_Bridge/PHLN82.007v1 CAN Ethernet Bridge Ethernet Interface.pdf                
+                url: /CAN_Bus_To_Ethernet_Bridge/CAN-Ethernet_Bridge_Ethernet_Interface/Overview.html 
               - title: Datasheet
                 description: Datasheet for the Prohelion CAN to Ethernet Bridge
                 icon: check-circle
-                url: /assets/pdfs/CAN_Bus_To_Ethernet_Bridge/PHLN82.005v1 CAN Ethernet Bridge Datasheet.pdf 
+                url: /CAN_Bus_To_Ethernet_Bridge/CAN-Ethernet_Bridge_Datasheet/Overview.html 
         - title: Frequently Asked Questions (FAQs)
           description: Answers to the commonly asked questions that we get on our core products
           grid:
