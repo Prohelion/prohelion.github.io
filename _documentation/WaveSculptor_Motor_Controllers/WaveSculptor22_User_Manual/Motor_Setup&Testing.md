@@ -22,7 +22,7 @@ Run the PC software, and provide 12V along the CAN cable to power up the motor c
 
 ## Phasorsense - BLDC Motors
 
-If you are using a BLDC or other permanent magnet motor, refer to the [software user's manual]()? for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.
+If you are using a BLDC or other permanent magnet motor, refer to the [software user's manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/Overview.html) for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.
 
 Next, run the parameter extraction routine, which calculates motor parameters.  Save the results into one of the ten available motor configuration slots.  In the general configuration screen, set this motor slot as the “Active Motor”.
 
@@ -34,7 +34,7 @@ This test will check that the motor spins and is configured correctly.
 
 Open the controls screen in the PC software (View → Controls). There are three sliders, setting Motor Current, Motor Velocity, and Bus (battery) current respectively.  The motor controller will use up to whatever motor current you have set to try and achieve the requested velocity.  The motor current will be limited if the battery current reaches the bus current setpoint.
 
-If using batteries as the power source, regenerative braking (regen) can also be tested.  Do NOT test regen braking if using a power supply for the 24V source, as you will force current back into the supply and damage it.
+If using batteries as the power source, regenerative braking (regen) can also be tested.  DO NOT test regen braking if using a power supply for the 24V source, as you will force current back into the supply and damage it.
 
 The motor controller will regen if the velocity is set to a lower speed than the motor is actually moving, and motor current is above zero. 
 

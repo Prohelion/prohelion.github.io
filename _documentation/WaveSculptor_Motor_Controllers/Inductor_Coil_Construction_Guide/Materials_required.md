@@ -14,7 +14,7 @@ Material listings are for a complete set of three inductors:
 
 *   58908-A2 High Flux Toroid core.  26µ permeability, 79mm OD, 48mm ID, 17mm high, 37nH/T<sup>2</sup> AL.  Quantity required: 3.  Supplier: Magnetics Incorporated, [http://www.mag-inc.com](http://www.mag-inc.com)
 
-*   Litz wire, 30x 0.335mm diameter strands, 'single' insulation, around 2.6mm² total copper cross sectional area.  Three of these litz wire bundles will be used in parallel, giving almost 8mm² total cross-sectional area.  Quantity required: approximately 50 metres.  
+*   Litz wire, 30x 0.335mm diameter strands, 'single' insulation, around 2.6mm<sup>2</sup> total copper cross sectional area.  Three of these litz wire bundles will be used in parallel, giving almost 8mm<sup>2</sup> total cross-sectional area.  Quantity required: approximately 50 metres.  
 Supplier: varies, see below:
 
 *   Kapton or Polyester transformer insulation tape.  Quantity required: a few metres.  Supplier: Your local catalogue electronics supplier, eg Element14 (formerly Farnell), part number <strong>753-014</strong>

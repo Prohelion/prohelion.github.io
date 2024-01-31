@@ -22,7 +22,7 @@ hero:
 
 # 50µH Solarcar Inductors Construction Guide
 
-This document describes how to build a set of 50µH 100Arms (peak) inductors suitable for use with a Prohelion WaveSculptor motor controller and a CSIRO/Marands motor.
+This document describes how to build a set of 50µH 100A<sub>rms</sub> (peak) inductors suitable for use with a Prohelion WaveSculptor motor controller and a CSIRO/Marands motor.
 
 ---
 
