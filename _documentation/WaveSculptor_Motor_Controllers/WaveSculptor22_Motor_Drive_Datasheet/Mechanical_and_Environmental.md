@@ -10,7 +10,7 @@ order: 7
 
 # Mechanical and Environmental
 
-The WaveSculptor controller is mounted into position using tapped holes in the cooling surface on the base of the controller.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the [User's Manual]()? document available on the Prohelion website.
+The WaveSculptor controller is mounted into position using tapped holes in the cooling surface on the base of the controller.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Overview.html) document.
 
 The WaveSculptor controller is splashproof and presents no exposed HV connections able to be touched with a finger or tool.  It is not environmentally sealed against major water and dust ingress.  
 
@@ -21,6 +21,7 @@ The WaveSculptor controller is splashproof and presents no exposed HV connection
 | Power cable diameter maximum:| 9 | mm | Note 25 |
 | HV electrical terminal thread: | M6 |  | Note 26 |
 | HV electrical fastening torque maximum: | 6 | Nm | Note 26 |
+
 | Environmental Rating: | IP42 | 
 
 ### Notes
@@ -31,4 +32,4 @@ The WaveSculptor controller is splashproof and presents no exposed HV connection
 
 25) Cable larger than this size may physically fit into the controller, but fitting the bolt crimp lugs over the fasteners in the motor controller may be difficult.
 
-26) The WaveSculptor has permanently fitted threaded studs in the connection area of the main circuit board.  The correct fastening hardware to use with these studs is detailed in the [User's Manual]().?
+26) The WaveSculptor has permanently fitted threaded studs in the connection area of the main circuit board.  The correct fastening hardware to use with these studs is detailed in the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Overview.html)

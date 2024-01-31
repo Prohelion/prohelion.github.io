@@ -36,7 +36,7 @@ features:
               - title: Inductor Coil Construction Guide
                 description: How to build a set of 50μH 100Arms (peak) inductors suitable for use with the Prohelion WaveSculptor22
                 icon: rotate-cw
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN30.001v1 Inductor Construction Guide.pdf
+                url: /WaveSculptor_Motor_Controllers/Inductor_Coil_Construction_guide/Overview.html
               - title: WaveSculptor22 Software User Manual
                 description: User Manual for the software application to configuring and manage the Prohelion WaveSculptor22
                 icon: user
@@ -55,7 +55,7 @@ features:
               - title: WaveSculptor200 Datasheet
                 description: Datasheet for the Prohelion WaveSculptor200
                 icon: rotate-cw
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN74.015v1 WaveSculptor200 Datasheet.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_datasheet/Overview.html
               - title: WaveSculptor200 User Manual
                 description: User Manual for the Prohelion WaveSculptor200
                 icon: rotate-cw
@@ -94,7 +94,7 @@ features:
                 icon: check-circle
                 url: ../Profinity/Overview.html
               - title: WaveSculptor Software
-                description: Specialist software for configuring and managing your WaveSculptor
+                description: Specialist software for configuring and managing your WaveSculptor (same as above?)
                 icon: check-circle
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN74.040v1 WaveSculptor Config software users manual.pdf
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/Overview.html
 ---

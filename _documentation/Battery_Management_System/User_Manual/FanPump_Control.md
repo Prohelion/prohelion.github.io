@@ -22,7 +22,7 @@ The BMS firmware switches both outputs on when the BMS is in Run mode (once prec
 
 The connector used for the pump/fan outputs is a 3-way 2.54mm pitch Molex KK connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.   
 
-![Fan/Pump Connector]({{site.dox.baseurl}}/images/BMS_User_Manual/Fan:Pump_Connectors.png)
+![Fan/Pump Connector]({{site.dox.baseurl}}/images/BMS_User_Manual/Fan,Pump_Connectors.png)
 
 The pinout follows the standard used for PC cooling fans and pumps, as found on any computer motherboard or peripheral.  Please note that the wire colours used on fans and pumps varies with each manufacturer. 
 

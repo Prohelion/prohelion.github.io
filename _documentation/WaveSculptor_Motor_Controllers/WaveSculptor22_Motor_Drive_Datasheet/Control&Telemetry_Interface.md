@@ -25,4 +25,4 @@ The WaveSculptor receives commands, and transmits telemetry values, using a CAN 
 
 21) The data rate used for CAN bus activity is set during configuration and setup of the controller.  Factory default for all Prohelion devices is 500 kbits per second.
 
-22) The CAN bus data connection and power supply are isolated from the high-power DC bus to this continuous voltage rating.  Please refer to the [isolation](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/High_Power_Connections.html) section in the User's Manual regarding recommended earthing and connection practices.
+22) The CAN bus data connection and power supply are isolated from the high-power DC bus to this continuous voltage rating.  Please refer to the [isolation](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/High_Power_Connections.html) section in the User Manual (under High Power Connections)regarding recommended earthing and connection practices.
