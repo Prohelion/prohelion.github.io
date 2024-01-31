@@ -46,6 +46,8 @@ To allow solar racing teams to predict the WaveSculptor power loss, both for hea
 
 𝐏𝗅𝗈𝗌𝗌 = 𝐑𝖾𝗊𝐈𝗈² + (𝛼𝐈𝗈 + β)𝐕𝖻𝗎𝗌 + 𝐂𝑓𝖾𝗊𝐕𝖻𝗎𝗌²
 
+
+
 where:
 
 *   <strong>𝐈𝗈</strong> is the output current of the controller in Arms

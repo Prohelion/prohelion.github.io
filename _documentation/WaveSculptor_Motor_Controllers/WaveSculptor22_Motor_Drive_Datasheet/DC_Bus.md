@@ -18,7 +18,7 @@ The DC bus connection provides power to the controller during normal (motoring) 
 |Instantaneous bus current maximum (drive):	| 122 | A | Note 3, 4
 |Instantaneous bus current maximum (regen):	| -122 | A | Note 3, 4
 
-### Notes
+#### Notes:
 
 1)  The WaveSculptor control electronics operate from low-voltage DC supplied along the CAN bus cable, not from the high-voltage DC bus.  Therefore, the supply to the main power stage (via the DC bus) has no operating minimum voltage.
  

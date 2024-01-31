@@ -8,6 +8,8 @@ folder: WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet
 order: 3
 ---
 
+# Motor Sense
+
 When driving an AC Permanent Magnet motor, the WaveSculptor requires three sensors from the motor to give position feedback at low velocities.  When driving an induction motor, the WaveSculptor requires a motor shaft encoder to give velocity feedback.  Motor temperature can also be measured for both telemetry data and motor protection, if desired.
 
 | Sensor power supply output 1:	 | 5 | V | Note 9 |
@@ -18,7 +20,7 @@ When driving an AC Permanent Magnet motor, the WaveSculptor requires three senso
 | Induction motor encoder resolution minimum: | 250 | ppr | Note 13 |
 | NTC Temperature sensor at 25°C: | 100 | kΩ | Note 14 |
 
-### Notes
+#### Notes:
 
 9)  The WaveSculptor provides isolated voltage supplies to operate the motor position sensors and motor temperature sensor.  These supplies are a regulated 5V and regulated 12V output.  Please check with your motor supplier for the acceptable operating voltage of the position sensors used in your motor.
 
@@ -26,8 +28,8 @@ When driving an AC Permanent Magnet motor, the WaveSculptor requires three senso
 
 11) Motor position sensors are only required when driving a AC Permanent Magnet motor.  Motor position sensors should be aligned such that the phase angle offset between each sensor’s output changing state, and the zero-crossing point of it’s approprate motor phase, is no more than the specified maximum. This implies that the sensors are 120° offset (electrically, per motor pole) from each other under ideal conditions.
 
-12) The polarity and arrangement of the position input signals does not matter. The WaveSculptor detects relative alignment of position signals to motor phases, as well as the polarity of each input, when the Phasorsense algorithm is run during motor controller configuration and setup.  The WaveSculptor can store this information for multiple motors, thus allowing motor changes in your vehicle without having to re-run the configuration program.  Please refer to the communications and programming [Appendix](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Appendix_C.html) in the User's Manual for more information.
+12) The polarity and arrangement of the position input signals does not matter. The WaveSculptor detects relative alignment of position signals to motor phases, as well as the polarity of each input, when the Phasorsense algorithm is run during motor controller configuration and setup.  The WaveSculptor can store this information for multiple motors, thus allowing motor changes in your vehicle without having to re-run the configuration program.  Please refer to the communications and programming [Appendix](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Appendix_C.html) in the User Manual for more information.
 
 13) The motor shaft encoder is only required when driving a induction motor.
 
-14) The WaveSculptor expects a 100kΩ (at 25°C) NTC thermistor embedded in the motor to detect motor temperature.  The thermistor B model constants (available in the [thermistor datasheet]()? can be programmed into the WaveSculptor during configuration / setup to exactly match the temperature response of your thermistor.
+14) The WaveSculptor expects a 100kΩ (at 25°C) NTC thermistor embedded in the motor to detect motor temperature.  The thermistor B model constants (available in the [thermistor datasheet]())? can be programmed into the WaveSculptor during configuration / setup to exactly match the temperature response of your thermistor.

@@ -14,7 +14,7 @@ The maximum instantaneous output power from the WaveSculptor is limited by inter
 
 The WaveSculptor 22 is supplied uncooled, and uses an external customer-supplied heatsink or waterblock to provide cooling for the system.  This allows the end-user to optimise the cooling performance, weight, power consumption and drag of their cooling solution.
 
-Please refer to the [Cooling](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Cooling.html) section in the User's Manual for calculations regarding cooling capacity and performance.
+Please refer to the [Cooling](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Cooling.html) section in the User Manual for calculations regarding cooling capacity and performance.
 
 | Maximum instantaneous power output: | 20 | kVA| Note 15 |
 | Maximum cold plate design temperature: | 70 | °C | Note 16 |
@@ -25,13 +25,13 @@ Please refer to the [Cooling](http://localhost:4000/WaveSculptor_Motor_Controlle
 | Thermal interface thread size: | M4 | | Note 19|
 | Thermal interface fastener <strong>maximum depth:</strong>| 14 | mm | Note 19 |
 
-### Notes
+#### Notes:
 
 15) Maximum software current limit multiplied by maximum DC bus voltage limit.
 
 16) The controller is thermally limited to maintain the junction temperature of the main silicon devices below a safe operating point.  Design your cooling solution to keep the cold plate of the motor controller below the design temperature.  The controller will reduce motor current linearly above this point, derating to 0A output current at the shutdown temperature.  
 
-17) With a water-cooled heatsink of 0.6Kcm²/W attached to the cold plate, and a water temperature of 30°C, the WaveSculptor22 is capable of operating at its instantaneous power output continuously.  This represents the best case cooling solution possible.
+17) With a water-cooled heatsink of 0.6Kcm<sup>2</sup>/W attached to the cold plate, and a water temperature of 30°C, the WaveSculptor22 is capable of operating at its instantaneous power output continuously.  This represents the best case cooling solution possible.
 
 18) The base of the WaveSculptor22 is a flat aluminium surface, of these dimensions.  A flat area of at least this size should be provided on whatever cooling solution the customer chooses to provide.  Please refer to the [TRI88.005 Mechanical Assembly document]()? available on the Prohelion website for mounting surface features and dimensions.
 
