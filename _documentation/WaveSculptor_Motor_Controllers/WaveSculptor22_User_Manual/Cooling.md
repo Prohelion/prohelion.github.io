@@ -10,8 +10,6 @@ order: 5
 
 # Cooling
 
-## Overview
-
 The WaveSculptor will usually require some form of external heatsinking.  The extent of this will depend on the ambient operating temperature, the motor current and duty cycle, and operating voltage.  Once these are known, the heat that is required to be removed from the controller can be calculated from its efficiency.
 
 There will be a wide variety of possible cooling solutions, which is why the WaveSculptor has been designed for technically qualified users to choose their own optimal solution for their exact vehicle and use scenario.
@@ -44,27 +42,25 @@ The power loss of the WaveScuptor operating with 160V DC bus voltage is shown in
 
 To allow solar racing teams to predict the WaveSculptor power loss, both for heatsink calculations and for race strategy algorithms, the following estimate of controller losses can be used:
 
-𝐏𝗅𝗈𝗌𝗌 = 𝐑𝖾𝗊𝐈𝗈² + (𝛼𝐈𝗈 + β)𝐕𝖻𝗎𝗌 + 𝐂𝑓𝖾𝗊𝐕𝖻𝗎𝗌²
-
-
+P<sub>loss</sub> = R<sub>eq</sub>I<sub>o</sub><sup>2</sup> + (αI<sub>o</sub> + β)V<sub>bus</sub> + C𝑓<sub>eq</sub>V<sub>bus</sub><sup>2</sup>
 
 where:
 
-*   <strong>𝐈𝗈</strong> is the output current of the controller in Arms
-*   <strong>𝐕𝖻𝗎𝗌</strong> is the bus voltage (battery voltage) of the controller
-*   <strong>𝐑𝖾𝗊</strong> is the equivalent resistance of the entire controller
-*   <strong>α</strong> is the linear component of the switching loss (per unit of bus voltage)
-*   <strong>β</strong> is the constant component of the switching loss (per unit of bus voltage)
-*   <strong>𝐂𝑓𝖾𝗊</strong> is the equivalent capacitance*frequency product of the entire controller
+*   I<sub>o</sub>: is the output current of the controller in A<sub>rms</sub>
+*   V<sub>bus</sub>: is the bus voltage (battery voltage) of the controller
+*   R<sub>eq</sub>: is the equivalent resistance of the entire controller
+*   α: is the linear component of the switching loss (per unit of bus voltage)
+*   β: is the constant component of the switching loss (per unit of bus voltage)
+*   C𝑓<sub>eq</sub>: is the equivalent capacitance*frequency product of the entire controller
 
 The table below gives the constants for WaveSculptor22:
 
 | Constant | WaveSculptor22 MOSFETs:
 |-------|-------|
-| 𝐑𝖾𝗊 | 1.0800E-2|
+| R<sub>eq</sub> | 1.0800E-2|
 | 𝛼 | 3.3450E-3 |
 | β | 1.8153E-2|
-| 𝐂𝑓𝖾𝗊 | 1.5625E-4|
+| C𝑓<sub>eq</sub> | 1.5625E-4|
 
 ## Heatsink Requirements
 
@@ -104,10 +100,10 @@ Alternatively, other types of system such as one using a small volume of circula
 
 ## Mechanical Interface 
 
-The WaveSculptor provides a large flat surface to attach to your cooling solution.  Refer to the mechanical drawing available on the [WaveSculptor22 page on the Prohelion website](https://www.prohelion.com/shop/wavesculptor-motor-controller/wavesculptor22-motor-controller/)(todo?) for dimensions and details.
+The WaveSculptor provides a large flat surface to attach to your cooling solution.  Refer to the [mechanical drawing](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN-3000-0036%20enclosure%20subassembly.pdf) for dimensions and details.
 Use a thin layer of thermal grease or conformable thermal gap filler pad to fill any air gaps between the WaveSculptor cold plate and your heatsink, and provide the best thermal path between the two.  This material is not required to be electrically insulating.
 
-Attach the heatsink to the cold plate using eight M4 screws threading into the tapped inserts in the motor controller base, making certain to note the maximum screw depth specified in the datasheet.  
+Attach the heatsink to the cold plate using eight M4 screws threading into the tapped inserts in the motor controller base, making certain to note the maximum screw depth specified in the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet/Overview.html).  
 
 <div class="callout callout--warning">
     <p><strong>Warning</strong> Exceeding this depth will force the screw into internal components of the motor controller, almost certainly damaging it.</p>

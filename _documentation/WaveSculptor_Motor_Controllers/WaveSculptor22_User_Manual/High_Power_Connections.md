@@ -32,7 +32,7 @@ To assemble the bolted joint follow these steps:
 ## Cable
 
 The cable used to connect to the high-power terminals must be rated for the full DC battery voltage as a minimum.  
-The current rating of the cable will depend on your expected load and duty cycle for your driving habits in your vehicle.  The WaveSculptor bolt terminal area is designed to accept up to 16mm² cable with an outside diameter of up to 10mm.  Prohelion suggests the use of at least 110°C rated PVC cable (note that standard PVC is 90°C rated) to allow a longer duration of peak power output without exceeding the cable temperature rating – this may allow the use of a smaller cross-section cable, saving some weight.
+The current rating of the cable will depend on your expected load and duty cycle for your driving habits in your vehicle.  The WaveSculptor bolt terminal area is designed to accept up to 16mm<sup>2</sup> cable with an outside diameter of up to 10mm.  Prohelion suggests the use of at least 110°C rated PVC cable (note that standard PVC is 90°C rated) to allow a longer duration of peak power output without exceeding the cable temperature rating – this may allow the use of a smaller cross-section cable, saving some weight.
 
 The cable should have orange coloured insulation.  This is required by the NCOP14 standard for EV conversions in Australia, but is a good idea in any case.  This is what is used in the Prius and other hybrid vehicles, and emergency response personnel are trained to not cut through orange cables.  Use a short piece of red or black insulation at the ends of the orange cable to indicate polarity.
 

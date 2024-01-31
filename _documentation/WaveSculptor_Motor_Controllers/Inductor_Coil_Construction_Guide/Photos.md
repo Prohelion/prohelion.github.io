@@ -12,15 +12,15 @@ order: 4
 
 Inductor after completely winding the first layer, ready for taping:
 
-i
+![Step 1]({{site.dox.baseurl}}/images/Inductors_construction_guide/ready_for_taping.jpg)
 
 Inductor after taping first layer and beginning second layer:
 
-i
+![Step 2]({{site.dox.baseurl}}/images/Inductors_construction_guide/beginning_second_layer.jpg)
 
 Inductor after spraying with transformer varnish.  It is recommended to use a dip procedure for this step instead of spraying:
 
-i
+![Step 3]({{site.dox.baseurl}}/images/Inductors_construction_guide/after_spraying.jpg)
 
 Photos courtesy of Erdem Guven, SAU Solarcar
 
