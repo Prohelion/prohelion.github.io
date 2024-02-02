@@ -1,18 +1,6 @@
 ---
 title: Profinity Overview
 order: 0
-
-# Hero section
-hero:
-    title: Profinity
-    text: Prohelion's CAN Bus, Battery, Solar and DBC Management Solution
-    background_image: /images/Prohelion_Battery.jpg
-    buttons: # Add buttons below, there are examples with all available options
-        - label: Download (for Windows)
-          url: https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi
-          external_url: true 
-          style: filled
-          icon: download 
 ---
 
 # Prohelion Profinity

@@ -10,7 +10,7 @@ Profinity can manage charging of your pack by controlling your Prohelion BMU and
 Profinity Charging supports four charging products as well as balancing capabilities to ensure that your pack cells remain balanced and in good condition.
 
 <br>
-![Siglent Charger](assets/images/SiglentCharger.jpg)
+![Siglent Charger](images/SiglentCharger.jpg)
 
 ## Supported Chargers
 
@@ -37,7 +37,7 @@ The Signet Power Supplies that support a programmable TCP interface can be contr
 A charger is configured as a device in Profinity so the first step to charging your pack is to add a charger to your Profile.  **Note your Profile needs to also include a Prohelion BMU so that the battery can be controlled by Profinity**
 
 <video autoplay loop controls>
-  <source src="/assets/video/Profinity/AddCharger.mov" type="video/mp4">
+  <source src="video/Profinity/AddCharger.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -47,7 +47,7 @@ A charger is configured as a device in Profinity so the first step to charging y
 By default chargers in Profinity do not auto connect (this can be changed in the charger Profile settings if you do want to auto connect your charger).  Once your charger is connected and the light is green, click the charge button. 
 
 <video autoplay loop controls>
-  <source src="/assets/video/Profinity/ConnectCharger.mov" type="video/mp4">
+  <source src="video/Profinity/ConnectCharger.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -64,7 +64,7 @@ Once everything is configured, charging the pack is a three step process;
 Charge will then flow to the pack from the charger.
 
 <video autoplay loop controls>
-  <source src="/assets/video/Profinity/StartCharge.mov" type="video/mp4">
+  <source src="video/Profinity/StartCharge.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
