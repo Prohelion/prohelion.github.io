@@ -1,10 +1,5 @@
 ---
 title: Bridge Quickstart
-tags: [Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Quickstart]
-keywords: Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Quickstart
-last_updated: July 4, 2021
-permalink: FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/Quickstart.html
-folder: Tritium_CAN_Ethernet_Bridge
 order: 1
 ---
   
@@ -63,4 +58,4 @@ This is another good option to use if you want reliable behaviors out of your co
 
 If you are going to use this network all the time then this is all that is required. But we would again suggest taking this opportunity to set Static IPs on at least your bridge using Profinity, if for some reason you don't want to set static IPs then use UDP rather than TCP in your profile as in TCP mode as **the DHCP server might assign your CAN-Ethernet Bridge a different IP address in the future.**
 
-If you need a different configuration, there are other network configurations that will work and we have further information in the [Supported Network Setups](Supported_Network_Setups.html) section.
+If you need a different configuration, there are other network configurations that will work and we have further information in the [Supported Network Setups](Supported_Network_Setups.md) section.

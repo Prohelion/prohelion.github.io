@@ -1,10 +1,5 @@
 ---
 title: Profiles
-tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
-keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: July 24, 2022
-permalink: Profinity/Profiles.html
-folder: Profinity
 order: 1
 ---
 
@@ -16,7 +11,7 @@ Profinity keeps track of your profile and loads the most recently used one each 
 
 The Profile panel is typically located on the left side of your screen and if you close the profile you can open it again by pressing the Profile button on the menu.
 
-![Profinity]({{site.dox.baseurl}}/images/Profinity/profile.png)
+![Profinity](images/profile.png)
 
 The colors in a profile indicate the state of the device.  
 
@@ -39,16 +34,16 @@ In Profinity the profiles themselves are stored by default as files in
 
 While it is possible to edit the profile file directly in a text we do not recommend you do so. 
 
-Storing the file in this way makes it easy to share a Profile and if it makes sense if your environment, profiles can be stored on network drives or other shares such as Google Drive or Dropbox, you can also share a read only version of your Profile via [Prohelion Cloud Connect](Prohelion_Cloud_Connect.html)
+Storing the file in this way makes it easy to share a Profile and if it makes sense if your environment, profiles can be stored on network drives or other shares such as Google Drive or Dropbox, you can also share a read only version of your Profile via [Prohelion Cloud Connect](Prohelion_Cloud_Connect.md)
 
 ## Profile Properties
 
 Each item in the profile has a set of properties that define the configuration of the item.  These properties can be accessed by selecting the item or right mouse clicking on the item and selecting properties.  The properties then appear at the bottom of the profile panel, changing a property will set it in the profile.
 
-Properties can also be set when the item is first created in the [New Items](Adding_New_Items.html) window.  
+Properties can also be set when the item is first created in the [New Items](Adding_New_Items.md) window.  
 
-However, not all devices are configured directly via Properties, some devices that have more complex configuration setups like the [Prohelion Loggers](Logging_Replaying_CAN_Bus_Messages.html) are configured via wizards that set the underlying properties correctly for you.  
+However, not all devices are configured directly via Properties, some devices that have more complex configuration setups like the [Prohelion Loggers](Logging_Replaying_CAN_Bus_Messages.md) are configured via wizards that set the underlying properties correctly for you.  
 
-![Profinity]({{site.dox.baseurl}}/images/Profinity/profile_properties.png)
+![Profinity](images/profile_properties.png)
 
 The properties shown will depend on the device.  Some devices have a range of values that are allowed for a property and if an invalid property is entered then an error will be shown.  Information on the property is shown at the very bottom of the property panel.

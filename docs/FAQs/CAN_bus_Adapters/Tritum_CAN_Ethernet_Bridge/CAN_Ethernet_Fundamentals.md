@@ -1,10 +1,5 @@
 ---
 title: CAN & Ethernet Fundamentals
-tags: [Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Profinity, CAN Ethernet Fundamentals]
-keywords: Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Profinity, CAN Ethernet Fundamentals
-last_updated: July 4, 2021
-permalink: FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/CAN_Ethernet_Fundamentals.html
-folder: Tritium_CAN_Ethernet_Bridge
 order: 3
 ---
 
@@ -16,7 +11,7 @@ Unsurprisingly the fundamental purpose of the Can to Ethernet bridge is to conne
 
 [Ethernet](https://en.wikipedia.org/wiki/Ethernet) is the most common networking protocol found in general use today and underpins [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) which is used by PC or internet connected devices.
 
-![Profinity]({{site.dox.baseurl}}/images/FAQ/EthernetCable.jpg)
+![Profinity](images/FAQ/EthernetCable.jpg)
 
 CAN Bus achieves its high levels of reliability by constantly sending packets of data where the packet contains an ID indicating the device and then a set of values. It has a clever mechanism that allows it to prioritise packets based on their importance using the ID. 
 
@@ -54,7 +49,6 @@ Also it’s a lot less noisy and because of that network routers are happy to al
 
 On the downside, TCP is a one to one style communication model and the CAN-Ethernet Bridge works this way, talking to one TCP connection at a time. Also the reliability TCP provides is very useful at times, but can also be a bit of a challenge with fast moving protocols like CAN Bus which manage reliability via a completely different approach.
 
-In summary there are pros and cons each way and depending on what you are trying to achieve, different protocols make sense. Want multiple people to be listening to a CAN-Ethernet Bridge at once, UDP is your best (in fact only) option. Want reliability or transmission over long distances, then TCP is the way to go.
 
 # DHCP vs Static IP
 
@@ -108,6 +102,6 @@ The fact that the IP address starts with 169.254 also indicates a key issue, tha
 
 This is a fairly common scenario that causes problems.  This issue often happens when setting up the bridge with a direct connection to a PC and no router in the middle. In this scenario we would always recommend a static IP address be used.
 
-If you want to understand the scenario where this configuration could work see the [Supported Network Setups](Supported_Network_Setups.html) section of this document and read about the configuration **ADVANCED - Direct TCP Connection using a router or WiFi** as there is a scenario where you might actually want this configuration, but it is fairly unusual and requires a very specific setup to work.
+If you want to understand the scenario where this configuration could work see the [Supported Network Setups](Supported_Network_Setups.md) section of this document and read about the configuration **ADVANCED - Direct TCP Connection using a router or WiFi** as there is a scenario where you might actually want this configuration, but it is fairly unusual and requires a very specific setup to work.
 
 **If you take two things from this whole article it’s should hopefully be the the subnet (the first three digits) is very critical to the reliable operation of the bridge and ideally don’t leave your bridges running in the IP address range of 169.254.x.x that means they are not setup right.**
