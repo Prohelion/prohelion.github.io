@@ -39,7 +39,7 @@ For those on a budget, standard CAT5 network cabling (which has an impedance of 
 
 ## CAN Connector
 
-The connector used on the WaveSculptor200 and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](appendix_B) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
+The connector used on the WaveSculptor200 and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
 ![WaveSculptor 200 Motor Controller](images/connector1.png)
 
@@ -59,7 +59,7 @@ By default, each device operates at 500 kbits/second, one step below the maximum
 
 WaveSculptor controllers also have a second programmable base address that they watch for command messages. This should be set to whatever base address is used by the driver controls node on the network.
 
-The WaveSculptor motor controller expects regular messages from the driver controls device.  If a message is not received within a set timeout period (refer to the communications specification in [Appendix A](appendix_A) for the exact value) then the controller will change to a safe mode and will stop driving the motor until a valid message is received again. This protects against faults where either a connector is loose or broken, the cable has been damaged, or the driver controls have failed.
+The WaveSculptor motor controller expects regular messages from the driver controls device.  If a message is not received within a set timeout period (refer to the communications specification in [Appendix A](Appendix_A.md) for the exact value) then the controller will change to a safe mode and will stop driving the motor until a valid message is received again. This protects against faults where either a connector is loose or broken, the cable has been damaged, or the driver controls have failed.
 
 ## Power Supply
 
@@ -84,8 +84,3 @@ Prohelion can provide a CAN bus LCD display capable of showing up to four differ
 Multiple motors/controllers are accommodated easily with the CAN bus system. All that is required is for each WaveSculptor controller to be programmed to receive messages from the same driver controls base address, and then to run the vehicle in current-control mode (the default setup). Each motor will now operate at the same current, thus giving automatic wheel speed differences for cornering, with the system acting as an electronic differential.
 
 The base address of each WaveSculptor controller should be programmed to a different value. This allows viewing of separate telemetry data from each controller on the LCD displays or other telemetry systems in the vehicle.
-
-
-
-
-

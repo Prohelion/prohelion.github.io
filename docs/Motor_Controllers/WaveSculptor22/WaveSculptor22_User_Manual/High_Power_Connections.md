@@ -10,7 +10,7 @@ It is important to correctly terminate the high power wiring for successful long
 
 High power connections should not be soldered for vehicle applications, as the solder wicks up inside the copper strands and creates a stress point, which can fatigue and break due to the vibration present in a vehicle.
 
-For a guide to good quality crimping of the high power connections, please read [Appendix B](appendix_B) of this document.
+For a guide to good quality crimping of the high power connections, please read [Appendix B](Appendix_B.md) of this document.
 
 Copper oxidation is a threat to the long-term reliability of both the crimp and the bolted joint to the controller.  Use a thin smear of anti-oxidation electrical jointing compound on the contact surface of the crimp lug when bolting the cable to the controller, as shown in the diagram below.  
 
@@ -46,7 +46,7 @@ The positions of the various connections are shown on the front panel of the con
 
 ## Testing
 
-At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the [Motor Setup & Testing](Motor_Setup&Testing) section of this document.
+At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the [Motor Setup & Testing](Motor_Setup&Testing.md) section of this document.
 
 ## Precharge 
 

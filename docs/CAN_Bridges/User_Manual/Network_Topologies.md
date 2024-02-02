@@ -20,13 +20,13 @@ Figure 2: Setup With Multiple CAN Buses
 
 Another advanced configuration is using multiple bridges on one CAN bus, as shown in Figure 3. This network looks simple and can be quite useful when multiple persons are collecting information from the CAN bus, but it is very easy to create a cyclic network, which is not desired. This often happens because the two Ethernet parts shown in Figure 3 are actually connected, resulting in only one Ethernet part as shown in Figure 4. Having a cyclic network will cause problems, as explained below.
 
-![Figure 3: Setup With Multiple Bridges on one CAN Bus](imagessetup_with_multiple_bridges_on_one_CAN_Bus.png)
+![Figure 3: Setup With Multiple Bridges on one CAN Bus](images/setup_with_multiple_bridges_on_one_CAN_Bus.png)
 
 Figure 3: Setup With Multiple Bridges on one CAN Bus
 
 The problem with a cyclic network as shown in Figure 4 is that any message bridged by bridge A via UDP will be bridged back to the CAN bus by bridge B, to be bridged by A again. Therefore, any message will be resent infinitely and soon the CAN bus will be so loaded that most messages get lost. <strong>Creating a cycle in your network causes that network to become unusable and should be avoided.</strong>
 
-![Figure 4: Cyclic Setup With Multiple Bridges on one CAN Bus](imagesCyclic_setup_with_multiple_bridges_on_one_CAN_Bus.png)
+![Figure 4: Cyclic Setup With Multiple Bridges on one CAN Bus](images/cyclic_setup_with_multiple_bridges_on_one_CAN_Bus.png)
 
 Figure 4: Cyclic Setup With Multiple Bridges on one CAN Bus
 

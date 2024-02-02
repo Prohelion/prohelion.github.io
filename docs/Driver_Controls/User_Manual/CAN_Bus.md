@@ -37,7 +37,7 @@ For those on a budget, standard CAT5 network cabling (which has an impedance of 
 
 The connector used on the EV Driver Controls and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.
 
-![6-way 3mm pitch Molex MicroFit connector pinnout](imagesCAN_Connector.png)
+![6-way 3mm pitch Molex MicroFit connector pinnout](images/CAN_Connector.png)
 
 ## CAN Shielding 
 
