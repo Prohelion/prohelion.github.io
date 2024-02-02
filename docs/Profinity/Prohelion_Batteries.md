@@ -1,10 +1,5 @@
 ---
 title: Prohelion Batteries
-tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
-keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: July 24, 2022
-permalink: Profinity/Prohelion_Batteries.html
-folder: Profinity
 order: 13
 ---
 
@@ -22,7 +17,7 @@ A typical battery will generally only have one BMU, but larger packs or split pa
 
 The top section shows data from the BMU, while the lower section shows CMU data – one row per CMU.
 
-![Prohelion BMU]({{site.dox.baseurl}}/images/Profinity/prohelion_bmu.png)
+![Prohelion BMU](images/prohelion_bmu.png)
 
 ### BMU DATA
 The top row of BMU data presents the following information (left to right):
@@ -50,7 +45,7 @@ The buttons in the BMU section shows the various status flags, some flags are no
 
 Note that when not engaged or receiving messages from the control module the BMU will drop back to its safe precharge state which is the error state.  
 
-Consult the [BMU documentation](/Battery_Management_System/Overview.html) for more information but note that that error state can be part of normal operation.
+Consult the [BMU documentation](/Battery_Management_System/Overview.md) for more information but note that that error state can be part of normal operation.
 
 *         CMU Power supply OK
 
@@ -99,7 +94,7 @@ The data is highlighted in various ways to quickly understand the system status
 
 Prohelion also offers a 12v control module that can be used to provide power to onboard 12v systems and is typically used in a racing environment.  This module has a separate control panel that can be added to the profile and provides additional data on the performance of the 12v system.
 
-![Prohelion v12]({{site.dox.baseurl}}/images/Profinity/prohelion_v12.png)
+![Prohelion v12](images/prohelion_v12.png)
 
 ## Updating the BMU Configuration
 
@@ -118,4 +113,4 @@ To update the configuration of your Battery Management Unit, right mouse click o
 
 ## Flashing the BMU Firmware
 
-To flash the BMU firmware, right mouse click on the Update Firmware menu item on the BMU.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](Virtual_CAN_Adapter.html) is required for this operation.
+To flash the BMU firmware, right mouse click on the Update Firmware menu item on the BMU.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](Virtual_CAN_Adapter.md) is required for this operation.

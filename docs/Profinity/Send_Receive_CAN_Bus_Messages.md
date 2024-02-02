@@ -1,10 +1,5 @@
 ---
 title: Send / Receive CAN
-tags: [Profinity, CAN Bus, CAN Bus DBC, DBC, Overview]
-keywords: Profinity, CAN Bus, CAN Bus DBC, DBC, Overview
-last_updated: July 24, 2022
-permalink: Profinity/Send_Receive_CAN_Bus_Messages.html
-folder: Profinity
 order: 5
 ---
 
@@ -12,13 +7,13 @@ order: 5
 
 Profinity can monitor CAN Bus traffic on your network and also allows you to transmit message back on the CAN network from within the Profinity toolset.
 
-Messages can be transmitted either via the Send CAN window which is documented below or also via the [CAN Replay](Logging_Replaying_CAN_Bus_Messages.html) tool.
+Messages can be transmitted either via the Send CAN window which is documented below or also via the [CAN Replay](Logging_Replaying_CAN_Bus_Messages.md) tool.
 
 ## Receive CAN Packets
 
 Click on the Receive CAN Packets menu item to see a view of all the CAN Bus messages currently travelling across your network.
 
-![Receive CAN Packets]({{site.dox.baseurl}}/images/Profinity/receive_can_packets.png)
+![Receive CAN Packets](images/receive_can_packets.png)
 
 The options at the bottom of this window allow you to filter the messages by CAN ID and change various other settings like the Endian representation of the message (Big Endian vs Little Endian) and exclude local traffic (traffic from Profinity) if the adapter supports that (not all adapters support local filtering).
 
@@ -26,7 +21,7 @@ The options at the bottom of this window allow you to filter the messages by CAN
 
 Right mouse clicking on a line allows you to select an option to 'Send Can Message like this', clicking this option will open the Send CAN Packet window and pre-populate it with the data from the message that you have received.
 
-![Send CAN Packet like this]({{site.dox.baseurl}}/images/Profinity/receive_send_like_this.png)
+![Send CAN Packet like this](images/receive_send_like_this.png)
 
 ## Send CAN Packet
 
@@ -38,4 +33,4 @@ Using the loop option will send your CAN packet at your chosen loop rate, so 100
 
 Note that as Profinity is currently a Windows only tool, the default byte order used is little endian to align with Windows / Intel.  Little endian is also used by most of the Prohelion technologies.
 
-![Send CAN Packet]({{site.dox.baseurl}}/images/Profinity/send_can_packet.png)
+![Send CAN Packet](images/send_can_packet.png)

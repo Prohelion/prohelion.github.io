@@ -1,10 +1,5 @@
 ---
 title: Tritium Tools vs Profinity
-tags: [Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Profinity]
-keywords: Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Profinity
-last_updated: July 4, 2021
-permalink: FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/Tritium_Tools_vs_Profinity.html
-folder: Tritium_CAN_Ethernet_Bridge
 order: 5
 ---
 

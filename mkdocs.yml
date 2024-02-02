@@ -7,7 +7,6 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
-    - navigation.expand
     - navigation.path
     - navigation.indexes
     - navigation.top

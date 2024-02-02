@@ -1,10 +1,5 @@
 ---
 title: Rest APIs & Hosting
-tags: [Profinity, CAN Bus, CANBus, Rest, API, Swagger, Kiosk, Hosting, ReactJS, Angular, Javascript]
-keywords: Profinity, CAN Bus, CANBus, Rest, API, Swagger, Kiosk, Hosting, ReactJS, Angular, Javascript
-last_updated: July 24, 2022
-permalink: Profinity/Profinity_Rest_APIs.html
-folder: Profinity
 order: 12
 ---
 
@@ -28,7 +23,6 @@ As well as supporting Restful APIs, Profinity's overall solution allows you to b
 
 ## Enabling Rest APIs
 
-Profinity APIs are not enabled by default, to enable the API's you will need to update the Config.yaml file used to configure Profinity.  By default this file can be located on Windows under your users Documents folder
 
 `/Documents/Prohelion/Profinity/Config/Config.yaml`
 
@@ -72,13 +66,12 @@ APIs can provide both realtime and historical data, when a InfluxDB database is 
 
 The <strong>/api/v1/CAN/{Message}/{Signal}</strong> api is used to get historical data.  To use this API request a DBC Message and Signal as well as a InfluxDB time range that you wish to retrieve the data for.  The API will then call InfluxDB and retrieve all of the data stored across that time frame for this signal.
 
-For more information on configuring InfluxDB see the [InfluxDB and Prometheus Integration](InfluxDB_Prometheus_Integration.html) section of this documentation.
+For more information on configuring InfluxDB see the [InfluxDB and Prometheus Integration](InfluxDB_Prometheus_Integration.md) section of this documentation.
 
 ## Hosting Custom Web User Interfaces
 
 As well as hosting the Rest APIs and Swagger interface, Profinity supports an integrated Web Server that can provide hosting for a custom build application based on these APIs in any modern web technology.  This includes language and frameworks such as [ReactJS](https://reactjs.org) and [Angular](https://angular.io) as well as traditional HTML / Javascript etc.
 
-If the web server is enabled content can be served out of the Webroot directory which is located under the logged in users Documents folder on Windows.
 
 `/Documents/Prohelion/Profinity/Webroot`
 
@@ -86,7 +79,7 @@ Or if you are running on MacOs or Linux under your home directory.
 
 `$home/Prohelion/Profinity/Webroot`
 
-By default the Profinity web server will serve the index.html file from this directory if no URL is provided by the calling web browser.
+By default the Profinity web server will serve the index.md file from this directory if no URL is provided by the calling web browser.
 
 ## Production Configuration and HTTPs
 

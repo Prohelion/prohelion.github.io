@@ -3,9 +3,6 @@
 layout: homepage # Choose layout: "default", "homepage" or "documentation-archive"
 title: Solar Peak Power Trackers by Elmar
 description: Looking for some of the worlds most efficient Solar MPPT trackers, here they are.
-keywords: Prohelion, Profinity, CAN Bus Tools, BMU, CMU
-permalink: MPPT_Solar_Peak_Power_Trackers/Overview.html
-folder: MPPT_Solar_Peak_Power_Trackers
 
 # Hero section
 hero:
@@ -42,5 +39,5 @@ features:
               - title: Profinity
                 description: Our battery and CAN Bus management software solution supporting Elmar MPPTs
                 icon: check-circle
-                url: ../Profinity/Overview.html
+                url: ../Profinity/Overview.md
 ---

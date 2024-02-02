@@ -1,10 +1,5 @@
 ---
 title: Supported Network Setups
-tags: [Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Supported Network Setups]
-keywords: Profinity, CAN Bus, Tritium CAN-Ethernet Bridge, Supported Network Setups
-last_updated: July 4, 2021
-permalink: FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/Supported_Network_Setups.html
-folder: Tritium_CAN_Ethernet_Bridge
 order: 4
 ---
 
@@ -16,7 +11,7 @@ Here are the five possible setups we support and a quick guide to getting them g
 
 For all scenarios (apart from the last one), to confirm your bridge is correctly setup ensure that Profinity can Auto Discover your bridge.
 
-If you have issues see the section on [Common Problems and Solutions](Common_Problems_And_Solutions.html) section.
+If you have issues see the section on [Common Problems and Solutions](Common_Problems_And_Solutions.md) section.
 
 **Remember: Static IP addresses, particularly on the CAN-Ethernet bridge are the best way to achieving consistent, reliable behaviours on your bridge. Use them whenever possible.**
 
