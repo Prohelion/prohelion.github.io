@@ -24,6 +24,6 @@ The motor interface board only sends a single temperature reading to the motor c
 
 The connector used for motor temperature sense signals is a 4-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  
 
-![Connector Diagram](../images/WaveSculptor_Motor_Interface_T3/Connector2.png)
+![Connector Diagram]({{site.dox.baseurl}}/images/WaveSculptor_Motor_Interface_T3/Connector2.png)
 
 

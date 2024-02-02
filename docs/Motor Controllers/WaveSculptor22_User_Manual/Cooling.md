@@ -36,7 +36,7 @@ A high bandwidth system was used to acquire the switching waveforms, and data sh
 
 The power loss of the WaveScuptor operating with 160V DC bus voltage is shown in the diagram below:
 
-![Power loss of WaveSculptor22 diagram](../images/WaveSculptor22_User_Manual/cooling.gif)
+![Power loss of WaveSculptor22 diagram]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/cooling.gif)
 
 ### Predicting Loss
 

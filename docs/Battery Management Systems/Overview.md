@@ -11,7 +11,7 @@ folder: Battery_Management_System
 hero:
     title: Prohelion Battery Management Unit
     text: Download the PDFs for managing the Prohelion BMU here
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
 
 # Features section
 features:

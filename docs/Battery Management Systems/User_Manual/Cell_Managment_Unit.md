@@ -5,10 +5,10 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: Battery_Management_System/User_Manual/Cell_Management_Unit.html
 folder: Battery_Management_System/User_Manual
-order: 4 
+order: 3
 ---
 
-# Cell Management Unit (todo)
+# Cell Management Unit 
 
 ## Form Factor 
 
@@ -24,10 +24,11 @@ Wiring should be appropriately strain relieved to withstand the vibration typica
 
 ## Dimensions
 
-i
+![CMU Dimensions]({{site.dox.baseurl}}/images/BMS_User_Manual/CMU_Dimensions.png)
 
 The following illustration shows the connections and indicators on the CMU:
-i
+
+![CMU Connectors Overview]({{site.dox.baseurl}}/images/BMS_User_Manual/CMU_Connectors_Overview.png)
 
 ## Isolation
 
@@ -51,11 +52,11 @@ The red LED illuminates when any of the eight cells are balancing.  This LED ill
 
 The connector used for the Cell Voltage Sense is a 12-way single-row 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those used in the recommended cable. 
 
-i
+![cell voltage sense]({{site.dox.baseurl}}/images/BMS_User_Manual/Cell_voltage&temp.png)
 
-Please refer to the associated Assembly Procedure document TRI67.006 for detailed procedures on making the cell sense wiring harness. 
+Please refer to the associated [Assembly Procedure document]()? TRI67.006 for detailed procedures on making the cell sense wiring harness. 
 
-<strong>Temperature Sensor:</strong>
+### Temperature Sensor:
 
 The recommended cell temperature sensor to use is a Murata 10k NTC bead type thermistor (NXFT15XH103FA2B100) with 100mm leads. The thermistor should be attached to a part of the cell that is a good representation of the internal temperature, such as a cell terminal (Care MUST be taken that the sensor is appropriately insulated from the terminal). 
 

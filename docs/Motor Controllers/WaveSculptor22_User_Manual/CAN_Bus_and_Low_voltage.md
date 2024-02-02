@@ -14,7 +14,7 @@ The CAN bus is structured as a linear network, with short stubs branching from '
 
 In the range of Prohelion EV products, including the [WaveSculptor 22](prohelion website), [EV Driver Controls](http://localhost:4000/Electric_Vehicle_Driver_Controls/Overview.html), and [BMS Pack Master](prohelion website), the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
-![CAN Network Topology](us_and_Low_Voltage.gif)
+![CAN Network Topology]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/CAN_Bus_and_Low_Voltage.gif)
 
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
 
@@ -43,7 +43,7 @@ The connector used on the WaveSculptor22 and other Prohelion devices is a 6-way 
 
 The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](appendix_B) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
-![CAN cabling pairs diagram](onnector.png)
+![CAN cabling pairs diagram]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/CAN_connector.png)
 
 ## CAN Shielding 
 

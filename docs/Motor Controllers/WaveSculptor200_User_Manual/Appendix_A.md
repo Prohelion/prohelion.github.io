@@ -44,12 +44,12 @@ order: 14
 | BethTherm | 10KD6A372I |
 | Farnell | 970-7298 |
 
-| <strong>High Power 16mm² M6 bolt lug connections</strong>       
+| <strong>High Power 16mm<sup>2</sup> M6 bolt lug connections</strong>       
 |----------------------------------------------------|
 | Cabac | CAA 35-8 |
 | Local Electrical Supplier | - |
 
-| <strong>High Power Cabling - 16mm² high temp orange</strong>       
+| <strong>High Power Cabling - 16mm<sup>2</sup> high temp orange</strong>       
 |----------------------------------------------------|
 | Tycab Australia | ZDFX1112102-OR |
 | Local Electrical supplier | - |
@@ -58,9 +58,7 @@ order: 14
 
 | <strong>Radiator - Aluminium core 3x120mm size</strong>       
 |----------------------------------------------------|
-| Koolance | HX-1020 + either: |
-|| NZL-V10P or|
-|| NZL-L10P|
+| Koolance | HX-1020 + either:<br>NZL-V10P or <br>NZL-L10P|
 
 | <strong>Pump - Magnetically coupled 12V</strong>       
 |----------------------------------------------------|
@@ -68,11 +66,7 @@ order: 14
 
 | <strong>Reservoir - 200mm long acrylic</strong>       
 |----------------------------------------------------|
-| Koolance | COV-TKBTM + |
-|| BDY-TK200 +
-|| COV-TKTOP + either:
-|| NZL-L10P or |
-|| NZL-V10P |
+| Koolance | COV-TKBTM + <br> BDY-TK200 + <br> COV-TKTOP + either: <br> NZL-L10P or <br> NZL-V10P |
 
 | <strong>10mm ID / 13mm OD tubing - per foot (up to 10 feet required, depends on vehicle)</strong>       
 |----------------------------------------------------|

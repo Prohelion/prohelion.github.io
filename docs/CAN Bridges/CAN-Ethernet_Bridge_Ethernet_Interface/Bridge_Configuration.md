@@ -20,4 +20,4 @@ The bus number and CAN bitrate used by a bridge are user settable.  To set a par
     *   Protocol v1: the 52 bit protocol version with 4 bit bus number, or
     *   Protocol v2: the 40 bit protocol version with 16 bit bus number
 
-, as shown in Figure 2 (see [CAN-UDP Bridging](CAN-UPD_Bridging)).  When setting the bitrate, the new rate in kbps should be sent as a two byte integer.
+as shown in Figure 2, see [CAN-UDP Bridging](CAN_UDP_Bridging). When setting the bitrate, the new rate in kbps should be sent as a two byte integer.

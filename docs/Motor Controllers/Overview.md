@@ -11,7 +11,7 @@ folder: WaveSculptor_Motor_Controllers
 hero:
     title: WaveSculptor Motor Controllers
     text: The WaveSculptor Motor Controller range are three-phase variable frequency inverters especially designed to drive high-efficiency, permanent magnet motors.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a WaveSculptor Motor Controller
           url: https://www.prohelion.com/product-category/wavesculptor-motor-controller/
@@ -60,7 +60,7 @@ features:
                 description: User Manual for the Prohelion WaveSculptor200
                 icon: rotate-cw
                 url: /WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html
-              - title: WaveSculptor200 Motor Drive (?todo)
+              - title: WaveSculptor200 Motor Drive
                 description: Motor Sense Comm Spec for WaveSculptor200
                 icon: rotate-cw
                 url: /WaveSculptor_Motor_Controllers/WaveSculptor200_Motor_Sense_Comms_Spec/Overview.html

@@ -14,7 +14,7 @@ The CAN bus is structured as a linear network, with short stubs branching from '
 
 In the range of Prohelion EV products, including the WaveSculptor 200, EV Driver Controls, and BMS Pack Master, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
-![CAN Bus](../images/Driver_Control/CAN_Network_Topology.gif)
+![CAN Bus]({{site.dox.baseurl}}/images/Driver_Control/CAN_Network_Topology.gif)
 
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
 Therefore, a basic system consists of three major components:
@@ -42,7 +42,7 @@ For those on a budget, standard CAT5 network cabling (which has an impedance of 
 
 The connector used on the EV Driver Controls and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.
 
-![6-way 3mm pitch Molex MicroFit connector pinnout](../images/Driver_Control/CAN_Connector.png)
+![6-way 3mm pitch Molex MicroFit connector pinnout]({{site.dox.baseurl}}/images/Driver_Control/CAN_Connector.png)
 
 ## CAN Shielding 
 

@@ -11,7 +11,7 @@ order: 0
 hero:
     title: Fix Me (TODO)
     text: Developing an Electric Vehicle? The Prohelion Driver Controller Unit is designed to give you a head start with an off the shelf control platform to get you driving sooner.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a Prohelion Driver Control
           url: https://www.prohelion.com/shop/accessories/ev-driver-controls/
@@ -28,6 +28,6 @@ For more details on communications, use, and software installation, please refer
 
 Operating the bridge beyond the limits specified in this document will result in the voiding of the bridge warranty.  Prohelion accepts no responsibility for events caused as a result of operating the bridge beyond the limits specified in this document. Note that the specifications in this document are subject to change at any time due to product improvement.
 
-![CAN Ethernet Bridge](../images/CAN-Ethernet_Bridge_Datasheet/introduction1.png)
-![CAN Ethernet Bridge](../images/CAN-Ethernet_Bridge_Datasheet/introduction2.png)
+![CAN Ethernet Bridge]({{site.dox.baseurl}}/images/CAN-Ethernet_Bridge_Datasheet/introduction1.png)
+![CAN Ethernet Bridge]({{site.dox.baseurl}}/images/CAN-Ethernet_Bridge_Datasheet/introduction2.png)
 

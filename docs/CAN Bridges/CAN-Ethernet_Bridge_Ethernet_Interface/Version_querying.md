@@ -26,7 +26,7 @@ Upon receipt of this packet, the bridge will respond with a UDP packet with:
 *   the remaining bits of the upper data byte set to <strong>0x16</strong>, and
 8   the remaining data bytes containing version information as shown in figure 6, with the HW field containing the hardware version, the FW field the firmware version multiplied by ten, and the build num field the firmware build number.  All fields are little-ending unsigned integers.
 
-![Figure 6:Version information](../images/CAN-Ethernet_Bridge_Ethernet_Interface/figure6.png)
+![Figure 6:Version information]({{site.dox.baseurl}}/images/CAN-Ethernet_Bridge_Ethernet_Interface/figure6.png)
 
 Figure 6: Version information
 

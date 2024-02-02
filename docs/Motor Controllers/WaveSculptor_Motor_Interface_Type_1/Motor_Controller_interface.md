@@ -18,7 +18,7 @@ The interface to the WaveSculptor motor controller is provided using differentia
 
 The connector used for motor sense signals is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  
 
-![Connector Diagram](../images/WaveSculptor_Motor_Interface_T1/Connector2.png)
+![Connector Diagram]({{site.dox.baseurl}}/images/WaveSculptor_Motor_Interface_T1/Connector2.png)
 
 The wiring for this connector should be implemented with twisted pairs, as the signal inputs are differential.  Prohelion recommends using Belden 9506 type cable (shielded 6 pair) for this connection, with suggested cable colours shown above.
 

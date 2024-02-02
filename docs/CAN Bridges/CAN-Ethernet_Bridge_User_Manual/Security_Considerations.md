@@ -3,7 +3,7 @@ title: Security Considerations
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
-permalink: CAN_Bus_To_Ethernet_Bridge/CAN-Ethernet_Bridge_User_Manual/Security Considerations.html 
+permalink: CAN_Bus_To_Ethernet_Bridge/CAN-Ethernet_Bridge_User_Manual/Security_Considerations.html 
 folder: CAN_Bus_To_Ethernet_Bridge/CAN-Ethernet_Bridge_User_Manual
 order: 2
 ---

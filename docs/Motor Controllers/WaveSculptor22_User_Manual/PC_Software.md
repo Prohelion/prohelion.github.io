@@ -16,7 +16,7 @@ Refer to the [CAN-Ethernet bridge User's Manual](http://localhost:4000/CAN_Bus_T
 
 Connect the Ethernet bridge via a CAN bus cable to the WaveSculptor.  Use 120 ohm termination resistors between the CAN-H and CAN-L lines at both items.
 
-![Ethernet connection](../images/WaveSculptor22_User_Manual/PC_Software.gif)
+![Ethernet connection]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/PC_Software.gif)
 
 ## PC Software
 

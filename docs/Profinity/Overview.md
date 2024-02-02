@@ -11,7 +11,7 @@ order: 0
 hero:
     title: Profinity
     text: Prohelion's CAN Bus, Battery, Solar and DBC Management Solution
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Download (for Windows)
           url: https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi
@@ -28,7 +28,7 @@ Originally developed by Prohelion to manage our own products it has evolved over
 
 Profinity is built around the concept of [profiles](Profiles.html), which is a set of configured devices in your system.  By switching between profiles you can support multiple configurations across different sites of different combinations of technologies.  The configuration of the system is largely driven by the Profinity GUI, but once configured, the solution can run as a service, providing continuous data streams off servers or embedded devices, or run from the cloud.
 
-![Profinity](../images/Profinity/profinity_overview.png)
+![Profinity]({{site.dox.baseurl}}/images/Profinity/profinity_overview.png)
 
 Profinity can connect to [CAN Bridges](CAN_Bus_Adapters.html), which translate CAN Bus traffic from your network to the Profinity solution, you can send and receive and view CAN Bus messages either raw or using DBC, log messages and replay them.  You can also use Profinity to share CAN Bus data from your system to your team, either in near real time via a [Prohelion Cloud Connect](Prohelion_Cloud_Connect.html) data stream, or via the logs to cloud data logging platforms. 
 
