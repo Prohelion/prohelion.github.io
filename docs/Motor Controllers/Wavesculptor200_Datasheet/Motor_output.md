@@ -17,7 +17,7 @@ The motor output connection provides three-phase power to the motor during norma
 | Motor phase inductance minimum: | 50 | µH | Note 6, 8 |
 | Motor Resistance minimum: | 0 | Ω | Note 7,8 |
 
-### Notes: 
+#### Notes: 
 
 5)  The motor current limit is software controlled and may be limited to lower values via the configuration / setup utility if required.
 

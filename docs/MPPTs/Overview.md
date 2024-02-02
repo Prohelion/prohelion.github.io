@@ -11,7 +11,7 @@ folder: MPPT_Solar_Peak_Power_Trackers
 hero:
     title: Solar Peak Power Trackers
     text: A Maximum Power Point Tracker (MPPT) is used to maximize the energy delivered from a solar module array to a battery in varying light conditions.  The Elmar Solar MPPT range boasts an impressive cost/efficiency profile while remaining extremely lightweight.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a Solar Peak Power Tracker
           url: https://www.prohelion.com/product-category/solar-mppt/

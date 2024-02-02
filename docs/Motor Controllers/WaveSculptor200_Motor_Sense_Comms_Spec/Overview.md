@@ -1,5 +1,5 @@
 ---
-title: WaveSculptor200 Motor Drive
+title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
@@ -11,7 +11,7 @@ order: 0
 hero:
     title: Fix Me (TODO)
     text: Developing an Electric Vehicle? The Prohelion Driver Controller Unit is designed to give you a head start with an off the shelf control platform to get you driving sooner.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a Prohelion Driver Control
           url: https://www.prohelion.com/shop/accessories/ev-driver-controls/

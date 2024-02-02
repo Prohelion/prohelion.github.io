@@ -10,7 +10,7 @@ order: 2
 
 # Packet Format
 
-Each packet consists of four bytes.  The first and 2nd indicate the start of packet, and either temperature or device type.  The 3rd and 4th bytes indicate position or velocity data, with the type determined by the device type designation.
+Each packet consists of four bytes.  The 1<sup>st</sup> and 2<sup>nd</sup> indicate the start of packet, and either temperature or device type.  The 3<sup>rd</sup> and 4<sup>th</sup> bytes indicate position or velocity data, with the type determined by the device type designation.
 
 Data should be left-justified, and zero-padded on the right if necessary.
 
@@ -21,8 +21,7 @@ Temperature readings should be sent as unsigned data from the A/D converter, not
 | Bits | Parameter     
 |----------------------------------------------------|
 | 7 | 1 = Start of four-byte packet |
-| 6 | 0 = Following bits are a device type|
-|| 1 = Following bits are temperature |
+| 6 | 0 = Following bits are a device type<br>1 = Following bits are temperature |
 | 5-0 | Device type, or Temperature MSB |
 
 ## Second Byte

@@ -17,7 +17,7 @@ Alerting is done via a visual cue using USB HID Visual Signal Indicators from De
 
 [https://www.delcomproducts.com/productdetails.asp?PartNumber=904007](https://www.delcomproducts.com/productdetails.asp?PartNumber=904007)
 
-![Beacon Black Side](../images/Telemetry/telemetry_BeaconBlackSide.jpg)
+![Beacon Black Side]({{site.dox.baseurl}}/images/telemetry_BeaconBlackSide.jpg)
 
 | Device        | Measurement               | CanId | dataPointCanId    | Warning Threshold | Alert Threshold   | Shutdown Threshold    | Alert Type    |
 | BMS           | Min Cell Voltage          | 6F80  | 28544             | 2900              | 2750              | 2600                  | Low           |

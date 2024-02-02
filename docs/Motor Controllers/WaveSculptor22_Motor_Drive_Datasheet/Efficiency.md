@@ -18,6 +18,6 @@ In a typical solar car with a mass of 275kg and a wheel radius of 250mm, the max
 
 As an example, for a typical highway cruise setting of 20Nm and 100rad/s, the power being processed by the Wavesculptor is just over 2kW, at an efficiency of just over 99%.
 
-![predicted efficiency map of the WaveSculptor Controller with a 160V DC Bus](22_User_Manual/WaveSculptor_Datasheet.png)
+![predicted efficiency map of the WaveSculptor Controller with a 160V DC Bus]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/WaveSculptor_Datasheet.png)
 
 These efficiency maps were generated using an accurate mathematical model of the WaveSculptor’s power stage, with individual loss components confirmed using laboratory testing.

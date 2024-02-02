@@ -14,7 +14,7 @@ The Prohelion Virtual CAN Bus Adapter is a special type of adapter in Profinity 
 
 In the diagram below, a client on the left connects to the Virtual Adapter which is being used in conjunction with a Peak USB adapter to provide connectivity to the actual CAN Network.  Traffic is routed bi-directionally.
 
-![Profinity](/assets/drawings/Profinity/VirtualAdapter.png)
+![Profinity]({{site.dox.baseurl}}/assets/drawings/Profinity/VirtualAdapter.png)
 
 The Virtual adapter serves an important role in helping tools that have previously been developed to support the Tritium and Prohelion CAN to Ethernet bridges work, in the absence of an actual physical bridge.  Instead, a different CAN connection technologies such as SocketCAN or the Peak USB adapter can be used to actually connect to the CAN network and the virtual bridge supports connectivity to the legacy technologies.
 
@@ -38,19 +38,19 @@ Tritium software tools where generally shipped in either a v1 or v2 variant to t
 
 The Virtual Bridge resolves this issue by speaking both the v1 and v2 protocol at the same time.  It does this by representing itself as two bridges one a v1 bridge and the other a v2.  The older tools will generally discover the version of the bridge that that can speak to.
 
-![Profinity](/assets/drawings/Profinity/MultipleProtocol.png)
+![Profinity]({{site.dox.baseurl}}/assets/drawings/Profinity/MultipleProtocol.png)
 
 One very useful scenario for the Virtual Bridge is to use it in conjunction with a physical v1 bridge to talk to tools that were designed for the v2 protocols.  
 
 In the scenario below Tritium v1 Bridge is front ended by the Virtual adapter / router, allowing it to communicate with tools that support the v2 protocol.
 
-![Profinity](/assets/drawings/Profinity/v1v2Protocol.png)
+![Profinity]({{site.dox.baseurl}}/assets/drawings/Profinity/v1v2Protocol.png)
 
 ## Multi-Client TCP Support
 
 The physical bridge can only handle a single client at a time in TCP mode.  The virtual bridge can handle multiple clients simultaneously.  This allows the virtual bridge to act as a form of TCP based CAN Bridge server, where many clients can connect at once over TCP and sustain the connection to get CAN data from this interface.  This may be a useful tool for people looking to establish real time CAN monitoring in remote locations.
 
-![Profinity](/assets/drawings/Profinity/MultipleVirtualAdapter.png)
+![Profinity]({{site.dox.baseurl}}/assets/drawings/Profinity/MultipleVirtualAdapter.png)
 
 ## Features no longer available
 

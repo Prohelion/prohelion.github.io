@@ -14,7 +14,7 @@ The CAN bus is structured as a linear network, with short stubs branching from '
 
 In the range of Prohelion EV products, including the WaveSculptor 200, EV Driver Controls, and BMS Pack Master, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
-![WaveSculptor 200 Motor Controller](../images/WaveSculptor200_User_manual/CAN_Bus_Topology.png)
+![WaveSculptor 200 Motor Controller]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/CAN_Bus_Topology.gif)
 
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
 
@@ -37,7 +37,7 @@ The CAN data lines (CAN-H and CAN-L) must be implemented with twisted-pair wire 
 
 Power should also be provided along the CAN cable, ideally with another twisted pair to minimise noise pickup.  An overall shield can also be advantageous.  
 
-From a performance perspective, the optimal choice of cable is 7mm Devicenet CANbus 'thin' cable, with 24AWG (data) + 22AWG (power) twisted pairs and a braided shield.  Using this cable will result in a robust installation.  However, it is not cheap, and using it for a large network with many devices will quickly add up to a significant cost.  
+From a performance perspective, the optimal choice of cable is 7mm Devicenet CAN bus 'thin' cable, with 24AWG (data) + 22AWG (power) twisted pairs and a braided shield.  Using this cable will result in a robust installation.  However, it is not cheap, and using it for a large network with many devices will quickly add up to a significant cost.  
 
 For those on a budget, standard CAT5 network cabling (which has an impedance of 100 ohms) can be used, but may become unreliable in longer networks or in the presence of electrical noise from DC/DC converters and other electrical devices in the system – use this type of cable at your own risk.  
 
@@ -45,7 +45,7 @@ For those on a budget, standard CAT5 network cabling (which has an impedance of 
 
 The connector used on the WaveSculptor200 and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](appendix_B) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
-![WaveSculptor 200 Motor Controller](../images/WaveSculptor200_User_manual/connector1.png)
+![WaveSculptor 200 Motor Controller]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/connector1.png)
 
 ## CAN Shielding
 

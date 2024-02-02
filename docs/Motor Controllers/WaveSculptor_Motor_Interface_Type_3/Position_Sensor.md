@@ -27,7 +27,7 @@ These drive signals are commonly shown in [resolver datasheets]()? as:
 
 Two channels of differential analog input are used, for the sin and cos sense windings.  
 
-These signals are commonly shown in [resolver datasheets]()? as:
+These signals are commonly shown in [resolver datasheets]() as:
 
 *   S1 (Sin+)
 *   S3 (Sin–)
@@ -53,7 +53,7 @@ To help prevent noise pickup from capacitive coupling, the resolver should be mo
 
 The connector used for the motor sense signals is a 8-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps
 
-![Connector Diagram](../images/WaveSculptor_Motor_Interface_T3/Connector1.png)
+![Connector Diagram]({{site.dox.baseurl}}/images/WaveSculptor_Motor_Interface_T3/Connector1.png)
 
 
 

@@ -11,7 +11,7 @@ folder: CAN_Bus_To_Ethernet_Bridge
 hero:
     title: CAN Bus to Ethernet Bridge
     text: Prohelion’s CAN-Ethernet bridge makes it easy to form a virtual link between physically separated CAN networks. The CAN/Ethernet network arrangement is extremely flexible – you can connect the bridge point to point, over a local network or even via the internet using a Virtual Private Network (VPN). The CAN-Ethernet bridge is compatible with all Prohelion products.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a CAN to Ethernet Bridge
           url: https://www.prohelion.com/shop/accessories/can-ethernet-bridge/

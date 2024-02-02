@@ -12,7 +12,7 @@ order: 20
 
 The screenshot below shows the BMS Viewing software
 
-![BMS Viewing Software](../images/BMS_User_Manual/Telemetry_Viewing_Software.png)
+![BMS Viewing Software]({{site.dox.baseurl}}/images/BMS_User_Manual/Telemetry_Viewing_Software.png)
 
 The top section shows data from the BMU, while the lower section shows CMU data - one row per CMU
 

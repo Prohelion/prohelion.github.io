@@ -18,7 +18,7 @@ For a guide to good quality crimping of the high power connections, please read 
 
 Copper oxidation is a threat to the long-term reliability of both the crimp and the bolted joint to the controller.  Use a thin smear of anti-oxidation electrical jointing compound on the contact surface of the crimp lug when bolting the cable to the controller, as shown in the diagram below.  
 
-![anti-oxidation diagram](../images/WaveSculptor22_User_Manual/High_Power_Connections.png)
+![anti-oxidation diagram]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/High_Power_Connections.png)
 
 The bolts are permanently assembled into the motor controller, and are prevented from rotating by a nylon holder.  
 

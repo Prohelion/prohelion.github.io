@@ -22,7 +22,7 @@ A brief datasheet for each adapter option is available on the [Prohelion website
 
 The connector used on the WaveSculptor22 for motor sense signals is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](appendix_B) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
-![Connector Pinout](
+![Connector Pinout]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/connector_pinout.png)
 
 The wiring for this connector should be implemented with twisted pairs, as the signal inputs are differential.  Prohelion recommends using Belden 9506 type cable (shielded 6 pair) for this connection, with suggested cable colours shown above.
 

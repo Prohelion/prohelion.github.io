@@ -28,7 +28,7 @@ The supported CAN Bus adapters can be automatically found via the Auto Discovery
 
 In the Autodiscovery window you will find all of the adapters that are currently visible to Profinity.  If your adapter does not show up here then you may have configuration issues that need to be addressed.
 
-![Add an Adapter via AutoDiscovery](../images/Profinity/add_adapter_autodiscovery.png)
+![Add an Adapter via AutoDiscovery]({{site.dox.baseurl}}/images/Profinity/add_adapter_autodiscovery.png)
 
 <div class="callout callout--info">
     <p><strong>Having trouble finding a CAN over Ethernet Bridge with Autodiscovery?</strong>The CAN over Ethernet Bridges have a number of configuration options and at times may not behave as expected.  Check out our guide on the <a href="/FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/Overview.html">CAN to Ethernet Bridges</a> for tips and tricks on getting them working.</p>
@@ -38,7 +38,7 @@ In the Autodiscovery window you will find all of the adapters that are currently
 
 If your adapter cannot be found or is not currently on the network, there is always the option to configure your adapter manually.  This can be done by right mouse clicking on the profile and select <strong>Add New Item</strong> and then an adapter type or if you have an adapter already configured you can right mouse click on the adapters folder and <strong>Add an Adapter Manually</strong>.
 
-![Add an Adapter](../images/Profinity/add_adapter.png)
+![Add an Adapter]({{site.dox.baseurl}}/images/Profinity/add_adapter.png)
 
 ## Adapter Status
 

@@ -12,7 +12,7 @@ order: 1
 
 Work through this manual in sequence, using this checklist as you go:
 *   Items arrived in good condition
-*   Read and understood the [datasheet]()?
+*   Read and understood the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor200_datasheet/Overview.html)
 *   Read and understood this document
 *   A good mounting location chosen
 *   Cooling system installed and purged of air

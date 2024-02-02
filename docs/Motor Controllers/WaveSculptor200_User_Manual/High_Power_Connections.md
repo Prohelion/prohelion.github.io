@@ -13,11 +13,11 @@ order: 10
 It is important to correctly terminate the high power wiring for successful long-term operation of the controller.  DC battery and AC motor phase connections should be crimped to bolt lug crimp terminals.  The copper studs in the busbars of the WaveSculptor have a metric M8 thread, so use a lug designed for this size bolt, with an 8.5mm hole.  
 
 High power connections should not be soldered for vehicle applications, as the solder wicks up inside the copper strands and creates a stress point, which can fatigue and break due to the vibration present in a vehicle.  
-For a guide to good quality crimping of the high power connections, please read [Appendix B]() of this document.
+For a guide to good quality crimping of the high power connections, please read [Appendix B](appendix_B) of this document.
 
 Copper oxidation is a threat to the long-term reliability of both the crimp and the bolted joint to the controller.  Use a thin smear of anti-oxidation electrical jointing compound between the busbar and the crimp lug when bolting the cable to the controller, as shown in the diagram below.  A small amount has already been applied in the factory to minimise corrosion in the time between manufacture and first assembly of the unit in your vehicle.
 
-i
+![copper oxidation diagram]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/High_power_connections1.png)
 
 The copper pressfit studs are permanently attached to the busbars.  
 
@@ -33,7 +33,7 @@ To assemble the bolted joint follow these steps:
 
 The cable used to connect to the high power terminals must be rated for the full DC battery voltage as a minimum.  600/1000V cable is suitable.
 
-The current rating of the cable will depend on your expected load and duty cycle for your driving habits in your vehicle.  The WaveSculptor bolt terminal area is designed to accept up to 35mm² cable with an outside diameter of up to 13.5mm.  Prohelion suggests the use of at least 110°C rated PVC cable (note that standard PVC is 90°C rated) to allow a longer duration of peak power output without exceeding the cable temperature rating.  
+The current rating of the cable will depend on your expected load and duty cycle for your driving habits in your vehicle.  The WaveSculptor bolt terminal area is designed to accept up to 35mm<sup>2</sup> cable with an outside diameter of up to 13.5mm.  Prohelion suggests the use of at least 110°C rated PVC cable (note that standard PVC is 90°C rated) to allow a longer duration of peak power output without exceeding the cable temperature rating.  
 
 The cable should have orange coloured insulation.  This is required by the NCOP14 standard for EV conversions in Australia, but is a good idea in any case.  This is what is used in the Prius and other hybrid vehicles, and emergency response personnel are trained to not cut through orange cables.  Use a short piece of red or black insulation at the ends of the orange cable to indicate polarity.
 
@@ -49,11 +49,12 @@ These external inductors must be rated to the full motor current and have windin
 
 The positions of the busbars for the various connections are shown in the diagram below.  The recommended cable assembly order, to make cable routing inside the controller as easy as possible, is MOTOR C, MOTOR B, MOTOR A, DC POS, DC NEG.
 
-i
+![busbars position]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/High_power_connections2.png)
+
 
 ## Testing
 
-At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the “Motor Setup & Testing” section of this document.
+At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the [Motor Setup & Testing](Motor_setup&testing) section of this document.
 
 ## Precharge
 

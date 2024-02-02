@@ -21,7 +21,7 @@ The CAN protocol uses data frames for most communication.  Remote frames are als
 |Bit Length	|1	|11	|6	|8 Bytes	|16	|2	|7|
 ||	Start	|Identifier	|Control	|Data Field	|CRC	|Ack	|End|
 
-Figure 1. CAN Data frame
+Figure 1. CAN Data frame (todo)
 
 ### Identifier
 
@@ -33,7 +33,7 @@ The term Base Address is used instead of Device Identifier in the Windows config
 |10-5|4-0|
 | Device Idendifier | Message Identifier |
 
-Figure 2. CAN Device Identifier Address Format
+Figure 2. CAN Device Identifier Address Format (todo)
 
 ### Data Field 
 
@@ -106,7 +106,7 @@ To run the motor in velocity (cruise) control mode, set the current to your maxi
 
 Data frames containing telemetry values are periodically broadcast onto the bus by the WaveSculptor.  Broadcast of these values can be individually enabled and disabled via the Windows configuration software. 
 
-Any of these telemetry values can be requested at any time (no matter if enabled or disabled) by sending the appropriate RTR packet on the CAN bus.  For example, with a WaveSculpto200 configured at base address 0x400, your device should send an empty packet onto the CAN bus with an ID of 0x402 and the RTR bit set.  The WaveSculptor200 will reply immediately with a packet from ID 0x402 containing the latest bus voltage and current readings.
+Any of these telemetry values can be requested at any time (no matter if enabled or disabled) by sending the appropriate RTR packet on the CAN bus.  For example, with a WaveSculptor200 configured at base address 0x400, your device should send an empty packet onto the CAN bus with an ID of 0x402 and the RTR bit set.  The WaveSculptor200 will reply immediately with a packet from ID 0x402 containing the latest bus voltage and current readings.
 
 ### Identification Information 
 
@@ -133,42 +133,14 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 | Transmit Error Count | 55..48 | Uint8 | The DSP CAN transmission error counter (CAN 2.0) |
 | Error Flags (Extended) | 47..40 | Uint8 | Flags Indicate Extended Errors (V3 Only) |
 ||<strong>Bits</strong>||<strong>Parameter</strong>|
-|| 7|| Desaturation fault – Phase A Low Gate |
-|| 6|| Desaturation fault – Phase A High Gate |
-|| 5|| Desaturation fault – Phase B Low Gate |
-|| 4|| Desaturation fault – Phase B High Gate |
-|| 3|| Desaturation fault – Phase C Low Gate |
-|| 2|| Desaturation fault – Phase C High Gate |
-|| 1|| Hardware over current – Phase C |
-|| 0|| Hardware over current – Phase B |
+|| 7<br>6<br>5<br>4<br>3<br>2<br>1<br>0|| Desaturation fault – Phase A Low Gate<br>Desaturation fault – Phase A High Gate<br>Desaturation fault – Phase B Low Gate<br>Desaturation fault – Phase B High Gate<br>Desaturation fault – Phase C Low Gate<br>Desaturation fault – Phase C High Gate<br>Hardware over current – Phase C<br>Hardware over current – Phase B |
 | Active Motor | 39..32| Uint8 | The index of the active motor currently being used |
 | Error Flags | 31..16 | Uint16 | Flags Indicate Errors |
 || <strong>Bits</strong>||<strong>Parameter</strong>|
-|| 15..14|| Reserved |
-|| 13|| Hardware over Voltage |
-|| 12|| Output over Voltage (Debug only) |
-|| 11|| Bad PWM (Debug only) |
-|| 10|| Unknown error source (Debug only) |
-|| 9|| Motor Over Speed (15% overshoot above max RPM)
-|| 8|| Motor Interface communications fault |
-|| 7|| Desaturation fault (IGBT desaturation, IGBT driver UVLO) |
-|| 6|| 15V rail under voltage lock out (UVLO)|
-|| 5|| Config read errors (some values may be reset to defaults) |
-|| 4|| Watchdog caused last reset |
-|| 3|| Bad Motor position hall sequence |
-|| 2|| DC Bus over voltage |
-|| 1|| Software over current |
-|| 0|| Hardware over current |
+|| 15..14<br>13<br>12<br>11<br>10<br>9<br><br>8<br>7<br><br>6<br>5<br><br>4<br>3<br>2<br>1<br>0|| Reserved<br>Hardware over Voltage<br>Output over Voltage (Debug only)<br>Bad PWM (Debug only)<br>Unknown error source (Debug only)<br>Motor Over Speed (15% overshoot above max RPM)<br>Motor Interface communications fault<br>Desaturation fault (IGBT desaturation, IGBT driver UVLO)<br>15V rail under voltage lock out (UVLO)<br>Config read errors (some values may be reset to defaults)<br>Watchdog caused last reset<br>Bad Motor position hall sequence<br>DC Bus over voltage<br>Software over current<br>Hardware over current |
 | Limit Flags | 15..0 | Uint16 | Flags Indicate which control loop is limiting the output current of the motor controller |
 || <strong>Bits</strong>||<strong>Parameter</strong>
-|| 15..7|| Reserved |
-|| 6||      IPM Temperature or Motor Temperature |
-|| 5||      Bus Volatge Lower Limit |
-|| 4||      Bus Voltage Upper Limit |
-|| 3||      Bus Current |
-|| 2||      Velocity |
-|| 1||      Motor Current |
-|| 0||      Output Voltage PWM |
+|| 15..7<br>6<br>5<br>4<br>3<br>2<br>1<br>0|| Reserved<br>IPM Temperature or Motor Temperature<br>Bus Volatge Lower Limit<br> Bus Voltage Upper Limit<br>Bus Current<br>Velocity<br>Motor Current<br>Output Voltage PWM |
 
 ## Bus Measurement 
 
@@ -200,8 +172,8 @@ The periodic broadcast of this message cannot be disabled. It is needed to find 
 
 | <strong>Variable</strong>    |   <strong>Bits</strong> | <strong>Units</strong> | <strong>Description</strong>  
 |----------------------------------------------------|
-| Phase C Current | 63..32 | Aᵣₘₛ| RMS current in motor Phase C. |
-| Motor Velocity | 31..0 | Aᵣₘₛ | RMS current in motor Phase B.|
+| Phase C Current | 63..32 | A<sub>rms</sub>| RMS current in motor Phase C. |
+| Motor Velocity | 31..0 | A<sub>rms</sub> | RMS current in motor Phase B.|
 
 While the motor is rotating at speed these two currents should be equal. At extremely low commutation speeds these two currents will only match in one third of the motor position, the other two thirds will involve current also flowing in Phase A.
 

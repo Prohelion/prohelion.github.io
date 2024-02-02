@@ -22,5 +22,5 @@ By default, the linearisation is provided for a 100k @ 25°C sensor, but this ca
 
 The connector used for motor temperature sense signals is a 2-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps
 
-![Connector Diagram](../images/WaveSculptor_Motor_Interface_T2/Connector2.png)
+![Connector Diagram]({{site.dox.baseurl}}/images/WaveSculptor_Motor_Interface_T2/Connector2.png)
 

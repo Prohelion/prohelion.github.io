@@ -29,7 +29,7 @@ Follow the steps below for a successful crimp
 
 Cut the cable square and neatly, with no loose strands.  The best tool to use is a parrot-beak cable cutter, available at electricians supply stores.  
 
-![Step 1](
+![Step 1]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/AppB_1.jpg)
 
 <strong>Step 2:</strong>
 
@@ -39,19 +39,19 @@ Strip the insulation to the correct distance for the crimp you are using.  When 
 
 Put a small blob (6mm or 1/4” diameter) of electrical jointing compound into the barrel of the crimp.  This compound prevents oxygen and moisture from getting into the crimp later on, and keeps it in good condition for a long time.  
 
-![Step 3](../images/WaveSculptor22_User_Manual/AppB_2.jpg)
+![Step 3]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/AppB_2.jpg)
 
 <strong>Step 4:</strong>
 
 Insert the wire into the crimp.  Hold your finger over the inspection hole to stop the jointing compound coming out, therefore forcing it up between the wire strands.  Push the wire all the way into the crimp barrel, so that the wire insulation touches the end of the barrel with no large gaps.
 
-![Step 4](../images/WaveSculptor22_User_Manual/AppB_3.jpg)
+![Step 4]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/AppB_3.jpg)
 
 <strong>Step 5:</strong>
 
-Set your hex crimp tool to the same size as the crimp lug.  In the example photos here, we have used 35mm² cable, lugs, and crimp tool.  To crimp with the proper force, you will need either a 'bolt cutter' type crimp tool, as shown in the photo above, with handles around 600mm (2') long, or a hydraulic tool with an appropriate crimp die set.
+Set your hex crimp tool to the same size as the crimp lug.  In the example photos here, we have used 35mm<sup>2</sup> cable, lugs, and crimp tool.  To crimp with the proper force, you will need either a 'bolt cutter' type crimp tool, as shown in the photo above, with handles around 600mm (2') long, or a hydraulic tool with an appropriate crimp die set.
 
-![Step 5](../images/WaveSculptor22_User_Manual/AppB_4.jpg)
+![Step 5]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/AppB_4.jpg)
 
 <strong>Step 6:</strong>
 
@@ -61,5 +61,5 @@ Crimp the barrel of the crimp.  For the tool used in these photos, it can be cri
 
 Heatshrink both ends of the orange cable with red or black heatshrink to indicate DC polarity.  Red and Black cable should be reserved for low voltage (12V) wiring in the car.  Use other colour heatshrink for the motor phases.  
 
-![Step 7](../images/WaveSculptor22_User_Manual/AppB_5.jpg)
+![Step 7]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/AppB_5.jpg)
 

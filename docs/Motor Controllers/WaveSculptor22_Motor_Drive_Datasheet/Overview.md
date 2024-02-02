@@ -11,7 +11,7 @@ order: 0
 hero:
     title: WaveSculptor22 Motor Controller
     text: The WaveSculptor Motor Controller range are three-phase variable frequency inverters especially designed to drive high-efficiency, permanent magnet motors.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a Prohelion WaveSculptor22 Motor Controller
           url: https://www.prohelion.com/shop/wavesculptor-motor-controller/wavesculptor22-motor-controller/
@@ -28,6 +28,6 @@ For more details on communications, mechanical positioning and mounting, wiring 
 
 Operating the controller beyond the limits specified in this document will result in the voiding of the controller warranty.  Prohelion accepts no responsibility for events caused as a result of operating the controller beyond the limits specified in this document. Note that the specifications in this document are subject to change at any time due to product improvement.
 
-![WaveSculptor22](../images/WaveSculptor22_User_Manual/Wavesculptor_Datasheet1.png)
+![WaveSculptor22]({{site.dox.baseurl}}/images/WaveSculptor22_User_Manual/Wavesculptor_Datasheet1.png)
 
 The WaveSculptor22 is built using SN100C lead-free solder from Nihon Superior Co., Japan.

@@ -13,7 +13,7 @@ order: 0
 hero:
     title: ArrowPoint CAN Bus Tools
     text: Open Source toolkit for working and learning about CAN Bus.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
 ---
 
 ## Introduction

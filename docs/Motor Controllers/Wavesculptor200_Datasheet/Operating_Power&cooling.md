@@ -5,7 +5,7 @@ tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
 permalink: WaveSculptor_Motor_Controllers/WaveSculptor200_datasheet/Operating_power&cooling.html
 folder: WaveSculptor_Motor_Controllers/WaveSculptor200_Datasheet
-order: 6
+order: 5
 ---
 
 # Operating Power and Cooling
@@ -21,11 +21,11 @@ The WaveSculptor 200 is water cooled, and uses an external radiator with fans to
 | Acceptable metallic cooling system components | | Alluminium | Note 17 | 
 | Cooland pressure maximum | 0.75 | Bar | Note 18 | 
 
-### Notes: 
+#### Notes: 
 
 15) Maximum software current limit multiplied by maximum DC bus voltage limit.
 
-16) The controller is thermally limited to maintain the junction temperature of the main silicon devices below 100°C.  Stated figures are with Prohelion specified cooling system components with fan-forced airflow. Refer to the User's Manual for recommended components.
+16) The controller is thermally limited to maintain the junction temperature of the main silicon devices below 100°C.  Stated figures are with Prohelion specified cooling system components with fan-forced airflow. Refer to the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html). for recommended components.
 
 17) To prevent dissimilar metal corrosion problems, all items in the liquid cooling loop must be either plastic or aluminium.  Note specifically that many automotive radiators are copper, and must not be used.  Please use only the components recommended by Prohelion, as specified in the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html).
 

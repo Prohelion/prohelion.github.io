@@ -1,5 +1,5 @@
 ---
-title: Cell Management Unit (CMU)
+title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
 tags: [Prohelion, Profinity, CAN Bus Tools, Driver Controls]
 keywords: Prohelion, Profinity, CAN Bus Tools, Driver Controls
@@ -11,7 +11,7 @@ order: 0
 hero:
     title: Fix Me (TODO)
     text: Developing an Electric Vehicle? The Prohelion Driver Controller Unit is designed to give you a head start with an off the shelf control platform to get you driving sooner.
-    background_image: ../images/Prohelion_Battery.jpg
+    background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a Prohelion Driver Control
           url: https://www.prohelion.com/shop/accessories/ev-driver-controls/
@@ -37,7 +37,7 @@ The 8-cell CMU has the connections for the cell voltage and temperature sensing 
 
 The CMU is shown below:
 
-![CMU image](../images/CMU_Shown_below.png)
+![CMU image]({{site.dox.baseurl}}/images/CMU_Assembly_procedure/CMU_Shown_below.png)
 
 The cell sense connector is a 12-way 3mm Molex Microfit connector, with locking ramp.  8 pins are used for cell voltage sensing, one pin for cell ground, and two for a temperature sensing thermistor, leaving one pin unused.  
 
@@ -45,7 +45,7 @@ The mating housing is Molex part n sumber <strong>43645-1200</strong>, and the 2
 
 The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those used in the recommended cable.
 
-![Colour diagram of CMU](../images/pinout_colours.png)
+![Colour diagram of CMU]({{site.dox.baseurl}}/images/CMU_Assembly_procedure/pinout_colours.png)
 
 The CMU senses anywhere from one to eight cells.  Cell 0 must always be the first cell connected with Cell 0– connected to its negative terminal.  If one cell is being monitored, it should be connected to Cell 0; if two are monitored, they should be connected to Cell 0 and Cell 1, and so on.  
 
@@ -53,7 +53,7 @@ The temperature sensor must be electrically isolated from the cells, and would n
 
 Schematically, the connections are shown in the following diagram, which shows one full 8-cell CMU (CMU 1), and one CMU monitoring four cells (CMU 2).  Note the connection order to the CMU, this is done to simplify the wiring layout in later steps.
 
-![CMU image](../images/CMU_Thermistor.png)
+![CMU image]({{site.dox.baseurl}}/images/CMU_Assembly_procedure/CMU_Thermistor.png)
 
 
 

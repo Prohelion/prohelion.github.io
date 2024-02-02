@@ -22,7 +22,7 @@ Run the PC software, and provide 12V along the CAN cable to power up the motor c
 
 ## Phasorsense - BLDC Motors
 
-If you are using a BLDC or other permanent magnet motor, refer to the [software user's manual]() for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.  
+If you are using a BLDC or other permanent magnet motor, refer to the [software user manual]()? for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.  
 
 Next, run the parameter extraction routine, which calculates motor parameters.  Save the results into one of the ten available motor configuration slots.  In the general configuration screen, set this motor slot as the “Active Motor”.
 
@@ -30,7 +30,7 @@ For bench testing with an unloaded motor, set the vehicle mass in the config scr
 
 ## ImExtract - Induction Motors
 
-If you are using an induction motor, refer to the [software user's manual]() for the procedure to run ImExtract.  
+If you are using an induction motor, refer to the [software user manual]()? for the procedure to run ImExtract.  
 
 This routine calculates motor parameters.  Save the results into one of the ten available motor configuration slots.  In the general configuration screen, set this motor slot as the “Active Motor”.
 

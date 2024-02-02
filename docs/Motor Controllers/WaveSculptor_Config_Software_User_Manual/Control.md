@@ -12,7 +12,9 @@ order: 2
 
 The purpose of the control dialog box is to provide a basic driver controls interface, allowing the system to be tested. It is not meant to be used to actually drive a vehicle on the road. Figure 2 shows a screen shot of the interface.
 
-i
+![Figure 2: Control Interface]({{site.dox.baseurl}}/images/WaveSculptor_config_software_user_manual/control_interface.jpg)
+
+Figure 2: Control Interface
 
 In order to control the motor, three setpoint sliders are provided with text boxes to the right of the sliders displaying the selected setpoint. Fine movement of these sliders can be achieved using the keyboard as shown in Table 3.
 

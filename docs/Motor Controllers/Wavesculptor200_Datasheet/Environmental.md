@@ -17,11 +17,12 @@ To reach the specified IP rating, please note that the conduit fittings on the f
 | Environmental rating (conduit glued): | IP65 | Note 27 | 
 | Environmental rating (conduit push-fit only): | IP54 ||
 
-### Notes:
+#### Notes:
 
 27) The acceptable mounting positions as detailed in the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html) are shown below:
 
-i
+![WaveSculptor22 Mounting Positions]({{site.dox.baseurl}}/images/WaveSculptor200_datasheet/mounting.png)
+
 
 
 

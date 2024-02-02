@@ -12,7 +12,7 @@ order: 1
 
 The CAN bus and operating power for the bridge are connected through the male DB9 connector at one end of the bridge.  The pinout for this connector is shown below, as viewed when looking at the bridge, or when inserting crimps into the mating connector.
 
-![DB9 Connector Diagram](../images/CAN-Ethernet_Bridge_Datasheet/DB9_Connector.png)
+![DB9 Connector Diagram]({{site.dox.baseurl}}/images/CAN-Ethernet_Bridge_Datasheet/DB9_Connector.png)
 
 The pinout for this connector follows the standard commonly used in industrial CAN Bus applications such as DeviceNET and CANOpen.
 
@@ -29,7 +29,7 @@ The bridge must be supplied with DC power through the DB9 connector on Pin 9 (CA
 | Supply Power Maximum: | 0.5 | W | Note 3
 | Default CAN bit rate:	| 500 | kbit/sec | 
 
-### Notes
+#### Notes:
 
 1)  The CAN–Ethernet bridge will operate successfully between these voltage limits.  Operation outside these voltages may damage the device.
 

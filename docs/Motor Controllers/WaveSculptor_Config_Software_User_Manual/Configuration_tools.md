@@ -14,23 +14,27 @@ The wsConfig program has three configuration tools that are very important to se
 
 The next three section describe how to use these three tools.
 
-## Phanorsense
+## PhasorSense
 
 PhasorSense is designed to find phase and hall sequence, along with the relation between them. Plots of both the three phase voltages and the motor hall effect position logic are displayed. This should assist finding any errors with motor/controller set up.
 
-i
+![Figure 6: PhasorSense Acquisition Screen]({{site.dox.baseurl}}/images/WaveSculptor_config_software_user_manual/PhasorSense_acquisition_screen.gif)
+
+Figure 6: PhasorSense Acquisition Screen
 
 To start a PhasorSense Acquisition press the <strong>Phase Acquire</strong> button in the bottom right corner of the window. You then have 10 seconds to spin the motor with an electrical motor frequency of more than 12Hz. Even on a fairly low pole count motor of 4 pole pairs this is only 180RPM, which is achievable by hand. The high-voltage DC bus does not have to be connected for this test.  The WaveSculptor uses hall edges to decide if the speed is sufficient, so if the halls are not connected to the controller a "Failed to obtain sufficient speed" message will be given.
 
 If the acquisition is successful, results similar to the ones shown in Figure 6 should be displayed and you will be presented with a message box asking if you want to save the PhasorSense results. If you a happy with the results of the acquisition save the results to your chosen motor slot, otherwise cancel the save, fix the test rig and try again.
 
-<strong>OTE:</strong> When an Encoder or Resolver motor interface board is connected the hall input should appear as a single “saw-tooth” pattern ranging from 0 to 1 inclusive (If full 0 to 1 range isn't being seen, then verify that the Encoder count in the active motor configuration is correct).
+<strong>NOTE:</strong> When an Encoder or Resolver motor interface board is connected the hall input should appear as a single “saw-tooth” pattern ranging from 0 to 1 inclusive (If full 0 to 1 range isn't being seen, then verify that the Encoder count in the active motor configuration is correct).
 
 ## Paramextract
 
 ParamExtract is designed to find the motor stator resistance and inductance.
 
-i
+![Figure 7: ParamExtract Acquisition Screen]({{site.dox.baseurl}}/images/WaveSculptor_config_software_user_manual/paramextract_acquisition_screen.gif)
+
+Figure 7: ParamExtract Acquisition Screen
 
 This acquisition process requires the bus voltage and motor to be connected to the WaveSculptor. For best results the bus voltage should be no larger than needed to overcome the line resistance (a 60V bus voltage is usually plenty). The higher the PWM required to source 20A out of phase CB of the WaveSculptor the more accurate the calculation of line resistance and inductance.
 
@@ -48,7 +52,9 @@ A message box will appear asking if you wish to save the results.
 
 ImExtract is designed to find the rotor resistance and inductance in induction motors.
 
-i
+![Figure 8: ImExtract Acquisition Screen]({{site.dox.baseurl}}/images/WaveSculptor_config_software_user_manual/ImExtract_acquisition_screen.gif)
+
+Figure 8: ImExtract Acquisition Screen
 
 This acquisition process requires the bus voltage and motor to be connected to the WaveSculptor (a 60V bus voltage is usually plenty).
 

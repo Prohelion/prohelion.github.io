@@ -19,7 +19,7 @@ Although the Prohelion WaveSculptor is rated for use in water spray environments
 
 The Wavesculptor should ideally be mounted in a horizontal position, but vertical mount is also acceptable if the long axis of the controller is horizontal.  Do not mount the controller with the long axis vertical (ie, conduit exiting top or bottom) as water may pool in the end areas of the controller and eventually seep into the interior.  This position will also trap air in the cooling system.
 
-![mounting illustration](../images/WaveSculptor200_User_manual/mounting_axis.png)
+![mounting illustration]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/mounting_axis.png)
 
 The [Cooling section](cooling) of this document has further details, but as an overview the controller should not be the highest point in the liquid cooling system, or bleeding the cooling system of air bubbles will be difficult.  Keep this in mind when choosing a location.
 
@@ -37,7 +37,7 @@ Before final mounting of the controller in the vehicle, connect and fill the liq
 
 The Wavesculptor is mounted with a three-point mount using rubber standoffs to help isolate vehicle vibration from the controller electronics.  Refer to the drawing below for mounting hole locations, which should be fitted with an M6 insert or nut.  
 
-![WaveSculptor 200 Motor Controller](../images/WaveSculptor200_User_manual/dimensions&tolerances.png)
+![WaveSculptor 200 Motor Controller]({{site.dox.baseurl}}/images/WaveSculptor200_User_manual/dimensions&tolerances.png)
 
 Three M6 thread shoulder screws and washers are provided with the controller for mounting purposes, and the shoulder design means that when fully tightened, the rubber grommet compression is correct – the shoulder on the screw prevents over-compressing the grommet.  Tighten these screws to 10Nm, using Loctite 243 or similar retaining compound to prevent them working loose.
 

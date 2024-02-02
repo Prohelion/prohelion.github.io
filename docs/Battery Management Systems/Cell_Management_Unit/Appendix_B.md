@@ -8,7 +8,7 @@ folder: Battery_Management_System/Cell_Management_System
 order: 4
 ---
 
-# Appendix B: Guide to Successful crimping 
+# Appendix B: Guide to Successful Crimping 
 
 ## Molex MicroFit 3.0
 

@@ -47,7 +47,7 @@ Motor controller (Prohelion Wavesculptor 200) capacitance = <strong>800µF</stro
 
 Chosen precharge current = <strong>1A</strong> 
 
-Therefore, the minimum resistance (fastest precharge) will be 450V / 1A = 450 Ohms.  Choose <strong>470 Ohms</strong> as the next highest common value.  Peak power dissipation in the resistor is therefore 450V²/470R = <strong>430W. </strong> 
+Therefore, the minimum resistance (fastest precharge) will be 450V / 1A = 450 Ohms.  Choose <strong>470 Ohms</strong> as the next highest common value.  Peak power dissipation in the resistor is therefore 450V<sup>2</sup>/470R = <strong>430W. </strong> 
 
 The expected precharge time is given by the time constant TAU = R (Ohms) * C (Farads), where the voltage on the capacitor should change by 63% of the difference each TAU time interval.  Precharge should be within 95% of the initial value within 4 TAU, and to 99% within 5 TAU intervals, as an exponential decay.  For the example system, TAU = 376ms, so the expected precharge time of 4 TAU = <strong>1.5 seconds.</strong>
 

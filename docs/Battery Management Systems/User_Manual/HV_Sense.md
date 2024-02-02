@@ -24,7 +24,7 @@ The Battery HV– and Shunt sense wires should be twisted together to minimise n
 
 The connector used for the HV Sense is a 10-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those recommended in most EV wiring standards for HV DC wiring. 
 
-![HV Sense Connector](../images/BMS_User_Manual/HV_Sense_Connector.png)
+![HV Sense Connector]({{site.dox.baseurl}}/images/BMS_User_Manual/HV_Sense_Connector.png)
 
 | The sense points are as following:                 
 |----------------------------------------------------|

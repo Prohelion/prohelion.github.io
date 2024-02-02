@@ -22,13 +22,13 @@ All connections to the BMU are along one edge, simplifying wire routing inside y
 
 The BMU PCB and mounting holes are shown below. Dimensions in mm.
 
-![CMU Dimensions](../images/BMS_User_Manual/CMU_Dimensions.png)
+![BMU PCB mounting holes]({{site.dox.baseurl}}/images/BMS_User_Manual/BMS_MU_dimensions.png)
 
 ## Connectors Overview
 
 The Following Illustration shows the connections on the BMU
 
-![CMU Connectors Overview](../images/BMS_User_Manual/CMU_Connectors_Overview.png)
+![BMU Connectors]({{site.dox.baseurl}}/images/BMS_User_Manual/BMS_MU_Connectors_overview.png)
 
 Refer to the relevant sections of this document for more details on the pinout and wiring for each connector 
 

@@ -53,5 +53,5 @@ To help prevent noise pickup from capacitive coupling, the resolver should be mo
 
 The connector used for the motor sense signals is a 8-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps
 
-![Connector Diagram](..../images/Connector1.png)
+![Connector Diagram]({{site.dox.baseurl}}/images/WaveSculptor_Motor_Interface_T7/Connector1.png)
 

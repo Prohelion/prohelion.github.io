@@ -14,13 +14,13 @@ When driving an AC Permanent Magnet motor, the WaveSculptor requires three senso
 
 | Sensor power supply output 1:	 | 5 | V | Note 9 |
 | Sensor power supply output 2: | 12 | V | Note 9 |
-| Sensor power supply current maximum: | | 100 | mA |
+| Sensor power supply current maximum: |  100 | mA ||
 | Sensor Power Suplly isolation: | 1000 | V | Note 10 |
 | BLDC motor position sensor input phase offset: | ±10 | ° | Note 11,12 |
 | Induction motor encoder resolution minimum: | 64 | ppr | Note 13 |
 | NTC Temperature sensor at 25°C: | 100 | kΩ | Note 14 |
 
-### Notes:
+#### Notes:
 
 9)  The WaveSculptor provides isolated voltage supplies to operate the motor position sensors and motor temperature sensor.  These supplies are a regulated 5V and a regulated 12V output.  Please check with your motor supplier for the acceptable operating voltage of the position sensors used in your motor.
 

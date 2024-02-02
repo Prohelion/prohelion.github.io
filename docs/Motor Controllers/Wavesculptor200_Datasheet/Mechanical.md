@@ -10,7 +10,7 @@ order: 7
 
 # Mechanical 
 
-The WaveSculptor controller is mounted into position using three rubber mounted M6 shoulder bolts.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the User's Manual document available on the Prohelion website.
+The WaveSculptor controller is mounted into position using three rubber mounted M6 shoulder bolts.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.html) document available on the Prohelion website.
 
 | WaveSculptor enclosure length | 500 | mm | Note 22 |
 | WaveSculptor enclosure width | 172 | mm | Note 22 |
@@ -22,7 +22,7 @@ The WaveSculptor controller is mounted into position using three rubber mounted 
 | HV electrical terminal thread: | M8 |  | Note 26 |
 | HV electrical fastening torque maximum: | 12 | Nm | Note 26 |
 
-### Notes:
+#### Notes:
 
 22) Dimensions do not include attached cabling and connectors.
 

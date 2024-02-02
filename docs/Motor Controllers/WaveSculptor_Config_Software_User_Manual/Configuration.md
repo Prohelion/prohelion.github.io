@@ -20,7 +20,7 @@ The configuration screen consists of three tabs. The first contains general cont
 
 Figure 3 shows the general controller information tab. 
 
-i
+![Figure 3: WaveSculptor General Configuration Tab]({{site.dox.baseurl}}/images/WaveSculptor_config_software_user_manual/general_configuration_tab.jpg)
 
 Figure 3: WaveSculptor General Configuration Tab
 
@@ -28,7 +28,7 @@ Table 4 gives a description of the different configuration values and the impact
 
 | Value | Description |
 |----------------------|
-| Sine Current Limit (Arms) | Represents the 100% motor current setpoint. In sine mode all three phases are switching and the current target on every phase will be a percentage of this current. |
+| Sine Current Limit (A<sub>rms</sub>) | Represents the 100% motor current setpoint. In sine mode all three phases are switching and the current target on every phase will be a percentage of this current. |
 | SixStep Current Limit (A) | Represents the 100% motor current setpoint while in six step mode. In sixstep mode only a pair of phases is switching at any one time and the current target through these two phases will be a percentage of this current. |
 | Speed Limit (RPM) | The maximum motor speed setpoint |
 | Idc Limit (A) | Represents the 100% bus current setpoint. |
@@ -53,7 +53,7 @@ Table 4: Description of values of the general configuration screen
 
 This dialog tab is read-only in the release version of the software. It contains all the scale, offset and thermistor data for all the WaveSculptor sensors. There should be no need for the end user to access variables in this dialog box. 
 
-i
+![Figure 4: WaveSculptor Calibration Configuration Tab]({{site.dox.baseurl}}/images/WaveSculptor_config_software_user_manual/calibration_configuration_tab.jpg)
 
 Figure 4: WaveSculptor Calibration Configuration Tab
 
@@ -61,7 +61,7 @@ Figure 4: WaveSculptor Calibration Configuration Tab
 
 Configuration values for up to 10 different motors can be configured on this tab, shown in Figure 4. This allows complete testing and setup for all motors that you expect to use in the vehicle, while still in the workshop.
 
-i
+![Figure 5: WaveSculptor Motor Configuration Tab]({{site.dox.baseurl}}/images/WaveSculptor_config_software_user_manual/motor_configuration_tab.jpg)
 
 Figure 5: WaveSculptor Motor Configuration Tab
 
@@ -95,8 +95,17 @@ A description of each motor configuration value along with its effect on the sys
 |-----------------------|
 | Rotor R (mR) | Rotor resistance calculated by ImExtract |
 | Rotor L (uH) | Rotor resistance calculated by ImExtract |
-| Min Id (Apk) | | 
+| Min Id (Apk) | - | 
 
 | Value | Description |
 |-----------------------| 
 | Max Id (Apk) | The control system will keep the flux producing current (Id) between Min Id and Max Id at all times. Max Id is a motor parameter and should be set as high as possible without saturating the iron in the motor. Min Id controls the amount of over speed, the smaller the Min Id the more over speed. Typical defaults will be around 20A and 5A. | 
+
+| IPM (Interior Permanent Magnet) motor type |
+|---------------------------------------------|
+| Rotor R (mR) | Not used |
+| Rotor L (uH) | Lq inductance of the IPM motor, whereas the Line inductance is the Ld inductance of the IPM motor. |
+| IdO (A) | TBD |
+| Id m (A/Atot) | TBD |
+
+Table 5: Description of values on the motor configuration screen

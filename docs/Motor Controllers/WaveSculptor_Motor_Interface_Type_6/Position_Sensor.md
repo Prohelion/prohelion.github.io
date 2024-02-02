@@ -26,4 +26,4 @@ Each input is sensed by a schmitt-trigger logic input with hysteresis.  Rising a
 
 The connector used for the motor sense signals is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  
 
-![Connector Diagram](../images/WaveSculptor_Motor_Interface_T6/Connector1.png)
+![Connector Diagram]({{site.dox.baseurl}}/images/WaveSculptor_Motor_Interface_T6/Connector1.png)
