@@ -25,11 +25,11 @@ features:
               - title: WaveSculptor22 Datasheet
                 description: Datasheet for the Prohelion WaveSculptor22
                 icon: file-text
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor22_Motor_Drive_Datasheet/Overview.md
+                url: /WaveSculptor_Motor_Controllers/Datasheet/Overview.md
               - title: WaveSculptor22 User Manual
                 description: User Manual for the Prohelion WaveSculptor22
                 icon: user
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Overview.md
+                url: /WaveSculptor_Motor_Controllers/User_Manual/Overview.md
               - title: Inductor Coil Construction Guide
                 description: How to build a set of 50μH 100Arms (peak) inductors suitable for use with the Prohelion WaveSculptor22
                 icon: rotate-cw
@@ -56,7 +56,7 @@ features:
               - title: WaveSculptor200 User Manual
                 description: User Manual for the Prohelion WaveSculptor200
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_User_Manual/Overview.md
+                url: /WaveSculptor_Motor_Controllers/User_Manual/Overview.md
               - title: WaveSculptor200 Motor Drive
                 description: Motor Sense Comm Spec for WaveSculptor200
                 icon: rotate-cw

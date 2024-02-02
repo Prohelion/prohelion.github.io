@@ -45,7 +45,7 @@ The buttons in the BMU section shows the various status flags, some flags are no
 
 Note that when not engaged or receiving messages from the control module the BMU will drop back to its safe precharge state which is the error state.  
 
-Consult the [BMU documentation](/Battery_Management_System/Overview.md) for more information but note that that error state can be part of normal operation.
+Consult the [BMU documentation](../Battery_Management_Systems/Overview.md) for more information but note that that error state can be part of normal operation.
 
 *         CMU Power supply OK
 
@@ -107,7 +107,7 @@ To update the configuration of your Battery Management Unit, right mouse click o
 </div>
 
 <video autoplay loop controls width="100%">
-  <source src="/assets/video/Profinity/ConfigBMU.mov" type="video/mp4">
+  <source src="video/ConfigBMU.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 

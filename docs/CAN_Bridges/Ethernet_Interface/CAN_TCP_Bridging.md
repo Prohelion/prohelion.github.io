@@ -20,7 +20,7 @@ The fwd range represents the size of the range of CAN identifiers that should be
 
 <strong>fwd identifier <= packet CAN identifier < ( fwd identifier + fwd range )</strong>
 
-The remaining fields in figure 4 are identical to those in figure 1, see [CAN-UDP Bridging](CAN_UDP_Bridging).  
+The remaining fields in figure 4 are identical to those in figure 1, see [CAN-UDP Bridging](CAN_UDP_Bridging.md).  
 
 In effect, the TCP data stream consists of an initial TCP datagram with the forwarding information, followed by bus and client identifiers that are only sent once for the entire TCP stream. This initial information is followed by any number of CAN packets consisting of identifiers, flags, lengths and data which can be a part of the initial TCP datagram or any number of independent TCP datagrams afterwards.
 

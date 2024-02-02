@@ -7,7 +7,7 @@ order: 2
 
 Here is a few fundamental concepts that are worth knowing when working with the Tritium CAN-Ethernet bridges.
 
-![Profinity](images/FAQ/CANEthernetBridge.png)
+![Profinity](images/CANEthernetBridge.png)
 
 ### Reset Button
 

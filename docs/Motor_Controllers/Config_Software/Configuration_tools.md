@@ -28,7 +28,7 @@ If the acquisition is successful, results similar to the ones shown in Figure 6 
 
 ParamExtract is designed to find the motor stator resistance and inductance.
 
-![Figure 7: ParamExtract Acquisition Screen](images/paramextract_acquisition_screen.gif)
+![Figure 7: ParamExtract Acquisition Screen](images/paramExtract_acquisition_screen.gif)
 
 Figure 7: ParamExtract Acquisition Screen
 
@@ -48,7 +48,7 @@ A message box will appear asking if you wish to save the results.
 
 ImExtract is designed to find the rotor resistance and inductance in induction motors.
 
-![Figure 8: ImExtract Acquisition Screen](images/ImExtract_acquisition_screen.gif)
+![Figure 8: ImExtract Acquisition Screen](images/imextract_acquisition_screen.gif)
 
 Figure 8: ImExtract Acquisition Screen
 

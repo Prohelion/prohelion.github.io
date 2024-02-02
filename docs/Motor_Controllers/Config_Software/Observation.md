@@ -72,7 +72,7 @@ The WaveSculptor runs six concurrent control loops, with the primary control loo
 
 ## Measurements
 
-All measurements are broadcast from the WaveSculptor at periodic intervals, unless disabled in the configuration file.  For more details, please refer to the [CAN bus comms Appendix in the WaveSculptor User's Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor22_User_Manual/Appendix_C.md).
+All measurements are broadcast from the WaveSculptor at periodic intervals, unless disabled in the configuration file.  For more details, please refer to the [CAN bus comms Appendix in the WaveSculptor User's Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/Appendix_C.md).
 
 | Measurement | Description | Rate (Hz)|
 |--------------------------------------|

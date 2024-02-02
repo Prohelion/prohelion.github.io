@@ -9,7 +9,7 @@ The CAN bus is structured as a linear network, with short stubs branching from '
 
 In the range of Prohelion EV products, including the WaveSculptor 200, EV Driver Controls, and BMS Pack Master, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
-![CAN Bus](imagesCAN_Network_Topology.gif)
+![CAN Bus](images/CAN_Network_Topology.gif)
 
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
 Therefore, a basic system consists of three major components:
