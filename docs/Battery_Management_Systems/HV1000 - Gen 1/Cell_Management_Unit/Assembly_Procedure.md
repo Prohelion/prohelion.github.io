@@ -12,7 +12,7 @@ Making an assembly jig with bolts at the same spacing as the battery terminals i
 
 ## Cut to Length
 
-Work out where you want the CMU to be located.  It should be fastened to the wall of the battery box to aid in heatsinking, with the supplied insulation material, as outlined in the [BMS User's Manual](http://localhost:4000/Battery_Management_System/User_Manual/Overview.md)
+Work out where you want the CMU to be located.  It should be fastened to the wall of the battery box to aid in heatsinking, with the supplied insulation material, as outlined in the [BMS User's Manual](../User_Manual/Overview.md)
 
 The appropriate length of cable has been placed on the assembly jig and cut to length in the following photo:
 

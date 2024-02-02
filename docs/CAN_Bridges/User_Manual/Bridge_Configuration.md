@@ -22,7 +22,7 @@ The CAN–Ethernet Bridge Configuration application provides three functions.  F
 
 Figure 5 shows a screenshot of the configuration tool.  
 
-![Figure 5:CAN-Ethernet Bridge Configuration Tool](imagesCAN-Ethernet_Bridge_Configuration_tool.gif)
+![Figure 5:CAN-Ethernet Bridge Configuration Tool](images/CAN-Ethernet_Bridge_Configuration_tool.gif)
 
 Figure 5: CAN-Ethernet Bridge Configuration Tool
 
@@ -57,7 +57,7 @@ The CAN–Ethernet Bridge Loader wizard provides the ability to load updated fir
 
 Figure 6 shows a screenshot of the loader tool.  
 
-![Figure 6:CAN-Ethernet Bridge Loader Tool](imagesCAN-Ethernet_Bridge_loader_tool.gif)
+![Figure 6:CAN-Ethernet Bridge Loader Tool](images/CAN-Ethernet_Bridge_loader_tool.gif)
 
 Figure 6: CAN-Ethernet Bridge Loader Tool
 

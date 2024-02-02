@@ -20,7 +20,7 @@ A brief datasheet for each adapter option is available on the Prohelion website.
 
 ## Connector Pinout
 
-The connector used on the WaveSculptor200 for the connection to the motor sense adapter board is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](appendix_b) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
+The connector used on the WaveSculptor200 for the connection to the motor sense adapter board is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
 ![WaveSculptor 200 Motor Controller](images/Introduction.png)
 

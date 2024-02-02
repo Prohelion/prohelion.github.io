@@ -7,5 +7,5 @@ order: 5
 
 The following schematic shows the simplest possible connection, when using the default software.
 
-![Basic Connection Diagram](imagesBasic_Connection_Diagram.gif)
+![Basic Connection Diagram](images/Basic_Connection_Diagram.gif)
 
