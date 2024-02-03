@@ -25,19 +25,19 @@ features:
               - title: WaveSculptor22 Datasheet
                 description: Datasheet for the Prohelion WaveSculptor22
                 icon: file-text
-                url: /WaveSculptor_Motor_Controllers/Datasheet/Overview.md
+                url: /WaveSculptor_Motor_Controllers/Datasheet/0_Overview.md
               - title: WaveSculptor22 User Manual
                 description: User Manual for the Prohelion WaveSculptor22
                 icon: user
-                url: /WaveSculptor_Motor_Controllers/User_Manual/Overview.md
+                url: /WaveSculptor_Motor_Controllers/User_Manual/0_Overview.md
               - title: Inductor Coil Construction Guide
                 description: How to build a set of 50μH 100Arms (peak) inductors suitable for use with the Prohelion WaveSculptor22
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/Inductor_Coil_Construction_guide/Overview.md
+                url: /WaveSculptor_Motor_Controllers/Inductor_Coil_Construction_guide/0_Overview.md
               - title: WaveSculptor22 Software User Manual
                 description: User Manual for the software application to configuring and manage the Prohelion WaveSculptor22
                 icon: user
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/0_Overview.md
               - title: WaveSculptor22 Mechanical Drawing
                 description: Mechanical Drawing for the Prohelion WaveSculptor22
                 icon: file
@@ -52,46 +52,46 @@ features:
               - title: WaveSculptor200 Datasheet
                 description: Datasheet for the Prohelion WaveSculptor200
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_datasheet/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_datasheet/0_Overview.md
               - title: WaveSculptor200 User Manual
                 description: User Manual for the Prohelion WaveSculptor200
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/User_Manual/Overview.md
+                url: /WaveSculptor_Motor_Controllers/User_Manual/0_Overview.md
               - title: WaveSculptor200 Motor Drive
                 description: Motor Sense Comm Spec for WaveSculptor200
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_Motor_Sense_Comms_Spec/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_Motor_Sense_Comms_Spec/0_Overview.md
         - title: WaveSculptor Motor Interfaces
           description: Motor Interfaces bridge the controller to your motor. Different interface boards are used depending on your motors capabilities
           grid: # Add feature grid items below, there are examples with all available options
               - title: Type 1 - Motor Interface
                 description: Interface board for motors with Halls & Thermistor
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_1/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_1/0_Overview.md
               - title: Type 2 - Motor Interface
                 description: Interface board for motors with Encoder & Thermistor
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_2/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_2/0_Overview.md
               - title: Type 3 - Motor Interface
                 description: Interface board for motors with Resolver & Pt100
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_3/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_3/0_Overview.md
               - title: Type 6 - Motor Interface
                 description: Interface board for motors with Encoder & Thermistor
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_6/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_6/0_Overview.md
               - title: Type 7 - Motor Interface
                 description: Interface board for motors with Resolver & Thermistor
                 icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_7/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_7/0_Overview.md
         - title: Supporting Software                  
           grid:
               - title: Profinity
                 description: Our battery and CAN Bus management software solution.
                 icon: check-circle
-                url: ../Profinity/Overview.md
+                url: ../Profinity/0_Overview.md
               - title: WaveSculptor Software
                 description: Specialist software for configuring and managing your WaveSculptor (same as above?)
                 icon: check-circle
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/Overview.md
+                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/0_Overview.md
 ---
