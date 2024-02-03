@@ -1,7 +1,7 @@
 site_name: Prohelion Documentation
 theme:
   name: material  
-  logo: assets/Prohelion_Logo_32.png
+  logo: images/Prohelion_Logo_32.png
   favicon: images/favicon.png
   features:
     - navigation.instant
