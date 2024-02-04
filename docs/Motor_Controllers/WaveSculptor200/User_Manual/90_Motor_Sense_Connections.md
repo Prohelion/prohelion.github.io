@@ -12,7 +12,7 @@ Since there are a large variety of possible combinations of position and tempera
 
 It is expected that the motor sense adapter board will be located inside the motor terminal box, and connect to the WaveSculptor200 via a twisted-pair cable routed along the conduit with the motor phase wiring.
 
-The WaveSculptor provides isolated, regulated +5V and +12V DC to power the external adapter.  Refer to the [datasheet](../Datasheet/0_Overview.md) for specifications on these supplies.
+The WaveSculptor provides isolated, regulated +5V and +12V DC to power the external adapter.  Refer to the [datasheet](../Datasheet/index.md) for specifications on these supplies.
 
 The WaveSculptor provides four isolated differential inputs for information from the motor.  Three of these are routed to timer/capture peripherals in the main processor, and are normally used for three Hall-effect position sensors, or the A, B and Index channels of a quadrature encoder.  The fourth channel is routed to a UART serial receiver, and expects digital data.  Depending on the adapter board, this data may contain temperature, position, velocity, or a combination of all three.
 
@@ -20,7 +20,7 @@ A brief datasheet for each adapter option is available on the Prohelion website.
 
 ## Connector Pinout
 
-The connector used on the WaveSculptor200 for the connection to the motor sense adapter board is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
+The connector used on the WaveSculptor200 for the connection to the motor sense adapter board is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](150_Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
 ![WaveSculptor 200 Motor Controller](images/introduction.png)
 

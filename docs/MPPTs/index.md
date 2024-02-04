@@ -39,5 +39,5 @@ features:
               - title: Profinity
                 description: Our battery and CAN Bus management software solution supporting Elmar MPPTs
                 icon: check-circle
-                url: ../Profinity/0_Overview.md
+                url: ../Profinity/index.md
 ---

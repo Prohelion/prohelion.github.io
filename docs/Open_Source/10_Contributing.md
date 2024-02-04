@@ -1,5 +1,5 @@
 ---
-title: ArrowPoint Contributing 
+title: Contributing 
 ---
 
 ## Contributing

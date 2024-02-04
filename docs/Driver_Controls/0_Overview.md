@@ -25,22 +25,22 @@ features:
               - title: User Manual
                 description: User Manual for the Prohelion EV Driver Controls
                 icon: wifi
-                url: /Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/0_Overview.md 
+                url: /Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/index.md 
               - title: Communications Protocol
                 description: Information on EV Driver Controls CAN Bus Communications Protocol Specification
                 icon: wifi
-                url: /Electric_Vehicle_Driver_Controls/EV_Driver_Controls_Communications_protocol/0_Overview.md     
+                url: /Electric_Vehicle_Driver_Controls/EV_Driver_Controls_Communications_protocol/index.md     
         - title: Frequently Asked Questions (FAQs)
           description: Answers to the commonly asked questions that we get on our core products
           grid:
               - title: CAN to Ethernet Bridge
                 description: Getting the most out of or troubleshooting your CAN to Ethernet Bridge
                 icon: wifi
-                url: /FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/0_Overview.md  
+                url: /FAQ/CAN_bus_Adapters/Tritium_CAN_Ethernet_Bridge/index.md  
         - title: Supporting Software          
           grid:
               - title: Profinity
                 description: Our battery and CAN Bus management software solution.
                 icon: check-circle
-                url: ../Profinity/0_Overview.md
+                url: ../Profinity/index.md
 ---

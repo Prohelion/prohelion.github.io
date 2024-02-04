@@ -73,11 +73,11 @@ You could write a whole book on networking and lots of people have but the key p
 
 For example, consider the following network
 
-| Device          | IP Address    | Comments                                                               |
-| --------------- | ------------- | ---------------------------------------------------------------------- |
-| Router          | 192.168.16.1  | Your Wifi or ethernet router, the DHCP Server is probably running here |
-| PC              | 192.168.16.60 | This is where Profinity or the Tritium tools are running               |
-| CAN-Ethernet Bridge | 192.168.16.90 | This is where the Tritium or Prohelion CAN-Ethernet Bridge is running      |
+| Device                | IP Address    | Comments                                                               |
+| --------------------- | ------------- | ---------------------------------------------------------------------- |
+| `Router`              | 192.168.16.1  | Your Wifi or ethernet router, the DHCP Server is probably running here |
+| `PC`                  | 192.168.16.60 | This is where Profinity or the Tritium tools are running               |
+| `CAN-Ethernet Bridge` | 192.168.16.90 | This is where the Tritium or Prohelion CAN-Ethernet Bridge is running  |
 
 This is a well setup network and will probably cause you no problems with either Profinity or the Tritium tools. 
 
@@ -87,11 +87,11 @@ This means that the Router (192.168.16.1) does not need to do anything tricky to
 
 However, lets consider another network setup.
 
-| Device          | IP Address    | Comments                                                               |
-| --------------- | ------------- | ---------------------------------------------------------------------- |
-| Router          | 192.168.16.1  | Your Wifi or ethernet router, the DHCP Server is probably running here |
-| PC              | 192.168.16.60 | This is where Profinity or the Tritium tools are running               |
-| CAN-Ethernet Bridge | 169.254.82.45 | This is where the Tritium or Prohelion CAN-Ethernet Bridge is running      |
+| Device                | IP Address    | Comments                                                               |
+| --------------------- | ------------- | ---------------------------------------------------------------------- |
+| `Router`              | 192.168.16.1  | Your Wifi or ethernet router, the DHCP Server is probably running here |
+| `PC`                  | 192.168.16.60 | This is where Profinity or the Tritium tools are running               |
+| `CAN-Ethernet Bridge` | 169.254.82.45 | This is where the Tritium or Prohelion CAN-Ethernet Bridge is running  |
 
 
 **Here we can see we have a problem**. 
@@ -102,6 +102,6 @@ The fact that the IP address starts with 169.254 also indicates a key issue, tha
 
 This is a fairly common scenario that causes problems.  This issue often happens when setting up the bridge with a direct connection to a PC and no router in the middle. In this scenario we would always recommend a static IP address be used.
 
-If you want to understand the scenario where this configuration could work see the [Supported Network Setups](Supported_Network_Setups.md) section of this document and read about the configuration **ADVANCED - Direct TCP Connection using a router or WiFi** as there is a scenario where you might actually want this configuration, but it is fairly unusual and requires a very specific setup to work.
+If you want to understand the scenario where this configuration could work see the [Supported Network Setups](40_Supported_Network_Setups.md) section of this document and read about the configuration **ADVANCED - Direct TCP Connection using a router or WiFi** as there is a scenario where you might actually want this configuration, but it is fairly unusual and requires a very specific setup to work.
 
 **If you take two things from this whole article it’s should hopefully be the the subnet (the first three digits) is very critical to the reliable operation of the bridge and ideally don’t leave your bridges running in the IP address range of 169.254.x.x that means they are not setup right.**

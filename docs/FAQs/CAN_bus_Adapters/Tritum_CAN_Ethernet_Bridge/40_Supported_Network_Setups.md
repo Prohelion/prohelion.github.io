@@ -11,7 +11,7 @@ Here are the five possible setups we support and a quick guide to getting them g
 
 For all scenarios (apart from the last one), to confirm your bridge is correctly setup ensure that Profinity can Auto Discover your bridge.
 
-If you have issues see the section on [Common Problems and Solutions](Common_Problems_And_Solutions.md) section.
+If you have issues see the section on [Common Problems and Solutions](60_Common_Problems_And_Solutions.md) section.
 
 **Remember: Static IP addresses, particularly on the CAN-Ethernet bridge are the best way to achieving consistent, reliable behaviours on your bridge. Use them whenever possible.**
 

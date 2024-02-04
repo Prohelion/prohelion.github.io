@@ -8,7 +8,7 @@ order: 3
 
 The configuration screen shown in Figure 3 provides four main functions: Load and save to PC or WaveSculptor. The load and save functions are under the File menu, provide a means of storing the configuration file on the PC for backup purposes. You should backup your configuration files just as you would any other file. If the configuration file on the WaveSculptor is somehow corrupted you will be able to restore to a known good version with a backup. If using the latest release of the software and firmware, configuration files are  interchangeable between WaveSculptors, <strong>BUT the existing configuration must be first downloaded in order to integrate the configuration constants with the file.</strong>
 
-The transfer functions move the information from all configuration tabs to and from the WaveSculptor. The upload and download progress is reflected in a separate popup-window as mentioned in the [Observation](Observation.md) section.
+The transfer functions move the information from all configuration tabs to and from the WaveSculptor. The upload and download progress is reflected in a separate popup-window as mentioned in the [Observation](10_Observation.md) section.
 
 The configuration screen consists of three tabs. The first contains general controller information that the user is free to adjust, the second contains calibration data set in the factory and the third tab contains motor information, also adjustable by the user.
 

@@ -9,7 +9,7 @@ order: 10
 It is important to correctly terminate the high power wiring for successful long-term operation of the controller.  DC battery and AC motor phase connections should be crimped to bolt lug crimp terminals.  The copper studs in the busbars of the WaveSculptor have a metric M8 thread, so use a lug designed for this size bolt, with an 8.5mm hole.  
 
 High power connections should not be soldered for vehicle applications, as the solder wicks up inside the copper strands and creates a stress point, which can fatigue and break due to the vibration present in a vehicle.  
-For a guide to good quality crimping of the high power connections, please read [Appendix B](Appendix_B.md) of this document.
+For a guide to good quality crimping of the high power connections, please read [Appendix B](150_Appendix_B.md) of this document.
 
 Copper oxidation is a threat to the long-term reliability of both the crimp and the bolted joint to the controller.  Use a thin smear of anti-oxidation electrical jointing compound between the busbar and the crimp lug when bolting the cable to the controller, as shown in the diagram below.  A small amount has already been applied in the factory to minimise corrosion in the time between manufacture and first assembly of the unit in your vehicle.
 
@@ -50,7 +50,7 @@ The positions of the busbars for the various connections are shown in the diagra
 
 ## Testing
 
-At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the [Motor Setup & Testing](Motor_Setup_And_Testing.md) section of this document.
+At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the [Motor Setup & Testing](110_Motor_Setup_And_Testing.md) section of this document.
 
 ## Precharge
 

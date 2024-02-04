@@ -8,7 +8,7 @@ order: 6
 
 The CAN bus is structured as a linear network, with short stubs branching from 'T' connectors on the main bus backbone to each device.  The CAN bus data lines must be terminated at each end of the main bus with 120 ohm resistors between the CAN-H and CAN-L signals.
 
-In the range of Prohelion EV products, including the [WaveSculptor 22](../User_Manual/0_Overview.md), [EV Driver Controls](../../../Driver_Controls/User_Manual/0_Overview.md), and [Battery Management Systems](../../../Battery_Management_Systems/0_Overview.md), the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
+In the range of Prohelion EV products, including the [WaveSculptor 22](../User_Manual/index.md), [EV Driver Controls](../../../Driver_Controls/User_Manual/index.md), and [Battery Management Systems](../../../Battery_Management_Systems/index.md), the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
 ![CAN Network Topology](images/CAN_Bus_And_Low_Voltage.gif)
 
@@ -37,7 +37,7 @@ From a performance perspective, the optimal choice of cable is 7mm Devicenet CAN
 
 The connector used on the WaveSculptor22 and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps. 
 
-The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
+The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](150_Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
 ![CAN cabling pairs diagram](images/CAN_Connector.png)
 
@@ -59,7 +59,7 @@ By default, each device operates at 500 kbits/second, one step below the maximum
 
 WaveSculptor controllers also have a second programmable base address that they watch for command messages. This should be set to whatever base address is used by the driver controls node on the network.
 
-The WaveSculptor motor controller expects regular messages from the driver controls device.  If a message is not received within a set timeout period (refer to the communications specification in [Appendix A](Appendix_A.md) for the exact value) then the controller will change to a safe mode and will stop driving the motor until a valid message is received again. This protects against faults where either a connector is loose or broken, the cable has been damaged, or the driver controls have failed.
+The WaveSculptor motor controller expects regular messages from the driver controls device.  If a message is not received within a set timeout period (refer to the communications specification in [Appendix A](140_Appendix_A.md) for the exact value) then the controller will change to a safe mode and will stop driving the motor until a valid message is received again. This protects against faults where either a connector is loose or broken, the cable has been damaged, or the driver controls have failed.
 
 ## Power Supply
 
@@ -73,7 +73,7 @@ Prohelion can provide a CAN bus driver controls device.  This interfaces to peda
 
 As the communications specification is open, the WaveSculptor can also be operated from custom driver controls hardware specific to your vehicle, or from a Windows PC running either the provided Prohelion software, or custom software of your choice.
 
-Please refer to the [Driver Controls Datasheet]()??? and [User Manual](../../../Driver_Controls/User_Manual/0_Overview.md) on our website for further details. 
+Please refer to the [Driver Controls Datasheet]()??? and [User Manual](../../../Driver_Controls/User_Manual/index.md) on our website for further details. 
 
 ## System Expansion
 

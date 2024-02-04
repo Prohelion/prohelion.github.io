@@ -1,5 +1,5 @@
 ---
-title: ArrowPoint Troubleshooting 
+title: Troubleshooting 
 ---
 
 ## CAN Bus data is not appearing in the applications or tablet

@@ -7,7 +7,7 @@ order: 15
 
 [Tritium](https://www.tritiumcharging.com/) initially created the WaveSculptor Motor Inverter, used by racing teams around the world.  With 99.2% cruising efficiency the WaveSculptor family is a go to choice for most high efficiency electric vehicle racing teams.  In 2021 [Prohelion](https://www.prohelion.com) took over the design, manufacturing and support for this product.
 
-Profinity provides integrated management of the WaveSculptor products and you can access the WaveSculptor dashboard by adding a WaveSculptor to your [Profile](Profiles.md). 
+Profinity provides integrated management of the WaveSculptor products and you can access the WaveSculptor dashboard by adding a WaveSculptor to your [Profile](10_Profiles.md). 
 
 From there right mouse client to access the WaveSculptor Dashboard or to access the CAN Bus Messages and Signals.
 
@@ -32,5 +32,5 @@ To update the configuration of your WaveSculptor, right mouse click on the WaveS
 
 ## Flashing the WaveSculptor Firmware
 
-To flash the WaveSculptor firmware, right mouse click on the Update Firmware menu item on the WaveSculptor.  As per the configuration tools a CAN to Ethernet bridge or a [Virtual CAN Adapter](Virtual_CAN_Adapter.md) is required for this operation.
+To flash the WaveSculptor firmware, right mouse click on the Update Firmware menu item on the WaveSculptor.  As per the configuration tools a CAN to Ethernet bridge or a [Virtual CAN Adapter](40_Virtual_CAN_Adapter.md) is required for this operation.
 

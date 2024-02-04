@@ -49,7 +49,7 @@ The expected precharge time is given by the time constant TAU = R (Ohms) * C (Fa
 
 Choosing a >500W resistor is unnecessary, as this rating is only needed for a short amount of time during normal operation.  However, the resistor cannot be too small, as if a fault situation occurs, such as a short circuit in the motor controller, then this power will be dissipated continuously for the entire expected precharge time, until the precharge controller realises that precharging has not occurred properly and goes into an error state.  For safety, the resistor in the example system should be chosen to tolerate a one-off event, starting at the expected maximum ambient temperature, of 430W for 1.5 seconds. 
 
-Searching through available off-the-shelf options from Digikey, the RH series from Vishay is chosen as a likely candidate.  According to the [datasheet](https://www.vishay.com/docs/50013/rh.pdf) (see also, [Appendix](Appendix.md)) for short time overloads, a power rating of 12x the nominal power is acceptable for a 2 second duration.  Using a 50W resistor, this equates to an overload rating of 600W, starting at an ambient of 25°C.   
+Searching through available off-the-shelf options from Digikey, the RH series from Vishay is chosen as a likely candidate.  According to the [datasheet](https://www.vishay.com/docs/50013/rh.pdf) (see also, [Appendix](210_Appendix.md)) for short time overloads, a power rating of 12x the nominal power is acceptable for a 2 second duration.  Using a 50W resistor, this equates to an overload rating of 600W, starting at an ambient of 25°C.   
 
 Therefore, this 50W resistor is acceptable for the external resistor in this application based on maximum fault power. 
 

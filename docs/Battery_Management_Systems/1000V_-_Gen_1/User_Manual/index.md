@@ -3,17 +3,6 @@ title: Overview
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
 order: 0
 
-# Hero section
-hero:
-    title: Fix Me (TODO)
-    text: Developing an Electric Vehicle? The Prohelion Driver Controller Unit is designed to give you a head start with an off the shelf control platform to get you driving sooner.
-    background_image: /images/Prohelion_Battery.jpg
-    buttons: # Add buttons below, there are examples with all available options
-        - label: Order a Prohelion Driver Control
-          url: https://www.prohelion.com/shop/accessories/ev-driver-controls/
-          external_url: true 
-          style: filled
-          icon: credit-card 
 ---
 
 # Battery Management System User Manual
@@ -24,7 +13,7 @@ The BMS provides an easy way to monitor and control an Electric Vehicle battery 
 
 ![Battery Management System](images/Introduction_1.png)
 
-The BMS consists of two components: multiple [Cell Management Units](../Cell_Management_Unit/0_Overview.md) (CMU), which measure and control the individual cells in the battery pack; and a single [BMS Master Unit](BMS_Master_Unit.md) (BMU) which interfaces between the CMUs and the vehicle, controls precharge and other safety systems, and provides total pack telemetry.
+The BMS consists of two components: multiple [Cell Management Units](../Cell_Management_Unit/index.md) (CMU), which measure and control the individual cells in the battery pack; and a single [BMS Master Unit](50_BMS_Master_Unit.md) (BMU) which interfaces between the CMUs and the vehicle, controls precharge and other safety systems, and provides total pack telemetry.
 
 ![Battery Management System](images/Introduction_2.png)
 ![Battery Management System](images/Introduction_3.png)
@@ -35,5 +24,5 @@ The BMS consists of two components: multiple [Cell Management Units](../Cell_Man
 
 <strong>Battery:</strong> A series-connected group of cells 
 
-(TODO) - all descriptions need to be altered (+key words etc.)
+(???) - all descriptions need to be altered (+key words etc.)
 

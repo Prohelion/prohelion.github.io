@@ -12,7 +12,7 @@ Making an assembly jig with bolts at the same spacing as the battery terminals i
 
 ## Cut to Length
 
-Work out where you want the CMU to be located.  It should be fastened to the wall of the battery box to aid in heatsinking, with the supplied insulation material, as outlined in the [BMS User's Manual](../User_Manual/0_Overview.md)
+Work out where you want the CMU to be located.  It should be fastened to the wall of the battery box to aid in heatsinking, with the supplied insulation material, as outlined in the [BMS User's Manual](../User_Manual/index.md)
 
 The appropriate length of cable has been placed on the assembly jig and cut to length in the following photo:
 
@@ -72,5 +72,5 @@ Use a multimeter to check resistance between adjacent pins in the microfit conne
 
 ## Fit to Battery Pack
 
-Fit the harness to your battery pack.  The ring terminals should be above the main high-current busbars, so that they do not have traction pack currents flowing through them.  Use spring or belleville washers so that the connections to the cells remain tight, even with vibration and thermal expansion.  Consider using a contact grease or jointing compound, as described in the [Prohelion WaveSculptor200 User Manual](../../../Motor_Controllers/WaveSculptor200/User_Manual/0_Overview.md) high-current wiring appendix.
+Fit the harness to your battery pack.  The ring terminals should be above the main high-current busbars, so that they do not have traction pack currents flowing through them.  Use spring or belleville washers so that the connections to the cells remain tight, even with vibration and thermal expansion.  Consider using a contact grease or jointing compound, as described in the [Prohelion WaveSculptor200 User Manual](../../../Motor_Controllers/WaveSculptor200/User_Manual/index.md) high-current wiring appendix.
 

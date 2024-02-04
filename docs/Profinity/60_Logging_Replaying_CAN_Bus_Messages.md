@@ -7,13 +7,13 @@ order: 6
 
 Profinity provides the ability to both log and replay messages off your CAN Bus network as well as the ability to log CanBUS data to timeseries databases like InfluxDB and Prometheus.  
 
-To log a set of CAN Bus messages first add an adapter to your [Profile](Profiles.md) and then connect to the adapter.  
+To log a set of CAN Bus messages first add an adapter to your [Profile](10_Profiles.md) and then connect to the adapter.  
 
-It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](Send_Receive_CAN_Bus_Messages.md) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
+It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](50_Send_Receive_CAN_Bus_Messages.md) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
 
 ## Logging CAN Bus
 
-There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](InfluxDB_Prometheus_Integration.md).
+There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](80_InfluxDB_Prometheus_Integration.md).
 
 All loggers are configured in the same manner, by adding a logging device to the Profile.
 
@@ -69,4 +69,4 @@ Sliding the slider back and forth allows you to easily move to new locations in 
 
 ## Time Series Based Loggers
 
-Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](InfluxDB_Prometheus_Integration.md).
+Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](80_InfluxDB_Prometheus_Integration.md).

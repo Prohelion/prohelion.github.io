@@ -8,7 +8,7 @@ order: 0
 
 This document describes how to make the cell voltage sense wiring harness for the Prohelion 8-cell Cell Management Unit (CMU).  The examples shown are for 60Ah prismatic type LiFePO4 cells, although the procedure will be similar for other shapes and sizes of cell.  
 
-Please read through the entire assembly procedure, as well as the [BMS User's Manual](http://localhost:4000/Battery_Management_System/User_Manual/0_Overview.md) before commencing work.
+Please read through the entire assembly procedure, as well as the [BMS User's Manual](http://localhost:4000/Battery_Management_System/User_Manual/index.md) before commencing work.
 
 <div class="callout callout--danger">
     <p><strong>Working Around Batteries in Dangerous</strong> Not only are lethal high voltages present, but individual cells can also put out thousands of amps when shorted, for example with a stray wire or dropped tool, throwing out arcs and molten metal.</p>

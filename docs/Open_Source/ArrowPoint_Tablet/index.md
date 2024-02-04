@@ -20,12 +20,12 @@ Examples of the software in use can be seen here - [https://www.youtube.com/watc
 
 ## Features
 The application provides
-* A [Driver Dashboard](Dashboard.md) showing all key information for the driver (we use this as our in car dashboard in the Arrow1)
-* A [Solar Energy Dashboard](Solar.md) showing key solar data and battery information
-* [Customisable Alerts](SystemDetails.md) that can be used to alert the team or driver to systems going out of range or offline
-* [Private Messaging](Fleet_Messaging.md) for inter-fleet communications that does not require the radio
-* A [Graphing Dashboard](Graphing.md) that can be used to graph information over time
-* [Basic GPS tracking](GPS.md) system to track the car location
+* A [Driver Dashboard](20_Dashboard.md) showing all key information for the driver (we use this as our in car dashboard in the Arrow1)
+* A [Solar Energy Dashboard](30_Solar.md) showing key solar data and battery information
+* [Customisable Alerts](60_SystemDetails.md) that can be used to alert the team or driver to systems going out of range or offline
+* [Private Messaging](50_Fleet_Messaging.md) for inter-fleet communications that does not require the radio
+* A [Graphing Dashboard](40_Graphing.md) that can be used to graph information over time
+* [Basic GPS tracking](70_GPS.md) system to track the car location
 
 The application is compatible with
 * Prohelion Battery Packs

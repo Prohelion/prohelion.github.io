@@ -45,7 +45,7 @@ The buttons in the BMU section shows the various status flags, some flags are no
 
 Note that when not engaged or receiving messages from the control module the BMU will drop back to its safe precharge state which is the error state.  
 
-Consult the [BMU documentation](../Battery_Management_Systems/0_Overview.md) for more information but note that that error state can be part of normal operation.
+Consult the [BMU documentation](../Battery_Management_Systems/index.md) for more information but note that that error state can be part of normal operation.
 
 *         CMU Power supply OK
 
@@ -113,4 +113,4 @@ To update the configuration of your Battery Management Unit, right mouse click o
 
 ## Flashing the BMU Firmware
 
-To flash the BMU firmware, right mouse click on the Update Firmware menu item on the BMU.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](Virtual_CAN_Adapter.md) is required for this operation.
+To flash the BMU firmware, right mouse click on the Update Firmware menu item on the BMU.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](40_Virtual_CAN_Adapter.md) is required for this operation.

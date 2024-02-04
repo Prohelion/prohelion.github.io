@@ -39,7 +39,7 @@ For those on a budget, standard CAT5 network cabling (which has an impedance of 
 
 ## CAN Connector
 
-The connector used on the WaveSculptor200 and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
+The connector used on the WaveSculptor200 and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](150_Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
 ![WaveSculptor 200 Motor Controller](images/connector1.png)
 
@@ -59,7 +59,7 @@ By default, each device operates at 500 kbits/second, one step below the maximum
 
 WaveSculptor controllers also have a second programmable base address that they watch for command messages. This should be set to whatever base address is used by the driver controls node on the network.
 
-The WaveSculptor motor controller expects regular messages from the driver controls device.  If a message is not received within a set timeout period (refer to the communications specification in [Appendix A](Appendix_A.md) for the exact value) then the controller will change to a safe mode and will stop driving the motor until a valid message is received again. This protects against faults where either a connector is loose or broken, the cable has been damaged, or the driver controls have failed.
+The WaveSculptor motor controller expects regular messages from the driver controls device.  If a message is not received within a set timeout period (refer to the communications specification in [Appendix A](140_Appendix_A.md) for the exact value) then the controller will change to a safe mode and will stop driving the motor until a valid message is received again. This protects against faults where either a connector is loose or broken, the cable has been damaged, or the driver controls have failed.
 
 ## Power Supply
 
@@ -73,7 +73,7 @@ Prohelion can provide a CAN bus driver controls device.  This interfaces to peda
 
 As the communications specification is open, the WaveSculptor can also be operated from custom driver controls hardware specific to your vehicle, or from a Windows PC running either the provided Prohelion software, or custom software of your choice.
 
-Please refer to the [driver controls datasheet]()? and [user's manual](http://localhost:4000/Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/0_Overview.md) on our website for further details.
+Please refer to the [driver controls datasheet]()? and [user's manual](http://localhost:4000/Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/index.md) on our website for further details.
 
 ## System Expansion
 

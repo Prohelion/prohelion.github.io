@@ -32,7 +32,7 @@ If the PC and the Bridge have a different subnet then it is often not possible t
 
 *Fix: There are two ways to solve this issue*
 
-1. *Use the direct cable connection configuration outlined in [Supported Network Setups](Supported_Network_Setups.md), resetting both the IP Address on the bridge (by pushing the reset button) and the IP Address on the PC by running ipconfig /release followed by ipconfig /renew in a command window.  You should now be able to AutoDiscover the adapter and change its IP Address to something you want using Profinity.*
+1. *Use the direct cable connection configuration outlined in [Supported Network Setups](40_Supported_Network_Setups.md), resetting both the IP Address on the bridge (by pushing the reset button) and the IP Address on the PC by running ipconfig /release followed by ipconfig /renew in a command window.  You should now be able to AutoDiscover the adapter and change its IP Address to something you want using Profinity.*
 
 2. *Manually change the IP Address of the network adapter on your PC to a static IP address that matches the subnet of the bridge.  You can see the subnet of the bridge in the AutoDiscovery window.  Once the subnets are the same you should be able to connect to the bridge in Profinity and change its IP address to what you want it to be.  Once that is done, change your PC's IP address back.*
 

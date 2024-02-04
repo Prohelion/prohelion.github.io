@@ -39,5 +39,5 @@ The application is compatible with
 * Tritium WaveSculptors
 * Prohelion and Tritium BMUs and CMUs
 
-Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](../Troubleshooting.md).
+Any issues please or question, please raise them on our GitHub account at [https://github.com/Prohelion/ArrowPoint-Telemetry](https://github.com/Prohelion/ArrowPoint-Telemetry) or see the [Software Troubleshooting page](../20_Troubleshooting.md).
 
