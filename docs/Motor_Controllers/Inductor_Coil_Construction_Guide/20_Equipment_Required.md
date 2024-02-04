@@ -1,5 +1,5 @@
 ---
-title: Equiptment Required
+title: Equipment Required
 description: Documentation for the Prohelion Vehicle Communications protocol
 order: 2
 ---

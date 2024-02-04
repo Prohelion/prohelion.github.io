@@ -1,15 +1,8 @@
 ---
-title: Overview
+title: ArrowPoint for Android
 order: 0
-
-# Hero section
-hero:
-    title: ArrowPoint Tablet
-    text: Android Tablet application for managing Prohelion hardware and racing cars
-    background_image: /images/Prohelion_Battery.jpg
 ---
 
-## Introduction
 The ArrowPoint for Android Solution is an Android App designed to receive and display telemetry information from an WiFi access point in real time. It is a very useful tool in a race environment as every team member can have a copy installed on their own phone or tablet and get instant insights in to the performance of the vehicle.
 
 ![Example of the Arrowpoint Dashboard](images/android_dashboard.png)
