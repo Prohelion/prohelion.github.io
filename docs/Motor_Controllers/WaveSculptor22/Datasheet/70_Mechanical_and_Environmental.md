@@ -6,7 +6,7 @@ order: 7
 
 # Mechanical and Environmental
 
-The WaveSculptor controller is mounted into position using tapped holes in the cooling surface on the base of the controller.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/index.md) document.
+The WaveSculptor controller is mounted into position using tapped holes in the cooling surface on the base of the controller.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the [User Manual](../User_Manual/index.md) document.
 
 The WaveSculptor controller is splashproof and presents no exposed HV connections able to be touched with a finger or tool.  It is not environmentally sealed against major water and dust ingress.  
 
@@ -28,4 +28,4 @@ The WaveSculptor controller is splashproof and presents no exposed HV connection
 
 25) Cable larger than this size may physically fit into the controller, but fitting the bolt crimp lugs over the fasteners in the motor controller may be difficult.
 
-26) The WaveSculptor has permanently fitted threaded studs in the connection area of the main circuit board.  The correct fastening hardware to use with these studs is detailed in the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/index.md)
+26) The WaveSculptor has permanently fitted threaded studs in the connection area of the main circuit board.  The correct fastening hardware to use with these studs is detailed in the [User Manual](../User_Manual/index.md)

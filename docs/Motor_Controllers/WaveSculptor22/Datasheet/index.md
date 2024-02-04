@@ -20,7 +20,7 @@ hero:
 
 This document describes the specifications, performance and properties of the Prohelion WaveSculptor 22 Motor Controller.
 
-For more details on communications, mechanical positioning and mounting, wiring and precharge, cooling, and installation, please refer to the [User's Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/index.md) document available on the Prohelion website.
+For more details on communications, mechanical positioning and mounting, wiring and precharge, cooling, and installation, please refer to the [User's Manual](../User_Manual/index.md) document available on the Prohelion website.
 
 Operating the controller beyond the limits specified in this document will result in the voiding of the controller warranty.  Prohelion accepts no responsibility for events caused as a result of operating the controller beyond the limits specified in this document. Note that the specifications in this document are subject to change at any time due to product improvement.
 

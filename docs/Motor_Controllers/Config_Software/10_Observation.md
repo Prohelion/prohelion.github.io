@@ -12,7 +12,7 @@ This main screen shown in Figure 1, displays the status of WaveSculptor along wi
 
 Figure 1: Main Screen
 
-A Prohelion CAN-Ethernet bridge must be present on the same CAN bus as the WaveSculptor and on the same LAN as the PC running the configuration software. Before using the configuration software, you must first configure the CAN-Ethernet bridge as described in the [CAN-Ethernet Bridge User's Manual](http://localhost:4000/CAN_Bus_To_Ethernet_Bridge/CAN-Ethernet_Bridge_User_Manual/index.md).
+A Prohelion CAN-Ethernet bridge must be present on the same CAN bus as the WaveSculptor and on the same LAN as the PC running the configuration software. Before using the configuration software, you must first configure the CAN-Ethernet bridge as described in the [CAN-Ethernet Bridge User's Manual](../../CAN_Bridge/User_Manual/index.md).
 
 Once the CAN-Ethernet Bridge is configured and the WaveSculptor CAN bus is powered up, all WaveSculptors present on the CAN bus will be listed. The list shows each devices CAN base ID, the type of WaveSculptor and the serial number. If there is more than one WaveSculptor present, select the one you wish to utilise.
 
@@ -72,7 +72,7 @@ The WaveSculptor runs six concurrent control loops, with the primary control loo
 
 ## Measurements
 
-All measurements are broadcast from the WaveSculptor at periodic intervals, unless disabled in the configuration file.  For more details, please refer to the [CAN bus comms Appendix in the WaveSculptor User's Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/Appendix_C.md).
+All measurements are broadcast from the WaveSculptor at periodic intervals, unless disabled in the configuration file.  For more details, please refer to the [CAN bus comms Appendix in the WaveSculptor User's Manual](../WaveSculptor22/User_Manual/85_Appendix_C.md).
 
 | Measurement | Description | Rate (Hz)|
 |--------------------------------------|

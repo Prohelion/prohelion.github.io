@@ -1,97 +1,124 @@
 ---
-# Page settings
-layout: homepage # Choose layout: "default", "homepage" or "documentation-archive"
 title: Prohelion WaveSculptor Motor Controllers
 description: Documentation for the Prohelion WaveSculptor Motor Controllers
-
-# Hero section
-hero:
-    title: WaveSculptor Motor Controllers
-    text: The WaveSculptor Motor Controller range are three-phase variable frequency inverters especially designed to drive high-efficiency, permanent magnet motors.
-    background_image: /images/Prohelion_Battery.jpg
-    buttons: # Add buttons below, there are examples with all available options
-        - label: Order a WaveSculptor Motor Controller
-          url: https://www.prohelion.com/product-category/wavesculptor-motor-controller/
-          external_url: true 
-          style: filled
-          icon: credit-card 
-
-# Features section
-features:
-    rows: # Add feature rows below, there are examples with all available options
-        - title: WaveSculptor22 Motor Controllers
-          description: Ultra light weight, ultra efficient motor controllers for up to 20kVA peak loads
-          grid: # Add feature grid items below, there are examples with all available options
-              - title: WaveSculptor22 Datasheet
-                description: Datasheet for the Prohelion WaveSculptor22
-                icon: file-text
-                url: /WaveSculptor_Motor_Controllers/Datasheet/index.md
-              - title: WaveSculptor22 User Manual
-                description: User Manual for the Prohelion WaveSculptor22
-                icon: user
-                url: /WaveSculptor_Motor_Controllers/User_Manual/index.md
-              - title: Inductor Coil Construction Guide
-                description: How to build a set of 50μH 100Arms (peak) inductors suitable for use with the Prohelion WaveSculptor22
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/Inductor_Coil_Construction_guide/index.md
-              - title: WaveSculptor22 Software User Manual
-                description: User Manual for the software application to configuring and manage the Prohelion WaveSculptor22
-                icon: user
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/index.md
-              - title: WaveSculptor22 Mechanical Drawing
-                description: Mechanical Drawing for the Prohelion WaveSculptor22
-                icon: file
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN-3000-0036 enclosure subassembly.pdf
-              - title: WaveSculptor22 STEP file
-                description: CAD drawing for the Prohelion WaveSculptor22
-                icon: download
-                url: /assets/pdfs/WaveSculptor_Motor_Controllers/PHLN-3000-0036 enclosure subassembly.STEP
-        - title: WaveSculptor200 Motor Controllers
-          description: High power, ultra efficient motor controllers for up to 165kVA peak loads
-          grid: # Add feature grid items below, there are examples with all available options
-              - title: WaveSculptor200 Datasheet
-                description: Datasheet for the Prohelion WaveSculptor200
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_datasheet/index.md
-              - title: WaveSculptor200 User Manual
-                description: User Manual for the Prohelion WaveSculptor200
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/User_Manual/index.md
-              - title: WaveSculptor200 Motor Drive
-                description: Motor Sense Comm Spec for WaveSculptor200
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor200_Motor_Sense_Comms_Spec/index.md
-        - title: WaveSculptor Motor Interfaces
-          description: Motor Interfaces bridge the controller to your motor. Different interface boards are used depending on your motors capabilities
-          grid: # Add feature grid items below, there are examples with all available options
-              - title: Type 1 - Motor Interface
-                description: Interface board for motors with Halls & Thermistor
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_1/index.md
-              - title: Type 2 - Motor Interface
-                description: Interface board for motors with Encoder & Thermistor
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_2/index.md
-              - title: Type 3 - Motor Interface
-                description: Interface board for motors with Resolver & Pt100
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_3/index.md
-              - title: Type 6 - Motor Interface
-                description: Interface board for motors with Encoder & Thermistor
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_6/index.md
-              - title: Type 7 - Motor Interface
-                description: Interface board for motors with Resolver & Thermistor
-                icon: rotate-cw
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Motor_Interface_Type_7/index.md
-        - title: Supporting Software                  
-          grid:
-              - title: Profinity
-                description: Our battery and CAN Bus management software solution.
-                icon: check-circle
-                url: ../Profinity/index.md
-              - title: WaveSculptor Software
-                description: Specialist software for configuring and managing your WaveSculptor (same as above?)
-                icon: check-circle
-                url: /WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/index.md
 ---
+
+# WaveSculptor 22
+
+<div class="grid cards" markdown>
+
+-   :material-clock-fast:{ .lg .middle } __WaveSculptor22 User Manual__
+
+    ---
+
+    User Manual for the Prohelion WaveSculptor22
+
+    [:octicons-arrow-right-24: Getting started](WaveSculptor22/User_Manual/index.md)
+
+-   :material-file-document:{ .lg .middle } __WaveSculptor22 Datasheet__
+
+    ---
+
+    Datasheet for the Prohelion WaveSculptor22
+
+    [:octicons-arrow-right-24: Datasheet](WaveSculptor22/Datasheet/index.md)
+
+-   :material-drawing:{ .lg .middle } __WaveSculptor22 Mechanical Drawing__
+
+    ---
+
+    Mechanical Drawing for the Prohelion WaveSculptor22
+
+    [:octicons-arrow-right-24: Drawing](WaveSculptor22/pdfs/PHLN-3000-0036%20enclosure%20subassembly.pdf)
+
+-   :material-rotate-3d-variant:{ .lg .middle } __WaveSculptor22 STEP file__
+
+    ---
+
+    CAD drawing for the Prohelion WaveSculptor22
+
+    [:octicons-arrow-right-24: STEP](WaveSculptor22/step/PHLN-3000-0036%20enclosure%20subassembly.STEP)    
+
+</div>
+
+<br>
+
+# WaveSculptor 200
+
+<div class="grid cards" markdown>
+
+-   :material-clock-fast:{ .lg .middle } __WaveSculptor200 User Manual__
+
+    ---
+
+    User Manual for the Prohelion WaveSculptor200
+
+    [:octicons-arrow-right-24: Getting started](WaveSculptor200/User_Manual/index.md)
+
+-   :material-file-document:{ .lg .middle } __WaveSculptor200 Datasheet__
+
+    ---
+
+    Datasheet for the Prohelion WaveSculptor200
+
+    [:octicons-arrow-right-24: Datasheet](WaveSculptor200/Datasheet/index.md)
+
+</div>
+
+<br>
+
+# Motor Interfaces and Inductor Coils
+
+<div class="grid cards" markdown>
+
+-   :material-chip:{ .lg .middle } __Motor Sense Interface Hardware__
+
+    ---
+
+    Adapters for different types of motors
+
+    [:octicons-arrow-right-24: Reference](Motor_Sense_Interfaces/index.md)
+
+-   :material-file-document:{ .lg .middle } __Motor Sense Comms Spec__
+
+    ---
+
+    Communications Spec for the Motor Sense Modules
+
+    [:octicons-arrow-right-24: Reference](Motor_Sense_Comms_Spec/index.md)
+
+
+-   :material-book-outline:{ .lg .middle } __Inductor Coil Construction Guide__
+
+    ---
+
+    Instructions on how to build quality Inductor Coils suitable for a WaveSculptor
+
+    [:octicons-arrow-right-24: Construction Guide](Inductor_Coil_Construction_Guide/index.md)
+
+</div>
+
+<br>
+
+# Supporting Software
+
+<div class="grid cards" markdown>
+
+-   :material-tools:{ .lg .middle } __WaveSculptor Config Software__
+
+    ---
+
+    User Manual for the software application to configuring and manage the Prohelion WaveSculptor22
+
+    [:octicons-arrow-right-24: Config Software](Config_Software/index.md)
+
+-   :material-tools:{ .lg .middle } __Profinity__
+
+    ---
+
+    Our WaveSculptor22 and CAN Bus management software solution
+
+    [:octicons-arrow-right-24: Management Software](../Profinity/80_Tritium_WaveSculptor.md)
+
+
+</div>

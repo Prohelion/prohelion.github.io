@@ -1,5 +1,6 @@
 ---
-title: Profinity Documentation
-description: Landing page for the Profinity Documentation
-order: 0
+template: home.html
+title: Home
 ---
+
+Welcome to the Prohelion Documentation

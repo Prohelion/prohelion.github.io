@@ -10,7 +10,7 @@ The maximum instantaneous output power from the WaveSculptor is limited by inter
 
 The WaveSculptor 22 is supplied uncooled, and uses an external customer-supplied heatsink or waterblock to provide cooling for the system.  This allows the end-user to optimise the cooling performance, weight, power consumption and drag of their cooling solution.
 
-Please refer to the [Cooling](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/Cooling.md) section in the User Manual for calculations regarding cooling capacity and performance.
+Please refer to the [Cooling](../User_Manual/30_Cooling.md) section in the User Manual for calculations regarding cooling capacity and performance.
 
 | Maximum instantaneous power output: | 20 | kVA| Note 15 |
 | Maximum cold plate design temperature: | 70 | °C | Note 16 |

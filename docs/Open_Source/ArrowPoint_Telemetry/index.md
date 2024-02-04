@@ -1,15 +1,7 @@
 ---
-title: Overview
+title: ArrowPoint Telemetry
 order: 0
-
-# Hero section
-hero:
-    title: ArrowPoint Telemetry
-    text: Telemetry, Reporting and Fleet Management Software for Solar Car Racing
-    background_image: /images/Prohelion_Battery.jpg
 ---
-
-## Introduction
 
 The ArrowPoint Telemetry Solution is designed to provide telemetry capture and management information for managing a race car.
 

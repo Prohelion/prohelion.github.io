@@ -22,7 +22,6 @@ This document describes the operation, connections, mounting, communications, co
 
 ![WaveSculptor 200 Motor Controller](images/introduction.png)
 
-<div class="callout callout--warning">
-    <p><strong>Warning</strong> This product processes and uses potentially lethal voltages and currents.  Do not provide power or operate with the cover removed.  
-    To be opened and connected to by authorised personnel only </p>
-</div>
+!!! danger "Danger" 
+    This product processes and uses potentially lethal voltages and currents.  Do not provide power or operate with the cover removed. To be opened and connected to by authorised personnel only
+
