@@ -12,11 +12,11 @@ The ArrowPoint App also features a stand alone alerting system that will display
 
 Alerts are configured by modifying the alerts.csv file located in /app/src/main/res/raw/alerts.csv below is an example file
 
-| Data | Min Threshold | Max Threshold |
-|-------|--------|---------|
-| MinimumCellV | 2.9 | - |
-| MotorTemp | - | 100 |
-| MaxCellTemp | -| 60 |
-| ControllerTemp | - | 50 |
+| Data           | Min Threshold | Max Threshold |
+| -------------- | ------------- | ------------- |
+| MinimumCellV   | 2.9           | -             |
+| MotorTemp      | -             | 100           |
+| MaxCellTemp    | -             | 60            |
+| ControllerTemp | -             | 50            |
 
 If any of these thresholds are passed then the tablet will display an alert on the screen. This is very useful in race environment as if you have any communication failure between the chase car and solar car (which has happened to TeamArrow a lot) the driver can operate the car with confidence that they will be alerted to a major issue.
