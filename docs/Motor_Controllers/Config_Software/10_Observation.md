@@ -70,12 +70,13 @@ The WaveSculptor runs six concurrent control loops, with the primary control loo
 
 *   <strong>temp:</strong> The maximum heatsink setpoint has been reached and is limiting the motor torque.
 
+
 ## Measurements
 
 All measurements are broadcast from the WaveSculptor at periodic intervals, unless disabled in the configuration file.  For more details, please refer to the [CAN bus comms Appendix in the WaveSculptor User's Manual](../WaveSculptor22/User_Manual/85_Appendix_C.md).
 
 | Measurement | Description | Rate (Hz)|
-|--------------------------------------|
+|--------------|------------|------------|
 | Bus Voltage | The input bus voltage of the controller | 5 |
 | Bus Current | The input current to the controller | 5 |
 | Controller Power | Bus Voltage * Bus Current, calculated on the PC | 5 |
@@ -109,11 +110,11 @@ Please note that a mouse click on any of the measurement text boxes of Figure 1 
 The CAN BUS traffic monitor situated at the bottom of the main screen is a useful indicator of the total traffic loading that is occurring on the selected bridge network. The traffic should be kept as low as possible in order to ensure smooth operation and communication between devices, especially when transferring configuration files or flashing devices. The colour indicator to the side of the load percentage changes relative to the level of loading giving a good quick indication of the network health.
 
 | Colour | Description |
-|------------------------|
-| Black | Not connected to a network or traffic is very low with respect to the sample rate of the monitor |
-| Green | Connected to a network and within recommended traffic loading of up to 30% bus utilisation |
-| Yellow | Greater than 30% bus utilisation (Not recommended normal operating levels) |
-| Red | Greater than 60% bus utilisation (Bus is heavily loaded and there is a risk of packets failing to be sent or received) |
+|---------|---------------|
+| `Black` | Not connected to a network or traffic is very low with respect to the sample rate of the monitor |
+| `Green` | Connected to a network and within recommended traffic loading of up to 30% bus utilisation |
+| `Yellow` | Greater than 30% bus utilisation (Not recommended normal operating levels) |
+| `Red` | Greater than 60% bus utilisation (Bus is heavily loaded and there is a risk of packets failing to be sent or received) |
 
 Table 2: CAN BUS traffic monitor status colours
 
