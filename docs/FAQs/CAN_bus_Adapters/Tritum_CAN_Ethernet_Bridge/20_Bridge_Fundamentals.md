@@ -17,7 +17,7 @@ There is a reset button that you can see in the image above, just to the right o
 
 The Tritium CAN-Ethernet Bridges have the ability to send and receive packets in UDP mode or in TCP mode, they can even send and receive packets in a blended mode where both protocols are being used at once.
 
-UDP and TCP are fundamentally different and have different pros and cons, the [CAN & Ethernet](CAN_Ethernet_Fundamentals.md) section of this FAQ has much more detail on that.  
+UDP and TCP are fundamentally different and have different pros and cons, the [CAN & Ethernet](30_CAN_Ethernet_Fundamentals.md) section of this FAQ has much more detail on that.  
 
 ### Bus Id
 

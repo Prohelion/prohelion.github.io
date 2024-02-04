@@ -34,7 +34,7 @@ The coolant flow path inside the WaveSculptor is a 'U' shape along one side from
 
 When mounted horizontally, it does not matter which way coolant flows in the waterblock, so connect the inlet and outlet in the way that simplifies the tube routing in your vehicle.
 
-When mounted vertically (the middle picture in the [Choosing a Location](Mounting.md) section) then the inlet should be below the outlet.  Doing this will simplify bleeding air from the system.
+When mounted vertically (the middle picture in the [Choosing a Location](30_Mounting.md) section) then the inlet should be below the outlet.  Doing this will simplify bleeding air from the system.
 
 ## Radiator
 

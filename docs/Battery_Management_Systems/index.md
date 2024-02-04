@@ -19,7 +19,7 @@ features:
               - title: BMU User Manual
                 description: User Manual for the Prohelion Battery Management Unit (BMU)
                 icon: battery-charging
-                url: /Battery_Management_System/User_Manual/0_Overview.md
+                url: /Battery_Management_System/User_Manual/index.md
               - title: BMU Wiring Diagram
                 description: Tips and Tricks on the correct procedures for wiring a Prohelion BMU
                 icon: check-circle
@@ -27,15 +27,15 @@ features:
               - title: Cell Management Unit (CMU)
                 description: Assembly and mounting procedures for the Prohelion CMU and wiring harness
                 icon: server
-                url: /Battery_Management_System/Cell_Management_Unit/0_Overview.md
+                url: /Battery_Management_System/Cell_Management_Unit/index.md
               - title: BMU Communications Protocol
                 description: Information on the CAN Bus messages used to start and control the Prohelion BMU
                 icon: message-square
-                url: /Battery_Management_System/BMU_Communications_Protocol/0_Overview.md         
+                url: /Battery_Management_System/BMU_Communications_Protocol/index.md         
         - title: Supporting Software          
           grid:
               - title: Profinity
                 description: Our battery and CAN Bus management software solution.
                 icon: check-circle
-                url: ../Profinity/0_Overview.md
+                url: ../Profinity/index.md
 ---

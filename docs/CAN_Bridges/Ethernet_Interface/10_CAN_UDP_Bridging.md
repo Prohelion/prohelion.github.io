@@ -20,7 +20,7 @@ The bus identifier is a 56-bit value as shown in figure 2.  There are presently 
 
 In protocol version 1, the first 52 bits encode the protocol version, and should read <strong>0x5472697469756</strong> in all packets.  The least significant 4 bits represent the bus number that the packet was transmitted on.
 
-In protocol version 2, the first 40 bits encode the protocol version and should read <strong>0x547269FDD6</strong> in all packets, with the least significant 16 bits representing the bus number. The bus number can be used to create separate virtual networks on the same Ethernet network, see [Version Querying](Version_Querying.md).
+In protocol version 2, the first 40 bits encode the protocol version and should read <strong>0x547269FDD6</strong> in all packets, with the least significant 16 bits representing the bus number. The bus number can be used to create separate virtual networks on the same Ethernet network, see [Version Querying](50_Version_Querying.md).
 
 ![Figure 2:Bus Identifier Structure - Version 1 (left) and Version 2 (right)](images/figure2.png)
 

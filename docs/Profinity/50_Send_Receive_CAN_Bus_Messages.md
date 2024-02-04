@@ -7,7 +7,7 @@ order: 5
 
 Profinity can monitor CAN Bus traffic on your network and also allows you to transmit message back on the CAN network from within the Profinity toolset.
 
-Messages can be transmitted either via the Send CAN window which is documented below or also via the [CAN Replay](Logging_Replaying_CAN_Bus_Messages.md) tool.
+Messages can be transmitted either via the Send CAN window which is documented below or also via the [CAN Replay](60_Logging_Replaying_CAN_Bus_Messages.md) tool.
 
 ## Receive CAN Packets
 

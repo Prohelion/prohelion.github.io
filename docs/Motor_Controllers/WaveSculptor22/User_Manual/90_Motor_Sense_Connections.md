@@ -8,15 +8,15 @@ order: 9
 
 The WaveSculptor22 requires a position sensor to be able to control the motor.  It can also measure the temperature of the motor, and gradually reduce the motor current if this temperature rises towards a user-programmable threshold. 
 
-Since there are a large variety of possible combinations of position and temperature sensors, Prohelion has implemented the interface on the motor controller in a generic manner.  Small adapter circuit boards, suitable for mounting directly inside the motor terminal box, are used to adapt the sensors in that motor to the interface required by the WaveSculptor22.  This also provides a robust signalling mechanism (isolated, differential) for the longest length of cable possible.  The WaveSculptor provides isolated, regulated +5V and +12V DC to power the external adapter.  Refer to the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/Datasheet/0_Overview.md) for specifications on these supplies.
+Since there are a large variety of possible combinations of position and temperature sensors, Prohelion has implemented the interface on the motor controller in a generic manner.  Small adapter circuit boards, suitable for mounting directly inside the motor terminal box, are used to adapt the sensors in that motor to the interface required by the WaveSculptor22.  This also provides a robust signalling mechanism (isolated, differential) for the longest length of cable possible.  The WaveSculptor provides isolated, regulated +5V and +12V DC to power the external adapter.  Refer to the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/Datasheet/index.md) for specifications on these supplies.
 
 The WaveSculptor provides four isolated differential inputs for information from the motor.  Three of these are routed to timer/capture peripherals in the main processor, and are normally used for three Hall-effect position sensors.  The fourth channel is routed to a UART serial receiver, and expects digital data.  Depending on the adapter board, this data may contain temperature, position, velocity, or a combination of all three.  
 
-A brief datasheet for each adapter option is available in the [Adapter Documentation](../../Motor_Interfaces/0_Overview.md).  If your motor requires an adapter that is not yet available, please contact Prohelion to enquire about development, as new adapters are simple and low-cost to design.
+A brief datasheet for each adapter option is available in the [Adapter Documentation](../../Motor_Interfaces/index.md).  If your motor requires an adapter that is not yet available, please contact Prohelion to enquire about development, as new adapters are simple and low-cost to design.
 
 ## Connector Pinout 
 
-The connector used on the WaveSculptor22 for motor sense signals is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
+The connector used on the WaveSculptor22 for motor sense signals is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](150_Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
 ![Connector Pinout](images/Connector_Pinout.png)
 

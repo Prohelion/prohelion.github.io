@@ -9,5 +9,5 @@ Under the Fleet Management menu item in the Telemetry system you will find a Fle
 
 ![Example of the Fleet Messaging system](images/telemetry_fleetmessage.png)
 
-This system works with the [ArrowPoint Tablet application](../ArrowPoint_Tablet/0_Overview.md), allowing messages to be sent to Tablets in the fleet.  Messages are sent via CAN Bus.
+This system works with the [ArrowPoint Tablet application](../ArrowPoint_Tablet/index.md), allowing messages to be sent to Tablets in the fleet.  Messages are sent via CAN Bus.
 

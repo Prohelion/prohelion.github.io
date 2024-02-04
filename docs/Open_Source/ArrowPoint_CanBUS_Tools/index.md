@@ -6,7 +6,7 @@ order: 0
 
 ## Introduction
 
-ArrowPoint CAN Bus Tools is a Windows based platform designed to receive and display telemetry information from an WiFi access point in real time.  Its functionality has been replaced by Prohelion's [Profinity](../../Profinity/0_Overview.md) tools, so we are providing it to the community as an Open Source solution to help you learn more about CAN Bus development and approaches.
+ArrowPoint CAN Bus Tools is a Windows based platform designed to receive and display telemetry information from an WiFi access point in real time.  Its functionality has been replaced by Prohelion's [Profinity](../../Profinity/index.md) tools, so we are providing it to the community as an Open Source solution to help you learn more about CAN Bus development and approaches.
 
 The out of the box implementation is designed for use in Solar or Electric racing cars that use technology from [Prohelion](https://www.prohelion.com/) or [Tritium](https://www.tritiumcharging.com/). This solution was originally developed by [TeamArrow](https://www.teamarrow.com.au/) and has been used in racing environments since 2015.
 

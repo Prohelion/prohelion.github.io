@@ -6,7 +6,7 @@ order: 7
 
 # Mechanical 
 
-The WaveSculptor controller is mounted into position using three rubber mounted M6 shoulder bolts.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/0_Overview.md) document available on the Prohelion website.
+The WaveSculptor controller is mounted into position using three rubber mounted M6 shoulder bolts.  All dimensions in this section are with the controller mounted in position on a horizontal surface.  For full details regarding positioning and fixing of the WaveSculptor, please refer to the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/index.md) document available on the Prohelion website.
 
 | WaveSculptor enclosure length | 500 | mm | Note 22 |
 | WaveSculptor enclosure width | 172 | mm | Note 22 |
@@ -28,5 +28,5 @@ The WaveSculptor controller is mounted into position using three rubber mounted 
 
 25) The WaveSculptor is supplied with swivelling nozzles sized for watercooling tubing with a 10mm ID and 13mm OD.  Refer to the User's Manual for recommended components.
 
-26) The WaveSculptor has permanently fitted threaded studs in the connection busbars.  The correct fastening hardware to use with these busbars is detailed in the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/0_Overview.md)
+26) The WaveSculptor has permanently fitted threaded studs in the connection busbars.  The correct fastening hardware to use with these busbars is detailed in the [User Manual](http://localhost:4000/WaveSculptor_Motor_Controllers/User_Manual/index.md)
 

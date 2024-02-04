@@ -17,7 +17,7 @@ The Wavesculptor should ideally be mounted in a horizontal position, but vertica
 
 ![mounting illustration](images/mounting_axis.png)
 
-The [Cooling section](Cooling.md) of this document has further details, but as an overview the controller should not be the highest point in the liquid cooling system, or bleeding the cooling system of air bubbles will be difficult.  Keep this in mind when choosing a location.
+The [Cooling section](50_Cooling.md) of this document has further details, but as an overview the controller should not be the highest point in the liquid cooling system, or bleeding the cooling system of air bubbles will be difficult.  Keep this in mind when choosing a location.
 
 The WaveSculptor has been designed with all cables and connections to the device at one end, to allow simplified positioning in your vehicle.  The 40mm orange conduit that contains the motor and battery cabling can be quite stiff, and has a minimum bend radius of around 250mm.  Make sure your chosen position allows room at the connection end of the controller for conduit and cooling connections.
 

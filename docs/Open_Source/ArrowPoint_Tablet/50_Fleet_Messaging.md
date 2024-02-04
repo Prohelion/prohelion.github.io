@@ -4,7 +4,7 @@ order: 5
 ---
 
 ## Fleet Messaging
-The private messaging system works in collaboration with the [Fleet Private Messaging](../ArrowPoint_Telemetry/Fleet_Messaging.md) system in the Telemetry system to allow you to send private messages from App to App or Telemetry to App in the fleet over the TCP / CAN Bus network
+The private messaging system works in collaboration with the [Fleet Private Messaging](../ArrowPoint_Telemetry/70_Fleet_Messaging.md) system in the Telemetry system to allow you to send private messages from App to App or Telemetry to App in the fleet over the TCP / CAN Bus network
 
 The application has been designed to try and make it easy to use while driving by having pre set messages.
 
@@ -14,6 +14,6 @@ Radio communication in solar car racing is typically done on public channels and
 
 Losing radio communications is a really common problem when your driver is in a carbon fibre based vehicle and often overworked. The number of flat batteries, disconnected or pulled out headphones, accidently changed channels and channel sharing issues that TeamArrow has had over the years is too numerous to count.
 
-By having a solution like this it allows you to communicate with your driver, even if you are just sending messages to them. We use the horn at times to signal that the driver has received the message, on the [System Details & Customisable Alerts](SystemDetails.md) page you can see if they are pressing the horn, we included that switch, because it is often hard to hear from 100 meters behind in the case car.
+By having a solution like this it allows you to communicate with your driver, even if you are just sending messages to them. We use the horn at times to signal that the driver has received the message, on the [System Details & Customisable Alerts](60_SystemDetails.md) page you can see if they are pressing the horn, we included that switch, because it is often hard to hear from 100 meters behind in the case car.
 
 ![Example of the Arrowpoint Android messaging system](images/android_messaging.png)
