@@ -27,5 +27,4 @@ Multiple bundles of litz are used in parallel.  This is to make construction eas
 
 The wire strands are only required to be insulated to 'single' thickness insulation.  Choose a 'solderable' insulation with the highest temperature grade available easily.  This will usually be 155°C Polyurethane or similar.
 
-Litz wire is available from specialised manufacturers, use a web search to find a supplier close to you, as copper wire is heavy and shipping charges will be high if not purchased reasonably locally.  One example supplier in the US is the New England Wire Company.
-
+Litz wire is available from specialised manufacturers, use a web search to find a supplier close to you, as copper wire is heavy and shipping charges will be high if not purchased reasonably locally.  One example supplier in the US is the New England Wire Company.ß
