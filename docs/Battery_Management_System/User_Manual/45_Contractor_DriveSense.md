@@ -12,7 +12,7 @@ The contactors are energised in sequence (1, 3, 2) during precharge, and de-ener
 
 Each contactor output connector also has pins for feedback from contactors with auxilliary sense contacts.  These can be used by the BMU to detect failed contactors, both failed open or welded shut.  Do not connect these pins to anything other than auxilliary contact output terminals – they are not rated for anything more than the 12V supplied by the BMU. 
 
-Refer to the [BMS datasheet]()? for continuous and peak current and voltage ratings of the contactor drive outputs.  Contactors without integrated electronics must have a diode fitted across their coil terminals to limit flyback voltage at turn-off.   
+Refer to the [BMS datasheet]()??? for continuous and peak current and voltage ratings of the contactor drive outputs.  Contactors without integrated electronics must have a diode fitted across their coil terminals to limit flyback voltage at turn-off.   
 
 ## Contractor 12V Supply Connector
 

@@ -12,7 +12,7 @@ Since there are a large variety of possible combinations of position and tempera
 
 The WaveSculptor provides four isolated differential inputs for information from the motor.  Three of these are routed to timer/capture peripherals in the main processor, and are normally used for three Hall-effect position sensors.  The fourth channel is routed to a UART serial receiver, and expects digital data.  Depending on the adapter board, this data may contain temperature, position, velocity, or a combination of all three.  
 
-A brief datasheet for each adapter option is available in the [Adapter Documentation](../../Motor_Sense_Interfaces/index.md).  If your motor requires an adapter that is not yet available, please contact Prohelion to enquire about development, as new adapters are simple and low-cost to design.
+A brief datasheet for each adapter option is available in the [Motor Sense Documentation](../../Motor_Sense_Interfaces/index.md).  If your motor requires an adapter that is not yet available, please contact Prohelion to enquire about development, as new adapters are simple and low-cost to design.
 
 ## Connector Pinout 
 

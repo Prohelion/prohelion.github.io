@@ -10,17 +10,19 @@ order: 5
 
 The liquid cooling system consists of four main components. They are:
 
-*   WaveSculptor 200 waterblock
-*   Pump
-*   Radiator
-*   Reservoir
+- WaveSculptor 200 waterblock
+- Pump
+- Radiator
+- Reservoir
 
-They should be connected as shown below. (no image on document???) Tracing the liquid flow path around the circuit, the pump should be directly after the reservoir, to minimise dry running the pump when installing the system.  The radiator should be directly after the WaveSculptor, to cool the liquid as soon as possible and minimise the temperature that the pump is exposed to.
+They should be connected as shown below. Tracing the liquid flow path around the circuit, the pump should be directly after the reservoir, to minimise dry running the pump when installing the system.  The radiator should be directly after the WaveSculptor, to cool the liquid as soon as possible and minimise the temperature that the pump is exposed to.
+
+![Liquid Cooling](images/liquid_cooling.png)
 
 Additional components can be added to the system. Recommended items are:
 
-*   Flow sensor somewhere in the loop
-*   Level sensor in the reservoir
+- Flow sensor somewhere in the loop
+- Level sensor in the reservoir
 
 Having both of these extra items wired to an alarm/fault signal will guarantee that the motor controller is not operated without coolant flowing.
 
