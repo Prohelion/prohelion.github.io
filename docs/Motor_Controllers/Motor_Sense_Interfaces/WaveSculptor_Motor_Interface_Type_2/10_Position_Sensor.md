@@ -8,7 +8,7 @@ order: 1
 
 ## Type
 
-The type 2 interface reads three channels of position information from a <strong>quadrature encoder position sensor</strong> with <strong>differential outputs.</strong>  Each channel is passed through to the differential receiver in the WaveSculptor, terminated with approximately 150 ohms between each + and – pair.
+The type 2 interface reads three channels of position information from a __quadrature encoder position sensor__ with __differential outputs.__  Each channel is passed through to the differential receiver in the WaveSculptor, terminated with approximately 150 ohms between each + and – pair.
 
 ## Power
 

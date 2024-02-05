@@ -61,5 +61,5 @@ The data is highlighted in various ways to quickly understand the system status
 *   Trust errors for a cell voltage have a yellow background 
 *   Cells outside the min and max voltage limits have a red background 
 *   Cells currently balancing have a blue background 
-*   The minimum and maximum cells have <strong>bold</strong> text 
+*   The minimum and maximum cells have __bold__ text 
 *   Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a mid-gray background 

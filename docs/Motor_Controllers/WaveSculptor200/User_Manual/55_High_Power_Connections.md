@@ -54,7 +54,7 @@ At this point, do not connect the other end of the high power DC NEG and DC POS 
 
 ## Precharge
 
-The WaveSculptor has 800µF of extremely low-impedance capacitance across the DC bus input connections. An external precharge circuit is <strong>mandatory</strong>.
+The WaveSculptor has 800µF of extremely low-impedance capacitance across the DC bus input connections. An external precharge circuit is __mandatory__.
 
 When not driving a motor, the WaveSculptor draws minimal power from the DC bus, with only a high-value discharge resistor to bleed charge. Therefore, careful attention should be given when working on the controller to ensure that the capacitors have been discharged first.  Note that these capacitors hold over 80 Joules of energy and take up to 10 minutes to discharge to safe levels.
 

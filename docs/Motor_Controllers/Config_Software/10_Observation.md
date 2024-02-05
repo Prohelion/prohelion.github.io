@@ -24,51 +24,51 @@ A CAN BUS traffic monitor is situated at the bottom of the screen which indicate
 
 Controller errors are presented in the text box labelled Errors. Different types of errors can occur. These errors usually would only occur one at a time, however it is possible to have multiple errors displayed at once.
 
-<strong>Note:</strong> Devices that identify as V3 for their hardware version have an extended set of error flags. The possible error messages are listed below:
+__Note:__ Devices that identify as V3 for their hardware version have an extended set of error flags. The possible error messages are listed below:
 
-*   <strong>HWOC: Hardware Over current;</strong> A hardware comparator is used to generate this signal and if the current exceeds the hardware over current trip point for even an instant this error will occur. The hardware comparators monitor currents in both phase C and phase B.
+*   __HWOC: Hardware Over current;__ A hardware comparator is used to generate this signal and if the current exceeds the hardware over current trip point for even an instant this error will occur. The hardware comparators monitor currents in both phase C and phase B.
 
-*   <strong>SWOC: Software Overcurrent;</strong> This error occurs if the firmware on the controller samples a DC bus, phase C or phase B current that is above the limit set in the calibration section of the configuration file.
+*   __SWOC: Software Overcurrent;__ This error occurs if the firmware on the controller samples a DC bus, phase C or phase B current that is above the limit set in the calibration section of the configuration file.
 
-*   <strong>HWOV: Hardware Over Voltage;</strong> A hardware comparator is used to generate this signal and if the bus voltage exceeds the hardware trip point for even an instant this error will occur.
+*   __HWOV: Hardware Over Voltage;__ A hardware comparator is used to generate this signal and if the bus voltage exceeds the hardware trip point for even an instant this error will occur.
 
-*   <strong>SWOV: Software Over Voltage;</strong> This occurs if the bus voltage exceeds the over voltage limit set in the calibration section of the configuration file. This is to protect the semiconductors against over voltage during regeneration.
+*   __SWOV: Software Over Voltage;__ This occurs if the bus voltage exceeds the over voltage limit set in the calibration section of the configuration file. This is to protect the semiconductors against over voltage during regeneration.
 
-*   <strong>HALL: Hall Sequence Error;</strong> This occurs if a hall transition is invalid. The hall sequence is recorded during the PhasorSense routine and this same sequence must be followed by the motor hall effect sensors at all times.
+*   __HALL: Hall Sequence Error;__ This occurs if a hall transition is invalid. The hall sequence is recorded during the PhasorSense routine and this same sequence must be followed by the motor hall effect sensors at all times.
 
-*   <strong>WD: Watch Dog;</strong> This is a warning message more than an error, as the controller will still function with this error. An independent hardware watchdog needs to be updated at least 4 times per second by the firmware in the controller. If it is not updated the controller will reset (something that the driver of the vehicle would feel as a short loss of power). This error will stay set until the controller is next reset or power cycled.
+*   __WD: Watch Dog;__ This is a warning message more than an error, as the controller will still function with this error. An independent hardware watchdog needs to be updated at least 4 times per second by the firmware in the controller. If it is not updated the controller will reset (something that the driver of the vehicle would feel as a short loss of power). This error will stay set until the controller is next reset or power cycled.
 
-*   <strong>CFG: Configuration File Error;</strong> An error occurred while reading the configuration file, and will be flagged during the boot-up sequence of the WaveSculptor. If all or some of the configuration values cannot be read from the configuration file, default values will be used instead of the stored values. This error does not disable the controller, it will continue to operate in the best manner possible using the default configuration values. This does mean that the controller may not operate as expected. Unless the error is with one of the more critical configuration constants it may be difficult to even notice the difference in operation.
+*   __CFG: Configuration File Error;__ An error occurred while reading the configuration file, and will be flagged during the boot-up sequence of the WaveSculptor. If all or some of the configuration values cannot be read from the configuration file, default values will be used instead of the stored values. This error does not disable the controller, it will continue to operate in the best manner possible using the default configuration values. This does mean that the controller may not operate as expected. Unless the error is with one of the more critical configuration constants it may be difficult to even notice the difference in operation.
 
-*   <strong>UV15V: Under Voltage15V;</strong> The internal 15V rail has dropped below 12V.
+*   __UV15V: Under Voltage15V;__ The internal 15V rail has dropped below 12V.
 
-*   <strong>DESAT: Desaturation;</strong> On a WaveSculptor200 this could indicate an overcurrent desaturation of the IGBT switches or an under voltage of the IGBT driver IC. On a WaveSculptor22 this means an under voltage of the MOSFET driver IC.
+*   __DESAT: Desaturation;__ On a WaveSculptor200 this could indicate an overcurrent desaturation of the IGBT switches or an under voltage of the IGBT driver IC. On a WaveSculptor22 this means an under voltage of the MOSFET driver IC.
 
-*   <strong>MOT: Motor interface board missing;</strong> The WaveSculptor has not received any communication from the motor interface board within the last second.
+*   __MOT: Motor interface board missing;__ The WaveSculptor has not received any communication from the motor interface board within the last second.
 
-*   <strong>OVSPD: </strong>The motor speed has exceeded the configured maximum by 15%. This error will automatically clear once the motor speed reduces to 95% of maximum.
+*   __OVSPD: __The motor speed has exceeded the configured maximum by 15%. This error will automatically clear once the motor speed reduces to 95% of maximum.
 
-*   <strong>OCpX: (V3 Only) Hardware Over current;</strong> This is the same as <strong>HWOC</strong>, except that it specifically identifies the phase that detected the fault. ‘X’ can either be B or C, for Phase B or Phase C respectively.
+*   __OCpX: (V3 Only) Hardware Over current;__ This is the same as __HWOC__, except that it specifically identifies the phase that detected the fault. ‘X’ can either be B or C, for Phase B or Phase C respectively.
 
-*   <strong>GhX / GlX: (V3 Only) Desaturation;</strong> This is the same as <strong>DESAT</strong>, except that it specifically identifies the phase that detected the fault and whether it was the high (‘h’) or low (‘l’) side gate. ‘X’ can either be A, B or C, for Phase A, Phase B or Phase C respectively.
+*   __GhX / GlX: (V3 Only) Desaturation;__ This is the same as __DESAT__, except that it specifically identifies the phase that detected the fault and whether it was the high (‘h’) or low (‘l’) side gate. ‘X’ can either be A, B or C, for Phase A, Phase B or Phase C respectively.
 
 ## Limiting Setpoint
 
 The WaveSculptor runs six concurrent control loops, with the primary control loop regulating the motor current. There are also control loops regulating the velocity, bus current, maximum and minimum bus voltage and heatsink temperature. At any one time only one of these control loops is limiting the motor vehicles torque. The possible limiting setpoints are listed below:
 
-*   <strong>PWM:</strong> Not enough bus voltage to be able to produce more current and hence more torque.
+*   __PWM:__ Not enough bus voltage to be able to produce more current and hence more torque.
 
-*   <strong>Iq:</strong> The motor current setpoint is being regulated in the motor. (Normal operation).
+*   __Iq:__ The motor current setpoint is being regulated in the motor. (Normal operation).
 
-*   <strong>vel:</strong> The vehicle velocity setpoint has been reached. (Normal operation)
+*   __vel:__ The vehicle velocity setpoint has been reached. (Normal operation)
 
-*   <strong>Idc:</strong> The bus current setpoint is limiting further increase in motor torque.
+*   __Idc:__ The bus current setpoint is limiting further increase in motor torque.
 
-*   <strong>VdcMax:</strong> Motor regeneration torque is limited by the maximum bus voltage setpoint.
+*   __VdcMax:__ Motor regeneration torque is limited by the maximum bus voltage setpoint.
 
-*   <strong>VdcMin:</strong> Motor drive torque is limited by the minimum bus voltage setpoint.
+*   __VdcMin:__ Motor drive torque is limited by the minimum bus voltage setpoint.
 
-*   <strong>temp:</strong> The maximum heatsink setpoint has been reached and is limiting the motor torque.
+*   __temp:__ The maximum heatsink setpoint has been reached and is limiting the motor torque.
 
 
 ## Measurements

@@ -45,7 +45,7 @@ The connector used on the WaveSculptor200 and other Prohelion devices is a 6-way
 
 ## CAN Shielding
 
-On <strong>one device only</strong> in the network, instead of using the SHIELD pin, terminate the shield to the SHIELD GROUND pin (upper-left corner on the connector) on both CAN IN and CAN OUT connectors, to ground the shield for the entire network at this single point.  The usual place to do this is where power is fed into the network, typically at Prohelion 's EV Driver Controls product.
+On __one device only__ in the network, instead of using the SHIELD pin, terminate the shield to the SHIELD GROUND pin (upper-left corner on the connector) on both CAN IN and CAN OUT connectors, to ground the shield for the entire network at this single point.  The usual place to do this is where power is fed into the network, typically at Prohelion 's EV Driver Controls product.
 
 ## CAN Termination
 

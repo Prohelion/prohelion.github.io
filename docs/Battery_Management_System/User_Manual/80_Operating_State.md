@@ -8,12 +8,12 @@ order: 15
 
 The BMS can be in any one of six states, depending on operating conditions, commands, and errors.  The states are reported on the CAN bus, and shown in the BMS Viewer software.  The states are, in the most commonly seen sequence: 
 
-*   Error 
-*   Idle 
-*   Enable 
-*   Measure 
-*   Precharge 
-*   Run 
+- Error 
+- Idle 
+- Enable 
+- Measure 
+- Precharge 
+- Run 
 
 States transition from one to another based on various thresholds and timers, and on user commands from the Prohelion EV Driver Controls via the CAN bus, as detailed in the following sections. 
 
@@ -21,15 +21,15 @@ States transition from one to another based on various thresholds and timers, an
 
 The BMS is in the Error state if any of the following conditions are true: 
 
-*   The 12V contactor supply is not present or is undervoltage 
-*   Any cell Over Voltage 
-*   Any cell Under Voltage 
-*   Any cell Over Temperature 
-*   Any CMU communications packet is overdue (CMU timeout) 
-*   Packets from the EV driver controls are overdue (vehicle timeout)
-*   Missing CMU or cell 
-*   Extra CMU or cell 
-*   Contactor feedback mismatch to the commanded state of the contactor 
+- The 12V contactor supply is not present or is undervoltage 
+- Any cell Over Voltage 
+- Any cell Under Voltage 
+- Any cell Over Temperature 
+- Any CMU communications packet is overdue (CMU timeout) 
+- Packets from the EV driver controls are overdue (vehicle timeout)
+- Missing CMU or cell 
+- Extra CMU or cell 
+- Contactor feedback mismatch to the commanded state of the contactor 
 
 In the Error state, all contactors are switched off to isolate the pack.  The relay and fan outputs are also switched off. 
 

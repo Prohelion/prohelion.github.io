@@ -8,7 +8,7 @@ order: 1
 
 By default, CAN packets that are received by the bridge will be broadcast on the UDP group address/port, and data contained in UDP datagrams received by the bridge from this group address/port will be broadcast on the CAN network.
 
-The UDP group address is <strong>239.255.60.60</strong>, and the port is <strong>4876</strong>.  This port is assigned by the IANA and is not configurable.
+The UDP group address is __239.255.60.60__, and the port is __4876__.  This port is assigned by the IANA and is not configurable.
 
 The UDP packet structure is shown in figure 1.  Unless otherwise noted, all values are transmitted in big-endian format.
 
@@ -18,9 +18,9 @@ Figure 1: UDP Packet Structure
 
 The bus identifier is a 56-bit value as shown in figure 2.  There are presently two protocol versions designated by the bus identifier. Version 1 identifiers allow 4 bits for the bus number (range 0-15), while Version 2 allows 16 bit bus numbers (range 0-65535).
 
-In protocol version 1, the first 52 bits encode the protocol version, and should read <strong>0x5472697469756</strong> in all packets.  The least significant 4 bits represent the bus number that the packet was transmitted on.
+In protocol version 1, the first 52 bits encode the protocol version, and should read __0x5472697469756__ in all packets.  The least significant 4 bits represent the bus number that the packet was transmitted on.
 
-In protocol version 2, the first 40 bits encode the protocol version and should read <strong>0x547269FDD6</strong> in all packets, with the least significant 16 bits representing the bus number. The bus number can be used to create separate virtual networks on the same Ethernet network, see [Version Querying](50_Version_Querying.md).
+In protocol version 2, the first 40 bits encode the protocol version and should read __0x547269FDD6__ in all packets, with the least significant 16 bits representing the bus number. The bus number can be used to create separate virtual networks on the same Ethernet network, see [Version Querying](50_Version_Querying.md).
 
 ![Figure 2:Bus Identifier Structure - Version 1 (left) and Version 2 (right)](images/figure2.png)
 
@@ -36,13 +36,13 @@ The flags byte contains the bitfield shown in figure 3.
 
 Figure 3: Flags Bitfield
 
-*   <strong>H – Heartbeat / query response packet</strong>  Indicates that this datagram contains a message from the bridge itself, rather than a bridged CAN packet.  This will either be a bridge heartbeat packet, or a packet containing a response to a query request.
+*   __H – Heartbeat / query response packet__  Indicates that this datagram contains a message from the bridge itself, rather than a bridged CAN packet.  This will either be a bridge heartbeat packet, or a packet containing a response to a query request.
 
-*   <strong>S – Settings packet </strong> Indicates that this datagram contains a setting for the bridge itself, and should not be bridged on to the physical CAN network.
+*   __S – Settings packet __ Indicates that this datagram contains a setting for the bridge itself, and should not be bridged on to the physical CAN network.
 
-*   <strong>R – RTR packet</strong> Indicates that the data contained in this datagram should be sent as an RTR packet on the physical CAN network.
+*   __R – RTR packet__ Indicates that the data contained in this datagram should be sent as an RTR packet on the physical CAN network.
 
-*   <strong>E – Extended id packet</strong>  Indicates that this packet should be sent with an extended CAN identifier.
+*   __E – Extended id packet__  Indicates that this packet should be sent with an extended CAN identifier.
 
 The length byte indicates the length of the packet data, in bytes.  This length should not exceed eight bytes.
 

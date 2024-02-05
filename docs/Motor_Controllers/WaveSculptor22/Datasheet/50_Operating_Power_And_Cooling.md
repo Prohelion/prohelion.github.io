@@ -19,7 +19,7 @@ Please refer to the [Cooling](../User_Manual/30_Cooling.md) section in the User 
 | Thermal interface surface length:| 250 | mm | Note 18 |
 | Thermal interface surface width: | 117 | mm | Note 18 |
 | Thermal interface thread size: | M4 | | Note 19|
-| Thermal interface fastener <strong>maximum depth:</strong>| 14 | mm | Note 19 |
+| Thermal interface fastener __maximum depth:__| 14 | mm | Note 19 |
 
 #### Notes:
 
@@ -31,4 +31,4 @@ Please refer to the [Cooling](../User_Manual/30_Cooling.md) section in the User 
 
 18) The base of the WaveSculptor22 is a flat aluminium surface, of these dimensions.  A flat area of at least this size should be provided on whatever cooling solution the customer chooses to provide.
 
-19) The WaveSculptor22 provided 8x M4 tapped holes in the base of the product, for use in attaching the motor controller to the customer-provided heatsink or waterblock.  <strong>Screws longer than the max depth must not be used, </strong>to avoid damaging internal components in the motor controller.
+19) The WaveSculptor22 provided 8x M4 tapped holes in the base of the product, for use in attaching the motor controller to the customer-provided heatsink or waterblock.  __Screws longer than the max depth must not be used, __to avoid damaging internal components in the motor controller.

@@ -37,15 +37,15 @@ Selection of the external precharge resistor is critical for correct and long-te
 
 As an example, the calculations for a typical EV system are shown as follows: 
 
-System battery voltage maximum = <strong>450V</strong> 
+System battery voltage maximum = __450V__ 
 
-Motor controller (Prohelion Wavesculptor 200) capacitance = <strong>800µF</strong>
+Motor controller (Prohelion Wavesculptor 200) capacitance = __800µF__
 
-Chosen precharge current = <strong>1A</strong> 
+Chosen precharge current = __1A__ 
 
-Therefore, the minimum resistance (fastest precharge) will be 450V / 1A = 450 Ohms.  Choose <strong>470 Ohms</strong> as the next highest common value.  Peak power dissipation in the resistor is therefore 450V<sup>2</sup>/470R = <strong>430W. </strong> 
+Therefore, the minimum resistance (fastest precharge) will be 450V / 1A = 450 Ohms.  Choose __470 Ohms__ as the next highest common value.  Peak power dissipation in the resistor is therefore 450V<sup>2</sup>/470R = __430W. __ 
 
-The expected precharge time is given by the time constant TAU = R (Ohms) * C (Farads), where the voltage on the capacitor should change by 63% of the difference each TAU time interval.  Precharge should be within 95% of the initial value within 4 TAU, and to 99% within 5 TAU intervals, as an exponential decay.  For the example system, TAU = 376ms, so the expected precharge time of 4 TAU = <strong>1.5 seconds.</strong>
+The expected precharge time is given by the time constant TAU = R (Ohms) * C (Farads), where the voltage on the capacitor should change by 63% of the difference each TAU time interval.  Precharge should be within 95% of the initial value within 4 TAU, and to 99% within 5 TAU intervals, as an exponential decay.  For the example system, TAU = 376ms, so the expected precharge time of 4 TAU = __1.5 seconds.__
 
 Choosing a >500W resistor is unnecessary, as this rating is only needed for a short amount of time during normal operation.  However, the resistor cannot be too small, as if a fault situation occurs, such as a short circuit in the motor controller, then this power will be dissipated continuously for the entire expected precharge time, until the precharge controller realises that precharging has not occurred properly and goes into an error state.  For safety, the resistor in the example system should be chosen to tolerate a one-off event, starting at the expected maximum ambient temperature, of 430W for 1.5 seconds. 
 
@@ -53,13 +53,13 @@ Searching through available off-the-shelf options from Digikey, the RH series fr
 
 Therefore, this 50W resistor is acceptable for the external resistor in this application based on maximum fault power. 
 
-During normal operation, the capacitors contain a charge of 0.36C, giving an energy storage of <strong>81 Joules.</strong>  Note that this is a lethal amount of energy.  During an RC precharge type event, the same amount of energy that is eventually stored in the capacitor is also dissipated in the resistor.   
+During normal operation, the capacitors contain a charge of 0.36C, giving an energy storage of __81 Joules.__  Note that this is a lethal amount of energy.  During an RC precharge type event, the same amount of energy that is eventually stored in the capacitor is also dissipated in the resistor.   
 
-If not mounted on any additional thermal mass, and assuming that 20g of the resistor's total mass is aluminium (specific heat = 0.897 J/g°C), 81 Joules will give a temperature rise of ∆T = Q/mc = <strong>4.5°C,</strong> also well within limits.  During a fault situation, where 430W is being dissipated in the resistor, the same thermal calculation shows a temperature rise of 48°C above the starting temperature.  This also is within limits. 
+If not mounted on any additional thermal mass, and assuming that 20g of the resistor's total mass is aluminium (specific heat = 0.897 J/g°C), 81 Joules will give a temperature rise of ∆T = Q/mc = __4.5°C,__ also well within limits.  During a fault situation, where 430W is being dissipated in the resistor, the same thermal calculation shows a temperature rise of 48°C above the starting temperature.  This also is within limits. 
 
 The maximum acceptable operating voltage for the 50W resistor is 1285V, so our maximum of 450V is also within limits. 
 
-Therefore, a <strong>470 ohm, 50W, RH series wirewound aluminium resistor </strong> would be a suitable choice of external resistor for this application of precharging <strong>800uF to 450V in 1.5 seconds.</strong>  Other devices on the HV bus such as DC/DC converters and battery chargers will add significant extra capacitance, and must be factored into these calculations. 
+Therefore, a __470 ohm, 50W, RH series wirewound aluminium resistor __ would be a suitable choice of external resistor for this application of precharging __800uF to 450V in 1.5 seconds.__  Other devices on the HV bus such as DC/DC converters and battery chargers will add significant extra capacitance, and must be factored into these calculations. 
 
 Note that the BMS must be programmed with the correct timeout value, so as it knows what the expected precharge time is.  If this is not done, then the precharge controller will either expect precharge to have finished when it has not, resulting in an error state, or it will expect precharge to take much longer than it really does, resulting in a potential overload and a fire in the external resistor if there is a system fault. 
 

@@ -18,9 +18,9 @@ EVDC packet contains Boolean flags that indicate the switch positions of the Ele
 
 ![Key Positions Diagram](images/EV_Driver_CSP.png)
 
-<strong>CAN ID: 0x505 </strong>
+__CAN ID: 0x505 __
 
-<strong>Interval: 10Hz</strong>
+__Interval: 10Hz__
 
 | data_u16[0] | 0x0000 = Off / Safe<br>0x0010 = Accessories<br>0x0020 = Ignition Run<br>0x0040 = Ignition Start
 | data_u16[1] | Unused by BMU |          
@@ -33,12 +33,12 @@ The BMU requires regular packets from the controller (>5Hz) and will engage base
 
 The following table outlines the sequence of switch flags that must be sent to engage the BMU.
 
-<strong>CAN ID: 0x505</strong>
+__CAN ID: 0x505__
 
-| 0x0000 = Off | <strong>Off/Safe</strong><br>If no errors are present, this will move the BMU to the IDLE state. In IDLE state no contactors will be engaged and the BMU is ready to commence the pre-charge process. 
-| 0x0010 = Accessories (0x10) | <strong>Accessories</strong><br>This flag is unused by the BMU but is used by other Prohelion products. 
-| 0x0070 = Accessories (0x10)<br> + Ignition run (0x20)<br> + Ignition Start (0x40) | <strong>Start (Momentary) </strong><br>If no errors are present, the BMU will commence the pre-charge sequence. The pre-charge sequence will engage the negative and pre-charge contactors until the load is charged to the pre-charge voltage threshold. Once successful the BMU will enter the RUN state. <br>If the load does not charge up to the recharge voltage threshold, then the BMU will move to ERROR state.
-| 0x0030 = Accessories (0x10)<br> + Ignition run (0x20) | <strong> Run</strong><br>Once the BMU has entered the RUN state, the Ignition Start (0x40) flag should be removed. This is an additional safety precaution to prevent the BMU from commencing the pre-charge process after an unexpected power cycle or reboot.<br>This set of flags should be sent for the entire duration that the main contactors should be engaged. If the system is required to disengage the main contactors, then then all flags should be cleared.|
+| 0x0000 = Off | __Off/Safe__<br>If no errors are present, this will move the BMU to the IDLE state. In IDLE state no contactors will be engaged and the BMU is ready to commence the pre-charge process. 
+| 0x0010 = Accessories (0x10) | __Accessories__<br>This flag is unused by the BMU but is used by other Prohelion products. 
+| 0x0070 = Accessories (0x10)<br> + Ignition run (0x20)<br> + Ignition Start (0x40) | __Start (Momentary) __<br>If no errors are present, the BMU will commence the pre-charge sequence. The pre-charge sequence will engage the negative and pre-charge contactors until the load is charged to the pre-charge voltage threshold. Once successful the BMU will enter the RUN state. <br>If the load does not charge up to the recharge voltage threshold, then the BMU will move to ERROR state.
+| 0x0030 = Accessories (0x10)<br> + Ignition run (0x20) | __ Run__<br>Once the BMU has entered the RUN state, the Ignition Start (0x40) flag should be removed. This is an additional safety precaution to prevent the BMU from commencing the pre-charge process after an unexpected power cycle or reboot.<br>This set of flags should be sent for the entire duration that the main contactors should be engaged. If the system is required to disengage the main contactors, then then all flags should be cleared.|
 
 Alternatively, Prohelion’s Profinity software solution can be used to engage the pack via the Battery Controller panel.  When using Profinity it transitions through these states to engage your pack.
 

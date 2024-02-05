@@ -26,4 +26,4 @@ By default, the BMS BMU ships with a CAN base ID set to 0x600.  This can be adju
 | `0x6FC`         | Fan & 12V supply status                                                    |       
 | `0x6FD`         | Extended battery pack status                                               |       
 | `0x6FE - 0x6FF` | Reserved, currently unused                                                 |
-| `0x7F0 - 0x7F4` | Reserved for bootloader triggering and data transfer (these IDs do <strong>not</strong> move with a change in BMU CAN Base ID) | 
+| `0x7F0 - 0x7F4` | Reserved for bootloader triggering and data transfer (these IDs do __not__ move with a change in BMU CAN Base ID) | 

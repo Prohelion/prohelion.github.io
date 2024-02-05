@@ -6,13 +6,13 @@ order: 3
 
 # Construction Procedure
 
-1.	Cut three 5m lengths of litz wire to wind in parallel.  If a different type of litz wire from that specified is being used, then more or less bundles in parallel may be required.  Some experimentation may be necessary to work out how much wire can be physically wound through the toroid.  <strong>36 turns</strong> in total are necessary to achieve the specified inductance.
+1.	Cut three 5m lengths of litz wire to wind in parallel.  If a different type of litz wire from that specified is being used, then more or less bundles in parallel may be required.  Some experimentation may be necessary to work out how much wire can be physically wound through the toroid.  __36 turns__ in total are necessary to achieve the specified inductance.
 
-2.	Hold the three bundles together in a flat group, three bundles wide. Leave a 20cm tail of wire to start, and wind <strong>19 turns</strong> onto the toroid.  This should fill up one layer of wire, with no overlaps.  There is no need to twist the bundles together but pay attention to keeping the tension of the wires reasonably constant, so that each bundle remains the same length as the others.  
+2.	Hold the three bundles together in a flat group, three bundles wide. Leave a 20cm tail of wire to start, and wind __19 turns__ onto the toroid.  This should fill up one layer of wire, with no overlaps.  There is no need to twist the bundles together but pay attention to keeping the tension of the wires reasonably constant, so that each bundle remains the same length as the others.  
 
 3.	Wrap the winding so far with Kapton or Polyester tape, to hold the wire in place.  Pay attention around where the tail exits the bundle, as this is the most likely place for vibration and abrasion to occur, and also where the highest voltage difference will be across the inductor.  Before placing all the tape, consider using a marker pen to draw an arrow on top of the tape to indicate which direction the windings were wound.
 
-4.	Wind another <strong>17 turns</strong> in a second layer, continuing to wind in the same direction as the first layer.  It is important to have <strong>36</strong> turns in total when finished, and all turns in the same direction.  Leave another 20cm tail where the winding exits the inductor.
+4.	Wind another __17 turns__ in a second layer, continuing to wind in the same direction as the first layer.  It is important to have __36__ turns in total when finished, and all turns in the same direction.  Leave another 20cm tail where the winding exits the inductor.
 
 5.	Wrap the complete winding in another layer of tape.  As before, pay attention to the exit tail area.
 
