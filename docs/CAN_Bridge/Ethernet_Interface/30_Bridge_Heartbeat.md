@@ -6,7 +6,7 @@ order: 3
 
 # Bridge Heartbeat
 
-In order to identify the presence of a CAN-Ethernet bridge on a network, the bridge sends periodic heartbeat datagrams over UDP.  These packets are identified by an active H bit in the flags bitfield, and an identifier of <strong>0x000</strong>.  The contents of the data field of a heartbeat datagram is shown in figure 5.
+In order to identify the presence of a CAN-Ethernet bridge on a network, the bridge sends periodic heartbeat datagrams over UDP.  These packets are identified by an active H bit in the flags bitfield, and an identifier of __0x000__.  The contents of the data field of a heartbeat datagram is shown in figure 5.
 
 ![Figure 5:Heartbeat data](images/figure5.png)
 

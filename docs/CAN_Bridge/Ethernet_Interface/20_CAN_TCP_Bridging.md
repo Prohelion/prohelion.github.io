@@ -6,7 +6,7 @@ order: 2
 
 # CAN-TCP Bridging
 
-When a higher level of reliability is required in the connection between a device and the CAN-Ethernet bridge, CAN packets can be communicated over a TCP/IP connection.  This connection should be made to the bridge on the same remote port as UDP communication occurs: <strong>4876</strong>.  Data should then be sent to the bridge according to the structure shown in figure 4.  
+When a higher level of reliability is required in the connection between a device and the CAN-Ethernet bridge, CAN packets can be communicated over a TCP/IP connection.  This connection should be made to the bridge on the same remote port as UDP communication occurs: __4876__.  Data should then be sent to the bridge according to the structure shown in figure 4.  
 
 By setting the fwd identifier and fwd range fields (see below), it is possible to have the bridge use this TCP connection to forward on certain packets, rather than having them multicast via UDP.
 
@@ -18,7 +18,7 @@ The fwd identifier represents the lowest CAN identifier that should be bridged f
 
 The fwd range represents the size of the range of CAN identifiers that should be forwarded via TCP.  That is, the bridge will forward via TCP any packet with
 
-<strong>fwd identifier <= packet CAN identifier < ( fwd identifier + fwd range )</strong>
+__fwd identifier <= packet CAN identifier < ( fwd identifier + fwd range )__
 
 The remaining fields in figure 4 are identical to those in figure 1, see [CAN-UDP Bridging](10_CAN_UDP_Bridging.md).  
 

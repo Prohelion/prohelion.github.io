@@ -16,7 +16,7 @@ Ignoring the losses in the system (refer to the [datasheet](http://localhost:400
 
 Motor current is proportional to torque, whereas battery current is proportional to power.
 
-<strong>Power = Torque x speed</strong>  
+__Power = Torque x speed__  
 
 The effect of this is that battery current will only approach motor current as the motor speed approaches 100%.  At low motor speeds, the battery current will also be low, regardless of what the motor current is.  
 

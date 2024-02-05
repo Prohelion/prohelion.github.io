@@ -13,7 +13,7 @@ Material listings are for a complete set of three inductors:
 - Litz wire, 30x 0.335mm diameter strands, 'single' insulation, around 2.6mm<sup>2</sup> total copper cross sectional area.  Three of these litz wire bundles will be used in parallel, giving almost 8mm<sup>2</sup> total cross-sectional area.  Quantity required: approximately 50 metres.  
 Supplier: varies, see below:
 
-- Kapton or Polyester transformer insulation tape.  Quantity required: a few metres.  Supplier: Your local catalogue electronics supplier, eg Element14 (formerly Farnell), part number <strong>753-014</strong>
+- Kapton or Polyester transformer insulation tape.  Quantity required: a few metres.  Supplier: Your local catalogue electronics supplier, eg Element14 (formerly Farnell), part number __753-014__
 
 - Transformer Varnish or low viscosity potting compound.  Generic, use a local supplier.  If using a vacuum chamber, a solvent-free varnish must be used to avoid boiling when the vacuum is pulled on the chamber.
 

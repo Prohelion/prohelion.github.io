@@ -8,7 +8,7 @@ order: 1
 
 ## Type
 
-The type 1 interface reads three channels of position information from <strong>hall-effect position sensors. </strong> It provides each channel with a 1k pull-up resistor for use with open-collector sensors.
+The type 1 interface reads three channels of position information from __hall-effect position sensors. __ It provides each channel with a 1k pull-up resistor for use with open-collector sensors.
 
 ## Power
 

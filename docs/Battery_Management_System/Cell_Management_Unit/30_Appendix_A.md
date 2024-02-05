@@ -13,17 +13,17 @@ order: 3
 
 ## Can Cabling & Low Voltage Connectors
 
-| <strong>DeviceNet Cable (per Metre)</strong>       
+| __DeviceNet Cable (per Metre)__       
 |----------------------------------------------------|
 | Lapp Cable | 2170343 |
 | Element 14 | 161-7915|
 
-| <strong>MicroFit crimps (20-24 AWG)</strong>       
+| __MicroFit crimps (20-24 AWG)__       
 |----------------------------------------------------|
 | Molex | 43030-0007 |
 | Element 14 | 973-3027|
 
-| <strong>12-way MicroFit connector housing (Cell Wiring)</strong>       
+| __12-way MicroFit connector housing (Cell Wiring)__       
 |----------------------------------------------------|
 | Pro Power | 05B91510 |
 | Element 14 | 150-434|

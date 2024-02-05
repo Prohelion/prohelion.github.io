@@ -8,7 +8,7 @@ order: 2
 
 ## Type
 
-The type 3 interface reads two channels of temperature information from <strong>Pt100 platinum elements. </strong> Scaling and offset corrections are provided by the WaveSculptor, with inputs from the calibration software and the user.
+The type 3 interface reads two channels of temperature information from __Pt100 platinum elements. __ Scaling and offset corrections are provided by the WaveSculptor, with inputs from the calibration software and the user.
 
 ## Input
 

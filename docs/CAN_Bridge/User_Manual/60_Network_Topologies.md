@@ -24,7 +24,7 @@ Another advanced configuration is using multiple bridges on one CAN bus, as show
 
 Figure 3: Setup With Multiple Bridges on one CAN Bus
 
-The problem with a cyclic network as shown in Figure 4 is that any message bridged by bridge A via UDP will be bridged back to the CAN bus by bridge B, to be bridged by A again. Therefore, any message will be resent infinitely and soon the CAN bus will be so loaded that most messages get lost. <strong>Creating a cycle in your network causes that network to become unusable and should be avoided.</strong>
+The problem with a cyclic network as shown in Figure 4 is that any message bridged by bridge A via UDP will be bridged back to the CAN bus by bridge B, to be bridged by A again. Therefore, any message will be resent infinitely and soon the CAN bus will be so loaded that most messages get lost. __Creating a cycle in your network causes that network to become unusable and should be avoided.__
 
 ![Figure 4: Cyclic Setup With Multiple Bridges on one CAN Bus](images/cyclic_setup_with_multiple_bridges_on_one_CAN_bus.png)
 

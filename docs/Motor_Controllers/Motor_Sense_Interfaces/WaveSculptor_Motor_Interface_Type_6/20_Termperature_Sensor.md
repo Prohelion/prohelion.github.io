@@ -8,7 +8,7 @@ order: 2
 
 ## Type 
 
-The type 6 interface reads a single channel from an <strong>NTC thermistor. </strong> Linearisation is provided in hardware on the motor interface circuit, with further scaling, offset and B curve correction being provided by the WaveSculptor, with inputs from the calibration software and the user.
+The type 6 interface reads a single channel from an __NTC thermistor. __ Linearisation is provided in hardware on the motor interface circuit, with further scaling, offset and B curve correction being provided by the WaveSculptor, with inputs from the calibration software and the user.
 
 ## Input
 

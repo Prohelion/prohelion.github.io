@@ -6,7 +6,7 @@ order: 3
 
 # Configuration
 
-The configuration screen shown in Figure 3 provides four main functions: Load and save to PC or WaveSculptor. The load and save functions are under the File menu, provide a means of storing the configuration file on the PC for backup purposes. You should backup your configuration files just as you would any other file. If the configuration file on the WaveSculptor is somehow corrupted you will be able to restore to a known good version with a backup. If using the latest release of the software and firmware, configuration files are  interchangeable between WaveSculptors, <strong>BUT the existing configuration must be first downloaded in order to integrate the configuration constants with the file.</strong>
+The configuration screen shown in Figure 3 provides four main functions: Load and save to PC or WaveSculptor. The load and save functions are under the File menu, provide a means of storing the configuration file on the PC for backup purposes. You should backup your configuration files just as you would any other file. If the configuration file on the WaveSculptor is somehow corrupted you will be able to restore to a known good version with a backup. If using the latest release of the software and firmware, configuration files are  interchangeable between WaveSculptors, __BUT the existing configuration must be first downloaded in order to integrate the configuration constants with the file.__
 
 The transfer functions move the information from all configuration tabs to and from the WaveSculptor. The upload and download progress is reflected in a separate popup-window as mentioned in the [Observation](10_Observation.md) section.
 

@@ -33,12 +33,12 @@ Figure 2. CAN Device Identifier Address Format (todo)
 
 The data field in all frames is fixed at 8 bytes (64 bits) and two IEEE 754 32-bit floating point variables as shown in Figure 3.  The data field is sent and expected to be received least significant bite first. This allows a direct overlay of a float[2] array and char[8] array on a little endian processor, such as, an Intel x86 (or clone) or the TI MSP430 in the driver controls.
 
-|<strong>High Float</strong>|||
+|__High Float__|||
 |s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
 |^|^^^|^|
 |63|62 55 54|32|
 
-|<strong>Low Float</strong>|||
+|__Low Float__|||
 |s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
 |^|^^^|^|
 |31|30 23 22|0|

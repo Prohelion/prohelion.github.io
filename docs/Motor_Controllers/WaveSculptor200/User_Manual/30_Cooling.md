@@ -40,13 +40,13 @@ When mounted vertically (the middle picture in the [Choosing a Location](20_Moun
 
 ## Radiator
 
-Prohelion recommends an aluminium radiator of at least 120 x 360mm dimensions, such as Koolance part number <strong>HX-1020</strong> and a pair of nozzles <strong>NZL-V10P</strong> or <strong>NZL-L10P</strong>, for vertical or right-angle hose attachment.  This will need to be used with three 120mm fans, which should be rated for use in wet environments, as they will be exposed to road grime and spray.
+Prohelion recommends an aluminium radiator of at least 120 x 360mm dimensions, such as Koolance part number __HX-1020__ and a pair of nozzles __NZL-V10P__ or __NZL-L10P__, for vertical or right-angle hose attachment.  This will need to be used with three 120mm fans, which should be rated for use in wet environments, as they will be exposed to road grime and spray.
 
 The radiator should be mounted in the airflow path through the front of the car, to help with cooling.  If thermostatically controlled fans are used, a carefully chosen mounting location will minimise the time the fans are required to operate, therefore saving power.
 
 ## Pump
 
-Prohelion recommends using a Koolance part number <strong>PMP-400</strong> pump.  The specifications on this pump are 8.7 litres/min and 7m head (0.68 Bar, 68 kPa), and a 50,000 hour rated lifetime.  This pump is a good match for the pressure drop through the WaveSculptor water block, radiator, and several metres of 10mm ID tubing. 
+Prohelion recommends using a Koolance part number __PMP-400__ pump.  The specifications on this pump are 8.7 litres/min and 7m head (0.68 Bar, 68 kPa), and a 50,000 hour rated lifetime.  This pump is a good match for the pressure drop through the WaveSculptor water block, radiator, and several metres of 10mm ID tubing. 
 
 A quality installation will use some form of monitoring on the pump speed feedback signal, to flag a fault in the event of slow or stalled operation.
 
@@ -60,19 +60,19 @@ A reservoir is necessary to allow for coolant contraction and expansion as the s
 
 The reservoir should be the highest component in the system, so that any air bubbles from other components will collect in the reservoir, not inside the waterblock or radiator.  
 
-Prohelion recommends building a reservoir using Koolance parts <strong>COV-TKBTM</strong> (base), <strong>BDY-TK200</strong> (body), <strong>COV-TKTOP</strong> (top lid), and a pair of nozzles either <strong>NZL-L10P</strong> or <strong>NZL-V10P</strong>.  This reservoir holds more liquid than strictly necessary, but this allows for easier filling and air bleeding when installing the system.  Using a reservoir with a large top opening allows you to add coolant quickly as the pump sucks it from the reservoir when filling the system for the first time, without having to stop and start the pump.
+Prohelion recommends building a reservoir using Koolance parts __COV-TKBTM__ (base), __BDY-TK200__ (body), __COV-TKTOP__ (top lid), and a pair of nozzles either __NZL-L10P__ or __NZL-V10P__.  This reservoir holds more liquid than strictly necessary, but this allows for easier filling and air bleeding when installing the system.  Using a reservoir with a large top opening allows you to add coolant quickly as the pump sucks it from the reservoir when filling the system for the first time, without having to stop and start the pump.
 
-A second option is a combined reservoir and pump, saving some space, fittings and tubing.  This can be constructed using Koolance parts <strong>COV-RP400</strong>, <strong>PMP-400</strong>, <strong>BDY-TK200</strong>, <strong>COV-TKTOP</strong> & either <strong>NZL-V10P</strong> or <strong>NZL-L10P</strong>.
+A second option is a combined reservoir and pump, saving some space, fittings and tubing.  This can be constructed using Koolance parts __COV-RP400__, __PMP-400__, __BDY-TK200__, __COV-TKTOP__ & either __NZL-V10P__ or __NZL-L10P__.
 
 ## Tubing
 
-Prohelion recommends using high quality 10mm ID / 13mm OD tubing, such as Koolance part number <strong>HOS-10CL</strong>.  This is also available in a range of colours.  High quality tubing will be far less likely to kink than standard cheap PVC tube, and also has less problems with softening at higher temperatures.  If a tight bend radius is required, consider using a spring wrap such as Koolance part <strong>SPR-10BK</strong>, which helps stop the tube kinking.
+Prohelion recommends using high quality 10mm ID / 13mm OD tubing, such as Koolance part number __HOS-10CL__.  This is also available in a range of colours.  High quality tubing will be far less likely to kink than standard cheap PVC tube, and also has less problems with softening at higher temperatures.  If a tight bend radius is required, consider using a spring wrap such as Koolance part __SPR-10BK__, which helps stop the tube kinking.
 
 ## Coolant
 
 The coolant used in the system is critical for it's longevity.  A quality coolant designed for this application is required, to help with corrosion, foaming, heat transfer, and biological growth.  Automotive coolant fulfils the first three requirements, but not the last, as it gets hot enough in a vehicle engine to kill any bacteria, so a biocide is not required. If using automotive coolant in your system, an additional biocide will have to be added manually.
 
-Prohelion recommends using Koolance liquid <strong>LIQ-702BU-B</strong>, which meets all requirements for the system.  This is also available in a range of colours
+Prohelion recommends using Koolance liquid __LIQ-702BU-B__, which meets all requirements for the system.  This is also available in a range of colours
 
 ## Bleeding 
 

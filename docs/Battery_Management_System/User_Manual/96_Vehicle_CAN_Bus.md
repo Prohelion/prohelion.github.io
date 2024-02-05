@@ -32,7 +32,7 @@ The connector used on the BMU and other Prohelion devices for the CAN connection
 
 If the recommended braided shield is used in the cable, then terminate it to the SHIELD pin (lower-left corner on the connector) on both CAN IN and CAN OUT connectors on each device.   
 
-On <strong> one device only in the network,</strong> instead of using the SHIELD pin, terminate the shield to the SHIELD GROUND pin (upper-left corner on the connector) on both CAN IN and CAN OUT connectors, to ground the shield for the entire network at this single point.  The usual place to do this is where power is fed into the network, typically at Prohelion's <strong>EV Driver Controls </strong>product. 
+On __ one device only in the network,__ instead of using the SHIELD pin, terminate the shield to the SHIELD GROUND pin (upper-left corner on the connector) on both CAN IN and CAN OUT connectors, to ground the shield for the entire network at this single point.  The usual place to do this is where power is fed into the network, typically at Prohelion's __EV Driver Controls __product. 
 
 ## CAN Termination
 

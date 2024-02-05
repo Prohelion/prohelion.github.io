@@ -8,7 +8,7 @@ order: 1
 
 ## Type
 
-The type 7 interface reads position information from a <strong>sin/cos resolver position sensor with analog outputs.</strong>
+The type 7 interface reads position information from a __sin/cos resolver position sensor with analog outputs.__
 
 ## Drive
 
