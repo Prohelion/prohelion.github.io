@@ -29,8 +29,6 @@ Please refer to the [Cooling](../User_Manual/30_Cooling.md) section in the User 
 
 17) With a water-cooled heatsink of 0.6Kcm<sup>2</sup>/W attached to the cold plate, and a water temperature of 30°C, the WaveSculptor22 is capable of operating at its instantaneous power output continuously.  This represents the best case cooling solution possible.
 
-18) The base of the WaveSculptor22 is a flat aluminium surface, of these dimensions.  A flat area of at least this size should be provided on whatever cooling solution the customer chooses to provide.  Please refer to the [TRI88.005 Mechanical Assembly document]()? available on the Prohelion website for mounting surface features and dimensions.
+18) The base of the WaveSculptor22 is a flat aluminium surface, of these dimensions.  A flat area of at least this size should be provided on whatever cooling solution the customer chooses to provide.
 
-19) The WaveSculptor22 provided 8x M4 tapped holes in the base of the product, for use in attaching the motor controller to the customer-provided heatsink or waterblock.  <strong>Screws longer than the max depth must not be used, </strong>to avoid damaging internal components in the motor controller.  
-
-
+19) The WaveSculptor22 provided 8x M4 tapped holes in the base of the product, for use in attaching the motor controller to the customer-provided heatsink or waterblock.  <strong>Screws longer than the max depth must not be used, </strong>to avoid damaging internal components in the motor controller.

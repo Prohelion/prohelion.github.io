@@ -28,4 +28,4 @@ When driving an AC Permanent Magnet motor, the WaveSculptor requires three senso
 
 13) The motor shaft encoder is only required when driving a induction motor.
 
-14) The WaveSculptor expects a 100kΩ (at 25°C) NTC thermistor embedded in the motor to detect motor temperature.  The thermistor B model constants (available in the [thermistor datasheet]())? can be programmed into the WaveSculptor during configuration / setup to exactly match the temperature response of your thermistor.
+14) The WaveSculptor expects a 100kΩ (at 25°C) NTC thermistor embedded in the motor to detect motor temperature.  The thermistor B model constants (generally available in the thermistor datasheet) can be programmed into the WaveSculptor during configuration / setup to exactly match the temperature response of your thermistor.

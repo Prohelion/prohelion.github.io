@@ -2,25 +2,13 @@
 title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
 order: 0
-
-# Hero section
-hero:
-    title: Fix Me (TODO)
-    text: Developing an Electric Vehicle? The Prohelion Driver Controller Unit is designed to give you a head start with an off the shelf control platform to get you driving sooner.
-    background_image: /images/Prohelion_Battery.jpg
-    buttons: # Add buttons below, there are examples with all available options
-        - label: Order a Prohelion Driver Control
-          url: https://www.prohelion.com/shop/accessories/ev-driver-controls/
-          external_url: true 
-          style: filled
-          icon: credit-card 
 ---
 
 # BMS BMU Vehicle Communications Protocol
 
 This document describes the communications protocol used between the [Battery Management Unit](http://localhost:4000/Battery_Management_System/User_Manual/index.md) (BMU) and the vehicle in the Prohelion Battery Management System (BMS).  
 
-Internal communications between the BMS BMU and BMS CMUs are described in another [document]? (TRI67.009) but should not be needed for a typical end-user.
+Internal communications between the BMS BMU and BMS CMUs are described in another [document]??? (TRI67.009) but should not be needed for a typical end-user.
 
 ---
 

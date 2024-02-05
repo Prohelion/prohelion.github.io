@@ -9,7 +9,7 @@ The driver controls are based around a Texas Instruments (TI) MSP430 16-bit embe
 
 ## Schematics & Source Code
 
-Schematics and PCB component position overlays in PDF format are available for download on the Prohelion website.  A zip file is also provided containing the default source code for the microcontroller, written in 'C' and available under a BSD open-source license.  ?? (todo)
+Schematics and PCB component position overlays in PDF format are available for download on the Prohelion website.  A zip file is also provided containing the default source code for the microcontroller, written in 'C' and available under a BSD open-source license.
 
 Please refer to these references if developing custom firmware for the driver controls.
 
