@@ -38,7 +38,7 @@ Figure 3: Flags Bitfield
 
 *   __H – Heartbeat / query response packet__  Indicates that this datagram contains a message from the bridge itself, rather than a bridged CAN packet.  This will either be a bridge heartbeat packet, or a packet containing a response to a query request.
 
-*   __S – Settings packet __ Indicates that this datagram contains a setting for the bridge itself, and should not be bridged on to the physical CAN network.
+*   __S – Settings packet__ Indicates that this datagram contains a setting for the bridge itself, and should not be bridged on to the physical CAN network.
 
 *   __R – RTR packet__ Indicates that the data contained in this datagram should be sent as an RTR packet on the physical CAN network.
 

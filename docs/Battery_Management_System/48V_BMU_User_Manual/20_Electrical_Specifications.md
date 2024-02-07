@@ -136,7 +136,7 @@ Figure 7: Cell Sense Connector A Pinout
 | `15`       | GNDA (Temp A2) (see note)   | `31`       | Temp A2        | 
 | `16`       | GNDA (Temp A1) (see note)   | `32`       | Temp A1        | 
 
-#### Note:
+__Notes:__
 The pins labelled as GNDA (Temp X) on the temp sense connector is not to be used for anything other than providing a ground for the respective thermistor on the same connector. They are not the same as battery ground or any other ground.  A short-circuit between battery ground (or GNDB) and the thermistor ground could result in damage.
 
 ### Cell Sense Connector B
@@ -170,7 +170,7 @@ Figure 8: Most positive cell sense Connector pinout
 | `15`       | GNDA (Temp B2) (see note)  | `31`       | Temp B2         | 
 | `16`       | GNDA (Temp B1) (see note)  | `32`       | Temp B1         | 
 
-#### Note:
+__Notes:__
 The pins labelled as GNDB (Temp X) on the temp sense connector is not to be used for anything other than providing a ground for the respective thermistor on the same connector. They are not the same as battery ground or any other ground.  A short-circuit between battery ground (or GNDA) and the thermistor ground could result in damage.
 
 ### Precharge Resistor Connector

@@ -18,14 +18,16 @@ Pin 6 and Pin 3 (CAN Ground) are connected together internally to the bridge.
 
 The bridge must be supplied with DC power through the DB9 connector on Pin 9 (CAN Power), relative to CAN Ground.  
 
-| DC Supply Voltage Minimum: | 9 | V | Note 1
-| DC Supply Voltage Maximum: | 30 | V | |
-| DC Supply Voltage Nominal: | 13.8 | V ||
-| Supply Current at Nominal Voltage: | 26 | mA | Note 2
-| Supply Power Maximum: | 0.5 | W | Note 3
-| Default CAN bit rate:	| 500 | kbit/sec | 
+| Supply                             |      | Units    | Notes: |
+|------------------------------------|------|----------|--------|
+| DC Supply Voltage Minimum:         | 9    | V        | Note 1 |
+| DC Supply Voltage Maximum:         | 30   | V        |        |
+| DC Supply Voltage Nominal:         | 13.8 | V        |        |
+| Supply Current at Nominal Voltage: | 26   | mA       | Note 2 |
+| Supply Power Maximum:              | 0.5  | W        | Note 3 |
+| Default CAN bit rate:	             | 500  | kbit/sec |        |
 
-#### Notes:
+__Notes:__
 
 1)  The CAN–Ethernet bridge will operate successfully between these voltage limits.  Operation outside these voltages may damage the device.
 
