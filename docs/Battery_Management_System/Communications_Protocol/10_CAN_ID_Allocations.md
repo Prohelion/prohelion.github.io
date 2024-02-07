@@ -15,8 +15,8 @@ By default, the BMS BMU ships with a CAN base ID set to 0x600.  This can be adju
 | `0x601 - 0x6EF` | CMU Status, temperature, and voltage telemetry, if set to relay to vehicle |
 | `0x6F0`         | Reserved for factory configuration & calibration commands                  |            
 | `0x6F1 - 0x6F3` | Reserved for future configuration system update                            |       
-| `0x6F4`         | Pack SOC                                                                   |
-| `0x6F5`         | Balance SOC                                                                |
+| `0x6F4`         | Pack SoC                                                                   |
+| `0x6F5`         | Balance SoC                                                                |
 | `0x6F6`         | Charger Control information                                                |
 | `0x6F7`         | Pre-charge status, 12V status                                              |           
 | `0x6F8`         | Minimum / Maximum cell voltage                                             |       

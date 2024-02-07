@@ -45,4 +45,12 @@ description: Documentation for the Prohelion BMU and CMU
 
     [:octicons-arrow-right-24: Supporting Software](../Profinity/70_Prohelion_Batteries.md)
 
+-   :material-tools:{ .lg .middle } __48V BMS User Manual__
+
+    ---
+
+    User Manual for the Prohelion 48V Battery Management Unit (BMU)
+
+    [:octicons-arrow-right-24: Getting Started](48V_BMU_User_Manual/index.md)
+
 </div>

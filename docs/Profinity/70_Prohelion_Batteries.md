@@ -64,9 +64,9 @@ The right-hand side shows
 
 *         Fan speed for both fans
 
-*         SOC and Balance SOC in Ah
+*         SoCand Balance SoCin Ah
 
-*         SOC and Balance SOC in %
+*         SoCand Balance SoCin %
 
 ### CMU DATA
 The lower section of the program shows telemetry data from the CMUs, one row per CMU.  The information shown is:

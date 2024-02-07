@@ -10,7 +10,7 @@ There are six user-settable thresholds that control the operation of the BMS.  T
 
 These operating points can be programmed into the BMU over the CAN bus using the BMS Setup software and a Prohelion CAN-Ethernet bridge.  Settings that are required at the CMUs are passed to them from the BMU when the system starts. 
 
-The SOC vs Voltage curve for a typical Lithium chemistry cell is shown below, along with the location of the various thresholds. 
+The SoCvs Voltage curve for a typical Lithium chemistry cell is shown below, along with the location of the various thresholds. 
 
 ![State of Charge vs Voltage Curve](images/Operating_Thresholds.png)
 
@@ -20,7 +20,7 @@ This voltage should be set to the maximum acceptable voltage for the cell.  If i
 
 ## Balance Threshold
 
-This voltage is the target setpoint for the charging control algorithm, and will be the voltage that the cells are charged to in normal operation.  It should be chosen to be part-way up the 'knee' in the voltage charge curve, so that the cells can be easily seen to be at different SOC and therefore balanced accurately.   
+This voltage is the target setpoint for the charging control algorithm, and will be the voltage that the cells are charged to in normal operation.  It should be chosen to be part-way up the 'knee' in the voltage charge curve, so that the cells can be easily seen to be at different SoCand therefore balanced accurately.   
 
 Choosing this number to be higher (closer towards the Over Voltage Threshold) will give a slightly increased useable capacity of the pack, but will make it more likely that sudden regen braking will push a cell above the Over Voltage Threshold and shut down the system without warning.  Pushing the usual charge voltage to the maximum rating of the cell may also reduce cell cycle life – refer to the battery cell datasheet for specific information on this aspect, as it is highly dependant on cell chemistry and manufacturing techniques. 
 
@@ -38,9 +38,9 @@ Setting it too low will cause oscillations in the balance resistor switching and
 
 Setting it too high will give a wide band of voltage that various cells are balanced to, giving a less than optimally balanced pack and slightly reduced pack capacity. 
 
-## Zero SOC Threshold
+## Zero SoCThreshold
 
-This voltage should be set to the point where the cells are considered fully discharged during normal operation.  It will be along the lower 'knee' in the charge curve.  When a cell goes below this threshold, the BMU reports SOC as 0%.  It is also the target minimum voltage used by motor controllers and other devices to not exceed during operation. 
+This voltage should be set to the point where the cells are considered fully discharged during normal operation.  It will be along the lower 'knee' in the charge curve.  When a cell goes below this threshold, the BMU reports SoCas 0%.  It is also the target minimum voltage used by motor controllers and other devices to not exceed during operation. 
 
 ## Under Voltage Threshold
 

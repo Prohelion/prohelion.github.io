@@ -12,10 +12,10 @@ order: 3
 
 This packet is transmitted by the BMU and allows it to be located and identified on the CAN bus.  It contains an identifying string, and the serial number of the BMU device.
 
-| CAN ID                    | 0x600 - Interval 1 hz |
-| ------------------------- | ---------------------- |     
+| CAN ID        | 0x600 - Interval 1 hz                                                                        |
+| --------------| -------------------------------------------------------------------------------------------- |     
 | `data_u32[0]` | v5 and later: Devide ID: 0x00001000 v4 and earlier: <br> ASCII ID string: 'T', 'O', '6', '7' |
-| `data_u32[1]` | Device serial number as programmed at the factory |
+| `data_u32[1]` | Device serial number as programmed at the factory                                            |
 
 ## CMU Status, Temperature and Voltage Telemetry
 
@@ -33,55 +33,47 @@ Readings with all cell voltages reported as negative indicate that either the 3.
 
 A CMU reporting any of these conditions (-ve mV) will potentially be reporting erroneous readings.  A cell reporting a -ve mV reading will not balance that cell, to avoid balancing at a potentially incorrect voltage.  Any cell reporting as a -ve mV reading should be flagged in the higher-level system and dealt with appropriately.  It should not necessarily trigger an immediate system shutdown but should probably be latched and indicated to the user to seek servicing promptly.
 
-Readings from cells above the number defined by the BMU to each CMU during start-up are sent as __-32768mV (maximum negative) __ to indicate a 'cell not present / not monitored'.  A cell that is read by the CMU as having voltage present, when that cell has been configured as 'not present', will report as __-32767mV__ to indicate a possible 'extra cell' fault.  These cells should not be included in any min / max / average cell voltage calculations.  
+Readings from cells above the number defined by the BMU to each CMU during start-up are sent as __-32768mV (maximum negative) __ to indicate a 'cell not present / not monitored'.  A cell that is read by the CMU as having voltage present, when that cell has been configured as 'not present', will report as __-32767mV__ to indicate a possible 'extra cell' fault.  These cells should not be included in any min / max / average cell voltage calculations.          
 
-__CAN ID: 0x601, 0x604, 0x607 etc. __          
+| CAN ID        | 0x601, 0x604, 0x607 etc. - Interval approx. 1Hz* |
+|---------------|--------------------------------------------------|
+| `data_u32[0]` | CMU serial number (allocated at factory)         |
+| `data_16[2]`  | PCB temperature (1/10th°C)                       |            
+| `data_16[3]`  | Cell temperature (1/10th°C)                      |   
 
-__Interval: Approx. 1Hz (CMU timebases are not synchronised and will drift relative to each other, and to actual time)__
+<sup>* CMU timebases are not synchronised and will drift relative to each other, and to actual time </sup>
 
-| data_u32[0] | CMU serial number (allocated at factory) |
-| data_16[2]  | PCB temperature (1/10th°C)               |            
-| data_16[3]  | Cell temperature (1/10th°C)              |    
+| CAN ID:      | 0x602, 0x605, 0x608 etc. - Interval Approx 1Hz        |
+|--------------|-------------------------------------------------------|
+| `data_16[0]` | Cell 0 voltage (mV). +ve = OK, -ve = Channel mismatch |
+| `data_16[1]` | Cell 1 voltage (mV). +ve = OK, -ve = Channel mismatch |            
+| `data_16[2]` | Cell 2 voltage (mV). +ve = OK, -ve = Channel mismatch |     
+| `data_16[3]` | Cell 3 voltage (mV). +ve = OK, -ve = Channel mismatch |    
 
-__CAN ID: 0x602, 0x605, 0x608 etc. __    
-
-__Interval: Approx. 1Hz__
-
-| data_16[0] | Cell 0 voltage (mV). +ve = OK, -ve = Channel mismatch |
-| data_16[1] | Cell 1 voltage (mV). +ve = OK, -ve = Channel mismatch |            
-| data_16[2] | Cell 2 voltage (mV). +ve = OK, -ve = Channel mismatch |     
-| data_16[3] | Cell 3 voltage (mV). +ve = OK, -ve = Channel mismatch |    
-
-__CAN ID: 0x603, 0x606, 0x609 etc. __         
-
-__Interval: Approx. 1Hz__
-
-| data_16[0] | Cell 4 voltage (mV). +ve = OK, -ve = Channel mismatch |
-| data_16[1] | Cell 5 voltage (mV). +ve = OK, -ve = Channel mismatch |            
-| data_16[2] | Cell 6 voltage (mV). +ve = OK, -ve = Channel mismatch |     
-| data_16[3] | Cell 7 voltage (mV). +ve = OK, -ve = Channel mismatch |    
+| CAN ID:      | CAN ID: 0x603, 0x606, 0x609 etc. - Interval: Approx. 1Hz |
+|--------------|----------------------------------------------------------|   
+| `data_16[0]` | Cell 4 voltage (mV). +ve = OK, -ve = Channel mismatch    |
+| `data_16[1]` | Cell 5 voltage (mV). +ve = OK, -ve = Channel mismatch    |            
+| `data_16[2]` | Cell 6 voltage (mV). +ve = OK, -ve = Channel mismatch    |     
+| `data_16[3]` | Cell 7 voltage (mV). +ve = OK, -ve = Channel mismatch    |    
 
 ## Pack State of Charge (SOC)
 
 This packet is transmitted by the BMU to show the current state of charge during normal pack operation.
 
-__CAN ID: 0x6F4__    
-
-__Interval: 1Hz__
-
-| data_fp[0] | SOC (Amp-Hours (Ah)). Shows Ah consumed from pack. 0 = Full, and counts upwards towards the user-set pack capacity number as Ah are used. Resets to 0 when max cell reaches balance threshold. |
-| data_fp[1] | Shows the SOC as a Percentage (%). 100% = full, 0% = empty                 |            
+| CAN ID:      | 0x6F4 - Interval 1Hz                                                    |
+|--------------|-------------------------------------------------------------------------|
+| `data_fp[0]` | SoC (Amp-Hours (Ah)). Shows Ah consumed from pack. 0 = Full, and counts upwards towards the user-set pack capacity number as Ah are used. Resets to 0 when max cell reaches balance threshold |
+| `data_fp[1]` | Shows the SoCas a Percentage (%). 100% = full, 0% = empty               |            
 
 ## Pack Balance State of Charge (SOC)
 
 This packet is transmitted by the BMU to show the current state of cell mismatch during balancing at top of charge.
 
-__CAN ID: 0x6F5 __
-
-__Interval: 1Hz__
-
-| data_fp[0] | Balance SOC (Ah). Shows Ah supplied to the pack since the first cell began balancing. This number will continue to count up until all cells in the pack are balancing, therefore showing the Ah mismatch that has been corrected during this balancing session |
-| data_fp[1]| Shows the balancing SOC as a percentage (%), in other words the percentage mismatch between cells this session. |            
+| CAN ID:      | 0x6F5 - Interval: 1Hz  | 
+|--------------|------------------------|
+| `data_fp[0]` | Balance SoC (Ah). Shows Ah supplied to the pack since the first cell began balancing. This number will continue to count up until all cells in the pack are balancing, therefore showing the Ah mismatch that has been corrected during this balancing session |
+| `data_fp[1]` | Shows the balancing SoCa s a percentage (%), in other words the percentage mismatch between cells this session.                                |            
 
 ## Charger Control Information 
 
@@ -91,42 +83,42 @@ __CAN ID: 0x6F6 __
 
 __Interval: 10Hz__
 
-| data_16[0] | Charging cell voltage error (mV). This value is the user-configured “Balance Threshold” voltage minus the maximum cell voltage.  The charger should run a charge current control loop to try and bring this value to 0mV.  An Integral type control loop is suggested.|
-| data_16[1]| Cell temperature margin ( 1/10th°C). This value is the maximum cell temperature minus the user-configured “Maximum Cell Temperature” limit.  The charger should reduce charge current such that this value will never reach 0, as the BMS will disconnect the pack if the maximum cell temperature is exceeded.  A Proportional type control loop is suggested.|  
-| data_16[2] |Discharging cell voltage error (mV). This value is the user-configured “Zero SOC Threshold” voltage minus the minimum cell voltage.  This value can be used by devices that are discharging the battery (eg. motor controllers in vehicles) to gradually limit their consumption as the minimum cell approaches being fully discharged.|
-| data_u16[3]| Total pack capacity (Ah). This value can be used by the charger / discharger to calculate control loop gain constants for the installation.  It is simply the user-set configuration value rounded to the nearest Ah. |
+| CAN ID:      | 0x6F6 - Interval: 10Hz                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------|
+| `data_16[0]` | Charging cell voltage error (mV). This value is the user-configured “Balance Threshold” voltage minus the maximum cell voltage.  The charger should run a charge current control loop to try and bring this value to 0mV.  An Integral type control loop is suggested.                                                                            |
+| `data_16[1]` | Cell temperature margin (1/10th°C). This value is the maximum cell temperature minus the user-configured “Maximum Cell Temperature” limit.  The charger should reduce charge current such that this value will never reach 0, as the BMS will disconnect the pack if the maximum cell temperature is exceeded.  A Proportional type control loop is suggested.                                                                                          |  
+| `data_16[2]` | Discharging cell voltage error (mV). This value is the user-configured “Zero SoC Threshold” voltage minus the minimum cell voltage.  This value can be used by devices that are discharging the battery (eg. motor controllers in vehicles) to gradually limit their consumption as the minimum cell approaches being fully discharged.|
+| `data_u16[3]`| Total pack capacity (Ah). This value can be used by the charger / discharger to calculate control loop gain constants for the installation.  It is simply the user-set configuration value rounded to the nearest Ah       |
 
 ## Pre-Charge Status
 
 This packet is transmitted by the BMU to indicate the current state of the pre-charge system.
 
-__CAN ID: 0x6F7__  
-
-__Interval: 1Hz, and on each pre-charge state change__
-
-| data_u8[0] | Pre-charge contactor driver status:
-||0x01 = Error status of contactor 1 driver (0 = OK, 1 = error ) <br> 0x02 = Error status of contactor 2 driver<br>0x04 = Output status of contactor 1 driver (0 = Off, 1 = On)<br>0x08 = Output status of contactor 2 driver<br>0x10 = 12V contactor supply voltage OK (0 = Fault, 1 = OK)<br>0x20 = Error status of contactor 3 driver<br>0x40 = Output status of contactor 3 driver<br>0x80 = Unused|
-| data_u8[1] | Pre-charge state (in order of normal appearance when starting):
-||0 = Error<br>1 = Idle<br>5 = Enable Pack<br>2 = Measure<br>3 = Pre-charge<br>4 = Run|
-| data_u16[1] | 12V contactor supply voltage, mV (only on v4 or earlier BMU) for v5 or later BMU, refer to binary bit 0x10 in data_u8[0]|     
-| data_u16[2] | Unused, reports as 0x0000|   
-| data_u8[6] | 0x01 = Pre-charge timer elapsed. (Don't care if timeout disabled) 0x00 = Pre-charge timer not elapsed
-| data_u8[7] | Pre-charge timer counter (10ms per count)|   
+| CAN ID:       | 0x6F7 - Interval: 1Hz, and on each pre-charge state change                          | 
+|---------------|-------------------------------------------------------------------------------------|
+| `data_u8[0]`  | Pre-charge contactor driver status:
+|               | 0x01 = Error status of contactor 1 driver (0 = OK, 1 = error ) <br> 0x02 = Error status of contactor 2 driver<br>0x04 = Output status of contactor 1 driver (0 = Off, 1 = On)<br>0x08 = Output status of contactor 2 driver<br>0x10 = 12V contactor supply voltage OK (0 = Fault, 1 = OK)<br>0x20 = Error status of contactor 3 driver<br>0x40 = Output status of contactor 3 driver<br>0x80 = Unused                                  |
+| `data_u8[1]`  | Pre-charge state (in order of normal appearance when starting):
+|               | 0 = Error<br>1 = Idle<br>5 = Enable Pack<br>2 = Measure<br>3 = Pre-charge<br>4 = Run |
+| `data_u16[1]` | 12V contactor supply voltage, mV (only on v4 or earlier BMU) for v5 or later BMU, refer to binary bit 0x10 in data_u8[0]                                                                                     |     
+| `data_u16[2]` | Unused, reports as 0x0000                                                            |   
+| `data_u8[6]`  | 0x01 = Pre-charge timer elapsed. (Don't care if timeout disabled) 0x00 = Pre-charge timer not elapsed                                                                                                |
+| `data_u8[7]`  | Pre-charge timer counter (10ms per count)                                            |   
 
 ## Minimum / Maximum Cell Voltage
 
 This packet is transmitted by the BMU to show the highest and lowest voltage cells in the pack.
 
-__CAN ID:0x6F8 __    
+| CAN ID:       | 0x6F8 - Interval: 10Hz*                               | 
+|---------------|------------------------------------------------------|
+| `data_u16[0]` | Minimum cell voltage (mV)                            |
+| `data_u16[1]` | Maximum cell voltage (mV)                            |
+| `data_u8[4]`  | CMU number that has the minimum cell voltage         |     
+| `data_u8[5]`  | Cell number in CMU that is the minimum cell voltage  |    
+| `data_u8[6]`  | CMU number that has the maximum cell voltage         |     
+| `data_u8[7]`  | Cell number in CMU that is the maximum cell voltage  |
 
-__Interval: 10Hz, will likely move to higher frequency in future version__
-
-| data_u16[0] | Minimum cell voltage (mV) |
-| data_u16[1] | Maximum cell voltage (mV)            
-| data_u8[4] | CMU number that has the minimum cell voltage |     
-| data_u8[5] | Cell number in CMU that is the minimum cell voltage  |    
-| data_u8[6] | CMU number that has the maximum cell voltage |     
-| data_u8[7] | Cell number in CMU that is the maximum cell voltage  |
+<sup>* will likely move to higher frequency in future version</sup>
 
 ## Maximum / Minimum Cell Temperature
 
@@ -135,13 +127,13 @@ This packet is transmitted by the BMU to show the highest and lowest temperature
 __CAN ID: 0x6F9 __
 
 __Interval: 1Hz__
-
-| data_u16[0] | Minimum cell temperature (1/10th°C) |
-| data_u16[1] | Maximum cell temperature ( 1/10th °C) |          
-| data_u8[4] | CMU number that has the minimum cell temperature |     
-| data_u8[5] | Unused, reads as 0x00  |    
-| data_u8[6] | CMU number that has the maximum cell temperature |     
-| data_u8[7] | Unused, reads as 0x00  |
+| CAN ID:       | 0x6F9 - Interval: 1Hz |
+| `data_u16[0]` | Minimum cell temperature (1/10th°C) |
+| `data_u16[1]` | Maximum cell temperature ( 1/10th °C) |          
+| `data_u8[4]`  | CMU number that has the minimum cell temperature |     
+| `data_u8[5]`  | Unused, reads as 0x00  |    
+| `data_u8[6]`  | CMU number that has the maximum cell temperature |     
+| `data_u8[7]`  | Unused, reads as 0x00  |
 
 ## Battery Pack Voltage / Current
 
@@ -192,7 +184,7 @@ __ CAN ID: 0x6FD __
 __Interval: 1Hz__
 
 | data_u32[0] | Status Flags:
-||0x00000001 = Cell Over Voltage<br>0x00000002 = Cell Under Voltage<br>0x00000004 = Cell Over Temperature<br>0x00000008 = Measurement Untrusted (channel mismatch)<br>0x00000010 = CMU Communications Timeout (lost CMU)<br>0x00000020 = Vehicle Communications Timeout (lost EVDC)<br>0x00000040 = BMU is in Setup mode<br>0x00000080 = CMU CAN bus power status<br>0x00000100 = Pack Isolation test failure<br>0x00000200 = SOC measurement is not valid<br>0x00000400 = CAN 12V supply is low  - about to shut down<br>0x00000800 = A contactor is stuck / not engaged<br>0x00001000 = A CMU has detected an extra cell present
+||0x00000001 = Cell Over Voltage<br>0x00000002 = Cell Under Voltage<br>0x00000004 = Cell Over Temperature<br>0x00000008 = Measurement Untrusted (channel mismatch)<br>0x00000010 = CMU Communications Timeout (lost CMU)<br>0x00000020 = Vehicle Communications Timeout (lost EVDC)<br>0x00000040 = BMU is in Setup mode<br>0x00000080 = CMU CAN bus power status<br>0x00000100 = Pack Isolation test failure<br>0x00000200 = SoCmeasurement is not valid<br>0x00000400 = CAN 12V supply is low  - about to shut down<br>0x00000800 = A contactor is stuck / not engaged<br>0x00001000 = A CMU has detected an extra cell present
 | data_u8[4] |BMU Hardware version|          
 | data_u8[5] |BMU Model ID|     
 | data_u16[3] | Unused|    

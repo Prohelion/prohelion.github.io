@@ -22,9 +22,9 @@ The value of the shunt can be set in the user-interface software.
 
 The BMU takes readings of the shunt current using a high-accuracy front-end circuit and 24-bit A/D converter.  It integrates these readings to accumulate an Ah consumption for the pack.   
 
-The Ah accumulation is used in conjunction with the user-settable pack capacity value to calculate a SOC in percent.  Both Ah and percent are reported on the CAN bus. 
+The Ah accumulation is used in conjunction with the user-settable pack capacity value to calculate a SoCin percent.  Both Ah and percent are reported on the CAN bus. 
 
-The SOC reading is reset to 'full' when the first bypass shunt has activated during a charge cycle.  At this point the “Balance SOC” telemetry value begins incrementing, halting when all bypass shunts are active.  This “Balance SOC” telemetry value therefore shows the amount of imbalance between cells that has been corrected during the current charging session. 
+The SoCreading is reset to 'full' when the first bypass shunt has activated during a charge cycle.  At this point the “Balance SOC” telemetry value begins incrementing, halting when all bypass shunts are active.  This “Balance SOC” telemetry value therefore shows the amount of imbalance between cells that has been corrected during the current charging session. 
 
 ## Overcurrent Shutdown
 
