@@ -17,3 +17,11 @@ pip install mkdocs-material
 And also gLightBox
 
 pip install mkdocs-glightbox
+
+# Publishing the documentation
+
+To publish the documentation run the command 
+
+mkdocs gh-deploy  
+
+This will publish the site and post it to the gh-pages branch on github from where the site is staticly served by GitHub to the domain https://docs.prohelion.com
