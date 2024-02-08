@@ -23,4 +23,4 @@ __20.__ Prohelion recommends providing the CAN bus supply with 13.8V, using a DC
 
 __21.__ The data rate used for CAN bus activity is set during configuration and setup of the controller.  Factory default for all Prohelion devices is 500 kbits per second.
 
-__22.__ The CAN bus data connection and power supply are isolated from the high-power DC bus to this continuous voltage rating.  Please refer to the [isolation](../User_Manual/55_High_Power_Connections.md) section in the User Manual (under High Power Connections)regarding recommended earthing and connection practices.
+__22.__ The CAN bus data connection and power supply are isolated from the high-power DC bus to this continuous voltage rating.  Please refer to the [isolation](../User_Manual/50_Connections.md) section in the User Manual (under High Power Connections) regarding recommended earthing and connection practices.
