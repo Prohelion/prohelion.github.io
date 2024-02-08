@@ -5,13 +5,13 @@ description: Documentation for the Prohelion BMU and CMU
 
 <div class="grid cards" markdown>
 
--   :material-battery-check:{ .lg .middle } __BMU User Manual__
+-   :material-battery-check:{ .lg .middle } __BMS User Manual__
 
     ---
 
-    User Manual for the Prohelion Battery Management Unit (BMU)
+    User Manual for the Prohelion Battery Management System (BMS)
 
-    [:octicons-arrow-right-24: Getting started](User_Manual/index.md)
+    [:octicons-arrow-right-24: Getting started](1000V_BMS_Gen1//index.md)
 
 -   :material-battery-high:{ .lg .middle } __Cell Management Unit (CMU)__
 
@@ -19,7 +19,7 @@ description: Documentation for the Prohelion BMU and CMU
 
     Assembly and mounting procedures for the Prohelion CMU and wiring harness
 
-    [:octicons-arrow-right-24: Getting Started](Cell_Management_Unit/index.md)
+    [:octicons-arrow-right-24: Getting Started](1000V_BMS_Gen1/Cell_Management_Unit/index.md)
 
 -   :material-file-document:{ .lg .middle } __BMU Communications Protocol__
 
@@ -27,7 +27,7 @@ description: Documentation for the Prohelion BMU and CMU
 
     Information on the CAN Bus messages used to start and control the Prohelion BMU
 
-    [:octicons-arrow-right-24: Reference](Communications_Protocol/index.md)
+    [:octicons-arrow-right-24: Reference](1000V_BMS_Gen1/Communications_Protocol/index.md)
 
 -   :material-integrated-circuit-chip:{ .lg .middle } __BMU Wiring Diagram__
 
@@ -35,7 +35,7 @@ description: Documentation for the Prohelion BMU and CMU
 
     Complete electricial model for wiring a Prohelion BMU
 
-    [:octicons-arrow-right-24: Diagram](Wiring_Diagram/pdfs/PHLN67.018v1%20BMU%20Wiring%20Diagram.pdf)    
+    [:octicons-arrow-right-24: Diagram](1000V_BMS_Gen1/Wiring_Diagram/pdfs/PHLN67.018v1%20BMU%20Wiring%20Diagram.pdf)    
 
 -   :material-tools:{ .lg .middle } __Profinity__
 
