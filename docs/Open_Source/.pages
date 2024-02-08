@@ -1,5 +1,5 @@
 nav:
-    - ArrowPoint_CanBUS_Tools
+    - ArrowPoint_CANBus_Tools
     - ArrowPoint_Tablet
     - ArrowPoint_Telemetry
     - 10_Contributing.md
