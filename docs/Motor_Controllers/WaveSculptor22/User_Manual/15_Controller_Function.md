@@ -16,8 +16,9 @@ Ignoring the losses in the system (refer to the [datasheet](http://localhost:400
 
 Motor current is proportional to torque, whereas battery current is proportional to power.  
 
-__Power = Torque x speed __
+__Power = Torque x speed__
 
 The effect of this is that battery current will only approach motor current as the motor speed approaches 100%.  At low motor speeds, the battery current will also be low, regardless of what the motor current is. 
  
 This applies to most motor controllers, but with DC motor systems (where efficiency is much more variable) the effect is not usually as noticeable.  So, when reading this document (and the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/Datasheet/index.md)) make sure to note if the specification is talking about motor current or battery current.  They are very different quantities.
+

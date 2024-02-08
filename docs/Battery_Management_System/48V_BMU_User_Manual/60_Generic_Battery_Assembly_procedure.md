@@ -1,14 +1,14 @@
 ---
 title: Generic Battery Assembly Procedure
 description: Documentation for the Prohelion 48V BMU
-order: 4
+order: 6
 ---
 
 # Generic Battery Assembly Procedure
 
 The following section aims to provide a generic battery assembly procedure that can be used as a guide for developing working instructions that are specific to the system into which the BMS is being installed.
 
-NOTE: This guide does not provide specific advice on wiring types and sizing. Due diligence should be performed by the system integrator to ensure that all wiring adheres to the requirements for the appropriate standards. Different countries have different standards. Therefore, the system integrator needs to check which standards apply to the region in which the battery is sold and installed. For the Australian market, standards such as AS/NZS 3000 and AS/NZS 3008.1.1 may apply. For non-Australian markets, standards such as IEC/EN 60364 may apply. 
+__NOTE:__ This guide does not provide specific advice on wiring types and sizing. Due diligence should be performed by the system integrator to ensure that all wiring adheres to the requirements for the appropriate standards. Different countries have different standards. Therefore, the system integrator needs to check which standards apply to the region in which the battery is sold and installed. For the Australian market, standards such as AS/NZS 3000 and AS/NZS 3008.1.1 may apply. For non-Australian markets, standards such as IEC/EN 60364 may apply. 
 
 __Step 1: Create the cell-sense harness__
 

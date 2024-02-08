@@ -1,7 +1,7 @@
 ---
 title: Operation
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 3
+order: 2
 ---
 
 # Operation
@@ -10,8 +10,8 @@ order: 3
 
 This control mode is analogous to the way a normal vehicle is operated, with the accelerator (gas) pedal controlling the motor’s torque output.  To drive in this mode, the driver controls should send a Motor Drive Command frame at least once every 200ms containing:
 
-*   Desired motor current setting in percent, corresponding to pedal position
-*   Maximum velocity (eg 100m/s)
+- Desired motor current setting in percent, corresponding to pedal position
+- Maximum velocity (eg 100m/s)
 
 With these settings, the motor controller will never be able to reach the setpoint velocity, so the operation of the vehicle will be limited by the motor current, which is proportional to torque.
 
@@ -19,8 +19,8 @@ With these settings, the motor controller will never be able to reach the setpoi
 
 This control mode is analogous to cruise control in a normal vehicle.  To drive in this mode, the driver controls should send a Motor Drive Command frame at least once every 200ms containing:
 
-*   Maximum motor current (100%)
-*   Desired vehicle velocity in metres per second
+- Maximum motor current (100%)
+- Desired vehicle velocity in metres per second
 
 With these settings, the motor controller will use the maximum available current to reach the desired setpoint velocity.
 

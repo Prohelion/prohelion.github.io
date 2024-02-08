@@ -8,16 +8,16 @@ order: 6
 
 The WaveSculptor receives commands, and transmits telemetry values, using a CAN bus connection.  No other interface is provided.  Low-voltage DC power must be provided along the CAN bus cable to operate the control electronics of the WaveSculptor.
 
-| Supply                          |      | Units | Notes:  |
-|---------------------------------|------|-------|---------|
-| CAN bus supply voltage minimum: | 9    | V     | Note 20 |
-| CAN bus supply voltage maximum: | 15   | V     | Note 20 |
-| CAN bus supply voltage nominal: | 13.8 | V     | Note 20 |
-| CAN bus supply power maximum:   | 4.5  | W     |         |
-| CAN bus data rate maximum:      | 1000 | kbps  | Note 21 |
-| CAN bus isolation:              | 1000 | V     | Note 22 |
+| Supply                            |      | Units | Notes:  |
+|-----------------------------------|------|-------|---------|
+| `CAN bus supply voltage minimum:` | 9    | V     | Note 20 |
+| `CAN bus supply voltage maximum:` | 15   | V     | Note 20 |
+| `CAN bus supply voltage nominal:` | 13.8 | V     | Note 20 |
+| `CAN bus supply power maximum:`   | 4.5  | W     |         |
+| `CAN bus data rate maximum:`      | 1000 | kbps  | Note 21 |
+| `CAN bus isolation:`              | 1000 | V     | Note 22 |
 
-__Notes:__
+__NOTES:__
 
 __20.__ Prohelion recommends providing the CAN bus supply with 13.8V, using a DC/DC converter and a backup lead-acid battery.  This arrangement, when properly implemented, gives a supply that can tolerate failures and still operate the controller successfully for a short period of time.
 

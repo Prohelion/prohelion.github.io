@@ -1,7 +1,7 @@
 ---
 title: Network Topologies
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 6
+order: 1
 ---
 
 # Network Topologies

@@ -8,14 +8,14 @@ order: 2
 
 The motor output connection provides three-phase power to the motor during normal (motoring) operation and receives power during regenerative braking.  It is expected to be connected to a three-phase motor, either an induction or BLDC (permanent magnet) type.
 
-| Supply                                  |     | Units                                | Notes:    |
-|-----------------------------------------|-----|--------------------------------------|-----------|
-| Instantaneous motor current maximum:    | 100 | A<sub>rms</sub>                      | Note 5    |
-| Output voltage maximum (at max DC bus): | 120 | V<sub>rms</sub> <sub>line-line</sub> |           |
-| Motor phase inductance minimum:         | 50  | µH                                   | Note 6, 8 |
-| Motor Resistance minimum:               | 0   | Ω                                    | Note 7,8  |
+| Supply                                    |     | Units                                | Notes:    |
+|-------------------------------------------|-----|--------------------------------------|-----------|
+| `Instantaneous motor current maximum:`    | 100 | A<sub>rms</sub>                      | Note 5    |
+| `Output voltage maximum (at max DC bus):` | 120 | V<sub>rms</sub> <sub>line-line</sub> |           |
+| `Motor phase inductance minimum:`         | 50  | µH                                   | Note 6, 8 |
+| `Motor Resistance minimum:`               | 0   | Ω                                    | Note 7,8  |
 
-__Notes:__
+__NOTES:__
 
 __5.__	The motor current limit is software controlled and may be limited to lower values via the configuration / setup utility if required.
 

@@ -10,7 +10,7 @@ order: 1
 By default, the BMS BMU ships with a CAN base ID set to 0x600.  This can be adjusted by the end user.  Assuming this base ID, the following CAN IDs are used on the vehicle bus by the BMS BMU:
 
 | CAN ID (hex)    | Description                                                                |           
-| --------------- | -------------------------------------------------------------------------- |
+|-----------------|----------------------------------------------------------------------------|
 | `0x600`         | BMU heartbeat & serial number                                              | 
 | `0x601 - 0x6EF` | CMU Status, temperature, and voltage telemetry, if set to relay to vehicle |
 | `0x6F0`         | Reserved for factory configuration & calibration commands                  |            
@@ -26,4 +26,4 @@ By default, the BMS BMU ships with a CAN base ID set to 0x600.  This can be adju
 | `0x6FC`         | Fan & 12V supply status                                                    |       
 | `0x6FD`         | Extended battery pack status                                               |       
 | `0x6FE - 0x6FF` | Reserved, currently unused                                                 |
-| `0x7F0 - 0x7F4` | Reserved for bootloader triggering and data transfer (these IDs do __not__ move with a change in BMU CAN Base ID) | 
+| `0x7F0 - 0x7F4` | Reserved for bootloader triggering and data transfer (these IDs do __not__ move with a change in BMU CAN Base ID)                                                                               | 

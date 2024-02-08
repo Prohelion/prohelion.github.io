@@ -10,19 +10,19 @@ The WaveSculptor controller is mounted into position using tapped holes in the c
 
 The WaveSculptor controller is splashproof and presents no exposed HV connections able to be touched with a finger or tool.  It is not environmentally sealed against major water and dust ingress. 
 
-| Supply                                             |     | Units | Notes:  |
-|----------------------------------------------------|-----|-------|---------|
-| WaveSculptor enclosure length (incl fasteners):    | 255 | mm    | Note 23 |
-| WaveSculptor enclosure width (incl strain relief): | 165 | mm    | Note 23 |
-| WaveSculptor enclosure height:                     | 35  | mm    | Note 23 |
-| WaveSculptor mass:                                 | 855 | g     | Note 24 |
-| Power cable diameter maximum:                      | 9   | mm    | Note 25 |
-| HV electrical terminal thread:                     | M6  |       | Note 26 |
-| HV electrical fastening torque maximum:            | 6   | Nm    | Note 26 |
+| Supply                                               |     | Units | Notes:  |
+|------------------------------------------------------|-----|-------|---------|
+| `WaveSculptor enclosure length (incl fasteners):`    | 255 | mm    | Note 23 |
+| `WaveSculptor enclosure width (incl strain relief):` | 165 | mm    | Note 23 |
+| `WaveSculptor enclosure height:`                     | 35  | mm    | Note 23 |
+| `WaveSculptor mass:`                                 | 855 | g     | Note 24 |
+| `Power cable diameter maximum:`                      | 9   | mm    | Note 25 |
+| `HV electrical terminal thread:`                     | M6  |       | Note 26 |
+| `HV electrical fastening torque maximum:`            | 6   | Nm    | Note 26 |
 
 Environmental Rating: IP42 
 
-__Notes:__
+__NOTES:__
 
 __23.__ Dimensions do not include attached cabling and connectors.
 

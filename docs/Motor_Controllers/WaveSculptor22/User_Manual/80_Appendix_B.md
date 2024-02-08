@@ -1,7 +1,7 @@
 ---
 title: Appendix B - Crimping
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 15
+order: 12
 ---
 
 # Appendix B: Guide to Successful Crimping
