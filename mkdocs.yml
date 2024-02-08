@@ -27,6 +27,7 @@ copyright: >
 
 plugins:  
   - search
+  - awesome-pages
   - glightbox
   - offline
 
