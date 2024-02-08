@@ -15,12 +15,12 @@ The Profile panel is typically located on the left side of your screen and if yo
 
 The colors in a profile indicate the state of the device.  
 
-| Colour | Meaning                                                                       |
-| -------------------------------------------------------------------------------------- |
-| Green  | The device is available, sending valid data and is a valid state              |
-| Yellow | The device is available, but is either not sending data or is a warning state |
-| Red    | The device is in an error state                                               |
-| Grey   | The device is not available, connected or not visible on the network          |
+| Colour   | Meaning                                                                       |
+|----------|-------------------------------------------------------------------------------|
+| `Green`  | The device is available, sending valid data and is a valid state              |
+| `Yellow` | The device is available, but is either not sending data or is a warning state |
+| `Red`    | The device is in an error state                                               |
+| `Grey`   | The device is not available, connected or not visible on the network          |
 
 Profinity ships with an example profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar and Tritium technologies.  If you wish to use this profile as a basis for your own work we would suggest copying it to a new file name as the file is overwritten each time you install a new version of Profinity. 
 

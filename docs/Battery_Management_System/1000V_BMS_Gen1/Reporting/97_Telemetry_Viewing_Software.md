@@ -46,8 +46,8 @@ The bottom row in the BMU section shows the various status flags:
 The right-hand side shows 
 
 *   Fan speed for both fans 
-*   SoCand Balance SoCin Ah 
-*   SoCand Balance SoCin % 
+*   SoC and Balance SoC in Ah 
+*   SoC and Balance SoC in % 
 
 ## CMU Data 
 

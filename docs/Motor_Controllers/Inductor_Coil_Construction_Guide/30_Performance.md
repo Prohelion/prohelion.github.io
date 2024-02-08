@@ -1,7 +1,7 @@
 ---
 title: Performance
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 5
+order: 3
 ---
 
 # Performance

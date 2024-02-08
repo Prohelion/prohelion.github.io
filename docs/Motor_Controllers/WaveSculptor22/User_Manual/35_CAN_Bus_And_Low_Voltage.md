@@ -15,15 +15,22 @@ In the range of Prohelion EV products, including the [WaveSculptor 22](../User_M
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
 
 Therefore, a basic system consists of three major components:
-1.	WaveSculptor motor controller
-2.	Driver controls interface to pedals, switches & gauges
-3.	Power supply (nominally 12V DC) to operate the system
+
+__1.__	WaveSculptor motor controller
+
+__2.__	Driver controls interface to pedals, switches & gauges
+
+__3.__	Power supply (nominally 12V DC) to operate the system
 
 Other components can also be added to the network. Items typically found in a solar electric vehicle would include:
-4.	LCD and other driver information displays
-5.	Battery management system
-6.	Multiple motor controllers
-7.	Datalogging and RF telemetry
+
+__4.__	LCD and other driver information displays
+
+__5.__	Battery management system
+
+__6.__	Multiple motor controllers
+
+__7.__	Datalogging and RF telemetry
 
 ## CAN Wiring 
 

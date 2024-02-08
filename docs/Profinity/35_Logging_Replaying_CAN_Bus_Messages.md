@@ -21,21 +21,21 @@ All loggers are configured in the same manner, by adding a logging device to the
 
 File based loggers in Profinity have three potential modes of operation, you can either
 
-| Log Mode              | Details                                                                             |
-| --------------------- | ----------------------------------------------------------------------------------- |
-| Log Locally to Disk   | Writes the log files to your local file system.                                     |
-| Log Remotely via FTP  | As well as logging locally this option takes the log file and places it on a remote FTP server for off site analysis.        |
-| Log Remotely via SFTP | As per FTP, but this time a Secure FTP (SFTP) end point is used as the destination. | 
+| Log Mode                | Details                                                                             |
+|-------------------------|-------------------------------------------------------------------------------------|
+| `Log Locally to Disk`   | Writes the log files to your local file system.                                     |
+| `Log Remotely via FTP`  | As well as logging locally this option takes the log file and places it on a remote FTP server for off site analysis.                                                                                   |
+| `Log Remotely via SFTP` | As per FTP, but this time a Secure FTP (SFTP) end point is used as the destination. | 
 
 Depending on the item you select, Profinity will present you with different destination options.  For FTP and SFTP it is necessary to provide the destination server, username and password.  For local logging only a directory is required.
 
 The logger also gives you the ability to manage Archive and Compression settings, if you wish to archive your messages you must provide an archive directory.
 
-| Setting               | Purpose                                           |
-| --------------------- | ------------------------------------------------- |
-| Compress Logs         | Once a log file has reached the size limit, then it is compressed.
-| Archive Old Logs      | Older log files are rotated to an archive directory based on a rotation policy |
-| Limit Archive Size To | Maintains a maximum number of log files at this number, older logs are deleted |
+| Setting                 | Purpose                                                                        |
+|-------------------------|--------------------------------------------------------------------------------|
+| `Compress Logs`         | Once a log file has reached the size limit, then it is compressed.             |
+| `Archive Old Logs`      | Older log files are rotated to an archive directory based on a rotation policy |
+| `Limit Archive Size To` | Maintains a maximum number of log files at this number, older logs are deleted |
 
 Finally the logger allows you to set the frequency of rotation.  Rotation means that the old log file is closed and a new one is created and Profinity allows you to define a minute based log rotation or a size base log rotation depending on your preference.
 
@@ -57,11 +57,11 @@ The Profinity data log replayer allows you to replay log files that have previou
 
 To use this tool simply select the log file and it will start replaying.  There are also a number of options available that can change the way the log file is replayed.
 
-| Setting               | Purpose                                                                                   |
-| --------------------- | ----------------------------------------------------------------------------------------- |
-| Include / Exclude IDs | Instruct the log replayer to only include or exclude values between these two CAN Bus IDs |
-| Loop log file replay  | When the log file reaches the end, automatically loop back to the start                   |
-| Transmit CAN Bus over Network | Normally the log file is only replayed locally, by selecting the Transmit option the log file is transmitted over any active CAN-Ethernet Bridges |
+| Setting                         | Purpose                      |
+|---------------------------------|------------------------------|
+| `Include / Exclude IDs`         | Instruct the log replayer to only include or exclude values between these two CAN Bus IDs                                                          |
+| `Loop log file replay`          | When the log file reaches the end, automatically loop back to the start                                                            |
+| `Transmit CAN Bus over Network` | Normally the log file is only replayed locally, by selecting the Transmit option the log file is transmitted over any active CAN-Ethernet Bridges |
 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
 

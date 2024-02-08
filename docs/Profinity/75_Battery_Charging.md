@@ -57,9 +57,11 @@ By default chargers in Profinity do not auto connect (this can be changed in the
 
 Once everything is configured, charging the pack is a three step process;
 
-1. Set the max charge current that you want to apply to the pack
-2. Engage the contactors using the "Engage Contactors" button
-3. Press the "Start Charge" button
+__1.__ Set the max charge current that you want to apply to the pack
+
+__2.__ Engage the contactors using the "Engage Contactors" button
+
+__3.__ Press the "Start Charge" button
 
 Charge will then flow to the pack from the charger.
 

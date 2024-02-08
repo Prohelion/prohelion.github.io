@@ -1,11 +1,17 @@
 ---
 title: Software Programming 
-order: 6
+order: 3
 ---
 
 # Software Programming 
 
 The driver controls are based around a Texas Instruments (TI) MSP430 16-bit embedded low-power microcontroller, operating from a 16 MHz clock as default.  CAN bus support is provided via a Microchip MCP2515 CAN controller and TI SN65HVD234 CAN transceiver.  The driver controls are not isolated from the CAN bus.
+
+## Basic Software Conenction Diagram 
+
+The following schematic shows the simplest possible connection, when using the default software.
+
+![Basic Connection Diagram](images/Basic_Connection_Diagram.gif)
 
 ## Schematics & Source Code
 
