@@ -8,7 +8,7 @@ order: 2
 
 The 8-byte data on the CAN bus is formatted using a 'union' overlay structure in the BMS CMU microcontroller firmware.  
 
-__Note:__ this depends on the byte ordering and word size of the CPU and is not portable across architectures – however the byte order is correct for both the MSP430 microcontroller in the CMUs and BMU and the x86 CPU in a PC.
+__NOTE:__ this depends on the byte ordering and word size of the CPU and is not portable across architectures – however the byte order is correct for both the MSP430 microcontroller in the CMUs and BMU and the x86 CPU in a PC.
 
 The structure is defined on the (16-bit) MSP430 as follows:
 

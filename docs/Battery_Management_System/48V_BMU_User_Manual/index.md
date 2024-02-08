@@ -22,6 +22,18 @@ The 48V BMS individually controls Precharge, Charge and Discharge outputs to ens
 
 Figure 1: Prohelion 48V BMS Render
 
+## System Diagram
+
+The Prohelion 48V BMS has several electrical interfaces and connections to external systems. The figure below shows locations for each of these connections and interfaces.
+
+![Figure 2: Prohelion 48V BMS Diagram](images/image2.png)
+
+Figure 2: Prohelion 48V BMS Diagram
+
+![Figure 3: Prohelion Front Panel PCB Diagram](images/image3.png)
+
+Figure 3: Prohelion Front Panel PCB Diagram
+
 ## Acronyms and Abbreviations
 
 | Acronym   | Abbreviation                  |

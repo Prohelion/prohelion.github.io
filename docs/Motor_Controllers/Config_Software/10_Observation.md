@@ -24,7 +24,7 @@ A CAN BUS traffic monitor is situated at the bottom of the screen which indicate
 
 Controller errors are presented in the text box labelled Errors. Different types of errors can occur. These errors usually would only occur one at a time, however it is possible to have multiple errors displayed at once.
 
-__Note:__ Devices that identify as V3 for their hardware version have an extended set of error flags. The possible error messages are listed below:
+__NOTE:__ Devices that identify as V3 for their hardware version have an extended set of error flags. The possible error messages are listed below:
 
 *   __HWOC: Hardware Over current;__ A hardware comparator is used to generate this signal and if the current exceeds the hardware over current trip point for even an instant this error will occur. The hardware comparators monitor currents in both phase C and phase B.
 
@@ -46,7 +46,7 @@ __Note:__ Devices that identify as V3 for their hardware version have an extende
 
 *   __MOT: Motor interface board missing;__ The WaveSculptor has not received any communication from the motor interface board within the last second.
 
-*   __OVSPD: __The motor speed has exceeded the configured maximum by 15%. This error will automatically clear once the motor speed reduces to 95% of maximum.
+*   __OVSPD:__ The motor speed has exceeded the configured maximum by 15%. This error will automatically clear once the motor speed reduces to 95% of maximum.
 
 *   __OCpX: (V3 Only) Hardware Over current;__ This is the same as __HWOC__, except that it specifically identifies the phase that detected the fault. ‘X’ can either be B or C, for Phase B or Phase C respectively.
 
@@ -75,31 +75,31 @@ The WaveSculptor runs six concurrent control loops, with the primary control loo
 
 All measurements are broadcast from the WaveSculptor at periodic intervals, unless disabled in the configuration file.  For more details, please refer to the [CAN bus comms Appendix in the WaveSculptor User's Manual](../WaveSculptor22/User_Manual/85_Appendix_C.md).
 
-| Measurement | Description | Rate (Hz)|
-|--------------|------------|------------|
-| Bus Voltage | The input bus voltage of the controller | 5 |
-| Bus Current | The input current to the controller | 5 |
-| Controller Power | Bus Voltage * Bus Current, calculated on the PC | 5 |
-| Motor RPM | Angular velocity of the motor in RPM | 5 |
-| Vehicle Velocity | Vehicle Velocity in km/h | 5 |
-| Phase C Current<br>Phase B Current | Phase B and C motor current in A<sub>rms</sub>. Relies on a RMS filter to smooth the motor frequency, so value may not represent true cycle RMS at very slow motor frequencies. | 5 |
-| BEMF (D) | Component of the BEMF aligned with the motor flux. By definition this value is always zero. | N/A |
-| BEMF (Q) | The motor back EMF. Represents the peak voltage. | 5 |
-| Vout (D) | Component of the controller output voltage aligned with the motor flux. | 5 |
-| Vout (Q) | Component of the controller output voltage aligned with the motor BEMF and resistive voltage drop. | 5 |
-| lout (D) | Aligned with the motor flux, current in this component will weaken or strengthen the motor flux. | 5 |
-| lout (Q) | This component of current produces motor torque and does actual work. | 5 |
-| Slip Speed | The difference in speed between the rotor and the stator flux, only valid when driving induction motors | 5 |
-| 15V Rail | The voltage of the internal 15V rail, used to power the low voltage sections of the WaveSculptor.  Note that this is NOT the value of the 12V CAN bus supply input. | 1 |
-| 1.9V Rail | The voltage of the 1.9V rail, used to power the core of the DSP. | 1 |
-| 3.3V Rail | The voltage of the 3.3 rail, used to power all the control circuitry | 1 |
-| Motor Temp | The temperature of the connected motor in degrees Celsius | 1 |
-| Phase C Temperature | Heatsink temperature under the phase C semiconductors. | 1 |
-| Phase B Temperature | Heatsink temperature under the phase B semiconductors. WS200 ONLY. | 1 |
-| DSP Temperature | The temperature on the surface of the DSP control board within the controller. | 1 |
-| Phase A Temperature | Heatsink temperature under the phase A semiconductors. WS200 ONLY. | 1 |
-| Odometer | The distance travelled (in km) since reset. | 1 |
-| Bus integrator | The charge drawn from the bus in Amp.Hours since reset. | 1 |
+| Measurement           | Description                                                                     | Rate (Hz) | 
+|-----------------------|----------------------------------------------------------------------------------------|----|
+| `Bus Voltage`         | The input bus voltage of the controller                                                | 5  |
+| `Bus Current`         | The input current to the controller                                                    | 5  |
+| `Controller Power`    | Bus Voltage * Bus Current, calculated on the PC                                        | 5  |
+| `Motor RPM`           | Angular velocity of the motor in RPM                                                   | 5  |
+| `Vehicle Velocity`    | Vehicle Velocity in km/h                                                               | 5  |
+| `Phase C Current<br>Phase B Current` | Phase B and C motor current in A<sub>rms</sub>. Relies on a RMS filter to smooth the motor frequency, so value may not represent true cycle RMS at very slow motor frequencies.                                                                                                     | 5  |
+| `BEMF (D)` | Component of the BEMF aligned with the motor flux. By definition this value is always zero.       | N/A |
+| `BEMF (Q)` | The motor back EMF. Represents the peak voltage                                                   | 5  |
+| `Vout (D)` | Component of the controller output voltage aligned with the motor flux.                           | 5  |
+| `Vout (Q)` | Component of the controller output voltage aligned with the motor BEMF and resistive voltage drop | 5  |
+| `lout (D)` | Aligned with the motor flux, current in this component will weaken or strengthen the motor flux.  | 5  |
+| `lout (Q)` | This component of current produces motor torque and does actual work.                             | 5  |
+| `Slip Speed`          | The difference in speed between the rotor and the stator flux, only valid when driving induction motors                                                                                                 | 5  |
+| `15V Rail`            | The voltage of the internal 15V rail, used to power the low voltage sections of the WaveSculptor.  Note that this is NOT the value of the 12V CAN bus supply input.                                  | 1  |
+| `1.9V Rail`           | The voltage of the 1.9V rail, used to power the core of the DSP.                       | 1  |
+| `3.3V Rail`           | The voltage of the 3.3 rail, used to power all the control circuitry                   | 1  |
+| `Motor Temp`          | The temperature of the connected motor in degrees Celsius                              | 1  |
+| `Phase C Temperature` | Heatsink temperature under the phase C semiconductors.                                 | 1  |
+| `Phase B Temperature` | Heatsink temperature under the phase B semiconductors. WS200 ONLY.                     | 1  |
+| `DSP Temperature`     | The temperature on the surface of the DSP control board within the controller.         | 1  |
+| `Phase A Temperature` | Heatsink temperature under the phase A semiconductors. WS200 ONLY.                     | 1  |
+| `Odometer`            | The distance travelled (in km) since reset.                                            | 1  |
+| `Bus integrator`      | The charge drawn from the bus in Amp.Hours since reset.                                | 1  |
 
 Table 1: WaveSculptor Measurements
 
@@ -109,12 +109,12 @@ Please note that a mouse click on any of the measurement text boxes of Figure 1 
 
 The CAN BUS traffic monitor situated at the bottom of the main screen is a useful indicator of the total traffic loading that is occurring on the selected bridge network. The traffic should be kept as low as possible in order to ensure smooth operation and communication between devices, especially when transferring configuration files or flashing devices. The colour indicator to the side of the load percentage changes relative to the level of loading giving a good quick indication of the network health.
 
-| Colour | Description |
-|---------|---------------|
-| `Black` | Not connected to a network or traffic is very low with respect to the sample rate of the monitor |
-| `Green` | Connected to a network and within recommended traffic loading of up to 30% bus utilisation |
-| `Yellow` | Greater than 30% bus utilisation (Not recommended normal operating levels) |
-| `Red` | Greater than 60% bus utilisation (Bus is heavily loaded and there is a risk of packets failing to be sent or received) |
+| Colour   | Description                                                                                      |
+|----------|--------------------------------------------------------------------------------------------------|
+| `Black`  | Not connected to a network or traffic is very low with respect to the sample rate of the monitor |
+| `Green`  | Connected to a network and within recommended traffic loading of up to 30% bus utilisation       |
+| `Yellow` | Greater than 30% bus utilisation (Not recommended normal operating levels)                       |
+| `Red`    | Greater than 60% bus utilisation (Bus is heavily loaded and there is a risk of packets failing to be sent or received)                                                                                                  |
 
 Table 2: CAN BUS traffic monitor status colours
 

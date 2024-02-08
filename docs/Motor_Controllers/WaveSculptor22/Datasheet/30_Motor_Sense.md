@@ -8,17 +8,17 @@ order: 3
 
 When driving an AC Permanent Magnet motor, the WaveSculptor requires three sensors from the motor to give position feedback at low velocities.  When driving an induction motor, the WaveSculptor requires a motor shaft encoder to give velocity feedback.  Motor temperature can also be measured for both telemetry data and motor protection, if desired.
 
-| Supply                                         |      | Units | Notes:     |
-|------------------------------------------------|------|-------|------------|
-| Sensor power supply output 1:	                 | 5    | V     | Note 9     |
-| Sensor power supply output 2:                  | 12   | V     | Note 9     |
-| Sensor power supply current maximum:           | 100  | mA    |            |
-| Sensor Power Suplly isolation:                 | 1000 | V     | Note 10    |
-| BLDC motor position sensor input phase offset: | ±10  | °     | Note 11,12 |
-| Induction motor encoder resolution minimum:    | 250  | ppr   | Note 13    |
-| NTC Temperature sensor at 25°C:                | 100  | kΩ    | Note 14    |
+| Supply                                           |      | Units | Notes:     |
+|--------------------------------------------------|------|-------|------------|
+| `Sensor power supply output 1:`	               | 5    | V     | Note 9     |
+| `Sensor power supply output 2:`                  | 12   | V     | Note 9     |
+| `Sensor power supply current maximum:`           | 100  | mA    |            |
+| `Sensor Power Suplly isolation:`                 | 1000 | V     | Note 10    |
+| `BLDC motor position sensor input phase offset:` | ±10  | °     | Note 11,12 |
+| `Induction motor encoder resolution minimum:`    | 250  | ppr   | Note 13    |
+| `NTC Temperature sensor at 25°C:`                | 100  | kΩ    | Note 14    |
 
-__Notes:__
+__NOTES:__
 
 __9.__  The WaveSculptor provides isolated voltage supplies to operate the motor position sensors and motor temperature sensor.  These supplies are a regulated 5V and regulated 12V output.  Please check with your motor supplier for the acceptable operating voltage of the position sensors used in your motor.
 

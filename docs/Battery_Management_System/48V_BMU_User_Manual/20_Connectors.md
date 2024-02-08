@@ -1,61 +1,27 @@
 ---
-title: Electrical Specifications
+title: Connectors
 description: Documentation for the Prohelion 48V BMU
 order: 2
 ---
 
-# Electrical Specifications
-
-|                                          |                      |
-|------------------------------------------|----------------------|
-| `Max. Voltage`                           | 60V                  |
-| `Nominal Power`                          | 5kW                  |
-| `Max. Continuous Discharge Current`      | 100A                 |
-| `Max. Continuous Charge Current`         | 100A                 |
-| `Number of Cells Monitored`              | 22 Cells             |
-| `Max. Power Consumption`                 | 30mA                 |
-| `CAN Communication`                      | Yes                  |
-| `Supported Chemistries`                  | LiFePO4, Li-ion, LTO |
-| `Dimensions`                             | 115x215mm            |
-| `Weight`                                 | 200g                 |
-| `Opperating Temperature Range`           | -20°C to +80°C       |
-| `Maximum Balance Current`                | 666mA                |
-| `Cell Voltage Sense Accuracy`            | 0.6mV                |
-| `Number of External Temperature Sensors` | 8                    |
-| `Fused Cell Sense`                       | Yes                  |
-| `Reverse Polarity Protection`            | Yes                  |
-| `Part Number`                            | PHLN-3000-0175       |
-
-## System Diagram
-
-The Prohelion 48V BMS has several electrical interfaces and connections to external systems. The figure below shows locations for each of these connections and interfaces.
-
-![Figure 2: Prohelion 48V BMS Diagram](images/image2.png)
-
-Figure 2: Prohelion 48V BMS Diagram
-
-![Figure 3: Prohelion Front Panel PCB Diagram](images/image3.png)
-
-Figure 3: Prohelion Front Panel PCB Diagram
-
-## Connectors
+# Connectors
 
 This section specifies the connector types and connector pinouts for the external connections of the Prohelion 48V BMS.
 
-### Connector Part Numbers
+## Connector Part Numbers
 
 The table below lists the part numbers for each connector used by the Prohelion 48V BMS.
 
-| Connector Name                                      | Receptacle Part Number | Plug Part Number | 
-|-----------------------------------------------------|------------------------|------------------|
-| `Data and Front Panel`                              | N/A | WR-WST REDFIT IDC  SKEDD 490107671412 |
+| Connector Name                                      | Receptacle Part Number | Plug Part Number      | 
+|-----------------------------------------------------|------------------------|-----------------------|
+| `Data and Front Panel`                              | N/A | WR-WST REDFIT IDC  SKEDD 490107671412    |
 | `Cell Voltage and Temperature Sense, Most Positive` | JAE Electronics MX34R32HF4T (32 pin, dual row) | JAE Electronics MX34032SF1 |
 | `Cell Voltage and Temperature Sense, Most Negative` | JAE Electronics MX34R32HF4T (32 pin, dual row) | JAE Electronics MX34032SF1 |
-| `Load Negative and Load Positive`                   | Wurth Elektronik 7460408 (M5 internal thread) | Generic M5 terminal lug |
-| `Battery Negative and Battery Positive`             | Wurth Elektronik 7460408 (M5 internal thread) | Generic M5 terminal lug |
+| `Load Negative and Load Positive`                   | Wurth Elektronik 7460408 (M5 internal thread)  | Generic M5 terminal lug |
+| `Battery Negative and Battery Positive`             | Wurth Elektronik 7460408 (M5 internal thread)  | Generic M5 terminal lug |
 | `Precharge Resistor`                                | Wurth Elektronik 649002127222 (WR-MPC4 4.20 mm Dual Row 2-Pin) | Wurth Elektronik 649002113322 |
 
-### Connector Viewing Direction
+## Connector Viewing Direction
 
 All connector diagrams in this document assume that the end-user is viewing the connector receptable from the rear. The pin numbering in the connector diagrams is in alignment with the pin numbering specified in the datasheet of each connector type.
 
@@ -63,7 +29,7 @@ All connector diagrams in this document assume that the end-user is viewing the 
 
 Figure 4: Connector Viewing Direction
 
-### High-Current Connections
+## High-Current Connections
 
 There are four high current connections between the BMS, the battery cells and the load:
 
@@ -78,7 +44,7 @@ The simplified system diagram below shows the arrangement of these high-current 
 
 Figure 5: High Current Connections for Prohelion 48V BMS
 
-### Front Panel Connector
+## Front Panel Connector
 
 The Front Panel Connector provides an interface for the CAN bus communication, Status LEDs and BMS power switch that is exposed on the front panel PCB of a battery system. The selection of the front-panel connector is intended to make to wiring and connection of the front panel PCB simple and easy. The 14-way SKEDD connector and associated 14-way IDC ribbon cable ensures that the pin-out between the BMS and the front-panel PCB is not mistakenly swapped around or inserted in the wrong orientation. 
 
@@ -95,17 +61,17 @@ Figure 6: Front Panel Connector Pinout
 | `3`        | Power Enable In (Batt+ Fused at 1A) |
 | `4`        | Power Enable Out                    |
 | `5`        | NC                                  |
-| `6`        | SoC20% LED                         |
-| `7`        | SoC40% LED                         |
-| `8`        | SoC60% LED                         |
-| `9`        | SoC80% LED                         |
-| `10`       | SoC100% LED                        |
+| `6`        | SoC20% LED                          |
+| `7`        | SoC40% LED                          |
+| `8`        | SoC60% LED                          |
+| `9`        | SoC80% LED                          |
+| `10`       | SoC100% LED                         |
 | `11`       | Error LED                           |
 | `12`       | Status LED                          |
 | `13`       | CAN High                            |
 | `14`       | CAN Low                             |
 
-### Cell Sense Connector A
+## Cell Sense Connector A
 
 The Cell Sense Connector A provides an interface for the cell sense connections to the 11 most-negative cells of a 22S battery system (Cells 1-11).
 
@@ -136,10 +102,10 @@ Figure 7: Cell Sense Connector A Pinout
 | `15`       | GNDA (Temp A2) (see note)   | `31`       | Temp A2        | 
 | `16`       | GNDA (Temp A1) (see note)   | `32`       | Temp A1        | 
 
-__Notes:__
+__NOTES:__
 The pins labelled as GNDA (Temp X) on the temp sense connector is not to be used for anything other than providing a ground for the respective thermistor on the same connector. They are not the same as battery ground or any other ground.  A short-circuit between battery ground (or GNDB) and the thermistor ground could result in damage.
 
-### Cell Sense Connector B
+## Cell Sense Connector B
 
 The Cell Sense Connector B provides an interface for the cell sense connections to the 11 most-positive cells of a 22S battery system (Cells 12-22).
 
@@ -151,29 +117,29 @@ Only a Murata Electronics NXFT15XH103FA2B100 thermistor should be used for tempe
 
 Figure 8: Most positive cell sense Connector pinout
 
-| Pin Number | Label                      | Pin Number | Label           |
-|------------|----------------------------|------------|-----------------|
-| `1`        | NC                         | `17`       | NC              |
-| `2`        | NC                         | `18`       | NC              |
-| `3`        | BATT 22+ (TOPSTACKB) (PIN4)| `19`       | NC              |
-| `4`        | NC                         | `20`       | NC              |
-| `5`        | BATT 22+                   | `21`       | BATT 21+        |
-| `6`        | BATT 20+                   | `22`       | BATT 19+        |
-| `7`        | BATT 18+                   | `23`       | BATT 17+        |
-| `8`        | BATT 16+                   | `24`       | BATT 15+        |
-| `9`        | BATT 14+                   | `25`       | BATT 13+        |
-| `10`       | BATT 12+                   | `26`       | BATT 11+ (GNDB) |
-| `11`       | NC                         | `27`       | BATT 11+ (GNDB) |
-| `12`       | NC                         | `28`       | NC              |
-| `13`       | GNDA (Temp B4) (see note)  | `29`       | Temp B4         |
-| `14`       | GNDA (Temp B3) (see note)  | `30`       | Temp B3         |
-| `15`       | GNDA (Temp B2) (see note)  | `31`       | Temp B2         | 
-| `16`       | GNDA (Temp B1) (see note)  | `32`       | Temp B1         | 
+| Pin Number | Label                       | Pin Number | Label           |
+|------------|-----------------------------|------------|-----------------|
+| `1`        | NC                          | `17`       | NC              |
+| `2`        | NC                          | `18`       | NC              |
+| `3`        | BATT 22+ (TOPSTACKB) (PIN4) | `19`       | NC              |
+| `4`        | NC                          | `20`       | NC              |
+| `5`        | BATT 22+                    | `21`       | BATT 21+        |
+| `6`        | BATT 20+                    | `22`       | BATT 19+        |
+| `7`        | BATT 18+                    | `23`       | BATT 17+        |
+| `8`        | BATT 16+                    | `24`       | BATT 15+        |
+| `9`        | BATT 14+                    | `25`       | BATT 13+        |
+| `10`       | BATT 12+                    | `26`       | BATT 11+ (GNDB) |
+| `11`       | NC                          | `27`       | BATT 11+ (GNDB) |
+| `12`       | NC                          | `28`       | NC              |
+| `13`       | GNDA (Temp B4) (see note)   | `29`       | Temp B4         |
+| `14`       | GNDA (Temp B3) (see note)   | `30`       | Temp B3         |
+| `15`       | GNDA (Temp B2) (see note)   | `31`       | Temp B2         | 
+| `16`       | GNDA (Temp B1) (see note)   | `32`       | Temp B1         | 
 
-__Notes:__
+__NOTES:__
 The pins labelled as GNDB (Temp X) on the temp sense connector is not to be used for anything other than providing a ground for the respective thermistor on the same connector. They are not the same as battery ground or any other ground.  A short-circuit between battery ground (or GNDA) and the thermistor ground could result in damage.
 
-### Precharge Resistor Connector
+## Precharge Resistor Connector
 
 The precharge resistor connector allows for external precharge resistor of varying resistance and power ratings to be added to the BMS depending on the intended use-case. The BMS does not include an internal precharge resistor. The most suitable precharge resistor may vary depending on the exact capacitance, bleed resistance and precharge timing requirements of the system. 
 
@@ -194,7 +160,7 @@ Figure 10: Recommended precharge resistor
 
 A smaller precharge resistor (of lesser resistance or power rating) can be used if the failure conditions are properly considered. Do not exceed a maximum precharge current of 5A
 
-## CAN Bus Wiring
+# CAN Bus Wiring
 
 The Front-Panel PCB provides CAN bus connection via two RJ45 connectors. The RJ45 connectors have the following pin allocations. This allows for the BMS the be compatible with both the Victron Type-A and Type-B cables. 
 See [here](https://www.victronenergy.com/live/battery_compatibility:can-bus_bms-cable)

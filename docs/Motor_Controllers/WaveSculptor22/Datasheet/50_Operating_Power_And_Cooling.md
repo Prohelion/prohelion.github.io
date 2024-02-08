@@ -12,18 +12,18 @@ The WaveSculptor 22 is supplied uncooled, and uses an external customer-supplied
 
 Please refer to the [Cooling](../User_Manual/30_Cooling.md) section in the User Manual for calculations regarding cooling capacity and performance.
    
-| Supply                                           |     | Units | Notes:  |
-|--------------------------------------------------|-----|-------|---------|
-| Maximum instantaneous power output:              | 20  | kVA   | Note 15 |
-| Maximum cold plate design temperature:           | 70  | °C    | Note 16 |
-| Maximum cold plate shutdown temperature:         | 80  | °C    | Note 16 |
-| Maximum continuous power output at 30°C ambient: | 20  | kVA   | Note 17 |
-| Thermal interface surface length:                | 250 | mm    | Note 18 |
-| Thermal interface surface width:                 | 117 | mm    | Note 18 |
-| Thermal interface thread size:                   | M4  |       | Note 19 |
-| Thermal interface fastener __maximum depth:__    | 14  | mm    | Note 19 |
+| Supply                                             |     | Units | Notes:  |
+|----------------------------------------------------|-----|-------|---------|
+| `Maximum instantaneous power output:`              | 20  | kVA   | Note 15 |
+| `Maximum cold plate design temperature:`           | 70  | °C    | Note 16 |
+| `Maximum cold plate shutdown temperature:`         | 80  | °C    | Note 16 |
+| `Maximum continuous power output at 30°C ambient:` | 20  | kVA   | Note 17 |
+| `Thermal interface surface length:`                | 250 | mm    | Note 18 |
+| `Thermal interface surface width:`                 | 117 | mm    | Note 18 |
+| `Thermal interface thread size:`                   | M4  |       | Note 19 |
+| `Thermal interface fastener maximum depth:`        | 14  | mm    | Note 19 |
 
-__Notes:__
+__NOTES:__
 
 __15.__ Maximum software current limit multiplied by maximum DC bus voltage limit.
 

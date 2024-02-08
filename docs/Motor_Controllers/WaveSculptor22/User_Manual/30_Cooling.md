@@ -50,12 +50,12 @@ where:
 
 The table below gives the constants for WaveSculptor22:
 
-| Constant | WaveSculptor22 MOSFETs:
-|-------|-------|
-| R<sub>eq</sub> | 1.0800E-2|
-| 𝛼 | 3.3450E-3 |
-| β | 1.8153E-2|
-| C𝑓<sub>eq</sub> | 1.5625E-4|
+| Constant            | WaveSculptor22 MOSFETs: |
+|---------------------|-------------------------|
+| `R`<sub>`eq`</sub>  | 1.0800E-2               |
+| `𝛼`                 | 3.3450E-3               |
+| `β`                 | 1.8153E-2               |
+| `C𝑓`<sub>`eq`</sub> | 1.5625E-4               |
 
 ## Heatsink Requirements
 
