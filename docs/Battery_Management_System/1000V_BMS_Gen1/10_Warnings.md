@@ -23,12 +23,9 @@ This list is not exhaustive, and it is the responsibility of the system designer
 Check the legal requirements in your jurisdiction for using licensed technicians for this type of work. 
 
 !!! tip "Stay Safe"
-
     - Wear eye protection.  
     - Use insulated tools.  
     - Take extreme caution.
-    - Go slow.  
-    
-  
+    - Go slow. 
 
 Think through every step before doing it. 

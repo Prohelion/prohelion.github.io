@@ -33,8 +33,8 @@ Check that all items on the packing list are in the box and undamaged.  Contact 
 
 You will require the following specialised tools for installing the WaveSculptor motor controller:
 
-- Allen (hex) keys
-- Molex MicroFit crimp tool
-- Cable cutters
-- Hex lug or hydraulic crimp tool
-- Various electronics hand tools for low power cable cutting & stripping
+- [ ] Allen (hex) keys
+- [ ] Molex MicroFit crimp tool
+- [ ] Cable cutters
+- [ ] Hex lug or hydraulic crimp tool
+- [ ] Various electronics hand tools for low power cable cutting & stripping

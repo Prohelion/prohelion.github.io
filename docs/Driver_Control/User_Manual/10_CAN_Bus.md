@@ -1,6 +1,6 @@
 ---
 title: CAN Bus
-order: 2
+order: 1
 ---
 
 # CAN Bus

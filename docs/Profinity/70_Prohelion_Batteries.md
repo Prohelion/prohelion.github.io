@@ -22,24 +22,24 @@ The top section shows data from the BMU, while the lower section shows CMU data 
 ### BMU DATA
 The top row of BMU data presents the following information (left to right):
 
-| Cell      | Meaning                                                                                                           |
-| --------- | ----------------------------------------------------------------------------------------------------------------- |
-| Min mV    | Minimum voltage cell in the pack, and its voltage.  The example shows Node (CMU) 8, Cell 0 is minimum, at 3699mV  |
-| Max mV    | Maximum voltage cell in the pack, and its voltage.  The example shows Node (CMU) 14, Cell 7 is maximum, at 3799mV |
-| Min C     | Minimum temperature cell in the pack, and it's temperature                                                        |  
-| Max C     | Maximum temperature cell in the pack, and it's temperature                                                        |
-| Pack mV   | Total pack voltage                                                                                                |
-| Pack mA   | Total pack current                                                                                                |
-| Balance + | Balance threshold voltage                                                                                         |
-| Balance - | Balance threshold minimum voltage (balance voltage – hysteresis)                                                  |
-| CMU Count | CMU count in system                                                                                               |
+| Cell        | Meaning                                                          |
+|-------------|------------------------------------------------------------------|
+| `Min mV`    | Minimum voltage cell in the pack, and its voltage. The example shows Node (CMU) 8, Cell 0 is minimum, at 3699mV                                                                        |
+| `Max mV`    | Maximum voltage cell in the pack, and its voltage. The example shows Node (CMU) 14, Cell 7 is maximum, at 3799mV                                                                        |
+| `Min C`     | Minimum temperature cell in the pack, and it's temperature       |  
+| `Max C`     | Maximum temperature cell in the pack, and it's temperature       |
+| `Pack mV`   | Total pack voltage                                               |
+| `Pack mA`   | Total pack current                                               |
+| `Balance +` | Balance threshold voltage                                        |
+| `Balance -` | Balance threshold minimum voltage (balance voltage – hysteresis) | 
+| `CMU Count` | CMU count in system                                              |
 
 The next row shows Precharge status information on the left:
 
-| Cell           | Meaning                                                        |
-| -------------- | -------------------------------------------------------------- |
-| Prechrg Status |  Current state (Idle, Precharge, Run, etc)                     |
-|                | Contactor 12V supply voltage presence (mV on v4 or older BMUs) |
+| Cell             | Meaning                                                        |
+|------------------|----------------------------------------------------------------|
+| `Prechrg Status` | Current state (Idle, Precharge, Run, etc)                      |
+|                  | Contactor 12V supply voltage presence (mV on v4 or older BMUs) |
 
 The buttons in the BMU section shows the various status flags, some flags are normal and show green when engaged, if buttons are showing orange or red then consult the BMU manual for more information.
 
@@ -47,48 +47,47 @@ Note that when not engaged or receiving messages from the control module the BMU
 
 Consult the [BMU documentation](../Battery_Management_System/index.md) for more information but note that that error state can be part of normal operation.
 
-*         CMU Power supply OK
+- CMU Power supply OK
 
-*         Any cell OverVoltage
+- Any cell OverVoltage
 
-*         Any cell UnderVoltage
+- Any cell UnderVoltage
 
-*         Any cell OverTemperature
+- Any cell OverTemperature
 
-*         Any cell untrusted
+- Any cell untrusted
 
-*         CMU and vehicle timeout errors 
+- CMU and vehicle timeout errors 
 
+The right-hand side shows:
 
-The right-hand side shows
+- Fan speed for both fans
 
-*         Fan speed for both fans
+- SoC and Balance SoC in Ah
 
-*         SoCand Balance SoCin Ah
-
-*         SoCand Balance SoCin %
+- SoC and Balance SoC in %
 
 ### CMU DATA
 The lower section of the program shows telemetry data from the CMUs, one row per CMU.  The information shown is:
 
-| Cell          | Meaning                             |
-| ------------- | ----------------------------------- |
-| Serial        | CMU Serial Number                   |
-| PCB C         | CMU circuit board (PCB) temperature |
-| Cell C        | CMU external (cell) temperature     |
-| PCB C         | CMU circuit board (PCB) temperature |
-| Cell 0 ~ 8 mV | 1–8 cell voltage measurements       |
+| Cell            | Meaning                             |
+|-----------------|-------------------------------------|
+| `Serial`        | CMU Serial Number                   |
+| `PCB C`         | CMU circuit board (PCB) temperature |
+| `Cell C`        | CMU external (cell) temperature     |
+| `PCB C`         | CMU circuit board (PCB) temperature |
+| `Cell 0 ~ 8 mV` | 1–8 cell voltage measurements       |
 
 
 The data is highlighted in various ways to quickly understand the system status
 
-*         Cells currently balancing have a blue background
+- Cells currently balancing have a blue background
 
-*         The minimum and maximum cells have bold text and are colour coded (green shows highest voltage, brown lowest)
+- The minimum and maximum cells have bold text and are colour coded (green shows highest voltage, brown lowest)
 
-*         Cell in yellow have trust errors
+- Cell in yellow have trust errors
 
-*         Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a mid-gray background
+- Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a mid-gray background
 
 ## Prohelion 12v Control System
 

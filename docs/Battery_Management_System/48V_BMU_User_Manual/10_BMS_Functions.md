@@ -29,3 +29,24 @@ To achieve management over the cells and pack, it controls:
 - Discharge enable MOSFETs.
 - Individual cell bypass (shunt) balance resistors.
 
+## Electrical Specifications
+
+| Specification                            | Value                |
+|------------------------------------------|----------------------|
+| `Max. Voltage`                           | 60V                  |
+| `Nominal Power`                          | 5kW                  |
+| `Max. Continuous Discharge Current`      | 100A                 |
+| `Max. Continuous Charge Current`         | 100A                 |
+| `Number of Cells Monitored`              | 22 Cells             |
+| `Max. Power Consumption`                 | 30mA                 |
+| `CAN Communication`                      | Yes                  |
+| `Supported Chemistries`                  | LiFePO4, Li-ion, LTO |
+| `Dimensions`                             | 115x215mm            |
+| `Weight`                                 | 200g                 |
+| `Opperating Temperature Range`           | -20°C to +80°C       |
+| `Maximum Balance Current`                | 666mA                |
+| `Cell Voltage Sense Accuracy`            | 0.6mV                |
+| `Number of External Temperature Sensors` | 8                    |
+| `Fused Cell Sense`                       | Yes                  |
+| `Reverse Polarity Protection`            | Yes                  |
+| `Part Number`                            | PHLN-3000-0175       |

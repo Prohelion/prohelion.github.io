@@ -1,7 +1,7 @@
 ---
 title: Appendix C - CAN Comms Protocol
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 16
+order: 13
 ---
 
 # Appendix C: CAN Communications Protocol
@@ -57,34 +57,34 @@ These are data frames broadcast from the driver controls to any listening motor 
 
 The identifier of a received command will contain the base address of the device from which the message was sent and a message identifier offset.  The base address of the sending device is a preset value stored in internal memory, which can be set during initial configuration of the motor controller using the configuration utility.
 
+__EXAMPLE:__
+
+| ID:        | Driver Controls Base Address + ...                   | | |
+|------------|------------------------------------|-------|-------------|
+| `Variable` | Bits                               | Units | Description |  
+
 ### Motor Drive Command
 
-__ID: Driver Controls Base Address + 0x01__ 
-
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Motor Current | 63..32 | % | Desired motor current set point as a percentage of maximum current setting |
-| Motor Velocity | 31..0 | rpm | Desired motor velocity set point in rpm |
+| ID:              | Driver Controls Base Address + 0x01                                                   | | |
+|------------------|--------|-----|----------------------------------------------------------------------------|
+| `Motor Current`  | 63..32 | %   | Desired motor current set point as a percentage of maximum current setting |
+| `Motor Velocity` | 31..0  | rpm | Desired motor velocity set point in rpm                                    |
 
 The WaveSculptor motor controller must receive a Motor Drive Command frame at least once every 250ms.  If this does not occur, the controller will assume that communications have failed and will halt all motor control functions, placing the system into neutral and coasting until another valid command is received.
 
 ### Motor Power Command
 
-__ID: Driver Controls Base Address + 0x02__ 
-
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Bus Current| 63..32 | % | Desired set point of current drawn from the bus by the controller as a percentage of absolute bus current limit.|
-| Reserved | 31..0 | - | - |
+| ID:           | Driver Controls Base Address + 0x02 | | | 
+|---------------|-----------------------------------------|
+| `Bus Current` | 63..32 | % | Desired set point of current drawn from the bus by the controller as a percentage of absolute bus current limit.                               |
+| `Reserved`    | 31..0  | - | -                          |
 
 ### Reset Command
 
-__ID: Driver Controls Base Address + 0x03__ 
-
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Unused | 63..32 | - | - |
-| Unused | 31..0 | - | - |
+| ID:      | Driver Controls Base Address + 0x03 | | | 
+|----------|-----------------------------------------|
+| `Unused` | 63..32 | - | -                          |
+| `Unused` | 31..0  | - | -                          |
 
 Send a command from this address to reset the software in the WaveSculptor.
 
