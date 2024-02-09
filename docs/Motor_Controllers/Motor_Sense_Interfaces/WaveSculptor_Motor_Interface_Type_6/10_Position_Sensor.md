@@ -8,7 +8,7 @@ order: 1
 
 ## Type
 
-The type 6 interface reads three channels of position information from a __quadrature encoder position sensor__ with __single-ended outputs. __ It provides each channel with a 10k pull-up resistor for use with open-collector sensors.
+The type 6 interface reads three channels of position information from a __quadrature encoder position sensor__ with __single-ended outputs.__ It provides each channel with a 10k pull-up resistor for use with open-collector sensors.
 
 ## Power 
 

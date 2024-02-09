@@ -33,7 +33,7 @@ description: Documentation for the Prohelion BMU and CMU
 
     ---
 
-    Complete electricial model for wiring a Prohelion BMU
+    Complete electrical model for wiring a Prohelion BMU
 
     [:octicons-arrow-right-24: Diagram](1000V_BMS_Gen1/Wiring_Diagram/pdfs/PHLN67.018v1%20BMU%20Wiring%20Diagram.pdf)    
 

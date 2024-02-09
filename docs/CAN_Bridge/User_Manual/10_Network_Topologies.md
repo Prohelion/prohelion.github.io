@@ -12,7 +12,7 @@ The most basic network is a single hardware bridge on the CAN bus with multiple 
 
 Figure 1: Setup With Hardware Bridge
 
-When making more advanced networks, the easiest setup is using multiple CAN buses on the same network, as shown in Figure 2. In this case, messages sent on one CAN bus, will also be received by the devices listening on the other bus. In order to create this setup, both bridges should be configured with the same virual bus, which is the default configuration. When a different virtual bus is given to the two bridges of Figure 2, the CAN buses will have no interaction, so two simple networks as shown in Figure 1 are created.
+When making more advanced networks, the easiest setup is using multiple CAN buses on the same network, as shown in Figure 2. In this case, messages sent on one CAN bus, will also be received by the devices listening on the other bus. In order to create this setup, both bridges should be configured with the same virtual bus, which is the default configuration. When a different virtual bus is given to the two bridges of Figure 2, the CAN buses will have no interaction, so two simple networks as shown in Figure 1 are created.
 
 ![Figure 2: Setup With Multiple CAN Buses](images/setup_with_multiple_CAN_buses.png)
 

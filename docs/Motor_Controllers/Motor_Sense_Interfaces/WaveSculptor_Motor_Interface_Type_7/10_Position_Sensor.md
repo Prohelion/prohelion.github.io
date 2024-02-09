@@ -14,7 +14,7 @@ The type 7 interface reads position information from a __sin/cos resolver positi
 
 The interface board drives the resolver with a sinusoidal excitation signal of approximately 7V pk-pk at a frequency of 10kHz.  This amplitude and frequency is factory settable to other options so can support other types of resolver if necessary. 
 
-These drive signals are commonly shown in [resolver datasheets]()? as:
+These drive signals are commonly shown in [resolver datasheets]()??? as:
 
 *   R1(Exc+)
 *   R2(Exc–)
@@ -23,7 +23,7 @@ These drive signals are commonly shown in [resolver datasheets]()? as:
 
 Two channels of differential analog input are used, for the sin and cos sense windings.  
 
-These signals are commonly shown in [resolver datasheets]()? as:
+These signals are commonly shown in [resolver datasheets]()??? as:
 
 *   S1 (Sin+)
 *   S3 (Sin–)

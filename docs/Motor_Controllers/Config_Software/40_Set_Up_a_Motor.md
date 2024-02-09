@@ -60,7 +60,7 @@ __2.__	Upload configuration
 
 __3.__	Set Rotor L to the Lq inductance of the motor. Lq is expected to be 2 – 4 times the value of Ld (the Line Inductance calculated by ParamExtract).
 
- - If you can stiffly lock the rotor then ParamExtract can be used to find this inductance. After running ParamExtract and saving the calculated inductance as the Line Inductance, move the rotor 360 / (4 * nrPolePairs) degrees in either direction. In an IPM motor this will align phase CB with its highest inductance position. Run ParamExtract again, this will be the Lq inductance. Note this inductance, don't save it. Go back to the motor configuration screen and enter this inductance in the Rotor L field.
+ - If you can stiffly lock the rotor then ParamExtract can be used to find this inductance. After running ParamExtract and saving the calculated inductance as the Line Inductance, move the rotor 360 / (4 * nrPolePairs) degrees in either direction. In an IPM motor this will align phase CB with its highest inductance position. Run ParamExtract again, this will be the Lq inductance. Note this inductance, do not save it. Go back to the motor configuration screen and enter this inductance in the Rotor L field.
 
  - If you can't lock the rotor, set Rotor L to 2.35 * Line Inductance. Try driving the motor & assess the torque output for a given current limit → adjust the Rotor L field → try driving the motor & assess the torque output for a given current limit → repeat until you find best performing Rotor L value.
 

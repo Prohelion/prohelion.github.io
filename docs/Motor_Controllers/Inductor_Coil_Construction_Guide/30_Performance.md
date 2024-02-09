@@ -28,5 +28,5 @@ Start of step (10A)	L = 118V / (54.7A / 23.8µS) = 50µH
 
 End of step (150A)	L = 118V / (54.7A / 13.8µS) = 30µH
 
-The decay of inductance with increasing current is gradual and continuous, unlike the ferrite cored CSIRO inductors.  This gradual decay presents no major problems for the Wavesculptor current control loop maintaining control of the motor phase current.
+The decay of inductance with increasing current is gradual and continuous, unlike the ferrite cored CSIRO inductors.  This gradual decay presents no major problems for the WaveSculptor current control loop maintaining control of the motor phase current.
 

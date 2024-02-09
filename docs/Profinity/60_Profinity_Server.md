@@ -30,7 +30,7 @@ However, if you are not using Prohelion hardware, you will still need some way t
 Profinity supports operating in service mode on Windows, Linux, MacOS and inside a Docker container.  
 
 !!! info "Support for other Environments"
-    If you would like access to our docker, Linux and MacOS software you will need to contact us first as we don't currently provide these downloads directly to the public.
+    If you would like access to our docker, Linux and MacOS software you will need to contact us first as we do not currently provide these downloads directly to the public.
     
     Please contact Prohelion on the <a href="https://www.prohelion.com/contact-us/">Contact Us Page</a> of our website and we would be happy to assist with additional information.
 
@@ -66,7 +66,7 @@ When running as a service, the Prohelion home directory of the service user is
 
 `C:\Windows\SysWOW64\Prohelion\Profinity`
 
-This can be hard to work with in some environments and generally we wouldn't want to be regularly modifying files stored in the Windows directory.  As such you are generally better off installing Profinity under a user account using a command such as.
+This can be hard to work with in some environments and generally we would not want to be regularly modifying files stored in the Windows directory.  As such you are generally better off installing Profinity under a user account using a command such as.
 
 ```
 ProfinityService.cmd install [Username to install under]

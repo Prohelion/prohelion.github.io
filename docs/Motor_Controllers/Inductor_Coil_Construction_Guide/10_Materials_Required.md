@@ -1,10 +1,10 @@
 ---
-title: Materials and Equiptment Required
+title: Materials and Equipment Required
 description: Documentation for the Prohelion Vehicle Communications protocol
 order: 1
 ---
 
-# Materials and Equiptment Required 
+# Materials and Equipment Required 
 
 ## Materials:
 

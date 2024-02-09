@@ -21,7 +21,7 @@ The system has been tested on Windows 10 and Amazon EC2 Unix, but should run on 
 
 
 ## Docker based Install
-The software infrastructure required to run the ArrowPoint Telemetry system is complex and the simplest way to install the solution is using Docker. Docker is a container management solution designed to provide containers for applications or in our case application components such as a database or Splunk. The containers then run on a docker instance which is installed on your PC. Prohelion has prepared Docker containers with the right setup for your database and Splunk configuration. While you can setup these manually, it’s complex and we wouldn’t recommended it. If you are not wanting to use Docker then please see the Docker Free Installation information below.
+The software infrastructure required to run the ArrowPoint Telemetry system is complex and the simplest way to install the solution is using Docker. Docker is a container management solution designed to provide containers for applications or in our case application components such as a database or Splunk. The containers then run on a docker instance which is installed on your PC. Prohelion has prepared Docker containers with the right setup for your database and Splunk configuration. While you can setup these manually, it’s complex and we would not recommended it. If you are not wanting to use Docker then please see the Docker Free Installation information below.
 
 To install the ArrowPoint Telemetry system download a copy of the code from the [GitHub repository](https://github.com/Prohelion/ArrowPoint-Telemetry) by cloning the code or downloading a release zip.
 
@@ -34,7 +34,7 @@ docker-compose.yml
 This file contains the configuration information to run the software in Docker.
 
 ## Known Issue
-Docker does not support UDP traffic on its virtual network. As such the telemetry system cannot receive traffic from the CAN Bus devices such as the Tritum WaveSculptor. To get around this issue the infrastructure required to run the Telemetry system runs in Docker apart from the core application which runs as a stand alone Spring Boot Application and hence can access the UDP network directly.
+Docker does not support UDP traffic on its virtual network. As such the telemetry system cannot receive traffic from the CAN Bus devices such as the Tritium WaveSculptor. To get around this issue the infrastructure required to run the Telemetry system runs in Docker apart from the core application which runs as a stand alone Spring Boot Application and hence can access the UDP network directly.
 
 ## Installation Steps
 

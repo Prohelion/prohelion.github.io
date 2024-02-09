@@ -8,7 +8,7 @@ order: 14
 
 | __Part Description__ |       
 |-----------------------------------|
-| Manufacturer                      | Manafacturer Part Number |
+| Manufacturer                      | Manufacturer Part Number |
 | Suggested Supplier                | Supplier Part Number     |
 
 ## Can Cabling & Low Voltage Connectors

@@ -20,7 +20,7 @@ The Tritium and Prohelion CAN-Ethernet Bridges need to have certain ports open o
 
 #### TCP - Adapters not in the same subnet on direct connection or when connected via a hub.
 
-If your PC and Bridge are not in the same subnet (they don’t have the same first three digits) and you are on a direct wired connection or a hub. Then the networking stack does not know how to route traffic between the PC and the CAN-Ethernet Bridge.
+If your PC and Bridge are not in the same subnet (they don't have the same first three digits) and you are on a direct wired connection or a hub. Then the networking stack does not know how to route traffic between the PC and the CAN-Ethernet Bridge.
 
 *Fix: Adjust the IP addresses on either the PC or the CAN-Ethernet Bridge to get them on to the same subnet. Use Static IP addresses to ensure that this change remains in place after restarts.*
 
@@ -36,7 +36,7 @@ If the PC and the Bridge have a different subnet then it is often not possible t
 
 2. *Manually change the IP Address of the network adapter on your PC to a static IP address that matches the subnet of the bridge.  You can see the subnet of the bridge in the AutoDiscovery window.  Once the subnets are the same you should be able to connect to the bridge in Profinity and change its IP address to what you want it to be.  Once that is done, change your PC's IP address back.*
 
-#### WiFi that doesn’t span UDP across subnets
+#### WiFi that does not span UDP across subnets
 
 Your CAN-Ethernet Bridge is connected to a router and your PC or laptop is connected via WiFi. The adapter cannot be auto discovered, or if it does get discovered it tends to work unreliably and packets seem to disappear.
 
@@ -52,11 +52,11 @@ This is a very common problem, that is usually caused by the fact that the Triti
 
 #### Virtualisation Software
 
-Profinity is not working well or at all in a virtualised environment such as VmWare Fusion.
+Profinity is not working well or at all in a visualised environment such as VmWare Fusion.
 
 *Fix: Virtualisation tools like VmWare fusion create virtual IP stacks to virtualise network adapters. All of this can be very problematic when trying to get UDP to work. If possible explicitly connect your virtual network adapter to a physical ethernet (not WiFi, that just complicates things even further) on your host machine.*
 
-Profinity can work in this model, in fact we develop and test Profinity on virtualised machines, but it’s not the most reliable way to get it to work.*
+Profinity can work in this model, in fact we develop and test Profinity on visualised machines, but it’s not the most reliable way to get it to work.*
 
 #### Multiple TCP clients on one bridge
 
@@ -72,6 +72,6 @@ Rapidly connecting and disconnecting the CAN-Ethernet Bridge in TCP mode can cau
 
 #### Windows or Bridge Network Stack issues
 
-Under very unusual circumstances the Windows network stack or bridge network stack can get in a tangle and just not accept packets or connections. This seems to mainly occur for us in virtualised environments and may not be related to the OS network stack but rather the virtualisation stack.
+Under very unusual circumstances the Windows network stack or bridge network stack can get in a tangle and just not accept packets or connections. This seems to mainly occur for us in visualised environments and may not be related to the OS network stack but rather the virtualisation stack.
 
-*Fix: Power cycle the CAN-Ethernet Bridge and if that doesn’t work reboot the PC. If you are doing this a lot it is likely not the primary issue and you should probably read the article end to end to see if you can find out what the root cause really is.*
+*Fix: Power cycle the CAN-Ethernet Bridge and if that does not work reboot the PC. If you are doing this a lot it is likely not the primary issue and you should probably read the article end to end to see if you can find out what the root cause really is.*

@@ -23,7 +23,7 @@ The table below lists the part numbers for each connector used by the Prohelion 
 
 ## Connector Viewing Direction
 
-All connector diagrams in this document assume that the end-user is viewing the connector receptable from the rear. The pin numbering in the connector diagrams is in alignment with the pin numbering specified in the datasheet of each connector type.
+All connector diagrams in this document assume that the end-user is viewing the connector receptacle from the rear. The pin numbering in the connector diagrams is in alignment with the pin numbering specified in the datasheet of each connector type.
 
 ![Figure 4: Connector Viewing Direction](images/image4.png)
 
@@ -54,7 +54,7 @@ When crimping the SKEDD connectors onto the IDC ribbon, always ensure that pin-1
 
 Figure 6: Front Panel Connector Pinout
 
-| Pin Number | Lable                               |
+| Pin Number | Label                               |
 |------------|-------------------------------------|
 | `1`        | GND                                 |
 | `2`        | 3.3V Output                         |

@@ -10,7 +10,7 @@ The BMU provides three outputs for driving HV contactors with 12V coils.  At a m
 
 The contactors are energised in sequence (1, 3, 2) during precharge, and de-energised when shutting down the system both under user command and due to a fault being detected by the BMS.  The BMU operates the contactors to protect the cells above all other priorities. 
 
-Each contactor output connector also has pins for feedback from contactors with auxilliary sense contacts.  These can be used by the BMU to detect failed contactors, both failed open or welded shut.  Do not connect these pins to anything other than auxilliary contact output terminals – they are not rated for anything more than the 12V supplied by the BMU. 
+Each contactor output connector also has pins for feedback from contactors with auxiliary sense contacts.  These can be used by the BMU to detect failed contactors, both failed open or welded shut.  Do not connect these pins to anything other than auxiliary contact output terminals – they are not rated for anything more than the 12V supplied by the BMU. 
 
 Contactors without integrated electronics must have a diode fitted across their coil terminals to limit flyback voltage at turn-off.   
 

@@ -65,7 +65,7 @@ A description of each motor configuration value along with its effect on the sys
 
 | Value                    | Description                                                                              | 
 |--------------------------|------------------------------------------------------------------------------------------|
-| `Active Motor`           | The index to the motor config tab that the WaveSculptor will use by default (in the absence of a valid ActiveMotor CAN packet being received). THE SELECTED MOTOR CONFIG TAB HAS NO BEARING ON THE ACTIVE MOTOR IN THE WAVESCULPTOR.                                                                                            |
+| `Active Motor`           | The index to the motor config tab that the WaveSculptor will use by default (in the absence of a valid ActiveMotor CAN packet being received). THE SELECTED MOTOR CONFIG TAB HAS NO BEARING ON THE ACTIVE MOTOR IN THE WaveSculptor.                                                                                            |
 | `Tyre Diameter (m)`      | Outside diameter of the drive tyre. Used for speed calculation. If motor is geared, scale this value by the gear ratio.                                                                                         |
 | `Description`            | Free text description of the motor.                                                      |
 | `Nr of PolePairs`        | The number of magnet north-south pairs on the rotor of the motor                         |

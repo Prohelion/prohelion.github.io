@@ -17,8 +17,8 @@ Work out where you want the CMU to be located.  It should be fastened to the wal
 The appropriate length of cable has been placed on the assembly jig and cut to length in the following photo:
 
 <figure markdown>
-![Cut to lenght](../images/Cut_to_length.jpg)
-<figcaption>Cut to lenght</figcaption>
+![Cut to length](../images/Cut_to_length.jpg)
+<figcaption>Cut to length</figcaption>
 </figure>
 
 ## Mark For Trimming
@@ -56,7 +56,7 @@ Cut the cable back between strands by 10mm or so at the CMU end, to allow fittin
 
 <figure markdown>
 ![Separate CMU End](../images/Separate_CMU_end.jpg)
-<figcaption>Seperate CMU End</figcaption>
+<figcaption>Separate CMU End</figcaption>
 </figure>
 
 ## Strip Branches

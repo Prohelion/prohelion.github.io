@@ -10,7 +10,7 @@ Prohelion is actively developing the Profinity Rest APIs as part of a transition
 As well as supporting Restful APIs, Profinity's overall solution allows you to build completely custom User Interfaces based on Profinity and host those interfaces either externally or within the Profinity solution.
 
 !!! info "Important Information Regarding Profinity Rest APIs"
-    Prohelions API solution is currently evolving rapidly as we develop new capabilites. Please be aware of this when developing solutions based on Profinity's APIs, as available APIs and models may evolve rapidly from release to release. 
+    Prohelions API solution is currently evolving rapidly as we develop new capabilities. Please be aware of this when developing solutions based on Profinity's APIs, as available APIs and models may evolve rapidly from release to release. 
 
 !!! danger "Profinity APIs are unsecured on Public Network Interfaces"
     Our Profinity API's do not currently support API security and are designed to be used behind a user interface and in a secured environment.  If you are planning to expose these APIs via outside of the server or directly to clients we would suggest front ending them with a API gateway for enhanced security.

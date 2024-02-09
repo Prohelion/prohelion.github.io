@@ -6,7 +6,7 @@ order: 4
 
 # CAN Communication 
 
-## Recieved Messages
+## Received Messages
 
 __EXAMPLE:__
 
@@ -16,7 +16,7 @@ __EXAMPLE:__
 
 ### BMS Switches Message 
 
-| CAN ID:          | Switches ID* - Frequency should be atleast 1Hz | | |
+| CAN ID:          | Switches ID* - Frequency should be at least 1Hz | | |
 |------------------|--------|-------|-----------------------------------|
 | `BMS Switches`   | 64..56 | Uint8 | The switches which control the BMS during normal operation. <br> Bits: 0 (0x01) <br> Flag: Enable the pack                                              |
 | `Fault Switches` | 55..48 | Uint8 | The switches which control the BMS when an error has been triggered. <br> Bits: 7 (0xF0) <br> Flag: Clear the latched error events                        |

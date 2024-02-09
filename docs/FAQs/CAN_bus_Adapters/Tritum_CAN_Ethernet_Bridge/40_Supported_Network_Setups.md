@@ -45,7 +45,7 @@ Even in this setup we would recommend using a Static IP for the CAN Bus bridge. 
 
 Why the bridge only? Because Profinity needs to know the IP address of the Bridge for TCP mode and that is set in the profile. If the bridge changes IP addresses which can occur with DHCP over time, then Profinity will find it in UDP mode, but not TCP mode as the IP address in the profile will be wrong.
 
-This setup is exactly what we use when developing Profinity, it works reliably if setup right. Just note when setting a Static IP address for the bridge that the DHCP server will have a range of addresses that it uses for DHCP (check your WiFi router for the range) you would set the static IP of the bridge to be outside that range so that you don't end up with the DHCP server setting another device to have the same IP as your bridge.
+This setup is exactly what we use when developing Profinity, it works reliably if setup right. Just note when setting a Static IP address for the bridge that the DHCP server will have a range of addresses that it uses for DHCP (check your WiFi router for the range) you would set the static IP of the bridge to be outside that range so that you do not end up with the DHCP server setting another device to have the same IP as your bridge.
 
 ### Over WiFi with DHCP - ADVANCED
 **CAN Bus Bridge connected via a router with WiFi (and a DHCP server)**
@@ -67,7 +67,7 @@ To test if your WiFi router works you can use approaches like those covered in t
 3. Use Profinity with AutoDiscovery to connect to the router with a UDP connection
 4. Ensure that you get consistent UDP traffic from the CAN Bus bridge and no drop outs.
 
-If any of these steps don’t work it is likely that your WiFi router is either not able to handle the UDP traffic in the manner required or is not configured to handle broadcast UDP in the right way.
+If any of these steps don't work it is likely that your WiFi router is either not able to handle the UDP traffic in the manner required or is not configured to handle broadcast UDP in the right way.
 
 ### TCP via router or WiFi - ADVANCED
 **Direct TCP Connection using a router or WiFi**

@@ -4,7 +4,7 @@ order: 2
 ---
 
 ## Configuration
-There are two main ways that the Telemetry system is configured. Firstly the actual application itself is configured via the use of an application.properties file that is located in the source code. This file is loaded by Spring Boot as part of the application initialization and used to configure the application behaviors. The second way the application is configured is to change the CAN Bus ids that are used to track devices in your vehicle, this change is documented separately below.
+There are two main ways that the Telemetry system is configured. Firstly the actual application itself is configured via the use of an application.properties file that is located in the source code. This file is loaded by Spring Boot as part of the application initialization and used to configure the application behaviours. The second way the application is configured is to change the CAN Bus ids that are used to track devices in your vehicle, this change is documented separately below.
 
 
 ## Changing the application.properties
@@ -22,7 +22,7 @@ The Telemetry system is configured via the use of a properties file which is sto
 | | |
 | **[Splunk]** | |
 | enable.splunk.connector = true | Enable the splunk connector to relay telemetry information to Splunk (true / false) |
-| splunk.host=splunkenterprise |Name of the host running Splunk, in the Docker configuration this container is called splunkenterprise. If you have installed Splunk seperately this should be the hostname of your host |
+| splunk.host=splunkenterprise |Name of the host running Splunk, in the Docker configuration this container is called splunkenterprise. If you have installed Splunk separately this should be the hostname of your host |
 | splunk.port=8089 | Port that the Splunk API interface is running on, by default this is 8089 |
 | splunk.username=admin | Splunk admin username |
 | splunk.password=password | Splunk admin password |
@@ -40,10 +40,10 @@ The Telemetry system is configured via the use of a properties file which is sto
 | **GPS Connection Listener** | |
 | enable.gps.connector = false | Enable the GPS connection |
 | gps.host = 192.168.1.60 | Host for the GPS connection (this is typically the IP address of the server running the telemetry application) |
-|gps.port = 11123 | Port that the conenctor run on (note that this port should be setup to handle inbound connections) |
+|gps.port = 11123 | Port that the connector run on (note that this port should be setup to handle inbound connections) |
 | | |
 | **Telemetry Data Forwarder** | |
-| enable.data.forward = false |Enable the telemtry data forwarder, which will forward telemetry data to another telemetery instance |
+| enable.data.forward = false |Enable the telemetry data forwarder, which will forward telemetry data to another telemetry instance |
 | data.forward.cron = 0 * * * * * | CRON schedule on which the latest data will be forwarded |
 | data.forward.url = | URL to which the data should be forwarded, the url should end in the url forward-data.json for example http://ec2-33-159-9-132.eu-central-1.compute.amazonaws.com:9000/forward-data.json |
 | | |
@@ -58,9 +58,9 @@ The Telemetry system is configured via the use of a properties file which is sto
 | route.file = C:/config/route/routedata.csv | Route file containing the route information |
 | | |
 | **UDP Receive and Broadcast** | |
-| udp.host = 239.255.60.60 | Host IP address used to broardcast UDP packets for tranmitting sourced data like the weather data and placing it on to the CAN Bus IP network |
+| udp.host = 239.255.60.60 | Host IP address used to broardcast UDP packets for transmitting sourced data like the weather data and placing it on to the CAN Bus IP network |
 | udp.port = 4876 | What port should the UDP traffic be broardcast on |
-| udp.local.address = 127.0.0.1 | Local address use for UDP broardcasts |
+| udp.local.address = 127.0.0.1 | Local address use for UDP broadcasts |
 | | |
 | **Can File Loader** | |
 | can.loader.directory = file:///tmp | Directory where CAN Bus files that you want to bulk load should be placed |
@@ -116,7 +116,7 @@ rem del *.sql
 ```
 
 *  postgres.sql sets up the structures, this generally should not need to be changed
-*  fuctions.sql set up a set of functions in the database to help us manage the data, again this should not need to be changed
+*  functions.sql set up a set of functions in the database to help us manage the data, again this should not need to be changed
 *  referencedata.sql is where all the CAN Bus ID's are setup and defined. This file will likely need to change for your configuration
 
 The following example show how a single CAN Bus data_pnt 'Flash Serial' is configured.

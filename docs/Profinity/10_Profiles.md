@@ -13,7 +13,7 @@ The Profile panel is typically located on the left side of your screen and if yo
 
 ![Profinity](images/profile.png)
 
-The colors in a profile indicate the state of the device.  
+The colours in a profile indicate the state of the device.  
 
 | Colour   | Meaning                                                                       |
 |----------|-------------------------------------------------------------------------------|
@@ -28,7 +28,7 @@ Otherwise you can create your own Profiles or a new Profile, by pushing the New 
 
 ## Profile Files
 
-In Profinity the profiles themselves are stored by default as files in
+In Profinity the profiles themselves are stored by default as files in the directory
 
 `/Documents/Prohelion/Profinity/Profiles`
 

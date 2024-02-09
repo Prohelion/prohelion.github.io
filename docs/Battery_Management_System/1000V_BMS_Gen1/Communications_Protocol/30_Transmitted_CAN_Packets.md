@@ -14,7 +14,7 @@ This packet is transmitted by the BMU and allows it to be located and identified
 
 | CAN ID        | 0x600 - Interval 1 hz                                                                        |
 | --------------| -------------------------------------------------------------------------------------------- |     
-| `data_u32[0]` | v5 and later: Devide ID: 0x00001000 v4 and earlier: <br> ASCII ID string: 'T', 'O', '6', '7' |
+| `data_u32[0]` | v5 and later: Device ID: 0x00001000 v4 and earlier: <br> ASCII ID string: 'T', 'O', '6', '7' |
 | `data_u32[1]` | Device serial number as programmed at the factory                                            |
 
 ## CMU Status, Temperature and Voltage Telemetry
@@ -102,7 +102,7 @@ This packet is transmitted by the BMU to indicate the current state of the pre-c
 |               | 0 = Error<br>1 = Idle<br>5 = Enable Pack<br>2 = Measure<br>3 = Pre-charge<br>4 = Run |
 | `data_u16[1]` | 12V contactor supply voltage, mV (only on v4 or earlier BMU) for v5 or later BMU, refer to binary bit 0x10 in data_u8[0]                                                                                     |     
 | `data_u16[2]` | Unused, reports as 0x0000                                                            |   
-| `data_u8[6]`  | 0x01 = Pre-charge timer elapsed. (Don't care if timeout disabled) 0x00 = Pre-charge timer not elapsed                                                                                                |
+| `data_u8[6]`  | 0x01 = Pre-charge timer elapsed. (Do not care if timeout disabled) 0x00 = Pre-charge timer not elapsed                                                                                                |
 | `data_u8[7]`  | Pre-charge timer counter (10ms per count)                                            |   
 
 ## Minimum / Maximum Cell Voltage
