@@ -33,11 +33,11 @@ Think of it as being like a conversation where a CAN-Ethernet Bridge (in this ca
 
 In some ways this is a great model. 
 
-Just like CAN Bus, we don’t need to worry about reliability. If a packet is lost on the network, a short time later it is resent via a new shout. But there are also issues, UDP is noisy, multiple CAN Bus bridges shouting on the same network can all be shouting at once, which would be like multiple people shouting in a room and this makes it hard to figure out who to listen to.
+Just like CAN Bus, we don't need to worry about reliability. If a packet is lost on the network, a short time later it is resent via a new shout. But there are also issues, UDP is noisy, multiple CAN Bus bridges shouting on the same network can all be shouting at once, which would be like multiple people shouting in a room and this makes it hard to figure out who to listen to.
 
 Finally network routers need to make decisions on how far they want all this noise to travel in a network. 
 
-Obviously we don’t want all this shouting to go too far otherwise we are just going to flood the network with UDP packets, so networking devices (like WiFi access points) are often very aggressive about how far they will let UDP go in a network and will often drop the packets to prevent a network flood.
+Obviously we don't want all this shouting to go too far otherwise we are just going to flood the network with UDP packets, so networking devices (like WiFi access points) are often very aggressive about how far they will let UDP go in a network and will often drop the packets to prevent a network flood.
 
 **Transmission Control Protocol (TCP)**
 
@@ -56,7 +56,7 @@ In TCP mode, the setting of your IP address is the single thing most likely to d
 
 All devices connected to a network are assigned an IP address. It’s an address unique to that device on the network that allows the router to determine where to send traffic. Separately to their IP Address, all Ethernet connected devices also have a [MAC address](https://en.wikipedia.org/wiki/MAC_address) which is a unique address for that device globally. 
 
-We will not deal with MAC addresses here is it is not particularly important for the purposes of the bridge, but if it comes up, that’s what it does.
+We will not deal with MAC addresses here is it is not particularly important for the purposes of the bridge, but if it comes up, that is what it does.
 
 **IP Addresses are either dynamically set or statically set.** 
 
@@ -104,4 +104,4 @@ This is a fairly common scenario that causes problems.  This issue often happens
 
 If you want to understand the scenario where this configuration could work see the [Supported Network Setups](40_Supported_Network_Setups.md) section of this document and read about the configuration **ADVANCED - Direct TCP Connection using a router or WiFi** as there is a scenario where you might actually want this configuration, but it is fairly unusual and requires a very specific setup to work.
 
-**If you take two things from this whole article it’s should hopefully be the the subnet (the first three digits) is very critical to the reliable operation of the bridge and ideally don’t leave your bridges running in the IP address range of 169.254.x.x that means they are not setup right.**
+**If you take two things from this whole article it’s should hopefully be the the subnet (the first three digits) is very critical to the reliable operation of the bridge and ideally don't leave your bridges running in the IP address range of 169.254.x.x that means they are not setup right.**

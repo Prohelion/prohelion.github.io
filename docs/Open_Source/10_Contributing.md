@@ -7,7 +7,7 @@ title: Contributing
 First off, thank you for considering contributing to the Prohelion ArrowPoint Telemetry tools. Prohelion is made up of former 
 and current electric vehicle racers from around the world and we have always enjoyed the support of the community in the events 
 we have been involved with.  By open sourcing our software we are hoping to support other teams based on our
-learnings and experience, by contributing to the code we apprecite you helping as well.
+learnings and experience, by contributing to the code we appreciate you helping as well.
 
 ## Where do I go from here?
 
@@ -46,7 +46,7 @@ are test cases please make sure you have a 100% pass rates before trying to cont
 At this point, you're ready to make your changes! Feel free to ask for help;
 everyone is a beginner at first :smile_cat:
 
-## View your changes in across multiple broswers or tablets
+## View your changes in across multiple browsers or tablets
 
 One of the biggest challenges we have with our code is making sure that it works across a range of
 tablets / PCs / phones and the various technologies that people bring in to race environments.

@@ -10,7 +10,7 @@ The WaveSculptor controller is mounted into position using three rubber mounted 
  
 | Supply                                    |     | Units | Notes:  |
 |-------------------------------------------|-----|-------|---------|
-| WaveSculptor enclosure lengt:             | 500 | mm    | Note 22 |
+| WaveSculptor enclosure length:             | 500 | mm    | Note 22 |
 | WaveSculptor enclosure width:             | 172 | mm    | Note 22 |
 | WaveSculptor enclosure height:            | 82  | mm    | Note 22 |
 | WaveSculptor mass:                        | 8.5 | kg    | Note 23 |

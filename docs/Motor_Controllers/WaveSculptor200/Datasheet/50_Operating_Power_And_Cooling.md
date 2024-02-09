@@ -16,8 +16,8 @@ The WaveSculptor 200 is water cooled, and uses an external radiator with fans to
 | Maximum continuous power output at 30°C ambient: | 107  | kVA        | Note 16 |
 | Maximum continuous power output at 40°C ambient: | 91   | kVA        | Note 16 |
 | Maximum continuous power output at 50°C ambient: | 76   | kVA        | Note 16 |
-| Acceptable metallic cooling system components:   |      | Alluminium | Note 17 | 
-| Cooland pressure maximum                         | 0.75 | Bar        | Note 18 | 
+| Acceptable metallic cooling system components:   |      | Aluminium  | Note 17 | 
+| Coolant pressure maximum                         | 0.75 | Bar        | Note 18 | 
 
 __Notes:__
 

@@ -10,7 +10,7 @@ hero:
     background_image: /images/Prohelion_Battery.jpg
     buttons: # Add buttons below, there are examples with all available options
         - label: Order a Prohelion WaveSculptor22 Motor Controller
-          url: https://www.prohelion.com/shop/wavesculptor-motor-controller/wavesculptor22-motor-controller/
+          url: https://www.prohelion.com/shop/WaveSculptor-motor-controller/wavesculptor22-motor-controller/
           external_url: true 
           style: filled
           icon: credit-card 

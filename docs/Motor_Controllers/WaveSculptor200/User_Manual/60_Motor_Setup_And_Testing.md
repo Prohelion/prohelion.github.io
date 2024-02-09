@@ -10,7 +10,7 @@ order: 11
 
 At this stage, put the car on a vehicle lift, or use a secure method to lift the drive wheels from the ground.  If your vehicle is equipped with a manual gearbox, putting the gearbox in neutral may be an adequate substitute.  
 
-A low voltage supply should be connected to perform the next stage of testing.  Note that if it is necessary to run these tests again later, they may be run from the high voltage pack – it is not necessary to disconnect everything and use a low voltage setup.  At this point however, the low voltage supply should be used as a safer option until it is known that everything in the system is working corrrectly.
+A low voltage supply should be connected to perform the next stage of testing.  Note that if it is necessary to run these tests again later, they may be run from the high voltage pack – it is not necessary to disconnect everything and use a low voltage setup.  At this point however, the low voltage supply should be used as a safer option until it is known that everything in the system is working correctly.
 
 A suitable low voltage supply is a pair of 12V batteries in series.  Make sure to fuse them correctly, and use your precharge circuit.  A power supply with current limiting is the best option if one is available.
 
@@ -18,7 +18,7 @@ Run the PC software, and provide 12V along the CAN cable to power up the motor c
 
 ## Phasorsense - BLDC Motors
 
-If you are using a BLDC or other permanent magnet motor, refer to the [software user manual]()? for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.  
+If you are using a BLDC or other permanent magnet motor, refer to the [software user manual]()??? for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.  
 
 Next, run the parameter extraction routine, which calculates motor parameters.  Save the results into one of the ten available motor configuration slots.  In the general configuration screen, set this motor slot as the “Active Motor”.
 
@@ -26,7 +26,7 @@ For bench testing with an unloaded motor, set the vehicle mass in the config scr
 
 ## ImExtract - Induction Motors
 
-If you are using an induction motor, refer to the [software user manual]()? for the procedure to run ImExtract.  
+If you are using an induction motor, refer to the [software user manual]()??? for the procedure to run ImExtract.  
 
 This routine calculates motor parameters.  Save the results into one of the ten available motor configuration slots.  In the general configuration screen, set this motor slot as the “Active Motor”.
 

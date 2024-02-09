@@ -27,7 +27,7 @@ The term Base Address is used instead of Device Identifier in the Windows config
 
 
 |10-5|4-0|
-| Device Idendifier | Message Identifier |
+| Device Identifier | Message Identifier |
 
 Figure 2. CAN Device Identifier Address Format (todo)
 
@@ -90,7 +90,7 @@ Send a command from this address to reset the software in the WaveSculptor.
 
 ## Drive Command Examples
 
-Ignoring the added complexity of bus and thermal limiting, the WaveSculptor operates such that it will use the maximum available current (torque) to try and achieve the desired velocity.  This is true for both accelerating and decelerating operation, i.e. the WaveSculptor will automatically regneratively brake if a setpoint velocity is provided that is slower than the current speed.
+Ignoring the added complexity of bus and thermal limiting, the WaveSculptor operates such that it will use the maximum available current (torque) to try and achieve the desired velocity.  This is true for both accelerating and decelerating operation, i.e. the WaveSculptor will automatically regeneratively brake if a setpoint velocity is provided that is slower than the current speed.
 
 Two main drive modes will be used in a normal vehicle setup: torque control; and velocity (cruise) control.  A conventional vehicle runs in torque control mode, where the position of the accelerator (gas) pedal controls the amount of torque produced by the engine.  In an electric system, the motor current is proportional to torque, and can be easily regulated, as can the velocity.
 
@@ -136,7 +136,7 @@ __Interval: 200ms__
 || 15..14<br>13<br>12<br>11<br>10<br>9<br><br>8<br>7<br><br>6<br>5<br><br>4<br>3<br>2<br>1<br>0|| Reserved<br>Hardware over Voltage<br>Output over Voltage (Debug only)<br>Bad PWM (Debug only)<br>Unknown error source (Debug only)<br>Motor Over Speed (15% overshoot above max RPM)<br>Motor Interface communications fault<br>Desaturation fault (IGBT desaturation, IGBT driver UVLO)<br>15V rail under voltage lock out (UVLO)<br>Config read errors (some values may be reset to defaults)<br>Watchdog caused last reset<br>Bad Motor position hall sequence<br>DC Bus over voltage<br>Software over current<br>Hardware over current |
 | Limit Flags | 15..0 | Uint16 | Flags Indicate which control loop is limiting the output current of the motor controller |
 || __Bits__||__Parameter__
-|| 15..7<br>6<br>5<br>4<br>3<br>2<br>1<br>0|| Reserved<br>IPM Temperature or Motor Temperature<br>Bus Volatge Lower Limit<br> Bus Voltage Upper Limit<br>Bus Current<br>Velocity<br>Motor Current<br>Output Voltage PWM |
+|| 15..7<br>6<br>5<br>4<br>3<br>2<br>1<br>0|| Reserved<br>IPM Temperature or Motor Temperature<br>Bus Voltage Lower Limit<br> Bus Voltage Upper Limit<br>Bus Current<br>Velocity<br>Motor Current<br>Output Voltage PWM |
 
 ## Bus Measurement 
 
@@ -206,7 +206,7 @@ __Interval: 200ms__
 | BEMFd | 63..32 | V | By definition this value is always 0V.|
 | BEMFq | 31..0 | V | The peak of the phase to neutral motor voltage. |
 
-### 15V Voltage Rail Measuremnt
+### 15V Voltage Rail Measurement
 
 __ID: Motor Controller Base Address + 0x08__ 
 
@@ -272,7 +272,7 @@ __Interval: 1 second__
 | IMP Phase C Temp | 63...32 | °C | Internal temperature of phase C in main IPM.|
 | Reserved | 31...0 | °C | - |
 
-### Odometer & Bus AmpHours Measuremen
+### Odometer & Bus AmpHours Measurement
  
 __ID: Motor Controller Base Address + 0x0E__ 
 
@@ -298,14 +298,14 @@ __Interval: 200ms__
 
 ### Active Motor Change
 
-__ID: Motor Controll Base Address + 0x12__ 
+__ID: Motor Control Base Address + 0x12__ 
 
 | __Variable__    |   __Bits__ | __Units__ | __Description__  
 |----------------------------------------------------|
 | Active Motor | 63..48 | WORD | Desired active motor (0 to 9)|
 | Configuration Access Key | 47..0 | ASCII | Must spell “ACTMOT” in ASCII (0x54 4F 4D 54 43 41) |
 
-Send this command to change the active motor. Note that the controller will save the active motor to the EEPROM config memory, so what you send will survive a reset. This has a downside that you don't want to be sending it constantly, as you'll wear out the EEPROM.
+Send this command to change the active motor. Note that the controller will save the active motor to the EEPROM config memory, so what you send will survive a reset. This has a downside that you do not want to be sending it constantly, as you'll wear out the EEPROM.
 
 Example to set the active motor to motor slot 5:
 

@@ -24,7 +24,7 @@ This control mode is analogous to cruise control in a normal vehicle.  To drive 
 
 With these settings, the motor controller will use the maximum available current to reach the desired setpoint velocity.
 
-The usual method of setting the target speed would be to monitor “Velocity Measurement” frames from the Wavesculptor, and when the driver wishes to set the target velocity (using some combination of input switches) then the driver controls should begin to transmit the last known velocity measurement as the target velocity.  
+The usual method of setting the target speed would be to monitor “Velocity Measurement” frames from the WaveSculptor, and when the driver wishes to set the target velocity (using some combination of input switches) then the driver controls should begin to transmit the last known velocity measurement as the target velocity.  
 
 Of course, any pre-programmed speed could also be used, however care must be taken when engaging speed control mode under these circumstances, as the vehicle will use the maximum allowable torque to reach the target velocity setpoint as fast as possible.
 
@@ -34,8 +34,8 @@ Any combination of the above two modes can be implemented, as desired by the use
 
 ## Power Control
 
-The driver controls can also dynamically limit the maximum current that can be drawn by the Wavesculptor from the vehicle’s power bus (battery).  This may be useful in some applications to minimise high-current events when operating with a discharged main battery pack, or as part of an overall vehicle control strategy during racing.
+The driver controls can also dynamically limit the maximum current that can be drawn by the WaveSculptor from the vehicle’s power bus (battery).  This may be useful in some applications to minimise high-current events when operating with a discharged main battery pack, or as part of an overall vehicle control strategy during racing.
 
-To limit the power, the driver controls should send a Motor Power Command frame, containing the desired bus current as a percentage of maximum.  This frame may be sent as often as desired, however please note that a Motor Drive Command frame must still be sent at least once every 200ms to prevent the Wavesculptor from shutting down.
+To limit the power, the driver controls should send a Motor Power Command frame, containing the desired bus current as a percentage of maximum.  This frame may be sent as often as desired, however please note that a Motor Drive Command frame must still be sent at least once every 200ms to prevent the WaveSculptor from shutting down.
 
 

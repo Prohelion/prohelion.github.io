@@ -37,7 +37,7 @@ description: Documentation for the Prohelion CAN Bus to Ethernet Bridge
 
     [:octicons-arrow-right-24: Supporting Software](../Profinity/20_CAN_Bus_Adapters.md)
 
--   :material-frequently-asked-questions:{ .lg .middle } __Frequenty Asked Questions__
+-   :material-frequently-asked-questions:{ .lg .middle } __Frequently Asked Questions__
 
     ---
 

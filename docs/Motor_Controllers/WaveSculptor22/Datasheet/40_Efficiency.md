@@ -12,7 +12,7 @@ The efficiency (in percent) is shown using the red lines, and the power being pr
 
 In a typical solar car with a mass of 275kg and a wheel radius of 250mm, the maximum plot values of 150rad/s and 120Nm correspond to a maximum speed of 135km/h and an acceleration of 0.16g respectively.
 
-As an example, for a typical highway cruise setting of 20Nm and 100rad/s, the power being processed by the Wavesculptor is just over 2kW, at an efficiency of just over 99%.
+As an example, for a typical highway cruise setting of 20Nm and 100rad/s, the power being processed by the WaveSculptor is just over 2kW, at an efficiency of just over 99%.
 
 ![predicted efficiency map of the WaveSculptor Controller with a 160V DC Bus](images/WaveSculptor_Datasheet.png)
 

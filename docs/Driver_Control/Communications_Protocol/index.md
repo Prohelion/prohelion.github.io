@@ -29,7 +29,7 @@ The identifier field has been split into two sections for Prohelion devices. Bit
 
 
 |10-5|4-0|
-| Device Idendifier | Message Identifier |
+| Device Identifier | Message Identifier |
 
 Figure 2. CAN Device Identifier Address Format (todo)
 
@@ -57,7 +57,7 @@ Please note that variables described in the following packets with units of perc
 
 These are data frames broadcast from the driver controls to any listening motor controller. These commands contain desired set points for the control software to operate the controller.  The commands are sent as required, however there is a maximum permissible delay between consecutive Motor Drive commands to prevent a timeout from occurring in the motor controller.
 
-The driver controls also provide a convenient interface for a variety of switches and pushbuttons, that are not used directly by the motor controller.  For example, another relay output module on the CAN bus may listen for the Switch Position frame and turn the indicator (blinker) lights on and off as appropriate.
+The driver controls also provide a convenient interface for a variety of switches and push buttons, that are not used directly by the motor controller.  For example, another relay output module on the CAN bus may listen for the Switch Position frame and turn the indicator (blinker) lights on and off as appropriate.
 
 ### Remote Frames
 

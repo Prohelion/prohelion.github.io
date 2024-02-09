@@ -34,7 +34,7 @@ The firmware flashing procedure is similar that of other Prohelion MSP430-based 
 
 __1.__	Start the Profinity application.
 
-__2.__	Create a new profile (if you haven’t already created one)
+__2.__	Create a new profile (if you haven't already created one)
 
 __3.__	Add a PEAK Systems USB adapter device via the CAN Adapters tool.
 
@@ -72,7 +72,7 @@ __10.__	If the firmware programming failed, check the CAN bus cabling to ensure 
 
 | Description                                   | Value  |
 |-----------------------------------------------|--------|
-| `CAN - Birate`                                | 4      |
+| `CAN - Bitrate`                                | 4      |
 | `CAN - Base ID`                               | 0x600  | 
 | `CAN - Switches ID`                           | 0x700  |
 | `BMS - Modes Config`                          | 0x05   |

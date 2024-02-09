@@ -29,7 +29,7 @@ The CMU is shown below:
 
 The cell sense connector is a 12-way 3mm Molex Microfit connector, with locking ramp.  8 pins are used for cell voltage sensing, one pin for cell ground, and two for a temperature sensing thermistor, leaving one pin unused.  
 
-The mating housing is Molex part n sumber __43645-1200__, and the 20-24 AWG crimps part number is __43030-0007__. One housing and 11 crimps are required per CMU.  
+The mating housing is Molex part number __43645-1200__, and the 20-24 AWG crimps part number is __43030-0007__. One housing and 11 crimps are required per CMU.  
 
 The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those used in the recommended cable.
 

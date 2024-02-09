@@ -18,6 +18,6 @@ Before diving in to the bridge itself it is work being familiar with some of the
 
 Also it is important to note that while this guide covers both the Tritium and [Profinity](../../..//Profinity/index.md) tools, we would recommend that if you are using the current Tritium tools have a look at [Profinity](../../../Profinity/index.md) and use [Profinity](../../../Profinity/index.md)  wherever possible, it gets regular updates and has a lot of features designed to make your life easier and this whole experience of using the bridges a lot more reliable. The Tritium CAN Bus tools while not End of Life are functionally stabilised and unlikely to see further updates.
 
-Prohelion is developing these tools in collaboration with Tritium so you’ll get access to the best of both worlds.
+Prohelion is developing these tools in collaboration with Tritium so you will get access to the best of both worlds.
 
 If you are still having issues with your CAN-Ethernet Bridges after reading this guide then please feel free [to get in Contact with us](https://www.prohelion.com/contact-us/)

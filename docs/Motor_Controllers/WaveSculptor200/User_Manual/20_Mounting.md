@@ -13,7 +13,7 @@ The main criteria for choosing a good mounting location are vibration, water spr
 
 Although the Prohelion WaveSculptor is rated for use in water spray environments, it is preferable to locate the controller in an area that won't be directly impacted with water jets coming in through the grille of your car at highway speeds.  Locating the WaveSculptor in the engine bay area is fine, but try to keep it out of the most exposed areas.
 
-The Wavesculptor should ideally be mounted in a horizontal position, but vertical mount is also acceptable if the long axis of the controller is horizontal.  Do not mount the controller with the long axis vertical (ie, conduit exiting top or bottom) as water may pool in the end areas of the controller and eventually seep into the interior.  This position will also trap air in the cooling system.
+The WaveSculptor should ideally be mounted in a horizontal position, but vertical mount is also acceptable if the long axis of the controller is horizontal.  Do not mount the controller with the long axis vertical (ie, conduit exiting top or bottom) as water may pool in the end areas of the controller and eventually seep into the interior.  This position will also trap air in the cooling system.
 
 ![mounting illustration](images/mounting_axis.png)
 
@@ -31,7 +31,7 @@ If the conduit is not glued, then a reduced environmental rating applies, where 
 
 Before final mounting of the controller in the vehicle, connect and fill the liquid cooling system as shown in the next section of this document.  The controller needs to be tilted to fully bleed air bubbles from the system.
 
-The Wavesculptor is mounted with a three-point mount using rubber standoffs to help isolate vehicle vibration from the controller electronics.  Refer to the drawing below for mounting hole locations, which should be fitted with an M6 insert or nut.  
+The WaveSculptor is mounted with a three-point mount using rubber standoffs to help isolate vehicle vibration from the controller electronics.  Refer to the drawing below for mounting hole locations, which should be fitted with an M6 insert or nut.  
 
 ![WaveSculptor 200 Motor Controller](images/dimensions_and_tolerances.png)
 

@@ -14,7 +14,7 @@ The CAN–Ethernet bridge is packaged in a black ABS plastic enclosure.  It is n
 | `Enclosure width:`  | 43    | mm    |        |
 | `Enclosure height:` | 24    | mm    |        |
 | `Device mass:`      | 45    | g     |        |
-| `Devide IP Rating:` | IP40  |       |        |
+| `Device IP Rating:` | IP40  |       |        |
 
 __NOTES:__
 

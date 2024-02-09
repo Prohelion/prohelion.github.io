@@ -42,7 +42,7 @@ The algorithm linearly ramps the current in phase CB from 0A to 20A then switche
 
 A message box will appear asking if you wish to save the results.
 
-__NOTE:__ If the motor moved during the test, don't save the results. Repeatedly run the test until there is no noticeable movement during the test. This is because motor movement creates a voltage, which influences the reading.  If the acquisition was good, the blue dashed best-fit curve should lie neatly on top of the acquired curve. Once a good fit is achieved without motor movement, allow the software to save the results to the motor slot you are configuring.
+__NOTE:__ If the motor moved during the test, do not save the results. Repeatedly run the test until there is no noticeable movement during the test. This is because motor movement creates a voltage, which influences the reading.  If the acquisition was good, the blue dashed best-fit curve should lie neatly on top of the acquired curve. Once a good fit is achieved without motor movement, allow the software to save the results to the motor slot you are configuring.
 
 ## Imextract
 

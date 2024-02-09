@@ -30,7 +30,7 @@ It is important to make sure that all items exposed to the coolant loop are eith
 
 The coolant system should be operated non-pressurised. A breather hole or an air space of at least 25mm (1”) should be left at the top of the reservoir to allow coolant expansion and contraction without pressure buildup.
 
-## Wavesculptor Waterblock
+## WaveSculptor Waterblock
 
 The coolant flow path inside the WaveSculptor is a 'U' shape along one side from the inlet to the far end of the controller, across at the end, and back along the other side to the outlet.  
 
@@ -80,6 +80,6 @@ It is important to bleed all air from the system.  The pump and radiator are mos
 
 The coolant flow path inside the WaveSculptor is a 'U' shape along one side from the inlet to the far end of the controller, across at the end, and back along the other side to the outlet.
 
-With the coolant filled and the reservoir close to full, start the pump.  Tilt the Wavesculptor by around 30° to allow air bubbles near the inlet to move to the far end of the controller.  Next, tilt it to the side, so that the air trapped at the far end moves to the outlet side of the waterblock.  Now, tilt the controller so the far end is down, and the air moves along the outlet side of the controller and exits through the outlet tubing.  Repeat this circular tilting motion until air stops exiting the controller.  You may need to top up the reservoir during this process, depending on how much air is purged from the waterblock.  
+With the coolant filled and the reservoir close to full, start the pump.  Tilt the WaveSculptor by around 30° to allow air bubbles near the inlet to move to the far end of the controller.  Next, tilt it to the side, so that the air trapped at the far end moves to the outlet side of the waterblock.  Now, tilt the controller so the far end is down, and the air moves along the outlet side of the controller and exits through the outlet tubing.  Repeat this circular tilting motion until air stops exiting the controller.  You may need to top up the reservoir during this process, depending on how much air is purged from the waterblock.  
 
 You may also need to perform a similar process with the radiator, depending on it's mounting location and position relative to the other components in the system.

@@ -39,7 +39,7 @@ As an example, the calculations for a typical EV system are shown as follows:
 
 System battery voltage maximum = __450V__ 
 
-Motor controller (Prohelion Wavesculptor 200) capacitance = __800µF__
+Motor controller (Prohelion WaveSculptor 200) capacitance = __800µF__
 
 Chosen precharge current = __1A__ 
 
@@ -55,7 +55,7 @@ Therefore, this 50W resistor is acceptable for the external resistor in this app
 
 During normal operation, the capacitors contain a charge of 0.36C, giving an energy storage of __81 Joules.__  Note that this is a lethal amount of energy.  During an RC precharge type event, the same amount of energy that is eventually stored in the capacitor is also dissipated in the resistor.   
 
-If not mounted on any additional thermal mass, and assuming that 20g of the resistor's total mass is aluminium (specific heat = 0.897 J/g°C), 81 Joules will give a temperature rise of ∆T = Q/mc = __4.5°C,__ also well within limits.  During a fault situation, where 430W is being dissipated in the resistor, the same thermal calculation shows a temperature rise of 48°C above the starting temperature.  This also is within limits. 
+If not mounted on any additional thermal mass, and assuming that 20g of the resistor's total mass is aluminium (specific heat = 0.897 J/g °C), 81 Joules will give a temperature rise of ∆T = Q / mc = __4.5°C,__ also well within limits.  During a fault situation, where 430W is being dissipated in the resistor, the same thermal calculation shows a temperature rise of 48°C above the starting temperature.  This also is within limits. 
 
 The maximum acceptable operating voltage for the 50W resistor is 1285V, so our maximum of 450V is also within limits. 
 
@@ -67,6 +67,6 @@ Note that the BMS must be programmed with the correct timeout value, so as it kn
 
 Be aware that loads that draw current during precharge will cause the precharge sequence to fail and/or the precharge resistor to overheat.  This is because the current drawn by the load will slow or possibly prevent the output voltage from rising, meaning precharge never completes in the expected time.   
 
-The typical load that causes this problem is the DC/DC converter used to charge the 12V auxilliary battery. 
+The typical load that causes this problem is the DC/DC converter used to charge the 12V auxiliary battery. 
 
 This problem can be avoided by using the relay output on the BMU to control an “enable” input on the problematic loads once precharge has completed and the BMU is in “Run” mode.  By default, this relay activates in this manner. 

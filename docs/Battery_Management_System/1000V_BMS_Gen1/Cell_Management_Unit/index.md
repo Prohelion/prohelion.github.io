@@ -6,7 +6,7 @@ order: 3
 
 # Cell Management Unit 
 
-The Cell Management Unit connects to the battery cells and reads voltage and temperature information, which it relays via CAN Bus back to the Battery Mananagement Unit.
+The Cell Management Unit connects to the battery cells and reads voltage and temperature information, which it relays via CAN Bus back to the Battery Management Unit.
 
 <figure markdown>
 ![Battery Management System](../images/Introduction_2.png)

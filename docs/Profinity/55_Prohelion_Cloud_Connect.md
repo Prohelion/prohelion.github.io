@@ -19,7 +19,7 @@ When Prohelion Cloud Connect is added to a profile, the machine on which this fi
 
 Sharing the Cloud Connect URL not only shares the data it allow enables a copy of the transmitting nodes [Profile](10_Profiles.md) to be sent to anyone who has the URL and is using it to connect to via Profinity.
 
-If a change is made to the [Profile](10_Profiles.md) on the transmitting node, for example a new device is configured or a change is made to one of hte configuration parameters, then that change is automatically sent to each of the receiving nodes of Profinity and within a few seconds you should see the profiles of the receiving nodes update as well.
+If a change is made to the [Profile](10_Profiles.md) on the transmitting node, for example a new device is configured or a change is made to one of the configuration parameters, then that change is automatically sent to each of the receiving nodes of Profinity and within a few seconds you should see the profiles of the receiving nodes update as well.
 
 ### Receiving Node
 
@@ -31,13 +31,13 @@ If you are monitoring a CAN Bus stream on a receiving node, then the [Profile](1
 
 CAN Bus is a protocol designed to be used to highly reliable very low latency networks such as vehicle control networks, as such it is a noisy and chatty network protocol, not well suited to being transmitted over long distances or a potentially low speed internet connection.
 
-Prohelion Cloud Connect addresses this issue through a custom CAN Bas transmission protocol created by a code library we call the 'CANpressor'.  The CANpressor takes advantage of a couple of behaviours in CAN Bus traffic to substantially reduce the amount of traffic that needs to be sent.  You can adjust the behaviours of the CANpressor in Profinity to tune the performance of the transmission and find a balance between performance and the fidelity of the data being sent.
+Prohelion Cloud Connect addresses this issue through a custom CAN Bus transmission protocol created by a code library we call the 'CANpressor'.  The CANpressor takes advantage of a couple of behaviours in CAN Bus traffic to substantially reduce the amount of traffic that needs to be sent.  You can adjust the behaviours of the CANpressor in Profinity to tune the performance of the transmission and find a balance between performance and the fidelity of the data being sent.
 
 CAN Bus has a number of behaviours that lend itself to compression.
 
 1. CAN Bus packets are often sent many times a second.  However, the data being transmitted often doesn't change that much or at all.  Consider a battery voltage CAN Packet being sent 10 times a second, it's quite lightly that the voltage will not change from one packet to the next.
 
-2. For many situations we don't need to capture every CAN Packet.  It might be perfectly acceptable to send all the last values of all the packets at regular intervals and send those most recent values rather than every single value.
+2. For many situations we do not need to capture every CAN Packet.  It might be perfectly acceptable to send all the last values of all the packets at regular intervals and send those most recent values rather than every single value.
 
 The CANpressor uses a combination of approaches as well as a more efficient transmission structure and traditional zip compression to substantially reduce the amount of data required to be transmitted to send CAN Bus data.  
 

@@ -36,7 +36,7 @@ The WaveSculptor motor controller must receive a Motor Drive Command frame at le
 
 ### Motor Power Command
 
-| ID:           | Driver Controls Base Adress + 02 - Interval 100ms or as needed | | | 
+| ID:           | Driver Controls Base Address + 02 - Interval 100ms or as needed | | | 
 |---------------|--------|---|-------------------------------------------------------|
 | `Bus Current` | 63..32 | % | Desired set point of current drawn from the bus by the controller as a percentage of absolute bus current limit.                                                          |
 | `Reserved`    | 31..0  | - | -                                                     |
