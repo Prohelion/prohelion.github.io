@@ -63,7 +63,7 @@ Figure 6: CAN-Ethernet Bridge Loader Tool
 
 To use the tool, complete the following steps:
 
-__1.__ Download the latest firmware image file (.teb) from the [Prohelion website]()???
+__1.__ Get the latest firmware image file (.teb) from Prohelion (contact support)
 
 __2.__ Run CanBridgeConfig, select the bridge to load, and click Load Firmware
 

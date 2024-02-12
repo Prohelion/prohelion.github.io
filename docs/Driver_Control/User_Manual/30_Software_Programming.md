@@ -11,7 +11,10 @@ The driver controls are based around a Texas Instruments (TI) MSP430 16-bit embe
 
 The following schematic shows the simplest possible connection, when using the default software.
 
+<figure markdown>
 ![Basic Connection Diagram](images/Basic_Connection_Diagram.gif)
+<figcaption>Basic Connection Diagram</figcaption>
+</figure>
 
 ## Schematics & Source Code
 
@@ -21,7 +24,7 @@ Please refer to these references if developing custom firmware for the driver co
 
 ## Toolchain
 
-The example default code provided is configured to work with the freely-available open-source MSP430 GCC toolchain, which provides a command-line driven compiler, binutils, download, and real-time debug capability through a JTAG header present on the driver controls PCB.  The debug functionality requires purchase of a USB programmer from Texas Instruments.  Please refer to the [README]()? file with the source code for download and installation instructions.
+The example default code provided is configured to work with the freely-available open-source MSP430 GCC toolchain, which provides a command-line driven compiler, binutils, download, and real-time debug capability through a JTAG header present on the driver controls PCB.  The debug functionality requires purchase of a USB programmer from Texas Instruments.  Please refer to the [README](https://github.com/Prohelion/EV-Driver-Controls) file with the source code for download and installation instructions.
 
 ## Code Download
 

@@ -41,7 +41,7 @@ The following illustration shows the connections and indicators on the CMU:
 
 ## Isolation
 
-The CMU is isolated from the CMU CAN bus, and therefore from the vehicle chassis and other CMUs, with an isolation barrier rated for 1000V DC.  This allows the HV battery pack to be fully floating from the vehicle chassis, as is required by most EV construction standards (eg NCOP14 in Australia). ???
+The CMU is isolated from the CMU CAN bus, and therefore from the vehicle chassis and other CMUs, with an isolation barrier rated for 1000V DC.  This allows the HV battery pack to be fully floating from the vehicle chassis, as is required by most EV construction standards (eg NCOP14 in Australia).
 
 This isolation barrier rating is only valid if the correct insulation material is installed between the CMU and the surface it is mounted on. 
 

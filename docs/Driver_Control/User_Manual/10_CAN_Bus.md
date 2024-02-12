@@ -9,7 +9,10 @@ The CAN bus is structured as a linear network, with short stubs branching from '
 
 In the range of Prohelion EV products, including the WaveSculptor 200, EV Driver Controls, and BMS Pack Master, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
-![CAN Bus](images/CAN_Network_Topology.gif)
+<figure markdown>
+![CAN Bus Topology](images/CAN_Network_Topology.gif)
+<figcaption>CAN Bus Topology</figcaption>
+</figure>
 
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
 Therefore, a basic system consists of three major components:
@@ -37,7 +40,10 @@ For those on a budget, standard CAT5 network cabling (which has an impedance of 
 
 The connector used on the EV Driver Controls and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.
 
-![6-way 3mm pitch Molex MicroFit connector pinnout](images/CAN_Connector.png)
+<figure markdown>
+![6-way 3mm pitch Molex MicroFit connector pinout](images/CAN_Connector.png)
+<figcaption>6-way 3mm pitch Molex MicroFit connector pinout</figcaption>
+</figure>
 
 ## CAN Shielding 
 
@@ -68,4 +74,3 @@ Prohelion can provide a CAN bus LCD display capable of showing up to four differ
 ## Multiple Motors
 
 Multiple motors/controllers are accommodated easily with the CAN bus system. All that is required is for each WaveSculptor controller to be programmed to receive messages from the same driver controls base address, and then to run the vehicle in current-control mode (the default setup). Each motor will now operate at the same current, thus giving automatic wheel speed differences for cornering, with the system acting as an electronic differential.
-

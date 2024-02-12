@@ -46,7 +46,7 @@ where:
 *   R<sub>eq</sub>: is the equivalent resistance of the entire controller
 *   α: is the linear component of the switching loss (per unit of bus voltage)
 *   β: is the constant component of the switching loss (per unit of bus voltage)
-*   C𝑓<sub>eq</sub>: is the equivalent capacitance*frequency product of the entire controller
+*   C𝑓<sub>eq</sub>: is the equivalent capacitance * frequency product of the entire controller
 
 The table below gives the constants for WaveSculptor22:
 

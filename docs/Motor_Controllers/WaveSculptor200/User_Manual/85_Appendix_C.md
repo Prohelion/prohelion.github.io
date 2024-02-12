@@ -14,10 +14,10 @@ The CAN hardware interface used is compatible with the CAN 2.0B standard.  The s
 
 The CAN protocol uses data frames for most communication.  Remote frames are also enabled.  The identifier field uses the standard frame definition length of 11 bits, with identifiers 0x7F0 to 0x7FF reserved for use by the WaveSculptor bootloader. The bootloader will send a message with identifier 0x7F1 at 500kbit after a system reset. All measurement data is transmitted using IEEE single-precision 32-bit format (IEEE 754) with most significant byte (MSB) sent first.
 
-|Bit Length	|1	|11	|6	|8 Bytes	|16	|2	|7|
-||	Start	|Identifier	|Control	|Data Field	|CRC	|Ack	|End|
-
-Figure 1. CAN Data frame (todo)
+<figure markdown>
+![Figure 1. CAN Data frame](./images/Figure1.png)
+<figcaption>Figure 1. CAN Data frame</figcaption>
+</figure>
 
 ### Identifier
 
@@ -25,27 +25,19 @@ The identifier field has been split into two sections for Prohelion devices. Bit
 
 The term Base Address is used instead of Device Identifier in the Windows configuration program. Base Address is simply the Device Identifier multiplied by 32. Using this term makes it more obvious what range of CAN identifiers have been used. As an example, there may be a Prohelion driver controls at base address 0x400, a left wheel WaveSculptor motor controller at 0x420 and a right wheel WaveSculptor motor controller at 0x440. So, address range 0x400 – 0x45F would be used by this Prohelion system.
 
-
-|10-5|4-0|
-| Device Identifier | Message Identifier |
-
-Figure 2. CAN Device Identifier Address Format (todo)
+<figure markdown>
+![Figure 2. CAN Device Identifier Address Format](./images/Figure2.png)
+<figcaption>Figure 2. CAN Device Identifier Address Format</figcaption>
+</figure>
 
 ### Data Field 
 
 The data field in all frames is fixed at 8 bytes (64 bits) which allows space for two IEEE 754 32-bit floating point variables as shown in Figure 3.  The data field is sent and expected to be received least significant byte first. This allows a direct overlay of a float[2] array and char[8] array on a little endian processor, such as an Intel x86, the TI DSP in the WaveSculptor, or the MSP430 micro in the driver controls product.
 
-|__High Float__|||
-|s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
-|^|^^^|^|
-|63|62 55 54|32|
-
-|__Low Float__|||
-|s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
-|^|^^^|^|
-|31|30 23 22|0|
-
-Figure 3. Format of the data field in a data frame (???) (todo)
+<figure markdown>
+![Figure 3. Format of the data field in a data frame](./images/Figure3.png)
+<figcaption>Figure 3. Format of the data field in a data frame</figcaption>
+</figure>
 
 ### Units 
 
@@ -61,10 +53,10 @@ The identifier of a received command will contain the base address of the device
 
 __ID: Driver Controls Base Address + 0x01__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Motor Current | 63..32 | % | Desired motor current set point as a percentage of maximum current setting |
-| Motor Velocity | 31..0 | rpm | Desired motor velocity set point in rpm |
+| __Variable__      |   __Bits__    | __Units__ | __Description__                                                               |
+|-------------------|---------------|-----------|-------------------------------------------------------------------------------|
+| Motor Current     | 63..32        | %         | Desired motor current set point as a percentage of maximum current setting    |
+| Motor Velocity    | 31..0         | rpm       | Desired motor velocity set point in rpm                                       |
 
 The WaveSculptor motor controller must receive a Motor Drive Command frame at least once every 250ms.  If this does not occur, the controller will assume that communications have failed and will halt all motor control functions, placing the system into neutral and coasting until another valid command is received.
 
@@ -72,19 +64,19 @@ The WaveSculptor motor controller must receive a Motor Drive Command frame at le
 
 __ID: Driver Controls Base Address + 0x02__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Bus Current| 63..32 | % | Desired set point of current drawn from the bus by the controller as a percentage of absolute bus current limit.|
-| Reserved | 31..0 | - | - |
+| __Variable__      |   __Bits__    | __Units__ | __Description__   |
+|-------------------|---------------|-----------|-------------------|
+| Bus Current       | 63..32        | %         | Desired set point of current drawn from the bus by the controller as a percentage of absolute bus current limit.|
+| Reserved          | 31..0         | -         | -                 |
 
 ### Reset Command
 
 __ID: Driver Controls Base Address + 0x03__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Unused | 63..32 | - | - |
-| Unused | 31..0 | - | - |
+| __Variable__      |   __Bits__    | __Units__ | __Description__   | 
+|-------------------|---------------|-----------|-------------------|
+| Unused            | 63..32        | -         | -                 |
+| Unused            | 31..0         | -         | -                 |
 
 Send a command from this address to reset the software in the WaveSculptor.
 
@@ -110,10 +102,10 @@ __ID: Motor Controller Base Address + 0x00__
 
 __Interval: 1 Second__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| Serial Number | 63..32 | Uint32 | Device serial number, allocated at manufacture. |
-| Prohelion ID | 31..0 | Uint32 | Device identifier. 0x00004002 |
+| __Variable__      |   __Bits__    | __Type__  | __Description__                                   |
+|-------------------|---------------|-----------|---------------------------------------------------|
+| Serial Number     | 63..32        | Uint32    | Device serial number, allocated at manufacture.   |
+| Prohelion ID      | 31..0         | Uint32    | Device identifier. 0x00004002                     |
 
 The periodic broadcast of this message cannot be disabled. It is needed to find the motor controller on the network if the base address is lost or mis-configured.
 
@@ -123,11 +115,11 @@ __ID: Motor Controller Base Address + 0x01__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| Receive Error Count | 63..56 | Uint8 | The DSP CAN receive error counter (CAN 2.0) |
-| Transmit Error Count | 55..48 | Uint8 | The DSP CAN transmission error counter (CAN 2.0) |
-| Error Flags (Extended) | 47..40 | Uint8 | Flags Indicate Extended Errors (V3 Only) |
+| __Variable__              |   __Bits__    | __Type__  | __Description__                                   |
+|---------------------------|---------------|-----------|---------------------------------------------------|
+| Receive Error Count       | 63..56        | Uint8     | The DSP CAN receive error counter (CAN 2.0)       |
+| Transmit Error Count      | 55..48        | Uint8     | The DSP CAN transmission error counter (CAN 2.0)  |
+| Error Flags (Extended)    | 47..40        | Uint8     | Flags Indicate Extended Errors (V3 Only)          |
 ||__Bits__||__Parameter__|
 || 7<br>6<br>5<br>4<br>3<br>2<br>1<br>0|| Desaturation fault – Phase A Low Gate<br>Desaturation fault – Phase A High Gate<br>Desaturation fault – Phase B Low Gate<br>Desaturation fault – Phase B High Gate<br>Desaturation fault – Phase C Low Gate<br>Desaturation fault – Phase C High Gate<br>Hardware over current – Phase C<br>Hardware over current – Phase B |
 | Active Motor | 39..32| Uint8 | The index of the active motor currently being used |
@@ -144,10 +136,10 @@ __ID: Motor Controller Base Address + 0x02__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Bus Current | 63..32 | A | Current drawn from the DC bus by the controller.|
-| Unused | 31..0 | V | DC bus voltage at the controller.|
+| __Variable__      |   __Bits__    | __Units__     | __Description__                                   |
+|-------------------|---------------|---------------|---------------------------------------------------|
+| Bus Current       | 63..32        | A             | Current drawn from the DC bus by the controller.  |
+| Unused            | 31..0         | V             | DC bus voltage at the controller.                 |
 
 ### Velocity Measurement 
 
@@ -155,10 +147,10 @@ __ID: Motor Controller Base Address + 0x03__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Vehicle Velocity | 63..32 | m/s | Vehicle velocity in metres/second. |
-| Motor Velocity | 31..0 | rpm | Motor angular frequency in revolutions per minute.|
+| __Variable__      |   __Bits__    | __Units__     | __Description__                                       |  
+|-------------------|---------------|---------------|-------------------------------------------------------|
+| Vehicle Velocity  | 63..32        | m/s           | Vehicle velocity in metres/second.                    |
+| Motor Velocity    | 31..0         | rpm           | Motor angular frequency in revolutions per minute.    |
 
 ### Phase Current Measurement
 
@@ -166,10 +158,10 @@ __ID: Motor Controller Base Address + 0x04__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Phase C Current | 63..32 | A<sub>rms</sub>| RMS current in motor Phase C. |
-| Motor Velocity | 31..0 | A<sub>rms</sub> | RMS current in motor Phase B.|
+| __Variable__      |   __Bits__    | __Units__         | __Description__                   | 
+|-------------------|---------------|-------------------|-----------------------------------|
+| Phase C Current   | 63..32        | A<sub>rms</sub>   | RMS current in motor Phase C.     |
+| Motor Velocity    | 31..0         | A<sub>rms</sub>   | RMS current in motor Phase B.     |
 
 While the motor is rotating at speed these two currents should be equal. At extremely low commutation speeds these two currents will only match in one third of the motor position, the other two thirds will involve current also flowing in Phase A.
 
@@ -179,10 +171,10 @@ __ID: Motor Controller Base Address + 0x05__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Vd | 63..32 | V | Real component of the applied non-rotating voltage vector to the motor.|
-| Vq | 31..0 | V | Imaginary component of the applied non-rotating voltage vector to the motor. |
+| __Variable__  | __Bits__  | __Units__ | __Description__                                                               |
+|---------------|-----------|-----------|-------------------------------------------------------------------------------|
+| Vd            | 63..32    | V         | Real component of the applied non-rotating voltage vector to the motor.       |
+| Vq            | 31..0     | V         | Imaginary component of the applied non-rotating voltage vector to the motor.  |
 
 ### Motor Current Vector Measurement
 
@@ -190,10 +182,10 @@ __ID: Motor Controller Base Address + 0x06__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| Id | 63..32 | A | Real component of the applied non-rotating current vector to the motor.  This vector represents the field current of the motor.|
-| Iq | 31..0 | A | Imaginary component of the applied non-rotating current vector to the motor.  This current produces torque in the motor and should be in phase with the back-EMF of the motor. |
+| __Variable__  | __Bits__  | __Type__  | __Description__ |
+|---------------|-----------|-----------|-----------------|
+| Id            | 63..32    | A         | Real component of the applied non-rotating current vector to the motor.  This vector represents the field current of the motor.|
+| Iq            | 31..0     | A         | Imaginary component of the applied non-rotating current vector to the motor.  This current produces torque in the motor and should be in phase with the back-EMF of the motor. |
 
 ### Motor BackEMF Measurement/Prediction
 
@@ -201,10 +193,10 @@ __ID: Motor Controller Base Address + 0x07__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| BEMFd | 63..32 | V | By definition this value is always 0V.|
-| BEMFq | 31..0 | V | The peak of the phase to neutral motor voltage. |
+| __Variable__  | __Bits__  | __Type__  | __Description__                                   | 
+|---------------|-----------|-----------|---------------------------------------------------|
+| BEMFd         | 63..32    | V         | By definition this value is always 0V.            |
+| BEMFq         | 31..0     | V         | The peak of the phase to neutral motor voltage.   |
 
 ### 15V Voltage Rail Measurement
 
@@ -212,10 +204,10 @@ __ID: Motor Controller Base Address + 0x08__
 
 __Interval: 1 second__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| 15V supply | 63..32 | V | Actual voltage level of the 15V power rail.|
-| Reserved | 31..0 | - | - |
+| __Variable__  |   __Bits__    | __Type__  | __Description__                               |
+|---------------|---------------|-----------|-----------------------------------------------|
+| 15V supply    | 63..32        | V         | Actual voltage level of the 15V power rail.   |
+| Reserved      | 31..0         | -         | -                                             |
 
 ### 3.3V & 19.V Voltage Rail Measurement
 
@@ -223,10 +215,10 @@ __ID: Motor Controller Base Address + 0x09__
 
 __Interval: 1 second__
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| 3.3V supply | 63..32 | V | Actual voltage level of the 3.3V power rail.|
-| 1.9V supply | 31..0 | V | Actual voltage level of the 1.9V DSP power rail. |
+| __Variable__  | __Bits__  | __Type__  | __Description__                                   |
+|---------------|-----------|-----------|---------------------------------------------------|
+| 3.3V supply   | 63..32    | V         | Actual voltage level of the 3.3V power rail.      |
+| 1.9V supply   | 31..0     | V         | Actual voltage level of the 1.9V DSP power rail.  |
 
 ### Reserved
 
@@ -234,10 +226,10 @@ __ID: Motor Controller Base Address + 0x0A__
 
 __Interval: -__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| Reserved | 63...32 | - | - |
-| Reserved | 31...0 | - | - |
+| __Variable__  | __Bits__  | __Type__  | __Description__   |
+|---------------|-----------|-----------|-------------------|
+| Reserved      | 63...32   | -         | -                 |
+| Reserved      | 31...0    | -         | -                 |
 
 ### IMP Phase A & Motor Temperature Measurement 
 
@@ -245,10 +237,10 @@ __ID: Motor Controller Base Address + 0x0B__
 
 __Interval: 1 second__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| IMP Phase A Temp | 63...32 | °C | Internal temperature of phase A in main IPM.|
-| Motor Temp | 31...0 | °C | Internal temperature of the motor. |
+| __Variable__      | __Bits__  | __Type__  | __Description__                               |
+|-------------------|-----------|-----------|-----------------------------------------------|
+| IMP Phase A Temp  | 63...32   | °C        | Internal temperature of phase A in main IPM.  |
+| Motor Temp        | 31...0    | °C        | Internal temperature of the motor.            |
 
 ### IMP Phase B & DSP Board Temperature Measurement
 
@@ -256,10 +248,10 @@ __ID: Motor Controller Base Address + 0x0C__
 
 __Interval: 1 second__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| IMP Phase B Temp | 63...32 | °C | Internal temperature of phase B in main IPM.|
-| DSP Board Temp | 31...0 | °C | Temperature of the DSP board. |
+| __Variable__      | __Bits__  | __Type__  | __Description__                               |
+|-------------------|-----------|-----------|-----------------------------------------------|
+| IMP Phase B Temp  | 63...32   | °C        | Internal temperature of phase B in main IPM.  |
+| DSP Board Temp    | 31...0    | °C        | Temperature of the DSP board.                 |
 
 ### IMP Phase C Temperature Measurement 
 
@@ -267,10 +259,10 @@ __ID: Motor Controller Base Address + 0x0D__
 
 __Interval: 1 second__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| IMP Phase C Temp | 63...32 | °C | Internal temperature of phase C in main IPM.|
-| Reserved | 31...0 | °C | - |
+| __Variable__      | __Bits__  | __Type__  | __Description__                               |
+|-------------------|-----------|-----------|-----------------------------------------------|
+| IMP Phase C Temp  | 63...32   | °C        | Internal temperature of phase C in main IPM.  |
+| Reserved          | 31...0    | °C        | -                                             |
 
 ### Odometer & Bus AmpHours Measurement
  
@@ -278,10 +270,10 @@ __ID: Motor Controller Base Address + 0x0E__
 
 __Interval: 1 second__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| DC Bus AmpHours | 63...32 | Ah | Charge flow into the controller DC bus from the time of reset.|
-| Odometer | 31...0 | m | Distance the vehicle has travelled since reset|
+| __Variable__      | __Bits__  | __Type__  | __Description__                                                   |
+|-------------------|-----------|-----------|-------------------------------------------------------------------|
+| DC Bus AmpHours   | 63...32   | Ah        | Charge flow into the controller DC bus from the time of reset.    |
+| Odometer          | 31...0    | m         | Distance the vehicle has travelled since reset                    |
 
 ### Slip Speed Measurement 
 
@@ -289,10 +281,10 @@ __ID: Motor Controller Base Address + 0x17__
 
 __Interval: 200ms__ 
 
-| __Variable__    |   __Bits__ | __Type__ | __Description__  
-|----------------------------------------------------|
-| Slip Speed | 63..32 | Hz | Slip speed when driving an induction motor.|
-| Reserved | 31..0 | °C | - |
+| __Variable__  | __Bits__  | __Type__  | __Description__                               |
+|---------------|-----------|-----------|-----------------------------------------------|
+| Slip Speed    | 63..32    | Hz        | Slip speed when driving an induction motor.   |
+| Reserved      | 31..0     | °C        | -                                             |
 
 ## Configuration Commands
 
@@ -300,15 +292,13 @@ __Interval: 200ms__
 
 __ID: Motor Control Base Address + 0x12__ 
 
-| __Variable__    |   __Bits__ | __Units__ | __Description__  
-|----------------------------------------------------|
-| Active Motor | 63..48 | WORD | Desired active motor (0 to 9)|
-| Configuration Access Key | 47..0 | ASCII | Must spell “ACTMOT” in ASCII (0x54 4F 4D 54 43 41) |
+| __Variable__              | __Bits__  | __Units__ | __Description__                                       |
+|---------------------------|-----------|-----------|-------------------------------------------------------|
+| Active Motor              | 63..48    | WORD      | Desired active motor (0 to 9)                         |
+| Configuration Access Key  | 47..0     | ASCII     | Must spell “ACTMOT” in ASCII (0x54 4F 4D 54 43 41)    |
 
 Send this command to change the active motor. Note that the controller will save the active motor to the EEPROM config memory, so what you send will survive a reset. This has a downside that you do not want to be sending it constantly, as you'll wear out the EEPROM.
 
 Example to set the active motor to motor slot 5:
 
 __CAN ID = 0x412, Data = 0x00 05 54 4F 4D 54 43 41__
-
-

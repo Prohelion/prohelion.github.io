@@ -18,36 +18,28 @@ The CAN hardware interface used is compatible with the CAN 2.0B standard.  The s
 
 The CAN protocol uses data frames for most communication.  Remote frames are also enabled.  The identifier field uses the standard frame definition length of 11 bits. All measurement data is transmitted using IEEE single-precision 32-bit format (IEEE 754) with most significant byte (MSB) sent first.
 
-|Bit Length	|1	|11	|6	|8 Bytes	|16	|2	|7|
-||	Start	|Identifier	|Control	|Data Field	|CRC	|Ack	|End|
-
-Figure 1. CAN Data frame (todo)
+<figure markdown>
+![Figure 1. CAN Data frame](./images/Figure1.png)
+<figcaption>Figure 1. CAN Data frame</figcaption>
+</figure>
 
 ### Identifier
 
 The identifier field has been split into two sections for Prohelion devices. Bits 10-5 contain the device identifier and bits 4-0 contains the message identifier associated with that device, as shown in Figure 2. This means that there is a maximum of 63 Prohelion device that can be on the CAN bus at any one time. The 64th location is reserved for the bootloader. Each Prohelion device can have 31 different types of messages. The first message identifier is used by the device identification message. Two device slots could be used if more messages per device were required, however this has not been required yet.
 
-
-|10-5|4-0|
-| Device Identifier | Message Identifier |
-
-Figure 2. CAN Device Identifier Address Format (todo)
+<figure markdown>
+![Figure 2. CAN Device Identifier Address Format](./images/Figure2.png)
+<figcaption>Figure 2. CAN Device Identifier Address Format</figcaption>
+</figure>
 
 ### Data Field
 
 The data field in all frames is fixed at 8 bytes (64 bits) and two IEEE 754 32-bit floating point variables as shown in Figure 3.  The data field is sent and expected to be received least significant bite first. This allows a direct overlay of a float[2] array and char[8] array on a little endian processor, such as, an Intel x86 (or clone) or the TI MSP430 in the driver controls.
 
-|__High Float__|||
-|s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
-|^|^^^|^|
-|63|62 55 54|32|
-
-|__Low Float__|||
-|s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
-|^|^^^|^|
-|31|30 23 22|0|
-
-Figure 3. Format of the data field in a data frame (???) (todo)
+<figure markdown>
+![Figure 3. Format of the data field in a data frame](./images/Figure3.png)
+<figcaption>Figure 3. Format of the data field in a data frame</figcaption>
+</figure>
 
 ### Units
 
@@ -62,6 +54,3 @@ The driver controls also provide a convenient interface for a variety of switche
 ### Remote Frames
 
 All frame types sent by the driver controls may also be requested on demand by using the CAN bus remote frame transmit (RTR) mechanism.  This is accomplished by the remote device transmitting a frame containing the address (ID) of the frame request, with the RTR bit set.  The driver controls will reply with the requested packet after a short delay.  This mechanism is independent of the timer-based output of control frames from the driver controls.
-
-
-

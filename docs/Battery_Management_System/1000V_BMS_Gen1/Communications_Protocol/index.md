@@ -8,9 +8,7 @@ order: 0
 
 This document describes the communications protocol used between the [Battery Management Unit](http://localhost:4000/Battery_Management_System/User_Manual/index.md) (BMU) and the vehicle in the Prohelion Battery Management System (BMS).  
 
-Internal communications between the BMS BMU and BMS CMUs are described in another [document]??? (TRI67.009) but should not be needed for a typical end-user.
-
----
+Internal communications between the BMS BMU and BMS CMUs are available from Prohelion Support but should not be needed for a typical end-user.  If you require this protocol information, please log a support request via the [Prohelion Support System](https://prohelion.atlassian.net/servicedesk/customer/portals).
 
 The BMS CMUs communicate with each other and with the BMU using a CAN bus that is separate from the vehicle CAN bus.
 
