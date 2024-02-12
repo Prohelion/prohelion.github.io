@@ -30,7 +30,10 @@ If you are using a conventional gearbox to perform reversing, then you can leave
 
 The vehicle control connector is a female DB37 socket.  The following illustration shows the pinout as viewed when looking into the driver controls, the same view you have when soldering or inserting crimps into the rear of a mating connector housing.
 
+<figure markdown>
 ![Vehicle Control Connector](images/Vehicle_Control_Connections.png)
+<figcaption>Vehicle Control Connector</figcaption>
+</figure>
 
 All ground pins on the connector are identical, and connected together internally to the driver controls.  They are provided separately on the connector to simplify wiring, as a ground can be run out from the driver controls along with the bundle of other wires going to each input or output device.
 

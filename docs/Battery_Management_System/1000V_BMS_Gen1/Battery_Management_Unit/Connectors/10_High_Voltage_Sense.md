@@ -35,8 +35,8 @@ The connector used for the HV Sense is a 10-way 4.2mm pitch Molex MiniFit Jr con
 
 | Sense                 | Location                     |               
 | --------------------- | ---------------------------- |
-| `Vehicle HV+ Sense`   | Vehicle side of Contractor 2 | 
-| `Battery HV+ Sense`   | Battery side of Contractor 2 |
+| `Vehicle HV+ Sense`   | Vehicle side of Contactor 2 | 
+| `Battery HV+ Sense`   | Battery side of Contactor 2 |
 | `Battery HV- Sense`   | Battery side of 25mV Shunt   |             
 | `Shunt A`             | Vehicle side of 25mV Shunt   |          
 | `Shunt B`             | Battery side of 25mV Shunt   |       

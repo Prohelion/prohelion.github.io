@@ -36,7 +36,7 @@ The WaveSculptor motor controller must receive a Motor Drive Command frame at le
 
 ### Motor Power Command
 
-| ID:           | Driver Controls Base Address + 02 - Interval 100ms or as needed | | | 
+| ID:           | Driver Controls Base Address + 02 - Interval 100ms or as needed  | | | 
 |---------------|--------|---|-------------------------------------------------------|
 | `Bus Current` | 63..32 | % | Desired set point of current drawn from the bus by the controller as a percentage of absolute bus current limit.                                                          |
 | `Reserved`    | 31..0  | - | -                                                     |
@@ -53,10 +53,6 @@ Send a command from this address to reset the WaveSculptor.
 ## Switch Commands
 
 ### Switch position / activity
-
-__ID: Driver Controls Base Address + 04__ 
-
-__Interval: 100ms__ 
 
 | ID:               | Driver Controls Base Address + 04 - Interval 100ms | | | 
 |-------------------|--------|--------|--------------------------------------|

@@ -14,10 +14,10 @@ The CAN hardware interface used is compatible with the CAN 2.0B standard.  The s
 
 The CAN protocol uses data frames for most communication.  Remote frames are also enabled.  The identifier field uses the standard frame definition length of 11 bits, with identifiers 0x7F0 to 0x7FF reserved for use by the WaveSculptor bootloader. The bootloader will send a message with identifier 0x7F1 at 500kbit after a system reset. All measurement data is transmitted using IEEE single-precision 32-bit format (IEEE 754) with most significant byte (MSB) sent first.
 
-|Bit Length	|1	|11	|6	|8 Bytes	|16	|2	|7|
-||	Start	|Identifier	|Control	|Data Field	|CRC	|Ack	|End|
-
-Figure 1. CAN Data frame (TODO)
+<figure markdown>
+![Figure 1. CAN Data frame](./images/Figure1.png)
+<figcaption>Figure 1. CAN Data frame</figcaption>
+</figure>
 
 ### Identifier
 
@@ -25,27 +25,19 @@ The identifier field has been split into two sections for Prohelion devices. Bit
 
 The term Base Address is used instead of Device Identifier in the Windows configuration program. Base Address is simply the Device Identifier multiplied by 32. Using this term makes it more obvious what range of CAN identifiers have been used. As an example, there may be a Prohelion driver controls at base address 0x400, a left wheel WaveSculptor motor controller at 0x420 and a right wheel WaveSculptor motor controller at 0x440. So, address range 0x400 – 0x45F would be used by this Prohelion system.
 
-
-|10-5|4-0|
-| Device Identifier | Message Identifier |
-
-Figure 2. CAN Device Identifier Address Format (TODO)
+<figure markdown>
+![Figure 2. CAN Device Identifier Address Format](./images/Figure2.png)
+<figcaption>Figure 2. CAN Device Identifier Address Format</figcaption>
+</figure>
 
 ### Data Field 
 
 The data field in all frames is fixed at 8 bytes (64 bits) which allows space for two IEEE 754 32-bit floating point variables as shown in Figure 3.  The data field is sent and expected to be received least significant byte first. This allows a direct overlay of a float[2] array and char[8] array on a little endian processor, such as an Intel x86, the TI DSP in the WaveSculptor, or the MSP430 micro in the driver controls product.
 
-|__High Float__|||
-|s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
-|^|^^^|^|
-|63|62 55 54|32|
-
-|__Low Float__|||
-|s|eeeeeeee|mmmmmmmmmmmmmmmmmmmmmm|
-|^|^^^|^|
-|31|30 23 22|0|
-
-Figure 3. Format of the data field in a data frame (???) (todo)
+<figure markdown>
+![Figure 3. Format of the data field in a data frame](./images/Figure3.png)
+<figcaption>Figure 3. Format of the data field in a data frame</figcaption>
+</figure>
 
 ### Units 
 
@@ -104,7 +96,7 @@ Data frames containing telemetry values are periodically broadcast onto the bus 
 
 Any of these telemetry values can be requested at any time (no matter if enabled or disabled) by sending the appropriate RTR packet on the CAN bus.  For example, with a WaveSculptor22 configured at base address 0x400, your device should send an empty packet onto the CAN bus with an ID of 0x402 and the RTR bit set.  The WaveSculptor22 will reply immediately with a packet from ID 0x402 containing the latest bus voltage and current readings.
 
-### Identification Information 
+### Identification Information ??? Tables ???
 
 __ID: Motor Controller Base Address + 0x00__ 
 

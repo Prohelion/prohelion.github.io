@@ -18,7 +18,7 @@ Contactors without integrated electronics must have a diode fitted across their 
 
 The three contactors used to break the HV DC connections must be appropriately rated for the currents and voltages seen during both normal use and during fault situations.  Typical parts used in automotive sized packs are the Tyco EV200 or the __Gigavac GX11__ or __GX12 series__.  Selection of these parts is beyond the scope of this document. 
 
-## Contractor 12V Supply Connector
+## Contactor 12V Supply Connector
 
 The connector used for the Contactor 12V supply input is a 2-way 4.2mm pitch Molex MiniFit Jr connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps. 
 
@@ -28,8 +28,8 @@ The connector used for the Contactor 12V supply input is a 2-way 4.2mm pitch Mol
 </figure>
 
 <figure markdown>
-![Contractor 12V Input Connector](../../images/12V_Supply_Connector.png)
-<figcaption>Contractor 12V Input Connector</figcaption>
+![Contactor 12V Input Connector](../../images/12V_Supply_Connector.png)
+<figcaption>Contactor 12V Input Connector</figcaption>
 </figure>
 
 This connection should be wired to the vehicle 12V DC supply via the emergency stop switch (if fitted), the G-force impact switch, an optional HV disable switch, and a fuse.  It requires a low impedance connection to the vehicle battery, since most contactors draw a large current inrush during turn-on, and a poor connection will result in contactor chattering and/or precharge fault trips.   
@@ -46,6 +46,6 @@ The connectors used for the Contactor drive outputs are a 4-way 4.2mm pitch Mole
 </figure>
 
 <figure markdown>
-![Contractor Output Connector](../../images/Contactor_Output_Connectors.png)
-<figcaption>Contractor Output Connector</figcaption>
+![Contactor Output Connector](../../images/Contactor_Output_Connectors.png)
+<figcaption>Contactor Output Connector</figcaption>
 </figure>
