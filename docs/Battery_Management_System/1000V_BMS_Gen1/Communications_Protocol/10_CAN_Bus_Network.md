@@ -14,7 +14,7 @@ In the range of Prohelion EV products, including EV Driver Controls and BMU, the
 <figcaption>CAN Network Topology</figcaption>
 </figure>
 
-The BMU uses the vehicle CAN bus to receive operating and configuration commands and transmit telemetry, as well as a source of low-voltage DC power to operate the electronics. 
+The BMU uses the CAN bus network to receive operating and configuration commands and transmit telemetry, as well as a source of low-voltage DC power to operate the electronics. 
 
 ## CAN Wiring
 
@@ -24,7 +24,7 @@ Power should also be provided along the CAN cable, ideally with another twisted 
 
 The optimal choice of cable is 7mm Devicenet CANbus 'thin' cable, with 24AWG (data) + 22AWG (power) twisted pairs and a braided shield.  Using this cable will result in a robust installation, with high immunity to noise, low voltage drop in the power cable, and reliable CAN communications.  Using alternative cabling will usually result in problems during operation. 
 
-## Vehicle CAN Bus Connectors
+## CAN Bus Connectors
 
 The connector used on the BMU and other Prohelion devices for the CAN connection is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs. 
 

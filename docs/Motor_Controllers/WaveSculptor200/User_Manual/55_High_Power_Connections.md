@@ -47,7 +47,6 @@ The positions of the busbars for the various connections are shown in the diagra
 
 ![busbars position](images/high_power_connections2.png)
 
-
 ## Testing
 
 At this point, do not connect the other end of the high power DC NEG and DC POS cables to your precharge circuit or batteries.  You will need to connect them to a low-voltage supply of power for initial testing, which is detailed in the [Motor Setup & Testing](60_Motor_Setup_And_Testing.md) section of this document.
@@ -77,10 +76,3 @@ Prohelion recommends that the CAN bus be operated at the system ground potential
 The battery ground, high-voltage DC connections, and motor phases should be isolated from the vehicle chassis. This is so that a single fault anywhere in the high voltage system will not result in a high voltage potential being present between any wiring and the chassis of the vehicle.
 
 Please refer to any relevant regulations governing this type of connection, such as (in Australia) the NCOP14 standard for EV conversions.
-
-
-
-
-
-
-

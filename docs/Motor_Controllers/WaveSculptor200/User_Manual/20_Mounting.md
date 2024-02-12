@@ -36,5 +36,3 @@ The WaveSculptor is mounted with a three-point mount using rubber standoffs to h
 ![WaveSculptor 200 Motor Controller](images/dimensions_and_tolerances.png)
 
 Three M6 thread shoulder screws and washers are provided with the controller for mounting purposes, and the shoulder design means that when fully tightened, the rubber grommet compression is correct – the shoulder on the screw prevents over-compressing the grommet.  Tighten these screws to 10Nm, using Loctite 243 or similar retaining compound to prevent them working loose.
-
-

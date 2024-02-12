@@ -53,6 +53,8 @@ The identifier of a received command will contain the base address of the device
 
 __ID: Driver Controls Base Address + 0x01__ 
 
+__Interval: 100ms__ 
+
 | __Variable__      |   __Bits__    | __Units__ | __Description__                                                               |
 |-------------------|---------------|-----------|-------------------------------------------------------------------------------|
 | Motor Current     | 63..32        | %         | Desired motor current set point as a percentage of maximum current setting    |
@@ -63,6 +65,8 @@ The WaveSculptor motor controller must receive a Motor Drive Command frame at le
 ### Motor Power Command
 
 __ID: Driver Controls Base Address + 0x02__ 
+
+__Interval: 100ms__ 
 
 | __Variable__      |   __Bits__    | __Units__ | __Description__   |
 |-------------------|---------------|-----------|-------------------|
@@ -78,7 +82,7 @@ __ID: Driver Controls Base Address + 0x03__
 | Unused            | 63..32        | -         | -                 |
 | Unused            | 31..0         | -         | -                 |
 
-Send a command from this address to reset the software in the WaveSculptor.
+Send a command from this address to reset the software in the WaveSculptor, not used during normal operation, but can be used to reset the device if necessary.
 
 ## Drive Command Examples
 

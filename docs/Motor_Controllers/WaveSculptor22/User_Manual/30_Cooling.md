@@ -16,12 +16,11 @@ The aim of the cooling solution provided by the end user is to keep the WaveScul
 
 The power electronic switching devices in the WaveSculptor are MOSFETs, and the majority of loss in the motor controller comes from these devices.
 
-
 All of these losses have a very strong relationship to input voltage and output current, and only a weak relationship (via ripple current) to output voltage.  This is an extremely useful observation for those wanting to produce a simple model of the losses in a MOSFET based motor controller.
 
 ### Test Methodology
 
-To produce the efficiency curves in the [datasheet](http://localhost:4000/WaveSculptor_Motor_Controllers/Datasheet/index.md), and the modelling information in this document, the switching losses in the WaveSculptor were measured directly, by analysing the current and voltage switching waveforms.  
+To produce the efficiency curves in the [datasheet](../Datasheet/index.md), and the modelling information in this document, the switching losses in the WaveSculptor were measured directly, by analysing the current and voltage switching waveforms.  
 
 Conduction losses were simply derived from the measured phase to phase resistance of the WaveSculptor.
 
@@ -41,12 +40,12 @@ P<sub>loss</sub> = R<sub>eq</sub>I<sub>o</sub><sup>2</sup> + (αI<sub>o</sub> + 
 
 where:
 
-*   I<sub>o</sub>: is the output current of the controller in A<sub>rms</sub>
-*   V<sub>bus</sub>: is the bus voltage (battery voltage) of the controller
-*   R<sub>eq</sub>: is the equivalent resistance of the entire controller
-*   α: is the linear component of the switching loss (per unit of bus voltage)
-*   β: is the constant component of the switching loss (per unit of bus voltage)
-*   C𝑓<sub>eq</sub>: is the equivalent capacitance * frequency product of the entire controller
+- I<sub>o</sub>: is the output current of the controller in A<sub>rms</sub>
+- V<sub>bus</sub>: is the bus voltage (battery voltage) of the controller
+- R<sub>eq</sub>: is the equivalent resistance of the entire controller
+- α: is the linear component of the switching loss (per unit of bus voltage)
+- β: is the constant component of the switching loss (per unit of bus voltage)
+- C𝑓<sub>eq</sub>: is the equivalent capacitance * frequency product of the entire controller
 
 The table below gives the constants for WaveSculptor22:
 
@@ -95,7 +94,8 @@ Alternatively, other types of system such as one using a small volume of circula
 
 ## Mechanical Interface 
 
-The WaveSculptor provides a large flat surface to attach to your cooling solution.  Refer to the [mechanical drawing](http://localhost:4000/assets/pdfs/WaveSculptor_Motor_Controllers/PHLN-3000-0036%20enclosure%20subassembly.pdf) for dimensions and details.
+The WaveSculptor provides a large flat surface to attach to your cooling solution.  Refer to the [mechanical drawing](../pdfs/PHLN-3000-0036%20enclosure%20subassembly.pdf) for dimensions and details.
+
 Use a thin layer of thermal grease or conformable thermal gap filler pad to fill any air gaps between the WaveSculptor cold plate and your heatsink, and provide the best thermal path between the two.  This material is not required to be electrically insulating.
 
 Attach the heatsink to the cold plate using eight M4 screws threading into the tapped inserts in the motor controller base, making certain to note the maximum screw depth specified in the [datasheet](../Datasheet//index.md).  

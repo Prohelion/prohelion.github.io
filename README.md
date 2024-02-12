@@ -14,9 +14,12 @@ As per the instructions you will need to install, mkdocs material
 
 pip install mkdocs-material
 
-And also gLightBox
+And also the following additional tools
 
+pip install mkdocs-awesome-pages-plugin
 pip install mkdocs-glightbox
+pip install mkdocs-spellcheck
+pip install symspellpy
 
 # Publishing the documentation
 

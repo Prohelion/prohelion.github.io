@@ -40,5 +40,3 @@ You will require the following specialised tools for installing the WaveSculptor
 - [ ] Cable cutters
 - [ ] Hex lug or hydraulic crimp tool
 - [ ] Various electronics hand tools for low power cable cutting & stripping
-
-
