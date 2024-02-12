@@ -65,15 +65,13 @@ Remove the CAN cable and termination resistor from the CAN-Ethernet bridge, and 
 Provide 12V power to the driver controls.  Go through the startup sequence as described in the Driver Controls User's Manual.  Depending on the exact firmware you have this will usually involve turning the key to the start position, and selecting forward gear in the driver controls. 
 
 Use the accelerator (gas) pedal to run the motor.  Complete the following checks:
-*   Driving forwards
-*   Car coasts to a stop when accelerator pedal is lifted
-*   Driving in reverse
-*   Car coasts to a stop when accelerator pedal is lifted
-*   Appropriate action happens when brake pedal is pushed
-*   If your driver controls is configured to use regen, it works correctly in forwards
-*   If your driver controls is configured to use regen, it works correctly in reverse
-*   Selecting Neutral on the driver controls makes the car coast to a stop
-*   Turning off the key makes the car coast to a stop
 
-
-
+- [ ] Driving forwards
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ] Driving in reverse
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ] Appropriate action happens when brake pedal is pushed
+- [ ] If your driver controls is configured to use regen, it works correctly in forwards
+- [ ] If your driver controls is configured to use regen, it works correctly in reverse
+- [ ] Selecting Neutral on the driver controls makes the car coast to a stop
+- [ ] Turning off the key makes the car coast to a stop

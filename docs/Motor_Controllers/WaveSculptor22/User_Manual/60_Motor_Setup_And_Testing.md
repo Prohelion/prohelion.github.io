@@ -16,7 +16,7 @@ A suitable low voltage supply is a pair of 12V batteries in series.  Make sure t
 
 Run the PC software, and provide 12V along the CAN cable to power up the motor controller electronics.  You should see telemetry values updating on the PC.  Connect the 24V to the high power section of the motor controller.  You should see the reported battery voltage on the PC show the correct value.
 
-If you are using a BLDC or other permanent magnet motor, refer to the [software user's manual](http://localhost:4000/WaveSculptor_Motor_Controllers/WaveSculptor_Config_Software_User_Manual/index.md) for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.
+If you are using a BLDC or other permanent magnet motor, refer to the [software user's manual](../../Config_Software/index.md) for the procedure to run PhasorSense.  This routine identifies the relationship between motor phases and hall position sensors.
 
 Next, run the parameter extraction routine, which calculates motor parameters.  Save the results into one of the ten available motor configuration slots.  In the general configuration screen, set this motor slot as the “Active Motor”.
 
@@ -56,18 +56,19 @@ If using batteries, now test regen braking.  Set velocity to 100%.  Gradually in
 
 Remove the CAN cable and termination resistor from the CAN-Ethernet bridge, and connect them both to the EV Driver Controls hardware.  
 
-Provide 12V power to the driver controls.  Go through the startup sequence as described in the [Driver Controls User's Manual](http://localhost:4000/Electric_Vehicle_Driver_Controls/EV_Driver_Controls_User_Manual/index.md).  Depending on the exact firmware you have this will usually involve turning the key to the start position, and selecting forward gear in the driver controls. 
+Provide 12V power to the driver controls.  Go through the startup sequence as described in the [Driver Controls User's Manual](../../../Driver_Control/User_Manual/index.md).  Depending on the exact firmware you have this will usually involve turning the key to the start position, and selecting forward gear in the driver controls. 
 
 Use the accelerator (gas) pedal to run the motor.  Complete the following checks:
-- Driving forwards
-- Car coasts to a stop when accelerator pedal is lifted
-- Driving in reverse
-- Car coasts to a stop when accelerator pedal is lifted
-- Appropriate action happens when brake pedal is pushed
-- If your driver controls is configured to use regen, it works correctly in forwards
-- If your driver controls is configured to use regen, it works correctly in reverse
-- Selecting Neutral on the driver controls makes the car coast to a stop
-- Turning off the key makes the car coast to a stop
+
+- [ ] Driving forwards
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ] Driving in reverse
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ] Appropriate action happens when brake pedal is pushed
+- [ ] If your driver controls is configured to use regen, it works correctly in forwards
+- [ ] If your driver controls is configured to use regen, it works correctly in reverse
+- [ ] Selecting Neutral on the driver controls makes the car coast to a stop
+- [ ] Turning off the key makes the car coast to a stop
 
 ## High Power Testing
 
@@ -84,15 +85,12 @@ Move the CAN cable and termination resistor from the hardware driver controls an
 Reconnect the CAN cable and termination resistor to the hardware driver controls.  Run through the same checks as listed above in the 24V driver controls hardware testing.  
 
 Test at least the following functionality:
-- Driving forwards
-- Car coasts to a stop when accelerator pedal is lifted
-- Driving in reverse
-- Car coasts to a stop when accelerator pedal is lifted
-- Appropriate action happens when brake pedal is pushed
-- If your driver controls is configured to use regen, it works correctly in forwards
-- If your driver controls is configured to use regen, it works correctly in reverse
-- Selecting Neutral on the driver controls makes the car coast to a stop
-- Turning off the key makes the car coast to a stop
-
-
-
+- [ ] Driving forwards
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ]  Driving in reverse
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ] Appropriate action happens when brake pedal is pushed
+- [ ] If your driver controls is configured to use regen, it works correctly in forwards
+- [ ] If your driver controls is configured to use regen, it works correctly in reverse
+- [ ] Selecting Neutral on the driver controls makes the car coast to a stop
+- [ ] Turning off the key makes the car coast to a stop

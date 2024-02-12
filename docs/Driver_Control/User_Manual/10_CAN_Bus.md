@@ -15,7 +15,9 @@ In the range of Prohelion EV products, including the WaveSculptor 200, EV Driver
 </figure>
 
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
+
 Therefore, a basic system consists of three major components:
+
 1.	WaveSculptor motor controller
 2.	Driver controls interface to pedals, switches & gauges
 3.	Power supply (nominally 12V DC) to operate the system

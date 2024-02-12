@@ -46,7 +46,7 @@ Refer to the relevant sections of this document for more details on the pinout a
 
 The HV Sense connection is isolated from the remainder of the BMU with an isolation barrier rated for 1000V DC.  This allows the HV battery pack to be fully floating from the vehicle chassis, as is required by most EV construction standards (eg NCOP14 in Australia). 
 
-The remainder of the BMU operates relative to the GND supplied along the vehicle CAN bus connection, and this must be tied to the vehicle chassis at some point in the system. 
+The remainder of the BMU operates relative to the GND supplied along the CAN bus connection, and this must be tied to the vehicle chassis at some point in the system. 
 
 ## Indicators
 

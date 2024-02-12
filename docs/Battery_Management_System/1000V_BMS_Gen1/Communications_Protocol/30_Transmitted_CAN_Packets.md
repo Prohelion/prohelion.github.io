@@ -19,7 +19,7 @@ This packet is transmitted by the BMU and allows it to be located and identified
 
 ## CMU Status, Temperature and Voltage Telemetry
 
-These packets are transmitted by the CMUs and contain the telemetry values from the cells.  The BMU will relay these packets through to the vehicle CAN bus if configured to do so – this is enabled by default.
+These packets are transmitted by the CMUs and contain the telemetry values from the cells.  The BMU will relay these packets through to the CAN bus if configured to do so – this is enabled by default.
 
 Each CMU transmits a group of three packets, with the ID of the first packet being granted by the BMU during the ID request/grant phase at start-up.  
 
@@ -79,9 +79,6 @@ This packet is transmitted by the BMU to show the current state of cell mismatch
 
 This packet is transmitted by the BMU to allow an external charger to control itself based in detailed cell information from the BMS, without having to know about the various user-configured cell setup parameters.
 
-__CAN ID: 0x6F6 __
-
-__Interval: 10Hz__
 
 | CAN ID:      | 0x6F6 - Interval: 10Hz                                                                             |
 |--------------|----------------------------------------------------------------------------------------------------|

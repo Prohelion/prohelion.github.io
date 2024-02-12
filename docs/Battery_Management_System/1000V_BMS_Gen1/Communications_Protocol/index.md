@@ -6,11 +6,11 @@ order: 0
 
 # BMS BMU Vehicle Communications Protocol
 
-This document describes the communications protocol used between the [Battery Management Unit](http://localhost:4000/Battery_Management_System/User_Manual/index.md) (BMU) and the vehicle in the Prohelion Battery Management System (BMS).  
+This document describes the communications protocol used between the [Battery Management Unit](../Battery_Management_Unit/index.md) (BMU) and the vehicle in the Prohelion Battery Management System (BMS).  
 
 Internal communications between the BMS BMU and BMS CMUs are available from Prohelion Support but should not be needed for a typical end-user.  If you require this protocol information, please log a support request via the [Prohelion Support System](https://prohelion.atlassian.net/servicedesk/customer/portals).
 
-The BMS CMUs communicate with each other and with the BMU using a CAN bus that is separate from the vehicle CAN bus.
+The BMS CMUs communicate with each other and with the BMU using a CAN bus that is separate from the main system CAN bus.
 
 The BMU collates and summarises data from the CMUs, including minimum and maximum cell voltages and temperatures, and interfaces to the vehicle on a second CAN bus.  This is the communications link detailed in this document.
 
@@ -22,4 +22,6 @@ The CMUs use two redundant measurement channels to take cell voltage readings an
 
 The BMU measures additional data itself: total pack voltage on either side of the pre-charge contactor, total pack current from a shunt, pack isolation from the vehicle, the status of the pre-charge control, and the presence of the 12V supply voltage for the contactors.  
 
-This data, along with the minimum and maximum cell voltage and temperature, is reported by the BMU onto the vehicle CAN bus.  The BMU can also echo the individual cell voltage and temperature data to the vehicle CAN bus, if configured to do so.
+This data, along with the minimum and maximum cell voltage and temperature, is reported by the BMU onto the main system CAN bus.  
+
+The BMU can also echo the individual cell voltage and temperature data to the main system CAN bus, if configured to do so.

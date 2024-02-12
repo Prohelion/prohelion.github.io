@@ -22,13 +22,12 @@ Reconnect the CAN cable and termination resistor to the hardware driver controls
 
 Test at least the following functionality:
 
-*   Driving forwards
-*   Car coasts to a stop when accelerator pedal is lifted
-*   Driving in reverse
-*   Car coasts to a stop when accelerator pedal is lifted
-*   Appropriate action happens when brake pedal is pushed
-*   If your driver controls is configured to use regen, it works correctly in forwards
-*   If your driver controls is configured to use regen, it works correctly in reverse
-*   Selecting Neutral on the driver controls makes the car coast to a stop
-*   Turning off the key makes the car coast to a stop
-
+- [ ] Driving forwards
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ] Driving in reverse
+- [ ] Car coasts to a stop when accelerator pedal is lifted
+- [ ] Appropriate action happens when brake pedal is pushed
+- [ ] If your driver controls is configured to use regen, it works correctly in forwards
+- [ ] If your driver controls is configured to use regen, it works correctly in reverse
+- [ ] Selecting Neutral on the driver controls makes the car coast to a stop
+- [ ] Turning off the key makes the car coast to a stop
