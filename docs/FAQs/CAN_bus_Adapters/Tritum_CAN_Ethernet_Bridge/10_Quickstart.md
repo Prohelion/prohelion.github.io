@@ -1,6 +1,5 @@
 ---
 title: Bridge Quickstart
-order: 1
 ---
   
 ## Tritium Bridge Quickstart

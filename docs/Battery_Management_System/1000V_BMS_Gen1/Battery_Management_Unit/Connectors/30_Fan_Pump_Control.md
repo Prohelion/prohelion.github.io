@@ -1,7 +1,6 @@
 ---
 title: Fan / Pump Control
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 17
 ---
 
 # Fan / Pump Control

@@ -1,7 +1,6 @@
 ---
 title: Operating Thresholds
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 13
 ---
 
 # Operating Thresholds

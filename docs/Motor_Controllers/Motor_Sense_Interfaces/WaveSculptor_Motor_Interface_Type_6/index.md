@@ -1,7 +1,6 @@
 ---
 title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 0
 ---
 
 # WaveSculptor Motor Interface Type 6: Encoder and Thermistor 

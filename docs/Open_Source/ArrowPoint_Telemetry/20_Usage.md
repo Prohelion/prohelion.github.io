@@ -1,6 +1,5 @@
 ---
 title: Basic Usage
-order: 3
 ---
 
 ## Telemetry System Usage

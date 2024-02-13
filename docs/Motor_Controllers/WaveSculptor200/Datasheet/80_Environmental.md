@@ -1,7 +1,6 @@
 ---
 title: Environmental
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 8
 ---
 
 # Environmental

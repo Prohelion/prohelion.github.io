@@ -1,7 +1,6 @@
 ---
 title: Construction Procedure
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 2
 ---
 
 # Construction Procedure

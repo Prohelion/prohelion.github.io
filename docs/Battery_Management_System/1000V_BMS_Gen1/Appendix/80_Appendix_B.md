@@ -1,7 +1,6 @@
 ---
 title: Component Sources
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 3
 ---
 
 # Recommended Component Sources

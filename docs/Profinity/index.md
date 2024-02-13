@@ -1,6 +1,5 @@
 ---
 title: Profinity Overview
-order: 0
 ---
 
 # Prohelion Profinity

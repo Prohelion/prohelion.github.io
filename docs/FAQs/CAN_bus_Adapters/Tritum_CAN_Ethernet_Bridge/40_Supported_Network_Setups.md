@@ -1,6 +1,5 @@
 ---
 title: Supported Network Setups
-order: 4
 ---
 
 ## Supported Network Setups

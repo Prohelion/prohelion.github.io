@@ -1,7 +1,6 @@
 ---
 title: High Power Connections
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 10
 ---
 
 # High Power Connections

@@ -1,6 +1,5 @@
 ---
 title: CAN Bus Adapters
-order: 3
 ---
 
 # CAN Bus Adapters

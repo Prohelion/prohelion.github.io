@@ -1,7 +1,6 @@
 ---
 title: Appendix C - CAN Comms Protocol
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 13
 ---
 
 # Appendix C: CAN Communications Protocol

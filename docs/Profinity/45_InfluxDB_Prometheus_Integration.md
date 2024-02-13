@@ -1,6 +1,5 @@
 ---
 title: InfluxDB / Prometheus
-order: 8
 ---
 
 # InfluxDB and Prometheus Logging

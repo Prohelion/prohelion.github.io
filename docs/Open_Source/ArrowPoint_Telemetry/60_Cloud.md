@@ -1,6 +1,5 @@
 ---
 title: Cloud Configuration
-order: 12
 ---
 
 ## Cloud Configuration

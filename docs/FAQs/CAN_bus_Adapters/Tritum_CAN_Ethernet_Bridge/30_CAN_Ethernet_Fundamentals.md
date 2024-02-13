@@ -1,6 +1,5 @@
 ---
 title: CAN & Ethernet Fundamentals
-order: 3
 ---
 
 # CAN Bus vs Ethernet

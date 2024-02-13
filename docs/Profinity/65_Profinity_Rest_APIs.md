@@ -1,6 +1,5 @@
 ---
 title: Rest APIs & Hosting
-order: 12
 ---
 
 # Rest APIs, Swagger and Hosting

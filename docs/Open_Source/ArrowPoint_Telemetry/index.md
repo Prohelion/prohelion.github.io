@@ -1,6 +1,5 @@
 ---
 title: ArrowPoint Telemetry
-order: 0
 ---
 
 The ArrowPoint Telemetry Solution is designed to provide telemetry capture and management information for managing a race car.

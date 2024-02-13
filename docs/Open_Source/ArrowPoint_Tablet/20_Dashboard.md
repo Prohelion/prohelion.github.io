@@ -1,6 +1,5 @@
 ---
 title: Dashboard
-order: 2
 ---
 
 ## ArrowPoint Dashboard

@@ -1,7 +1,6 @@
 ---
 title: Cell Management Unit
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 3
 ---
 
 # Cell Management Unit 

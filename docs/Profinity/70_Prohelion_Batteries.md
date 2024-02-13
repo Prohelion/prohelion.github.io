@@ -1,6 +1,5 @@
 ---
 title: Prohelion Batteries
-order: 13
 ---
 
 # Prohelion Batteries

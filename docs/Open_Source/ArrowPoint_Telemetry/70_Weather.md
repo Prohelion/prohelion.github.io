@@ -1,6 +1,5 @@
 ---
 title: Weather Integration
-order: 14
 ---
 
 ## Weather Integration

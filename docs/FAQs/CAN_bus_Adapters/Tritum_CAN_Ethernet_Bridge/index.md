@@ -1,6 +1,5 @@
 ---
 title: Tritium Bridge Overview
-order: 0
 ---
   
 ## Tritium CAN-Ethernet Bridge FAQ

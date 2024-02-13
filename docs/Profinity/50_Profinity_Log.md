@@ -1,6 +1,5 @@
 ---
 title: Profinity Log
-order: 10
 ---
 
 # Profinity Log

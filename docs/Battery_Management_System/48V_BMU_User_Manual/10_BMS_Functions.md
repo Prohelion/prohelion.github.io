@@ -1,7 +1,6 @@
 ---
 title: BMS Functions
 description: Documentation for the Prohelion 48V BMU
-order: 1
 ---
 
 # BMS Functions

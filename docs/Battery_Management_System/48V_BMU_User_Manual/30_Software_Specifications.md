@@ -1,7 +1,6 @@
 ---
 title: Software Specifications
 description: Documentation for the Prohelion 48V BMU
-order: 3
 ---
 
 # Software Specifications

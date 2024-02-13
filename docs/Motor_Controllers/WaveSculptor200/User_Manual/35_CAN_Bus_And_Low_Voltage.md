@@ -1,7 +1,6 @@
 ---
 title: CAN Bus and Low Voltage
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 6
 ---
 
 # CAN Bus and Low Voltage 

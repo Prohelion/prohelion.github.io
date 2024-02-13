@@ -1,7 +1,6 @@
 ---
 title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 0
 ---
 
 # WaveSculptor Config Software User Manual

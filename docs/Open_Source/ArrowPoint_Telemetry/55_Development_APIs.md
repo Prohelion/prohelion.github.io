@@ -1,6 +1,5 @@
 ---
 title: Development & APIs
-order: 11
 ---
 
 ## Development and APIs

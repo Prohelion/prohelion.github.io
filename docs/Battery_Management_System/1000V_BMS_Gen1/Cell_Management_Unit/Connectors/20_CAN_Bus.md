@@ -1,7 +1,6 @@
 ---
 title: CANBus Connector
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 10
 ---
 
 # CMU CANBus Connector

@@ -1,6 +1,5 @@
 ---
 title: Profinity Server
-order: 11
 ---
 
 # Profinity Server Mode

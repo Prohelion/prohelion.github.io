@@ -1,6 +1,5 @@
 ---
 title: Prohelion Cloud Connect
-order: 9
 ---
 
 # Prohelion Cloud Connect

@@ -1,7 +1,6 @@
 ---
 title: Motor Sense
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 3
 ---
 
 # Motor Sense

@@ -1,7 +1,6 @@
 ---
 title: Additional Reading
 description: Documentation for the Prohelion Battery Management System
-order: 21
 ---
 
 # Additional Documentation 

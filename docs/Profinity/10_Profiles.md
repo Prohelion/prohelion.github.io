@@ -1,6 +1,5 @@
 ---
 title: Profiles
-order: 1
 ---
 
 # Profinity Profiles

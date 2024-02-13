@@ -1,7 +1,6 @@
 ---
 title: Configuration Tools
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 5
 ---
 
 # Configuration Tools

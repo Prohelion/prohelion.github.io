@@ -1,6 +1,5 @@
 ---
 title: Inputs and Outputs
-order: 2
 ---
 
 # Inputs and Outputs 

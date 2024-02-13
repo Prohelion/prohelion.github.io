@@ -1,7 +1,6 @@
 ---
 title: Incoming CAN Packets
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 4
 ---
 
 # Incoming CAN Packets

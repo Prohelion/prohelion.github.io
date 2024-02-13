@@ -1,7 +1,6 @@
 ---
 title: Wiring Harness
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 0
 ---
 
 # CMU Cell Sense Wiring Assembly Procedure 

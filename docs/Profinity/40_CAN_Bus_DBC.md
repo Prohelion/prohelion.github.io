@@ -1,6 +1,5 @@
 ---
 title: CAN Bus DBC
-order: 7
 ---
 
 # CAN Bus DBC

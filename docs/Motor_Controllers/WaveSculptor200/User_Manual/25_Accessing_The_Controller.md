@@ -1,7 +1,6 @@
 ---
 title: Accessing The Controller
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 4
 ---
 
 # Accessing The Controller

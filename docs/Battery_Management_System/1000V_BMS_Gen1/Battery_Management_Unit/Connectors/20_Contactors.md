@@ -1,7 +1,6 @@
 ---
 title: Contactors
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 8
 ---
 
 # Contactors

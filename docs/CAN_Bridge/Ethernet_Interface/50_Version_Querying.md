@@ -1,7 +1,6 @@
 ---
 title: Version Querying
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 5
 ---
 
 # Version Querying

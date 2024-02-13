@@ -1,7 +1,6 @@
 ---
 title: CAN Bridge Configuration
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 2
 ---
 
 # CAN Bridge Configuration

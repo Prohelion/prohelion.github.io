@@ -1,6 +1,5 @@
 ---
 title: GPS
-order: 7
 ---
 
 ## GPS

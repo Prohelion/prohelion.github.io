@@ -1,6 +1,5 @@
 ---
 title: Solar
-order: 3
 ---
 
 ## Solar

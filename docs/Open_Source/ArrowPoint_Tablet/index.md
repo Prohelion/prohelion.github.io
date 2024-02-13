@@ -1,6 +1,5 @@
 ---
 title: ArrowPoint for Android
-order: 0
 ---
 
 The ArrowPoint for Android Solution is an Android App designed to receive and display telemetry information from an WiFi access point in real time. It is a very useful tool in a race environment as every team member can have a copy installed on their own phone or tablet and get instant insights in to the performance of the vehicle.

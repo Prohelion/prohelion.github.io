@@ -1,6 +1,5 @@
 ---
 title: Adding to the Profile
-order: 2
 ---
 
 # Adding new items to your Profile

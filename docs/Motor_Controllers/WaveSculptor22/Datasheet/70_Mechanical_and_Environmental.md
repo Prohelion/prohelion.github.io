@@ -1,7 +1,6 @@
 ---
 title: Mechanical and Environmental
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 7
 ---
 
 # Mechanical and Environmental
