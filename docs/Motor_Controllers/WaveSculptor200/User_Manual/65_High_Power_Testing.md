@@ -1,7 +1,6 @@
 ---
 title: High Power Testing
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 12
 ---
 
 # High Power Testing

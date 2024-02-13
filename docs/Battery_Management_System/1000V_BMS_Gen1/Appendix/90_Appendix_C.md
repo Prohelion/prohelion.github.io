@@ -1,7 +1,6 @@
 ---
 title: Successful Crimping
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 4
 ---
 
 # Guide to Successful Crimping 

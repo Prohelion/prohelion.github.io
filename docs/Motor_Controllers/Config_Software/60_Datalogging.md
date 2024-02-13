@@ -1,7 +1,6 @@
 ---
 title: Datalogging
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 6
 ---
 
 # Datalogging

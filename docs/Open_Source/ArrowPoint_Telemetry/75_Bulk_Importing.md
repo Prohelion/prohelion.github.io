@@ -1,6 +1,5 @@
 ---
 title: Bulk Importing
-order: 15
 ---
 
 ## Bulk Importing

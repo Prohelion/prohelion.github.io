@@ -1,7 +1,6 @@
 ---
 title: Broadcast Messages
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 1
 ---
 
 # Broadcast Messages

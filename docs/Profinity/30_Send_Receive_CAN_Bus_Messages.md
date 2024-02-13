@@ -1,6 +1,5 @@
 ---
 title: Send / Receive CAN
-order: 5
 ---
 
 # Send / Receiving CAN Bus Messages

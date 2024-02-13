@@ -1,6 +1,5 @@
 ---
 title: Alerting
-order: 6
 ---
 
 ## Alerting

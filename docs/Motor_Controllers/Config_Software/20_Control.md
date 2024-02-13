@@ -1,7 +1,6 @@
 ---
 title: Control
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 2
 ---
 
 # Control

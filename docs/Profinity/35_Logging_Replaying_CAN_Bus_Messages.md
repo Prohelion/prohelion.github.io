@@ -1,6 +1,5 @@
 ---
 title: Log / Replay CAN
-order: 6
 ---
 
 # Log / Replay CAN Bus Messages

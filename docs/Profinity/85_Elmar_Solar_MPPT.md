@@ -1,6 +1,5 @@
 ---
 title: Elmar Solar MPPT
-order: 16
 ---
 
 ## Elmar Solar MPPT

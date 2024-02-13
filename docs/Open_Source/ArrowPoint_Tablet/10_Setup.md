@@ -1,6 +1,5 @@
 ---
 title: Setup
-order: 1
 ---
 
 ## Installation on the Tablet or Phone

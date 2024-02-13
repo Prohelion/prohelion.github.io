@@ -1,6 +1,5 @@
 ---
 title: Tritium Tools vs Profinity
-order: 5
 ---
 
 ## Tritium Tools vs Prohelion Profinity

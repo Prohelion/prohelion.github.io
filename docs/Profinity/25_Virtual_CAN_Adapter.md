@@ -1,6 +1,5 @@
 ---
 title: Virtual CAN Bus Adapter
-order: 4
 ---
 
 # Prohelion Virtual CAN Bus Adapter

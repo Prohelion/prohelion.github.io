@@ -1,6 +1,5 @@
 ---
 title: Fleet Messaging
-order: 5
 ---
 
 ## Fleet Messaging

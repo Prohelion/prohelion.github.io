@@ -1,6 +1,5 @@
 ---
 title: Reporting
-order: 5
 ---
 
 ## Reporting

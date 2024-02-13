@@ -1,6 +1,5 @@
 ---
 title: Bridge Fundamentals
-order: 2
 ---
 
 ## Tritium Bridge Fundamentals

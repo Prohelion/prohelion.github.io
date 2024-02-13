@@ -1,7 +1,6 @@
 ---
 title: PC Software
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 7
 ---
 
 # PC Software

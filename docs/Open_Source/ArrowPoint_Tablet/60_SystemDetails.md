@@ -1,6 +1,5 @@
 ---
 title: System Details & Alerts
-order: 6
 ---
 
 ## System Details and Alerts

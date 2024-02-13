@@ -1,7 +1,6 @@
 ---
 title: Set Up a Motor 
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 4
 ---
 
 # Set Up a Motor

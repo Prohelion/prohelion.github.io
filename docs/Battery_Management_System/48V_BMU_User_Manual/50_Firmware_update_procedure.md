@@ -1,7 +1,6 @@
 ---
 title: Firmware Update Procedure
 description: Documentation for the Prohelion 48V BMU
-order: 5
 ---
 
 # Firmware Update Procedure

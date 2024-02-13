@@ -1,7 +1,6 @@
 ---
 title: Generic Battery Assembly Procedure
 description: Documentation for the Prohelion 48V BMU
-order: 6
 ---
 
 # Generic Battery Assembly Procedure

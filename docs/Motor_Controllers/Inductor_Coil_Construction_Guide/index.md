@@ -1,7 +1,6 @@
 ---
 title: Overview
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 0
 ---
 
 # 50µH Solarcar Inductors Construction Guide

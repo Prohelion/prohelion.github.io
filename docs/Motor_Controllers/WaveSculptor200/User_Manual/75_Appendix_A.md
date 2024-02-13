@@ -1,7 +1,6 @@
 ---
 title: Appendix A - Component Sources
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 14
 ---
 
 # Appendix A: Recommended Component Sources

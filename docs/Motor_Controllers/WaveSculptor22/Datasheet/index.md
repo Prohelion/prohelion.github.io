@@ -1,7 +1,6 @@
 ---
 title: Overview
 description: Documentation for the Prohelion WaveSculptor22 Motor Drive protocol
-order: 0
 
 # Hero section
 hero:

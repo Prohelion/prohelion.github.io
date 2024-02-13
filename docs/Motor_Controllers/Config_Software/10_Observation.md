@@ -1,7 +1,6 @@
 ---
 title: Observation
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 1
 ---
 
 # Observation

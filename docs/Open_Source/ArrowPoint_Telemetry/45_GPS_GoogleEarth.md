@@ -1,6 +1,5 @@
 ---
 title: GPS & Google Earth
-order: 9
 ---
 
 ## GPS and Google Earth Integration

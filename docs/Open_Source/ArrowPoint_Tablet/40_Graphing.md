@@ -1,6 +1,5 @@
 ---
 title: Graphing
-order: 4
 ---
 
 ## Graphing

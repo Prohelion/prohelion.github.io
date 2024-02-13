@@ -1,7 +1,6 @@
 ---
 title: CAN Bus Network
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 19
 ---
 
 # CAN Bus Network

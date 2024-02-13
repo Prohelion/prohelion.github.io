@@ -1,7 +1,6 @@
 ---
 title: Driver Controls
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 8
 ---
 
 # Driver Controls

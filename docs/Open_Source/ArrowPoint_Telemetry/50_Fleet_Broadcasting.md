@@ -1,6 +1,5 @@
 ---
 title: Fleet Broadcasting
-order: 10
 ---
 
 ## Fleet Broadcasting

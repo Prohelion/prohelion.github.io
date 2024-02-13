@@ -1,7 +1,6 @@
 ---
 title: Connections
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 8
 ---
 
 # Connections 

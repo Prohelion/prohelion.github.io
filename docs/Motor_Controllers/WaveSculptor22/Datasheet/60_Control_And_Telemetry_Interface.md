@@ -1,7 +1,6 @@
 ---
 title: Control and Telemetry Interface
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 6
 ---
 
 # Control and Telemetry Interface

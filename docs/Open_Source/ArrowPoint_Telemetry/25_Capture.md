@@ -1,6 +1,5 @@
 ---
 title: Telemetry Capture
-order: 4
 ---
 
 ## Telemetry Capture

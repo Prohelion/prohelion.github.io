@@ -1,7 +1,6 @@
 ---
 title: Motor Setup and Testing
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 11
 ---
 
 # Motor Setup and Testing 

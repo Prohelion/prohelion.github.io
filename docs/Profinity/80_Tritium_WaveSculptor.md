@@ -1,6 +1,5 @@
 ---
 title: Tritium WaveSculptor
-order: 15
 ---
 
 # Tritium WaveSculptor

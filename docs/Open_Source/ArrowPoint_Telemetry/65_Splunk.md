@@ -1,6 +1,5 @@
 ---
 title: Splunk
-order: 13
 ---
 
 ## Splunk Integration

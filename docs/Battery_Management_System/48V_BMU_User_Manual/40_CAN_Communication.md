@@ -1,7 +1,6 @@
 ---
 title: CAN Communication Software Specifications
 description: Documentation for the Prohelion 48V BMU
-order: 4
 ---
 
 # CAN Communication 

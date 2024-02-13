@@ -1,7 +1,6 @@
 ---
 title: BMS State Machine
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 15
 ---
 
 # BMS State Machine

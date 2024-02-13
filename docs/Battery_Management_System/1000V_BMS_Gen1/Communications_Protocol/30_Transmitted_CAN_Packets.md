@@ -1,7 +1,6 @@
 ---
 title: Transmitted CAN Packets
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 3
 ---
 
 # Transmitted CAN Packets

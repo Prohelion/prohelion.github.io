@@ -1,7 +1,6 @@
 ---
 title: Trusted Cell Voltages
 description: Documentation for the Prohelion Electric Vehicle Driver Controls
-order: 3
 ---
 
 # Trusted Cell Voltages

@@ -1,6 +1,5 @@
 ---
 title: Battery Charging
-order: 14
 ---
 
 # Profinity Battery Charging

@@ -1,6 +1,5 @@
 ---
 title: Common Problems & Solutions
-order: 6
 ---
 
 ## Common Bridge Problems & Solutions

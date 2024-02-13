@@ -1,7 +1,6 @@
 ---
 title: Driving
 description: Documentation for the Prohelion Vehicle Communications protocol
-order: 10
 ---
 
 # Driving

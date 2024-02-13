@@ -1,6 +1,5 @@
 ---
 title: Setup
-order: 1
 ---
 ## Installation
 Installation of the ArrowPoint-CAN Bus tools can be achieved simply by running the ArrowPointDiagnosticTool.exe in the following directory: 
