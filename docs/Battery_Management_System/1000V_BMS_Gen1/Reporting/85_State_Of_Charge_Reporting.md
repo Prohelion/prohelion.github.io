@@ -1,6 +1,5 @@
 ---
 title: State Of Charge Reporting 
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # State of Charge Reporting

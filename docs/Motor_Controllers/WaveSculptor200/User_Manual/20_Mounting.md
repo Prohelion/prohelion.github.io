@@ -1,6 +1,5 @@
 ---
 title: Mounting
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Mounting
@@ -14,7 +13,10 @@ Although the Prohelion WaveSculptor is rated for use in water spray environments
 
 The WaveSculptor should ideally be mounted in a horizontal position, but vertical mount is also acceptable if the long axis of the controller is horizontal.  Do not mount the controller with the long axis vertical (ie, conduit exiting top or bottom) as water may pool in the end areas of the controller and eventually seep into the interior.  This position will also trap air in the cooling system.
 
-![mounting illustration](images/mounting_axis.png)
+<figure markdown>
+![Mounting Illustration](images/mounting_axis.png)
+<figcaption>Mounting Illustration</figcaption>
+</figure>
 
 The [Cooling section](30_Cooling.md) of this document has further details, but as an overview the controller should not be the highest point in the liquid cooling system, or bleeding the cooling system of air bubbles will be difficult.  Keep this in mind when choosing a location.
 
@@ -32,6 +34,9 @@ Before final mounting of the controller in the vehicle, connect and fill the liq
 
 The WaveSculptor is mounted with a three-point mount using rubber standoffs to help isolate vehicle vibration from the controller electronics.  Refer to the drawing below for mounting hole locations, which should be fitted with an M6 insert or nut.  
 
-![WaveSculptor 200 Motor Controller](images/dimensions_and_tolerances.png)
+<figure markdown>
+![WaveSculptor 200 Motor Controller Dimensions](images/dimensions_and_tolerances.png)
+<figcaption>WaveSculptor 200 Motor Controller Dimensions</figcaption>
+</figure>
 
 Three M6 thread shoulder screws and washers are provided with the controller for mounting purposes, and the shoulder design means that when fully tightened, the rubber grommet compression is correct – the shoulder on the screw prevents over-compressing the grommet.  Tighten these screws to 10Nm, using Loctite 243 or similar retaining compound to prevent them working loose.

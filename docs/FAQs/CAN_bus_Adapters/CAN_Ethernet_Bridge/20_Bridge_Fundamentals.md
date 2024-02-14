@@ -6,7 +6,10 @@ title: Bridge Fundamentals
 
 Here is a few fundamental concepts that are worth knowing when working with the Tritium CAN-Ethernet bridges.
 
-![Profinity](images/CANEthernetBridge.png)
+<figure markdown>
+![Prohelion CAN to Ethernet Bridge](images/CANEthernetBridge.png)
+<figcaption>Prohelion CAN to Ethernet Bridge</figcaption>
+</figure>
 
 ### Reset Button
 

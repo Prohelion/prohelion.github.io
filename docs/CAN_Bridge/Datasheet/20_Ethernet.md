@@ -1,6 +1,5 @@
 ---
 title: Ethernet
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Ethernet

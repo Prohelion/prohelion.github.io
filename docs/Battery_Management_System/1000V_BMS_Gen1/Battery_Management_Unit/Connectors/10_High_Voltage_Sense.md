@@ -1,6 +1,5 @@
 ---
 title: High Voltage Sense
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # High Voltage Sense

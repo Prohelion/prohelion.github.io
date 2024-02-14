@@ -1,6 +1,5 @@
 ---
 title: Bridge Configuration
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Bridge Configuration

@@ -1,6 +1,5 @@
 ---
 title: Controller Function
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Controller Function

@@ -1,6 +1,5 @@
 ---
 title: Connectors
-description: Documentation for the Prohelion 48V BMU
 ---
 
 # Connectors
@@ -11,22 +10,23 @@ This section specifies the connector types and connector pinouts for the externa
 
 The table below lists the part numbers for each connector used by the Prohelion 48V BMS.
 
-| Connector Name                                      | Receptacle Part Number | Plug Part Number      | 
-|-----------------------------------------------------|------------------------|-----------------------|
-| `Data and Front Panel`                              | N/A | WR-WST REDFIT IDC  SKEDD 490107671412    |
-| `Cell Voltage and Temperature Sense, Most Positive` | JAE Electronics MX34R32HF4T (32 pin, dual row) | JAE Electronics MX34032SF1 |
-| `Cell Voltage and Temperature Sense, Most Negative` | JAE Electronics MX34R32HF4T (32 pin, dual row) | JAE Electronics MX34032SF1 |
-| `Load Negative and Load Positive`                   | Wurth Elektronik 7460408 (M5 internal thread)  | Generic M5 terminal lug |
-| `Battery Negative and Battery Positive`             | Wurth Elektronik 7460408 (M5 internal thread)  | Generic M5 terminal lug |
-| `Precharge Resistor`                                | Wurth Elektronik 649002127222 (WR-MPC4 4.20 mm Dual Row 2-Pin) | Wurth Elektronik 649002113322 |
+| Connector Name                                      | Receptacle Part Number                                          | Plug Part Number                      | 
+|-----------------------------------------------------|-----------------------------------------------------------------|---------------------------------------|
+| `Data and Front Panel`                              | N/A                                                             | WR-WST REDFIT IDC  SKEDD 490107671412 |
+| `Cell Voltage and Temperature Sense, Most Positive` | JAE Electronics MX34R32HF4T (32 pin, dual row)                  | JAE Electronics MX34032SF1            |
+| `Cell Voltage and Temperature Sense, Most Negative` | JAE Electronics MX34R32HF4T (32 pin, dual row)                  | JAE Electronics MX34032SF1            |
+| `Load Negative and Load Positive`                   | Wurth Elektronik 7460408 (M5 internal thread)                   | Generic M5 terminal lug               |
+| `Battery Negative and Battery Positive`             | Wurth Elektronik 7460408 (M5 internal thread)                   | Generic M5 terminal lug               |
+| `Precharge Resistor`                                | Wurth Elektronik 649002127222 (WR-MPC4 4.20 mm Dual Row 2-Pin)  | Wurth Elektronik 649002113322         |
 
 ## Connector Viewing Direction
 
 All connector diagrams in this document assume that the end-user is viewing the connector receptacle from the rear. The pin numbering in the connector diagrams is in alignment with the pin numbering specified in the datasheet of each connector type.
 
+<figure markdown>
 ![Figure 4: Connector Viewing Direction](images/image4.png)
-
-Figure 4: Connector Viewing Direction
+<figcaption>Figure 4: Connector Viewing Direction</figcaption>
+</figure>
 
 ## High-Current Connections
 
@@ -39,9 +39,10 @@ There are four high current connections between the BMS, the battery cells and t
 
 The simplified system diagram below shows the arrangement of these high-current connections.
 
+<figure markdown>
 ![Figure 5: High Current Connections for Prohelion 48V BMS](images/image5.png)
-
-Figure 5: High Current Connections for Prohelion 48V BMS
+<figcaption>Figure 5: High Current Connections for Prohelion 48V BMS</figcaption>
+</figure>
 
 ## Front Panel Connector
 
@@ -49,9 +50,10 @@ The Front Panel Connector provides an interface for the CAN bus communication, S
 
 When crimping the SKEDD connectors onto the IDC ribbon, always ensure that pin-1 of the first connector is connected to pin-1 of the second connector. IDC ribbons typically have the first conductor marked with red to indicate that it is pin-1. The pin number labels apply for both the BMS side and the Front Panel PCB side of the harness.
 
+<figure markdown>
 ![Figure 6: Front Panel Connector Pinout](images/image6.png)
-
-Figure 6: Front Panel Connector Pinout
+<figcaption>Figure 6: Front Panel Connector Pinout</figcaption>
+</figure>
 
 | Pin Number | Label                               |
 |------------|-------------------------------------|
@@ -78,9 +80,10 @@ The pins labelled as TOPSTACKA (Pin 3) and GNDA (Pin 27) provide the power requi
 
 Only a Murata Electronics NXFT15XH103FA2B100 thermistor should be used for temperature sense. Any other part will have a different B-Constant and result in incorrect temperature readings. 
 
+<figure markdown>
 ![Figure 7: Cell Sense Connector A Pinout](images/image7.png)
-
-Figure 7: Cell Sense Connector A Pinout
+<figcaption>Figure 7: Cell Sense Connector A Pinout</figcaption>
+</figure>
 
 | Pin Number | Label                       | Pin Number | Label          |
 |------------|-----------------------------|------------|----------------|
@@ -112,9 +115,10 @@ The pins labelled as TOPSTACKB (Pin 3) and GNDB (Pin 27) provide the power requi
 
 Only a Murata Electronics NXFT15XH103FA2B100 thermistor should be used for temperature sense. Any other part will have a different B-Constant and result in incorrect temperature readings. 
 
+<figure markdown>
 ![Figure 8: Most positive cell sense Connector pinout](images/image8.png)
-
-Figure 8: Most positive cell sense Connector pinout
+<figcaption>Figure 8: Most positive cell sense Connector pinout</figcaption>
+</figure>
 
 | Pin Number | Label                       | Pin Number | Label           |
 |------------|-----------------------------|------------|-----------------|
@@ -142,9 +146,10 @@ The pins labelled as GNDB (Temp X) on the temp sense connector is not to be used
 
 The precharge resistor connector allows for external precharge resistor of varying resistance and power ratings to be added to the BMS depending on the intended use-case. The BMS does not include an internal precharge resistor. The most suitable precharge resistor may vary depending on the exact capacitance, bleed resistance and precharge timing requirements of the system. 
 
+<figure markdown>
 ![Figure 9: Precharge Resistor Connector](images/image9.png)
-
-Figure 9: Precharge Resistor Connector
+<figcaption>Figure 9: Precharge Resistor Connector</figcaption>
+</figure>
 
 | Pin Number | Label                         | 
 |------------|-------------------------------|
@@ -153,15 +158,17 @@ Figure 9: Precharge Resistor Connector
 
 The generally recommended precharge resistor is a 33-ohm 100W chassis mount resistor, such as the ARCOL HS100 33R F or TE HSC10033RJ. A 33-ohm 100W resistor is an ideal balance between precharge time, safety, and component longevity. It allows the BMS to maintain the maximum precharge current (~1.75A) for the entire precharge timeout without excessively overloading the precharge resistor in the event of a short-circuited load output. The precharge voltage delta and precharge timeout are critical configuration parameters which need to be set according to the selected precharge resistor and the connector load. 
 
+<figure markdown>
 ![Figure 10: Recommended precharge resistor](images/image10.jpg)
-
-Figure 10: Recommended precharge resistor
+<figcaption>Figure 10: Recommended precharge resistor</figcaption>
+</figure>
 
 A smaller precharge resistor (of lesser resistance or power rating) can be used if the failure conditions are properly considered. Do not exceed a maximum precharge current of 5A
 
 # CAN Bus Wiring
 
 The Front-Panel PCB provides CAN bus connection via two RJ45 connectors. The RJ45 connectors have the following pin allocations. This allows for the BMS the be compatible with both the Victron Type-A and Type-B cables. 
+
 See [here](https://www.victronenergy.com/live/battery_compatibility:can-bus_bms-cable)
 
 | Pin Number | Label    | 
@@ -179,4 +186,4 @@ If the BMS is connected to the same CAN bus as several other BMS units, make sur
 
 The SAE J1939 standard specifies that the CAN bus network is intended to be a single linear bus which runs between each CAN controller on the vehicle.  The bus is required to have exactly two terminating resistors and a short stub is permitted between each controller and the bus. There are several components in the ESS system that have a single CAN connector with a relatively short stub cable on the end. These components need to be connected to the bus correctly for the system to operate properly. 
 
-For more information on how to integrate these components, refer to the official [SAE J1939 standard documentation](https://www.sae.org/standardsdev/groundvehicle/j1939a.htm.) 
+For more information on how to integrate these components, refer to the official [SAE J1939 standard documentation](https://www.sae.org/standards/development/ground-vehicle/sae-j1939-standards-collection-on-the-web) 

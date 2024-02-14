@@ -1,6 +1,5 @@
 ---
 title: Relay Output
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # Relay Output

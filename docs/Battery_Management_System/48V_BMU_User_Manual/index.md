@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Documentation for the Prohelion 48V BMU
 ---
 
 # 48V BMS User Manual 
@@ -11,13 +10,25 @@ The Prohelion 48V BMS provides the ability to easily monitor and control large c
 
 The 48V BMS individually controls Precharge, Charge and Discharge outputs to ensure that any connected loads do not over-charge or over-discharge the battery pack. The 48V BMS also includes the ability to preemptively balance cells (mid-pack balancing) and provides closed-loop state-of-charge (SoC) estimation to ensure the highest performance can be extracted from the battery pack.
 
+<figure markdown>
 ![48V panel 1](images/image1.1.png)
+<figcaption>48V panel 1</figcaption>
+</figure>
 
+<figure markdown>
 ![48V panel 2](images/image1.2.png)
+<figcaption>48V panel 2</figcaption>
+</figure>
 
+<figure markdown>
 ![48V panel 3](images/image1.3.png)
+<figcaption>48V panel 3</figcaption>
+</figure>
 
+<figure markdown>
 ![48V panel 4](images/image1.4.png)
+<figcaption>48V panel 4</figcaption>
+</figure>
 
 Figure 1: Prohelion 48V BMS Render
 
@@ -25,13 +36,15 @@ Figure 1: Prohelion 48V BMS Render
 
 The Prohelion 48V BMS has several electrical interfaces and connections to external systems. The figure below shows locations for each of these connections and interfaces.
 
+<figure markdown>
 ![Figure 2: Prohelion 48V BMS Diagram](images/image2.png)
+<figcaption>Figure 2: Prohelion 48V BMS Diagram</figcaption>
+</figure>
 
-Figure 2: Prohelion 48V BMS Diagram
-
+<figure markdown>
 ![Figure 3: Prohelion Front Panel PCB Diagram](images/image3.png)
-
-Figure 3: Prohelion Front Panel PCB Diagram
+<figcaption>Figure 3: Prohelion Front Panel PCB Diagram</figcaption>
+</figure>
 
 ## Acronyms and Abbreviations
 

@@ -1,9 +1,8 @@
 ---
-title: CANBus Connector
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
+title: CAN Bus Connector
 ---
 
-# CMU CANBus Connector
+# CMU CAN Bus Connector
 
 <figure markdown>
 ![Prohelion CMU Connectors](../../images/CMU_Connectors_Overview.png)

@@ -1,6 +1,5 @@
 ---
 title: Operation
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # Operation

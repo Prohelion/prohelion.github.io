@@ -1,6 +1,5 @@
 ---
 title: PC Software
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # PC Software
@@ -8,19 +7,20 @@ description: Documentation for the Prohelion Vehicle Communications protocol
 !!! info "WaveSculptor Software is now bundled in Prohelion Profinity"
     To download the PC Software to configure your WaveSculptor, download Profinity and configure a [WaveSculptor](../../../Profinity/80_Tritium_WaveSculptor.md) in your Profile.
 
+Refer to the [Software Download](https://www.prohelion.com/software/) section on the Prohelion Website for the Configuration & Setup software tool download, while you can download the Configuration Tools separately, we recommend Prohelion Profinity, which integrates the tools as well as a number of other useful utilities.
+
+Refer to the [Software User's Manual](../../Config_Software/index.md) for installation and usage instructions.
+
 ## Ethernet Bridge Installation
 
 Refer to the [CAN-Ethernet bridge User's Manual](../../../CAN_Bridge/User_Manual/index.md) for installation and setup of this piece of hardware.
 
 Connect the Ethernet bridge via a CAN bus cable to the WaveSculptor. Use 120 ohm termination resistors between the CAN-H and CAN-L lines at both items.
 
-![WaveSculptor 200 Motor Controller](images/ethernet-bridge-installation.gif)
-
-## PC Software
-
-Refer to the [Software Download]()??? section on the WaveSculptor 200 product page for the Configuration & Setup software tool download.
-
-Refer to the [Software User's Manual](../../Config_Software/index.md) for installation and usage instructions.
+<figure markdown>
+![CAN Network](images/PC_Software_CAN.png)
+<figcaption>CAN Network</figcaption>
+</figure>
 
 ## Low Voltage and CAN Bus Testing
 

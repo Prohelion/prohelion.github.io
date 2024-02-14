@@ -1,6 +1,5 @@
 ---
 title: Appendix C - CAN Comms Protocol
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Appendix C: CAN Communications Protocol
@@ -302,4 +301,4 @@ Send this command to change the active motor. Note that the controller will save
 
 Example to set the active motor to motor slot 5:
 
-__CAN ID = 0x412, Data = 0x00 05 54 4F 4D 54 43 41__
+__CAN ID__ = 0x412, __Data__ = 0x00 05 54 4F 4D 54 43 41

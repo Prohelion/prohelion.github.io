@@ -1,6 +1,5 @@
 ---
 title: Incoming CAN Packets
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Incoming CAN Packets
@@ -15,7 +14,10 @@ The BMU is controlled by commands that come from either an Electric Vehicle Driv
 
 EVDC packet contains Boolean flags that indicate the switch positions of the Electric Vehicle Driver Control unit. This set of flags is intended to replicate the set of key positions from an automotive ignition key barrel. 
 
-![Key Positions Diagram](images/EV_Driver_CSP.png)
+<figure markdown>
+![Driver Control Switch Positions](images/EV_Driver_CSP.png)
+<figcaption>Driver Control Switch Positions</figcaption>
+</figure>
 
 | CAN ID:       | 0x505 - Interval 10Hz                                                                               | 
 |---------------|-----------------------------------------------------------------------------------------------------|
@@ -43,4 +45,7 @@ Alternatively, Prohelion’s Profinity software solution can be used to engage t
 
 The following diagram shows how the BMU transitions though the various states on the way to either being successfully engaged or not, using the CAN messages outlined above.
 
-![BMU Enagement State Diagram](images/BMU_Engagement_State_Diagram.png)
+<figure markdown>
+![BMU Engagement State Diagram](images/BMU_Engagement_State_Diagram.png)
+<figcaption>BMU Engagement State Diagram</figcaption>
+</figure>

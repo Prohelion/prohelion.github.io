@@ -1,6 +1,5 @@
 ---
 title: Motor Setup and Testing
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Motor Setup and Testing 
@@ -84,6 +83,7 @@ Move the CAN cable and termination resistor from the hardware driver controls an
 Reconnect the CAN cable and termination resistor to the hardware driver controls.  Run through the same checks as listed above in the 24V driver controls hardware testing.  
 
 Test at least the following functionality:
+
 - [ ] Driving forwards
 - [ ] Car coasts to a stop when accelerator pedal is lifted
 - [ ]  Driving in reverse

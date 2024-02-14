@@ -1,6 +1,5 @@
 ---
 title: Motor Sense Connections
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Motor Sense Connections
@@ -21,7 +20,10 @@ A brief datasheet for each adapter option is available on the Prohelion website.
 
 The connector used on the WaveSculptor200 for the connection to the motor sense adapter board is a 14-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  Please refer to [Appendix B](80_Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
-![WaveSculptor 200 Motor Controller](images/introduction.png)
+<figure markdown>
+![WaveSculptor 200 Motor Controller Connector](images/connector2.png)
+<figcaption>WaveSculptor 200 Motor Controller Connector</figcaption>
+</figure>
 
 The wiring for this connector should be implemented with twisted pairs, as the signal inputs are differential.  Prohelion recommends using Belden 9506 type cable (shielded 6 pair) for this connection, with suggested cable colours shown above.
 

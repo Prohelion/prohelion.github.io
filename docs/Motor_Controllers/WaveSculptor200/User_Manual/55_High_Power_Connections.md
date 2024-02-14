@@ -1,6 +1,5 @@
 ---
 title: High Power Connections
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # High Power Connections
@@ -12,7 +11,10 @@ For a guide to good quality crimping of the high power connections, please read 
 
 Copper oxidation is a threat to the long-term reliability of both the crimp and the bolted joint to the controller.  Use a thin smear of anti-oxidation electrical jointing compound between the busbar and the crimp lug when bolting the cable to the controller, as shown in the diagram below.  A small amount has already been applied in the factory to minimise corrosion in the time between manufacture and first assembly of the unit in your vehicle.
 
-![copper oxidation diagram](images/high_power_connections1.png)
+<figure markdown>
+![Copper Oxidation Prevention](images/high_power_connections1.png)
+<figcaption>Copper Oxidation Prevention</figcaption>
+</figure>
 
 The copper pressfit studs are permanently attached to the busbars.  
 
@@ -44,7 +46,10 @@ These external inductors must be rated to the full motor current and have windin
 
 The positions of the busbars for the various connections are shown in the diagram below.  The recommended cable assembly order, to make cable routing inside the controller as easy as possible, is MOTOR C, MOTOR B, MOTOR A, DC POS, DC NEG.
 
-![busbars position](images/high_power_connections2.png)
+<figure markdown>
+![High Power Connections](images/high_power_connections2.png)
+<figcaption>High Power Connections</figcaption>
+</figure>
 
 ## Testing
 

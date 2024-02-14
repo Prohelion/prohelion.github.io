@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # WaveSculptor200 Motor Drive Datasheet
@@ -11,6 +10,7 @@ For more details on communications, mechanical positioning and mounting, wiring 
 
 Operating the controller beyond the limits specified in this document will result in the voiding of the controller warranty.  Prohelion accepts no responsibility for events caused as a result of operating the controller beyond the limits specified in this document. Note that the specifications in this document are subject to change at any time due to product improvement.
 
+<figure markdown>
 ![WaveSculptor22 Motor Drive](images/introduction.png)
-
-
+<figcaption>WaveSculptor22 Motor Drive</figcaption>
+</figure>

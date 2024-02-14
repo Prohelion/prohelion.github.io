@@ -1,6 +1,5 @@
 ---
 title: BMS Functions
-description: Documentation for the Prohelion 48V BMU
 ---
 
 # BMS Functions

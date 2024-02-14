@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 
 ---
 
@@ -18,6 +17,9 @@ The microcontroller firmware for the device (written in 'C') is available on the
 
 The following illustration shows the connections and indicators on the front panel of the EV Driver Controls.  A CAN bus connection, 12V in and out, and two status LEDs are present.
 
+<figure markdown>
 ![EV Driver Controls Physical Layout](images/Physical_Layout.png)
+<figcaption>EV Driver Controls Physical Layout</figcaption>
+</figure>
 
 The rear panel contains a single DB37 connector, connecting all the analog and digital I/O connections required to drive a vehicle.

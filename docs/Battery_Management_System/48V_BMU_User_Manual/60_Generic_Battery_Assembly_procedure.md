@@ -1,6 +1,5 @@
 ---
 title: Generic Battery Assembly Procedure
-description: Documentation for the Prohelion 48V BMU
 ---
 
 # Generic Battery Assembly Procedure
@@ -110,12 +109,7 @@ __8b.__ Follow the same setup procedure as defined in the Firmware Update Proced
 
 __8c.__ Right click on the Prohelion NextGen BMS device in the Profinity profile viewer window and select __Show BMS Info.__
 
+<figure markdown>
 ![Step 8.](images/STEP8.png)
-
-
-
-
-
-
-
-
+<figcaption>Step 8.</figcaption>
+</figure>

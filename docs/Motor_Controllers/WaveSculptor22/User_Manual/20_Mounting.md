@@ -1,6 +1,5 @@
 ---
 title: Mounting
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Mounting

@@ -1,6 +1,5 @@
 ---
 title: Cell Voltages & Temp
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # Cell Voltage & Temperature Sense Connector 

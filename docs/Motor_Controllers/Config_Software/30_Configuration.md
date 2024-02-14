@@ -1,6 +1,5 @@
 ---
 title: Configuration
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Configuration
@@ -15,9 +14,10 @@ The configuration screen consists of three tabs. The first contains general cont
 
 Figure 3 shows the general controller information tab. 
 
+<figure markdown>
 ![Figure 3: WaveSculptor General Configuration Tab](images/general_configuration_tab.jpg)
-
-Figure 3: WaveSculptor General Configuration Tab
+<figcaption>WaveSculptor General Configuration Tab</figcaption>
+</figure>
 
 Table 4 gives a description of the different configuration values and the impact they have on the WaveSculptor operation.
 
@@ -48,23 +48,25 @@ Table 4: Description of values of the general configuration screen
 
 This dialog tab is read-only in the release version of the software. It contains all the scale, offset and thermistor data for all the WaveSculptor sensors. There should be no need for the end user to access variables in this dialog box. 
 
+<figure markdown>
 ![Figure 4: WaveSculptor Calibration Configuration Tab](images/calibration_configuration_tab.jpg)
-
-Figure 4: WaveSculptor Calibration Configuration Tab
+<figcaption>WaveSculptor Calibration Configuration Tab</figcaption>
+</figure>
 
 ## Motor Configuration
 
 Configuration values for up to 10 different motors can be configured on this tab, shown in Figure 4. This allows complete testing and setup for all motors that you expect to use in the vehicle, while still in the workshop.
 
+<figure markdown>
 ![Figure 5: WaveSculptor Motor Configuration Tab](images/motor_configuration_tab.jpg)
-
-Figure 5: WaveSculptor Motor Configuration Tab
+<figcaption>WaveSculptor Motor Configuration Tab</figcaption>
+</figure>
 
 A description of each motor configuration value along with its effect on the system, is given in Table 4:
 
 | Value                    | Description                                                                              | 
 |--------------------------|------------------------------------------------------------------------------------------|
-| `Active Motor`           | The index to the motor config tab that the WaveSculptor will use by default (in the absence of a valid ActiveMotor CAN packet being received). THE SELECTED MOTOR CONFIG TAB HAS NO BEARING ON THE ACTIVE MOTOR IN THE WaveSculptor.                                                                                            |
+| `Active Motor`           | The index to the motor config tab that the WaveSculptor will use by default (in the absence of a valid ActiveMotor CAN packet being received). __THE SELECTED MOTOR CONFIG TAB HAS NO BEARING ON THE ACTIVE MOTOR IN THE WaveSculptor.__                                                                                            |
 | `Tyre Diameter (m)`      | Outside diameter of the drive tyre. Used for speed calculation. If motor is geared, scale this value by the gear ratio.                                                                                         |
 | `Description`            | Free text description of the motor.                                                      |
 | `Nr of PolePairs`        | The number of magnet north-south pairs on the rotor of the motor                         |

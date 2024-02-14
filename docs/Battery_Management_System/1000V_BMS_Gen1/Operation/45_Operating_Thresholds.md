@@ -1,6 +1,5 @@
 ---
 title: Operating Thresholds
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # Operating Thresholds
@@ -13,7 +12,7 @@ The SoCvs Voltage curve for a typical Lithium chemistry cell is shown below, alo
 
 <figure markdown>
 ![State of Charge vs Voltage Curve](../images/Operating_Thresholds.png)
-<figcaption>tate of Charge vs Voltage Curve</figcaption>
+<figcaption>State of Charge vs Voltage Curve</figcaption>
 </figure>
 
 ## Over Voltage Threshold 

@@ -9,7 +9,7 @@ The CAN bus is structured as a linear network, with short stubs branching from '
 In the range of Prohelion EV products, including the WaveSculptor 200, EV Driver Controls, and BMS Pack Master, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
 <figure markdown>
-![CAN Bus Topology](images/CAN_Network_Topology.gif)
+![CAN Bus Topology](images/CAN_Network_Topology.png)
 <figcaption>CAN Bus Topology</figcaption>
 </figure>
 

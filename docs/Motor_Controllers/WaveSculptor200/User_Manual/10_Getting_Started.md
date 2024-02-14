@@ -1,6 +1,5 @@
 ---
 title: Getting Started
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Getting Started

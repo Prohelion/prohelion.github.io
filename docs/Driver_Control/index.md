@@ -1,6 +1,5 @@
 ---
 title: Prohelion Electric Vehicle Driver Controls
-description: Documentation for the Prohelion CAN Bus to Ethernet Bridge
 ---
 
 <div class="grid cards" markdown>

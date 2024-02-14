@@ -1,6 +1,5 @@
 ---
 title: Motor Output
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Motor Output

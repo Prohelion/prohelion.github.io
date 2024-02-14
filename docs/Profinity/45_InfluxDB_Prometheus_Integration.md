@@ -6,7 +6,10 @@ title: InfluxDB / Prometheus
 
 Profinity provides the ability to both [log and replay messages](35_Logging_Replaying_CAN_Bus_Messages.md) off your CAN Bus network as well as the ability to log CAN Bus data to timeseries databases like InfluxDB and Prometheus.
 
+<figure markdown>
 ![Data Log Replayer](images/InfluxDB.png)
+<figcaption>Data Log Replayer</figcaption>
+</figure>
 
 [InfluxDB](https://www.influxdata.com) is an all in one solution with data storage and visualisation included in a single tool.  [Prometheus](https://prometheus.io) just provides data storage and is typically coupled with [Grafana](https://grafana.com) for visualisation.  
 

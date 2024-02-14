@@ -1,6 +1,5 @@
 ---
 title: Efficiency
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Efficiency
@@ -13,6 +12,9 @@ In a typical ultra high efficiency car such as a solar car with a mass of 275kg 
 
 As an example, for a typical highway cruise setting of 20Nm and 100rad/s, the power being processed by the WaveSculptor is just over 2kW, at an efficiency of just over 99%.
 
-![predicted efficiency map of the WaveSculptor Controller with a 160V DC Bus](images/WaveSculptor_Datasheet.png)
+<figure markdown>
+![Predicted efficiency map of the WaveSculptor Controller with a 160V DC Bus](images/WaveSculptor_Datasheet.png)
+<figcaption>Predicted efficiency map of the WaveSculptor Controller with a 160V DC Bus</figcaption>
+</figure>
 
 These efficiency maps were generated using an accurate mathematical model of the WaveSculptor’s power stage, with individual loss components confirmed using laboratory testing.

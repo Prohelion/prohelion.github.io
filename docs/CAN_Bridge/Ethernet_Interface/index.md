@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # CAN-Ethernet Bridge Ethernet Interface

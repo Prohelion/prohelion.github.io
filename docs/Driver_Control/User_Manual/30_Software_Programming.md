@@ -11,7 +11,7 @@ The driver controls are based around a Texas Instruments (TI) MSP430 16-bit embe
 The following schematic shows the simplest possible connection, when using the default software.
 
 <figure markdown>
-![Basic Connection Diagram](images/Basic_Connection_Diagram.gif)
+![Basic Connection Diagram](images/Basic_Connection_Diagram.png)
 <figcaption>Basic Connection Diagram</figcaption>
 </figure>
 

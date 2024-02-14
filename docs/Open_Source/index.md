@@ -1,6 +1,5 @@
 ---
 title: Open Source Software
-description: Landing page for Open Source Sofware Documentation
 ---
 
 Prohelion has Open Sourced some of it's tools developed during racing to help provide a platform for learning and development.  For our commercially supported software systems, please see [Profinity](../Profinity/index.md).

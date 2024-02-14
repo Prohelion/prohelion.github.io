@@ -8,8 +8,10 @@ Profinity can manage charging of your pack by controlling your Prohelion BMU and
 
 Profinity Charging supports four charging products as well as balancing capabilities to ensure that your pack cells remain balanced and in good condition.
 
-<br>
+<figure markdown>
 ![Siglent Charger](images/SiglentCharger.jpg)
+<figcaption>Siglent Charger</figcaption>
+</figure>
 
 ## Supported Chargers
 
@@ -27,7 +29,7 @@ The Signet Power Supplies that support a programmable TCP interface can be contr
 
 **ITech Power Supplies**
 
-[ITech](https://www.itech.sh/en/) provides a large range of bi-directional power supplies that are supported by the Profinity solution.  Profinity uses ITech's TCP interface for controlling the supply at this time we do not support the ITech CAN bus interface.
+[ITech](https://www.itechate.com/en/) provides a large range of bi-directional power supplies that are supported by the Profinity solution.  Profinity uses ITech's TCP interface for controlling the supply at this time we do not support the ITech CAN bus interface.
 
 ## Charging Steps
 

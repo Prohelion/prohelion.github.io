@@ -1,6 +1,5 @@
 ---
 title: Operating Power and Cooling
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Operating Power and Cooling

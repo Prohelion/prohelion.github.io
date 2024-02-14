@@ -1,6 +1,5 @@
 ---
 title: CAN Communication Software Specifications
-description: Documentation for the Prohelion 48V BMU
 ---
 
 # CAN Communication 
@@ -48,9 +47,10 @@ The SoCreset is performed by making use of the SOC_RESET command of the BMS Conf
 
 For example, sending the following CAN message will set the SoCto 95% and clear the SoCINVALID event. 
 
+<figure markdown>
 ![Figure 12: BMS SoCConfig Example](images/image12.png)
-
-Figure 12: BMS SoCConfig Example
+<figcaption>Figure 12: BMS SoCConfig Example</figcaption>
+</figure>
 
 ## Transmitted Messages
 

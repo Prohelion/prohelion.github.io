@@ -1,6 +1,5 @@
 ---
 title: Environmental
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Environmental
@@ -19,8 +18,7 @@ __Notes:__
 [^27]:
     The acceptable mounting positions as detailed in the [User Manual](../User_Manual/index.md) are shown below:
 
+<figure markdown>
 ![WaveSculptor22 Mounting Positions](images/mounting.png)
-
-
-
-
+<figcaption>WaveSculptor22 Mounting Positions</figcaption>
+</figure>

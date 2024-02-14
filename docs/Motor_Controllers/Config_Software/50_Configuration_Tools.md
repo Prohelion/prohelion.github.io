@@ -1,6 +1,5 @@
 ---
 title: Configuration Tools
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Configuration Tools
@@ -13,9 +12,10 @@ The next three section describe how to use these three tools.
 
 PhasorSense is designed to find phase and hall sequence, along with the relation between them. Plots of both the three phase voltages and the motor hall effect position logic are displayed. This should assist finding any errors with motor/controller set up.
 
+<figure markdown>
 ![Figure 6: PhasorSense Acquisition Screen](images/PhasorSense_acquisition_screen.gif)
-
-Figure 6: PhasorSense Acquisition Screen
+<figcaption>Figure 6: PhasorSense Acquisition Screen</figcaption>
+</figure>
 
 To start a PhasorSense Acquisition press the __Phase Acquire__ button in the bottom right corner of the window. You then have 10 seconds to spin the motor with an electrical motor frequency of more than 12Hz. Even on a fairly low pole count motor of 4 pole pairs this is only 180RPM, which is achievable by hand. The high-voltage DC bus does not have to be connected for this test.  The WaveSculptor uses hall edges to decide if the speed is sufficient, so if the halls are not connected to the controller a "Failed to obtain sufficient speed" message will be given.
 
@@ -27,9 +27,10 @@ __NOTE:__ When an Encoder or Resolver motor interface board is connected the hal
 
 ParamExtract is designed to find the motor stator resistance and inductance.
 
+<figure markdown>
 ![Figure 7: ParamExtract Acquisition Screen](images/paramExtract_acquisition_screen.gif)
-
-Figure 7: ParamExtract Acquisition Screen
+<figcaption>Figure 7: ParamExtract Acquisition Screen</figcaption>
+</figure>
 
 This acquisition process requires the bus voltage and motor to be connected to the WaveSculptor. For best results the bus voltage should be no larger than needed to overcome the line resistance (a 60V bus voltage is usually plenty). The higher the PWM required to source 20A out of phase CB of the WaveSculptor the more accurate the calculation of line resistance and inductance.
 
@@ -47,9 +48,10 @@ __NOTE:__ If the motor moved during the test, do not save the results. Repeatedl
 
 ImExtract is designed to find the rotor resistance and inductance in induction motors.
 
+<figure markdown>
 ![Figure 8: ImExtract Acquisition Screen](images/imextract_acquisition_screen.gif)
-
-Figure 8: ImExtract Acquisition Screen
+<figcaption>Figure 8: ImExtract Acquisition Screen</figcaption>
+</figure>
 
 This acquisition process requires the bus voltage and motor to be connected to the WaveSculptor (a 60V bus voltage is usually plenty).
 

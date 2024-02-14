@@ -10,7 +10,10 @@ Profinity provides integrated management of the WaveSculptor products and you ca
 
 From there right mouse client to access the WaveSculptor Dashboard or to access the CAN Bus Messages and Signals.
 
-![Tritium WaveSculptor](images/WaveSculptor.png)
+<figure markdown>
+![Prohelion WaveSculptor](images/WaveSculptor.png)
+<figcaption>Prohelion WaveSculptor</figcaption>
+</figure>
 
 Prohelion is currently migrating all of the Tritium WaveSculptor supporting software in to Profinity, in this release the configuration of the WaveSculptor tools is still handed by the Tritium software and we expect to migrate all of that functionality to Profinity over time.
 

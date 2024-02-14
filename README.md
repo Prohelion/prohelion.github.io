@@ -21,6 +21,10 @@ pip install mkdocs-glightbox
 pip install mkdocs-spellcheck
 pip install symspellpy
 
+# Link Checking
+
+A link checker is used to validate all URLs on the site before publishing, we have been using the Integrity Link Checker, but any link checker you like is fine.
+
 # Publishing the documentation
 
 To publish the documentation run the command 
