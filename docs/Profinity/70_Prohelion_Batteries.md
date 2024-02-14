@@ -16,7 +16,10 @@ A typical battery will generally only have one BMU, but larger packs or split pa
 
 The top section shows data from the BMU, while the lower section shows CMU data – one row per CMU.
 
+<figure markdown>
 ![Prohelion BMU](images/prohelion_bmu.png)
+<figcaption>Prohelion BMU</figcaption>
+</figure>
 
 ### BMU DATA
 The top row of BMU data presents the following information (left to right):
@@ -88,11 +91,14 @@ The data is highlighted in various ways to quickly understand the system status
 
 - Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a mid-gray background
 
-## Prohelion 12v Control System
+## Prohelion 12 Volt Control System
 
-Prohelion also offers a 12v control module that can be used to provide power to onboard 12v systems and is typically used in a racing environment.  This module has a separate control panel that can be added to the profile and provides additional data on the performance of the 12v system.
+Prohelion also offers a 12 volt control module that can be used to provide power to onboard 12 volt systems and is typically used in a racing environment.  This module has a separate control panel that can be added to the profile and provides additional data on the performance of the 12 volt system.
 
-![Prohelion v12](images/prohelion_v12.png)
+<figure markdown>
+![Prohelion 12 Volt](images/prohelion_v12.png)
+<figcaption>Prohelion 12 Volt</figcaption>
+</figure>
 
 ## Updating the BMU Configuration
 

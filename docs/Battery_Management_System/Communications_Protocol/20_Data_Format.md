@@ -1,6 +1,5 @@
 ---
 title: Data Format
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Data Format

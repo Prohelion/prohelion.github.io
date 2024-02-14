@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # EV Driver Controls CAN Bus Communications Protocol Specification 

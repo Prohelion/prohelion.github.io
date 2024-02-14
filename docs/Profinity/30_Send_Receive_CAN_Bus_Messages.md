@@ -12,7 +12,10 @@ Messages can be transmitted either via the Send CAN window which is documented b
 
 Click on the Receive CAN Packets menu item to see a view of all the CAN Bus messages currently travelling across your network.
 
+<figure markdown>
 ![Receive CAN Packets](images/receive_can_packets.png)
+<figcaption>Receive CAN Packets</figcaption>
+</figure>
 
 The options at the bottom of this window allow you to filter the messages by CAN ID and change various other settings like the Endian representation of the message (Big Endian vs Little Endian) and exclude local traffic (traffic from Profinity) if the adapter supports that (not all adapters support local filtering).
 
@@ -20,7 +23,10 @@ The options at the bottom of this window allow you to filter the messages by CAN
 
 Right mouse clicking on a line allows you to select an option to 'Send Can Message like this', clicking this option will open the Send CAN Packet window and pre-populate it with the data from the message that you have received.
 
+<figure markdown>
 ![Send CAN Packet like this](images/receive_send_like_this.png)
+<figcaption>Send CAN Packet like this</figcaption>
+</figure>
 
 ## Send CAN Packet
 

@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # WaveSculptor200 Motor Drive Motor Sense Comms Spec

@@ -1,6 +1,5 @@
 ---
 title: Precharge
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # Precharge
@@ -34,19 +33,24 @@ The precharge sequence is as follows:
 
 Selection of the external precharge resistor is critical for correct and long-term reliable operation of the precharge circuit.  A judgement must be made by the designer of the vehicle power system to the tradeoff between resistor size, cost and weight, and expected precharge time.  A slower time can use a smaller, cheaper resistor, but taking too long to precharge will be annoying to the end user of the vehicle.  An aluminium-cased wirewound resistor is the most commonly chosen type of resistor. 
 
-As an example, the calculations for a typical EV system are shown as follows: 
+As an example, the calculations for a typical Electric Vehicle system are shown as follows: 
 
-System battery voltage maximum = __450V__ 
-
-Motor controller (Prohelion WaveSculptor 200) capacitance = __800µF__
-
-Chosen precharge current = __1A__ 
+- System battery voltage maximum = __450V__ 
+- Motor controller (Prohelion WaveSculptor 200) capacitance = __800µF__
+- Chosen precharge current = __1A__ 
 
 Therefore, the minimum resistance (fastest precharge) will be 450V / 1A = 450 Ohms.  Choose __470 Ohms__ as the next highest common value.  Peak power dissipation in the resistor is therefore 450V<sup>2</sup>/470R = __430W. __ 
 
-The expected precharge time is given by the time constant TAU = R (Ohms) * C (Farads), where the voltage on the capacitor should change by 63% of the difference each TAU time interval.  Precharge should be within 95% of the initial value within 4 TAU, and to 99% within 5 TAU intervals, as an exponential decay.  For the example system, TAU = 376ms, so the expected precharge time of 4 TAU = __1.5 seconds.__
+The expected precharge time is given by the time constant TAU = R (Ohms) * C (Farads), where;
 
-Choosing a >500W resistor is unnecessary, as this rating is only needed for a short amount of time during normal operation.  However, the resistor cannot be too small, as if a fault situation occurs, such as a short circuit in the motor controller, then this power will be dissipated continuously for the entire expected precharge time, until the precharge controller realises that precharging has not occurred properly and goes into an error state.  For safety, the resistor in the example system should be chosen to tolerate a one-off event, starting at the expected maximum ambient temperature, of 430W for 1.5 seconds. 
+- The voltage on the capacitor should change by 63% of the difference each TAU time interval
+- Precharge should be within 95% of the initial value within 4 TAU, and to 99% within 5 TAU intervals, as an exponential decay
+
+For the example system, TAU = 376ms, so the expected precharge time of 4 TAU = __1.5 seconds.__
+
+Choosing a >500W resistor is unnecessary, as this rating is only needed for a short amount of time during normal operation.
+
+However, the resistor cannot be too small, as if a fault situation occurs, such as a short circuit in the motor controller, then this power will be dissipated continuously for the entire expected precharge time, until the precharge controller realises that precharging has not occurred properly and goes into an error state.  For safety, the resistor in the example system should be chosen to tolerate a one-off event, starting at the expected maximum ambient temperature, of 430W for 1.5 seconds. 
 
 Searching through available off-the-shelf options from Digikey, the RH series from Vishay is chosen as a likely candidate.  According to the [datasheet](https://www.vishay.com/docs/50013/rh.pdf) (see also, [Appendix](../Appendix/80_Appendix_B.md)) for short time overloads, a power rating of 12x the nominal power is acceptable for a 2 second duration.  Using a 50W resistor, this equates to an overload rating of 600W, starting at an ambient of 25°C.   
 
@@ -60,7 +64,8 @@ The maximum acceptable operating voltage for the 50W resistor is 1285V, so our m
 
 Therefore, a __470 ohm, 50W, RH series wirewound aluminium resistor __ would be a suitable choice of external resistor for this application of precharging __800uF to 450V in 1.5 seconds.__  Other devices on the HV bus such as DC/DC converters and battery chargers will add significant extra capacitance, and must be factored into these calculations. 
 
-Note that the BMS must be programmed with the correct timeout value, so as it knows what the expected precharge time is.  If this is not done, then the precharge controller will either expect precharge to have finished when it has not, resulting in an error state, or it will expect precharge to take much longer than it really does, resulting in a potential overload and a fire in the external resistor if there is a system fault. 
+!!! info "Timeout Values"
+    Note that the BMS must be programmed with the correct timeout value, so as it knows what the expected precharge time is.  If this is not done, then the precharge controller will either expect precharge to have finished when it has not, resulting in an error state, or it will expect precharge to take much longer than it really does, resulting in a potential overload and a fire in the external resistor if there is a system fault. 
 
 ## Caveats
 

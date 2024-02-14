@@ -1,6 +1,5 @@
 ---
 title: Cooling
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Cooling
@@ -29,7 +28,10 @@ A high bandwidth system was used to acquire the switching waveforms, and data sh
 
 The power loss of the WaveScuptor operating with 160V DC bus voltage is shown in the diagram below:
 
-![Power loss of WaveSculptor22 diagram](images/Cooling.gif)
+<figure markdown>
+![Power loss of WaveSculptor22](images/Power_Loss_Curve.png)
+<figcaption>Power loss of WaveSculptor22</figcaption>
+</figure>
 
 ### Predicting Loss
 

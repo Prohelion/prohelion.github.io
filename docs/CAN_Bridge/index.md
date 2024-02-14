@@ -1,6 +1,5 @@
 ---
 title: CAN Bus to Ethernet Bridge
-description: Documentation for the Prohelion CAN Bus to Ethernet Bridge
 ---
 
 <div class="grid cards" markdown>
@@ -43,6 +42,6 @@ description: Documentation for the Prohelion CAN Bus to Ethernet Bridge
 
     Getting the most out of or troubleshooting your CAN to Ethernet Bridge
 
-    [:octicons-arrow-right-24: FAQs](../FAQs/CAN_bus_Adapters/Tritum_CAN_Ethernet_Bridge/index.md)
+    [:octicons-arrow-right-24: FAQs](../FAQs/CAN_bus_Adapters/CAN_Ethernet_Bridge/index.md)
 
 </div>

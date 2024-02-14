@@ -1,6 +1,5 @@
 ---
 title: CAN Bridge Configuration
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # CAN Bridge Configuration
@@ -17,13 +16,17 @@ These settings can be changed using the CAN–Ethernet Bridge Configuration Tool
 
 ## CAN-Ethernet Bridge Configuration Software
 
+!!! alert "CAN-Ethernet Bridge Configuration is now included in [Profinity](../../Profinity/20_CAN_Bus_Adapters.md)"
+    Profinity is now the recomended approach for configuring your CAN-Ethernet Bridge, to do so add your bridge to a Profile then right mouse click configure it.  This documentation is  for client still using the old configuration software, but we would recomend upgrading if possible.
+
 The CAN–Ethernet Bridge Configuration application provides three functions.  First, it enables users to modify the Bridge Configuration of the bridges connected to the network.  Secondly, it allows users to view the bridges connected to their network and select the bridge corresponding to the virtual network that they wish to use.  Third, it allows updating the bridge firmware.
 
 Figure 5 shows a screenshot of the configuration tool.  
 
-![Figure 5:CAN-Ethernet Bridge Configuration Tool](images/CAN-Ethernet_Bridge_Configuration_tool.gif)
-
-Figure 5: CAN-Ethernet Bridge Configuration Tool
+<figure markdown>
+![Figure 5: CAN-Ethernet Bridge Configuration Tool](images/CAN-Ethernet_Bridge_Configuration_tool.gif)
+<figcaption>Figure 5: CAN-Ethernet Bridge Configuration Tool</figcaption>
+</figure>
 
 The listbox on the left shows detected CAN–Ethernet bridges. Details about the selected bridge are shown on the right.  
 These details are:
@@ -56,9 +59,10 @@ The CAN–Ethernet Bridge Loader wizard provides the ability to load updated fir
 
 Figure 6 shows a screenshot of the loader tool.  
 
+<figure markdown>
 ![Figure 6:CAN-Ethernet Bridge Loader Tool](images/CAN-Ethernet_Bridge_loader_tool.gif)
-
-Figure 6: CAN-Ethernet Bridge Loader Tool
+<figcaption>Figure 6:CAN-Ethernet Bridge Loader Tool</figcaption>
+</figure>
 
 To use the tool, complete the following steps:
 
@@ -79,6 +83,3 @@ __7.__ Apply or cycle power to the bridge while continuing to hold the button, u
 __8.__ The loader application will load in the new firmware
 
 __9.__ Once the load is complete, press and hold the button on the bridge until the status LED flashes briefly, in order to load factory default settings
-
-
-

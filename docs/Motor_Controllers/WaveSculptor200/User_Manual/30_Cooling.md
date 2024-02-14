@@ -1,6 +1,5 @@
 ---
 title: Cooling
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Cooling
@@ -16,7 +15,10 @@ The liquid cooling system consists of four main components. They are:
 
 They should be connected as shown below. Tracing the liquid flow path around the circuit, the pump should be directly after the reservoir, to minimise dry running the pump when installing the system.  The radiator should be directly after the WaveSculptor, to cool the liquid as soon as possible and minimise the temperature that the pump is exposed to.
 
+<figure markdown>
 ![Liquid Cooling](images/liquid_cooling.png)
+<figcaption>Liquid Cooling</figcaption>
+</figure>
 
 Additional components can be added to the system. Recommended items are:
 

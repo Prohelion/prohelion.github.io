@@ -1,6 +1,5 @@
 ---
 title: CAN-TCP Bridging
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # CAN-TCP Bridging
@@ -9,9 +8,10 @@ When a higher level of reliability is required in the connection between a devic
 
 By setting the fwd identifier and fwd range fields (see below), it is possible to have the bridge use this TCP connection to forward on certain packets, rather than having them multicast via UDP.
 
-![Figure 4:TCP Stream structure](images/figure4.png)
-
-Figure 4: TCP Stream structure
+<figure markdown>
+![Figure 4: TCP Stream Structure](images/figure4.png)
+<figcaption>Figure 4: TCP Stream Structure</figcaption>
+</figure>
 
 The fwd identifier represents the lowest CAN identifier that should be bridged from the physical CAN network and forwarded on via the TCP connection.
 

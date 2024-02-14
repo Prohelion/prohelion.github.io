@@ -1,15 +1,15 @@
 ---
 title: Observation
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Observation
 
 This main screen shown in Figure 1, displays the status of WaveSculptor along with all available measurements.  Communications between the configuration software and WaveSculptor is achieved via the Prohelion CAN-Ethernet bridge
 
+<figure markdown>
 ![Figure 1: Main Screen](images/observation.png)
-
-Figure 1: Main Screen
+<figcaption>Main Screen</figcaption>
+</figure>
 
 A Prohelion CAN-Ethernet bridge must be present on the same CAN bus as the WaveSculptor and on the same LAN as the PC running the configuration software. Before using the configuration software, you must first configure the CAN-Ethernet bridge as described in the [CAN-Ethernet Bridge User's Manual](../../CAN_Bridge/User_Manual/index.md).
 

@@ -65,7 +65,7 @@ The Telemetry system is configured via the use of a properties file which is sto
 | can.loader.directory = file:///tmp | Directory where CAN Bus files that you want to bulk load should be placed |
 | can.loader.pattern = *.csv |Extension of the CAN Bus files |
 | | |
-| **Infrastructure Configuration** | These settings should only be changed if you are looking to change how the application itself behaves, they do not change the functional behaviour of the application. The [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.md) is the best source of information on these settings |
+| **Infrastructure Configuration** | These settings should only be changed if you are looking to change how the application itself behaves, they do not change the functional behaviour of the application. The [Spring Boot Documentation](https://spring.io/projects/spring-boot) is the best source of information on these settings |
 | spring.application.name=Prohelion Telemetry |  |
 | spring.mvc.favicon.enabled = false |  |
 | server.port = 9000 |  |

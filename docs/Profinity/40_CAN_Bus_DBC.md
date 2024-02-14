@@ -8,7 +8,10 @@ title: CAN Bus DBC
 
 For the moment, Profinity provides a DBC Viewer that can be used to take a DBC file and will show the CAN Bus traffic travelling through the Profinity system as Messages and Signals.
 
+<figure markdown>
 ![CAN DBC Viewer](images/dbc_canbus_message.png)
+<figcaption>CAN DBC Viewer</figcaption>
+</figure>
 
 To use the DBC viewer with a third party DBC file you need to [create a new item](15_Adding_New_Items.md) in your [Profile](10_Profiles.md) and in the configuration properties for that new item provide the DBC file.  
 

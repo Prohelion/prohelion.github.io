@@ -1,6 +1,5 @@
 ---
 title: Contactors
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # Contactors

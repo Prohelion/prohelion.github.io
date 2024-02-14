@@ -10,7 +10,10 @@ Unsurprisingly the fundamental purpose of the Can to Ethernet bridge is to conne
 
 [Ethernet](https://en.wikipedia.org/wiki/Ethernet) is the most common networking protocol found in general use today and underpins [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) which is used by PC or internet connected devices.
 
-![Profinity](images/EthernetCable.jpg)
+<figure markdown>
+![Ethernet Cable](images/EthernetCable.jpg)
+<figcaption>Ethernet Cable</figcaption>
+</figure>
 
 CAN Bus achieves its high levels of reliability by constantly sending packets of data where the packet contains an ID indicating the device and then a set of values. It has a clever mechanism that allows it to prioritise packets based on their importance using the ID. 
 

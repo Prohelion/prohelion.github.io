@@ -1,6 +1,5 @@
 ---
 title: Prohelion WaveSculptor Motor Controllers
-description: Documentation for the Prohelion WaveSculptor Motor Controllers
 ---
 
 # WaveSculptor 22

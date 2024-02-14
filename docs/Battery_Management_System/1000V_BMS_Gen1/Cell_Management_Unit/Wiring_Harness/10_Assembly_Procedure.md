@@ -1,6 +1,5 @@
 ---
 title: Assembly Procedure
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Assembly Procedure

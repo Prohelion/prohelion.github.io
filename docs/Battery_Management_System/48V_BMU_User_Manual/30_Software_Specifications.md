@@ -1,6 +1,5 @@
 ---
 title: Software Specifications
-description: Documentation for the Prohelion 48V BMU
 ---
 
 # Software Specifications
@@ -11,9 +10,10 @@ The Prohelion 48V BMS firmware uses a finite state machine to control the output
 
 The diagram below shows the operational behaviour of the BMS State Machine. It shows each of the states and all the transitions between the states. 
 
+<figure markdown>
 ![Figure 11: BMS State Machine](images/image11.png)
-
-Figure 11: BMS State Machine
+<figcaption>Figure 11: BMS State Machine</figcaption>
+</figure>
 
 ### BMS Outputs
 

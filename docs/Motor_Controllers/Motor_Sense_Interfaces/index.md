@@ -1,6 +1,5 @@
 ---
 title: Motor Sense Interfaces
-description: Landing page for the various Motor Sense Interfaces
 ---
 
 # Motor Sense Interfaces

@@ -1,6 +1,5 @@
 ---
 title: Motor Setup and Testing
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Motor Setup and Testing 
@@ -42,12 +41,14 @@ If using batteries as the power source, regenerative braking (regen) can also be
 The motor controller will regen if the velocity is set to a lower speed than the motor is actually moving, and motor current is above zero.  
 
 To stop without regen braking:
-1.	Zero the motor current, then
-2.	Zero the velocity
+
+__1.__	Zero the motor current, then
+__2.__	Zero the velocity
 
 To stop with regen braking:
-1.	Set motor current to your desired regen current, then
-2.	Zero the velocity
+
+__1.__	Set motor current to your desired regen current, then
+__2.__	Zero the velocity
 
 Now that the motor is configured correctly, set the Bus Current to 100%, if it is not already.  Change the Velocity slider to around 10%.  Now, gradually increase the Motor Current slider, and the motor should smoothly accelerate to a moderate speed.
 

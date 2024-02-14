@@ -1,6 +1,5 @@
 ---
 title: Battery Management System
-description: Documentation for the Prohelion BMU and CMU
 ---
 
 <div class="grid cards" markdown>

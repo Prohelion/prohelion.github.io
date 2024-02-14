@@ -1,6 +1,5 @@
 ---
 title: Mechanical and Environmental
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Mechanical and Environmental

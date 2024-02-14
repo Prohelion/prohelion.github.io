@@ -1,6 +1,5 @@
 ---
 title: Solar Peak Power Trackers by Elmar
-description: Looking for some of the worlds most efficient Solar MPPT trackers, here they are.
 hide:
     - navigation
 ---

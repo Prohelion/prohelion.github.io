@@ -1,6 +1,5 @@
 ---
 title: DC Bus
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # DC Bus

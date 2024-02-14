@@ -1,6 +1,5 @@
 ---
 title: Telemetry Viewing Software
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # Telemetry Viewing Software

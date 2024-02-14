@@ -1,6 +1,5 @@
 ---
 title: CAN Bus and Low Voltage
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # CAN Bus and Low Voltage 
@@ -9,7 +8,10 @@ The CAN bus is structured as a linear network, with short stubs branching from '
 
 In the range of Prohelion EV products, including the WaveSculptor 200, EV Driver Controls, and BMS Pack Master, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
-![WaveSculptor 200 Motor Controller](images/CAN_Bus_Topology.gif)
+<figure markdown>
+![CAN Bus Topology](images/CAN_Network_Topology.png)
+<figcaption>CAN Bus Topology</figcaption>
+</figure>
 
 The WaveSculptor motor controller uses the CAN bus to receive commands and transmit telemetry, as well as to provide low-voltage DC power to operate the controller electronics.
 
@@ -40,7 +42,10 @@ For those on a budget, standard CAT5 network cabling (which has an impedance of 
 
 The connector used on the WaveSculptor200 and other Prohelion devices is a 6-way 3mm pitch Molex MicroFit connector.  The pinout is shown below, as viewed from the wire side – as you would look at it while inserting crimps.  The colours shown match those in the standard DeviceNet CAN cabling pairs.  Please refer to [Appendix B](80_Appendix_B.md) for an overview of correct crimping technique, as poor crimps will cause unreliable operation.
 
-![WaveSculptor 200 Motor Controller](images/connector1.png)
+<figure markdown>
+![CAN Connector](images/connector1.png)
+<figcaption>CAN Connector</figcaption>
+</figure>
 
 ## CAN Shielding
 

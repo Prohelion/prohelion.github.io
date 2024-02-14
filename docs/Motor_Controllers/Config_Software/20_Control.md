@@ -1,15 +1,15 @@
 ---
 title: Control
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Control
 
 The purpose of the control dialog box is to provide a basic driver controls interface, allowing the system to be tested. It is not meant to be used to actually drive a vehicle on the road. Figure 2 shows a screen shot of the interface.
 
+<figure markdown>
 ![Figure 2: Control Interface](images/control_interface.jpg)
-
-Figure 2: Control Interface
+<figcaption>Control Interface</figcaption>
+</figure>
 
 In order to control the motor, three setpoint sliders are provided with text boxes to the right of the sliders displaying the selected setpoint. Fine movement of these sliders can be achieved using the keyboard as shown in Table 3.
 

@@ -10,7 +10,10 @@ Profinity keeps track of your profile and loads the most recently used one each 
 
 The Profile panel is typically located on the left side of your screen and if you close the profile you can open it again by pressing the Profile button on the menu.
 
-![Profinity](images/profile.png)
+<figure markdown>
+![Profinity Profile](images/profile.png)
+<figcaption>Profinity Profile</figcaption>
+</figure>
 
 The colours in a profile indicate the state of the device.  
 
@@ -43,6 +46,9 @@ Properties can also be set when the item is first created in the [New Items](15_
 
 However, not all devices are configured directly via Properties, some devices that have more complex configuration setups like the [Prohelion Loggers](35_Logging_Replaying_CAN_Bus_Messages.md) are configured via wizards that set the underlying properties correctly for you.  
 
-![Profinity](images/profile_properties.png)
+<figure markdown>
+![Profile Properties](images/profile_properties.png)
+<figcaption>Profile Properties</figcaption>
+</figure>
 
 The properties shown will depend on the device.  Some devices have a range of values that are allowed for a property and if an invalid property is entered then an error will be shown.  Information on the property is shown at the very bottom of the property panel.

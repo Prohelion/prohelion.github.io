@@ -10,9 +10,17 @@ Alerting is done via a visual cue using USB HID Visual Signal Indicators from De
 
 [https://www.delcomproducts.com/productdetails.asp?PartNumber=904007](https://www.delcomproducts.com/productdetails.asp?PartNumber=904007)
 
+<figure markdown>
 ![Beacon Black Side](images/telemetry_BeaconBlackSide.jpg)
+<figcaption>Beacon Black Side</figcaption>
+</figure>
+
+### Configuration of the Alerting System
+
+Configuration of the Alerting system is done by setting up a CSV file with thresholds that when crossed trigger Warnings, Alerts and then Shutdowns.  See the core for more details.  The Alert Type specifies if the threshold is crossed when it goes High, Low or a over a Percentage of a value.
 
 | Device        | Measurement               | CanId | dataPointCanId    | Warning Threshold | Alert Threshold   | Shutdown Threshold    | Alert Type    |
+|---------------|---------------------------|-------|-------------------|-------------------|-------------------|-----------------------|---------------|
 | BMS           | Min Cell Voltage          | 6F80  | 28544             | 2900              | 2750              | 2600                  | Low           |
 | BMS           | Max Cell Temp             | 6F92  | 28562             | 500               | 550               | 600                   | High          |
 | BMS           | CMU 1 PCB Temp            | 6014  | 24596             | 750               | 800               | 850                   | High          |

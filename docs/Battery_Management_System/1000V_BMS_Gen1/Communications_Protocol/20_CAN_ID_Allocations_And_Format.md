@@ -1,6 +1,5 @@
 ---
 title: CAN ID's And Format
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # CAN ID Allocations

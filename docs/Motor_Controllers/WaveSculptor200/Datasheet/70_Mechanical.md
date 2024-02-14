@@ -1,6 +1,5 @@
 ---
 title: Mechanical
-description: Documentation for the Prohelion Vehicle Communications protocol
 ---
 
 # Mechanical 

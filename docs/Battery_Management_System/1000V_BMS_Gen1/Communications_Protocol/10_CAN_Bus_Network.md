@@ -1,9 +1,9 @@
 ---
 title: CAN Bus Network
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 ---
 
 # CAN Bus Network
+
 The CAN bus is structured as a linear network, with short stubs branching from 'T' connectors on the main bus backbone to each device.  The CAN bus data lines must be terminated at each end of the main bus with 120 ohm resistors between the CAN-H and CAN-L signals. 
 
 In the range of Prohelion EV products, including EV Driver Controls and BMU, the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view. 

@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
 
 ---
 
@@ -11,14 +10,14 @@ This document describes the interface, installation, and usage requirements for 
 The BMS provides an easy way to monitor and control an Electric Vehicle battery pack, and can work seamlessly with Prohelion's WaveSculptor motor controllers.  It is a mature design with five previous product generations of real-world experience with various types of cells, form factors, and vehicles. 
 
 <figure markdown>
-![Battery Management System](images/Introduction_1.png)
-<figcaption>Prohelion BMS Master Unit</figcaption>
+![Prohelion Battery Management Unit](images/Introduction_1.png)
+<figcaption>Prohelion Battery Management Unit</figcaption>
 </figure>
 
 The BMS consists of two components: multiple [Cell Management Units](Cell_Management_Unit/index.md) (CMU), which measure and control the individual cells in the battery pack; and a single [Battery Management Unit](Battery_Management_Unit/index.md) (BMU) which interfaces between the CMUs and the vehicle, controls precharge and other safety systems, and provides total pack telemetry.
 
 <figure markdown>
-![Battery Management System](images/Introduction_2.png)
+![Prohelion Cell Management Unit](images/Introduction_2.png)
 <figcaption>Prohelion Cell Management Unit</figcaption>
 </figure>
 
@@ -60,3 +59,18 @@ The Prohelion BMS reports if any measurements are not trustworthy, and this info
 __Cell:__ A single physical unit, or permanently connected parallel group of units.  A parallel group functions electrically as a larger capacity single unit
 
 __Battery:__ A series-connected group of cells 
+
+## Acronyms and Abbreviations
+
+| Acronym   | Abbreviation                  |
+|-----------|-------------------------------|
+| `A`       | Ampere                        |
+| `Ah`      | Ampere Hour                   |
+| `BMS`     | Battery Management System     |
+| `CAN-Bus` | Controller Area Network - Bus |
+| `DC`      | Direct Current                |
+| `ESS`     | Energy Storage System         |
+| `HV`      | High Voltage                  |
+| `LV`      | Low Voltage                   |
+| `SoC`     | State of Charge               |
+| `V`       | Voltage                       |     

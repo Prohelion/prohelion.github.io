@@ -1,6 +1,5 @@
 ---
-title: BMS Unit
-description: Documentation for the Prohelion Electric Vehicle Driver Controls
+title: Battery Management Unit
 ---
 
 # Battery Management Unit
@@ -11,7 +10,6 @@ The Battery Management Unit is the controlling circuit board in the Battery Mana
 ![Battery Management System](../images/Introduction_1.png)
 <figcaption>Prohelion BMS Master Unit</figcaption>
 </figure>
-
 
 ## Form Factor
 

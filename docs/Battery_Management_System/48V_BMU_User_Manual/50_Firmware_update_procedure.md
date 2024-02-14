@@ -1,6 +1,5 @@
 ---
 title: Firmware Update Procedure
-description: Documentation for the Prohelion 48V BMU
 ---
 
 # Firmware Update Procedure
@@ -37,33 +36,55 @@ __2.__	Create a new profile (if you haven't already created one)
 
 __3.__	Add a PEAK Systems USB adapter device via the CAN Adapters tool.
 
+<figure markdown>
 ![Step 3.](images/FTF1.png)
+<figcaption>Step 3.</figcaption>
+</figure>
 
 __4.__	Add a Prohelion Virtual CAN Adapter & Hub device via the Add Device tool.
     - Leave all settings as the default values.
 
+<figure markdown>
 ![Step 4.](images/FTF2.png)
+<figcaption>Step 4.</figcaption>
+</figure>
 
 __5.__	Add a Prohelion NextGen BMS device via the Add Device tool.
     - Leave all settings as default. Set the Base CAN ID to right address if the device firmware has been configured to anything other than the default base CAN ID of 0x600.
 
+<figure markdown>
 ![Step 5.](images/FTF3.png)
+<figcaption>Step 5.</figcaption>
+</figure>
 
 __6.__	Right click on the Prohelion NextGen BMS device in the profile viewer. Select Update Firmware. 
 
+<figure markdown>
 ![Step 6.](images/FTF4.png)
+<figcaption>Step 6.</figcaption>
+</figure>
+
 
 __7.__	Select the 48V BMS device in the firmware loader menu.  Make sure the Device ID is 0x00350100. 
 
+<figure markdown>
 ![Step 7.](images/FTF5.png)
+<figcaption>Step 7.</figcaption>
+</figure>
 
 __8.__	Click Browse and locate the user application firmware file (PHLN-3000-0175-XXXX-XX-XX-XXXX.tsf) on your computer. Make sure the firmware Device ID is also 0x00350100.
 
+<figure markdown>
 ![Step 8.](images/FTF6.png)
+<figcaption>Step 8.</figcaption>
+</figure>
 
 __9.__	Click Erase / Program to flash the device. Once completed, there should be a success message in the text box. 
 
+<figure markdown>
 ![Step 9.](images/FTF7.png)
+<figcaption>Step 9.</figcaption>
+</figure>
 
 __10.__	If the firmware programming failed, check the CAN bus cabling to ensure that there is exactly two 120 Ohm terminating resistors. If there are not exactly two terminating resistors, it will cause communication issues that can lead to the device becoming no longer functional due to corrupted firmware. Also try unplugging any other devices on the CAN bus that is potentially interfering with the firmware update. If it is still failing, try unplugging the PEAK-USB adapter, restarting the computer and re-opening Profinity.    
 
@@ -71,7 +92,7 @@ __10.__	If the firmware programming failed, check the CAN bus cabling to ensure 
 
 | Description                                   | Value  |
 |-----------------------------------------------|--------|
-| `CAN - Bitrate`                                | 4      |
+| `CAN - Bitrate`                               | 4      |
 | `CAN - Base ID`                               | 0x600  | 
 | `CAN - Switches ID`                           | 0x700  |
 | `BMS - Modes Config`                          | 0x05   |
