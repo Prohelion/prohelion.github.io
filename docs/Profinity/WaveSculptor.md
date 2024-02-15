@@ -9,7 +9,7 @@ Profinity provides integrated management of the WaveSculptor products and you ca
 From there right mouse client to access the WaveSculptor Dashboard or to access the CAN Bus Messages and Signals.
 
 <figure markdown>
-![Prohelion WaveSculptor](images/WaveSculptor.png)
+![Prohelion WaveSculptor](images/wavesculptor.png)
 <figcaption>Prohelion WaveSculptor</figcaption>
 </figure>
 
