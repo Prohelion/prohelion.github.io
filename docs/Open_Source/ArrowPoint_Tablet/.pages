@@ -1,0 +1,9 @@
+nav:
+    - Setup.md
+    - Dashboard.md
+    - Solar.md
+    - Graphing.md
+    - Fleet_Messaging.md
+    - SystemDetails.md
+    - GPS.md
+    - Development.md

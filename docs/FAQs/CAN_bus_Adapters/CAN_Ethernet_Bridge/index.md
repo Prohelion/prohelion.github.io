@@ -2,8 +2,6 @@
 title: Prohelion and Tritium Bridge Overview
 ---
   
-## Prohelion and Tritium CAN-Ethernet Bridge FAQ
-
 The Tritium and Prohelion CAN Bus bridges are a widely used technology for Tritium and Prohelion customers. They bridge from CAN Bus to Ethernet, providing a reliable and scalable mechanism to easily connect a PC or Ethernet based device to a CAN Bus based device. 
 
 <figure markdown>

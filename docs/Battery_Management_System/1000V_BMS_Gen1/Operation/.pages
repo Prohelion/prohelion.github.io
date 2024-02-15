@@ -1,0 +1,5 @@
+nav:
+    - BMS_State_Machine.md
+    - Operating_Thresholds.md
+    - Precharge.md
+    - Charging.md

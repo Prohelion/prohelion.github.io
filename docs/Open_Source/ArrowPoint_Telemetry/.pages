@@ -1,0 +1,15 @@
+nav:
+    - Setup.md
+    - Config.md
+    - Usage.md
+    - Capture.md
+    - Reporting.md
+    - Alerting.md
+    - Fleet_Messaging.md
+    - GPS_GoogleEarth.md
+    - Fleet_Broadcasting.md
+    - Development_APIs.md
+    - Cloud.md
+    - Splunk.md
+    - Weather.md
+    - Bulk_Importing.md

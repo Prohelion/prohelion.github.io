@@ -36,7 +36,7 @@ Prohelion has Open Sourced some of it's tools developed during racing to help pr
 
     How to contribute to the development of these tools
 
-    [:octicons-arrow-right-24: How to Contribute](10_Contributing.md)    
+    [:octicons-arrow-right-24: How to Contribute](Contributing.md)    
 
 -   :material-help:{ .lg .middle } __Troubleshooting__
 
@@ -44,6 +44,6 @@ Prohelion has Open Sourced some of it's tools developed during racing to help pr
 
     Common troubleshooting approaches with these tools
 
-    [:octicons-arrow-right-24: Troubleshooting](20_Troubleshooting.md)
+    [:octicons-arrow-right-24: Troubleshooting](Troubleshooting.md)
 
 </div>
