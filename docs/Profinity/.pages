@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Profiles.md 
     - Adding_New_Items.md 
     - CAN_Bus_Adapters.md 

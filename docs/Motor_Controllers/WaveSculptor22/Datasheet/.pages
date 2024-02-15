@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - DC_Bus.md
     - Motor_Output.md
     - Motor_Sense.md

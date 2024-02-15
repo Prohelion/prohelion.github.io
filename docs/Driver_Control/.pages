@@ -1,3 +1,4 @@
 nav:
+    - index.md
     - User_Manual
     - Communications_Protocol

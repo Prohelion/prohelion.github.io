@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - WaveSculptor22
     - WaveSculptor200    
     - Motor_Sense_Interfaces

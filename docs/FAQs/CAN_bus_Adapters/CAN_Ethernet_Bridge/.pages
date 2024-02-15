@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Quickstart.md
     - Bridge_Fundamentals.md
     - CAN_Ethernet_Fundamentals.md

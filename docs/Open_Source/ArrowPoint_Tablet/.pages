@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Setup.md
     - Dashboard.md
     - Solar.md

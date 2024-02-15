@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Getting_Started.md
     - Controller_Function.md
     - Mounting.md

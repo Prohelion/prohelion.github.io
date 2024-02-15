@@ -1,3 +1,4 @@
 nav:
-- Network_Topologies.md
-- Bridge_Configuration.md
+    - index.md
+    - Network_Topologies.md
+    - Bridge_Configuration.md

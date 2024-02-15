@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Observation.md
     - Control.md
     - Configuration.md
