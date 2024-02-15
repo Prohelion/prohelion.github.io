@@ -1,0 +1,7 @@
+nav:
+    - index.md
+    - CAN_UDP_Bridging.md
+    - CAN_TCP_Bridging.md
+    - Bridge_Heartbeat.md
+    - Bridge_Configuration.md
+    - Version_Querying.md

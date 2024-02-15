@@ -1,0 +1,7 @@
+nav:
+    - BMS_Functions.md
+    - Connectors.md
+    - Software_Specifications.md
+    - CAN_Communication.md
+    - Firmware_update_procedure.md
+    - Generic_Battery_Assembly_procedure.md
