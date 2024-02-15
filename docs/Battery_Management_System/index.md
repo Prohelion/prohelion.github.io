@@ -42,7 +42,7 @@ title: Battery Management System
 
     Our battery and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../Profinity/70_Prohelion_Batteries.md)
+    [:octicons-arrow-right-24: Supporting Software](../Profinity/Prohelion_Batteries.md)
 
 -   :material-tools:{ .lg .middle } __48V BMS User Manual__
 

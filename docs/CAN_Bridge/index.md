@@ -34,7 +34,7 @@ title: CAN Bus to Ethernet Bridge
 
     Our battery and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../Profinity/20_CAN_Bus_Adapters.md)
+    [:octicons-arrow-right-24: Supporting Software](../Profinity/CAN_Bus_Adapters.md)
 
 -   :material-frequently-asked-questions:{ .lg .middle } __Frequently Asked Questions__
 

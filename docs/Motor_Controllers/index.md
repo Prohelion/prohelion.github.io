@@ -117,7 +117,7 @@ title: Prohelion WaveSculptor Motor Controllers
 
     Our WaveSculptor22 and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Management Software](../Profinity/80_Tritium_WaveSculptor.md)
+    [:octicons-arrow-right-24: Management Software](../Profinity/WaveSculptor.md)
 
 
 </div>

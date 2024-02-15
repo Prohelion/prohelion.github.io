@@ -26,7 +26,7 @@ The BMS consists of two components: multiple [Cell Management Units](Cell_Manage
 The function of the BMS is threefold, in order of priority: 
 
 -   Monitor cell voltages and temperatures, and act on this information to protect the pack against being operated outside acceptable limits 
--   Manage the cells, to keep them at equal [State Of Charge](Reporting/85_State_Of_Charge_Reporting.md)
+-   Manage the cells, to keep them at equal [State Of Charge](Reporting/State_Of_Charge_Reporting.md)
 -   Report telemetry to the other systems in the vehicle, to allow a graceful reduction in vehicle performance as the battery approaches its limits 
 
 The BMS performs these functions by measuring the following parameters: 
