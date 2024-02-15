@@ -1,7 +1,0 @@
-I"’<h2 id="gps">GPS</h2>
-<p>The GPS tracking function is still a work in progress at this point, but we intend in the longer term for this to be used for lap tracking or position information (for example distance to next stop).</p>
-
-<p>At the moment, it simply shows your current latitude and longitude.</p>
-
-<p><img src="/images/android_gps.png" alt="Example of the Arrowpoint Android GPS system" /></p>
-:ET

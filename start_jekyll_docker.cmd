@@ -1,1 +1,0 @@
-docker run --rm --name prohelion-docs -p 4000:4000 -v %cd%:/srv/jekyll:Z -i -t jekyll/jekyll:3.8 jekyll serve --incremental

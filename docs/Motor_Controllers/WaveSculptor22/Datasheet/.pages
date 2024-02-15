@@ -1,0 +1,9 @@
+nav:
+    - index.md
+    - DC_Bus.md
+    - Motor_Output.md
+    - Motor_Sense.md
+    - Efficiency.md
+    - Operating_Power_And_Cooling.md
+    - Control_And_Telemetry_Interface.md
+    - Mechanical_and_Environmental.md

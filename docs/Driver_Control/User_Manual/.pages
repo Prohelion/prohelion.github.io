@@ -1,0 +1,5 @@
+nav:
+    - index.md
+    - CAN_Bus.md
+    - Inputs_and_outputs.md 
+    - Software_Programming.md

@@ -1,0 +1,83 @@
+<mxfile host="Electron" modified="2024-02-14T05:54:30.027Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="lKF7S7gL3vd5Nc14KKzp" version="21.6.8" type="device">
+  <diagram name="Page-1" id="ZcLkBD7_k-yZd0zQTZQv">
+    <mxGraphModel dx="2364" dy="712" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="520" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-2" value="State of Charge (SOC)" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="340" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-3" value="Cell Voltage" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="80" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-4" value="" style="curved=1;endArrow=none;html=1;rounded=0;strokeColor=#5d63ac;strokeWidth=2;endFill=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="70" y="230" as="sourcePoint" />
+            <mxPoint x="530" y="80" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="70" y="150" />
+              <mxPoint x="530" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-7" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="60" y="205" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-5" value="" style="endArrow=none;html=1;rounded=0;fillColor=#e51400;strokeColor=#B20000;strokeWidth=2;" edge="1" parent="AL8yVkrwt1xIT1OiGr9q-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="20" as="sourcePoint" />
+            <mxPoint x="60" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-6" value="Under Voltage Threshold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="AL8yVkrwt1xIT1OiGr9q-7">
+          <mxGeometry x="60" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-8" value="" style="group" vertex="1" connectable="0" parent="AL8yVkrwt1xIT1OiGr9q-7">
+          <mxGeometry y="-25" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-9" value="" style="endArrow=none;html=1;rounded=0;fillColor=#f0a30a;strokeColor=#f2ab40;strokeWidth=2;" edge="1" parent="AL8yVkrwt1xIT1OiGr9q-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="20" as="sourcePoint" />
+            <mxPoint x="60" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-10" value="Zero SOC Threshold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="AL8yVkrwt1xIT1OiGr9q-8">
+          <mxGeometry x="60" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-14" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="330" y="70" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-12" value="" style="endArrow=none;html=1;rounded=0;fillColor=#e51400;strokeColor=#fd3f3f;strokeWidth=2;" edge="1" parent="AL8yVkrwt1xIT1OiGr9q-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="20" as="sourcePoint" />
+            <mxPoint x="210" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-13" value="Over Voltage Threshold" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;container=0;" vertex="1" parent="AL8yVkrwt1xIT1OiGr9q-14">
+          <mxGeometry width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-15" value="" style="group" vertex="1" connectable="0" parent="AL8yVkrwt1xIT1OiGr9q-14">
+          <mxGeometry y="20" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-16" value="" style="endArrow=none;html=1;rounded=0;fillColor=#f0a30a;strokeColor=#FF9933;strokeWidth=2;" edge="1" parent="AL8yVkrwt1xIT1OiGr9q-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="20" as="sourcePoint" />
+            <mxPoint x="210" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-17" value="Balance Threshold" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;container=0;" vertex="1" parent="AL8yVkrwt1xIT1OiGr9q-15">
+          <mxGeometry width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-18" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#FFB366;fontColor=#000000;" vertex="1" parent="AL8yVkrwt1xIT1OiGr9q-15">
+          <mxGeometry x="160" y="20" width="50" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="AL8yVkrwt1xIT1OiGr9q-22" value="" style="shape=waypoint;sketch=0;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="540" width="20" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

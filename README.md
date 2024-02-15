@@ -1,33 +1,34 @@
 ## Welcome to the Prohelion Documentation Set
-  
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Any issues with our documentation, please log an issue here on GitHub
 
-```markdown
-Syntax highlighted code block
+# Editing the Documentation
 
-# Header 1
-## Header 2
-### Header 3
+These documents are build with MkDocs-Material https://squidfunk.github.io/mkdocs-material/
 
-- Bulleted
-- List
+To edit the documents locally you will need to install the MkDocs using the instructions found on the MkDocs Material website
 
-1. Numbered
-2. List
+https://squidfunk.github.io/mkdocs-material/getting-started/
 
-**Bold** and _Italic_ and `Code` text
+As per the instructions you will need to install, mkdocs material
 
-[Link](url) and ![Image](src)
-```
+pip install mkdocs-material
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+And also the following additional tools
 
-### Jekyll Themes
+pip install mkdocs-awesome-pages-plugin
+pip install mkdocs-glightbox
+pip install mkdocs-spellcheck
+pip install symspellpy
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Prohelion/prohelion.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# Link Checking
 
-### Support or Contact  
+A link checker is used to validate all URLs on the site before publishing, we have been using the Integrity Link Checker, but any link checker you like is fine.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+# Publishing the documentation
+
+To publish the documentation run the command 
+
+mkdocs gh-deploy  
+
+This will publish the site and post it to the gh-pages branch on github from where the site is staticly served by GitHub to the domain https://docs.prohelion.com

@@ -1,0 +1,8 @@
+nav:
+    - index.md
+    - Observation.md
+    - Control.md
+    - Configuration.md
+    - Set_Up_a_Motor.md
+    - Configuration_Tools.md
+    - Datalogging.md
