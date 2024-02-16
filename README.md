@@ -23,7 +23,7 @@ pip install symspellpy
 
 # Link Checking
 
-A link checker is used to validate all URLs on the site before publishing, we have been using the Integrity Link Checker, but any link checker you like is fine.
+A link checker is used to validate all URLs on the site before publishing, we have been using the [Integrity Link Checker](https://peacockmedia.software/mac/integrity/free.html) for Mac, on Windows [LinkChecker](http://wummel.github.io/linkchecker/) is a good soltuion, but any link checker you like is fine.
 
 # Publishing the documentation
 
