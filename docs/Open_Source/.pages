@@ -1,6 +1,6 @@
 nav:
     - index.md
-    - ArrowPoint_CANBus_Tools_New
+    - ArrowPoint_CANBus_Tools
     - ArrowPoint_Tablet
     - ArrowPoint_Telemetry
     - Contributing.md
