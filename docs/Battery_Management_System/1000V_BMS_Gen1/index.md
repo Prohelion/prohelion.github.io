@@ -1,6 +1,5 @@
 ---
 title: Overview
-
 ---
 
 # 1000V - Battery Management System (BMS) - Gen 1
