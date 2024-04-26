@@ -131,8 +131,8 @@ This packet is transmitted by the BMU to show the total pack voltage and current
 
 | <div style="width:100px">CAN ID:</div>    | 0x6FA - Interval: 10Hz  |
 | ----------------------------------------- | ----------------------- |
-| data_u32[0]                               | Battery Voltage (mV)    |
-| data_u32[1]                               | Battery Current (m)     |          
+| `data_u32[0]`                               | Battery Voltage (mV)    |
+| `data_u32[1]`                               | Battery Current (m)     |          
 
 ## Battery Pack Status
 
@@ -140,9 +140,9 @@ This packet is transmitted by the BMU to show the status of the overall pack.
 
 | <div style="width:100px">CAN ID:</div>    | 0x6FB - Interval: 1Hz                                                     |
 | ----------------------------------------- | ------------------------------------------------------------------------- |
-| `data_u16[0]                              | Balance voltage threshold – rising (balance resistor turns on)            |
-| `data_u16[1]                              | Balance voltage threshold – falling (balance resistor turns off)            |          
-| `data_u8[4]                               | Status Flags                                                              |
+| `data_u16[0]`                              | Balance voltage threshold – rising (balance resistor turns on)            |
+| `data_u16[1]`                              | Balance voltage threshold – falling (balance resistor turns off)            |          
+| `data_u8[4]`                               | Status Flags                                                              |
 ||0x01 = Cell Over Voltage<br>0x02 = Cell Under Voltage<br>0x04 = Cell Over Temperature<br>0x08 = Measurement Untrusted (redundant channel mismatch)<br>0x10 = CMU Communications Timeout (lost CMU)<br>0x20 = Vehicle Communications Timeout (lost EVDC)<br>0x40 = BMU is in Setup mode<br>0x80 = CMU CAN bus power status
 ||Present for backwards compatibility with older software<br>For newer software, please view the flags in the extended battery pack status ID packet |     
 | `data_u8[5]`                              | BMS CMU count                                                             |    
