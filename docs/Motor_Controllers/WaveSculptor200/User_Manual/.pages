@@ -6,13 +6,14 @@ nav:
     - Accessing_The_Controller.md 
     - Cooling.md 
     - CAN_Bus_And_Low_Voltage.md 
+    - DBC.md    
     - PC_Software.md 
     - Driver_Controls.md 
     - Motor_Sense_Connections.md 
     - High_Power_Connections.md 
     - Motor_Setup_And_Testing.md 
     - High_Power_Testing.md 
-    - Driving.md 
+    - Driving.md     
     - Appendix_A.md 
     - Appendix_B.md 
-    - Appendix_C.md
+    - Appendix_C.md    
