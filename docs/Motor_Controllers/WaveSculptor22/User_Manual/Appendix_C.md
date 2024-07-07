@@ -123,8 +123,8 @@ __Interval: 200ms__
 | `Transmit Error Count`    | 55..48    | Uint8     | The DSP CAN transmission error counter (CAN 2.0)      |
 | `Active Motor`            | 47..32    | Uint16    | The index of the active motor currently being used.   |
 | `Error Flags`             | 31..16    | Uint16    | Flags Indicate Error                                  |
-|||__Bits__|__Parameter__|
-||| 15..9<br>8<br>7<br><br>6<br>5<br><br>4<br>3<br>2<br>1<br>0| Reserved<br>Motor Over Speed (15% overshoot above max RPM)<br>Desaturation Fault (IGBT desaturation, IGBT driver OVLO)<br>15V Rail under voltage lock out (UVLO)<br>Config read error (some values may be reset to defaults)<br>Watchdog caused last reset<br>Bad motor position hall sequence<br>DC Bus over voltage<br>Software over current<br>Hardware over current |
+|                           |           |__Bits__   |__Parameter__                                          |
+|                           |           | 15..9<br>8<br>7<br>6<br>5<br>4<br>3<br>2<br>1<br>0        | Reserved<br>Motor Over Speed (15% overshoot above max RPM)<br>Desaturation Fault (IGBT desaturation, IGBT driver OVLO)<br>15V Rail under voltage lock out (UVLO)<br>Config read error (some values may be reset to defaults)<br>Watchdog caused last reset<br>Bad motor position hall sequence<br>DC Bus over voltage<br>Software over current<br>Hardware over current |
 | `Limit Flags`             | 15..0     | Uint16    | Flags Indicate which control loop is limiting the output current of the motor controller |
 ||| __Bits__|__Parameter__
 ||| 15..7<br>6<br>5<br>4<br>3<br>2<br>1<br>0| Reserved<br>IPM Temperature or Motor Temperature<br>Bus Voltage Lower Limit<br>Bus Voltage Upper Limit<br>Bus Current<br>Velocity<br>Motor Current<br>Output Voltage PWM |

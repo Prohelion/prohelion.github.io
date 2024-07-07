@@ -52,7 +52,7 @@ Send a command from this address to reset the WaveSculptor.
 
 ### Switch position / activity
 
-| ID:               | Driver Controls Base Address + 04 - Interval 100ms | | | 
+| ID:               | Driver Controls Base Address + 05 - Interval 100ms | | | 
 |-------------------|--------|--------|--------------------------------------|
 | `Switch Position` | 63..32 | Uint32 | Current position of the switch inputs on the driver controls module DB37 connector:                                                                   |
 |                   |__Bits__|        |__Parameter__                         |
