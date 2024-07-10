@@ -60,7 +60,7 @@ The connector used for the motor sense signals is a 8-way 3mm pitch Molex MicroF
 
 ## Type
 
-The type 3 interface reads two channels of temperature information from __Pt100 platinum elements. __ Scaling and offset corrections are provided by the WaveSculptor, with inputs from the calibration software and the user.
+The type 3 interface reads two channels of temperature information from __Pt100 platinum elements.__ Scaling and offset corrections are provided by the WaveSculptor, with inputs from the calibration software and the user.
 
 ## Input
 
