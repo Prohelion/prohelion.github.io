@@ -60,7 +60,7 @@ The connector used for the motor sense signals is a 8-way 3mm pitch Molex MicroF
 
 ## Type 
 
-The type 7 interface reads two channels of temperature information from __NTC thermistors. __ Linearisation is provided in hardware on the motor interface circuit, with further scaling, offset and B curve correction being provided by the WaveSculptor, with inputs from the calibration software and the user.
+The type 7 interface reads two channels of temperature information from __NTC thermistors.__ Linearisation is provided in hardware on the motor interface circuit, with further scaling, offset and B curve correction being provided by the WaveSculptor, with inputs from the calibration software and the user.
 
 ## Input
 

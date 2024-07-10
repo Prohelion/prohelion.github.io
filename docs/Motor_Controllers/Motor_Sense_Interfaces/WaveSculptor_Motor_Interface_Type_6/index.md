@@ -33,7 +33,7 @@ The connector used for the motor sense signals is a 6-way 3mm pitch Molex MicroF
 
 ## Type 
 
-The type 6 interface reads a single channel from an __NTC thermistor. __ Linearisation is provided in hardware on the motor interface circuit, with further scaling, offset and B curve correction being provided by the WaveSculptor, with inputs from the calibration software and the user.
+The type 6 interface reads a single channel from an __NTC thermistor.__ Linearisation is provided in hardware on the motor interface circuit, with further scaling, offset and B curve correction being provided by the WaveSculptor, with inputs from the calibration software and the user.
 
 ## Input
 
