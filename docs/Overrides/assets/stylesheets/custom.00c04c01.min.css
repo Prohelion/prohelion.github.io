@@ -249,7 +249,7 @@
 .mdx-container {
     background-image: url('/assets/images/Prohelion-Sixfold-pattern.png') ;
     background-color: #1b1b1b;
-    background-repeat: repeat-y;
+    background-repeat: repeat;
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
