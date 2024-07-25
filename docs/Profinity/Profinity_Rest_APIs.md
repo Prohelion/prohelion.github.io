@@ -72,7 +72,7 @@ Or if you are running on MacOs or Linux under your home directory.
 
 `$home/Prohelion/Profinity/Webroot`
 
-By default the Profinity web server will serve the index.md file from this directory if no URL is provided by the calling web browser.
+By default the Profinity web server will serve the index.html file from this directory if no URL is provided by the calling web browser.
 
 ## Production Configuration and HTTPs
 
