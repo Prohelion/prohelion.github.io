@@ -20,7 +20,9 @@ theme:
     - content.footnote.tooltips
     - navigation.footer
   palette:
-    scheme: default    
+    scheme: default
+    primary: black
+    accent: red
 
 copyright: >
   Copyright &copy; 2016 - 2024 Prohelion Pty Ltd –
