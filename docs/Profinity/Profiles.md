@@ -1,8 +1,8 @@
 ---
-title: Profiles
+title: Profinity Profile Packs
 ---
 
-# Profinity Profiles
+# Profinity Profile Packs
 
 A Profile is the core mechanism by which Profinity maintains the configuration of your system.  Profiles typically consist of one or more CAN-Ethernet Bridges, which are used to connect to the CAN network as well as devices that you might be managing.
 

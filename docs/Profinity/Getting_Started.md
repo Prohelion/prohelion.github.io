@@ -50,6 +50,3 @@ Profinity has a built in logging mechanism that captures information about the o
 </figure>
 
 Each log entry contains a timestamp, a message level (e.g., Info, Warn, Error, etc.), and a message description. To help diagnose particular issues, the scope of the system logs can be changed to only include particular message levels. More information about varying the displayed log levels can be found in the [System Administration](System_Admin.md) section.
-
-!!! info "Log levels are persisted"
-    Once a log level is set, it will remain persisted across restarts of Profinity
