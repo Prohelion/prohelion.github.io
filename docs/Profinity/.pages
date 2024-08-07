@@ -1,5 +1,7 @@
 nav:
     - index.md
+    - Installation.md
+    - Getting_Started.md
     - Profiles.md 
     - Adding_New_Items.md 
     - CAN_Bus_Adapters.md 
