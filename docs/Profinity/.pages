@@ -2,8 +2,8 @@ nav:
     - index.md
     - Installation.md
     - Getting_Started.md
-    - System_Admin.md
     - Profiles.md 
+    - System_Admin.md
     #- Adding_New_Items.md 
     - CAN_Bus_Adapters.md 
     - Virtual_CAN_Adapter.md 
