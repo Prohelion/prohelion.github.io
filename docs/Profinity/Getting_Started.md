@@ -27,6 +27,8 @@ Each user can be granted different administrative privileges. Giving a user admi
 
 Profinity Profile Packs behave similarly to Profiles from Profinity Classic.
 
+More information can be found in the [Profinity Profile Packs](Profiles.md) section.
+
 
 ## Adding a component
 
