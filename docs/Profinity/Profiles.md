@@ -4,6 +4,10 @@ title: Profinity Profile Packs
 
 # Profinity Profile Packs
 
+Profinity Profile Packs are a new introduction to Profinity V2 and serve as an extension to the Profile-based structure of Profinity Classic.
+
+## Profinity Profiles
+
 A Profile is the core mechanism by which Profinity maintains the configuration of your system.  Profiles typically consist of one or more CAN-Ethernet Bridges, which are used to connect to the CAN network as well as devices that you might be managing.
 
 Profinity keeps track of your profile and loads the most recently used one each time you start the tool.
@@ -24,7 +28,7 @@ The colours in a profile indicate the state of the device.
 | `Red`    | The device is in an error state                                               |
 | `Grey`   | The device is not available, connected or not visible on the network          |
 
-Profinity ships with an example profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar and Tritium technologies.  If you wish to use this profile as a basis for your own work we would suggest copying it to a new file name as the file is overwritten each time you install a new version of Profinity. 
+Profinity ships with an example profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar, and Tritium technologies.  If you wish to use this profile as a basis for your own work we would suggest copying it to a new file name as the file is overwritten each time you install a new version of Profinity. 
 
 Otherwise you can create your own Profiles or a new Profile, by pushing the New Profile button on the menu.
 
@@ -51,24 +55,23 @@ However, not all devices are configured directly via Properties, some devices th
 <figcaption>Profile Properties</figcaption>
 </figure>
 
-The properties shown will depend on the device.  Some devices have a range of values that are allowed for a property and if an invalid property is entered then an error will be shown.  Information on the property is shown at the very bottom of the property panel.
+The properties shown will depend on the device. Some devices have a range of values that are allowed for a property and if an invalid property is entered then an error will be shown. Information on the property is shown at the very bottom of the property panel.
 
 ## Adding new items to your Profile
 
-Items can be added to your profile by right mouse clicking on the profile and selecting 'Add / New Item', at which point a panel is shown with all of the available items that can be added.
+Items can be added to your profile by selecting the Add Component tab from the sidebar. A page with all of the currently supported items is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the item that you wish to add. The page also includes filter options to help locate the correct item.
 
 <figure markdown>
-![Add a new item to the Profile](images/add_new_item.png)
+![Add a new item to the Profile](images/add_component.png)
 <figcaption>Add a new item to the Profile</figcaption>
 </figure>
 
-Adding a new item is as simple as selecting what you want to add to your profile, changing the properties to whatever you require and then pressing the add button.  
-
-If the profile already has an item with the same name as what you are proposing, then a digit will be added to the item name to keep the profile item names unique.
+Upon selecting a device, you will be prompted to fill in the necessary details to finish setting up your item. The information required will vary by item and can be modified later by editing the item properties. 
 
 <figure markdown>
-![Adjust Item Properties](images/add_new_item_properties.png)
-<figcaption>Adjust Item Properties</figcaption>
+![Adjust Item Properties](images/add_component_properties.png)
+<figcaption>Example of defining item properties with Prohelion D1000 Gen1 BMS</figcaption>
 </figure>
 
-You can add multiple items of the same type to your profile, but they must have unique names and the base address of the item is also generally unique.
+!!! info "Duplicate item names"
+    You can add multiple items of the same type to your profile, but they must have unique names and the base address of the item is also generally unique. If the profile already has an item with the same name as what you are proposing, then a digit will be added to the item name to keep the profile item names unique.
