@@ -5,38 +5,14 @@ title: Getting Started
 # Getting Started
 
 
-## System Configuration
-
-The System Configuration menu is located in the Admin tab and contains 
-
-### Application Configuration
-
 <figure markdown>
-![Add user](images/app_configuration.png)
-<figcaption>New user menu</figcaption>
+![Profinity V2 Homepage](images/homepage_PLACEHOLDER.png)
+<figcaption>Profinity V2 homepage</figcaption>
 </figure>
 
-### Profinity Web Configuration
+By default only four tabs are available in the sidebar
 
-<figure markdown>
-![Add user](images/profinity_web.png)
-<figcaption>New user menu</figcaption>
-</figure>
-
-### Logging
-
-<figure markdown>
-![Add user](images/logging_config.png)
-<figcaption>New user menu</figcaption>
-</figure>
-
-### Web Extensions
-
-<figure markdown>
-![Add user](images/extensions_web.png)
-<figcaption>New user menu</figcaption>
-</figure>
-
+Before adding any devices it is recommended to explore the System Configuration menu
 
 ## Creating a user
 
