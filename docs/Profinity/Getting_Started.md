@@ -37,3 +37,19 @@ Profinity Profile Packs behave similarly to Profiles from Profinity Classic.
 
 
 ## Component types
+
+
+## Accessing System Logs
+
+Profinity has a built in logging mechanism that captures information about the operation of the system and is designed to assist in system issue diagnosis. To access the system logs, navigate to the Admin tab, then select Logs.
+<!--Typically this log appears at the bottom of the Profinity screen.  If you close the log and wish to view it again, then the log button on the menu bar will make it reappear.-->
+
+<figure markdown>
+![Profinity Log](images/profinity_log_viewer.png)
+<figcaption>Prohelion Log</figcaption>
+</figure>
+
+Each log entry contains a timestamp, a message level (e.g., Info, Warn, Error, etc.), and a message description. To help diagnose particular issues, the scope of the system logs can be changed to only include particular message levels. More information about varying the displayed log levels can be found in the [System Administration](System_Admin.md) section.
+
+!!! info "Log levels are persisted"
+    Once a log level is set, it will remain persisted across restarts of Profinity
