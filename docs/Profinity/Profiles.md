@@ -6,13 +6,13 @@ title: Profinity Profile Packs
 
 Profinity Profile Packs are a new introduction to Profinity V2 and serve as an extension to the Profile-based structure of Profinity Classic.
 
-## Profinity Profiles
+## Profiles
 
-A Profile is the core mechanism by which Profinity maintains the configuration of your system.  Profiles typically consist of one or more CAN-Ethernet Bridges, which are used to connect to the CAN network as well as devices that you might be managing.
+A Profile is the core mechanism by which Profinity maintains the configuration of your system.  Profiles typically consist of one or more CAN-Ethernet Bridges, which are used to connect to the CAN network as well as any devices that you might be managing.
 
-Profinity keeps track of your profile and loads the most recently used one each time you start the tool.
+Profinity keeps track of your profiles and loads the most recently used one each time you start the tool.
 
-The Profile panel is typically located on the left side of your screen and if you close the profile you can open it again by pressing the Profile button on the menu.
+The Profile panel is located in the Admin tab.
 
 <figure markdown>
 ![Profinity Profile](images/profile.png)
