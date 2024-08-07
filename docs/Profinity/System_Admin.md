@@ -26,19 +26,30 @@ The System Configuration menu is located in the Admin tab and contains
 
 The Logging menu contains the options for modifying the log level, logs rollover size, and number of retained logs.
 
-| Option              | Description                                           |
-| ------------------- | ----------------------------------------------------- |
-| `Log Level`         | The scope of messages shown in the [system logs](Getting_Started.md#accessing-system-logs)        |
-| `Log Rollover Size` | Warning, adapter is connected but no data is arriving |
-| `Retained Logs`     | Error, see the logs for more details                  | 
-
+| Option              | Description                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| `Log Level`         | The scope of messages shown in the [system logs](Getting_Started.md#accessing-system-logs) |
+| `Log Rollover Size` | The maximum file size for each log file created, in MB                                     |
+| `Retained Logs`     | The number of log files that can be created before overwriting the oldest file             | 
 
 <figure markdown>
-![Add user](images/logging_config.png)
-<figcaption>New user menu</figcaption>
+![System logs configuration](images/logging_config.png)
+<figcaption>Profinity logs configuration menu</figcaption>
 </figure>
 
+Logging levels are a standard industry term and define the types of messages that are displayed to the user in the system logs. Each progressive logging level also encompasses all entries of the previous levels. A brief description of the various log levels is given below.
 
+| Logging Level   | Description                                                                                          |
+| ----------------| ---------------------------------------------------------------------------------------------------- |
+| `Fatal`         | Used when the application encounters an error that prevents the critical functionality from working  |
+| `Error`         | Used when the application encounters an error that prevents particular functionality from working, but other parts of the application may remain functional |
+| `Warn`          | Indicates something unexpected has happened, but the application continues to function               |
+| `Info`          | Standard log level containing informative messages indicating the actions of the application. E.g., when changing states, connecting to the web API, etc.         |
+| `Debug`         | Intermediate level of visibility that is helpful for debugging. Details some of the underlying application processes     |
+| `Trace`         | Grants full visibility of underlying application execution. Only necessary when performing debugging |
+
+!!! info "Log levels are persistent"
+    Once a log level is set, it will remain persistent across restarts of Profinity
 
 ### Web Extensions
 
