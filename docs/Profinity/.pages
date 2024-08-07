@@ -3,7 +3,7 @@ nav:
     - Installation.md
     - Getting_Started.md
     - Profiles.md 
-    - Adding_New_Items.md 
+    #- Adding_New_Items.md 
     - CAN_Bus_Adapters.md 
     - Virtual_CAN_Adapter.md 
     - Send_Receive_CAN_Bus_Messages.md 
