@@ -4,7 +4,6 @@ title: Getting Started
 
 # Getting Started
 
-
 <figure markdown>
 ![Profinity V2 Homepage](images/homepage_PLACEHOLDER.png)
 <figcaption>Profinity V2 homepage</figcaption>
@@ -30,16 +29,33 @@ Profinity Profile Packs behave similarly to Profiles from Profinity Classic.
 More information can be found in the [Profinity Profile Packs](Profiles.md) section.
 
 
-## Adding a component
+## Adding new items to your Profile
+
+Items can be added to your profile by selecting the Add Component tab from the sidebar. A page with all of the currently supported items is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the item that you wish to add. The page also includes filter options to help locate the correct item.
 
 <figure markdown>
-![Add component](images/add_component.png)
-<figcaption>New component menu</figcaption>
+![Add a new item to the Profile](images/add_component.png)
+<figcaption>Add a new item to the Profile</figcaption>
 </figure>
 
+Upon selecting a device, you will be prompted to fill in the necessary details to finish setting up your item. The information required will vary by item and can be modified later by editing the item properties. 
 
-## Component types
+<figure markdown>
+![Adjust Item Properties](images/add_component_properties.png)
+<figcaption>Example of defining item properties with Prohelion D1000 Gen1 BMS</figcaption>
+</figure>
 
+!!! info "Duplicate item names"
+    You can add multiple items of the same type to your profile, but they must have unique names and the base address of the item is also generally unique. If the profile already has an item with the same name as what you are proposing, then a digit will be added to the item name to keep the profile item names unique.
+
+Once you have added the component to your profile, an icon will appear in the sidebar to represent the new component. Hovering your mouse over a component icon in the sidebar will present a list of all devices associated with the current profile that match that component type. Each device will also have an coloured indicator to display the operational status of the device. The possible device statuses are summarised below.   
+
+| Colour   | Meaning                                                                       |
+|----------|-------------------------------------------------------------------------------|
+| `Green`  | The device is available, sending valid data and is a valid state              |
+| `Yellow` | The device is available, but is either not sending data or is a warning state |
+| `Red`    | The device is in an error state                                               |
+| `Grey`   | The device is not available, connected or not visible on the network          |
 
 ## Accessing System Logs
 
