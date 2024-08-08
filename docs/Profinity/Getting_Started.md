@@ -28,20 +28,19 @@ Profinity Profile Packs behave similarly to Profiles from Profinity Classic.
 
 More information can be found in the [Profinity Profile Packs](Profiles.md) section.
 
-
 ## Adding new items to your Profile
 
 Items can be added to your profile by selecting the Add Component tab from the sidebar. A page with all of the currently supported items is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the item that you wish to add. The page also includes filter options to help locate the correct item.
 
 <figure markdown>
-![Add a new item to the Profile](images/add_component.png)
+![Add a new item to the Profile](images/add_component.jpg)
 <figcaption>Add a new item to the Profile</figcaption>
 </figure>
 
-Upon selecting a device, you will be prompted to fill in the necessary details to finish setting up your item. The information required will vary by item and can be modified later by editing the item properties. 
+Upon selecting an item, you will be prompted to fill in the necessary details to finish setting up your item. The information required will vary greatly by item and can be modified later by editing the item properties. More information about specific item properties can be found in the dedicated item sections.
 
 <figure markdown>
-![Adjust Item Properties](images/add_component_properties.png)
+![Adjust Item Properties](images/add_component_properties.jpg)
 <figcaption>Example of defining item properties with Prohelion D1000 Gen1 BMS</figcaption>
 </figure>
 
@@ -63,7 +62,7 @@ Profinity has a built in logging mechanism that captures information about the o
 <!--Typically this log appears at the bottom of the Profinity screen.  If you close the log and wish to view it again, then the log button on the menu bar will make it reappear.-->
 
 <figure markdown>
-![Profinity Log](images/system_logs.png)
+![Profinity Log](images/system_logs.jpg)
 <figcaption>Profinity System Logs</figcaption>
 </figure>
 

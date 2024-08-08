@@ -2,6 +2,8 @@
 title: CAN Utilities
 ---
 
+Profinity provides a number of in-built tools for testing, simulating, and debugging CAN networks and systems. Profinity's CAN tools can be accessed via the CAN Utilities tab in the sidebar.
+
 ## Send / Receiving CAN Bus Messages
 
 Profinity can monitor CAN Bus traffic on your network and also allows you to transmit message back on the CAN network from within the Profinity toolset.
