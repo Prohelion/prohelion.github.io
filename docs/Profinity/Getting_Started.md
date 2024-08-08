@@ -24,9 +24,7 @@ After logging in, you will arrive at the Profinity V2 homepage.
 <figcaption>Profinity V2 homepage</figcaption>
 </figure>
 
-The Profinity V2 window is split into two main sections; the sidebar and the main stage. By default, the sidebar contains four tabs named `ADD COMPONENT`, `CAN UTILITIES`, `ADMIN`, and `LOGOUT`.
-
-Before adding any devices it is recommended to explore the System Configuration menu
+The Profinity V2 window is split into two main sections; the sidebar and the main window. By default, the sidebar contains four tabs named `ADD COMPONENT`, `CAN UTILITIES`, `ADMIN`, and `LOGOUT`, however more options will become available as you construct your system inside Profinity.
 
 ## Creating a user
 

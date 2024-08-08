@@ -8,8 +8,7 @@ Profinity is a modern CAN Bus management platform designed to enable the connect
 
 [Download Profinity :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi){ .md-button }
 
-
-Originally developed by Prohelion to manage our own products it has evolved over time to be multi-platform solution, capable of running on Windows, Linux, MacOS and Docker, with a core engine, easily extendable via Restful APIs.
+Originally developed by Prohelion to manage our own products it has evolved over time to be multi-platform solution, capable of running on Windows, Linux, MacOS, and Docker, with a core engine, easily extendable via Restful APIs.
 
 Profinity is built around the concept of [profiles](Profiles.md), which is a set of configured devices in your system.  By switching between profiles you can support multiple configurations across different sites of different combinations of technologies.  The configuration of the system is largely driven by the Profinity GUI, but once configured, the solution can run as a service, providing continuous data streams off servers or embedded devices, or run from the cloud.
 
@@ -26,6 +25,6 @@ It provides specialised tools for managing [Prohelion Batteries](Prohelion_Batte
 
 As of Profinity 1.11, Prohelion has migrated to a modern container and API centric architecture.  You will find information on our [Restful APIs and Swagger Support](Profinity_Rest_APIs.md) in the documentation as well as our out of the box Cloud connectivity for [InfluxDB and Prometheus](InfluxDB_Prometheus_Integration.md) to support cloud based Big Data capture and analytics of CAN Bus based solutions.  
 
-In addition we now support for Profinity running as a Server on [Windows, Docker, Linux and MacOS](Profinity_Server.md).
+In addition we now support for Profinity running as a Server on [Windows, Docker, Linux, and MacOS](Profinity_Server.md).
 
-If you require support or assistance, please [Contact Us](https://www.prohelion.com/contact-us/) via the Prohelion Website or you can log bugs, requests for help or requests for improvement on our [Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
+If you require support or assistance, please [Contact Us](https://www.prohelion.com/contact-us/) via the Prohelion Website or you can log bugs, requests for help, or requests for improvement on our [Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).

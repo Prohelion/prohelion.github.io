@@ -261,4 +261,6 @@ eu
 th
 nd
 html
+beaglebone
+pi
 __
