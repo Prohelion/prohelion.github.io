@@ -67,6 +67,12 @@ plugins:
       background: white
       shadow: true
 
+  - redirects:
+      redirect_maps:
+        'Battery_Management_System/index.md': 'Battery_Management_Systems/index.md'
+        'Battery_Management_System/1000V_BMS_Gen1/index.md': 'Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/index.md'
+        'Battery_Management_System/48V_BMU_User_Manual/index.md': 'Battery_Management_Systems/Prohelion_BMS_M48_Gen1/index.md'
+
 markdown_extensions:    
   - pymdownx.superfences
   - tables  
