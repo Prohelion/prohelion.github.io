@@ -1,11 +1,11 @@
 ---
-title: Overview
+title: Prohelion BMS D1000 Gen1
 
 ---
 
-# 1000V - Battery Management System (BMS) - Gen 1
+# Prohelion BMS D1000 Gen1
 
-This document describes the interface, installation, and usage requirements for the Prohelion Battery Management System (BMS).   
+This document describes the interface, installation, and usage requirements for the Prohelion Battery Management System (BMS) D1000 Gen1.   
 
 The BMS provides an easy way to monitor and control an Electric Vehicle battery pack, and can work seamlessly with Prohelion's WaveSculptor motor controllers.  It is a mature design with five previous product generations of real-world experience with various types of cells, form factors, and vehicles. 
 

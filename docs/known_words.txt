@@ -132,6 +132,7 @@ favicon
 json
 mvc
 xml
+html
 classpath
 db
 ipconfig

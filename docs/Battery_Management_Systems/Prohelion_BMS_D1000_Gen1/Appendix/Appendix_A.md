@@ -10,4 +10,4 @@ title: Additional Reading
 
 *   Refer to [BMU Communications Protocol](../Communications_Protocol/index.md) for CAN packet format and specifications. 
 
-*   refer to [Vishay RH PDF](https://www.vishay.com/docs/50013/rh.pdf) for off-the-shelf Heatsink Encased Wirewound Power Resistors 
+*   Refer to [Vishay RH PDF](https://www.vishay.com/docs/50013/rh.pdf) for off-the-shelf Heatsink Encased Wirewound Power Resistors 
