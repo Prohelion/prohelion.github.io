@@ -1,14 +1,14 @@
 ---
-title: DBC Messages and Signals
+title: Prohelion BMS D1000 Gen2 - DBC Messages and Signals
 ---
 
 This section provides detailed information on the CAN bus messages and signals used in the Prohelion BMS D1000 Gen2. Each message is identified by its unique ID, and the structure, including signals, is described.
 
-NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of each device is configurable.  
+>NOTE: The following messages IDs assume a CAN Bus BASE ID of `0x600`. The BASE ID of each device is configurable via the device configuration. If the BASE ID has been changed,  
 
 ---
 
-# Overview
+## Overview
 
 | **Message ID**        | **Name**                                |
 |---------------------- |------------------------------------------|
@@ -17,7 +17,7 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 | **0x606**             | [BMS State Info](#bms-state-info)             |
 | **0x607**             | [BMS Current Data](#bms-current-data)         |
 | **0x608**             | [BMS Voltage Data](#bms-voltage-data)         |
-| **0x609**             | [BMS Auxiliary Data](#bms-auxillary-data)     |
+| **0x609**             | [BMS Auxiliary Data](#bms-auxiliary-data)      |
 | **0x60A**             | [BMS SOC Data](#bms-soc-data)                 |
 | **0x60B**             | [BMS SOH Data](#bms-soh-data)                 |
 | **0x60C**             | [BMS Counter Data](#bms-counter-data)         |
@@ -27,16 +27,16 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 
 ---
-# Device Information
+## Device Information
 
-## Device Heartbeat
+### Device Heartbeat
 
 | **Field**       | **Value**                                |
 |-----------------|------------------------------------------|
 | **Message ID**  | `0x600` (1536)                           |
 | **Description** | Device heartbeat information.            |
 
-### Signals
+#### Signals
 
 | **Signal Name**  | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**                   |
 |------------------|---------------|------------|------------|------------|---------------|---------------|----------|-----------------------------------|
@@ -45,14 +45,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-## Device Firmware Info
+### Device Firmware Info
 
 | **Field**       | **Value**                                |
 |-----------------|------------------------------------------|
 | **Message ID**  | `0x601` (1537)                           |
 | **Description** | Firmware version information.            |
 
-### Signals
+#### Signals
 
 | **Signal Name**       | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**             |
 |-----------------------|---------------|------------|------------|------------|---------------|---------------|----------|-----------------------------|
@@ -61,16 +61,16 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 | FirmwarePatchVersion  | 16            | 16 bits    | 1          | 0          | N/A           | N/A           | N/A      | Patch version of firmware    |
 
 ---
-# BMS Information
+## BMS Information
 
-# BMS State Info
+### BMS State Info
 
 | **Field**       | **Value**                                |
 |-----------------|------------------------------------------|
 | **Message ID**  | `0x606` (1542)                           |
 | **Description** | Information on BMS states, failures, and faults. |
 
-## Signals
+#### Signals
 
 | **Signal Name**                   | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**             |
 |-----------------------------------|---------------|------------|------------|------------|---------------|---------------|----------|-----------------------------|
@@ -81,7 +81,7 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 |
 
 
-### BMS State Bitfield Table
+#### BMS State Bitfield Table
 
 | **Bit Position** | **Hex Value** | **State Code** | **Description**          |
 |------------------|---------------|----------------|--------------------------|
@@ -95,7 +95,7 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 | 7                | 0x80          | SAFE           | Safe state               |
 
 
-### BMS Precharge Fault Reason Bitfield Table
+#### BMS Precharge Fault Reason Bitfield Table
 
 | **Bit Position** | **Hex Value** | **Reason Code**   | **Description**              |
 |------------------|---------------|-------------------|------------------------------|
@@ -107,17 +107,17 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 | 5                | 0x20          | OVER_VOLTAGE      | Overvoltage detected         |
 | 6                | 0x40          | STABLE_VOLTAGE    | Stable voltage issue         |
 
-### BMS Contactor ID Fault Bitfield Table
+#### BMS Contactor ID Fault Bitfield Table
 
-| **Bit Position** | **Hex Value** | **Fault Code**                | **Description**         |
-|------------------|---------------|--------------------------------|-------------------------|
-| 0                | 0x01          | BMSContactorFaultCONTACTOR1   | Contactor 1 fault       |
-| 1                | 0x02          | BMSContactorFaultCONTACTOR2   | Contactor 2 fault       |
-| 2                | 0x04          | BMSContactorFaultCONTACTOR3   | Contactor 3 fault       |
-| 3                | 0x08          | BMSContactorFaultCONTACTOR4   | Contactor 4 fault       |
-| 4                | 0x10          | BMSContactorFaultCONTACTOR5   | Contactor 5 fault       |
+| **Bit Position** | **Hex Value** | **Contactor Code**         | **Description**         |
+|------------------|---------------|------------------------|-------------------------|
+| 0                | 0x01          | CONTACTOR1             | Contactor 1 fault       |
+| 1                | 0x02          | CONTACTOR2             | Contactor 2 fault       |
+| 2                | 0x04          | CONTACTOR3             | Contactor 3 fault       |
+| 3                | 0x08          | CONTACTOR4             | Contactor 4 fault       |
+| 4                | 0x10          | CONTACTOR5             | Contactor 5 fault       |
 
-### BMS Reason Safe-State Reason Bitfield Table
+#### BMS Reason Safe-State Reason Bitfield Table
 
 | **Bit Position** | **Hex Value** | **Reason Code**     | **Description**                   |
 |------------------|---------------|---------------------|-----------------------------------|
@@ -137,10 +137,10 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 | 13               | 0x00002000    | PACK_TIMEOUT        | Pack timeout                      |
 | 14               | 0x00004000    | CONTROL_TIMEOUT     | Control timeout                   |
 | 15               | 0x00008000    | SENSOR_TIMEOUT      | Sensor timeout                    |
-| 16               | 0x00010000    | OVER_VOLT           | Overvoltage detected              |
-| 17               | 0x00020000    | UNDER_VOLT          | Undervoltage detected             |
-| 18               | 0x00040000    | OVER_TEMP           | Overtemperature detected          |
-| 19               | 0x00080000    | UNDER_TEMP          | Undertemperature detected         |
+| 16               | 0x00010000    | OVER_VOLT           | Cell over-voltage detected        |
+| 17               | 0x00020000    | UNDER_VOLT          | Cell under-voltage detected       |
+| 18               | 0x00040000    | OVER_TEMP           | Cell over-temperature detected    |
+| 19               | 0x00080000    | UNDER_TEMP          | Cell under-temperature detected   |
 | 20               | 0x00100000    | PRESSURE            | Pressure issue                    |
 | 21               | 0x00200000    | HUMIDITY            | Humidity issue                    |
 | 22               | 0x00400000    | VOC                 | VOC (Volatile Organic Compounds) issue  |
@@ -148,7 +148,7 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-## BMS Current Data
+### BMS Current Data
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
@@ -164,7 +164,7 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# BMS Voltage Data
+### BMS Voltage Data
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
@@ -180,14 +180,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# BMS Auxiliary Data
+### BMS Auxiliary Data
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
 | **Message ID**      | `0x609` (1545)           |
 | **Description**     | Auxiliary data.          |
 
-## Signals
+#### Signals
 
 | **Signal Name**      | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**             |
 |----------------------|---------------|------------|------------|------------|---------------|---------------|----------|-----------------------------|
@@ -196,14 +196,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# BMS SOC Data
+### BMS SOC Data
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
 | **Message ID**      | `0x60A` (1547)           |
 | **Description**     | Counter data.            |
 
-## Signals
+#### Signals
 
 | **Signal Name**     | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**         |
 |---------------------|---------------|------------|------------|------------|---------------|---------------|----------|-------------------------|
@@ -211,14 +211,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# BMS SOH Data
+### BMS SOH Data
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
 | **Message ID**      | `0x60B` (1547)           |
 | **Description**     | Counter data.            |
 
-## Signals
+#### Signals
 
 | **Signal Name**     | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**         |
 |---------------------|---------------|------------|------------|------------|---------------|---------------|----------|-------------------------|
@@ -226,14 +226,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# BMS Counter Data
+### BMS Counter Data
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
 | **Message ID**      | `0x60C` (1548)           |
 | **Description**     | Counter data.            |
 
-## Signals
+#### Signals
 
 | **Signal Name**     | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**         |
 |---------------------|---------------|------------|------------|------------|---------------|---------------|----------|-------------------------|
@@ -242,14 +242,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# Node Info
+### Node Info
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
 | **Message ID**      | `0x60D` (1549)           |
 | **Description**     | Node information.        |
 
-### Signals
+#### Signals
 
 | **Signal Name**        | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**             |
 |------------------------|---------------|------------|------------|------------|---------------|---------------|----------|-----------------------------|
@@ -259,14 +259,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# Node Cell Info
+### Node Cell Info
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
 | **Message ID**      | `0x60E` (1550)           |
 | **Description**     | Cell information.        |
 
-## Signals
+#### Signals
 
 | **Signal Name**        | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**              |
 |------------------------|---------------|------------|------------|------------|---------------|---------------|----------|------------------------------|
@@ -279,14 +279,14 @@ NOTE: The following messages assume a default BASE ID of `0x600`. The BASE ID of
 
 ---
 
-# Node Temp Info
+### Node Temp Info
 
 | **Field**           | **Value**                |
 |---------------------|--------------------------|
 | **Message ID**      | `0x60F` (1551)           |
 | **Description**     | Temperature information. |
 
-## Signals
+#### Signals
 
 | **Signal Name**          | **Start Bit** | **Length** | **Factor** | **Offset** | **Min Value** | **Max Value** | **Unit** | **Description**               |
 |--------------------------|---------------|------------|------------|------------|---------------|---------------|----------|-------------------------------|
