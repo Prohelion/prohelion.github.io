@@ -10,9 +10,9 @@ The Prohelion BMS D1000 Gen2 is a cutting-edge, distributed Battery Management S
 
 The architecture of the Prohelion BMS D1000 Gen2 is built around a distributed approach, where the Prohelion D1000 Gen2 Battery Management Unit (BMU) serves as the central hub, managing communication and coordination across the system. Each battery pack is monitored by several Prohelion D1000 Gen2 Cell Monitoring Units (CMUs), with each CMU capable of monitoring 14 individual cell voltages. This modular setup allows for scalability, enabling the system to manage up to 448 cells across a battery pack. The BMU interfaces with the CMUs, collecting data on cell voltages, temperatures, and overall pack health, while also controlling contractors and other safety mechanisms to protect against overvoltage, undervoltage, and thermal issues. The distributed nature of the system reduces wiring complexity and enhances fault tolerance, making it highly reliable for high-voltage applications.
 
-## Sections
+## Firmware Versions
 
-- [DBC Messages and Signals](DBC_Messages_and_Signals.md)
+- [Firmware V01.01.XX](V1.1)
 
 ## Safety 
 

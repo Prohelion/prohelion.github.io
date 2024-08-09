@@ -1,0 +1,5 @@
+nav:
+    - index.md
+    - State Machine: State_Machine.md
+    - Messages and Signals: Messages_and_Signals.md
+    - Configuration Parameters: Configuration_Parameters.md
