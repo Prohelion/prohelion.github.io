@@ -2,9 +2,10 @@
 title: Prohelion BMS D1000 Gen2 - DBC Messages and Signals
 ---
 
-This section provides detailed information on the CAN bus messages and signals used in the Prohelion BMS D1000 Gen2. Each message is identified by its unique ID, and the structure, including signals, is described.
+This section provides information on the CAN bus messages and signals used in the Prohelion BMS D1000 Gen2. Each message is identified by its unique ID, and the structure, including signals, is described.
 
->NOTE: The following messages IDs assume a CAN Bus BASE ID of `0x600`. The BASE ID of each device is configurable via the device configuration. If the BASE ID has been changed,  
+!!! tip "Default BASE ID"
+    The following Message IDs assume a default CAN Bus BASE ID of `0x600`. The BASE ID of each device is configurable via the device configuration. If the BASE ID has been configured differently on the device, make sure to account for the shift in the Message IDs. The Message ID offsets from the BASE ID will remain the same regardless of the device configuration. 
 
 ---
 

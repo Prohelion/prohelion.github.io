@@ -4,6 +4,7 @@ prohelions
 profinity
 
 # Company and Product Names
+isabellenhuette
 wsconfig
 belden
 timken
@@ -97,8 +98,12 @@ heatshrink
 desaturation
 phasorsense
 derating
+wh
+kb
+kalman
 
 # IT Stuff
+checksums
 bitfield
 datagram
 datagrams
@@ -229,6 +234,7 @@ mis
 msg
 datasheet
 datasheets
+pdf
 quickstart
 rd
 umb

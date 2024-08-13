@@ -2,7 +2,7 @@
 title: Prohelion BMS D1000 Gen2 - Configuration Parameters
 ---
 
-This section provides detailed information on each of the BMS Configuration Parameters. 
+This section provides information on each of the BMS Configuration Parameters. 
 
 ### Device Serial Number
 
@@ -230,7 +230,7 @@ This section provides detailed information on each of the BMS Configuration Para
 
 | **Field**       | **Value**      |
 |-----------------|----------------|
-| **Description** | Beta-value of the themristors being used on the CMU Nodes |
+| **Description** | Beta-value of the thermistors being used on the CMU Nodes |
 | **Permission**  | User           |
 | **Index**       | 0x52           |
 | **Scale**       | 1              |
@@ -241,7 +241,7 @@ This section provides detailed information on each of the BMS Configuration Para
 
 | **Field**       | **Value**      |
 |-----------------|----------------|
-| **Description** | A bitfield that allows the auxillary inputs of each contactor to be ignored |
+| **Description** | A bitfield that allows the auxiliary inputs of each contactor to be ignored |
 | **Permission**  | User           |
 | **Index**       | 0x53           |
 | **Scale**       | 1              |
