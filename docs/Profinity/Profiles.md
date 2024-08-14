@@ -35,15 +35,15 @@ From this menu it is also possible to change the active Profile using the radio 
 
 Profinity ships with an example Profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar, and Tritium technologies.  If you wish to use this Profile as a basis for your own work we would suggest copying it to a new file name as the file is overwritten each time you install a new version of Profinity. <!-- Check this -->
 
-## Profile Files
+## Profile Pack Files
 
-In Profinity the profiles themselves are stored by default as files in the directory
+In Profinity the Profile Packs themselves are stored by default as files in the directory
 
-`/Documents/Prohelion/Profinity/Profiles`
+`/Documents/Prohelion/Profinity/Profiles` <!-- Should this be /Documents?-->
 
-While it is possible to edit the profile file directly in a text editor we do not recommend you do so. 
+While it is possible to edit the Profile Pack file directly in a text editor we do not recommend you do so. 
 
-Storing the file in this way makes it easy to share a Profile between machines. If it makes sense in your environment, profiles can be stored on network drives or other shares such as Google Drive or Dropbox. <!--, you can also share a read only version of your Profile via [Prohelion Cloud Connect](Prohelion_Cloud_Connect.md)-->
+Storing the file in this way makes it easy to share a Profile Packs between machines. If it makes sense in your environment, Profile Packs can be stored on network drives or other shares such as Google Drive or Dropbox. <!--, you can also share a read only version of your Profile via [Prohelion Cloud Connect](Prohelion_Cloud_Connect.md)-->
 
 <!-- ## Component Properties
 
