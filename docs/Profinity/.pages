@@ -13,7 +13,7 @@ nav:
     #- CAN_Bus_DBC.md 
     - InfluxDB_Prometheus_Integration.md 
     #- Profinity_Log.md 
-    - Prohelion_Cloud_Connect.md 
+    #- Prohelion_Cloud_Connect.md 
     - Profinity_Server.md 
     - Profinity_Rest_APIs.md 
     - Prohelion_Batteries.md 

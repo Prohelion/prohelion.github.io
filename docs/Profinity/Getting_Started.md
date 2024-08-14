@@ -20,7 +20,7 @@ Password: `password`
 After logging in, you will arrive at the Profinity V2 homepage.
 
 <figure markdown>
-![Profinity V2 Homepage](images/homepage_PLACEHOLDER.png)
+![Profinity V2 Homepage](images/homepage.jpg)
 <figcaption>Profinity V2 homepage</figcaption>
 </figure>
 
@@ -41,13 +41,13 @@ For example, it may be beneficial to create an 'Observer' user without edit acce
 
 ## Creating a Profinity Profile Pack
 
-Profinity Profile Packs behave similarly to Profiles from Profinity Classic. By default, the ___ Profile is enabled.
+Profinity Profile Packs behave similarly to Profiles from Profinity Classic. All of the components, scripts, CAN bus data, etc. that you configure for your system are assigned to the active Profile. By defining multiple Profiles, you are able to quickly and easily change between system configurations.
 
-To change Profile or create a new Profile, navigate to the `ADMIN` tab, then select `Profile`. 
+To change Profile or create a new Profile, navigate to the `ADMIN` tab, then select `Profile`. The active Profile can be selected by clicking on the appropriate radio button.
 
 <figure markdown>
 ![Add profile menu](images/profiles_menu.jpg)
-<figcaption>Profiles menu</figcaption>
+<figcaption>Profinity Profile menu</figcaption>
 </figure>
 
 More information can be found in the [Profinity Profile Packs](Profiles.md) section.

@@ -17,7 +17,10 @@ This page also contains notes about the latest Profinity releases and the softwa
 
 ## System Configuration
 
-The `SYSTEM CONFIGURATION` menu is located in the `ADMIN` tab and contains 
+The `System Configuration` menu is located in the `ADMIN` tab and contains 
+
+!!! warning "Changes to the system config"
+    Modifying any parameters in the `System Configuration` menu will trigger a reboot of Profinity. If using the web client, wait around 15 seconds after saving the changes before reloading the page.
 
 ### Application Configuration
 
