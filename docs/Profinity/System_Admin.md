@@ -4,9 +4,20 @@ title: System Administration
 
 # System Administration
 
+## System Information
+
+To see which version of Profinity you are running, select the `SYSTEM INFORMATION` option in the `ADMIN` tab.
+
+<figure markdown>
+![System information](images/system_info.jpg)
+<figcaption>System information page</figcaption>
+</figure>
+
+This page also contains notes about the latest Profinity releases and the software credits.
+
 ## System Configuration
 
-The System Configuration menu is located in the Admin tab and contains 
+The `SYSTEM CONFIGURATION` menu is located in the `ADMIN` tab and contains 
 
 ### Application Configuration
 
@@ -56,4 +67,13 @@ Logging levels are a standard industry term and define the types of messages tha
 <figure markdown>
 ![Add user](images/extensions_web.png)
 <figcaption>New user menu</figcaption>
+</figure>
+
+## Feedback Form
+
+Profinity has a built-in feedback form, accessible through the `ADMIN` tab. To provide feedback about the Profinity software, fill in the form with your name, email address, and the feedback.
+
+<figure markdown>
+![Feedback](images/feedback.jpg)
+<figcaption>Profinity feedback form</figcaption>
 </figure>
