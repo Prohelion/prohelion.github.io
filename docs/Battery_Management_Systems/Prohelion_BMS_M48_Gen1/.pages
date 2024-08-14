@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - BMS_Functions.md
     - Connectors.md
     - Software_Specifications.md

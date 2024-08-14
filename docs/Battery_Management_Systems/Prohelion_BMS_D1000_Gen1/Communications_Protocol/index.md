@@ -4,7 +4,7 @@ title: Overview
 
 # BMS Communications Protocol
 
-This document describes the communications protocol used between the [Battery Management Unit](../Battery_Management_Unit/index.md) (BMU) and the controller (such as a vehicle control system) in the Prohelion Battery Management System (BMS).  
+This document describes the communications protocol used between the [Battery Management Unit](../Battery_Management_Unit/index.md) (BMU) and the controller (such as a vehicle control system) in the Prohelion Battery Management System (BMS) D1000 Gen1.  
 
 Internal communications between the BMS BMU and BMS CMUs are available from Prohelion Support but should not be needed for a typical end-user.  If you require this protocol information, please log a support request via the [Prohelion Support System](https://prohelion.atlassian.net/servicedesk/customer/portals).
 
