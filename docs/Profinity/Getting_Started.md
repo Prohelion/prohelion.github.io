@@ -24,24 +24,31 @@ After logging in, you will arrive at the Profinity V2 homepage.
 <figcaption>Profinity V2 homepage</figcaption>
 </figure>
 
-The Profinity V2 window is split into two main sections; the sidebar and the main window. By default, the sidebar contains four tabs named `ADD COMPONENT`, `CAN UTILITIES`, `ADMIN`, and `LOGOUT`, however more options will become available as you construct your system inside Profinity.
+The Profinity V2 window is split into two main sections; the sidebar and the main window. By default, the sidebar contains four tabs named `ADD COMPONENT`, `CAN UTILITIES`, `ADMIN`, and `LOGOUT`. More options will become available as you construct your system inside Profinity.
 
 ## Creating a user
 
-After logging in to Profinity, it is recommended to create a new user to suit your use case. To create a new user, select the `ADMIN` tab, `USERS`, then `+ ADD USER`. Here you are able to define a new user and their associate login details.
+Once logged in, it is recommended to create a new user to suit your use case. To create a new user, select the `ADMIN` tab, `Users`, then `+ ADD USER`. Here you are able to define a new user and their associated login details.
 
 <figure markdown>
 ![Add user](images/add_user.png)
 <figcaption>New user menu</figcaption>
 </figure>
 
-Each user can also be granted different security roles, either allowing or restricting the different Profinity functionality that the particular user has access to. Giving a user the administrator role automatically enables all other roles.
+Each user can also be granted different security roles, either allowing or restricting the different Profinity functionality that the particular user has access to. Giving a user the administrator role automatically grants the privileges of all other roles.
 
-For example, it may be beneficial to create an 'Observer' user that is not given edit access to allow viewing of system information without risk of accidentally changing any parameters.
+For example, it may be beneficial to create an 'Observer' user without edit access to allow viewing of system information without risk of accidentally changing any parameters.
 
 ## Creating a Profinity Profile Pack
 
-Profinity Profile Packs behave similarly to Profiles from Profinity Classic.
+Profinity Profile Packs behave similarly to Profiles from Profinity Classic. By default, the ___ Profile is enabled.
+
+To change Profile or create a new Profile, navigate to the `ADMIN` tab, then select `Profile`. 
+
+<figure markdown>
+![Add profile menu](images/profiles_menu.jpg)
+<figcaption>Profiles menu</figcaption>
+</figure>
 
 More information can be found in the [Profinity Profile Packs](Profiles.md) section.
 
@@ -58,7 +65,7 @@ Upon selecting an component, you will be prompted to fill in the necessary detai
 
 <figure markdown>
 ![Adjust component Properties](images/add_component_properties.jpg)
-<figcaption>Example of defining component properties with Prohelion D1000 Gen1 BMS</figcaption>
+<figcaption>Example of defining component properties</figcaption>
 </figure>
 
 !!! info "Duplicate component names"
@@ -75,8 +82,7 @@ Once you have added the component to your profile, an icon will appear in the si
 
 ## Accessing System Logs
 
-Profinity has a built in logging mechanism that captures information about the operation of the system and is designed to assist in system issue diagnosis. To access the system logs, navigate to the Admin tab, then select Logs.
-<!--Typically this log appears at the bottom of the Profinity screen.  If you close the log and wish to view it again, then the log button on the menu bar will make it reappear.-->
+Profinity has a built in logging mechanism that captures information about the operation of the system and is designed to assist in system issue diagnosis. To access the system logs, navigate to the `ADMIN` tab, then select `Logs`.
 
 <figure markdown>
 ![Profinity Log](images/system_logs.jpg)

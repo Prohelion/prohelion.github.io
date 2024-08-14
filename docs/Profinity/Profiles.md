@@ -29,17 +29,17 @@ In Profinity the profiles themselves are stored by default as files in the direc
 
 `/Documents/Prohelion/Profinity/Profiles`
 
-While it is possible to edit the profile file directly in a text we do not recommend you do so. 
+While it is possible to edit the profile file directly in a text editor we do not recommend you do so. 
 
 Storing the file in this way makes it easy to share a Profile and if it makes sense if your environment, profiles can be stored on network drives or other shares such as Google Drive or Dropbox, you can also share a read only version of your Profile via [Prohelion Cloud Connect](Prohelion_Cloud_Connect.md)
 
-## Profile Properties
+## Component Properties
 
 Each item in the profile has a set of properties that define the configuration of the item.  These properties can be accessed by selecting the item or right mouse clicking on the item and selecting properties.  The properties then appear at the bottom of the profile panel, changing a property will set it in the profile.
 
 Properties can also be set when the item is first created in the [New Items](Adding_New_Items.md) window.  
 
-However, not all devices are configured directly via Properties, some devices that have more complex configuration setups like the [Prohelion Loggers](Logging_Replaying_CAN_Bus_Messages.md) are configured via wizards that set the underlying properties correctly for you.  
+However, not all devices are configured directly via Properties, some devices that have more complex configuration setups like the [Prohelion Loggers](CAN_Utilities.md#log--replay-can-bus-messages) are configured via wizards that set the underlying properties correctly for you.  
 
 <figure markdown>
 ![Profile Properties](images/profile_properties.png)
