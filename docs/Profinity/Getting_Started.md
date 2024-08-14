@@ -26,6 +26,8 @@ After logging in, you will arrive at the Profinity V2 homepage.
 
 The Profinity V2 window is split into two main sections; the sidebar and the main window. By default, the sidebar contains four tabs named `ADD COMPONENT`, `CAN UTILITIES`, `ADMIN`, and `LOGOUT`. More options will become available as you construct your system inside Profinity.
 
+<!-- More here -->
+
 ## Creating a user
 
 Once logged in, it is recommended to create a new user to suit your use case. To create a new user, select the `ADMIN` tab, `Users`, then `+ ADD USER`. Here you are able to define a new user and their associated login details.
@@ -54,17 +56,17 @@ More information can be found in the [Profinity Profile Packs](Profiles.md) sect
 
 ## Adding new Components to your Profile
 
-components can be added to your profile by selecting the `ADD COMPONENT` tab from the sidebar. A page with all of the currently supported components is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the component that you wish to add. The page also includes filter options to help locate the correct component.
+Components can be added to your profile by selecting the `ADD COMPONENT` tab from the sidebar. A page with all of the currently supported components is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the component that you wish to add. The page also includes filter options to help locate the correct component.
 
 <figure markdown>
-![Add a new Component to the Profile](images/add_component.jpg)
+![Add a new component to the Profile](images/add_component.jpg)
 <figcaption>Add a new component to the Profile</figcaption>
 </figure>
 
-Upon selecting an component, you will be prompted to fill in the necessary details to finish setting up your component. The information required will vary greatly by component and can be modified later by editing the component properties. More information about specific component properties can be found in the dedicated component sections.
+Upon selecting an component, you will be prompted to fill in the necessary details to finish setting up your component. The information required will vary greatly by component and can be modified later by editing the component properties. More information about specific component properties and how to correctly configure each component can be found in the dedicated component sections.
 
 <figure markdown>
-![Adjust component Properties](images/add_component_properties.jpg)
+![Adjust component properties](images/add_component_properties.jpg)
 <figcaption>Example of defining component properties</figcaption>
 </figure>
 
@@ -79,6 +81,12 @@ Once you have added the component to your profile, an icon will appear in the si
 | `Yellow` | The device is available, but is either not sending data or is a warning state |
 | `Red`    | The device is in an error state                                               |
 | `Grey`   | The device is not available, connected or not visible on the network          |
+
+## Reading Data
+
+Once all of your components have been configured, you are ready to start receiving and reading data.
+
+<!-- More here, powering on system, different dashboards, etc. -->
 
 ## Accessing System Logs
 
