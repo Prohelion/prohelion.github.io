@@ -43,7 +43,7 @@ For example, it may be beneficial to create an 'Observer' user without edit acce
 
 Profinity Profile Packs behave similarly to Profiles from Profinity Classic. All of the components, scripts, CAN bus data, etc. that you configure for your system are assigned to the active Profile. By defining multiple Profiles, you are able to quickly and easily change between system configurations.
 
-To change Profile or create a new Profile, navigate to the `ADMIN` tab, then select `Profile`. The active Profile can be selected by clicking on the appropriate radio button.
+To change Profile or create a new Profile, navigate to the `ADMIN` tab, then select `Profile`. The active Profile can be selected by clicking on the appropriate radio button, or a new Profile can be created using the `+ ADD PROFILE` button.
 
 <figure markdown>
 ![Add profile menu](images/profiles_menu.jpg)
