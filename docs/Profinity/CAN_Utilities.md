@@ -8,7 +8,7 @@ Profinity provides a number of in-built tools for testing, simulating, and debug
 
 Profinity can monitor CAN Bus traffic on your network and also allows you to transmit message back on the CAN network from within the Profinity toolset.
 
-Messages can be transmitted either via the Send CAN window which is documented below or also via the [CAN Replay](Logging_Replaying_CAN_Bus_Messages.md) tool.
+Messages can be transmitted either via the Send CAN window which is documented below or also via the [CAN Replay](#log--replay-can-bus-messages) tool.
 
 !!! info "Check user privileges"
     Before trying to send or receive any CAN packets, ensure that the current user has the associated privilege enabled.</p>
@@ -52,7 +52,7 @@ Profinity provides the ability to both log and replay messages off your CAN Bus 
 
 To log a set of CAN Bus messages first add an adapter to your [Profile](Profiles.md) and then connect to the adapter.  
 
-It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](Send_Receive_CAN_Bus_Messages.md) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
+It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](#receive-can-packets) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
 
 ### Logging CAN Bus
 
