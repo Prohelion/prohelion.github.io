@@ -115,7 +115,7 @@ To use this tool simply select the log file and it will start replaying.  There 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
 
 <figure markdown>
-![Data Log Replayer](images/log_replayer.png)
+![Data Log Replayer](images/log_replayer.jpg)
 <figcaption>Data Log Replayer</figcaption>
 </figure>
 

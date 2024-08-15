@@ -17,7 +17,7 @@ A typical battery will generally only have one BMU, but larger packs or split pa
 The top section shows data from the BMU, while the lower section shows CMU data – one row per CMU.
 
 <figure markdown>
-![Prohelion BMU](images/prohelion_bmu.png)
+![Prohelion BMU](images/prohelion_bmu.jpg)
 <figcaption>Prohelion BMU</figcaption>
 </figure>
 
