@@ -8,6 +8,7 @@ Elmar Solar produces some of the worlds most efficient Peak Power Trackers (MPPT
 
 You can manage an Elmar Solar MPPT using Profinity by adding a new Elmar Solar MPPT tracker to your [Profile](Profiles.md). An Elmar Solar MPPT is simple to set up in Profinity, requiring only the following parameters:
 
+<!-- Finish this -->
 | Parameter            | Description                                      |
 |----------------------|--------------------------------------------------|
 | `Name`               | The name of the component. Must be unique.       |
@@ -18,8 +19,8 @@ You can manage an Elmar Solar MPPT using Profinity by adding a new Elmar Solar M
 Once the MPPT has been added to your profile, the Elmar Solar MPPT dashboard will be available in the sidebar. The dashboard displays several useful types of information, including the input/output voltage graphs, error status indicators, temperature readings, etc.
 
 <figure markdown>
-![Elmar Solar MPPT](images/elmar_mppt.png)
+![Elmar Solar MPPT](images/elmar_mppt.jpg)
 <figcaption>Elmar Solar MPPT</figcaption>
 </figure>
 
-The Elmar Solar MPPT devices also give you the ability to see the raw CAN data via the [DBC view](CAN_Bus_DBC.md). To access this you need to right mouse click on the item and select 'Show Messages and Signals'.
+The Elmar Solar MPPT devices also give you the ability to see the raw CAN data via the [DBC view](CAN_Bus_DBC.md). To access this, click on the `Messages and Signals` button in the top right corner of the dashboard.
