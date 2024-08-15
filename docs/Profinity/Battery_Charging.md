@@ -6,7 +6,7 @@ title: Battery Charging
 
 Profinity can manage charging of your pack by controlling your Prohelion BMU and a charger to put charge in the pack.
 
-Profinity Charging supports four charging products as well as balancing capabilities to ensure that your pack cells remain balanced and in good condition.
+Profinity Charging supports four charging products (listed below) as well as balancing capabilities to ensure that your pack cells remain balanced and in good condition.
 
 <figure markdown>
 ![Siglent Charger](images/SiglentCharger.jpg)
