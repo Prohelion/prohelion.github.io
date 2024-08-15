@@ -4,7 +4,17 @@ title: Installing Profinity V2
 
 # Installing Profinity V2
 
+Profinity V2 is available on a wide selection of platforms
+
+## Installation on Windows
+
+Installing Profinity on your Windows machine is relatively simple due to the Profinity Setup Wizard.
+
 [Download Profinity :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi){ .md-button }
+
+1. Download the installer using the above link
+2. Open the downloaded file `Profinity.Install.msi`
+3. Follow the prompts in the Profinity Setup Wizard
 
 ## Installation using Docker
 
