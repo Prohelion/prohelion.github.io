@@ -1,0 +1,5 @@
+nav:
+    - Overview: index.md
+    - Safety Warnings: Safety_Warnings.md
+    - Components: Components
+    - Firmware: Firmware

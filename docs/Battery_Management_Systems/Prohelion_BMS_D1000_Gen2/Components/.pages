@@ -1,0 +1,4 @@
+nav:
+    - Battery Management Unit: Battery_Management_Unit.md
+    - Battery Junction Unit: Battery_Junction_Unit.md
+    - Cell Management Unit: Cell_Management_Unit.md
