@@ -1,12 +1,12 @@
 ---
-title: Overview
+title: Prohelion BMS M48 Gen1
 ---
 
-# 48V BMS User Manual 
+# Prohelion BMS M48 Gen1 
 
-This document describes the interface, installation, and usage requirements for the Prohelion 48V Battery Management System (PHLN-3000-0175). The PHLN-3000-0175 part was designed and developed by Prohelion Pty Ltd.
+This document describes the interface, installation, and usage requirements for the Prohelion BMS M48 Gen1 (PHLN-3000-0175). The PHLN-3000-0175 part was designed and developed by Prohelion Pty Ltd.
 
-The Prohelion 48V BMS provides the ability to easily monitor and control large capacity 48V battery packs up to a 22S cell configuration with up to 8 temperature sensors.  The number of cells and temperatures can be individually controlled to allow ultimate pack configuration flexibility. The BMS provides all necessary error checking and thresholding logic to keep the battery system and the cells within the area of safe operation. This includes Over Current, Over Voltage, Under Voltage, Under Temperature and Over Temperature thresholds.
+The Prohelion BMS M48 Gen1 provides the ability to easily monitor and control large capacity 48V battery packs up to a 22S cell configuration with up to 8 temperature sensors.  The number of cells and temperatures can be individually controlled to allow ultimate pack configuration flexibility. The BMS provides all necessary error checking and thresholding logic to keep the battery system and the cells within the area of safe operation. This includes Over Current, Over Voltage, Under Voltage, Under Temperature and Over Temperature thresholds.
 
 The 48V BMS individually controls Precharge, Charge and Discharge outputs to ensure that any connected loads do not over-charge or over-discharge the battery pack. The 48V BMS also includes the ability to preemptively balance cells (mid-pack balancing) and provides closed-loop state-of-charge (SoC) estimation to ensure the highest performance can be extracted from the battery pack.
 
@@ -30,15 +30,15 @@ The 48V BMS individually controls Precharge, Charge and Discharge outputs to ens
 <figcaption>48V panel 4</figcaption>
 </figure>
 
-Figure 1: Prohelion 48V BMS Render
+Figure 1: Prohelion BMS M48 Gen1 Render
 
 ## System Diagram
 
-The Prohelion 48V BMS has several electrical interfaces and connections to external systems. The figure below shows locations for each of these connections and interfaces.
+The Prohelion BMS M48 Gen1 has several electrical interfaces and connections to external systems. The figure below shows locations for each of these connections and interfaces.
 
 <figure markdown>
-![Figure 2: Prohelion 48V BMS Diagram](images/image2.png)
-<figcaption>Figure 2: Prohelion 48V BMS Diagram</figcaption>
+![Figure 2: Prohelion BMS M48 Gen1 Diagram](images/image2.png)
+<figcaption>Figure 2: Prohelion BMS M48 Gen1 Diagram</figcaption>
 </figure>
 
 <figure markdown>
