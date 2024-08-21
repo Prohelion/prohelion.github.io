@@ -131,7 +131,7 @@ Profinity supports two time series databases for logging, InfluxDB and Prometheu
 For the moment, Profinity provides a DBC Viewer that can be used to take a DBC file and will show the CAN Bus traffic travelling through the Profinity system as Messages and Signals.
 
 <figure markdown>
-![CAN DBC Viewer](images/dbc_canbus_message.png)
+![CAN DBC Viewer](images/dbc_canbus_message.jpg)
 <figcaption>CAN DBC Viewer</figcaption>
 </figure>
 
