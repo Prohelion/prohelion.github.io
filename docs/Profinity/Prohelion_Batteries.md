@@ -26,7 +26,7 @@ The BMU dashboard contains several sections each with different information abou
 
 The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](CAN_Utilities.md#can-bus-dbc), [discover CMUs]() , and [update the BMU's firmware](#flashing-the-bmu-firmware).
 
-### BMU DATA
+### BMU Data
 
 The top row of BMU data presents a summary of the following information (left to right):
 
@@ -77,7 +77,7 @@ For a full list of battery pack status flags, see the Communications Protocol se
 
 The right-hand side depicts the battery state as a flowchart, showing the progression of the BMU's internal state machine. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU documentation](../Battery_Management_Systems/index.md).
 
-### CMU DATA
+### CMU Data
 
 Each CMU correlates to a node in the network. The `Node Telemetry` table displays the currently connected CMUs and the voltages for each collection of cells being monitored by the specific CMU. 
 
