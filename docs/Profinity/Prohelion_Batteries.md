@@ -24,19 +24,21 @@ The BMU dashboard contains several sections each with different information abou
 <figcaption>Prohelion BMU</figcaption>
 </figure>
 
+The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](CAN_Utilities.md#can-bus-dbc), [discover CMUs]() , and [update the BMU's firmware](#flashing-the-bmu-firmware).
+
 ### BMU DATA
 
 The top row of BMU data presents a summary of the following information (left to right):
 
-| Cell              | Meaning                                                          |
-|-------------------|------------------------------------------------------------------|
-| `BATTERY VOLTAGE` |  |
-| `CURRENT`         |  |
-| `SOC %`           |  |
-| `MAX CELL`        |  |
-| `MIN CELL`        |  |
-| `MAX CELL TEMP`   |  |
-| `MIN CELL TEMP`   |  |
+| Cell              | Meaning                                                                                                                |
+|-------------------|------------------------------------------------------------------------------------------------------------------------|
+| `BATTERY VOLTAGE` | Total voltage of the battery pack, in volts.                                                                           |
+| `CURRENT`         | Current being supplied to/from the battery pack, in amps. Negative current indicates current flowing into the battery. |
+| `SOC %`           | Estimation of the remaining charge in the battery, as a percentage of the user-set total pack capacity.                |
+| `MAX CELL`        | Maximum cell voltage within the battery pack, in volts.                                                                |
+| `MIN CELL`        | Minimum cell voltage within the battery pack, in volts.                                                                |
+| `MAX CELL TEMP`   | Maximum cell temperature within the battery pack, in degrees Celsius.                                                  |
+| `MIN CELL TEMP`   | Minimum cell temperature within the battery pack, in degrees Celsius.                                                  |
 
 <!--
 | `Min mV`    | Minimum voltage cell in the pack, and its voltage. The example shows Node (CMU) 8, Cell 0 is minimum, at 3699mV                                                                        |
@@ -49,31 +51,31 @@ The top row of BMU data presents a summary of the following information (left to
 | `Balance -` | Balance threshold minimum voltage (balance voltage – hysteresis) | 
 | `CMU Count` | CMU count in system                                              | -->
 
-The next row shows Precharge status information on the left:
+<!--The next row shows Precharge status information on the left:
 
 | Cell             | Meaning                                                        |
 |------------------|----------------------------------------------------------------|
 | `Prechrg Status` | Current state (Idle, Precharge, Run, etc)                      |
-|                  | Contactor 12V supply voltage presence (mV on v4 or older BMUs) |
+|                  | Contactor 12V supply voltage presence (mV on v4 or older BMUs) | -->
 
-The buttons in the BMU section shows the various status flags, some flags are normal and show green when engaged, if buttons are showing orange or red then consult the BMU manual for more information.
+Below the summary are two graphs depicting the cell temperatures and node voltages observed by the CMUs. Hovering your cursor over the graphs showcases the data in greater resolution.
 
-Note that when not engaged or receiving messages from the control module the BMU will drop back to its safe precharge state which is the error state.  
+<!--The buttons in the BMU section shows the various status flags, some flags are normal and show green when engaged, if buttons are showing orange or red then consult the BMU manual for more information. -->
 
-Consult the [BMU documentation](../Battery_Management_Systems/index.md) for more information but note that the error state can be part of normal operation.
+<!-- Note that when not engaged or receiving messages from the control module the BMU will drop back to its safe precharge state which is the error state. -->
 
+The lower left side of the window features numerous status indicators for battery events. These events include (but are not limited to):
+
+- Any cell Over/under voltage
+- Any cell Over temperature
+- Any measurement untrusted
+- CMU and vehicle timeout errors
 - CMU Power supply OK
-- Any cell OverVoltage
-- Any cell UnderVoltage
-- Any cell OverTemperature
-- Any cell untrusted
-- CMU and vehicle timeout errors 
+- Invalid SoC estimation
 
-The right-hand side shows:
+For a full list of battery pack status flags, see the Communications Protocol section of the [BMU documentation](../Battery_Management_Systems/index.md).
 
-- Fan speed for both fans
-- SoC and Balance SoC in Ah
-- SoC and Balance SoC in %
+The right-hand side depicts the battery state as a flowchart, showing the progression of the BMU's internal state machine. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU documentation](../Battery_Management_Systems/index.md).
 
 ### CMU DATA
 
@@ -110,11 +112,11 @@ Below the `Node Telemetry` table is a selection of tabs for the various CMUs. Se
 
 ## Prohelion 12 Volt Control System
 
-Prohelion also offers a 12 volt control module that can be used to provide power to onboard 12 volt systems and is typically used in a racing environment.  This module has a separate control panel that can be added to the profile and provides additional data on the performance of the 12 volt system.
+Prohelion also offers a 12 volt control module that can be used to provide power to onboard 12 volt systems and is typically used in a racing environment.  This module has a separate control panel that can be added to the Profile and provides additional data on the performance of the 12 volt system. The dashboard for the 12V system is largely identical to the BMU dashboard.
 
 <figure markdown>
-![Prohelion 12 Volt](images/prohelion_v12.png)
-<figcaption>Prohelion 12 Volt</figcaption>
+![Prohelion 12 Volt](images/prohelion_v12.jpg)
+<figcaption>Prohelion 12 Volt Dashboard</figcaption>
 </figure>
 
 ## Updating the BMU Configuration
