@@ -4,10 +4,12 @@ title: Getting Started
 
 # Getting Started
 
-Opening the Profinity V2 desktop app or connecting to the web client will direct you to the Profinity V2 login page.
+Launching the Profinity V2 desktop client will take you directly to the Profinity V2 homepage. 
+
+To launch the Docker client, follow the steps outlined in the [Docker installation guide](Installation.md#starting-and-stopping-profinity). Connecting to the Profinity web client will direct you to the Profinity V2 login page. 
 
 <figure markdown>
-![Profinity V2 login page](images/login_page.jpg)
+![Profinity V2 login page](../images/login_page.jpg)
 <figcaption>Profinity V2 login page</figcaption>
 </figure>
 
@@ -20,11 +22,11 @@ Password: `password`
 After logging in, you will arrive at the Profinity V2 homepage.
 
 <figure markdown>
-![Profinity V2 Homepage](images/homepage.jpg)
+![Profinity V2 Homepage](../images/homepage.jpg)
 <figcaption>Profinity V2 homepage</figcaption>
 </figure>
 
-The Profinity V2 window is split into two main sections; the sidebar and the main window. By default, the sidebar contains four tabs named `ADD COMPONENT`, `CAN UTILITIES`, `ADMIN`, and `LOGOUT`. More options will become available as you construct your system inside Profinity.
+The Profinity V2 window is split into two sections; the main window and the sidebar. By default, the sidebar contains four tabs named `ADD COMPONENT`, `CAN UTILITIES`, `ADMIN`, and `LOGOUT`. More options will become available as you construct your system inside Profinity.
 
 <!-- More here -->
 
@@ -33,7 +35,7 @@ The Profinity V2 window is split into two main sections; the sidebar and the mai
 Once logged in, it is recommended to create a new user to suit your use case. To create a new user, select the `ADMIN` tab, `Users`, then `+ ADD USER`. Here you are able to define a new user and their associated login details.
 
 <figure markdown>
-![Add user](images/add_user.png)
+![Add user](../images/add_user.png)
 <figcaption>New user menu</figcaption>
 </figure>
 
@@ -48,7 +50,7 @@ Profinity Profile Packs behave similarly to Profiles from Profinity Classic. All
 To change Profile or create a new Profile, navigate to the `ADMIN` tab, then select `Profile`. The active Profile can be selected by clicking on the appropriate radio button, or a new Profile can be created using the `+ ADD PROFILE` button.
 
 <figure markdown>
-![Add profile menu](images/profiles_menu.jpg)
+![Add profile menu](../images/profiles_menu.jpg)
 <figcaption>Profinity Profile menu</figcaption>
 </figure>
 
@@ -59,14 +61,14 @@ More information can be found in the [Profinity Profile Packs](Profiles.md) sect
 Components can be added to your profile by selecting the `ADD COMPONENT` tab from the sidebar. A page with all of the currently supported components is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the component that you wish to add. The page also includes filter options to help locate the correct component.
 
 <figure markdown>
-![Add a new component to the Profile](images/add_component.jpg)
+![Add a new component to the Profile](../images/add_component.jpg)
 <figcaption>Add a new component to the Profile</figcaption>
 </figure>
 
 Upon selecting an component, you will be prompted to fill in the necessary details to finish setting up your component. The information required will vary greatly by component and can be modified later by editing the component properties. More information about specific component properties and how to correctly configure each component can be found in the dedicated component sections.
 
 <figure markdown>
-![Adjust component properties](images/add_component_properties.jpg)
+![Adjust component properties](../images/add_component_properties.jpg)
 <figcaption>Example of defining component properties</figcaption>
 </figure>
 
@@ -95,8 +97,8 @@ Each component in your system will have an associated dashboard which can be acc
 Profinity has a built in logging mechanism that captures information about the operation of the system and is designed to assist in system issue diagnosis. To access the system logs, navigate to the `ADMIN` tab, then select `Logs`.
 
 <figure markdown>
-![Profinity Log](images/system_logs.jpg)
+![Profinity Log](../images/system_logs.jpg)
 <figcaption>Profinity System Logs</figcaption>
 </figure>
 
-Each log entry contains a timestamp, a message level (e.g., `Info`, `Warn`, `Error`, etc.), and a message description. To help diagnose particular issues, the scope of the system logs can be changed to only include particular message levels. More information about varying the displayed log levels can be found in the [System Administration](System_Admin.md) section.
+Each log entry contains a timestamp, a message level (e.g., `Info`, `Warn`, `Error`, etc.), and a message description. To help diagnose particular issues, the scope of the system logs can be changed to only include particular message levels. More information about varying the displayed log levels can be found in the [System Administration](../System_Admin.md) section.

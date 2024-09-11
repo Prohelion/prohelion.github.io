@@ -16,15 +16,15 @@ A core concept of Prohelion Cloud Connect is the idea of the transmitting node a
 
 When Prohelion Cloud Connect is added to a profile, the machine on which this first occurs is marked as the transmitting instance of Profinity. Any data transmitted in to this Prohelion Cloud Connect stream must be transmitted from this instance of Profinity.
 
-Sharing the Cloud Connect URL not only shares the data it allow enables a copy of the transmitting nodes [Profile](Profiles.md) to be sent to anyone who has the URL and is using it to connect to via Profinity.
+Sharing the Cloud Connect URL not only shares the data it allow enables a copy of the transmitting nodes [Profile](../Getting_Started/Profiles.md) to be sent to anyone who has the URL and is using it to connect to via Profinity.
 
-If a change is made to the [Profile](Profiles.md) on the transmitting node, for example a new device is configured or a change is made to one of the configuration parameters, then that change is automatically sent to each of the receiving nodes of Profinity and within a few seconds you should see the profiles of the receiving nodes update as well.
+If a change is made to the [Profile](../Getting_Started/Profiles.md) on the transmitting node, for example a new device is configured or a change is made to one of the configuration parameters, then that change is automatically sent to each of the receiving nodes of Profinity and within a few seconds you should see the profiles of the receiving nodes update as well.
 
 ### Receiving Node
 
 A receiving node is one that has used a received URL to connect to the Prohelion Cloud Connect Steam.
 
-If you are monitoring a CAN Bus stream on a receiving node, then the [Profile](Profiles.md) will be automatically sent to you, but the Profile will be read only.  On the receiving node you will often find devices have they grey dot rather than a green dot.  This is because devices like [loggers](Logging_Replaying_CAN_Bus_Messages.md) and [Adapters](CAN_Bus_Adapters.md) are disabled by default as if they ran then the behaviours would not make sense, for example an adapter can not run locally on the receiving node as their is likely no Can BUS adapter for it to connect to.
+If you are monitoring a CAN Bus stream on a receiving node, then the [Profile](../Getting_Started/Profiles.md) will be automatically sent to you, but the Profile will be read only.  On the receiving node you will often find devices have they grey dot rather than a green dot.  This is because devices like [loggers](../CAN_Utilities.md#log--replay-can-bus-messages) and [Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) are disabled by default as if they ran then the behaviours would not make sense, for example an adapter can not run locally on the receiving node as their is likely no Can BUS adapter for it to connect to.
 
 ## Cloud Connect Transmission Protocol
 

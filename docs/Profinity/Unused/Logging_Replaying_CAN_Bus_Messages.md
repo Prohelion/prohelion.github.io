@@ -6,13 +6,13 @@ title: Log / Replay CAN
 
 Profinity provides the ability to both log and replay messages off your CAN Bus network as well as the ability to log CanBUS data to timeseries databases like InfluxDB and Prometheus.  
 
-To log a set of CAN Bus messages first add an adapter to your [Profile](Profiles.md) and then connect to the adapter.  
+To log a set of CAN Bus messages first add an adapter to your [Profile](../Getting_Started/Profiles.md) and then connect to the adapter.  
 
 It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](Send_Receive_CAN_Bus_Messages.md) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
 
 ## Logging CAN Bus
 
-There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](InfluxDB_Prometheus_Integration.md).
+There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](../Components/Loggers/InfluxDB_Prometheus_Integration.md).
 
 All loggers are configured in the same manner, by adding a logging device to the Profile.
 
@@ -39,7 +39,7 @@ The logger also gives you the ability to manage Archive and Compression settings
 Finally the logger allows you to set the frequency of rotation.  Rotation means that the old log file is closed and a new one is created and Profinity allows you to define a minute based log rotation or a size base log rotation depending on your preference.
 
 <figure markdown>
-![Data Logger](images/data_logger.png)
+![Data Logger](../images/data_logger.png)
 <figcaption>Data Logger</figcaption>
 </figure>
 
@@ -52,7 +52,7 @@ Profinity uses data entry validation to ensure the information you provide is va
 When an invalid value is entered in this screen the field will turn to an orange colour, indicating an issue.  If the field is white then the data is fine.
 
 <figure markdown>
-![Data Logger Error](images/data_logger_error.png)
+![Data Logger Error](../images/data_logger_error.png)
 <figcaption>Data Logger Error</figcaption>
 </figure>
 
@@ -71,10 +71,10 @@ To use this tool simply select the log file and it will start replaying.  There 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
 
 <figure markdown>
-![Data Log Replayer](images/log_replayer.png)
+![Data Log Replayer](../images/log_replayer.png)
 <figcaption>Data Log Replayer</figcaption>
 </figure>
 
 ## Time Series Based Loggers
 
-Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](InfluxDB_Prometheus_Integration.md).
+Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](../Components/Loggers/InfluxDB_Prometheus_Integration.md).

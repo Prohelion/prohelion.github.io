@@ -16,7 +16,7 @@ Messages can be transmitted either via the Send CAN window which is documented b
 Click on the Receive CAN Packets menu item to see a view of all the CAN Bus messages currently travelling across your network.
 
 <figure markdown>
-![Receive CAN Packets](images/receive_can_packets.png)
+![Receive CAN Packets](../images/receive_can_packets.png)
 <figcaption>Receive CAN Packets</figcaption>
 </figure>
 
@@ -27,7 +27,7 @@ The options at the bottom of this window allow you to filter the messages by CAN
 Right mouse clicking on a line allows you to select an option to 'Send Can Message like this', clicking this option will open the Send CAN Packet window and pre-populate it with the data from the message that you have received.
 
 <figure markdown>
-![Send CAN Packet like this](images/receive_send_like_this.png)
+![Send CAN Packet like this](../images/receive_send_like_this.png)
 <figcaption>Send CAN Packet like this</figcaption>
 </figure>
 
@@ -41,4 +41,4 @@ Using the loop option will send your CAN packet at your chosen loop rate, so 100
 
 Note that as Profinity is currently a Windows only tool, the default byte order used is little endian to align with Windows / Intel.  Little endian is also used by most of the Prohelion technologies.
 
-![Send CAN Packet](images/send_can_packet.png)
+<!--[Send CAN Packet](images/send_can_packet.png)-->

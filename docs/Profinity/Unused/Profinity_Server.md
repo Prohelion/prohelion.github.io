@@ -11,13 +11,13 @@ In this mode, the Profinity GUI is replaced by a Custom UI you can develop and e
 !!! info "Why Profinity Server?"
     Do you have a CAN Bus based platform and want to provide modern API centric front ends to support user kiosks or other advanced user interfaces, sophisticated modern data analytics and reporting, remote logging or to run your solution in the cloud, desktop, or embedded hardware?  Profinity Server supports this need.
 
-Prohelion provides the [Windows Profinity release](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi) for general public use.  It is designed for developers who are using the [Rest API and Kiosk / Web Hosting](Profinity_Rest_APIs.md) capabilities of Profinity to develop and test their solutions.  
+Prohelion provides the [Windows Profinity release](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi) for general public use.  It is designed for developers who are using the [Rest API and Kiosk / Web Hosting](../Advanced_Features/Profinity_Rest_APIs.md) capabilities of Profinity to develop and test their solutions.  
 
 This Windows release can be used for development and testing without any additional licensing.
 
 Profinity Server does not require any additional Prohelion Hardware to run. It can be used as a general purpose development framework for anyone writing modern web UI's for CAN Bus based architectures or wanting to provide a modern server style interface to your CAN infrastructure with native cloud connectivity.  
 
-However, if you are not using Prohelion hardware, you will still need some way to connect to your CAN Bus network, see the [CAN Adapters](CAN_Bus_Adapters.md) page for information on supported CAN Bus adapters that you can use.
+However, if you are not using Prohelion hardware, you will still need some way to connect to your CAN Bus network, see the [CAN Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) page for information on supported CAN Bus adapters that you can use.
 
 !!! info "Licensing for Production Environments"
     Use of Profinity server in production environments on Windows, Docker, Linux or MacOS may require an additional license key depending on your commercial status with Prohelion.

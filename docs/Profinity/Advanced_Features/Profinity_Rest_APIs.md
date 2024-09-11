@@ -47,7 +47,7 @@ Requests to retrieve CAN Packet information allow you to retrieve the packet eit
 Prohelions API solution allows you to test your API calls in Swagger before developing any code.  
 
 <video autoplay loop controls width = "100%">
-  <source src="video/TestApi.mov" type="video/mp4">
+  <source src="../../video/TestApi.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -59,7 +59,7 @@ APIs can provide both realtime and historical data, when a InfluxDB database is 
 
 The __/api/v1/CAN/{Message}/{Signal}__ api is used to get historical data.  To use this API request a DBC Message and Signal as well as a InfluxDB time range that you wish to retrieve the data for.  The API will then call InfluxDB and retrieve all of the data stored across that time frame for this signal.
 
-For more information on configuring InfluxDB see the [InfluxDB and Prometheus Integration](InfluxDB_Prometheus_Integration.md) section of this documentation.
+For more information on configuring InfluxDB see the [InfluxDB and Prometheus Integration](../Components/Loggers/InfluxDB_Prometheus_Integration.md) section of this documentation.
 
 ## Hosting Custom Web User Interfaces
 
@@ -110,4 +110,3 @@ Alternatively you can provide a cert file and cert password
       Enabled: true
       Swagger: false
 ```
-

@@ -11,29 +11,29 @@ The Prohelion Battery Management technology is built around three main component
 Profinity supports the management and monitoring of the BMUs, CMUs, and 12v systems via your Profile.
 
 !!! info "Only the BMU needs to be added to your Profile"
-    Prohelion CMUs utilise a second CAN network organised by the BMU, and thus do not need to be added as components to your Profile. By adding the BMU to your Profile, you are able to control and see data from the entire BMS. For more information, see [Prohelion BMS documentation](../Battery_Management_Systems/index.md).
+    Prohelion CMUs utilise a second CAN network organised by the BMU, and thus do not need to be added as components to your Profile. By adding the BMU to your Profile, you are able to control and see data from the entire BMS. For more information, see [Prohelion BMS documentation](../../../Battery_Management_Systems/index.md).
 
 A typical battery will generally only have one BMU, but larger packs or split packs like the ones used in racing can involve two or more BMUs.  If your pack is configured as such, then you simply add multiple BMUs to your Profile with different base CAN addresses.
 
 ## BMU Management
 
-You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to your [Profile](Profiles.md). When adding a Prohelion BMU to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from the BMU dashboard.
+You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to your [Profile](../../Getting_Started/Profiles.md). When adding a Prohelion BMU to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from the BMU dashboard.
 
 <!-- Finish this -->
 | Parameter            | Description                                                                                  |
 |----------------------|----------------------------------------------------------------------------------------------|
 | `Name`               | The name of the component. Must be unique.                                                   |
 | `Milliseconds Valid` | The timeout time of the device. If the network has not received any traffic from this device after this many milliseconds, it is assumed that the connection has been lost. |
-| `Base Address`       | The CAN address of the BMU (See [BMU documentation](../Battery_Management_Systems/index.md)) |
+| `Base Address`       | The CAN address of the BMU (See [BMU documentation](../../../Battery_Management_Systems/index.md)) |
 
 The BMU dashboard contains several sections each with different information about your system. The top section shows data from the BMU, whilst clicking on the `MORE DETAILS` banner will expand the dashboard to display telemetry data from the CMUs.
 
 <figure markdown>
-![Prohelion BMU](images/prohelion_bmu.jpg)
+![Prohelion BMU](../../images/prohelion_bmu.jpg)
 <figcaption>Prohelion BMU</figcaption>
 </figure>
 
-The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](CAN_Utilities.md#can-bus-dbc), [discover CMUs]() , and [update the BMU's firmware](#flashing-the-bmu-firmware).
+The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](../../CAN_Utilities.md#can-bus-dbc), [discover CMUs]() , and [update the BMU's firmware](#flashing-the-bmu-firmware).
 
 ### BMU Data
 
@@ -82,9 +82,9 @@ The lower left side of the window features numerous status indicators for batter
 - CMU Power supply OK
 - Invalid SoC estimation
 
-For a full list of battery pack status flags, see the Communications Protocol section of the [BMU documentation](../Battery_Management_Systems/index.md).
+For a full list of battery pack status flags, see the Communications Protocol section of the [BMU documentation](../../../Battery_Management_Systems/index.md).
 
-The right-hand side depicts the battery state as a flowchart, showing the progression of the BMU's internal state machine. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU documentation](../Battery_Management_Systems/index.md).
+The right-hand side depicts the battery state as a flowchart, showing the progression of the BMU's internal state machine. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU documentation](../../../Battery_Management_Systems/index.md).
 
 ### CMU Data
 
@@ -101,7 +101,7 @@ Each CMU correlates to a node in the network. The `Node Telemetry` table display
 | `Cell 1 - 8 mV` | 1 – 8 cell voltage measurements     | -->
 
 <figure markdown>
-![Prohelion CMU](images/cmu_data.jpg)
+![Prohelion CMU](../../images/cmu_data.jpg)
 <figcaption>Prohelion CMU</figcaption>
 </figure>
 
@@ -124,7 +124,7 @@ Below the `Node Telemetry` table is a selection of tabs for the various CMUs. Se
 Prohelion also offers a 12 volt control module that can be used to provide power to onboard 12 volt systems and is typically used in a racing environment.  This module has a separate control panel that can be added to the Profile and provides additional data on the performance of the 12 volt system. The dashboard for the 12V system is largely identical to the BMU dashboard.
 
 <figure markdown>
-![Prohelion 12 Volt](images/prohelion_v12.jpg)
+![Prohelion 12 Volt](../../images/prohelion_v12.jpg)
 <figcaption>Prohelion 12 Volt Dashboard</figcaption>
 </figure>
 
@@ -140,10 +140,10 @@ To update the configuration of your Battery Management Unit, click on the `Setup
 
 <!-- Video needs to be update, requires a physical BMU -->
 <video autoplay loop controls width="100%">
-  <source src="video/ConfigBMU.mov" type="video/mp4">
+  <source src="../../video/ConfigBMU.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 ## Flashing the BMU Firmware
 
-To flash the BMU firmware, select the `Update Firmware` button on the top-right of the BMU dashboard.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](Virtual_CAN_Adapter.md) is required for this operation.
+To flash the BMU firmware, select the `Update Firmware` button on the top-right of the BMU dashboard.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/CAN_Bus_Adapters.md#prohelion-virtual-can-bus-adapter) is required for this operation.
