@@ -12,7 +12,7 @@ You can manage an Elmar Solar MPPT using Profinity by adding a new Elmar Solar M
 | Parameter            | Description                                                                           |
 |----------------------|---------------------------------------------------------------------------------------|
 | `Name`               | The name of the component. Must be unique.                                            |
-| `Milliseconds Valid` |        |
+| `Milliseconds Valid` | The timeout time of the device. If the network has not received any traffic from this device after this many milliseconds, it is assumed that the connection has been lost. |
 | `Base Address`       | The CAN address of the MPPT (See [Elmar Solar MPPT documentation](../MPPTs/index.md)) |
 
 Once the MPPT has been added to your profile, the Elmar Solar MPPT dashboard will be available in the sidebar. The dashboard displays several useful types of information, including the input/output voltage graphs, error status indicators, temperature readings, etc.
