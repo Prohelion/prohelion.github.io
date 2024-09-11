@@ -49,7 +49,7 @@ Clicking the `MORE DETAILS` banner will reveal another section revealing informa
 To update the configuration of your WaveSculptor, select the `Setup and Configuration`. This will load the WaveSculptor setup and configuration utilities. More specific details about the WaveSculptor configuration can be found in the [WaveSculptor documentation](../../../Motor_Controllers/Config_Software/index.md).
 
 !!! info "Tritium / Prohelion Adapter"
-    The WaveSculptor configuration tools were developed by Tritium and rely on a CAN to Ethernet Bridge being present in the configuration.  If you do not have such a bridge, you can create a virtual one using the [Virtual CAN Adapter](../Adaptors/CAN_Bus_Adapters.md#prohelion-virtual-can-bus-adapter) in conjunction with another bridge.
+    The WaveSculptor configuration tools were developed by Tritium and rely on a CAN to Ethernet Bridge being present in the configuration.  If you do not have such a bridge, you can create a virtual one using the [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) in conjunction with another bridge.
 
 <!-- Video needs to be update, requires a physical WaveSculptor -->
 <video autoplay loop controls width="100%">
@@ -59,4 +59,4 @@ To update the configuration of your WaveSculptor, select the `Setup and Configur
 
 ## Flashing the WaveSculptor Firmware
 
-Once you have updated the configuration of your WaveSculptor, you will need to flash the WaveSculptor firmware. To do this, click on the `Update Firmware` button in the top-right of the WaveSculptor dashboard. As per the configuration tool, a CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/CAN_Bus_Adapters.md#prohelion-virtual-can-bus-adapter) is required for this operation.
+Once you have updated the configuration of your WaveSculptor, you will need to flash the WaveSculptor firmware. To do this, click on the `Update Firmware` button in the top-right of the WaveSculptor dashboard. As per the configuration tool, a CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) is required for this operation.
