@@ -8,7 +8,7 @@ Profinity provides the ability to both log and replay messages off your CAN Bus 
 
 To log a set of CAN Bus messages first add an adapter to your [Profile](../Getting_Started/Profiles.md) and then connect to the adapter.  
 
-It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](Send_Receive_CAN_Bus_Messages.md) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
+It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](Send_Receive_CAN_Bus_Messages.md#receive-can-packets) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
 
 ## Logging CAN Bus
 
@@ -45,7 +45,7 @@ Finally the logger allows you to set the frequency of rotation.  Rotation means 
 
 Logging configurations are stored as part of your profile so when you load a profile, if you have the logger setup to automatically start then it will start logging automatically.
 
-### Data Validation
+## Data Validation
 
 Profinity uses data entry validation to ensure the information you provide is valid.  
 
@@ -64,14 +64,14 @@ To use this tool simply select the log file and it will start replaying.  There 
 
 | Setting                         | Purpose                      |
 |---------------------------------|------------------------------|
-| `Include / Exclude IDs`         | Instruct the log replayer to only include or exclude values between these two CAN Bus IDs                                                          |
-| `Loop log file replay`          | When the log file reaches the end, automatically loop back to the start                                                            |
+| `Include / Exclude IDs`         | Instruct the log replayer to only include or exclude values between these two CAN Bus IDs |
+| `Loop log file replay`          | When the log file reaches the end, automatically loop back to the start                   |
 | `Transmit CAN Bus over Network` | Normally the log file is only replayed locally, by selecting the Transmit option the log file is transmitted over any active CAN-Ethernet Bridges |
 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
 
 <figure markdown>
-![Data Log Replayer](../images/log_replayer.png)
+![Data Log Replayer](../images/log_replayer.jpg)
 <figcaption>Data Log Replayer</figcaption>
 </figure>
 

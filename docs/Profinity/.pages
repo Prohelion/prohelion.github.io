@@ -1,7 +1,7 @@
 nav:
     - index.md
     - Getting_Started
-    - System_Admin.md
-    - CAN_Utilities.md
     - Components
+    - CAN_Utilities
+    - System_Admin.md
     - Advanced_Features

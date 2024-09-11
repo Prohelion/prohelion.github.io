@@ -1,4 +1,7 @@
 nav:
     - Installation.md
-    - Getting_Started.md
+    - Create_User.md
     - Profiles.md
+    - Adding_New_Items.md
+    - Read_Data.md
+    - Profinity_Log.md

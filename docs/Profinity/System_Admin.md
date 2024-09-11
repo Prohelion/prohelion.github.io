@@ -1,5 +1,5 @@
 ---
-title: System Administration
+title: Admin
 ---
 
 # System Administration
@@ -42,7 +42,7 @@ The Logging menu contains the options for modifying the log level, logs rollover
 
 | Option              | Description                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------ |
-| `Log Level`         | The scope of messages shown in the [system logs](Getting_Started/Getting_Started.md#accessing-system-logs) |
+| `Log Level`         | The scope of messages shown in the [system logs](Getting_Started/Profinity_Log.md)         |
 | `Log Rollover Size` | The maximum file size for each log file created, in MB                                     |
 | `Retained Logs`     | The number of log files that can be created before overwriting the oldest file             | 
 

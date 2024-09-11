@@ -33,7 +33,7 @@ The BMU dashboard contains several sections each with different information abou
 <figcaption>Prohelion BMU</figcaption>
 </figure>
 
-The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](../../CAN_Utilities.md#can-bus-dbc), [discover CMUs]() , and [update the BMU's firmware](#flashing-the-bmu-firmware).
+The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](../../CAN_Utilities/CAN_Bus_DBC.md), [discover CMUs]() , and [update the BMU's firmware](#flashing-the-bmu-firmware).
 
 ### BMU Data
 

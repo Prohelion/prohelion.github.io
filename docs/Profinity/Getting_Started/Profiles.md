@@ -9,7 +9,7 @@ Profinity Profile Packs are a new introduction to Profinity V2 and serve as an e
 Depending on the configuration of your system, a Profile Pack could contain:
 
 - The [Profile](#profiles) and configured devices
-- [DBC](../CAN_Utilities.md#can-bus-dbc) files
+- [DBC](../CAN_Utilities/CAN_Bus_DBC.md) files
 - [Scripts]()
 - [Battery cell profiles]()
 
