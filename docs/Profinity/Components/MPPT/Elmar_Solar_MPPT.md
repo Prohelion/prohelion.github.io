@@ -21,7 +21,7 @@ Once the MPPT has been added to your profile, the Elmar Solar MPPT dashboard wil
 <figcaption>Elmar Solar MPPT</figcaption>
 </figure>
 
-The Elmar Solar MPPT devices also give you the ability to see the raw CAN data via the [DBC view](../../CAN_Utilities.md#can-bus-dbc). To access this, click on the `Messages and Signals` button in the top right corner of the dashboard.
+The Elmar Solar MPPT devices also give you the ability to see the raw CAN data via the [DBC view](../../CAN_Utilities/CAN_Bus_DBC.md). To access this, click on the `Messages and Signals` button in the top right corner of the dashboard.
 
 ## MPPT Data
 

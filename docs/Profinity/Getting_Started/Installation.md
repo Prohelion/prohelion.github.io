@@ -16,6 +16,13 @@ Installing Profinity on your Windows machine is relatively simple due to the Pro
 2. Open the downloaded file `Profinity.Install.msi`
 3. Follow the prompts in the Profinity Setup Wizard
 
+Launching the Profinity V2 desktop client will take you directly to the Profinity V2 homepage.
+
+<figure markdown>
+![Profinity V2 Homepage](../images/homepage.jpg)
+<figcaption>Profinity V2 homepage</figcaption>
+</figure>
+
 ## Installation using Docker
 
 Profinity V2 can be deployed onto most devices capable of running Docker, including Raspberry Pi, BeagleBone Black, etc.
@@ -111,5 +118,25 @@ ProfileDevices:
 The Profinity Docker container is started and stopped using commands from the [Docker Compose toolset](https://docs.docker.com/compose/reference/). First, navigate to the original directory (the one containing the `docker-compose.yml` file). Then, to begin Profinity, enter `docker compose up` into the command line.
 
 With Profinity running, open the URL defined in the `Config.yaml` file (i.e., `http://profinity:18080`) to access the Profinity V2 web client. For users that followed the [simple setup procedure](#simple-setup), the default URL is `http://localhost:18080`.
+
+Connecting to the Profinity web client will direct you to the Profinity V2 login page. 
+
+<figure markdown>
+![Profinity V2 login page](../images/login_page.jpg)
+<figcaption>Profinity V2 login page</figcaption>
+</figure>
+
+A fresh install of Profinity will only have the administrator user active. To log in, use the following login details.
+
+Username: `admin`
+
+Password: `password`
+
+After logging in, you will arrive at the Profinity V2 homepage.
+
+<figure markdown>
+![Profinity V2 Homepage](../images/homepage.jpg)
+<figcaption>Profinity V2 homepage</figcaption>
+</figure>
 
 To stop Profinity, enter `docker compose down` into the command line.

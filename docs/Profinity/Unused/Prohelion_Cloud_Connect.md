@@ -24,7 +24,7 @@ If a change is made to the [Profile](../Getting_Started/Profiles.md) on the tran
 
 A receiving node is one that has used a received URL to connect to the Prohelion Cloud Connect Steam.
 
-If you are monitoring a CAN Bus stream on a receiving node, then the [Profile](../Getting_Started/Profiles.md) will be automatically sent to you, but the Profile will be read only.  On the receiving node you will often find devices have they grey dot rather than a green dot.  This is because devices like [loggers](../CAN_Utilities.md#log--replay-can-bus-messages) and [Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) are disabled by default as if they ran then the behaviours would not make sense, for example an adapter can not run locally on the receiving node as their is likely no Can BUS adapter for it to connect to.
+If you are monitoring a CAN Bus stream on a receiving node, then the [Profile](../Getting_Started/Profiles.md) will be automatically sent to you, but the Profile will be read only.  On the receiving node you will often find devices have they grey dot rather than a green dot.  This is because devices like [loggers](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) and [Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) are disabled by default as if they ran then the behaviours would not make sense, for example an adapter can not run locally on the receiving node as their is likely no Can BUS adapter for it to connect to.
 
 ## Cloud Connect Transmission Protocol
 
