@@ -146,4 +146,4 @@ To update the configuration of your Battery Management Unit, click on the `Setup
 
 ## Flashing the BMU Firmware
 
-To flash the BMU firmware, select the `Update Firmware` button on the top-right of the BMU dashboard.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/CAN_Bus_Adapters.md#prohelion-virtual-can-bus-adapter) is required for this operation.
+To flash the BMU firmware, select the `Update Firmware` button on the top-right of the BMU dashboard.  A CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) is required for this operation.
