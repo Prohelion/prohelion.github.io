@@ -8,7 +8,6 @@ Elmar Solar produces some of the worlds most efficient Peak Power Trackers (MPPT
 
 You can manage an Elmar Solar MPPT using Profinity by adding a new Elmar Solar MPPT tracker to your [Profile](Profiles.md). When adding an Elmar Solar MPPT to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from the MPPT dashboard.
 
-<!-- Finish this -->
 | Parameter            | Description                                                                           |
 |----------------------|---------------------------------------------------------------------------------------|
 | `Name`               | The name of the component. Must be unique.                                            |
