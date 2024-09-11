@@ -20,11 +20,11 @@ A typical battery will generally only have one BMU, but larger packs or split pa
 You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to your [Profile](Profiles.md). When adding aProhelion BMU to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from the BMU dashboard.
 
 <!-- Finish this -->
-| Parameter            | Description                                                                           |
-|----------------------|---------------------------------------------------------------------------------------|
-| `Name`               | The name of the component. Must be unique.                                            |
+| Parameter            | Description                                                                                  |
+|----------------------|----------------------------------------------------------------------------------------------|
+| `Name`               | The name of the component. Must be unique.                                                   |
 | `Milliseconds Valid` |        |
-| `Base Address`       | The CAN address of the MPPT (See [Elmar Solar MPPT documentation](../MPPTs/index.md)) |
+| `Base Address`       | The CAN address of the BMU (See [BMU documentation](../Battery_Management_Systems/index.md)) |
 
 The BMU dashboard contains several sections each with different information about your system. The top section shows data from the BMU, whilst clicking on the `MORE DETAILS` banner will expand the dashboard to display telemetry data from the CMUs.
 
@@ -130,14 +130,13 @@ Prohelion also offers a 12 volt control module that can be used to provide power
 
 ## Updating the BMU Configuration
 
-!!! warning "Desktop instance required"
-    Currently only the desktop release of Profinity includes the BMU configuration tools. Therefore, to update the configuration of your Prohelion BMU, the BMU will need to be connected to desktop instance of Profinity for the duration of the update process. The BMU configuration tools are planned to become available in the Docker release in a future update.
-
-<!-- NEEDS UPDATING -->
-To update the configuration of your Battery Management Unit, right mouse click on the BMU in the Profinity menu and select Configure Prohelion BMU.  This will load the BMU configuration from the firmware and allow you to change it as desired.
-
 !!! danger "Be Careful!"
     Changing the configuration of your BMU can lead to dangerous situations if you set the wrong values for your pack.  Be careful and only make these changes if you know what you are doing and understand the purpose of these values.
+
+To update the configuration of your Battery Management Unit, click on the `Setup and Configuration` button in the top-right of the BMU dashboard. The BMU firmware options will only be present if the BMU is physically connected to the network. Once you have finished changing the BMU configuration, the [BMU firmware must be flashed](#flashing-the-bmu-firmware).
+
+!!! warning "Desktop instance required"
+    Currently only the desktop release of Profinity includes the BMU configuration tools. Therefore, to update the configuration of your Prohelion BMU, the BMU will need to be connected to desktop instance of Profinity for the duration of the update process. The BMU configuration tools are planned to become available in the Docker release in a future update.
 
 <!-- Video needs to be update, requires a physical BMU -->
 <video autoplay loop controls width="100%">
