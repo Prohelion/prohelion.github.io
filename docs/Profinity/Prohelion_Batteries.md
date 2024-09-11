@@ -17,13 +17,13 @@ A typical battery will generally only have one BMU, but larger packs or split pa
 
 ## BMU Management
 
-You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to your [Profile](Profiles.md). When adding aProhelion BMU to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from the BMU dashboard.
+You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to your [Profile](Profiles.md). When adding a Prohelion BMU to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from the BMU dashboard.
 
 <!-- Finish this -->
 | Parameter            | Description                                                                                  |
 |----------------------|----------------------------------------------------------------------------------------------|
 | `Name`               | The name of the component. Must be unique.                                                   |
-| `Milliseconds Valid` |        |
+| `Milliseconds Valid` | The timeout time of the device. If the network has not received any traffic from this device after this many milliseconds, it is assumed that the connection has been lost. |
 | `Base Address`       | The CAN address of the BMU (See [BMU documentation](../Battery_Management_Systems/index.md)) |
 
 The BMU dashboard contains several sections each with different information about your system. The top section shows data from the BMU, whilst clicking on the `MORE DETAILS` banner will expand the dashboard to display telemetry data from the CMUs.
