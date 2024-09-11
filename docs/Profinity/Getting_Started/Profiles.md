@@ -9,7 +9,7 @@ Profinity Profile Packs are a new introduction to Profinity V2 and serve as an e
 Depending on the configuration of your system, a Profile Pack could contain:
 
 - The [Profile](#profiles) and configured devices
-- [DBC](CAN_Utilities.md#can-bus-dbc) files
+- [DBC](../CAN_Utilities.md#can-bus-dbc) files
 - [Scripts]()
 - [Battery cell profiles]()
 
@@ -20,7 +20,7 @@ A Profile is the core mechanism by which Profinity maintains the configuration o
 The `Profile` menu is located in the `ADMIN` tab.
 
 <figure markdown>
-![Profinity Profile menu](images/profiles_menu.jpg)
+![Profinity Profile menu](../images/profiles_menu.jpg)
 <figcaption>Profinity Profiles menu</figcaption>
 </figure>
 

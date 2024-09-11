@@ -4,10 +4,10 @@ title: InfluxDB / Prometheus
 
 # InfluxDB and Prometheus Logging
 
-Profinity provides the ability to both [log and replay messages](Logging_Replaying_CAN_Bus_Messages.md) off your CAN Bus network as well as the ability to log CAN Bus data to timeseries databases like InfluxDB and Prometheus.
+Profinity provides the ability to both [log and replay messages](../../CAN_Utilities.md#log--replay-can-bus-messages) off your CAN Bus network as well as the ability to log CAN Bus data to timeseries databases like InfluxDB and Prometheus.
 
 <figure markdown>
-![Data Log Replayer](images/InfluxDB.png)
+![Data Log Replayer](../../images/InfluxDB.png)
 <figcaption>Data Log Replayer</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ Logging the data is simple, just add a InfluxDB device to your profile and confi
 | InfluxDB URL          | Endpoint URL that InfluxDB is running on                              |
 | InfluxDB Health Check | Asks the logger to regularly perform a health check on the connection |
 
-Once these settings have been set correctly you should be able to see data flowing in to InfluxDB, if you do not check the [Logs](Profinity_Log.md) for more details.  
+Once these settings have been set correctly you should be able to see data flowing in to InfluxDB, if you do not check the [Logs](../../Getting_Started/Getting_Started.md#accessing-system-logs) for more details.  
 
 !!! warning "InfluxDB Cloud HealthCheck Warning"
     InfluxDB cloud does not support the InfluxDB Health Check API and therefore you need to switch InfluxDB Health Check to false when using the cloud solution for storing your data.

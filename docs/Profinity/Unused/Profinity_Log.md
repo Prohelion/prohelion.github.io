@@ -7,7 +7,7 @@ title: Profinity Log
 Profinity has a built in logging mechanism that captures information about the operation of the system.  Typically this log appears at the bottom of the Profinity screen.  If you close the log and wish to view it again, then the log button on the menu bar will make it reappear.
 
 <figure markdown>
-![Profinity Log](images/profinity_log_viewer.png)
+![Profinity Log](../images/profinity_log_viewer.png)
 <figcaption>Prohelion Log</figcaption>
 </figure>
 

@@ -53,13 +53,13 @@ Using the loop option will send your CAN packet at your chosen loop rate, so 100
 
 Profinity provides the ability to both log and replay messages off your CAN Bus network as well as the ability to log CanBUS data to timeseries databases like InfluxDB and Prometheus.  
 
-To log a set of CAN Bus messages first add an adapter to your [Profile](Profiles.md) and then connect to the adapter.  
+To log a set of CAN Bus messages first add an adapter to your [Profile](Getting_Started/Profiles.md) and then connect to the adapter.  
 
 It's always worth checking that you are actually receiving CAN Bus messages by using the [Receive CAN Bus](#receive-can-packets) window first.  Once you have got CAN Bus messages coming in to Profinity you are read to log.
 
 ### Logging CAN Bus
 
-There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](InfluxDB_Prometheus_Integration.md).
+There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](Components/Loggers/InfluxDB_Prometheus_Integration.md).
 
 All loggers are configured in the same manner, by adding a logging device to the Profile.
 
@@ -111,8 +111,8 @@ To use this tool simply select the log file and it will start replaying.  There 
 
 | Setting                         | Purpose                      |
 |---------------------------------|------------------------------|
-| `Include / Exclude IDs`         | Instruct the log replayer to only include or exclude values between these two CAN Bus IDs                                                          |
-| `Loop log file replay`          | When the log file reaches the end, automatically loop back to the start                                                            |
+| `Include / Exclude IDs`         | Instruct the log replayer to only include or exclude values between these two CAN Bus IDs |
+| `Loop log file replay`          | When the log file reaches the end, automatically loop back to the start                   |
 | `Transmit CAN Bus over Network` | Normally the log file is only replayed locally, by selecting the Transmit option the log file is transmitted over any active CAN-Ethernet Bridges |
 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
@@ -124,7 +124,7 @@ Sliding the slider back and forth allows you to easily move to new locations in 
 
 ### Time Series Based Loggers
 
-Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](InfluxDB_Prometheus_Integration.md).
+Profinity supports two time series databases for logging, InfluxDB and Prometheus.  For more information on setting up theses tools see the [InfluxDB and Prometheus documentation](Components/Loggers/InfluxDB_Prometheus_Integration.md).
 
 
 ## CAN Bus DBC
@@ -138,8 +138,8 @@ For the moment, Profinity provides a DBC Viewer that can be used to take a DBC f
 <figcaption>CAN DBC Viewer</figcaption>
 </figure>
 
-To use the DBC viewer with a third party DBC file you need to [create a new item](Adding_New_Items.md) in your [Profile](Profiles.md) and in the configuration properties for that new item provide the DBC file.  
+To use the DBC viewer with a third party DBC file you need to [create a new item](Getting_Started/Getting_Started.md#adding-new-components-to-your-profile) in your [Profile](Getting_Started/Profiles.md) and in the configuration properties for that new item provide the DBC file.  
 
 Once this has been done then you will see the item in your profile and by right mouse clicking on it you can access information about its Messages and Signals.
 
-Many of the other components supported by Profinity such as the [Elmar Solar MPPT](Elmar_Solar_MPPT.md) and the [WaveSculptor](WaveSculptor.md) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.
+Many of the other components supported by Profinity such as the [Elmar Solar MPPT](Components/MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](Components/Motor_Controller/WaveSculptor.md) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.
