@@ -25,7 +25,7 @@ Launching the Profinity V2 desktop client will take you directly to the Profinit
 
 ## Installation using Docker
 
-Profinity V2 can be deployed onto most devices capable of running Docker, including Raspberry Pi, BeagleBone Black, etc.
+Profinity V2 can be deployed onto most devices capable of running Docker, including macOS and Linux machines as well as several single-board computers such as Raspberry Pi, BeagleBone Black, etc.
 
 There are two possible methods for setting up Profinity V2 using Docker. The [simple setup procedure](#simple-setup) is recommended for most users. Advanced users may choose to follow the [advanced method](#advanced-setup), 
 
@@ -39,9 +39,7 @@ The following items are required to be able to install Profinity V2:
 
 ### Simple Setup
 
-To 
-
-Create an empty directory and a file titled `docker-compose.yml` in the new directory. The contents of the `docker-compose.yml` file should be
+On the target device, create a new empty directory and a file titled `docker-compose.yml` in the new directory. The contents of the `docker-compose.yml` file should be
 
 ```
 services:
@@ -57,13 +55,13 @@ services:
         - 4876:4876
 ```
 
+Then, proceed to [Starting and Stopping Profinity](#starting-and-stopping-profinity).
+
 For more information about Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/).
 
 ### Advanced Setup
 
-The advanced setup procedure is an extension of the simple setup procedure that is more tailored towards development use cases.
-
-In addition to 
+The advanced setup procedure is an extension of the simple setup procedure that is more tailored towards development use cases. In addition to the `docker-compose.yml` file, the advanced method also involve the creation of a `Config.yaml` file and a `Default.pprof` file, which are each explained below.
 
 The `Config.yaml` file provides the global configuration for the Profinity instance. If you have an existing desktop installation of Profinity V2, you can copy the `Config.yaml` file from that installation, but there are several key fields which must be changed:
 
@@ -83,7 +81,7 @@ Options:
   BMSCalibration: false
   CMUCalibration: false
   WebServer:
-    Urls: http://localhost:5000
+    Urls: http://localhost:18080
     HttpsRedirect: false
     WebSite:
       Enabled: true
@@ -98,7 +96,7 @@ AppSettings:
     RetainedLogs: 10
 ```
 
-
+The `Default.pprof` file contains information about the components associated with the default Profinity [Profile](Profiles.md). While it is possible to add devices to your Profile directly using the `Default.pprof` file, it is recommended to follow the process details in the [Adding Components section](Adding_New_Items.md).
 
 ```
 Name: Default Profile
@@ -112,6 +110,8 @@ ProfileDevices:
     AutoConnect: true
     Type: ProhelionSocketCANAdapter
 ```
+
+If you share the file system of the Profinity Docker container with the desktop then it is possible to access and update the `Config.yaml` and Profiles directly on the file system. Profinity will detect changes made to any of these files and reload as required to reflect these changes.
 
 ### Starting and Stopping Profinity
 
