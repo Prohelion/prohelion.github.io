@@ -1,0 +1,5 @@
+nav:
+    - system_config.md
+    - logs_config.md
+    - feedback.md
+    - system_info.md
