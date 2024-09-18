@@ -11,4 +11,4 @@ Profinity has a built in logging mechanism that captures information about the o
 <figcaption>Profinity System Logs</figcaption>
 </figure>
 
-Each log entry contains a timestamp, a message level (e.g., `Info`, `Warn`, `Error`, etc.), and a message description. To help diagnose particular issues, the scope of the system logs can be changed to only include particular message levels. More information about varying the displayed log levels can be found in the [System Administration](../System_Admin.md) section.
+Each log entry contains a timestamp, a message level (e.g., `Info`, `Warn`, `Error`, etc.), and a message description. To help diagnose particular issues, the scope of the system logs can be changed to only include particular message levels. More information about varying the displayed log levels can be found in the [Admin](../Admin/logs_config.md#system-logs-configuration) section.
