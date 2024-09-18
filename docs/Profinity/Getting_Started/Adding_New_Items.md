@@ -11,7 +11,7 @@ Components can be added to your profile by selecting the `ADD COMPONENT` tab fro
 <figcaption>Add a new component to the Profile</figcaption>
 </figure>
 
-Upon selecting an component, you will be prompted to fill in the necessary details to finish setting up your component. The information required will vary greatly by component and can be modified later by editing the component properties. More information about specific component properties and how to correctly configure each component can be found in the dedicated component sections.
+Each component in the Profile has a set of properties that define the configuration of the component. Upon selecting a component, you will be prompted to fill in the necessary configuration properties for the component. The information required will vary greatly by component and can be modified later by opening the `Change Setting` menu from the component's dashboard. More information about specific component properties and how to correctly configure each component can be found in the dedicated component sections.
 
 <figure markdown>
 ![Adjust component properties](../images/add_component_properties.jpg)
