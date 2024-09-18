@@ -11,6 +11,12 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains . Inf
 
 ### Application Configuration
 
+| Parameter                          |  |
+|------------------------------------|--|
+|`Custom Update Server`              |  |
+|`Maximum number of retained Packets`|  |
+|`Enable Scripting`                  |  |
+
 <figure markdown>
 ![Add user](../images/app_configuration.png)
 <figcaption>New user menu</figcaption>
@@ -18,12 +24,42 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains . Inf
 
 ### Profinity Web
 
+| Parameter                          |  |
+|------------------------------------|--|
+|`IP Address for Http`               |  |
+|`IP Port for Http`                  |  |
+|`IP Address for Https`              |  |
+|`IP Port for Https`                 |  |
+|`Redirect all Http traffic to Https`|  |
+|`Windows Cert Store`                |  |
+|`Windows Cert Store Location`       |  |
+|`Windows Cert Store Subject`        |  |
+|`Cert File`                         |  |
+|`Cert File Password`                |  |
+
+
 <figure markdown>
 ![Add user](../images/profinity_web.png)
 <figcaption>New user menu</figcaption>
 </figure>
 
 ### Extensions Web
+
+| Parameter                          |  |
+|------------------------------------|--|
+|`Enable Profinity Web Server`       |  |
+|`Enable Profinity API`              |  |
+|`Enable Swagger on API`             |  |
+|`IP Address for Http`               |  |
+|`IP Port for Http`                  |  |
+|`IP Address for Https`              |  |
+|`IP Port for Https`                 |  |
+|`Redirect all Http traffic to Https`|  |
+|`Windows Cert Store`                |  |
+|`Windows Cert Store Location`       |  |
+|`Windows Cert Store Subject`        |  |
+|`Cert File`                         |  |
+|`Cert File Password`                |  |
 
 <figure markdown>
 ![Add user](../images/extensions_web.png)
