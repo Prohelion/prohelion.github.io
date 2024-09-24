@@ -14,7 +14,7 @@ Profinity is built around the concept of [Profiles](Getting_Started/Profiles.md)
 
 <!-- Update this image -->
 <figure markdown>
-![Profinity](images/profinity_overview.png)
+![Profinity](images/wavesculptor.jpg)
 <figcaption>Profinity</figcaption>
 </figure>
 
