@@ -23,14 +23,14 @@ You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to 
 |Parameter                  |Description                                                                                         |
 |---------------------------|----------------------------------------------------------------------------------------------------|
 |`Name`                     | The name of the component. Must be unique.                                                         |
-|`Send Controller Heartbeat`|  |
-|`Cell Datasheet`           |  |
+|`Send Controller Heartbeat`| ??? |
+|`Cell Datasheet`           | ??? |
 |`Parallel Cells`           | The number of battery cells connected in parallel.                                                 |
 |`Parallel Strings`         | The number of parallel groups of battery cells connected in series.                                |
-|`Enabled`                  |  |
-|`Sampling Rate (Sec)`      |  |
-|`Analysis Rate (Sec)`      |  |
-|`Retained Usage`           |  |
+|`Enabled`                  | ??? |
+|`Sampling Rate (Sec)`      | ??? |
+|`Analysis Rate (Sec)`      | ??? |
+|`Retained Usage`           | ??? |
 |`Milliseconds Valid`       | The timeout time of the device. If the network has not received any traffic from this device after this many milliseconds, it is assumed that the connection has been lost. |
 |`Base Address`             | The CAN address of the BMU (See [BMU documentation](../../../Battery_Management_Systems/index.md)). |
 

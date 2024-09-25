@@ -11,11 +11,11 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains <!-- 
 
 ### Application Configuration
 
-| Parameter                          |  |
+| Parameter                          | Description |
 |------------------------------------|--|
-|`Custom Update Server`              |  |
-|`Maximum number of retained Packets`|  |
-|`Enable Scripting`                  |  |
+|`Custom Update Server`              | ??? |
+|`Maximum number of retained Packets`| ??? |
+|`Enable Scripting`                  | ??? |
 
 <figure markdown>
 ![Application configuration menu](../images/app_configuration.png)
@@ -24,18 +24,18 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains <!-- 
 
 ### Profinity Web
 
-| Parameter                          |  |
+| Parameter                          | Description |
 |------------------------------------|--|
-|`IP Address for Http`               |  |
-|`IP Port for Http`                  |  |
-|`IP Address for Https`              |  |
-|`IP Port for Https`                 |  |
-|`Redirect all Http traffic to Https`|  |
-|`Windows Cert Store`                |  |
-|`Windows Cert Store Location`       |  |
-|`Windows Cert Store Subject`        |  |
-|`Cert File`                         |  |
-|`Cert File Password`                |  |
+|`IP Address for Http`               | ??? |
+|`IP Port for Http`                  | ??? |
+|`IP Address for Https`              | ??? |
+|`IP Port for Https`                 | ??? |
+|`Redirect all Http traffic to Https`| ??? |
+|`Windows Cert Store`                | ??? |
+|`Windows Cert Store Location`       | ??? |
+|`Windows Cert Store Subject`        | ??? |
+|`Cert File`                         | ??? |
+|`Cert File Password`                | ??? |
 
 
 <figure markdown>
@@ -45,21 +45,21 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains <!-- 
 
 ### Extensions Web
 
-| Parameter                          |  |
+| Parameter                          | Description |
 |------------------------------------|--|
-|`Enable Profinity Web Server`       |  |
-|`Enable Profinity API`              |  |
-|`Enable Swagger on API`             |  |
-|`IP Address for Http`               |  |
-|`IP Port for Http`                  |  |
-|`IP Address for Https`              |  |
-|`IP Port for Https`                 |  |
-|`Redirect all Http traffic to Https`|  |
-|`Windows Cert Store`                |  |
-|`Windows Cert Store Location`       |  |
-|`Windows Cert Store Subject`        |  |
-|`Cert File`                         |  |
-|`Cert File Password`                |  |
+|`Enable Profinity Web Server`       | ??? |
+|`Enable Profinity API`              | ??? |
+|`Enable Swagger on API`             | ??? |
+|`IP Address for Http`               | ??? |
+|`IP Port for Http`                  | ??? |
+|`IP Address for Https`              | ??? |
+|`IP Port for Https`                 | ??? |
+|`Redirect all Http traffic to Https`| ??? |
+|`Windows Cert Store`                | ??? |
+|`Windows Cert Store Location`       | ??? |
+|`Windows Cert Store Subject`        | ??? |
+|`Cert File`                         | ??? |
+|`Cert File Password`                | ??? |
 
 <figure markdown>
 ![Extensions web menu](../images/extensions_web.png)
