@@ -12,7 +12,7 @@ To access the system logs, navigate to the `ADMIN` tab, then select `Logs`.
 
 <figure markdown>
 ![Profinity Log](../images/system_logs.jpg)
-<figcaption>Profinity System Logs</figcaption>
+<figcaption>Profinity system logs</figcaption>
 </figure>
 
 Each log entry contains a timestamp, a message level (e.g., `Info`, `Warn`, `Error`, etc.), and a message description. To help diagnose particular issues, the scope of the system logs can be changed to only include particular message levels.
