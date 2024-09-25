@@ -4,7 +4,13 @@ title: WaveSculptor
 
 [Tritium](https://www.tritiumcharging.com/) initially created the WaveSculptor Motor Inverter, used by racing teams around the world.  With 99.2% cruising efficiency the WaveSculptor family is a go to choice for most high efficiency electric vehicle racing teams.  In 2021 [Prohelion](https://www.prohelion.com) took over the design, manufacturing and support for this product.
 
-Profinity provides integrated management of the WaveSculptor products through the WaveSculptor dashboard, which can be accessed by adding a WaveSculptor to your [Profile](../../Getting_Started/Profiles.md) and selecting the appropriate tab from the sidebar.
+Profinity provides integrated management of the WaveSculptor products through the WaveSculptor dashboard, which can be accessed by adding a WaveSculptor to your [Profile](../../Getting_Started/Profiles.md) and selecting the appropriate tab from the sidebar. When adding a WaveSculptor to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from `Change Settings` button at the top-right of the WaveSculptor dashboard.
+
+| Parameter            | Description                                                                                  |
+|----------------------|----------------------------------------------------------------------------------------------|
+| `Name`               | The name of the component. Must be unique.                                                   |
+| `Milliseconds Valid` | The timeout time of the device. If the network has not received any traffic from this device after this many milliseconds, it is assumed that the connection has been lost. |
+| `Base Address`       | The CAN address of the BMU (See [WaveSculptor documentation](../../../Motor_Controllers/index.md)) |
 
 <figure markdown>
 ![Prohelion WaveSculptor](../../images/wavesculptor.jpg)
