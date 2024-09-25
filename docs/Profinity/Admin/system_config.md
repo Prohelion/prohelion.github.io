@@ -18,8 +18,8 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains <!-- 
 |`Enable Scripting`                  |  |
 
 <figure markdown>
-![Add user](../images/app_configuration.png)
-<figcaption>New user menu</figcaption>
+![Application configuration menu](../images/app_configuration.png)
+<figcaption>Application configuration menu</figcaption>
 </figure>
 
 ### Profinity Web
@@ -39,8 +39,8 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains <!-- 
 
 
 <figure markdown>
-![Add user](../images/profinity_web.png)
-<figcaption>New user menu</figcaption>
+![Profinity web menu](../images/profinity_web.png)
+<figcaption>Profinity web menu</figcaption>
 </figure>
 
 ### Extensions Web
@@ -62,6 +62,6 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains <!-- 
 |`Cert File Password`                |  |
 
 <figure markdown>
-![Add user](../images/extensions_web.png)
-<figcaption>New user menu</figcaption>
+![Extensions web menu](../images/extensions_web.png)
+<figcaption>Extensions web menu</figcaption>
 </figure>
