@@ -4,7 +4,7 @@ title: Installing Profinity V2
 
 # Installing Profinity V2
 
-Profinity V2 is currently available on Windows machines as a standard desktop application and on MacOS and Linux machines as a Docker container.
+Profinity V2 is currently available on Windows machines as a standard desktop application and on macOS and Linux machines as a Docker container.
 
 ## Installation on Windows
 
@@ -27,7 +27,7 @@ Launching the Profinity V2 desktop client will take you directly to the Profinit
 
 Profinity V2 can be deployed onto most devices capable of running Docker, including macOS and Linux machines as well as several single-board computers such as Raspberry Pi, BeagleBone Black, etc.
 
-There are two possible methods for setting up Profinity V2 using Docker. The [simple setup procedure](#simple-setup) is recommended for most users. Advanced users may choose to follow the [advanced method](#advanced-setup), 
+There are two possible methods for setting up Profinity V2 using Docker. The [simple setup procedure](#simple-setup) is recommended for most users, but advanced users may choose to follow the [advanced method](#advanced-setup) for greater control over the file system.
 
 ### Prerequisites
 
