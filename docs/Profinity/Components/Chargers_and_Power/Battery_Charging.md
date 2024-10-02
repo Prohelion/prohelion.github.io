@@ -17,7 +17,7 @@ Profinity Charging supports four charging products (listed below) as well as bal
 
 **TDK Power Supplies**
 
-Profinity supports [TDK](https://www.tdk.com) Programmable Power Supplies such as the Genesys family.  Profinity supports the TDK Power Supplies via their TCP interface.  For TDK Power supplies that only have a serial interfaces for programming it is necessary to add a [TCP to Serial Converter](https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134) in to the solution so that Profinity can communicate via TCP.
+Profinity supports [TDK](https://www.tdk.com) Programmable Power Supplies such as the Genesys family. Profinity supports the TDK Power Supplies via their TCP interface.  For TDK Power supplies that only have a serial interfaces for programming it is necessary to add a [TCP to Serial Converter](https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134) into the solution so that Profinity can communicate via TCP.
 
 **Elcon Chargers**
 
@@ -76,23 +76,23 @@ Charge will then flow to the pack from the charger.
 
 Charging can be complex to setup at times as it requires both the charger and Prohelion BMU to be managed to operate as expected.
 
-Key things to considering if you are troubleshooting a charging setup.
+Key things to considering if you are troubleshooting a charging setup:
 
-### Are your devices working independently? 
+**Are your devices working independently?**
 
 Make sure all devices in the configuration are showing the Green circle in the Profile window.  If a device is grey or red then it should be fixed so that it is working fully before you start charging
 
-### Make sure your pack engages as expected
+**Make sure your pack engages as expected**
 
-A common issue we see with charging is where there is current flow from the battery in to the charger during pre-charge.   If this is occurring it can cause the pre-charge sequence to fail and the pack will not engage.  
+A common issue we see with charging is where there is current flow from the battery into the charger during pre-charge.  If this is occurring it can cause the pre-charge sequence to fail and the pack will not engage.  
 
 This issue can be tested outside of charging by simply trying to engage the pack with the "Engage Contactors" button, while connected to the charger.  If the contactors do not engage while connected to the charger then the issue exists.
 
 This problem can typically be solved by putting a suitably sized diode in to the charger circuit to ensure that current can only flow from the charger to the pack and not the other way.
 
-### Be aware of maximum currents and voltages
+**Be aware of maximum currents and voltages**
 
-**The Profile configuration for your charger sets the maximum voltages and currents that the charger and wall circuit can supply.**
+The Profile configuration for your charger sets the maximum voltages and currents that the charger and wall circuit can supply.
 
 Be aware of these values when configuring your charger as it may be possible to overload the wall circuit if you are drawing too much power from your charger for the circuit.
 
