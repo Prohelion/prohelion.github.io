@@ -4,7 +4,7 @@ title: System Logs
 
 # Profinity System Logs
 
-Profinity has a built in logging mechanism that captures information about the operation of the system and is designed to assist in system issue diagnosis. To access the system logs, navigate to the `ADMIN` tab, then select `Logs`.
+Profinity has a built-in logging mechanism that captures information about the operation of the system and is designed to assist in system issue diagnosis. To access the system logs, navigate to the `ADMIN` tab, then select `Logs`.
 
 <figure markdown>
 ![Profinity Log](../images/system_logs.jpg)
