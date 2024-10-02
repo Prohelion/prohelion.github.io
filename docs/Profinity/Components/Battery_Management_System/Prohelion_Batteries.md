@@ -6,11 +6,11 @@ title: Prohelion BMS
 
 Prohelion design and sells Battery Management Systems (BMS) designed for both automotive and fixed location environments.
 
-The Prohelion Battery Management technology is built around three main components.  The Battery Management Unit (BMU) which consists of a master board and a number of Cell Management Units (CMU)'s.  In addition to the BMU and CMUs a typical Prohelion battery may also contain a 12v Control System which monitors the onboard 12v capabilities.  For more information on these products, please see the main [Prohelion Website](https://www.prohelion.com/product-category/bms/).
+The Prohelion Battery Management technology is built around three main components. All systems will include the Battery Management Unit (BMU) master board and a number of Cell Management Units (CMUs).  In addition to the BMU and CMUs a typical Prohelion battery may also contain a 12V Control System which monitors the onboard 12V capabilities.  For more information on these products, please see the main [Prohelion Website](https://www.prohelion.com/product-category/bms/).
 
-Profinity supports the management and monitoring of the BMUs, CMUs, and 12v systems via your Profile.
+Profinity supports the management and monitoring of the BMUs, CMUs, and 12V systems via your Profile.
 
-!!! info "Only the BMU needs to be added to your Profile"
+!!! info "CMUs are managed by the BMU"
     Prohelion CMUs utilise a second CAN network organised by the BMU, and thus do not need to be added as components to your Profile. By adding the BMU to your Profile, you are able to control and see data from the entire BMS. For more information, see [Prohelion BMS documentation](../../../Battery_Management_Systems/index.md).
 
 A typical battery will generally only have one BMU, but larger packs or split packs like the ones used in racing can involve two or more BMUs.  If your pack is configured as such, then you simply add multiple BMUs to your Profile with different base CAN addresses.
@@ -41,7 +41,7 @@ The BMU dashboard contains several sections each with different information abou
 <figcaption>Prohelion BMU</figcaption>
 </figure>
 
-The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](../../CAN_Utilities/CAN_Bus_DBC.md), [discover CMUs]() , and [update the BMU's firmware](#flashing-the-bmu-firmware).
+The top right of the window contains several controls related to the BMS, allowing you to monitor CAN signals and messages from the BMS using the [DBC viewer](../../CAN_Utilities/CAN_Bus_DBC.md), discover CMUs, and [update the BMU's firmware](#flashing-the-bmu-firmware).
 
 ### BMU Data
 
@@ -126,15 +126,6 @@ Below the `Node Telemetry` table is a selection of tabs for the various CMUs. Se
 - The temperature observed by the CMU's onboard temperature sensor
 - The temperature observed by the CMU cell thermistor
 - A graph of cell voltages observed by the CMU. Hovering your mouse over a particular cell will show that cell's voltage
-
-## Prohelion 12 Volt Control System
-
-Prohelion also offers a 12 volt control module that can be used to provide power to onboard 12 volt systems and is typically used in a racing environment.  This module has a separate control panel that can be added to the Profile and provides additional data on the performance of the 12 volt system. The dashboard for the 12V system is largely identical to the BMU dashboard.
-
-<figure markdown>
-![Prohelion 12 Volt](../../images/prohelion_v12.jpg)
-<figcaption>Prohelion 12 Volt Dashboard</figcaption>
-</figure>
 
 ## Updating the BMU Configuration
 
