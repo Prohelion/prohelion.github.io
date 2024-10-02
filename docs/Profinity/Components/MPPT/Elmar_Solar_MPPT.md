@@ -4,7 +4,7 @@ title: Elmar Solar MPPT
 
 # Elmar Solar MPPT
 
-Elmar Solar produces some of the worlds most efficient Peak Power Trackers (MPPT).  These trackers are used to optimize the power output of Solar Arrays. You can purchase Elmar Solar MPPT devices through the [Prohelion](https://www.prohelion.com) website.
+Elmar Solar produces some of the worlds most efficient Maximum Power Point Trackers (MPPTs).  These trackers are used to optimize the power output of solar arrays. You can purchase Elmar Solar MPPT devices through the [Prohelion](https://www.prohelion.com) website.
 
 You can manage an Elmar Solar MPPT using Profinity by adding a new Elmar Solar MPPT tracker to your [Profile](../../Getting_Started/Profiles.md). When adding an Elmar Solar MPPT to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from the MPPT dashboard.
 
