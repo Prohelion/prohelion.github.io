@@ -116,6 +116,7 @@ canlog
 multicast
 microcontroller
 md
+html
 bitwise
 bitrate
 uint
