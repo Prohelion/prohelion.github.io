@@ -15,7 +15,7 @@ Depending on the configuration of your system, a Profile Pack could contain:
 
 ## Profiles
 
-A Profile is the core mechanism by which Profinity maintains the configuration of your system. Any component that you add to your system becomes associated with the active Profile, with the component parameters being retained after Profinity is shut down. Profinity keeps track of your Profiles and loads the most recently used one each time you start the tool.<!-- Profiles typically consist of one or more CAN-Ethernet Bridges, which are used to connect to the CAN network as well as any devices that you might be managing. -->
+A Profile is the core mechanism by which Profinity maintains the configuration of your system. Any component that you add to your system becomes associated with the active Profile, and the configuration for each device is retained after Profinity is shut down. Profinity keeps track of your Profiles and loads the most recently used one each time you start the tool.<!-- Profiles typically consist of one or more CAN-Ethernet Bridges, which are used to connect to the CAN network as well as any devices that you might be managing. -->
 
 The `Profile` menu is located in the `ADMIN` tab.
 
@@ -28,12 +28,12 @@ To create a new Profile you can either select the `+ ADD PROFILE` button and the
 
 To download a particular Profile Pack, including all associated DBC files, scripts, battery cell profiles, etc., click on the download button next to the Profile in the Profile list.
 
-From this menu it is also possible to change the active Profile using the radio buttons. Each Profile must have a name and can optionally have a description to help inform users as to the purpose/application for that Profile. To modify the name or description of a particular Profile, click on the name of the Profile in the Profile list.
+From this menu it is also possible to change the active Profile using the radio buttons. Each Profile must have a unique name and can optionally have a description to help inform users as to the purpose/application for that Profile. To modify the name or description of a particular Profile, click on the name of the Profile in the Profile list.
 
 !!! info "Renaming the active Profile"
     You cannot rename the active Profile in Profinity. In order to rename the active Profile, you must change to a different Profile, rename the desired Profile, and then change back. It may help to create a temporary Profile for this purpose, which can be deleted after you have renamed your desired Profile.
 
-Profinity ships with an example Profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar, and Tritium technologies.  If you wish to use this Profile as a basis for your own work we would suggest copying it to a new file name as the file is overwritten each time you install a new version of Profinity. <!-- Check this -->
+Profinity ships with an example Profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar, and Tritium technologies.  If you wish to use this Profile as a basis for your own work, we would suggest copying it to a new file name as the file is overwritten each time you install a new version of Profinity. <!-- Check this -->
 
 ## Profile Pack Files
 

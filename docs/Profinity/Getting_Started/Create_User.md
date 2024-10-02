@@ -11,6 +11,6 @@ After installing Profinity V2 it is recommended to create a new user to suit you
 <figcaption>New user menu</figcaption>
 </figure>
 
-Each user can also be granted different security roles, either allowing or restricting the different Profinity functionality that the particular user has access to. Giving a user the administrator role automatically grants the privileges of all other roles.
+Each user can also be granted different security roles, either allowing or restricting certain Profinity functionality for that particular user. Giving a user the administrator role automatically grants the privileges of all other roles.
 
 For example, it may be beneficial to create an 'Observer' user without edit access to allow viewing of system information without risk of accidentally changing any parameters.
