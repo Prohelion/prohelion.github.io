@@ -4,7 +4,7 @@ title: Virtual CAN Bus Adapter
 
 # Prohelion Virtual CAN Bus Adapter
 
-The Prohelion Virtual CAN Bus Adapter is a special type of adapter in Profinity in that it is designed to relay information to one or more another CAN adapters while presenting itself to other clients as a Tritium / Prohelion adapter that can be connected to.
+The Prohelion Virtual CAN Bus Adapter is a special type of adapter in Profinity in that it is designed to relay information to one or more other CAN adapters, while presenting itself to other clients as a Tritium / Prohelion adapter that can be connected to.
 
 In the diagram below, a client on the left connects to the Virtual Adapter which is being used in conjunction with a Peak USB adapter to provide connectivity to the actual CAN Network.  Traffic is routed bi-directionally.
 
@@ -13,12 +13,12 @@ In the diagram below, a client on the left connects to the Virtual Adapter which
 <figcaption>Virtual Adapter</figcaption>
 </figure>
 
-The Virtual adapter serves an important role in helping tools that have previously been developed to support the Tritium and Prohelion CAN to Ethernet bridges work, in the absence of an actual physical bridge.  Instead, a different CAN connection technologies such as SocketCAN or the Peak USB adapter can be used to actually connect to the CAN network and the virtual bridge supports connectivity to the legacy technologies.
+The Virtual Adapter serves an important role in helping tools that have previously been developed to support the Tritium and Prohelion CAN to Ethernet bridges, in the absence of an actual physical bridge. Instead, a different CAN connection technology such as SocketCAN or the Peak USB adapter can be used to actually connect to the CAN network, and the Virtual Adapter supports connectivity to the legacy technologies.
 
-To add a Virtual Adapter to your configuration, simply add one to your Profile and select which Network Interface will be used along with the Bridge ID for your configuration.
+To add a Virtual Adapter to your configuration, simply add one to your Profile and select which `Network Protocol` will be used along with the `Bridge ID` for your configuration.
 
 !!! warning "Take care with your BridgeID"
-    Having two bridges with the same ID on a single network causes the two bridges to start relaying data from one bridge to the other bridge.  This is a designed behaviour that allows to separate CAN Bus networks to be spanned over Ethernet.  Just be aware of it when using the Virtual Adapter, see the [CAN to Ethernet documentation](../../../CAN_Bridge/User_Manual/index.md)</a> for more information.
+    Having two bridges with the same ID on a single network causes the two bridges to start relaying data from one bridge to the other bridge.  This is a designed behaviour that allows to separate CAN bus networks to be spanned over Ethernet.  Just be aware of it when using the Virtual Adapter, see the [CAN to Ethernet documentation](../../../CAN_Bridge/User_Manual/index.md)</a> for more information.
 
 Generally, the configuration options for the Virtual Bridge are similar to that of the Tritium bridge.  
 
