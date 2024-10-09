@@ -16,7 +16,7 @@ These settings can be changed using the CAN–Ethernet Bridge Configuration Tool
 
 ## CAN-Ethernet Bridge Configuration Software
 
-!!! alert "CAN-Ethernet Bridge Configuration is now included in [Profinity](../../Profinity/CAN_Bus_Adapters.md)"
+!!! alert "CAN-Ethernet Bridge Configuration is now included in [Profinity](../../Profinity/Components/Adaptors/CAN_Bus_Adapters.md)"
     Profinity is now the recommended approach for configuring your CAN-Ethernet Bridge, to do so add your bridge to a Profile then right mouse click configure it.  This documentation is  for client still using the old configuration software, but we would recommend upgrading if possible.
 
 The CAN–Ethernet Bridge Configuration application provides three functions.  First, it enables users to modify the Bridge Configuration of the bridges connected to the network.  Secondly, it allows users to view the bridges connected to their network and select the bridge corresponding to the virtual network that they wish to use.  Third, it allows updating the bridge firmware.
