@@ -13,7 +13,7 @@ The BMS can be in any one of six states, depending on operating conditions, comm
 - Precharge 
 - Run 
 
-States transition from one to another based on various thresholds and timers, and on user commands via the CAN bus.  Prohelion provides out of the box, battery management control in its software suite [Profinity](../../../Profinity/Prohelion_Batteries.md), hardware support for engaging the pack in the [EV Driver Controls](../../../Driver_Control/index.md) and detailed information on how to engage the pack from custom code in the [BMS Documentation](../Communications_Protocol/Incoming_CAN_Packets.md).
+States transition from one to another based on various thresholds and timers, and on user commands via the CAN bus.  Prohelion provides out of the box, battery management control in its software suite [Profinity](../../../Profinity/Components/Battery_Management_System/Prohelion_Batteries.md), hardware support for engaging the pack in the [EV Driver Controls](../../../Driver_Control/index.md) and detailed information on how to engage the pack from custom code in the [BMS Documentation](../Communications_Protocol/Incoming_CAN_Packets.md).
 
 ## BMU Engagement State Diagram 
 
