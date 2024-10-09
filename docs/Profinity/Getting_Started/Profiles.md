@@ -4,7 +4,7 @@ title: Profinity Profile Packs
 
 # Profinity Profile Packs
 
-Profinity Profile Packs are a new introduction to Profinity V2 and serve as an extension to the Profile-based structure of Profinity Classic. A Profile Pack packages everything related to your instance of Profinity, allowing you to easily configure multiple machines to run the same system.
+Profinity Profile Packs are a new introduction to Profinity and serve as an extension to the Profile-based structure of Profinity Classic. A Profile Pack packages everything related to your instance of Profinity, allowing you to easily configure multiple machines to run the same system.
 
 Depending on the configuration of your system, a Profile Pack could contain:
 

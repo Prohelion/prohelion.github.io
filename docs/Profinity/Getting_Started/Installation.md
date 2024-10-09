@@ -1,10 +1,10 @@
 ---
-title: Installing Profinity V2
+title: Installing Profinity
 ---
 
-# Installing Profinity V2
+# Installing Profinity
 
-Profinity V2 is currently available on Windows machines as a standard desktop application and on macOS and Linux machines as a Docker container.
+Profinity is currently available on Windows machines as a standard desktop application and on macOS and Linux machines as a Docker container.
 
 ## Installation on Windows
 
@@ -16,22 +16,22 @@ Installing Profinity on your Windows machine is relatively simple due to the Pro
 2. Open the downloaded file `Profinity.Install.msi`
 3. Follow the prompts in the Profinity Setup Wizard
 
-Launching the Profinity V2 desktop client will take you directly to the Profinity V2 homepage.
+Launching the Profinity desktop client will take you directly to the Profinity homepage.
 
 <figure markdown>
-![Profinity V2 Homepage](../images/homepage.jpg)
-<figcaption>Profinity V2 homepage</figcaption>
+![Profinity Homepage](../images/homepage.jpg)
+<figcaption>Profinity homepage</figcaption>
 </figure>
 
 ## Installation using Docker
 
-Profinity V2 can be deployed onto most devices capable of running Docker, including macOS and Linux machines as well as several single-board computers such as Raspberry Pi, BeagleBone Black, etc.
+Profinity can be deployed onto most devices capable of running Docker, including macOS and Linux machines as well as several single-board computers such as Raspberry Pi, BeagleBone Black, etc.
 
-There are two possible methods for setting up Profinity V2 using Docker. The [simple setup procedure](#simple-setup) is recommended for most users, but advanced users may choose to follow the [advanced method](#advanced-setup) for greater control over the file system.
+There are two possible methods for setting up Profinity using Docker. The [simple setup procedure](#simple-setup) is recommended for most users, but advanced users may choose to follow the [advanced method](#advanced-setup) for greater control over the file system.
 
 ### Prerequisites
 
-The following items are required to be able to install Profinity V2:
+The following items are required to be able to install Profinity:
 
 - Docker installed on the target device
 - Docker Compose installed on the target device (included with Docker Desktop, available as plugin on Linux machines)
@@ -63,7 +63,7 @@ For more information about Docker Compose, see the [official Docker documentatio
 
 The advanced setup procedure is an extension of the simple setup procedure that is more tailored towards development use cases. In addition to the `docker-compose.yml` file, the advanced method also involve the creation of a `Config.yaml` file and a `Default.pprof` file, which are each explained below.
 
-The `Config.yaml` file provides the global configuration for the Profinity instance. If you have an existing desktop installation of Profinity V2, you can copy the `Config.yaml` file from that installation, but there are several key fields which must be changed:
+The `Config.yaml` file provides the global configuration for the Profinity instance. If you have an existing desktop installation of Profinity, you can copy the `Config.yaml` file from that installation, but there are several key fields which must be changed:
 
 - `Active Profile`: This field specifies the path to the target Profile. For use in a Docker container, this must be set to `/root/Prohelion/Profinity/Profiles/Default.pprof`
 - `ClientId`: This field is a GUID value representing the client ID of this instance of Profinity. The `ClientId` must be unique to each instance of Profinity and should not be shared between instances. This should match the `TransmittingClientId` field inside
@@ -117,13 +117,13 @@ If you share the file system of the Profinity Docker container with the desktop 
 
 The Profinity Docker container is started and stopped using commands from the [Docker Compose toolset](https://docs.docker.com/compose/reference/). First, navigate to the original directory (the one containing the `docker-compose.yml` file). Then, to begin Profinity, enter `docker compose up` into the command line.
 
-With Profinity running, open the URL defined in the `Config.yaml` file (i.e., `http://profinity:18080`) to access the Profinity V2 web client. For users that followed the [simple setup procedure](#simple-setup), the default URL is `http://localhost:18080`.
+With Profinity running, open the URL defined in the `Config.yaml` file (i.e., `http://profinity:18080`) to access the Profinity web client. For users that followed the [simple setup procedure](#simple-setup), the default URL is `http://localhost:18080`.
 
-Connecting to the Profinity web client will direct you to the Profinity V2 login page. 
+Connecting to the Profinity web client will direct you to the Profinity login page. 
 
 <figure markdown>
-![Profinity V2 login page](../images/login_page.jpg)
-<figcaption>Profinity V2 login page</figcaption>
+![Profinity login page](../images/login_page.jpg)
+<figcaption>Profinity login page</figcaption>
 </figure>
 
 A fresh install of Profinity will only have the administrator user active. To log in, use the following login details.
@@ -132,11 +132,11 @@ Username: `admin`
 
 Password: `password`
 
-After logging in, you will arrive at the Profinity V2 homepage.
+After logging in, you will arrive at the Profinity homepage.
 
 <figure markdown>
-![Profinity V2 Homepage](../images/homepage.jpg)
-<figcaption>Profinity V2 homepage</figcaption>
+![Profinity Homepage](../images/homepage.jpg)
+<figcaption>Profinity homepage</figcaption>
 </figure>
 
 To stop Profinity, enter `docker compose down` into the command line.
