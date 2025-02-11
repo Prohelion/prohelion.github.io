@@ -20,7 +20,7 @@ The WaveSculptor is not rated to withstand water spray or drips.  Mount it in a 
 
 ### Heatsinking
 
-The WaveSculptor is not rated to withstand water spray or drips.  Mount it in a dry location.  A good location will probably also have some ambient airflow, to help with heatsinking.
+The WaveSculptor22 does not contain any internal fans or active cooling components. For most uses, external cooling will have to be provided. Refer to the [Cooling](Cooling.md) chapter later in this document for details.
 
 ### Cable Positioning
 
