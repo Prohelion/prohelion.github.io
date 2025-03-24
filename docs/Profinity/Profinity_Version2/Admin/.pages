@@ -1,4 +1,5 @@
 nav:
+    - Create_User.md
     - system_config.md
     - logs_config.md
     - feedback.md
