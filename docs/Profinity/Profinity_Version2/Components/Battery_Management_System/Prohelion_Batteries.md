@@ -11,7 +11,7 @@ The Prohelion Battery Management technology is built around three main component
 Profinity supports the management and monitoring of the BMUs, CMUs, and 12V systems via your Profile.
 
 !!! info "CMUs are managed by the BMU"
-    Prohelion CMUs utilise a second CAN network organised by the BMU, and thus do not need to be added as components to your Profile. By adding the BMU to your Profile, you are able to control and see data from the entire BMS. For more information, see [Prohelion BMS documentation](../../../Battery_Management_Systems/index.md).
+    Prohelion CMUs utilise a second CAN network organised by the BMU, and thus do not need to be added as components to your Profile. By adding the BMU to your Profile, you are able to control and see data from the entire BMS. For more information, see [Prohelion BMS documentation](../../../../Battery_Management_Systems/index.md).
 
 A typical battery will generally only have one BMU, but larger packs or split packs like the ones used in racing can involve two or more BMUs.  If your pack is configured as such, then you simply add multiple BMUs to your Profile with different base CAN addresses.
 
@@ -32,7 +32,7 @@ You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to 
 |`Analysis Rate (Sec)`      | ??? |
 |`Retained Usage`           | ??? |
 |`Milliseconds Valid`       | The timeout time of the device. If the network has not received any traffic from this device after this many milliseconds, it is assumed that the connection has been lost. |
-|`Base Address`             | The CAN address of the BMU (See [BMU documentation](../../../Battery_Management_Systems/index.md)). |
+|`Base Address`             | The CAN address of the BMU (See [BMU documentation](../../../../Battery_Management_Systems/index.md)). |
 
 The BMU dashboard contains several sections each with different information about your system. The top section shows data from the BMU, whilst clicking on the `MORE DETAILS` banner will expand the dashboard to display telemetry data from the CMUs.
 
@@ -90,9 +90,9 @@ The lower left side of the window features numerous status indicators for batter
 - CMU Power supply OK
 - Invalid SoC estimation
 
-For a full list of battery pack status flags, see the Communications Protocol section of the [BMU documentation](../../../Battery_Management_Systems/index.md).
+For a full list of battery pack status flags, see the Communications Protocol section of the [BMU documentation](../../../../Battery_Management_Systems/index.md).
 
-The right-hand side depicts the battery state as a flowchart, showing the progression of the BMU's internal state machine. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU documentation](../../../Battery_Management_Systems/index.md).
+The right-hand side depicts the battery state as a flowchart, showing the progression of the BMU's internal state machine. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU documentation](../../../../Battery_Management_Systems/index.md).
 
 ### CMU Data
 

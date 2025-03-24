@@ -1,0 +1,9 @@
+mkdocs==1.6.1
+mkdocs-material==9.6.9
+mkdocs-awesome-pages-plugin==2.10.1
+mkdocs-glightbox==0.4.0
+mkdocs-redirects==1.2.2
+mkdocs-spellcheck==1.1.0
+symspellpy==6.9.0
+pymdown-extensions==10.14.3
+pygments==2.19.1 
