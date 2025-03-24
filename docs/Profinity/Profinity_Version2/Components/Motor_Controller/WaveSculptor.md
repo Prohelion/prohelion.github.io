@@ -10,7 +10,7 @@ Profinity provides integrated management of the WaveSculptor products through th
 |----------------------|----------------------------------------------------------------------------------------------|
 | `Name`               | The name of the component. Must be unique.                                                   |
 | `Milliseconds Valid` | The timeout time of the device. If the network has not received any traffic from this device after this many milliseconds, it is assumed that the connection has been lost. |
-| `Base Address`       | The CAN address of the BMU (See [WaveSculptor documentation](../../../Motor_Controllers/index.md)) |
+| `Base Address`       | The CAN address of the BMU (See [WaveSculptor documentation](../../../../Motor_Controllers/index.md)) |
 
 <figure markdown>
 ![Prohelion WaveSculptor](../../images/wavesculptor.jpg)
@@ -35,7 +35,7 @@ The top row of WaveSculptor dashboard presents a summary of the following inform
 | `HEATSINK TEMP` | The temperature reading from the WaveSculptor's heatsink temperature probe, in °C.                                     |
 | `DSP TEMP`      | The temperature reading from the WaveSculptor's signal processing board temperature probe, in °C.                   |
 
-Below the summary ribbon are some time-series graphs of the DC bus power and motor velocity to help display any general trends. There are also several status indicators which highlight when various controller limits have been reached or controller errors are present. More information about these limits and errors can be found in the [WaveSculptor documentation](../../../Motor_Controllers/index.md).
+Below the summary ribbon are some time-series graphs of the DC bus power and motor velocity to help display any general trends. There are also several status indicators which highlight when various controller limits have been reached or controller errors are present. More information about these limits and errors can be found in the [WaveSculptor documentation](../../../../Motor_Controllers/index.md).
 
 Clicking the `MORE DETAILS` banner will reveal another section revealing information about the internal controller state and control algorithm. The majority of this information is not necessary for general use, but it may be useful for more advanced use-cases or debugging. The data listed includes:
 
@@ -52,7 +52,7 @@ Clicking the `MORE DETAILS` banner will reveal another section revealing informa
 !!! warning "Desktop instance required"
     Currently only the desktop release of Profinity includes the WaveSculptor configuration tools. Therefore, to update the configuration of your WaveSculptor, the WaveSculptor will need to be connected to desktop instance of Profinity for the duration of the update process. The WaveSculptor configuration tools are planned to become available in the Docker release in a future update.
 
-To update the configuration of your WaveSculptor, select the `Setup and Configuration`. This will load the WaveSculptor setup and configuration utilities. More specific details about the WaveSculptor configuration can be found in the [WaveSculptor documentation](../../../Motor_Controllers/Config_Software/index.md).
+To update the configuration of your WaveSculptor, select the `Setup and Configuration`. This will load the WaveSculptor setup and configuration utilities. More specific details about the WaveSculptor configuration can be found in the [WaveSculptor documentation](../../../../Motor_Controllers/Config_Software/index.md).
 
 !!! info "Tritium / Prohelion Adapter"
     The WaveSculptor configuration tools were developed by Tritium and rely on a CAN to Ethernet Bridge being present in the configuration.  If you do not have such a bridge, you can create a virtual one using the [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) in conjunction with another bridge.

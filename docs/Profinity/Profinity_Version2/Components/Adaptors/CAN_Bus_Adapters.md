@@ -6,7 +6,7 @@ title: CAN Bus Adapters
 
 An adapter is the technology that you use to connect Profinity to your CAN bus network.  
 
-Profinity on Windows supports the [Prohelion and Tritium CAN bus bridges](../../../CAN_Bridge/index.md), SocketCAN using the [SocketCanD](https://github.com/linux-can/socketcand) technology, and the [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1).
+Profinity on Windows supports the [Prohelion and Tritium CAN bus bridges](../../../../CAN_Bridge/index.md), SocketCAN using the [SocketCanD](https://github.com/linux-can/socketcand) technology, and the [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1).
 
 !!! info "When running the Peak CAN to USB Adapter"
     It is necessary to install the driver for the device before starting Profinity.  Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity and then AutoDiscovered the adapter as per normal</p>
@@ -26,7 +26,7 @@ The supported CAN bus adapters can be automatically found via the Auto Discovery
 </figure>
 
 !!! info "Having trouble finding a CAN over Ethernet bridge with Autodiscovery?"
-    The CAN over Ethernet bridges have a number of configuration options and at times may not behave as expected.  See our guide on the [CAN to Ethernet bridges](../../../FAQs/CAN_bus_Adapters/CAN_Ethernet_Bridge/index.md) for troubleshooting advice.
+    The CAN over Ethernet bridges have a number of configuration options and at times may not behave as expected.  See our guide on the [CAN to Ethernet bridges](../../../../FAQs/CAN_bus_Adapters/CAN_Ethernet_Bridge/index.md) for troubleshooting advice.
 
 ## Adapter Manual Configuration
 

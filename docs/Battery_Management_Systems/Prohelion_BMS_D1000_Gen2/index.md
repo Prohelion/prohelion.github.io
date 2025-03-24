@@ -56,7 +56,7 @@ Automatically disconnects the battery from the charger or load to prevent over-c
 
 ### State Estimations
 - **State of Charge (SOC)** - Estimation of the remaining charge in the battery.
-- **State of Health (SOH)** - Estimation of the battery’s capacity to hold a charge relative to its original capacity.
+- **State of Health (SOH)** - Estimation of the battery's capacity to hold a charge relative to its original capacity.
 - **State of Power (SOP)** - Estimation of the available power for charging or discharging at any given time.
 
 ### Environmental Sensors

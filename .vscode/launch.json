@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MkDocs: Serve",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "cmd.exe",
+            "runtimeArgs": ["/c", "mkdocs serve"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "MkDocs: Build",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "cmd.exe",
+            "runtimeArgs": ["/c", "mkdocs build"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
