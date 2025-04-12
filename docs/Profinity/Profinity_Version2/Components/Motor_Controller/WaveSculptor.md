@@ -52,17 +52,17 @@ Clicking the `MORE DETAILS` banner will reveal another section revealing informa
 !!! warning "Desktop instance required"
     Currently only the desktop release of Profinity includes the WaveSculptor configuration tools. Therefore, to update the configuration of your WaveSculptor, the WaveSculptor will need to be connected to desktop instance of Profinity for the duration of the update process. The WaveSculptor configuration tools are planned to become available in the Docker release in a future update.
 
-To update the configuration of your WaveSculptor, select the `Setup and Configuration`. This will load the WaveSculptor setup and configuration utilities. More specific details about the WaveSculptor configuration can be found in the [WaveSculptor documentation](../../../../Motor_Controllers/Config_Software/index.md).
+To update the configuration of your WaveSculptor, select the `Setup and Config` button off the Firmware Utilities tab in the settings. This will load the WaveSculptor setup and configuration utilities. More specific details about the WaveSculptor configuration can be found in the [WaveSculptor documentation](../../../../Motor_Controllers/Config_Software/index.md).
 
 !!! info "Tritium / Prohelion Adapter"
     The WaveSculptor configuration tools were developed by Tritium and rely on a CAN to Ethernet Bridge being present in the configuration.  If you do not have such a bridge, you can create a virtual one using the [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) in conjunction with another bridge.
 
-<!-- Video needs to be update, requires a physical WaveSculptor -->
-<video autoplay loop controls width="100%">
-  <source src="../../video/ConfigWS22.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<figure markdown>
+![Connect Charger](../../images/configure_wavesculptor.png)
+<figcaption>Configure a WaveSculptor</figcaption>
+</figure>
+<br>
 
 ## Flashing the WaveSculptor Firmware
 
-Once you have updated the configuration of your WaveSculptor, you will need to flash the WaveSculptor firmware. To do this, click on the `Update Firmware` button in the top-right of the WaveSculptor dashboard. As per the configuration tool, a CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) is required for this operation.
+Once you have updated the configuration of your WaveSculptor, you will need to flash the WaveSculptor firmware. To do this, click on the `Update Firmware` button in Firmware Utilities tab in the Settings. As per the configuration tool, a CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) is required for this operation.

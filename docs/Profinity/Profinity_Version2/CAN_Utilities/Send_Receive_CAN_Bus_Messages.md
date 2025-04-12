@@ -16,22 +16,13 @@ Messages can be transmitted either via the `SEND & RECEIVE CAN` window which is 
 Click on the `SEND & RECEIVE CAN` menu item to see a view of all the CAN Bus messages currently travelling across your network.
 
 <figure markdown>
-![Receive CAN Packets](../images/receive_can_packets.jpg)
+![Receive CAN Packets](../images/receive_can_packets.png)
 <figcaption>Receive CAN Packets</figcaption>
 </figure>
 
 Clicking on the `CAN Activity` table headers allow you to filter and/or sort the messages by CAN ID, direction, flags, etc. <!-- and change various other settings like the Endian representation of the message (Big Endian vs Little Endian) and exclude local traffic (traffic from Profinity) if the adapter supports that (not all adapters support local filtering). -->
 
 There are two additional controls available at the top of the window, named `Spaced data` and `Heatmap`. Toggling on the `Spaced data` option will break the CAN traffic data into individual hex bytes to make it easier to read. With the `Heatmap` option toggled, bytes that change value frequently are highlighted with warmer colours and bytes that remain relatively constant are highlighted with cooler colours. 
-
-<!--### Send CAN Message like this
-
-Right mouse clicking on a line allows you to select an option to 'Send Can Message like this', clicking this option will open the Send CAN Packet window and pre-populate it with the data from the message that you have received.
-
-<figure markdown>
-![Send CAN Packet like this](images/receive_send_like_this.png)
-<figcaption>Send CAN Packet like this</figcaption>
-</figure>-->
 
 ## Send CAN Packet
 <!-- FINISH THIS -->
@@ -45,6 +36,6 @@ Using the loop option will send your CAN packet at your chosen loop rate, so 100
     The default byte order used is little endian to align with Windows / Intel systems.  Little endian is used by most of the Prohelion technologies.
 
 <figure markdown>
-![Send CAN Packet](../images/send_can_packet.jpg)
+![Send CAN Packet](../images/send_can_packet.png)
 <figcaption>Send CAN Packet</figcaption>
 </figure>

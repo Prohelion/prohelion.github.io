@@ -17,7 +17,7 @@ You can manage an Elmar Solar MPPT using Profinity by adding a new Elmar Solar M
 Once the MPPT has been added to your profile, the Elmar Solar MPPT dashboard will be available in the sidebar. The dashboard displays several useful types of information, including the input/output voltage graphs, error status indicators, temperature readings, etc.
 
 <figure markdown>
-![Elmar Solar MPPT](../../images/elmar_mppt.jpg)
+![Elmar Solar MPPT](../../images/elmar_mppt.png)
 <figcaption>Elmar Solar MPPT</figcaption>
 </figure>
 

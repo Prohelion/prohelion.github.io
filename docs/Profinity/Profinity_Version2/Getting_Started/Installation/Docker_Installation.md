@@ -10,8 +10,6 @@ Profinity is currently available on [Windows machines](./Windows_Installation.md
 
 Profinity can be deployed onto most devices capable of running Docker, including macOS and Linux machines as well as several single-board computers such as Raspberry Pi, BeagleBone Black, etc.
 
-There are two possible methods for setting up Profinity using Docker. The [simple setup procedure](#simple-setup) is recommended for most users, but advanced users may choose to follow the [advanced method](#advanced-setup) for greater control over the file system.
-
 ### Prerequisites
 
 The following items are required to be able to install Profinity:
@@ -47,7 +45,7 @@ For more information about Docker Compose, see the [official Docker documentatio
 
 The Profinity Docker container is started and stopped using commands from the [Docker Compose toolset](https://docs.docker.com/compose/reference/). First, navigate to the original directory (the one containing the `docker-compose.yml` file). Then, to begin Profinity, enter `docker compose up` into the command line.
 
-To do so open the URL defined in the [Admin / System Configuration / Web panel](../../Admin/system_config.md) (i.e., `http://profinity:18080`) to access the Profinity web client. For users that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine or the IP address of the machine and `http://[Your IP Address]:18080` if accessed remotely.
+To do so open the URL defined in the [Admin / System Configuration / Web panel](../../Admin/System_Config.md) (i.e., `http://profinity:18080`) to access the Profinity web client. For users that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine or the IP address of the machine and `http://[Your IP Address]:18080` if accessed remotely.
 
 Connecting to the Profinity web client will direct you to the Profinity login page. 
 

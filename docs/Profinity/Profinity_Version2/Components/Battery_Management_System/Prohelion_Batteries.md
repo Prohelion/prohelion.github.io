@@ -37,7 +37,7 @@ You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to 
 The BMU dashboard contains several sections each with different information about your system. The top section shows data from the BMU, whilst clicking on the `MORE DETAILS` banner will expand the dashboard to display telemetry data from the CMUs.
 
 <figure markdown>
-![Prohelion BMU](../../images/prohelion_bmu.jpg)
+![Prohelion BMU](../../images/prohelion_bmu.png)
 <figcaption>Prohelion BMU</figcaption>
 </figure>
 
@@ -109,7 +109,7 @@ Each CMU correlates to a node in the network. The `Node Telemetry` table display
 | `Cell 1 - 8 mV` | 1 – 8 cell voltage measurements     | -->
 
 <figure markdown>
-![Prohelion CMU](../../images/cmu_data.jpg)
+![Prohelion CMU](../../images/node_data.png)
 <figcaption>Prohelion CMU</figcaption>
 </figure>
 
@@ -134,14 +134,11 @@ Below the `Node Telemetry` table is a selection of tabs for the various CMUs. Se
 
 To update the configuration of your Battery Management Unit, click on the `Setup and Configuration` button in the top-right of the BMU dashboard. The BMU firmware options will only be present if the BMU is physically connected to the network. Once you have finished changing the BMU configuration, the [BMU firmware must be flashed](#flashing-the-bmu-firmware).
 
-!!! warning "Desktop instance required"
-    Currently only the desktop release of Profinity includes the BMU configuration tools. Therefore, to update the configuration of your Prohelion BMU, the BMU will need to be connected to desktop instance of Profinity for the duration of the update process. The BMU configuration tools are planned to become available in the Docker release in a future update.
-
-<!-- Video needs to be update, requires a physical BMU -->
-<video autoplay loop controls width="100%">
-  <source src="../../video/ConfigBMU.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<figure markdown>
+![Connect Charger](../../images/update_bmu_firmware_config.png)
+<figcaption>Updating the BMU Firmware Config</figcaption>
+</figure>
+<br>
 
 ## Flashing the BMU Firmware
 

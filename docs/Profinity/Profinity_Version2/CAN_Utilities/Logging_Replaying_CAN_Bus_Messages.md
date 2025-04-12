@@ -38,23 +38,7 @@ The logger also gives you the ability to manage Archive and Compression settings
 
 Finally the logger allows you to set the frequency of rotation.  Rotation means that the old log file is closed and a new one is created and Profinity allows you to define a minute based log rotation or a size base log rotation depending on your preference.
 
-<figure markdown>
-![Data Logger](../images/data_logger.png)
-<figcaption>Data Logger</figcaption>
-</figure>
-
 Logging configurations are stored as part of your profile so when you load a profile, if you have the logger setup to automatically start then it will start logging automatically.
-
-## Data Validation
-
-Profinity uses data entry validation to ensure the information you provide is valid.  
-
-When an invalid value is entered in this screen the field will turn to an orange colour, indicating an issue.  If the field is white then the data is fine.
-
-<figure markdown>
-![Data Logger Error](../images/data_logger_error.png)
-<figcaption>Data Logger Error</figcaption>
-</figure>
 
 ## Data Log Replayer
 
@@ -71,7 +55,7 @@ To use this tool simply select the log file and it will start replaying.  There 
 Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
 
 <figure markdown>
-![Data Log Replayer](../images/log_replayer.jpg)
+![Data Log Replayer](../images/log_replayer.png)
 <figcaption>Data Log Replayer</figcaption>
 </figure>
 

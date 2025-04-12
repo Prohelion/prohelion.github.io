@@ -59,7 +59,7 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 - Real-time monitoring and control
 
 <figure markdown>
-![Device Management](Profinity_Version2/images/add_component.jpg)
+![Device Management](Profinity_Version2/images/add_component.png)
 <figcaption>Adding and configuring devices in Profinity</figcaption>
 </figure>
 
