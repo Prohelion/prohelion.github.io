@@ -8,6 +8,9 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 
 ## Available Versions
 
+!!! tip "Recommended Version"
+    We recommend using Profinity V2 for new installations, as it offers enhanced features and better integration capabilities.
+
 <div class="grid cards" markdown>
 
 -   :material-tools:{ .lg .middle } __Profinity V2__
@@ -22,13 +25,13 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
     - Advanced device management
 
     <figure markdown>
-    ![Profinity V2 Interface](Profinity_Version2/images/homepage.jpg)
+    ![Profinity V2 Interface](Profinity_Version2/images/wavesculptor.png)
     <figcaption>Modern web-based interface of Profinity V2</figcaption>
     </figure>
 
-    [:octicons-arrow-right-24: Getting Started](Profinity_Version2/index.md)
+    [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version2/index.md)
 
--   :material-tools:{ .lg .middle } __Profinity V1__
+-   :material-tools:{ .lg .middle } __Profinity V1 (Retired)__
 
     ---
 
@@ -44,11 +47,11 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
     <figcaption>Classic interface of Profinity V1</figcaption>
     </figure>
 
-    [:octicons-arrow-right-24: Documentation](Profinity_Version1/index.md)
+    [:octicons-arrow-right-24: Profinity V1 Documentation](Profinity_Version1/index.md)
 
 </div>
 
-## Key Features
+## Key Features of Profinity
 
 ### Device Management
 - Connect and configure CAN bus devices
@@ -79,16 +82,6 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 ![User Management](Profinity_Version2/images/add_user.png)
 <figcaption>Secure user management and access control</figcaption>
 </figure>
-
-## Getting Started
-
-!!! tip "Recommended Version"
-    We recommend using Profinity V2 for new installations, as it offers enhanced features and better integration capabilities.
-
-1. Choose your version from the cards above
-2. Follow the installation guide
-3. Create your first user account
-4. Configure your devices
 
 ## Support
 
