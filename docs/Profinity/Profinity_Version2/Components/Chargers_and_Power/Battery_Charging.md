@@ -9,7 +9,7 @@ Profinity can manage charging of your pack by controlling your Prohelion BMU and
 Profinity Charging supports four charging products (listed below) as well as balancing capabilities to ensure that your pack cells remain balanced and in good condition.
 
 <figure markdown>
-![Siglent Charger](../../images/SiglentCharger.jpg)
+![Siglent Charger](../../images/SiglentCharger.png)
 <figcaption>Siglent Charger</figcaption>
 </figure>
 
@@ -37,21 +37,20 @@ The Signet Power Supplies that support a programmable TCP interface can be contr
 
 A charger is configured as a device in Profinity so the first step to charging your pack is to add a charger to your Profile.  **Note your Profile needs to also include a Prohelion BMU so that the battery can be controlled by Profinity**
 
-<video autoplay loop controls>
-  <source src="../../video/AddCharger.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<figure markdown>
+![Add an Charger](../../images/add_charger.png)
+<figcaption>Add an Charger</figcaption>
+</figure>
 
 <br>
 ### Step 2 - Connect to your Charger
 
 By default chargers in Profinity do not auto connect (this can be changed in the charger Profile settings if you do want to auto connect your charger).  Once your charger is connected and the light is green, click the charge button. 
 
-<video autoplay loop controls>
-  <source src="../../video/ConnectCharger.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
+<figure markdown>
+![Connect Charger](../../images/connect_charger.png)
+<figcaption>Connect the Charger</figcaption>
+</figure>
 
 <br>
 ### Step 3 - Engage Contactors, Start Charging
@@ -66,10 +65,10 @@ __3.__ Press the "Start Charge" button
 
 Charge will then flow to the pack from the charger.
 
-<video autoplay loop controls>
-  <source src="../../video/StartCharge.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<figure markdown>
+![Connect Charger](../../images/start_charger.png)
+<figcaption>Connect the Charger</figcaption>
+</figure>
 
 
 ## Troubleshooting Charging

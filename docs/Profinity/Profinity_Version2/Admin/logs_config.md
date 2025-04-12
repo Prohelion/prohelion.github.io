@@ -11,7 +11,7 @@ Profinity has a built in logging mechanism that captures information about the o
 To access the system logs, navigate to the `ADMIN` tab, then select `Logs`.
 
 <figure markdown>
-![Profinity Log](../images/system_logs.jpg)
+![Profinity Log](../images/system_logs.png)
 <figcaption>Profinity system logs</figcaption>
 </figure>
 

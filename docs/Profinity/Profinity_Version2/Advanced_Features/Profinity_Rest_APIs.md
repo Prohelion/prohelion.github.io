@@ -46,11 +46,10 @@ Requests to retrieve CAN Packet information allow you to retrieve the packet eit
 
 Prohelions API solution allows you to test your API calls in Swagger before developing any code.  
 
-<video autoplay loop controls width = "100%">
-  <source src="../../video/TestApi.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
+<figure markdown>
+![Connect Charger](../images/swagger.png)
+<figcaption>Using Swagger to try Profinity APIs</figcaption>
+</figure>
 <br>
 
 ### Accessing Historical Data via APIs
@@ -64,7 +63,6 @@ For more information on configuring InfluxDB see the [InfluxDB and Prometheus In
 ## Hosting Custom Web User Interfaces
 
 As well as hosting the Rest APIs and Swagger interface, Profinity supports an integrated Web Server that can provide hosting for a custom build application based on these APIs in any modern web technology.  This includes language and frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) as well as traditional HTML / Javascript etc.
-
 
 `/Documents/Prohelion/Profinity/Webroot`
 
@@ -81,32 +79,3 @@ The Profinity Web Server supports SSL / TLS style certificates for Production en
 HttpsRedirect can be set for force all HTTP traffic to the HTTPs interface and second HTTPs interface should be provided in the Urls option in this case. We would generally also recommend disabling Swagger in a production environment.
 
 When using a certification from a Windows Certificate store you will need to provide the CertStoreName, CertStoreLocation and CertStoreSubject properties in the configuration file
-
-```
-  WebServer:
-    Urls: http://localhost:5000:https://localhost:5001
-    HttpsRedirect: true
-    CertStoreName: ProductionStore
-    CertStoreLocation: CurrentUser
-    CertStoreSubject: Profinity
-    WebSite:
-      Enabled: true
-    RestAPI:
-      Enabled: true
-      Swagger: false
-```
-
-Alternatively you can provide a cert file and cert password
-
-```
-  WebServer:
-    Urls: http://localhost:5000:https://localhost:5001
-    HttpsRedirect: true
-    CertFile: C:\Storage\MyX509Certificate.cer
-    CertPassword: Th!sIsThe5assword    
-    WebSite:
-      Enabled: true
-    RestAPI:
-      Enabled: true
-      Swagger: false
-```

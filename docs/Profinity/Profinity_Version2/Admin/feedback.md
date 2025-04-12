@@ -11,7 +11,7 @@ Profinity includes a built-in feedback system to help us improve our software an
 The feedback form is accessible through the `ADMIN` tab in the Profinity interface. To access the form, open Profinity and navigate to the `ADMIN` tab in the navigation menu. From there, select the "Feedback" option to open the feedback interface.
 
 <figure markdown>
-![Feedback](../images/feedback.jpg)
+![Feedback](../images/feedback.png)
 <figcaption>Profinity feedback form interface</figcaption>
 </figure>
 

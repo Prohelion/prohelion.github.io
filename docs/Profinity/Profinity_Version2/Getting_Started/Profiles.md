@@ -11,4 +11,4 @@ You can see the components that are in your Profile in the menu on the left of t
 
 # More Information
 
-Addition information on how to create and manage Profiles can be found in the [Admin / Profiles](../Admin/profiles.md) section of this documentation.
+Addition information on how to create and manage Profiles can be found in the [Admin / Profiles](../Admin/Profiles.md) section of this documentation.

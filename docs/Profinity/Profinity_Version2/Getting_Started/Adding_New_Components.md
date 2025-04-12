@@ -7,14 +7,14 @@ title: Adding Components
 Components can be added to your Profile by selecting the `ADD COMPONENT` tab from the sidebar. A page with all the currently supported components is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the component that you wish to add. The page also includes filter options to help locate the correct component.
 
 <figure markdown>
-![Add a new component to the Profile](../images/add_component.jpg)
+![Add a new component to the Profile](../images/add_component.png)
 <figcaption>Add a new component to the Profile</figcaption>
 </figure>
 
 Each component in the Profile has a set of properties that define the configuration of the component. Upon selecting a component, you will be prompted to fill in the necessary configuration properties for the component. The information required will vary greatly by component and can be modified later by opening the `Change Setting` menu from the component's dashboard. More information about specific component properties and how to correctly configure each component can be found in the dedicated component sections.
 
 <figure markdown>
-![Adjust component properties](../images/add_component_properties.jpg)
+![Adjust component properties](../images/add_component_properties.png)
 <figcaption>Example of defining component properties</figcaption>
 </figure>
 

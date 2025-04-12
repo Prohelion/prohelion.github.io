@@ -20,7 +20,7 @@ A Profile is the core mechanism by which Profinity maintains the configuration o
 The `Profile` menu is located in the `ADMIN` tab.
 
 <figure markdown>
-![Profinity Profile menu](../images/profiles_menu.jpg)
+![Profinity Profile menu](../images/profiles_menu.png)
 <figcaption>Profinity Profiles menu</figcaption>
 </figure>
 

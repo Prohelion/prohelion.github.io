@@ -21,6 +21,6 @@ The dashboard for the 12V system is largely identical to the BMU dashboard.
 | `MIN CELL TEMP`   | Minimum cell temperature within the battery pack, in degrees Celsius.                                                  |
 -->
 <figure markdown>
-![Prohelion 12 Volt](../../images/prohelion_v12.jpg)
+![Prohelion 12 Volt](../../images/prohelion_v12.png)
 <figcaption>Prohelion 12 Volt Dashboard</figcaption>
 </figure>

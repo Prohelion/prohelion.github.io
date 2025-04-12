@@ -1,6 +1,6 @@
 nav:
-    - system_config.md
-    - manage_users.md
-    - logs_config.md
-    - feedback.md
-    - system_info.md
+    - System_Config.md
+    - Manage_Users.md
+    - Logs_Config.md
+    - Feedback.md
+    - System_Info.md
