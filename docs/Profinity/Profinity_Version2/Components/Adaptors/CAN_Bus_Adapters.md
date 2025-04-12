@@ -11,7 +11,7 @@ Profinity on Windows supports the [Prohelion and Tritium CAN bus bridges](../../
 !!! info "When running the Peak CAN to USB Adapter"
     It is necessary to install the driver for the device before starting Profinity.  Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity and then AutoDiscovered the adapter as per normal</p>
 
-When running Profinity on [Docker](../../Getting_Started/Installation.md#installation-using-docker) additional support is also provided for the native [SocketCAN adapter](https://docs.kernel.org/networking/can.html).
+When running Profinity on [Docker](../../Getting_Started/Installation/Docker_Installation.md) additional support is also provided for the native [SocketCAN adapter](https://docs.kernel.org/networking/can.html).
 
 Adapters can be added in one of two ways, either via Auto Discovery or Manually.
 
@@ -30,7 +30,7 @@ The supported CAN bus adapters can be automatically found via the Auto Discovery
 
 ## Adapter Manual Configuration
 
-Configuring a CAN bus adapter manually follows a very similar process to other components. First, [add the adapter](../../Getting_Started/Adding_New_Items.md) to your Profile. When adding a CAN bus adapter to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from `Change Settings` button at the top-right of the adapter dashboard.
+Configuring a CAN bus adapter manually follows a very similar process to other components. First, [add the adapter](../../Getting_Started/Adding_New_Components.md) to your Profile. When adding a CAN bus adapter to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from `Change Settings` button at the top-right of the adapter dashboard.
 
 |Parameter                | Description                                               |
 |-------------------------|-----------------------------------------------------------|

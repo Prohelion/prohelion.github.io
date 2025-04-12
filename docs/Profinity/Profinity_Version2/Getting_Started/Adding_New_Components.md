@@ -21,7 +21,9 @@ Each component in the Profile has a set of properties that define the configurat
 !!! info "Duplicate component names"
     You can add multiple components of the same type to your profile, but they must have unique names and the base address of the component is also generally unique. If the profile already has an component with the same name as what you are proposing, then a digit will be added to the component name to keep the profile component names unique.
 
-Once you have added the component to your profile, an icon will appear in the sidebar to represent the new component. Hovering your mouse over a component icon in the sidebar will present a list of all devices associated with the current profile that match that component type. Each component will also have an coloured indicator to display the operational status of the device. The possible device statuses are summarised below.   
+Once you have added the component to your profile, an icon will appear in the sidebar to represent the new component. Hovering your mouse over a component icon in the sidebar will present a list of all devices associated with the current profile that match that component type. 
+
+Each component will also have an coloured indicator to display the operational status of the device. The possible device statuses are summarised below.   
 
 | Colour   | Meaning                                                                       |
 |----------|-------------------------------------------------------------------------------|

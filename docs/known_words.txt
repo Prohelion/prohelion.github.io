@@ -158,6 +158,11 @@ contextpath
 data_pnt
 lookups
 tcpwriter
+runtime
+certmgr
+msc
+pfx
+natively
 
 # Units
 milli

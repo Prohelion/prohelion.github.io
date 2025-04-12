@@ -1,8 +1,11 @@
 ---
-title: Creating a User
+title: Managing Users
 ---
 
-# Creating a User
+!!! info "Desktop Mode"
+    When using Profinity in Windows Desktop Mode no user is required as a special admin user is used for this environment that has full permissions.  Only when accessing Profinity via the Web or API interface are user profiles required.
+
+# Managing Users
 
 ## Overview
 

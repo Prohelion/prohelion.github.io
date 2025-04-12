@@ -13,7 +13,7 @@ Profinity provides integrated management of the WaveSculptor products through th
 | `Base Address`       | The CAN address of the BMU (See [WaveSculptor documentation](../../../../Motor_Controllers/index.md)) |
 
 <figure markdown>
-![Prohelion WaveSculptor](../../images/wavesculptor.jpg)
+![Prohelion WaveSculptor](../../images/wavesculptor.png)
 <figcaption>Prohelion WaveSculptor</figcaption>
 </figure>
 

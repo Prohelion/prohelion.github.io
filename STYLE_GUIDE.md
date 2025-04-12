@@ -32,11 +32,18 @@ title: Document Title
 - Use first person plural ("we") for recommendations
 - Contractions are acceptable for readability
 - Be direct and concise
+- Prefer descriptive paragraphs over bullet points
+- Use bullet points only for:
+  - Lists of specific features or capabilities
+  - Step-by-step instructions
+  - Quick reference materials
+- Connect ideas through narrative flow rather than disconnected points
 
 ### Technical Level
 - Assume technical competence but don't assume expertise
 - Define specialized terms on first use
 - Link to reference materials for advanced concepts
+- Explain relationships between concepts in narrative form
 
 ## 3. Content Elements
 
@@ -88,7 +95,10 @@ def example_function():
 ## 5. Lists and Procedures
 
 ### Bulleted Lists
-- Use for features, characteristics, and non-sequential items
+- Use sparingly and only for:
+  - Feature lists
+  - Quick reference materials
+  - Non-sequential items
 - Keep items parallel in structure
 - End each item with appropriate punctuation
 
