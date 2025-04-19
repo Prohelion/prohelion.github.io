@@ -44,6 +44,6 @@ hide:
 
     Our MPPT and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../Profinity/Profinity_Version2/Components/MPPT/Elmar_Solar_MPPT.md)
+    [:octicons-arrow-right-24: Supporting Software](../Profinity/Profinity_Version2/Components/MPPT/index.md)
 
 </div>

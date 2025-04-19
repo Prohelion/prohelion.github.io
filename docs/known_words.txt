@@ -163,6 +163,15 @@ certmgr
 msc
 pfx
 natively
+systemd
+uptime
+jint
+launchd
+namespaces
+encodings
+async
+plist
+lifecycle
 
 # Units
 milli
@@ -201,6 +210,7 @@ eqv
 eqi
 cf
 km_remaining
+ms
 
 # Networking
 http
@@ -214,6 +224,7 @@ udp
 comms
 subnets
 vethernet
+loopback
 
 # Other
 teamarrow

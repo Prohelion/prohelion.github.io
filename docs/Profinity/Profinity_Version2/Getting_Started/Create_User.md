@@ -4,7 +4,7 @@ title: Creating a User
 
 # Creating a User
 
-After installing Profinity it is recommended to create a new user to suit your use case. To create a new user, select the `ADMIN` tab, then `Users` and `+ ADD USER`. Here you are able to define a new user and their associated login details.
+After installing Profinity it is recommended to create a new user to suit your security requirements or create additional users as defined to support different user profiles. To create a new user, select the `ADMIN` tab, then `Users` and `+ ADD USER`. Here you are able to define a new user and their associated login details.
 
 <figure markdown>
 ![Add user](../images/add_user.png)

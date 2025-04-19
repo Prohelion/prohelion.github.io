@@ -46,4 +46,4 @@ The lower left side of the window features numerous status indicators for MPPT e
 
 For more information about the MPPT events, see the [Elmar Solar MPPT documentation](../../../../MPPTs/index.md).
 
-The right-hand side depicts a simplified flowchart of the connected battery's state, indicating whether or not current is able to flow from the MPPT to the battery. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU section](../Battery_Management_System/Prohelion_Batteries.md).
+The right-hand side depicts a simplified flowchart of the connected battery's state, indicating whether or not current is able to flow from the MPPT to the battery. The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU section](../Battery_Management_Systems/index.md).
