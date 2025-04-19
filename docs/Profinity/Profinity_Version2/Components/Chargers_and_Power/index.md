@@ -4,6 +4,15 @@ title: Battery Charging
 
 # Profinity Battery Charging
 
+### Table of Contents
+
+- [Profinity Battery Charging](#profinity-battery-charging)
+- [Supported Chargers](#supported-chargers)
+- [Charging Steps](#charging-steps)
+- [Troubleshooting Charging](#troubleshooting-charging)
+
+## Introduction
+
 Profinity can manage charging of your pack by controlling your Prohelion BMU and a charger to put charge in the pack.
 
 Profinity Charging supports four charging products (listed below) as well as balancing capabilities to ensure that your pack cells remain balanced and in good condition.

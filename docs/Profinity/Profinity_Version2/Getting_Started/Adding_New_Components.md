@@ -4,10 +4,14 @@ title: Adding Components
 
 # Adding new Components to your Profile
 
-Components can be added to your Profile by selecting the `ADD COMPONENT` tab from the sidebar. A page with all the currently supported components is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the component that you wish to add. The page also includes filter options to help locate the correct component.
+Components can be added to your Profile by selecting the `+ ADD COMPONENT` button from the sidebar or homepage. 
+
+A page with all the currently supported components is presented, including hardware devices, data loggers, custom scripts, etc., allowing you to select the component that you wish to add. The page also includes filter options to help locate the correct component.
+
+Some CANBus adapters in Profinity can be auto-discovered.  If a discovered adapter is available in your configuration it will be shown at the top of the screen.  You can filter the devices to show by selecting a filter on the left hand side of the screen.
 
 <figure markdown>
-![Add a new component to the Profile](../images/add_component.png)
+![Add a new component to the Profile](../images/add_adapter_autodiscovery.png)
 <figcaption>Add a new component to the Profile</figcaption>
 </figure>
 
@@ -31,3 +35,13 @@ Each component will also have an coloured indicator to display the operational s
 | `Yellow` | The device is available, but is either not sending data or is a warning state |
 | `Red`    | The device is in an error state                                               |
 | `Grey`   | The device is not available, connected or not visible on the network          |
+
+
+# Removing Components from you Profile
+
+If you no longer require a component you can remove it by going to the component settings (top right three bar icon on the component dashboard below) and selecting delete.
+
+<figure markdown>
+![Adjust component properties](../images/wavesculptor.png)
+<figcaption>A dashboard showing the three bar setting icon (top right)</figcaption>
+</figure>

@@ -11,13 +11,15 @@ Profinity on Windows supports the [Prohelion and Tritium CAN bus bridges](../../
 !!! info "When running the Peak CAN to USB Adapter"
     It is necessary to install the driver for the device before starting Profinity.  Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity and then AutoDiscovered the adapter as per normal</p>
 
-When running Profinity on [Docker](../../Getting_Started/Installation/Docker_Installation.md) additional support is also provided for the native [SocketCAN adapter](https://docs.kernel.org/networking/can.html).
+When running Profinity on [Docker](../../Getting_Started/Installation/Docker_Installation.md) or on [macOS / Unix](../../Getting_Started/Installation/Zip_Installation.md), additional support is also provided for the native [SocketCAN adapter](https://docs.kernel.org/networking/can.html).
 
 Adapters can be added in one of two ways, either via Auto Discovery or Manually.
 
 ## Adapter Auto Discovery
 
-The supported CAN bus adapters can be automatically found via the Auto Discovery mechanism. If an adapter is defined and visible on the network but is not currently associated with the current Profile, then a `Discovered` category will appear in the `ADD COMPONENT` window. In the `Discovered` category you will find all of the adapters that are currently visible to Profinity.  If your adapter does not show up here then you may have configuration issues that need to be addressed [manually](#adapter-manual-configuration).
+In many cases the supported CAN bus adapters can be automatically found via the Auto Discovery mechanism. 
+
+If an adapter is defined and visible on the network but is not currently associated with the current Profile, then a `Discovered` category will appear in the `ADD COMPONENT` window. In the `Discovered` category you will find all of the adapters that are currently visible to Profinity.  If your adapter does not show up here then you may have configuration issues that need to be addressed [manually](#adapter-manual-configuration), or may not currently be discoverable.
 
 <!-- Needs to be updated -->
 <figure markdown>
@@ -30,22 +32,17 @@ The supported CAN bus adapters can be automatically found via the Auto Discovery
 
 ## Adapter Manual Configuration
 
-Configuring a CAN bus adapter manually follows a very similar process to other components. First, [add the adapter](../../Getting_Started/Adding_New_Components.md) to your Profile. When adding a CAN bus adapter to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from `Change Settings` button at the top-right of the adapter dashboard.
+Configuring a CAN bus adapter manually follows a very similar process to other components. 
+
+First, [add the adapter](../../Getting_Started/Adding_New_Components.md) to your Profile. When adding a CAN bus adapter to your Profile, you will be then be prompted to fill in the following information about your device. 
+
+Note that these details can be changed later from `Change Settings` button at the top-right of the adapter dashboard.
 
 |Parameter                | Description                                               |
 |-------------------------|-----------------------------------------------------------|
 |`Name`                   | The name of the component. Must be unique.                |
 |`Auto Connect`           | Automatically enables the device when starting Profinity. |
-|`Allow Heartbeat Traffic`|  |
-|`Allow Loopback Traffic` |  |
-
-
-<!-- Needs updating -->
-<figure markdown>
-![Add an Adapter](../../images/add_adapter.png)
-<figcaption>Add an Adapter</figcaption>
-</figure>
-
+|`Allow Loopback Traffic` | On the Tritium adapters there is an option to allow Loopback traffic, effectively allowing the system to echo traffic back to itself.  Other adapter do not support this option. |
 
 ## Adapter Status
 

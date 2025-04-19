@@ -17,6 +17,9 @@ The Virtual Adapter serves an important role in helping tools that have previous
 
 To add a Virtual Adapter to your configuration, simply add one to your Profile and select which `Network Protocol` will be used along with the `Bridge ID` for your configuration.
 
+!!! info "Setting the Virtual Bridge IP Address"
+    As the Virtual CAN Bridge is running inside Profinity, the IP address of the Virtual Bridge Adapter should be set at an OS level on that machine, it cannot be changed remotely via the CAN Bridge Config tools or Profinity, only the network interface can be selected.
+
 !!! warning "Take care with your BridgeID"
     Having two bridges with the same ID on a single network causes the two bridges to start relaying data from one bridge to the other bridge.  This is a designed behaviour that allows to separate CAN bus networks to be spanned over Ethernet.  Just be aware of it when using the Virtual Adapter, see the [CAN to Ethernet documentation](../../../../CAN_Bridge/User_Manual/index.md)</a> for more information.
 
@@ -55,6 +58,3 @@ The physical bridge can only handle a single client at a time in TCP mode.  The 
 <figcaption>Multi-Client Support</figcaption>
 </figure>
 
-## Features no longer available
-
-As the Virtual CAN Bridge is running inside Profinity, the IP address of the adapter should be set at an OS level on that machine and cannot be changed remotely via the CAN Bridge Config tools or Profinity.

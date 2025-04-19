@@ -1,8 +1,8 @@
 nav:
     - Adaptors
-    - Battery_Management_System
+    - Battery_Management_Systems
     - Chargers_and_Power
-    #- DBC_File_Devices
+    - DBC_Files
     - Loggers
     - Motor_Controller
     - MPPT

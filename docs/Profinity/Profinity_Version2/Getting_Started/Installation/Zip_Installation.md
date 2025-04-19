@@ -2,13 +2,14 @@
 title: Zip Installation (macOS and Unix)
 ---
 
-# Installing Profinity
+# Installing Profinity On macOS and Unix
 
-Profinity is currently available on [Windows machines](./Windows_Installation.md) as a standard desktop application, for selected [Unix Platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker enabled environments and Cloud setups.
+!!! info "Available Profinity Releases"
+    Profinity is currently available on [Windows machines](./Windows_Installation.md) as a standard desktop application, for selected [Unix Platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker enabled environments and Cloud setups.
 
 ## Zip Installation
 
-Profinity is available as a Zip installation file for Unix and MacOS platforms, this approach does not require any installer but simply requires the files to be ped and run with a version of the Microsoft ASP.NET Core 9.0 runtime.
+Profinity is available as a Zip installation file for Unix and MacOS platforms, this approach does not require any installer but simply requires the files to be run with a version of the Microsoft ASP.NET Core 9.0 runtime.
 
 To use this installation approach firstly download and install a ASP.NET Core 9 or above runtime (note we are currently only testing against .Net 9 releases so if you do use a more recent version you may have issues).  The ASP.NET Core runtime is the version of .Net that is required.
 
@@ -68,4 +69,4 @@ After logging in, you will arrive at the Profinity homepage.
 <figcaption>Profinity V2 homepage</figcaption>
 </figure>
 
-To stop Profinity, enter `docker compose down` into the command line.
+To stop Profinity, go to the terminal window running Profinity and press `Ctrl-C`

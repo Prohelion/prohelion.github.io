@@ -17,4 +17,4 @@ To use the DBC viewer with a third party DBC file you need to [create a new item
 
 Once this has been done then you will see the item in your profile and by right mouse clicking on it you can access information about its Messages and Signals.
 
-Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../Components/MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Components/Motor_Controller/WaveSculptor.md) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.
+Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../Components/MPPT/index.md) and the [WaveSculptor](../Components/Motor_Controller/index.md) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.

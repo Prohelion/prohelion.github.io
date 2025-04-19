@@ -2,9 +2,10 @@
 title: Docker Installation
 ---
 
-# Installing Profinity
+# Installing Profinity On Docker
 
-Profinity is currently available on [Windows machines](./Windows_Installation.md) as a standard desktop application, for selected [Unix Platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker enabled environments and Cloud setups.
+!!! info "Available Profinity Releases"
+    Profinity is currently available on [Windows machines](./Windows_Installation.md) as a standard desktop application, for selected [Unix Platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker enabled environments and Cloud setups.
 
 ## Installation using Docker
 
