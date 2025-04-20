@@ -29,7 +29,7 @@ Profinity provides specialised tools for managing [Prohelion batteries](Componen
 
 ### Profinity Server (Rest APIs, Web, and Docker)
 
-As of Profinity 2, Prohelion has fully migrated to a modern container and API centric architecture.  You will find information on our [Restful APIs and Swagger Support](./Extending_Profinity/APIs/index.md) in the documentation, as well as our out-of-the-box cloud connectivity for [InfluxDB and Prometheus](Components/Loggers/InfluxDB_Prometheus_Integration.md) to support cloud based Big Data capture and analytics of CAN bus based solutions. 
+As of Profinity 2, Prohelion has fully migrated to a modern container and API centric architecture.  You will find information on our [Restful APIs and Swagger Support](./Extending_Profinity/APIs/index.md) in the documentation, as well as our out-of-the-box cloud connectivity for [InfluxDB and Prometheus](Components/Loggers/InfluxDB_Prometheus_Logger.md) to support cloud based Big Data capture and analytics of CAN bus based solutions. 
 
 Profinity can be run native on Windows, Unix, MacOS and cloud (via Docker) from V2 onward, see the [Installation Guide](./Installation/Windows_Installation.md) for more information on how to install Profinity.
 

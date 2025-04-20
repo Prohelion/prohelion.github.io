@@ -1,6 +1,5 @@
 nav:
   - index.md
-  - SupportedLanguages.md
-  - ScriptTypes.md
-  - KeyFeatures.md
+  - SupportedLanguages
+  - ScriptTypes
   - Operations

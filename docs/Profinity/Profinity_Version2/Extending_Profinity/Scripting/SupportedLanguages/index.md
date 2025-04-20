@@ -14,7 +14,7 @@ Profinity supports three programming languages.
 
 | C# Scripting                        | Python                                   | JavaScript                                       |
 |-------------------------------------|------------------------------------------|--------------------------------------------------|
-|![C# Logo](../../images/CSharpLogo.png) | ![Python Logo](../../images/PythonLogo.png) | ![JavaScript Logo](../../images/JavaScriptLogo.png) |
+|![C# Logo](../../../images/CSharpLogo.png) | ![Python Logo](../../../images/PythonLogo.png) | ![JavaScript Logo](../../../images/JavaScriptLogo.png) |
 
 </center>
 
