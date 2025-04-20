@@ -2,8 +2,6 @@
 title: Hosting Custom Applications
 ---
 
-## Hosting Custom Web User Interfaces
-
 As well as hosting the Rest APIs and Swagger interface, Profinity supports an integrated Web Server that can provide hosting for a custom build application based on these APIs in any modern web technology.  This includes language and frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) as well as traditional HTML / Javascript etc.
 
 Once the Extensions Web Server is enabled in the Administration Console, you can place you application here

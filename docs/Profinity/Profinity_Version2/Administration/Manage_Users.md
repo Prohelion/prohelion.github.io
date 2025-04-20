@@ -2,10 +2,10 @@
 title: Managing Users
 ---
 
+# Managing Users
+
 !!! info "Desktop Mode"
     When using Profinity in Windows Desktop Mode no user is required as a special admin user is used for this environment that has full permissions.  Only when accessing Profinity via the Web or API interface are user profiles required.
-
-# Managing Users
 
 ## Overview
 
@@ -31,11 +31,13 @@ Before using Profinity, it's recommended to create a new user account tailored t
 
 ### Available Roles
 
-Profinity supports different security roles to control access to system functionality:
+Profinity supports different security roles to control access to system functionality, note this mainly controls what APIs the user is able to call, so if you are using the APIs these security restrictions also apply there.
 
 - **Administrator**: Full system access
-- **Editor**: Can modify system settings
-- **Observer**: Read-only access to system information
+- **Read System Settings**: Use can read the system settings but can't change things
+- **Change System Settings**: Use can modify system settings and update component settings
+- **Charge Battery Packs**: Users require special permissions to be able to control the charging of battery packs
+- **Send and Receive CAN**: Users can send and receive CAN bus packets at in individual packet level.  This is not required to see the dashboards etc, only **Read System Settings** is required
 
 ### Role Selection Guidelines
 
@@ -45,8 +47,11 @@ Consider these factors when assigning roles:
 - Required access level
 - System security requirements
 
+!!! warning "Send and Receive CAN is Powerful and can be Dangerous"
+    A user with the ability to send and receive CAN Packets can inject CAN Packets in to your network, use this setting carefully.
+
 !!! tip "Best Practice"
-    Create dedicated 'Observer' accounts for monitoring purposes. These accounts can view system information without the risk of accidental configuration changes.
+    Create dedicated 'Read System Settings' accounts for monitoring purposes. These accounts can view system information without the risk of accidental configuration changes.
 
 ## Next Steps
 

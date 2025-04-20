@@ -6,29 +6,21 @@ Welcome to the Profinity Scripting guide. This document serves as your comprehen
 
 Profinity offers a versatile scripting environment that supports three powerful languages: C#, Python (via IronPython), and JavaScript (via Jint). Each language is integrated with the .NET framework, providing a rich set of libraries and tools to enhance your scripting experience. This guide will walk you through the core functionalities and provide insights into choosing the right language for your needs.
 
-## Scripting vs APIs
-
-Profinity offers two completely different ways, Scripting and APIs that you can extend it's capabilities to meet the requirements of your applications.  Why would you choose one over the other?
-
-| Scripting                                                                | APIs                                                                           |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| Supports Python, Javascript and C#                                       | Support any Programming Language that can call REST APIs and JSON              |
-| Are built in to Profinity and require no external frameworks or hosting  | Run outside of Profinity in your own environment, APP or cloud                 |
-| Can be developed quickly and easily, to solve simple problems            | Can be as rich and complex as you want your app to be and still use Profinity  |
-| Can run headless (no user interaction, scheduled or triggered by CAN)    | Requires you to write the logic for how your app uses the API                  |
-| Script runs inside Profinity                                             | If scripted, your scripts run outside Profinity and can be distributed         |
-
-Ultimately the decision on how to extend Profinity is up to you, but with two choices you have the flexibility to find the model that suits your needs best.
-
 ## Supported Scripting Languages
 
 Profinity supports three programming languages.
 
+<center>
+
 | C# Scripting                        | Python                                   | JavaScript                                       |
 |-------------------------------------|------------------------------------------|--------------------------------------------------|
-|![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) | ![JavaScript Logo](../images/JavaScriptLogo.png) |
+|![C# Logo](../../images/CSharpLogo.png) | ![Python Logo](../../images/PythonLogo.png) | ![JavaScript Logo](../../images/JavaScriptLogo.png) |
+
+</center>
 
 Ultimately the choice of your preferred scripting language is up to you, Profinity supports three to help developers who are coming from different programming backgrounds, but the features and functions available are common across all three languages.
+
+<center>
 
 | Language | Strengths | Considerations |
 |----------|-----------|----------------|
@@ -36,6 +28,7 @@ Ultimately the choice of your preferred scripting language is up to you, Profini
 | JavaScript | - Simple syntax<br>- Quick development<br>- Familiar to web developers<br>- Lightweight | - Less type safety<br>- Limited to basic features<br>- Less suitable for complex operations |
 | Python | - Clean syntax<br>- Rich ecosystem<br>- Great for data processing<br>- Easy to learn | - Slower execution<br>- Less suitable for real-time operations<br>- Memory management considerations |
 
+</center>
 
 If you need even more power than Profinity Scripting provides then you can also call Profinity APIs to get the full access to all key Profinity functionality from your own tools.
 

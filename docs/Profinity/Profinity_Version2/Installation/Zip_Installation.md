@@ -1,8 +1,8 @@
 ---
-title: Zip Installation (macOS and Unix)
+title: Zip Installation (macOS and Linux)
 ---
 
-# Installing Profinity On macOS and Unix
+# Installing Profinity On macOS and Linux
 
 !!! info "Available Profinity Releases"
     Profinity is currently available on [Windows machines](./Windows_Installation.md) as a standard desktop application, for selected [Unix Platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker enabled environments and Cloud setups.
@@ -52,7 +52,7 @@ With Profinity running, open the URL defined in the `Config.yaml` file (i.e., `h
 Connecting to the Profinity web client will direct you to the Profinity login page. 
 
 <figure markdown>
-![Profinity login page](../../images/login_page.png)
+![Profinity login page](../images/login_page.png)
 <figcaption>Profinity V2 login page</figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ Password: `password`
 After logging in, you will arrive at the Profinity homepage.
 
 <figure markdown>
-![Profinity Homepage](../../images/homepage.png)
+![Profinity Homepage](../images/homepage.png)
 <figcaption>Profinity V2 homepage</figcaption>
 </figure>
 

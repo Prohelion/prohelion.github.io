@@ -1,9 +1,8 @@
 nav:
     - index.md
+    - Installation
     - Getting_Started
     - Components
     - CAN_Utilities
-    - Admin
-    - Scripting
-    - APIs
-    - Hosting
+    - Administration
+    - Extending_Profinity

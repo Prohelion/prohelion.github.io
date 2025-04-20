@@ -24,18 +24,24 @@ To log your CAN Bus data to [InfluxDB](https://www.influxdata.com/) v1 or v2 fir
 
 Logging the data is simple, just add a InfluxDB device to your profile and configure the following options. 
 
-| Setting               | Purpose                                                               |
-| --------------------- | --------------------------------------------------------------------- |
-| InfluxDB Bucket       | What InfluxDB bucket do you want to store your data in?               |
-| InfluxDB Organisation | What InfluxDB organisation do you want to use?                        |
-| InfluxDB Token        | Security token for the user you are connecting to InfluxDB as         |
-| InfluxDB URL          | Endpoint URL that InfluxDB is running on                              |
-| InfluxDB Health Check | Asks the logger to regularly perform a health check on the connection |
+| Setting               | Purpose                                                                                               |
+| --------------------- | ----------------------------------------------------------------------------------------------------- |
+| InfluxDB Bucket       | What InfluxDB bucket do you want to store your data in?                                               |
+| InfluxDB Organisation | What InfluxDB organisation do you want to use?                                                        |
+| InfluxDB Token        | Security token for the user you are connecting to InfluxDB as                                         |
+| InfluxDB URL          | Endpoint URL that InfluxDB is running on                                                              |
+| InfluxDB Health Check | Asks the logger to regularly perform a health check on the connection (see below for Influx Cloud)    |
+| Logging Interval      | How often should we send log data                                                                     |
+| Changes or Snapshot   | Send all the changes or send a full snapshot of the current state                                     |
 
 Once these settings have been set correctly you should be able to see data flowing in to InfluxDB, if you do not check the [Logs](../../Getting_Started/Profinity_Log.md) for more details.  
 
 !!! warning "InfluxDB Cloud HealthCheck Warning"
     InfluxDB cloud does not support the InfluxDB Health Check API and therefore you need to switch InfluxDB Health Check to false when using the cloud solution for storing your data.
+
+### Changes vs Snapshot
+
+When you send a Snapshot Profinity will send every value currently stored in its DBC register to Influx on the interval.  If you select On Change, then Profinity will send Influx a list of every change that has been recorded on the DBC message or signal during that time period.  Depending on the resolution of measurement required this allows you to choice between a high detail (high data) recording option or a lower detail (lower data) recording option.
 
 ## Prometheus
 
