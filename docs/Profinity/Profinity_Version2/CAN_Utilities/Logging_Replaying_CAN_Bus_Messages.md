@@ -12,7 +12,7 @@ It's always worth checking that you are actually receiving CAN Bus messages by u
 
 ## Logging CAN Bus
 
-There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](../Components/Loggers/InfluxDB_Prometheus_Integration.md).
+There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](../Components/Loggers/InfluxDB_Prometheus_Logger.md).
 
 All loggers are configured in the same manner, by adding a logger as a component to the Profile.
 

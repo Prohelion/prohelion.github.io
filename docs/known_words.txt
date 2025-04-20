@@ -55,6 +55,7 @@ amazonaws
 loctite
 tritiums
 pty
+mosquitto
 
 # Battery and Electronics
 threadlocking

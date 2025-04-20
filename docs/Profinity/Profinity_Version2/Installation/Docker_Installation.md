@@ -16,6 +16,7 @@ Profinity can be deployed onto most devices capable of running Docker, including
 The following items are required to be able to install Profinity:
 
 - Docker installed on the target device
+- A device capable of running ASP .Net 9, with Docker support from Microsoft
 - Docker Compose installed on the target device (included with Docker Desktop, available as plugin on Linux machines)
 - A suitable CAN adaptor for the target device
 

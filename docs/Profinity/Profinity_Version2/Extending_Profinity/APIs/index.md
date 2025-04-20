@@ -95,4 +95,4 @@ APIs can provide both realtime and historical data, when a InfluxDB database is 
 
 The __/api/v2/CAN/{Message}/{Signal}__ api is used to get historical data.  To use this API request a DBC Message and Signal as well as a InfluxDB time range that you wish to retrieve the data for.  The API will then call InfluxDB and retrieve all of the data stored across that time frame for this signal.
 
-For more information on configuring InfluxDB see the [InfluxDB and Prometheus Integration](../../Components/Loggers/InfluxDB_Prometheus_Integration.md) section of this documentation.
+For more information on configuring InfluxDB see the [InfluxDB and Prometheus Integration](../../Components/Loggers/InfluxDB_Prometheus_Logger.md) section of this documentation.
