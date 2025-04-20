@@ -4,6 +4,10 @@ title: File Loggers
 
 # File / FTP / SFTP Based Loggers
 
+File loggers in Profinity are used to log native CAN Bus messages to a file, that can then be either stored locally or transmitted remotely to a FTP or SFTP server.
+
+## Modes of Operation
+
 File based loggers in Profinity have three potential modes of operation, you can either
 
 | Log Mode                | Details                                                                             |
@@ -25,3 +29,12 @@ The logger also gives you the ability to manage Archive and Compression settings
 Finally the logger allows you to set the frequency of rotation.  Rotation means that the old log file is closed and a new one is created and Profinity allows you to define a minute based log rotation or a size base log rotation depending on your preference.
 
 Logging configurations are stored as part of your profile so when you load a profile, if you have the logger setup to automatically start then it will start logging automatically.
+
+## Downloading the Logged Files
+
+Once a CAN Bus file has been created it can be downloaded from Profinity by clicking on the link found on the Logger Dashboard
+
+<figure markdown>
+![Download Log File](../../images/file_logger.png)
+<figcaption>Download Log File</figcaption>
+</figure>

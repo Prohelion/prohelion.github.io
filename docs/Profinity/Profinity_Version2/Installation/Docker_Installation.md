@@ -46,12 +46,12 @@ For more information about Docker Compose, see the [official Docker documentatio
 
 The Profinity Docker container is started and stopped using commands from the [Docker Compose toolset](https://docs.docker.com/compose/reference/). First, navigate to the original directory (the one containing the `docker-compose.yml` file). Then, to begin Profinity, enter `docker compose up` into the command line.
 
-To do so open the URL defined in the [Admin / System Configuration / Web panel](../../Admin/System_Config.md) (i.e., `http://profinity:18080`) to access the Profinity web client. For users that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine or the IP address of the machine and `http://[Your IP Address]:18080` if accessed remotely.
+To do so open the URL defined in the [Admin / System Configuration / Web panel](../Administration/System_Config.md) (i.e., `http://profinity:18080`) to access the Profinity web client. For users that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine or the IP address of the machine and `http://[Your IP Address]:18080` if accessed remotely.
 
 Connecting to the Profinity web client will direct you to the Profinity login page. 
 
 <figure markdown>
-![Profinity login page](../../images/login_page.png)
+![Profinity login page](../images/login_page.png)
 <figcaption>Profinity login page</figcaption>
 </figure>
 
@@ -64,7 +64,7 @@ Password: `password`
 After logging in, you will arrive at the Profinity homepage.
 
 <figure markdown>
-![Profinity Homepage](../../images/homepage.png)
+![Profinity Homepage](../images/homepage.png)
 <figcaption>Profinity homepage</figcaption>
 </figure>
 

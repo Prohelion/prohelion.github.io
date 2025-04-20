@@ -10,6 +10,9 @@ A page with all the currently supported components is presented, including hardw
 
 Some CANBus adapters in Profinity can be auto-discovered.  If a discovered adapter is available in your configuration it will be shown at the top of the screen.  You can filter the devices to show by selecting a filter on the left hand side of the screen.
 
+!!! info "Generally you want to add a CAN Adapter first"
+    By adding a CAN Adapter you are able to receive CAN traffic from the devices connected to your CAN Bus network.  Without CAN traffic Profinity is limited in what it is able to show and do.
+
 <figure markdown>
 ![Add a new component to the Profile](../images/add_adapter_autodiscovery.png)
 <figcaption>Add a new component to the Profile</figcaption>

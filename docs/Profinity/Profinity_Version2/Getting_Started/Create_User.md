@@ -15,4 +15,4 @@ Each user can also be granted different security roles, either allowing or restr
 
 # More Information
 
-Addition information on how to create and manage users can be found in the [Admin / Manage Users](../Admin/Manage_Users.md) section of this documentation.
+Addition information on how to create and manage users can be found in the [Admin / Manage Users](../Administration/Manage_Users.md) section of this documentation.

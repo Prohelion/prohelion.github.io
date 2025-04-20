@@ -13,7 +13,7 @@ For the moment, Profinity provides a DBC Viewer that can be used to take a DBC f
 <figcaption>CAN DBC Viewer</figcaption>
 </figure>
 
-To use the DBC viewer with a third party DBC file you need to [create a new component](../../Getting_Started/Adding_New_Components.md) in your [Profile](../../Admin/Profiles.md) and in the configuration properties for that new item provide the DBC file.  
+To use the DBC viewer with a third party DBC file you need to [create a new component](../../Getting_Started/Adding_New_Components.md) in your [Profile](../../Administration/Profiles.md) and in the configuration properties for that new item provide the DBC file.  
 
 Once this has been done then you will see the item in your profile and by right mouse clicking on it you can access information about its Messages and Signals.
 

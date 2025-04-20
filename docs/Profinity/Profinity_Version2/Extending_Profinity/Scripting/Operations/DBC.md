@@ -8,7 +8,7 @@ This documentation provides a comprehensive guide to using DBC (CAN Bus Database
 
 The DBC functionality in Profinity provides tools for working with CAN bus database files. These files define the structure of CAN messages, including signals, message IDs, and data formats. This section gives you a high-level understanding of what the DBC functionality can do.
 
-Use the [DBC viewer](../../Components/DBC_Files/index.md) in Profinity to get the Component, Message and Signal names that you want to track
+Use the [DBC viewer](../../../Components/DBC_Files/index.md) in Profinity to get the Component, Message and Signal names that you want to track
 
 ## Key Features
 

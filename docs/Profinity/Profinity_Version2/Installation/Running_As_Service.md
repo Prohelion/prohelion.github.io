@@ -4,7 +4,7 @@ title: Running Profinity as a Service or Daemon
 
 # Running Profinity as a Service
 
-This guide provides instructions on how to run Profinity as a service on Unix-based systems, ensuring that it starts automatically on boot and restarts if it fails.
+This guide provides instructions on how to run Profinity as a service on Windows and Unix-based systems, ensuring that it starts automatically on boot and restarts if it fails.
 
 ## Table of Contents
 
@@ -21,14 +21,16 @@ Running Profinity as a service allows you to automate its startup and ensure con
 
 As of version 2 Profinity is now available to run in server mode on Windows, Docker, MacOS and Linux (64 bit Intel and Arm chips only).  
 
-In this mode, the Profinity GUI is only available via the browser (there is no Desktop support) and is supported by our REST APIs, which is also available to your [custom applications](../../Hosting/index.md) which you can host on the Profinity Server.
+In this mode, the Profinity GUI is only available via the browser (there is no Desktop support) and is supported by our REST APIs, which is also available to your [custom applications](../Extending_Profinity/Hosting/index.md) which you can host on the Profinity Server.
 
 !!! info "Why Profinity Server?"
     Do you have a CAN Bus based platform and want to provide modern API centric front ends to support user kiosks or other advanced user interfaces, sophisticated modern data analytics and reporting, remote logging or to run your solution in the cloud, desktop, or embedded hardware?  Profinity Server supports this need.
 
+## Hardware Requirements
+
 Profinity Server does not require any additional Prohelion Hardware to run. It can be used as a general purpose development framework for anyone writing modern web UI's for CAN Bus based architectures or wanting to provide a modern server style interface to your CAN infrastructure with native cloud connectivity.  
 
-However, if you are not using Prohelion hardware, you will still need some way to connect to your CAN Bus network, see the [CAN Adapters](../../Components/Adaptors/CAN_Bus_Adapters.md) page for information on supported CAN Bus adapters that you can use.
+However, if you are not using Prohelion hardware, you will still need some way to connect to your CAN Bus network, see the [CAN Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) page for information on supported CAN Bus adapters that you can use.
 
 !!! info "Licensing for Production Environments"
     Use of Profinity server in production environments on Windows, Docker, Linux or MacOS may require an additional license key depending on your commercial status with Prohelion.
@@ -47,7 +49,7 @@ In the 'headless' service mode, Profinity continues to operate as normal with so
 
 `[user]/Documents/Prohelion/Profinity/Logs`
 
-## Linux Setup
+# Linux Setup
 
 To run Profinity as a service on Linux, you can use `systemd`, a system and service manager for Linux operating systems.
 
@@ -96,7 +98,7 @@ To run Profinity as a service on Linux, you can use `systemd`, a system and serv
    sudo systemctl start profinity.service
    ```
 
-## macOS Setup
+# macOS Setup
 
 On macOS, you can use `launchd` to run Profinity as a service.
 
@@ -141,7 +143,7 @@ On macOS, you can use `launchd` to run Profinity as a service.
    sudo launchctl start com.profinity.service
    ```
 
-## Windows Setup
+# Windows Setup
 
 In the installation directory of Profinity you will find a file called ProfinityService.cmd.  If default configuration options have been selected for the installation directory, the file is typically found here.
 
@@ -197,7 +199,7 @@ The batch script performs the following actions:
 
 This script simplifies the process of managing Profinity as a service on Windows, ensuring it can start automatically and run with the necessary permissions.
 
-## Verification
+# Verification
 
 To verify that the service is running correctly, you can use the following commands:
 
@@ -217,7 +219,7 @@ To verify that the service is running correctly, you can use the following comma
 
 Check the state of the service in the Windows Service Manager.
 
-## Troubleshooting
+# Troubleshooting
 
 - **Service Fails to Start**: Check the logs for errors using `journalctl -u profinity.service` on Linux or `sudo launchctl log show` on macOS and the Event Log in Windows.
 - **Permission Issues**: Ensure the service file has the correct permissions and the user/group settings are correct.
