@@ -2,19 +2,19 @@
 title: Supported Operations
 ---
 
-## Supported Operations
+# Supported Operations
 
 The following Key Features are available, regardless of what language you choose.
 
-### CAN Bus Communication
+## CAN Bus Communication
 
 Profinity offers advanced CAN bus communication features, enabling you to send and receive CAN packets efficiently. For detailed examples and usage, refer to the [CAN Bus](./CANBus.md) documentation.
 
-### DBC Message and Signal Information
+## DBC Message and Signal Information
 
 Access CAN data using Profinity's DBC functionality, which simplifies the process of working with complex signal data. For detailed examples and usage, see the [DBC](./DBC.md) documentation.
 
-### State Management
+## State Management
 
 Profinity provides robust state management options to store and share data:
 
@@ -23,7 +23,7 @@ Profinity provides robust state management options to store and share data:
 
 For detailed examples and usage, see the [State](./State.md) documentation.
 
-### Console Output
+## Console Output
 
 Profinity supports comprehensive console output capabilities across all scripting languages, allowing you to log information, errors, and debug messages effectively. For detailed examples and usage, refer to the [Console](./Console.md) documentation.
 

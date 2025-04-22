@@ -228,6 +228,7 @@ vethernet
 loopback
 
 # Other
+canpacket
 teamarrow
 analytics
 timeseries
