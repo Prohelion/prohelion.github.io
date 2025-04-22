@@ -2,6 +2,9 @@
 title: Send / Receive CAN
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Send / Receiving CAN Bus Messages
 
 Profinity can monitor CAN Bus traffic on your network and also allows you to transmit message back on the CAN network from within the Profinity toolset.

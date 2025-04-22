@@ -2,6 +2,9 @@
 title: Supported Operations
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Supported Operations
 
 The following Key Features are available, regardless of what language you choose.

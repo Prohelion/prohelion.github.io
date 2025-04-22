@@ -2,6 +2,9 @@
 title: Profinity Profiles
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Profinity Profile Packs
 
 Profinity Profile Packs are a new introduction to Profinity and serve as an extension to the Profile-based structure of Profinity Classic. A Profile Pack packages everything related to your instance of Profinity, allowing you to easily configure multiple machines to run the same system.

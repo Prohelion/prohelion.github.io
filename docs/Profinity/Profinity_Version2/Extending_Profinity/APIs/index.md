@@ -2,6 +2,9 @@
 title: Profinity Rest APIs
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Profinity Rest APIs
 
 Profinity V2 is a fully API native application with a modern architecture. It supports API security and an open interface model based around REST & JSON.  This allows you to build custom application using the Profinity APIs to provide additional capabilities to your solutions, Custom User Interfaces or just extend the out of the box functionality to meet your needs.

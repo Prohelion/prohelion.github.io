@@ -1,8 +1,13 @@
+---
+title: Profinity Scripting
+---
+
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Profinity Scripting
 
 Welcome to the Profinity Scripting documentation. This section provides comprehensive information about scripting in Profinity, including supported languages, script types, and available operations.
-
-## Getting Started
 
 If you're new to Profinity scripting, here is a few things to know before you get started.
 

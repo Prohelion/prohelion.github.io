@@ -2,6 +2,9 @@
 title: Adding Components
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Adding new Components to your Profile
 
 Components can be added to your Profile by selecting the `+ ADD COMPONENT` button from the sidebar or homepage. 

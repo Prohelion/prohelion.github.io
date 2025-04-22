@@ -2,6 +2,11 @@
 title: Extending Profinity
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
+# Extending Profinity
+
 Profinity offers a robust platform that can be extended and customized to meet your specific needs. By leveraging the Profinity [Scripting](./Scripting/index.md), [APIs](./APIs/index.md), and [Hosting](./Hosting/index.md) capabilities, you can transform Profinity into a powerful application server that can host your own custom applications and code, while using the power of Profinity to drive your systems and gather data. 
 
 This flexibility allows you to tailor Profinity to your organization's unique requirements, enhancing its functionality and usability.

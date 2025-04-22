@@ -2,6 +2,9 @@
 title: CAN Bus
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # CAN Bus
 
 The CANClient class serves as the primary interface for CAN bus communication in Profinity applications. It provides a robust set of features for handling CAN packets, including buffering, asynchronous operations, and packet management. This section gives you a high-level understanding of what the class can do.
@@ -312,6 +315,9 @@ This section provides complete, real-world examples showing how to use the CANCl
         // Process received packet
         Console.WriteLine($"Received packet with ID: {receivedPacket.CanId}");
     }
+
+    // Disable buffering for specific ID
+    CAN.StopBufferingCANPackets(0x123);
     ```
 
 === "Python"
@@ -328,6 +334,9 @@ This section provides complete, real-world examples showing how to use the CANCl
     for received_packet in CAN.CANPackets(0x123, 1000): # Receive packets with ID 0x123, 1 second timeout
         # Process received packet
         print(f"Received packet with ID: {received_packet.CanId}")
+
+    # Disable buffering for specific ID
+    CAN.StopBufferingCANPackets(0x123)
     ```
 
 === "Javascript"
@@ -345,6 +354,9 @@ This section provides complete, real-world examples showing how to use the CANCl
         // Process received packet
         console.log(`Received packet with ID: ${receivedPacket.CanId}`);
     }
+
+    // Disable buffering for specific ID
+    CAN.StopBufferingCANPackets(0x123);
     ```
 
 ## Best Practices

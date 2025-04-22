@@ -2,6 +2,11 @@
 title: Hosting Custom Applications
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
+# Hosting Custom Applications in Profinity
+
 As well as hosting the Rest APIs and Swagger interface, Profinity supports an integrated Web Server that can provide hosting for a custom build application based on these APIs in any modern web technology.  This includes language and frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) as well as traditional HTML / Javascript etc.
 
 Once the Extensions Web Server is enabled in the Administration Console, you can place you application here

@@ -1,12 +1,13 @@
-# Getting Started with Profinity Scripting
+---
+title: Supported Languages
+---
 
-Welcome to the Profinity Scripting guide. This document serves as your comprehensive introduction to the scripting capabilities within Profinity, designed to empower you with the tools and knowledge needed to create robust and efficient scripts. Whether you are automating tasks, processing data, or integrating systems, this guide will help you navigate the essential features and best practices of Profinity scripting.
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
 
-## Overview
+# Supported Languages
 
 Profinity offers a versatile scripting environment that supports three powerful languages: C#, Python (via IronPython), and JavaScript (via Jint). Each language is integrated with the .NET framework, providing a rich set of libraries and tools to enhance your scripting experience. This guide will walk you through the core functionalities and provide insights into choosing the right language for your needs.
-
-## Supported Scripting Languages
 
 Profinity supports three programming languages.
 
@@ -84,4 +85,3 @@ Profinity supports JavaScript scripting, through the Jint interpreter, provides 
 
 [Jint Documentation](https://github.com/sebastienros/jint)
 [JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
-

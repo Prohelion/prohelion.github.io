@@ -2,6 +2,9 @@
 title: Running Profinity as a Service or Daemon
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Running Profinity as a Service
 
 This guide provides instructions on how to run Profinity as a service on Windows and Unix-based systems, ensuring that it starts automatically on boot and restarts if it fails.

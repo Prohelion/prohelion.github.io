@@ -2,6 +2,9 @@
 title: Windows Installation
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Installing Profinity On Windows
 
 !!! info "Available Profinity Releases"
@@ -11,11 +14,9 @@ title: Windows Installation
 
 Installing Profinity on your Windows machine is relatively simple due to the Profinity Setup Wizard.
 
+[Contact Support For a Download :material-download:](https://prohelion.atlassian.net/servicedesk/customer/portals){ .md-button }
 
-[Download Profinity :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi){ .md-button }
-
-
-1. Download the installer using the above link
+1. Contact support to get a copy of the Profinity V2 Early Adopter Installer
 2. Open the downloaded file `Profinity.Install.msi`
 3. Follow the prompts in the Profinity Setup Wizard
 

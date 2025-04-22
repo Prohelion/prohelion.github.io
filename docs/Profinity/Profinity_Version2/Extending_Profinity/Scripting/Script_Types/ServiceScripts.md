@@ -2,6 +2,11 @@
 title: Service Scripts
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
+# Service Scripts
+
 Service scripts are designed for continuous, long-running operations that need to maintain state and respond to system events. They operate similarly to Windows services, with full lifecycle management and multiple startup modes. These scripts are ideal for critical monitoring tasks, continuous data logging, and system-level operations that need to run reliably over extended periods.
 
 ## Characteristics

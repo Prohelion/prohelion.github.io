@@ -2,6 +2,9 @@
 title: System Configuration
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # System Configuration
 
 The `System Configuration` menu is located in the `ADMIN` tab and contains all the configuration options for the core Profinity instance.
