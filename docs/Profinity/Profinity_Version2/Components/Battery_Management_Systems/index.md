@@ -11,7 +11,7 @@ title: Prohelion BMS
 
 - [BMU Management](#bmu-management)
 - [BMU Data](#bmu-data)
-- [CMU / Node Data](#cmu--node-data)
+- [CMU / Node Data](#cmu-or-node-data)
 - [Updating the BMU Configuration](#updating-the-bmu-configuration)
 - [Flashing the BMU Firmware](#flashing-the-bmu-firmware)
 
@@ -83,7 +83,7 @@ The right-hand side depicts the battery state as a flowchart, showing the progre
 
 The current battery state is indicated by the gray box. For more information regarding the different battery states and the internal state machine, see the [BMU documentation](../../../../Battery_Management_Systems/index.md).
 
-### CMU / Node Data
+### CMU or Node Data
 
 Older Prohelion BMS units refer to the Cell Management Units as CMUs, newer units use the term Nodes, both mean the same thing and each CMU correlates to a node in the network. The `Node Telemetry` table displays the currently connected CMUs and the voltages for each collection of cells being monitored by the specific CMU. 
 
