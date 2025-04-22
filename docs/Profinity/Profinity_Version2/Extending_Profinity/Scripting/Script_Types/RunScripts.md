@@ -2,6 +2,11 @@
 title: Run Scripts
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
+# Run Scripts
+
 Run scripts are the most flexible and commonly used script type in Profinity. They can be executed either manually by users or automatically on a schedule, making them ideal for a wide range of automation tasks. These scripts are perfect for operations that need to be performed either on-demand or if scheduled at specific intervals, such as data collection, testing, or system configuration tasks.
 
 ## Characteristics

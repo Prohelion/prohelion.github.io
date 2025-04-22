@@ -2,6 +2,9 @@
 title: Script Types
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Script Types in Profinity
 
 Profinity supports three basic types of scripts, each with specific use cases and execution contexts. This document explains the differences between these script types and when to use each one. Understanding these script types is crucial for developing effective automation and monitoring solutions in Profinity.

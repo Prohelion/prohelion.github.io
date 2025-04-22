@@ -2,6 +2,9 @@
 title: Feedback
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Profinity Feedback
 
 Profinity includes a built-in feedback system to help us improve our software and better support our users. This system allows you to share your suggestions, report issues, or provide general feedback about your experience with Profinity.

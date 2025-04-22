@@ -2,6 +2,9 @@
 title: Elmar Solar MPPT
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Elmar Solar MPPT
 
 Elmar Solar produces some of the worlds most efficient Maximum Power Point Trackers (MPPTs).  These trackers are used to optimize the power output of solar arrays. You can purchase Elmar Solar MPPT devices through the [Prohelion](https://www.prohelion.com) website.

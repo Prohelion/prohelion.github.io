@@ -2,9 +2,12 @@
 title: Console
 ---
 
-This documentation provides a comprehensive guide to using the Console class for output and input operations in Profinity scripts. The Console object is automatically provided in all scripts and provides a simple interface for console operations.
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
 
-## Overview
+# Console
+
+This documentation provides a comprehensive guide to using the Console class for output and input operations in Profinity scripts. The Console object is automatically provided in all scripts and provides a simple interface for console operations.
 
 The Console class serves as a wrapper around the Profinity Log. It handles both standard output and error streams, with automatic encoding support and stream management, log message are sent to the Profinity log at the `Info` level and Error messages at the `Error` level.
 

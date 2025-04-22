@@ -2,6 +2,9 @@
 title: State
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # State
 
 Scripts in Profinity have a lifecycle where they will run and then stop.  Sometimes it is necessary to share information between invocations of Scripts or to share information between different scripts.  Profinity provides a state management mechanism to enable this.

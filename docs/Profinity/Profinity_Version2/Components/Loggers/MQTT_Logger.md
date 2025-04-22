@@ -2,6 +2,9 @@
 title: MQTT Logger
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # MQTT Logger
 
 Profinity provides the ability to log CAN Bus data to an MQTT broker, allowing you to integrate your data with other systems and applications. MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol designed for low-bandwidth, high-latency networks, making it ideal for IoT applications.

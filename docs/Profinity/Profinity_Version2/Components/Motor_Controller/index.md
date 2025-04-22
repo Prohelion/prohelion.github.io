@@ -2,6 +2,11 @@
 title: WaveSculptor
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
+# WaveSculptor Motor Controller Support
+
 [Tritium](https://www.tritiumcharging.com/) initially created the WaveSculptor Motor Inverter, used by racing teams around the world.  With 99.2% cruising efficiency the WaveSculptor family is a go-to choice for most high efficiency electric vehicle racing teams. In 2021 [Prohelion](https://www.prohelion.com) took over the design, manufacturing and support for this product.
 
 Profinity provides integrated management of the WaveSculptor products through the WaveSculptor dashboard, which can be accessed by adding a WaveSculptor to your [Profile](../../Getting_Started/Profiles.md) and selecting the appropriate tab from the sidebar. When adding a WaveSculptor to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from `Change Settings` button at the top-right of the WaveSculptor dashboard.

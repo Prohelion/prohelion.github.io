@@ -2,11 +2,12 @@
 title: Profinity Overview
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Prohelion Profinity V2
 
 Profinity is a modern CAN bus management platform designed to enable the connection of CAN bus based solutions to modern Cloud, APIs and Big Data technologies.  
-
-[Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi){ .md-button }
 
 Profinity V2, completely updates the capabilities of Prohelion's Profinity suite by adding:
 

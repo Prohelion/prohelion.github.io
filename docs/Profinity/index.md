@@ -8,9 +8,6 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 
 ## Available Versions
 
-!!! tip "Recommended Version"
-    We recommend using Profinity V2 for new installations, as it offers enhanced features and better integration capabilities.
-
 <div class="grid cards" markdown>
 
 -   :material-tools:{ .lg .middle } __Profinity V2__
@@ -31,7 +28,10 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 
     [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version2/index.md)
 
--   :material-tools:{ .lg .middle } __Profinity V1 (Retired)__
+    !!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
+-   :material-tools:{ .lg .middle } __Profinity V1 (Retired Soon)__
 
     ---
 
@@ -73,7 +73,7 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 <figcaption>Advanced data logging and analysis features</figcaption>
 </figure>
 
-### Security
+### Security (V2 Only)
 - Role-based access control
 - Secure credential management
 - Audit logging

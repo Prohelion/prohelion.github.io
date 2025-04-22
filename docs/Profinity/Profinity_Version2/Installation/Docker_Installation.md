@@ -2,6 +2,9 @@
 title: Docker Installation
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Installing Profinity On Docker
 
 !!! info "Available Profinity Releases"
@@ -22,12 +25,15 @@ The following items are required to be able to install Profinity:
 
 ### Simple Setup
 
+!!! warning "Profinity V2 is currently in Early Adopter Release"
+    When using Profinity V2 on the Docker Early Adopter Program you are going to be working with us up on the development release.  As such things could change rapidly and in unexpected ways!  Please contact Prohelion Support if you have issues or provide us [Feedback](../Administration/Feedback.md) in Profinity.
+
 On the target device, create a new empty directory and a file titled `docker-compose.yml` in the new directory. The contents of the `docker-compose.yml` file should be
 
 ```
 services:
   profinity:
-      image: prohelion/profinity:latest
+      image: prohelion/profinity:develop
       restart: always
       #On linux hosts you can run in host mode to enable autodiscovery
       #network_mode: host

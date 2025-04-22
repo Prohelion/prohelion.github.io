@@ -2,6 +2,9 @@
 title: Creating a User
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Creating a User
 
 After installing Profinity it is recommended to create a new user to suit your security requirements or create additional users as defined to support different user profiles. To create a new user, select the `ADMIN` tab, then `Users` and `+ ADD USER`. Here you are able to define a new user and their associated login details.

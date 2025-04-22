@@ -2,6 +2,9 @@
 title: Zip Installation (macOS and Linux)
 ---
 
+!!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
 # Installing Profinity On macOS and Linux
 
 !!! info "Available Profinity Releases"
@@ -17,7 +20,7 @@ To use this installation approach firstly download and install a ASP.NET Core 9 
 
 Once installed download the latest Profinity release .zip file from the  and unzip the file in to the folder that you wish to run Profinity on.
 
-[Profinity Releases Page :material-download:](https://github.com/Prohelion/Profinity/releases){ .md-button }
+[Contact Support For a Download :material-download:](https://prohelion.atlassian.net/servicedesk/customer/portals){ .md-button }
 
 ### Starting and Stopping Profinity
 

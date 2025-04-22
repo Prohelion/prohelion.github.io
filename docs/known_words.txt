@@ -278,6 +278,7 @@ tempvolt
 sixstep
 sensorless
 overspeed
+onboarding
 setpoints
 unreliably
 virtualise
