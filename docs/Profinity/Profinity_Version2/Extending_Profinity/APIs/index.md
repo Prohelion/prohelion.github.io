@@ -17,25 +17,6 @@ As well as supporting Restful APIs, Profinity's overall solution allows you to b
 !!! danger "Profinity APIs are Powerful"
     While our APIs support security and can be encrypted, be aware that by using Profinity's APIs you need to be careful with what power you are proving the user to ensure that they do not accidentally damage your environment or equipment.
 
-
-# Scripting vs APIs
-
-Profinity offers two completely different ways, Scripting and APIs that you can extend it's capabilities to meet the requirements of your applications.  Why would you choose one over the other?
-
-<center>
-
-| Scripting                                                                | APIs                                                                           |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| Supports Python, Javascript and C#                                       | Support any Programming Language that can call REST APIs and JSON              |
-| Are built in to Profinity and require no external frameworks or hosting  | Run outside of Profinity in your own environment, APP or cloud                 |
-| Can be developed quickly and easily, to solve simple problems            | Can be as rich and complex as you want your app to be and still use Profinity  |
-| Can run headless (no user interaction, scheduled or triggered by CAN)    | Requires you to write the logic for how your app uses the API                  |
-| Script runs inside Profinity                                             | If scripted, your scripts run outside Profinity and can be distributed         |
-
-</center>
-
-Ultimately the decision on how to extend Profinity is up to you, but with two choices you have the flexibility to find the model that suits your needs best.
-
 # Using Profinity APIs
 
 Profinity V2 itself is built around our APIs so as of V2 all APIs are running all the time.  

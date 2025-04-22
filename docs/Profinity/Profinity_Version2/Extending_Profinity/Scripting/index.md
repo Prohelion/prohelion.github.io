@@ -29,9 +29,9 @@ To enable Profinity Scripting, go to the [System Configuration](../../Administra
 
 Profinity supports three types of scripts, each designed for specific use cases:
 
-- [Run Scripts](./Script_Types/index.md#run-scripts): For manual or scheduled operations
-- [Receive Scripts](./Script_Types/index.md#receive-scripts): For handling incoming CAN messages
-- [Service Scripts](./Script_Types/index.md#service-scripts): For continuous, long-running operations
+- [Run Scripts](./Script_Types/RunScripts.md): For manual or scheduled operations
+- [Receive Scripts](./Script_Types/ReceiveScripts.md): For handling incoming CAN messages
+- [Service Scripts](./Script_Types/ServiceScripts.md): For continuous, long-running operations
 
 Learn more about script types in our [Script Types](./Script_Types/index.md) documentation.
 

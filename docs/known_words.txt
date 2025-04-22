@@ -290,4 +290,6 @@ nd
 html
 beaglebone
 pi
+pnt
+png
 __
