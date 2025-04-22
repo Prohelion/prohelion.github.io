@@ -1,31 +1,92 @@
 ---
-title: Profinity Overview
+title: Profinity
 ---
 
 # Prohelion Profinity
 
-Profinity is a modern CAN Bus management platform designed to enable the connection of CAN Bus based solution to modern Cloud, APIs and Big Data technologies.
+Profinity is our comprehensive CAN bus management platform, designed to connect your CAN-based solutions to modern cloud, API, and big data technologies. Choose your version below to get started.
 
-[Download Profinity :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.install.msi){ .md-button }
+## Available Versions
 
+<div class="grid cards" markdown>
 
-Originally developed by Prohelion to manage our own products it has evolved over time to be multi-platform solution, capable of running on Windows, Linux, MacOS and Docker, with a core engine, easily extendable via Restful APIs.
+-   :material-tools:{ .lg .middle } __Profinity V2__
 
-Profinity is built around the concept of [profiles](Profiles.md), which is a set of configured devices in your system.  By switching between profiles you can support multiple configurations across different sites of different combinations of technologies.  The configuration of the system is largely driven by the Profinity GUI, but once configured, the solution can run as a service, providing continuous data streams off servers or embedded devices, or run from the cloud.
+    ---
+
+    The latest version of Profinity, featuring:
+    
+    - Modern container and API-centric architecture
+    - Enhanced cloud connectivity
+    - Improved user interface
+    - Advanced device management
+
+    <figure markdown>
+    ![Profinity V2 Interface](Profinity_Version2/images/wavesculptor.png)
+    <figcaption>Modern web-based interface of Profinity V2</figcaption>
+    </figure>
+
+    [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version2/index.md)
+
+    !!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
+    Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
+
+-   :material-tools:{ .lg .middle } __Profinity V1 (Retired Soon)__
+
+    ---
+
+    The original version of Profinity, supporting:
+    
+    - Basic CAN bus management
+    - Device configuration
+    - Data logging
+    - Simple cloud integration
+
+    <figure markdown>
+    ![Profinity V1 Interface](Profinity_Version1/images/profinity_overview.png)
+    <figcaption>Classic interface of Profinity V1</figcaption>
+    </figure>
+
+    [:octicons-arrow-right-24: Profinity V1 Documentation](Profinity_Version1/index.md)
+
+</div>
+
+## Key Features of Profinity
+
+### Device Management
+- Connect and configure CAN bus devices
+- Support for multiple device types
+- Real-time monitoring and control
 
 <figure markdown>
-![Profinity](images/profinity_overview.png)
-<figcaption>Profinity</figcaption>
+![Device Management](Profinity_Version2/images/add_component.png)
+<figcaption>Adding and configuring devices in Profinity</figcaption>
 </figure>
 
-Profinity can connect to [CAN Bridges](CAN_Bus_Adapters.md), which translate CAN Bus traffic from your network to the Profinity solution, you can send and receive and view CAN Bus messages either raw or using DBC, log messages and replay them.  You can also use Profinity to share CAN Bus data from your system to your team, either in near real time via a [Prohelion Cloud Connect](Prohelion_Cloud_Connect.md) data stream, or via the logs to cloud data logging platforms. 
+### Data Integration
+- Cloud connectivity options
+- API access for custom integrations
+- Advanced data logging capabilities
 
-It provides specialised tools for managing [Prohelion Batteries](Prohelion_Batteries.md) and chargers, MPPT systems from [Elmar Solar](Elmar_Solar_MPPT.md) and [WaveSculptors](WaveSculptor.md) as well as any device that can be defined by a CAN DBC file.  
+<figure markdown>
+![Data Integration](Profinity_Version2/images/InfluxDB.png)
+<figcaption>Advanced data logging and analysis features</figcaption>
+</figure>
 
-### Profinity Server (Rest APIs, Web and Docker)
+### Security (V2 Only)
+- Role-based access control
+- Secure credential management
+- Audit logging
 
-As of Profinity 1.11, Prohelion has migrated to a modern container and API centric architecture.  You will find information on our [Restful APIs and Swagger Support](Profinity_Rest_APIs.md) in the documentation as well as our out of the box Cloud connectivity for [InfluxDB and Prometheus](InfluxDB_Prometheus_Integration.md) to support cloud based Big Data capture and analytics of CAN Bus based solutions.  
+<figure markdown>
+![User Management](Profinity_Version2/images/add_user.png)
+<figcaption>Secure user management and access control</figcaption>
+</figure>
 
-In addition we now support for Profinity running as a Server on [Windows, Docker, Linux and MacOS](Profinity_Server.md).
+## Support
 
-If you require support or assistance, please [Contact Us](https://www.prohelion.com/contact-us/) via the Prohelion Website or you can log bugs, requests for help or requests for improvement on our [Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
+Need help? We're here to assist:
+
+- Visit our [Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals)
+- [Contact Us](https://www.prohelion.com/contact-us/) directly
+- Check our [FAQs](../FAQs/index.md)

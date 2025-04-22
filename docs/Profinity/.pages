@@ -1,18 +1,4 @@
 nav:
     - index.md
-    - Profiles.md 
-    - Adding_New_Items.md 
-    - CAN_Bus_Adapters.md 
-    - Virtual_CAN_Adapter.md 
-    - Send_Receive_CAN_Bus_Messages.md 
-    - Logging_Replaying_CAN_Bus_Messages.md 
-    - CAN_Bus_DBC.md 
-    - InfluxDB_Prometheus_Integration.md 
-    - Profinity_Log.md 
-    - Prohelion_Cloud_Connect.md 
-    - Profinity_Server.md 
-    - Profinity_Rest_APIs.md 
-    - Prohelion_Batteries.md 
-    - Battery_Charging.md 
-    - WaveSculptor.md 
-    - Elmar_Solar_MPPT.md
+    - Profinity_Version1
+    - Profinity_Version2

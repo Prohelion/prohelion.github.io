@@ -1,0 +1,8 @@
+nav:
+    - index.md
+    - Installation
+    - Getting_Started
+    - Components
+    - CAN_Utilities
+    - Administration
+    - Extending_Profinity
