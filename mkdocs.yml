@@ -97,7 +97,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.tasklist:
-      custom_checkbox: true    
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
 
 extra:
   homepage: https://docs.prohelion.com  

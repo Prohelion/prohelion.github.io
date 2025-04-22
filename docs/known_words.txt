@@ -55,6 +55,7 @@ amazonaws
 loctite
 tritiums
 pty
+mosquitto
 
 # Battery and Electronics
 threadlocking
@@ -158,6 +159,20 @@ contextpath
 data_pnt
 lookups
 tcpwriter
+runtime
+certmgr
+msc
+pfx
+natively
+systemd
+uptime
+jint
+launchd
+namespaces
+encodings
+async
+plist
+lifecycle
 
 # Units
 milli
@@ -196,6 +211,7 @@ eqv
 eqi
 cf
 km_remaining
+ms
 
 # Networking
 http
@@ -209,8 +225,10 @@ udp
 comms
 subnets
 vethernet
+loopback
 
 # Other
+canpacket
 teamarrow
 analytics
 timeseries
@@ -260,6 +278,7 @@ tempvolt
 sixstep
 sensorless
 overspeed
+onboarding
 setpoints
 unreliably
 virtualise
@@ -268,4 +287,7 @@ en
 eu
 th
 nd
+html
+beaglebone
+pi
 __

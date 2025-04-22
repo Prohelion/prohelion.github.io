@@ -1,0 +1,5 @@
+nav:
+    - Windows_Installation.md
+    - Docker_Installation.md
+    - Zip_Installation.md
+    - Running_As_Service.md
