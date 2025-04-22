@@ -7,20 +7,22 @@ title: Receive Scripts
 
 # Receive Scripts
 
-Receive scripts are specialized scripts designed to handle incoming CAN (Controller Area Network) messages in real-time. They automatically execute when a matching CAN packet is received, making them essential for CAN bus monitoring, protocol implementation, and real-time data processing. These scripts are particularly useful in automotive and industrial applications where immediate response to CAN messages is required.
+Receive scripts are specialized scripts designed to handle incoming CAN (Controller Area Network) messages in real-time. They automatically execute when a matching CAN packet is received, making them essential for CAN bus monitoring, protocol implementation, and real-time data processing. 
+
+These scripts are particularly useful in applications where immediate response to CAN messages is required.
 
 ## Characteristics
 - Automatic execution when matching CAN packets are received
 - Implement the `Receive` method (C#) or `receive` function (JavaScript/Python)
-- Can be configured to match specific CAN IDs, message types, and data patterns
+- Can be configured to match specific CAN IDs or a range of IDs
 - Full access to the received CAN packet data
-- Can interact with other Profinity features
 
 ## Examples
 
 The following example demonstrates how to implement Receive scripts in each supported language. Each example shows how to handle incoming CAN packets, with a focus on accessing the CAN ID in hexadecimal format. These examples represent the minimum implementation needed for a functional Receive script.
 
 This example demonstrates a Receive script that:
+
 - Implements the required Receive method
 - Shows how to access the CAN ID in hexadecimal format
 - Uses the Profinity console for output

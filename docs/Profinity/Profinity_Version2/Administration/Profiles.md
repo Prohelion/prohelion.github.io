@@ -5,17 +5,6 @@ title: Profinity Profiles
 !!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
     Profinity V2 is available now in Early Adopter Release.  To support this release we are making the documentation public.  To get access to the Profinity V2 installers, please log a support request at the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) requesting access to the Early Adopter release.
 
-# Profinity Profile Packs
-
-Profinity Profile Packs are a new introduction to Profinity and serve as an extension to the Profile-based structure of Profinity Classic. A Profile Pack packages everything related to your instance of Profinity, allowing you to easily configure multiple machines to run the same system.
-
-Depending on the configuration of your system, a Profile Pack could contain:
-
-- The [Profile](#profiles) and configured devices
-- [DBC](../CAN_Utilities/CAN_Bus_DBC.md) files
-- [Scripts]()
-- [Battery cell profiles]()
-
 ## Profiles
 
 A Profile is the core mechanism by which Profinity maintains the configuration of your system. Any component that you add to your system becomes associated with the active Profile, and the configuration for each device is retained after Profinity is shut down. Profinity keeps track of your Profiles and loads the most recently used one each time you start the tool.<!-- Profiles typically consist of one or more CAN-Ethernet Bridges, which are used to connect to the CAN network as well as any devices that you might be managing. -->
@@ -38,12 +27,25 @@ From this menu it is also possible to change the active Profile using the radio 
 
 Profinity ships with an example Profile called the PET Profile (Prohelion / Elmar / Tritium) which contains all the necessary configuration to support a vehicle based on Prohelion, Elmar, and Tritium technologies.  If you wish to use this Profile as a basis for your own work, we would suggest copying it to a new file name as the file is overwritten each time you install a new version of Profinity. <!-- Check this -->
 
-## Profile Pack Files
+# Profinity Profile Packs
 
-In Profinity the Profile Packs themselves are stored by default as files in the directory
+Profinity Profile Packs are a new introduction to Profinity V2 and serve as an extension to the Profile-based structure of Profinity Classic. A Profile Pack packages everything related to your instance of Profinity, allowing you to easily configure multiple machines to run the same system.
 
-`/Documents/Prohelion/Profinity/Profiles` <!-- Should this be /Documents?-->
+Depending on the configuration of your system, a Profile Pack could contain:
 
-While it is possible to edit the Profile Pack file directly in a text editor we do not recommend you do so. 
+- The [Profile](#profiles) and configured devices
+- [DBC](../CAN_Utilities/CAN_Bus_DBC.md) files
+- [Scripts](../Extending_Profinity/Scripting/index.md)
+- [CAN Logs](../Components/Loggers/File_Loggers.md)
 
-Storing the file in this way makes it easy to share a Profile Packs between machines. If it makes sense in your environment, Profile Packs can be stored on network drives or other shares such as Google Drive or Dropbox.
+Profile packs can be downloaded from Profinity as as Zip file, containing all the contents of the Profile.  They can then be uploaded on to a different version of Profinity, if you want share information between Profile instances.
+
+## Profile Files
+
+In Profinity the Profiles and all the related files are stored by default in directories under the the directory
+
+`/Documents/Prohelion/Profinity/Profiles`
+
+While it is possible to edit the Profile files directly in a text editor we do not recommend you do so. 
+
+Storing the file in this way makes it easy to share a Profiles between machines. If it makes sense in your environment, Profiles can be stored on network drives or other shares such as Google Drive or Dropbox.

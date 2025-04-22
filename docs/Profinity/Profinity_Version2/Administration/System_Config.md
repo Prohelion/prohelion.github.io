@@ -21,8 +21,8 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains all t
 |`Enable Scripting`                  | If you want your Profinity instance to support scripting, this field must be selected.  Scripting requires security considerations and as such is not activated by default. |
 
 <figure markdown>
-![Application configuration menu](../images/app_configuration.png)
-<figcaption>Application configuration menu</figcaption>
+![Profinity System Configuration](../images/app_configuration.png)
+<figcaption>Profinity System Configuration</figcaption>
 </figure>
 
 ### Profinity Web

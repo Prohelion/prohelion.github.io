@@ -21,7 +21,7 @@ This section lists the core capabilities of the CANClient class. These features 
 
 ## Usage
 
-This section provides detailed examples of how to use the CANClient class in your applications. Each example is shown in C#, IronPython, and JavaScript to accommodate different development environments.
+This section provides detailed examples of how to use the CANClient class in your applications. Each example is shown in C#, Python, and JavaScript to accommodate different development environments.
 
 ### Basic Operations
 

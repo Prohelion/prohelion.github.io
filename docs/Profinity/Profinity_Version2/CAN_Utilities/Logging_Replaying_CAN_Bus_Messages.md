@@ -15,7 +15,7 @@ It's always worth checking that you are actually receiving CAN Bus messages by u
 
 ## Logging CAN Bus
 
-There are two distinct types of loggers available in Profinity, loggers to log to file and loggers that log to timeseries databases such as [InfluxDB and Prometheus](../Components/Loggers/InfluxDB_Prometheus_Logger.md).
+There are three distinct types of loggers available in Profinity, loggers to [log to file](../Components/Loggers/File_Loggers.md) and loggers that log to timeseries databases such as [InfluxDB and Prometheus](../Components/Loggers/InfluxDB_Prometheus_Logger.md) and finally [MQTT Loggers](../Components/Loggers/MQTT_Logger.md)
 
 All loggers are configured in the same manner, by adding a logger as a component to the Profile.
 
@@ -26,9 +26,7 @@ All loggers are configured in the same manner, by adding a logger as a component
 
 The Profinity data log replayer allows you to replay log files that have previously been recorded in Profinity.
 
-To use this tool simply select the log file and it will start replaying.  There are also a number of options available that can change the way the log file is replayed.
-
-Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file.
+To use this tool simply select the log file and it will start replaying.  There are also a number of options available that can change the way the log file is replayed. Sliding the slider back and forth allows you to easily move to new locations in the CAN Bus replay file, Pausing causes the log file to pause replaying and you can restart the log file later if required.  Pressing the trashcan icon will delete the log.  Log files that you have recorded earlier or on other Profinity instances can be uploaded to this Profinity instance via the `UPLOAD CANBUS LOG` button.
 
 <figure markdown>
 ![Data Log Replayer](../images/log_replayer.png)

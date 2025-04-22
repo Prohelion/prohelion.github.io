@@ -23,7 +23,7 @@ This section lists the core capabilities of the DBC functionality. These feature
 
 ## Usage
 
-This section provides detailed examples of how to use the DBC functionality in your applications. Each example is shown in C#, IronPython, and JavaScript to accommodate different development environments.
+This section provides detailed examples of how to use the DBC functionality in your applications. Each example is shown in C#, Python, and JavaScript to accommodate different development environments.
 
 ### Basic Operations
 

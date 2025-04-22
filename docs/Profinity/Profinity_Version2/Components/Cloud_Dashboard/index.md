@@ -4,7 +4,9 @@ title: Prohelion Cloud Dashboard
 
 # Prohelion Cloud Dashboard
 
-Prohelion Cloud is a comprehensive IoT platform that provides robust device monitoring, management, and data storage solutions for field devices. Our platform enables organizations to efficiently monitor, analyze, and manage their IoT devices and assets from anywhere in the world, offering enterprise-grade features with a focus on reliability and scalability.
+Prohelion Cloud is a comprehensive IoT platform that provides robust device monitoring, management, and data storage solutions for field devices. 
+
+Our platform enables organizations to efficiently monitor, analyse, and manage their IoT devices and assets from anywhere in the world, offering enterprise-grade features with a focus on reliability and scalability.
 
 To access Prohelion Cloud, please log an access request in [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
 

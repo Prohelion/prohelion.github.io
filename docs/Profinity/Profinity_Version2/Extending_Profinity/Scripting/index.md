@@ -11,6 +11,20 @@ Welcome to the Profinity Scripting documentation. This section provides comprehe
 
 If you're new to Profinity scripting, here is a few things to know before you get started.
 
+## Important Read This First
+
+!!! warning "Profinity Scripts Execute With the Same Security Permissions as Profinity Itself"
+    Because Profinity Scripting runs inside the Profinity engine, any script will execute at the same level of Operating System security permissions as Profinity itself.  Because of this it is important to make sure that you understand what scripts are running on your system and what they do.
+
+In order to ensure your Profinity environment remains secure, we require explicit enabling of the Scripting capabilities inside Profinity before they can be used.  
+
+To enable Profinity Scripting, go to the [System Configuration](../../Administration/System_Config.md) and enabling Scripting.
+
+<figure markdown>
+![Profinity System Configuration](../../images/app_configuration.png)
+<figcaption>Profinity System configuration</figcaption>
+</figure>
+
 ## Script Types
 
 Profinity supports three types of scripts, each designed for specific use cases:
