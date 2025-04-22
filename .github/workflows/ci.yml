@@ -31,4 +31,5 @@ jobs:
       - run: pip install mkdocs-spellcheck
       - run: pip install mkdocs-redirects
       - run: pip install symspellpy
+      - run: pip install codespell
       - run: mkdocs gh-deploy --force
