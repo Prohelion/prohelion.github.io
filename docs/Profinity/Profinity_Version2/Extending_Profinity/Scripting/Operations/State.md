@@ -2,11 +2,13 @@
 title: State
 ---
 
-This documentation provides a comprehensive guide to using the ProfinityScriptState class for managing script state in Profinity applications. It covers all major functionality, including state storage, retrieval, and thread-safe operations, with examples in C#, IronPython, and JavaScript.
+# State
 
-## Overview
+Scripts in Profinity have a lifecycle where they will run and then stop.  Sometimes it is necessary to share information between invocations of Scripts or to share information between different scripts.  Profinity provides a state management mechanism to enable this.
 
-The ProfinityScriptState class provides two distinct ways to manage state in Profinity scripts:
+This documentation provides a comprehensive guide to using the Profinity State for managing script state in Profinity applications. It covers all major functionality, including state storage, retrieval, and thread-safe operations, with examples in C#, Python, and JavaScript.
+
+Profinity provides two distinct ways to manage state in scripts:
 
 - `State` - Manages state that persists between invocations of the same script. When you run a script multiple times, the state stored using `State` will be maintained between runs of that specific script.
 
@@ -26,108 +28,194 @@ This section lists the core capabilities of the ProfinityScriptState class. Thes
 - State persistence between script invocations (State)
 - Cross-script state sharing (GlobalState)
 
-## Usage
+## Basic Usage
 
-This section provides detailed examples of how to use both State and GlobalState in your applications. Each example is shown in C#, IronPython, and JavaScript to accommodate different development environments.
-
-### Basic Operations
+This section provides detailed examples of how to use both State and GlobalState in your applications. Each example is shown in C#, Python, and JavaScript to accommodate different development environments.
 
 Basic operations cover the fundamental tasks you'll perform with both State and GlobalState, including storing and retrieving state values. These are the building blocks for more complex state management scenarios.
 
-#### Storing State Values
+### Storing State Values
 
 Storing state values is a fundamental operation. This section shows how to save data to both local and global state stores, with examples of different value types and update scenarios.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Store a value that persists between runs of this script
-State.Set("scriptRunCount", 42);
+    ```csharp
+    // Store a value that persists between runs of this script
+    State.Set("scriptRunCount", 42);
 
-// Store a value that can be shared with other scripts
-GlobalState.Set("totalScriptsRun", "Shared data");
+    // Store a value that can be shared with other scripts
+    GlobalState.Set("totalScriptsRun", "Shared data");
 
-// Store complex objects
-State.Set("lastRunConfig", new { Name = "Local", Value = 100 });
-GlobalState.Set("sharedConfig", new { Name = "Global", Value = 200 });
-```
-___Python Example___
+    // Store complex objects
+    State.Set("lastRunConfig", new { Name = "Local", Value = 100 });
+    GlobalState.Set("sharedConfig", new { Name = "Global", Value = 200 });
+    ```
 
-```python
-# Store a value that persists between runs of this script
-State.Set("scriptRunCount", 42)
+=== "Python"
 
-# Store a value that can be shared with other scripts
-GlobalState.Set("totalScriptsRun", "Shared data")
+    ```python
+    # Store a value that persists between runs of this script
+    State.Set("scriptRunCount", 42)
 
-# Store complex objects
-State.Set("lastRunConfig", {"Name": "Local", "Value": 100})
-GlobalState.Set("sharedConfig", {"Name": "Global", "Value": 200})
-```
+    # Store a value that can be shared with other scripts
+    GlobalState.Set("totalScriptsRun", "Shared data")
 
-___JavaScript Example___
+    # Store complex objects
+    State.Set("lastRunConfig", {"Name": "Local", "Value": 100})
+    GlobalState.Set("sharedConfig", {"Name": "Global", "Value": 200})
+    ```
 
-```javascript
-// Store a value that persists between runs of this script
-State.Set("scriptRunCount", 42);
+=== "Javascript"
 
-// Store a value that can be shared with other scripts
-GlobalState.Set("totalScriptsRun", "Shared data");
+    ```javascript
+    // Store a value that persists between runs of this script
+    State.Set("scriptRunCount", 42);
 
-// Store complex objects
-State.Set("lastRunConfig", { Name: "Local", Value: 100 });
-GlobalState.Set("sharedConfig", { Name: "Global", Value: 200 });
-```
+    // Store a value that can be shared with other scripts
+    GlobalState.Set("totalScriptsRun", "Shared data");
 
-#### Retrieving State Values
+    // Store complex objects
+    State.Set("lastRunConfig", { Name: "Local", Value: 100 });
+    GlobalState.Set("sharedConfig", { Name: "Global", Value: 200 });
+    ```
+
+### Retrieving State Values
 
 Retrieving state values can be done for any stored key in both local and global state. This section shows how to access stored data and handle cases where values don't exist.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Retrieve state from previous runs of this script
-object runCount = State.Get("scriptRunCount");
+    ```csharp
+    // Retrieve state from previous runs of this script
+    object runCount = State.Get("scriptRunCount");
 
-// Retrieve state shared by other scripts
-object totalRuns = GlobalState.Get("totalScriptsRun");
+    // Retrieve state shared by other scripts
+    object totalRuns = GlobalState.Get("totalScriptsRun");
 
-// Retrieve and cast to specific type
-int lastRunValue = (int)State.Get("lastRunConfig");
-var sharedConfig = GlobalState.Get("sharedConfig");
-```
+    // Retrieve and cast to specific type
+    int lastRunValue = (int)State.Get("lastRunConfig");
+    var sharedConfig = GlobalState.Get("sharedConfig");
+    ```
 
-___Python Example___
+=== "Python"
 
-```python
-# Retrieve state from previous runs of this script
-run_count = State.Get("scriptRunCount")
+    ```python
+    # Retrieve state from previous runs of this script
+    run_count = State.Get("scriptRunCount")
 
-# Retrieve state shared by other scripts
-total_runs = GlobalState.Get("totalScriptsRun")
+    # Retrieve state shared by other scripts
+    total_runs = GlobalState.Get("totalScriptsRun")
 
-# Retrieve and use values
-last_run_config = State.Get("lastRunConfig")
-shared_config = GlobalState.Get("sharedConfig")
-```
+    # Retrieve and use values
+    last_run_config = State.Get("lastRunConfig")
+    shared_config = GlobalState.Get("sharedConfig")
+    ```
 
-___JavaScript Example___
+=== "Javascript"
 
-```javascript
-// Retrieve state from previous runs of this script
-var runCount = State.Get("scriptRunCount");
+    ```javascript
+    // Retrieve state from previous runs of this script
+    var runCount = State.Get("scriptRunCount");
 
-// Retrieve state shared by other scripts
-var totalRuns = GlobalState.Get("totalScriptsRun");
+    // Retrieve state shared by other scripts
+    var totalRuns = GlobalState.Get("totalScriptsRun");
 
-// Retrieve and use values
-var lastRunConfig = State.Get("lastRunConfig");
-var sharedConfig = GlobalState.Get("sharedConfig");
-```
+    // Retrieve and use values
+    var lastRunConfig = State.Get("lastRunConfig");
+    var sharedConfig = GlobalState.Get("sharedConfig");
+    ```
+
+## More Complete Examples
+
+This section provides complete, real-world examples showing how to use both State and GlobalState in typical scenarios. The examples demonstrate proper state management, error handling, and type safety.
+
+=== "C#"
+
+    ```csharp
+    // Store configuration that persists between runs of this script
+    State.Set("scriptConfig", new {
+        Timeout = 5000,
+        RetryCount = 3,
+        LogLevel = "Debug"
+    });
+
+    // Store configuration that can be shared with other scripts
+    GlobalState.Set("sharedConfig", new {
+        MaxConnections = 100,
+        DefaultTimeout = 10000
+    });
+
+    // Track number of times this script has run
+    int runCount = (int)(State.Get("runCount") ?? 0);
+    State.Set("runCount", runCount + 1);
+
+    // Share data between scripts
+    GlobalState.Set("sharedData", new {
+        LastRunTime = DateTime.Now,
+        TotalProcessed = 1000
+    });
+    ```
+
+=== "Python"
+
+    ```python
+    # Store configuration that persists between runs of this script
+    State.Set("scriptConfig", {
+        "Timeout": 5000,
+        "RetryCount": 3,
+        "LogLevel": "Debug"
+    })
+
+    # Store configuration that can be shared with other scripts
+    GlobalState.Set("sharedConfig", {
+        "MaxConnections": 100,
+        "DefaultTimeout": 10000
+    })
+
+    # Track number of times this script has run
+    run_count = State.Get("runCount")
+    if run_count is None:
+        run_count = 0
+    State.Set("runCount", run_count + 1)
+
+    # Share data between scripts
+    GlobalState.Set("sharedData", {
+        "LastRunTime": datetime.now(),
+        "TotalProcessed": 1000
+    })
+    ```
+
+=== "Javascript"
+
+    ```javascript
+    // Store configuration that persists between runs of this script
+    State.Set("scriptConfig", {
+        Timeout: 5000,
+        RetryCount: 3,
+        LogLevel: "Debug"
+    });
+
+    // Store configuration that can be shared with other scripts
+    GlobalState.Set("sharedConfig", {
+        MaxConnections: 100,
+        DefaultTimeout: 10000
+    });
+
+    // Track number of times this script has run
+    var runCount = State.Get("runCount") || 0;
+    State.Set("runCount", runCount + 1);
+
+    // Share data between scripts
+    GlobalState.Set("sharedData", {
+        LastRunTime: new Date(),
+        TotalProcessed: 1000
+    });
+    ```
 
 ## Important Notes
 
-This section highlights critical information you should be aware of when using the ProfinityScriptState class. These notes cover thread safety, value types, and state management considerations.
+This section highlights critical information you should be aware of when using the Profinity State. These notes cover thread safety, value types, and state management considerations.
 
 1. **Thread Safety**: Both State and GlobalState are designed to be thread-safe and can be used in multi-threaded environments. All operations are atomic and concurrent access is supported.
 
@@ -160,97 +248,4 @@ Following these best practices will help you create robust and efficient state m
 
 7. When using `GlobalState`, consider using script-specific prefixes in your keys to avoid conflicts between different scripts.
 
-## Dependencies
 
-This section lists the required namespaces and components needed to use the ProfinityScriptState class. Make sure these dependencies are properly referenced in your project.
-
-The ProfinityScriptState class requires the following namespaces:
-- System.Collections.Concurrent
-- Profinity.Scripting
-
-## Example Usage
-
-This section provides complete, real-world examples showing how to use both State and GlobalState in typical scenarios. The examples demonstrate proper state management, error handling, and type safety.
-
-___C# Example___
-
-```csharp
-// Store configuration that persists between runs of this script
-State.Set("scriptConfig", new {
-    Timeout = 5000,
-    RetryCount = 3,
-    LogLevel = "Debug"
-});
-
-// Store configuration that can be shared with other scripts
-GlobalState.Set("sharedConfig", new {
-    MaxConnections = 100,
-    DefaultTimeout = 10000
-});
-
-// Track number of times this script has run
-int runCount = (int)(State.Get("runCount") ?? 0);
-State.Set("runCount", runCount + 1);
-
-// Share data between scripts
-GlobalState.Set("sharedData", new {
-    LastRunTime = DateTime.Now,
-    TotalProcessed = 1000
-});
-```
-
-___Python Example___
-
-```python
-# Store configuration that persists between runs of this script
-State.Set("scriptConfig", {
-    "Timeout": 5000,
-    "RetryCount": 3,
-    "LogLevel": "Debug"
-})
-
-# Store configuration that can be shared with other scripts
-GlobalState.Set("sharedConfig", {
-    "MaxConnections": 100,
-    "DefaultTimeout": 10000
-})
-
-# Track number of times this script has run
-run_count = State.Get("runCount")
-if run_count is None:
-    run_count = 0
-State.Set("runCount", run_count + 1)
-
-# Share data between scripts
-GlobalState.Set("sharedData", {
-    "LastRunTime": datetime.now(),
-    "TotalProcessed": 1000
-})
-```
-
-___JavaScript Example___
-
-```javascript
-// Store configuration that persists between runs of this script
-State.Set("scriptConfig", {
-    Timeout: 5000,
-    RetryCount: 3,
-    LogLevel: "Debug"
-});
-
-// Store configuration that can be shared with other scripts
-GlobalState.Set("sharedConfig", {
-    MaxConnections: 100,
-    DefaultTimeout: 10000
-});
-
-// Track number of times this script has run
-var runCount = State.Get("runCount") || 0;
-State.Set("runCount", runCount + 1);
-
-// Share data between scripts
-GlobalState.Set("sharedData", {
-    LastRunTime: new Date(),
-    TotalProcessed: 1000
-});
-```

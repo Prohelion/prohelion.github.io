@@ -2,9 +2,7 @@
 title: DBC
 ---
 
-This documentation provides a comprehensive guide to using DBC (CAN Bus Database) functionality in Profinity applications. It covers loading, parsing, and working with DBC files for CAN bus communication, with examples in C#, Python, and JavaScript.
-
-## Overview
+# DBC
 
 The DBC functionality in Profinity provides tools for working with CAN bus database files. These files define the structure of CAN messages, including signals, message IDs, and data formats. This section gives you a high-level understanding of what the DBC functionality can do.
 
@@ -34,23 +32,23 @@ The `GetDbcSignal` method retrieves a signal definition from the loaded DBC file
 
 ### Syntax
 
-___C# Example___
+=== "C#"
 
-```csharp
-DbcSignal signal = DBC.GetDbcSignal(string component, string message, string signal);
-```
+    ```csharp
+    DbcSignal signal = DBC.GetDbcSignal(string component, string message, string signal);
+    ```
 
-___Python Example___
+=== "Python"
 
-```python
-signal = DBC.GetDbcSignal(component, message, signal)
-```
+    ```python
+    signal = DBC.GetDbcSignal(component, message, signal)
+    ```
 
-___JavaScript Example___
+=== "Javascript"
 
-```javascript
-var signal = DBC.GetDbcSignal(component, message, signal);
-```
+    ```javascript
+    var signal = DBC.GetDbcSignal(component, message, signal);
+    ```
 
 ### Parameters
 
@@ -66,41 +64,41 @@ Returns a `DbcSignal` object containing the signal definition, or `null` if the 
 
 The most important property of the returned `DbcSignal` object is the `Value` property, which returns the current physical value of the signal.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Get a signal definition
-var signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
-if (signal != null)
-{
-    // Get the current physical value of the signal
-    double currentValue = signal.Value;
-    Console.WriteLine($"Current engine speed: {currentValue} {signal.Unit}");
-}
-```
+    ```csharp
+    // Get a signal definition
+    var signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
+    if (signal != null)
+    {
+        // Get the current physical value of the signal
+        double currentValue = signal.Value;
+        Console.WriteLine($"Current engine speed: {currentValue} {signal.Unit}");
+    }
+    ```
 
-___Python Example___
+=== "Python"
 
-```python
-# Get a signal definition
-signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed")
-if signal:
-    # Get the current physical value of the signal
-    current_value = signal.Value
-    print(f"Current engine speed: {current_value} {signal.Unit}")
-```
+    ```python
+    # Get a signal definition
+    signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed")
+    if signal:
+        # Get the current physical value of the signal
+        current_value = signal.Value
+        print(f"Current engine speed: {current_value} {signal.Unit}")
+    ```
 
-___JavaScript Example___
+=== "Javascript"
 
-```javascript
-// Get a signal definition
-var signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
-if (signal) {
-    // Get the current physical value of the signal
-    var currentValue = signal.Value;
-    console.log(`Current engine speed: ${currentValue} ${signal.Unit}`);
-}
-```
+    ```javascript
+    // Get a signal definition
+    var signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
+    if (signal) {
+        // Get the current physical value of the signal
+        var currentValue = signal.Value;
+        console.log(`Current engine speed: ${currentValue} ${signal.Unit}`);
+    }
+    ```
 
 ### Important Notes
 

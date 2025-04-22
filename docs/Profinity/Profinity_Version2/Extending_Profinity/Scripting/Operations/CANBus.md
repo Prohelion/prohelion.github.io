@@ -2,9 +2,7 @@
 title: CAN Bus
 ---
 
-This documentation provides a comprehensive guide to using the CANClient class for CAN bus communication in Profinity applications. It covers all major functionality, including sending and receiving packets, buffering, and configuration options, with examples in C#, IronPython, and JavaScript.
-
-## Overview
+# CAN Bus
 
 The CANClient class serves as the primary interface for CAN bus communication in Profinity applications. It provides a robust set of features for handling CAN packets, including buffering, asynchronous operations, and packet management. This section gives you a high-level understanding of what the class can do.
 
@@ -30,29 +28,29 @@ Basic operations cover the fundamental tasks you'll perform with the CANClient, 
 
 Sending CAN packets is a fundamental operation. This section shows how to create and transmit CAN packets to the bus, with examples of proper packet construction and transmission handling.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Create and send a CAN packet
-var packet = new CanPacket(canId, data);
-bool success = CAN.Send(packet);
-```
+    ```csharp
+    // Create and send a CAN packet
+    var packet = new CanPacket(canId, data);
+    bool success = CAN.Send(packet);
+    ```
 
-___Python Example___
+=== "Python"
 
-```python
-# Create and send a CAN packet
-packet = CanPacket(canId, data)
-success = CAN.Send(packet)
-```
+    ```python
+    # Create and send a CAN packet
+    packet = CanPacket(canId, data)
+    success = CAN.Send(packet)
+    ```
 
-___JavaScript Example___
+=== "Javascript"
 
-```javascript
-// Create and send a CAN packet
-var packet = new CanPacket(canId, data);
-var success = CAN.Send(packet);
-```
+    ```javascript
+    // Create and send a CAN packet
+    var packet = new CanPacket(canId, data);
+    var success = CAN.Send(packet);
+    ```
 
 #### Receiving CAN Packets
 
@@ -62,256 +60,298 @@ Receiving CAN packets can be done in several ways, depending on your application
 
 Single packet reception is useful when you need to receive one packet at a time, either immediately or with a timeout. This section shows how to handle these scenarios.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Receive a single packet (synchronous)
-CanPacket packet = CAN.Receive();
+    ```csharp
+    // Receive a single packet (synchronous)
+    CanPacket packet = CAN.Receive();
 
-// Receive a single packet with timeout (in milliseconds)
-CanPacket packet = CAN.Receive(1000); // 1 second timeout
+    // Receive a single packet with timeout (in milliseconds)
+    CanPacket packet = CAN.Receive(1000); // 1 second timeout
 
-// Receive a single packet for specific CAN ID
-CanPacket packet = CAN.Receive(0x123); // Receive packet with ID 0x123
-```
+    // Receive a single packet for specific CAN ID
+    CanPacket packet = CAN.Receive(0x123); // Receive packet with ID 0x123
 
-___Python Example___
+    // Receive a single packet for specific CAN ID with a timeout (in milliseconds)
+    CanPacket packet = CAN.Receive(0x123,1000); // Receive packet with ID 0x123, 1 second timeout
 
+    ```
 
-```python
-# Receive a single packet (synchronous)
-packet = CAN.Receive()
+=== "Python"
 
-# Receive a single packet with timeout (in milliseconds)
-packet = CAN.Receive(1000) # 1 second timeout
+    ```python
+    # Receive a single packet (synchronous)
+    packet = CAN.Receive()
 
-# Receive a single packet for specific CAN ID
-packet = CAN.Receive(0x123) # Receive packet with ID 0x123
-```
+    # Receive a single packet with timeout (in milliseconds)
+    packet = CAN.Receive(1000) # 1 second timeout
 
-___JavaScript Example___
+    # Receive a single packet for specific CAN ID
+    packet = CAN.Receive(0x123) # Receive packet with ID 0x123
 
-```javascript
-// Receive a single packet (synchronous)
-var packet = CAN.Receive();
+    # Receive a single packet for specific CAN ID with a timeout (in milliseconds)
+    packet = CAN.Receive(0x123, 1000) # Receive packet with ID 0x123, 1 second timeout
 
-// Receive a single packet with timeout (in milliseconds)
-var packet = CAN.Receive(1000); // 1 second timeout
+    ```
 
-// Receive a single packet for specific CAN ID
-var packet = CAN.Receive(0x123); // Receive packet with ID 0x123
-```
+=== "Javascript"
+
+    ```javascript
+    // Receive a single packet (synchronous)
+    var packet = CAN.Receive();
+
+    // Receive a single packet with timeout (in milliseconds)
+    var packet = CAN.Receive(1000); // 1 second timeout
+
+    // Receive a single packet for specific CAN ID
+    var packet = CAN.Receive(0x123); // Receive packet with ID 0x123
+
+    // Receive a single packet for specific CAN ID with a timeout (in milliseconds)
+    var packet = CAN.Receive(0x123, 1000); // Receive packet with ID 0x123, 1 second timeout
+    ```
 
 ##### Asynchronous Reception
 
 Asynchronous reception allows your application to continue processing while waiting for CAN packets. This section demonstrates how to use async/await patterns for non-blocking packet reception.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Asynchronously receive a packet
-CanPacket packet = await CAN.ReceiveAsync();
+    ```csharp
+    // Asynchronously receive a packet
+    CanPacket packet = await CAN.ReceiveAsync();
 
-// Asynchronously receive a packet for specific ID
-CanPacket packet = await CAN.ReceiveAsync(0x123);
-```
+    // Asynchronously receive a packet with timeout (in milliseconds)
+    CanPacket packet = await CAN.ReceiveAsync(1000); // 1 second timeout
 
-___Python Example___
+    // Asynchronously receive a packet for specific ID
+    CanPacket packet = await CAN.ReceiveAsync(0x123);
 
-```python
-# Asynchronously receive a packet
-packet = await CAN.ReceiveAsync()
+    // Asynchronously receive a packet for specific ID with timeout (in milliseconds)
+    CanPacket packet = await CAN.ReceiveAsync(0x123, 1000);  // Receive packet with ID 0x123, 1 second timeout
+    ```
 
-# Asynchronously receive a packet for specific ID
-packet = await CAN.ReceiveAsync(0x123)
-```
+=== "Python"
 
-___JavaScript Example___
+    ```python
+    # Asynchronously receive a packet
+    packet = await CAN.ReceiveAsync()
 
-```javascript
-// Asynchronously receive a packet
-var packet = await CAN.ReceiveAsync();
+    # Asynchronously receive a packet with timeout (in milliseconds)
+    packet = await CAN.ReceiveAsync(1000) # 1 second timeout
 
-// Asynchronously receive a packet for specific ID
-var packet = await CAN.ReceiveAsync(0x123);
-```
+    # Asynchronously receive a packet for specific ID
+    packet = await CAN.ReceiveAsync(0x123)
+
+    # Asynchronously receive a packet for specific ID with timeout (in milliseconds)
+    packet = await CAN.ReceiveAsync(0x123, 1000) #  Receive packet with ID 0x123, 1 second timeout
+    ```
+
+=== "Javascript"
+
+    ```javascript
+    // Asynchronously receive a packet
+    var packet = await CAN.ReceiveAsync();
+
+    // Asynchronously receive a packet with timeout (in milliseconds)
+    var packet = await CAN.ReceiveAsync(1000); // 1 second timeout
+
+    // Asynchronously receive a packet for specific ID
+    var packet = await CAN.ReceiveAsync(0x123);
+
+    // Asynchronously receive a packet for specific ID with timeout (in milliseconds)
+    var packet = await CAN.ReceiveAsync(0x123, 1000);  // Receive packet with ID 0x123, 1 second timeout
+    ```
 
 ##### Continuous Packet Reception
 
 Continuous packet reception is useful for monitoring the CAN bus over time. This section shows how to set up continuous reception for all packets or specific CAN IDs.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Receive all packets
-foreach (var packet in CAN.CANPackets())
-{
-    // Process packet
-}
+    ```csharp
+    // Receive all packets
+    foreach (var packet in CAN.CANPackets())
+    {
+        // Process packet
+    }
 
-// Receive packets for specific ID
-foreach (var packet in CAN.CANPackets(0x123))
-{
-    // Process packet
-}
-```
+    // Receive all packets with timeout (in milliseconds)
+    foreach (var packet in CAN.CANPackets(1000)) // 1 second timeout
+    {
+        // Process packet
+    }
 
-___Python Example___
+    // Receive packets for specific ID
+    foreach (var packet in CAN.CANPackets(0x123))
+    {
+        // Process packet
+    }
 
-```python
-# Receive all packets
-for packet in CAN.CANPackets():
-    # Process packet
-    pass
+    // Receive packets for specific ID with timeout (in milliseconds)
+    foreach (var packet in CAN.CANPackets(0x123, 1000)) // Receive packets with ID 0x123, 1 second timeout
+    {
+        // Process packet
+    }
+    ```
 
-# Receive packets for specific ID
-for packet in CAN.CANPackets(0x123):
-    # Process packet
-    pass
-```
+=== "Python"
 
-___JavaScript Example___
+    ```python
+    # Receive all packets
+    for packet in CAN.CANPackets():
+        # Process packet
+        pass
 
-```javascript
-// Receive all packets
-for (var packet of CAN.CANPackets()) {
-    // Process packet
-}
+    # Receive all packets with timeout (in milliseconds)
+    for packet in CAN.CANPackets(1000): # 1 second timeout
+        # Process packet
+        pass
 
-// Receive packets for specific ID
-for (var packet of CAN.CANPackets(0x123)) {
-    // Process packet
-}
-```
+    # Receive packets for specific ID
+    for packet in CAN.CANPackets(0x123):
+        # Process packet
+        pass
+
+    # Receive packets for specific ID with timeout (in milliseconds)
+    for packet in CAN.CANPackets(0x123, 1000): # Receive packets with ID 0x123, 1 second timeout
+        # Process packet
+        pass
+    ```
+
+=== "Javascript"
+
+    ```javascript
+    // Receive all packets
+    for (var packet of CAN.CANPackets()) {
+        // Process packet
+    }
+
+    // Receive all packets with timeout (in milliseconds)
+    for (var packet of CAN.CANPackets(1000)) { // 1 second timeout
+        // Process packet
+    }
+
+    // Receive packets for specific ID
+    for (var packet of CAN.CANPackets(0x123)) {
+        // Process packet
+    }
+
+    // Receive packets for specific ID with timeout (in milliseconds)
+    for (var packet of CAN.CANPackets(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
+        // Process packet
+    }
+    ```
 
 ### Packet Buffering
 
-Packet buffering is essential for handling high-frequency CAN messages or when you need to process multiple packets at once. This section explains how to enable and manage packet buffering.  Enabling buffering allows you to store packets for specific CAN IDs, ensuring you don't miss any messages during high-traffic periods.
+Packet buffering is essential for handling high-frequency CAN messages or when you need to process multiple packets at once. Enabling buffering allows you to store packets for specific CAN IDs, ensuring you don't miss any messages during high-traffic periods.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Enable buffering for specific CAN ID
-CAN.BufferCANPackets(0x123);
-```
+    ```csharp
+    // Enable buffering for specific CAN ID
+    CAN.BufferCANPackets(0x123);
+    ```
 
-___Python Example___
+=== "Python"
 
-```python
-# Enable buffering for specific CAN ID
-CAN.BufferCANPackets(0x123)
-```
+    ```python
+    # Enable buffering for specific CAN ID
+    CAN.BufferCANPackets(0x123)
+    ```
 
-___JavaScript Example___
+=== "Javascript"
 
-```javascript
-// Enable buffering for specific CAN ID
-CAN.BufferCANPackets(0x123);
-```
+    ```javascript
+    // Enable buffering for specific CAN ID
+    CAN.BufferCANPackets(0x123);
+    ```
 
 ### Disable Packet Buffering
 
 When you no longer need to buffer packets for a specific CAN ID, you can disable buffering to free up resources.
 
-___C# Example___
+=== "C#"
 
-```csharp
-// Disable buffering for specific CAN ID
-CAN.StopBufferingCANPackets(0x123);
-```
+    ```csharp
+    // Disable buffering for specific CAN ID
+    CAN.StopBufferingCANPackets(0x123);
+    ```
 
-```python
-# Disable buffering for specific CAN ID
-CAN.StopBufferingCANPackets(0x123)
-```
+=== "Python"
 
-___JavaScript Example___
+    ```python
+    # Disable buffering for specific CAN ID
+    CAN.StopBufferingCANPackets(0x123)
+    ```
 
-```javascript
-// Disable buffering for specific CAN ID
-CAN.StopBufferingCANPackets(0x123);
-```
+=== "Javascript"
 
-## Important Notes
+    ```javascript
+    // Disable buffering for specific CAN ID
+    CAN.StopBufferingCANPackets(0x123);
+    ```
 
-This section highlights critical information you should be aware of when using the CANClient class. These notes cover thread safety, packet validity, monitoring ranges, and resource management considerations.
+## Full Send Receive Example
 
-1. **Thread Safety**: The class is designed to be thread-safe and can be used in multi-threaded environments.
+This section provides complete, real-world examples showing how to use the CANClient class in typical scenarios. The examples demonstrate proper initialization, packet handling, and error checking.
 
-2. **Packet Validity**: Packets have a configurable validity period. By default, packets are considered valid for 5000 milliseconds (5 seconds).
+=== "C#"
 
-3. **Monitoring Range**: The class automatically adjusts its monitoring range based on the CAN IDs you're working with.
+    ```csharp
+    // Enable buffering for specific ID
+    CAN.BufferCANPackets(0x123);
 
-4. **Error Handling**: Always check the return value of the `Send` method to ensure the packet was transmitted successfully.
+    // Send a packet
+    var packet = new CanPacket(0x123, new byte[] { 0x01, 0x02, 0x03 });
+    bool success = CAN.Send(packet);
 
-5. **Resource Management**: When using `CANPackets()` enumerable, be aware that it will continue to receive packets until explicitly stopped or a timeout occurs.
+    // Receive packets for specific ID with timeout (in milliseconds)
+    foreach (var receivedPacket in CAN.CANPackets(0x123, 1000)) // Receive packets with ID 0x123, 1 second timeout
+    {
+        // Process received packet
+        Console.WriteLine($"Received packet with ID: {receivedPacket.CanId}");
+    }
+    ```
+
+=== "Python"
+
+    ```python
+    # Enable buffering for specific ID
+    CAN.BufferCANPackets(0x123)
+
+    # Send a packet
+    packet = CanPacket(0x123, [0x01, 0x02, 0x03])
+    success = CAN.Send(packet)
+
+    # Receive packets for specific ID with timeout (in milliseconds)
+    for received_packet in CAN.CANPackets(0x123, 1000): # Receive packets with ID 0x123, 1 second timeout
+        # Process received packet
+        print(f"Received packet with ID: {received_packet.CanId}")
+    ```
+
+=== "Javascript"
+
+    ```javascript
+    // Enable buffering for specific ID
+    CAN.BufferCANPackets(0x123);
+
+    // Send a packet
+    var packet = new CanPacket(0x123, [0x01, 0x02, 0x03]);
+    var success = CAN.Send(packet);
+
+    // Receive packets for specific ID with timeout (in milliseconds)
+    for (var receivedPacket of CAN.CANPackets(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
+        // Process received packet
+        console.log(`Received packet with ID: ${receivedPacket.CanId}`);
+    }
+    ```
 
 ## Best Practices
 
 Following these best practices will help you create robust and efficient CAN bus applications. This section provides guidelines for proper usage and common pitfalls to avoid.
 
 1. Use appropriate timeouts when receiving packets to prevent indefinite blocking.
-
 2. Consider using the buffering feature when dealing with high-frequency CAN messages.
-
 3. For critical applications, implement proper error handling around packet transmission and reception.
-
 4. When working with specific CAN IDs, use the ID-specific methods for better performance and reliability.
-
-
-## More Complex Examples
-
-This section provides complete, real-world examples showing how to use the CANClient class in typical scenarios. The examples demonstrate proper initialization, packet handling, and error checking.
-
-___C# Example___
-
-```csharp
-// Enable buffering for specific ID
-CAN.BufferCANPackets(0x123);
-
-// Send a packet
-var packet = new CanPacket(0x123, new byte[] { 0x01, 0x02, 0x03 });
-bool success = CAN.Send(packet);
-
-// Receive packets for specific ID
-foreach (var receivedPacket in CAN.CANPackets(0x123))
-{
-    // Process received packet
-    Console.WriteLine($"Received packet with ID: {receivedPacket.CanId}");
-}
-```
-
-___Python Example___
-
-```python
-# Enable buffering for specific ID
-CAN.BufferCANPackets(0x123)
-
-# Send a packet
-packet = CanPacket(0x123, [0x01, 0x02, 0x03])
-success = CAN.Send(packet)
-
-# Receive packets for specific ID
-for received_packet in CAN.CANPackets(0x123):
-    # Process received packet
-    print(f"Received packet with ID: {received_packet.CanId}")
-```
-
-___JavaScript Example___
-
-```javascript
-// Enable buffering for specific ID
-CAN.BufferCANPackets(0x123);
-
-// Send a packet
-var packet = new CanPacket(0x123, [0x01, 0x02, 0x03]);
-var success = CAN.Send(packet);
-
-// Receive packets for specific ID
-for (var receivedPacket of CAN.CANPackets(0x123)) {
-    // Process received packet
-    console.log(`Received packet with ID: ${receivedPacket.CanId}`);
-}
-```
-
-

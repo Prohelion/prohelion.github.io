@@ -10,11 +10,11 @@ If you're new to Profinity scripting, here is a few things to know before you ge
 
 Profinity supports three types of scripts, each designed for specific use cases:
 
-- [Run Scripts](./ScriptTypes/index.md#run-scripts): For manual or scheduled operations
-- [Receive Scripts](./ScriptTypes/index.md#receive-scripts): For handling incoming CAN messages
-- [Service Scripts](./ScriptTypes/index.md#service-scripts): For continuous, long-running operations
+- [Run Scripts](./Script_Types/index.md#run-scripts): For manual or scheduled operations
+- [Receive Scripts](./Script_Types/index.md#receive-scripts): For handling incoming CAN messages
+- [Service Scripts](./Script_Types/index.md#service-scripts): For continuous, long-running operations
 
-Learn more about script types in our [Script Types](./ScriptTypes/index.md) documentation.
+Learn more about script types in our [Script Types](./Script_Types/index.md) documentation.
 
 ## Supported Languages
 
@@ -24,7 +24,7 @@ Profinity scripting supports three programming languages, you can code in any of
 - JavaScript: For quick scripting and prototyping
 - Python: For data processing and analysis
 
-Each language has its strengths and ideal use cases. See the [Supported Languages](./SupportedLanguages/index.md) documentation for detailed comparisons.
+Each language has its strengths and ideal use cases. See the [Supported Languages](./Supported_Languages/index.md) documentation for detailed comparisons.
 
 ## Operations
 
@@ -35,12 +35,11 @@ Profinity provides various out of the box operations to support your script deve
 - [State](./Operations/State.md): For data persistence
 - [Console](./Operations/Console.md): For output and logging
 
-You can find out more about
+You can find out more about each in our [Operations](./Operations/index.md) documentation.
 
 ## Next Steps
 
-1. Review the [Supported Languages](./SupportedLanguages/index.md) guide to help select the right language for you
-2. Learn about [Script Types](./ScriptTypes/index.md) to determine what script style might be most suitable
-3. Explore the available [Operations](./Operations/Console.md) and things you can do with Scripts
-4. Explore our [API Guide](../APIs/index.md) for other ways to integrate and extend Profinity
+1. Review the [Supported Languages](./Supported_Languages/index.md) guide to help select the right language for you
+2. Learn about [Script Types](./Script_Types/index.md) to determine what script style might be most suitable
+3. Explore the available [Operations](./Operations/index.md) and things you can do with Scripts
 4. Try creating your first script 
