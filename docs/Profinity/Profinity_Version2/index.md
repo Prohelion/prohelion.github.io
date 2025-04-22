@@ -1,5 +1,5 @@
 ---
-title: Profinity Overview
+title: Profinity V2 Overview
 ---
 
 !!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
