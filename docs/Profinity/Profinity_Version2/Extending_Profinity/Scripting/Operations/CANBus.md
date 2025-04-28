@@ -173,25 +173,25 @@ Continuous packet reception is useful for monitoring the CAN bus over time. This
 
     ```csharp
     // Receive all packets
-    foreach (var packet in CAN.CANPackets())
+    foreach (var packet in CAN.Bus())
     {
         // Process packet
     }
 
     // Receive all packets with timeout (in milliseconds)
-    foreach (var packet in CAN.CANPackets(1000)) // 1 second timeout
+    foreach (var packet in CAN.Bus(1000)) // 1 second timeout
     {
         // Process packet
     }
 
     // Receive packets for specific ID
-    foreach (var packet in CAN.CANPackets(0x123))
+    foreach (var packet in CAN.Bus(0x123))
     {
         // Process packet
     }
 
     // Receive packets for specific ID with timeout (in milliseconds)
-    foreach (var packet in CAN.CANPackets(0x123, 1000)) // Receive packets with ID 0x123, 1 second timeout
+    foreach (var packet in CAN.Bus(0x123, 1000)) // Receive packets with ID 0x123, 1 second timeout
     {
         // Process packet
     }
@@ -201,22 +201,22 @@ Continuous packet reception is useful for monitoring the CAN bus over time. This
 
     ```python
     # Receive all packets
-    for packet in CAN.CANPackets():
+    for packet in CAN.Bus():
         # Process packet
         pass
 
     # Receive all packets with timeout (in milliseconds)
-    for packet in CAN.CANPackets(1000): # 1 second timeout
+    for packet in CAN.Bus(1000): # 1 second timeout
         # Process packet
         pass
 
     # Receive packets for specific ID
-    for packet in CAN.CANPackets(0x123):
+    for packet in CAN.Bus(0x123):
         # Process packet
         pass
 
     # Receive packets for specific ID with timeout (in milliseconds)
-    for packet in CAN.CANPackets(0x123, 1000): # Receive packets with ID 0x123, 1 second timeout
+    for packet in CAN.Bus(0x123, 1000): # Receive packets with ID 0x123, 1 second timeout
         # Process packet
         pass
     ```
@@ -225,22 +225,22 @@ Continuous packet reception is useful for monitoring the CAN bus over time. This
 
     ```javascript
     // Receive all packets
-    for (var packet of CAN.CANPackets()) {
+    for (var packet of CAN.Bus()) {
         // Process packet
     }
 
     // Receive all packets with timeout (in milliseconds)
-    for (var packet of CAN.CANPackets(1000)) { // 1 second timeout
+    for (var packet of CAN.Bus(1000)) { // 1 second timeout
         // Process packet
     }
 
     // Receive packets for specific ID
-    for (var packet of CAN.CANPackets(0x123)) {
+    for (var packet of CAN.Bus(0x123)) {
         // Process packet
     }
 
     // Receive packets for specific ID with timeout (in milliseconds)
-    for (var packet of CAN.CANPackets(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
+    for (var packet of CAN.Bus(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
         // Process packet
     }
     ```
@@ -310,7 +310,7 @@ This section provides complete, real-world examples showing how to use the CANCl
     bool success = CAN.Send(packet);
 
     // Receive packets for specific ID with timeout (in milliseconds)
-    foreach (var receivedPacket in CAN.CANPackets(0x123, 1000)) // Receive packets with ID 0x123, 1 second timeout
+    foreach (var receivedPacket in CAN.Bus(0x123, 1000)) // Receive packets with ID 0x123, 1 second timeout
     {
         // Process received packet
         Console.WriteLine($"Received packet with ID: {receivedPacket.CanId}");
@@ -331,7 +331,7 @@ This section provides complete, real-world examples showing how to use the CANCl
     success = CAN.Send(packet)
 
     # Receive packets for specific ID with timeout (in milliseconds)
-    for received_packet in CAN.CANPackets(0x123, 1000): # Receive packets with ID 0x123, 1 second timeout
+    for received_packet in CAN.Bus(0x123, 1000): # Receive packets with ID 0x123, 1 second timeout
         # Process received packet
         print(f"Received packet with ID: {received_packet.CanId}")
 
@@ -350,7 +350,7 @@ This section provides complete, real-world examples showing how to use the CANCl
     var success = CAN.Send(packet);
 
     // Receive packets for specific ID with timeout (in milliseconds)
-    for (var receivedPacket of CAN.CANPackets(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
+    for (var receivedPacket of CAN.Bus(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
         // Process received packet
         console.log(`Received packet with ID: ${receivedPacket.CanId}`);
     }

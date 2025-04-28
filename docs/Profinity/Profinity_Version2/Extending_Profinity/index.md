@@ -17,13 +17,9 @@ Profinity's [scripting capabilities](./Scripting/index.md) allow you to automate
 
 With support for languages like C#, JavaScript, and Python, you can choose the best tool for your needs. Scripting in Profinity enables you to handle various operations, from manual tasks to continuous, long-running processes. This is particularly useful for organizations that need to automate repetitive tasks, integrate with other systems, or create custom workflows that align with your business processes.
 
-<center>
-
 | C# Scripting                        | Python                                   | JavaScript                                       |
 |-------------------------------------|------------------------------------------|--------------------------------------------------|
 |![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) | ![JavaScript Logo](../images/JavaScriptLogo.png) |
-
-</center>
 
 ## APIs
 
@@ -43,8 +39,6 @@ Profinity supports [Swagger](https://swagger.io/) to make it easy to understand 
 
 Profinity offers two completely different ways, Scripting and APIs that you can extend it's capabilities to meet the requirements of your applications.  Why would you choose one over the other?
 
-<center>
-
 | Scripting                                                                | APIs                                                                           |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | Supports Python, Javascript and C#                                       | Support any Programming Language that can call REST APIs and JSON              |
@@ -52,8 +46,6 @@ Profinity offers two completely different ways, Scripting and APIs that you can 
 | Can be developed quickly and easily, to solve simple problems            | Can be as rich and complex as you want your app to be and still use Profinity  |
 | Can run headless (no user interaction, scheduled or triggered by CAN)    | Requires you to write the logic for how your app uses the API                  |
 | Script runs inside Profinity                                             | If scripted, your scripts run outside Profinity and can be distributed         |
-
-</center>
 
 Ultimately the decision on how to extend Profinity is up to you, but with two choices you have the flexibility to find the model that suits your needs best.
 
