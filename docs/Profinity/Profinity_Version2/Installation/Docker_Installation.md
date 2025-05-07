@@ -33,7 +33,7 @@ On the target device, create a new empty directory and a file titled `docker-com
 ```
 services:
   profinity:
-      image: prohelion/profinity:develop
+      image: prohelion/profinity:latest
       restart: always
       #On linux hosts you can run in host mode to enable autodiscovery
       #network_mode: host
