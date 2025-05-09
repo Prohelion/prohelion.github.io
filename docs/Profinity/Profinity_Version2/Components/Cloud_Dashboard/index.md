@@ -52,11 +52,13 @@ To access Prohelion Cloud, please log an access request in [Prohelion Support Po
 ## Getting Started
 
 To begin using Prohelion Cloud, you'll need:
+
 1. A Prohelion Cloud account
 2. Compatible devices with network connectivity
 3. Basic understanding of your device's data points
 
 Our support team is available to help with:
+
 - Device onboarding and configuration
 - Dashboard customization
 - Rule chain setup
