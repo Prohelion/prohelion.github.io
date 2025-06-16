@@ -132,7 +132,7 @@ This packet is transmitted by the BMU to show the total pack voltage and current
 | <div style="width:100px">CAN ID:</div>    | 0x6FA - Interval: 10Hz  |
 | ----------------------------------------- | ----------------------- |
 | `data_u32[0]`                               | Battery Voltage (mV)    |
-| `data_u32[1]`                               | Battery Current (m)     |          
+| `data_32[1]`                               | Battery Current (mA)     |          
 
 ## Battery Pack Status
 
