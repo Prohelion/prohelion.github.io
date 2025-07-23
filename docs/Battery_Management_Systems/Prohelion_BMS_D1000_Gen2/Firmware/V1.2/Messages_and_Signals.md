@@ -1,11 +1,11 @@
 ---
-title: Prohelion BMS D1000 Gen2 - DBC Messages and Signals
+title: ProhelionBmsD1000Gen2 - DBC Messages and Signals
 
 ---
 
-# Prohelion BMS D1000 Gen2 - DBC Messages and Signals
+# ProhelionBmsD1000Gen2 - DBC Messages and Signals
 
-This section provides information on the CAN bus messages and signals used in the Prohelion BMS D1000 Gen2. Each message is identified by its unique ID, and the structure, including signals, is described.
+This section provides information on the CAN bus messages and signals used in the ProhelionBmsD1000Gen2. Each message is identified by its unique ID, and the structure, including signals, is described.
 
 ***Note!*** *"Default BASE ID" The following Message IDs assume a default CAN Bus BASE ID of `0x600`. The BASE ID of each device is configurable via the device configuration. If the BASE ID has been configured differently on the device, make sure to account for the shift in the Message IDs. The Message ID offsets from the BASE ID will remain the same regardless of the device configuration.*
 
@@ -33,6 +33,7 @@ This section provides information on the CAN bus messages and signals used in th
 | **0x615** | [Node𝒩Cell Temps](#node𝒩celltemps)|
 | **0x616** | [Node𝒩Stats](#node𝒩stats)|
 | **0x617** | [Node𝒩Diagnostics](#node𝒩diagnostics)|
+| **0x6f0** | [Contactor Diagnostics](#contactordiagnostics)|
 | **0x6f1** | [Device Watchdog Info](#devicewatchdoginfo)|
 | **0x6f2** | [Device Selftest Info](#deviceselftestinfo)|
 | **0x6f3** | [Node Diagnostics](#nodediagnostics)|
@@ -55,10 +56,10 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Device heartbeat information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| DeviceType | 0 | 32 | little_endian | False | 1 | 0 | N/A | N/A |  | Type of device in the system |
-| DeviceSerial | 32 | 32 | little_endian | False | 1 | 0 | N/A | N/A |  | Unique serial number of the device |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| DeviceType | Type of device in the system  |  | 0 | 32 | False | 1 | 0 | N/A | N/A | little_endian |
+| DeviceSerial | Unique serial number of the device  |  | 32 | 32 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -68,12 +69,12 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Firmware version information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| FirmwareMajorVersion | 0 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Major version of firmware |
-| FirmwareMinorVersion | 8 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Minor version of firmware |
-| FirmwarePatchVersion | 16 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Patch version of firmware |
-| FirmwareBuildNumber | 32 | 32 | little_endian | False | 1 | 0 | N/A | N/A |  | Commit hash of firmware |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| FirmwareMajorVersion | Major version of firmware  |  | 0 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| FirmwareMinorVersion | Minor version of firmware  |  | 8 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| FirmwarePatchVersion | Patch version of firmware  |  | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| FirmwareBuildNumber | Commit hash of firmware  |  | 32 | 32 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -83,57 +84,57 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Information on BMS states, failures, and faults
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| BMSStateINIT | 0 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Initialisation state. Immediately enters this state on startup and proceeds to CALIBRATE once the following conditions are met: Correct cell count, Correct temperature sensor count, External CAN enabled, BJU present, Self testing passed |
-| BMSStateCALIBRATE | 1 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Calibration state. Ensures contactors are open before moving to the SAFE state. |
-| BMSStateIDLE | 2 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Idle state. System is healthy and awaiting a command to enable or charge. |
-| BMSStateCONNECT | 3 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Connect state. A request has been made to close the load contactors. The negative contactor to the load has been closed to enable load voltage checks and connection parameters are established |
-| BMSStatePRECHARGE | 4 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Precharge state. The precharge contactor is closed. |
-| BMSStateENABLED | 5 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Enabled state. Contactors to the load are now closed following a successful PRECHARGE state. This state will persist until commanded otherwise, or a fault occurs. |
-| BMSStateCHARGE_INIT | 6 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Charge initialise state. Initialises the charge session, including EVCC for EVSE charging if configured. Waits for Charge Enable Command to proceed |
-| BMSStateCHARGE_CONNECT | 7 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Charge connect state. Closes the negative charge contactor and checks that battery and charger voltages match before proceeding |
-| BMSStateCHARGE_ENABLED | 8 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Charge enabled state. Closes the positive charge contactor, allowing the charger to deliver current to the battery |
-| BMSStateCHARGE_STOPPING | 9 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Charge stopping state. Waits for current flow to reduce before opening the contactors and performing welding detection |
-| BMSStateDISCONNECT | 10 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Safe disconnect state. This state is a transitionary state to allow current flow to stop prior to opening the contactors in the SAFE state. This state occurs if an error has occured while contactors are closed |
-| BMSStateSAFE | 11 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Safe state. An error has occurred or we have progressed from the CALIBRATE state. The SAFE state ensures the battery is disconnected from the load and will transition to IDLE state after all errors have cleared. Latching errors will require a reset before the BMS will leave SAFE state |
-| BMSPrechargeFailTIMEOUT | 16 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Timeout issue. State has timed out waiting for successful completion of the precharge process |
-| BMSPrechargeFailOVERCURRENTMAX | 17 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Overcurrent maximum detected |
-| BMSPrechargeFailOVERCURRENTPCHG | 18 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Overcurrent during precharge. Current flow during precharge is abnormally high. Check configuration |
-| BMSPrechargeFailNEGCURRENT | 19 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Negative current detected. Current is flowing into the pack instead of into the load |
-| BMSPrechargeFailSTABLECURRENT | 20 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Stable current issue. Current flow through the precharge circuit is expected to decrease as the load voltage rises to the battery voltage |
-| BMSPrechargeFailOVERVOLTAGE | 21 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Overvoltage detected. Voltage greater than expected |
-| BMSPrechargeFailSTABLEVOLTAGE | 22 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Stable voltage issue. Load voltage is expected to rise to battery voltage |
-| BMSContactorFaultCONTACTOR1 | 24 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Contactor 1 fault |
-| BMSContactorFaultCONTACTOR2 | 25 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Contactor 2 fault |
-| BMSContactorFaultCONTACTOR3 | 26 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Contactor 3 fault |
-| BMSContactorFaultCONTACTOR4 | 27 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Contactor 4 fault |
-| BMSContactorFaultCONTACTOR5 | 28 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Contactor 5 fault |
-| BMSReasonSELFTESTFAIL | 32 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Self-test failure. Internal memory or peripheral checks are failing indicating a fault may be present in the microprocessor |
-| BMSReasonWATCHDOGFAIL | 33 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Watchdog failure. A module within the firmware is not updating as expected |
-| BMSReasonCONTACTORFAIL | 34 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Contactor failure. Contactor states presented by auxiliary circuits do not match the intended state |
-| BMSReasonHVIL | 35 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | HVIL issue. The interlocked loop is measuring high impedance, indicating a connector failure |
-| BMSReasonBATTVOLTAGE | 36 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Battery voltage issue. Battery voltage is out of expected ranges |
-| BMSReasonPACKVOLTAGE | 37 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Pack voltage issue. Pack voltage is not aligned with the sum of the meaured cell voltages, indicating a loose cell node connection |
-| BMSReasonLOADVOLTAGE | 38 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Load voltage issue. The load voltage is out of expected ranges |
-| BMSReasonCHARGERVOLTAGE | 39 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Charger voltage issue. The charging equipment voltage is out of expected ranges |
-| BMSReasonOVERCURRENT | 40 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Overcurrent detected. Software overcurrent detection indicating current has risen above configured limits |
-| BMSReasonNODECOUNT | 41 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Node count issue. Incorrect number of CMU (Nodes) detected by the BMS |
-| BMSReasonCELLCOUNT | 42 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell count issue. Incorrect number of cells detected by the CMU nodes |
-| BMSReasonTEMPCOUNT | 43 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Temperature count issue. Incorrect number of temperature sensors detected by the CMU nodes |
-| BMSReasonBJU | 44 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | BJU timeout. BJU has not responded to requests for measurements |
-| BMSReasonIO | 45 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Pack timeout. IO expander is not responding on the I2C bus |
-| BMSReasonCONTROLTIMEOUT | 46 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Control timeout. BMS has not received a control command for a number of seconds. |
-| BMSReasonINTERNALCOMMS | 47 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Internal Comms issue. A device connected to the BMS is not responding |
-| BMSReasonOVERVOLT | 48 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell over-voltage detected |
-| BMSReasonUNDERVOLT | 49 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell under-voltage detected |
-| BMSReasonOVERTEMP | 50 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell over-temperature detected |
-| BMSReasonUNDERTEMP | 51 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell under-temperature detected |
-| BMSReasonPRESSURE | 52 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Pressure issue |
-| BMSReasonHUMIDITY | 53 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Humidity issue |
-| BMSReasonVOC | 54 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | VOC (Volatile Organic Compounds) issue |
-| BMSReasonNOX | 55 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | NOx (Nitrogen Oxides) issue |
-| BMSReasonPRECHARGE | 56 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | Precharge failure |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| BMSStateINIT | Initialisation state. Immediately enters this state on startup and proceeds to CALIBRATE once the conditions are met  |  | 0 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateCALIBRATE | Calibration state. Ensures contactors are open before moving to the SAFE state.  |  | 1 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateIDLE | Idle state. System is healthy and awaiting a command to enable or charge.  |  | 2 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateCONNECT | Connect state. A request has been made to close the load contactors. The negative contactor to the load has been closed to enable load voltage checks.  |  | 3 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStatePRECHARGE | Precharge state. The precharge contactor is closed.  |  | 4 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateENABLED | Enabled state. Contactors to the load are now closed following a successful PRECHARGE state. This state will persist until commanded otherwise, or a fault occurs.  |  | 5 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateCHARGE_INIT | Charge initialise state. Initialises the charge session, including EVCC for EVSE charging if configured. Waits for Charge Enable Command to proceed  |  | 6 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateCHARGE_CONNECT | Charge connect state. Closes the negative charge contactor and checks that battery and charger voltages match before proceeding  |  | 7 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateCHARGE_ENABLED | Charge enabled state. Closes the positive charge contactor, allowing the charger to deliver current to the battery  |  | 8 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateCHARGE_STOPPING | Charge stopping state. Waits for current flow to reduce before opening the contactors and performing welding detection  |  | 9 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateDISCONNECT | Safe disconnect state. This state is a transitionary state to allow current flow to stop prior to opening the contactors in the SAFE state. This state occurs if an error has occurred while contactors are closed  |  | 10 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateSAFE | Safe state. An error has occurred or we have progressed from the CALIBRATE state. The SAFE state ensures the battery is disconnected from the load and will transition to IDLE state after all errors have cleared. Latching errors will require a reset before the BMS will leave SAFE state  |  | 11 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSPrechargeFailTIMEOUT | Timeout issue. State has timed out waiting for successful completion of the precharge process  |  | 16 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSPrechargeFailOVERCURRENTMAX | Over-current maximum detected  |  | 17 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSPrechargeFailOVERCURRENTPCHG | Over-current during precharge. Current flow during precharge is abnormally high. Check configuration  |  | 18 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSPrechargeFailNEGCURRENT | Negative current detected. Current is flowing into the pack instead of into the load  |  | 19 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSPrechargeFailSTABLECURRENT | Stable current issue. Current flow through the precharge circuit is expected to decrease as the load voltage rises to the battery voltage  |  | 20 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSPrechargeFailOVERVOLTAGE | Over-voltage detected. Voltage greater than expected  |  | 21 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSPrechargeFailSTABLEVOLTAGE | Stable voltage issue. Load voltage is expected to rise to battery voltage  |  | 22 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSContactorFaultCONTACTOR1 | Contactor 1 fault  |  | 24 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSContactorFaultCONTACTOR2 | Contactor 2 fault  |  | 25 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSContactorFaultCONTACTOR3 | Contactor 3 fault  |  | 26 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSContactorFaultCONTACTOR4 | Contactor 4 fault  |  | 27 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSContactorFaultCONTACTOR5 | Contactor 5 fault  |  | 28 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonSELFTESTFAIL | Self-test failure. Internal memory or peripheral checks are failing indicating a fault may be present in the microprocessor  |  | 32 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonWATCHDOGFAIL | Watchdog failure. A module within the firmware is not updating as expected  |  | 33 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonCONTACTORFAIL | Contactor failure. Contactor states presented by auxiliary circuits do not match the intended state  |  | 34 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonHVIL | HVIL issue. The interlocked loop is measuring high impedance, indicating a connector failure  |  | 35 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonBATTVOLTAGE | Battery voltage issue. Battery voltage is out of expected ranges  |  | 36 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonPACKVOLTAGE | Pack voltage issue. Pack voltage is not aligned with the sum of the measured cell voltages, indicating a loose cell node connection  |  | 37 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonLOADVOLTAGE | Load voltage issue. The load voltage is out of expected ranges  |  | 38 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonCHARGERVOLTAGE | Charger voltage issue. The charging equipment voltage is out of expected ranges  |  | 39 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonOVERCURRENT | Over-current detected. Software over-current detection indicating current has risen above configured limits  |  | 40 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonNODECOUNT | Node count issue. Incorrect number of CMU (Nodes) detected by the BMS  |  | 41 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonCELLCOUNT | Cell count issue. Incorrect number of cells detected by the CMU nodes  |  | 42 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonTEMPCOUNT | Temperature count issue. Incorrect number of temperature sensors detected by the CMU nodes  |  | 43 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonBJU | BJU timeout. BJU has not responded to requests for measurements  |  | 44 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonIO | Pack timeout. IO expander is not responding on the I2C bus  |  | 45 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonCONTROLTIMEOUT | Control timeout. BMS has not received a control command for a number of seconds.  |  | 46 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonINTERNALCOMMS | Internal Comms issue. A device connected to the BMS is not responding  |  | 47 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonOVERVOLT | Cell over-voltage detected  |  | 48 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonUNDERVOLT | Cell under-voltage detected  |  | 49 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonOVERTEMP | Cell over-temperature detected  |  | 50 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonUNDERTEMP | Cell under-temperature detected  |  | 51 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonPRESSURE | Pressure issue  |  | 52 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonHUMIDITY | Humidity issue  |  | 53 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonVOC | VOC (Volatile Organic Compounds) issue  |  | 54 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonNOX | NOx (Nitrogen Oxides) issue  |  | 55 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSReasonPRECHARGE | Precharge failure  |  | 56 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -143,10 +144,10 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Current measurement data.
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| InstantaneousCurrent | 0 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | A | Instantaneous current measurement |
-| FilteredCurrent | 32 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | A | Filtered current measurement |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| InstantaneousCurrent | Instantaneous current measurement  | A | 0 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
+| FilteredCurrent | Filtered current measurement  | A | 32 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -156,10 +157,10 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Voltage measurement data.
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| BatteryVoltage | 0 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | V | Battery voltage measurement |
-| LoadVoltage | 32 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | V | Load voltage measurement |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| BatteryVoltage | Battery voltage measurement  | V | 0 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
+| LoadVoltage | Load voltage measurement  | V | 32 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -169,10 +170,10 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Auxiliary data.
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| AuxiliaryVoltage | 0 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | V | Auxiliary voltage measurement |
-| Power | 32 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | W | Power measurement |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| AuxiliaryVoltage | Auxiliary voltage measurement  | V | 0 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
+| Power | Power measurement  | W | 32 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -182,12 +183,12 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Battery SoC estimations
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| SoCPercentage | 0 | 16 | little_endian | False | 0.1 | 0 | N/A | N/A | % | Battery SoC Percentage |
-| SoCCapacity | 16 | 16 | little_endian | False | 0.1 | 0 | N/A | N/A | Ah | Battery SoC in Ah |
-| OCV_mV | 32 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Estimated Open Circuit Voltage in mV |
-| SoHPercentage | 48 | 16 | little_endian | False | 0.1 | 0 | N/A | N/A | % | Estimated SoH Percentage |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| SoCPercentage | Battery SoC Percentage  | % | 0 | 16 | False | 0.1 | 0 | N/A | N/A | little_endian |
+| SoCCapacity | Battery SoC in Ah  | Ah | 16 | 16 | False | 0.1 | 0 | N/A | N/A | little_endian |
+| OCV_mV | Estimated Open Circuit Voltage in mV  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| SoHPercentage | Estimated SoH Percentage  | % | 48 | 16 | False | 0.1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -197,10 +198,10 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: State of Power Information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| SoPMaxCurrentDischarge | 0 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | A | Max Allowable Discharge Current |
-| SoPMaxCurrentCharge | 32 | 32 | little_endian | True | 0.001 | 0 | N/A | N/A | A | Max Allowable Charge Current |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| SoPMaxCurrentDischarge | Max Allowable Discharge Current  | A | 0 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
+| SoPMaxCurrentCharge | Max Allowable Charge Current  | A | 32 | 32 | True | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -210,11 +211,11 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| TotalPackVoltage | 0 | 32 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Total pack voltage measurement |
-| PackBalanceThreshold | 32 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Pack balance threshold measurement |
-| TotalCellsBalancing | 48 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Total cells balancing status |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| TotalPackVoltage | Total pack voltage measurement  | V | 0 | 32 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| PackBalanceThreshold | Pack balance threshold measurement  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| TotalCellsBalancing | Total cells balancing status  |  | 48 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -224,14 +225,14 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Cell Voltage Statistics
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| MaxCellVoltage | 0 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Maximum cell voltage measurement |
-| MaxCellVoltageNodeID | 16 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Node ID for max cell voltage |
-| MaxCellVoltageCellID | 24 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell ID for max cell voltage |
-| MinCellVoltage | 32 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Minimum cell voltage measurement |
-| MinCellVoltageNodeID | 48 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Node ID for min cell voltage |
-| MinCellVoltageCellID | 56 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell ID for min cell voltage |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| MaxCellVoltage | Maximum cell voltage measurement  | V | 0 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| MaxCellVoltageNodeID | Node ID for max cell voltage  |  | 16 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| MaxCellVoltageCellID | Cell ID for max cell voltage  |  | 24 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| MinCellVoltage | Minimum cell voltage measurement  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| MinCellVoltageNodeID | Node ID for min cell voltage  |  | 48 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| MinCellVoltageCellID | Cell ID for min cell voltage  |  | 56 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -241,149 +242,170 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Cell Temperature Statistics
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| MaxTemperature | 0 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Maximum temperature measurement |
-| MaxTemperatureNodeID | 16 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Node ID for max temperature |
-| MaxTemperatureSensorID | 24 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Sensor ID for max temperature |
-| MinTemperature | 32 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Minimum temperature measurement |
-| MinTemperatureNodeID | 48 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Node ID for min temperature |
-| MinTemperatureSensorID | 56 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Sensor ID for min temperature |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| MaxTemperature | Maximum temperature measurement  | C | 0 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| MaxTemperatureNodeID | Node ID for max temperature  |  | 16 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| MaxTemperatureSensorID | Sensor ID for max temperature  |  | 24 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| MinTemperature | Minimum temperature measurement  | C | 32 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| MinTemperatureNodeID | Node ID for min temperature  |  | 48 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| MinTemperatureSensorID | Sensor ID for min temperature  |  | 56 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;VoltageInfo  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x610 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Voltage information of the node
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;TotalVoltage | 0 | 32 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Sum of the voltage of the cells in the node |
-| Node&#x1D4A9;HighResistanceCellSense | 48 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Indication that a cell is reading high resistance |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;TotalVoltage | Sum of the voltage of the cells in the node  | V | 0 | 32 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;HighResistanceCellSense | Indication that a cell is reading high resistance  |  | 48 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;CellVoltages1  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x611 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node cell voltage measurements (1 of 4)
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;Cell01 | 0 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 01 measured voltage |
-| Node&#x1D4A9;Cell02 | 16 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 02 measured voltage |
-| Node&#x1D4A9;Cell03 | 32 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 03 measured voltage |
-| Node&#x1D4A9;Cell04 | 48 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 04 measured voltage |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;Cell01 | Cell 01 measured voltage  | V | 0 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell02 | Cell 02 measured voltage  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell03 | Cell 03 measured voltage  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell04 | Cell 04 measured voltage  | V | 48 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;CellVoltages2  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x612 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node cell voltage measurements (2 of 4)
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;Cell05 | 0 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 05 measured voltage |
-| Node&#x1D4A9;Cell06 | 16 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 06 measured voltage |
-| Node&#x1D4A9;Cell07 | 32 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 07 measured voltage |
-| Node&#x1D4A9;Cell08 | 48 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 08 measured voltage |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;Cell05 | Cell 05 measured voltage  | V | 0 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell06 | Cell 06 measured voltage  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell07 | Cell 07 measured voltage  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell08 | Cell 08 measured voltage  | V | 48 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;CellVoltages3  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x613 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node cell voltage measurements (3 of 4)
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;Cell09 | 0 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 09 measured voltage |
-| Node&#x1D4A9;Cell10 | 16 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 10 measured voltage |
-| Node&#x1D4A9;Cell11 | 32 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 11 measured voltage |
-| Node&#x1D4A9;Cell12 | 48 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 12 measured voltage |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;Cell09 | Cell 09 measured voltage  | V | 0 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell10 | Cell 10 measured voltage  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell11 | Cell 11 measured voltage  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell12 | Cell 12 measured voltage  | V | 48 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;CellVoltages4  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x614 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node cell voltage measurements (4 of 4)
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;Cell13 | 0 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 13 measured voltage |
-| Node&#x1D4A9;Cell14 | 16 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Cell 14 measured voltage |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;Cell13 | Cell 13 measured voltage  | V | 0 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Cell14 | Cell 14 measured voltage  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;CellTemps  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x615 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
-- Comment: Node thermister temperature measurements
+- Comment: Node thermistor temperature measurements
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;Temp01 | 0 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Thermister 01 temperature measurement |
-| Node&#x1D4A9;Temp02 | 16 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Thermister 02 temperature measurement |
-| Node&#x1D4A9;Temp03 | 32 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Thermister 03 temperature measurement |
-| Node&#x1D4A9;Temp04 | 48 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Thermister 04 temperature measurement |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;Temp01 | Thermistor 01 temperature measurement  | C | 0 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Temp02 | Thermistor 02 temperature measurement  | C | 16 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Temp03 | Thermistor 03 temperature measurement  | C | 32 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Temp04 | Thermistor 04 temperature measurement  | C | 48 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;Stats  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x616 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node cell statistics
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;ConnectedCells | 0 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Number of cells detected on the node |
-| Node&#x1D4A9;DisconnectedCells | 8 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Number of cells that are configured but not detected on the node |
-| Node&#x1D4A9;ConnectedTempSensors | 16 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Number of connected thermisters on the node |
-| Node&#x1D4A9;DisconnectedTempSensors | 24 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Number of thermisters that are configured but not detected on the node |
-| Node&#x1D4A9;CellBalanceCommandSent | 32 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Cell balance command has been send to the node |
-| Node&#x1D4A9;CellBalanceStatus | 48 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Status of cell balancing on the node |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;ConnectedCells | Number of cells detected on the node  |  | 0 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;DisconnectedCells | Number of cells that are configured but not detected on the node  |  | 8 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;ConnectedTempSensors | Number of connected thermistors on the node  |  | 16 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;DisconnectedTempSensors | Number of thermistors that are configured but not detected on the node  |  | 24 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;CellBalanceCommandSent | Cell balance command has been send to the node  |  | 32 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;CellBalanceStatus | Status of cell balancing on the node  |  | 48 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
 ## Node&#x1D4A9;Diagnostics  
 
 **Note!** *For brevity, node messages are described once, where &#x1D4A9; describes the node number (up to a maximum of 32 nodes).*
+
 - ID: 0x617 + (&#x1D4A9; &times; 0x7)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node diagnostics
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Node&#x1D4A9;Type | 0 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Type of the node |
-| Node&#x1D4A9;Address | 8 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Address of the node |
-| Node&#x1D4A9;UARTResult | 16 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Latest result of UART communications |
-| Node&#x1D4A9;State | 32 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | State of the node |
-| Node&#x1D4A9;StateTimer | 48 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Time node has spent in the current state |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Node&#x1D4A9;Type | Type of the node  |  | 0 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;Address | Address of the node  |  | 8 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;UARTResult | Latest result of UART communications  |  | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;State | State of the node  |  | 32 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| Node&#x1D4A9;StateTimer | Time node has spent in the current state  |  | 48 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+
+---
+
+## ContactorDiagnostics
+- ID: 0x6f0 (1776)
+- Length: 8
+- Senders: ProhelionBmsD1000Gen2
+- Comment: Contactor diagnostics information
+
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| ContactorDesiredState | Intended state of the contactors  |  | 0 | 32 | False | 1 | 0 | N/A | N/A | little_endian |
+| ContactorActualState | Actual state of the contactors  |  | 32 | 32 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -393,15 +415,15 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Information relating to internal watchdog status
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| SelfTestTaskStatus | 0 | 4 | little_endian | False | 1 | 0 | N/A | N/A |  | Self test task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul> |
-| SensorTaskStatus | 8 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Sensor task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul> |
-| TelemetryTaskStatus | 16 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Telemetry task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul> |
-| CMUTaskStatus | 24 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | CMU task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul> |
-| BMSTaskStatus | 32 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | BMS task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul> |
-| SoXTaskStatus | 40 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | SoX task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul> |
-| WatchdogReset | 48 | 1 | little_endian | False | 1 | 0 | N/A | N/A |  | State of the watchdog peripheral <ul><li>1: Fail</li><li>0: Ok</li></ul> |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| SelfTestTaskStatus | Self test task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul>  |  | 0 | 4 | False | 1 | 0 | N/A | N/A | little_endian |
+| SensorTaskStatus | Sensor task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul>  |  | 8 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| TelemetryTaskStatus | Telemetry task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul>  |  | 16 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| CMUTaskStatus | CMU task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul>  |  | 24 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSTaskStatus | BMS task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul>  |  | 32 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| SoXTaskStatus | SoX task running state <ul><li>4: Fail</li><li>2: Fast</li><li>1: Slow</li><li>0: Ok</li></ul>  |  | 40 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| WatchdogReset | State of the watchdog peripheral <ul><li>1: Fail</li><li>0: Ok</li></ul>  |  | 48 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -411,9 +433,9 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Result of various internal self testing
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| SelftestResult | 0 | 64 | little_endian | False | 1 | 0 | N/A | N/A |  | Reserved |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| SelftestResult | Reserved  |  | 0 | 64 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -423,12 +445,12 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: CMU controller diagnostic information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| ControllerType | 0 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Type of the CMU controller |
-| CurrentState | 8 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | State of the CMU controller |
-| CurrentStateTimer | 16 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Time the controller has spent in the current state |
-| CommsResult | 32 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Latest result of the CMU controller <--> CMU communication |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| ControllerType | Type of the CMU controller  |  | 0 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| CurrentState | State of the CMU controller  |  | 8 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| CurrentStateTimer | Time the controller has spent in the current state  |  | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| CommsResult | Latest result of the CMU controller <--> CMU communication  |  | 32 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -438,11 +460,11 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node statistics information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| TotalConfiguredNodes | 0 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of nodes expected in the configuration |
-| TotalConnectedNodes | 16 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of nodes detected by the controller |
-| TotalDisconnectedNodes | 32 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of configured nodes not detected by the controller |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| TotalConfiguredNodes | Sum of nodes expected in the configuration  |  | 0 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| TotalConnectedNodes | Sum of nodes detected by the controller  |  | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| TotalDisconnectedNodes | Sum of configured nodes not detected by the controller  |  | 32 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -452,11 +474,11 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Cell statistics information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| TotalConfiguredCells | 0 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of cells expected in the configuration |
-| TotalConnectedCells | 16 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of cells detected by all nodes |
-| TotalDisconnectedCells | 32 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of configured cells not detected by all nodes |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| TotalConfiguredCells | Sum of cells expected in the configuration  |  | 0 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| TotalConnectedCells | Sum of cells detected by all nodes  |  | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| TotalDisconnectedCells | Sum of configured cells not detected by all nodes  |  | 32 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -464,13 +486,13 @@ This section provides information on the CAN bus messages and signals used in th
 - ID: 0x6f6 (1782)
 - Length: 8
 - Senders: ProhelionBmsD1000Gen2
-- Comment: Thermister statistics information
+- Comment: Thermistor statistics information
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| TotalConfiguredTempSensors | 0 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of thermisters expected in the configuration |
-| TotalConnectedTempSensors | 16 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of thermisters detected by all nodes |
-| TotalDisconnectedTempSensors | 32 | 16 | little_endian | False | 1 | 0 | N/A | N/A |  | Sum of configured thermisters not detected by all nodes |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| TotalConfiguredTempSensors | Sum of thermistors expected in the configuration  |  | 0 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| TotalConnectedTempSensors | Sum of thermistors detected by all nodes  |  | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| TotalDisconnectedTempSensors | Sum of configured thermistors not detected by all nodes  |  | 32 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -480,23 +502,23 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Node controller status registers
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| RXStatus | 0 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Node controller RX status register |
-| TXStatus | 8 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  | Node controller TX status register |
-| LSSMByteHWError | 16 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | HW error reported by node controller |
-| LSSMByteAliveCNTError | 17 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | Incorrect alive count reported by node controller |
-| LSSMByteCommandOP | 18 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | Current command OP code |
-| LSSMByteCommMismatchError | 19 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | Communication mismatch error reported |
-| LSSMByteAlertPacketError | 20 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | Packet error reported |
-| LSSMByteCommError | 21 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | Comm error reported |
-| LSSMByteAlertPacketStatusError | 22 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | Packet status error reported |
-| LSSMByteRXReady | 23 | 1 | little_endian | False | 1 | 0 | N/A | N/A | BOOLEAN | Node controller ready to receive |
-| GENStatus | 24 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  |  |
-| OPStateStatus | 32 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  |  |
-| BufferStatus | 40 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  |  |
-| WatchdogStatus | 48 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  |  |
-| GPIOStatus | 56 | 8 | little_endian | False | 1 | 0 | N/A | N/A |  |  |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| RXStatus | Node controller RX status register  |  | 0 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| TXStatus | Node controller TX status register  |  | 8 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteHWError | HW error reported by node controller  | BOOLEAN | 16 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteAliveCNTError | Incorrect alive count reported by node controller  | BOOLEAN | 17 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteCommandOP | Current command OP code  | BOOLEAN | 18 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteCommMismatchError | Communication mismatch error reported  | BOOLEAN | 19 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteAlertPacketError | Packet error reported  | BOOLEAN | 20 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteCommError | Comm error reported  | BOOLEAN | 21 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteAlertPacketStatusError | Packet status error reported  | BOOLEAN | 22 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| LSSMByteRXReady | Node controller ready to receive  | BOOLEAN | 23 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| GENStatus |   |  | 24 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| OPStateStatus |   |  | 32 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| BufferStatus |   |  | 40 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| WatchdogStatus |   |  | 48 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
+| GPIOStatus |   |  | 56 | 8 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -506,12 +528,12 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Sensor data 1
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| Temperature1 | 0 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Thermister 1 measured temperature |
-| Temperature2 | 16 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | C | Thermister 2 measured temperature |
-| Pressure | 32 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | kPa | Measured pressure |
-| Humidity | 48 | 16 | little_endian | True | 0.1 | 0 | N/A | N/A | % RH | Measured humidity |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| Temperature1 | Thermistor 1 measured temperature  | C | 0 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| Temperature2 | Thermistor 2 measured temperature  | C | 16 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| Pressure | Measured pressure  | kPa | 32 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
+| Humidity | Measured humidity  | % RH | 48 | 16 | True | 0.1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -521,10 +543,10 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: Sensor data 2
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| VOC | 0 | 16 | little_endian | False | 1 | 0 | N/A | N/A | ppb | Measured Volatile Organic Compound (VOC) concentration in parts per billion (ppb) |
-| NOX | 16 | 16 | little_endian | False | 1 | 0 | N/A | N/A | ppb | Measured Nitrous Oxide (NOx) concentration in parts per billion (ppb) |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| VOC | Measured Volatile Organic Compound (VOC) concentration in parts per billion (ppb)  | ppb | 0 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
+| NOX | Measured Nitrous Oxide (NOx) concentration in parts per billion (ppb)  | ppb | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -534,17 +556,17 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: State of Charge/Power/Health (SoX) Diagnostic information 1
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| IntegralValid | 0 | 1 | little_endian | False | 1 | 0 | 0 | 1 | bool | Integral model functioning accurately |
-| TheveninValid | 1 | 1 | little_endian | False | 1 | 0 | 0 | 1 | bool | Thevenin model functioning accurately |
-| ECMTheveninValid | 2 | 1 | little_endian | False | 1 | 0 | 0 | 1 | bool | Eqivalent circuit model (ECM) thevenin model functioning accurately |
-| ECMRiValid | 3 | 1 | little_endian | False | 1 | 0 | 0 | 1 | bool | Eqivalent circuit model (ECM) internal resistance (Ri) model functioning accurately |
-| ECMTheveninSleep | 4 | 1 | little_endian | False | 1 | 0 | 0 | 1 | bool | ECM thevenin method inactive |
-| ECMTheveninBackup | 5 | 1 | little_endian | False | 1 | 0 | 0 | 1 | bool | ECM thevenin method backed up |
-| ECMRiOCV | 16 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Open circuit voltage (OCV) for Ri model |
-| IntegralOCV | 32 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | OCV for integral model |
-| TheveninOCV | 48 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | OCV for thevenin  model |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| IntegralValid | Integral model functioning accurately  | bool | 0 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
+| TheveninValid | Thevenin model functioning accurately  | bool | 1 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
+| ECMTheveninValid | Equivalent circuit model (ECM) Thevenin model functioning accurately  | bool | 2 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
+| ECMRiValid | Equivalent circuit model (ECM) internal resistance (Ri) model functioning accurately  | bool | 3 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
+| ECMTheveninSleep | ECM Thevenin method inactive  | bool | 4 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
+| ECMTheveninBackup | ECM Thevenin method backed up  | bool | 5 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
+| ECMRiOCV | Open circuit voltage (OCV) for Ri model  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| IntegralOCV | OCV for integral model  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| TheveninOCV | OCV for Thevenin  model  | V | 48 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -554,11 +576,11 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: State of Charge/Power/Health (SoX) Diagnostic information 2
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| ECMTheveninOCV | 0 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | OCV for ECM thevenin model |
-| ECMTheveninVt | 16 | 16 | little_endian | False | 0.001 | 0 | N/A | N/A | V | Terminal voltage for ECM thevenin model |
-| ECMRi | 32 | 32 | little_endian | False | 1e-06 | 0 | N/A | N/A | Ohm | Estimated internal resistance by ECM |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| ECMTheveninOCV | OCV for ECM Thevenin model  | V | 0 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| ECMTheveninVt | Terminal voltage for ECM Thevenin model  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
+| ECMRi | Estimated internal resistance by ECM  | Ohm | 32 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -568,10 +590,10 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: State of Charge/Power/Health (SoX) Diagnostic information 3
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|---------|
-| ECMTheveninRi | 0 | 32 | little_endian | False | 1e-06 | 0 | N/A | N/A | Ohm | Estimated internal resistance by ECM thevenin model |
-| ECMTheveninRp | 32 | 32 | little_endian | False | 1e-06 | 0 | N/A | N/A | Ohm | Estimated polarisation resistance by ECM thevenin model |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| ECMTheveninRi | Estimated internal resistance by ECM Thevenin model  | Ohm | 0 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
+| ECMTheveninRp | Estimated polarisation resistance by ECM Thevenin model  | Ohm | 32 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
 
 ---
 
@@ -581,9 +603,9 @@ This section provides information on the CAN bus messages and signals used in th
 - Senders: ProhelionBmsD1000Gen2
 - Comment: State of Charge/Power/Health (SoX) Diagnostic information 4
 
-| Name | Start Bit | Length | Byte Order | Signed | Scale | Offset | Min | Max | Unit | Comment               |
-|------|-----------|--------|------------|--------|-------|--------|-----|-----|------|-----------------------|
-| ECMTheveninCp | 0 | 32 | little_endian | False | 1 | 0 | N/A | N/A | F | Estimated polarisation capacitance by ECM thevenin model |
-| PackStaticRi | 32 | 32 | little_endian | False | 1e-06 | 0 | N/A | N/A | Ohm | Calculated internal resistance based on configured cell internal resistance |
+| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
+|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
+| ECMTheveninCp | Estimated polarisation capacitance by ECM Thevenin model  | F | 0 | 32 | False | 1 | 0 | N/A | N/A | little_endian |
+| PackStaticRi | Calculated internal resistance based on configured cell internal resistance  | Ohm | 32 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
 
 ---
