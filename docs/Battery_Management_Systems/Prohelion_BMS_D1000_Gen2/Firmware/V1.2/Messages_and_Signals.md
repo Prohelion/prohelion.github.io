@@ -1,9 +1,9 @@
 ---
 title: ProhelionBmsD1000Gen2 - DBC Messages and Signals
-
 ---
+<!--- Auto-generated markdown documentation from device CAN database (dbc) -->
 
-# ProhelionBmsD1000Gen2 - DBC Messages and Signals
+# Messages and Signals
 
 This section provides information on the CAN bus messages and signals used in the ProhelionBmsD1000Gen2. Each message is identified by its unique ID, and the structure, including signals, is described.
 
@@ -43,10 +43,6 @@ This section provides information on the CAN bus messages and signals used in th
 | **0x6f7** | [Node Status Registers](#nodestatusregisters)|
 | **0x6f8** | [Sensor Data 1](#sensordata1)|
 | **0x6f9** | [Sensor Data 2](#sensordata2)|
-| **0x6fb** | [SoXDiagnostics 0](#soxdiagnostics0)|
-| **0x6fc** | [SoXDiagnostics 1](#soxdiagnostics1)|
-| **0x6fd** | [SoXDiagnostics 2](#soxdiagnostics2)|
-| **0x6fe** | [SoXDiagnostics 3](#soxdiagnostics3)|
 
 ---
 
@@ -547,65 +543,5 @@ This section provides information on the CAN bus messages and signals used in th
 |------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
 | VOC | Measured Volatile Organic Compound (VOC) concentration in parts per billion (ppb)  | ppb | 0 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
 | NOX | Measured Nitrous Oxide (NOx) concentration in parts per billion (ppb)  | ppb | 16 | 16 | False | 1 | 0 | N/A | N/A | little_endian |
-
----
-
-## SoXDiagnostics0
-- ID: 0x6fb (1787)
-- Length: 8
-- Senders: ProhelionBmsD1000Gen2
-- Comment: State of Charge/Power/Health (SoX) Diagnostic information 1
-
-| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
-|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
-| IntegralValid | Integral model functioning accurately  | bool | 0 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
-| TheveninValid | Thevenin model functioning accurately  | bool | 1 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
-| ECMTheveninValid | Equivalent circuit model (ECM) Thevenin model functioning accurately  | bool | 2 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
-| ECMRiValid | Equivalent circuit model (ECM) internal resistance (Ri) model functioning accurately  | bool | 3 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
-| ECMTheveninSleep | ECM Thevenin method inactive  | bool | 4 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
-| ECMTheveninBackup | ECM Thevenin method backed up  | bool | 5 | 1 | False | 1 | 0 | 0 | 1 | little_endian |
-| ECMRiOCV | Open circuit voltage (OCV) for Ri model  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
-| IntegralOCV | OCV for integral model  | V | 32 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
-| TheveninOCV | OCV for Thevenin  model  | V | 48 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
-
----
-
-## SoXDiagnostics1
-- ID: 0x6fc (1788)
-- Length: 8
-- Senders: ProhelionBmsD1000Gen2
-- Comment: State of Charge/Power/Health (SoX) Diagnostic information 2
-
-| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
-|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
-| ECMTheveninOCV | OCV for ECM Thevenin model  | V | 0 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
-| ECMTheveninVt | Terminal voltage for ECM Thevenin model  | V | 16 | 16 | False | 0.001 | 0 | N/A | N/A | little_endian |
-| ECMRi | Estimated internal resistance by ECM  | Ohm | 32 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
-
----
-
-## SoXDiagnostics2
-- ID: 0x6fd (1789)
-- Length: 8
-- Senders: ProhelionBmsD1000Gen2
-- Comment: State of Charge/Power/Health (SoX) Diagnostic information 3
-
-| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
-|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
-| ECMTheveninRi | Estimated internal resistance by ECM Thevenin model  | Ohm | 0 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
-| ECMTheveninRp | Estimated polarisation resistance by ECM Thevenin model  | Ohm | 32 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
-
----
-
-## SoXDiagnostics3
-- ID: 0x6fe (1790)
-- Length: 8
-- Senders: ProhelionBmsD1000Gen2
-- Comment: State of Charge/Power/Health (SoX) Diagnostic information 4
-
-| Name | Comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit | Start Bit | Length | Signed | Scale | Offset | Min | Max | Byte Order |
-|------|---------------------------|---|--------|------------|--------|-------|--------|-----|-----|------|
-| ECMTheveninCp | Estimated polarisation capacitance by ECM Thevenin model  | F | 0 | 32 | False | 1 | 0 | N/A | N/A | little_endian |
-| PackStaticRi | Calculated internal resistance based on configured cell internal resistance  | Ohm | 32 | 32 | False | 1e-06 | 0 | N/A | N/A | little_endian |
 
 ---

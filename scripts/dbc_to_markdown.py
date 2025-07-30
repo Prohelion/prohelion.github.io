@@ -13,6 +13,7 @@ def camel_to_spaces(camel_string):
   Returns:
     The string with spaces inserted between words.
   """
+  
   # Find all occurrences where a lowercase letter is followed by an uppercase letter
   # and insert a space between them.
   # The \1 and \2 refer to the captured groups ([a-z]) and ([A-Z]) respectively.
@@ -29,12 +30,12 @@ def dbc_to_markdown_table(dbc_file_path, output_md_path):
     db = cantools.database.load_file(dbc_file_path)
 
     device_name = db.nodes[0].name if db.nodes else "Unknown Device"
-
     md_lines = ["---"]
     md_lines.append(f"title: {device_name} - DBC Messages and Signals")
-    md_lines.append("\n---\n")
+    md_lines.append("---")
+    md_lines.append("<!--- Auto-generated markdown documentation from device CAN database (dbc) -->\n")
 
-    md_lines.append(f"# {device_name} - DBC Messages and Signals\n")
+    md_lines.append(f"# Messages and Signals\n")
 
     md_lines.append(f"This section provides information on the CAN bus messages and signals used in the {device_name}. Each message is identified by its unique ID, and the structure, including signals, is described.\n")
     md_lines.append('***Note!*** *"Default BASE ID" The following Message IDs assume a default CAN Bus BASE ID of `0x600`. The BASE ID of each device is configurable via the device configuration. If the BASE ID has been configured differently on the device, make sure to account for the shift in the Message IDs. The Message ID offsets from the BASE ID will remain the same regardless of the device configuration.*\n')
@@ -50,6 +51,8 @@ def dbc_to_markdown_table(dbc_file_path, output_md_path):
             name = message.name.replace('Node01', 'Node𝒩')
         elif re.search(r'Node[0-3][0-9]', message.name, flags=0) is not None:
             continue
+        elif 'SoXDiagnostics' in name:
+            continue
 
         ref = name.lower()
         md_lines.append(f"| **{hex(message.frame_id)}** | [{camel_to_spaces(name)}](#{ref})|")
@@ -64,6 +67,8 @@ def dbc_to_markdown_table(dbc_file_path, output_md_path):
             frame_id = f"{hex(message.frame_id)} + (&#x1D4A9; &times; 0x7)"
 
         elif re.search(r'Node[0-3][0-9]', message.name, flags=0) is not None:
+            continue
+        elif 'SoXDiagnostics' in name:
             continue
 
         md_lines.append(f"## {name}")
