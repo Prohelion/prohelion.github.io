@@ -7,6 +7,7 @@ RUN pip install mkdocs-spellcheck
 RUN pip install mkdocs-redirects
 RUN pip install mkdocs-with-pdf
 RUN pip install symspellpy
+RUN pip install codespell
 
 EXPOSE 8000
 

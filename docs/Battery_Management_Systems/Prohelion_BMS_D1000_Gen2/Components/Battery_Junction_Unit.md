@@ -16,14 +16,15 @@ For more information on the Isabellenhuette IVT-S, see the datasheet: [Datasheet
 
 #### Expected Usage
 
-The Prohelion D1000 Gen2 Battery Management Unit (BMU) firmware expects the following IVT-S measurement channel arrangement
+The Prohelion D1000 Gen2 Battery Management Unit (BMU) firmware expects the following IVT-S measurement channel arrangement.  
+[:octicons-arrow-right-24: View in context](../index.md#distributed-architecture)
 
 | **IVT-S Channel**        | **Battery Measurement**                                |
 |--------------------------|--------------------------------------------------------|
 | **Current**              | Battery Current                                        |
-| **Voltage 1** (U1)       | Battery Voltage (on battery side of pack fuse)         |
-| **Voltage 2** (U2)       | Fuse Voltage (on contactor side of pack fuse)          |
-| **Voltage 3** (U3)       | Load Voltage (on load side of main+ contactor)         |
+| **Voltage 1** (U1)       | Battery Voltage        |
+| **Voltage 2** (U2)       | Charger Voltage        |
+| **Voltage 3** (U3)       | Load Voltage         |
 
 !!! tip "Coming Soon!"
     As other similar devices become available, we will begin to integrate them into the standard firmware release.
