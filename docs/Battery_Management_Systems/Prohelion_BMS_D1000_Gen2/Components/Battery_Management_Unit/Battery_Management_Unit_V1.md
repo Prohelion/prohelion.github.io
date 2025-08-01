@@ -5,7 +5,7 @@ title: Prohelion BMS D1000 Gen2 - Hardware Components
 This section provides information on the Prohelion D1000 Gen2 Battery Management Unit (BMU). 
 
 <figure markdown>
-![Figure 1: Prohelion BMS D1000 Gen2 BMU](images/Prohelion_D1000_Gen2_BMU.png)
+![Figure 1: Prohelion BMS D1000 Gen2 BMU](v1_images/Prohelion_D1000_Gen2_BMU.png)
 <figcaption>Figure 1:  Prohelion BMS D1000 Gen2 BMU</figcaption>
 </figure>
 
@@ -29,12 +29,12 @@ This section provides information on the Prohelion D1000 Gen2 Battery Management
 ## Dimensions
 
 <figure markdown>
-![Figure 1: Prohelion BMS D1000 Gen2 BMU](images/Prohelion_D1000_Gen2_BMU_Drawing1.png)
+![Figure 1: Prohelion BMS D1000 Gen2 BMU](v1_images/Prohelion_D1000_Gen2_BMU_Drawing1.png)
 <figcaption>Figure 2:  Prohelion BMS D1000 Gen2 BMU Drawing 1</figcaption>
 </figure>
 
 <figure markdown>
-![Figure 1: Prohelion BMS D1000 Gen2 BMU](images/Prohelion_D1000_Gen2_BMU_Drawing2.png)
+![Figure 1: Prohelion BMS D1000 Gen2 BMU](v1_images/Prohelion_D1000_Gen2_BMU_Drawing2.png)
 <figcaption>Figure 3:  Prohelion BMS D1000 Gen2 BMU Drawing 2</figcaption>
 </figure>
 

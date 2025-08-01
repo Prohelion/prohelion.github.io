@@ -26,7 +26,7 @@ The Prohelion BMS D1000 Gen2 is a cutting-edge, distributed Battery Management S
 ## Distributed Architecture
 
 <figure markdown>
-![Figure 1: Prohelion BMS D1000 Gen2](Components/images/Prohelion_D1000_Gen2_BMU_Architecture.png)
+![Figure 1: Prohelion BMS D1000 Gen2](Components/Battery_Management_Unit/v2_images/Prohelion_D1000_Gen2_BMU_Architecture.png)
 <figcaption>Figure 1:  Prohelion BMS D1000 Gen2</figcaption>
 </figure>
 
