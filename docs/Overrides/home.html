@@ -1,32 +1,356 @@
 {#-
-  This file was automatically generated - do not edit
+This file was automatically generated - do not edit
 -#}
 {% extends "main.html" %}
 {% block tabs %}
-  {{ super() }}
-  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
-        <div class="mdx-hero__image">
-          <img src="assets/images/CMU-side.webp" alt="" width="1659" height="1200" draggable="false">
+{{ super() }}
+<style>
+  .md-header {
+    position: initial
+  }
+
+  .md-main__inner {
+    margin: 0
+  }
+
+  .md-content {
+    display: none
+  }
+
+  @media screen and (min-width:60em) {
+    .md-sidebar--secondary {
+      display: none
+    }
+  }
+
+  @media screen and (min-width:76.25em) {
+    .md-sidebar--primary {
+      display: none
+    }
+  }
+
+  /* Responsive Hero Section */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 60vh;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-text {
+      padding: 2rem !important;
+      order: 1;
+    }
+    .hero-image {
+      height: 40vh !important;
+      order: 2;
+    }
+    .hero-title {
+      font-size: 1.8rem !important;
+    }
+    .hero-subtitle {
+      font-size: 1rem !important;
+    }
+  }
+
+  /* Responsive Section Padding */
+  .section-responsive {
+    padding: 4rem 0;
+    margin: 2rem 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-responsive {
+      padding: 2rem 1rem;
+      margin: 1rem 0;
+    }
+  }
+
+  /* Responsive Section Headers */
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-header {
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    .section-title {
+      font-size: 1.8rem !important;
+    }
+    .section-description {
+      font-size: 1rem !important;
+    }
+  }
+
+  /* Responsive Product Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Responsive Profinity Grid */
+  .profinity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .profinity-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .profinity-text {
+      padding: 1rem !important;
+    }
+    .profinity-features {
+      padding: 1rem !important;
+    }
+    .profinity-title {
+      font-size: 1.8rem !important;
+    }
+  }
+
+  /* Responsive Applications Grid */
+  .applications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .applications-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .applications-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Responsive Card Adjustments */
+  @media screen and (max-width: 768px) {
+    .product-card {
+      min-height: 350px !important;
+      padding: 1.5rem !important;
+    }
+    .application-card {
+      min-height: 350px !important;
+      padding: 1rem !important;
+    }
+    .application-image {
+      height: 200px !important;
+    }
+  }
+
+  /* Responsive Container */
+  .responsive-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .responsive-container {
+      padding: 0 1rem;
+    }
+  }
+</style>
+<section class="mdx-container">
+  <div class="md-grid md-typeset">
+    <!-- Hero Section -->
+    <div class="hero-grid">
+      <div class="hero-text" style="background: linear-gradient(135deg, var(--md-primary-fg-color) 0%, #2d2d2d 100%); padding: 4rem; color: white;">
+        <h1 class="hero-title" style="color: var(--md-secondary-text-color); font-size: 2.5rem; margin-bottom: 1rem;">Prohelion Documentation</h1>
+        <p class="hero-subtitle" style="font-size: 1.2rem; margin-bottom: 1rem; color: #e0e0e0;">Leading-Edge Electrification Solutions</p>
+        <p style="line-height: 1.6; color: #b0b0b0;">Prohelion designs and manufactures high-performance electrification
+          components for commercial vehicles, renewable energy systems, and advanced mobility applications.</p>
+      </div>
+      <div class="hero-image" style="height: 60vh; background: url('assets/images/Prohelion-BatteryModule-Lge-scaled.jpg') center/cover;">
+      </div>
+    </div>
+
+    <!-- Product Overview Section -->
+    <div class="section-responsive" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
+      <div class="responsive-container">
+        <div class="section-header">
+          <h1 class="section-title" style="color: var(--md-secondary-text-color); margin-bottom: 1rem; font-size: 2.2rem;">Leading-Edge Electrification Solutions</h1>
+          <p class="section-description" style="color: #e0e0e0; max-width: 800px; margin: 0 auto; font-size: 1.1em;">
+            Discover our range of advanced electrification products designed for seamless integration, superior performance,
+            and maximum reliability. From battery management to motor and solar control, Prohelion delivers the technology
+            that drives innovation in sustainable energy and mobility.
+          </p>
         </div>
-        <div class="mdx-hero__content">
-          <h1>Getting Started</h1>
-          <p>To read our documentation click on a menu above, or button below to...</p>
-          <a href="{{ 'https://www.prohelion.com/shop/' | url }}" title="Buy Products" class="md-button">
-            Buy Products
-          </a>
-          <a href="{{ 'https://www.prohelion.com/software/' | url }}" title="Download Software" class="md-button">
-            Download Software
-          </a>
-          <a href="{{ 'https://prohelion.atlassian.net/servicedesk/customer/portals/' | url }}" title="Prohelion Support" class="md-button">
-            Get More Support
-          </a>
+
+        <div class="product-grid">
+
+          <!-- Battery Management Systems -->
+          <div class="product-card" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; min-height: 400px;">
+            <div style="height: 150px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px; background-color: white;">
+              <img src="assets/images/D1000-Gen2-BMU-P4-Perspective.png" alt="Battery Management System" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h3 style="color: var(--md-secondary-text-color); margin-bottom: 1rem;">Battery Management Systems</h3>
+            <p style="color: #e0e0e0; margin-bottom: 1.5rem; flex-grow: 1;">Advanced BMS solutions for lithium battery packs in commercial and industrial applications. Precise monitoring, balancing, and protection for maximum safety and performance.</p>
+            <a href="Battery_Management_Systems/" class="md-button" style="margin-top: auto; background-color: var(--md-secondary-text-color); color: white; border: none;">Learn More</a>
+          </div>
+
+          <!-- Motor Controllers -->
+          <div class="product-card" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; min-height: 400px;">
+            <div style="height: 150px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px; background-color: white;">
+              <img src="assets/images/Ws22-Red-2.png" alt="WaveSculptor Motor Controller" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h3 style="color: var(--md-secondary-text-color); margin-bottom: 1rem;">Motor Controllers</h3>
+            <p style="color: #e0e0e0; margin-bottom: 1.5rem; flex-grow: 1;">High-efficiency WaveSculptor motor controllers for commercial and industrial applications. Industry-leading power density and performance for demanding electrification projects.</p>
+            <a href="Motor_Controllers/" class="md-button" style="margin-top: auto; background-color: var(--md-secondary-text-color); color: white; border: none;">Learn More</a>
+          </div>
+
+          <!-- Solar Charge Controllers -->
+          <div class="product-card" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; min-height: 400px;">
+            <div style="height: 150px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px; background-color: white;">
+              <img src="assets/images/Solar_Charge_Controller.png" alt="Solar Charge Controller" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h3 style="color: var(--md-secondary-text-color); margin-bottom: 1rem;">Solar Charge Controllers</h3>
+            <p style="color: #e0e0e0; margin-bottom: 1.5rem; flex-grow: 1;">Maximum Power Point Tracking (MPPT) controllers by Elmar. Optimized solar energy harvesting for commercial, mobile, and stationary energy applications.</p>
+            <a href="MPPTs/" class="md-button" style="margin-top: auto; background-color: var(--md-secondary-text-color); color: white; border: none;">Learn More</a>
+          </div>
+
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- Profinity Software Section -->
+    <div class="section-responsive" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
+      <div class="responsive-container">
+        <div class="profinity-grid">
+          
+          <!-- Text Content -->
+          <div class="profinity-text" style="padding: 2rem; color: white;">
+            <h2 class="profinity-title" style="color: var(--md-secondary-text-color); font-size: 2.2rem; margin-bottom: 1.5rem;">Profinity Software Suite</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #e0e0e0;">Comprehensive CAN Bus Management Platform</p>
+            <p style="line-height: 1.6; color: #b0b0b0; margin-bottom: 2rem;">
+              Profinity is our advanced CAN bus management platform that connects your CAN-based solutions to modern cloud, API, and big data technologies. 
+              With device management, real-time monitoring, cloud connectivity, and secure access control, Profinity bridges the gap between industrial hardware and modern software ecosystems.
+            </p>
+            
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="Profinity/" class="md-button" style="background-color: var(--md-secondary-text-color); color: white; border: none;">
+                Learn More
+              </a>
+              <a href="Profinity/Getting_Started/" class="md-button" style="background-color: transparent; color: var(--md-secondary-text-color); border: 2px solid var(--md-secondary-text-color);">
+                Get Started
+              </a>
+            </div>
+          </div>
+          
+          <!-- Feature Highlights -->
+          <div class="profinity-features" style="padding: 2rem;">
+            <div style="display: grid; gap: 1.5rem;">
+              
+              <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--md-secondary-text-color);">
+                <h4 style="color: var(--md-secondary-text-color); margin-bottom: 0.5rem;">Device Management</h4>
+                <p style="color: #b0b0b0; font-size: 0.95rem; margin: 0;">Connect, configure, and monitor CAN bus devices with real-time control capabilities.</p>
+              </div>
+              
+              <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--md-secondary-text-color);">
+                <h4 style="color: var(--md-secondary-text-color); margin-bottom: 0.5rem;">Cloud Integration</h4>
+                <p style="color: #b0b0b0; font-size: 0.95rem; margin: 0;">Seamless connectivity to cloud platforms with API access and advanced data logging.</p>
+              </div>
+              
+              <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--md-secondary-text-color);">
+                <h4 style="color: var(--md-secondary-text-color); margin-bottom: 0.5rem;">Security & Access Control</h4>
+                <p style="color: #b0b0b0; font-size: 0.95rem; margin: 0;">Role-based access control, secure credential management, and comprehensive audit logging.</p>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Applications Section -->
+    <div class="section-responsive" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
+      <div class="responsive-container">
+        <div class="section-header">
+          <h1 class="section-title" style="color: var(--md-secondary-text-color); margin-bottom: 1rem; font-size: 2.2rem;">Trusted by Industry Leaders</h1>
+          <p class="section-description" style="color: #e0e0e0; max-width: 800px; margin: 0 auto; font-size: 1.1em;">
+            Prohelion technology powers innovative electrification projects across multiple industries worldwide. Our components are
+            engineered for reliability, efficiency, and performance in the most demanding commercial and industrial applications.
+          </p>
+        </div>
+
+        <div class="applications-grid">
+
+          <div class="application-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; min-height: 400px;">
+            <div class="application-image" style="height: 250px; width: 100%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px;">
+              <img src="assets/images/Prohelion-Air-Med.jpg" alt="Air Solutions" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3 style="color: var(--md-secondary-text-color); margin-bottom: 1rem;">Air</h3>
+            <p style="color: #e0e0e0; flex-grow: 1; margin-bottom: 1.5rem;">Advanced electrification solutions for aviation and aerospace applications.</p>
+            <a href="https://prohelion.com/prohelion-solutions-air/" class="md-button" style="margin-top: auto; background-color: var(--md-secondary-text-color); color: white; border: none;">Learn More</a>
+          </div>
+
+          <div class="application-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; min-height: 400px;">
+            <div class="application-image" style="height: 250px; width: 100%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px;">
+              <img src="assets/images/Prohelion-Land-Med.jpg" alt="Land Solutions" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3 style="color: var(--md-secondary-text-color); margin-bottom: 1rem;">Land</h3>
+            <p style="color: #e0e0e0; flex-grow: 1; margin-bottom: 1.5rem;">Commercial vehicle manufacturers and transportation companies.</p>
+            <a href="https://prohelion.com/prohelion-solutions-land/" class="md-button" style="margin-top: auto; background-color: var(--md-secondary-text-color); color: white; border: none;">Learn More</a>
+          </div>
+
+          <div class="application-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; min-height: 400px;">
+            <div class="application-image" style="height: 250px; width: 100%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px;">
+              <img src="assets/images/Prohelion-Sea-Med.jpg" alt="Sea Solutions" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3 style="color: var(--md-secondary-text-color); margin-bottom: 1rem;">Sea</h3>
+            <p style="color: #e0e0e0; flex-grow: 1; margin-bottom: 1.5rem;">Marine electrification systems with robust, corrosion-resistant solutions.</p>
+            <a href="https://prohelion.com/prohelion-solutions-sea/" class="md-button" style="margin-top: auto; background-color: var(--md-secondary-text-color); color: white; border: none;">Learn More</a>
+          </div>
+
+          <div class="application-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; min-height: 400px;">
+            <div class="application-image" style="height: 250px; width: 100%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px;">
+              <img src="assets/images/Prohelion-Space-Med.jpg" alt="Space Solutions" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3 style="color: var(--md-secondary-text-color); margin-bottom: 1rem;">Space</h3>
+            <p style="color: #e0e0e0; flex-grow: 1; margin-bottom: 1.5rem;">Mission-critical space applications for extreme environments.</p>
+            <a href="https://prohelion.com/prohelion-solutions-space/" class="md-button" style="margin-top: auto; background-color: var(--md-secondary-text-color); color: white; border: none;">Learn More</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
 {% block content %}{% endblock %}
 {% block footer %}{% endblock %}
