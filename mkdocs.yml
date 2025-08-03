@@ -1,6 +1,9 @@
 site_name: Prohelion Documentation
 site_url: https://docs.prohelion.com
 
+extra_css:
+  - assets/stylesheets/theme.css
+
 theme:
   name: material
   custom_dir: docs/Overrides  

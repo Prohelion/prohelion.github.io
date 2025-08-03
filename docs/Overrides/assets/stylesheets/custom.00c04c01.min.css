@@ -1,3 +1,4 @@
+
 @keyframes heart {
     0%,
     40%,
@@ -88,7 +89,7 @@
 }
 
 .md-tabs {
-    background-color: #1f1f1f !important;
+    background-color: #0b0b0b !important;
 }
 
 .md-typeset .mdx-badge__text {
@@ -247,8 +248,7 @@
     max-height: none;
 }
 .mdx-container {
-    background-image: url('/assets/images/Prohelion-Sixfold-pattern.png') ;
-    background-color: #1b1b1b;
+    background-color: #222222;
     background-repeat: repeat;
     background-size: auto;
     background-attachment: fixed;
@@ -316,7 +316,7 @@
 .mdx-hero .md-button--primary {
     background-color: var(--md-primary-bg-color);
     border-color: var(--md-primary-bg-color);
-    color: #894da8;
+    color: var(--md-secondary-text-color)
 }
 .md-typeset .mdx-iconsearch {
     background-color: var(--md-default-bg-color);
