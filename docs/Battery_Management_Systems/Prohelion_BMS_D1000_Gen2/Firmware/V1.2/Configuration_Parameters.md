@@ -33,7 +33,7 @@ This section provides information on each of the BMS configuration parameters.
 
 | **Field**       | **Value**      |
 |-----------------|----------------|
-| **Description** | CAN bitrate that the device commmunicates with |
+| **Description** | CAN bitrate that the device communicates with |
 | **Permission**  | Admin |
 | **Index**       | 0x34 |
 | **Scale**       | 1 |
