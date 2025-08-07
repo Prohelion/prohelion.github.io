@@ -110,7 +110,11 @@ markdown_extensions:
       alternate_style: true
 
 extra:
-  homepage: https://docs.prohelion.com  
+  homepage: https://docs.prohelion.com
+  social:
+    - icon: material/help-circle
+      link: https://prohelion.atlassian.net/servicedesk/customer/portals
+      name: Support Portal
   consent:
     title: Cookie consent
     description: >- 
