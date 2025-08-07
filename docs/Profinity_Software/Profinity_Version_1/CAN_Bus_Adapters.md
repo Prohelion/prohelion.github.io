@@ -27,7 +27,7 @@ In the Autodiscovery window you will find all of the adapters that are currently
 </figure>
 
 !!! info "Having trouble finding a CAN over Ethernet Bridge with Autodiscovery?"
-    The CAN over Ethernet Bridges have a number of configuration options and at times may not behave as expected.  Check out our guide on the [CAN to Ethernet Bridges](/Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) for tips and tricks on getting them working.
+    The CAN over Ethernet Bridges have a number of configuration options and at times may not behave as expected.  Check out our guide on the [CAN to Ethernet Bridges](../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) for tips and tricks on getting them working.
 
 ## Adapter Manual Configuration
 

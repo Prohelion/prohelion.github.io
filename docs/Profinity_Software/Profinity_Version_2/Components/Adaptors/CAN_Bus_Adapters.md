@@ -31,7 +31,7 @@ If an adapter is defined and visible on the network but is not currently associa
 </figure>
 
 !!! info "Having trouble finding a CAN over Ethernet bridge with Autodiscovery?"
-    The CAN over Ethernet bridges have a number of configuration options and at times may not behave as expected.  See our documentation on the [CAN to Ethernet bridges](/Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) for troubleshooting advice.
+    The CAN over Ethernet bridges have a number of configuration options and at times may not behave as expected.  See our documentation on the [CAN to Ethernet bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) for troubleshooting advice.
 
 ## Adapter Manual Configuration
 

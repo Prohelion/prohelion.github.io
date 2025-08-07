@@ -2,7 +2,7 @@
 title: Open Source Software
 ---
 
-Prohelion has Open Sourced some of it's tools developed during racing to help provide a platform for learning and development.  For our commercially supported software systems, please see [Profinity](/Profinity_Software/index.md).
+Prohelion has Open Sourced some of it's tools developed during racing to help provide a platform for learning and development.  For our commercially supported software systems, please see [Profinity](../../Profinity_Software/index.md).
 
 <div class="grid cards" markdown>
 
@@ -12,7 +12,7 @@ Prohelion has Open Sourced some of it's tools developed during racing to help pr
 
     A web based platform for the capture and management of CAN Bus data in a racing environment.
 
-    [:octicons-arrow-right-24: Getting started](/Solar_Car_Racing/Open_Source_Software/ArrowPointTelemetry/index.md)
+    [:octicons-arrow-right-24: Getting started](ArrowPoint_Telemetry/index.md)
 
 -   :material-tablet-dashboard:{ .lg .middle } __ArrowPoint Tablet__
 
@@ -20,7 +20,7 @@ Prohelion has Open Sourced some of it's tools developed during racing to help pr
 
     An example Android app that can display data and alerts from Prohelion's BMS and WaveSculptors.
 
-    [:octicons-arrow-right-24: Getting Started](/Solar_Car_Racing/Open_Source_Software/ArrowPointTablet/index.md)
+    [:octicons-arrow-right-24: Getting Started](ArrowPoint_Tablet/index.md)
 
 -   :material-tools:{ .lg .middle } __ArrowPoint CAN bus Tools__
 
@@ -28,7 +28,7 @@ Prohelion has Open Sourced some of it's tools developed during racing to help pr
 
     Our very first attempt at creating a desktop application for managing CAN bus data
 
-    [:octicons-arrow-right-24: Getting Started](/Solar_Car_Racing/Open_Source_Software/ArrowPointCANBus_Tools/index.md)
+    [:octicons-arrow-right-24: Getting Started](ArrowPoint_CANBus_Tools/index.md)
 
 -   :material-code-braces:{ .lg .middle } __Contributing__
 

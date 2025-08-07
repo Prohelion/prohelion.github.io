@@ -26,6 +26,6 @@ title: Prohelion Electric Vehicle Driver Controls
 
     Our battery and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](/Profinity_Software/index.md)
+    [:octicons-arrow-right-24: Supporting Software](../../Profinity_Software/index.md)
 
 </div>
