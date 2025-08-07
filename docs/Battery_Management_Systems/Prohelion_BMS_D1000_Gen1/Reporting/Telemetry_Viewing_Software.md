@@ -4,10 +4,10 @@ title: Telemetry Viewing Software
 
 # Telemetry Viewing Software
 
-The Prohelion Battery Management System should be monitored using [Prohelion Profinity](../../../Profinity/index.md).
+The Prohelion Battery Management System should be monitored using [Prohelion Profinity](/Profinity_Software/index.md).
 
 <figure markdown>
-![BMS Viewing Software](../../../Profinity/Profinity_Version2/images/prohelion_bmu.png)
+![BMS Viewing Software](../../../Profinity_Software/Profinity_Version_2/images/prohelion_bmu.png)
 <figcaption>BMS Viewing Software</figcaption>
 </figure>
 

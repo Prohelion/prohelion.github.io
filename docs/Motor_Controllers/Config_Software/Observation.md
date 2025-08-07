@@ -11,7 +11,7 @@ This main screen shown in Figure 1, displays the status of WaveSculptor along wi
 <figcaption>Main Screen</figcaption>
 </figure>
 
-A Prohelion CAN-Ethernet bridge must be present on the same CAN bus as the WaveSculptor and on the same LAN as the PC running the configuration software. Before using the configuration software, you must first configure the CAN-Ethernet bridge as described in the [CAN-Ethernet Bridge User's Manual](../../CAN_Bridge/User_Manual/index.md).
+A Prohelion CAN-Ethernet bridge must be present on the same CAN bus as the WaveSculptor and on the same LAN as the PC running the configuration software. Before using the configuration software, you must first configure the CAN-Ethernet bridge as described in the [CAN-Ethernet Bridge User's Manual](../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/index.md).
 
 Once the CAN-Ethernet Bridge is configured and the WaveSculptor CAN bus is powered up, all WaveSculptors present on the CAN bus will be listed. The list shows each devices CAN base ID, the type of WaveSculptor and the serial number. If there is more than one WaveSculptor present, select the one you wish to utilise.
 

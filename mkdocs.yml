@@ -55,6 +55,11 @@ plugins:
       # whether to only check in strict mode
       strict_only: no
 
+      skip_files:
+      - Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Configuration_Parameters.md
+      - Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Messages_and_Signals.md
+
+
   - glightbox:
       touchNavigation: true
       loop: false

@@ -1,8 +1,7 @@
 nav:
     - index.md
+    - Profinity_Software
     - Battery_Management_Systems
     - Motor_Controllers
-    - MPPTs
-    - Profinity
+    - Solar_Charge_Controllers
     - ...
-    - FAQs

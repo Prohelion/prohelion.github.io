@@ -6,7 +6,7 @@ title: CAN Bus and Low Voltage
 
 The CAN bus is structured as a linear network, with short stubs branching from 'T' connectors on the main bus backbone to each device.  The CAN bus data lines must be terminated at each end of the main bus with 120 ohm resistors between the CAN-H and CAN-L signals.
 
-In the range of Prohelion EV products, including the [WaveSculptor 22](../User_Manual/index.md), [EV Driver Controls](../../../Driver_Control/User_Manual/index.md), and [Battery Management Systems](../../../Battery_Management_Systems/index.md), the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
+In the range of Prohelion EV products, including the [WaveSculptor 22](../User_Manual/index.md), [EV Driver Controls](../../../Solar_Car_Racing/EV_Driver_Controller/User_Manual/index.md), and [Battery Management Systems](../../../Battery_Management_Systems/index.md), the CAN connections are implemented with an 'in' and an 'out' connector, therefore placing the 'T' on the device, resulting in a very short fixed-length stub on the circuit board of each device.  This is ideal from a signal integrity and network performance point of view.
 
 <figure markdown>
 ![CAN Bus Network](images/CAN_Network_Topology.png)
@@ -84,7 +84,7 @@ Prohelion can provide a CAN bus driver controls device.  This interfaces to peda
 
 As the communications specification is open, the WaveSculptor can also be operated from custom driver controls hardware specific to your vehicle, or from a Windows PC running either the provided Prohelion software, or custom software of your choice.
 
-Please refer to the [User Manual](../../../Driver_Control/User_Manual/index.md) on our website for further details. 
+Please refer to the [User Manual](../../../Solar_Car_Racing/EV_Driver_Controller/User_Manual/index.md) on our website for further details. 
 
 ## System Expansion
 

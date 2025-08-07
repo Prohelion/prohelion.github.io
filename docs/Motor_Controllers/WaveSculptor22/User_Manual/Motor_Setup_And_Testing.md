@@ -54,7 +54,7 @@ If using batteries, now test regen braking.  Set velocity to 100%.  Gradually in
 
 Remove the CAN cable and termination resistor from the CAN-Ethernet bridge, and connect them both to the EV Driver Controls hardware.  
 
-Provide 12V power to the driver controls.  Go through the startup sequence as described in the [Driver Controls User's Manual](../../../Driver_Control/User_Manual/index.md).  Depending on the exact firmware you have this will usually involve turning the key to the start position, and selecting forward gear in the driver controls. 
+Provide 12V power to the driver controls.  Go through the startup sequence as described in the [Driver Controls User's Manual](../../../Solar_Car_Racing/EV_Driver_Controller/User_Manual/index.md).  Depending on the exact firmware you have this will usually involve turning the key to the start position, and selecting forward gear in the driver controls. 
 
 Use the accelerator (gas) pedal to run the motor.  Complete the following checks:
 

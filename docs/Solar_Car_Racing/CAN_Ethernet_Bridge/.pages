@@ -1,0 +1,12 @@
+nav:
+    - index.md
+    - Overview.md
+    - Quickstart.md
+    - Fundamentals.md
+    - CAN_Ethernet_Fundamentals.md
+    - Supported_Network_Setups.md
+    - Tritium_Tools_vs_Profinity.md
+    - User_Manual
+    - Ethernet_Interface
+    - Datasheet
+    - Common_Problems_And_Solutions.md
