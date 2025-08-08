@@ -1,8 +1,0 @@
-nav:
-    - index.md
-    - Quickstart.md
-    - Bridge_Fundamentals.md
-    - CAN_Ethernet_Fundamentals.md
-    - Supported_Network_Setups.md
-    - Tritium_Tools_vs_Profinity.md
-    - Common_Problems_And_Solutions.md

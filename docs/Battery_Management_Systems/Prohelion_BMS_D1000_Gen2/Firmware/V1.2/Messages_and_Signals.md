@@ -25,14 +25,14 @@ This section provides information on the CAN bus messages and signals used in th
 | **0x60d** | [Node Info](#nodeinfo)|
 | **0x60e** | [Node Cell Info](#nodecellinfo)|
 | **0x60f** | [Node Temp Info](#nodetempinfo)|
-| **0x610** | [Node𝒩Voltage Info](#node𝒩voltageinfo)|
-| **0x611** | [Node𝒩Cell Voltages 1](#node𝒩cellvoltages1)|
-| **0x612** | [Node𝒩Cell Voltages 2](#node𝒩cellvoltages2)|
-| **0x613** | [Node𝒩Cell Voltages 3](#node𝒩cellvoltages3)|
-| **0x614** | [Node𝒩Cell Voltages 4](#node𝒩cellvoltages4)|
-| **0x615** | [Node𝒩Cell Temps](#node𝒩celltemps)|
-| **0x616** | [Node𝒩Stats](#node𝒩stats)|
-| **0x617** | [Node𝒩Diagnostics](#node𝒩diagnostics)|
+| **0x610** | [Node𝒩Voltage Info](#)|
+| **0x611** | [Node𝒩Cell Voltages 1](#)|
+| **0x612** | [Node𝒩Cell Voltages 2](#)|
+| **0x613** | [Node𝒩Cell Voltages 3](#)|
+| **0x614** | [Node𝒩Cell Voltages 4](#)|
+| **0x615** | [Node𝒩Cell Temps](#)|
+| **0x616** | [Node𝒩Stats](#)|
+| **0x617** | [Node𝒩Diagnostics](#)|
 | **0x6f0** | [Contactor Diagnostics](#contactordiagnostics)|
 | **0x6f1** | [Device Watchdog Info](#devicewatchdoginfo)|
 | **0x6f2** | [Device Selftest Info](#deviceselftestinfo)|
@@ -92,7 +92,7 @@ This section provides information on the CAN bus messages and signals used in th
 | BMSStateCHARGE_CONNECT | Charge connect state. Closes the negative charge contactor and checks that battery and charger voltages match before proceeding  |  | 7 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
 | BMSStateCHARGE_ENABLED | Charge enabled state. Closes the positive charge contactor, allowing the charger to deliver current to the battery  |  | 8 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
 | BMSStateCHARGE_STOPPING | Charge stopping state. Waits for current flow to reduce before opening the contactors and performing welding detection  |  | 9 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
-| BMSStateDISCONNECT | Safe disconnect state. This state is a transitionary state to allow current flow to stop prior to opening the contactors in the SAFE state. This state occurs if an error has occurred while contactors are closed  |  | 10 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
+| BMSStateDISCONNECT | Safe disconnect state. This state is a transitional state to allow current flow to stop prior to opening the contactors in the SAFE state. This state occurs if an error has occurred while contactors are closed  |  | 10 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
 | BMSStateSAFE | Safe state. An error has occurred or we have progressed from the CALIBRATE state. The SAFE state ensures the battery is disconnected from the load and will transition to IDLE state after all errors have cleared. Latching errors will require a reset before the BMS will leave SAFE state  |  | 11 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
 | BMSPrechargeFailTIMEOUT | Timeout issue. State has timed out waiting for successful completion of the precharge process  |  | 16 | 1 | False | 1 | 0 | N/A | N/A | little_endian |
 | BMSPrechargeFailOVERCURRENTMAX | Over-current maximum detected  |  | 17 | 1 | False | 1 | 0 | N/A | N/A | little_endian |

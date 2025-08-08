@@ -11,7 +11,7 @@ title: Driving
 
 Wire and install the hardware driver controls as described in the EV Driver Controls User's Manual.
 
-Test the driver controls as described in the [EV Driver Controls User's Manual](../../../Driver_Control/User_Manual/index.md)
+Test the driver controls as described in the [EV Driver Controls User's Manual](../../../Solar_Car_Racing/EV_Driver_Controller/User_Manual/index.md)
 
 ## Procedure 
 

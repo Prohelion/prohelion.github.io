@@ -243,7 +243,7 @@ This section provides information on the BMS State Machine. The BMS State Machin
         <tr>
             <td rowspan="10">OTHER [0x1]</td>
             <td rowspan="3">CHARGE_INIT</td>
-            <td rowspan="3">Transitionary state that moves immediately to charge connect when the BMS command CHARGE_ENABLE is provided.</td>
+            <td rowspan="3">Transitional state that moves immediately to charge connect when the BMS command CHARGE_ENABLE is provided.</td>
             <td>CHARGE_INIT &rarr; IDLE</td>
             <td>BMS command is not CHARGE_INIT or ENABLE; Timed out waiting for ERS (50s)***</td>
         </tr>
@@ -259,7 +259,7 @@ This section provides information on the BMS State Machine. The BMS State Machin
             <td rowspan="3">CHARGE_CONNECT</td>
             <td rowspan="3">Performs the precharge sequence prior to closing contactors and moving to CHARGE_ENABLED</td>
             <td>CHARGE_CONNECT &rarr; IDLE</td>
-            <td>BMS command is not CHARGE_INIT; precharge sequence timed out (Nseconds)***</td>
+            <td>BMS command is not CHARGE_INIT; precharge sequence timed out (N seconds)***</td>
         </tr>
         <tr>
             <td>CHARGE_CONNECT &rarr; CHARGE_ENABLED</td>
