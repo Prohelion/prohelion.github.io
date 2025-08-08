@@ -1,0 +1,5 @@
+nav:
+    - index.md
+    - EV_Driver_Controller
+    - CAN_Ethernet_Bridge
+    - ...
