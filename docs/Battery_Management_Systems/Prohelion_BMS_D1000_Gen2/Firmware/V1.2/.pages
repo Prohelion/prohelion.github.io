@@ -2,3 +2,4 @@ nav:
     - State Machine: State_Machine.md
     - Messages and Signals: Messages_and_Signals.md
     - Configuration Parameters: Configuration_Parameters.md
+    - Sequence Diagram: Sequence_Diagram.md
