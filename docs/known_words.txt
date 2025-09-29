@@ -176,8 +176,10 @@ plist
 lifecycle
 titlebar
 heatmap
+heatmaps
 theming
 componentid
+reusability
 
 # Units
 milli
