@@ -39,10 +39,6 @@ Elcon Chargers are widely used in the EV industry and Profinity supports control
 
 The Signet Power Supplies that support a programmable TCP interface can be controlled by Profinity.  Units such as the [Siglent SPD3303X-E](https://siglentna.com/power-supplies/spd3303x-spd3303x-e-series-programmable-dc-power-supply/) are widely used by Prohelion clients for desktop testing scenarios.
 
-**ITech Power Supplies**
-
-[ITech](https://www.itechate.com/en/) provides a large range of bi-directional power supplies that are supported by the Profinity solution.  Profinity uses ITech's TCP interface for controlling the supply at this time we do not support the ITech CAN bus interface.
-
 ## Charging Steps
 
 ### Step 1 - Add a Charger to your Profile
