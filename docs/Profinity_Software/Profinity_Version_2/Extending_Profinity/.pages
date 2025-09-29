@@ -1,5 +1,6 @@
 nav:
     - index.md
     - Scripting
+    - Custom_Components
     - APIs
     - Hosting

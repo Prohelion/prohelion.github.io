@@ -28,8 +28,8 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 
     [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version_2/index.md)
 
-    !!! tip "Profinity V2 IS NOW IN EARLY ADOPTER RELEASE"
-        Profinity V2 is available now in Early Adopter Release.  To support this release we are making the product available to our Early Adopter Community.  If you have any issues or feedback please report them via our support portal or via the Feedback form in the Profinity Admin menu.
+    !!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
+        Profinity V2 is available now in General Release.  If you have any issues or feedback please report them via our support portal or via the Feedback form in the Profinity Admin menu.
 
 -   :material-tools:{ .lg .middle } __Profinity V1 (Retired Soon)__
 
