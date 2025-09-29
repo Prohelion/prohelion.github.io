@@ -1,10 +1,43 @@
 ---
-title: Profinity Dashboard Example
+title: Full Example
 ---
 
 # Real-World Example
 
-The following is a complete example of a motor controller dashboard that demonstrates many of the concepts covered in this guide:
+This comprehensive example demonstrates a complete motor controller dashboard that showcases many of the concepts covered in this guide. This dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters.
+
+## What This Example Demonstrates
+
+This dashboard example shows how to:
+
+- **Monitor Key Performance Metrics** - Bus voltage, current, temperatures, and velocity
+- **Display Real-time Charts** - Power consumption and velocity trends over time
+- **Show System Status** - Controller limits and error conditions with visual indicators
+- **Organize Complex Information** - Using accordions and tabs for detailed data
+- **Implement Data Binding** - Connect dashboard components to CAN bus data sources
+- **Create Professional Layouts** - Using rows, groups, panels, and pills effectively
+
+## Dashboard Structure Overview
+
+The dashboard is organized into several logical sections:
+
+1. **Status Pill** - Central component showing key metrics with an icon
+2. **Performance Charts** - Real-time graphs of power and velocity
+3. **Controller Limits** - Visual indicators for system protection limits
+4. **Error Monitoring** - Status lamps for various error conditions
+5. **Detailed Information** - Collapsible section with comprehensive data
+
+## Data Sources
+
+This dashboard connects to a Prohelion WaveSculptor 22 motor controller system and displays data from:
+
+- **Bus Measurements** - Voltage and current from the main power bus
+- **Temperature Sensors** - DSP board, motor, and heatsink temperatures
+- **Velocity Data** - Motor RPM and vehicle speed measurements
+- **Status Information** - Controller limits, errors, and system state
+- **Detailed Measurements** - Phase currents, voltage rails, and motor vectors
+
+## Complete Dashboard Example
 
 ``` yaml
 dashboard:
@@ -345,5 +378,171 @@ dashboard:
                                           - label: RX ERROR COUNT
                                             bind:
                                               - target: value
-                                                source: '{COMPONENT_NAME}.Status.RxErrorCount']]>
+                                                source: '{COMPONENT_NAME}.Status.RxErrorCount'
 ```
+
+## Section-by-Section Analysis
+
+### Status Pill Section
+
+The dashboard begins with a **pill component** that serves as the central status display:
+
+- **Icon Configuration** - Uses a motor controller icon to identify the component type
+- **Grouped Readouts** - Organizes related measurements into logical groups
+- **Key Metrics Display** - Shows bus voltage, current, temperatures, and velocity
+- **Real-time Updates** - All values update automatically from CAN bus data
+
+**Key Features:**
+- Central icon provides immediate component identification
+- Grouped layout makes related data easy to scan
+- Precision settings ensure appropriate decimal places for each measurement
+- Data binding connects to specific CAN message signals
+
+### Performance Charts Section
+
+The second row contains **panels with charts** for trend analysis:
+
+- **Bus Power Chart** - Shows power consumption over time using bus current data
+- **Velocity Chart** - Displays vehicle speed trends
+- **Time Series Data** - Uses `[TimeSeries]` data source for historical information
+- **Clean Layout** - Each chart is in its own titled panel
+
+**Key Features:**
+- Line charts provide smooth trend visualization
+- Time series data automatically updates with new values
+- Legend disabled for cleaner appearance
+- Separate panels allow independent chart management
+
+### Controller Limits Section
+
+The **controller limits panel** shows system protection status:
+
+- **Amber Status Lamps** - Indicates when various limits are active
+- **Comprehensive Coverage** - Monitors voltage, current, velocity, and temperature limits
+- **Real-time Status** - Lamps enable/disable based on actual limit conditions
+- **Two-Row Layout** - Organizes limits into logical groups
+
+**Key Features:**
+- Visual indicators provide immediate status awareness
+- Boolean data binding shows/hides lamps based on limit states
+- Amber colour indicates warning conditions
+- Grouped layout prevents information overload
+
+### Error Monitoring Section
+
+The **controller errors panel** displays critical system faults:
+
+- **Red Status Lamps** - Indicates active error conditions
+- **Comprehensive Error Coverage** - Monitors hardware, software, and communication errors
+- **Immediate Visibility** - Critical errors are prominently displayed
+- **Organized Layout** - Errors grouped by type and severity
+
+**Key Features:**
+- Red colour indicates critical conditions requiring attention
+- Boolean binding shows errors only when active
+- Comprehensive error monitoring for system reliability
+- Clear labelling for quick error identification
+
+### Detailed Information Section
+
+The **accordion section** provides comprehensive system details:
+
+- **Collapsible Design** - Keeps detailed information accessible but not cluttered
+- **Tabbed Interface** - Organizes detailed data into logical categories
+- **Multiple Data Categories** - Low voltage, phase currents, motor vectors, speed/distance, and other data
+- **High Precision** - Detailed measurements with appropriate decimal places
+
+**Key Features:**
+- Progressive disclosure keeps main dashboard clean
+- Tabbed interface organizes complex information
+- High-precision readouts for detailed analysis
+- Comprehensive coverage of all available system data
+
+## Data Binding Patterns
+
+This example demonstrates several important data binding patterns:
+
+### CAN Bus Signal Binding
+```yaml
+bind:
+  - target: value
+    source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+```
+- Uses DBC signal names for real-time data
+- Component name placeholder for reusability
+
+### Time Series Data Binding
+```yaml
+bind:
+  - target: value
+    source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+```
+- Historical data for charts and trends
+- Automatic time series management
+
+### Boolean Status Binding
+```yaml
+bind:
+  - target: enabled
+    source: '{COMPONENT_NAME}.Status.LimitMotorCurrent'
+    toType: boolean
+```
+- Shows/hides status indicators based on conditions
+- Type conversion ensures proper boolean handling
+
+## Customization Guide
+
+### Adapting for Different Systems
+
+To adapt this dashboard for other motor controllers or systems:
+
+1. **Update Data Sources** - Replace CAN signal names with your system's signals
+2. **Modify Measurements** - Adjust the specific parameters you want to monitor
+3. **Customize Layout** - Rearrange panels and sections for your needs
+4. **Adjust Precision** - Set appropriate decimal places for your measurements
+5. **Update Labels** - Change labels to match your system terminology
+
+### Adding New Sections
+
+- **Additional Charts** - Add more panels with different time series data
+- **New Status Indicators** - Include additional limit or error monitoring
+- **Custom Measurements** - Add readouts for system-specific parameters
+- **Interactive Elements** - Include actions or toggles for system control
+
+### Performance Considerations
+
+- **Data Update Frequency** - High-frequency data may impact chart performance
+- **Number of Components** - More components require more processing power
+- **Complex Bindings** - Simple data bindings perform better than complex transformations
+
+## Best Practices Demonstrated
+
+This example follows several dashboard design best practices:
+
+### Layout Organization
+- **Logical Grouping** - Related information is grouped together
+- **Progressive Disclosure** - Detailed information is in collapsible sections
+- **Visual Hierarchy** - Important information is prominently displayed
+- **Consistent Spacing** - Uniform layout throughout the dashboard
+
+### Data Presentation
+- **Appropriate Precision** - Decimal places match measurement requirements
+- **Clear Labelling** - All measurements have descriptive labels
+- **Visual Indicators** - Status lamps provide immediate visual feedback
+- **Real-time Updates** - All data updates automatically
+
+### User Experience
+- **Intuitive Layout** - Information flows logically from general to specific
+- **Quick Access** - Key metrics are immediately visible
+- **Detailed Analysis** - Comprehensive data available when needed
+- **Professional Appearance** - Clean, organized presentation
+
+## Next Steps
+
+Now that you've seen a complete dashboard example, you can:
+
+- **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
+- **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to connect your data sources
+- **Explore Components** - Use [Component Reference](./Component_Reference.md) for detailed component information
+- **Add Styling** - Apply [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
+- **Create Your Own** - Use this example as a template for your specific system

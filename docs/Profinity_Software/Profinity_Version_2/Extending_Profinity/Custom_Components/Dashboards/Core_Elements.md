@@ -1,17 +1,115 @@
 ---
-title: Profinity Dashboard Core Elements
+title: Core Elements
 ---
 
-# The Four Core Dashboard Elements   
+# The Four Core Dashboard Elements
 
-A dashboard is defined as a collection of full-width items arranged vertically. Each top level can be one of four types:
+A Profinity dashboard is built using a hierarchical structure of four core element types. These elements are arranged vertically and provide the foundation for creating dynamic, data-driven user interfaces.
 
-- **Titlebar**: Header section with status lamps and navigation menus
-- **Row**: Layout containers that can hold multiple components
-- **Accordion**: Collapsible sections for organizing content
-- **Footer**: Bottom section with navigation menus
+## Understanding the Structure
 
-The dashboard uses a hierarchical structure where rows can contain groups, and groups can contain individual components. This allows for flexible layouts that can adapt to different screen sizes and content requirements.
+Dashboards are defined as collections of full-width items arranged vertically. Each top-level element can be one of four types, and they can be nested to create complex layouts:
+
+- **Rows** contain **Groups** and **Components**
+- **Groups** organize related **Components** together
+- **Components** display actual data and controls
+
+This hierarchical approach allows for flexible layouts that adapt to different screen sizes and content requirements.
+
+## The Four Core Elements
+
+### 1. Titlebar
+The header section of your dashboard, typically containing:
+
+- Status indicators and lamps
+- Navigation menus
+- Component identification
+
+**When to use:** Every dashboard should have a titlebar to provide context and navigation.
+
+**Learn more:** [Titlebar Reference](./Component_Reference.md#titlebar)
+
+### 2. Row
+Layout containers that organize components horizontally or vertically.
+
+**Key features:**
+
+- Can hold multiple components or groups
+- Supports both horizontal and vertical layouts
+- Essential for organizing dashboard content
+
+**When to use:** Use rows to create logical sections of your dashboard and control component arrangement.
+
+**Learn more:** [Row Reference](./Component_Reference.md#row)
+
+### 3. Accordion
+Collapsible sections for organizing content that can be expanded or collapsed.
+
+**Key features:**
+
+- Keeps dashboards clean and organized
+- Allows users to focus on relevant information
+- Perfect for detailed information that's not always needed
+
+**When to use:** Use accordions for detailed information, settings, or secondary data that users can access when needed.
+
+**Learn more:** [Accordion Reference](./Component_Reference.md#accordion)
+
+### 4. Footer
+Bottom section typically containing navigation menus and additional controls.
+
+**Key features:**
+
+- Usually contains navigation elements
+- Provides consistent footer across dashboards
+- Optional but useful for complex applications
+
+**When to use:** Use footers for navigation, additional actions, or system information.
+
+**Learn more:** [Footer Reference](./Component_Reference.md#footer)
+
+## Layout Directions
+
+Understanding layout directions is crucial for effective dashboard design:
+
+- **Vertical (default)**: Components stack from top to bottom
+- **Horizontal**: Components arrange side by side
+
+Rows can specify their direction, allowing you to create both vertical and horizontal layouts within the same dashboard.
+
+## Component Nesting
+
+The hierarchical structure allows for flexible component organization:
+
+```
+Dashboard
+├── Titlebar
+├── Row (vertical)
+│   ├── Group
+│   │   ├── Component 1
+│   │   └── Component 2
+│   └── Group
+│       └── Component 3
+├── Accordion
+│   └── Row
+│       └── Components
+└── Footer
+```
+
+This nesting system enables you to create sophisticated layouts while maintaining clean, readable YAML configurations.
+
+## Complete Example
+
+The following example demonstrates how all four core elements work together in a real dashboard. This example shows:
+
+- A **titlebar** with status lamps and navigation
+- **Rows** organizing different sections of data
+- **Groups** containing related components like readouts and charts
+- **Panels** for organizing complex data displays
+- **Accordions** for collapsible detailed information
+- **Tabs** for organizing different views within accordions
+
+This comprehensive example includes data bindings to CAN bus signals, showing how the dashboard connects to real vehicle data.
 
 ## Dashboard Structure
 

@@ -1,13 +1,55 @@
 ---
-title: Profinity Dashboard Component Reference
+title: Component Reference
 ---
-
 
 # Component Reference
 
+This reference provides detailed information about all available dashboard components in Profinity. Components are organized into three main categories: **Layout Components**, **Data Components**, and **Interactive Components**.
+
+## How to Use This Reference
+
+- **Layout Components** - Containers and structural elements for organizing your dashboard
+- **Data Components** - Display and visualize data from your CAN bus and system properties
+- **Interactive Components** - User interface elements for interaction and control
+
+Each component entry includes:
+- **Description** - What the component does and when to use it
+- **Parameters** - All available configuration options
+- **Example** - Working YAML code showing the component in action
+
+## Component Categories
+
+### Layout Components
+Essential building blocks for dashboard structure:
+- [Row](#row) - Basic layout container
+- [Group](#group) - Organizes related components
+- [Panels](#panels) - Grid layout system
+- [Panel](#panel) - Individual panel within a grid
+- [Accordion](#accordion) - Collapsible content sections
+- [Titlebar](#titlebar) - Dashboard header
+- [Footer](#footer) - Dashboard footer
+
+### Data Components
+Display and visualize information:
+- [Lamps](#lamps) - Status indicators
+- [Readouts](#readouts) - Numerical and text displays
+- [Charts](#charts) - Data visualization
+- [Tables](#tables) - Tabular data display
+- [State](#state) - State machine visualization
+
+### Interactive Components
+User interface and control elements:
+- [Tabs](#tabs) - Tabbed interface
+- [Actions](#actions) - Buttons and controls
+- [Toggles](#toggles) - Switch components
+
+## Layout Components
+
 ## Row
 
-A row is a layout container that can hold multiple components.
+A row is a layout container that can hold multiple components. Rows are the fundamental building blocks of dashboard layout, allowing you to organize components horizontally or vertically.
+
+**Best for:** Creating logical sections, organizing related components, controlling layout direction
 
 **Parameters:**
 
@@ -41,7 +83,9 @@ row:
 
 ## Group
 
-A group is a container that organizes related components.
+A group is a container that organizes related components. Groups help create visual and logical groupings within rows, making dashboards more organized and easier to understand.
+
+**Best for:** Grouping related data displays, creating visual sections, organizing components with similar functions
 
 **Parameters:**
 
@@ -70,7 +114,9 @@ group:
 
 ## Panels
 
-Panels create a grid layout of individual panel components.
+Panels create a grid layout of individual panel components. This creates a flexible grid system where each panel can contain different types of content and data visualizations.
+
+**Best for:** Creating dashboard sections with multiple data views, organizing complex information into digestible panels
 
 **Parameters:**
 
@@ -102,7 +148,9 @@ panels:
 
 ## Pill
 
-Status pill component with grouped readouts and icon.
+Status pill component with grouped readouts and icon. Pills provide a compact way to display multiple related values with a central icon, perfect for showing component status and key metrics.
+
+**Best for:** Component status displays, key metric summaries, compact data presentation
 
 **Parameters:**
 
@@ -150,7 +198,9 @@ pill:
 
 ## Panel
 
-Individual panel within a panels grid.
+Individual panel within a panels grid. Each panel can contain various components and provides a titled container for organizing related content.
+
+**Best for:** Individual data sections, titled content areas, organized information display
 
 **Parameters:**
 
@@ -178,7 +228,9 @@ panel:
 
 ## Accordion
 
-Collapsible sections for organizing content.
+Collapsible sections for organizing content. Accordions help keep dashboards clean by allowing users to expand and collapse sections of information as needed.
+
+**Best for:** Detailed information that's not always needed, settings panels, secondary data, keeping dashboards uncluttered
 
 **Parameters:**
 
@@ -188,7 +240,7 @@ Collapsible sections for organizing content.
 **Example:**
 
 ``` yaml
-accordian:
+accordion:
   label: "System Details"
   items:
     - row:
@@ -203,7 +255,9 @@ accordian:
 
 ## Titlebar
 
-Header section with status lamps and navigation.
+Header section with status lamps and navigation. The titlebar provides dashboard identification, status information, and navigation controls.
+
+**Best for:** Dashboard identification, status indicators, navigation menus, component-specific actions
 
 **Parameters:**
 
@@ -248,7 +302,9 @@ titlebar:
 
 ## Footer
 
-Bottom section with navigation menus.
+Bottom section with navigation menus. The footer provides additional navigation options and system information.
+
+**Best for:** Additional navigation, system information, help links, secondary actions
 
 **Parameters:**
 
@@ -271,13 +327,17 @@ footer:
 
 # Data Components
 
+Data components display and visualize information from your CAN bus and system properties.
+
 ## Lamps
 
-Grid of status indicators.
+Grid of status indicators. Lamps provide visual status information using colours and states to quickly communicate system status.
+
+**Best for:** Status indicators, error/warning displays, system state visualization, quick status overview
 
 **Parameters:**
 
-- `groups`  (array, required): Array of lamp groups</ul>
+- `groups`  (array, required): Array of lamp groups
 
 **Lamp Item Parameters:**
 
@@ -285,7 +345,7 @@ Grid of status indicators.
 - `label`  (string, required): Display label
 - `value`  (number, required): Lamp value (typically 0 or 1)
 - `enabled`  (boolean, required): Whether the lamp is enabled
-- `bind`  (array, optional): Data binding configuration</ul>
+- `bind`  (array, optional): Data binding configuration
 
 **Example:**
 
@@ -321,7 +381,9 @@ lamps:
             
 ## Readouts
 
-Display of numerical or text values.
+Display of numerical or text values. Readouts are the primary way to show sensor data, measurements, and other numerical information from your system.
+
+**Best for:** Sensor readings, measurements, numerical data display, text information, real-time values
 
 **Parameters:**
 
@@ -367,14 +429,16 @@ readouts:
 
 ## Charts
 
-Data visualization components.
+Data visualization components. Charts provide graphical representation of data trends, making it easy to understand patterns and changes over time.
+
+**Best for:** Data trends, historical analysis, performance monitoring, visual data representation, time-series data
 
 **Parameters:**
 
 - `type`  (string, required): Chart type - &quot;bar&quot; or &quot;line&quot;
 - `value`  (object/array, required): Chart data
 - `legend`  (boolean, optional): Show legend (default: false)
-- `bind`  (array, optional): Data binding configuration</ul>
+- `bind`  (array, optional): Data binding configuration
 
 **Example:**
 
@@ -404,11 +468,13 @@ chart:
 
 ## Tabs
 
-Tabbed interface with header lamps and body content.
+Tabbed interface with header lamps and body content. Tabs organize information into separate views, allowing users to switch between different data sets or views.
+
+**Best for:** Organizing multiple data views, separating different information types, creating multi-page interfaces within a single dashboard
 
 **Parameters:**
 
-- `items`  (array, required): Array of tab objects</ul>
+- `items`  (array, required): Array of tab objects
 
 **Tab Object Parameters:**
 
@@ -448,7 +514,9 @@ tabs:
 
 ## State
 
-State machine visualization component.
+State machine visualization component. State components display the current state of a system using Mermaid flowcharts, showing state transitions and current position.
+
+**Best for:** System state visualization, process flow display, state machine representation, complex system status
 
 **Parameters:**
 
@@ -464,12 +532,14 @@ state:
   bind:
     - target: value
       source: Prohelion BMU.[Property].State.Controller.CurrentState.Name
-      toType: string]]></ac:plain-text-body></ac:structured-macro>
+      toType: string
 ```
 
 ## Tables
 
-Data table display.
+Data table display. Tables present structured data in rows and columns, with advanced features like heatmaps and highlighting for better data analysis.
+
+**Best for:** Structured data display, multi-dimensional data, data analysis, large datasets, comparative data
 
 **Parameters:**
 
@@ -504,9 +574,15 @@ table:
       source: Prohelion BMU.[Property].PackData.Nodes.Values
 ```
 
+# Interactive Components
+
+Interactive components provide user interface elements for control and interaction with the dashboard and underlying systems.
+
 ## Actions
 
-Interactive buttons.
+Interactive buttons. Actions provide clickable buttons that can trigger system actions, navigation, or other interactive behaviours.
+
+**Best for:** System controls, navigation buttons, data refresh actions, user interactions, command execution
 
 **Parameters:**
 
@@ -516,7 +592,7 @@ Interactive buttons.
 - `class`  (string, optional): CSS class
 - `image`  (string, optional): Button icon
 - `imageAlt`  (string, optional): Icon alt text
-- `systemAction`  (boolean, optional): System-level action</ul>
+- `systemAction`  (boolean, optional): System-level action
 
 **Example:**
 
@@ -530,7 +606,10 @@ action:
 ```
 
 ## Toggles
-Switch components.
+
+Switch components. Toggles provide on/off controls for system settings and features, allowing users to enable or disable functionality.
+
+**Best for:** Settings controls, feature toggles, enable/disable switches, user preferences, system configuration
 
 **Parameters:**
 
@@ -547,3 +626,11 @@ toggle:
   actionId: "auto-refresh"
   class: "toggle-switch"
 ```
+
+## Next Steps
+
+Now that you understand the available components, you can:
+- Learn about [Data Binding](./Data_Binding.md) to connect components to your data
+- Explore [Core Elements](./Core_Elements.md) to understand dashboard structure
+- See [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
+- Review [Example](./Example.md) for complete dashboard implementations

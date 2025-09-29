@@ -1,51 +1,78 @@
 ---
-title: Profinity Dashboard Data Binding
+title: Data Binding
 ---
 
-# How Profinity Dashboards Accesses Data
+# Data Binding in Profinity Dashboards
 
-Profinity dashboards can call in to the main Profinity engine to get realtime values using the Profinity Data Store (PDS) format.  The structure for accessing the Profinity Data Store is as follows.
+Data binding is the process of connecting your dashboard components to live data sources. This allows your dashboards to display real-time information from CAN bus messages, system properties, and historical data.
 
-## Component Name Placeholders
+## What is Data Binding?
 
-Throughout this guide, you'll see `{COMPONENT_NAME}`  
+Data binding creates a dynamic connection between your dashboard components and data sources. When the underlying data changes, your dashboard automatically updates to reflect the new values. 
 
-used in data binding examples. This is a placeholder that gets replaced at runtime with the actual component name. For example:
+This enables:
+
+- **Real-time monitoring** of CAN Bus systems
+- **Automatic updates** without manual refresh
+- **Dynamic styling** based on data values
+- **Interactive displays** that respond to system state
+
+## Understanding Data Sources
+
+Profinity dashboards access data through the **Profinity Data Store (PDS)**, which provides a unified interface to the various data sources managed by Profinity. 
+
+The PDS automatically handles data formatting, type conversion, and real-time updates.
+
+### Component Name Placeholders
+
+Throughout this guide, you'll see `{COMPONENT_NAME}` used in data binding examples. This is a placeholder that gets replaced at runtime with the actual component name at runtime, this is used because it is possible to change the name of a component in Profinity, so rather than hard-coding the component name it is possible to define it as a variable. 
+
+For example:
 
 - `{COMPONENT_NAME}.BusMeasurement.BusVoltage` becomes `WaveSculptor 22.BusMeasurement.BusVoltage` 
 - `{COMPONENT_NAME}.[Property].Status`  becomes `Prohelion D1000 Gen 1.[Property].Status`
 
 This allows you to create reusable dashboard templates that can be applied to different components without modifying the YAML configuration. The system automatically substitutes the placeholder with the specific component name when the dashboard is rendered.
 
-### DBC Messages and Signals
+## Data Source Types
 
-The primary data source uses DBC (Database CAN) format for CAN bus messages and signals:
+Profinity supports three main types of data sources, each optimized for different use cases:
 
-- `{COMPONENT_NAME}.BusMeasurement.BusVoltage`  - Accesses a signal from a CAN message
-- `{COMPONENT_NAME}.Status.Online` - Accesses a status signal from a CAN message
+### 1. DBC Messages and Signals
 
-### Direct C# Properties
+The most common data source uses DBC (Database CAN) format for CAN bus messages and signals:
 
-Use `[Property]`  to access C# properties directly:
+- `{COMPONENT_NAME}.BusMeasurement.BusVoltage`  - Accesses a signal (BusVoltage) from a CAN message (BusMeasurement)
+- `{COMPONENT_NAME}.Status.Online` - Accesses a status signal (Online) from a CAN message (Status)
 
-- `{COMPONENT_NAME}.[Property].Status`  - Accesses a C# property directly
-- `{COMPONENT_NAME}.[Property].Configuration.Version`  - Accesses nested properties
-- `{COMPONENT_NAME}.[Property].PackData.NodeStatusColourText[1]`  - Accesses an array element
-- `{COMPONENT_NAME}.[Property].PackData.BatteryMilliVolts`  - Accesses battery voltage data
-- `{COMPONENT_NAME}.[Property].State.Controller.CurrentState.Name`  - Accesses nested state information
+**Best for:** Real-time data, sensor readings, status indicators that have been defined in DBC
 
-### Time Series Data
+### 2. Direct C# Properties
 
-Use `[TimeSeries]`  to access time-series data for charts and historical displays:
+Use `[Property]` to directly access Properties on the back end C# objects in Profinity, generally this is for power users only:
 
-- `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent`  - Time series data for charts
-- `[TimeSeries].{COMPONENT_NAME}.VelocityMeasurement.VehicleVelocity`  - Historical velocity data
+- `{COMPONENT_NAME}.[Property].Status` - Accesses a C# property directly
+- `{COMPONENT_NAME}.[Property].Configuration.Version` - Accesses nested properties
+- `{COMPONENT_NAME}.[Property].PackData.NodeStatusColourText[1]` - Accesses an array element
+- `{COMPONENT_NAME}.[Property].PackData.BatteryMilliVolts` - Accesses battery voltage data
+- `{COMPONENT_NAME}.[Property].State.Controller.CurrentState.Name` - Accesses nested state information
+
+**Best for:** System configuration, complex data structures, calculated values where the component has all its functionality defined in the C# code.  Generally this would only use used by Prohelion developers, but it is available for general use where required.
+
+### 3. Time Series Data
+
+Use `[TimeSeries]` to access time-series data for charts and historical displays:
+
+- `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent` - Time series data for charts
+- `[TimeSeries].{COMPONENT_NAME}.VelocityMeasurement.VehicleVelocity` - Historical velocity data
+
+**Best for:** Charts, historical analysis, trend visualization from either DBC or Property types.
 
 The system automatically handles the different data source types and provides appropriate data binding capabilities for each.
 
-## Data Binding
+## Data Binding Syntax
 
-Data binding allows you to connect your dashboard components to dynamic data sources. The binding system supports data transformation, type conversion, and value mapping.
+Data binding allows you to connect your dashboard components to dynamic data sources that can be provided by the Prohelion Data Store (PDS). The binding system supports data transformation, type conversion, and value mapping.
 
 ### Basic Binding Structure
 
@@ -100,7 +127,7 @@ bind:
     offset: 0    # No offset
 ```
 
-####Example Readout with Scaling####
+### Example Readout with Scaling
 
 ``` yaml
 readouts:
@@ -133,7 +160,7 @@ bind:
 
 Map values to display text using boolean or partition-based mapping.
 
-####Boolean Text Mapping####
+### Boolean Text Mapping
 
 ``` yaml
 bind:
@@ -144,7 +171,7 @@ bind:
       false: "Offline"
 ```
 
-####Partition-Based Text Mapping####
+### Partition-Based Text Mapping
 
 ``` yaml
 bind:
@@ -156,3 +183,25 @@ bind:
 ```
 
 The partition array defines ranges: [label1, threshold1, label2, threshold2, label3]. The bias determines which label to use when a value equals a threshold.
+
+## Best Practices
+
+### Choosing the Right Data Source
+
+- **Use DBC signals** for real-time vehicle data that updates frequently
+- **Use C# properties** for configuration data, system state, and complex data structures
+- **Use TimeSeries** for charts and historical analysis
+
+### Performance Considerations
+
+- **Minimize bindings** - Only bind to data you actually need to display
+- **Use appropriate precision** - Set precision levels that match your data requirements
+- **Consider update frequency** - High-frequency data may impact dashboard performance
+
+## Next Steps
+
+Now that you understand data binding, you can:
+- Learn about [Core Elements](./Core_Elements.md) to understand dashboard structure
+- Explore [Component Reference](./Component_Reference.md) for detailed component information
+- See [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
+- Review [Example](./Example.md) for complete dashboard implementations

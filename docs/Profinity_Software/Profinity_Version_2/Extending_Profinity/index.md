@@ -7,7 +7,7 @@ title: Extending Profinity
 
 # Extending Profinity
 
-Profinity offers a robust platform that can be extended and customized to meet your specific needs. By leveraging the Profinity [Scripting](./Scripting/index.md), [APIs](./APIs/index.md), and [Hosting](./Hosting/index.md) capabilities, you can transform Profinity into a powerful application server that can host your own custom applications and code, while using the power of Profinity to drive your systems and gather data. 
+Profinity offers a robust platform that can be extended and customized to meet your specific needs. By leveraging the Profinity [Scripting](./Scripting/index.md), [APIs](./APIs/index.md), [Custom Components](./Custom_Components/Dashboards/index.md), and [Hosting](./Hosting/index.md) capabilities, you can transform Profinity into a powerful application server that can host your own custom applications and code, while using the power of Profinity to drive your systems and gather data. 
 
 This flexibility allows you to tailor Profinity to your organization's unique requirements, enhancing its functionality and usability.
 
@@ -20,6 +20,14 @@ With support for languages like C#, JavaScript, and Python, you can choose the b
 | C# Scripting                        | Python                                   | JavaScript                                       |
 |-------------------------------------|------------------------------------------|--------------------------------------------------|
 |![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) | ![JavaScript Logo](../images/JavaScriptLogo.png) |
+
+## Custom Components
+
+Profinity's [Custom Components](./Custom_Components/Dashboards/index.md) allow you to create dynamic, data-driven user interfaces using YAML configuration files. This powerful feature enables you to build custom dashboards that display real-time information from your CAN bus systems and integrate seamlessly with Profinity's data sources.
+
+With Custom Components, you can create professional monitoring interfaces without writing code, using a declarative YAML approach that's both powerful and maintainable. This is particularly useful for organizations that need to monitor complex systems, create operator interfaces, or develop custom data visualization tools that provide immediate insights into system performance and status.
+
+The Custom Components system supports various component types including data displays, charts, status indicators, and interactive elements, all connected to your live data through Profinity's data binding system. This enables you to create responsive dashboards that automatically update as your system state changes, providing real-time feedback and monitoring capabilities.
 
 ## APIs
 

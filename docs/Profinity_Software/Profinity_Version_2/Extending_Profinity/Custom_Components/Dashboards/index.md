@@ -12,9 +12,10 @@ The Profinity Dashboard system allows you to create dynamic, data-driven user in
 ## Prerequisites
 
 Before creating custom dashboards, you should have:
-- Access to Profinity V2 system
+
 - Basic understanding of YAML syntax
 - Knowledge of CAN bus communication (for DBC files)
+- An understanding of the DBC Messages and Signals produced by your device
 - Familiarity with the Profinity Custom Component system
 
 ## Getting Started
@@ -32,11 +33,13 @@ To create a custom dashboard, follow these steps:
 A **Profinity Custom Component** consists of two essential files:
 
 ### DBC File
+
 - Defines the CAN bus messages and signals that your component will use
 - Accessed through the **DBC Editor** in the Custom Component editor
 - Required for data communication between your dashboard and the CAN network
 
 ### YAML File
+
 - Defines the dashboard layout and component bindings
 - Accessed through the **Dashboard Editor** in the Custom Component editor
 - If you don't provide a dashboard, Profinity will provide a default one
@@ -55,6 +58,8 @@ The dashboard editor uses a schema to validate your YAML dashboard file. The edi
 This ensures that your dashboard configurations are always valid and will work correctly when deployed.
 
 ## Viewing Dashboard Source
+
+All the dashboards in Profinity are built this dashboard system, sometimes the best way to learn is to use our examples as a basis. To enable that you can access the source YAML definition of any existing dashboard. 
 
 To inspect the YAML source of an existing dashboard, add the `source` parameter to the component URL:
 
