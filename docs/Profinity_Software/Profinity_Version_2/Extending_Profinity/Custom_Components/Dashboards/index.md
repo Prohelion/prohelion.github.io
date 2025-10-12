@@ -85,3 +85,15 @@ For additional information we would recommend you read these other parts of the 
 3. [Component Reference](./Component_Reference.md) reference information on each of the components you can include in your dashboard
 4. [Conditional Styling](./Conditional_Styling.md) how to make your dashboard style change to hide and show elements or change colour based on data.
 5. [Example](./Example.md) an example of a full Profinity dashboard in YAML format.
+
+
+
+
+
+
+
+
+
+
+
+
