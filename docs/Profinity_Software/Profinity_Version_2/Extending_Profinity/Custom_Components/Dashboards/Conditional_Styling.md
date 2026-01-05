@@ -41,17 +41,22 @@ Show or hide components based on data values. This is useful for displaying info
 ## Conditional Display Examples
 
 ``` yaml
-group:
-  class: "conditional-panel"
+dashboard:
   items:
-    - readouts:
+    - row:
         items:
-          - label: "Special Value"
-            value: 0
-            bind:
-              - target: "value"
-                source: "data.special_value"
-                toType: "number"
+          - group:
+              class: "conditional-panel"
+              items:
+                - readouts:
+                    items:
+                      - readout:
+                          label: "Special Value"
+                          value: 0
+                          bind:
+                            - target: "value"
+                              source: "data.special_value"
+                              toType: "number"
 ```
 
 ### 2. Dynamic Styling
@@ -67,17 +72,22 @@ Change CSS classes and styling properties based on data values. This allows comp
 ## Dynamic Styling Examples
 
 ``` yaml
-row:
-  class: "status-row"
+dashboard:
   items:
-    - group:
-        class: "status-panel"
-        bind:
-          - target: "class"
-            source: "data.status"
-            mapToText:
-              true: "status-panel online"
-              false: "status-panel offline"
+    - row:
+        class: "status-row"
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Status"
+                    class: "status-panel"
+                    bind:
+                      - target: "class"
+                        source: "data.status"
+                        mapToText:
+                          trueValue: "status-panel online"
+                          falseValue: "status-panel offline"
 ```
 
 ### 3. Conditional Visibility
@@ -122,4 +132,4 @@ Now that you understand conditional styling, you can:
 - Learn about [Data Binding](./Data_Binding.md) to connect styling to your data sources
 - Explore [Component Reference](./Component_Reference.md) for styling options available on each component
 - See [Core Elements](./Core_Elements.md) to understand how conditional styling works with dashboard structure
-- Review [Example](./Example.md) for complete dashboard implementations with conditional styling
+- Review [Examples](./Examples.md) for complete dashboard implementations with conditional styling

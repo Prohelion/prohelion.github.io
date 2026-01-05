@@ -1,130 +1,45 @@
 ---
-title: Core Elements
+title: Dashboard Examples
 ---
 
-# The Four Core Dashboard Elements
+# Dashboard Examples
 
-A Profinity dashboard is built using a hierarchical structure of four core element types. These elements are arranged vertically and provide the foundation for creating dynamic, data-driven user interfaces.
+This guide provides comprehensive examples of Profinity dashboards, from simple component displays to complete real-world implementations. All examples use the correct schema structure and demonstrate best practices.
 
-## Understanding the Structure
+## Table of Contents
 
-Dashboards are defined as collections of full-width items arranged vertically. Each top-level element can be one of several types, and they can be nested to create complex layouts:
+- [Complete Dashboard Example](#complete-dashboard-example) - Full motor controller dashboard
+- [Real-World Scenarios](#real-world-scenarios) - Step-by-step walkthroughs
+- [Progressive Examples](#progressive-examples) - Building from simple to complex
+- [Component-Specific Examples](#component-specific-examples) - Examples for each component type
 
-- **Rows** contain **Groups** and **Components**
-- **Groups** organize related **Components** together
-- **Components** display actual data and controls
-- **Panels** provide titled containers for organizing content
-- **HTML** and **Image** components provide rich content display
+## Complete Dashboard Example
 
-This hierarchical approach allows for flexible layouts that adapt to different screen sizes and content requirements.
+This comprehensive example demonstrates a complete motor controller dashboard that showcases many of the concepts covered in this guide. This dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters.
 
-## Profile Directories
+### What This Example Demonstrates
 
-Profinity provides profile-specific directories for organizing dashboard assets:
+This dashboard example shows how to:
 
-- **/Profile/Images**: Store images used in dashboards (icons, interactive images, etc.) - referenced by filename only
-- **/Profile/Styles**: Store custom CSS stylesheets - referenced by filename
-- **/Profile/Content**: Store general content files (HTML snippets, templates, etc.) - referenced by filename
+- **Monitor Key Performance Metrics** - Bus voltage, current, temperatures, and velocity
+- **Display Real-time Charts** - Power consumption and velocity trends over time
+- **Show System Status** - Controller limits and error conditions with visual indicators
+- **Organize Complex Information** - Using accordions and tabs for detailed data
+- **Implement Data Binding** - Connect dashboard components to CAN bus data sources
+- **Create Professional Layouts** - Using rows, groups, panels, and pills effectively
+- **Use Profile Assets** - Reference images from /Profile/Images directory
 
-All assets in these directories are automatically served by Profinity and can be referenced in your dashboard YAML files.
+### Dashboard Structure Overview
 
-## The Four Core Elements
+The dashboard is organized into several logical sections:
 
-### 1. Titlebar
-The header section of your dashboard, typically containing:
+1. **Status Pill** - Central component showing key metrics with an icon from /Profile/Images
+2. **Performance Charts** - Real-time graphs of power and velocity
+3. **Controller Limits** - Visual indicators for system protection limits
+4. **Error Monitoring** - Status lamps for various error conditions
+5. **Detailed Information** - Collapsible section with comprehensive data
 
-- Status indicators and lamps
-- Navigation menus
-- Component identification
-
-**When to use:** Every dashboard should have a titlebar to provide context and navigation.
-
-**Learn more:** [Titlebar Reference](./Component_Reference.md#titlebar)
-
-### 2. Row
-Layout containers that organize components horizontally or vertically.
-
-**Key features:**
-
-- Can hold multiple components or groups
-- Supports both horizontal and vertical layouts
-- Essential for organizing dashboard content
-
-**When to use:** Use rows to create logical sections of your dashboard and control component arrangement.
-
-**Learn more:** [Row Reference](./Component_Reference.md#row)
-
-### 3. Accordion
-Collapsible sections for organizing content that can be expanded or collapsed.
-
-**Key features:**
-
-- Keeps dashboards clean and organized
-- Allows users to focus on relevant information
-- Perfect for detailed information that's not always needed
-
-**When to use:** Use accordions for detailed information, settings, or secondary data that users can access when needed.
-
-**Learn more:** [Accordion Reference](./Component_Reference.md#accordion)
-
-### 4. Footer
-Bottom section typically containing navigation menus and additional controls.
-
-**Key features:**
-
-- Usually contains navigation elements
-- Provides consistent footer across dashboards
-- Optional but useful for complex applications
-
-**When to use:** Use footers for navigation, additional actions, or system information.
-
-**Learn more:** [Footer Reference](./Component_Reference.md#footer)
-
-## Layout Directions
-
-Understanding layout directions is crucial for effective dashboard design:
-
-- **Vertical (default)**: Components stack from top to bottom
-- **Horizontal**: Components arrange side by side
-
-Rows can specify their direction, allowing you to create both vertical and horizontal layouts within the same dashboard.
-
-## Component Nesting
-
-The hierarchical structure allows for flexible component organization:
-
-```text
-Dashboard
-├── Titlebar
-├── Row (vertical)
-│   ├── Group
-│   │   ├── Component 1 (Readouts)
-│   │   ├── Component 2 (Chart)
-│   │   └── Component 3 (HTML)
-│   └── Group
-│       └── Component 4 (Image)
-├── Accordion
-│   └── Row
-│       └── Components
-└── Footer
-```
-
-This nesting system enables you to create sophisticated layouts while maintaining clean, readable YAML configurations.
-
-## Complete Example
-
-The following example demonstrates how all four core elements work together in a real dashboard. This example shows:
-
-- A **titlebar** with status lamps and navigation
-- **Rows** organizing different sections of data
-- **Groups** containing related components like readouts and charts
-- **Panels** for organizing complex data displays
-- **Accordions** for collapsible detailed information
-- **Tabs** for organizing different views within accordions
-
-This comprehensive example includes data bindings to CAN bus signals, showing how the dashboard connects to real vehicle data.
-
-## Dashboard Structure
+### Complete Dashboard YAML
 
 ``` yaml
 dashboard:
@@ -515,4 +430,394 @@ dashboard:
                                                     - target: value
                                                       source: '{COMPONENT_NAME}.Status.RxErrorCount'
 ```
+
+## Real-World Scenarios
+
+### Building a Motor Controller Dashboard
+
+This walkthrough shows how to build a complete motor controller dashboard step by step.
+
+**Step 1: Create the Basic Structure**
+
+Start with a simple row containing a titlebar and basic layout:
+
+``` yaml
+dashboard:
+  items:
+    - titlebar:
+        lamp:
+          color: grey
+          value: 1
+          label: Motor Controller
+          enabled: true
+    - row:
+        direction: vertical
+        items:
+          - group:
+              items:
+                - readouts:
+                    items:
+                      - readout:
+                          label: "Bus Voltage"
+                          value: 0
+                          unit: "V"
+                          precision: 1
+```
+
+**Step 2: Add Data Binding**
+
+Connect the readouts to actual CAN bus data:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Bus Voltage"
+                    value: 0
+                    unit: "V"
+                    precision: 1
+                    bind:
+                      - target: value
+                        source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+```
+
+**Step 3: Add Status Indicators**
+
+Include lamps for system status:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: green
+                          label: "Online"
+                          value: 1
+                          enabled: true
+                          bind:
+                            - target: enabled
+                              source: '{COMPONENT_NAME}.Status.Online'
+                              toType: boolean
+```
+
+**Step 4: Add Charts**
+
+Include time series charts for trend analysis:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: line
+              legend: false
+              bind:
+                - target: value
+                  source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+```
+
+**Step 5: Organize with Panels**
+
+Group related components into panels:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - panels:
+              items:
+                - panel:
+                    title: "System Status"
+                    items:
+                      - lamps:
+                          items:
+                            - lampgroup:
+                                items:
+                                  - lamp:
+                                      color: green
+                                      label: "Online"
+                                      value: 1
+                                      enabled: true
+```
+
+### Creating a Battery Monitoring Dashboard
+
+This example shows how to create a battery monitoring dashboard with interactive images.
+
+**Step 1: Create the Main Layout**
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - pill:
+              icon:
+                image: BatteryIcon.svg
+                recess: false
+                value: 0
+              items:
+                - pillgroup:
+                    items:
+                      - value:
+                          label: SOC
+                          precision: 2
+                          unit: "%"
+                          bind:
+                            - target: value
+                              source: '{COMPONENT_NAME}.StateOfCharge.SOCPercent'
+                              gain: 100
+```
+
+**Step 2: Add Interactive Image**
+
+Include an interactive image showing battery layout:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - image:
+              value:
+                image: "BatteryLayout.png"
+                dataValues:
+                  - id: "cell-voltage-1"
+                    x: 10
+                    y: 20
+                    label: "Cell 1"
+                    displayType: "text"
+                    bind:
+                      - target: value
+                        source: '{COMPONENT_NAME}.CellVoltages[0]'
+                    unit: "V"
+                    precision: 3
+                regions:
+                  - id: "cell-region-1"
+                    coordinates: "xywh=10,20,50,30"
+                    action: "navigate"
+                    target: "/component?componentId=Battery&view=cell1"
+                    label: "Cell 1"
+```
+
+## Progressive Examples
+
+### Example 1: Simple Readout
+
+The simplest dashboard - a single readout:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    value: 25.5
+                    unit: "°C"
+                    precision: 1
+```
+
+### Example 2: Multiple Readouts with Binding
+
+Add data binding to multiple readouts:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    value: 0
+                    unit: "°C"
+                    precision: 1
+                    bind:
+                      - target: value
+                        source: '{COMPONENT_NAME}.Temperature.Value'
+                - readout:
+                    label: "Pressure"
+                    value: 0
+                    unit: "hPa"
+                    precision: 2
+                    bind:
+                      - target: value
+                        source: '{COMPONENT_NAME}.Pressure.Value'
+```
+
+### Example 3: Add Status Lamps
+
+Include status indicators:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: green
+                          label: "Online"
+                          value: 1
+                          enabled: true
+                          bind:
+                            - target: enabled
+                              source: '{COMPONENT_NAME}.Status.Online'
+                              toType: boolean
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    value: 0
+                    unit: "°C"
+                    precision: 1
+                    bind:
+                      - target: value
+                        source: '{COMPONENT_NAME}.Temperature.Value'
+```
+
+### Example 4: Add Charts
+
+Include time series charts:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - panels:
+              items:
+                - panel:
+                    title: "Temperature Trend"
+                    items:
+                      - chart:
+                          type: line
+                          legend: false
+                          bind:
+                            - target: value
+                              source: "[TimeSeries].{COMPONENT_NAME}.Temperature.Value"
+```
+
+## Component-Specific Examples
+
+### HTML Component Example
+
+Display custom HTML content with references to profile assets:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - html:
+              class: "info-box"
+              content: |
+                <link rel="stylesheet" href="/Profile/Styles/custom.css" />
+                <div class="info-box__header">System Information</div>
+                <div class="info-box__content">
+                  <p>This dashboard monitors system status.</p>
+                  <img src="/Profile/Images/system-diagram.svg" alt="System Diagram" />
+                </div>
+```
+
+### Image Component Example
+
+Interactive image with regions, icons, and data values:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - image:
+              value:
+                image: "DeviceDiagram.png"
+                icons:
+                  - id: "status-icon"
+                    x: 50
+                    y: 30
+                    icon: "StatusIcon.svg"
+                    size: 32
+                    action: "navigate"
+                    target: "/component?componentId=Status"
+                    label: "Status"
+                regions:
+                  - id: "main-region"
+                    coordinates: "xywh=20,20,60,40"
+                    action: "navigate"
+                    target: "/component?componentId=Main"
+                    label: "Main Component"
+                    visibleBorder: true
+                dataValues:
+                  - id: "voltage-display"
+                    x: 50
+                    y: 10
+                    label: "Voltage"
+                    displayType: "text"
+                    bind:
+                      - target: value
+                        source: '{COMPONENT_NAME}.Voltage.Value'
+                    unit: "V"
+                    precision: 2
+```
+
+### Table Component Example
+
+Data table with highlighting:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - table:
+              tableHeaders:
+                - header:
+                    accessorKey: name
+                    value: "Cell Name"
+                - header:
+                    accessorKey: voltage
+                    value: "Voltage (V)"
+                - header:
+                    accessorKey: temperature
+                    value: "Temperature (°C)"
+              heatmap: true
+              highlightMin: true
+              highlightMax: true
+              highlightAtOrBelow: 2.5
+              alertAtOrBelow: 2.0
+              precision: 3
+              bind:
+                - target: value
+                  source: '{COMPONENT_NAME}.CellData.Values'
+```
+
+## Next Steps
+
+Now that you've seen comprehensive examples, you can:
+
+- **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
+- **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to connect your data sources
+- **Explore Components** - Use [Component Reference](./Component_Reference.md) for detailed component information
+- **Add Styling** - Apply [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
+- **Troubleshoot Issues** - Check [Troubleshooting](./Troubleshooting.md) for common problems and solutions
+- **Get Help** - Review [FAQ](./FAQ.md) for answers to common questions
 

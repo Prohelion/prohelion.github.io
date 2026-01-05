@@ -46,6 +46,34 @@ A **Profinity Custom Component** consists of two essential files:
 
 The Custom Component editor provides dedicated editors for both files, accessible by clicking the editor icon on the toolbar.
 
+## Profile Directories
+
+Profinity provides profile-specific directories for organizing dashboard assets:
+
+### /Profile/Images
+
+- **Location**: `{ProfileDirectory}/Images/`
+- **Purpose**: Store images used in dashboards (icons, interactive images, etc.)
+- **Usage**: Reference images by filename only (e.g., `image: "my-icon.svg"`)
+- **Access**: Images are served from `/Profile/Images/{filename}` URL path
+- **Examples**: Icon images, device diagrams, logos, status indicators
+
+### /Profile/Styles
+
+- **Location**: `{ProfileDirectory}/Styles/`
+- **Purpose**: Store custom CSS stylesheets for dashboard styling
+- **Usage**: Reference stylesheets by filename (e.g., `Profile.css`, `variables.css`)
+- **Access**: Stylesheets are served from `/Profile/Styles/{filename}` URL path
+- **Examples**: Custom color schemes, layout overrides, component-specific styles
+
+### /Profile/Content
+
+- **Location**: `{ProfileDirectory}/Content/`
+- **Purpose**: Store general content files (HTML snippets, templates, etc.)
+- **Usage**: Reference content files by filename
+- **Access**: Content files are served from `/Profile/Content/{filename}` URL path
+- **Examples**: HTML templates, markdown files, documentation snippets
+
 ## Schema Validation
 
 The dashboard editor uses a schema to validate your YAML dashboard file. The editor provides:
@@ -84,7 +112,13 @@ For additional information we would recommend you read these other parts of the 
 2. [Data Binding](./Data_Binding.md) describes how to bind information from the Profinity system to your dashboard easily.
 3. [Component Reference](./Component_Reference.md) reference information on each of the components you can include in your dashboard
 4. [Conditional Styling](./Conditional_Styling.md) how to make your dashboard style change to hide and show elements or change colour based on data.
-5. [Example](./Example.md) an example of a full Profinity dashboard in YAML format.
+5. [Examples](./Examples.md) complete examples including full dashboard examples, real-world scenarios, and progressive examples.
+6. [Troubleshooting](./Troubleshooting.md) comprehensive troubleshooting guide including schema validation errors and common issues.
+7. [FAQ](./FAQ.md) frequently asked questions and quick answers.
+
+## For Documentation Maintainers
+
+An automated validation test is available to ensure all YAML examples in this documentation are compliant with the current schema. See [Validation Test Setup](./Validation_Test_Setup.txt) for instructions on how to set up and run the test.
 
 
 

@@ -79,11 +79,19 @@ Data binding allows you to connect your dashboard components to dynamic data sou
 All bindings are defined as arrays of binding objects:
 
 ``` yaml
-bind:
-  - target: "value"
-    source: "data.temperature"
-  - target: "label"
-    source: "data.sensor_name"
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    bind:
+                      - target: "value"
+                        source: "data.temperature"
+                      - target: "label"
+                        source: "data.sensor_name"
 ```  
 
 ### Binding Parameters
@@ -100,19 +108,40 @@ bind:
 - `offset`  (number): Additive offset
 - `invert`  (boolean): Whether to invert the value
 - `mapToText`  (object): Text mapping configuration
+- `store`  (string): Data store type - &quot;local&quot; (default) for real-time data from local instance, &quot;logged&quot; for logged data from logger
+- `timeRangeStart`  (string): InfluxDB start time for logged data (e.g., &quot;-10m&quot;). If omitted with store='logged', returns most recent value. Default: &quot;-10m&quot;
+- `timeRangeStop`  (string): InfluxDB stop time for logged data (e.g., &quot;0m&quot;)
+- `aggregationWindow`  (string): Window period for InfluxDB data aggregation (e.g., &quot;1s&quot;, &quot;10s&quot;, &quot;1m&quot;, &quot;5m&quot;). If not specified, automatically calculated based on time range.
+- `aggregationFunction`  (string): Aggregation function for InfluxDB data reduction - &quot;max&quot; (default), &quot;mean&quot;, &quot;min&quot;, &quot;last&quot;, &quot;first&quot;, &quot;sum&quot;, &quot;count&quot;
 
 ### Type Conversion
 
 Use `toType`  to convert data types:
 
 ``` yaml
-bind:
-  - target: "value"
-    source: "data.temperature"
-    toType: "number"
-  - target: "enabled"
-    source: "data.online"
-    toType: "boolean"
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    bind:
+                      - target: "value"
+                        source: "data.temperature"
+                        toType: "number"
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: "green"
+                          label: "Status"
+                          bind:
+                            - target: "enabled"
+                              source: "data.online"
+                              toType: "boolean"
 ```
 
 ### Scaling and Offset
@@ -120,28 +149,41 @@ bind:
 Apply mathematical transformations:
 
 ``` yaml
-bind:
-  - target: "value"
-    source: "data.voltage"
-    gain: 0.001  # Convert millivolts to volts
-    offset: 0    # No offset
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Voltage"
+                    bind:
+                      - target: "value"
+                        source: "data.voltage"
+                        gain: 0.001
+                        offset: 0
 ```
 
 ### Example Readout with Scaling
 
 ``` yaml
-readouts:
+dashboard:
   items:
-    - label: "Temperature"
-      value: 0
-      unit: "°C"
-      precision: 1
-      bind:
-        - target: "value"
-          source: "data.temperature_raw"
-          gain: 0.1
-          offset: -273.15  # Convert from Kelvin to Celsius
-          toType: "number"
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    value: 0
+                    unit: "°C"
+                    precision: 1
+                    bind:
+                      - target: "value"
+                        source: "data.temperature_raw"
+                        gain: 0.1
+                        offset: -273.15
+                        toType: "number"
 ```  
 
 
@@ -150,10 +192,21 @@ readouts:
 Invert boolean or numerical values:
 
 ``` yaml
-bind:
-  - target: "enabled"
-    source: "data.error"
-    invert: true  # Show enabled when no error
+dashboard:
+  items:
+    - row:
+        items:
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: "green"
+                          label: "Status"
+                          bind:
+                            - target: "enabled"
+                              source: "data.error"
+                              invert: true
 ```    
 
 ### Text Mapping
@@ -163,26 +216,107 @@ Map values to display text using boolean or partition-based mapping.
 ### Boolean Text Mapping
 
 ``` yaml
-bind:
-  - target: "label"
-    source: "data.status"
-    mapToText:
-      true: "Online"
-      false: "Offline"
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Status"
+                    bind:
+                      - target: "label"
+                        source: "data.status"
+                        mapToText:
+                          trueValue: "Online"
+                          falseValue: "Offline"
 ```
 
 ### Partition-Based Text Mapping
 
 ``` yaml
-bind:
-  - target: "label"
-    source: "data.temperature"
-    mapToText:
-      partition: ["Cold", 0, "Normal", 25, "Hot"]
-      bias: "low"
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature Status"
+                    bind:
+                      - target: "label"
+                        source: "data.temperature"
+                        mapToText:
+                          partition: ["Cold", 0, "Normal", 25, "Hot"]
+                          bias: "low"
 ```
 
 The partition array defines ranges: [label1, threshold1, label2, threshold2, label3]. The bias determines which label to use when a value equals a threshold.
+
+### Logged Data Access
+
+Use the `store` property to access logged data from InfluxDB instead of real-time data:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Average Temperature (Last 10 minutes)"
+                    bind:
+                      - target: value
+                        source: '{COMPONENT_NAME}.TemperatureMeasurement.Value'
+                        store: "logged"
+                        timeRangeStart: "-10m"
+                        timeRangeStop: "0m"
+                        aggregationWindow: "1m"
+                        aggregationFunction: "mean"
+```
+
+**Logged Data Parameters:**
+
+- `store: "logged"` - Access logged data instead of real-time data
+- `timeRangeStart` - Start time for data query (e.g., "-10m" for 10 minutes ago, "-1h" for 1 hour ago)
+- `timeRangeStop` - Stop time for data query (e.g., "0m" for now, "-5m" for 5 minutes ago)
+- `aggregationWindow` - Time window for aggregating data points (e.g., "1s", "10s", "1m", "5m")
+- `aggregationFunction` - How to aggregate data: "max", "mean", "min", "last", "first", "sum", "count"
+
+**Time Range Examples:**
+
+- `"-10m"` - 10 minutes ago
+- `"-1h"` - 1 hour ago
+- `"-24h"` - 24 hours ago
+- `"0m"` - Current time (now)
+
+**Aggregation Window Examples:**
+
+- `"1s"` - 1 second windows
+- `"10s"` - 10 second windows
+- `"1m"` - 1 minute windows
+- `"5m"` - 5 minute windows
+
+**Example: Chart with Historical Data**
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: line
+              showControls: true
+              bind:
+                - target: value
+                  source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+                  store: "logged"
+                  timeRangeStart: "-1h"
+                  timeRangeStop: "0m"
+                  aggregationWindow: "10s"
+                  aggregationFunction: "mean"
+```
 
 ## Best Practices
 
@@ -191,6 +325,7 @@ The partition array defines ranges: [label1, threshold1, label2, threshold2, lab
 - **Use DBC signals** for real-time vehicle data that updates frequently
 - **Use C# properties** for configuration data, system state, and complex data structures
 - **Use TimeSeries** for charts and historical analysis
+- **Use logged data** (`store: "logged"`) for historical analysis, averages, and trend visualization
 
 ### Performance Considerations
 
