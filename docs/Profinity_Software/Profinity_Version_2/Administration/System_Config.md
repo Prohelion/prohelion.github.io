@@ -19,6 +19,7 @@ The `System Configuration` menu is located in the `ADMIN` tab and contains all t
 |`Maximum number of retained Packets`| Profinity retains CAN Packets for use in the CAN Utilities, you can adjust the size of the number of retained packets if required. |
 |`Custom Update Server`              | Profinity supports the use of Custom Update Servers for release management, if you are running the standard version of Profinity, this field should be left blank. |
 |`Enable Scripting`                  | If you want your Profinity instance to support scripting, this field must be selected.  Scripting requires security considerations and as such is not activated by default. |
+|`Enable MCP Server`                 | If enabled, Profinity will start the Model Context Protocol (MCP) server, allowing AI assistants and other tools to query system data and metadata. See the [MCP Server](../Extending_Profinity/MCP_Server.md) documentation for more information. |
 
 <figure markdown>
 ![Profinity System Configuration](../images/app_configuration.png)

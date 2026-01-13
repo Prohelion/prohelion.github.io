@@ -31,4 +31,9 @@ To log your CAN Bus data to an MQTT broker, add an MQTT device to your profile a
 | MQTT Access Token     | Access token for authentication.                                      |
 | MQTT Device ID        | A unique identifier for the device.                                   |
 
+<figure markdown>
+![MQTT Logger settings (placeholder)](../../images/placeholder_screenshot.svg)
+<figcaption>MQTT Logger configuration page (placeholder screenshot — replace with an actual image)</figcaption>
+</figure>
+
 Once these settings have been configured, you should be able to see data flowing to your MQTT broker. If you encounter any issues, check the [Logs](../../Getting_Started/Profinity_Log.md) for more details.

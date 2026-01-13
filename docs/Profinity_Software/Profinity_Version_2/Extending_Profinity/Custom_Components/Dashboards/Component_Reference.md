@@ -407,7 +407,7 @@ dashboard:
                 navigate: "/contact"
 ```
 
-# Data Components
+## Data Components
 
 Data components display and visualize information from your CAN bus and system properties.
 
@@ -771,7 +771,7 @@ dashboard:
                   source: Prohelion BMU.[Property].PackData.Nodes.Values
 ```
 
-# Interactive Components
+## Interactive Components
 
 Interactive components provide user interface elements for control and interaction with the dashboard and underlying systems.
 

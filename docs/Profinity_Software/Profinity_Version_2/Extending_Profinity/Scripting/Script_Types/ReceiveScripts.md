@@ -13,9 +13,14 @@ These scripts are particularly useful in applications where immediate response t
 
 ## Characteristics
 - Automatic execution when matching CAN packets are received
-- Implement the `Receive` method (C#) or `receive` function (JavaScript/Python)
+- Implement the `Receive` method (C#) or `receive` function (Python)
 - Can be configured to match specific CAN IDs or a range of IDs
 - Full access to the received CAN packet data
+
+<figure markdown>
+![Receive script configuration (placeholder)](../../../images/placeholder_screenshot.svg)
+<figcaption>Receive script editor and CAN packet trigger configuration (placeholder screenshot — replace with an actual image)</figcaption>
+</figure>
 
 ## Examples
 
@@ -39,17 +44,9 @@ This example demonstrates a Receive script that:
     {
         public void Receive(CanPacket canPacket)
         {
-            Profinity.Console.WriteLine("CSharp CanId Received : " + canPacket.CanIdAsHex);                
+            Profinity.Console.WriteLine("CSharp CanId Received : " + canPacket.CanIdAsHex);
         }
     }
-    ```
-
-=== "Javascript"
-
-    ```javascript
-    function receive(canPacket) {
-        log("Javascript CanPacket Received : " + canPacket.CanIdAsHex);    
-    };
     ```
 
 === "Python"

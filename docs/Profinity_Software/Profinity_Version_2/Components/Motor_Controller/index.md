@@ -22,8 +22,7 @@ Profinity provides integrated management of the WaveSculptor products through th
 <figcaption>Prohelion WaveSculptor</figcaption>
 </figure>
 
-<!-- Check this -->
-Prohelion is currently migrating all of the Tritium WaveSculptor supporting software in to Profinity, in this release the configuration of the WaveSculptor tools is still handed by the Tritium software and we expect to migrate all of that functionality to Profinity over time.
+Prohelion is currently migrating Tritium WaveSculptor support software into Profinity. In this release, WaveSculptor configuration is still handled by the Tritium software, and we expect to migrate that functionality to Profinity over time.
 
 ## WaveSculptor Data
 

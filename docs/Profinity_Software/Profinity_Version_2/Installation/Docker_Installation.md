@@ -170,7 +170,7 @@ Components:
 
 You can create different Docker Compose files for different environments. This approach allows you to use the same base configuration while customizing settings for development, staging, and production.
 
-##### Development Environment
+**Development Environment**
 ```yaml
 # docker-compose.dev.yml
 services:
@@ -187,7 +187,7 @@ services:
       - ./dev-config:/app/config
 ```
 
-##### Production Environment
+**Production Environment**
 ```yaml
 # docker-compose.prod.yml
 services:

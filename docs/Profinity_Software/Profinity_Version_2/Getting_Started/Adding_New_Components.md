@@ -43,7 +43,7 @@ Each component will also have an coloured indicator to display the operational s
 | `Grey`   | The device is not available, connected or not visible on the network          |
 
 
-# Removing Components from you Profile
+## Removing Components from Your Profile
 
 If you no longer require a component you can remove it by going to the component settings (top right three bar icon on the component dashboard below) and selecting delete.
 

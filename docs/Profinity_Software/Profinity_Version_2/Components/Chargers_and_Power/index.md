@@ -35,9 +35,9 @@ Profinity supports [TDK](https://www.tdk.com) Programmable Power Supplies such a
 
 Elcon Chargers are widely used in the EV industry and Profinity supports controlling the Elcon Charger via its CAN bus interface. To operate a Elcon Charger via CAN bus the charger must be connected to a CAN bus interface that is configured in Profinity.
 
-**Signet Power Supplies**
+**Siglent Power Supplies**
 
-The Signet Power Supplies that support a programmable TCP interface can be controlled by Profinity.  Units such as the [Siglent SPD3303X-E](https://siglentna.com/power-supplies/spd3303x-spd3303x-e-series-programmable-dc-power-supply/) are widely used by Prohelion clients for desktop testing scenarios.
+The Siglent Power Supplies that support a programmable TCP interface can be controlled by Profinity.  Units such as the [Siglent SPD3303X-E](https://siglentna.com/power-supplies/spd3303x-spd3303x-e-series-programmable-dc-power-supply/) are widely used by Prohelion clients for desktop testing scenarios.
 
 ## Charging Steps
 

@@ -7,26 +7,25 @@ title: Supported Languages
 
 # Supported Languages
 
-Profinity offers a versatile scripting environment that supports three powerful languages: C#, Python (via IronPython), and JavaScript (via Jint). Each language is integrated with the .NET framework, providing a rich set of libraries and tools to enhance your scripting experience. This guide will walk you through the core functionalities and provide insights into choosing the right language for your needs.
+Profinity offers a versatile scripting environment that supports two powerful languages: C# and Python (via IronPython). Each language is integrated with the .NET framework, providing a rich set of libraries and tools to enhance your scripting experience. This guide will walk you through the core functionalities and provide insights into choosing the right language for your needs.
 
-Profinity supports three programming languages.
+Profinity supports two programming languages.
 
 <center>
 
-| C# Scripting                        | Python                                   | JavaScript                                       |
-|-------------------------------------|------------------------------------------|--------------------------------------------------|
-|![C# Logo](../../../images/CSharpLogo.png) | ![Python Logo](../../../images/PythonLogo.png) | ![JavaScript Logo](../../../images/JavaScriptLogo.png) |
+| C# Scripting                        | Python                                   |
+|-------------------------------------|------------------------------------------|
+|![C# Logo](../../../images/CSharpLogo.png) | ![Python Logo](../../../images/PythonLogo.png) |
 
 </center>
 
-Ultimately the choice of your preferred scripting language is up to you, Profinity supports three to help developers who are coming from different programming backgrounds, but the features and functions available are common across all three languages.
+Ultimately the choice of your preferred scripting language is up to you, Profinity supports two to help developers who are coming from different programming backgrounds, but the features and functions available are common across both languages.
 
 <center>
 
 | Language | Strengths | Considerations |
 |----------|-----------|----------------|
 | C# | - Strong typing<br>- Full .NET framework access<br>- Enterprise features<br>- Performance optimization | - More verbose syntax<br>- Requires .NET knowledge<br>- Longer development time |
-| JavaScript | - Simple syntax<br>- Quick development<br>- Familiar to web developers<br>- Lightweight | - Less type safety<br>- Limited to basic features<br>- Less suitable for complex operations |
 | Python | - Clean syntax<br>- Rich ecosystem<br>- Great for data processing<br>- Easy to learn | - Slower execution<br>- Less suitable for real-time operations<br>- Memory management considerations |
 
 </center>
@@ -54,7 +53,15 @@ C# scripts in Profinity are implemented as classes that inherit from base classe
 
 Python scripts in Profinity use a procedural style with functions that are called by the system. They provide a clean, readable syntax and are excellent for data processing and automation tasks.
 
-Profinity uses a C# library called IronPython to allow you to write Python code within the C# framework that Profinity is built on.  IronPython brings the simplicity and readability of Python to the .NET ecosystem. It is particularly well-suited for data analysis, scripting, and rapid prototyping, offering seamless integration with .NET libraries.  
+Profinity uses a C# library called IronPython to allow you to write Python code within the C# framework that Profinity is built on.  IronPython brings the simplicity and readability of Python to the .NET ecosystem. It is particularly well-suited for data analysis, scripting, and rapid prototyping, offering seamless integration with .NET libraries.
+
+!!! info "Python 3 Syntax"
+    Profinity uses IronPython with Python 3 compatibility enabled. All Python scripts use Python 3 syntax, including:
+    - `print()` as a function (not a statement)
+    - Support for f-strings (e.g., `f"Value: {value}"`)
+    - Division operators (`/` for true division, `//` for floor division)
+    - Unicode literals
+    - Absolute imports
 
 If you want to use Python as your preferred programming language or want to integrate Profinity with other libraries written in Python, this is a good choice.
 
@@ -68,20 +75,3 @@ If you want to use Python as your preferred programming language or want to inte
 
 [IronPython Documentation](https://ironpython.net/documentation/)
 [Python Language Reference](https://docs.python.org/3/reference/)
-
-### JavaScript (Jint)
-
-JavaScript scripts in Profinity use a more functional approach, with global functions that are called by the system. They provide a simpler syntax and are well-suited for quick scripting tasks.
-
-Profinity supports JavaScript scripting, through the Jint interpreter, provides a dynamic scripting option within Profinity. It is perfect for web developers and those looking for a lightweight, flexible scripting solution and want to be able to create scripts in Profinity.
-
-**Best for:**
-
-- Rapid prototyping
-- Quick automation tasks
-- Simple scripts
-- Web developers familiar with JavaScript
-- Lightweight operations
-
-[Jint Documentation](https://github.com/sebastienros/jint)
-[JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)

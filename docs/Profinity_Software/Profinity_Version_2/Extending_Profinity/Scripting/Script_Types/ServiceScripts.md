@@ -14,6 +14,11 @@ Service scripts are designed for continuous, long-running operations that need t
 - Service state management methods
 - Support for service lifecycle management
 
+<figure markdown>
+![Service script configuration (placeholder)](../../../images/placeholder_screenshot.svg)
+<figcaption>Service script editor and lifecycle configuration (placeholder screenshot — replace with an actual image)</figcaption>
+</figure>
+
 ## Examples
 
 The following examples demonstrate how to implement Service scripts in each supported language. Each example shows the complete lifecycle management of a service, including start, stop, pause, continue, and shutdown operations. These examples represent the minimum implementation needed for a functional Service script.
@@ -55,37 +60,16 @@ This example demonstrates a Service script that:
         {
             Profinity.Console.WriteLine("Continue CSharp Service");
             return true;
-        }   
+        }
+
+        public override bool Run()
+        {
+            // Optional: Run() method for interface compliance
+            // Can be left empty or do minimal work
+            // Return true to continue, false to stop
+            return true;
+        }
     }
-    ```
-
-=== "Javascript"
-
-    ```javascript
-    function onStart() {
-        log('Started Javascript Service!');
-        return true;
-    };
-
-    function onStop() {
-        log('Stoped Javascript Service!');
-        return true;
-    };
-
-    function onPause() {
-        log('Paused Javascript Service!');
-        return true;
-    };
-
-    function onContinue() {
-        log('Continue Javascript Service!');
-        return true;
-    };
-
-    function onShutdown() {
-        log('Shutdown Javascript Service!');
-        return true;
-    };
     ```
 
 === "Python"
@@ -109,5 +93,11 @@ This example demonstrates a Service script that:
 
     def on_shutdown():
         print('Python Service Shutdown!')
+        return True
+
+    def run():
+        """Optional: run() function for consistency with examples"""
+        # Can be left empty or do minimal work
+        # Return True to continue, False to stop
         return True
     ```

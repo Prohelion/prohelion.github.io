@@ -40,6 +40,5 @@ Profinity supports comprehensive console output capabilities across all scriptin
 2. Review the language-specific documentation:
    - [C# Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/)
    - [IronPython Documentation](https://ironpython.net/documentation/)
-   - [Jint Documentation](https://github.com/sebastienros/jint)
 3. Experiment by creating simple scripts that integrate multiple features.
 4. Review example scripts in the Profinity documentation to gain practical insights.

@@ -52,7 +52,7 @@ In the 'headless' service mode, Profinity continues to operate as normal with so
 
 `[user]/Documents/Prohelion/Profinity/Logs`
 
-# Linux Setup
+## Linux Setup
 
 To run Profinity as a service on Linux, you can use `systemd`, a system and service manager for Linux operating systems.
 
@@ -101,7 +101,7 @@ To run Profinity as a service on Linux, you can use `systemd`, a system and serv
    sudo systemctl start profinity.service
    ```
 
-# macOS Setup
+## macOS Setup
 
 On macOS, you can use `launchd` to run Profinity as a service.
 
@@ -146,7 +146,7 @@ On macOS, you can use `launchd` to run Profinity as a service.
    sudo launchctl start com.profinity.service
    ```
 
-# Windows Setup
+## Windows Setup
 
 In the installation directory of Profinity you will find a file called ProfinityService.cmd.  If default configuration options have been selected for the installation directory, the file is typically found here.
 
@@ -166,7 +166,7 @@ When running as a service, the Prohelion home directory of the service user is
 
 This can be hard to work with in some environments and generally we would not want to be regularly modifying files stored in the Windows directory.  As such you are generally better off installing Profinity under a user account using a command such as.
 
-```
+```bat
 ProfinityService.cmd install [Username to install under]
 ```
 
@@ -174,7 +174,7 @@ As the Profile files then get created in that users account directories.
 
 If you do wish to install Profinity under the LocalSystem user, then simply run.
 
-```
+```bat
 ProfinityService.cmd install
 ```
 
@@ -187,7 +187,7 @@ Once this is done you will find Profinity in your Windows Services list and it c
 
 To uninstall Profinity as a Windows Service, run the command below as an administrator from the cmd window.
 
-```
+```bat
 ProfinityService.cmd uninstall
 ```
 
@@ -202,7 +202,7 @@ The batch script performs the following actions:
 
 This script simplifies the process of managing Profinity as a service on Windows, ensuring it can start automatically and run with the necessary permissions.
 
-# Verification
+## Verification
 
 To verify that the service is running correctly, you can use the following commands:
 
@@ -222,7 +222,7 @@ To verify that the service is running correctly, you can use the following comma
 
 Check the state of the service in the Windows Service Manager.
 
-# Troubleshooting
+## Troubleshooting
 
 - **Service Fails to Start**: Check the logs for errors using `journalctl -u profinity.service` on Linux or `sudo launchctl log show` on macOS and the Event Log in Windows.
 - **Permission Issues**: Ensure the service file has the correct permissions and the user/group settings are correct.

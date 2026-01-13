@@ -23,7 +23,7 @@ This section lists the core capabilities of the DBC functionality. These feature
 
 ## Usage
 
-This section provides detailed examples of how to use the DBC functionality in your applications. Each example is shown in C#, Python, and JavaScript to accommodate different development environments.
+This section provides detailed examples of how to use the DBC functionality in your applications. Each example is shown in C# and Python to accommodate different development environments.
 
 ### Basic Operations
 
@@ -45,12 +45,6 @@ The `GetDbcSignal` method retrieves a signal definition from the loaded DBC file
 
     ```python
     signal = DBC.GetDbcSignal(component, message, signal)
-    ```
-
-=== "Javascript"
-
-    ```javascript
-    var signal = DBC.GetDbcSignal(component, message, signal);
     ```
 
 ### Parameters
@@ -89,18 +83,6 @@ The most important property of the returned `DbcSignal` object is the `Value` pr
         # Get the current physical value of the signal
         current_value = signal.Value
         print(f"Current engine speed: {current_value} {signal.Unit}")
-    ```
-
-=== "Javascript"
-
-    ```javascript
-    // Get a signal definition
-    var signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
-    if (signal) {
-        // Get the current physical value of the signal
-        var currentValue = signal.Value;
-        console.log(`Current engine speed: ${currentValue} ${signal.Unit}`);
-    }
     ```
 
 ### Important Notes

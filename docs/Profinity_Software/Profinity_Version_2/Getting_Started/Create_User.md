@@ -16,6 +16,6 @@ After installing Profinity it is recommended to create a new user to suit your s
 
 Each user can also be granted different security roles, either allowing or restricting certain Profinity functionality for that particular user. Giving a user the administrator role automatically grants the privileges of all other roles.
 
-# More Information
+## More Information
 
-Addition information on how to create and manage users can be found in the [Admin / Manage Users](../Administration/Manage_Users.md) section of this documentation.
+Additional information on how to create and manage users can be found in the [Admin / Manage Users](../Administration/Manage_Users.md) section of this documentation.
