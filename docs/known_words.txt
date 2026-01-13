@@ -301,3 +301,27 @@ pi
 pnt
 png
 __
+# Dashboard and Web Development
+dropdown
+stylesheets
+stylesheet
+tooltip
+tooltips
+datavalue
+displaytype
+polararea
+xywh
+walkthrough
+walkthroughs
+charttype
+headersinfo
+emoji
+waypoints
+enum
+yaml
+env
+hardcoding
+programmatically
+candapter
+autogen
+img

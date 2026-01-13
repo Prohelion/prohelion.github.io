@@ -18,7 +18,9 @@ Profinity V2, completely updates the capabilities of Prohelion's Profinity suite
 - Full API integration to allow easy extensions to Profinity's features and to build your own custom applications
 - Inbuilt Scripting support
 
-<!-- Update this image -->
+!!! info "Documentation maintainer note"
+    Replace this image with a current screenshot.
+
 <figure markdown>
 ![Profinity](images/wavesculptor.png)
 <figcaption>Profinity V2 - Showing a Motor Controller Dashboard</figcaption>

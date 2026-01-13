@@ -7,7 +7,7 @@ title: Extending Profinity
 
 # Extending Profinity
 
-Profinity offers a robust platform that can be extended and customized to meet your specific needs. By leveraging the Profinity [Scripting](./Scripting/index.md), [APIs](./APIs/index.md), [Custom Components](./Custom_Components/Dashboards/index.md), and [Hosting](./Hosting/index.md) capabilities, you can transform Profinity into a powerful application server that can host your own custom applications and code, while using the power of Profinity to drive your systems and gather data. 
+Profinity offers a robust platform that can be extended and customized to meet your specific needs. By leveraging the Profinity [Scripting](./Scripting/index.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Custom Components](./Custom_Components/index.md), and [Hosting](./Hosting/index.md) capabilities, you can transform Profinity into a powerful application server that can host your own custom applications and code, while using the power of Profinity to drive your systems and gather data. 
 
 This flexibility allows you to tailor Profinity to your organization's unique requirements, enhancing its functionality and usability.
 
@@ -15,19 +15,27 @@ This flexibility allows you to tailor Profinity to your organization's unique re
 
 Profinity's [scripting capabilities](./Scripting/index.md) allow you to automate tasks and create custom operations. 
 
-With support for languages like C#, JavaScript, and Python, you can choose the best tool for your needs. Scripting in Profinity enables you to handle various operations, from manual tasks to continuous, long-running processes. This is particularly useful for organizations that need to automate repetitive tasks, integrate with other systems, or create custom workflows that align with your business processes.
+With support for languages like C# and Python, you can choose the best tool for your needs. Scripting in Profinity enables you to handle various operations, from manual tasks to continuous, long-running processes. This is particularly useful for organizations that need to automate repetitive tasks, integrate with other systems, or create custom workflows that align with your business processes.
 
-| C# Scripting                        | Python                                   | JavaScript                                       |
-|-------------------------------------|------------------------------------------|--------------------------------------------------|
-|![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) | ![JavaScript Logo](../images/JavaScriptLogo.png) |
+| C# Scripting                        | Python                                   |
+|-------------------------------------|------------------------------------------|
+|![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) |
+
+## Dashboards
+
+Profinity's [dashboard system](./Dashboards/index.md) allows you to create dynamic, data-driven user interfaces using YAML configuration files. This powerful feature enables you to build custom dashboards that display real-time information from your CAN bus systems and integrate seamlessly with Profinity's data sources.
+
+Dashboards can be used in multiple contexts:
+- **Custom Components**: Create component-specific interfaces with DBC files
+- **Profile Dashboards**: Replace the standard home page with a custom dashboard
+
+With Dashboards, you can create professional monitoring interfaces without writing code, using a declarative YAML approach that's both powerful and maintainable. This is particularly useful for organizations that need to monitor complex systems, create operator interfaces, or develop custom data visualization tools that provide immediate insights into system performance and status.
+
+The Dashboard system supports various component types including data displays, charts, status indicators, and interactive elements, all connected to your live data through Profinity's data binding system. This enables you to create responsive dashboards that automatically update as your system state changes, providing real-time feedback and monitoring capabilities.
 
 ## Custom Components
 
-Profinity's [Custom Components](./Custom_Components/Dashboards/index.md) allow you to create dynamic, data-driven user interfaces using YAML configuration files. This powerful feature enables you to build custom dashboards that display real-time information from your CAN bus systems and integrate seamlessly with Profinity's data sources.
-
-With Custom Components, you can create professional monitoring interfaces without writing code, using a declarative YAML approach that's both powerful and maintainable. This is particularly useful for organizations that need to monitor complex systems, create operator interfaces, or develop custom data visualization tools that provide immediate insights into system performance and status.
-
-The Custom Components system supports various component types including data displays, charts, status indicators, and interactive elements, all connected to your live data through Profinity's data binding system. This enables you to create responsive dashboards that automatically update as your system state changes, providing real-time feedback and monitoring capabilities.
+Profinity's [Custom Components](./Custom_Components/index.md) allow you to integrate any CAN bus device into your profile by combining a DBC file (which defines the CAN messages and signals) with a Dashboard (which defines the user interface). Custom Components enable you to monitor, graph, and log data from any device that communicates via CAN bus.
 
 ## APIs
 
@@ -37,7 +45,9 @@ With Profinity's APIs, you can access both real-time and historical data, ensuri
 
 Profinity supports [Swagger](https://swagger.io/) to make it easy to understand what APIs are available in Profinity and how to use them.
 
-<!-- Update this image -->
+!!! info "Documentation maintainer note"
+    Replace this image with a screenshot of Swagger running in Profinity.
+
 <figure markdown>
 ![Profinity](../images/SwaggerLogo.png)
 <figcaption>Swagger from SmartBear</figcaption>
@@ -45,11 +55,11 @@ Profinity supports [Swagger](https://swagger.io/) to make it easy to understand 
 
 ## Scripting vs APIs
 
-Profinity offers two completely different ways, Scripting and APIs that you can extend it's capabilities to meet the requirements of your applications.  Why would you choose one over the other?
+Profinity offers two completely different ways, Scripting and APIs, that you can extend its capabilities to meet the requirements of your applications. Why would you choose one over the other?
 
 | Scripting                                                                | APIs                                                                           |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| Supports Python, Javascript and C#                                       | Support any Programming Language that can call REST APIs and JSON              |
+| Supports Python and C#                                                   | Support any Programming Language that can call REST APIs and JSON              |
 | Are built in to Profinity and require no external frameworks or hosting  | Run outside of Profinity in your own environment, APP or cloud                 |
 | Can be developed quickly and easily, to solve simple problems            | Can be as rich and complex as you want your app to be and still use Profinity  |
 | Can run headless (no user interaction, scheduled or triggered by CAN)    | Requires you to write the logic for how your app uses the API                  |

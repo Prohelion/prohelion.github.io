@@ -12,7 +12,7 @@ Profinity can monitor CAN Bus traffic on your network and also allows you to tra
 Messages can be transmitted either via the `SEND & RECEIVE CAN` window which is documented below or also via the [CAN Replay](Logging_Replaying_CAN_Bus_Messages.md) tool.
 
 !!! info "Check user privileges"
-    Before trying to send or receive any CAN packets, ensure that the current user has the associated privilege enabled.</p>
+    Before trying to send or receive any CAN packets, ensure that the current user has the associated privilege enabled.
 
 ## Receive CAN Packets
 
@@ -23,7 +23,7 @@ Click on the `SEND & RECEIVE CAN` menu item to see a view of all the CAN Bus mes
 <figcaption>Receive CAN Packets</figcaption>
 </figure>
 
-Clicking on the `CAN Activity` table headers allow you to filter and/or sort the messages by CAN ID, direction, flags, etc. <!-- and change various other settings like the Endian representation of the message (Big Endian vs Little Endian) and exclude local traffic (traffic from Profinity) if the adapter supports that (not all adapters support local filtering). -->
+Clicking on the `CAN Activity` table headers allows you to filter and/or sort the messages by CAN ID, direction, flags, etc. Depending on the adapter, you may also be able to change settings such as endian representation or local traffic filtering.
 
 There are two additional controls available at the top of the window, named `Spaced data` and `Heatmap`. Toggling on the `Spaced data` option will break the CAN traffic data into individual hex bytes to make it easier to read. With the `Heatmap` option toggled, bytes that change value frequently are highlighted with warmer colours and bytes that remain relatively constant are highlighted with 
 cooler colours. 

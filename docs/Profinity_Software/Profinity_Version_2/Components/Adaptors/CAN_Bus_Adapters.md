@@ -9,10 +9,10 @@ title: CAN Bus Adapters
 
 An adapter is the technology that you use to connect Profinity to your CAN bus network.  
 
-Profinity on Windows supports the [Prohelion and Tritium CAN bus bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md), SocketCAN using the [SocketCanD](https://github.com/linux-can/socketcand) technology, and the [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1).
+Profinity on Windows supports the [Prohelion and Tritium CAN bus bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md), SocketCAN using the [SocketCanD](https://github.com/linux-can/socketcand) technology, the [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1), and the EwertEnergy Candapter.
 
 !!! info "When running the Peak CAN to USB Adapter"
-    It is necessary to install the driver for the device before starting Profinity.  Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity and then AutoDiscovered the adapter as per normal</p>
+    It is necessary to install the driver for the device before starting Profinity. Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity, and then autodiscover the adapter as normal.
 
 When running Profinity on [Docker](../../Installation/Docker_Installation.md) or on [macOS / Unix](../../Installation/Zip_Installation.md), additional support is also provided for the native [SocketCAN adapter](https://docs.kernel.org/networking/can.html).
 
@@ -24,7 +24,6 @@ In many cases the supported CAN bus adapters can be automatically found via the 
 
 If an adapter is defined and visible on the network but is not currently associated with the current Profile, then a `Discovered` category will appear in the `ADD COMPONENT` window. In the `Discovered` category you will find all of the adapters that are currently visible to Profinity.  If your adapter does not show up here then you may have configuration issues that need to be addressed [manually](#adapter-manual-configuration), or may not currently be discoverable.
 
-<!-- Needs to be updated -->
 <figure markdown>
 ![Add an Adapter via AutoDiscovery](../../images/add_adapter_autodiscovery.png)
 <figcaption>Add an Adapter via AutoDiscovery</figcaption>

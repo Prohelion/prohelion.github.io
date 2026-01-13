@@ -7,17 +7,17 @@ title: Profinity Rest APIs
 
 # Profinity Rest APIs
 
-Profinity V2 is a fully API native application with a modern architecture. It supports API security and an open interface model based around REST & JSON.  This allows you to build custom application using the Profinity APIs to provide additional capabilities to your solutions, Custom User Interfaces or just extend the out of the box functionality to meet your needs.
+Profinity V2 is a fully API native application with a modern architecture. It supports API security and an open interface model based around REST & JSON. This allows you to build custom applications using the Profinity APIs to provide additional capabilities to your solutions, custom user interfaces, or to extend the out-of-the-box functionality to meet your needs.
 
-As well as supporting Restful APIs, Profinity's overall solution allows you to build completely custom User Interfaces based on Profinity and host those interfaces either externally or within the Profinity solution.
+As well as supporting RESTful APIs, Profinity's overall solution allows you to build completely custom user interfaces based on Profinity and host those interfaces either externally or within the Profinity solution.
 
 !!! info "Important Information Regarding Profinity Rest APIs"
-    Prohelions API solution is currently evolving rapidly as we develop new capabilities. Please be aware of this when developing solutions based on Profinity's APIs, as available APIs and models may evolve rapidly from release to release. 
+    Prohelion's API solution is currently evolving rapidly as we develop new capabilities. Please be aware of this when developing solutions based on Profinity's APIs, as available APIs and models may evolve rapidly from release to release.
 
 !!! danger "Profinity APIs are Powerful"
-    While our APIs support security and can be encrypted, be aware that by using Profinity's APIs you need to be careful with what power you are proving the user to ensure that they do not accidentally damage your environment or equipment.
+    While our APIs support security and can be encrypted, be aware that by using Profinity's APIs you need to be careful with what power you are providing the user to ensure that they do not accidentally damage your environment or equipment.
 
-# Using Profinity APIs
+## Using Profinity APIs
 
 Profinity V2 itself is built around our APIs so as of V2 all APIs are running all the time.  
 
@@ -32,7 +32,7 @@ To see the [Swagger](https://swagger.io) interface for Profinity, simply go to t
 
 ## Profinity API Security
 
-To use Swagger calls in the GUI, you will need to generate and then provide your Bearer token to the API's if you wish to test them using Swagger.  To generate the Bearer token, in the Swagger GUI execute a call against the `/Users/Authenticate` API and then apply the returned Bearer token by clicking on the Authorise button in the top right of the Swagger API.  
+To use Swagger calls in the GUI, you will need to generate and then provide your Bearer token to the APIs if you wish to test them using Swagger. To generate the Bearer token, in the Swagger GUI execute a call against the `/Users/Authenticate` API and then apply the returned Bearer token by clicking on the Authorise button in the top right of the Swagger API.
 
 To get a security token call a Profinity instance on the `/users/authenticate` endpoint with a POST request containing the username and password you wish to adopt for your API usage as the JSON body.  For example
 
@@ -44,8 +44,8 @@ To get a security token call a Profinity instance on the `/users/authenticate` e
   "password": "password"
 }
 ```
-!!! warning "HTTPs is required for password security"
-    Note that calling this API on a http connection does leave you exposed to network scanning which could expose your password.  For custom applications running on the Profinity server the localhost address can be used that does not expose this risk.  If your application is calling Profinity across a network, we would recommend https for API usage.
+!!! warning "HTTPS is required for password security"
+    Note that calling this API over an HTTP connection can leave you exposed to network scanning which could expose your password. For custom applications running on the Profinity server, the `localhost` address can be used and does not expose this risk. If your application is calling Profinity across a network, we recommend HTTPS for API usage.
 
 Profinity will respond to this request if your username and password are valid with a security token like this
 

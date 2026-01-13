@@ -21,7 +21,7 @@ This section lists the core capabilities of the CANClient class. These features 
 
 ## Usage
 
-This section provides detailed examples of how to use the CANClient class in your applications. Each example is shown in C#, Python, and JavaScript to accommodate different development environments.
+This section provides detailed examples of how to use the CANClient class in your applications. Each example is shown in C# and Python to accommodate different development environments.
 
 ### Basic Operations
 
@@ -47,19 +47,11 @@ Sending CAN packets is a fundamental operation. This section shows how to create
     success = CAN.Send(packet)
     ```
 
-=== "Javascript"
-
-    ```javascript
-    // Create and send a CAN packet
-    var packet = new CanPacket(canId, data);
-    var success = CAN.Send(packet);
-    ```
-
 #### Receiving CAN Packets
 
 Receiving CAN packets can be done in several ways, depending on your application's needs. This section covers synchronous and asynchronous reception, as well as continuous packet monitoring.
 
-##### Single Packet Reception
+**Single Packet Reception**
 
 Single packet reception is useful when you need to receive one packet at a time, either immediately or with a timeout. This section shows how to handle these scenarios.
 
@@ -97,23 +89,7 @@ Single packet reception is useful when you need to receive one packet at a time,
 
     ```
 
-=== "Javascript"
-
-    ```javascript
-    // Receive a single packet (synchronous)
-    var packet = CAN.Receive();
-
-    // Receive a single packet with timeout (in milliseconds)
-    var packet = CAN.Receive(1000); // 1 second timeout
-
-    // Receive a single packet for specific CAN ID
-    var packet = CAN.Receive(0x123); // Receive packet with ID 0x123
-
-    // Receive a single packet for specific CAN ID with a timeout (in milliseconds)
-    var packet = CAN.Receive(0x123, 1000); // Receive packet with ID 0x123, 1 second timeout
-    ```
-
-##### Asynchronous Reception
+**Asynchronous Reception**
 
 Asynchronous reception allows your application to continue processing while waiting for CAN packets. This section demonstrates how to use async/await patterns for non-blocking packet reception.
 
@@ -149,23 +125,7 @@ Asynchronous reception allows your application to continue processing while wait
     packet = await CAN.ReceiveAsync(0x123, 1000) #  Receive packet with ID 0x123, 1 second timeout
     ```
 
-=== "Javascript"
-
-    ```javascript
-    // Asynchronously receive a packet
-    var packet = await CAN.ReceiveAsync();
-
-    // Asynchronously receive a packet with timeout (in milliseconds)
-    var packet = await CAN.ReceiveAsync(1000); // 1 second timeout
-
-    // Asynchronously receive a packet for specific ID
-    var packet = await CAN.ReceiveAsync(0x123);
-
-    // Asynchronously receive a packet for specific ID with timeout (in milliseconds)
-    var packet = await CAN.ReceiveAsync(0x123, 1000);  // Receive packet with ID 0x123, 1 second timeout
-    ```
-
-##### Continuous Packet Reception
+**Continuous Packet Reception**
 
 Continuous packet reception is useful for monitoring the CAN bus over time. This section shows how to set up continuous reception for all packets or specific CAN IDs.
 
@@ -221,30 +181,6 @@ Continuous packet reception is useful for monitoring the CAN bus over time. This
         pass
     ```
 
-=== "Javascript"
-
-    ```javascript
-    // Receive all packets
-    for (var packet of CAN.Bus()) {
-        // Process packet
-    }
-
-    // Receive all packets with timeout (in milliseconds)
-    for (var packet of CAN.Bus(1000)) { // 1 second timeout
-        // Process packet
-    }
-
-    // Receive packets for specific ID
-    for (var packet of CAN.Bus(0x123)) {
-        // Process packet
-    }
-
-    // Receive packets for specific ID with timeout (in milliseconds)
-    for (var packet of CAN.Bus(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
-        // Process packet
-    }
-    ```
-
 ### Packet Buffering
 
 Packet buffering is essential for handling high-frequency CAN messages or when you need to process multiple packets at once. Enabling buffering allows you to store packets for specific CAN IDs, ensuring you don't miss any messages during high-traffic periods.
@@ -263,13 +199,6 @@ Packet buffering is essential for handling high-frequency CAN messages or when y
     CAN.BufferCANPackets(0x123)
     ```
 
-=== "Javascript"
-
-    ```javascript
-    // Enable buffering for specific CAN ID
-    CAN.BufferCANPackets(0x123);
-    ```
-
 ### Disable Packet Buffering
 
 When you no longer need to buffer packets for a specific CAN ID, you can disable buffering to free up resources.
@@ -286,13 +215,6 @@ When you no longer need to buffer packets for a specific CAN ID, you can disable
     ```python
     # Disable buffering for specific CAN ID
     CAN.StopBufferingCANPackets(0x123)
-    ```
-
-=== "Javascript"
-
-    ```javascript
-    // Disable buffering for specific CAN ID
-    CAN.StopBufferingCANPackets(0x123);
     ```
 
 ## Full Send Receive Example
@@ -337,26 +259,6 @@ This section provides complete, real-world examples showing how to use the CANCl
 
     # Disable buffering for specific ID
     CAN.StopBufferingCANPackets(0x123)
-    ```
-
-=== "Javascript"
-
-    ```javascript
-    // Enable buffering for specific ID
-    CAN.BufferCANPackets(0x123);
-
-    // Send a packet
-    var packet = new CanPacket(0x123, [0x01, 0x02, 0x03]);
-    var success = CAN.Send(packet);
-
-    // Receive packets for specific ID with timeout (in milliseconds)
-    for (var receivedPacket of CAN.Bus(0x123, 1000)) { // Receive packets with ID 0x123, 1 second timeout
-        // Process received packet
-        console.log(`Received packet with ID: ${receivedPacket.CanId}`);
-    }
-
-    // Disable buffering for specific ID
-    CAN.StopBufferingCANPackets(0x123);
     ```
 
 ## Best Practices

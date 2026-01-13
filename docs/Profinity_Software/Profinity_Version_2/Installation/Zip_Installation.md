@@ -5,20 +5,20 @@ title: Zip Installation (macOS and Linux)
 !!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
     Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
 
-# Installing Profinity On macOS and Linux
+# Installing Profinity on macOS and Linux
 
 !!! info "Available Profinity Releases"
     Profinity is currently available on [Windows machines](./Windows_Installation.md) as a standard desktop application, for selected [Unix Platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker enabled environments and Cloud setups.
 
 ## Zip Installation
 
-Profinity is available as a Zip installation file for Unix and MacOS platforms, this approach does not require any installer but simply requires the files to be run with a version of the Microsoft ASP.NET Core 9.0 runtime.
+Profinity is available as a zip installation file for Unix and macOS platforms. This approach does not require an installer, but it does require the Microsoft ASP.NET Core 9.0 runtime.
 
-To use this installation approach firstly download and install a ASP.NET Core 9 or above runtime (note we are currently only testing against .Net 9 releases so if you do use a more recent version you may have issues).  The ASP.NET Core runtime is the version of .Net that is required.
+To use this installation approach, first download and install an ASP.NET Core 9 (or above) runtime. Note that we are currently only testing against .NET 9 releases, so if you do use a more recent version you may have issues. The ASP.NET Core runtime is the version of .NET that is required.
 
 [Download ASP.NET Core 9 :material-download:](https://dotnet.microsoft.com/en-us/download/dotnet/9.0){ .md-button }
 
-Once installed download the latest Profinity release .zip file from the  and unzip the file in to the folder that you wish to run Profinity on.
+Once installed, download the latest Profinity release `.zip` file from the Prohelion GitHub releases page and unzip the file into the folder that you wish to run Profinity from.
 
 [Download Profinity V2 .Zip file :material-download:](https://github.com/Prohelion/Profinity_V2_Early_Adopter_Release/releases/latest/download/Profinity.zip){ .md-button }
 
@@ -30,7 +30,7 @@ To start Profinity from a Zip installation, go to the folder where Profinity has
 
 The following or similar should then appear.
 
-```
+```text
 Prohelion Profinity - v2.1.0.0
 Profinity (c) 2023 - Prohelion Pty Ltd.
 ------------------------------------------

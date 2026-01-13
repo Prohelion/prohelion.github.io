@@ -17,13 +17,26 @@ title: Prohelion BMS
 
 ## Introduction
 
-Prohelion design and sells Battery Management Systems (BMS) designed for both automotive and fixed location environments.
+Prohelion designs and sells Battery Management Systems (BMS) designed for both automotive and fixed location environments.
 
 The Prohelion Battery Management technology is built around three main components. All systems will include the Battery Management Unit (BMU) master board and a number of Cell Management Units (CMUs) or Nodes, in some of our Battery Management Systems the master board and Cell Management Units are integrated in to a single board solution.
 
 For more information on these products, please see the main [Prohelion Website](https://www.prohelion.com/product-category/bms/).
 
 Profinity supports the management and monitoring of all our Battery Management Systems via your Profile.
+
+## Supported BMS Models
+
+Profinity supports the following Prohelion Battery Management System models:
+
+- **D1000 Gen1**: D1000 Generation 1 Battery Management Unit
+- **D1000 Gen2**: D1000 Generation 2 Battery Management Unit
+- **M48 Gen1**: M48 Generation 1 Battery Management Unit
+- **M48 Gen2**: M48 Generation 2 Battery Management Unit
+- **C48 Gen2**: C48 Generation 2 Battery Management Unit
+- **C20 Gen1**: C20 Generation 1 Battery Management Unit
+
+Each model has specific features and capabilities. When adding a BMS to your profile, select the appropriate model and generation to ensure correct configuration and functionality.
 
 !!! info "CMUs and Nodes are managed by the BMU"
     Prohelion CMUs utilise a second CAN network organised by the BMU, and thus do not need to be added as components to your Profile. By adding the BMU to your Profile, you are able to control and see data from the entire BMS. For more information, see [Prohelion BMS documentation](../../../../Battery_Management_Systems/index.md).
@@ -34,7 +47,6 @@ A typical battery will generally only have one BMU, but larger packs or split pa
 
 You can manage a Prohelion BMU using Profinity by adding a new Prohelion BMU to your [Profile](../../Getting_Started/Profiles.md). When adding a Prohelion BMU to your Profile, you will be prompted to fill in the following information about your device. Note that these details can be changed later from `Change Settings` button at the top-right of the BMU dashboard.
 
-<!-- Finish this -->
 |Parameter                  |Description                                                                                         |
 |---------------------------|----------------------------------------------------------------------------------------------------|
 |`Name`                     | The name of the component. Must be unique.                                                         |
@@ -105,7 +117,7 @@ The exact information shown will depend on the model of BMS that you are running
 Various additional information about the system is highlighted by the colour of the voltage readings:
 
 - Cells currently balancing have a blue background
-- The minimum and maximum cells <!--have bold text and -->are colour coded (green shows highest voltage, orange lowest)
+- The minimum and maximum cells are colour coded (green shows highest voltage, orange lowest)
 - Cell in yellow have trust errors
 - Cells not present (where the CMU has been programmed to monitor less than 8 cells) have no text, and a pale-yellow background
 

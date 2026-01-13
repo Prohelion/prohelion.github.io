@@ -7,13 +7,20 @@ title: Script Types
 
 # Script Types in Profinity
 
-Profinity supports three basic types of scripts, each with specific use cases and execution contexts. This document explains the differences between these script types and when to use each one. Understanding these script types is crucial for developing effective automation and monitoring solutions in Profinity.
+Profinity supports five script execution modes, each with specific use cases and execution contexts. This document explains the differences between these script execution modes and when to use each one. Understanding these script execution modes is crucial for developing effective automation and monitoring solutions in Profinity.
+
+<figure markdown>
+![Script types selection (placeholder)](../../../images/placeholder_screenshot.svg)
+<figcaption>Script type selection and configuration in the Profinity UI (placeholder screenshot — replace with an actual image)</figcaption>
+</figure>
 
 | Script Type                                   | Description| Best For                                                                                            | Not Recommended For        |
 |-----------------------------------------------|-|-----------------------------------------------------------------------------------------------------|----------------------------|
-| [Run](./RunScripts.md)            | A Run Script, can simply be run by the operator, or scheduled to be run on a regular basis.  They are typically used do jobs that are short, sharp and don't require a lot of state management | - One-time operations<br>- Manual tasks<br>- Testing<br>- Troubleshooting<br>- Scheduled tasks      | - Continuous monitoring<br>- Real-time responses |
+| [Run](./RunScripts.md)            | A Run Script, can simply be run by the operator, or scheduled to be run on a regular basis.  They are typically used do jobs that are short, sharp and don't require a lot of state management | - One-time operations<br>- Manual tasks<br>- Testing<br>- Troubleshooting      | - Continuous monitoring<br>- Real-time responses |
 | [Receive](./ReceiveScripts.md)    | Receive Scripts are scripts that can be setup to run each time a particular CAN Packet is received.  They are generally used to respond to the receipt of a packet with a reply message | - CAN message processing<br>- Real-time data handling<br>- Protocol implementation                  | - Long-running operations<br>- System configuration<br>- Manual tasks |
 | [Service](./ServiceScripts.md)    | Service Scripts implement full lifecycle management and generally are designed for tasks that need to run for a long time | - Continuous monitoring<br>- Long-running tasks<br>- Critical services<br>- System-level operations |  - Quick responses<br>- One-time operations<br>- Manual tasks |
+| TimeInterval | Scripts that run on a time-based interval (e.g., every 5 minutes, every hour). Uses the Run script engine but executes automatically at regular intervals | - Periodic tasks<br>- Regular data collection<br>- Scheduled maintenance<br>- Interval-based monitoring | - Real-time responses<br>- Event-driven operations<br>- Complex scheduling requirements |
+| CronSchedule | Scripts that run on a cron schedule using Quartz cron expressions. Provides flexible scheduling for complex time-based requirements | - Complex scheduling requirements<br>- Time-of-day operations<br>- Weekly/monthly tasks<br>- Advanced scheduling patterns | - Simple intervals<br>- Manual tasks<br>- Real-time responses |
 
 ## Best Practices
 
@@ -24,9 +31,11 @@ Best Practice for Profinity Scripting, include:
 
 ___Choose the Right Type of Script Execution___
 
-- Use Run scripts for manual or scheduled operations
+- Use Run scripts for manual operations
 - Use Receive scripts for CAN message processing
-- Use service scripts for critical, long-running operations
+- Use Service scripts for critical, long-running operations
+- Use TimeInterval scripts for periodic tasks with simple intervals
+- Use CronSchedule scripts for complex scheduling requirements
 
 ___Be Efficient with Resource Management___
 

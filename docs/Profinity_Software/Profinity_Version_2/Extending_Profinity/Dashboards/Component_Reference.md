@@ -37,7 +37,7 @@ Display and visualize information:
 - [Tables](#tables) - Tabular data display
 - [State](#state) - State machine visualization
 - [HTML](#html) - HTML content display
-- [Image](#image) - Interactive image with regions, icons, and data values
+- [Image](#image) - Interactive image with regions, icons, and data values (see [Interactive Images](./Interactive_Images.md) for detailed documentation)
 
 ### Interactive Components
 User interface and control elements:

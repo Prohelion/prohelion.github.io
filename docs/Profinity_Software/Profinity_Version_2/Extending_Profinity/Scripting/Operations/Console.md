@@ -15,7 +15,6 @@ Access to console functionality varies by language:
 
 - C#: Access through `Profinity.Console`
 - Python: Use the built-in `print()` and `eprint()` functions
-- JavaScript: Use the built-in `log()` and `error()` functions
 
 ## Key Features
 
@@ -58,23 +57,8 @@ This section provides complete, real-world examples showing how to use the Conso
         // Perform some operation
         print("Operation completed successfully")
     except Exception as ex:
-        // Write error to error stream
+        # Write error to error stream
         eprint(f"Error occurred: {ex.Message}")
-    ```
-
-=== "Javascript"
-
-    ```javascript
-    // Write normal program output
-    log("Starting script execution...");
-
-    try {
-        // Perform some operation
-        log("Operation completed successfully");
-    } catch (ex) {
-        // Write error to error stream
-        error(`Error occurred: ${ex.message}`);
-    }
     ```
 
 ## Best Practices
