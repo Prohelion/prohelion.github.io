@@ -18,8 +18,8 @@ These scripts are particularly useful in applications where immediate response t
 - Full access to the received CAN packet data
 
 <figure markdown>
-![Receive script configuration (placeholder)](../../../images/placeholder_screenshot.svg)
-<figcaption>Receive script editor and CAN packet trigger configuration (placeholder screenshot — replace with an actual image)</figcaption>
+![Receive script configuration](../../../images/python_run_on_receipt_script.png)
+<figcaption>Receive script editor and CAN packet trigger configuration</figcaption>
 </figure>
 
 ## Examples

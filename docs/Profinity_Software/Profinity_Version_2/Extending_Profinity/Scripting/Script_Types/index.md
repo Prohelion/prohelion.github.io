@@ -10,8 +10,8 @@ title: Script Types
 Profinity supports five script execution modes, each with specific use cases and execution contexts. This document explains the differences between these script execution modes and when to use each one. Understanding these script execution modes is crucial for developing effective automation and monitoring solutions in Profinity.
 
 <figure markdown>
-![Script types selection (placeholder)](../../../images/placeholder_screenshot.svg)
-<figcaption>Script type selection and configuration in the Profinity UI (placeholder screenshot — replace with an actual image)</figcaption>
+![Script types selection](../../../images/script_run_modes.png)
+<figcaption>Script type selection and configuration in the Profinity UI</figcaption>
 </figure>
 
 | Script Type                                   | Description| Best For                                                                                            | Not Recommended For        |
