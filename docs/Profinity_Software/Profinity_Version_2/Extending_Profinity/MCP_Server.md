@@ -24,8 +24,8 @@ To enable the MCP server in Profinity, you must configure it in the System Confi
 5. Save the configuration
 
 <figure markdown>
-![Enable MCP Server in System Configuration (placeholder)](../images/placeholder_screenshot.svg)
-<figcaption>System Configuration showing the “Enable MCP Server” setting (placeholder screenshot — replace with an actual image)</figcaption>
+![Enable MCP Server in System Configuration](../images/enable_mcp.png)
+<figcaption>System Configuration showing the “Enable MCP Server” setting</figcaption>
 </figure>
 
 !!! warning "System Restart Required"

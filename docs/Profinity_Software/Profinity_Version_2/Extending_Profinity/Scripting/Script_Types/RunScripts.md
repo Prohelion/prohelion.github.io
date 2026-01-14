@@ -24,8 +24,8 @@ Run scripts support three execution modes:
 - Support for time-based scheduling (TimeInterval and CronSchedule modes)
 
 <figure markdown>
-![Run script configuration (placeholder)](../../../images/placeholder_screenshot.svg)
-<figcaption>Run script editor and scheduling options (placeholder screenshot — replace with an actual image)</figcaption>
+![Run script configuration](../../../images/python_run_script.png)
+<figcaption>Run script editor and scheduling options</figcaption>
 </figure>
 
 ## Examples

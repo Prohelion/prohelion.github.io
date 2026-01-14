@@ -236,6 +236,7 @@ loopback
 canbus
 
 # Other
+autodiscover
 canpacket
 teamarrow
 analytics

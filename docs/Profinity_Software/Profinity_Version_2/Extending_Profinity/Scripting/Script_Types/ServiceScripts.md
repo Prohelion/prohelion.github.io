@@ -15,8 +15,8 @@ Service scripts are designed for continuous, long-running operations that need t
 - Support for service lifecycle management
 
 <figure markdown>
-![Service script configuration (placeholder)](../../../images/placeholder_screenshot.svg)
-<figcaption>Service script editor and lifecycle configuration (placeholder screenshot — replace with an actual image)</figcaption>
+![Service script configuration](../../../images/python_service_script.png)
+<figcaption>Service script editor and lifecycle configuration</figcaption>
 </figure>
 
 ## Examples
