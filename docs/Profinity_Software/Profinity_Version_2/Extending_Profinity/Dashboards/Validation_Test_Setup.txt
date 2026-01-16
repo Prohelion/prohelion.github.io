@@ -1,52 +1,53 @@
-Dashboard Examples Validation Test - Setup and Usage Guide
-==========================================================
+Dashboard Examples Validation Script - Setup and Usage Guide
+==============================================================
 
 OVERVIEW
 --------
-This document explains how to set up and run the automated validation test that checks
+This document explains how to set up and run the automated validation script that checks
 all YAML dashboard examples in the documentation against the ui-schema.json schema.
 
-The test ensures that all examples in the documentation are compliant with the current
+The script ensures that all examples in the documentation are compliant with the current
 schema, helping maintain documentation quality and preventing outdated examples.
 
 LOCATION
 --------
-Test file: Profinity/Profinity-Web-GUI/ClientApp/src/helpers/__tests__/validate-dashboard-examples.test.ts
+Script file: Profinity-Docs/scripts/validate-dashboard-examples.js
 
-Schema file: Profinity/Profinity-Engine/UserInterface/Factories/ui-schema.json
+Schema file: ../Profinity/Profinity-Engine/UserInterface/Factories/ui-schema.json
+             (relative to Profinity-Docs root)
 
-Documentation: Profinity-Docs/docs/Profinity_Software/Profinity_Version_2/Extending_Profinity/Custom_Components/Dashboards/
+Documentation: Profinity-Docs/docs/Profinity_Software/Profinity_Version_2/Extending_Profinity/Dashboards/
 
 SETUP
 -----
 1. Ensure both workspaces are available:
-   - Profinity workspace (contains the test and schema)
-   - Profinity-Docs workspace (contains the documentation)
+   - Profinity workspace (contains the schema)
+   - Profinity-Docs workspace (contains the script and documentation)
 
-2. The test uses an absolute path to find the documentation:
-   /Work/Profinity-Docs/docs/Profinity_Software/Profinity_Version_2/Extending_Profinity/Custom_Components/Dashboards/
+2. The script expects the Profinity project to be a sibling directory:
+   /Work/Profinity/Profinity-Engine/UserInterface/Factories/ui-schema.json
 
-   If your workspace is in a different location, you'll need to update the DOCS_PATH
-   constant in the test file.
+   If your workspace is in a different location, you'll need to update the SCHEMA_PATH
+   constant in the script file.
 
-3. Install dependencies (if not already done):
-   cd Profinity/Profinity-Web-GUI/ClientApp
+3. Install dependencies:
+   cd Profinity-Docs/scripts
    npm install
 
-4. The test automatically uses the mock schema copied during test setup:
-   src/mocks/ui-schema.json (copied from Profinity-Engine during test:setup)
+RUNNING THE SCRIPT
+------------------
+To run the validation script:
 
-RUNNING THE TEST
-----------------
-The test is excluded from the general test suite to avoid breaking regular test runs.
+  cd Profinity-Docs
+  node scripts/validate-dashboard-examples.js
 
-To run the validation test explicitly:
+Or using npm:
 
-  cd Profinity/Profinity-Web-GUI/ClientApp
-  npm test -- validate-dashboard-examples.test.ts
+  cd Profinity-Docs/scripts
+  npm run validate-dashboards
 
-WHAT THE TEST DOES
------------------
+WHAT THE SCRIPT DOES
+---------------------
 1. Scans all .md files in the Dashboards documentation directory
 2. Extracts all YAML code blocks (```yaml or ```yml)
 3. Wraps partial examples in a complete dashboard structure if needed
@@ -56,10 +57,12 @@ WHAT THE TEST DOES
    - Number of valid examples
    - Number of invalid examples
    - Details of validation errors for invalid examples
+6. Writes detailed error information to validation-errors.json
 
 EXPECTED OUTPUT
 ---------------
-The test will output:
+The script will output:
+- Schema location confirmation
 - A count of markdown files found
 - For each file, the number of YAML blocks extracted
 - A validation summary showing:
@@ -67,10 +70,17 @@ The test will output:
   * Valid: Y
   * Invalid: Z
 - A list of invalid examples with their file locations and error details
+- Detailed error information written to validation-errors.json
 
 EXAMPLE OUTPUT
 --------------
-Found 9 markdown files in /Work/Profinity-Docs/...
+Dashboard Examples Validation
+
+==================================================
+Schema loaded from: ../Profinity/Profinity-Engine/...
+
+Found 9 markdown files
+
   Component_Reference.md: 23 YAML blocks found
   Examples.md: 15 YAML blocks found
   ...
@@ -81,26 +91,30 @@ Validation Summary:
   Valid: 8
   Invalid: 79
 
-Invalid examples (showing first 10):
-  - Component_Reference.md:67
-    Path: #/properties/items/items/additionalProperties
-    Error: should NOT have additional properties
-    ...
+Detailed errors written to: validation-errors.json
+
+Error summary (grouped by type):
+  45x: /dashboard/items/0/row/items/0: should NOT have additional properties
+  ...
+
+❌ Validation failed. Please fix the errors above.
 
 TROUBLESHOOTING
 ---------------
-1. Test not found:
-   - Ensure you're in the ClientApp directory
-   - Check that the test file exists at the path shown above
+1. Script not found:
+   - Ensure you're in the Profinity-Docs directory
+   - Check that the script file exists at scripts/validate-dashboard-examples.js
 
-2. "Docs directory does not exist":
-   - Verify the Profinity-Docs workspace is available
+2. "Failed to load schema":
+   - Verify the Profinity workspace is available as a sibling directory
+   - Check that ui-schema.json exists at:
+     ../Profinity/Profinity-Engine/UserInterface/Factories/ui-schema.json
+   - Update SCHEMA_PATH in the script if your workspace structure is different
+
+3. "Docs directory does not exist":
+   - Verify the documentation directory exists
    - Check that the path in DOCS_PATH matches your workspace location
-   - Update DOCS_PATH in the test file if needed
-
-3. "Failed to load schema":
-   - Ensure the test:setup script has run (copies schema to src/mocks/)
-   - Check that ui-schema.json exists in Profinity-Engine
+   - Update DOCS_PATH in the script if needed
 
 4. No examples found:
    - Verify markdown files exist in the documentation directory
@@ -115,34 +129,29 @@ TROUBLESHOOTING
      * Wrong property: charttype (should be type)
      * Missing required properties
 
-INTEGRATION WITH TEST SUITE
-----------------------------
-The test is excluded from the general test suite (npm run test) to prevent:
-- Breaking regular test runs if documentation is temporarily out of sync
-- Slowing down the test suite
-- Requiring the Profinity-Docs workspace to be available for all tests
+6. Module not found errors:
+   - Run `npm install` in the scripts directory
+   - Ensure package.json exists and has the required dependencies (ajv, yaml)
 
-To include it in the general test suite, remove this line from jest.config.cjs:
-  '/__tests__/validate-dashboard-examples\\.test\\.ts$'
-
-MAINTAINING THE TEST
---------------------
+MAINTAINING THE SCRIPT
+----------------------
 When updating the documentation:
-1. Run the validation test after making changes
+1. Run the validation script after making changes
 2. Fix any validation errors in the examples
 3. Ensure all new examples are schema-compliant
-4. Update this guide if the test location or usage changes
+4. Update this guide if the script location or usage changes
 
-The test should be run:
+The script should be run:
 - Before committing documentation changes
 - When the schema is updated
 - Periodically to catch documentation drift
 
 NOTES
 -----
-- The test wraps partial examples (e.g., just a "row:" component) in a complete
+- The script wraps partial examples (e.g., just a "row:" component) in a complete
   dashboard structure for validation
 - Only YAML blocks explicitly marked with ```yaml or ```yml are extracted
 - Plain ``` code blocks are also extracted (assumed to be YAML in dashboard docs)
-- The test uses the same validation logic as CustomDashboardFactory in the C# code
+- The script uses the same validation logic as CustomDashboardFactory in the C# code
+- Exit code 0 = success (all examples valid), exit code 1 = failure (some examples invalid)
 

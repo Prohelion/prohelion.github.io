@@ -12,7 +12,7 @@ Data binding creates a dynamic connection between your dashboard components and 
 
 This enables:
 
-- **Real-time monitoring** of CAN Bus systems
+- **Real-time monitoring** of CAN bus systems
 - **Automatic updates** without manual refresh
 - **Dynamic styling** based on data values
 - **Interactive displays** that respond to system state
@@ -337,6 +337,6 @@ dashboard:
 
 Now that you understand data binding, you can:
 - Learn about [Core Elements](./Core_Elements.md) to understand dashboard structure
-- Explore [Component Reference](./Component_Reference.md) for detailed component information
+- Explore [Component Reference](./Component_Reference/index.md) for detailed component information
 - See [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
 - Review [Example](./Example.md) for complete dashboard implementations

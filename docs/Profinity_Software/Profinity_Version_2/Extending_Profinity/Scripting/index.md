@@ -2,9 +2,6 @@
 title: Profinity Scripting
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Profinity Scripting
 
 Welcome to the Profinity Scripting documentation. This section provides comprehensive information about scripting in Profinity, including supported languages, script types, and available operations.
@@ -48,16 +45,16 @@ Each language has its strengths and ideal use cases. See the [Supported Language
 
 Profinity provides various out of the box operations to support your script development:
 
-- [CANBus](./Operations/CANBus.md): For CAN communication
-- [DBC](./Operations/DBC.md): For DBC Message and Signal handling
-- [State](./Operations/State.md): For data persistence
-- [Console](./Operations/Console.md): For output and logging
+- [CANBus](./Script_Operations/CANBus.md): For CAN communication
+- [DBC](./Script_Operations/DBC.md): For DBC Message and Signal handling
+- [State](./Script_Operations/State.md): For data persistence
+- [Console](./Script_Operations/Console.md): For output and logging
 
-You can find out more about each in our [Operations](./Operations/index.md) documentation.
+You can find out more about each in our [Operations](./Script_Operations/index.md) documentation.
 
 ## Next Steps
 
 1. Review the [Supported Languages](./Supported_Languages/index.md) guide to help select the right language for you
 2. Learn about [Script Types](./Script_Types/index.md) to determine what script style might be most suitable
-3. Explore the available [Operations](./Operations/index.md) and things you can do with Scripts
+3. Explore the available [Operations](./Script_Operations/index.md) and things you can do with Scripts
 4. Try creating your first script 

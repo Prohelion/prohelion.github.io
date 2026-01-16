@@ -7,7 +7,7 @@ title: Custom Components
 
 # Custom Components
 
-Profinity provides the ability to create custom components that use your DBC files and custom dashboard definitions to include any component that you may have in your system that runs CAN Bus into your profile, to monitor those components and graph or log the data.
+Profinity provides the ability to create custom components that use your DBC files and custom dashboard definitions to include any component that you may have in your system that runs CAN bus into your profile, to monitor those components and graph or log the data.
 
 ## What is a Custom Component?
 

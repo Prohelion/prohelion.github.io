@@ -2,12 +2,9 @@
 title: MQTT Logger
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # MQTT Logger
 
-Profinity provides the ability to log CAN Bus data to an MQTT broker, allowing you to integrate your data with other systems and applications. MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol designed for low-bandwidth, high-latency networks, making it ideal for IoT applications.
+Profinity provides the ability to log CAN bus data to an MQTT broker, allowing you to integrate your data with other systems and applications. MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol designed for low-bandwidth, high-latency networks, making it ideal for IoT applications.
 
 ## What is MQTT?
 
@@ -22,7 +19,7 @@ To use the MQTT logger in Profinity, you need to set up an MQTT broker. There ar
 
 ## Configuring the MQTT Logger
 
-To log your CAN Bus data to an MQTT broker, add an MQTT device to your profile and configure the following options:
+To log your CAN bus data to an MQTT broker, add an MQTT device to your profile and configure the following options:
 
 | Setting               | Purpose                                                               |
 | --------------------- | --------------------------------------------------------------------- |

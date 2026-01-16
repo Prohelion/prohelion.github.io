@@ -39,7 +39,7 @@ The header section of your dashboard, typically containing:
 
 **When to use:** Every dashboard should have a titlebar to provide context and navigation.
 
-**Learn more:** [Titlebar Reference](./Component_Reference.md#titlebar)
+**Learn more:** [Titlebar Reference](./Component_Reference/Layout/Titlebar.md)
 
 ### 2. Row
 Layout containers that organize components horizontally or vertically.
@@ -52,7 +52,7 @@ Layout containers that organize components horizontally or vertically.
 
 **When to use:** Use rows to create logical sections of your dashboard and control component arrangement.
 
-**Learn more:** [Row Reference](./Component_Reference.md#row)
+**Learn more:** [Row Reference](./Component_Reference/Layout/Row.md)
 
 ### 3. Accordion
 Collapsible sections for organizing content that can be expanded or collapsed.
@@ -65,7 +65,7 @@ Collapsible sections for organizing content that can be expanded or collapsed.
 
 **When to use:** Use accordions for detailed information, settings, or secondary data that users can access when needed.
 
-**Learn more:** [Accordion Reference](./Component_Reference.md#accordion)
+**Learn more:** [Accordion Reference](./Component_Reference/Layout/Accordion.md)
 
 ### 4. Footer
 Bottom section typically containing navigation menus and additional controls.
@@ -78,7 +78,7 @@ Bottom section typically containing navigation menus and additional controls.
 
 **When to use:** Use footers for navigation, additional actions, or system information.
 
-**Learn more:** [Footer Reference](./Component_Reference.md#footer)
+**Learn more:** [Footer Reference](./Component_Reference/Layout/Footer.md)
 
 ## Layout Directions
 

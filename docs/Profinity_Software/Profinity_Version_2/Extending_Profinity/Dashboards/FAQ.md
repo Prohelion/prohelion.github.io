@@ -476,7 +476,7 @@ dashboard:
 
 ## Still Have Questions?
 
-- Review the [Component Reference](./Component_Reference.md) for detailed component information
+- Review the [Component Reference](./Component_Reference/index.md) for detailed component information
 - Check [Examples](./Examples.md) for working code samples
 - See [Troubleshooting](./Troubleshooting.md) for common problems and solutions
 - Contact Profinity support for additional assistance

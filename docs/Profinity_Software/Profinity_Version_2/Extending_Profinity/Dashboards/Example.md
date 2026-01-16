@@ -510,7 +510,7 @@ The **accordion section** provides comprehensive system details:
 
 This example demonstrates several important data binding patterns:
 
-### CAN Bus Signal Binding
+### CAN bus Signal Binding
 ```yaml
 dashboard:
   items:
@@ -616,6 +616,6 @@ Now that you've seen a complete dashboard example, you can:
 
 - **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
 - **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to connect your data sources
-- **Explore Components** - Use [Component Reference](./Component_Reference.md) for detailed component information
+- **Explore Components** - Use [Component Reference](./Component_Reference/index.md) for detailed component information
 - **Add Styling** - Apply [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
 - **Create Your Own** - Use this example as a template for your specific system

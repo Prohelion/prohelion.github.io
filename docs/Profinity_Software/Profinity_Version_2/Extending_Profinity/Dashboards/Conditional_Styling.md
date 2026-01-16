@@ -130,6 +130,6 @@ Apply different styles based on data value ranges or conditions. This is particu
 
 Now that you understand conditional styling, you can:
 - Learn about [Data Binding](./Data_Binding.md) to connect styling to your data sources
-- Explore [Component Reference](./Component_Reference.md) for styling options available on each component
+- Explore [Component Reference](./Component_Reference/index.md) for styling options available on each component
 - See [Core Elements](./Core_Elements.md) to understand how conditional styling works with dashboard structure
 - Review [Examples](./Examples.md) for complete dashboard implementations with conditional styling

@@ -2,9 +2,6 @@
 title: Running Profinity as a Service or Daemon
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Running Profinity as a Service
 
 This guide provides instructions on how to run Profinity as a service on Windows and Unix-based systems, ensuring that it starts automatically on boot and restarts if it fails.
@@ -27,13 +24,13 @@ As of version 2 Profinity is now available to run in server mode on Windows, Doc
 In this mode, the Profinity GUI is only available via the browser (there is no Desktop support) and is supported by our REST APIs, which is also available to your [custom applications](../Extending_Profinity/Hosting/index.md) which you can host on the Profinity Server.
 
 !!! info "Why Profinity Server?"
-    Do you have a CAN Bus based platform and want to provide modern API centric front ends to support user kiosks or other advanced user interfaces, sophisticated modern data analytics and reporting, remote logging or to run your solution in the cloud, desktop, or embedded hardware?  Profinity Server supports this need.
+    Do you have a CAN bus based platform and want to provide modern API centric front ends to support user kiosks or other advanced user interfaces, sophisticated modern data analytics and reporting, remote logging or to run your solution in the cloud, desktop, or embedded hardware?  Profinity Server supports this need.
 
 ## Hardware Requirements
 
-Profinity Server does not require any additional Prohelion Hardware to run. It can be used as a general purpose development framework for anyone writing modern web UI's for CAN Bus based architectures or wanting to provide a modern server style interface to your CAN infrastructure with native cloud connectivity.  
+Profinity Server does not require any additional Prohelion Hardware to run. It can be used as a general purpose development framework for anyone writing modern web UI's for CAN bus based architectures or wanting to provide a modern server style interface to your CAN infrastructure with native cloud connectivity.  
 
-However, if you are not using Prohelion hardware, you will still need some way to connect to your CAN Bus network, see the [CAN Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) page for information on supported CAN Bus adapters that you can use.
+However, if you are not using Prohelion hardware, you will still need some way to connect to your CAN bus network, see the [CAN Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) page for information on supported CAN bus adapters that you can use.
 
 !!! info "Licensing for Production Environments"
     Use of Profinity server in production environments on Windows, Docker, Linux or MacOS may require an additional license key depending on your commercial status with Prohelion.

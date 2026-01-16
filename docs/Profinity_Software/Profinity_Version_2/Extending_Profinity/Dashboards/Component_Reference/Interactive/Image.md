@@ -1,13 +1,14 @@
 ---
-title: Interactive Images
+title: Image Component
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you are having any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
+# Image
 
-# Interactive Images
+Interactive image component with clickable regions, icons, data values, points, and annotation lines. Images are loaded from the /Profile/Images directory.
 
-Interactive Images are a powerful dashboard component that allows you to create rich, interactive visualizations by overlaying clickable regions, icons, data values, points, and annotation lines on top of static images. This component is ideal for device diagrams, system layouts, interactive schematics, and visual data overlays.
+**Best for:** Device diagrams, system layouts, interactive schematics, visual data overlays
+
+**When not to use:** For simple static images (use HTML component with img tag), for charts (use Chart component)
 
 ## Overview
 
@@ -21,6 +22,21 @@ Interactive Images combine a base image with several overlay elements:
 
 All elements are positioned relative to the base image, allowing you to create complex, data-driven visualizations.
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `id` | optional (string) | Unique identifier for the image component |
+| `class` | optional (string) | CSS class for styling |
+| `label` | optional (string) | Display label |
+| `value` | required (object) | Interactive image data structure |
+| `bind` | optional (array) | Data binding configuration |
+| `enabled` | optional (boolean) | Whether the image is enabled |
+| `unit` | optional (string) | Unit for data values |
+| `min` | optional (number) | Minimum value |
+| `max` | optional (number) | Maximum value |
+| `precision` | optional (number) | Decimal precision |
+
 ## Base Image
 
 The base image is the foundation of an Interactive Image component. The image file must be stored in the profile's `/Profile/Images` directory and referenced by filename only.
@@ -33,34 +49,34 @@ image:
 
 The image serves as the coordinate system for all overlay elements. Regions, icons, data values, and points are positioned relative to this base image.
 
+**Image Data Structure (`value` object):**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `image` | required (string) | Filename of the image in /Profile/Images directory |
+| `regions` | optional (array) | Array of clickable regions |
+| `icons` | optional (array) | Array of icons to display on the image |
+| `dataValues` | optional (array) | Array of data values to display |
+| `points` | optional (array) | Array of anchor points for annotation lines |
+| `annotationLines` | optional (array) | Array of annotation lines connecting elements |
+
 ## Regions
 
 Regions are clickable areas on the image defined by rectangular coordinates. Regions can navigate to other pages or trigger API actions.
 
-### Region Configuration
+### Region Parameters
 
-```yaml
-regions:
-  - id: "region-1"
-    coordinates: "xywh=100,50,200,150"
-    action: "navigate"
-    target: "/component?componentId=Battery"
-    label: "Battery Pack"
-    visibleBorder: true
-```
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `id` | required (string) | Unique identifier for the region |
+| `coordinates` | required (string) | Rectangle coordinates in `xywh` format (x, y, width, height in pixels) |
+| `action` | required (string) | Action type - `"navigate"` for URLs or `"action"` for API actions |
+| `target` | optional (string) | URL for navigation (when `action` is `"navigate"`) |
+| `actionId` | optional (string) | Action ID for API action (when `action` is `"action"`) |
+| `label` | optional (string) | Tooltip text displayed on hover |
+| `visibleBorder` | optional (boolean) | Whether to show the border (default: `true`) |
 
-**Parameters:**
-- `id` (required): Unique identifier for the region
-- `coordinates` (required): Rectangle coordinates in `xywh` format (x, y, width, height in pixels)
-- `action` (required): Action type - `"navigate"` for URLs or `"action"` for API actions
-- `target` (optional): URL for navigation (when `action` is `"navigate"`)
-- `actionId` (optional): Action ID for API action (when `action` is `"action"`)
-- `label` (optional): Tooltip text displayed on hover
-- `visibleBorder` (optional): Whether to show the border (default: `true`)
-
-### Region Examples
-
-**Navigation Region:**
+**Navigation Region Example:**
 
 ```yaml
 regions:
@@ -72,7 +88,7 @@ regions:
     visibleBorder: true
 ```
 
-**Action Region:**
+**Action Region Example:**
 
 ```yaml
 regions:
@@ -88,31 +104,20 @@ regions:
 
 Icons are positioned elements that can display emoji, SVG paths, or image files. Icons can be interactive and support tooltips.
 
-### Icon Configuration
+### Icon Parameters
 
-```yaml
-icons:
-  - id: "status-icon"
-    x: 50
-    y: 30
-    icon: "⚠️"
-    size: 32
-    label: "Warning"
-    action: "navigate"
-    target: "/alerts"
-```
-
-**Parameters:**
-- `id` (required): Unique identifier for the icon
-- `x` (required): X coordinate (percentage or pixels)
-- `y` (required): Y coordinate (percentage or pixels)
-- `icon` (required): Icon source - emoji (e.g., `"⚠️"`), SVG path, or image filename from `/Profile/Images`
-- `size` (optional): Icon size in pixels
-- `color` (optional): Icon color (for SVG paths only)
-- `label` (optional): Tooltip text displayed on hover
-- `action` (optional): Action type - `"navigate"` or `"action"`
-- `target` (optional): URL for navigation
-- `actionId` (optional): Action ID for API action
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `id` | required (string) | Unique identifier for the icon |
+| `x` | required (number) | X coordinate (percentage or pixels) |
+| `y` | required (number) | Y coordinate (percentage or pixels) |
+| `icon` | required (string) | Icon source - emoji (e.g., `"⚠️"`), SVG path, or image filename from `/Profile/Images` |
+| `size` | optional (number) | Icon size in pixels |
+| `color` | optional (string) | Icon color (for SVG paths only) |
+| `label` | optional (string) | Tooltip text displayed on hover |
+| `action` | optional (string) | Action type - `"navigate"` or `"action"` |
+| `target` | optional (string) | URL for navigation |
+| `actionId` | optional (string) | Action ID for API action |
 
 ### Icon Types
 
@@ -159,36 +164,24 @@ icons:
 
 Data Values display real-time data from the Profinity system. They support multiple display types (text, graph/bar chart, status/lamp) and can bind to any data source.
 
-### Data Value Configuration
+### Data Value Parameters
 
-```yaml
-dataValues:
-  - id: "voltage-display"
-    x: 50
-    y: 70
-    label: "Voltage"
-    bind:
-      - target: value
-        source: '{COMPONENT_NAME}.Voltage.Value'
-    displayType: "text"
-    unit: "V"
-    precision: 2
-```
-
-**Parameters:**
-- `id` (required): Unique identifier for the data value
-- `x` (required): X coordinate for data display position (percentage or pixels)
-- `y` (required): Y coordinate for data display position (percentage or pixels)
-- `label` (optional): Label to display (falls back to `id` if not provided)
-- `bind` (required): Data binding configuration
-- `displayType` (optional): How to display - `"text"` (default), `"graph"` (bar chart), or `"status"` (lamp)
-- `maxValue` (optional): Maximum value for bar chart (required if `displayType` is `"graph"`)
-- `lampColor` (optional): Lamp color when `displayType` is `"status"` (default: `"grey"`)
-- `unit` (optional): Unit for the value
-- `precision` (optional): Number of decimal places
-- `enabled` (optional): Whether the data value is enabled
-- `min` (optional): Minimum value
-- `max` (optional): Maximum value
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `id` | required (string) | Unique identifier for the data value |
+| `x` | required (number) | X coordinate for data display position (percentage or pixels) |
+| `y` | required (number) | Y coordinate for data display position (percentage or pixels) |
+| `label` | optional (string) | Label to display (falls back to `id` if not provided) |
+| `bind` | required (string/array) | Data binding configuration |
+| `displayType` | optional (string) | How to display - `"text"` (default), `"graph"` (bar chart), or `"status"` (lamp) |
+| `maxValue` | optional (number) | Maximum value for bar chart (required if `displayType` is `"graph"`) |
+| `lampColor` | optional (string) | Lamp color when `displayType` is `"status"` (default: `"grey"`) |
+| `unit` | optional (string) | Unit for the value |
+| `precision` | optional (number) | Number of decimal places |
+| `enabled` | optional (boolean) | Whether the data value is enabled |
+| `min` | optional (number) | Minimum value |
+| `max` | optional (number) | Maximum value |
+| `value` | optional (string/number) | Mock value (ignored when using real bindings) |
 
 ### Display Types
 
@@ -245,27 +238,17 @@ dataValues:
 
 Points are anchor points for annotation lines. They can be displayed as visual markers or used as connection points for annotation lines.
 
-### Point Configuration
+### Point Parameters
 
-```yaml
-points:
-  - id: "point-1"
-    x: 25
-    y: 25
-    size: 5
-    color: "#FF0000"
-```
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `id` | required (string) | Unique identifier for the point |
+| `x` | required (number) | X coordinate (percentage or pixels) |
+| `y` | required (number) | Y coordinate (percentage or pixels) |
+| `size` | optional (number) | Point size in pixels (if > 0, the point will be displayed) |
+| `color` | optional (string) | Point color (defaults to grey) |
 
-**Parameters:**
-- `id` (required): Unique identifier for the point
-- `x` (required): X coordinate (percentage or pixels)
-- `y` (required): Y coordinate (percentage or pixels)
-- `size` (optional): Point size in pixels (if > 0, the point will be displayed)
-- `color` (optional): Point color (defaults to grey)
-
-### Point Examples
-
-**Visible Point:**
+**Visible Point Example:**
 
 ```yaml
 points:
@@ -276,7 +259,7 @@ points:
     color: "#0000FF"
 ```
 
-**Invisible Anchor Point:**
+**Invisible Anchor Point Example:**
 
 ```yaml
 points:
@@ -290,29 +273,16 @@ points:
 
 Annotation Lines connect elements (icons, data values, regions, or points) with optional waypoints (elbows) for routing. Lines are drawn automatically between connected elements.
 
-### Annotation Line Configuration
+### Annotation Line Parameters
 
-```yaml
-annotationLines:
-  - id: "line-1"
-    fromId: "icon-1"
-    toId: "data-value-1"
-    elbows:
-      - x: 50
-        y: 25
-      - x: 75
-        y: 50
-```
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `id` | required (string) | Unique identifier for the annotation line |
+| `fromId` | required (string) | ID of element to connect from (icon, dataValue, region, or point) |
+| `toId` | required (string) | ID of element to connect to (icon, dataValue, region, or point) |
+| `elbows` | optional (array) | Array of elbow points for bent lines (relative to image, 0-100%) |
 
-**Parameters:**
-- `id` (required): Unique identifier for the annotation line
-- `fromId` (required): ID of element to connect from (icon, dataValue, region, or point)
-- `toId` (required): ID of element to connect to (icon, dataValue, region, or point)
-- `elbows` (optional): Array of elbow points for bent lines (relative to image, 0-100%)
-
-### Annotation Line Examples
-
-**Direct Line:**
+**Direct Line Example:**
 
 ```yaml
 annotationLines:
@@ -321,7 +291,7 @@ annotationLines:
     toId: "voltage-display"
 ```
 
-**Line with Waypoints:**
+**Line with Waypoints Example:**
 
 ```yaml
 annotationLines:
@@ -363,6 +333,34 @@ regions:
 ```
 
 Regions always use pixel coordinates in the `xywh` format. Icons, data values, and points can use either percentage or pixel coordinates.
+
+## Image Storage
+
+Interactive Image files must be stored in the profile's `/Profile/Images` directory. Images are referenced by filename only (not full paths).
+
+```text
+/Profile/Images/
+  ├── device-diagram.png
+  ├── battery-system.png
+  ├── solar-panel.svg
+  └── custom-icon.png
+```
+
+Images are served from `/Profile/Images/{filename}` URL path, so you can reference them in your dashboard YAML:
+
+```yaml
+image:
+  value:
+    image: "device-diagram.png"  # File in /Profile/Images/
+```
+
+## Tooltips and Hover Behavior
+
+- **Regions**: Display tooltips on hover (if `label` is provided)
+- **Icons**: Display tooltips on hover (if `label` is provided)
+- **Data Values**: No tooltips (they display data directly)
+
+Tooltips are positioned above the element and follow the mouse cursor.
 
 ## Complete Example
 
@@ -453,34 +451,6 @@ dashboard:
                     toId: "voltage"
 ```
 
-## Image Storage
-
-Interactive Image files must be stored in the profile's `/Profile/Images` directory. Images are referenced by filename only (not full paths).
-
-```text
-/Profile/Images/
-  ├── device-diagram.png
-  ├── battery-system.png
-  ├── solar-panel.svg
-  └── custom-icon.png
-```
-
-Images are served from `/Profile/Images/{filename}` URL path, so you can reference them in your dashboard YAML:
-
-```yaml
-image:
-  value:
-    image: "device-diagram.png"  # File in /Profile/Images/
-```
-
-## Tooltips and Hover Behavior
-
-- **Regions**: Display tooltips on hover (if `label` is provided)
-- **Icons**: Display tooltips on hover (if `label` is provided)
-- **Data Values**: No tooltips (they display data directly)
-
-Tooltips are positioned above the element and follow the mouse cursor.
-
 ## Best Practices
 
 1. **Use appropriate coordinate systems**: Use percentage coordinates for elements that should scale with the image, pixel coordinates for fixed-size elements
@@ -489,10 +459,3 @@ Tooltips are positioned above the element and follow the mouse cursor.
 4. **Optimize image size**: Use appropriately sized images to balance quality and performance
 5. **Test interactivity**: Verify that regions and icons navigate correctly and actions work as expected
 6. **Use data bindings**: Bind data values to live system data for real-time updates
-
-## Related Documentation
-
-- [Component Reference](./Component_Reference.md) - Complete component reference
-- [Data Binding](./Data_Binding.md) - Learn about data binding
-- [Core Elements](./Core_Elements.md) - Dashboard structure and components
-- [Examples](./Examples.md) - More dashboard examples

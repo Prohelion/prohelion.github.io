@@ -2,9 +2,6 @@
 title: Service Scripts
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Service Scripts
 
 Service scripts are designed for continuous, long-running operations that need to maintain state and respond to system events. They operate similarly to Windows services, with full lifecycle management and multiple startup modes. These scripts are ideal for critical monitoring tasks, continuous data logging, and system-level operations that need to run reliably over extended periods.
@@ -21,7 +18,7 @@ Service scripts are designed for continuous, long-running operations that need t
 
 ## Examples
 
-The following examples demonstrate how to implement Service scripts in each supported language. Each example shows the complete lifecycle management of a service, including start, stop, pause, continue, and shutdown operations. These examples represent the minimum implementation needed for a functional Service script.
+The following examples demonstrate how to implement Service scripts in each supported language. Each example shows the complete lifecycle management of a service, including start, stop, pause, and continue operations. The `on_stop()` method (Python) or `OnStop()` method (C#) is called both when the service is manually stopped and when Profinity is shutting down. These examples represent the minimum implementation needed for a functional Service script.
 
 This example demonstrates a Service script that:
 
@@ -89,10 +86,6 @@ This example demonstrates a Service script that:
 
     def on_continue():
         print('Python Service Continued!')
-        return True
-
-    def on_shutdown():
-        print('Python Service Shutdown!')
         return True
 
     def run():

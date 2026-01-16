@@ -236,6 +236,11 @@ loopback
 canbus
 
 # Other
+uninstallation
+nginx
+traefik
+backend
+frontend
 autodiscover
 canpacket
 teamarrow

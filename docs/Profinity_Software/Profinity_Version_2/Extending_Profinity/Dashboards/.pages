@@ -2,18 +2,9 @@ nav:
     - index.md
     - Core_Elements.md
     - Data_Binding.md
-    - Component_Reference.md
+    - Component_Reference
     - Conditional_Styling.md
+    - Examples.md
     - Example.md
-
-
-
-
-
-
-
-
-
-
-
-
+    - Troubleshooting.md
+    - FAQ.md

@@ -2,9 +2,6 @@
 title: Profinity Rest APIs
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Profinity Rest APIs
 
 Profinity V2 is a fully API native application with a modern architecture. It supports API security and an open interface model based around REST & JSON. This allows you to build custom applications using the Profinity APIs to provide additional capabilities to your solutions, custom user interfaces, or to extend the out-of-the-box functionality to meet your needs.

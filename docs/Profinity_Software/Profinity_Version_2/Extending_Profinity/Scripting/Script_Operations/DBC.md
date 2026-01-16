@@ -2,9 +2,6 @@
 title: DBC
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # DBC
 
 The DBC functionality in Profinity provides tools for working with CAN bus database files. These files define the structure of CAN messages, including signals, message IDs, and data formats. This section gives you a high-level understanding of what the DBC functionality can do.
@@ -38,13 +35,13 @@ The `GetDbcSignal` method retrieves a signal definition from the loaded DBC file
 === "C#"
 
     ```csharp
-    DbcSignal signal = DBC.GetDbcSignal(string component, string message, string signal);
+    DbcSignal signal = Profinity.DBC.GetDbcSignal(string component, string message, string signal);
     ```
 
 === "Python"
 
     ```python
-    signal = DBC.GetDbcSignal(component, message, signal)
+    signal = Profinity.DBC.GetDbcSignal(component, message, signal)
     ```
 
 ### Parameters
@@ -65,12 +62,12 @@ The most important property of the returned `DbcSignal` object is the `Value` pr
 
     ```csharp
     // Get a signal definition
-    var signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
+    var signal = Profinity.DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
     if (signal != null)
     {
         // Get the current physical value of the signal
         double currentValue = signal.Value;
-        Console.WriteLine($"Current engine speed: {currentValue} {signal.Unit}");
+        Profinity.Console.WriteLine($"Current engine speed: {currentValue} {signal.Unit}");
     }
     ```
 
@@ -78,7 +75,7 @@ The most important property of the returned `DbcSignal` object is the `Value` pr
 
     ```python
     # Get a signal definition
-    signal = DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed")
+    signal = Profinity.DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed")
     if signal:
         # Get the current physical value of the signal
         current_value = signal.Value

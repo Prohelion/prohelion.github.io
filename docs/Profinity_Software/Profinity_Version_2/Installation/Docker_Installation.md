@@ -2,9 +2,6 @@
 title: Docker Installation
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Installing Profinity On Docker
 
 !!! info "Available Profinity Releases"
@@ -48,18 +45,7 @@ For more information about Docker Compose, see the [official Docker documentatio
 
 ### Using Environment Variables for Configuration
 
-Profinity supports environment variable substitution in both configuration and profile files, making it easy to create flexible Profinity Docker deployments that can be configured without modifying the container image.
-
-#### Environment Variable Support
-
-Profinity automatically processes environment variables in the format `${VARIABLE_NAME}` when loading Profinity configuration (Config.yaml) and profile files. This allows you to:
-
-- **Configure different environments** (development, staging, production) using the same Docker image
-- **Keep sensitive information** out of your Docker configuration files
-- **Share configuration templates** across different deployments
-- **Easily modify settings** without rebuilding containers
-
-For detailed information about environment variables, see the [Environment Variables](../Extending_Profinity/Configuration/Environment_Variables.md) documentation.
+Profinity supports environment variable substitution in configuration and profile files, making it easy to create flexible Docker deployments. For detailed information about environment variables, including default values and syntax, see the [Environment Variables](./Environment_Variables.md) documentation.
 
 #### Docker Compose with Environment Variables
 
@@ -125,46 +111,8 @@ UDP_PORT=4876
 
 For more information about `.env` files in Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
-#### Configuration Files with Environment Variables
-
-Your Profinity configuration files can use environment variables for flexible deployment:
-
-**Config.yaml:**
-```yaml
-Name: ${CONFIG_NAME}
-Description: ${CONFIG_DESCRIPTION}
-AppSettings:
-  ProfinityServer:
-    HttpAddress: ${HTTP_ADDRESS}
-    HttpPort: ${HTTP_PORT}
-  Logs:
-    LogLevel: ${LOG_LEVEL}
-    RollsizeMB: ${LOG_ROLLSIZE:-100}
-  EnableScripting: ${ENABLE_SCRIPTING:-true}
-Options:
-  WebServer:
-    Enabled: true
-    HttpAddress: ${HTTP_ADDRESS}
-    HttpPort: ${HTTP_PORT}
-```
-
-**Profile.yaml:**
-```yaml
-Name: ${PROFILE_NAME}
-Description: ${PROFILE_DESCRIPTION}
-Components:
-  Tritium1:
-    Protocol: UDP
-    AdapterIpAddress: ${ADAPTER_IP}
-    BusNo: ${BUS_NUMBER}
-    UdpTTL: ${UDP_TTL}
-    Type: TritiumAdapter
-  BMU1:
-    ParallelStrings: ${BMU_PARALLEL_STRINGS}
-    MilliValid: ${BMU_MILLI_VALID}
-    BaseAddress: ${BMU1_BASE_ADDRESS}
-    Type: ProhelionBMU
-```
+!!! tip "Configuration Files"
+    Your Profinity configuration and profile files can use environment variables with default values. For examples and detailed information about using environment variables in `Config.yaml` and `Profile.yaml` files, see the [Environment Variables](./Environment_Variables.md) documentation.
 
 #### Deployment Strategies
 
@@ -207,10 +155,6 @@ services:
 ```
 
 For more information about Docker Compose file overrides, see the [official Docker documentation](https://docs.docker.com/compose/extends/).
-
-#### Environment Variable Reference
-
-For more information on environment variables, see the [Environment Variables](../Extending_Profinity/Configuration/Environment_Variables.md) documentation.
 
 !!! info "Directly Accessing Devices"
     Docker deliberately does not expose all devices through to the containers that run the applications.  In some cases you may wish to expose additional devices to Docker so that you can access things like SocketCAN Natively or discover components that use UDP for broadcasting.  See the [official Docker documentation](https://docs.docker.com/compose/) for how to expose these devices to your Docker container.

@@ -2,9 +2,6 @@
 title: Feedback
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Profinity Feedback
 
 Profinity includes a built-in feedback system to help us improve our software and better support our users. This system allows you to share your suggestions, report issues, or provide general feedback about your experience with Profinity.

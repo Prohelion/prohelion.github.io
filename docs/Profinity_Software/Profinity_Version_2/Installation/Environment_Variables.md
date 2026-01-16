@@ -22,7 +22,7 @@ This functionality makes Profinity configurations flexible and maintainable acro
 
 ## Syntax
 
-Environment variables use the `${VARIABLE_NAME}` syntax and are automatically substituted when Profinity loads configuration or profile files.
+Environment variables use the `${VARIABLE_NAME}` syntax and are automatically substituted when Profinity loads configuration or profile files. Profinity also supports Docker-style default values using the `${VARIABLE_NAME:-default}` syntax.
 
 ### Basic Usage
 
@@ -34,8 +34,36 @@ Components:
   Adapter1:
     IpAddress: ${ADAPTER_IP}
     Port: ${ADAPTER_PORT}
-    Timeout: ${ADAPTER_TIMEOUT}
+    Timeout: ${ADAPTER_TIMEOUT:-2000}  # Uses 2000 if ADAPTER_TIMEOUT is not set
 ```
+
+### Default Values
+
+Profinity supports default values for environment variables using the `${VARIABLE_NAME:-default}` syntax. If the environment variable is not set or is empty, the default value will be used instead.
+
+**Examples:**
+
+```yaml
+# Variable without default - must be set
+IpAddress: ${ADAPTER_IP}
+
+# Variable with default value
+Port: ${ADAPTER_PORT:-8080}  # Uses 8080 if ADAPTER_PORT is not set
+
+# Variable with empty default
+Timeout: ${ADAPTER_TIMEOUT:-}  # Uses empty string if ADAPTER_TIMEOUT is not set
+
+# Variable with default in Logs section
+RollsizeMB: ${LOG_ROLLSIZE:-100}  # Uses 100 if LOG_ROLLSIZE is not set
+
+# Boolean with default
+EnableScripting: ${ENABLE_SCRIPTING:-true}  # Uses true if ENABLE_SCRIPTING is not set
+```
+
+**Behavior:**
+- If the environment variable is set and has a value, that value is used
+- If the environment variable is not set or is empty, the default value (after the `:-`) is used
+- Variables without defaults must be set, or the configuration will fail to load
 
 ### Variable Naming Rules
 
@@ -75,7 +103,8 @@ AppSettings:
     HttpPort: ${HTTP_PORT}
   Logs:
     LogLevel: ${LOG_LEVEL}
-    RollsizeMB: ${LOG_ROLLSIZE}
+    RollsizeMB: ${LOG_ROLLSIZE:-100}  # Default to 100 if not set
+  EnableScripting: ${ENABLE_SCRIPTING:-true}  # Default to true if not set
 Options:
   WebServer:
     Enabled: true
@@ -298,10 +327,10 @@ AppSettings:
     HttpsRedirect: false
     Enabled: true
   Logs:
-    RollsizeMB: ${LOG_ROLLSIZE}
-    MaxLogFiles: ${MAX_LOG_FILES}
+    RollsizeMB: ${LOG_ROLLSIZE:-100}  # Default to 100 if not set
+    MaxLogFiles: ${MAX_LOG_FILES:-10}  # Default to 10 if not set
     LogLevel: ${LOG_LEVEL}
-  EnableScripting: true
+  EnableScripting: ${ENABLE_SCRIPTING:-true}  # Default to true if not set
 Options:
   WebServer:
     Enabled: true
@@ -375,6 +404,6 @@ BMU1_BASE_ADDRESS=101
 
 For additional information on Profinity configuration and profiles, see:
 
-- [Profinity Profiles](../../Administration/Profiles.md) - Detailed profile management
-- [System Configuration](../../Administration/System_Config.md) - System-level configuration options
-- [Getting Started with Profiles](../../Getting_Started/Profiles.md) - Basic profile concepts
+- [Profinity Profiles](../Administration/Profiles.md) - Detailed profile management
+- [System Configuration](../Administration/System_Config.md) - System-level configuration options
+- [Getting Started with Profiles](../Getting_Started/Profiles.md) - Basic profile concepts

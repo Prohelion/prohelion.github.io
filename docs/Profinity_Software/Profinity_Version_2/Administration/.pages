@@ -1,6 +1,9 @@
 nav:
     - System_Config.md
+    - Profiles.md
+    - Profile_Dashboard.md
     - Manage_Users.md
+    - Kiosk_Mode.md
     - Logs_Config.md
     - Feedback.md
     - System_Info.md

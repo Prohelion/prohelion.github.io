@@ -2,9 +2,6 @@
 title: Console
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Console
 
 This documentation provides a comprehensive guide to using the Console class for output and input operations in Profinity scripts. The Console object is automatically provided in all scripts and provides a simple interface for console operations.
@@ -14,7 +11,7 @@ The Console class serves as a wrapper around the Profinity Log. It handles both 
 Access to console functionality varies by language:
 
 - C#: Access through `Profinity.Console`
-- Python: Use the built-in `print()` and `eprint()` functions
+- Python: Use the built-in `print()` function. For error output, use `print(..., file=sys.stderr)`
 
 ## Key Features
 
@@ -50,15 +47,17 @@ This section provides complete, real-world examples showing how to use the Conso
 === "Python"
 
     ```python
+    import sys
+
     # Write normal program output
     print("Starting script execution...")
 
     try:
-        // Perform some operation
+        # Perform some operation
         print("Operation completed successfully")
     except Exception as ex:
         # Write error to error stream
-        eprint(f"Error occurred: {ex.Message}")
+        print(f"Error occurred: {ex.Message}", file=sys.stderr)
     ```
 
 ## Best Practices

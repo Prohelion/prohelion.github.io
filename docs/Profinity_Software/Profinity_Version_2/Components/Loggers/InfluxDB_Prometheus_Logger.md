@@ -2,12 +2,9 @@
 title: InfluxDB / Prometheus
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # InfluxDB and Prometheus Logging
 
-Profinity provides the ability to both [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) off your CAN Bus network as well as the ability to log CAN Bus data to timeseries databases like InfluxDB and Prometheus.
+Profinity provides the ability to both [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) off your CAN bus network as well as the ability to log CAN bus data to timeseries databases like InfluxDB and Prometheus.
 
 <figure markdown>
 ![Data Log Replayer](../../images/InfluxDB.png)
@@ -29,7 +26,7 @@ Profinity provides separate loggers for each InfluxDB version. Before adding an 
 
 InfluxDB V1 uses username/password authentication and the concept of databases (referred to as buckets in the configuration) and retention policies.
 
-To log your CAN Bus data to InfluxDB V1, first install InfluxDB V1 and get it up and running. Then add an InfluxDB V1 logger to your profile and configure the following options:
+To log your CAN bus data to InfluxDB V1, first install InfluxDB V1 and get it up and running. Then add an InfluxDB V1 logger to your profile and configure the following options:
 
 | Setting                    | Purpose                                                                                               |
 | -------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -52,7 +49,7 @@ Once these settings have been set correctly you should be able to see data flowi
 
 InfluxDB V2 uses token-based authentication and introduces the concepts of buckets and organizations, replacing the database and retention policy concepts from V1.
 
-To log your CAN Bus data to InfluxDB V2, first install InfluxDB V2 and get it up and running. Then add an InfluxDB V2 logger to your profile and configure the following options:
+To log your CAN bus data to InfluxDB V2, first install InfluxDB V2 and get it up and running. Then add an InfluxDB V2 logger to your profile and configure the following options:
 
 | Setting               | Purpose                                                                                               |
 | --------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -75,7 +72,7 @@ Once these settings have been set correctly you should be able to see data flowi
 
 InfluxDB V3 uses token-based authentication and introduces the concept of databases, which replaces both the bucket and organization concepts from V2. V3 simplifies the data model by using a single database concept instead of the bucket/organization hierarchy.
 
-To log your CAN Bus data to InfluxDB V3, first install InfluxDB V3 and get it up and running. Then add an InfluxDB V3 logger to your profile and configure the following options:
+To log your CAN bus data to InfluxDB V3, first install InfluxDB V3 and get it up and running. Then add an InfluxDB V3 logger to your profile and configure the following options:
 
 | Setting               | Purpose                                                                                               |
 | --------------------- | ----------------------------------------------------------------------------------------------------- |

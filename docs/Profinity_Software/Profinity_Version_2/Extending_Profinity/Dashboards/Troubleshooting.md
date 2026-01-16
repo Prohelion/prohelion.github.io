@@ -656,7 +656,7 @@ If you're still experiencing issues:
 1. **Check the Schema** - Review `ui-schema.json` for exact property requirements
 2. **Validate Your YAML** - Use the dashboard editor's validation to catch errors early
 3. **Review Examples** - Check [Examples](./Examples.md) for working code samples
-4. **Check Component Reference** - See [Component Reference](./Component_Reference.md) for detailed property information
+4. **Check Component Reference** - See [Component Reference](./Component_Reference/index.md) for detailed property information
 5. **Contact Support** - If issues persist, contact Profinity support with:
    - Your YAML configuration
    - Error messages

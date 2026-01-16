@@ -2,15 +2,12 @@
 title: System Configuration
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # System Configuration
 
 The `System Configuration` menu is located in the `ADMIN` tab and contains all the configuration options for the core Profinity instance.
 
 !!! warning "Changes to the system config"
-    Modifying any parameters in the `System Configuration` menu will trigger a reboot of Profinity. If using the web client, wait around 15 seconds after saving the changes before reloading the page, on the desktop client the page should automatically reload after the engine reboots.
+    Modifying any parameters in the `System Configuration` menu will trigger a reboot of Profinity. If using the web client, you will need to wait around 15 seconds after saving the changes before reloading the page, on the desktop client the page should automatically reload after the engine reboots.
 
 ### Application Configuration
 
