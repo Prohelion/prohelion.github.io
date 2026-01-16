@@ -2,16 +2,13 @@
 title: Supported Operations
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Supported Operations
 
 The following Key Features are available, regardless of what language you choose.
 
-## CAN Bus Communication
+## CAN bus Communication
 
-Profinity offers advanced CAN bus communication features, enabling you to send and receive CAN packets efficiently. For detailed examples and usage, refer to the [CAN Bus](./CANBus.md) documentation.
+Profinity offers advanced CAN bus communication features, enabling you to send and receive CAN packets efficiently. For detailed examples and usage, refer to the [CAN bus](./CANBus.md) documentation.
 
 ## DBC Message and Signal Information
 
@@ -35,7 +32,7 @@ Profinity supports comprehensive console output capabilities across all scriptin
 1. Explore the detailed documentation for each feature:
    - [Console](./Console.md)
    - [State](./State.md)
-   - [CAN Bus](./CANBus.md)
+   - [CAN bus](./CANBus.md)
    - [DBC](./DBC.md)
 2. Review the language-specific documentation:
    - [C# Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/)

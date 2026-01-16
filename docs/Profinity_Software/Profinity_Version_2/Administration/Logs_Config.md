@@ -2,9 +2,6 @@
 title: Logs
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Profinity System Logs
 
 Profinity has a built in logging mechanism that captures information about the operation of the system and is designed to assist in system issue diagnosis.

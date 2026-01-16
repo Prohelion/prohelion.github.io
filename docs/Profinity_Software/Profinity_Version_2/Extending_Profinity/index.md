@@ -2,12 +2,9 @@
 title: Extending Profinity
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Extending Profinity
 
-Profinity offers a robust platform that can be extended and customized to meet your specific needs. By leveraging the Profinity [Scripting](./Scripting/index.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Custom Components](./Custom_Components/index.md), and [Hosting](./Hosting/index.md) capabilities, you can transform Profinity into a powerful application server that can host your own custom applications and code, while using the power of Profinity to drive your systems and gather data. 
+Profinity offers a robust platform that can be extended and customized to meet your specific needs. By leveraging the Profinity [Scripting](./Scripting/index.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Custom Components](./Custom_Components/index.md), [MCP Support](./MCP_Server.md), and [Hosting](./Hosting/index.md) capabilities, you can transform Profinity into a powerful application server that can host your own custom applications and code, while using the power of Profinity to drive your systems and gather data. 
 
 This flexibility allows you to tailor Profinity to your organization's unique requirements, enhancing its functionality and usability.
 
@@ -17,8 +14,8 @@ Profinity's [scripting capabilities](./Scripting/index.md) allow you to automate
 
 With support for languages like C# and Python, you can choose the best tool for your needs. Scripting in Profinity enables you to handle various operations, from manual tasks to continuous, long-running processes. This is particularly useful for organizations that need to automate repetitive tasks, integrate with other systems, or create custom workflows that align with your business processes.
 
-| C# Scripting                        | Python                                   |
-|-------------------------------------|------------------------------------------|
+| C# Scripting | Python |
+|--------------|--------|
 |![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) |
 
 ## Dashboards
@@ -45,9 +42,6 @@ With Profinity's APIs, you can access both real-time and historical data, ensuri
 
 Profinity supports [Swagger](https://swagger.io/) to make it easy to understand what APIs are available in Profinity and how to use them.
 
-!!! info "Documentation maintainer note"
-    Replace this image with a screenshot of Swagger running in Profinity.
-
 <figure markdown>
 ![Profinity](../images/SwaggerLogo.png)
 <figcaption>Swagger from SmartBear</figcaption>
@@ -67,6 +61,22 @@ Profinity offers two completely different ways, Scripting and APIs, that you can
 
 Ultimately the decision on how to extend Profinity is up to you, but with two choices you have the flexibility to find the model that suits your needs best.
 
+
+## MCP Support
+
+Profinity includes support for the [Model Context Protocol (MCP)](./MCP_Server.md), which enables AI assistants and other tools to interact with Profinity to query system data and metadata. The MCP server provides programmatic access to Profinity's component data, signal values, and metadata through a standardized protocol.
+
+The MCP server offers five powerful tools for querying Profinity data:
+
+| Tool | Description |
+|------|-------------|
+| **get_all_components** | Discover all active component names |
+| **get_all_metadata** | Retrieve complete data dictionary with full signal metadata |
+| **get_component_data** | Get current signal values for a specific component |
+| **get_all_components_data** | Get current signal values across all components |
+| **get_signal_value** | Query real-time or historical time-series data for specific signals |
+
+This is particularly useful for organizations that want to integrate AI assistants with their CAN bus systems, enable automated data analysis, or create intelligent monitoring and reporting systems that can query Profinity data programmatically.
 
 ## Hosting
 

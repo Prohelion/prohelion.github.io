@@ -3,3 +3,6 @@ nav:
     - Docker_Installation.md
     - Zip_Installation.md
     - Running_As_Service.md
+    - Environment_Variables.md
+    - Migration.md
+    - Security.md

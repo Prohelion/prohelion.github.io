@@ -1,13 +1,10 @@
 ---
-title: Virtual CAN Bus Adapter
+title: Virtual CAN bus Adapter
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
+# Prohelion Virtual CAN bus Adapter
 
-# Prohelion Virtual CAN Bus Adapter
-
-The Prohelion Virtual CAN Bus Adapter is a special type of adapter in Profinity in that it is designed to relay information to one or more other CAN adapters, while presenting itself to other clients as a Tritium / Prohelion adapter that can be connected to.
+The Prohelion Virtual CAN bus Adapter is a special type of adapter in Profinity in that it is designed to relay information to one or more other CAN adapters, while presenting itself to other clients as a Tritium / Prohelion adapter that can be connected to.
 
 In the diagram below, a client on the left connects to the Virtual Adapter which is being used in conjunction with a Peak USB adapter to provide connectivity to the actual CAN Network.  Traffic is routed bi-directionally.
 

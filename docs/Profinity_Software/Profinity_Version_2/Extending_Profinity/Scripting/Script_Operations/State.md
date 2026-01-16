@@ -2,9 +2,6 @@
 title: State
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # State
 
 Scripts in Profinity have a lifecycle where they will run and then stop.  Sometimes it is necessary to share information between invocations of Scripts or to share information between different scripts.  Profinity provides a state management mechanism to enable this.
@@ -45,28 +42,28 @@ Storing state values is a fundamental operation. This section shows how to save 
 
     ```csharp
     // Store a value that persists between runs of this script
-    State.Set("scriptRunCount", 42);
+    Profinity.State.Set("scriptRunCount", 42);
 
     // Store a value that can be shared with other scripts
-    GlobalState.Set("totalScriptsRun", "Shared data");
+    Profinity.GlobalState.Set("totalScriptsRun", "Shared data");
 
     // Store complex objects
-    State.Set("lastRunConfig", new { Name = "Local", Value = 100 });
-    GlobalState.Set("sharedConfig", new { Name = "Global", Value = 200 });
+    Profinity.State.Set("lastRunConfig", new { Name = "Local", Value = 100 });
+    Profinity.GlobalState.Set("sharedConfig", new { Name = "Global", Value = 200 });
     ```
 
 === "Python"
 
     ```python
     # Store a value that persists between runs of this script
-    State.Set("scriptRunCount", 42)
+    Profinity.State.Set("scriptRunCount", 42)
 
     # Store a value that can be shared with other scripts
-    GlobalState.Set("totalScriptsRun", "Shared data")
+    Profinity.GlobalState.Set("totalScriptsRun", "Shared data")
 
     # Store complex objects
-    State.Set("lastRunConfig", {"Name": "Local", "Value": 100})
-    GlobalState.Set("sharedConfig", {"Name": "Global", "Value": 200})
+    Profinity.State.Set("lastRunConfig", {"Name": "Local", "Value": 100})
+    Profinity.GlobalState.Set("sharedConfig", {"Name": "Global", "Value": 200})
     ```
 
 ### Retrieving State Values
@@ -77,28 +74,28 @@ Retrieving state values can be done for any stored key in both local and global 
 
     ```csharp
     // Retrieve state from previous runs of this script
-    object runCount = State.Get("scriptRunCount");
+    object runCount = Profinity.State.Get("scriptRunCount");
 
     // Retrieve state shared by other scripts
-    object totalRuns = GlobalState.Get("totalScriptsRun");
+    object totalRuns = Profinity.GlobalState.Get("totalScriptsRun");
 
     // Retrieve and cast to specific type
-    int lastRunValue = (int)State.Get("lastRunConfig");
-    var sharedConfig = GlobalState.Get("sharedConfig");
+    int lastRunValue = (int)Profinity.State.Get("lastRunConfig");
+    var sharedConfig = Profinity.GlobalState.Get("sharedConfig");
     ```
 
 === "Python"
 
     ```python
     # Retrieve state from previous runs of this script
-    run_count = State.Get("scriptRunCount")
+    run_count = Profinity.State.Get("scriptRunCount")
 
     # Retrieve state shared by other scripts
-    total_runs = GlobalState.Get("totalScriptsRun")
+    total_runs = Profinity.GlobalState.Get("totalScriptsRun")
 
     # Retrieve and use values
-    last_run_config = State.Get("lastRunConfig")
-    shared_config = GlobalState.Get("sharedConfig")
+    last_run_config = Profinity.State.Get("lastRunConfig")
+    shared_config = Profinity.GlobalState.Get("sharedConfig")
     ```
 
 ## More Complete Examples
@@ -109,24 +106,24 @@ This section provides complete, real-world examples showing how to use both Stat
 
     ```csharp
     // Store configuration that persists between runs of this script
-    State.Set("scriptConfig", new {
+    Profinity.State.Set("scriptConfig", new {
         Timeout = 5000,
         RetryCount = 3,
         LogLevel = "Debug"
     });
 
     // Store configuration that can be shared with other scripts
-    GlobalState.Set("sharedConfig", new {
+    Profinity.GlobalState.Set("sharedConfig", new {
         MaxConnections = 100,
         DefaultTimeout = 10000
     });
 
     // Track number of times this script has run
-    int runCount = (int)(State.Get("runCount") ?? 0);
-    State.Set("runCount", runCount + 1);
+    int runCount = (int)(Profinity.State.Get("runCount") ?? 0);
+    Profinity.State.Set("runCount", runCount + 1);
 
     // Share data between scripts
-    GlobalState.Set("sharedData", new {
+    Profinity.GlobalState.Set("sharedData", new {
         LastRunTime = DateTime.Now,
         TotalProcessed = 1000
     });
@@ -136,26 +133,26 @@ This section provides complete, real-world examples showing how to use both Stat
 
     ```python
     # Store configuration that persists between runs of this script
-    State.Set("scriptConfig", {
+    Profinity.State.Set("scriptConfig", {
         "Timeout": 5000,
         "RetryCount": 3,
         "LogLevel": "Debug"
     })
 
     # Store configuration that can be shared with other scripts
-    GlobalState.Set("sharedConfig", {
+    Profinity.GlobalState.Set("sharedConfig", {
         "MaxConnections": 100,
         "DefaultTimeout": 10000
     })
 
     # Track number of times this script has run
-    run_count = State.Get("runCount")
+    run_count = Profinity.State.Get("runCount")
     if run_count is None:
         run_count = 0
-    State.Set("runCount", run_count + 1)
+    Profinity.State.Set("runCount", run_count + 1)
 
     # Share data between scripts
-    GlobalState.Set("sharedData", {
+    Profinity.GlobalState.Set("sharedData", {
         "LastRunTime": datetime.now(),
         "TotalProcessed": 1000
     })

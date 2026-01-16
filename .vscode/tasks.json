@@ -1,0 +1,72 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "MkDocs: Serve",
+            "type": "shell",
+            "command": "./start.sh",
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*$",
+                    "endsPattern": ".*Serving on.*"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "isBackground": true,
+            "windows": {
+                "command": "start.cmd"
+            }
+        },
+        {
+            "label": "MkDocs: Build",
+            "type": "shell",
+            "command": "source venv/bin/activate && mkdocs build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "windows": {
+                "command": "call venv\\Scripts\\activate.bat && mkdocs build"
+            }
+        },
+        {
+            "label": "MkDocs: Stop",
+            "type": "shell",
+            "command": "pkill -f 'mkdocs serve'",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "windows": {
+                "command": "taskkill",
+                "args": ["/F", "/IM", "mkdocs.exe"]
+            }
+        },
+        {
+            "label": "Validate Dashboard Examples",
+            "type": "shell",
+            "command": "node scripts/validate-dashboard-examples.js",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}

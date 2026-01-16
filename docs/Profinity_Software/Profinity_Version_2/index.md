@@ -4,10 +4,7 @@ title: Profinity V2 Overview
 
 # Prohelion Profinity V2
 
-Profinity is a modern CAN bus management platform designed to enable the connection of CAN bus based solutions to modern Cloud, APIs and Big Data technologies.  
-
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
+Profinity is a modern CAN bus management platform designed to enable the connection of CAN bus based solutions to modern AI, Cloud, APIs and Big Data technologies.  
 
 [Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
 
@@ -15,11 +12,9 @@ Profinity V2, completely updates the capabilities of Prohelion's Profinity suite
 
 - Native run anywhere capabilities, use Profinity on your PC, Server, Embedded Device or run in the Cloud
 - Fully web enabled user interface that runs on desktop, mobile or Kiosk.
-- Full API integration to allow easy extensions to Profinity's features and to build your own custom applications
+- Full REST based API integration to allow easy extensions to Profinity's features and to build your own custom applications
 - Inbuilt Scripting support
-
-!!! info "Documentation maintainer note"
-    Replace this image with a current screenshot.
+- Integration with AI and LLM tooling via MCP.
 
 <figure markdown>
 ![Profinity](images/wavesculptor.png)
@@ -34,7 +29,9 @@ Profinity provides specialised tools for managing [Prohelion batteries](Componen
 
 ### Profinity Server (Rest APIs, Web, and Docker)
 
-As of Profinity 2, Prohelion has fully migrated to a modern container and API centric architecture.  You will find information on our [Restful APIs and Swagger Support](./Extending_Profinity/APIs/index.md) in the documentation, as well as our out-of-the-box cloud connectivity for [InfluxDB and Prometheus](Components/Loggers/InfluxDB_Prometheus_Logger.md) to support cloud based Big Data capture and analytics of CAN bus based solutions. 
+As of Profinity 2, Prohelion has fully migrated to a modern container and API centric architecture.  
+
+You will find information on our [Restful APIs and Swagger Support](./Extending_Profinity/APIs/index.md) in the documentation, as well as our out-of-the-box cloud connectivity for [InfluxDB and Prometheus](Components/Loggers/InfluxDB_Prometheus_Logger.md) to support cloud based Big Data capture and analytics of CAN bus based solutions. 
 
 Profinity can be run native on Windows, Unix, MacOS and cloud (via Docker) from V2 onward, see the [Installation Guide](./Installation/Windows_Installation.md) for more information on how to install Profinity.
 

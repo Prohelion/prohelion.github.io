@@ -6,11 +6,14 @@ title: Dashboard Examples
 
 This guide provides comprehensive examples of Profinity dashboards, from simple component displays to complete real-world implementations. All examples use the correct schema structure and demonstrate best practices.
 
+!!! tip "New to Dashboards?"
+    If you're just getting started, begin with the [Progressive Examples](#progressive-examples) section below. It starts with a simple "Hello World" dashboard and builds up to more complex examples step by step.
+
 ## Table of Contents
 
+- [Progressive Examples](#progressive-examples) - Start here! Building from "Hello World" to complex dashboards
 - [Complete Dashboard Example](#complete-dashboard-example) - Full motor controller dashboard
 - [Real-World Scenarios](#real-world-scenarios) - Step-by-step walkthroughs
-- [Progressive Examples](#progressive-examples) - Building from simple to complex
 - [Component-Specific Examples](#component-specific-examples) - Examples for each component type
 
 ## Complete Dashboard Example
@@ -613,9 +616,42 @@ dashboard:
 
 ## Progressive Examples
 
-### Example 1: Simple Readout
+These examples build from the absolute simplest dashboard to more complex ones. Start here if you're new to dashboard development.
 
-The simplest dashboard - a single readout:
+### Example 0: Hello World (The Template)
+
+When you open the dashboard editor or click the **"New Template"** button, you'll see this Hello World template loaded:
+
+``` yaml
+dashboard:
+    items:
+        - row:
+            direction: vertical
+            items:
+            - group:
+                class: statscontainer
+                items:
+                    - pill:                        
+                        icon:                      
+                            image: nav_custom_active.svg
+                        items:
+                        - pillgroup:
+                            items:
+                            - value:
+                                label: CUSTOM COMPONENT
+```
+
+This template provides a starting point with:
+- A vertical row layout
+- A styled group container
+- A pill component with an icon
+- A value readout showing "CUSTOM COMPONENT"
+
+You can modify this template to add data bindings and additional components. This is the same template that loads when you click "New Template" in the dashboard editor.
+
+### Example 1: Simple Readout with Formatting
+
+Add units and precision to make the readout more informative:
 
 ``` yaml
 dashboard:
@@ -816,7 +852,7 @@ Now that you've seen comprehensive examples, you can:
 
 - **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
 - **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to connect your data sources
-- **Explore Components** - Use [Component Reference](./Component_Reference.md) for detailed component information
+- **Explore Components** - Use [Component Reference](./Component_Reference/index.md) for detailed component information
 - **Add Styling** - Apply [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
 - **Troubleshoot Issues** - Check [Troubleshooting](./Troubleshooting.md) for common problems and solutions
 - **Get Help** - Review [FAQ](./FAQ.md) for answers to common questions

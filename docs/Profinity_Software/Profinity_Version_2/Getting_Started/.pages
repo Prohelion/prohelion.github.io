@@ -1,4 +1,5 @@
 nav:
+    - Quick_Start.md
     - Profiles.md
     - Adding_New_Components.md    
     - Visualising_Data.md

@@ -2,12 +2,9 @@
 title: File Loggers
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # File / FTP / SFTP Based Loggers
 
-File loggers in Profinity are used to log native CAN Bus messages to a file, that can then be either stored locally or transmitted remotely to a FTP or SFTP server.
+File loggers in Profinity are used to log native CAN bus messages to a file, that can then be either stored locally or transmitted remotely to a FTP or SFTP server.
 
 ## Modes of Operation
 
@@ -35,7 +32,7 @@ Logging configurations are stored as part of your profile so when you load a pro
 
 ## Downloading the Logged Files
 
-Once a CAN Bus file has been created it can be downloaded from Profinity by clicking on the link found on the Logger Dashboard
+Once a CAN bus file has been created it can be downloaded from Profinity by clicking on the link found on the Logger Dashboard
 
 <figure markdown>
 ![Download Log File](../../images/file_logger.png)

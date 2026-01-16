@@ -5,17 +5,29 @@
             "name": "MkDocs: Serve",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "cmd.exe",
-            "runtimeArgs": ["/c", "mkdocs serve"],
-            "console": "integratedTerminal"
+            "preLaunchTask": "MkDocs: Serve",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": ["<node_internals>/**"]
         },
         {
             "name": "MkDocs: Build",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "cmd.exe",
-            "runtimeArgs": ["/c", "mkdocs build"],
-            "console": "integratedTerminal"
+            "preLaunchTask": "MkDocs: Build",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "Validate Dashboard Examples",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/validate-dashboard-examples.js",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": ["<node_internals>/**"],
+            "cwd": "${workspaceFolder}"
         }
     ]
 }

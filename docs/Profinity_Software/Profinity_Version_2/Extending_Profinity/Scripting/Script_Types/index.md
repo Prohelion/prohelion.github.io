@@ -2,9 +2,6 @@
 title: Script Types
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Script Types in Profinity
 
 Profinity supports five script execution modes, each with specific use cases and execution contexts. This document explains the differences between these script execution modes and when to use each one. Understanding these script execution modes is crucial for developing effective automation and monitoring solutions in Profinity.

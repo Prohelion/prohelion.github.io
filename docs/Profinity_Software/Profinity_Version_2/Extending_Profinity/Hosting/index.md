@@ -2,9 +2,6 @@
 title: Hosting Custom Applications
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Hosting Custom Applications in Profinity
 
 As well as hosting the Rest APIs and Swagger interface, Profinity supports an integrated Web Server that can provide hosting for a custom build application based on these APIs in any modern web technology.  This includes language and frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) as well as traditional HTML / Javascript etc.

@@ -65,5 +65,4 @@ This example demonstrates a basic Run script that:
     PrintMessage()
     ```
 
-!!! info "Python 3 Syntax"
-    Profinity uses IronPython with Python 3 compatibility enabled. All Python scripts use Python 3 syntax, including `print()` as a function (not a statement) and support for f-strings and other Python 3 features.
+Profinity uses [IronPython](https://ironpython.net/) with Python 3 compatibility enabled. All Python scripts use Python 3 syntax, including `print()` as a function (not a statement) and support for f-strings and other Python 3 features.

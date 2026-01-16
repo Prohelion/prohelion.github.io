@@ -2,9 +2,6 @@
 title: Adding Components
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Adding new Components to your Profile
 
 Components can be added to your Profile by selecting the `+ ADD COMPONENT` button from the sidebar or homepage. 
@@ -14,7 +11,7 @@ A page with all the currently supported components is presented, including hardw
 Some CANBus adapters in Profinity can be auto-discovered.  If a discovered adapter is available in your configuration it will be shown at the top of the screen.  You can filter the devices to show by selecting a filter on the left hand side of the screen.
 
 !!! info "Generally you want to add a CAN Adapter first"
-    By adding a CAN Adapter you are able to receive CAN traffic from the devices connected to your CAN Bus network.  Without CAN traffic Profinity is limited in what it is able to show and do.
+    By adding a CAN Adapter you are able to receive CAN traffic from the devices connected to your CAN bus network.  Without CAN traffic Profinity is limited in what it is able to show and do.
 
 <figure markdown>
 ![Add a new component to the Profile](../images/add_adapter_autodiscovery.png)
@@ -43,7 +40,7 @@ Each component will also have an coloured indicator to display the operational s
 | `Grey`   | The device is not available, connected or not visible on the network          |
 
 
-## Removing Components from Your Profile
+# Removing Components from Your Profile
 
 If you no longer require a component you can remove it by going to the component settings (top right three bar icon on the component dashboard below) and selecting delete.
 

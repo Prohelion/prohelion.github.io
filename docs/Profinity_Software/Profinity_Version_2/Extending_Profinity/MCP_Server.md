@@ -47,14 +47,25 @@ The exact URL depends on your Profinity web server configuration (port and proto
 
 The MCP server provides the following tools for querying Profinity data:
 
+### get_all_components
+
+Retrieves a lightweight list of all active component names in the Profinity system. Use this tool first to discover available components before querying detailed metadata or data for specific components.
+
+**Parameters:** None
+
+**Returns:** Collection of component names as strings
+
 ### get_all_metadata
 
 Retrieves the complete data dictionary for all components, messages, and signals in the Profinity system. This includes full signal metadata (units, ranges, data types, scaling factors, etc.).
 
 **Parameters:**
-- `component` (optional): Filter by component name (case-sensitive)
-- `message` (optional): Filter by message name (case-sensitive, requires component parameter)
-- `signal` (optional): Filter by signal name (case-sensitive, requires both component and message parameters)
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `component` | optional | Filter by component name (case-sensitive) |
+| `message` | optional | Filter by message name (case-sensitive, requires component parameter) |
+| `signal` | optional | Filter by signal name (case-sensitive, requires both component and message parameters) |
 
 **Returns:** Dictionary of components with their messages and signals, including full metadata
 
@@ -63,8 +74,11 @@ Retrieves the complete data dictionary for all components, messages, and signals
 Retrieves DBC messages and signals for a specific component. Use this to get current signal values for a single component.
 
 **Parameters:**
-- `component` (required): Name of the component as defined in the active Profinity profile
-- `allInfo` (optional, default: false): If true, includes full signal metadata (units, ranges, etc.)
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `component` | required | Name of the component as defined in the active Profinity profile |
+| `allInfo` | optional (default: false) | If true, includes full signal metadata (units, ranges, etc.) |
 
 **Returns:** Dictionary of messages and signals for the specified component
 
@@ -73,21 +87,31 @@ Retrieves DBC messages and signals for a specific component. Use this to get cur
 Retrieves DBC messages and signals for all active components in the Profinity system. Use this to get current signal values across all components at once.
 
 **Parameters:**
-- `allInfo` (optional, default: false): If true, includes full signal metadata (units, ranges, etc.)
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `allInfo` | optional (default: false) | If true, includes full signal metadata (units, ranges, etc.) |
 
 **Returns:** Dictionary of all components with their messages and signals
 
 ### get_signal_value
 
-Retrieves the current or historical value of a specific signal. Supports querying both real-time values and historical time-series data.
+Retrieves the current or historical time-series data for a specific DBC signal. Use this to get real-time values or query historical data from InfluxDB. For current values only, use `get_component_data`. For signal metadata, use `get_all_metadata`.
 
 **Parameters:**
-- `component` (required): Name of the component as defined in the active Profinity profile
-- `message` (required): Name of the message containing the signal
-- `signal` (required): Name of the signal to query
-- `timeSeries` (optional, default: false): If true, returns historical time-series data instead of current value
 
-**Returns:** Signal value or time-series data depending on the `timeSeries` parameter
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `component` | required | Name of the component as defined in the active Profinity profile. Use `get_all_components` or `get_all_metadata` to discover available component names. |
+| `message` | required | DBC message name containing the signal. Use `get_all_metadata` to discover available message names for a component. |
+| `signal` | required | DBC signal name to retrieve. Use `get_all_metadata` to discover available signal names for a message. |
+| `store` | optional (default: "local") | Data source - `"local"` for real-time CAN bus data (default), or `"logged"` for historical data from InfluxDB. |
+| `start` | optional | Start time for historical queries in InfluxDB format (e.g., `"-10m"` for 10 minutes ago, `"2024-01-01T00:00:00Z"` for absolute time). Required when `store="logged"`. |
+| `stop` | optional | Stop time for historical queries in InfluxDB format (default: now). Use `"0m"` or omit for current time. |
+| `aggregationWindow` | optional | Time window for data aggregation (e.g., `"1m"`, `"5m"`, `"1h"`). Only used with `store="logged"`. |
+| `aggregationFunction` | optional (default: "max") | Aggregation function - `"max"`, `"min"`, `"mean"`, `"sum"`, or `"count"`. Only used with `store="logged"`. |
+
+**Returns:** DataPointOrSeries with current value (if `store="local"`) or historical time-series data (if `store="logged"`)
 
 ## Authentication
 
@@ -121,6 +145,18 @@ headers = {
     "Content-Type": "application/json"
 }
 
+# Get all components (discover available components)
+payload = {
+    "method": "tools/call",
+    "params": {
+        "name": "get_all_components",
+        "arguments": {}
+    }
+}
+
+response = requests.post(PROFINITY_MCP_URL, headers=headers, json=payload)
+components = response.json()
+
 # Get all metadata
 payload = {
     "method": "tools/call",
@@ -147,6 +183,44 @@ payload = {
 
 response = requests.post(PROFINITY_MCP_URL, headers=headers, json=payload)
 component_data = response.json()
+
+# Get signal value (real-time)
+payload = {
+    "method": "tools/call",
+    "params": {
+        "name": "get_signal_value",
+        "arguments": {
+            "component": "ComponentName",
+            "message": "MessageName",
+            "signal": "SignalName",
+            "store": "local"
+        }
+    }
+}
+
+response = requests.post(PROFINITY_MCP_URL, headers=headers, json=payload)
+signal_value = response.json()
+
+# Get signal value (historical time-series)
+payload = {
+    "method": "tools/call",
+    "params": {
+        "name": "get_signal_value",
+        "arguments": {
+            "component": "ComponentName",
+            "message": "MessageName",
+            "signal": "SignalName",
+            "store": "logged",
+            "start": "-10m",
+            "stop": "0m",
+            "aggregationWindow": "1m",
+            "aggregationFunction": "max"
+        }
+    }
+}
+
+response = requests.post(PROFINITY_MCP_URL, headers=headers, json=payload)
+historical_data = response.json()
 ```
 
 ## Use Cases
