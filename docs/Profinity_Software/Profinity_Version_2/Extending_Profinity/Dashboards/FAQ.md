@@ -6,6 +6,18 @@ title: Frequently Asked Questions
 
 Common questions and answers about creating Profinity dashboards.
 
+## Table of Contents
+
+- [General Questions](#general-questions)
+- [Component Questions](#component-questions)
+- [Data Binding Questions](#data-binding-questions)
+- [Profile Assets Questions](#profile-assets-questions)
+- [Layout Questions](#layout-questions)
+- [Troubleshooting Questions](#troubleshooting-questions)
+- [Best Practices Questions](#best-practices-questions)
+- [Advanced Questions](#advanced-questions)
+- [Still Have Questions?](#still-have-questions)
+
 ## General Questions
 
 ### What is a Profinity Dashboard?

@@ -2,9 +2,6 @@
 title: Supported Languages
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Supported Languages
 
 Profinity offers a versatile scripting environment that supports two powerful languages: C# and Python (via [IronPython](https://ironpython.net/)). Each language is integrated with the .NET framework, providing a rich set of libraries and tools to enhance your scripting experience. This guide will walk you through the core functionalities and provide insights into choosing the right language for your needs.

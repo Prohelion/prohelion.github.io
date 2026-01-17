@@ -6,6 +6,11 @@ title: State Component
 
 State machine visualization component. State components display the current state of a system using Mermaid flowcharts, showing state transitions and current position.
 
+<figure markdown>
+![State component showing state machine visualization with Mermaid flowchart](../../images/state.png)
+<figcaption>State component showing state machine visualization with Mermaid flowchart</figcaption>
+</figure>
+
 **Best for:** System state visualization, process flow display, state machine representation, complex system status
 
 **Parameters:**

@@ -6,6 +6,11 @@ title: Toggles Component
 
 Switch components. Toggles provide on/off controls for system settings and features, allowing users to enable or disable functionality.
 
+<figure markdown>
+![Toggles component displaying switch controls for enabling or disabling features](../../images/toggles.png)
+<figcaption>Toggles component displaying switch controls for enabling or disabling features</figcaption>
+</figure>
+
 **Best for:** Settings controls, feature toggles, enable/disable switches, user preferences, system configuration
 
 **Parameters:**

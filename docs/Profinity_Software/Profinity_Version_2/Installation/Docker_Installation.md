@@ -7,6 +7,20 @@ title: Docker Installation
 !!! info "Available Profinity Releases"
     Profinity is currently available on [Windows machines](./Windows_Installation.md) as a standard desktop application, for selected [Unix Platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker enabled environments and Cloud setups.
 
+## Table of Contents
+
+- [Installation using Docker](#installation-using-docker)
+    - [Prerequisites](#prerequisites)
+    - [Simple Setup](#simple-setup)
+    - [Starting and Stopping Profinity](#starting-and-stopping-profinity)
+    - [Accessing Profinity](#accessing-profinity)
+- [Complex Setup for Production Deployments](#complex-setup-for-production-deployments)
+    - [Using Environment Variables for Configuration](#using-environment-variables-for-configuration)
+    - [Docker Compose with Environment Variables](#docker-compose-with-environment-variables)
+    - [Environment File (.env)](#environment-file-env)
+    - [Using Environment Files with Docker Compose](#using-environment-files-with-docker-compose)
+    - [Deployment Strategies](#deployment-strategies)
+
 ## Installation using Docker
 
 Profinity can be deployed onto most devices capable of running Docker, including macOS and Linux machines as well as several single-board computers such as Raspberry Pi, BeagleBone Black, etc.
@@ -43,6 +57,64 @@ services:
 
 For more information about Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/).
 
+### Starting and Stopping Profinity
+
+The Profinity Docker container is started and stopped using commands from the [Docker Compose toolset](https://docs.docker.com/compose/reference/). First, navigate to the directory containing the `docker-compose.yml` file.
+
+#### Basic Commands
+
+**Start Profinity:**
+```bash
+docker compose up
+```
+
+**Start in background (detached mode):**
+```bash
+docker compose up -d
+```
+
+**Stop Profinity:**
+```bash
+docker compose down
+```
+
+**View logs:**
+```bash
+docker compose logs -f
+```
+
+For more information about Docker Compose commands, see the [official Docker Compose reference](https://docs.docker.com/compose/reference/).
+
+### Accessing Profinity
+
+Once started, open the URL defined in your configuration to access the Profinity web client. The default URL is `http://localhost:18080` on the local machine or `http://[Your IP Address]:18080` if accessed remotely.
+
+Connecting to the Profinity web client will direct you to the Profinity login page. 
+
+<figure markdown>
+![Profinity login page](../images/login_page.png)
+<figcaption>Profinity login page</figcaption>
+</figure>
+
+A fresh install of Profinity will only have the administrator user active. To log in, use the following login details.
+
+Username: `admin`
+
+Password: `password`
+
+After logging in, you will arrive at the Profinity homepage.
+
+<figure markdown>
+![Profinity Homepage](../images/homepage.png)
+<figcaption>Profinity homepage</figcaption>
+</figure>
+
+To stop Profinity, enter `docker compose down` into the command line.
+
+## Complex Setup for Production Deployments
+
+It is not necessary to use environment variables to configure Profinity.  However, for full production environments and deployments that involve many Profinity instances you will likely find that Environment Variables are the most simple way to configure the product.
+
 ### Using Environment Variables for Configuration
 
 Profinity supports environment variable substitution in configuration and profile files, making it easy to create flexible Docker deployments. For detailed information about environment variables, including default values and syntax, see the [Environment Variables](./Environment_Variables.md) documentation.
@@ -74,14 +146,22 @@ services:
       - ADAPTER_IP=${ADAPTER_IP:-192.168.1.100}
       - ADAPTER_PORT=${ADAPTER_PORT:-8080}
     volumes:
-      - ./profiles:/app/profiles
-      - ./config:/app/config
+      - ./profiles:/root/Prohelion/Profinity/Profiles
+      - ./config:/root/Prohelion/Profinity/Config
 ```
 
 For more information about Docker Compose environment variables, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/).
 
 !!! info "Docker Volumes"
-    The `volumes` section mounts local directories into the container, allowing Profinity to persist configuration and profile data. For more information about Docker volumes, see the [official Docker documentation](https://docs.docker.com/storage/volumes/).
+    The `volumes` section mounts local directories into the container, allowing Profinity to persist configuration and profile data. Profinity stores data in `/root/Prohelion/Profinity/` by default (when running as root user). For more information about Docker volumes, see the [official Docker documentation](https://docs.docker.com/storage/volumes/).
+
+!!! tip "Validating Profile Paths"
+    To verify where Profinity is storing profiles and config files, you can exec into the running container:
+    ```bash
+    docker compose exec profinity bash
+    ls -la /root/Prohelion/Profinity/
+    ```
+    This will show the actual directory structure used by Profinity inside the container.
 
 #### Environment File (.env)
 
@@ -111,8 +191,27 @@ UDP_PORT=4876
 
 For more information about `.env` files in Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
-!!! tip "Configuration Files"
-    Your Profinity configuration and profile files can use environment variables with default values. For examples and detailed information about using environment variables in `Config.yaml` and `Profile.yaml` files, see the [Environment Variables](./Environment_Variables.md) documentation.
+!!! tip "Using Environment Variables in Config and Profile Files"
+    When using environment variables with Docker, you can reference them directly in your Profinity `Config.yaml` and `Profile.yaml` files. These files should be placed in the mounted volume directories that map to `/root/Prohelion/Profinity/Config` and `/root/Prohelion/Profinity/Profiles` inside the container. When Profinity starts in Docker, it will automatically substitute the environment variables in these files with the values from your `.env` file or Docker Compose environment section.
+    
+    For complete examples and detailed information about using environment variables in `Config.yaml` and `Profile.yaml` files, including syntax, default values, and variable naming rules, see the [Environment Variables](./Environment_Variables.md) documentation.
+
+#### Using Environment Files with Docker Compose
+
+If you're using multiple `.env` files for different environments:
+
+```bash
+# Start with specific environment file
+docker compose --env-file .env.production up
+
+# Start with development environment
+docker compose --env-file .env.development up
+
+# Use specific compose file with environment file
+docker compose -f docker-compose.prod.yml --env-file .env.production up
+```
+
+For more information about Docker Compose environment files, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
 #### Deployment Strategies
 
@@ -131,8 +230,8 @@ services:
       - PROFILE_NAME=Development Profile
       - ADAPTER_IP=127.0.0.1
     volumes:
-      - ./dev-profiles:/app/profiles
-      - ./dev-config:/app/config
+      - ./dev-profiles:/root/Prohelion/Profinity/Profiles
+      - ./dev-config:/root/Prohelion/Profinity/Config
 ```
 
 **Production Environment**
@@ -149,85 +248,12 @@ services:
       - PROFILE_NAME=Production Profile
       - ADAPTER_IP=${PRODUCTION_ADAPTER_IP}
     volumes:
-      - ./prod-profiles:/app/profiles
-      - ./prod-config:/app/config
-      - ./logs:/app/logs
+      - ./prod-profiles:/root/Prohelion/Profinity/Profiles
+      - ./prod-config:/root/Prohelion/Profinity/Config
+      - ./logs:/root/Prohelion/Profinity/Logs
 ```
 
 For more information about Docker Compose file overrides, see the [official Docker documentation](https://docs.docker.com/compose/extends/).
 
 !!! info "Directly Accessing Devices"
     Docker deliberately does not expose all devices through to the containers that run the applications.  In some cases you may wish to expose additional devices to Docker so that you can access things like SocketCAN Natively or discover components that use UDP for broadcasting.  See the [official Docker documentation](https://docs.docker.com/compose/) for how to expose these devices to your Docker container.
-
-### Starting and Stopping Profinity
-
-The Profinity Docker container is started and stopped using commands from the [Docker Compose toolset](https://docs.docker.com/compose/reference/). First, navigate to the original directory (the one containing the `docker-compose.yml` file).
-
-#### Basic Commands
-
-**Start Profinity:**
-```bash
-docker compose up
-```
-
-**Start in background (detached mode):**
-```bash
-docker compose up -d
-```
-
-**Stop Profinity:**
-```bash
-docker compose down
-```
-
-**View logs:**
-```bash
-docker compose logs -f
-```
-
-For more information about Docker Compose commands, see the [official Docker Compose reference](https://docs.docker.com/compose/reference/).
-
-#### Using Environment Files
-
-If you're using multiple `.env` files for different environments:
-
-```bash
-# Start with specific environment file
-docker compose --env-file .env.production up
-
-# Start with development environment
-docker compose --env-file .env.development up
-
-# Use specific compose file with environment file
-docker compose -f docker-compose.prod.yml --env-file .env.production up
-```
-
-For more information about Docker Compose environment files, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
-
-#### Accessing Profinity
-
-Once started, open the URL defined in your configuration to access the Profinity web client. The default URL is `http://localhost:18080` on the local machine or `http://[Your IP Address]:18080` if accessed remotely.
-
-For environment-specific configurations, the URL will be based on your `HTTP_ADDRESS` and `HTTP_PORT` environment variables.
-
-Connecting to the Profinity web client will direct you to the Profinity login page. 
-
-<figure markdown>
-![Profinity login page](../images/login_page.png)
-<figcaption>Profinity login page</figcaption>
-</figure>
-
-A fresh install of Profinity will only have the administrator user active. To log in, use the following login details.
-
-Username: `admin`
-
-Password: `password`
-
-After logging in, you will arrive at the Profinity homepage.
-
-<figure markdown>
-![Profinity Homepage](../images/homepage.png)
-<figcaption>Profinity homepage</figcaption>
-</figure>
-
-To stop Profinity, enter `docker compose down` into the command line.

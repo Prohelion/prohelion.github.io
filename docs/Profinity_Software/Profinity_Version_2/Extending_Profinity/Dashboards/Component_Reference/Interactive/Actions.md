@@ -6,6 +6,11 @@ title: Actions Component
 
 Interactive buttons. Actions provide clickable buttons that can trigger system actions, navigation, or other interactive behaviours.
 
+<figure markdown>
+![Actions component showing interactive buttons for system controls and navigation](../../images/actions.png)
+<figcaption>Actions component showing interactive buttons for system controls and navigation</figcaption>
+</figure>
+
 **Best for:** System controls, navigation buttons, data refresh actions, user interactions, command execution
 
 **Parameters:**

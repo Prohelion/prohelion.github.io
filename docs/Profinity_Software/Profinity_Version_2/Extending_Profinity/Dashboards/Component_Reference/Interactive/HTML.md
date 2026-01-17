@@ -6,6 +6,11 @@ title: HTML Component
 
 HTML content component for displaying raw HTML content. This component allows you to embed custom HTML, including references to content from /Profile/Content, images from /Profile/Images, and styles from /Profile/Styles.
 
+<figure markdown>
+![HTML component displaying custom HTML content with rich text formatting](../../images/html.png)
+<figcaption>HTML component displaying custom HTML content with rich text formatting</figcaption>
+</figure>
+
 **Best for:** Custom content display, rich text formatting, embedded content, documentation snippets
 
 **When not to use:** For structured data display (use Readouts, Tables, etc.), for interactive elements (use Actions, Toggles, etc.)

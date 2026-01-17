@@ -9,6 +9,17 @@ title: Security Guide
 
 This guide covers essential security considerations for deploying and operating Profinity. For detailed information on specific features, refer to the relevant documentation sections.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [HTTPS Configuration](#https-configuration)
+- [Docker Security](#docker-security)
+- [Scripting Security](#scripting-security)
+- [User Account Security](#user-account-security)
+- [Kiosk Mode Security](#kiosk-mode-security)
+- [Production Deployment Checklist](#production-deployment-checklist)
+- [Related Documentation](#related-documentation)
+
 ## Overview
 
 Profinity V2 is a powerful system that provides control over critical automotive and energy systems. When configuring Profinity, you must consider:

@@ -2,9 +2,6 @@
 title: Custom Components
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you are having any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Custom Components
 
 Profinity provides the ability to create custom components that use your DBC files and custom dashboard definitions to include any component that you may have in your system that runs CAN bus into your profile, to monitor those components and graph or log the data.

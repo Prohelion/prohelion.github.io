@@ -6,6 +6,11 @@ title: Image Component
 
 Interactive image component with clickable regions, icons, data values, points, and annotation lines. Images are loaded from the /Profile/Images directory.
 
+<figure markdown>
+![Interactive image component showing clickable regions, icons, data values, and annotation lines](../../images/image.png)
+<figcaption>Interactive image component showing clickable regions, icons, data values, and annotation lines</figcaption>
+</figure>
+
 **Best for:** Device diagrams, system layouts, interactive schematics, visual data overlays
 
 **When not to use:** For simple static images (use HTML component with img tag), for charts (use Chart component)

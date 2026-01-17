@@ -6,6 +6,11 @@ title: Panel Component
 
 Individual panel within a panels grid. Each panel can contain various components and provides a titled container for organizing related content.
 
+<figure markdown>
+![Panel component displaying a titled container with organized content](../../images/panel.png)
+<figcaption>Panel component displaying a titled container with organized content</figcaption>
+</figure>
+
 **Best for:** Individual data sections, titled content areas, organized information display
 
 **Parameters:**

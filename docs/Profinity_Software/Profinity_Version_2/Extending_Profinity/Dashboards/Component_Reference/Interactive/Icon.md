@@ -6,6 +6,11 @@ title: Icon Component
 
 Icon component for displaying icons from the /Profile/Images directory.
 
+<figure markdown>
+![Icon component displaying an icon from the Profile Images directory](../../images/icon.png)
+<figcaption>Icon component displaying an icon from the Profile Images directory</figcaption>
+</figure>
+
 **Best for:** Displaying icons, status indicators, visual elements
 
 **When not to use:** When you need interactive buttons (use Action instead) or when you need icons within other components (use component-specific icon properties)

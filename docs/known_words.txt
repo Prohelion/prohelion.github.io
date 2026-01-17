@@ -236,6 +236,7 @@ loopback
 canbus
 
 # Other
+minify
 uninstallation
 nginx
 traefik

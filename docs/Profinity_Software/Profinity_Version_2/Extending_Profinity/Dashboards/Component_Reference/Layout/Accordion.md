@@ -6,6 +6,11 @@ title: Accordion Component
 
 Collapsible sections for organizing content. Accordions help keep dashboards clean by allowing users to expand and collapse sections of information as needed.
 
+<figure markdown>
+![Accordion component displaying collapsible sections for organizing dashboard content](../../images/accordion.png)
+<figcaption>Accordion component displaying collapsible sections for organizing dashboard content</figcaption>
+</figure>
+
 **Best for:** Detailed information that's not always needed, settings panels, secondary data, keeping dashboards uncluttered
 
 **Parameters:**

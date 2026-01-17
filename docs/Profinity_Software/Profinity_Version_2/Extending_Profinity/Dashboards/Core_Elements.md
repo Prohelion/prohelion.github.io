@@ -6,6 +6,20 @@ title: Core Elements
 
 A Profinity dashboard is built using a hierarchical structure of four core element types. These elements are arranged vertically and provide the foundation for creating dynamic, data-driven user interfaces.
 
+## Table of Contents
+
+- [Understanding the Structure](#understanding-the-structure)
+- [Understanding the `items` Property](#understanding-the-items-property)
+- [The Four Core Elements](#the-four-core-elements)
+    - [1. Titlebar](#1-titlebar)
+    - [2. Row](#2-row)
+    - [3. Accordion](#3-accordion)
+    - [4. Footer](#4-footer)
+- [Layout Directions](#layout-directions)
+- [Component Nesting](#component-nesting)
+- [Complete Example](#complete-example)
+- [Dashboard Structure](#dashboard-structure)
+
 ## Understanding the Structure
 
 Dashboards are defined as collections of full-width items arranged vertically. Each top-level element can be one of several types, and they can be nested to create complex layouts:
@@ -18,15 +32,89 @@ Dashboards are defined as collections of full-width items arranged vertically. E
 
 This hierarchical approach allows for flexible layouts that adapt to different screen sizes and content requirements.
 
-## Profile Directories
+## Understanding the `items` Property
 
-Profinity provides profile-specific directories for organizing dashboard assets:
+The `items` property is one of the most fundamental and widely used concepts in Profinity dashboard configuration. It appears at almost every level of the dashboard hierarchy and is used to define the contents of container elements.
 
-- **/Profile/Images**: Store images used in dashboards (icons, interactive images, etc.) - referenced by filename only
-- **/Profile/Styles**: Store custom CSS stylesheets - referenced by filename
-- **/Profile/Content**: Store general content files (HTML snippets, templates, etc.) - referenced by filename
+### What is `items`?
 
-All assets in these directories are automatically served by Profinity and can be referenced in your dashboard YAML files.
+The `items` property is an array that contains the child elements of any container component. It's how you specify what goes inside containers like `dashboard`, `row`, `group`, `panel`, `accordion`, and many other components.
+
+### Where `items` is Used
+
+The `items` property appears at multiple levels:
+
+- **Top level**: `dashboard: items:` - Contains the top-level elements (titlebar, rows, accordions, footer)
+- **Rows**: `row: items:` - Contains groups and components within a row
+- **Groups**: `group: items:` - Contains components organized within a group
+- **Panels**: `panel: items:` - Contains components displayed within a panel
+- **Accordions**: `accordion: items:` - Contains rows and components within an accordion section
+- **Component containers**: Many components like `pill`, `lamps`, `readouts`, `tabs` use `items:` to contain their child elements
+
+### Example Structure
+
+```yaml
+dashboard:
+  items:                    # Top-level items
+    - row:
+        items:              # Items within the row
+          - group:
+              items:        # Items within the group
+                - readouts:
+                    items:  # Items within the readouts container
+                      - readout:
+                          label: "Temperature"
+                          value: 25.5
+```
+
+### Key Points
+
+- **Always an array**: `items` is always an array (using `-` list syntax in YAML), even if it contains only one element
+- **Defines hierarchy**: The `items` property is what creates the parent-child relationships in your dashboard structure
+- **Required for containers**: Any component that can contain other components will have an `items` property
+- **Order matters**: The order of items in the array determines the order they appear in the dashboard
+
+### Common Patterns
+
+**Single item:**
+```yaml
+row:
+  items:
+    - readouts:
+        items:
+          - readout:
+              label: "Temperature"
+```
+
+**Multiple items:**
+```yaml
+row:
+  items:
+    - readouts:
+        items:
+          - readout:
+              label: "Temperature"
+    - chart:
+        type: "line"
+```
+
+**Nested items:**
+```yaml
+panel:
+  title: "System Status"
+  items:
+    - group:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Status"
+```
+
+Understanding how `items` works is essential for building dashboards, as it's the mechanism that allows you to nest and organize components at any level of the dashboard hierarchy.
+
+!!! info "Profile Directories"
+    Profinity provides profile-specific directories (`/Profile/Images`, `/Profile/Styles`, and `/Profile/Content`) for organizing dashboard assets like images, stylesheets, and HTML templates. For detailed information about using these directories, including examples and best practices, see the [Profile Directories](./Profile_Directories.md) documentation.
 
 ## The Four Core Elements
 
@@ -37,12 +125,22 @@ The header section of your dashboard, typically containing:
 - Navigation menus
 - Component identification
 
+<figure markdown>
+![Dashboard titlebar showing status lamps and navigation menus](images/titlebar.png)
+<figcaption>Dashboard titlebar showing status lamps and navigation menus</figcaption>
+</figure>
+
 **When to use:** Every dashboard should have a titlebar to provide context and navigation.
 
 **Learn more:** [Titlebar Reference](./Component_Reference/Layout/Titlebar.md)
 
 ### 2. Row
 Layout containers that organize components horizontally or vertically.
+
+<figure markdown>
+![Row layout container organizing multiple components horizontally or vertically](images/row.png)
+<figcaption>Row layout container organizing multiple components horizontally or vertically</figcaption>
+</figure>
 
 **Key features:**
 
@@ -57,6 +155,11 @@ Layout containers that organize components horizontally or vertically.
 ### 3. Accordion
 Collapsible sections for organizing content that can be expanded or collapsed.
 
+<figure markdown>
+![Accordion component showing collapsible sections for organizing content](images/accordion.png)
+<figcaption>Accordion component showing collapsible sections for organizing content</figcaption>
+</figure>
+
 **Key features:**
 
 - Keeps dashboards clean and organized
@@ -69,6 +172,11 @@ Collapsible sections for organizing content that can be expanded or collapsed.
 
 ### 4. Footer
 Bottom section typically containing navigation menus and additional controls.
+
+<figure markdown>
+![Dashboard footer with navigation menus and additional controls](images/footer.png)
+<figcaption>Dashboard footer with navigation menus and additional controls</figcaption>
+</figure>
 
 **Key features:**
 

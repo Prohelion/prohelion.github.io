@@ -6,6 +6,32 @@ title: Full Example
 
 This comprehensive example demonstrates a complete motor controller dashboard that showcases many of the concepts covered in this guide. This dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters.
 
+## Table of Contents
+
+- [What This Example Demonstrates](#what-this-example-demonstrates)
+- [Dashboard Structure Overview](#dashboard-structure-overview)
+- [Data Sources](#data-sources)
+- [Complete Dashboard Example](#complete-dashboard-example)
+- [Section-by-Section Analysis](#section-by-section-analysis)
+    - [Status Pill Section](#status-pill-section)
+    - [Performance Charts Section](#performance-charts-section)
+    - [Controller Limits Section](#controller-limits-section)
+    - [Error Monitoring Section](#error-monitoring-section)
+    - [Detailed Information Section](#detailed-information-section)
+- [Data Binding Patterns](#data-binding-patterns)
+    - [CAN bus Signal Binding](#can-bus-signal-binding)
+    - [Time Series Data Binding](#time-series-data-binding)
+    - [Boolean Status Binding](#boolean-status-binding)
+- [Customization Guide](#customization-guide)
+    - [Adapting for Different Systems](#adapting-for-different-systems)
+    - [Adding New Sections](#adding-new-sections)
+    - [Performance Considerations](#performance-considerations)
+- [Best Practices Demonstrated](#best-practices-demonstrated)
+    - [Layout Organization](#layout-organization)
+    - [Data Presentation](#data-presentation)
+    - [User Experience](#user-experience)
+- [Next Steps](#next-steps)
+
 ## What This Example Demonstrates
 
 This dashboard example shows how to:

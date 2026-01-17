@@ -6,6 +6,11 @@ title: Footer Component
 
 Bottom section with navigation menus. The footer provides additional navigation options and system information.
 
+<figure markdown>
+![Dashboard footer component with navigation menus and controls](../../images/footer.png)
+<figcaption>Dashboard footer component with navigation menus and controls</figcaption>
+</figure>
+
 **Best for:** Additional navigation, system information, help links, secondary actions
 
 **Parameters:**

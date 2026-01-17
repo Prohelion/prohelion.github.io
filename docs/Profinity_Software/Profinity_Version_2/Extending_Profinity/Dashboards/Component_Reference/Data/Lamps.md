@@ -6,6 +6,11 @@ title: Lamps Component
 
 Grid of status indicators. Lamps provide visual status information using colours and states to quickly communicate system status.
 
+<figure markdown>
+![Lamps component displaying a grid of status indicators with color-coded states](../../images/lamps.png)
+<figcaption>Lamps component displaying a grid of status indicators with color-coded states</figcaption>
+</figure>
+
 **Best for:** Status indicators, error/warning displays, system state visualization, quick status overview
 
 **Parameters:**

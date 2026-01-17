@@ -6,6 +6,11 @@ title: Panels Component
 
 Panels create a grid layout of individual panel components. This creates a flexible grid system where each panel can contain different types of content and data visualizations.
 
+<figure markdown>
+![Panels component showing a grid layout of multiple panel containers](../../images/panels.png)
+<figcaption>Panels component showing a grid layout of multiple panel containers</figcaption>
+</figure>
+
 **Best for:** Creating dashboard sections with multiple data views, organizing complex information into digestible panels
 
 **Parameters:**

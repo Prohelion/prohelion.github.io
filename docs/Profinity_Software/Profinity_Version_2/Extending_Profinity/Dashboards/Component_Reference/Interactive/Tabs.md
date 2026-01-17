@@ -6,6 +6,11 @@ title: Tabs Component
 
 Tabbed interface with header lamps and body content. Tabs organize information into separate views, allowing users to switch between different data sets or views.
 
+<figure markdown>
+![Tabs component displaying a tabbed interface with header lamps and body content](../../images/tabs.png)
+<figcaption>Tabs component displaying a tabbed interface with header lamps and body content</figcaption>
+</figure>
+
 **Best for:** Organizing multiple data views, separating different information types, creating multi-page interfaces within a single dashboard
 
 **Parameters:**

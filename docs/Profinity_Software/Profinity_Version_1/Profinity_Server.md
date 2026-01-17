@@ -35,18 +35,6 @@ Profinity supports operating in service mode on Windows, Linux, MacOS and inside
 
 ## Running as a Service
 
-In the 'headless' service mode, Profinity continues to operate as normal with some minor differences in behaviour.
-
-- There is no GUI, the server can only be accessed via the APIs and Web Interfaces.
-
-- Profile files if they need to be chanced, are edited directly rather than through the GUI.  When a Profile file is changed Profinity detects this change and automatically reloads the Profile.
-
-- Config files are also edited directly, changing a Config file requires a service restart.
-
-- Profinity Logs are logged as normal and available in the Log directory under
-
-`[user]/Documents/Prohelion/Profinity/Logs`
-
 ## Installing Profinity as a Windows Service
 
 In the installation directory of Profinity you will find a file called ProfinityService.cmd.  If default configuration options have been selected for the installation directory, the file is typically found here.

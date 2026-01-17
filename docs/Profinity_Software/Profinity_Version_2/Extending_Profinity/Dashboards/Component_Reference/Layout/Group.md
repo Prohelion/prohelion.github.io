@@ -6,6 +6,20 @@ title: Group Component
 
 A group is a container that organizes related components. Groups help create visual and logical groupings within rows, making dashboards more organized and easier to understand.
 
+Groups can be arranged in two directions:
+
+**Horizontal Group** - Components arranged side by side:
+<figure markdown>
+![Horizontal group component showing components arranged side by side](../../images/group_horizontal.png)
+<figcaption>Horizontal group component showing components arranged side by side</figcaption>
+</figure>
+
+**Vertical Group** - Components arranged top to bottom:
+<figure markdown>
+![Vertical group component showing components arranged from top to bottom](../../images/group_vertical.png)
+<figcaption>Vertical group component showing components arranged from top to bottom</figcaption>
+</figure>
+
 **Best for:** Grouping related data displays, creating visual sections, organizing components with similar functions
 
 **Parameters:**
@@ -17,7 +31,34 @@ A group is a container that organizes related components. Groups help create vis
 | `direction` | optional (string) | Layout direction - "vertical" or "horizontal" (default: "vertical") |
 | `items` | required (array) | Array of components within the group |
 
-**Example:**
+**Horizontal Group Example:**
+
+This example shows a horizontal group containing an icon and HTML content:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - group:
+              direction: horizontal
+              items:
+                - icon:
+                    image: nav_battery_active.svg
+                    recess: true
+                - html:
+                    content: |
+                      <div style="padding-left: 1rem;">
+                        <div class="info-box__header">Battery Status</div>
+                        <div class="info-box__content">
+                          <p>Current battery state of charge and voltage information.</p>
+                        </div>
+                      </div>
+```
+
+**Vertical Group Example:**
+
+Groups can also be arranged vertically, stacking components from top to bottom:
 
 ``` yaml
 dashboard:

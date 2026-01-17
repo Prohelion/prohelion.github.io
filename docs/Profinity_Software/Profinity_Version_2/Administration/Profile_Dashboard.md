@@ -2,9 +2,6 @@
 title: Profile Dashboard
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you are having any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Profile Dashboard
 
 A Profile Dashboard is a custom home page that replaces the standard Profinity home page when a profile is active. Profile Dashboards allow you to create a personalized landing page for your profile using the same dashboard system used for component dashboards.
