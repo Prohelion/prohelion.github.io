@@ -1,0 +1,21 @@
+nav:
+    - index.md
+    - Create_Custom_Dashboard.md
+    - Create_Profile_Dashboard.md
+    - Add_Images_to_Dashboard.md
+    - Create_Custom_Component.md
+    - Add_Component_to_Profile.md
+    - Connect_to_CAN_Bus.md
+    - Send_Receive_CAN_Bus.md
+    - Configure_Data_Logging.md
+    - Log_Data_to_Cloud_Influx.md
+    - Build_Dashboard_Remote_Data.md
+    - Create_New_Profile.md
+    - Configure_Environment_Variables.md
+    - Set_Up_Profinity_as_Kiosk.md
+    - Connect_Profinity_to_AI.md
+    - Write_Your_First_Script.md
+    - Style_Dashboard.md
+    - Replay_CAN_Logs.md
+    - Debug_Dashboard_Issues.md
+    - View_Dashboard_Source.md
