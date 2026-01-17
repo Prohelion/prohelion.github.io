@@ -6,6 +6,28 @@ title: Data Binding
 
 Data binding is the process of connecting your dashboard components to live data sources. This allows your dashboards to display real-time information from CAN bus messages, system properties, and historical data.
 
+## Table of Contents
+
+- [What is Data Binding?](#what-is-data-binding)
+- [Understanding Data Sources](#understanding-data-sources)
+    - [Component Name Placeholders](#component-name-placeholders)
+- [Data Source Types](#data-source-types)
+    - [1. DBC Messages and Signals](#1-dbc-messages-and-signals)
+    - [2. Direct C# Properties](#2-direct-c-properties)
+    - [3. Time Series Data](#3-time-series-data)
+- [Data Binding Syntax](#data-binding-syntax)
+    - [Basic Binding Structure](#basic-binding-structure)
+    - [Binding Parameters](#binding-parameters)
+    - [Type Conversion](#type-conversion)
+    - [Scaling and Offset](#scaling-and-offset)
+    - [Example Readout with Scaling](#example-readout-with-scaling)
+    - [Value Inversion](#value-inversion)
+    - [Text Mapping](#text-mapping)
+    - [Boolean Text Mapping](#boolean-text-mapping)
+    - [Partition-Based Text Mapping](#partition-based-text-mapping)
+    - [Logged Data Access](#logged-data-access)
+- [Best Practices](#best-practices)
+
 ## What is Data Binding?
 
 Data binding creates a dynamic connection between your dashboard components and data sources. When the underlying data changes, your dashboard automatically updates to reflect the new values. 

@@ -2,12 +2,27 @@
 title: MCP Server
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you are having any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # MCP Server
 
 Profinity includes support for the Model Context Protocol (MCP), which allows AI assistants and other tools to interact with Profinity to query system data and metadata. The MCP server provides programmatic access to Profinity's component data, signal values, and metadata through a standardized protocol.
+
+## Table of Contents
+
+- [What is MCP?](#what-is-mcp)
+- [Enabling MCP Server](#enabling-mcp-server)
+- [Transport](#transport)
+- [Available Tools](#available-tools)
+    - [get_all_components](#get_all_components)
+    - [get_all_metadata](#get_all_metadata)
+    - [get_component_data](#get_component_data)
+    - [get_all_components_data](#get_all_components_data)
+    - [get_signal_value](#get_signal_value)
+- [Authentication](#authentication)
+    - [Python Example](#python-example)
+- [Configuration Examples](#configuration-examples)
+- [Use Cases](#use-cases)
+- [Security Considerations](#security-considerations)
+- [Related Documentation](#related-documentation)
 
 ## What is MCP?
 

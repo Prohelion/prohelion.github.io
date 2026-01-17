@@ -17,6 +17,29 @@
         logoLink.target = '_blank';
         logoLink.rel = 'noopener noreferrer';
       }
+
+      // Add Early Adopter notice to Profinity V2 pages
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/Profinity_Software/Profinity_Version_2/')) {
+        const article = document.querySelector('.md-content__inner');
+        if (article) {
+          const notice = document.createElement('div');
+          notice.className = 'admonition admonition-info';
+          notice.setAttribute('open', '');
+          notice.innerHTML = `
+            <div class="admonition-title">Early Adopter Documentation</div>
+            <p>General Availability Release is coming soon. Documentation is being published now for Early Adopters.</p>
+          `;
+          
+          // Insert at the top of the article content
+          const firstChild = article.firstElementChild;
+          if (firstChild && firstChild.tagName === 'H1') {
+            firstChild.after(notice);
+          } else {
+            article.insertBefore(notice, article.firstChild);
+          }
+        }
+      }
     });
   </script>
 {% endblock %}

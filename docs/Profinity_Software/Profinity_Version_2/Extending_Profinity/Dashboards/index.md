@@ -179,9 +179,10 @@ All the dashboards in Profinity are built using this dashboard system. Sometimes
 For additional information we would recommend you read these other parts of the documentation in this order.
 
 1. [Core Elements](./Core_Elements.md) provides information on the structure of a Profinity Dashboard and the basics on how to create one
-2. [Data Binding](./Data_Binding.md) describes how to bind information from the Profinity system to your dashboard easily.
-3. [Component Reference](./Component_Reference/index.md) reference information on each of the components you can include in your dashboard
-4. [Conditional Styling](./Conditional_Styling.md) how to make your dashboard style change to hide and show elements or change colour based on data.
-5. [Examples](./Examples.md) complete examples including full dashboard examples, real-world scenarios, and progressive examples.
-6. [Troubleshooting](./Troubleshooting.md) comprehensive troubleshooting guide including schema validation errors and common issues.
-7. [FAQ](./FAQ.md) frequently asked questions and quick answers.
+2. [Profile Directories](./Profile_Directories.md) explains how to organize and reference images, stylesheets, and content files for your dashboards
+3. [Data Binding](./Data_Binding.md) describes how to bind information from the Profinity system to your dashboard easily.
+4. [Component Reference](./Component_Reference/index.md) reference information on each of the components you can include in your dashboard
+5. [Conditional Styling](./Conditional_Styling.md) how to make your dashboard style change to hide and show elements or change colour based on data.
+6. [Examples](./Examples.md) complete examples including full dashboard examples, real-world scenarios, and progressive examples.
+7. [Troubleshooting](./Troubleshooting.md) comprehensive troubleshooting guide including schema validation errors and common issues.
+8. [FAQ](./FAQ.md) frequently asked questions and quick answers.

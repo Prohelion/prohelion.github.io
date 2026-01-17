@@ -2,9 +2,6 @@
 title: Kiosk Mode
 ---
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release.  If you are having any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
-
 # Kiosk Mode
 
 Kiosk Mode is a Profinity feature that enables automatic user authentication, bypassing the login page for specific profiles. When enabled, users accessing Profinity will be automatically authenticated as the configured kiosk user, allowing seamless access to the system without manual login.

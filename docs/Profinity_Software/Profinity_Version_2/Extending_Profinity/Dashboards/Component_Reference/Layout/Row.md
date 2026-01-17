@@ -6,6 +6,11 @@ title: Row Component
 
 A row is a layout container that can hold multiple components. Rows are the fundamental building blocks of dashboard layout, allowing you to organize components horizontally or vertically.
 
+<figure markdown>
+![Row layout container organizing multiple components in a dashboard](../../images/row.png)
+<figcaption>Row layout container organizing multiple components in a dashboard</figcaption>
+</figure>
+
 **Best for:** Creating logical sections, organizing related components, controlling layout direction
 
 **Parameters:**

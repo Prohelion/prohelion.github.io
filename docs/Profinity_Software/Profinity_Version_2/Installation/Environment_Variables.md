@@ -6,8 +6,28 @@ title: Environment Variables
 
 Profinity supports environment variable substitution in both configuration files and profile files, allowing you to create flexible, environment-specific configurations without hardcoding values.
 
-!!! tip "Profinity V2 IS NOW IN GENERAL RELEASE"
-    Profinity V2 is available now in General Release. If you have any issues or feedback please report it via our support portal or via the Feedback form in the Profinity Admin menu.
+## Table of Contents
+
+- [Overview](#overview)
+- [Syntax](#syntax)
+    - [Basic Usage](#basic-usage)
+    - [Default Values](#default-values)
+    - [Variable Naming Rules](#variable-naming-rules)
+- [Supported File Types](#supported-file-types)
+    - [Configuration Files](#configuration-files)
+    - [Profile Files](#profile-files)
+- [Setting Environment Variables](#setting-environment-variables)
+    - [Windows](#windows)
+    - [Linux/macOS](#linuxmacos)
+    - [Docker Deployment](#docker-deployment)
+- [Variable Behavior](#variable-behavior)
+    - [Defined Variables](#defined-variables)
+    - [Undefined Variables](#undefined-variables)
+    - [Mixed Values](#mixed-values)
+- [Complete Examples](#complete-examples)
+    - [Configuration File Example](#configuration-file-example)
+    - [Profile File Example](#profile-file-example)
+- [More Information](#more-information)
 
 ## Overview
 
@@ -216,47 +236,6 @@ services:
       - ADAPTER_PORT=8080
     env_file:
       - .env
-```
-
-## Data Types
-
-Environment variables support all common data types used in Profinity configurations and profiles.
-
-| Data Type | Description | Example | Use Case |
-|-----------|-------------|---------|----------|
-| **Text Values** | Strings and descriptions | `${PROFILE_NAME}`, `${DESCRIPTION}` | Names, descriptions, labels |
-| **Numeric Values** | Integers and decimals | `${PORT}`, `${TIMEOUT}`, `${BUS_NUMBER}` | Ports, timeouts, counts |
-| **IP Addresses** | Network addresses | `${ADAPTER_IP}`, `${HTTP_ADDRESS}` | Network configuration |
-| **Paths** | File and directory paths | `${LOG_PATH}`, `${CONFIG_DIR}` | File system locations |
-| **Boolean Values** | True/false settings | `${ENABLE_LOGGING}`, `${AUTO_CONNECT}` | Feature toggles |
-
-### Text Values
-```yaml
-Name: ${PROFILE_NAME}
-Description: ${PROFILE_DESCRIPTION}
-BusName: ${CAN_BUS_NAME}
-```
-
-### Numeric Values
-```yaml
-Port: ${ADAPTER_PORT}
-Timeout: ${ADAPTER_TIMEOUT}
-BusNo: ${BUS_NUMBER}
-UdpTTL: ${UDP_TTL}
-```
-
-### IP Addresses
-```yaml
-IpAddress: ${ADAPTER_IP}
-HttpAddress: ${HTTP_ADDRESS}
-```
-
-### Special Characters
-Environment variables can contain special characters and spaces:
-
-```yaml
-Description: ${PROFILE_DESCRIPTION}  # Can contain spaces, punctuation, etc.
-Path: ${LOG_PATH}  # Can contain backslashes, forward slashes, etc.
 ```
 
 ## Variable Behavior

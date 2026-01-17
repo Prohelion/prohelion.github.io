@@ -6,6 +6,11 @@ title: Tables Component
 
 Data table display. Tables present structured data in rows and columns, with advanced features like heatmaps and highlighting for better data analysis.
 
+<figure markdown>
+![Tables component displaying structured data in rows and columns with heatmap visualization](../../images/tables.png)
+<figcaption>Tables component displaying structured data in rows and columns with heatmap visualization</figcaption>
+</figure>
+
 **Best for:** Structured data display, multi-dimensional data, data analysis, large datasets, comparative data
 
 **Parameters:**

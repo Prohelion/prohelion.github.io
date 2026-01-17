@@ -28,8 +28,8 @@ To start Profinity from a Zip installation, go to the folder where Profinity has
 The following or similar should then appear.
 
 ```text
-Prohelion Profinity - v2.1.0.0
-Profinity (c) 2023 - Prohelion Pty Ltd.
+Prohelion Profinity - v2.2.1.0
+Profinity (c) 2026 - Prohelion Pty Ltd.
 ------------------------------------------
 Press Ctrl-C to shut the application down.
 

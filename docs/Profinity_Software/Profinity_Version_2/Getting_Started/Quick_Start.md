@@ -34,11 +34,14 @@ To load the Example Profile:
 4. Click **Load Profile** or set it as the active profile
 
 The Example Profile includes:
-- **Pre-configured components:**
-  - Prohelion 12v Battery
-  - Prohelion BMU (Battery Management Unit)
-  - 3 Elmar Solar MPPT devices (6A0, 6B0, 6C0)
-  - 2 Prohelion WaveSculptor 22 Motor Controllers (Left and Right)
+
+**Pre-configured components:**
+
+- Prohelion 12v Battery
+- Prohelion BMU (Battery Management Unit)
+- 3 Elmar Solar MPPT devices (6A0, 6B0, 6C0)
+- 2 Prohelion WaveSculptor 22 Motor Controllers (Left and Right)
+
 - **Custom Profile Dashboard** with status displays, data visualizations, and component monitoring
 - **Custom styling** and images demonstrating dashboard capabilities
 - **Data bindings** showing how to connect dashboard elements to component data
@@ -76,6 +79,7 @@ Alternatively, you can view component-specific dashboards:
 2. Click the pencil icon on that component's dashboard to view its source
 
 This will open the dashboard editor where you can:
+
 - View the complete YAML structure of the dashboard
 - See how components are configured
 - Understand data bindings and styling
@@ -94,6 +98,7 @@ Try making a simple change:
 4. See the update reflected in the dashboard immediately
 
 For more detailed information on creating and editing dashboards, see:
+
 - [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - Complete guide to dashboard development
 - [Core Elements](../Extending_Profinity/Dashboards/Core_Elements.md) - Understanding dashboard structure
 - [Data Binding](../Extending_Profinity/Dashboards/Data_Binding.md) - Connecting data to your dashboard

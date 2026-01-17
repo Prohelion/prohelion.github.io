@@ -6,6 +6,11 @@ title: Readouts Component
 
 Display of numerical or text values. Readouts are the primary way to show sensor data, measurements, and other numerical information from your system.
 
+<figure markdown>
+![Readouts component showing numerical and text value displays](../../images/readouts.png)
+<figcaption>Readouts component showing numerical and text value displays</figcaption>
+</figure>
+
 **Best for:** Sensor readings, measurements, numerical data display, text information, real-time values
 
 **Parameters:**

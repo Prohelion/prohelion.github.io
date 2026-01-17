@@ -6,6 +6,11 @@ title: Titlebar Component
 
 Header section with status lamps and navigation. The titlebar provides dashboard identification, status information, and navigation controls.
 
+<figure markdown>
+![Dashboard titlebar component showing status lamps and navigation menus](../../images/titlebar.png)
+<figcaption>Dashboard titlebar component showing status lamps and navigation menus</figcaption>
+</figure>
+
 **Best for:** Dashboard identification, status indicators, navigation menus, component-specific actions
 
 **Parameters:**

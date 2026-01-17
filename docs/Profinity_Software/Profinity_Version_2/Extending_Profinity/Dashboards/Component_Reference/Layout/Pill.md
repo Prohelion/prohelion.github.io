@@ -6,6 +6,11 @@ title: Pill Component
 
 Status pill component with grouped readouts and icon. Pills provide a compact way to display multiple related values with a central icon, perfect for showing component status and key metrics.
 
+<figure markdown>
+![Pill component showing status display with icon and grouped readouts](../../images/pill.png)
+<figcaption>Pill component showing status display with icon and grouped readouts</figcaption>
+</figure>
+
 **Best for:** Component status displays, key metric summaries, compact data presentation
 
 **When not to use:** When you need individual readouts without grouping, or when you don't need an icon

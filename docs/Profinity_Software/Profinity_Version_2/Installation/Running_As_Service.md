@@ -40,15 +40,6 @@ However, if you are not using Prohelion hardware, you will still need some way t
 !!! info "Running in Docker"
     Note if you are running Profinity inside Docker, then it is Docker not Profinity that you need to setup as a service, you then need to configure Docker to automatically start the Profinity Docker container when it starts up.  See the Docker Documentation for more details.
 
-In the 'headless' service mode, Profinity continues to operate as normal with some minor differences in behaviour.
-
-- There is no GUI, the server can only be accessed via the APIs and Web Interfaces.
-- Profile files if they need to be chanced, are edited directly rather than through the GUI.  When a Profile file is changed Profinity detects this change and automatically reloads the Profile.
-- Config files are also edited directly, changing a Config file requires a service restart.
-- Profinity Logs are logged as normal and available in the Log directory under
-
-`[user]/Documents/Prohelion/Profinity/Logs`
-
 ## Linux Setup
 
 To run Profinity as a service on Linux, you can use `systemd`, a system and service manager for Linux operating systems.
