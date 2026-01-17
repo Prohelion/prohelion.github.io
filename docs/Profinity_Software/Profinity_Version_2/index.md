@@ -35,6 +35,10 @@ You will find information on our [Restful APIs and Swagger Support](./Extending_
 
 Profinity can be run native on Windows, Unix, MacOS and cloud (via Docker) from V2 onward, see the [Installation Guide](./Installation/Windows_Installation.md) for more information on how to install Profinity.
 
+### Quick Guides
+
+Looking for quick step-by-step instructions? Check out our [How to Guides](./How_To_Guides/index.md) for concise guides on common tasks like creating custom dashboards, configuring components, and setting up data logging.
+
 If you require support or assistance, please [Contact Us](https://www.prohelion.com/contact-us/) via the Prohelion Website. You can also log bugs, or requests for improvement on our built in [Feedback Form](./Administration/Feedback.md).  
 
 Support Requests should be submitted to the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).

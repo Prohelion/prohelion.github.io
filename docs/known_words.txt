@@ -236,6 +236,10 @@ loopback
 canbus
 
 # Other
+ctrl
+Automator
+socketcand
+fullscreen
 minify
 uninstallation
 nginx

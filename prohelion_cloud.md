@@ -2,7 +2,7 @@
 
 ![Prohelion Cloud Platform Overview](https://via.placeholder.com/800x400?text=Prohelion+Cloud+Platform+Overview)
 
-Prohelion Cloud is a comprehensive IoT platform that provides robust device monitoring, management, and data storage solutions for field devices. Our platform enables organizations to efficiently monitor, analyze, and manage their IoT devices and assets from anywhere in the world, offering enterprise-grade features with a focus on reliability and scalability.
+Prohelion Cloud is a comprehensive IoT platform that provides robust device monitoring, management, and data storage solutions for field devices. Our platform enables organizations to efficiently monitor, analyse, and manage their IoT devices and assets from anywhere in the world, offering enterprise-grade features with a focus on reliability and scalability.
 
 ## Key Features
 
