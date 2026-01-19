@@ -73,10 +73,17 @@ docker compose up
 docker compose up -d
 ```
 
-**Stop Profinity:**
+**Stop Profinity (keeps containers):**
+```bash
+docker compose stop
+```
+This stops the running containers but keeps them. You can restart them later with `docker compose start`.
+
+**Stop and remove Profinity (removes containers):**
 ```bash
 docker compose down
 ```
+This stops the containers and removes them. You'll need to run `docker compose up` again to recreate and start them.
 
 **View logs:**
 ```bash
@@ -109,7 +116,7 @@ After logging in, you will arrive at the Profinity homepage.
 <figcaption>Profinity homepage</figcaption>
 </figure>
 
-To stop Profinity, enter `docker compose down` into the command line.
+To stop Profinity temporarily (keeping containers), use `docker compose stop`. To stop and remove containers, use `docker compose down`.
 
 ## Complex Setup for Production Deployments
 

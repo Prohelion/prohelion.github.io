@@ -17,7 +17,7 @@ To use this installation approach, first download and install an ASP.NET Core 9 
 
 Once installed, download the latest Profinity release `.zip` file from the Prohelion GitHub releases page and unzip the file into the folder that you wish to run Profinity from.
 
-[Download Profinity V2 .Zip file :material-download:](https://github.com/Prohelion/Profinity_V2_Early_Adopter_Release/releases/latest/download/Profinity.zip){ .md-button }
+<!-- [Download Profinity V2 .Zip file :material-download:](https://github.com/Prohelion/Profinity_V2_Early_Adopter_Release/releases/latest/download/Profinity.zip){ .md-button } -->
 
 ### Starting and Stopping Profinity
 

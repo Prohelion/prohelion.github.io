@@ -49,7 +49,11 @@ curl -X POST http://localhost:18080/api/v2/Users/Authenticate \
 
 ### Step 3: Configure Your AI Tool
 
-**For Claude Desktop:**
+The following should be taken as examples only, check with your tools documentation on how to configure MCP over SSE to your tool.
+
+Examples on using SSE with OLLAMA are also available on the Prohelion GitHub page `https://www.github.com/prohelion`.
+
+**Example For Claude Desktop:**
 
 1. Open Claude Desktop settings
 2. Navigate to MCP server configuration
@@ -72,15 +76,6 @@ curl -X POST http://localhost:18080/api/v2/Users/Authenticate \
    ```
    **Note:** Replace `YOUR_JWT_TOKEN_HERE` with the JWT token from Step 2.
 4. Restart Claude Desktop
-
-**For Cursor IDE:**
-
-1. Open Cursor IDE settings
-2. Navigate to MCP configuration
-3. Add Profinity MCP server endpoint: `http://localhost:18080/sse`
-4. Configure authentication:
-   - Add `Authorization: Bearer YOUR_JWT_TOKEN_HERE` header
-   - Replace `YOUR_JWT_TOKEN_HERE` with the JWT token from Step 2
 
 ### Step 4: Verify Connection
 
