@@ -19,9 +19,59 @@ Once this has been done then you will see the item in your profile and by right 
 
 ## Filters
 
-The DBC viewer supports filtering messages and signals to help you focus on specific CAN bus traffic. Filter options are available in the DBC viewer interface to narrow down the displayed messages and signals based on various criteria.
+The DBC viewer supports filtering messages and signals to help you focus on specific CAN bus traffic. You can filter by Component, Message, Signal, Value, and Unit columns using logical operators.
 
-!!! note "Filter Documentation"
-    For detailed information about the specific filter capabilities and syntax supported by the DBC viewer, please refer to the filter controls within the DBC viewer interface or consult the Profinity user interface documentation.
+### Text Filters (Component, Message, Signal, Unit)
+
+Text filters support logical operators to combine multiple search terms. All text filtering is case-insensitive.
+
+#### AND Logic (Default)
+
+By default, space-separated terms use AND logic - all terms must match:
+
+- `battery voltage` - Matches rows containing both "battery" AND "voltage"
+- `motor temp` - Matches rows containing both "motor" AND "temp"
+
+You can also use explicit AND operators:
+
+- `battery & voltage` - Matches rows containing both "battery" AND "voltage"
+- `battery AND voltage` - Matches rows containing both "battery" AND "voltage" (case-insensitive)
+
+#### OR Logic
+
+Use OR operators to match any of the specified terms:
+
+- `battery | voltage` - Matches rows containing "battery" OR "voltage"
+- `battery OR voltage` - Matches rows containing "battery" OR "voltage" (case-insensitive)
+- `battery, voltage` - Matches rows containing "battery" OR "voltage" (comma-separated)
+
+#### Examples
+
+- `BMU` - Shows all rows containing "BMU"
+- `BMU temperature` - Shows rows containing both "BMU" AND "temperature"
+- `BMU | MPPT` - Shows rows containing "BMU" OR "MPPT"
+- `voltage current` - Shows rows containing both "voltage" AND "current"
+- `error, warning, fault` - Shows rows containing "error" OR "warning" OR "fault"
+
+### Numeric Range Filter (Value Column)
+
+The Value column supports numeric range filtering using min/max values:
+
+- **Min only**: Shows values greater than or equal to the minimum
+- **Max only**: Shows values less than or equal to the maximum
+- **Min and Max**: Shows values within the specified range (inclusive)
+
+#### Examples
+
+- Min: `0`, Max: `100` - Shows values between 0 and 100 (inclusive)
+- Min: `50`, Max: (empty) - Shows values greater than or equal to 50
+- Min: (empty), Max: `100` - Shows values less than or equal to 100
+
+### Filter Tips
+
+- **Empty filters**: Leaving a filter empty shows all results for that column
+- **Combining filters**: You can apply filters to multiple columns simultaneously
+- **Global search**: Use the global search box to filter across all columns at once
+- **Case sensitivity**: All text filters are case-insensitive
 
 Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../Components/MPPT/index.md) and the [WaveSculptor](../Components/Motor_Controller/index.md) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.

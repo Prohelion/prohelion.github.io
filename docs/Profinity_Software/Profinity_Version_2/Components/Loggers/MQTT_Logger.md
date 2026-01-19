@@ -25,7 +25,8 @@ To log your CAN bus data to an MQTT broker, add an MQTT device to your profile a
 | --------------------- | --------------------------------------------------------------------- |
 | MQTT Broker URL       | The URL of your MQTT broker.                                          |
 | MQTT Topic            | The topic to which the data will be published.                        |
-| MQTT Access Token     | Access token for authentication.                                      |
+| MQTT Username         | The username for your MQTT connection.                                |
+| MQTT Password         | The password for your MQTT connection.                                |
 | MQTT Device ID        | A unique identifier for the device.                                   |
 
 <figure markdown>

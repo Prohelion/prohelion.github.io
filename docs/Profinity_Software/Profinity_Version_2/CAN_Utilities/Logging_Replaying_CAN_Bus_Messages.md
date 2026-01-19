@@ -17,7 +17,7 @@ There are three distinct types of loggers available in Profinity, loggers to [lo
 All loggers are configured in the same manner, by adding a logger as a component to the Profile.
 
 !!! info "Replaying Logs Requires a File Logger"
-    It is not possible to replay log files using the CAN Data Log Replayer below from Influx or Prometheus data, only a File log of the CAN Message from a File, FTP or SFTP logger can be used.
+    It is not possible to replay log files using the CAN Data Log Replayer below from Influx or Prometheus data, only a File log of the CAN Message from a File or SFTP logger can be used.
 
 ## CAN Data Log Replayer
 
