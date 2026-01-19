@@ -44,4 +44,4 @@ The Custom Component editor provides dedicated editors for both files, accessibl
 
 - [Dashboard Development Guide](../Dashboards/index.md) - Learn how to create dashboards
 - [DBC Documentation](../../CAN_Utilities/CAN_Bus_DBC.md) - Learn about DBC files
-- [Custom Components (Components)](../../Components/Custom/index.md) - Component overview
+- [Custom Components (Components)](../../Components/Custom_Components/index.md) - Component overview
