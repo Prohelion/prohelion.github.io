@@ -25,7 +25,6 @@ Data binding is the process of connecting your dashboard components to live data
     - [Text Mapping](#text-mapping)
     - [Boolean Text Mapping](#boolean-text-mapping)
     - [Partition-Based Text Mapping](#partition-based-text-mapping)
-    - [Logged Data Access](#logged-data-access)
 - [Best Practices](#best-practices)
 
 ## What is Data Binding?
@@ -130,11 +129,6 @@ dashboard:
 - `offset`  (number): Additive offset
 - `invert`  (boolean): Whether to invert the value
 - `mapToText`  (object): Text mapping configuration
-- `store`  (string): Data store type - &quot;local&quot; (default) for real-time data from local instance, &quot;logged&quot; for logged data from logger
-- `timeRangeStart`  (string): InfluxDB start time for logged data (e.g., &quot;-10m&quot;). If omitted with store='logged', returns most recent value. Default: &quot;-10m&quot;
-- `timeRangeStop`  (string): InfluxDB stop time for logged data (e.g., &quot;0m&quot;)
-- `aggregationWindow`  (string): Window period for InfluxDB data aggregation (e.g., &quot;1s&quot;, &quot;10s&quot;, &quot;1m&quot;, &quot;5m&quot;). If not specified, automatically calculated based on time range.
-- `aggregationFunction`  (string): Aggregation function for InfluxDB data reduction - &quot;max&quot; (default), &quot;mean&quot;, &quot;min&quot;, &quot;last&quot;, &quot;first&quot;, &quot;sum&quot;, &quot;count&quot;
 
 ### Type Conversion
 
@@ -275,71 +269,6 @@ dashboard:
 
 The partition array defines ranges: [label1, threshold1, label2, threshold2, label3]. The bias determines which label to use when a value equals a threshold.
 
-### Logged Data Access
-
-Use the `store` property to access logged data from InfluxDB instead of real-time data:
-
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "Average Temperature (Last 10 minutes)"
-                    bind:
-                      - target: value
-                        source: '{COMPONENT_NAME}.TemperatureMeasurement.Value'
-                        store: "logged"
-                        timeRangeStart: "-10m"
-                        timeRangeStop: "0m"
-                        aggregationWindow: "1m"
-                        aggregationFunction: "mean"
-```
-
-**Logged Data Parameters:**
-
-- `store: "logged"` - Access logged data instead of real-time data
-- `timeRangeStart` - Start time for data query (e.g., "-10m" for 10 minutes ago, "-1h" for 1 hour ago)
-- `timeRangeStop` - Stop time for data query (e.g., "0m" for now, "-5m" for 5 minutes ago)
-- `aggregationWindow` - Time window for aggregating data points (e.g., "1s", "10s", "1m", "5m")
-- `aggregationFunction` - How to aggregate data: "max", "mean", "min", "last", "first", "sum", "count"
-
-**Time Range Examples:**
-
-- `"-10m"` - 10 minutes ago
-- `"-1h"` - 1 hour ago
-- `"-24h"` - 24 hours ago
-- `"0m"` - Current time (now)
-
-**Aggregation Window Examples:**
-
-- `"1s"` - 1 second windows
-- `"10s"` - 10 second windows
-- `"1m"` - 1 minute windows
-- `"5m"` - 5 minute windows
-
-**Example: Chart with Historical Data**
-
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - chart:
-              type: line
-              showControls: true
-              bind:
-                - target: value
-                  source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
-                  store: "logged"
-                  timeRangeStart: "-1h"
-                  timeRangeStop: "0m"
-                  aggregationWindow: "10s"
-                  aggregationFunction: "mean"
-```
-
 ## Best Practices
 
 ### Choosing the Right Data Source
@@ -347,7 +276,6 @@ dashboard:
 - **Use DBC signals** for real-time vehicle data that updates frequently
 - **Use C# properties** for configuration data, system state, and complex data structures
 - **Use TimeSeries** for charts and historical analysis
-- **Use logged data** (`store: "logged"`) for historical analysis, averages, and trend visualization
 
 ### Performance Considerations
 
@@ -358,6 +286,7 @@ dashboard:
 ## Next Steps
 
 Now that you understand data binding, you can:
+
 - Learn about [Core Elements](./Core_Elements.md) to understand dashboard structure
 - Explore [Component Reference](./Component_Reference/index.md) for detailed component information
 - See [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
