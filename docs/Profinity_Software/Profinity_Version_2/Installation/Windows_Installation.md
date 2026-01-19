@@ -11,7 +11,7 @@ title: Windows Installation
 
 Installing Profinity on your Windows machine is relatively simple due to the Profinity Setup Wizard.
 
-[Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
+<!-- [Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button } -->
 
 
 1. Contact support to get a copy of the Profinity V2 Early Adopter Installer

@@ -6,7 +6,7 @@ title: Profinity V2 Overview
 
 Profinity is a modern CAN bus management platform designed to enable the connection of CAN bus based solutions to modern AI, Cloud, APIs and Big Data technologies.  
 
-[Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
+<!-- [Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button } -->
 
 Profinity V2, completely updates the capabilities of Prohelion's Profinity suite by adding:
 

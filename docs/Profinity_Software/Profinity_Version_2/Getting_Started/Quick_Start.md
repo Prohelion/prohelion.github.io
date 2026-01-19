@@ -16,6 +16,7 @@ If you're using Windows, follow the [Windows Installation Guide](../Installation
 After installation, launch Profinity from the Start Menu. You'll be taken to the Profinity homepage.
 
 **Default Login Credentials:**
+
 - Username: `admin`
 - Password: `password`
 
@@ -75,6 +76,7 @@ To view and edit a dashboard's source:
 3. Click the pencil icon to view the dashboard's YAML source code
 
 Alternatively, you can view component-specific dashboards:
+
 1. Navigate to any component in the left sidebar (e.g., "Prohelion BMU" or "Prohelion WaveSculptor 22 - Left")
 2. Click the pencil icon on that component's dashboard to view its source
 
@@ -120,4 +122,4 @@ Now that you've completed the quick start:
 - Review the [FAQ](../Extending_Profinity/Dashboards/FAQ.md) for frequently asked questions
 - Contact support through the Feedback form in the Profinity Admin menu
 
-Welcome to Profinity! 🚀
+Welcome to Profinity V2!

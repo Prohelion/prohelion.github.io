@@ -2,9 +2,9 @@
 title: File Loggers
 ---
 
-# File / FTP / SFTP Based Loggers
+# File / SFTP Based Loggers
 
-File loggers in Profinity are used to log native CAN bus messages to a file, that can then be either stored locally or transmitted remotely to a FTP or SFTP server.
+File loggers in Profinity are used to log native CAN bus messages to a file, that can then be either stored locally or transmitted remotely to a SFTP server.
 
 ## Modes of Operation
 
@@ -13,10 +13,9 @@ File based loggers in Profinity have three potential modes of operation, you can
 | Log Mode                | Details                                                                             |
 |-------------------------|-------------------------------------------------------------------------------------|
 | `Log Locally to Disk`   | Writes the log files to your local file system.                                     |
-| `Log Remotely via FTP`  | As well as logging locally this option takes the log file and places it on a remote FTP server for off site analysis.                                                                                   |
-| `Log Remotely via SFTP` | As per FTP, but this time a Secure FTP (SFTP) end point is used as the destination. | 
+| `Log Remotely via SFTP` | As per FTP, but this time a Secure (SFTP) end point is used as the destination. | 
 
-Depending on the item you select, Profinity will present you with different destination options.  For FTP and SFTP it is necessary to provide the destination server, username and password.  For local logging only a directory is required.
+Depending on the item you select, Profinity will present you with different destination options.  For SFTP it is necessary to provide the destination server, username and password.  For local logging only a directory is required.
 
 The logger also gives you the ability to manage Archive and Compression settings, if you wish to archive your messages you must provide an archive directory.
 
