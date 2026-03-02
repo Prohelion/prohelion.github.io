@@ -38,15 +38,9 @@ With Profinity Desktop running, you can also access the user interface as a web 
 
 To do so open the URL defined in the [Admin / System Configuration / Web panel](../Administration/System_Config.md) (i.e., `http://profinity:18080`) to access the Profinity web client. For users that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine or the IP address of the machine and `http://[Your IP Address]:18080` if accessed remotely.
 
-Connecting to the Profinity web client will direct you to the Profinity login page. 
+Connecting to the Profinity web client will direct you to the Profinity login page. However, for security a fresh install of Profinity Desktop on Windows will not have an account created that you can log in with.  Create a user account using the desktop application and then you can login as normal. 
 
 <figure markdown>
 ![Profinity login page](../images/login_page.png)
 <figcaption>Profinity login page</figcaption>
 </figure>
-
-A fresh install of Profinity will only have the administrator user active. To log in, use the following login details.
-
-Username: `admin`
-
-Password: `password`
