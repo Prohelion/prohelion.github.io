@@ -11,7 +11,6 @@ Quick step-by-step guides for common Profinity tasks. These guides provide conci
 - [How to Create a Custom Dashboard](./Create_Custom_Dashboard.md) - Build your first custom dashboard from scratch
 - [How to Create a Profile Dashboard](./Create_Profile_Dashboard.md) - Replace the default home page with a custom dashboard
 - [How to Add Images to Your Dashboard](./Add_Images_to_Dashboard.md) - Use custom images in your dashboard components
-- [How to Build Dashboards of Remote Data](./Build_Dashboard_Remote_Data.md) - Display data from InfluxDB using logger bindings
 - [How to Style Your Dashboard](./Style_Dashboard.md) - Apply custom CSS styling to dashboard elements
 
 ## Component Guides
