@@ -18,7 +18,7 @@
         logoLink.rel = 'noopener noreferrer';
       }
 
-      // Add Early Adopter notice to Profinity V2 pages
+      // Add Early GA notice to Profinity V2 pages
       const currentPath = window.location.pathname;
       if (currentPath.includes('/Profinity_Software/Profinity_Version_2/')) {
         const article = document.querySelector('.md-content__inner');
@@ -27,8 +27,8 @@
           notice.className = 'admonition admonition-info';
           notice.setAttribute('open', '');
           notice.innerHTML = `
-            <div class="admonition-title">Early Adopter Documentation</div>
-            <p>General Availability Release is coming soon. Documentation is being published now for Early Adopters, contact Prohelion at contact@prohelion.com to get access to the Early Adopter release.</p>
+            <div class="admonition-title">Profinity V2 is now in General Availability</div>
+            <p>This is a brand new product, please assist us in making it better by providing feedback and suggestions or reporting issues via the Feedback Form in Profinity.  Thanks so much for your help!</p>
 </p>
           `;
           

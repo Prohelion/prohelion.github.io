@@ -9,7 +9,6 @@ nav:
     - Send_Receive_CAN_Bus.md
     - Configure_Data_Logging.md
     - Log_Data_to_Cloud_Influx.md
-    - Build_Dashboard_Remote_Data.md
     - Create_New_Profile.md
     - Configure_Environment_Variables.md
     - Set_Up_Profinity_as_Kiosk.md

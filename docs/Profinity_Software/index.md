@@ -4,51 +4,24 @@ title: Profinity
 
 # Prohelion Profinity
 
-Profinity is our comprehensive CAN bus management platform, designed to connect your CAN-based solutions to modern cloud, API, and big data technologies. Choose your version below to get started.
-
-## Available Versions
-
-<div class="grid cards" markdown>
-
--   :material-tools:{ .lg .middle } __Profinity V2__
-
-    ---
-
-    The latest version of Profinity, featuring:
-    
-    - Modern container and API-centric architecture
-    - Enhanced cloud connectivity
-    - Improved user interface
-    - Advanced device management
-
-    <figure markdown>
-    ![Profinity V2 Interface](Profinity_Version_2/images/wavesculptor.png)
-    <figcaption>Modern web-based interface of Profinity V2</figcaption>
-    </figure>
-
-    [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version_2/index.md)
-
--   :material-tools:{ .lg .middle } __Profinity V1 (Retired Soon)__
-
-    ---
-
-    The original version of Profinity, supporting:
-    
-    - Basic CAN bus management
-    - Device configuration
-    - Data logging
-    - Simple cloud integration
-
-    <figure markdown>
-    ![Profinity V1 Interface](Profinity_Version_1/images/profinity_overview.png)
-    <figcaption>Classic interface of Profinity V1</figcaption>
-    </figure>
-
-    [:octicons-arrow-right-24: Profinity V1 Documentation](Profinity_Version_1/index.md)
-
-</div>
+Profinity is our comprehensive CAN bus management platform, designed to connect your CAN-based solutions to modern cloud, AI, API, and big data technologies. 
+   
+<figure markdown>
+![Profinity V2 Interface](Profinity_Version_2/images/prohelion_bmu.png)
+<figcaption>Managing a Prohelion BMU in the modern web-based interface of Profinity V2</figcaption>
+</figure>
 
 ## Key Features of Profinity
+
+The worlds most modern CAN bus management solution, featuring
+
+- Single solution multi platform deployment, run Profinity anywhere from edge, to desktop to cloud.
+- Modern container and API-centric architecture
+- Enhanced cloud connectivity and data logging
+- Fully web user interface, available from any platform
+- Advanced device management
+- Extensive customisation capabilities including, custom dashboards, custom component support, styling and scripting
+- Support for AI technologies
 
 ### Device Management
 - Connect and configure CAN bus devices
@@ -79,6 +52,48 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 ![User Management](Profinity_Version_2/images/add_user.png)
 <figcaption>Secure user management and access control</figcaption>
 </figure>
+
+## Available Versions
+
+<div class="grid cards" markdown>
+
+-   :material-tools:{ .lg .middle } __Profinity V2__
+
+    ---
+
+    The latest version of Profinity, featuring:
+
+    - Modern container and API-centric architecture
+    - Enhanced cloud connectivity
+    - Improved user interface
+    - Advanced device management
+
+    <figure markdown>
+    ![Profinity V2 Interface](Profinity_Version_2/images/wavesculptor.png)
+    <figcaption>Modern web-based interface of Profinity V2</figcaption>
+    </figure>
+
+    [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version_2/index.md)
+
+-   :material-tools:{ .lg .middle } __Profinity Version 1 (Retired)__
+
+    ---
+
+    The original version of Profinity, supporting:
+    
+    - Basic CAN bus management
+    - Device configuration
+    - Data logging
+    - Simple cloud integration
+
+    <figure markdown>
+    ![Profinity Version 1 Interface](Profinity_Version_1/images/profinity_overview.png)
+    <figcaption>Classic interface of Profinity Version 1</figcaption>
+    </figure>
+
+    [:octicons-arrow-right-24: Profinity Version 1 Documentation](Profinity_Version_1/index.md)
+
+</div>
 
 ## Support
 

@@ -36,9 +36,6 @@ The following items are required to be able to install Profinity:
 
 ### Simple Setup
 
-!!! warning "Profinity V2 is currently in Early Adopter Release"
-    When using Profinity V2 on the Docker Early Adopter Program you are going to be working with us up on the development release.  As such things could change rapidly and in unexpected ways!  Please contact Prohelion Support if you have issues or provide us [Feedback](../Administration/Feedback.md) in Profinity.
-
 On the target device, create a new empty directory and a file titled `docker-compose.yml` in the new directory. The contents of the `docker-compose.yml` file should be
 
 ```yaml
