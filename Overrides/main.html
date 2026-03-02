@@ -1,0 +1,46 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "base.html" %}
+{% block extrahead %}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/custom.00c04c01.min.css' | url }}">
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/custom.129bd6ad.min.js' | url }}"></script>
+  <script>
+    // Customize logo link to point to prohelion.com
+    document.addEventListener('DOMContentLoaded', function() {
+      const logoLink = document.querySelector('.md-header__button.md-logo');
+      if (logoLink) {
+        logoLink.href = 'https://prohelion.com';
+        logoLink.target = '_blank';
+        logoLink.rel = 'noopener noreferrer';
+      }
+
+      // Add Early GA notice to Profinity V2 pages
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/Profinity_Software/Profinity_Version_2/')) {
+        const article = document.querySelector('.md-content__inner');
+        if (article) {
+          const notice = document.createElement('div');
+          notice.className = 'admonition admonition-info';
+          notice.setAttribute('open', '');
+          notice.innerHTML = `
+            <div class="admonition-title">Profinity V2 is now in General Availability</div>
+            <p>This is a brand new product, please assist us in making it better by providing feedback and suggestions or reporting issues via the Feedback Form in Profinity.  Thanks so much for your help!</p>
+</p>
+          `;
+          
+          // Insert at the top of the article content
+          const firstChild = article.firstElementChild;
+          if (firstChild && firstChild.tagName === 'H1') {
+            firstChild.after(notice);
+          } else {
+            article.insertBefore(notice, article.firstChild);
+          }
+        }
+      }
+    });
+  </script>
+{% endblock %}
