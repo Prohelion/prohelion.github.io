@@ -593,9 +593,8 @@ dashboard:
     - row:
         items:
           - image:
-              value:
-                image: "BatteryLayout.png"
-                dataValues:
+              image: "BatteryLayout.png"
+              dataValues:
                   - id: "cell-voltage-1"
                     x: 10
                     y: 20
@@ -606,7 +605,7 @@ dashboard:
                         source: '{COMPONENT_NAME}.CellVoltages[0]'
                     unit: "V"
                     precision: 3
-                regions:
+              regions:
                   - id: "cell-region-1"
                     coordinates: "xywh=10,20,50,30"
                     action: "navigate"
@@ -784,9 +783,8 @@ dashboard:
     - row:
         items:
           - image:
-              value:
-                image: "DeviceDiagram.png"
-                icons:
+              image: "DeviceDiagram.png"
+              icons:
                   - id: "status-icon"
                     x: 50
                     y: 30
@@ -795,14 +793,14 @@ dashboard:
                     action: "navigate"
                     target: "/component?componentId=Status"
                     label: "Status"
-                regions:
+              regions:
                   - id: "main-region"
                     coordinates: "xywh=20,20,60,40"
                     action: "navigate"
                     target: "/component?componentId=Main"
                     label: "Main Component"
                     visibleBorder: true
-                dataValues:
+              dataValues:
                   - id: "voltage-display"
                     x: 50
                     y: 10

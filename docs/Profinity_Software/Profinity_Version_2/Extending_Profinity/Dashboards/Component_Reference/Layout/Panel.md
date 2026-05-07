@@ -21,6 +21,7 @@ Individual panel within a panels grid. Each panel can contain various components
 | `class` | optional (string) | CSS class for styling |
 | `title` | required (string) | Panel title |
 | `menu` | optional (object) | Menu configuration for the panel |
+| `width` | optional (string) | Width value in CSS format (e.g., '100px', '50%', 'auto') |
 | `height` | optional (string) | Height value in CSS format (e.g., '100px', '50vh', 'auto') |
 | `items` | required (array) | Components within the panel (chart, lamps, state, group, readouts, table, html) |
 
@@ -137,6 +138,36 @@ dashboard:
                             - readout:
                                 label: "Value"
                                 value: 42
+```
+
+**Width Example:**
+
+Panels also support explicit width values to control horizontal sizing within layouts:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - panels:
+              items:
+                - panel:
+                    title: "Half Width Panel"
+                    width: "50%"
+                    height: "auto"
+                    items:
+                      - readouts:
+                          items:
+                            - readout:
+                                label: "Value"
+                                value: 42
+                - panel:
+                    title: "Fixed Width Panel"
+                    width: "480px"
+                    height: "auto"
+                    items:
+                      - html:
+                          content: "<p>Fixed width content area</p>"
 ```
 
 **Complex Nested Structures:**

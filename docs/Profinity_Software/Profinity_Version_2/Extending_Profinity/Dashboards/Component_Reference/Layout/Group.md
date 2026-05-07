@@ -28,6 +28,7 @@ Groups can be arranged in two directions:
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the group |
 | `class` | optional (string) | CSS class for styling |
+| `width` | optional (string) | Width value in CSS format (e.g., '100px', '50%', 'auto') |
 | `direction` | optional (string) | Layout direction - "vertical" or "horizontal" (default: "vertical") |
 | `items` | required (array) | Array of components within the group |
 
@@ -76,6 +77,40 @@ dashboard:
                           value: 1013.25
                           unit: "hPa"
                           precision: 2
+                - chart:
+                    type: "line"
+                    value:
+                      labels: ["00:00", "06:00", "12:00", "18:00"]
+                      datasets:
+                        - label: "Pressure Trend"
+                          data: [1010, 1012, 1015, 1013]
+```
+
+**Width Example:**
+
+Groups support width values to control their horizontal footprint in rows and panel content:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - group:
+              width: "40%"
+              direction: "vertical"
+              items:
+                - readouts:
+                    items:
+                      - readout:
+                          label: "Pressure"
+                          value: 1013.25
+                          unit: "hPa"
+                - html:
+                    content: "<p>Summary details</p>"
+          - group:
+              width: "60%"
+              direction: "vertical"
+              items:
                 - chart:
                     type: "line"
                     value:

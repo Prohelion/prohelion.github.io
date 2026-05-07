@@ -27,6 +27,10 @@ Profinity can connect to [CAN bridges](Components/Adaptors/CAN_Bus_Adapters.md),
 
 Profinity provides specialised tools for managing [Prohelion batteries](Components/Battery_Management_Systems/index.md) and chargers, MPPT systems from [Elmar Solar](Components/MPPT/index.md), and [WaveSculptors](Components/Motor_Controller/index.md), as well as any device that can be defined by a CAN DBC file.  
 
+### Release notes
+
+See the [Release Notes](./Release_Notes/index.md) for user-visible changes and upgrade notes for each Profinity V2 release.
+
 ### Profinity Server (Rest APIs, Web, and Docker)
 
 As of Profinity 2, Prohelion has fully migrated to a modern container and API centric architecture.  
