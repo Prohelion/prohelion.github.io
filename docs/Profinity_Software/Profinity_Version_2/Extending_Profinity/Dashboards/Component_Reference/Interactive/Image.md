@@ -34,7 +34,13 @@ All elements are positioned relative to the base image, allowing you to create c
 | `id` | optional (string) | Unique identifier for the image component |
 | `class` | optional (string) | CSS class for styling |
 | `label` | optional (string) | Display label |
-| `value` | required (object) | Interactive image data structure |
+| `image` | required (string) | Filename of the image in `/Profile/Images` (no `value` wrapper) |
+| `layers` | optional (array) | Named layers for visibility toggles |
+| `regions` | optional (array) | Clickable regions |
+| `icons` | optional (array) | Icons on the image |
+| `dataValues` | optional (array) | Data overlays |
+| `points` | optional (array) | Anchor points for annotation lines |
+| `annotationLines` | optional (array) | Lines connecting elements |
 | `bind` | optional (array) | Data binding configuration |
 | `enabled` | optional (boolean) | Whether the image is enabled |
 | `unit` | optional (string) | Unit for data values |
@@ -48,13 +54,12 @@ The base image is the foundation of an Interactive Image component. The image fi
 
 ```yaml
 image:
-  value:
-    image: "device-diagram.png"
+  image: "device-diagram.png"
 ```
 
 The image serves as the coordinate system for all overlay elements. Regions, icons, data values, and points are positioned relative to this base image.
 
-**Image Data Structure (`value` object):**
+**Component fields (all optional except `image`):**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -355,8 +360,7 @@ Images are served from `/Profile/Images/{filename}` URL path, so you can referen
 
 ```yaml
 image:
-  value:
-    image: "device-diagram.png"  # File in /Profile/Images/
+  image: "device-diagram.png"  # File in /Profile/Images/
 ```
 
 ## Tooltips and Hover Behavior
@@ -377,9 +381,8 @@ dashboard:
     - row:
         items:
           - image:
-              value:
-                image: "battery-system.png"
-                regions:
+              image: "battery-system.png"
+              regions:
                   - id: "battery-region"
                     coordinates: "xywh=100,100,200,150"
                     action: "navigate"
@@ -391,7 +394,7 @@ dashboard:
                     action: "navigate"
                     target: "/component?componentId=Charger"
                     label: "Charger"
-                icons:
+              icons:
                   - id: "status-icon"
                     x: 50
                     y: 30
@@ -406,7 +409,7 @@ dashboard:
                     icon: "⚠️"
                     size: 32
                     label: "Warning"
-                dataValues:
+              dataValues:
                   - id: "voltage"
                     x: 50
                     y: 60
@@ -438,13 +441,13 @@ dashboard:
                         toType: boolean
                     displayType: "status"
                     lampColor: "green"
-                points:
+              points:
                   - id: "anchor-1"
                     x: 25
                     y: 25
                     size: 5
                     color: "#FF0000"
-                annotationLines:
+              annotationLines:
                   - id: "status-line"
                     fromId: "status-icon"
                     toId: "status"

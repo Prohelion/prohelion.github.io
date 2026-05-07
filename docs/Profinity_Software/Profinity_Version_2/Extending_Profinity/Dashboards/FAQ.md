@@ -428,19 +428,18 @@ dashboard:
     - row:
         items:
           - image:
-              value:
-                image: "diagram.png"
-                regions:
+              image: "diagram.png"
+              regions:
                   - id: "region-1"
                     coordinates: "xywh=10,10,50,50"
                     action: "navigate"
                     target: "/component?componentId=Component1"
-                icons:
+              icons:
                   - id: "icon-1"
                     x: 50
                     y: 30
                     icon: "icon.svg"
-                dataValues:
+              dataValues:
                   - id: "value-1"
                     x: 20
                     y: 20

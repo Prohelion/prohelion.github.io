@@ -2,6 +2,7 @@ nav:
     - index.md
     - Getting_Started
     - Installation
+    - Release_Notes
     - Components
     - CAN_Utilities
     - Administration
