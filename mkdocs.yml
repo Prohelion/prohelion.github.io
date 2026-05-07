@@ -28,8 +28,7 @@ theme:
     accent: red
 
 copyright: >
-  Copyright &copy; 2016 - 2025 Prohelion Pty Ltd –
-  <a href="#__consent">Change cookie settings</a>
+  Copyright &copy; 2016 - 2026 Prohelion Pty Ltd
 
 plugins:
   - search
@@ -111,10 +110,7 @@ markdown_extensions:
 
 extra:
   homepage: https://docs.prohelion.com
-  social:
-    - icon: material/help-circle
-      link: https://prohelion.atlassian.net/servicedesk/customer/portals
-      name: Support Portal
+  generator: false
   consent:
     title: Cookie consent
     description: >- 
