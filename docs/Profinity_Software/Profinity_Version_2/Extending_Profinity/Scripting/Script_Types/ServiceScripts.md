@@ -11,6 +11,18 @@ Service scripts are designed for continuous, long-running operations that need t
 - Service state management methods
 - Support for service lifecycle management
 
+## Cooperative cancellation (`Profinity.ScriptCancelled`)
+
+Long-running work in **`Run()`** / **`run()`** should observe **`Profinity.ScriptCancelled`**. This flag becomes **`true`** when the service is **stopped**, **paused**, or when Profinity is shutting down, so loops can exit and release resources promptly.
+
+- If **`run()`** uses its **own** `while` loop, test **`not Profinity.ScriptCancelled`** (or `!Profinity.ScriptCancelled` in C#) in the loop condition and optionally break out before slow steps.
+- When the service is **paused**, cancellation is signaled so an inner loop can finish; on **continue**, the engine may call **`run()`** again with a fresh cancellation scope (the **Example Scripts** folder in your Profinity installation includes **Python** and **C#** service templates with both single-step and loop-style **`run`** patterns).
+- In **Python**, use **`import time`** if you call **`time.sleep`** in the service body. In **C#**, **`Thread.Sleep`** is typical (add **`using System.Threading;`**).
+
+## Python: module-level variables and `global`
+
+Lifecycle hooks (`on_start`, `run`, and so on) are separate functions. If you keep counters or other mutable state in **module-level** names and assign to them inside those functions, Python treats those assignments as **local** unless you declare **`global _my_var`** in each function that assigns to them. Omitting **`global`** is a common mistake when resetting state in **`on_start`** and updating it in **`run()`**.
+
 <figure markdown>
 ![Service script configuration](../../../images/python_service_script.png)
 <figcaption>Service script editor and lifecycle configuration</figcaption>
@@ -18,26 +30,29 @@ Service scripts are designed for continuous, long-running operations that need t
 
 ## Examples
 
-The following examples demonstrate how to implement Service scripts in each supported language. Each example shows the complete lifecycle management of a service, including start, stop, pause, and continue operations. The `on_stop()` method (Python) or `OnStop()` method (C#) is called both when the service is manually stopped and when Profinity is shutting down. These examples represent the minimum implementation needed for a functional Service script.
+The following examples demonstrate how to implement Service scripts in each supported language. Each example shows lifecycle methods (**start**, **stop**, **pause**, **continue**) and a **`Run()`** / **`run()`** implementation that loops until **`Profinity.ScriptCancelled`** is set. The `on_stop()` method (Python) or `OnStop()` method (C#) is called both when the service is manually stopped and when Profinity is shutting down.
 
 This example demonstrates a Service script that:
 
 - Implements all required lifecycle methods
-- Shows proper service state management
-- Uses the Profinity console for logging
-- Handles service state transitions
+- Uses **`Profinity.ScriptCancelled`** so stop and pause can complete promptly
+- Uses **`time.sleep`** (Python) or **`Thread.Sleep`** (C#) between iterations; Python declares **`global`** for a shared run counter
 
 === "C#"
 
     ```csharp
     using System;
+    using System.Threading;
     using Profinity.Scripting;
 
     public class CSharpServiceTest : ProfinityBaseService
     {
+        private int _runCount = 0;
+
         public override bool OnStart()
         {
             Profinity.Console.WriteLine("Started CSharp Service");
+            _runCount = 0;
             return true;
         }
 
@@ -61,9 +76,12 @@ This example demonstrates a Service script that:
 
         public override bool Run()
         {
-            // Optional: Run() method for interface compliance
-            // Can be left empty or do minimal work
-            // Return true to continue, false to stop
+            while (!Profinity.ScriptCancelled)
+            {
+                _runCount++;
+                Profinity.Console.WriteLine("Run #" + _runCount);
+                Thread.Sleep(100);
+            }
             return true;
         }
     }
@@ -72,25 +90,33 @@ This example demonstrates a Service script that:
 === "Python"
 
     ```python
+    import time
+
+    _run_count = 0
+
     def on_start():
-        print('Python Service Started!')
+        global _run_count
+        print("Python Service Started!")
+        _run_count = 0
         return True
 
     def on_stop():
-        print('Python Service Stopped!')
+        print("Python Service Stopped!")
         return True
 
     def on_pause():
-        print('Python Service Paused!')
+        print("Python Service Paused!")
         return True
 
     def on_continue():
-        print('Python Service Continued!')
+        print("Python Service Continued!")
         return True
 
     def run():
-        """Optional: run() function for consistency with examples"""
-        # Can be left empty or do minimal work
-        # Return True to continue, False to stop
+        global _run_count
+        while not Profinity.ScriptCancelled:
+            _run_count += 1
+            print(f"Run #{_run_count}")
+            time.sleep(0.1)
         return True
     ```

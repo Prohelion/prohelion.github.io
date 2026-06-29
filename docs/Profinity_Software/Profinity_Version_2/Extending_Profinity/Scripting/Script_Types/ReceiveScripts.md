@@ -14,6 +14,10 @@ These scripts are particularly useful in applications where immediate response t
 - Can be configured to match specific CAN IDs or a range of IDs
 - Full access to the received CAN packet data
 
+## Performance
+
+Receive scripts run **synchronously** for **each** matching CAN packet. On a busy bus that can mean **many invocations per second**. Keep **`Receive`** / **`receive`** short: avoid blocking calls (for example **`time.sleep`** in Python, **`Thread.Sleep`** in C#, long calculations, locks, or slow I/O). A slow handler delays other work; Profinity may **drop incoming CAN packets** if the script cannot keep up. If you need heavier processing, pass a small amount of data to a **queue** and handle it on a **background thread**, or use another script type such as a **service script**.
+
 <figure markdown>
 ![Receive script configuration](../../../images/python_run_on_receipt_script.png)
 <figcaption>Receive script editor and CAN packet trigger configuration</figcaption>
