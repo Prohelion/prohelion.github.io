@@ -273,5 +273,6 @@ The MCP server supports:
 - [Profinity AI settings](../Administration/Security/AI_Assistant.md) — enabling the MCP server as part of, or independently of, Profinity AI
 - [Service accounts](../Administration/Security/Service_Accounts.md) — long-lived credentials for external MCP clients
 - [Profinity AI](../Profinity_AI/index.md) — the built-in assistant that uses this MCP server
+- [AI Skills](../Profinity_AI/AI_Skills.md) — an external toolkit that also uses this MCP server, for building dashboards and other config with an AI coding assistant
 - [APIs](APIs/index.md) — RESTful API documentation
 - [Scripting](Scripting/index.md) — Profinity scripting capabilities
