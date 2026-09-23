@@ -6,8 +6,8 @@ title: Profinity Dashboard Development Guide
 
 The Profinity Dashboard system allows you to create dynamic, data-driven user interfaces using YAML configuration files. This guide will help you understand how to structure your dashboard, configure components, and implement data bindings.
 
-!!! tip "CUSTOM DASHBOARDS ARE NEW"
-    This feature is a new release that we are providing in Early Adopter form to our V2 Profinity clients. If you are having any issues, please let us know either via the feedback form or support system.
+!!! tip "CUSTOM DASHBOARDS"
+    Dashboards support editable visual layout in 2.3. See the [Visual editor](./Visual_Editor.md) for the authoring UI; this guide covers YAML structure and data binding.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ For more information on Profile Dashboards, see the [Profile Dashboard](../../Ad
 
 ## Your First Dashboard: "Hello World"
 
-When you open the dashboard editor, you'll see a template sample already loaded. You can also click the **"New Template"** button at any time to reset to the Hello World template. This template provides a simple starting point for creating your dashboard.
+When you open the dashboard editor, you will see a template sample already loaded. You can also click the **"New Template"** button at any time to reset to the Hello World template. This template provides a simple starting point for creating your dashboard.
 
 ### The Hello World Template
 
@@ -76,7 +76,7 @@ This template creates a simple dashboard with:
 - A **pill** component with an icon
 - A **value** readout showing "CUSTOM COMPONENT"
 
-This is your starting point! You can modify this template to add your own components and data bindings.
+This is your starting point. You can modify this template to add your own components and data bindings.
 
 ### Modifying the Template
 
@@ -140,14 +140,14 @@ dashboard:
                                     source: '{COMPONENT_NAME}.Pressure.Value'
 ```
 
-### What You've Learned
+### What You Have Learned
 
-Congratulations! You've started working with dashboards. You now know:
+You have started working with dashboards. You now know:
 
-- ✅ The Hello World template structure that loads when you click "New Template"
-- ✅ How to modify the template to add your own components
-- ✅ How to add data bindings to connect dashboards to real component data
-- ✅ How to expand the template with additional components
+- The Hello World template structure that loads when you click "New Template"
+- How to modify the template to add your own components
+- How to add data bindings to connect dashboards to real component data
+- How to expand the template with additional components
 
 ### Next Steps
 
@@ -171,18 +171,19 @@ This ensures that your dashboard configurations are always valid and will work c
 
 ## Viewing Dashboard Source
 
-All the dashboards in Profinity are built using this dashboard system. Sometimes the best way to learn is to use our examples as a basis. To enable that, you can access the source YAML definition of any existing dashboard, by clicking on the small pencil icon on the top right on the toolbar if you have the security setting to change settings in Profinity.
+All the dashboards in Profinity are built using this dashboard system. The examples in this guide are a useful starting point. To use them, you can access the source YAML definition of any existing dashboard, by clicking on the small pencil icon on the top right on the toolbar if you have the security setting to change settings in Profinity.
 
 
 ## Recommended Reading
 
-For additional information we would recommend you read these other parts of the documentation in this order.
+Read these other parts of the documentation in this order:
 
-1. [Core Elements](./Core_Elements.md) provides information on the structure of a Profinity Dashboard and the basics on how to create one
-2. [Profile Directories](./Profile_Directories.md) explains how to organize and reference images, stylesheets, and content files for your dashboards
-3. [Data Binding](./Data_Binding.md) describes how to bind information from the Profinity system to your dashboard easily.
-4. [Component Reference](./Component_Reference/index.md) reference information on each of the components you can include in your dashboard
-5. [Conditional Styling](./Conditional_Styling.md) how to make your dashboard style change to hide and show elements or change colour based on data.
-6. [Examples](./Examples.md) complete examples including full dashboard examples, real-world scenarios, and progressive examples.
-7. [Troubleshooting](./Troubleshooting.md) comprehensive troubleshooting guide including schema validation errors and common issues.
-8. [FAQ](./FAQ.md) frequently asked questions and quick answers.
+1. [Visual editor](./Visual_Editor.md) — editable layout and bind inspector (2.3)
+2. [Core Elements](./Core_Elements.md) provides information on the structure of a Profinity Dashboard and the basics on how to create one
+3. [Profile Directories](./Profile_Directories.md) explains how to organize and reference images, stylesheets, and content files for your dashboards
+4. [Data Binding](./Data_Binding.md) describes how to bind information from the Profinity system to your dashboard easily.
+5. [Component Reference](./Component_Reference/index.md) reference information on each of the components you can include in your dashboard
+6. [Conditional Styling](./Conditional_Styling.md) how to make your dashboard style change to hide and show elements or change colour based on data.
+7. [Examples](./Examples.md) complete examples including full dashboard examples, real-world scenarios, and progressive examples.
+8. [Troubleshooting](./Troubleshooting.md) comprehensive troubleshooting guide including schema validation errors and common issues.
+9. [FAQ](./FAQ.md) frequently asked questions and quick answers.

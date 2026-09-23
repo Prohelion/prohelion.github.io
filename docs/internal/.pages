@@ -1,1 +1,5 @@
 hide: true
+nav:
+  - 2.3-writer-brief.md
+  - 2.3-review-checklist.md
+  - 2.3-documentation-todo.md

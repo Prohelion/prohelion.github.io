@@ -10,9 +10,9 @@ Profinity provides the ability to create custom components that use your DBC fil
 
 A **Custom Component** in Profinity consists of two essential files:
 
-### DBC File
+### DBC File (optional)
 
-A DBC (Database CAN) file defines the CAN bus messages and signals that your component will use. This file is required for data communication between your dashboard and the CAN network.
+A DBC (Database CAN) file defines the CAN bus messages and signals that your component will use. It is optional for a Custom Component in 2.3 — provide one only if the component needs CAN-bound dashboard data or if you want to use the Messages & Signals viewer.
 
 For more information about DBC files, see the [DBC documentation](../../CAN_Utilities/CAN_Bus_DBC.md).
 
@@ -20,7 +20,7 @@ For more information about DBC files, see the [DBC documentation](../../CAN_Util
 
 A Dashboard file defines the user interface layout and component bindings using YAML configuration. The dashboard determines how data from the DBC file is displayed and visualized.
 
-If you don't provide a dashboard, Profinity will provide a default one.
+If you do not provide a dashboard, Profinity will provide a default one.
 
 For more information about creating dashboards, see the [Dashboard documentation](../Dashboards/index.md).
 
@@ -42,6 +42,8 @@ The Custom Component editor provides dedicated editors for both files, accessibl
 
 ## Related Documentation
 
+- [Component types](../Components/Component_Types.md) - Custom vs Dashboard Component vs DLL plugins
+- [Component Pack CLI](../Components/Component_Pack_CLI.md) - Pack and install Custom Component bundles
 - [Dashboard Development Guide](../Dashboards/index.md) - Learn how to create dashboards
 - [DBC Documentation](../../CAN_Utilities/CAN_Bus_DBC.md) - Learn about DBC files
 - [Custom Components (Components)](../../Components/Custom_Components/index.md) - Component overview

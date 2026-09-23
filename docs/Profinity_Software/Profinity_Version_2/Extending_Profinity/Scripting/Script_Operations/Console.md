@@ -12,6 +12,7 @@ Access to console functionality varies by language:
 
 - C#: Access through `Profinity.Console`
 - Python: Use the built-in `print()` function. For error output, use `print(..., file=sys.stderr)`
+- Lua: Use the built-in `print(...)` function. For error output, use the `stderr(...)` global
 
 ## Key Features
 
@@ -58,6 +59,23 @@ This section provides complete, real-world examples showing how to use the Conso
     except Exception as ex:
         # Write error to error stream
         print(f"Error occurred: {ex.Message}", file=sys.stderr)
+    ```
+
+=== "Lua"
+
+    ```lua
+    -- Write normal program output
+    print('Starting script execution...')
+
+    local ok, err = pcall(function()
+        -- Perform some operation
+        print('Operation completed successfully')
+    end)
+
+    if not ok then
+        -- Write error to error stream
+        stderr('Error occurred: ' .. tostring(err))
+    end
     ```
 
 ## Best Practices
