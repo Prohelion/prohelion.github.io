@@ -43,3 +43,4 @@ Collections are managed via `/api/v2` tag collections controllers with JSON requ
 - [Tag layer](../Tag_Layer/index.md)
 - [Tag linking](../Tags/Tag_Linking.md)
 - [ALL ALERTS](./Alerts.md)
+- [Derived tags](./Derived_Tags.md)
