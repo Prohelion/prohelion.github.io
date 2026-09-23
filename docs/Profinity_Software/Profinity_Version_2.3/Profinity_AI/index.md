@@ -48,3 +48,4 @@ You can send another question while Profinity AI is still answering the previous
 
 - [Profinity AI settings](../Administration/Security/AI_Assistant.md) — administrator configuration, permissions, and data-handling notes.
 - [MCP Server](../Extending_Profinity/MCP_Server.md) — the live-data connection Profinity AI uses.
+- [AI Skills](./AI_Skills.md) — a separate toolkit for building Profinity dashboards and other config with an AI coding assistant, outside Profinity itself.
