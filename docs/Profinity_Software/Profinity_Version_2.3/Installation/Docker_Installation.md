@@ -48,7 +48,6 @@ services:
       ports:
         - 18080:18080
         - 18443:18443
-        - 5000:5000
         - 4876:4876
 ```
 
@@ -135,7 +134,6 @@ services:
     ports:
       - "${HTTP_PORT:-18080}:18080"
       - "${HTTPS_PORT:-18443}:18443"
-      - "${API_PORT:-5000}:5000"
       - "${UDP_PORT:-4876}:4876"
     environment:
       # Profinity Configuration
@@ -189,7 +187,6 @@ ADAPTER_PORT=8080
 # Network Configuration
 HTTP_PORT=18080
 HTTPS_PORT=18443
-API_PORT=5000
 UDP_PORT=4876
 ```
 
