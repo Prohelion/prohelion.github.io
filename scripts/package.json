@@ -6,7 +6,9 @@
   "scripts": {
     "validate-dashboards": "node validate-dashboard-examples.js",
     "validate-schema": "node validate-dashboard-examples.js --schema-only",
-    "validate": "node validate-dashboard-examples.js"
+    "validate": "node validate-dashboard-examples.js",
+    "verify-2.3-urls": "node verify-2.3-doc-urls.js",
+    "update-2.3-checklist": "node verify-2.3-doc-urls.js -- --update-checklist"
   },
   "dependencies": {
     "ajv": "^8.12.0",

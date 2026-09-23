@@ -5,61 +5,79 @@ title: Managing Users
 # Managing Users
 
 !!! info "Desktop Mode"
-    When using Profinity in Windows Desktop Mode no user is required as a special admin user is used for this environment that has full permissions.  Only when accessing Profinity via the Web or API interface are user profiles required.
+    When using Profinity in Windows Desktop Mode no user is required as a special admin user is used for this environment that has full permissions. Only when accessing Profinity via the Web or API interface are user profiles required.
 
 ## Overview
 
-Before using Profinity, it's recommended to create a new user account tailored to your specific needs. This guide will walk you through the process of creating a user and assigning appropriate security roles.
+Profinity 2.3 manages access through **users**, **assigned roles**, and **permissions**. Before using Profinity in web or API mode, create user accounts with the minimum roles required for each person's job.
 
-## Creating a New User
+For the full permission catalog and default role templates, see [RBAC and permissions](./Security/RBAC_Permissions.md).
 
-1. Navigate to the user management section:
-    - Click the `ADMIN` tab
-    - Select `Users`
-    - Click `+ ADD USER`
-2. Fill in the user details in the form that appears
+## Creating a new user
+
+1. Open the **pill menu** (top-right) → **Users & Groups** (`/admin?view=users`).
+    - Requires **SecurityAdmin** permission.
+2. Click **+ Add user**.
+3. Enter username and initial password (for local sign-in).
+4. Assign one or more **roles** under **Assigned roles**.
+5. Save.
 
 <figure markdown>
 ![Add user interface showing the new user creation form](../images/add_user.png)
-<figcaption>New User Creation Form</figcaption>
+<figcaption>New user creation form</figcaption>
 </figure>
 
-## Security Roles
+For **SSO** sites, create the user and add **External identity links** — see [SSO and sign-in method](./Security/SSO_and_Sign_In.md).
 
-!!! info "Administrator Privileges"
-    Users with the administrator role automatically receive all other role privileges.
+For **automation**, enable **Service account** and copy the API token — see [Service accounts](./Security/Service_Accounts.md).
 
-### Available Roles
+Administrator actions for an existing user — **Reset MFA**, **Reset Password**, and **Generate Token** / **View Token** — live in the **User Actions** tab of that user's settings dialog (click the user's row in Users & Groups to open it). See [MFA account management](./Security/MFA_Account_Management.md) and [Service accounts](./Security/Service_Accounts.md) for the full steps.
 
-Profinity supports different security roles to control access to system functionality, note this mainly controls what APIs the user is able to call, so if you are using the APIs these security restrictions also apply there.
+## Security roles (2.3)
 
-- **Administrator**: Full system access
-- **Read System Settings**: Use can read the system settings but can't change things
-- **Change System Settings**: Use can modify system settings and update component settings
-- **Charge Battery Packs**: Users require special permissions to be able to control the charging of battery packs
-- **Send and Receive CAN**: Users can send and receive CAN bus packets at in individual packet level.  This is not required to see the dashboards etc, only **Read System Settings** is required
+!!! info "Roles, not legacy groups"
+    Security.yaml **schema v7** uses **roles** only. Each role bundles granular **permissions** (for example `TagView`, `CANSend`, `SecurityAdmin`). Users hold **Assigned roles**.
 
-### Role Selection Guidelines
+### Default templates
 
-Consider these factors when assigning roles:
+| Template | Typical use |
+|----------|-------------|
+| **Read-only** | Monitoring dashboards and tags without changes |
+| **Operator** | Day-to-day CAN and component actions |
+| **Engineer** | Profile, component, dashboard, and tag rule editing |
+| **Security admin** | User and role administration |
+| **System admin** | System Configuration (Config.yaml) |
+| **Administrators** | Full permission bundle |
 
-- User's technical expertise
-- Required access level
-- System security requirements
+Custom roles are supported — open the **Roles** tab in Users & Groups.
 
-!!! warning "Send and Receive CAN is Powerful and can be Dangerous"
-    A user with the ability to send and receive CAN Packets can inject CAN Packets in to your network, use this setting carefully.
+### High-risk permissions
 
-!!! tip "Best Practice"
-    Create dedicated 'Read System Settings' accounts for monitoring purposes. These accounts can view system information without the risk of accidental configuration changes.
+!!! warning "CAN Send is high-risk"
+    **`CANSend`** allows injecting CAN frames. Assign only to trusted operators.
 
-## Next Steps
+!!! warning "Session changes"
+    Editing a user's **Assigned roles** or a role's permissions **revokes active sessions** for affected users.
+
+## Password and MFA
+
+- **Password policy** — [Password policy](./Security/Password_Policy.md)
+- **Two-factor authentication** — [Two-factor authentication](./Security/Two_Factor_Authentication.md)
+- **Admin reset MFA / password** — [MFA account management](./Security/MFA_Account_Management.md)
+
+## Next steps
 
 After creating a user:
 
-1. Share the login credentials securely with the intended user
-2. Have them change their password on first login
-3. Verify they can access the required functionality
+1. Share login credentials securely (local sign-in only).
+2. Enable **Require password change** for first login when appropriate.
+3. Verify the user sees only the expected side menu entries for their roles.
 
-!!! warning "Security Notice"
-    Always follow your organization's security policies when creating and sharing user credentials.
+!!! warning "Security notice"
+    Always follow your organisation's security policies when creating and sharing credentials. Change default `admin` / `password` immediately on new installs.
+
+## Related documentation
+
+- [RBAC and permissions](./Security/RBAC_Permissions.md)
+- [Security guide](../Installation/Security.md)
+- [Kiosk Mode](./Kiosk_Mode.md)

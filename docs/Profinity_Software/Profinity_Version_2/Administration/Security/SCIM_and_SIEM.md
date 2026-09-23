@@ -1,0 +1,70 @@
+---
+title: SCIM and SIEM
+---
+
+# SCIM and SIEM integration
+
+Profinity 2.3 configures **SCIM user provisioning** and **SIEM log export** in **Config.yaml** under **Security Config**. These settings moved from Security.yaml in earlier releases; saving Config.yaml **restarts the engine**.
+
+OIDC SSO configuration is covered in [SSO and sign-in method](./SSO_and_Sign_In.md). SCIM provisioning uses the same site OIDC provider context — there is no separate `OidcProviderId` selector.
+
+## SCIM provisioning
+
+### Configuration
+
+1. Open **System Configuration** → **Security Config** → **SCIM**.
+2. Enable **SCIM provisioning**.
+
+    !!! note "Licensing"
+        Enabling SCIM provisioning (`SecurityScimProvisioning.Enabled`) requires the **EnterpriseSecurity** product feature. Without this licence, the toggle is unavailable.
+
+3. Set a **bearer token** for SCIM clients (store securely; rotate periodically).
+
+<figure markdown>
+![SCIM settings with bearer token field redacted](../../../../assets/images/2.3/2.3-scim-settings.png)
+<figcaption>SCIM provisioning toggle and bearer token (redact token — provide SS-44)</figcaption>
+</figure>
+
+### Endpoint
+
+SCIM clients call:
+
+```text
+https://{your-host}/scim/v2/Users
+```
+
+Authenticate with the configured **bearer token** (HTTP `Authorization: Bearer ...`). Profinity implements the SCIM user resource operations required for provisioning integrations — refer to your IdP's SCIM setup guide for attribute mapping.
+
+### Default roles for provisioned users
+
+Map default **Assigned roles** for newly provisioned users in SCIM settings (Config.yaml `DefaultAssignedRoles`). Ensure provisioned users receive appropriate permissions — avoid assigning **Administrators** by default.
+
+## SIEM export
+
+Configure **SIEM Export** under **Security Config**:
+
+| Field | Purpose |
+|-------|---------|
+| **Host** | SIEM collector hostname or IP |
+| **Port** | Collector port |
+| **Protocol** | Transport (for example TCP, UDP — per deployment) |
+| **Minimum log level** | Only events at or above this level are forwarded |
+
+<figure markdown>
+![SIEM export host port and protocol settings](../../../../assets/images/2.3/2.3-siem-export-settings.png)
+<figcaption>SIEM export configuration (screenshot placeholder — provide SS-45)</figcaption>
+</figure>
+
+Verify firewall rules allow outbound traffic from the Profinity host to the SIEM collector.
+
+## Security considerations
+
+- Treat SCIM bearer tokens like passwords — restrict access to Config.yaml backups.
+- Use TLS for Profinity HTTPS so administrative changes and SSO flows are not exposed on the network.
+- Review SIEM volume and minimum log level to avoid flooding the collector during debug logging.
+
+## Related documentation
+
+- [SSO and sign-in method](./SSO_and_Sign_In.md)
+- [RBAC and permissions](./RBAC_Permissions.md)
+- [System configuration](../System_Config.md)

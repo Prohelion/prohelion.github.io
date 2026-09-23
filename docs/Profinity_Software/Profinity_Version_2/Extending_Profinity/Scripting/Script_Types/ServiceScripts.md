@@ -17,7 +17,7 @@ Long-running work in **`Run()`** / **`run()`** should observe **`Profinity.Scrip
 
 - If **`run()`** uses its **own** `while` loop, test **`not Profinity.ScriptCancelled`** (or `!Profinity.ScriptCancelled` in C#) in the loop condition and optionally break out before slow steps.
 - When the service is **paused**, cancellation is signaled so an inner loop can finish; on **continue**, the engine may call **`run()`** again with a fresh cancellation scope (the **Example Scripts** folder in your Profinity installation includes **Python** and **C#** service templates with both single-step and loop-style **`run`** patterns).
-- In **Python**, use **`import time`** if you call **`time.sleep`** in the service body. In **C#**, **`Thread.Sleep`** is typical (add **`using System.Threading;`**).
+- In **Python**, use **`import time`** if you call **`time.sleep`** in the service body. In **C#**, **`Thread.Sleep`** is typical (add **`using System.Threading;`**). In **Lua**, use the **`sleep(seconds)`** global; each call is clamped to a maximum of **30 seconds**, so a loop that needs to wait longer should call **`sleep()`** again on the next iteration rather than passing one large value.
 
 ## Python: module-level variables and `global`
 
@@ -36,7 +36,7 @@ This example demonstrates a Service script that:
 
 - Implements all required lifecycle methods
 - Uses **`Profinity.ScriptCancelled`** so stop and pause can complete promptly
-- Uses **`time.sleep`** (Python) or **`Thread.Sleep`** (C#) between iterations; Python declares **`global`** for a shared run counter
+- Uses **`time.sleep`** (Python), **`Thread.Sleep`** (C#), or **`sleep`** (Lua) between iterations; Python declares **`global`** for a shared run counter
 
 === "C#"
 
@@ -119,4 +119,42 @@ This example demonstrates a Service script that:
             print(f"Run #{_run_count}")
             time.sleep(0.1)
         return True
+    ```
+
+=== "Lua"
+
+    ```lua
+    local run_count = 0
+
+    function on_start()
+        print('Started Lua Service')
+        run_count = 0
+        return true
+    end
+
+    function on_stop()
+        print('Stopped Lua Service')
+        return true
+    end
+
+    function on_pause()
+        print('Paused Lua Service')
+        return true
+    end
+
+    function on_continue()
+        print('Continue Lua Service')
+        return true
+    end
+
+    function run()
+        while not Profinity.ScriptCancelled do
+            run_count = run_count + 1
+            print('Run #' .. run_count)
+            -- sleep(seconds) is clamped to 30 seconds per call, so a longer wait
+            -- is expressed as repeated calls rather than one large value
+            sleep(0.1)
+        end
+        return true
+    end
     ```

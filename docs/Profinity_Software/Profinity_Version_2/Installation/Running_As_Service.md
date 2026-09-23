@@ -17,69 +17,85 @@ This guide provides instructions on how to run Profinity as a service on Windows
 
 ## Introduction
 
-Running Profinity as a service allows you to automate its startup and ensure continuous operation. This is particularly useful for production environments where reliability and uptime are critical.  
+Running Profinity as a service automates its startup and ensures continuous operation. This is particularly useful for production environments where reliability and uptime are critical.  
 
-As of version 2 Profinity is now available to run in server mode on Windows, Docker, MacOS and Linux (64 bit Intel and Arm chips only).  
+As of version 2, Profinity is available to run in server mode on Windows, Docker, macOS and Linux (64-bit Intel and Arm chips only).  
 
-In this mode, the Profinity GUI is only available via the browser (there is no Desktop support) and is supported by our REST APIs, which is also available to your [custom applications](../Extending_Profinity/Hosting/index.md) which you can host on the Profinity Server.
+In this mode, the Profinity GUI is available only via the browser (there is no desktop support). It is served by REST APIs, which are also available to [custom applications](../Extending_Profinity/Hosting/index.md) hosted on the Profinity Server.
 
 !!! info "Why Profinity Server?"
-    Do you have a CAN bus based platform and want to provide modern API centric front ends to support user kiosks or other advanced user interfaces, sophisticated modern data analytics and reporting, remote logging or to run your solution in the cloud, desktop, or embedded hardware?  Profinity Server supports this need.
+    Profinity Server supports CAN bus based platforms that need an API-centric front end for user kiosks or other interfaces, data analytics and reporting, remote logging, or deployment in the cloud, on desktop, or on embedded hardware.
 
 ## Hardware Requirements
 
-Profinity Server does not require any additional Prohelion Hardware to run. It can be used as a general purpose development framework for anyone writing modern web UI's for CAN bus based architectures or wanting to provide a modern server style interface to your CAN infrastructure with native cloud connectivity.  
+Profinity Server does not require any additional Prohelion hardware to run. It can be used as a general-purpose development framework for building web UIs for CAN bus based architectures, or for providing a server interface to CAN infrastructure with cloud connectivity.  
 
-However, if you are not using Prohelion hardware, you will still need some way to connect to your CAN bus network, see the [CAN Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) page for information on supported CAN bus adapters that you can use.
+When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
 
 !!! info "Licensing for Production Environments"
-    Use of Profinity server in production environments on Windows, Docker, Linux or MacOS may require an additional license key depending on your commercial status with Prohelion.
+    Use of Profinity Server in production environments on Windows, Docker, Linux or macOS may require an additional licence key, depending on the commercial arrangement with Prohelion.
 
-    If you are interested in using the tools for your Production environments and do not currently have a Profinity Server arrangement with us, please contact Prohelion on the <a href="https://www.prohelion.com/contact-us/">Contact Us Page</a> of our website and we would be happy to assist with additional information.
+    For production environments without an existing Profinity Server arrangement, contact Prohelion via the <a href="https://www.prohelion.com/contact-us/">Contact Us page</a> for further information.
 
 !!! info "Running in Docker"
-    Note if you are running Profinity inside Docker, then it is Docker not Profinity that you need to setup as a service, you then need to configure Docker to automatically start the Profinity Docker container when it starts up.  See the Docker Documentation for more details.
+    If Profinity is running inside Docker, Docker — not Profinity — needs to be configured as a service; configure Docker to automatically start the Profinity container on startup. See the Docker documentation for details.
 
 ## Linux Setup
 
-To run Profinity as a service on Linux, you can use `systemd`, a system and service manager for Linux operating systems.
+On Linux, Profinity is installed with the bootstrap installer (`install.sh`) into an install root — `/opt/profinity` by default — and runs as a systemd service through the `profinity.sh` launcher that ships in that install root.
 
 !!! info "Things can vary on Linux from version to version"
     These instructions are provided as a guide, but depending on your version of Linux, things might be different.  Check the documentation for your release on how to setup a daemon or service if these instructions are not working for you.
 
-### Step 1: Create a systemd Service File
+### Two ways to start Profinity
 
-1. Open a terminal and create a new service file:
-   ```bash
-   sudo nano /etc/systemd/system/profinity.service
-   ```
+`profinity.sh` supports both an interactive foreground run and a systemd-managed service, controlled by the `-s` (`--service`) flag:
 
-2. Add the following content to the file:
-   ```ini
-   [Unit]
-   Description=Profinity Service
-   After=network.target
+| Mode | Command | Notes |
+|------|---------|-------|
+| **Interactive** | `/opt/profinity/profinity.sh` | Runs in the terminal; Ctrl+C stops it. Useful for testing a configuration before enabling the service. |
+| **Service (systemd)** | `systemctl start profinity` | The unit's `ExecStart` runs `profinity.sh -s`. `-s` tells the engine to run in OS service mode (`UseSystemd()`); it does not select a Windows/Linux user account. |
 
-   [Service]
-   ExecStart=/usr/bin/dotnet /path/to/Profinity.dll
-   Restart=always
-   User=your-username
-   Group=your-group
-   Environment=ASPNETCORE_ENVIRONMENT=Production
+### Step 1: Install Profinity and the systemd unit
 
-   [Install]
-   WantedBy=multi-user.target
-   ```
-   Replace `/path/to/Profinity.dll` with the actual path to your Profinity DLL file.
+The bootstrap installer creates the install root, the `profinity` service user, and (on Linux, when systemd is present) the systemd unit in one step:
+
+```bash
+curl -fsSL https://github.com/Prohelion/Profinity/releases/latest/download/install.sh | sudo bash
+```
+
+This installs Profinity into `/opt/profinity` (pass `--install-dir` to use a different path) and writes `/etc/systemd/system/profinity.service` with the following content:
+
+```ini
+[Unit]
+Description=Profinity
+After=syslog.target network.target
+
+[Service]
+Type=notify
+User=profinity
+Group=profinity
+WorkingDirectory=/opt/profinity/app
+ExecStart=/opt/profinity/profinity.sh -s
+Restart=on-failure
+TimeoutSec=900
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Installing does not start the service. Pass `--no-systemd` to `install.sh` to skip the service user and systemd unit and unpack Profinity as files only.
 
 ### Step 2: Enable and Start the Service
 
-1. Reload the systemd manager configuration:
+The installer already enables the unit. To start it, or to reload after manual changes to the unit file:
+
+1. Reload the systemd manager configuration (only needed after editing the unit file directly):
    ```bash
    sudo systemctl daemon-reload
    ```
 
-2. Enable the service to start on boot:
+2. Enable the service to start on boot (already done by `install.sh`):
    ```bash
    sudo systemctl enable profinity.service
    ```
@@ -89,9 +105,13 @@ To run Profinity as a service on Linux, you can use `systemd`, a system and serv
    sudo systemctl start profinity.service
    ```
 
+### Updating
+
+`update.sh`, installed alongside `profinity.sh` in the install root, fetches the matching release for the installed edition and swaps the application files in place. If the `profinity` service is active, `update.sh` stops it before applying the update and restarts it afterwards.
+
 ## macOS Setup
 
-On macOS, you can use `launchd` to run Profinity as a service.
+On macOS, Profinity is installed with the same bootstrap installer (`install.sh`) into the same install root as Linux — `/opt/profinity` by default — with the `profinity.sh` launcher shipped in that install root. `launchd` runs Profinity as a service on macOS, in the same role systemd fills on Linux.
 
 ### Step 1: Create a launchd Plist File
 
@@ -110,8 +130,8 @@ On macOS, you can use `launchd` to run Profinity as a service.
        <string>com.profinity.service</string>
        <key>ProgramArguments</key>
        <array>
-           <string>/usr/local/bin/dotnet</string>
-           <string>/path/to/Profinity.dll</string>
+           <string>/opt/profinity/profinity.sh</string>
+           <string>-b</string>
        </array>
        <key>RunAtLoad</key>
        <true/>
@@ -120,7 +140,11 @@ On macOS, you can use `launchd` to run Profinity as a service.
    </dict>
    </plist>
    ```
-   Replace `/path/to/Profinity.dll` with the actual path to your Profinity DLL file.
+   Adjust `/opt/profinity` if Profinity was installed to a different location (`install.sh --install-dir`).
+
+   Profinity must always be started through `profinity.sh` rather than by invoking `dotnet Profinity.dll` directly — `profinity.sh` resolves the installed edition, runs preflight checks, and bootstraps the .NET runtime for the portable/macOS build when required.
+
+   `-s` (`--service`) is not used here: it selects service-mode host integration only on Windows and Linux (systemd), and has no macOS equivalent. `-b` (`--background`) is used instead, which logs to file and console rather than depending on an interactive console session, and runs on every platform `profinity.sh` supports.
 
 ### Step 2: Load and Start the Service
 
@@ -136,40 +160,40 @@ On macOS, you can use `launchd` to run Profinity as a service.
 
 ## Windows Setup
 
-In the installation directory of Profinity you will find a file called ProfinityService.cmd.  If default configuration options have been selected for the installation directory, the file is typically found here.
+The installation directory of Profinity contains a file called ProfinityService.cmd. With default configuration options, the file is typically located here:
 
 `C:\Program Files (x86)\Prohelion\Profinity\ProfinityService.cmd`
 
-In order to run the script, you will need to be an administrator.  Open a cmd window as an administrator by searching for cmd, right clicking on it, selecting 'Run As Administrator'.
+Running the script requires administrator privileges. Open a cmd window as an administrator: search for cmd, right-click it, and select 'Run as Administrator'.
 
-While a default installation of the service can be performed to install the service under the service user of LocalSystem.  We would generally recommend installing Profinity under a different user account, for two reasons.
+A default installation installs the service under the LocalSystem user. Installing Profinity under a different user account is generally recommended, for two reasons.
 
 #### Security
-By running Profinity as a user you are reducing the security level and hence exposure
+Running Profinity under a dedicated user account, rather than LocalSystem, reduces its privilege level and therefore its exposure.
 
 #### Profile files
 When running as a service, the Prohelion home directory of the service user is
 
 `C:\Windows\SysWOW64\Prohelion\Profinity`
 
-This can be hard to work with in some environments and generally we would not want to be regularly modifying files stored in the Windows directory.  As such you are generally better off installing Profinity under a user account using a command such as.
+This can be difficult to work with in some environments, and modifying files stored in the Windows directory directly is not generally recommended. Installing Profinity under a user account avoids this; for example:
 
 ```bat
 ProfinityService.cmd install [Username to install under]
 ```
 
-As the Profile files then get created in that users account directories.
+Profile files are then created within that user's account directories instead.
 
-If you do wish to install Profinity under the LocalSystem user, then simply run.
+To install Profinity under the LocalSystem user instead, run:
 
 ```bat
 ProfinityService.cmd install
 ```
 
-Once this is done you will find Profinity in your Windows Services list and it can be managed as per any other service.
+Once complete, Profinity appears in the Windows Services list and can be managed like any other service.
 
 !!! warning "Port Conflicts"
-    Once Profinity is started as a service, if you are serving API or Web content then there will be a conflict on those ports if you try to start another instance of Profinity on the machine with the same configuration.  If you want to both serve content and develop on one machine at the same time, we suggest installing Profinity under a separate user account to keep these instances from conflicting and use different ports for your development and production instances, by changing the port in the Config file.
+    Once Profinity is started as a service, starting another instance with the same configuration on the same machine causes a port conflict on the API or web content ports. To serve content and develop on the same machine at the same time, install Profinity under a separate user account, and use different ports for the development and production instances by changing the port in the Config file.
 
 ## Uninstall Profinity as a Windows Service
 
@@ -192,7 +216,7 @@ This script simplifies the process of managing Profinity as a service on Windows
 
 ## Verification
 
-To verify that the service is running correctly, you can use the following commands:
+The following commands verify that the service is running correctly:
 
 ### Linux
 - Check the status of the service:
@@ -214,5 +238,5 @@ Check the state of the service in the Windows Service Manager.
 
 - **Service Fails to Start**: Check the logs for errors using `journalctl -u profinity.service` on Linux or `sudo launchctl log show` on macOS and the Event Log in Windows.
 - **Permission Issues**: Ensure the service file has the correct permissions and the user/group settings are correct.
-- **Path Errors**: Double-check the path to the Profinity DLL file in the service configuration.
+- **Path Errors**: Double-check the path to `profinity.sh` (Linux/macOS) or the installation directory (Windows) in the service configuration.
 

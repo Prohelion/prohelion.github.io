@@ -1,5 +1,6 @@
 nav:
     - index.md
+    - Visual_Editor.md
     - Core_Elements.md
     - Data_Binding.md
     - Component_Reference

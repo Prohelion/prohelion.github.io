@@ -117,7 +117,7 @@ To stop Profinity temporarily (keeping containers), use `docker compose stop`. T
 
 ## Complex Setup for Production Deployments
 
-It is not necessary to use environment variables to configure Profinity.  However, for full production environments and deployments that involve many Profinity instances you will likely find that Environment Variables are the most simple way to configure the product.
+It is not necessary to use environment variables to configure Profinity. However, for full production environments and deployments that involve many Profinity instances, Environment Variables are the simplest way to configure the product.
 
 ### Using Environment Variables for Configuration
 
@@ -156,10 +156,10 @@ services:
 
 For more information about Docker Compose environment variables, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/).
 
-!!! info "Docker Volumes"
-    The `volumes` section mounts local directories into the container, allowing Profinity to persist configuration and profile data. Profinity stores data in `/root/Prohelion/Profinity/` by default (when running as root user). For more information about Docker volumes, see the [official Docker documentation](https://docs.docker.com/storage/volumes/).
+!!! info "Docker volumes (2.3+)"
+    The `volumes` section mounts local directories into the container. Profinity resolves the artifacts directory inside the container based on user and `PROFINITY_HOME`. On Linux hosts running 2.3+, the default artifacts path is **`/var/lib/Prohelion/Profinity`** when not using a custom layout. Legacy compose examples mounting `/root/Prohelion/Profinity/` may still work — verify with `docker compose exec` and align mounts after upgrade. See [Artifacts directory](./Artifacts_Directory.md).
 
-!!! tip "Validating Profile Paths"
+!!! tip "Validating profile paths"
     To verify where Profinity is storing profiles and config files, you can exec into the running container:
     ```bash
     docker compose exec profinity bash

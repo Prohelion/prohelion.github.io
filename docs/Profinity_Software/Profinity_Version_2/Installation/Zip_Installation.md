@@ -9,26 +9,75 @@ title: Zip Installation (macOS and Linux)
 
 ## Zip Installation
 
-Profinity is available as a zip installation file for Unix and macOS platforms. This approach does not require an installer, but it does require the Microsoft ASP.NET Core 9.0 runtime.
+Profinity is available as a downloadable archive for macOS and Linux platforms. This approach does not require an installer.
 
-To use this installation approach, first download and install an ASP.NET Core 9 (or above) runtime. Note that we are currently only testing against .NET 9 releases, so if you do use a more recent version you may have issues. The ASP.NET Core runtime is the version of .NET that is required.
+The Prohelion GitHub releases page publishes a separate archive for each supported host architecture. Select the archive that matches the host operating system and CPU architecture.
 
-[Download ASP.NET Core 9 :material-download:](https://dotnet.microsoft.com/en-us/download/dotnet/9.0){ .md-button }
+| Host | Archive | Format | .NET runtime |
+|------|---------|--------|--------------|
+| Linux, x86_64 / amd64 | `Profinity-Linux-x64.tar.gz` | tar.gz | Bundled (self-contained); no separate install required |
+| Linux, ARM64 (aarch64) | `Profinity-Linux-arm64.tar.gz` | tar.gz | Bundled (self-contained); no separate install required |
+| Linux, 32-bit ARM (ARMv6 / ARMv7) | `Profinity-Linux-arm.tar.gz` | tar.gz | Bundled (self-contained); the host may also need a system ICU library |
+| macOS (any architecture), or any other unsupported architecture | `Profinity-Portable.zip` | zip | Not bundled. Requires the .NET 10 ASP.NET Core runtime; `profinity.sh` installs this automatically if it is not already present — see [Extracting and Starting Profinity](#extracting-and-starting-profinity) |
 
-Once installed, download the latest Profinity release `.zip` file from the Prohelion GitHub releases page and unzip the file into the folder that you wish to run Profinity from.
+[Download Profinity for Linux x64 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Linux-x64.tar.gz){ .md-button }
+[Download Profinity for Linux ARM64 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Linux-arm64.tar.gz){ .md-button }
+[Download Profinity for Linux ARM :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Linux-arm.tar.gz){ .md-button }
+[Download Profinity Portable (macOS) :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Portable.zip){ .md-button }
 
-<!-- [Download Profinity V2 .Zip file :material-download:](https://github.com/Prohelion/Profinity_V2_Early_Adopter_Release/releases/latest/download/Profinity.zip){ .md-button } -->
+The Linux archives are self-contained and include the required .NET runtime, so no separate runtime installation is needed on those hosts. The macOS/portable archive is framework-dependent and requires the .NET 10 ASP.NET Core runtime. This is downloaded and verified automatically by the bundled startup script the first time Profinity is started, provided the host has internet access. To install the runtime manually instead, or to prepare a host without internet access in advance, download it directly.
 
-### Starting and Stopping Profinity
+[Download ASP.NET Core 10 :material-download:](https://dotnet.microsoft.com/en-us/download/dotnet/10.0){ .md-button }
 
-To start Profinity from a Zip installation, go to the folder where Profinity has been unzipped and simply run the command
+On **Linux 2.3+**, writable data is stored under **`/var/lib/prohelion/profinity`** by default (not `~/.local/share`). See [Artifacts directory](./Artifacts_Directory.md).
 
-`dotnet Profinity.dll`
+## Extracting and Starting Profinity
+
+Extract the downloaded archive into the folder from which Profinity is to run. None of the archives contain a wrapping top-level folder, so create the destination folder first and extract into it.
+
+For a `.tar.gz` Linux archive (substitute the file name for the downloaded architecture):
+
+```bash
+mkdir profinity && tar -xzf Profinity-Linux-x64.tar.gz -C profinity
+```
+
+For the `.zip` macOS/portable archive:
+
+```bash
+mkdir profinity && unzip Profinity-Portable.zip -d profinity
+```
+
+The extracted folder has the following layout:
+
+```text
+profinity/
+├── profinity.sh      # startup script: runs preflight checks, then starts Profinity
+├── update.sh         # updates the installation to the latest matching release
+├── VERSION
+├── edition.json
+├── lib/
+└── app/              # Profinity binaries
+```
+
+Change into the extracted folder and mark the startup script executable, since some archive tools do not preserve the executable bit on extraction:
+
+```bash
+cd profinity
+chmod +x profinity.sh
+```
+
+To start Profinity, run:
+
+```bash
+./profinity.sh
+```
+
+`profinity.sh` runs preflight checks appropriate to the archive before starting Profinity. On the self-contained Linux archives, it checks the host architecture and required system libraries. On the macOS/portable archive, it checks for a compatible .NET runtime and, if none is found, installs one automatically from a checksum-verified Microsoft installer. Run `./profinity.sh --check-only` to run these checks without starting Profinity.
 
 The following or similar should then appear.
 
 ```text
-Prohelion Profinity - v2.2.1.0
+Prohelion Profinity - v2.3.10.0
 Profinity (c) 2026 - Prohelion Pty Ltd.
 ------------------------------------------
 Press Ctrl-C to shut the application down.
@@ -69,4 +118,4 @@ After logging in, you will arrive at the Profinity homepage.
 <figcaption>Profinity V2 homepage</figcaption>
 </figure>
 
-To stop Profinity, go to the terminal window running Profinity and press `Ctrl-C`
+To stop Profinity, go to the terminal window running Profinity and press `Ctrl-C`.

@@ -43,6 +43,16 @@ Sending CAN packets is a fundamental operation. This section shows how to create
     packets_sent = Profinity.CANBus.SendMessage(packet)
     ```
 
+=== "Lua"
+
+    ```lua
+    -- Create and send a CAN packet
+    local packet = CanBusPacket(0x123)
+    packet.Int32Pos0 = 1
+    packet.Int32Pos1 = 2
+    local packetsSent = Profinity.CANBus:SendMessage(packet)
+    ```
+
 The `SendMessage()` method returns the number of interfaces the packet was sent on (typically 1, but may be more if multiple CAN adapters are configured).
 
 ### Accessing Latest Received Packets

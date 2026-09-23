@@ -5,7 +5,7 @@ title: Security Guide
 # Security Guide
 
 !!! danger "Profinity Controls Critical Hardware"
-    Profinity is used to control and monitor critical hardware including battery management systems, motor controllers, charging systems, and other safety-critical components. **Security must be treated with the utmost seriousness.** Improper security configuration can lead to equipment damage, safety hazards, or system failures.
+    Profinity is used to control and monitor critical hardware including battery management systems, motor controllers, charging systems, and other safety-critical components. Treat security as a priority throughout deployment. Improper security configuration can lead to equipment damage, safety hazards, or system failures.
 
 This guide covers essential security considerations for deploying and operating Profinity. For detailed information on specific features, refer to the relevant documentation sections.
 
@@ -22,7 +22,7 @@ This guide covers essential security considerations for deploying and operating 
 
 ## Overview
 
-Profinity V2 is a powerful system that provides control over critical automotive and energy systems. When configuring Profinity, you must consider:
+Profinity V2 provides control over critical automotive and energy systems. When configuring Profinity, you must consider:
 
 - **Network Security**: Protecting Profinity from unauthorized network access
 - **User Access Control**: Limiting user permissions to only what is necessary
@@ -79,7 +79,12 @@ For Docker deployment details, see the [Docker Installation](./Docker_Installati
 ## Scripting Security
 
 !!! warning "Scripts Run with Full Profinity Permissions"
-    Profinity scripts execute with the same security permissions as the Profinity engine itself. This means scripts can Access all system resources available to Profinity, Send and receive CAN bus messages, Modify system configuration, Control connected hardware (batteries, chargers, motor controllers)
+    Profinity scripts execute with the same security permissions as the Profinity engine itself. This means scripts can:
+
+    - access all system resources available to Profinity
+    - send and receive CAN bus messages
+    - modify system configuration
+    - control connected hardware (batteries, chargers, motor controllers)
 
 ### Security Implications
 
@@ -116,24 +121,21 @@ For detailed information about scripting capabilities and security consideration
 4. **Regular Password Updates**: Implement password rotation policies for production systems
 5. **Disable Unused Accounts**: Disable or remove user accounts that are no longer needed
 
-### Security Roles
+### Security roles
 
-Profinity provides granular security roles to limit user access:
+Profinity 2.3 uses **27 granular permissions** grouped into **roles** (Security.yaml schema v7). Users receive **assigned roles** — there are no legacy security groups or per-user permission lists.
 
-- **Administrator**: Full system access (use sparingly)
-- **Read System Settings**: Read-only access to view dashboards and system information
-- **Change System Settings**: Can modify system and component configurations
-- **Charge Battery Packs**: Permission to control battery charging operations
-- **Send and Receive CAN**: Can inject and receive CAN bus messages (high risk)
+See [RBAC and permissions](../Administration/Security/RBAC_Permissions.md) for the full catalog and default templates (Read-only, Operator, Engineer, Security admin, System admin, Administrators).
 
-### Role Assignment Guidelines
+### Role assignment guidelines
 
-- **Principle of Least Privilege**: Assign users only the minimum permissions needed for their role
-- **Monitoring Accounts**: Create read-only accounts for monitoring and dashboards
-- **Separate Admin Accounts**: Avoid sharing administrator accounts; create individual accounts for each administrator
-- **Regular Audits**: Periodically review user accounts and permissions to ensure they remain appropriate
+- **Principle of least privilege**: Assign users only the minimum permissions needed for their role.
+- **Monitoring accounts**: Create read-only role assignments for dashboards and Tag Explorer.
+- **Separate admin accounts**: Avoid sharing administrator accounts; create individual accounts for each administrator.
+- **Regular audits**: Periodically review user accounts and role assignments.
+- **High risk**: `CANSend` allows injecting CAN frames — assign only to trusted operators.
 
-For detailed information on user management and roles, see the [Managing Users](../Administration/Manage_Users.md) documentation.
+For detailed information on user management, see [Managing Users](../Administration/Manage_Users.md).
 
 ## Kiosk Mode Security
 
@@ -176,7 +178,10 @@ Before deploying Profinity in a production environment:
 ## Related Documentation
 
 - [System Configuration](../Administration/System_Config.md) - HTTPS and security settings
-- [Managing Users](../Administration/Manage_Users.md) - User accounts and security roles
+- [RBAC and permissions](../Administration/Security/RBAC_Permissions.md) - Roles and permissions (2.3)
+- [SSO and sign-in method](../Administration/Security/SSO_and_Sign_In.md) - Local vs SSO
+- [Two-factor authentication](../Administration/Security/Two_Factor_Authentication.md) - MFA policy
+- [Managing Users](../Administration/Manage_Users.md) - User accounts and role assignment
 - [Kiosk Mode](../Administration/Kiosk_Mode.md) - Kiosk Mode configuration and security
 - [Scripting](../Extending_Profinity/Scripting/index.md) - Scripting security considerations
 - [Docker Installation](./Docker_Installation.md) - Docker deployment security

@@ -1,0 +1,10 @@
+nav:
+    - RBAC_Permissions.md
+    - Component_And_Collection_Security.md
+    - Password_Policy.md
+    - SSO_and_Sign_In.md
+    - Two_Factor_Authentication.md
+    - MFA_Account_Management.md
+    - SCIM_and_SIEM.md
+    - Service_Accounts.md
+    - AI_Assistant.md
