@@ -9,7 +9,7 @@ Profinity is our comprehensive CAN bus management platform, designed to connect 
 [Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
    
 <figure markdown>
-![Profinity V2 Interface](Profinity_Version_2/images/prohelion_bmu.png)
+![Profinity V2 Interface](Profinity_Version_2.3/images/prohelion_bmu.png)
 <figcaption>Managing a Prohelion BMU in the modern web-based interface of Profinity V2</figcaption>
 </figure>
 
@@ -31,7 +31,7 @@ The worlds most modern CAN bus management solution, featuring
 - Real-time monitoring and control
 
 <figure markdown>
-![Device Management](Profinity_Version_2/images/add_component.png)
+![Device Management](Profinity_Version_2.3/images/add_component.png)
 <figcaption>Adding and configuring devices in Profinity</figcaption>
 </figure>
 
@@ -41,7 +41,7 @@ The worlds most modern CAN bus management solution, featuring
 - Advanced data logging capabilities
 
 <figure markdown>
-![Data Integration](Profinity_Version_2/images/InfluxDB.png)
+![Data Integration](Profinity_Version_2.3/images/InfluxDB.png)
 <figcaption>Advanced data logging and analysis features</figcaption>
 </figure>
 
@@ -51,7 +51,7 @@ The worlds most modern CAN bus management solution, featuring
 - Audit logging
 
 <figure markdown>
-![User Management](Profinity_Version_2/images/add_user.png)
+![User Management](Profinity_Version_2.3/images/add_user.png)
 <figcaption>Secure user management and access control</figcaption>
 </figure>
 
@@ -71,11 +71,11 @@ The worlds most modern CAN bus management solution, featuring
     - Advanced device management
 
     <figure markdown>
-    ![Profinity V2 Interface](Profinity_Version_2/images/wavesculptor.png)
+    ![Profinity V2 Interface](Profinity_Version_2.3/images/wavesculptor.png)
     <figcaption>Modern web-based interface of Profinity V2</figcaption>
     </figure>
 
-    [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version_2/index.md)
+    [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version_2.3/index.md)
 
 -   :material-tools:{ .lg .middle } __Profinity Version 1 (Retired)__
 
