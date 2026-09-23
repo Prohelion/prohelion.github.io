@@ -64,3 +64,4 @@ Normative architecture (link, do not duplicate in operator guides):
 - [ALL ALERTS](../Rules/Alerts.md)
 - [Collections](../Rules/Collections.md)
 - [Rule actions and scripts](../Rules/Rule_Actions_And_Scripts.md)
+- [Derived tags](../Rules/Derived_Tags.md)
