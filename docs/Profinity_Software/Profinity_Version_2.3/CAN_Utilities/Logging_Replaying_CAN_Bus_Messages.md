@@ -12,9 +12,9 @@ It's always worth checking that you are actually receiving CAN bus messages by u
 
 ## Logging CAN bus
 
-There are three distinct types of loggers available in Profinity, loggers to [log to file](../Components/Loggers/File_Loggers.md) and loggers that log to timeseries databases such as [InfluxDB and Prometheus](../Components/Loggers/InfluxDB_Prometheus_Logger.md) and finally [MQTT Loggers](../Components/Loggers/MQTT_Logger.md)
+There are two distinct types of loggers available in Profinity: loggers to [log to file](../Components/Loggers/File_Loggers.md), and loggers that log to timeseries databases such as [InfluxDB and Prometheus](../Components/Loggers/InfluxDB_Prometheus_Logger.md). Publishing CAN-derived tag data to an MQTT broker or a webhook is handled separately by the [MQTT Publisher](../Components/Publishers/MQTT_Publisher.md) and [Webhook Publisher](../Components/Publishers/Webhook_Publisher.md) — a publisher pushes to a subscriber that is actively listening right now, rather than writing to a queryable store the way a logger does, which is why the two sit in their own **Publishers & Subscribers** category rather than under **Loggers**.
 
-All loggers are configured in the same manner, by adding a logger as a component to the Profile.
+All loggers are configured in the same manner, by adding a logger as a component to the Profile; publishers are added and configured the same way, from the **Publishers & Subscribers** category instead.
 
 !!! info "Replaying Logs Requires a File Logger"
     It is not possible to replay log files using the CAN Data Log Replayer below from Influx or Prometheus data, only a File log of the CAN Message from a File or SFTP logger can be used.

@@ -4,30 +4,53 @@ title: Rule Scripts
 
 # Rule scripts
 
-**Rule Script** components execute in the **rules engine action context** — not as general component Run scripts. Use them from the rule action picker when a rule fires.
+!!! info "Superseded 2026-09-25 — dedicated Rule Script components are gone"
+    Earlier 2.3 builds had dedicated **C# Rule Script** / **Python Rule Script** / **Lua Rule
+    Script** components and a `Profinity.Rule` script variable. Those are removed. A rule action
+    is now **Run On Alert**, a mode on the same general **C#**, **Python**, and **Lua Script**
+    components used for every other script trigger. This page describes the current behaviour.
 
-## Languages
+A script becomes a rule action by setting its **Script Mode** to **Run On Alert** — the same
+component used for Run On Demand, Run On Tag Change, and every other trigger, just switched into
+a different mode. There is no separate "rule script" component to add, and no `Profinity.Rule`
+script variable to check for `null`; the rule passes its firing context directly as a parameter to
+the method the script implements.
 
-- **C#**
-- **Python**
-- **Lua**
+## Setting a script to Run On Alert
 
-Each language has its own **Rule Script** component (**C# Rule Script**, **Python Rule Script**, **Lua Rule Script**), and all three run against the same rule action context. Enable scripting in [System Configuration](../../Administration/System_Config.md) before using script actions.
+1. Add a **C#**, **Python**, or **Lua Script** component (or use an existing one).
+2. Set **Script Mode** to **Run On Alert**.
+3. Name that component in the rule's **`onTrue`**/**`onFalse`** action list, the same way any
+   other rule action is referenced by component name.
 
-## Action context
+Enable scripting in [System Configuration](../../Administration/System_Config.md) before using
+script actions, the same prerequisite every script trigger already has.
 
-Rule scripts receive context including **`TriggeredTags`** — tags that caused the rule evaluation to fire. Use this for logging, conditional actions, or driving built-in follow-up actions. The context is populated identically regardless of the script's language.
+## The alert context
+
+When the rule fires, Profinity calls the script's alert method once, passing the firing context
+as a parameter — the same context every other rule action receives (see
+[Rule actions and scripts](../Rules/Rule_Actions_And_Scripts.md)): rule id/name/level, the edge
+that fired, the triggering tag, and **`TriggeredTags`** — every tag in the rule's scope that is
+currently true.
 
 === "C#"
 
     ```csharp
-    if (Profinity.Rule != null)
+    using Profinity.Sdk.Abstractions.Scripting;
+    using Profinity.Sdk.Components.Scripting;
+
+    public class CSharpAlertExample : ProfinityScript, IProfinityAlertScript
     {
-        Profinity.Console.WriteLine($"Rule {Profinity.Rule.RuleName} ({Profinity.Rule.RuleLevel})");
-        Profinity.Console.WriteLine($"Trigger tag: {Profinity.Rule.TriggerTagId}");
-        foreach (var row in Profinity.Rule.TriggeredTags)
+        public void OnAlert(ProfinityScriptRuleContext context)
         {
-            Profinity.Console.WriteLine($"  {row.TagId} = {row.Value} ({row.Quality})");
+            Profinity.Console.WriteLine("CSharp Alert : " + context.RuleName + " (" + context.RuleLevel + ")");
+            Profinity.Console.WriteLine("Trigger tag: " + context.TriggerTagId);
+            Profinity.Console.WriteLine("Triggered tags: " + context.TriggeredTags.Count);
+            foreach (ProfinityScriptRuleTriggeredTag row in context.TriggeredTags)
+            {
+                Profinity.Console.WriteLine("  " + row.TagId + " = " + row.Value + " (" + row.Quality + ")");
+            }
         }
     }
     ```
@@ -35,59 +58,62 @@ Rule scripts receive context including **`TriggeredTags`** — tags that caused 
 === "Python"
 
     ```python
-    if Profinity.Rule is not None:
-        print(f"Rule {Profinity.Rule.RuleName} ({Profinity.Rule.RuleLevel})")
-        print(f"Trigger tag: {Profinity.Rule.TriggerTagId}")
-        for row in Profinity.Rule.TriggeredTags:
-            print(f"  {row.TagId} = {row.Value} ({row.Quality})")
+    def on_alert(context):
+        print("Python Alert : " + str(context.RuleName) + " (" + str(context.RuleLevel) + ")")
+        print("Trigger tag: " + str(context.TriggerTagId))
+        print("Triggered tags: " + str(context.TriggeredTags.Count))
+        for row in context.TriggeredTags:
+            print("  " + str(row.TagId) + " = " + str(row.Value) + " (" + str(row.Quality) + ")")
     ```
 
 === "Lua"
 
     ```lua
-    if Profinity.Rule ~= nil then
-        print('Rule ' .. tostring(Profinity.Rule.RuleName) .. ' (' .. tostring(Profinity.Rule.RuleLevel) .. ')')
-        print('Trigger tag: ' .. tostring(Profinity.Rule.TriggerTagId))
-        for i = 0, Profinity.Rule.TriggeredTags.Count - 1 do
-            local row = Profinity.Rule.TriggeredTags[i]
+    function on_alert(context)
+        print('Lua Alert : ' .. tostring(context.RuleName) .. ' (' .. tostring(context.RuleLevel) .. ')')
+        print('Trigger tag: ' .. tostring(context.TriggerTagId))
+        print('Triggered tags: ' .. tostring(context.TriggeredTags.Count))
+        for i = 0, context.TriggeredTags.Count - 1 do
+            local row = context.TriggeredTags[i]
             print('  ' .. tostring(row.TagId) .. ' = ' .. tostring(row.Value) .. ' (' .. tostring(row.Quality) .. ')')
         end
     end
     ```
 
-`Profinity.Rule` is `nil` (Lua), `None` (Python), or `null` (C#) when the script is not running as a rule action, for example when it is run manually or on a schedule.
+Full source: [`CSharpAlertTemplate.cs`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/CSharp/CSharpAlertTemplate.cs) ·
+[`PythonAlertTemplate.py`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Python/PythonAlertTemplate.py) ·
+[`LuaAlertTemplate.lua`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Lua/LuaAlertTemplate.lua) —
+all three shipped as templates alongside Profinity's other example scripts, matching the same
+C#/Python/Lua parity convention used for every other script trigger.
 
-See [Rule actions and scripts](../Rules/Rule_Actions_And_Scripts.md).
+!!! warning "Manually running the script does not call this method"
+    A component menu's **Run Script** action, and the Run On Demand/scheduled paths, do not call
+    `OnAlert`/`on_alert` — only a rule firing does. There is no "run this manually to test" path
+    for the alert method itself; test by driving the rule's condition true.
 
-## Built-in actions
+## Trigger overlap
 
-Rules may also use built-in actions such as:
+If the alert method is still running when the rule fires again, **Trigger Overlap** decides what
+happens — the same setting **Run On Tag Change** and **Run On Receipt of CAN Message** already
+use:
 
-- **ProfinityLog** — write to Profinity log with rule context.
-- **None** — no-op placeholder while developing.
+- **Drop** (default) — discard the new firing while the current one is still running.
+- **Queue** — hold a bounded backlog, up to **Queue Depth** (1–100, default 8), and run it once
+  the current firing completes.
 
-## General scripting surface
+Keep the alert method fast: a slow script under **Queue** mode can build a backlog, and under
+**Drop** mode can silently miss firings.
 
-Component scripts access the `Profinity` script variable surface documented under [Script Operations](./Script_Operations/index.md). Only document APIs exposed on **`ProfinityScriptVariables`** — do not assume internal engine types are available.
+## Status while running as a rule action
 
-Engineering reference: [CSharp Script References](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Scripting/CSharp-Script-References-and-Dependencies.md).
-
-## Examples and validation
-
-Spot-check examples against:
-
-- `Profinity-Test/Scripts/TestScripts/` in the Profinity repo.
-- `Default-Profinity-Dir/Example Scripts/` templates.
-
-There is **no** automated doc validator for script fences — manually verify compile and runtime behaviour after upgrades.
-
-## Advanced topics
-
-- **Subprocess compile** and in-memory compile paths exist for C# scripts — mention only in advanced OEM guides.
-- Rule scripts vs receive/run/service scripts — see [Script types](./Script_Types/index.md).
+**Run On Alert** has no Start/Stop lifecycle the way **Run On Tag Change** does — a rule invokes
+it, it does not sit watching. Between firings its status reads **Not Run** or **Run N times**;
+status shows **Running** only while `OnAlert`/`on_alert` is actually on the stack. The component's
+menu in this mode is **Edit Script** only.
 
 ## Related documentation
 
 - [Rule actions and scripts](../Rules/Rule_Actions_And_Scripts.md)
+- [Script Types](./Script_Types/index.md)
 - [Profinity scripting](../index.md)
 - [Write your first script](../../How_To_Guides/Write_Your_First_Script.md)

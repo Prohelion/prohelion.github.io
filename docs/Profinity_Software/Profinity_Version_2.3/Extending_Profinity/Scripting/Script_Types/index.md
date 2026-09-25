@@ -4,7 +4,7 @@ title: Script Types
 
 # Script Types in Profinity
 
-Profinity supports five script execution modes, each with specific use cases and execution contexts. This document explains the differences between these script execution modes and when to use each one. Understanding these script execution modes is crucial for developing effective automation and monitoring solutions in Profinity.
+Profinity supports seven script execution modes, each with specific use cases and execution contexts. This document explains the differences between these script execution modes and when to use each one. Understanding these script execution modes is crucial for developing effective automation and monitoring solutions in Profinity.
 
 <figure markdown>
 ![Script types selection](../../../images/script_run_modes.png)
@@ -18,6 +18,8 @@ Profinity supports five script execution modes, each with specific use cases and
 | [Service](./ServiceScripts.md)    | Service Scripts implement full lifecycle management and generally are designed for tasks that need to run for a long time | - Continuous monitoring<br>- Long-running tasks<br>- Critical services<br>- System-level operations |  - Quick responses<br>- One-time operations<br>- Manual tasks |
 | TimeInterval | Scripts that run on a time-based interval (e.g., every 5 minutes, every hour). Uses the Run script engine but executes automatically at regular intervals | - Periodic tasks<br>- Regular data collection<br>- Scheduled maintenance<br>- Interval-based monitoring | - Real-time responses<br>- Event-driven operations<br>- Complex scheduling requirements |
 | CronSchedule | Scripts that run on a cron schedule using Quartz cron expressions. Provides flexible scheduling for complex time-based requirements | - Complex scheduling requirements<br>- Time-of-day operations<br>- Weekly/monthly tasks<br>- Advanced scheduling patterns | - Simple intervals<br>- Manual tasks<br>- Real-time responses |
+| Run On Tag Change | Scripts that run each time a specific tag's value changes. Used to compute derived values or react to state changes without polling | - Derived/computed tags<br>- Reacting to another component's output<br>- Chained automation | - One-time operations<br>- Manual tasks |
+| Run On Alert | Scripts named as a rule action (`onTrue`/`onFalse`), invoked when the rule transitions. See [Rule scripts](../Rule_Scripts.md) | - Rule notifications and side effects<br>- Custom alert handling beyond the built-in actions | - Anything not driven by a rule firing<br>- Long-running work (keep it fast; see Trigger Overlap) |
 
 ## Best Practices
 
@@ -33,6 +35,8 @@ ___Choose the Right Type of Script Execution___
 - Use Service scripts for critical, long-running operations
 - Use TimeInterval scripts for periodic tasks with simple intervals
 - Use CronSchedule scripts for complex scheduling requirements
+- Use Run On Tag Change scripts to react to another tag's value without polling
+- Use Run On Alert scripts for custom logic on a rule firing
 
 ___Be Efficient with Resource Management___
 

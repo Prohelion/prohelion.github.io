@@ -1,4 +1,3 @@
 nav:
     - File_Loggers.md
     - InfluxDB_Prometheus_Logger.md
-    - MQTT_Logger.md
