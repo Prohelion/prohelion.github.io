@@ -4,7 +4,7 @@ title: Collections
 
 # Tag collections
 
-**Collections** group tags for filtering, dashboards, and rules. Profinity 2.3 uses collections **schema version 2** for the API/JSON model and **schema version 3** for the profile disk YAML; each entry carries a plain `id` field so the visual editor can round-trip edits without losing identity.
+**Collections** group tags for filtering, dashboards, and rules. Profinity 2.3 stamps collections YAML with **`version: "2.3"`**; each entry carries a plain `id` field so the visual editor can round-trip edits without losing identity.
 
 ## Open the collections editor
 
@@ -18,11 +18,11 @@ title: Collections
 
 Requires **`TagCollectionsView`** to view and **`TagCollectionsModify`** to save.
 
-## Schema versions and ids
+## Document version and ids
 
 After upgrading from 2.2.x:
 
-- Open each collection in the **visual editor** and **save** once to normalise ids if you hand-edited YAML.
+- Open each collection in the **visual editor** and **save** once to stamp `version: "2.3"` and normalise ids if you hand-edited YAML.
 - The `id` field ties collection members to editor state and API resources.
 
 Engineering reference: [02.5 collections and filters](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.5-collections-and-filters.md).

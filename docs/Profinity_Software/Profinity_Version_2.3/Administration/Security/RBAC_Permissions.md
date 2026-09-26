@@ -4,7 +4,7 @@ title: RBAC and Permissions
 
 # RBAC and permissions
 
-Profinity 2.3 uses **role-based access control (RBAC)** with **27 granular permissions**. Users are assigned one or more **roles**; each role holds a list of permissions. There are no per-user permission lists and no legacy security **groups** (Security.yaml **schema v7**).
+Profinity 2.3 uses **role-based access control (RBAC)** with **27 granular permissions**. Users are assigned one or more **roles**; each role holds a list of permissions. There are no per-user permission lists and no legacy security **groups**.
 
 Permissions control what appears in the side menu, admin pills, and which `/api/v2` endpoints a user may call.
 
@@ -30,11 +30,11 @@ Permissions control what appears in the side menu, admin pills, and which `/api/
 <figcaption>Role permission toggles by category (screenshot placeholder — provide SS-03)</figcaption>
 </figure>
 
-## Roles-only model (v7)
+## Roles-only model (2.3)
 
 | Term | Meaning |
 |------|---------|
-| **Role** | Named bundle of permissions (formerly called a security group in v6) |
+| **Role** | Named bundle of permissions (formerly called a security group in 2.2) |
 | **Assigned role** | Role membership on a user |
 | **Permission** | Atomic capability (for example `TagView`, `CANSend`) |
 
@@ -43,11 +43,12 @@ On upgrade from 2.2.x, Profinity migrates Security.yaml automatically:
 - `SecurityGroups` → `Roles`
 - User `SecurityGroups` → `AssignedRoles`
 - Group `SecurityRoles` → role `Permissions`
+- Document stamp becomes `Version: "2.3"` (missing version is treated as legacy `"1"`)
 
 Example Security.yaml fragment:
 
 ```yaml
-SchemaVersion: 7
+Version: "2.3"
 Roles:
   Operators:
     Description: DBC and CAN operators
@@ -133,7 +134,7 @@ For a full endpoint matrix, see the Profinity engineering [Secured Functionality
 ## Pitfalls
 
 - Do not refer to legacy **groups** in new documentation or YAML — use **roles**.
-- There is no single `Admin` super-permission in v7; use **Administrators** role or assign specific permissions.
+- There is no single `Admin` super-permission in 2.3; use **Administrators** role or assign specific permissions.
 
 ## Related documentation
 

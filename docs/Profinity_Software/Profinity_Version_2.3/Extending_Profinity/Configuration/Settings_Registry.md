@@ -13,7 +13,7 @@ Profinity 2.3 centralises many system settings in **Config.yaml** through the **
 | File | Holds |
 |------|-------|
 | **Config.yaml** | Security **policy** (sign-in method, password policy, 2FA policy, session policy), Security **Config** (OIDC, SCIM, SIEM), application settings, component catalog, server discovery |
-| **Security.yaml** | Users, **roles**, 2FA secrets, external identity links (`SchemaVersion: 7`) |
+| **Security.yaml** | Users, **roles**, 2FA secrets, external identity links (`Version: "2.3"`) |
 
 Saving **Config.yaml** from System Configuration **restarts the engine**. Most **Security.yaml** and profile YAML changes do **not** require restart.
 

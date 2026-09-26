@@ -36,7 +36,7 @@ Administrator actions for an existing user — **Reset MFA**, **Reset Password**
 ## Security roles (2.3)
 
 !!! info "Roles, not legacy groups"
-    Security.yaml **schema v7** uses **roles** only. Each role bundles granular **permissions** (for example `TagView`, `CANSend`, `SecurityAdmin`). Users hold **Assigned roles**.
+    Security.yaml in Profinity **2.3** uses **roles** only (`Version: "2.3"`). Each role bundles granular **permissions** (for example `TagView`, `CANSend`, `SecurityAdmin`). Users hold **Assigned roles**.
 
 ### Default templates
 

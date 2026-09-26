@@ -123,7 +123,7 @@ For detailed information about scripting capabilities and security consideration
 
 ### Security roles
 
-Profinity 2.3 uses **27 granular permissions** grouped into **roles** (Security.yaml schema v7). Users receive **assigned roles** — there are no legacy security groups or per-user permission lists.
+Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists. Security.yaml is stamped `Version: "2.3"`.
 
 See [RBAC and permissions](../Administration/Security/RBAC_Permissions.md) for the full catalog and default templates (Read-only, Operator, Engineer, Security admin, System admin, Administrators).
 
