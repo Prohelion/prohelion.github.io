@@ -1,5 +1,5 @@
 nav:
-    - index.md    
+    - index.md
     - Scripting
     - Tag_Layer
     - Tags
@@ -8,6 +8,7 @@ nav:
     - Components
     - Custom_Components
     - Plugins
+    - SDK.md
     - Profiles
     - Configuration
     - APIs

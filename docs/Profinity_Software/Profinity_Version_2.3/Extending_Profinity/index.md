@@ -4,7 +4,7 @@ title: Extending Profinity
 
 # Extending Profinity
 
-Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules](./Rules/Alerts.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), [MCP Support](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
+Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules](./Rules/Alerts.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), the [Profinity SDK](./SDK.md), [MCP Support](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
 
 For mobile access, see [Profinity Mobile](../Mobile/index.md).
 
@@ -50,6 +50,14 @@ Profinity's [Custom Components](./Custom_Components/index.md) allow you to integ
 | [Component Catalog](./Components/Component_Catalog.md) | Covers hiding component types from the add-component catalog using configuration. |
 | [Component Pack CLI](./Components/Component_Pack_CLI.md) | Covers the `profinity-component-pack` tool for validating, packing, and installing Custom Component bundles. |
 | [Tag Tree Path](./Components/Tag_Tree_Path.md) | Covers nesting a component's tags under a parent folder in the tag tree using the Tag tree path setting. |
+
+## Profinity SDK
+
+Building a DLL plugin, packing a Custom Component for distribution, or writing and testing a
+script outside a profile all draw on the same [Profinity SDK](./SDK.md) — one developer kit
+Prohelion distributes on request, rather than three separate downloads. Organisations building a
+compiled integration, packaging Custom Components for field deployment, or developing scripts
+offline before adding them to a profile use the kit for this work.
 
 ## APIs
 

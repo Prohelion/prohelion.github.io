@@ -30,7 +30,7 @@ Registry metadata is stored in `{Artifacts}/Config/plugins.yaml`.
 
 ## Install a plugin
 
-1. Build or obtain a `.nupkg` or zip following the [SDK Plugin Authoring guide](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/SDK/SDK-Plugin-Authoring.md).
+1. Build a plugin against `Profinity.Sdk` from the [Profinity SDK](../SDK.md) kit, following the [SDK Plugin Authoring guide](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/SDK/SDK-Plugin-Authoring.md), and pack it as a `.nupkg` or zip.
 2. In Plugin Manager, **upload** the package.
 3. **Enable** the plugin.
 4. Hot reload picks up enabled plugins without a full reinstall when supported.
@@ -43,10 +43,11 @@ Base path: `/api/v2/plugins` — list, upload, enable/disable, delete. Requires 
 
 ## NuGet feed
 
-**Local package install only** for 2.3 GA — Profinity does not document a public NuGet **feed** publish workflow in this release.
+**Local package install only** for 2.3 GA — Profinity does not document a public NuGet **feed** publish workflow in this release. See [Profinity SDK](../SDK.md) for how to get `Profinity.Sdk` itself.
 
 ## Related documentation
 
+- [Profinity SDK](../SDK.md)
 - [Component types](../Components/Component_Types.md)
 - [Component Pack CLI](../Components/Component_Pack_CLI.md)
 - [Component catalog disable](../Components/Component_Catalog.md)
