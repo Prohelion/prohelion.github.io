@@ -4,7 +4,7 @@ title: Component Pack CLI
 
 # Component Pack CLI
 
-The **`profinity-component-pack`** command-line tool ships next to the Profinity engine binary. It validates, packs, and installs **Custom Component file bundles** (YAML, scripts, maps) — **not** DLL plugins.
+The **`profinity-component-pack`** command-line tool ships as part of the [Profinity SDK](../SDK.md) developer kit, not with the engine install itself. It validates, packs, and installs **Custom Component file bundles** (YAML, scripts, maps) — **not** DLL plugins.
 
 For DLL plugins use Plugin Manager — see [DLL plugins](../Plugins/index.md).
 
@@ -24,7 +24,7 @@ profinity-component-pack install --package bundle.zip --profinity-dir <Artifacts
 
 `--engine-dir <engine-bin>` is required on **install** — the tool uses it to validate the bundle against the installed SDK version. `--zip` is an alias for `--package` and is mutually exclusive with it.
 
-Run from the directory containing `profinity-component-pack` (install dir, not `Tools/`).
+Run from the kit's `profinity-component-pack` subfolder (see [Profinity SDK](../SDK.md) for how to get the kit).
 
 ## When to use
 
@@ -39,6 +39,7 @@ Run from the directory containing `profinity-component-pack` (install dir, not `
 
 ## Related documentation
 
+- [Profinity SDK](../SDK.md)
 - [Component types](./Component_Types.md)
 - [Custom Components](../Custom_Components/index.md)
 - Engineering [A2 Advanced Custom Components](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A2-Advanced-Custom-Components.md)
