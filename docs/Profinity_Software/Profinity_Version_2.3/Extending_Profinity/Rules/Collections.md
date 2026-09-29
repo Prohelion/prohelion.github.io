@@ -34,12 +34,27 @@ You can start a collection from the Tag Explorer context menu — see [Tag linki
 !!! note "Partial GA linking"
     Reciprocal editors (for example "add rule to collection" from the collections view only) are **not** shipped in 2.3 GA. Document and use **shipped** Tag Explorer flows only.
 
+## Membership expression
+
+Each collection filters candidate tags with a boolean expression over `tag`. The guided builder emits the published spellings; free text uses the same language.
+
+Examples:
+
+```text
+tag.MatchesPath("Elmar Solar MPPT") && tag.MatchesName("OutputCurrent")
+tag.Meta.Type == "dbc.signal" && tag.HasValue
+tag.Value > 0
+```
+
+Full vocabulary (path matching, values, metadata, wildcards): [Tag expressions](./Tag_Expressions.md).
+
 ## API
 
 Collections are managed via `/api/v2` tag collections controllers with JSON request and response bodies. Permissions follow `TagCollectionsView` / `TagCollectionsModify`.
 
 ## Related documentation
 
+- [Tag expressions](./Tag_Expressions.md)
 - [Tag layer](../Tag_Layer/index.md)
 - [Tag linking](../Tags/Tag_Linking.md)
 - [ALL ALERTS](./Alerts.md)
