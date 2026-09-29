@@ -37,6 +37,8 @@ Use an account such as **demo.engineer** with the Engineer role template for aut
 
 After choosing an action, complete configuration in the visual editor and **save**.
 
+Create-collection and create-rule flows write membership / condition expressions under the hood — leaf picks become `tag.Is("…")`, branch picks become `tag.MatchesPath("…")`. See [Tag expressions](../Rules/Tag_Expressions.md).
+
 ## What is not available in 2.3 GA
 
 Do not document or promise:
@@ -48,6 +50,7 @@ Do not document or promise:
 ## Related documentation
 
 - [Tag layer](../Tag_Layer/index.md)
+- [Tag expressions](../Rules/Tag_Expressions.md)
 - [Collections](../Rules/Collections.md)
 - [Rule actions and scripts](../Rules/Rule_Actions_And_Scripts.md)
 - [Dashboard visual editor](../Dashboards/Visual_Editor.md)

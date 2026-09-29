@@ -62,6 +62,10 @@ derivedTags:
             expression: "a.Value * 1.60934"
 ```
 
+Each alias exposes only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality`,
+`IsStale`). Path methods such as `MatchesPath` belong in collections and rules, not here — see
+[Tag expressions](./Tag_Expressions.md).
+
 `Vehicles/Car1/SpeedKmh` is now a real tag: it shows up in Tag Explorer, in the rules engine, and
 can be queried for history like any other tag — with **no extra configuration** for history to
 work.
@@ -193,6 +197,7 @@ Normative design: [A33 — Virtual (derived) tags](https://github.com/Prohelion/
 
 ## Related documentation
 
+- [Tag expressions](./Tag_Expressions.md)
 - [Tag layer](../Tag_Layer/index.md)
 - [Collections](./Collections.md)
 - [Rule actions and scripts](./Rule_Actions_And_Scripts.md)

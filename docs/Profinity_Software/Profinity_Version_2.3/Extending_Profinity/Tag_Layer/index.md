@@ -61,6 +61,7 @@ Normative architecture (link, do not duplicate in operator guides):
 ## Related documentation
 
 - [Tag linking](../Tags/Tag_Linking.md)
+- [Tag expressions](../Rules/Tag_Expressions.md)
 - [ALL ALERTS](../Rules/Alerts.md)
 - [Collections](../Rules/Collections.md)
 - [Rule actions and scripts](../Rules/Rule_Actions_And_Scripts.md)

@@ -82,10 +82,24 @@ From ALL ALERTS (requires `AlertsView` — same permission for mutations):
 
 Rules support **dwell** (condition must hold for a duration) and **deadband** (hysteresis) configured in the rules visual editor. Engine evaluation interval is controlled by **`evaluationTickSeconds`** in rule configuration.
 
-See [Rule actions and scripts](./Rule_Actions_And_Scripts.md) and [Tag layer](../Tag_Layer/index.md).
+Conditions use the same `tag` expression language as collections. Numeric trip and clear:
+
+```text
+tag.Value > 4.2
+tag.Value < 4.0
+```
+
+No-data / stale sensor (preferred over sample age):
+
+```text
+tag.IsStale
+```
+
+How to write conditions: [Tag expressions](./Tag_Expressions.md). Also see [Rule actions and scripts](./Rule_Actions_And_Scripts.md) and [Tag layer](../Tag_Layer/index.md).
 
 ## Related documentation
 
+- [Tag expressions](./Tag_Expressions.md)
 - [Tag layer](../Tag_Layer/index.md)
 - [Collections](./Collections.md)
 - [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md)

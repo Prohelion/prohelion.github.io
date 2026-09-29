@@ -22,7 +22,7 @@ Open rules from:
 
 Configure:
 
-- Thresholds and conditions on tag values.
+- Thresholds and conditions on tag values (for example `tag.Value > 4.2` / clear `tag.Value < 4.0`, or `tag.IsStale` for no-data). See [Tag expressions](./Tag_Expressions.md).
 - **Dwell** and **deadband** for stable alerting.
 - **`description`** — text shown in ALL ALERTS.
 - **`level`** — severity for filtering and display.
@@ -125,6 +125,7 @@ behaviour any other slow action already has today.
 
 ## Related documentation
 
+- [Tag expressions](./Tag_Expressions.md)
 - [ALL ALERTS](./Alerts.md)
 - [Scripting rule scripts](../Scripting/Rule_Scripts.md)
 - [Tag layer](../Tag_Layer/index.md)
