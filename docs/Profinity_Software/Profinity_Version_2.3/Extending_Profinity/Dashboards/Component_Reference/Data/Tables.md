@@ -1,15 +1,15 @@
 ---
 title: Tables Component
-description: "Data table display with heatmap visualization, highlighting, and value threshold alerts for multi-dimensional data."
+description: "Data table display with heatmap visualisation, highlighting, and value threshold alerts for multi-dimensional data."
 ---
 
 # Tables
 
-Data table display. Tables present structured data in rows and columns, with advanced features like heatmaps and highlighting for better data analysis.
+Data table display. Tables present structured data in rows and columns, with heatmaps, highlighting and threshold alerts to help analyse the data.
 
 <figure markdown>
-![Tables component displaying structured data in rows and columns with heatmap visualization](../../images/tables.png)
-<figcaption>Tables component displaying structured data in rows and columns with heatmap visualization</figcaption>
+![Tables component displaying structured data in rows and columns with heatmap visualisation](../../images/tables.png)
+<figcaption>Tables component displaying structured data in rows and columns with heatmap visualisation</figcaption>
 </figure>
 
 **Best for:** Structured data display, multi-dimensional data, data analysis, large datasets, comparative data
@@ -23,10 +23,10 @@ Data table display. Tables present structured data in rows and columns, with adv
 | `label` | optional (string) | Display label |
 | `tableHeaders` | required (array) | Column header configuration |
 | `value` | optional (array) | Table data |
-| `selectColumns` | optional (boolean) | Allow column selection |
-| `minValueToDisplay` | optional (number) | Minimum value to display |
-| `maxValueToDisplay` | optional (number) | Maximum value to display |
-| `heatmap` | optional (boolean) | Enable heatmap visualization |
+| `selectColumns` | optional (boolean) | Whether the operator can show and hide individual columns |
+| `minValueToDisplay` | optional (number) | Numeric cells below this value are omitted |
+| `maxValueToDisplay` | optional (number) | Numeric cells above this value are omitted |
+| `heatmap` | optional (boolean) | Colour cells on a scale between the minimum and maximum values |
 | `highlightMin` | optional (boolean) | Highlight minimum values |
 | `highlightMax` | optional (boolean) | Highlight maximum values |
 | `highlightAtOrBelow` | optional (number) | Highlight values at or below this threshold |
@@ -35,16 +35,16 @@ Data table display. Tables present structured data in rows and columns, with adv
 | `alertAtOrBelow` | optional (number) | Alert for values at or below this threshold |
 | `alertAtOrAbove` | optional (number) | Alert for values at or above this threshold |
 | `alertIfEqualTo` | optional (number) | Alert for specific values |
-| `displayPositive` | optional (boolean) | Display positive values only |
-| `conversionFactor` | optional (number) | Conversion factor to apply to values |
+| `displayPositive` | optional (boolean) | Show the absolute value of negative numbers |
+| `conversionFactor` | optional (number) | Factor applied to displayed numbers, for example for unit conversion |
 | `precision` | optional (number) | Decimal precision for numerical values |
-| `rowNames` | optional (array) | Optional array of row names for series data |
-| `columnNames` | optional (array) | Optional array of column names for series data |
+| `rowNames` | optional (array) | Custom row names for time series data |
+| `columnNames` | optional (array) | Custom column names for time series data |
 | `enabled` | optional (boolean) | Whether the table is enabled |
 | `visible` | optional (boolean) | Whether the table is visible |
 | `bind` | optional (array) | Data binding configuration |
 
-**Table Header Structure:**
+**Table Header Parameters:**
 
 Each item in `tableHeaders` must contain a `header` object with:
 

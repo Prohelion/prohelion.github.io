@@ -28,17 +28,17 @@ Requires **`TagCollectionsView`** to view and **`TagCollectionsModify`** to save
 
 After upgrading from 2.2.x:
 
-- Open each collection in the **visual editor** and **save** once to stamp `version: "2.3"` and normalise ids if you hand-edited YAML.
+- Open each collection in the **visual editor** and **save** it once, which stamps `version: "2.3"` and normalises the ids of any collection whose YAML was edited by hand.
 - The `id` field ties collection members to editor state and API resources.
 
 Engineering reference: [02.5 collections and filters](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.5-collections-and-filters.md).
 
 ## Create collections from Tag Explorer
 
-You can start a collection from the Tag Explorer context menu — see [Tag linking](../Tags/Tag_Linking.md).
+A collection can be started from the Tag Explorer context menu — see [Tag linking](../Tags/Tag_Linking.md).
 
 !!! note "Partial GA linking"
-    Reciprocal editors (for example "add rule to collection" from the collections view only) are **not** shipped in 2.3 GA. Document and use **shipped** Tag Explorer flows only.
+    Reciprocal editors (for example "add rule to collection" from the collections view only) are **not** shipped in 2.3 GA. Use the shipped Tag Explorer flows.
 
 ## Membership expression
 

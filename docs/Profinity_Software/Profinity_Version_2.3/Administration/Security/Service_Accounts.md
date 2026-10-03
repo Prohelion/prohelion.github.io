@@ -3,7 +3,7 @@ title: Service Accounts
 description: "Create service accounts with long-lived API tokens for automation and external MCP client access."
 ---
 
-# Service accounts
+# Service Accounts
 
 Profinity 2.3 supports **service accounts** — dedicated user records with long-lived **API tokens** for automation, integrations, and **MCP** clients. Service accounts are managed in **Users & Groups** by users with **SecurityAdmin** permission.
 
@@ -31,7 +31,7 @@ Assign **roles** to the service account the same as interactive users. Common pa
 |----------|----------------------|
 | Read-only monitoring | Read-only role template |
 | Tag/query automation | `TagView` plus any required read APIs |
-| MCP access | `McpView` (assign explicitly — not in default Administrators bundle) |
+| MCP access | `McpView` (included in the default Administrators role; assign it explicitly to any other role) |
 
 See [RBAC and permissions](./RBAC_Permissions.md).
 
@@ -56,3 +56,4 @@ For MCP setup and testing, see [MCP Server](../../Extending_Profinity/MCP_Server
 - [Managing users](../Manage_Users.md)
 - [MCP Server](../../Extending_Profinity/MCP_Server.md)
 - [RBAC and permissions](./RBAC_Permissions.md)
+- [Component and collection security](./Component_And_Collection_Security.md) — how restricted components and collections apply to service accounts.

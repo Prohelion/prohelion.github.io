@@ -3,7 +3,7 @@ title: Rule Scripts
 description: "Scripts set to Run On Alert mode that execute when rules fire with alert context."
 ---
 
-# Rule scripts
+# Rule Scripts
 
 !!! info "Superseded 2026-09-25 — dedicated Rule Script components are gone"
     Earlier 2.3 builds had dedicated **C# Rule Script** / **Python Rule Script** / **Lua Rule
@@ -25,7 +25,7 @@ the method the script implements.
    other rule action is referenced by component name.
 
 Enable scripting in [System Configuration](../../Administration/System_Config.md) before using
-script actions, the same prerequisite every script trigger already has.
+script actions, which every script trigger requires.
 
 ## The alert context
 
@@ -84,8 +84,7 @@ currently true.
 Full source: [`CSharpAlertTemplate.cs`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/CSharp/CSharpAlertTemplate.cs) ·
 [`PythonAlertTemplate.py`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Python/PythonAlertTemplate.py) ·
 [`LuaAlertTemplate.lua`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Lua/LuaAlertTemplate.lua) —
-all three shipped as templates alongside Profinity's other example scripts, matching the same
-C#/Python/Lua parity convention used for every other script trigger.
+all three are shipped as templates alongside Profinity's other example scripts.
 
 !!! warning "Manually running the script does not call this method"
     A component menu's **Run Script** action, and the Run On Demand/scheduled paths, do not call

@@ -3,13 +3,13 @@ title: Data Binding
 description: "Connect dashboard components to live data sources including CAN bus messages, properties, and time series."
 ---
 
-# Data Binding in Profinity Dashboards
+# Data Binding
 
-Data binding is the process of connecting your dashboard components to live data sources. This allows your dashboards to display real-time information from CAN bus messages, system properties, and historical data.
+Data binding is the process of connecting dashboard components to live data sources, which allows a dashboard to display real-time information from CAN bus messages, system properties, and historical data.
 
 ## Table of Contents
 
-- [What is Data Binding?](#what-is-data-binding)
+- [Overview](#overview)
 - [Understanding Data Sources](#understanding-data-sources)
     - [Component Name Placeholders](#component-name-placeholders)
 - [Data Source Types](#data-source-types)
@@ -24,13 +24,14 @@ Data binding is the process of connecting your dashboard components to live data
     - [Example Readout with Scaling](#example-readout-with-scaling)
     - [Value Inversion](#value-inversion)
     - [Text Mapping](#text-mapping)
-    - [Boolean Text Mapping](#boolean-text-mapping)
-    - [Partition-Based Text Mapping](#partition-based-text-mapping)
+        - [Boolean Text Mapping](#boolean-text-mapping)
+        - [Partition-Based Text Mapping](#partition-based-text-mapping)
 - [Best Practices](#best-practices)
+- [Next Steps](#next-steps)
 
-## What is Data Binding?
+## Overview
 
-Data binding creates a dynamic connection between your dashboard components and data sources. When the underlying data changes, your dashboard automatically updates to reflect the new values. 
+Data binding creates a dynamic connection between dashboard components and data sources. When the underlying data changes, the dashboard updates automatically to reflect the new values.
 
 This enables:
 
@@ -41,24 +42,22 @@ This enables:
 
 ## Understanding Data Sources
 
-Profinity dashboards access data through the **Profinity Data Store (PDS)**, which provides a unified interface to the various data sources managed by Profinity. 
-
-The PDS automatically handles data formatting, type conversion, and real-time updates.
+Profinity dashboards access data through the **Profinity Data Store (PDS)**, which provides a unified interface to the various data sources managed by Profinity and automatically handles data formatting, type conversion, and real-time updates.
 
 ### Component Name Placeholders
 
-Throughout this guide, you'll see `{COMPONENT_NAME}` used in data binding examples. This is a placeholder that gets replaced at runtime with the actual component name at runtime, this is used because it is possible to change the name of a component in Profinity, so rather than hard-coding the component name it is possible to define it as a variable. 
+Throughout this guide, `{COMPONENT_NAME}` is used in data binding examples. It is a placeholder that Profinity replaces at runtime with the actual component name, which is used because a component can be renamed in Profinity, so the dashboard refers to the component through a variable rather than hard-coding its name.
 
 For example:
 
 - `{COMPONENT_NAME}.BusMeasurement.BusVoltage` becomes `WaveSculptor 22.BusMeasurement.BusVoltage` 
 - `{COMPONENT_NAME}.[Property].Status`  becomes `Prohelion D1000 Gen 1.[Property].Status`
 
-This allows you to create reusable dashboard templates that can be applied to different components without modifying the YAML configuration. The system automatically substitutes the placeholder with the specific component name when the dashboard is rendered.
+This allows reusable dashboard templates to be applied to different components without modifying the YAML configuration, because the system substitutes the placeholder with the specific component name when the dashboard is rendered.
 
 ## Data Source Types
 
-Profinity supports three main types of data sources, each optimized for different use cases:
+Profinity supports three main types of data sources, each suited to different use cases:
 
 ### 1. DBC Messages and Signals
 
@@ -71,7 +70,7 @@ The most common data source uses DBC (Database CAN) format for CAN bus messages 
 
 ### 2. Direct C# Properties
 
-Use `[Property]` to directly access Properties on the back end C# objects in Profinity, generally this is for power users only:
+Use `[Property]` to access properties on the backend C# objects in Profinity directly, which is generally for advanced users only:
 
 - `{COMPONENT_NAME}.[Property].Status` - Accesses a C# property directly
 - `{COMPONENT_NAME}.[Property].Configuration.Version` - Accesses nested properties
@@ -79,7 +78,7 @@ Use `[Property]` to directly access Properties on the back end C# objects in Pro
 - `{COMPONENT_NAME}.[Property].PackData.BatteryMilliVolts` - Accesses battery voltage data
 - `{COMPONENT_NAME}.[Property].State.Controller.CurrentState.Name` - Accesses nested state information
 
-**Best for:** System configuration, complex data structures, calculated values where the component has all its functionality defined in the C# code.  Generally this would only use used by Prohelion developers, but it is available for general use where required.
+**Best for:** System configuration, complex data structures, and calculated values where the component has all of its functionality defined in the C# code. This source is generally used only by Prohelion developers, but it is available for general use where required.
 
 ### 3. Time Series Data
 
@@ -88,13 +87,13 @@ Use `[TimeSeries]` to access time-series data for charts and historical displays
 - `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent` - Time series data for charts
 - `[TimeSeries].{COMPONENT_NAME}.VelocityMeasurement.VehicleVelocity` - Historical velocity data
 
-**Best for:** Charts, historical analysis, trend visualization from either DBC or Property types.
+**Best for:** Charts, historical analysis, and trend visualisation from either DBC or Property types.
 
 The system automatically handles the different data source types and provides appropriate data binding capabilities for each.
 
 ## Data Binding Syntax
 
-Data binding allows you to connect your dashboard components to dynamic data sources that can be provided by the Prohelion Data Store (PDS). The binding system supports data transformation, type conversion, and value mapping.
+Data binding connects dashboard components to dynamic data sources provided by the Profinity Data Store (PDS), and the binding system supports data transformation, type conversion, and value mapping.
 
 ### Basic Binding Structure
 
@@ -120,12 +119,12 @@ dashboard:
 
 **Required Parameters:**
 
-- `target`  (string): The property to bind to (e.g., &quot;value&quot;, &quot;label&quot;, &quot;color&quot;)
-- `source`  (string): The data source path (e.g., &quot;data.temperature&quot;, &quot;status.online&quot;)</ul>
+- `target`  (string): The property to bind to (for example, `"value"`, `"label"`, `"color"`)
+- `source`  (string): The data source path (for example, `"data.temperature"`, `"status.online"`)
 
 **Optional Parameters:**
 
-- `toType`  (string): Data type conversion (&quot;number&quot;, &quot;string&quot;, &quot;boolean&quot;)
+- `toType`  (string): Data type conversion (`"number"`, `"string"`, `"boolean"`)
 - `gain`  (number): Multiplicative scaling factor
 - `offset`  (number): Additive offset
 - `invert`  (boolean): Whether to invert the value
@@ -163,7 +162,7 @@ dashboard:
 
 ### Scaling and Offset
 
-Apply mathematical transformations:
+Apply mathematical transformations with `gain` and `offset`:
 
 ``` yaml
 dashboard:
@@ -230,7 +229,7 @@ dashboard:
 
 Map values to display text using boolean or partition-based mapping.
 
-### Boolean Text Mapping
+#### Boolean Text Mapping
 
 ``` yaml
 dashboard:
@@ -249,7 +248,7 @@ dashboard:
                           falseValue: "Offline"
 ```
 
-### Partition-Based Text Mapping
+#### Partition-Based Text Mapping
 
 ``` yaml
 dashboard:
@@ -280,15 +279,15 @@ The partition array defines ranges: [label1, threshold1, label2, threshold2, lab
 
 ### Performance Considerations
 
-- **Minimize bindings** - Only bind to data you actually need to display
+- **Minimise bindings** - Only bind to data you actually need to display
 - **Use appropriate precision** - Set precision levels that match your data requirements
 - **Consider update frequency** - High-frequency data may impact dashboard performance
 
 ## Next Steps
 
-Now that you understand data binding, you can:
+The following pages relate to data binding:
 
 - Learn about [Core Elements](./Core_Elements.md) to understand dashboard structure
 - Explore [Component Reference](./Component_Reference/index.md) for detailed component information
 - See [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
-- Review [Example](./Example.md) for complete dashboard implementations
+- Review [Examples](./Examples.md) and the annotated [Full Example](./Example.md) for complete dashboard implementations

@@ -5,10 +5,10 @@ description: "Continuous, long-running scripts with service-like lifecycle manag
 
 # Service Scripts
 
-Service scripts are designed for continuous, long-running operations that need to maintain state and respond to system events. They operate similarly to Windows services, with full lifecycle management and multiple startup modes. These scripts are ideal for critical monitoring tasks, continuous data logging, and system-level operations that need to run reliably over extended periods.
+Service scripts are designed for continuous, long-running operations that need to maintain state and respond to system events. They operate similarly to Windows services, with full lifecycle management and multiple startup modes, which suits critical monitoring tasks, continuous data logging, and system-level operations that need to run reliably over extended periods.
 
 ## Characteristics
-- Continuous execution with service-like behavior
+- Continuous execution with service-like behaviour
 - Service state management methods
 - Support for service lifecycle management
 
@@ -17,7 +17,7 @@ Service scripts are designed for continuous, long-running operations that need t
 Long-running work in **`Run()`** / **`run()`** should observe **`Profinity.ScriptCancelled`**. This flag becomes **`true`** when the service is **stopped**, **paused**, or when Profinity is shutting down, so loops can exit and release resources promptly.
 
 - If **`run()`** uses its **own** `while` loop, test **`not Profinity.ScriptCancelled`** (or `!Profinity.ScriptCancelled` in C#) in the loop condition and optionally break out before slow steps.
-- When the service is **paused**, cancellation is signaled so an inner loop can finish; on **continue**, the engine may call **`run()`** again with a fresh cancellation scope (the **Example Scripts** folder in your Profinity installation includes **Python** and **C#** service templates with both single-step and loop-style **`run`** patterns).
+- When the service is **paused**, cancellation is signaled so an inner loop can finish; on **continue**, the engine may call **`run()`** again with a fresh cancellation scope (the **Example Scripts** folder in your Profinity installation includes **Python**, **C#** and **Lua** service templates with both single-step and loop-style **`run`** patterns).
 - In **Python**, use **`import time`** if you call **`time.sleep`** in the service body. In **C#**, **`Thread.Sleep`** is typical (add **`using System.Threading;`**). In **Lua**, use the **`sleep(seconds)`** global; each call is clamped to a maximum of **30 seconds**, so a loop that needs to wait longer should call **`sleep()`** again on the next iteration rather than passing one large value.
 
 ## Python: module-level variables and `global`
@@ -31,7 +31,7 @@ Lifecycle hooks (`on_start`, `run`, and so on) are separate functions. If you ke
 
 ## Examples
 
-The following examples demonstrate how to implement Service scripts in each supported language. Each example shows lifecycle methods (**start**, **stop**, **pause**, **continue**) and a **`Run()`** / **`run()`** implementation that loops until **`Profinity.ScriptCancelled`** is set. The `on_stop()` method (Python) or `OnStop()` method (C#) is called both when the service is manually stopped and when Profinity is shutting down.
+The following examples demonstrate how to implement Service scripts in each supported language. Each example shows lifecycle methods (**start**, **stop**, **pause**, **continue**) and a **`Run()`** / **`run()`** implementation that loops until **`Profinity.ScriptCancelled`** is set. The `on_stop()` function (Python and Lua) or `OnStop()` method (C#) is called both when the service is manually stopped and when Profinity is shutting down.
 
 This example demonstrates a Service script that:
 

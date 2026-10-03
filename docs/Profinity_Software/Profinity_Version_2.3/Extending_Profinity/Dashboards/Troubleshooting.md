@@ -5,7 +5,7 @@ description: "Diagnose and fix common dashboard issues including schema validati
 
 # Troubleshooting Guide
 
-This guide helps you diagnose and fix common issues when creating Profinity dashboards. It covers schema validation errors, data binding issues, performance problems, and component-specific troubleshooting.
+This guide explains how to diagnose and fix common issues when creating Profinity dashboards, and covers schema validation errors, data binding issues, performance problems, and component-specific troubleshooting.
 
 ## Table of Contents
 
@@ -14,20 +14,21 @@ This guide helps you diagnose and fix common issues when creating Profinity dash
 - [Performance Considerations](#performance-considerations)
 - [Component-Specific Troubleshooting](#component-specific-troubleshooting)
 - [Common Mistakes](#common-mistakes)
+- [Getting More Help](#getting-more-help)
 
 ## Schema Validation Errors
 
-The dashboard editor validates your YAML against the UI schema. If validation fails, the dashboard cannot be loaded. Here are common validation errors and how to fix them.
+The dashboard editor validates the YAML against the UI schema, and a dashboard that fails validation cannot be loaded. The following sections list common validation errors and how to fix them.
 
 ### Error: "Property 'charttype' is not defined"
 
-**Problem:** You're using the old property name `charttype` instead of `type`.
+**Problem:** The old property name `charttype` is used instead of `type`.
 
 **Solution:** Change `charttype` to `type`:
 
 ``` yaml
-# ❌ Incorrect - using 'charttype' instead of 'type' (this would fail validation)
-# Note: This example is shown for documentation but uses invalid property name
+# Incorrect - using 'charttype' instead of 'type' fails validation
+# The invalid property is not reproduced below, so that this page stays schema-valid
 dashboard:
   items:
     - row:
@@ -35,7 +36,7 @@ dashboard:
           - chart:
               type: line  # Correct: use 'type' not 'charttype'
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -51,9 +52,9 @@ dashboard:
 **Solution:** Use the correct structure:
 
 ``` yaml
-# ❌ Incorrect - using 'groups' instead of 'items' with 'pillgroup'
-# Note: This example shows the wrong structure - pill uses 'items' not 'groups'
-# Also note: pill must be wrapped in a row within dashboard.items
+# Incorrect - using 'groups' instead of 'items' with 'pillgroup'
+# The invalid 'groups' structure is not reproduced below, so that this page stays schema-valid
+# Note: pill must be wrapped in a row within dashboard.items
 dashboard:
   items:
     - row:
@@ -65,7 +66,7 @@ dashboard:
                       - value:
                           label: "Value 1"
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -85,8 +86,8 @@ dashboard:
 **Solution:** Use the correct structure:
 
 ``` yaml
-# ❌ Incorrect - using 'groups' instead of 'items' with 'lampgroup'
-# Note: This example shows the wrong structure - lamps uses 'items' not 'groups'
+# Incorrect - using 'groups' instead of 'items' with 'lampgroup'
+# The invalid 'groups' structure is not reproduced below, so that this page stays schema-valid
 dashboard:
   items:
     - row:
@@ -99,7 +100,7 @@ dashboard:
                           color: green
                           label: "Status"
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -121,8 +122,8 @@ dashboard:
 **Solution:** Use the correct structure:
 
 ``` yaml
-# ❌ Incorrect - using 'headersInfo' and 'accessorkey' instead of 'tableHeaders' and 'accessorKey'
-# Note: This example shows the wrong property names
+# Incorrect - using 'headersInfo' and 'accessorkey' instead of 'tableHeaders' and 'accessorKey'
+# The invalid property names are not reproduced below, so that this page stays schema-valid
 dashboard:
   items:
     - row:
@@ -133,7 +134,7 @@ dashboard:
                     accessorKey: name
                     value: "Name"
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -152,8 +153,8 @@ dashboard:
 **Solution:** Wrap each readout item:
 
 ``` yaml
-# ❌ Incorrect - missing 'readout' wrapper
-# Note: This example shows the wrong structure - items must be 'readout' objects
+# Incorrect - missing 'readout' wrapper
+# The unwrapped structure is not reproduced below, so that this page stays schema-valid; items must be 'readout' objects
 dashboard:
   items:
     - row:
@@ -164,7 +165,7 @@ dashboard:
                     label: "Temperature"
                     value: 25.5
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -183,8 +184,8 @@ dashboard:
 **Solution:** Wrap each panel:
 
 ``` yaml
-# ❌ Incorrect - missing 'panel' wrapper
-# Note: This example shows the wrong structure - items must be 'panel' objects
+# Incorrect - missing 'panel' wrapper
+# The unwrapped structure is not reproduced below, so that this page stays schema-valid; items must be 'panel' objects
 dashboard:
   items:
     - row:
@@ -200,7 +201,7 @@ dashboard:
                                 label: "Status"
                                 value: 0
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -224,9 +225,9 @@ dashboard:
 **Solution:** Wrap each tab:
 
 ``` yaml
-# ❌ Incorrect - missing 'tab' wrapper
-# This structure would fail: tabs.items must contain 'tab' objects, not direct properties
-# The WRONG way (shown in comment): tabs.items: - enabled: true (missing 'tab' wrapper)
+# Incorrect - missing 'tab' wrapper
+# This structure fails because tabs.items must contain 'tab' objects, not direct properties
+# The unwrapped form (tabs.items: - enabled: true) is not reproduced below, so that this page stays schema-valid
 dashboard:
   items:
     - row:
@@ -251,7 +252,7 @@ dashboard:
                                             label: "Value"
                                             value: 0
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -290,7 +291,8 @@ dashboard:
 **Solution:** Add the `source` property:
 
 ``` yaml
-# ❌ Incorrect - bind missing 'source' property
+# Incorrect - bind missing 'source' property
+# The bind without 'source' is not reproduced below, so that this page stays schema-valid
 dashboard:
   items:
     - row:
@@ -303,7 +305,7 @@ dashboard:
                       - target: value
                         source: '{COMPONENT_NAME}.Temperature'  # Required: bind must have both target and source
 
-# ✅ Correct
+# Correct
 dashboard:
   items:
     - row:
@@ -321,7 +323,7 @@ dashboard:
 
 ### Data Not Updating
 
-**Symptoms:** Dashboard components show static values or don't update when data changes.
+**Symptoms:** Dashboard components show static values or do not update when data changes.
 
 **Possible Causes:**
 
@@ -330,14 +332,14 @@ dashboard:
    - Verify component name is correct (or use `{COMPONENT_NAME}` placeholder)
    - Check for typos in property names
 
-2. **Data Source Doesn't Exist**
+2. **Data Source Does Not Exist**
    - Verify the component is connected and sending data
-   - Check that the DBC file defines the signals you're trying to access
+   - Check that the DBC file defines the signals the dashboard is trying to access
    - Use the Profinity data browser to verify signal paths
 
 3. **Type Mismatch**
    - Ensure `toType` matches the expected data type
-   - Check that numeric values aren't being treated as strings
+   - Check that numeric values are not being treated as strings
 
 **Solution:**
 
@@ -494,7 +496,7 @@ dashboard:
 
 ### Charts Not Rendering
 
-**Symptoms:** Charts appear blank or don't display data.
+**Symptoms:** Charts appear blank or do not display data.
 
 **Possible Causes:**
 
@@ -648,18 +650,19 @@ dashboard:
 
 **Mistake:** Using full file paths instead of just filenames for profile assets.
 
-**Fix:** Reference images/styles/content by filename only. They're automatically served from `/Profile/Images`, `/Profile/Styles`, `/Profile/Content`.
+**Fix:** Reference images, styles, and content by filename only in component properties. Profinity automatically serves them from `/Profile/Images`, `/Profile/Styles`, and `/Profile/Content` (see [Profile Directories](./Profile_Directories.md)).
 
 ## Getting More Help
 
-If you're still experiencing issues:
+If an issue persists:
 
 1. **Check the Schema** - Review `ui-schema.json` for exact property requirements
 2. **Validate Your YAML** - Use the dashboard editor's validation to catch errors early
-3. **Review Examples** - Check [Examples](./Examples.md) for working code samples
+3. **Review Examples** - Check [Examples](./Examples.md) and the annotated [Full Example](./Example.md) for working code samples
 4. **Check Component Reference** - See [Component Reference](./Component_Reference/index.md) for detailed property information
-5. **Contact Support** - If issues persist, contact Profinity support with:
-   - Your YAML configuration
-   - Error messages
-   - Expected vs. actual behavior
+5. **Contact Prohelion** - If issues persist, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) with:
+
+   - The YAML configuration
+   - Any error messages
+   - The expected and actual behaviour
 

@@ -11,24 +11,26 @@ Send and receive CAN bus messages using Profinity's built-in CAN tools.
 
 - Profinity V2 installed and running
 - CAN bus adapter connected and active
-- User privileges to send/receive CAN messages
+- A role that includes the `CANView` permission to receive and view CAN messages, and `CANSend` to send them
 - Active profile with adapter configured
 
 ## Steps
 
-### Step 1: Enable User Privileges
+### Step 1: Check User Permissions
 
-1. Navigate to **ADMIN** → **Users**
-2. Select your user account
-3. Ensure **Send CAN Messages** privilege is enabled
-4. Ensure **Receive CAN Messages** privilege is enabled
+1. Open the pill menu (top-right) and select **Users & Groups**
+2. Click your user account
+3. Ensure one of the **Assigned roles** includes `CANView`, which allows CAN messages to be received and viewed
+4. To send messages, ensure an assigned role includes `CANSend`, which also includes `CANView`
 5. Click **Save**
+
+Changing a user's roles revokes their active sessions, so the user must sign in again for the change to take effect.
 
 ### Step 2: Open the Send & Receive CAN Window
 
 1. Click on **SEND & RECEIVE CAN** in the menu
-2. The CAN Activity window will open
-3. You'll see all CAN messages currently on the network
+2. The CAN Activity window opens
+3. All CAN messages currently on the network are shown
 
 ### Step 3: View Received CAN Messages
 
@@ -41,8 +43,9 @@ The CAN Activity panel shows:
 - **Time**: Timestamp of last message
 
 **View Options:**
-- **Spaced Data**: Breaks data into individual hex bytes (default: on)
-- **Heatmap**: Highlights frequently changing bytes in warm colours (default: on)
+
+- **Spaced Data**: breaks data into individual hex bytes (default: on)
+- **Heatmap**: highlights frequently changing bytes in warmer colours and relatively constant bytes in cooler colours (default: on)
 
 ### Step 4: Filter and Sort Messages
 
@@ -66,18 +69,20 @@ The CAN Activity panel shows:
    - **Floats**: Enter floating-point values
    - **Raw Data**: Enter raw hex data
 
-4. **Interval (ms)**: Set how often to send (e.g., 100ms = 10 times per second)
+4. **Interval (ms)**: Set how often to send (for example, 100 ms sends the packet 10 times per second)
    - Leave blank for manual send only
 
 ### Step 7: Enter Message Data
 
 **Example - Entering Bytes:**
+
 - Byte 0: `0x01`
 - Byte 1: `0x02`
 - Byte 2: `0x03`
 - Raw data updates automatically
 
 **Example - Entering Int16:**
+
 - Int16[0]: `1234`
 - Int16[1]: `5678`
 - Values are converted to bytes automatically
@@ -106,8 +111,8 @@ The CAN Activity panel shows:
 ### Stop a Scheduled Packet
 
 1. Select the packet in Scheduled CAN Packets panel
-2. Delete the interval value or delete the packet
-3. Packet stops sending
+2. Delete the packet, as logging off does not stop a scheduled packet
+3. The packet stops sending
 
 ### Edit a Scheduled Packet
 
@@ -124,38 +129,41 @@ The CAN Activity panel shows:
 
 ## Tips
 
-- **Test First**: Send packets manually before scheduling
-- **Monitor Activity**: Watch CAN Activity panel to see your messages
-- **Check Bitrate**: Ensure CAN ID and data format match network expectations
-- **Use Heatmap**: Heatmap helps identify active messages
-- **Save Packets**: Scheduled packets are saved in your profile
+- **Test First**: send packets manually before scheduling
+- **Monitor Activity**: watch the CAN Activity panel to see your messages
+- **Check Network Expectations**: ensure the CAN ID, data format and CAN bus bitrate match what the network expects
+- **Use Heatmap**: the heatmap helps identify active messages
+- **Save Packets**: scheduled packets are saved in your profile
 
 ## Important Notes
 
-- **Scheduled Packets Continue**: Scheduled packets continue sending even after logging off
-- **Profile-Based**: Scheduled packets are saved with your profile
-- **Manual Restart**: Packets don't auto-start after profile change or restart
+- **Scheduled Packets Continue**: scheduled packets continue sending even after logging off, so delete the packet to stop it
+- **Profile-Based**: scheduled packets are saved with your profile
+- **Manual Restart**: packets do not start automatically after a profile change or restart
 
 ## Troubleshooting
 
 **Packet Not Sending:**
+
 - Check adapter is connected (green status)
-- Verify user has send privileges
+- Verify the user has the `CANSend` permission
 - Check CAN ID is valid
 - Ensure interval is set or use manual send
 
 **Packet Not Appearing in Activity:**
-- Check filters aren't hiding your message
+
+- Check filters are not hiding your message
 - Verify adapter is receiving traffic
 - Check CAN bus bitrate matches
 
 **Wrong Data Format:**
+
 - Verify endian setting matches your system
 - Check data format conversion (bytes vs. integers)
 - Review raw data to confirm values
 
 ## Related Documentation
 
-- [Send/Receive CAN Messages](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md) - Complete CAN utilities guide
+- [Send / Receive CAN](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md) - the full CAN utilities reference
 - [Connect to CAN Bus](./Connect_to_CAN_Bus.md) - Setting up CAN adapters
 - [CAN Bus Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) - Adapter documentation

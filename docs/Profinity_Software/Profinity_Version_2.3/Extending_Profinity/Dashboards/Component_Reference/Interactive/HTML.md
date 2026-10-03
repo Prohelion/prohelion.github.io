@@ -5,7 +5,7 @@ description: "Embed custom HTML content with references to profile assets for ri
 
 # HTML
 
-HTML content component for displaying raw HTML content. This component allows you to embed custom HTML, including references to content from /Profile/Content, images from /Profile/Images, and styles from /Profile/Styles.
+HTML content component for displaying raw HTML. The component embeds custom HTML, including references to content from `/Profile/Content`, images from `/Profile/Images`, and styles from `/Profile/Styles`.
 
 <figure markdown>
 ![HTML component displaying custom HTML content with rich text formatting](../../images/html.png)
@@ -26,7 +26,7 @@ HTML content component for displaying raw HTML content. This component allows yo
 
 **Referencing Profile Assets in HTML:**
 
-- **Images**: Use `/Profile/Images/{filename}` in img src attributes
+- **Images**: Use `/Profile/Images/{filename}` in the `src` attribute of `img` elements
 - **Styles**: Link to stylesheets using `/Profile/Styles/{filename}`
 - **Content**: Reference content files using `/Profile/Content/{filename}`
 

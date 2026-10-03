@@ -93,14 +93,14 @@ From ALL ALERTS (requires `AlertsView` — same permission for mutations):
 
 Rules support **dwell** (condition must hold for a duration) and **deadband** (hysteresis) configured in the rules visual editor. Engine evaluation interval is controlled by **`evaluationTickSeconds`** in rule configuration.
 
-Conditions use the same `tag` expression language as collections. Numeric trip and clear:
+Conditions use the same `tag` expression language as collections. Numeric trip and clear conditions:
 
 ```text
 tag.Value > 4.2
 tag.Value < 4.0
 ```
 
-No-data / stale sensor (preferred over sample age):
+A no-data or stale sensor condition (preferred over sample age):
 
 ```text
 tag.IsStale

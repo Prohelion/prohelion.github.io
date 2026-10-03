@@ -5,11 +5,11 @@ description: "Built-in feedback system for sharing suggestions, reporting issues
 
 # Profinity Feedback
 
-Profinity includes a built-in feedback system to help us improve our software and better support our users. This system allows you to share your suggestions, report issues, or provide general feedback about your experience with Profinity.
+Profinity includes a built-in feedback system that allows you to share suggestions, report issues, or provide general feedback about your experience with the product, which Prohelion uses to improve Profinity and to better support its users.
 
 ## Accessing the Feedback Form
 
-The feedback form is accessible through the `ADMIN` tab in the Profinity interface. To access the form, open Profinity and navigate to the `ADMIN` tab in the navigation menu. From there, select the "Feedback" option to open the feedback interface.
+The feedback form is accessible through the `ADMIN` tab in the Profinity interface. To access the form, open Profinity, navigate to the `ADMIN` tab in the navigation menu, and select the "Feedback" option to open the feedback interface.
 
 <figure markdown>
 ![Feedback](../images/feedback.png)
@@ -18,23 +18,24 @@ The feedback form is accessible through the `ADMIN` tab in the Profinity interfa
 
 ## Providing Effective Feedback
 
-To help us process your feedback effectively, we need some essential information. Your feedback should include your name and contact information, along with a clear description of your feedback or issue. If you're reporting a problem, please include any relevant error messages or screenshots that can help us understand the situation better.
+To allow Prohelion to process your feedback effectively, each submission needs your name and contact information along with a clear description of your feedback or issue. If you are reporting a problem, include any relevant error messages or screenshots that help explain the situation.
 
-When submitting feedback, please provide the following information:
+Each submission should include:
 
 - Your full name
 - Your contact email address
 - A detailed description of your feedback or issue
 
-Additional information that can help us better understand your feedback includes:
-- Steps to reproduce any issues you're experiencing
+The following additional information helps Prohelion understand your feedback:
+
+- Steps to reproduce any issues you are experiencing
 - Your operating system and Profinity version
 - Any relevant error messages
 
-## What Happens Next?
+## After You Submit
 
-After you submit your feedback our team will review your submission and may contact you for additional information if needed. 
+Once you submit your feedback, the Prohelion team reviews the submission and may contact you for additional information if needed.
 
 ## Alternative Support Options
 
-If you need immediate assistance or have urgent issues, we provide several support channels. You can visit our [Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) for comprehensive support resources, [Contact Us](https://www.prohelion.com/contact-us/) directly through the Prohelion website.
+For immediate assistance or urgent issues, visit the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals) for support resources, or [contact Prohelion](https://www.prohelion.com/contact-us/) directly through the Prohelion website.

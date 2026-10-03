@@ -5,7 +5,7 @@ description: "Status pill with central icon and grouped readouts for compact com
 
 # Pill
 
-Status pill component with grouped readouts and icon. Pills provide a compact way to display multiple related values with a central icon, perfect for showing component status and key metrics.
+Status pill component with grouped readouts and icon. Pills display multiple related values around a central icon, which suits component status and key metrics.
 
 <figure markdown>
 ![Pill component showing status display with icon and grouped readouts](../../images/pill.png)
@@ -14,7 +14,7 @@ Status pill component with grouped readouts and icon. Pills provide a compact wa
 
 **Best for:** Component status displays, key metric summaries, compact data presentation
 
-**When not to use:** When you need individual readouts without grouping, or when you don't need an icon
+**When not to use:** When individual readouts are needed without grouping, or when no icon is needed
 
 **Parameters:**
 
@@ -25,7 +25,7 @@ Status pill component with grouped readouts and icon. Pills provide a compact wa
 | `icon` | optional (object) | Icon configuration |
 | `items` | required (array) | Array of pill groups |
 
-**Icon Configuration:**
+**Icon Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -34,7 +34,7 @@ Status pill component with grouped readouts and icon. Pills provide a compact wa
 | `value` | optional (number) | Icon value |
 | `bind` | optional (array) | Data binding for icon |
 
-**Pill Group Structure:**
+**Pill Group Parameters:**
 
 Each item in `items` must contain a `pillgroup` object with:
 
@@ -44,7 +44,9 @@ Each item in `items` must contain a `pillgroup` object with:
 | `class` | optional (string) | CSS class for styling |
 | `items` | required (array) | Array of value items |
 
-Each value item must contain a `value` object (pill_item) with:
+Each item in the pill group's `items` must contain a `value` object (a pill item) with:
+
+**Pill Item Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -52,8 +54,8 @@ Each value item must contain a `value` object (pill_item) with:
 | `value` | optional (number/string) | Static value |
 | `unit` | optional (string) | Unit of measurement |
 | `precision` | optional (number) | Decimal precision |
-| `enabled` | optional (boolean) | Whether the readout is enabled |
-| `visible` | optional (boolean) | Whether the readout is visible |
+| `enabled` | optional (boolean) | Not used by the web interface (pill items are always enabled) |
+| `visible` | optional (boolean) | Not used by the web interface (pill items are always shown) |
 | `bind` | optional (array) | Data binding configuration |
 
 **Example:**

@@ -1,18 +1,18 @@
 ---
 title: Tabs Component
-description: "Tabbed interface with header lamps and body content for organizing multiple data views."
+description: "Tabbed interface with header lamps and body content for organising multiple data views."
 ---
 
 # Tabs
 
-Tabbed interface with header lamps and body content. Tabs organize information into separate views, allowing users to switch between different data sets or views.
+Tabbed interface with header lamps and body content. Tabs organise information into separate views that users switch between.
 
 <figure markdown>
 ![Tabs component displaying a tabbed interface with header lamps and body content](../../images/tabs.png)
 <figcaption>Tabs component displaying a tabbed interface with header lamps and body content</figcaption>
 </figure>
 
-**Best for:** Organizing multiple data views, separating different information types, creating multi-page interfaces within a single dashboard
+**Best for:** Organising multiple data views, separating different information types, creating multi-page interfaces within a single dashboard
 
 **Parameters:**
 
@@ -20,7 +20,9 @@ Tabbed interface with header lamps and body content. Tabs organize information i
 |-----------|------|-------------|
 | `items` | required (array) | Array of tab objects |
 
-**Tab Object Parameters:**
+**Tab Parameters:**
+
+Each item in `items` must contain a `tab` object with:
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -30,7 +32,7 @@ Tabbed interface with header lamps and body content. Tabs organize information i
 | `visible` | optional (boolean) | Whether the tab is visible |
 | `bind` | optional (array) | Data binding configuration |
 | `header` | required (array) | Tab header items (typically lamps) |
-| `body` | required (array) | Tab body content (typically panels) |
+| `items` | required (array) | Tab panel content, typically panels (the legacy name `body` is converted to `items` by the dashboard editor) |
 
 **Example:**
 
@@ -49,7 +51,7 @@ dashboard:
                           color: disabled
                           value: 1
                           label: INFO
-                    body:
+                    items:
                       - panels:
                           items:
                             - panel:

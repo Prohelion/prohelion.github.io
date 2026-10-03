@@ -19,7 +19,7 @@ For the full permission catalog and default role templates, see [RBAC and permis
 1. Open the **pill menu** (top-right) → **Users & Groups** (`/admin?view=users`).
     - Requires **SecurityAdmin** permission.
 2. Click **+ Add user**.
-3. Enter username and initial password (for local sign-in).
+3. Enter a username and initial password (for local sign-in).
 4. Assign one or more **roles** under **Assigned roles**.
 5. Save.
 
@@ -71,7 +71,7 @@ Custom roles are supported — open the **Roles** tab in Users & Groups.
 After creating a user:
 
 1. Share login credentials securely (local sign-in only).
-2. Enable **Require password change** for first login when appropriate.
+2. Enable **Require password change** so the user must set a new password at first login.
 3. Verify the user sees only the expected side menu entries for their roles.
 
 !!! warning "Security notice"

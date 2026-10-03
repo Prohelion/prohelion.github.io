@@ -11,13 +11,13 @@ Troubleshoot and fix common dashboard problems.
 
 - Profinity V2 installed and running
 - A dashboard with issues
-- Access to dashboard editor
+- Access to the dashboard editor
 
 ## Steps
 
 ### Step 1: Check Dashboard Validation
 
-1. Open dashboard editor
+1. Open the dashboard editor
 2. Check for validation errors at the bottom
 3. Fix any YAML syntax errors shown
 4. Common errors:
@@ -61,7 +61,7 @@ Troubleshoot and fix common dashboard problems.
 2. Check filenames match exactly (case-sensitive)
 3. Verify file paths in HTML components:
    ```html
-   <img src="/Profile/Images/logo.png" />  # Correct
+   <img src="/Profile/Images/logo.png" />  <!-- Correct -->
    ```
 
 ### Step 6: Review Dashboard Logs
@@ -81,27 +81,31 @@ Troubleshoot and fix common dashboard problems.
 ## Common Issues and Solutions
 
 **Issue: Dashboard Not Loading**
+
 - Check YAML syntax is valid
 - Verify dashboard structure is correct
 - Check for missing required properties
 
 **Issue: No Data Displaying**
+
 - Verify components are active
 - Check data bindings are correct
 - Verify CAN data is arriving
 
 **Issue: Images Not Showing**
+
 - Check image files exist in `/Profile/Images/`
-- Verify filenames match exactly
+- Verify filenames match exactly (case-sensitive)
 - Check file format is supported
 
 **Issue: Styling Not Applied**
+
 - Verify CSS file exists in `/Profile/Styles/`
 - Check CSS is linked in HTML component
 - Verify class names match
 
 ## Related Documentation
 
-- [Troubleshooting Guide](../Extending_Profinity/Dashboards/Troubleshooting.md) - Complete troubleshooting guide
-- [FAQ](../Extending_Profinity/Dashboards/FAQ.md) - Frequently asked questions
-- [Dashboard Validation](../Extending_Profinity/Dashboards/index.md) - Schema validation information
+- [Troubleshooting Guide](../Extending_Profinity/Dashboards/Troubleshooting.md) - the full dashboard troubleshooting reference
+- [Dashboard FAQ](../Extending_Profinity/Dashboards/FAQ.md) - frequently asked questions
+- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - schema validation information

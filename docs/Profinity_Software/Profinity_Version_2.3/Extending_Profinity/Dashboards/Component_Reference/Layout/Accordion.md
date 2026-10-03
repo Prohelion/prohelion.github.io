@@ -1,18 +1,18 @@
 ---
 title: Accordion Component
-description: "Collapsible sections for organizing dashboard content that can be expanded and collapsed on demand."
+description: "Collapsible sections for organising dashboard content that can be expanded and collapsed on demand."
 ---
 
 # Accordion
 
-Collapsible sections for organizing content. Accordions help keep dashboards clean by allowing users to expand and collapse sections of information as needed.
+Collapsible sections for organising content. Accordions keep dashboards uncluttered by letting users expand and collapse sections of information as needed.
 
 <figure markdown>
-![Accordion component displaying collapsible sections for organizing dashboard content](../../images/accordion.png)
-<figcaption>Accordion component displaying collapsible sections for organizing dashboard content</figcaption>
+![Accordion component displaying collapsible sections for organising dashboard content](../../images/accordion.png)
+<figcaption>Accordion component displaying collapsible sections for organising dashboard content</figcaption>
 </figure>
 
-**Best for:** Detailed information that's not always needed, settings panels, secondary data, keeping dashboards uncluttered
+**Best for:** Detailed information that is not always needed, settings panels, secondary data, keeping dashboards uncluttered
 
 **Parameters:**
 
@@ -71,7 +71,7 @@ dashboard:
 
 **Nested Accordions:**
 
-Accordions can be nested within other accordions for hierarchical organization:
+Accordions can be nested within other accordions for hierarchical organisation:
 
 ``` yaml
 dashboard:

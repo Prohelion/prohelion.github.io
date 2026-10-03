@@ -19,17 +19,17 @@ Interactive buttons. Actions provide clickable buttons that can trigger system a
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the action |
-| `class` | optional (string) | CSS class |
-| `label` | required if mode is "button" (string) | Button text |
+| `class` | optional (string) | CSS class for styling |
+| `label` | conditional (string) | Button text, required when `mode` is `button` |
 | `actionId` | required (string) | Action identifier |
-| `mode` | required (string) | Action mode - "icon", "button", or "auto" |
-| `image` | optional (string) | Button icon filename from /Profile/Images directory |
+| `mode` | required (string) | Display mode: `icon`, `button` or `auto` |
+| `image` | optional (string) | Button icon filename from the `/Profile/Images` directory |
 | `imageAlt` | optional (string) | Icon alt text |
 | `value` | optional (object) | Action value |
 | `systemAction` | optional (boolean) | System-level action |
-| `trackProgress` | optional (boolean) | Track action progress |
+| `trackProgress` | optional (boolean) | Whether to show a progress bar while the action runs |
 | `hyperlink` | optional (string) | Hyperlink URL |
-| `openHyperLinkInNewWindow` | optional (boolean) | Whether links open in new window |
+| `openHyperLinkInNewWindow` | optional (boolean) | Whether the hyperlink opens in a new window |
 | `enabled` | optional (boolean) | Whether the action is enabled |
 | `visible` | optional (boolean) | Whether the action is visible |
 | `bind` | optional (array) | Data binding configuration |

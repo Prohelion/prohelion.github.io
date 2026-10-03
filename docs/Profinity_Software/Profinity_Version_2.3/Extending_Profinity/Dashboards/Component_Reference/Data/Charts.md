@@ -1,21 +1,21 @@
 ---
 title: Charts Component
-description: "Data visualization component supporting line, bar, radar, pie, doughnut, bubble, scatter, and polar area charts."
+description: "Data visualisation component supporting line, bar, radar, pie, doughnut, bubble, scatter, and polar area charts."
 ---
 
 # Charts
 
-Data visualization components. Charts provide graphical representation of data trends, making it easy to understand patterns and changes over time.
+Data visualisation component. Charts provide a graphical representation of data, showing patterns and changes over time.
 
-Profinity supports multiple chart types to visualize data in different ways:
+Profinity supports multiple chart types. Line and bar charts are shown below:
 
-**Line Chart** - Ideal for showing trends and changes over time:
+**Line Chart** - Shows trends and changes over time:
 <figure markdown>
 ![Line chart component displaying data trends over time with connected data points](../../images/charts_line.png)
 <figcaption>Line chart component displaying data trends over time with connected data points</figcaption>
 </figure>
 
-**Bar Chart** - Perfect for comparing discrete values or categories:
+**Bar Chart** - Compares discrete values or categories:
 <figure markdown>
 ![Bar chart component displaying data comparison using rectangular bars](../../images/charts_bar.png)
 <figcaption>Bar chart component displaying data comparison using rectangular bars</figcaption>
@@ -29,13 +29,13 @@ Profinity supports multiple chart types to visualize data in different ways:
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the chart |
 | `class` | optional (string) | CSS class for styling |
-| `type` | required (string) | Chart type - "bar", "line", "radar", "doughnut", "pie", "polarArea", "bubble", or "scatter". See [Chart Types](#chart-types) below for details |
+| `type` | required (string) | Chart type: `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. See [Chart Types](#chart-types) for details |
 | `value` | required (object/array) | Chart data (structured object with labels/datasets, or time series array) |
-| `legend` | optional (boolean) | Show legend (default: false) |
-| `refreshInterval` | optional (number) | Auto refresh interval in milliseconds (minimum: 0) |
-| `showControls` | optional (boolean) | Show time range and refresh controls |
-| `min` | optional (number) | Minimum value for chart scale (auto-calculated if not specified) |
-| `max` | optional (number) | Maximum value for chart scale (auto-calculated if not specified) |
+| `legend` | optional (boolean) | Whether to show the legend (default: `false`) |
+| `refreshInterval` | optional (number) | Automatic refresh interval in milliseconds (minimum: 0) |
+| `showControls` | optional (boolean) | Whether to show the time range and refresh controls |
+| `min` | optional (number) | Minimum value of the chart scale (calculated automatically if not specified) |
+| `max` | optional (number) | Maximum value of the chart scale (calculated automatically if not specified) |
 | `label` | optional (string) | Chart label |
 | `enabled` | optional (boolean) | Whether the chart is enabled |
 | `visible` | optional (boolean) | Whether the chart is visible |
@@ -45,16 +45,16 @@ Profinity supports multiple chart types to visualize data in different ways:
 
 Profinity supports the following chart types:
 
-- **`line`** - Line charts display data points connected by lines, ideal for showing trends over time
-- **`bar`** - Bar charts display data as rectangular bars, perfect for comparing discrete values
+- **`line`** - Line charts display data points connected by lines, which suits trends over time
+- **`bar`** - Bar charts display data as rectangular bars, which suits comparing discrete values
 - **`radar`** - Radar charts display multivariate data in a two-dimensional form
-- **`doughnut`** - Doughnut charts display data as a circular chart with a hole in the center
+- **`doughnut`** - Doughnut charts display data as a circular chart with a hole in the centre
 - **`pie`** - Pie charts display data as proportional slices of a circle
 - **`polarArea`** - Polar area charts display data as sectors of a circle
 - **`bubble`** - Bubble charts display three dimensions of data (x, y, and size)
 - **`scatter`** - Scatter charts display data points across two axes
 
-**Example with Data Binding:**
+**Data Binding Example:**
 
 ``` yaml
 dashboard:
@@ -88,7 +88,7 @@ dashboard:
                     data: [28, 48, 40, 19]
 ```
 
-**Time Series Chart Example:**
+**Time Series Example:**
 
 ``` yaml
 dashboard:

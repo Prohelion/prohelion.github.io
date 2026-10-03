@@ -5,7 +5,7 @@ description: "Comparison of three Profinity extension models: Custom Components,
 
 # Custom Component, Dashboard Component, and DLL plugins
 
-Profinity 2.3 distinguishes three extension models. Using the wrong packaging path is a common integration mistake.
+Profinity 2.3 distinguishes three extension models, each with its own packaging and install path, so the right model needs to be chosen before building rather than after.
 
 <figure markdown>
 ![Package a device's comms protocol, tags, rules, and dashboards as one plugin — shippable as Python + YAML or compiled — then install it so it behaves like a native device: build, package, install, reuse across every site](../../../../assets/images/2.3/2.3-diagram-build-your-own-plugin.png)
@@ -43,16 +43,16 @@ Authoring reference: [SDK Plugin Authoring](https://github.com/Prohelion/Profini
 
 ## Dashboard Component
 
-A **Dashboard Component** is a built-in profile component that renders **YAML-only** dashboards — **no DBC**. Use it for HMI-style screens that bind to existing tags without defining CAN messages.
+A **Dashboard Component** is a built-in profile component that renders **YAML-only** dashboards, with **no DBC**. It suits human-machine interface (HMI) style screens that bind to existing tags without defining CAN messages.
 
-Distinct from:
+A Dashboard Component is distinct from:
 
 - **Profile home dashboard** — `UseCustomProfileDashboard` on the profile replaces the profile home page.
-- **Custom Component** — may include DBC and firmware scripts.
+- **Custom Component** — can include a DBC and firmware scripts.
 
 ## DLL plugin
 
-Author C# (or SDK-supported) assemblies, pack as `.nupkg` or zip, install via [DLL plugins](../Plugins/index.md). Plugins register new component types at runtime.
+A DLL plugin is a C# (or other SDK-supported) assembly packed as a `.nupkg` or zip and installed through Plugin Manager (see [DLL plugins](../Plugins/index.md)). Plugins register new component types at runtime.
 
 ## Related documentation
 

@@ -9,8 +9,8 @@ The **Profinity SDK** is a single developer kit covering everything needed to bu
 Profinity outside a running instance: a plugin, a Custom Component pack, or a script written and
 tested before it is copied into a profile. Prohelion distributes it as one zip rather than as
 separate downloads, because a script or component author needs more than the library on its
-own — the kit bundles the library together with the two command-line tools that actually run and
-pack what you write against it.
+own — the kit bundles the library together with the two command-line tools that run and
+pack what is written against it.
 
 ## What is in the kit
 
@@ -26,9 +26,9 @@ one job, and the library is only what a compiled C# plugin references.
 !!! info "Script simulation guide coming separately"
     `profinity-script` and its `sim`/`new` commands are part of the kit today, but the dedicated
     how-to guide for using them is not published yet — the underlying capability is still
-    settling. Check back, or see the
+    settling. Check back for the guide, or see the
     [A37 SDK script host](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A37-SDK.md)
-    engineering plan for the current design if you need detail now.
+    engineering plan for the current design in the meantime.
 
 ## Getting the kit
 
@@ -40,9 +40,9 @@ release it targets; unzip it and each tool runs from its own subfolder inside.
     `Profinity.Sdk` is a packable project, but publishing it to a public NuGet feed is deferred
     past 2.3 GA. Reference the package from the kit's local folder, not from a feed.
 
-## Which piece do I need?
+## Which piece to use
 
-| If you want to... | Use |
+| To... | Use |
 |---|---|
 | Build a compiled plugin that installs through Plugin Manager | `Profinity.Sdk` — see [DLL plugins](./Plugins/index.md) |
 | Package a YAML/DBC Custom Component for distribution or CI | `profinity-component-pack` — see [Component Pack CLI](./Components/Component_Pack_CLI.md) |

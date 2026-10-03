@@ -3,7 +3,7 @@ title: MFA Account Management
 description: "Reset TOTP-based multi-factor authentication for users or manage self-service MFA settings."
 ---
 
-# MFA account management
+# MFA Account Management
 
 Profinity 2.3 separates **self-service MFA** (pill menu) from **administrator reset** actions (the **User Actions** tab of a user's settings dialog). These flows apply to **local** users when site sign-in method is **Local**.
 
@@ -66,5 +66,6 @@ SSO users are out of scope for Profinity MFA reset — manage credentials and MF
 ## Related documentation
 
 - [Two-factor authentication](./Two_Factor_Authentication.md)
+- [Password policy](./Password_Policy.md)
 - [Managing users](../Manage_Users.md)
 - [RBAC and permissions](./RBAC_Permissions.md)

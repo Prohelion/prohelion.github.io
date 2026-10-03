@@ -5,7 +5,7 @@ description: "Extend Profinity with scripting, tag layer, rules, APIs, dashboard
 
 # Extending Profinity
 
-Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules](./Rules/Alerts.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), the [Profinity SDK](./SDK.md), [MCP Support](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
+Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules](./Rules/Alerts.md), [Derived tags](./Rules/Derived_Tags.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), the [Profinity SDK](./SDK.md), [MCP Server](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
 
 <figure markdown>
 ![Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security, then exposes that through APIs to your own business systems and apps, and through MCP to AI agents](../../../assets/images/2.3/2.3-diagram-extensibility.png)
@@ -21,7 +21,7 @@ For mobile access, see [Profinity Mobile](../Mobile/index.md).
 
 ## Tag layer and rules (2.3)
 
-The [tag layer](./Tag_Layer/index.md) provides Tag Explorer, collections, rules, and [ALL ALERTS](./Rules/Alerts.md). Use [tag linking](./Tags/Tag_Linking.md) from Tag Explorer to start collections and rules quickly.
+The [tag layer](./Tag_Layer/index.md) provides Tag Explorer, collections, rules, [derived tags](./Rules/Derived_Tags.md), and [ALL ALERTS](./Rules/Alerts.md). [Tag linking](./Tags/Tag_Linking.md) from Tag Explorer starts collections and rules quickly.
 
 ## Profiles, configuration, and theming (2.3)
 
@@ -29,9 +29,7 @@ The [tag layer](./Tag_Layer/index.md) provides Tag Explorer, collections, rules,
 
 ## Scripting
 
-Profinity's [scripting capabilities](./Scripting/index.md) allow you to automate tasks and create custom operations. 
-
-With support for languages like C# and Python, you can choose the tool suited to the task. Scripting in Profinity handles operations ranging from manual tasks to continuous, long-running processes, so it suits teams automating repetitive tasks, integrating with other systems, or building workflows aligned to their own business processes.
+Profinity's [scripting capabilities](./Scripting/index.md) automate tasks and create custom operations in C#, Python, or Lua, so each script can be written in the language best suited to the task. Scripts range from manual one-off operations to continuous, long-running processes, which suits teams automating repetitive tasks, integrating with other systems, or building workflows aligned to their own business processes.
 
 | C# Scripting | Python |
 |--------------|--------|
@@ -39,19 +37,19 @@ With support for languages like C# and Python, you can choose the tool suited to
 
 ## Dashboards
 
-Profinity's [dashboard system](./Dashboards/index.md) allows you to create dynamic, data-driven user interfaces using YAML configuration files. Dashboards display real-time information from CAN bus systems and connect directly to Profinity's data sources.
+Profinity's [dashboard system](./Dashboards/index.md) creates dynamic, data-driven user interfaces from YAML configuration files. Dashboards display real-time information from CAN bus systems and connect directly to Profinity's data sources.
 
 Dashboards can be used in multiple contexts:
-- **Custom Components**: Create component-specific interfaces with DBC files
+- **Custom Components**: Create component-specific interfaces, optionally with DBC files
 - **Profile Dashboards**: Replace the standard home page with a custom dashboard
 
-With Dashboards, you can create monitoring interfaces without writing code, using a declarative YAML approach. Teams monitoring complex systems, building operator interfaces, or developing custom data visualisation for system performance and status can use dashboards for this purpose without a separate development effort.
+Dashboards create monitoring interfaces without writing code, using a declarative YAML approach, so teams monitoring complex systems, building operator interfaces, or developing custom data visualisation for system performance and status can do so without a separate development effort.
 
-The Dashboard system supports various component types including data displays, charts, status indicators, and interactive elements, all connected to your live data through Profinity's data binding system. This enables you to create responsive dashboards that automatically update as your system state changes, providing real-time feedback and monitoring capabilities.
+The Dashboard system supports component types including data displays, charts, status indicators, and interactive elements, all connected to live data through Profinity's data binding system, so dashboards update automatically as the system state changes.
 
 ## Custom Components
 
-Profinity's [Custom Components](./Custom_Components/index.md) allow you to integrate any CAN bus device into your profile by combining a DBC file (which defines the CAN messages and signals) with a Dashboard (which defines the user interface). Custom Components enable you to monitor, graph, and log data from any device that communicates via CAN bus.
+Profinity's [Custom Components](./Custom_Components/index.md) integrate any CAN bus device into a profile by combining a DBC file (which defines the CAN messages and signals) with a Dashboard (which defines the user interface), so data from any device that communicates via CAN bus can be monitored, graphed, and logged.
 
 ### Component reference (2.3)
 
@@ -64,52 +62,51 @@ Profinity's [Custom Components](./Custom_Components/index.md) allow you to integ
 
 ## Profinity SDK
 
-Building a DLL plugin, packing a Custom Component for distribution, or writing and testing a
-script outside a profile all draw on the same [Profinity SDK](./SDK.md) — one developer kit
-Prohelion distributes on request, rather than three separate downloads. Organisations building a
-compiled integration, packaging Custom Components for field deployment, or developing scripts
-offline before adding them to a profile use the kit for this work.
+Building a DLL plugin, packing a Custom Component for distribution, and writing and testing a
+script outside a profile all draw on the same [Profinity SDK](./SDK.md), one developer kit
+that Prohelion distributes on request rather than as three separate downloads. It suits
+organisations building a compiled integration, packaging Custom Components for field deployment,
+or developing scripts offline before adding them to a profile.
 
 ## APIs
 
-Profinity is built around a modern API architecture, providing [RESTful interfaces](./APIs/index.md) that allow you to integrate and extend its functionality. The APIs are secure and support JSON, making it easy to build custom applications or extend existing ones. 
+Profinity is built around a modern API architecture, providing [RESTful interfaces](./APIs/index.md) to integrate with and extend its functionality. The APIs are secured with Bearer tokens and use JSON, so custom applications can be built on them, or existing applications extended with them.
 
-With Profinity's APIs, you can access both real-time and historical data. Organisations that integrate Profinity with other systems, build custom dashboards, or develop new applications on top of Profinity's data typically use the API layer for this integration work.
+The APIs expose both real-time and historical data, which suits organisations integrating Profinity with other systems, building custom dashboards, or developing new applications on top of Profinity's data.
 
-Profinity supports [Swagger](https://swagger.io/) to make it easy to understand what APIs are available in Profinity and how to use them.
+Profinity supports [Swagger](https://swagger.io/), which documents the available APIs and how to call them.
 
 <figure markdown>
-![Profinity](../images/SwaggerLogo.png)
+![Swagger logo](../images/SwaggerLogo.png)
 <figcaption>Swagger from SmartBear</figcaption>
 </figure>
 
 ## Scripting vs APIs
 
-Profinity offers two different ways to extend its capabilities to meet the requirements of your applications: Scripting and APIs. The comparison below sets out the trade-offs between them.
+Profinity offers two ways to extend its capabilities to meet the requirements of an application: Scripting and APIs. The comparison below sets out the trade-offs between them.
 
 | Scripting                                                                | APIs                                                                           |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| Supports Python and C#                                                   | Support any Programming Language that can call REST APIs and JSON              |
-| Are built in to Profinity and require no external frameworks or hosting  | Run outside of Profinity in your own environment, APP or cloud                 |
-| Can be developed quickly and easily, to solve simple problems            | Can be as rich and complex as you want your app to be and still use Profinity  |
-| Can run headless (no user interaction, scheduled or triggered by CAN)    | Requires you to write the logic for how your app uses the API                  |
-| Script runs inside Profinity                                             | If scripted, your scripts run outside Profinity and can be distributed         |
+| Supports C#, Python, and Lua                                             | Support any programming language that can call REST APIs and JSON              |
+| Is built in to Profinity and requires no external frameworks or hosting  | Run outside of Profinity, in a custom environment, app, or cloud               |
+| Can be developed quickly and easily, to solve simple problems            | Can be as rich and complex as the application requires and still use Profinity |
+| Can run headless (no user interaction, scheduled or triggered by CAN)    | Require the application to supply its own logic for how it uses the API        |
+| Script runs inside Profinity                                             | If scripted, scripts run outside Profinity and can be distributed              |
 
-Ultimately the decision on how to extend Profinity is up to you, but with two choices you have the flexibility to find the model that suits your needs best.
+The choice between the two depends on the requirements of the application.
 
-
-## MCP Support
+## MCP Server
 
 Profinity includes support for the [Model Context Protocol (MCP)](./MCP_Server.md), which enables AI assistants and other MCP-aware tools to interact with Profinity to query system data and metadata.
 
-The MCP server exposes ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`. See [MCP Support](./MCP_Server.md) for the full list of tools, authentication requirements, and usage examples.
+The MCP server exposes ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`. See [MCP Server](./MCP_Server.md) for the full list of tools, authentication requirements, and usage examples.
 
-Organisations integrating AI assistants with their CAN bus systems, automating data analysis, or building monitoring and reporting systems that query Profinity data programmatically can use the MCP server for this access.
+The MCP server suits organisations integrating AI assistants with their CAN bus systems, automating data analysis, or building monitoring and reporting systems that query Profinity data programmatically.
 
 ## Hosting
 
-Profinity includes an [integrated web server](./Hosting/index.md) that allows you to host custom applications. Whether the application uses modern web technologies like ReactJS or Angular, or traditional HTML and JavaScript, Profinity's hosting capabilities provide a flexible environment for the application. 
+Profinity includes an [integrated web server](./Hosting/index.md) that hosts custom applications, whether they use modern web technologies such as ReactJS or Angular, or traditional HTML and JavaScript.
 
-The web server supports SSL/TLS certificates, ensuring your applications are secure in production environments. This suits organisations developing and deploying custom web applications that integrate with Profinity as part of a single, unified user experience.
+The web server supports SSL/TLS certificates so that hosted applications are secured in production environments, which suits organisations developing and deploying custom web applications that integrate with Profinity as part of a single, unified user experience.
 
 By combining these features, Profinity can be extended to serve as an application server tailored to an organisation's needs.

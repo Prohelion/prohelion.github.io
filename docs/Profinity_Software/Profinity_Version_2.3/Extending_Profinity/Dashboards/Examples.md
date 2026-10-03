@@ -5,21 +5,21 @@ description: "Progressive examples from simple hello-world dashboards to complet
 
 # Dashboard Examples
 
-This guide provides comprehensive examples of Profinity dashboards, from simple component displays to complete real-world implementations. All examples use the correct schema structure and demonstrate best practices.
+This guide provides examples of Profinity dashboards, from simple component displays to complete real-world implementations. All examples use the correct schema structure and demonstrate best practices.
 
 !!! tip "New to Dashboards?"
-    If you're just getting started, begin with the [Progressive Examples](#progressive-examples) section below. It starts with a simple "Hello World" dashboard and builds up to more complex examples step by step.
+    Readers new to dashboards should begin with the [Progressive Examples](#progressive-examples) section, which appears after the complete dashboard and the real-world scenarios. It starts with a simple "Hello World" dashboard and builds up to more complex examples step by step.
 
 ## Table of Contents
 
-- [Progressive Examples](#progressive-examples) - Start here! Building from "Hello World" to complex dashboards
 - [Complete Dashboard Example](#complete-dashboard-example) - Full motor controller dashboard
 - [Real-World Scenarios](#real-world-scenarios) - Step-by-step walkthroughs
-- [Component-Specific Examples](#component-specific-examples) - Examples for each component type
+- [Progressive Examples](#progressive-examples) - The starting point for new readers, building from "Hello World" to complex dashboards
+- [Component-Specific Examples](#component-specific-examples) - Examples for individual component types
 
 ## Complete Dashboard Example
 
-This comprehensive example demonstrates a complete motor controller dashboard that showcases many of the concepts covered in this guide. This dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters.
+This example is a complete motor controller dashboard that applies many of the concepts covered in this guide. The dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters. The same YAML is analysed section by section, with data binding patterns and customisation guidance, in [Full Example](./Example.md).
 
 ### What This Example Demonstrates
 
@@ -28,20 +28,20 @@ This dashboard example shows how to:
 - **Monitor Key Performance Metrics** - Bus voltage, current, temperatures, and velocity
 - **Display Real-time Charts** - Power consumption and velocity trends over time
 - **Show System Status** - Controller limits and error conditions with visual indicators
-- **Organize Complex Information** - Using accordions and tabs for detailed data
+- **Organise Complex Information** - Using accordions and tabs for detailed data
 - **Implement Data Binding** - Connect dashboard components to CAN bus data sources
-- **Create Professional Layouts** - Using rows, groups, panels, and pills effectively
+- **Create Clear Layouts** - Using rows, groups, panels, and pills effectively
 - **Use Profile Assets** - Reference images from /Profile/Images directory
 
 ### Dashboard Structure Overview
 
-The dashboard is organized into several logical sections:
+The dashboard is organised into several logical sections:
 
 1. **Status Pill** - Central component showing key metrics with an icon from /Profile/Images
 2. **Performance Charts** - Real-time graphs of power and velocity
 3. **Controller Limits** - Visual indicators for system protection limits
 4. **Error Monitoring** - Status lamps for various error conditions
-5. **Detailed Information** - Collapsible section with comprehensive data
+5. **Detailed Information** - Collapsible section with the full set of detailed measurements
 
 ### Complete Dashboard YAML
 
@@ -530,7 +530,7 @@ dashboard:
                   source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
 ```
 
-**Step 5: Organize with Panels**
+**Step 5: Organise with Panels**
 
 Group related components into panels:
 
@@ -616,11 +616,11 @@ dashboard:
 
 ## Progressive Examples
 
-These examples build from the absolute simplest dashboard to more complex ones. Start here if you're new to dashboard development.
+These examples build from the simplest possible dashboard to more complex ones, and are the recommended starting point for readers new to dashboard development.
 
 ### Example 0: Hello World (The Template)
 
-When you open the dashboard editor or click the **"New Template"** button, you'll see this Hello World template loaded:
+When the dashboard editor opens, or when the **"New Template"** button is selected, the editor loads this Hello World template:
 
 ``` yaml
 dashboard:
@@ -642,12 +642,13 @@ dashboard:
 ```
 
 This template provides a starting point with:
+
 - A vertical row layout
 - A styled group container
 - A pill component with an icon
 - A value readout showing "CUSTOM COMPONENT"
 
-You can modify this template to add data bindings and additional components. This is the same template that loads when you click "New Template" in the dashboard editor.
+This template can be modified to add data bindings and additional components, and it is the same template described in the [Dashboard Development Guide](./index.md#your-first-dashboard-hello-world).
 
 ### Example 1: Simple Readout with Formatting
 
@@ -847,8 +848,9 @@ dashboard:
 
 ## Next Steps
 
-Now that you've seen comprehensive examples, you can:
+The following pages build on these examples:
 
+- **Read the Full Analysis** - Review the [Full Example](./Example.md) for a section-by-section analysis of the complete motor controller dashboard
 - **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
 - **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to connect your data sources
 - **Explore Components** - Use [Component Reference](./Component_Reference/index.md) for detailed component information

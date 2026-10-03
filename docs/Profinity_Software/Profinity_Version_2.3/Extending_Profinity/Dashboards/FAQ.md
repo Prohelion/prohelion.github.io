@@ -39,7 +39,7 @@ Dashboard YAML files are created and edited through the Custom Component editor'
 
 ### Can I use existing dashboards as templates?
 
-Yes! You can view the source YAML of any existing dashboard by adding `?source` to the component URL. This allows you to copy and modify existing dashboards.
+Yes. The source YAML of any existing dashboard can be viewed by adding `?source` to the component URL, or by selecting the pencil icon on the toolbar (see [How to View Dashboard Source](../../How_To_Guides/View_Dashboard_Source.md)), which allows the dashboard to be copied and modified.
 
 ## Component Questions
 
@@ -120,7 +120,7 @@ dashboard:
                           enabled: true
 ```
 
-### How do I organize components into sections?
+### How do I organise components into sections?
 
 Use `rows`, `panels` for grid layouts or `accordion` for collapsible sections:
 
@@ -362,17 +362,19 @@ dashboard:
 
 ## Troubleshooting Questions
 
-### Why doesn't my dashboard load?
+### Why does my dashboard not load?
 
 Check for schema validation errors:
+
 - Verify all property names are correct
 - Ensure required properties are present
 - Check that component structures match the schema
 - See [Troubleshooting](./Troubleshooting.md) for common errors
 
-### Why isn't my data updating?
+### Why is my data not updating?
 
 Check your data binding:
+
 - Verify the `source` path is correct
 - Ensure the component is connected and sending data
 - Check that signal names match your DBC file
@@ -380,26 +382,28 @@ Check your data binding:
 
 ### Why is my chart blank?
 
-Check:
-- Data source is providing data
-- Time range is appropriate for logged data
-- Data format matches chart requirements
-- Binding is correctly configured
+Check that:
 
-### Why aren't my images loading?
+- The data source is providing data
+- The time range is appropriate for logged data
+- The data format matches chart requirements
+- The binding is correctly configured
 
-Verify:
-- Image file exists in `/Profile/Images` directory
-- Filename matches exactly (case-sensitive)
-- You're using filename only, not full path
-- Image format is supported (SVG, PNG, JPG)
+### Why are my images not loading?
+
+Verify that:
+
+- The image file exists in the `/Profile/Images` directory
+- The filename matches exactly (case-sensitive)
+- The filename only is used, not the full path
+- The image format is supported (SVG, PNG, JPG)
 
 ## Best Practices Questions
 
-### How do I organize a large dashboard?
+### How do I organise a large dashboard?
 
 - Use `accordion` for collapsible detailed sections
-- Use `tabs` to organize different views
+- Use `tabs` to organise different views
 - Group related components with `group` or `panel`
 - Keep the main dashboard focused on key metrics
 
@@ -414,7 +418,7 @@ Verify:
 
 - Use `{COMPONENT_NAME}` placeholder instead of hard-coding component names
 - Create generic signal names in your DBC file
-- Use relative paths for profile assets
+- Reference profile assets by filename only, as described in [Profile Directories](./Profile_Directories.md)
 - Document your dashboard structure
 
 ## Advanced Questions
@@ -489,7 +493,7 @@ dashboard:
 ## Still Have Questions?
 
 - Review the [Component Reference](./Component_Reference/index.md) for detailed component information
-- Check [Examples](./Examples.md) for working code samples
+- Check [Examples](./Examples.md) and the annotated [Full Example](./Example.md) for working code samples
 - See [Troubleshooting](./Troubleshooting.md) for common problems and solutions
-- Contact Profinity support for additional assistance
+- Contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) for additional assistance
 

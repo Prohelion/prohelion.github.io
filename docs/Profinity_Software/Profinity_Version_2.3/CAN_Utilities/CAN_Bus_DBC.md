@@ -1,22 +1,22 @@
 ---
 title: CAN bus DBC
-description: "View and analyze CAN messages and signals using DBC files with text and numeric range filtering."
+description: "View and analyse CAN messages and signals using DBC files with text and numeric range filtering."
 ---
 
 # CAN bus DBC
 
-[DBC](http://socialledge.com/sjsu/index.php/DBC_Format) is a file format that can be used to describe the format and nature of CAN bus data.  With a DBC file CAN data can be understood more clearly and broken down in to Signals and Messages, the fundamental building blocks of a DBC file.
+[DBC](http://socialledge.com/sjsu/index.php/DBC_Format) (CAN database) is a file format that can be used to describe the format and nature of CAN bus data. With a DBC file, CAN data can be understood more clearly and broken down into Signals and Messages, the fundamental building blocks of a DBC file.
 
-For the moment, Profinity provides a DBC Viewer that can be used to take a DBC file and will show the CAN bus traffic travelling through the Profinity system as Messages and Signals.
+For the moment, Profinity provides a DBC Viewer that takes a DBC file and shows the CAN bus traffic travelling through the Profinity system as Messages and Signals.
 
 <figure markdown>
 ![CAN DBC Viewer](../images/dbc_canbus_message.png)
 <figcaption>CAN DBC Viewer</figcaption>
 </figure>
 
-To use the DBC viewer with a third party DBC file you need to [create a new item](../Getting_Started/Adding_New_Components.md) in your [Profile](../Getting_Started/Profiles.md) and in the configuration properties for that new item provide the DBC file.  
+To use the DBC Viewer with a third-party DBC file you need to [create a new item](../Getting_Started/Adding_New_Components.md) in your [Profile](../Getting_Started/Profiles.md) and provide the DBC file in the configuration properties for that new item.
 
-Once this has been done then you will see the item in your profile and by right mouse clicking on it you can access information about its Messages and Signals.
+Once this has been done, the item appears in your profile, and right mouse clicking on it gives access to information about its Messages and Signals.
 
 ## Filters
 

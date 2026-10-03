@@ -5,11 +5,11 @@ description: "Browse step-by-step guides for common Profinity tasks like dashboa
 
 # How to Guides
 
-Quick step-by-step guides for common Profinity tasks. These guides provide concise, actionable instructions to help you accomplish specific goals quickly.
+Concise step-by-step guides for common Profinity tasks. Each guide links to the full reference page for the feature it uses, for settings and behaviour beyond the steps shown.
 
 ## Dashboard Guides
 
-- [How to Create a Custom Dashboard](./Create_Custom_Dashboard.md) - Build your first custom dashboard from scratch
+- [How to Create a Custom Dashboard](./Create_Custom_Dashboard.md) - Build your first dashboard for a Custom Component
 - [How to Create a Profile Dashboard](./Create_Profile_Dashboard.md) - Replace the default home page with a custom dashboard
 - [How to Add Images to Your Dashboard](./Add_Images_to_Dashboard.md) - Use custom images in your dashboard components
 - [How to Style Your Dashboard](./Style_Dashboard.md) - Apply custom CSS styling to dashboard elements
@@ -26,7 +26,7 @@ Quick step-by-step guides for common Profinity tasks. These guides provide conci
 
 ## Data and Logging Guides
 
-- [How to Configure Data Logging](./Configure_Data_Logging.md) - Set up logging to InfluxDB, Prometheus, or files
+- [How to Configure Data Logging](./Configure_Data_Logging.md) - Set up logging and publishing to files, InfluxDB, Prometheus, MQTT, or a webhook
 - [How to Log Data to the Cloud (InfluxDB)](./Log_Data_to_Cloud_Influx.md) - Configure cloud logging to InfluxDB
 - [How to Replay CAN Bus Logs](./Replay_CAN_Logs.md) - Replay recorded CAN bus messages for testing
 
@@ -38,16 +38,16 @@ Quick step-by-step guides for common Profinity tasks. These guides provide conci
 
 ## Extending Profinity Guides
 
-- [How to Connect Profinity to AI](./Connect_Profinity_to_AI.md) - Integrate Profinity with AI tools via MCP
-- [How to Write Your First Script](./Write_Your_First_Script.md) - Create scripts to automate tasks and interact with CAN bus data
+- [How to Connect Profinity to AI](./Connect_Profinity_to_AI.md) - Connect external AI tools to Profinity via MCP
+- [How to Write Your First Script](./Write_Your_First_Script.md) - Create a script to automate tasks and interact with CAN bus data
 
 ## Troubleshooting Guides
 
 - [How to Debug Dashboard Issues](./Debug_Dashboard_Issues.md) - Common dashboard problems and solutions
 - [How to View Dashboard Source](./View_Dashboard_Source.md) - Access the YAML source of existing dashboards
 
-## Need More Help?
+## More Help
 
-- [Complete Documentation](../index.md) - Full documentation index
-- [Getting Started](../Getting_Started/Quick_Start.md) - Comprehensive getting started guide
-- [FAQ](../Extending_Profinity/Dashboards/FAQ.md) - Frequently asked questions
+- [Profinity V2 Overview](../index.md) - the documentation home page
+- [Quick Start Guide](../Getting_Started/Quick_Start.md) - installation through to a first dashboard edit
+- [Dashboard FAQ](../Extending_Profinity/Dashboards/FAQ.md) - frequently asked questions

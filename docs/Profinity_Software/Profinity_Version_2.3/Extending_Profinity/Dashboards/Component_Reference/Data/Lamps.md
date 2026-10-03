@@ -1,18 +1,18 @@
 ---
 title: Lamps Component
-description: "Grid of color-coded status indicators for quick system state visualization and error/warning displays."
+description: "Grid of colour-coded status indicators for quick system state visualisation and error/warning displays."
 ---
 
 # Lamps
 
-Grid of status indicators. Lamps provide visual status information using colours and states to quickly communicate system status.
+Grid of status indicators. Lamps use colour and on/off state to communicate system status at a glance.
 
 <figure markdown>
-![Lamps component displaying a grid of status indicators with color-coded states](../../images/lamps.png)
-<figcaption>Lamps component displaying a grid of status indicators with color-coded states</figcaption>
+![Lamps component displaying a grid of status indicators with colour-coded states](../../images/lamps.png)
+<figcaption>Lamps component displaying a grid of status indicators with colour-coded states</figcaption>
 </figure>
 
-**Best for:** Status indicators, error/warning displays, system state visualization, quick status overview
+**Best for:** Status indicators, error/warning displays, system state visualisation, quick status overview
 
 **Parameters:**
 
@@ -22,7 +22,7 @@ Grid of status indicators. Lamps provide visual status information using colours
 | `class` | optional (string) | CSS class for styling |
 | `items` | required (array) | Array of lamp groups |
 
-**Lamp Group Structure:**
+**Lamp Group Parameters:**
 
 Each item in `items` must contain a `lampgroup` object with:
 
@@ -32,15 +32,17 @@ Each item in `items` must contain a `lampgroup` object with:
 | `class` | optional (string) | CSS class for styling |
 | `items` | required (array) | Array of lamps |
 
-Each lamp item must contain a `lamp` object with:
+Each item in the lamp group's `items` must contain a `lamp` object with:
+
+**Lamp Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the lamp |
 | `class` | optional (string) | CSS class for styling |
-| `color` | required (string) | Lamp color ("green", "red", "amber", "disabled", "grey", etc.) |
+| `color` | required (string) | Lamp colour, for example `green`, `red`, `amber`, `disabled` or `grey` |
 | `label` | optional (string) | Display label |
-| `value` | optional (number) | Lamp value (typically 0 or 1) |
+| `value` | optional (number) | Lamp value, typically `0` or `1` |
 | `enabled` | optional (boolean) | Whether the lamp is enabled |
 | `visible` | optional (boolean) | Whether the lamp is visible |
 | `bind` | optional (array) | Data binding configuration |

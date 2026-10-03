@@ -5,9 +5,9 @@ description: "Script operations for console output and logging messages to the P
 
 # Console
 
-This documentation provides a comprehensive guide to using the Console class for output and input operations in Profinity scripts. The Console object is automatically provided in all scripts and provides a simple interface for console operations.
+The Console class provides output operations for Profinity scripts. The Console object is automatically provided in all scripts and offers a simple interface for writing to the standard output and error streams.
 
-The Console class serves as a wrapper around the Profinity Log. It handles both standard output and error streams, with automatic encoding support and stream management, log message are sent to the Profinity log at the `Info` level and Error messages at the `Error` level.
+The Console class is a wrapper around the Profinity Log. It handles both streams with automatic encoding support and stream management, sending standard output to the Profinity log at the `Info` level and error output at the `Error` level.
 
 Access to console functionality varies by language:
 
@@ -17,7 +17,7 @@ Access to console functionality varies by language:
 
 ## Key Features
 
-This section lists the core capabilities of the Console class. These features represent the main functionality you'll use when working with console operations in your scripts.
+The Console class provides the following core capabilities.
 
 - Write text to the console output stream
 - Write text to the error stream
@@ -26,7 +26,7 @@ This section lists the core capabilities of the Console class. These features re
 
 ## Example Usage
 
-This section provides complete, real-world examples showing how to use the Console class in typical scenarios. The examples demonstrate proper console output handling and error stream usage.
+The following examples show standard output and error stream usage in each language.
 
 === "C#"
 
@@ -81,8 +81,5 @@ This section provides complete, real-world examples showing how to use the Conso
 
 ## Best Practices
 
-Following these best practices will help you create robust and efficient console output in your scripts. This section provides guidelines for proper usage and common pitfalls to avoid.
-
 1. Use the standard output stream for normal program output and the error stream for error messages and warnings.
-2. Be mindful of the amount of output you generate, as it will be stored in memory.
-3. Consider using appropriate error stream output for error conditions and warnings.
+2. Limit the amount of output a script generates, because the output is stored in memory.

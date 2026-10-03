@@ -28,16 +28,16 @@ Profinity can be deployed onto most devices capable of running Docker, including
 
 ### Prerequisites
 
-The following items are required to be able to install Profinity:
+The following items are required to install Profinity:
 
 - Docker installed on the target device
-- A device capable of running ASP .Net 9, with Docker support from Microsoft
+- A device capable of running ASP.NET Core 10, with Docker support from Microsoft
 - Docker Compose installed on the target device (included with Docker Desktop, available as plugin on Linux machines)
-- A suitable CAN adaptor for the target device
+- A suitable CAN adapter for the target device
 
 ### Simple Setup
 
-On the target device, create a new empty directory and a file titled `docker-compose.yml` in the new directory. The contents of the `docker-compose.yml` file should be
+On the target device, create a new empty directory and a file titled `docker-compose.yml` in the new directory. The contents of the `docker-compose.yml` file should be as follows.
 
 ```yaml
 services:
@@ -74,13 +74,13 @@ docker compose up -d
 ```bash
 docker compose stop
 ```
-This stops the running containers but keeps them. You can restart them later with `docker compose start`.
+This stops the running containers but keeps them, so they can be restarted later with `docker compose start`.
 
 **Stop and remove Profinity (removes containers):**
 ```bash
 docker compose down
 ```
-This stops the containers and removes them. You'll need to run `docker compose up` again to recreate and start them.
+This stops the containers and removes them, so `docker compose up` must be run again to recreate and start them.
 
 **View logs:**
 ```bash
@@ -91,22 +91,22 @@ For more information about Docker Compose commands, see the [official Docker Com
 
 ### Accessing Profinity
 
-Once started, open the URL defined in your configuration to access the Profinity web client. The default URL is `http://localhost:18080` on the local machine or `http://[Your IP Address]:18080` if accessed remotely.
+Once started, open the URL defined in the Profinity configuration to access the Profinity web client. The default URL is `http://localhost:18080` on the local machine or `http://[Your IP Address]:18080` if accessed remotely.
 
-Connecting to the Profinity web client will direct you to the Profinity login page. 
+Connecting to the Profinity web client directs the browser to the Profinity login page.
 
 <figure markdown>
 ![Profinity login page](../images/login_page.png)
 <figcaption>Profinity login page</figcaption>
 </figure>
 
-A fresh install of Profinity will only have the administrator user active. To log in, use the following login details.
+A fresh install of Profinity has only the administrator user active. To log in, use the following login details, and change the password immediately as described in the [Security Guide](./Security.md#default-credentials).
 
 Username: `admin`
 
 Password: `password`
 
-After logging in, you will arrive at the Profinity homepage.
+After logging in, the Profinity homepage is shown.
 
 <figure markdown>
 ![Profinity Homepage](../images/homepage.png)
@@ -117,7 +117,7 @@ To stop Profinity temporarily (keeping containers), use `docker compose stop`. T
 
 ## Complex Setup for Production Deployments
 
-It is not necessary to use environment variables to configure Profinity. However, for full production environments and deployments that involve many Profinity instances, Environment Variables are the simplest way to configure the product.
+It is not necessary to use environment variables to configure Profinity. However, for full production environments and deployments that involve many Profinity instances, environment variables are the simplest way to configure the product.
 
 ### Using Environment Variables for Configuration
 
@@ -125,7 +125,7 @@ Profinity supports environment variable substitution in configuration and profil
 
 #### Docker Compose with Environment Variables
 
-You can configure Profinity using environment variables in your `docker-compose.yml` file. Docker Compose supports [environment variable substitution](https://docs.docker.com/compose/environment-variables/) in compose files, allowing you to use variables for port mapping and service configuration.
+Profinity can be configured using environment variables in the `docker-compose.yml` file. Docker Compose supports [environment variable substitution](https://docs.docker.com/compose/environment-variables/) in compose files, allowing variables to be used for port mapping and service configuration.
 
 ```yaml
 services:
@@ -156,21 +156,21 @@ services:
 For more information about Docker Compose environment variables, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/).
 
 !!! info "Docker volumes (2.3+)"
-    The `volumes` section mounts local directories into the container. Profinity resolves the artifacts directory inside the container based on user and `PROFINITY_HOME`. On Linux hosts running 2.3+, the default artifacts path is **`/var/lib/Prohelion/Profinity`** when not using a custom layout. Legacy compose examples mounting `/root/Prohelion/Profinity/` may still work — verify with `docker compose exec` and align mounts after upgrade. See [Artifacts directory](./Artifacts_Directory.md).
+    The `volumes` section mounts local directories into the container. Profinity resolves the artifacts directory inside the container based on user and `PROFINITY_HOME`. On Linux hosts running 2.3+, the default artifacts path is **`/var/lib/prohelion/profinity`** when not using a custom layout. Legacy compose examples mounting `/root/Prohelion/Profinity/` may still work — verify with `docker compose exec` and align mounts after upgrade. See [Artifacts directory](./Artifacts_Directory.md).
 
 !!! tip "Validating profile paths"
-    To verify where Profinity is storing profiles and config files, you can exec into the running container:
+    To verify where Profinity is storing profiles and config files, open a shell in the running container:
     ```bash
     docker compose exec profinity bash
     ls -la /root/Prohelion/Profinity/
     ```
-    This will show the actual directory structure used by Profinity inside the container.
+    This shows the actual directory structure used by Profinity inside the container.
 
 #### Environment File (.env)
 
-Docker Compose automatically loads environment variables from a `.env` file in the same directory as your `docker-compose.yml`. This is the recommended way to manage environment-specific configuration.
+Docker Compose automatically loads environment variables from a `.env` file in the same directory as the `docker-compose.yml` file. This is the recommended way to manage environment-specific configuration.
 
-Create a `.env` file in the same directory as your `docker-compose.yml`:
+Create a `.env` file in the same directory as the `docker-compose.yml` file:
 
 ```env
 # Profinity Configuration
@@ -194,13 +194,13 @@ UDP_PORT=4876
 For more information about `.env` files in Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
 !!! tip "Using Environment Variables in Config and Profile Files"
-    When using environment variables with Docker, you can reference them directly in your Profinity `Config.yaml` and `Profile.yaml` files. These files should be placed in the mounted volume directories that map to `/root/Prohelion/Profinity/Config` and `/root/Prohelion/Profinity/Profiles` inside the container. When Profinity starts in Docker, it will automatically substitute the environment variables in these files with the values from your `.env` file or Docker Compose environment section.
+    When using environment variables with Docker, they can be referenced directly in the Profinity `Config.yaml` and `Profile.yaml` files. These files should be placed in the mounted volume directories that map to `/root/Prohelion/Profinity/Config` and `/root/Prohelion/Profinity/Profiles` inside the container. When Profinity starts in Docker, it substitutes the environment variables in these files with the values from the `.env` file or the Docker Compose `environment` section.
     
     For complete examples and detailed information about using environment variables in `Config.yaml` and `Profile.yaml` files, including syntax, default values, and variable naming rules, see the [Environment Variables](./Environment_Variables.md) documentation.
 
 #### Using Environment Files with Docker Compose
 
-If you're using multiple `.env` files for different environments:
+When multiple `.env` files are used for different environments:
 
 ```bash
 # Start with specific environment file
@@ -217,7 +217,7 @@ For more information about Docker Compose environment files, see the [official D
 
 #### Deployment Strategies
 
-You can create different Docker Compose files for different environments. This approach allows you to use the same base configuration while customizing settings for development, staging, and production.
+Different Docker Compose files can be created for different environments, which allows the same base configuration to be used while customising settings for development, staging, and production.
 
 **Development Environment**
 ```yaml
@@ -258,4 +258,4 @@ services:
 For more information about Docker Compose file overrides, see the [official Docker documentation](https://docs.docker.com/compose/extends/).
 
 !!! info "Directly Accessing Devices"
-    Docker deliberately does not expose all devices through to the containers that run the applications.  In some cases you may wish to expose additional devices to Docker so that you can access things like SocketCAN Natively or discover components that use UDP for broadcasting.  See the [official Docker documentation](https://docs.docker.com/compose/) for how to expose these devices to your Docker container.
+    Docker deliberately does not expose all devices through to the containers that run the applications.  In some cases additional devices must be exposed to Docker so that SocketCAN can be accessed natively or components that use UDP broadcasting can be discovered.  See the [official Docker documentation](https://docs.docker.com/compose/) for how to expose these devices to the Docker container.

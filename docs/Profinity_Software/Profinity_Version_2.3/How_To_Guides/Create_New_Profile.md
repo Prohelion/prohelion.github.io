@@ -10,26 +10,28 @@ Create a new profile to manage different configurations for different setups or 
 ## Prerequisites
 
 - Profinity V2 installed and running
-- Admin access to create profiles
+- The `ProfileModify` permission, which allows profiles to be added and switched
 
 ## Steps
 
 ### Step 1: Access Profile Management
 
 1. Navigate to **ADMIN** → **Profiles**
-2. Profile management window opens
+2. The profile list opens
 
 ### Step 2: Create New Profile
 
-1. Click **New Profile** or **Add Profile** button
-2. Enter a **Profile Name** (e.g., "Production Site", "Test Rig")
-3. Click **Create** or **Save**
+1. Click the **+ ADD PROFILE** button
+2. Enter a unique **Profile Name** (for example "Production Site" or "Test Rig") and an optional description
+3. Save the profile
+
+Alternatively, click **UPLOAD PROFILE PACK** to import a Profile Pack from another Profinity instance.
 
 ### Step 3: Load the Profile
 
-1. Select your new profile from the list
-2. Click **Load Profile** or **Set as Active**
-3. Profile becomes the active profile
+1. Locate your new profile in the list
+2. Click **ACTIVATE** on the profile row
+3. The profile becomes the active profile immediately
 
 ### Step 4: Configure Profile
 
@@ -45,12 +47,13 @@ Create a new profile to manage different configurations for different setups or 
 
 ## Tips
 
-- **Use Descriptive Names**: Name profiles clearly (e.g., "Site A - Production")
-- **Profile-Specific Dashboards**: Each profile can have its own custom dashboard
-- **Component Isolation**: Components in one profile don't affect another profile
-- **Profile Switching**: Switch profiles without restarting Profinity
+- **Use Descriptive Names**: name profiles clearly (for example "Site A - Production")
+- **Profile-Specific Dashboards**: each profile can have its own custom dashboard
+- **Component Isolation**: components in one profile do not affect another profile
+- **Profile Switching**: switch profiles without restarting Profinity
 
 ## Related Documentation
 
-- [Profiles](../Getting_Started/Profiles.md) - Complete profile documentation
-- [Profile Dashboard](../Administration/Profile_Dashboard.md) - Profile dashboard configuration
+- [Profiles](../Administration/Profiles.md) - the full profile reference, including renaming, Profile Packs and Kiosk Mode
+- [Profinity Profiles](../Getting_Started/Profiles.md) - profile concepts
+- [Profile Dashboard](../Administration/Profile_Dashboard.md) - profile dashboard configuration

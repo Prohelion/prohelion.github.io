@@ -48,20 +48,21 @@ Access the YAML source code of existing dashboards to learn from examples and mo
 ### Step 5: Learn from Dashboard Structure
 
 Review the source to understand:
-- How components are organized
+
+- How components are organised
 - How data bindings are configured
 - How layout elements are nested
 - How styling is applied
 
 ## Tips
 
-- **Study Examples**: Review example dashboards to learn patterns
-- **Start Simple**: Copy simple dashboards first, then add complexity
-- **Modify Incrementally**: Make small changes and test
-- **Keep Backups**: Save copies of working dashboards
+- **Study Examples**: review example dashboards to learn patterns
+- **Start Simple**: copy simple dashboards first, then add complexity
+- **Modify Incrementally**: make small changes and test
+- **Keep Backups**: save copies of working dashboards
 
 ## Related Documentation
 
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - Complete dashboard guide
+- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - the full dashboard reference
 - [Examples](../Extending_Profinity/Dashboards/Examples.md) - Dashboard examples
 - [Component Reference](../Extending_Profinity/Dashboards/Component_Reference/index.md) - Component documentation

@@ -1,6 +1,6 @@
 ---
 title: Themes and Branding
-description: "Customize Profinity appearance with themes, colors, logos, and light/dark mode support."
+description: "Customise Profinity appearance with themes, colours, logos, and light and dark mode support."
 ---
 
 # Themes and branding
@@ -9,7 +9,7 @@ Profinity 2.3 exposes **theme and branding** settings through the engine **Theme
 
 ## Admin access
 
-Theme management requires appropriate admin permissions (typically **`SystemAdmin`** or OEM deployment workflows). Exact UI entry points follow the active profile and build — open **System Configuration** or admin theme dialogs when enabled on your build.
+Theme management requires appropriate admin permissions (typically **`SystemAdmin`** or OEM deployment workflows). Exact UI entry points follow the active profile and build — open **System Configuration** or admin theme dialogs when enabled on the build.
 
 ## API
 

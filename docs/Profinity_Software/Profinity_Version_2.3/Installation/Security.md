@@ -23,22 +23,22 @@ This guide covers essential security considerations for deploying and operating 
 
 ## Overview
 
-Profinity V2 provides control over critical automotive and energy systems. When configuring Profinity, you must consider:
+Profinity V2 provides control over critical automotive and energy systems. Configuring Profinity securely involves four areas:
 
-- **Network Security**: Protecting Profinity from unauthorized network access
+- **Network Security**: Protecting Profinity from unauthorised network access
 - **User Access Control**: Limiting user permissions to only what is necessary
 - **Script Security**: Understanding the security implications of running scripts
 - **Production Hardening**: Configuring Profinity securely for production environments
 
 ## HTTPS Configuration
 
-### Why HTTPS is Critical
+### Why HTTPS Is Critical
 
-When Profinity is accessed over a network (not just localhost), all communication should use HTTPS to prevent unauthorized access and protect credentials and data. Without HTTPS, usernames, passwords, API tokens, and sensitive system data can be intercepted.
+When Profinity is accessed over a network rather than only through localhost, all communication should use HTTPS to prevent unauthorised access and protect credentials and data. Without HTTPS, usernames, passwords, API tokens, and sensitive system data can be intercepted.
 
 ### Configuring HTTPS
 
-Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Config.md) interface. You can use either:
+Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Config.md) interface, using either of the following:
 
 - **Windows Certificate Store**: For Windows deployments using certificates installed in the system certificate store
 - **Certificate Files**: For cross-platform deployments using `.pfx` or `.p12` certificate files
@@ -47,7 +47,7 @@ Profinity supports HTTPS configuration through the [System Configuration](../Adm
 
 - **Enable HTTPS Redirect**: Configure "Redirect all Http traffic to Https" to force all connections to use encrypted communication
 - **Use Valid Certificates**: Use certificates from trusted Certificate Authorities (CAs) for production deployments
-- **Restrict HTTP Access**: For production, consider binding HTTP to localhost only and requiring HTTPS for remote access
+- **Restrict HTTP Access**: For production, bind HTTP to localhost only and require HTTPS for remote access
 - **Certificate Management**: Implement proper certificate renewal procedures to avoid service disruptions
 
 For detailed HTTPS configuration instructions, see the [System Configuration](../Administration/System_Config.md) documentation.
@@ -96,7 +96,7 @@ For Docker deployment details, see the [Docker Installation](./Docker_Installati
 
 ### Best Practices
 
-- Only enable scripting when necessary for your use case
+- Only enable scripting when necessary for the use case
 - Regularly audit active scripts for security and functionality
 - Isolate critical scripts from general script access where possible
 - Document all scripts and their purposes for security reviews
@@ -109,16 +109,17 @@ For detailed information about scripting capabilities and security consideration
 
 !!! danger "Change Default Credentials Immediately"
     Fresh installations of Profinity include a default administrator account:
+
     - Username: `admin`
     - Password: `password`
-    
-    **These default credentials must be changed immediately** after installation. Leaving default credentials active exposes your system to unauthorized access.
+
+    **These default credentials must be changed immediately** after installation. Leaving default credentials active exposes the system to unauthorised access.
 
 ### User Account Best Practices
 
 1. **Change Default Passwords**: Immediately change the default admin password after installation
 2. **Create Dedicated Users**: Create user accounts for each person or system that needs access
-3. **Use Strong Passwords**: Enforce strong password policies appropriate for your organization
+3. **Use Strong Passwords**: Enforce strong password policies appropriate for the organisation
 4. **Regular Password Updates**: Implement password rotation policies for production systems
 5. **Disable Unused Accounts**: Disable or remove user accounts that are no longer needed
 
@@ -144,8 +145,8 @@ Kiosk Mode allows automatic authentication without manual login, which is conven
 
 ### Security Considerations
 
-- **Non-Administrator Users Only**: Kiosk Mode is restricted to non-administrator users for security
-- **Limited Permissions**: Only kiosk-safe roles (SystemRead, CANReceive, DBCViewer) can be used with Kiosk Mode
+- **Choose the Kiosk Mode User Carefully**: Profinity does not restrict which enabled user can be selected, including administrators, and anyone at the kiosk inherits that user's permissions
+- **Limited Permissions**: Assign the kiosk user only the permissions the display needs, for example the **Read-only** role template
 - **Physical Access Control**: Kiosk Mode devices should be physically secured as they bypass login requirements
 - **Network Isolation**: Consider network isolation for devices using Kiosk Mode, especially in production environments
 

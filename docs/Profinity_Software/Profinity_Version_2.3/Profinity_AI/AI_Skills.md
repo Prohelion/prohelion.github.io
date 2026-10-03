@@ -1,13 +1,13 @@
 ---
 title: AI Skills
-description: "Seven skills for AI coding assistants to generate dashboards, rules, scripts, collections, and plugins."
+description: "Seven skills for AI coding assistants to generate dashboards, rules, collections, scripts, plugins, derived tags, and example apps."
 ---
 
 # AI Skills
 
-**AI Skills** is a pack of seven skills for AI coding assistants — Claude and other tools — that help you build Profinity dashboards, rules, collections, scripts, plugins, derived tags, and example apps. Unlike asking a general-purpose assistant to guess at a config format, every skill works from Profinity's own live schema and API, and from curated examples drawn from Profinity's own shipped content — so what it generates matches your instance's real conventions, not an invented approximation.
+**AI Skills** is a pack of seven skills for AI coding assistants — Claude and other tools — that help you build Profinity dashboards, rules, collections, scripts, plugins, derived tags, and example apps. Every skill works from Profinity's own live schema and API, and from curated examples drawn from Profinity's own shipped content, so that what it generates matches the conventions of your instance rather than a format the assistant has had to guess.
 
-This is a different thing from [Profinity AI](./index.md), the chat assistant built into the product: Profinity AI answers questions about a running instance from inside Profinity itself; AI Skills is a toolkit you use with your own AI coding assistant, outside Profinity, while you're building dashboards, rules, or integrations.
+This is a different thing from [Profinity AI](./index.md), the chat assistant built into the product: Profinity AI answers questions about a running instance from inside Profinity itself; AI Skills is a toolkit used with your own AI coding assistant, outside Profinity, while you are building dashboards, rules, or integrations.
 
 ## The seven skills
 
@@ -31,10 +31,10 @@ Each skill is self-contained:
 
 ## What AI Skills needs to work
 
-- **Authenticated access to your Profinity REST API** — used to fetch your live schema. The same credentials and permissions you'd use for any other API call apply here.
+- **Authenticated access to your Profinity REST API** — used to fetch your live schema. The same credentials and permissions that apply to any other API call apply here.
 - **Optionally: read access to the MCP server** — some skills use the MCP server for additional schema discovery, but it is read-only and never used to push changes. If MCP is unavailable, the skill falls back to REST API alone.
 
-If either isn't available when you ask for something, the skill says so plainly and stops, rather than guessing an endpoint or falling back to a remembered schema.
+If the REST API is not available when a skill is asked to generate something, the skill says so and stops, rather than guessing an endpoint or falling back to a remembered schema.
 
 ## Installing AI Skills
 
@@ -49,7 +49,7 @@ unzip profinity-ai-skills.zip
 npx skills add ./profinity-ai-skills
 ```
 
-After installation, the skills are available in your AI tool. Start with the skill's `SKILL.md` file for step-by-step guidance — each skill folder includes detailed instructions, API reference docs, examples, and schemas.
+After installation, the skills are available in your AI tool. Start with the skill's `SKILL.md` file for step-by-step guidance, as each skill folder includes detailed instructions, API reference documents, examples, and schemas.
 
 ## Finding detailed skill documentation
 
@@ -69,4 +69,4 @@ See the [full README](https://github.com/Prohelion/Profinity/tree/master/Profini
 
 - [Profinity AI](./index.md) — the in-product chat assistant, a different feature from AI Skills.
 - [MCP Server](../Extending_Profinity/MCP_Server.md) — optional server connection AI Skills can use for schema discovery.
-- [Profinity Rest APIs](../Extending_Profinity/APIs/index.md) — the REST API that AI Skills use to fetch your live schema and push generated configs.
+- [Profinity REST APIs](../Extending_Profinity/APIs/index.md) — the REST API that AI Skills use to fetch your live schema and push generated configs.

@@ -1,11 +1,13 @@
 ---
 title: Full Example
-description: "Comprehensive real-world motor controller dashboard example with data binding and layout patterns."
+description: "Annotated real-world motor controller dashboard example with data binding and layout patterns."
 ---
 
-# Real-World Example
+# Full Example
 
-This comprehensive example demonstrates a complete motor controller dashboard that showcases many of the concepts covered in this guide. This dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters.
+This example is a complete motor controller dashboard that applies many of the concepts covered in this guide. The dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters.
+
+The YAML on this page is identical to the Complete Dashboard Example in [Examples](./Examples.md), which also holds the smaller progressive, scenario, and component-specific examples. This page adds the section-by-section analysis, data binding patterns, and customisation guidance for the dashboard.
 
 ## Table of Contents
 
@@ -20,15 +22,15 @@ This comprehensive example demonstrates a complete motor controller dashboard th
     - [Error Monitoring Section](#error-monitoring-section)
     - [Detailed Information Section](#detailed-information-section)
 - [Data Binding Patterns](#data-binding-patterns)
-    - [CAN bus Signal Binding](#can-bus-signal-binding)
+    - [CAN Bus Signal Binding](#can-bus-signal-binding)
     - [Time Series Data Binding](#time-series-data-binding)
     - [Boolean Status Binding](#boolean-status-binding)
-- [Customization Guide](#customization-guide)
+- [Customisation Guide](#customisation-guide)
     - [Adapting for Different Systems](#adapting-for-different-systems)
     - [Adding New Sections](#adding-new-sections)
     - [Performance Considerations](#performance-considerations)
 - [Best Practices Demonstrated](#best-practices-demonstrated)
-    - [Layout Organization](#layout-organization)
+    - [Layout Organisation](#layout-organisation)
     - [Data Presentation](#data-presentation)
     - [User Experience](#user-experience)
 - [Next Steps](#next-steps)
@@ -40,19 +42,19 @@ This dashboard example shows how to:
 - **Monitor Key Performance Metrics** - Bus voltage, current, temperatures, and velocity
 - **Display Real-time Charts** - Power consumption and velocity trends over time
 - **Show System Status** - Controller limits and error conditions with visual indicators
-- **Organize Complex Information** - Using accordions and tabs for detailed data
+- **Organise Complex Information** - Using accordions and tabs for detailed data
 - **Implement Data Binding** - Connect dashboard components to CAN bus data sources
-- **Create Professional Layouts** - Using rows, groups, panels, and pills effectively
+- **Create Clear Layouts** - Using rows, groups, panels, and pills effectively
 
 ## Dashboard Structure Overview
 
-The dashboard is organized into several logical sections:
+The dashboard is organised into several logical sections:
 
 1. **Status Pill** - Central component showing key metrics with an icon
 2. **Performance Charts** - Real-time graphs of power and velocity
 3. **Controller Limits** - Visual indicators for system protection limits
 4. **Error Monitoring** - Status lamps for various error conditions
-5. **Detailed Information** - Collapsible section with comprehensive data
+5. **Detailed Information** - Collapsible section with the full set of detailed measurements
 
 ## Data Sources
 
@@ -463,11 +465,12 @@ dashboard:
 The dashboard begins with a **pill component** that serves as the central status display:
 
 - **Icon Configuration** - Uses a motor controller icon to identify the component type
-- **Grouped Readouts** - Organizes related measurements into logical groups
+- **Grouped Readouts** - Organises related measurements into logical groups
 - **Key Metrics Display** - Shows bus voltage, current, temperatures, and velocity
 - **Real-time Updates** - All values update automatically from CAN bus data
 
 **Key Features:**
+
 - Central icon provides immediate component identification
 - Grouped layout makes related data easy to scan
 - Precision settings ensure appropriate decimal places for each measurement
@@ -483,7 +486,8 @@ The second row contains **panels with charts** for trend analysis:
 - **Clean Layout** - Each chart is in its own titled panel
 
 **Key Features:**
-- Line charts provide smooth trend visualization
+
+- Line charts provide smooth trend visualisation
 - Time series data automatically updates with new values
 - Legend disabled for cleaner appearance
 - Separate panels allow independent chart management
@@ -493,11 +497,12 @@ The second row contains **panels with charts** for trend analysis:
 The **controller limits panel** shows system protection status:
 
 - **Amber Status Lamps** - Indicates when various limits are active
-- **Comprehensive Coverage** - Monitors voltage, current, velocity, and temperature limits
+- **Full Limit Coverage** - Monitors voltage, current, velocity, and temperature limits
 - **Real-time Status** - Lamps enable/disable based on actual limit conditions
-- **Two-Row Layout** - Organizes limits into logical groups
+- **Two-Row Layout** - Organises limits into logical groups
 
 **Key Features:**
+
 - Visual indicators provide immediate status awareness
 - Boolean data binding shows/hides lamps based on limit states
 - Amber colour indicates warning conditions
@@ -508,36 +513,38 @@ The **controller limits panel** shows system protection status:
 The **controller errors panel** displays critical system faults:
 
 - **Red Status Lamps** - Indicates active error conditions
-- **Comprehensive Error Coverage** - Monitors hardware, software, and communication errors
+- **Full Error Coverage** - Monitors hardware, software, and communication errors
 - **Immediate Visibility** - Critical errors are prominently displayed
-- **Organized Layout** - Errors grouped by type and severity
+- **Organised Layout** - Errors grouped by type and severity
 
 **Key Features:**
+
 - Red colour indicates critical conditions requiring attention
 - Boolean binding shows errors only when active
-- Comprehensive error monitoring for system reliability
+- Error lamps cover the hardware, software, and communication faults bound in this example
 - Clear labelling for quick error identification
 
 ### Detailed Information Section
 
-The **accordion section** provides comprehensive system details:
+The **accordion section** provides the detailed system measurements:
 
 - **Collapsible Design** - Keeps detailed information accessible but not cluttered
-- **Tabbed Interface** - Organizes detailed data into logical categories
+- **Tabbed Interface** - Organises detailed data into logical categories
 - **Multiple Data Categories** - Low voltage, phase currents, motor vectors, speed/distance, and other data
 - **High Precision** - Detailed measurements with appropriate decimal places
 
 **Key Features:**
-- Progressive disclosure keeps main dashboard clean
-- Tabbed interface organizes complex information
+
+- Progressive disclosure keeps the main dashboard clean
+- Tabbed interface organises complex information
 - High-precision readouts for detailed analysis
-- Comprehensive coverage of all available system data
+- Every measurement bound in the dashboard is available from one place
 
 ## Data Binding Patterns
 
 This example demonstrates several important data binding patterns:
 
-### CAN bus Signal Binding
+### CAN Bus Signal Binding
 ```yaml
 dashboard:
   items:
@@ -590,7 +597,7 @@ dashboard:
 - Shows/hides status indicators based on conditions
 - Type conversion ensures proper boolean handling
 
-## Customization Guide
+## Customisation Guide
 
 ### Adapting for Different Systems
 
@@ -598,7 +605,7 @@ To adapt this dashboard for other motor controllers or systems:
 
 1. **Update Data Sources** - Replace CAN signal names with your system's signals
 2. **Modify Measurements** - Adjust the specific parameters you want to monitor
-3. **Customize Layout** - Rearrange panels and sections for your needs
+3. **Customise Layout** - Rearrange panels and sections for your needs
 4. **Adjust Precision** - Set appropriate decimal places for your measurements
 5. **Update Labels** - Change labels to match your system terminology
 
@@ -619,7 +626,7 @@ To adapt this dashboard for other motor controllers or systems:
 
 This example follows several dashboard design best practices:
 
-### Layout Organization
+### Layout Organisation
 - **Logical Grouping** - Related information is grouped together
 - **Progressive Disclosure** - Detailed information is in collapsible sections
 - **Visual Hierarchy** - Important information is prominently displayed
@@ -634,15 +641,16 @@ This example follows several dashboard design best practices:
 ### User Experience
 - **Intuitive Layout** - Information flows logically from general to specific
 - **Quick Access** - Key metrics are immediately visible
-- **Detailed Analysis** - Comprehensive data available when needed
-- **Professional Appearance** - Clean, organized presentation
+- **Detailed Analysis** - Full measurement data available when needed
+- **Clean Presentation** - Consistent, organised layout
 
 ## Next Steps
 
-Now that you've seen a complete dashboard example, you can:
+The following pages build on this example:
 
 - **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
 - **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to connect your data sources
 - **Explore Components** - Use [Component Reference](./Component_Reference/index.md) for detailed component information
 - **Add Styling** - Apply [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
+- **See More Examples** - Browse the progressive and component-specific [Examples](./Examples.md)
 - **Create Your Own** - Use this example as a template for your specific system

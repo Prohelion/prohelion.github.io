@@ -3,7 +3,7 @@ title: Dashboard Visual Editor
 description: "Editable visual dashboard editor for arranging widgets and binding tags without hand-editing YAML."
 ---
 
-# Dashboard visual editor
+# Dashboard Visual Editor
 
 Profinity 2.3 adds an **editable dashboard visual editor** for component dashboards. Authors with **`DashboardModify`** can arrange widgets, bind tags, and preview layout without hand-editing YAML for every change.
 
@@ -29,13 +29,13 @@ Select a widget to open the **bind inspector** — list and edit tag bindings fo
 <figcaption>Bind inspector (screenshot placeholder — provide SS-34)</figcaption>
 </figure>
 
-Pair with [ALL ALERTS](../Rules/Alerts.md) documentation — dashboard widgets show live **alert indicators** when bound tags have active rule alerts.
+Dashboard widgets show live **alert indicators** when bound tags have active rule alerts, as described in [ALL ALERTS](../Rules/Alerts.md).
 
 ## Schema changes in 2.3
 
 | Feature | Notes |
 |---------|-------|
-| **Editable layout** | Drag/drop and tree editing with live preview |
+| **Editable layout** | Drag-and-drop and tree editing with live preview |
 | **Chart multi-source** | Charts can bind multiple tag sources per schema |
 | **`HtmlContent` map bindings** | Latitude/longitude → OpenStreetMap iframe via `map` binding type |
 | **Interactive image** | Top-level `image:` string per schema — not a nested `value:` wrapper |
@@ -57,11 +57,11 @@ Must report **Invalid: 0**.
 | **Profile home dashboard** | `UseCustomProfileDashboard` on profile — replaces profile home screen |
 | **Dashboard Component** | Separate built-in component type — YAML-only, no DBC |
 
-See [Component types](../Components/Component_Types.md) and [Profile dashboard](../../Administration/Profile_Dashboard.md).
+See [Component Types](../Components/Component_Types.md) and [Profile Dashboard](../../Administration/Profile_Dashboard.md).
 
 ## Related documentation
 
-- [Dashboard development guide](./index.md)
-- [Data binding](./Data_Binding.md)
+- [Dashboard Development Guide](./index.md)
+- [Data Binding](./Data_Binding.md)
 - [Examples](./Examples.md)
 - [Troubleshooting](./Troubleshooting.md)

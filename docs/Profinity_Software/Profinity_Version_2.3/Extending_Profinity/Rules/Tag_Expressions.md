@@ -5,9 +5,9 @@ description: "Expression language for collections, rules, and derived tags to fi
 
 # Tag expressions
 
-Collections, rules, and derived tags share one small expression language. Collections and rules write a **boolean** expression over a single parameter named `tag`. Derived tags write a **value formula** over the aliases you declared (`a`, `b`, …). The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
+Collections, rules, and derived tags share one small expression language. Collections and rules write a **boolean** expression over a single parameter named `tag`. Derived tags write a **value formula** over the aliases they declare (`a`, `b`, …). The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
 
-You edit expressions in the visual editors (guided builder or free text). Invalid members fail validation with a message that points at the correct spelling.
+Expressions are edited in the visual editors (guided builder or free text), and an invalid member fails validation with a message that points at the correct spelling.
 
 ## Picking tags
 
@@ -39,7 +39,7 @@ One subtree:
 tag.MatchesPath("Elmar Solar MPPT/DBC/PowerOutput")
 ```
 
-That component’s output current leaf:
+That component's output current leaf:
 
 ```text
 tag.MatchesPath("Elmar Solar MPPT") && tag.MatchesName("OutputCurrent")
@@ -57,7 +57,7 @@ Leaf name contains (case-insensitive):
 tag.MatchesName("*Current*")
 ```
 
-Do **not** add a trailing `*` to mean “under this component”. `tag.MatchesPath("Elmar Solar MPPT")` already includes the subtree. A trailing `*` means the **segment** may continue (`Elmar Solar MPPT*`), which also matches a neighbouring component whose name merely starts with that text.
+Do **not** add a trailing `*` to mean "under this component". `tag.MatchesPath("Elmar Solar MPPT")` already includes the subtree. A trailing `*` means the **segment** may continue (`Elmar Solar MPPT*`), which also matches a neighbouring component whose name merely starts with that text.
 
 ## Wildcards
 
@@ -136,9 +136,9 @@ The only allowed static helpers are `Math.Abs`, `Math.Min`, `Math.Max`, and `Mat
 
 Use **Free text** when the builder cannot express the predicate (complex `&&` / `||`, unusual meta keys, or derived formulas).
 
-## What does not exist
+## Unsupported spellings
 
-These early-build spellings fail validation. Rewrite them as shown:
+These spellings, used in early builds, fail validation. Rewrite them as shown:
 
 | Do not use | Use instead |
 |------------|-------------|

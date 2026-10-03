@@ -11,7 +11,7 @@ Create your first Profinity script to automate tasks and interact with your CAN 
 
 - Profinity V2 installed and running
 - An active profile with components configured
-- Basic understanding of **C#** or **Python** (Profinity scripting uses [IronPython](https://ironpython.net/) for Python; see [Supported Languages](../Extending_Profinity/Scripting/Supported_Languages/index.md))
+- Basic understanding of **C#** or **Python** (Profinity scripting uses [IronPython](https://ironpython.net/) for Python, and also supports Lua; see [Supported Languages](../Extending_Profinity/Scripting/Supported_Languages/index.md))
 - Scripting enabled in Profinity configuration
 
 ## Steps
@@ -19,26 +19,29 @@ Create your first Profinity script to automate tasks and interact with your CAN 
 ### Step 1: Enable Scripting
 
 1. Navigate to **ADMIN** → **System Configuration** (see [System Configuration](../Administration/System_Config.md) for detail)
-2. Find the **Scripting** section
+2. Find the **Optional Capabilities** section
 3. Enable **Enable Scripting**
 4. Click **Save**
 
-For security context and behavior, read [Profinity Scripting](../Extending_Profinity/Scripting/index.md) first.
+For security context and behaviour, read [Profinity Scripting](../Extending_Profinity/Scripting/index.md) first.
 
 ### Step 2: Choose Your Script Type
 
-For your first script, use a **Run script** (see [Run Scripts](../Extending_Profinity/Scripting/Script_Types/RunScripts.md)):
+For your first script, use a **Run script** (see [Run Scripts](../Extending_Profinity/Scripting/Script_Types/RunScripts.md)). The script type is set by the **Script Mode** of the script component, and the main types are:
 
-- **Run scripts** — On demand or on a schedule (time interval or cron)
-- **Receive scripts** — Run when selected CAN messages are received
-- **Service scripts** — Long-running background services with lifecycle control
+- **Run scripts** - run on demand or on a schedule (time interval or cron)
+- **Receive scripts** - run when selected CAN messages are received
+- **Service scripts** - long-running background services with lifecycle control
 
-### Step 3: Open the Script Editor
+Tag Change and Alert modes also exist; see [Script Types](../Extending_Profinity/Scripting/Script_Types/index.md).
 
-1. Navigate to **ADMIN** → **Scripts**
-2. Click **New Script** or **Add Script**
-3. Select **Run script** as the script type
-4. The script editor opens
+### Step 3: Add a Script Component and Open the Script Editor
+
+A script is a component in your profile, and the language is set by which script component you add.
+
+1. Click **ADD COMPONENT** (see [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md))
+2. Select the **C#** or **Python** Script component
+3. The script component settings and the script editor open, where the script is written (Step 4) and its **Script Mode** is set (Step 5)
 
 ### Step 4: Write Your First Script
 
@@ -74,24 +77,24 @@ main()
 
 ### Step 5: Configure Script Settings
 
-1. Set **Script Name**
-2. Select **Language** (**C#** or **Python**)
-3. Add a **Description** (optional)
-4. Configure how the run script executes (see [Run Scripts](../Extending_Profinity/Scripting/Script_Types/RunScripts.md)):
-   - **Run On Demand** — Run manually from the UI
-   - **Time Interval** — Run automatically at a fixed interval (for example every few minutes)
-   - **Cron Schedule** — Run on a [Quartz](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) cron expression
+1. Set the component name
+2. Add a description (optional)
+3. Choose how the run script executes with **Script Mode** (see [Run Scripts](../Extending_Profinity/Scripting/Script_Types/RunScripts.md)):
+   - **Run On Demand** - run manually from the UI
+   - **Run On Time Interval** - run automatically at a fixed interval (for example every few minutes)
+   - **Run On CRON Schedule** - run on a [Quartz](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) cron expression
+4. (Optional) Enable **Auto Start Script** to start the script automatically when Profinity starts
 
 ### Step 6: Test Your Script
 
-1. Click **Run** or **Test** (wording depends on your Profinity version)
+1. Run the script from the script component, using the **Run** or **Test** control (the label depends on your Profinity version)
 2. Check script console output and the Profinity log for results
 3. Review error messages, fix issues, and test again
 
 ### Step 7: Save and Deploy
 
 1. Click **Save** to save your script
-2. The script appears in your scripts list
+2. The script component appears in your profile
 3. Run it on demand or according to the schedule you configured
 
 ## Next Steps: More Advanced Scripts
@@ -198,22 +201,22 @@ You can build payload data from a **byte array** or set **typed properties** on 
 
 ## Tips
 
-- **Start simple**: Use a minimal run script that only logs output before adding DBC or CAN logic
-- **Timestamps**: Prefix log lines with `DateTime.Now` (C#) or `datetime.now()` (Python) when correlating script output with bus or application events
-- **Logging**: In C# use `Profinity.Console.WriteLine`; in Python use `print()` (see [Console](../Extending_Profinity/Scripting/Script_Operations/Console.md))
-- **Test incrementally**: Add one API (DBC, CAN bus, or state) at a time
-- **Follow the scripting docs**: Examples for each script type and operation live under [Scripting](../Extending_Profinity/Scripting/index.md)
+- **Start simple**: use a minimal run script that only logs output before adding DBC or CAN logic
+- **Timestamps**: prefix log lines with `DateTime.Now` (C#) or `datetime.now()` (Python) when correlating script output with bus or application events
+- **Logging**: in C# use `Profinity.Console.WriteLine`; in Python use `print()` (see [Console](../Extending_Profinity/Scripting/Script_Operations/Console.md))
+- **Test incrementally**: add one API (DBC, CAN bus, or state) at a time
+- **Follow the scripting docs**: examples for each script type and operation live under [Scripting](../Extending_Profinity/Scripting/index.md)
 
 ## Troubleshooting
 
-- **Script not running**: Confirm scripting is enabled in System Configuration and the script language matches the source
-- **No DBC data / null signal**: Check component, message, and signal names against the DBC viewer; names are case-sensitive
-- **Syntax errors**: Fix compile errors (C#) or IronPython/Python 3 syntax (Python) before running
-- **Unexpected behavior**: Remember scripts run inside Profinity with the same OS permissions as the application (see [Scripting overview](../Extending_Profinity/Scripting/index.md))
+- **Script not running**: confirm scripting is enabled in System Configuration and the script component language matches the source
+- **No DBC data / null signal**: check component, message, and signal names against the DBC viewer; names are case-sensitive
+- **Syntax errors**: fix compile errors (C#) or IronPython/Python 3 syntax (Python) before running
+- **Unexpected behaviour**: remember scripts run inside Profinity with the same OS permissions as the application (see [Scripting overview](../Extending_Profinity/Scripting/index.md))
 
 ## Related Documentation
 
-- [Scripting Overview](../Extending_Profinity/Scripting/index.md) — Security, enabling scripting, and next steps
-- [Supported Languages](../Extending_Profinity/Scripting/Supported_Languages/index.md) — C# vs Python
-- [Script Types](../Extending_Profinity/Scripting/Script_Types/index.md) — Run, receive, service, interval, and cron modes
-- [Script Operations](../Extending_Profinity/Scripting/Script_Operations/index.md) — CAN bus, DBC, state, and console
+- [Scripting Overview](../Extending_Profinity/Scripting/index.md) - security, enabling scripting, and next steps
+- [Supported Languages](../Extending_Profinity/Scripting/Supported_Languages/index.md) - C#, Python and Lua
+- [Script Types](../Extending_Profinity/Scripting/Script_Types/index.md) - run, receive, service, interval, cron, tag change and alert modes
+- [Script Operations](../Extending_Profinity/Scripting/Script_Operations/index.md) - CAN bus, DBC, state, and console

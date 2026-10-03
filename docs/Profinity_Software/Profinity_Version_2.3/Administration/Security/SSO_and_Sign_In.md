@@ -3,9 +3,9 @@ title: SSO and Sign-In Method
 description: "Configure OpenID Connect single sign-on as the site-wide sign-in method for all Profinity users."
 ---
 
-# SSO and sign-in method
+# SSO and Sign-In Method
 
-Profinity 2.3 uses a **site-wide sign-in method** configured in **Config.yaml**. Every user on the site signs in the same way: either **Local** (username and password) or **Sso** (OpenID Connect).
+Profinity 2.3 uses a **site-wide sign-in method** configured in **Config.yaml**. Every user on the site signs in the same way: either **Local** (username and password) or **Sso** (OpenID Connect, OIDC, with an identity provider, IdP).
 
 Hybrid local and SSO on the same site is **not** supported. Per-user authentication mode from earlier releases is removed.
 
@@ -38,8 +38,8 @@ When sign-in method is **Sso**, configure a single **`OidcSso`** block under **S
 | **Client ID** | Application client identifier |
 | **Client secret** | Confidential client secret (store securely) |
 | **Redirect URIs** | Display-only helper — register these URIs in your IdP |
-| **End session endpoint** | End session endpoint (IdP logout URL) |
-| **Post-logout redirect URI** | Post-logout redirect URI (SP return URL) |
+| **End session endpoint** | IdP logout URL, used to end the identity provider session on sign-out |
+| **Post-logout redirect URI** | Profinity URL (the service provider side) that the IdP returns the user to after logout |
 
 <figure markdown>
 ![OIDC SSO settings expanded in Security Config](../../../../assets/images/2.3/2.3-oidc-sso-settings.png)
@@ -85,7 +85,7 @@ SSO users are matched using **External identity links** on the Profinity user re
 
 ## MFA and SSO
 
-When sign-in method is **Sso**, multi-factor authentication is enforced by the **identity provider**, not Profinity's local 2FA policy.
+When sign-in method is **Sso**, multi-factor authentication is enforced by the **identity provider**, not by Profinity's local [two-factor policy](./Two_Factor_Authentication.md).
 
 ## SCIM provisioning
 

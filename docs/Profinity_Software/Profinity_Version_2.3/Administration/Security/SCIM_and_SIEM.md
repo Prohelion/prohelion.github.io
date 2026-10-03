@@ -3,7 +3,7 @@ title: SCIM and SIEM
 description: "Enable SCIM user provisioning from identity providers and configure SIEM log export for security monitoring."
 ---
 
-# SCIM and SIEM integration
+# SCIM and SIEM
 
 Profinity 2.3 configures **SCIM user provisioning** and **SIEM log export** in **Config.yaml** under **Security Config**. These settings moved from Security.yaml in earlier releases; saving Config.yaml **restarts the engine**.
 

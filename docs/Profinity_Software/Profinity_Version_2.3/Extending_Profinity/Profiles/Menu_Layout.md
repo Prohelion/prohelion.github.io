@@ -1,6 +1,6 @@
 ---
 title: Menu Layout
-description: "Customize profile and component menu placement using drag-and-drop layout editor."
+description: "Customise profile and component menu placement using the drag-and-drop layout editor."
 ---
 
 # Profile and component menu layout
@@ -8,6 +8,8 @@ description: "Customize profile and component menu placement using drag-and-drop
 Profinity 2.3 lets engineers customise the **top section** of the side menu — which components appear and in what order. The bottom system section (CAN utilities, Tags, Admin) remains **system-defined**.
 
 ## Profile menu layout
+
+Editing the profile menu layout requires **`ProfileModify`**.
 
 1. Open **Admin** → **Profiles**.
 2. Edit a profile.
@@ -18,8 +20,6 @@ Profinity 2.3 lets engineers customise the **top section** of the side menu — 
 ![Profile menu layout editor with drag list](../../../../assets/images/2.3/2.3-profile-menu-layout-editor.png)
 <figcaption>Profile menu layout editor (screenshot placeholder — provide SS-38)</figcaption>
 </figure>
-
-Requires **`ProfileModify`**.
 
 The **custom menu** is always enabled for profiles that use the layout editor — there is no separate "enable custom menu" toggle in 2.3.
 

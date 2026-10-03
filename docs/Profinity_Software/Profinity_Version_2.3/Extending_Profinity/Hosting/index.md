@@ -5,22 +5,20 @@ description: "Host custom applications using Profinity's integrated web server w
 
 # Hosting Custom Applications in Profinity
 
-As well as hosting the Rest APIs and Swagger interface, Profinity supports an integrated Web Server that can provide hosting for a custom build application based on these APIs in any modern web technology.  This includes language and frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) as well as traditional HTML / Javascript etc.
+As well as hosting the REST APIs and Swagger interface, Profinity includes an integrated web server that can host a custom application built on those APIs in any modern web technology, including frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) as well as traditional HTML and JavaScript.
 
-Once the Extensions Web Server is enabled in the Administration Console, you can place you application here
+Once the Extensions Web server is enabled in **System Configuration** (see [Extensions Web](../../Administration/System_Config.md#extensions-web)), the application is placed in the `webroot` folder of the [artifacts directory](../../Installation/Artifacts_Directory.md):
 
-`/Documents/Prohelion/Profinity/Webroot`
+```text
+{Artifacts}/webroot
+```
 
-Or if you are running on MacOs or Linux under your home directory.
+By default the Profinity web server serves the `index.html` file from this folder when the calling web browser does not provide a URL path.
 
-`$home/Prohelion/Profinity/Webroot`
+## Production Configuration and HTTPS
 
-By default the Profinity web server will serve the index.html file from this directory if no URL is provided by the calling web browser.
+The Profinity web server supports SSL / TLS certificates for production environments. There are two options for providing a certificate: the Windows Certificate Store, or a certificate file and password, which works on Windows, macOS and Linux.
 
-## Production Configuration and HTTPs
+`HttpsRedirect` can be set to force all HTTP traffic to the HTTPS interface, in which case a second, HTTPS, interface must also be provided in the `Urls` option. Consider disabling Swagger in a production environment.
 
-The Profinity Web Server supports SSL / TLS style certificates for Production environments.  There are two options available for certificates, either using a Windows Certificate Store or providing a Certificate file and Password, which works on either Windows or MacOS & Linux.
-
-HttpsRedirect can be set for force all HTTP traffic to the HTTPs interface and second HTTPs interface should be provided in the Urls option in this case. You may consider disabling Swagger in a production environment.
-
-When using a certification from a Windows Certificate store you will need to provide the CertStoreName, CertStoreLocation and CertStoreSubject properties in the configuration file
+When using a certificate from the Windows Certificate Store, the `CertStoreName`, `CertStoreLocation` and `CertStoreSubject` properties must be provided in the configuration file.

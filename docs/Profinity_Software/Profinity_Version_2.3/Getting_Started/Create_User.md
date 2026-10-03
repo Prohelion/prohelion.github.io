@@ -5,15 +5,15 @@ description: "Create new Profinity users and assign security roles to control ac
 
 # Creating a User
 
-After installing Profinity it is recommended to create a new user to suit your security requirements or create additional users as defined to support different user profiles. To create a new user, select the `ADMIN` tab, then `Users` and `+ ADD USER`. Here you are able to define a new user and their associated login details.
+After installing Profinity it is recommended to create a new user to suit your security requirements, and additional users to support different types of user. To create a new user, open the pill menu (top-right), select **Users & Groups** and then **+ Add user**, which allows you to define the new user and their associated login details.
 
 <figure markdown>
 ![Add user](../images/add_user.png)
 <figcaption>New user menu</figcaption>
 </figure>
 
-Each user can also be granted different security roles, either allowing or restricting certain Profinity functionality for that particular user. Giving a user the administrator role automatically grants the privileges of all other roles.
+Each user is also assigned one or more roles, which bundle the permissions that allow or restrict particular Profinity functionality for that user. The default Administrators role includes the full permission bundle, so assigning it grants the permissions of every other role.
 
-# More Information
+## More Information
 
-Additional information on how to create and manage users can be found in the [Admin / Manage Users](../Administration/Manage_Users.md) section of this documentation.
+Additional information on how to create and manage users, and the full permission catalogue, can be found in [Manage Users](../Administration/Manage_Users.md) and [RBAC and permissions](../Administration/Security/RBAC_Permissions.md).

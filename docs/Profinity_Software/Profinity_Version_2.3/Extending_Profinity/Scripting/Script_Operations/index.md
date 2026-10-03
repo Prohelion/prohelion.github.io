@@ -5,28 +5,28 @@ description: "Available script operations including CAN bus, DBC, state manageme
 
 # Supported Operations
 
-The following Key Features are available, regardless of what language you choose.
+The following operations are available to every script, regardless of the language used.
 
 ## CAN bus Communication
 
-Profinity offers advanced CAN bus communication features, enabling you to send and receive CAN packets efficiently. For detailed examples and usage, refer to the [CAN bus](./CANBus.md) documentation.
+Scripts can send CAN packets and read the latest received packets. See the [CAN bus](./CANBus.md) documentation for examples and usage.
 
 ## DBC Message and Signal Information
 
-Access CAN data using Profinity's DBC functionality, which simplifies the process of working with complex signal data. For detailed examples and usage, see the [DBC](./DBC.md) documentation.
+Scripts can read signal values from the loaded DBC files by component, message and signal name, with the raw CAN data converted to physical values. See the [DBC](./DBC.md) documentation for examples and usage.
 
 ## State Management
 
-Profinity provides robust state management options to store and share data:
+Profinity provides two state stores for keeping and sharing data:
 
 - **Local State (State):** Use `State` for data persistence within a single script.
 - **Global State (GlobalState):** Use `GlobalState` to share data across multiple scripts.
 
-For detailed examples and usage, see the [State](./State.md) documentation.
+See the [State](./State.md) documentation for examples and usage.
 
 ## Console Output
 
-Profinity supports comprehensive console output capabilities across all scripting languages, allowing you to log information, errors, and debug messages effectively. For detailed examples and usage, refer to the [Console](./Console.md) documentation.
+Scripts in all three languages can write information and error messages to the Profinity log. See the [Console](./Console.md) documentation for examples and usage.
 
 ## Next Steps
 
@@ -38,5 +38,6 @@ Profinity supports comprehensive console output capabilities across all scriptin
 2. Review the language-specific documentation:
    - [C# Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/)
    - [IronPython Documentation](https://ironpython.net/documentation/)
+   - [NLua Documentation](https://github.com/NLua/NLua)
 3. Experiment by creating simple scripts that integrate multiple features.
-4. Review example scripts in the Profinity documentation to gain practical insights.
+4. Review the example scripts in the Example Scripts folder of the Profinity installation.

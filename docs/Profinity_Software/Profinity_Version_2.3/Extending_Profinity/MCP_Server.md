@@ -14,7 +14,7 @@ Profinity includes a Model Context Protocol (MCP) server, which lets AI assistan
 - [Transport](#transport)
 - [Available tools](#available-tools)
 - [Authentication and permissions](#authentication-and-permissions)
-- [Configuration example](#configuration-example)
+- [Example client calls](#example-client-calls)
 - [Use cases](#use-cases)
 - [Security considerations](#security-considerations)
 - [Related documentation](#related-documentation)
@@ -25,7 +25,7 @@ The Model Context Protocol (MCP) is a standard protocol that lets AI assistants 
 
 ## Enabling the MCP server
 
-The MCP server is configured from the **Profinity AI** settings page (**Admin > Instance Settings > Profinity AI**), under its own **MCP Server** field group. Enabling **Profinity AI** itself also enables the MCP server, since the assistant depends on it; the MCP server can also be enabled on its own, independently of Profinity AI, for external MCP clients such as Claude Desktop.
+The MCP server is configured from the **Profinity AI** settings page (**ADMIN > System Configuration > Profinity AI**), under its own **MCP Server** field group. Enabling **Profinity AI** itself also enables the MCP server, since the assistant depends on it; the MCP server can also be enabled on its own, independently of Profinity AI, for external MCP clients such as Claude Desktop.
 
 !!! warning "Restart Required"
     Enabling or disabling the MCP server takes effect only after Profinity restarts. After saving the configuration, wait approximately 15 seconds for the engine to restart before reloading the page.
@@ -196,14 +196,16 @@ To authenticate directly against the MCP server:
 2. Generate a JWT token for the user, through the Profinity API or the user management interface.
 3. Include the token in the `Authorization` header of every request:
 
-```text
-Authorization: Bearer YOUR_JWT_TOKEN_HERE
-```
+    ```text
+    Authorization: Bearer YOUR_JWT_TOKEN_HERE
+    ```
 
 !!! info "Service Accounts"
     For a long-lived integration such as an external MCP client, use a [service account](../Administration/Security/Service_Accounts.md) with the required permissions and a non-expiring token, rather than a personal user account.
 
-## Configuration example
+## Example client calls
+
+The following Python example calls three of the tools over HTTP with a bearer token.
 
 ```python
 import requests

@@ -5,27 +5,25 @@ description: "Create custom components using DBC files and custom YAML dashboard
 
 # Custom Components
 
-Profinity allows you to create Custom Components using your DBC files and custom dashboard definitions. This lets you include any CAN bus device in your profile so you can monitor it and graph or log its data.
+Profinity allows Custom Components to be created from DBC files and custom dashboard definitions, which makes it possible to include any CAN bus device in your profile so that its data can be monitored, graphed or logged.
 
 ## CAN bus DBC
 
-[DBC](http://socialledge.com/sjsu/index.php/DBC_Format) is a file format that can be used to describe the format and nature of CAN bus data.  With a DBC file CAN data can be understood more clearly and broken down in to Signals and Messages, the fundamental building blocks of a DBC file.
+[DBC](http://socialledge.com/sjsu/index.php/DBC_Format) is a file format that describes the format and nature of CAN bus data. With a DBC file, CAN data can be understood more clearly and broken down into Signals and Messages, the fundamental building blocks of a DBC file.
 
-For the moment, Profinity provides a DBC Viewer that can be used to take a DBC file and will show the CAN bus traffic travelling through the Profinity system as Messages and Signals.
+For the moment, Profinity provides a DBC Viewer that takes a DBC file and shows the CAN bus traffic travelling through the Profinity system as Messages and Signals.
 
 <figure markdown>
 ![CAN DBC Viewer](../../images/dbc_canbus_message.png)
 <figcaption>CAN DBC Viewer</figcaption>
 </figure>
 
-To use the DBC viewer with a third party DBC file you need to [create a new component](../../Getting_Started/Adding_New_Components.md) in your [Profile](../../Administration/Profiles.md) and provide the DBC file in the configuration properties for the new component.
+To use the DBC Viewer with a third-party DBC file, [create a new component](../../Getting_Started/Adding_New_Components.md) in your [Profile](../../Administration/Profiles.md) and provide the DBC file in the configuration properties for the new component. The item then appears in your profile, and right-clicking it gives access to information about its Messages and Signals.
 
-Once this has been done you will see the item in your profile, and by right-clicking on it you can access information about its Messages and Signals.
-
-Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../MPPT/index.md) and the [WaveSculptor](../Motor_Controller/index.md) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file.
+Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../MPPT/index.md) and the [WaveSculptor](../Motor_Controller/index.md) have DBC support built into the component, and also allow Messages and Signals to be viewed without a separate DBC file.
 
 ## Custom Dashboards
 
-Profinity provides the ability to define custom dashboards using our YAML custom dashboard editor. The editor can validate your dashboard as you create it and it is also possible to use our existing dashboards as templates for your dashboard as we build our own Profinity dashboards using this tool.
+Profinity provides a YAML custom dashboard editor for defining custom dashboards. The editor validates a dashboard as it is created, and the existing Profinity dashboards, which Prohelion builds with the same tool, can be used as templates.
 
-For more information on creating dashboards, see the [Dashboard Development Guide](../../Extending_Profinity/Dashboards/index.md) documentation.
+For more information on creating dashboards, see the [Dashboard Development Guide](../../Extending_Profinity/Dashboards/index.md).

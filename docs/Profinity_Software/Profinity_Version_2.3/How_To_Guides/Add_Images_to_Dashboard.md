@@ -55,28 +55,28 @@ image:
 ### Step 3: Verify the Image
 
 1. Save your dashboard
-2. Image should appear in your dashboard
-3. If image doesn't appear, check:
+2. The image should appear in your dashboard
+3. If the image does not appear, check:
    - File is in `/Profile/Images/` directory
    - Filename matches exactly (case-sensitive)
    - File format is supported
 
 ## Image Format Recommendations
 
-- **SVG** - Best for icons and logos (scales perfectly, smaller file size)
-- **PNG** - Good for images with transparency
-- **JPG** - Good for photographs
-- **GIF** - For animated images
+- **SVG** - best for icons and logos (scales without loss of quality, smaller file size)
+- **PNG** - suited to images with transparency
+- **JPG** - suited to photographs
+- **GIF** - suited to animated images
 
 ## Tips
 
 - Use descriptive filenames for easy identification
-- Optimize image file sizes for better performance
+- Optimise image file sizes for better performance
 - Keep images organized in subdirectories if you have many files
 - Test images in the dashboard editor before deploying
 
 ## Related Documentation
 
-- [Profile Directories](../Extending_Profinity/Dashboards/Profile_Directories.md) - Complete guide to profile directories
+- [Profile Directories](../Extending_Profinity/Dashboards/Profile_Directories.md) - the full reference for profile directories
 - [Icon Component](../Extending_Profinity/Dashboards/Component_Reference/Interactive/Icon.md) - Icon component reference
 - [Image Component](../Extending_Profinity/Dashboards/Component_Reference/Interactive/Image.md) - Interactive image component reference

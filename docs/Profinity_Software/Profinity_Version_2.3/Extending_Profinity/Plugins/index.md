@@ -7,12 +7,11 @@ description: "External DLL plugins packaged as .nupkg or zip and installed throu
 
 Profinity 2.3 supports **external DLL plugins** — author-compiled assemblies packaged as **`.nupkg`** or **zip** and installed through **Components & Plugins** in the admin UI.
 
-This is **distinct** from **Custom Component packs** (zip/nupkg of YAML and scripts via `profinity-component-pack`). See [Component Pack CLI](../Components/Component_Pack_CLI.md).
+DLL plugins are **distinct** from **Custom Component packs** (zip or nupkg bundles of YAML and scripts built with `profinity-component-pack`), which are covered in [Component Pack CLI](../Components/Component_Pack_CLI.md).
 
 ## Where to manage plugins
 
-1. Open the pill menu → **Components & Plugins** (`/admin?view=plugins`).
-2. Requires **`PluginView`** to open; **`PluginModify`** to upload, enable, disable, or delete.
+Plugins are managed from the pill menu → **Components & Plugins** (`/admin?view=plugins`). Opening the screen requires **`PluginView`**, and uploading, enabling, disabling, or deleting a plugin requires **`PluginModify`**.
 
 <figure markdown>
 ![Plugin Manager upload control and plugin list](../../../../assets/images/2.3/2.3-plugin-manager-upload.png)
@@ -34,17 +33,17 @@ Registry metadata is stored in `{Artifacts}/Config/plugins.yaml`.
 1. Build a plugin against `Profinity.Sdk` from the [Profinity SDK](../SDK.md) kit, following the [SDK Plugin Authoring guide](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/SDK/SDK-Plugin-Authoring.md), and pack it as a `.nupkg` or zip.
 2. In Plugin Manager, **upload** the package.
 3. **Enable** the plugin.
-4. Hot reload picks up enabled plugins without a full reinstall when supported.
+4. Where supported, hot reload picks up enabled plugins without a full reinstall.
 
-Sample: [Rinstrum Scale Plugin](https://github.com/Prohelion/Profinity/tree/feature/Profinity_2_3/Rinstrum-Scale-Plugin) with Linux systemd deploy notes.
+The [Rinstrum Scale Plugin](https://github.com/Prohelion/Profinity/tree/feature/Profinity_2_3/Rinstrum-Scale-Plugin) is a sample plugin that includes Linux systemd deploy notes.
 
 ## REST API
 
-Base path: `/api/v2/plugins` — list, upload, enable/disable, delete. Requires matching `PluginView` / `PluginModify` permissions.
+The base path is `/api/v2/plugins`, which lists, uploads, enables, disables, and deletes plugins, and requires the matching `PluginView` or `PluginModify` permission.
 
 ## NuGet feed
 
-**Local package install only** for 2.3 GA — Profinity does not document a public NuGet **feed** publish workflow in this release. See [Profinity SDK](../SDK.md) for how to get `Profinity.Sdk` itself.
+Plugins are installed from **local packages only** for 2.3 GA, and Profinity does not document a public NuGet **feed** publishing workflow in this release. See [Profinity SDK](../SDK.md) for how to get `Profinity.Sdk` itself.
 
 ## Related documentation
 
