@@ -1,5 +1,6 @@
 ---
 title: Mechanical
+description: "WaveSculptor200 mechanical specifications including enclosure dimensions, mass, cable conduit sizes, and fastening requirements."
 ---
 
 # Mechanical 

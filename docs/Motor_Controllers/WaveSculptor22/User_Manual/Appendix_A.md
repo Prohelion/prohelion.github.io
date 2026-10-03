@@ -1,5 +1,6 @@
 ---
 title: Appendix A - Component Sources
+description: "WaveSculptor22 recommended component sources and part numbers for cabling, connectors, and high power connections."
 ---
 
 # Appendix A: Recommended Component Sources

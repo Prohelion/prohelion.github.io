@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2 - BMS State Machine
+description: "BMS D1000 Gen2 V1.2 state machine documentation including system-wide state diagram and detailed state descriptions for charging and non-charging operations."
 ---
 
 # State Machine

@@ -1,5 +1,6 @@
 ---
 title: MCP Server
+description: "Model Context Protocol server for AI assistants and MCP-aware tools to query live Profinity data."
 ---
 
 # MCP Server

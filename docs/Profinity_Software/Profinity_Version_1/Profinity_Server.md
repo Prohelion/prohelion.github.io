@@ -1,5 +1,6 @@
 ---
 title: Profinity Server
+description: "Documentation for running Profinity V1 in server mode on Windows, Docker, Linux and MacOS with API-centric interfaces."
 ---
 
 # Profinity Server Mode

@@ -1,5 +1,6 @@
 ---
 title: Profinity Profiles
+description: "Understand how Profinity profiles organize system configuration, components, dashboards, and settings for different setups."
 ---
 
 # Profinity Profiles

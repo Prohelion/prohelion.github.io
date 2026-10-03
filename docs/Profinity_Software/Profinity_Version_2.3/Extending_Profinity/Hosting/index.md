@@ -1,5 +1,6 @@
 ---
 title: Hosting Custom Applications
+description: "Host custom applications using Profinity's integrated web server with optional SSL/TLS support."
 ---
 
 # Hosting Custom Applications in Profinity

@@ -1,5 +1,6 @@
 ---
 title: How to View Dashboard Source
+description: "Access the YAML source code of existing dashboards to learn from examples and create custom dashboard modifications."
 ---
 
 # How to View Dashboard Source

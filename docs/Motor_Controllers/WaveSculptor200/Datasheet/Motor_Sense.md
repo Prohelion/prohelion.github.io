@@ -1,5 +1,6 @@
 ---
 title: Motor Sense
+description: "WaveSculptor200 motor sensing requirements including position sensors for BLDC motors, encoders for induction motors, and temperature monitoring."
 ---
 
 # Motor Sense

@@ -1,5 +1,6 @@
 ---
 title: Zip Installation (macOS and Linux)
+description: "Install Profinity on macOS and Linux by extracting platform-specific archives and running the profinity.sh startup script."
 ---
 
 # Installing Profinity on macOS and Linux

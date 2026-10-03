@@ -1,5 +1,6 @@
 ---
 title: Wiring Harness
+description: "Guide to assembling the cell voltage and temperature sensing wiring harness for the Prohelion BMS D1000 Gen1 8-cell Cell Management Unit."
 ---
 
 # CMU Cell Sense Wiring Assembly Procedure 

@@ -1,5 +1,6 @@
 ---
 title: How to Create a Profile Dashboard
+description: "Create and upload custom dashboards to replace the default Profinity home page for your profile."
 ---
 
 # How to Create a Profile Dashboard

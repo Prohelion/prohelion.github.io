@@ -1,5 +1,6 @@
 ---
 title: File Loggers
+description: "Log CAN bus messages to local or remote SFTP destinations with compression and archival options."
 ---
 
 # File / SFTP Based Loggers

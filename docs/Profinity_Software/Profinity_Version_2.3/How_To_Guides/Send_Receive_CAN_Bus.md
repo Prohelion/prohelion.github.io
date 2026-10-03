@@ -1,5 +1,6 @@
 ---
 title: How to Send and Receive CAN Bus Messages
+description: "Send and receive CAN bus messages using Profinity's built-in tools for manual and scheduled packet transmission."
 ---
 
 # How to Send and Receive CAN Bus Messages

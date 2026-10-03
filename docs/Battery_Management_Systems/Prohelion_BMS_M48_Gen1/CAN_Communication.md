@@ -1,5 +1,6 @@
 ---
 title: CAN Communication Software Specifications
+description: "CAN communication protocol for the Prohelion 48V Battery Management System, including BMS control messages and configuration parameter commands."
 ---
 
 # CAN Communication 

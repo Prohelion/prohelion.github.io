@@ -1,5 +1,6 @@
 ---
 title: CAN bus DBC
+description: "View and analyze CAN messages and signals using DBC files with text and numeric range filtering."
 ---
 
 # CAN bus DBC

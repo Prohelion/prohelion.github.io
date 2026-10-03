@@ -1,5 +1,6 @@
 ---
 title: Supported Operations
+description: "Available script operations including CAN bus, DBC, state management, and console output."
 ---
 
 # Supported Operations

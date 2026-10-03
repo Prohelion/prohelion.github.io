@@ -1,5 +1,6 @@
 ---
 title: Dashboard Visual Editor
+description: "Editable visual dashboard editor for arranging widgets and binding tags without hand-editing YAML."
 ---
 
 # Dashboard visual editor

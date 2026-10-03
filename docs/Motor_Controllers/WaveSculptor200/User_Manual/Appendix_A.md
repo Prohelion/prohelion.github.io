@@ -1,5 +1,6 @@
 ---
 title: Appendix A - Component Sources
+description: "WaveSculptor200 recommended component sources and part numbers for cabling, connectors, and cooling system components."
 ---
 
 # Appendix A: Recommended Component Sources

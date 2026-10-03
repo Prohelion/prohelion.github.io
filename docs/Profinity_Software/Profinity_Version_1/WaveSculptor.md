@@ -1,5 +1,6 @@
 ---
 title: WaveSculptor
+description: "Guide to managing Prohelion WaveSculptor motor inverters in Profinity V1, including configuration and firmware updates."
 ---
 
 [Tritium](https://www.tritiumcharging.com/) initially created the WaveSculptor Motor Inverter, used by racing teams around the world.  With 99.2% cruising efficiency the WaveSculptor family is a go to choice for most high efficiency electric vehicle racing teams.  In 2021 [Prohelion](https://www.prohelion.com) took over the design, manufacturing and support for this product.

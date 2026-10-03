@@ -1,5 +1,6 @@
 ---
 title: Elmar Solar MPPT
+description: "Monitor Elmar Solar maximum power point tracker efficiency, input/output voltage, and status events."
 ---
 
 # Elmar Solar MPPT

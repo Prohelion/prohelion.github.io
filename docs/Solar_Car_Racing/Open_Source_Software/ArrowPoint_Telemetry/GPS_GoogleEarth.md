@@ -1,5 +1,6 @@
 ---
 title: GPS & Google Earth
+description: "GPS tracking and Google Earth integration for visualizing vehicle position and strategy planning in races."
 ---
 
 The Telemetry system can track your current location which can then be displayed on Google Maps.

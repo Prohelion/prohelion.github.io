@@ -1,5 +1,6 @@
 ---
 title: Log / Replay CAN
+description: "Guide to logging and replaying CAN Bus messages in Profinity V1, including file, FTP, SFTP, and time-series database options."
 ---
 
 # Log / Replay CAN Bus Messages

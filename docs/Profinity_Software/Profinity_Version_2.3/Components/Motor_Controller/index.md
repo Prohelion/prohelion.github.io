@@ -1,5 +1,6 @@
 ---
 title: WaveSculptor
+description: "Monitor and configure Tritium WaveSculptor motor controllers with real-time performance and temperature data."
 ---
 
 # WaveSculptor Motor Controller Support

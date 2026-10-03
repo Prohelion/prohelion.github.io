@@ -1,5 +1,6 @@
 ---
 title: Operating Power and Cooling
+description: "WaveSculptor200 maximum power output ratings, continuous thermal power limits at various ambient temperatures, and water cooling system requirements."
 ---
 
 # Operating Power and Cooling

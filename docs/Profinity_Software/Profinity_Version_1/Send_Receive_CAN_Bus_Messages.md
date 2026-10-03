@@ -1,5 +1,6 @@
 ---
 title: Send / Receive CAN
+description: "Guide to sending and receiving CAN Bus messages in Profinity V1, including packet filtering and manual message transmission."
 ---
 
 # Send / Receiving CAN Bus Messages

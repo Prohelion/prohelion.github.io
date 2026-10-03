@@ -1,5 +1,6 @@
 ---
 title: Windows Installation
+description: "Install Profinity on Windows using the Setup Wizard MSI installer for desktop application or web browser access."
 ---
 
 # Installing Profinity On Windows

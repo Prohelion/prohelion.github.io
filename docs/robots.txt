@@ -1,3 +1,4 @@
 Sitemap: https://docs.prohelion.com/sitemap.xml
+
 User-agent: *
-Disallow:
+Allow: /

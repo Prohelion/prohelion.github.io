@@ -1,0 +1,8 @@
+nav:
+    - index.md    
+    - Scripting
+    - Dashboards
+    - Custom_Components
+    - APIs
+    - MCP_Server.md
+    - Hosting

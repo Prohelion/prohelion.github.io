@@ -1,5 +1,6 @@
 ---
 title: BMS Functions
+description: "BMS functions and electrical specifications for the Prohelion 48V Battery Management System, monitoring 22 cells with 5kW power handling and CAN communication."
 ---
 
 # BMS Functions

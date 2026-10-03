@@ -1,5 +1,6 @@
 ---
 title: DBC File
+description: "DBC file for decoding CAN bus messages transmitted by Elmar Solar MPPT charge controllers, covering power, temperature, limits, and status signals."
 ---
 
 # Elmar Solar DBC File

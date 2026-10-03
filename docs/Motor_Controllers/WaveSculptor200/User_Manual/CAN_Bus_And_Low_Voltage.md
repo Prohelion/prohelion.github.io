@@ -1,5 +1,6 @@
 ---
 title: CAN Bus and Low Voltage
+description: "WaveSculptor200 CAN bus network topology, wiring standards, connectors, termination, and low-voltage power supply requirements."
 ---
 
 # CAN Bus and Low Voltage 

@@ -1,5 +1,6 @@
 ---
 title: Successful Crimping
+description: "Guide to proper crimping techniques and tool selection for Molex MicroFit 3.0 connectors in Prohelion BMS D1000 Gen1 wiring harness assembly."
 ---
 
 # Guide to Successful Crimping 

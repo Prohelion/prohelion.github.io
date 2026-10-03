@@ -338,3 +338,11 @@ programmatically
 candapter
 autogen
 img
+bacnet
+modbus
+opc
+sparkplug
+s7comm
+nupkg
+ethernet
+relayed

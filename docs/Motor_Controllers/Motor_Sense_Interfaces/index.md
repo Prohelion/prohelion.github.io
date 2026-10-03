@@ -1,5 +1,6 @@
 ---
 title: Motor Sense Interfaces
+description: "Reference guide to five WaveSculptor motor sense interface types supporting halls, encoders, resolvers, and various temperature sensors for different motor configurations."
 ---
 
 # Motor Sense Interfaces

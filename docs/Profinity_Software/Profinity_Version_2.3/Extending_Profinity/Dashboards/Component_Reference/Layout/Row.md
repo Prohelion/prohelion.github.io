@@ -1,5 +1,6 @@
 ---
 title: Row Component
+description: "Layout container for organizing multiple components horizontally or vertically within dashboards."
 ---
 
 # Row

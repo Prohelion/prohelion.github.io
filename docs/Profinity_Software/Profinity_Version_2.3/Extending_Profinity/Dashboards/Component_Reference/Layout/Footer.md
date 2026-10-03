@@ -1,5 +1,6 @@
 ---
 title: Footer Component
+description: "Bottom section with navigation menus providing additional navigation and system information."
 ---
 
 # Footer

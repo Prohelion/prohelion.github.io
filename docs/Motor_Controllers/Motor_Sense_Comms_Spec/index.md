@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "Serial communications specification for WaveSculptor200 motor position and temperature sense adapter boards operating at 470.6 kbps asynchronous UART."
 ---
 
 # WaveSculptor200 Motor Drive Motor Sense Comms Spec

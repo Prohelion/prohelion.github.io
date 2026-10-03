@@ -1,5 +1,6 @@
 ---
 title: Motor Sense
+description: "WaveSculptor22 motor sensing with Hall sensors for BLDC, 250 ppr minimum encoder for induction motors, and temperature monitoring."
 ---
 
 # Motor Sense

@@ -1,5 +1,6 @@
 ---
 title: Panels Component
+description: "Grid layout of multiple panel containers for organizing complex information into separate sections."
 ---
 
 # Panels

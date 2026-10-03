@@ -1,5 +1,6 @@
 ---
 title: PC Software
+description: "WaveSculptor22 PC software configuration via Profinity with CAN-Ethernet bridge installation and network testing procedures."
 ---
 
 # PC Software

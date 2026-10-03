@@ -1,5 +1,6 @@
 ---
 title: Conditional Styling
+description: "Dynamically change component appearance, visibility, and behaviour based on real-time data values."
 ---
 
 # Conditional Styling

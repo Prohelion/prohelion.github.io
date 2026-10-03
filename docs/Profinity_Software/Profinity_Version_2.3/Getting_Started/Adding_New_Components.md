@@ -1,5 +1,6 @@
 ---
 title: Adding Components
+description: "Add components like hardware devices and CAN adapters to your Profinity profile by using the dashboard interface."
 ---
 
 # Adding new Components to your Profile

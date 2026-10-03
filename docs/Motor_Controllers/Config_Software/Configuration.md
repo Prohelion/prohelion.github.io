@@ -1,5 +1,6 @@
 ---
 title: Configuration
+description: "Configure general controller parameters, calibration data, and motor settings for the WaveSculptor with current limits, bus voltage, and temperature controls."
 ---
 
 # Configuration

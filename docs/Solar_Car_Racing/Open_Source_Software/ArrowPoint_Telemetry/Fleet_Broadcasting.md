@@ -1,5 +1,6 @@
 ---
 title: Fleet Broadcasting
+description: "System that re-broadcasts weather, GPS and messaging data as CAN Bus packets for vehicle-wide distribution."
 ---
 
 The Telemetry system acts as a base station to re-broadcast non CAN Bus data as CAN Bus for example

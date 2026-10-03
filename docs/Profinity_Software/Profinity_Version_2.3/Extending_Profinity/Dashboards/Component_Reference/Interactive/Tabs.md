@@ -1,5 +1,6 @@
 ---
 title: Tabs Component
+description: "Tabbed interface with header lamps and body content for organizing multiple data views."
 ---
 
 # Tabs

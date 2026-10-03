@@ -1,5 +1,6 @@
 ---
 title: ArrowPoint CAN bus Tools
+description: "Windows platform for receiving, transmitting, logging and replaying CAN Bus data in solar and electric racing."
 ---
 
 ArrowPoint CAN bus Tools is a Windows based platform designed to receive and display telemetry information from an WiFi access point in real time.  Its functionality has been replaced by Prohelion's [Profinity](../../../Profinity_Software/index.md) tools, so we are providing it to the community as an Open Source solution to help you learn more about CAN Bus development and approaches.

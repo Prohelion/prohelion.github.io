@@ -1,5 +1,6 @@
 ---
 title: MFA Account Management
+description: "Reset TOTP-based multi-factor authentication for users or manage self-service MFA settings."
 ---
 
 # MFA account management

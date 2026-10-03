@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "WaveSculptor200 Motor Drive datasheet with complete specifications, performance characteristics, and operating limits for this motor controller."
 ---
 
 # WaveSculptor200 Motor Drive Datasheet

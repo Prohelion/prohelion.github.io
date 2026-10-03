@@ -1,5 +1,6 @@
 ---
 title: CAN Bus to Ethernet Bridge
+description: "Product overview and navigation hub for CAN-Ethernet bridge documentation including manuals, datasheets, and interface specs."
 ---
 
 <div class="grid cards" markdown>

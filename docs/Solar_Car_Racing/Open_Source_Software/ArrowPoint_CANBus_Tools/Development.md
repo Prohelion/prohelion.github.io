@@ -1,5 +1,6 @@
 ---
 title: Development
+description: "Guide to compiling and contributing to ArrowPoint CAN Bus Tools using Visual Studio 2017 and MSBuild."
 ---
 
 ## Compilation and Development

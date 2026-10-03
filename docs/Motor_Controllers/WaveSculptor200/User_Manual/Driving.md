@@ -1,5 +1,6 @@
 ---
 title: Driving
+description: "WaveSculptor200 on-road driving testing procedures including forward/reverse operation, regenerative braking, and safety checks."
 ---
 
 # Driving 

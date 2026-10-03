@@ -1,10 +1,16 @@
 ---
 title: ALL ALERTS
+description: "Surface rule-generated alerts across the UI with active/history tabs and live alert indicators."
 ---
 
 # ALL ALERTS
 
 Profinity 2.3 surfaces rule-generated alerts in **ALL ALERTS**, live indicators across the UI, and the `/api/v2/Alerts` API. Operators with **`AlertsView`** permission can view, acknowledge, unacknowledge, and silence alerts.
+
+<figure markdown>
+![The ALL ALERTS page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge/silence controls](../../../../assets/images/2.3/2.3-diagram-alerts.png)
+<figcaption>Nothing gets missed in a log file</figcaption>
+</figure>
 
 ## Open ALL ALERTS
 
@@ -79,6 +85,11 @@ From ALL ALERTS (requires `AlertsView` — same permission for mutations):
 | POST | `/api/v2/Alerts/Silence` |
 
 ## Rule evaluation: dwell and deadband
+
+<figure markdown>
+![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../../../../assets/images/2.3/2.3-diagram-rules.png)
+<figcaption>Monitoring logic that scales with the fleet</figcaption>
+</figure>
 
 Rules support **dwell** (condition must hold for a duration) and **deadband** (hysteresis) configured in the rules visual editor. Engine evaluation interval is controlled by **`evaluationTickSeconds`** in rule configuration.
 

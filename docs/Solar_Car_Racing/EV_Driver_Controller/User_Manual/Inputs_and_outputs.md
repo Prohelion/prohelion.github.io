@@ -1,5 +1,6 @@
 ---
 title: Inputs and Outputs
+description: "Electrical interface specifications for power inputs, control outputs, and vehicle connector pinout."
 ---
 
 # Inputs and Outputs 

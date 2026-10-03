@@ -1,5 +1,6 @@
 ---
 title: Rule Actions and Scripts
+description: "Built-in, Webhook, MQTT, and Run On Alert script actions that execute when rules fire."
 ---
 
 # Rule actions and scripts
@@ -7,6 +8,11 @@ title: Rule Actions and Scripts
 Profinity 2.3 rules can run **built-in actions**, **Webhook**/**MQTT** actions, and a **script**
 set to **Run On Alert** mode. Every action receives an **action context** that includes
 **`TriggeredTags`** — the tags that caused the rule to fire.
+
+<figure markdown>
+![A rule firing sends its full JSON context to pluggable actions — log, Slack, PagerDuty, or a script — with cooldown throttling and actions set once and inherited down the rule tree](../../../../assets/images/2.3/2.3-diagram-rule-actions.png)
+<figcaption>One integration point for every response</figcaption>
+</figure>
 
 ## Rules visual editor
 

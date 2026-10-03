@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2 - BMS State Machine
+description: "BMS state machine for Prohelion BMS D1000 Gen2 V1.1 firmware, describing transitions between INITIALISE, CALIBRATE, SAFE, ACTIVE, IDLE, PRECHARGE, and ENABLED states."
 ---
 
 This section provides information on the BMS State Machine. The BMS State Machine is responsible for engaging and disengaging the battery contactors (main and charge outputs). The BMS State Machine continuously monitors the status all of sensors and external devices to ensure the battery stays within it's safe area of operation.

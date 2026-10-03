@@ -1,10 +1,16 @@
 ---
 title: Profinity Scripting
+description: "Scripting capabilities with C#, Python, and Lua for automation, CAN processing, and custom operations."
 ---
 
 # Profinity Scripting
 
 This section covers scripting in Profinity, including supported languages, script types, and available operations.
+
+<figure markdown>
+![Rule actions respond to alerts (Webhook, Slack, MQTT, Email), scripts in Python, Lua, or C# read and write tags like any other component, and Tag Relay links Profinity instances together over HTTPS or MQTT](../../../../assets/images/2.3/2.3-diagram-automation.png)
+<figcaption>React, program and share — built in</figcaption>
+</figure>
 
 If you are new to Profinity scripting, here are a few things to know before you get started.
 

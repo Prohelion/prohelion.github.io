@@ -1,5 +1,6 @@
 ---
 title: Logs
+description: "Configure Profinity system logging levels, log file rollover settings, and retention policies for diagnostics."
 ---
 
 # Profinity System Logs

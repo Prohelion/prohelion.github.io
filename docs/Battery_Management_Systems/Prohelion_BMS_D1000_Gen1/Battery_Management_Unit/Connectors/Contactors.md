@@ -1,5 +1,6 @@
 ---
 title: Contactors
+description: "HV contactor drive outputs and 12V supply connectors for the Prohelion BMS D1000 Gen1 Battery Management Unit, with selection and wiring guidance."
 ---
 
 # Contactors

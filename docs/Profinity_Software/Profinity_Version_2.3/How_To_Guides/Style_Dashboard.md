@@ -1,5 +1,6 @@
 ---
 title: How to Style Your Dashboard
+description: "Apply custom CSS styling to Profinity dashboard elements for branding and visual customization."
 ---
 
 # How to Style Your Dashboard

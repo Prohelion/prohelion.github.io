@@ -1,5 +1,6 @@
 ---
 title: Send / Receive CAN
+description: "Monitor CAN bus traffic, send individual packets, and schedule periodic CAN message transmission."
 ---
 
 # Send / Receiving CAN bus Messages

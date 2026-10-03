@@ -1,5 +1,6 @@
 ---
 title: Component and Collection Security
+description: "Control which users can see profile components and tag collections through role-based security restrictions."
 ---
 
 # Component and collection security

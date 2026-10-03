@@ -1,5 +1,6 @@
 ---
 title: Profinity Dashboard Development Guide
+description: "Complete guide to creating dynamic, data-driven dashboard user interfaces using YAML configuration."
 ---
 
 # Profinity Dashboard Development Guide

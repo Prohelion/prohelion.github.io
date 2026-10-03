@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "Overview of the Prohelion BMS D1000 Gen1 communications protocol, including BMU-to-controller CAN messaging, CMU data reporting, and bus architecture."
 ---
 
 # BMS Communications Protocol

@@ -1,10 +1,16 @@
 ---
 title: Component Types
+description: "Comparison of three Profinity extension models: Custom Components, Dashboard Components, and DLL plugins."
 ---
 
 # Custom Component, Dashboard Component, and DLL plugins
 
 Profinity 2.3 distinguishes three extension models. Using the wrong packaging path is a common integration mistake.
+
+<figure markdown>
+![Package a device's comms protocol, tags, rules, and dashboards as one plugin — shippable as Python + YAML or compiled — then install it so it behaves like a native device: build, package, install, reuse across every site](../../../../assets/images/2.3/2.3-diagram-build-your-own-plugin.png)
+<figcaption>Package your device as a plugin</figcaption>
+</figure>
 
 ## Comparison
 

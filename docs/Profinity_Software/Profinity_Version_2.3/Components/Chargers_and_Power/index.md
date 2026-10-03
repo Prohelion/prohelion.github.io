@@ -1,5 +1,6 @@
 ---
 title: Battery Charging
+description: "Control and manage battery charging using supported chargers including TDK, Elcon, and Siglent models."
 ---
 
 # Profinity Battery Charging

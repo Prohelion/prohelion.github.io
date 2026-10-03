@@ -1,5 +1,6 @@
 ---
 title: Profinity Mobile
+description: "Connect to Profinity from iOS or Android with UDP server discovery, HTTPS support, and kiosk mode."
 ---
 
 # Profinity Mobile

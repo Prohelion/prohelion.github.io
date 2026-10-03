@@ -1,5 +1,6 @@
 ---
 title: Telemetry Viewing Software
+description: "Telemetry viewing software for the Prohelion BMS D1000 Gen1 in Profinity, displaying BMU and CMU data, status indicators, and real-time cell voltage monitoring."
 ---
 
 # Telemetry Viewing Software

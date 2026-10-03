@@ -1,5 +1,6 @@
 ---
 title: How to Create a New Profile
+description: "Create new Profinity profiles to manage different configurations for different setups, locations, or testing scenarios."
 ---
 
 # How to Create a New Profile

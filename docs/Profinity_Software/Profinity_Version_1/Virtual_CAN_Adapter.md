@@ -1,5 +1,6 @@
 ---
 title: Virtual CAN Bus Adapter
+description: "Documentation for Prohelion Virtual CAN Bus Adapter in Profinity V1, including multi-protocol and multi-client support."
 ---
 
 # Prohelion Virtual CAN Bus Adapter

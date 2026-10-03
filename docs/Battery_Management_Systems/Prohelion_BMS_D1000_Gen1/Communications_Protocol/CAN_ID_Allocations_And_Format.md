@@ -1,5 +1,6 @@
 ---
 title: CAN ID's And Format
+description: "CAN ID allocations and message data format specifications for Prohelion BMS D1000 Gen1 BMU and CMU telemetry and control messages."
 ---
 
 # CAN ID Allocations

@@ -1,5 +1,6 @@
 ---
 title: Accordion Component
+description: "Collapsible sections for organizing dashboard content that can be expanded and collapsed on demand."
 ---
 
 # Accordion

@@ -1,5 +1,6 @@
 ---
 title: Motor Setup and Testing
+description: "WaveSculptor200 motor configuration and testing including PhasorSense, ImExtract, and low-power bench testing procedures."
 ---
 
 # Motor Setup and Testing 

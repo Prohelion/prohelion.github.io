@@ -1,5 +1,6 @@
 ---
 title: Configuration
+description: "Comprehensive configuration guide covering application properties, integrations and CAN Bus device IDs."
 ---
 
 There are two main ways that the Telemetry system is configured. Firstly the actual application itself is configured via the use of an application.properties file that is located in the source code. This file is loaded by Spring Boot as part of the application initialization and used to configure the application behaviours. The second way the application is configured is to change the CAN Bus ids that are used to track devices in your vehicle, this change is documented separately below.

@@ -1,5 +1,6 @@
 ---
 title: Setup
+description: "Docker-based installation guide for ArrowPoint Telemetry including prerequisites, setup and initial configuration."
 ---
 
 ## Setup Requirements

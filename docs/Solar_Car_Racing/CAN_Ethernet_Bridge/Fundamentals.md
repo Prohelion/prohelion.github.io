@@ -1,5 +1,6 @@
 ---
 title: Fundamentals
+description: "Core concepts for operating the CAN-Ethernet bridge including bus IDs, version differences, and protocol modes."
 ---
 
 Here is a few fundamental concepts that are worth knowing when working with the Tritium or Prohelion CAN-Ethernet bridges.

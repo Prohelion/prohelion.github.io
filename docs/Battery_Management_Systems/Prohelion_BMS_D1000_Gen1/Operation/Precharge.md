@@ -1,5 +1,6 @@
 ---
 title: Precharge
+description: "Precharge circuit operation for the Prohelion BMS D1000 Gen1, including sequence, resistor selection, and capacitor charging procedures for motor controllers and power electronics."
 ---
 
 # Precharge

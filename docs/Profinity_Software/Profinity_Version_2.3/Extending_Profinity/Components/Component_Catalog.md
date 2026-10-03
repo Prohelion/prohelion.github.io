@@ -1,5 +1,6 @@
 ---
 title: Component Catalog
+description: "Hide component types from the add-component catalog using glob patterns in Config.yaml or the admin UI."
 ---
 
 # Disable components in the catalog

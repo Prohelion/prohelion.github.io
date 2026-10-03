@@ -1,5 +1,6 @@
 ---
 title: Trusted Cell Voltages
+description: "Cell voltage measurement and verification system for the Prohelion BMS D1000 Gen1, using dual-channel conversion with trust checking for CMU fault detection."
 ---
 
 # Trusted Cell Voltages

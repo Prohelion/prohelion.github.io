@@ -1,5 +1,6 @@
 ---
 title: High Power Testing
+description: "WaveSculptor200 high-voltage testing procedures including PC software control and driver controls hardware testing at HV."
 ---
 
 # High Power Testing

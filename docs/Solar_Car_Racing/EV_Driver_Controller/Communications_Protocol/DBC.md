@@ -1,5 +1,6 @@
 ---
 title: DBC File
+description: "DBC file format specification for decoding CAN packets transmitted by the Prohelion EV driver controls."
 ---
 
 # Prohelion Driver Control DBC File

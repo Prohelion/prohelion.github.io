@@ -1,5 +1,6 @@
 ---
 title: Bulk Importing
+description: "Process for bulk loading previously recorded CAN Bus files into telemetry for analysis in reporting tools."
 ---
 
 The system provides the ability for CAN Bus files that have been recorded by either [Profinity](../../../Profinity_Software/index.md) the [ArrowPoint CAN Bus Tools](../ArrowPoint_CANBus_Tools/index.md) or the Tritium Can Logger to be bulk loaded in to the telemetry system.

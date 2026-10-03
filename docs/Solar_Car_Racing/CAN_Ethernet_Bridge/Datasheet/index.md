@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "Technical datasheet overview and specifications for the Prohelion CAN-Ethernet bridge hardware product."
 ---
 
 # CAN-Ethernet Bridge Datasheet

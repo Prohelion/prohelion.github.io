@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "WaveSculptor22 User Manual with complete operation, connections, mounting, communications, cooling, and getting started guide."
 ---
 
 # WaveSculptor22 User Manual

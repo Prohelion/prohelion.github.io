@@ -1,5 +1,6 @@
 ---
 title: High Voltage Sense
+description: "High voltage and current sensing connectors for the Prohelion BMS D1000 Gen1 Battery Management Unit, including shunt selection and wiring requirements."
 ---
 
 # High Voltage Sense

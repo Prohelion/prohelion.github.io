@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "Complete user manual for the Prohelion CAN-Ethernet bridge covering installation, configuration, and network setup."
 ---
 
 # CAN-Ethernet Bridge User Manual

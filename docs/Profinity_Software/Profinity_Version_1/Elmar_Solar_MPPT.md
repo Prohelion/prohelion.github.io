@@ -1,5 +1,6 @@
 ---
 title: Elmar Solar MPPT
+description: "Guide to managing Elmar Solar MPPT peak power trackers in Profinity V1, including dashboard access and raw CAN data viewing."
 ---
 
 ## Elmar Solar MPPT

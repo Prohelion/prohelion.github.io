@@ -1,5 +1,6 @@
 ---
 title: CAN-UDP Bridging
+description: "Complete UDP packet structure and protocol specification for bidirectional CAN-Ethernet broadcast bridging."
 ---
 
 # CAN-UDP Bridging

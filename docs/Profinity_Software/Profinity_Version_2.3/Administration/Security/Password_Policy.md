@@ -1,5 +1,6 @@
 ---
 title: Password Policy
+description: "Configure password policies for local sign-in including length, complexity, and expiry requirements."
 ---
 
 # Password policy

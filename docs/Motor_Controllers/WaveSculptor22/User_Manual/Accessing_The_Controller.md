@@ -1,5 +1,6 @@
 ---
 title: Accessing the Controller
+description: "WaveSculptor22 controller lid access procedures, safety precautions, static discharge prevention, and fastener requirements."
 ---
 
 # Accessing the Controller

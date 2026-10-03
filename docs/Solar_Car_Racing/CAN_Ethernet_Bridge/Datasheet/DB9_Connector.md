@@ -1,5 +1,6 @@
 ---
 title: DB9 Connector
+description: "Technical specifications for the DB9 male connector, pinout, power supply requirements, and CAN bus operating parameters."
 ---
 
 # DB9 Connector

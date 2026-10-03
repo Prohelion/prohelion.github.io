@@ -1,5 +1,6 @@
 ---
 title: Solar
+description: "Solar array performance dashboard displaying real-time power generation and net power position to battery."
 ---
 
 The solar energy dashboard show the current performance of the solar array as well as the net power position to the battery.

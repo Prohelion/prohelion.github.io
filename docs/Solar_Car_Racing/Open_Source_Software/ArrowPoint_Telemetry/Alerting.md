@@ -1,5 +1,6 @@
 ---
 title: Alerting
+description: "Visual alerting system using USB Delcom light indicators that trigger when CAN Bus data exceeds thresholds."
 ---
 
 The Telemetry system has the ability to be connected to an external light that can alert you when CANbas based items go out of range.

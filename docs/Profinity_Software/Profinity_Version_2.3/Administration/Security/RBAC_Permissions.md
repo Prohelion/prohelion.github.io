@@ -1,5 +1,6 @@
 ---
 title: RBAC and Permissions
+description: "Assign and manage security roles with 27 granular permissions to control user access across Profinity."
 ---
 
 # RBAC and permissions

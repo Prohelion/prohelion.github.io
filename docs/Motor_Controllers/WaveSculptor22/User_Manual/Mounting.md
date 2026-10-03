@@ -1,5 +1,6 @@
 ---
 title: Mounting
+description: "WaveSculptor22 mounting location selection for any orientation with environmental, heatsinking, and cable positioning considerations."
 ---
 
 # Mounting

@@ -1,5 +1,6 @@
 ---
 title: Full Example
+description: "Comprehensive real-world motor controller dashboard example with data binding and layout patterns."
 ---
 
 # Real-World Example

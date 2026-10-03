@@ -1,5 +1,6 @@
 ---
 title: Cloud Configuration
+description: "Configuration for forwarding telemetry data to remote instances enabling hybrid cloud and disaster recovery."
 ---
 
 A single Telemetry instance can forward data on a regular basis to other Telemetry instances, this allows you to create Hybrid configurations with a Primary Instance forwarding to a Secondary Instance for backup and redundancy or to enable offsite management and monitoring.

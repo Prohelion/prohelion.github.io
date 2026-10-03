@@ -1,5 +1,6 @@
 ---
 title: Service Accounts
+description: "Create service accounts with long-lived API tokens for automation and external MCP client access."
 ---
 
 # Service accounts

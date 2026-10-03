@@ -1,10 +1,16 @@
 ---
 title: Collections
+description: "Group tags for filtering, dashboards, and rules using visual editor and membership expressions."
 ---
 
 # Tag collections
 
 **Collections** group tags for filtering, dashboards, and rules. Profinity 2.3 stamps collections YAML with **`version: "2.3"`**; each entry carries a plain `id` field so the visual editor can round-trip edits without losing identity.
+
+<figure markdown>
+![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../../../../assets/images/2.3/2.3-diagram-collections.png)
+<figcaption>Groups defined by rules, not lists</figcaption>
+</figure>
 
 ## Open the collections editor
 

@@ -1,5 +1,6 @@
 ---
 title: Rule Scripts
+description: "Scripts set to Run On Alert mode that execute when rules fire with alert context."
 ---
 
 # Rule scripts

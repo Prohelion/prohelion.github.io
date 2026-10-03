@@ -1,5 +1,6 @@
 ---
 title: System Configuration
+description: "Configure Profinity web server, HTTPS certificates, scripting, and extension web server settings."
 ---
 
 # System Configuration

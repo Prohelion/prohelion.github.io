@@ -1,10 +1,16 @@
 ---
 title: InfluxDB / Prometheus
+description: "Log CAN data to InfluxDB (V1, V2, V3) or Prometheus for time-series storage and analysis."
 ---
 
 # InfluxDB and Prometheus Logging
 
 Profinity provides the ability to both [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) off your CAN bus network as well as the ability to log CAN bus data to timeseries databases like InfluxDB and Prometheus.
+
+<figure markdown>
+![Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back; Publishers and subscribers (MQTT, Webhook) stream it in both directions; Loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out; a Prohelion Cloud dashboard gives hosted monitoring](../../../../assets/images/2.3/2.3-diagram-data-out.png)
+<figcaption>Store it, stream it, share it</figcaption>
+</figure>
 
 <figure markdown>
 ![Data Log Replayer](../../images/InfluxDB.png)

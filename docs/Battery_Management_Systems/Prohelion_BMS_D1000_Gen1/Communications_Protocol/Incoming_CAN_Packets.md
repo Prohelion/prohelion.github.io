@@ -1,5 +1,6 @@
 ---
 title: Incoming CAN Packets
+description: "Incoming CAN packet format and control sequences for the Prohelion BMS D1000 Gen1, including EV Driver Controls switch position messages and state machine commands."
 ---
 
 # Incoming CAN Packets

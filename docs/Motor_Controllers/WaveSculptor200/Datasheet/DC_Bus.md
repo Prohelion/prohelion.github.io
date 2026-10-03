@@ -1,5 +1,6 @@
 ---
 title: DC Bus 
+description: "WaveSculptor200 DC bus power specifications, including voltage and current ratings, regenerative braking parameters, and capacitance details."
 ---
 
 # DC Bus

@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+description: "WaveSculptor22 installation getting started guide with comprehensive setup checklist and required tools for installation."
 ---
 
 # Getting Started

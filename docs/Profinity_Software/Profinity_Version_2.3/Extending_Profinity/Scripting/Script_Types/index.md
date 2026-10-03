@@ -1,5 +1,6 @@
 ---
 title: Script Types
+description: "Seven script execution modes including Run, Receive, Service, and event-driven triggers."
 ---
 
 # Script Types in Profinity

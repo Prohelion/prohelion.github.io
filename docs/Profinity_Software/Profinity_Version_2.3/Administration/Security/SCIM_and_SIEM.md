@@ -1,5 +1,6 @@
 ---
 title: SCIM and SIEM
+description: "Enable SCIM user provisioning from identity providers and configure SIEM log export for security monitoring."
 ---
 
 # SCIM and SIEM integration

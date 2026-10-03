@@ -1,5 +1,6 @@
 ---
 title: Readouts Component
+description: "Display numerical and text values with units, precision control, and data binding for sensor readings and measurements."
 ---
 
 # Readouts

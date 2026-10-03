@@ -1,5 +1,6 @@
 ---
 title: Profile Dashboard
+description: "Create custom home page dashboards for profiles using YAML files and the dashboard system."
 ---
 
 # Profile Dashboard

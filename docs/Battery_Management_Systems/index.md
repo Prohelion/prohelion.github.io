@@ -1,5 +1,6 @@
 ---
 title: Battery Management Systems
+description: "Battery Management Systems documentation index for Prohelion products, including BMS D1000 Gen2, D1000 Gen1, and M48 Gen1 user manuals and technical guides."
 ---
 
 <div class="grid cards" markdown>

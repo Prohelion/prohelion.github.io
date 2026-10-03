@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "WaveSculptor Motor Interface Type 2 specifications for quadrature encoder position sensors with differential outputs and NTC thermistor temperature sensing."
 ---
 
 # WaveSculptor Motor Interface Type 2: Encoder and Thermistor

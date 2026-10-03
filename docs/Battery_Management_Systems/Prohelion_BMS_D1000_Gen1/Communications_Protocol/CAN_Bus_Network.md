@@ -1,5 +1,6 @@
 ---
 title: CAN Bus Network
+description: "CAN bus network design, wiring, connectors, shielding, termination, and communication protocols for Prohelion BMS D1000 Gen1 and related devices."
 ---
 
 # CAN Bus Network

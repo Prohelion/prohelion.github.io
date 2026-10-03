@@ -1,5 +1,6 @@
 ---
 title: Telemetry Capture
+description: "Overview of continuous CAN Bus message capture, filtering and storage at approximately 400 packets per second."
 ---
 
 Telemetry information is constantly captured by the Telemetry system via CAN Bus messages on the network.  The information is then stored in the database and via the [Integration with Splunk](Splunk.md) you are also able to report on it from there.

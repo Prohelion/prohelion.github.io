@@ -1,5 +1,6 @@
 ---
 title: Kiosk Mode
+description: "Configure automatic user authentication for kiosk displays and unattended systems, bypassing login for specific profiles."
 ---
 
 # Kiosk Mode

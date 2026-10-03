@@ -1,5 +1,6 @@
 ---
 title: High Power Connections
+description: "WaveSculptor22 high-power DC and motor phase connections with M6 fasteners, cable specifications, precharge, and HV isolation."
 ---
 
 # High Power Connections 

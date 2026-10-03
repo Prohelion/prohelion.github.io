@@ -1,5 +1,6 @@
 ---
 title: BMS State Machine
+description: "BMS D1000 Gen1 state machine describing the six operating states and transitions between Error, Idle, Enable, Measure, Precharge, and Run states."
 ---
 
 # BMS State Machine

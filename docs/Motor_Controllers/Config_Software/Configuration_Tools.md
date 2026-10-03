@@ -1,5 +1,6 @@
 ---
 title: Configuration Tools
+description: "Essential WaveSculptor configuration tools: PhasorSense for phase/hall detection, ParamExtract for stator parameters, and ImExtract for induction motor rotor constants."
 ---
 
 # Configuration Tools

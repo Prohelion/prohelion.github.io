@@ -1,5 +1,6 @@
 ---
 title: Tritium Tools vs Prohelion Profinity
+description: "Comparison of Tritium tools and Prohelion Profinity software highlighting differences in network handling and functionality."
 ---
 
 The Tritium tools and Profinity provide similar functionality, but work in fundamentally different ways, here are some important things to understand.

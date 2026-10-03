@@ -1,5 +1,6 @@
 ---
 title: Toggles Component
+description: "Switch controls for enabling/disabling system settings, features, and user preferences."
 ---
 
 # Toggles

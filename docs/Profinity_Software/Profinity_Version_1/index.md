@@ -1,5 +1,6 @@
 ---
 title: Profinity Overview
+description: "Profinity V1 overview: a modern CAN Bus management platform for Windows, Linux, MacOS and Docker with cloud and API integration."
 ---
 
 # Prohelion Profinity

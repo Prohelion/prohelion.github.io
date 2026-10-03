@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "User manual for the WaveSculptor configuration software, now bundled in Profinity, for configuring and testing Prohelion WaveSculptor motor controllers."
 ---
 
 # WaveSculptor Config Software User Manual

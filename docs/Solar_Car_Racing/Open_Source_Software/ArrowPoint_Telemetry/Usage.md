@@ -1,5 +1,6 @@
 ---
 title: Basic Usage
+description: "Quick start guide for accessing ArrowPoint Telemetry dashboard, Splunk analytics and database management."
 ---
 
 The core telemetry system can be accessed by going to 

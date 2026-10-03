@@ -1,5 +1,6 @@
 ---
 title: Run Scripts
+description: "Flexible scripts executed manually on-demand or automatically on a schedule."
 ---
 
 # Run Scripts

@@ -1,5 +1,6 @@
 ---
 title: State
+description: "Thread-safe state management for persistence between script invocations and inter-script communication."
 ---
 
 # State

@@ -1,5 +1,6 @@
 ---
 title: Themes and Branding
+description: "Customize Profinity appearance with themes, colors, logos, and light/dark mode support."
 ---
 
 # Themes and branding

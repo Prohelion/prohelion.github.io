@@ -1,5 +1,6 @@
 ---
 title: Icon Component
+description: "Display icons from the profile images directory with optional data binding for dynamic visibility and state."
 ---
 
 # Icon

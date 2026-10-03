@@ -1,5 +1,6 @@
 ---
 title: Custom Components
+description: "Create custom components using DBC files and YAML dashboards to monitor components on your CAN bus."
 ---
 
 # Custom Components

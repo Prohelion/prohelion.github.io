@@ -1,5 +1,6 @@
 ---
 title: Panel Component
+description: "Individual titled panel within a grid layout for organizing related content and data visualizations."
 ---
 
 # Panel

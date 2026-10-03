@@ -1,5 +1,6 @@
 ---
 title: Supported Languages
+description: "Scripting support for C#, Python (IronPython), and Lua (NLua) with full .NET framework access."
 ---
 
 # Supported Languages

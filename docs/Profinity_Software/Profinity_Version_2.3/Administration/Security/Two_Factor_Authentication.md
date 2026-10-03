@@ -1,5 +1,6 @@
 ---
 title: Two-Factor Authentication
+description: "Configure TOTP-based two-factor authentication policy for local users including recovery codes and device trust."
 ---
 
 # Two-factor authentication

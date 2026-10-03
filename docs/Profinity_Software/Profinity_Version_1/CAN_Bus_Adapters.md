@@ -1,5 +1,6 @@
 ---
 title: CAN Bus Adapters
+description: "Overview of CAN Bus adapters supported by Profinity V1, including auto-discovery, manual configuration, and adapter status indicators."
 ---
 
 # CAN Bus Adapters

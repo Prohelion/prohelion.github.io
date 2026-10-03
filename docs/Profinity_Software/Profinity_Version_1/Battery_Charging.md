@@ -1,5 +1,6 @@
 ---
 title: Battery Charging
+description: "Guide to managing battery charging in Profinity V1 with supported chargers (TDK, Elcon, Siglent, ITech), including steps and troubleshooting."
 ---
 
 # Profinity Battery Charging

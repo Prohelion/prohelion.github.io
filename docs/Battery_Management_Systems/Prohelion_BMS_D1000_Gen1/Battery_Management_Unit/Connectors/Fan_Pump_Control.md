@@ -1,5 +1,6 @@
 ---
 title: Fan / Pump Control
+description: "12V switched fan and pump control outputs with RPM monitoring and speed sensor inputs for the Prohelion BMS D1000 Gen1 Battery Management Unit."
 ---
 
 # Fan / Pump Control

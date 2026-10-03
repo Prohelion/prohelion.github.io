@@ -1,5 +1,6 @@
 ---
 title: AI Skills
+description: "Seven skills for AI coding assistants to generate dashboards, rules, scripts, collections, and plugins."
 ---
 
 # AI Skills

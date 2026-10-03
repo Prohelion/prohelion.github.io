@@ -1,5 +1,6 @@
 ---
 title: ArrowPoint Telemetry
+description: "Web-based telemetry capture and management platform for solar and electric racing with Splunk reporting."
 ---
 
 The ArrowPoint Telemetry Solution is designed to provide telemetry capture and management information for managing a race car.

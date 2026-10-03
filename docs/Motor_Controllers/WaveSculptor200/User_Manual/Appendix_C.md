@@ -1,5 +1,6 @@
 ---
 title: Appendix C - CAN Comms Protocol
+description: "WaveSculptor200 CAN communications protocol including message formats, drive commands, and telemetry broadcast messages."
 ---
 
 # Appendix C: CAN Communications Protocol

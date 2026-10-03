@@ -1,5 +1,6 @@
 ---
 title: Prohelion Electric Vehicle Driver Controls
+description: "Product overview and navigation hub for the Prohelion EV driver controls documentation and specification."
 ---
 
 <div class="grid cards" markdown>

@@ -1,5 +1,6 @@
 ---
 title: Operation
+description: "Torque control, speed control, and power management operation modes for the Prohelion EV driver controls."
 ---
 
 # Operation

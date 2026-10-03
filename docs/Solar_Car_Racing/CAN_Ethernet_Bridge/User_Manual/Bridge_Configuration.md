@@ -1,5 +1,6 @@
 ---
 title: CAN Bridge Configuration
+description: "Configuration guide for setting CAN-Ethernet bridge IP address, bus number, and CAN bitrate parameters."
 ---
 
 # CAN Bridge Configuration

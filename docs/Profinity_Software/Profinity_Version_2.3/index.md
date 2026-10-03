@@ -1,5 +1,6 @@
 ---
 title: Profinity V2 Overview
+description: "Current release of Profinity, a modern CAN bus management platform that connects CAN devices to AI, cloud, APIs, and big data analytics."
 ---
 
 # Prohelion Profinity V2
@@ -17,6 +18,11 @@ Profinity V2, completely updates the capabilities of Prohelion's Profinity suite
 - Integration with AI and LLM tooling via MCP.
 
 <figure markdown>
+![A layered platform: Dashboards, Rules, Alerts, Collections, and Derived Tags apply on top of one Tags data model; plugins, scripting, APIs, and MCP extend it; Security protects it; the Profinity Engine runs it, on any OS or container](../../assets/images/2.3/2.3-diagram-architecture.png)
+<figcaption>One platform, from device to dashboard</figcaption>
+</figure>
+
+<figure markdown>
 ![Profinity](images/wavesculptor.png)
 <figcaption>Profinity V2 - Showing a Motor Controller Dashboard</figcaption>
 </figure>
@@ -26,6 +32,11 @@ Profinity is built around the concept of [Profiles](Getting_Started/Profiles.md)
 Profinity can connect to [CAN bridges](Components/Adaptors/CAN_Bus_Adapters.md), which translate CAN bus traffic from your network to the Profinity solution. You can send, receive, and view CAN bus messages either raw or using DBC, log messages and replay them. You can also use Profinity to share CAN bus data from your system to your team via cloud data logging platforms. 
 
 Profinity provides specialised tools for managing [Prohelion batteries](Components/Battery_Management_Systems/index.md) and chargers, MPPT systems from [Elmar Solar](Components/MPPT/index.md), and [WaveSculptors](Components/Motor_Controller/index.md), as well as any device that can be defined by a CAN DBC file.  
+
+<figure markdown>
+![Prohelion battery management systems, WaveSculptor and Elmar Solar MPPT drives, and chargers and power supplies, each connecting through the CAN bus adapter of your choice or directly over SCPI](../../assets/images/2.3/2.3-diagram-devices-adapters.png)
+<figcaption>Native connectivity for your hardware</figcaption>
+</figure>
 
 ### Release notes
 

@@ -1,5 +1,6 @@
 ---
 title: Creating a User
+description: "Create new Profinity users and assign security roles to control access and functionality for different users."
 ---
 
 # Creating a User

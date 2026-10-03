@@ -1,5 +1,6 @@
 ---
 title: How to Guides
+description: "Browse step-by-step guides for common Profinity tasks like dashboards, components, CAN bus, data logging, and scripting."
 ---
 
 # How to Guides

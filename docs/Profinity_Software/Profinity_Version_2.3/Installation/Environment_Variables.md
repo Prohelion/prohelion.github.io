@@ -1,5 +1,6 @@
 ---
 title: Environment Variables
+description: "Configure Profinity using environment variable substitution in configuration and profile files for flexible deployments."
 ---
 
 # Environment Variables in Profinity

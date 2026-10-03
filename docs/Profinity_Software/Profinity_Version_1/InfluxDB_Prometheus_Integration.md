@@ -1,5 +1,6 @@
 ---
 title: InfluxDB / Prometheus
+description: "Documentation for logging CAN Bus data to InfluxDB and Prometheus time-series databases in Profinity V1, including configuration."
 ---
 
 # InfluxDB and Prometheus Logging

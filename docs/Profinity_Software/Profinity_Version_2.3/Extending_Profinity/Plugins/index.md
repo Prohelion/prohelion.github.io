@@ -1,5 +1,6 @@
 ---
 title: DLL Plugins
+description: "External DLL plugins packaged as .nupkg or zip and installed through Plugin Manager."
 ---
 
 # DLL plugins (Plugin Manager)
@@ -47,6 +48,7 @@ Base path: `/api/v2/plugins` — list, upload, enable/disable, delete. Requires 
 
 ## Related documentation
 
+- [Protocol plugins](./Protocol_Plugins.md) — BACnet, EtherNet/IP, Modbus, OPC UA, and S7
 - [Profinity SDK](../SDK.md)
 - [Component types](../Components/Component_Types.md)
 - [Component Pack CLI](../Components/Component_Pack_CLI.md)

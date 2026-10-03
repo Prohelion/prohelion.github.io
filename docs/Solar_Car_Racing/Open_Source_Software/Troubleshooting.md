@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting 
+description: "Common troubleshooting approaches for CAN Bus connectivity issues and links to GitHub for support."
 ---
 
 ## CAN Bus data is not appearing in the applications or tablet

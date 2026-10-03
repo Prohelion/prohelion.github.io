@@ -1,5 +1,6 @@
 ---
 title: Software Programming 
+description: "Hardware architecture and custom firmware development guide for the Prohelion EV driver controls."
 ---
 
 # Software Programming 

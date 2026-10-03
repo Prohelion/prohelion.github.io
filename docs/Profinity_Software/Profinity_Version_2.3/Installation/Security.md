@@ -1,5 +1,6 @@
 ---
 title: Security Guide
+description: "Implement essential security controls for Profinity production deployments including HTTPS, user accounts, scripting, and kiosk mode."
 ---
 
 # Security Guide

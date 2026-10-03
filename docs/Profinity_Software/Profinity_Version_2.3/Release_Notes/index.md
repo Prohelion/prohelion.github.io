@@ -1,5 +1,6 @@
 ---
 title: Release Notes
+description: "Browse release notes for Profinity V2 versions including 2.3.10 and 2.2.5 with key features and upgrade information."
 ---
 
 # Release Notes
