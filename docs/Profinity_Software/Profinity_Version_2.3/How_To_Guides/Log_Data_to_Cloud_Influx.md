@@ -1,5 +1,6 @@
 ---
 title: How to Log Data to the Cloud (InfluxDB)
+description: "Configure Profinity to log CAN bus data to InfluxDB Cloud or self-hosted for cloud-based analytics and visualization."
 ---
 
 # How to Log Data to the Cloud (InfluxDB)

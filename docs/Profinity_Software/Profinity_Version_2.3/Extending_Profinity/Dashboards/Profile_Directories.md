@@ -1,5 +1,6 @@
 ---
 title: Profile Directories
+description: "Special profile directories for storing dashboard assets: images, stylesheets, and content files."
 ---
 
 # Profile Directories

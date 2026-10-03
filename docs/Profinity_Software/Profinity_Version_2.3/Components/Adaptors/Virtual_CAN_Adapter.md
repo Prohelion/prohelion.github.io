@@ -1,5 +1,6 @@
 ---
 title: Virtual CAN bus Adapter
+description: "Use a virtual CAN adapter to relay traffic between CAN devices and provide protocol bridging."
 ---
 
 # Prohelion Virtual CAN bus Adapter

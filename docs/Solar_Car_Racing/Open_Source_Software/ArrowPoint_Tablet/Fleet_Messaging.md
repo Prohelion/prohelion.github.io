@@ -1,5 +1,6 @@
 ---
 title: Fleet Messaging
+description: "Private inter-vehicle messaging system enabling communication over Wi-Fi and CAN Bus network without radio."
 ---
 
 The private messaging system works in collaboration with the [Fleet Private Messaging](../ArrowPoint_Telemetry/Fleet_Messaging.md) system in the Telemetry system to allow you to send private messages from App to App or Telemetry to App in the fleet over the TCP / CAN Bus network

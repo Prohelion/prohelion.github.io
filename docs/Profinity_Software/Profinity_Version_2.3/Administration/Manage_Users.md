@@ -1,5 +1,6 @@
 ---
 title: Managing Users
+description: "Create users, assign security roles with granular permissions, and configure password and MFA policies."
 ---
 
 # Managing Users

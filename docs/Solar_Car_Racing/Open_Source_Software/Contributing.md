@@ -1,5 +1,6 @@
 ---
 title: Contributing 
+description: "Contribution guidelines for ArrowPoint projects including bug reporting, pull requests and release procedures."
 ---
 
 First off, thank you for considering contributing to the Prohelion ArrowPoint Telemetry tools. Prohelion is made up of former 

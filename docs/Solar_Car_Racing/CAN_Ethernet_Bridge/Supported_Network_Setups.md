@@ -1,5 +1,6 @@
 ---
 title: Supported Network Setups
+description: "Recommended network topology configurations for CAN-Ethernet bridge deployment with detailed setup instructions."
 ---
 
 The single most common issues we encounter with the CAN Bus bridges are network related. 

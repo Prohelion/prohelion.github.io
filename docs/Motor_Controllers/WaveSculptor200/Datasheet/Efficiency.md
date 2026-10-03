@@ -1,5 +1,6 @@
 ---
 title: Efficiency
+description: "WaveSculptor200 efficiency maps and power loss analysis across operating voltage ranges and operating points."
 ---
 
 # Efficiency

@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting Guide
+description: "Diagnose and fix common dashboard issues including schema validation, data binding, and performance."
 ---
 
 # Troubleshooting Guide

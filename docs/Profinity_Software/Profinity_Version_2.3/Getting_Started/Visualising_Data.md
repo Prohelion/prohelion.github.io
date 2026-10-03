@@ -1,5 +1,6 @@
 ---
 title: Visualising Data
+description: "Visualize component data using Profinity's built-in dashboards that display relevant information for each configured component."
 ---
 
 # Visualising Data

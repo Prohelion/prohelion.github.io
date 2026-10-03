@@ -1,5 +1,6 @@
 ---
 title: MQTT Publisher
+description: "Publish profile tag collections to MQTT brokers in JSON or Sparkplug B format on interval or change."
 ---
 
 # MQTT Publisher

@@ -1,5 +1,6 @@
 ---
 title: Feedback
+description: "Built-in feedback system for sharing suggestions, reporting issues, and providing user experience feedback."
 ---
 
 # Profinity Feedback

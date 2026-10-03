@@ -1,5 +1,6 @@
 ---
 title: Migration from V1 to V2
+description: "Understand the key differences and recommended approach for migrating from Profinity V1 to V2, which requires clean installation."
 ---
 
 # Migration from Profinity V1 to V2

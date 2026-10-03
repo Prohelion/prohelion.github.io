@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2
+description: "Prohelion BMS D1000 Gen2 Battery Management System with distributed architecture for high-voltage applications up to 1000V and up to 448 individual cells."
 ---
 
 # Prohelion BMS D1000 Gen2

@@ -1,5 +1,6 @@
 ---
 title: Lamps Component
+description: "Grid of color-coded status indicators for quick system state visualization and error/warning displays."
 ---
 
 # Lamps

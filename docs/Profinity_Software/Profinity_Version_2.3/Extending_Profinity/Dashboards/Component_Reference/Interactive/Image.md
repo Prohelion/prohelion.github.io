@@ -1,5 +1,6 @@
 ---
 title: Image Component
+description: "Interactive image component with clickable regions, icons, data values, points, and annotation lines."
 ---
 
 # Image

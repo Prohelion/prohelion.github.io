@@ -1,5 +1,6 @@
 ---
 title: Quick Start Guide
+description: "Get started with Profinity V2 by installing on Windows or Linux, loading an example profile, replaying CAN logs, and editing your first dashboard."
 ---
 
 # Quick Start Guide

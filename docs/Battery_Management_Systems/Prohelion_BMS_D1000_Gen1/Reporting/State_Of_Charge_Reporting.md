@@ -1,5 +1,6 @@
 ---
 title: State Of Charge Reporting 
+description: "State of Charge reporting for the Prohelion BMS D1000 Gen1, using coulomb counting with shunt-based current integration and balance SOC tracking."
 ---
 
 # State of Charge Reporting

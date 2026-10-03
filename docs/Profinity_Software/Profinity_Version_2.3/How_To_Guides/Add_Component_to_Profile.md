@@ -1,5 +1,6 @@
 ---
 title: How to Add a Component to Your Profile
+description: "Add and configure CAN bus components like Prohelion devices, adapters, and loggers to your Profinity profile."
 ---
 
 # How to Add a Component to Your Profile

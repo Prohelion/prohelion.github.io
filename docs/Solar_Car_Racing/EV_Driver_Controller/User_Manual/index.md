@@ -1,6 +1,6 @@
 ---
 title: Overview
-
+description: "Complete user manual for the Prohelion EV driver controls covering interfaces, installation, and programmable functionality."
 ---
 
 # EV Driver Controls User Manual

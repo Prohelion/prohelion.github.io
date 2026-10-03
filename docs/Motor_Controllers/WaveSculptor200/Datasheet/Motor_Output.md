@@ -1,5 +1,6 @@
 ---
 title: Motor Output
+description: "WaveSculptor200 three-phase motor output specifications, including current ratings, voltage limits, and phase inductance requirements."
 ---
 
 # Motor Output

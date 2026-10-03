@@ -1,5 +1,6 @@
 ---
 title: Log / Replay CAN
+description: "Log CAN bus messages to files and replay recorded logs with playback controls and timing options."
 ---
 
 # Log / Replay CAN bus Messages

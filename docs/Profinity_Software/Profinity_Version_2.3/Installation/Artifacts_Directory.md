@@ -1,5 +1,6 @@
 ---
 title: Artifacts Directory
+description: "Understand where Profinity stores configuration, profiles, plugins, and logs in the artifacts directory on Windows, macOS, and Linux."
 ---
 
 # Profinity artifacts directory

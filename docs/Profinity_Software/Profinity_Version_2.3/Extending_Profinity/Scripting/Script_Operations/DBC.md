@@ -1,5 +1,6 @@
 ---
 title: DBC
+description: "Script operations for loading, parsing, and working with DBC files and CAN message definitions."
 ---
 
 # DBC

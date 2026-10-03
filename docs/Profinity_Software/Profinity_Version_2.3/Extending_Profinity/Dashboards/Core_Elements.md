@@ -1,5 +1,6 @@
 ---
 title: Core Elements
+description: "The four core dashboard element types (titlebar, row, accordion, footer) and hierarchical structure."
 ---
 
 # The Four Core Dashboard Elements

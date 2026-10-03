@@ -1,5 +1,6 @@
 ---
 title: Profiles
+description: "Create and manage profiles to organize device configurations, with support for kiosk mode and custom dashboards."
 ---
 
 # Profiles

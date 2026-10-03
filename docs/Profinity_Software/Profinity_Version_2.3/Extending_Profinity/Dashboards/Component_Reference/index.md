@@ -1,5 +1,6 @@
 ---
 title: Component Reference
+description: "Complete reference for all dashboard component categories: layout, data display, and interactive components."
 ---
 
 # Component Reference

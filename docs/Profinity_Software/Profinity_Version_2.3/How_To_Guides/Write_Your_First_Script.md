@@ -1,5 +1,6 @@
 ---
 title: How to Write Your First Script
+description: "Write your first Profinity script in C# or Python to automate tasks and interact with CAN bus components."
 ---
 
 # How to Write Your First Script

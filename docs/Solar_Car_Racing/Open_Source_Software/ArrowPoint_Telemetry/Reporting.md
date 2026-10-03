@@ -1,5 +1,6 @@
 ---
 title: Reporting
+description: "Basic device reporting and analysis with recommendations for advanced reporting via Splunk integration."
 ---
 
 The telemetry system allows you to do basic reporting by selecting the device that you want to report on off the menu

@@ -1,5 +1,6 @@
 ---
 title: System Information
+description: "View Profinity version, license summary, and software credits from the System Information page."
 ---
 
 # System Information

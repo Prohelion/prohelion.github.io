@@ -1,5 +1,6 @@
 ---
 title: How to Debug Dashboard Issues
+description: "Troubleshoot and fix common dashboard problems including YAML syntax errors, data bindings, component status, and image references."
 ---
 
 # How to Debug Dashboard Issues

@@ -1,5 +1,6 @@
 ---
 title: Profinity AI Settings
+description: "Configure the instance-wide Profinity AI assistant with external providers or local models for live data queries."
 ---
 
 # Profinity AI Settings

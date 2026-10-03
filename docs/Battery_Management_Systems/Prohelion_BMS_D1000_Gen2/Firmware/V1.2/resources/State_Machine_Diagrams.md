@@ -1,3 +1,8 @@
+---
+title: State Machine Diagrams
+description: "System-wide state machine diagrams for Prohelion BMS D1000 Gen2 V1.2 firmware in mermaid format, showing all state transitions and fault handling paths."
+---
+
 ## System Wide State Diagram
 
 ``` mermaid

@@ -1,10 +1,16 @@
 ---
 title: Tag Layer
+description: "Profinity's tag catalog foundation for Tag Explorer, collections, rules, and alerts."
 ---
 
 # Tag layer
 
 The **tag layer** is Profinity's catalog of live and configured tag values — the foundation for Tag Explorer, collections, rules, and alerts introduced in 2.3.
+
+<figure markdown>
+![Many source types — a CAN/DBC signal, a device property, a register, a firmware field — all become one Tag with an address, value, quality flag, and metadata, readable as an instantaneous value or as time-series history](../../../../assets/images/2.3/2.3-diagram-tags.png)
+<figcaption>One data model for every signal</figcaption>
+</figure>
 
 ## Tag Explorer
 
@@ -46,9 +52,12 @@ Legacy **`DataController`** is removed from the v2 surface — use tag-layer end
 
 All endpoints require appropriate permissions — see [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md) and the engineering [endpoint authorization matrix](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A8-Endpoint-Authorization-Matrix.md).
 
-## Tag relay (deferred)
+## Tag relay
 
-**Tag relay / federation** is partial and **not** documented for 2.3 GA. Do not enable relay ingest in production without engineering guidance.
+Profinity instances can share live tags with each other over the network — one
+instance publishes a snapshot, another ingests it as remote, read-only tags under
+that site's own prefix. See [Tag relay](./Tag_Relay.md) for how sender and receiver
+roles work, transport options, and licensing.
 
 ## Engineering references
 
@@ -60,6 +69,7 @@ Normative architecture (link, do not duplicate in operator guides):
 
 ## Related documentation
 
+- [Tag relay](./Tag_Relay.md)
 - [Tag linking](../Tags/Tag_Linking.md)
 - [Tag expressions](../Rules/Tag_Expressions.md)
 - [ALL ALERTS](../Rules/Alerts.md)

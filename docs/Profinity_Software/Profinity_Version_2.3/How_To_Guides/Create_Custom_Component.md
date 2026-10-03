@@ -1,5 +1,6 @@
 ---
 title: How to Create a Custom Component
+description: "Create custom CAN bus components in Profinity using DBC files and optional dashboard YAML for any device."
 ---
 
 # How to Create a Custom Component

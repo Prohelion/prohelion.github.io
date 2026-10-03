@@ -1,5 +1,6 @@
 ---
 title: Frequently Asked Questions
+description: "Common questions and answers about creating and configuring Profinity dashboards."
 ---
 
 # Frequently Asked Questions

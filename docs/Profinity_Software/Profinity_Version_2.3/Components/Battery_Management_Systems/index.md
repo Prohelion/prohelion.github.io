@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS
+description: "Monitor and manage Prohelion battery management systems including BMU and CMU data, configuration, and firmware."
 ---
 
 # Prohelion Battery Management Systems

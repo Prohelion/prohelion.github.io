@@ -1,5 +1,6 @@
 ---
 title: Battery Management Unit
+description: "Overview of the Prohelion BMS D1000 Gen1 Battery Management Unit including form factor, dimensions, connector layout, isolation design, and status indicators."
 ---
 
 # Battery Management Unit

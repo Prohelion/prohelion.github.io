@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2 - Hardware Components
+description: "Prohelion BMS D1000 Gen2 Battery Management Unit hardware specifications, including contactor outputs, CAN bus networks, sensors, and dimensions."
 ---
 
 This section provides information on the Prohelion D1000 Gen2 Battery Management Unit (BMU). 

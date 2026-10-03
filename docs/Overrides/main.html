@@ -4,6 +4,36 @@
 {% extends "base.html" %}
 {% block extrahead %}
   <link rel="stylesheet" href="{{ 'assets/stylesheets/custom.00c04c01.min.css' | url }}">
+  {% set page_description = (page.meta.description if page and page.meta and page.meta.description else config.site_description) %}
+  {% set page_title = (page.title if page and page.title else config.site_name) %}
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description }}">
+  {% if page and page.canonical_url %}
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_description }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Prohelion",
+        "url": "https://prohelion.com",
+        "logo": "{{ config.site_url }}assets/images/Prohelion_Logo_32.png"
+      },
+      {
+        "@type": "WebSite",
+        "name": "{{ config.site_name }}",
+        "url": "{{ config.site_url }}"
+      }
+    ]
+  }
+  </script>
 {% endblock %}
 {% block scripts %}
   {{ super() }}
@@ -18,17 +48,17 @@
         logoLink.rel = 'noopener noreferrer';
       }
 
-      // Add Early GA notice to Profinity V2 pages
+      // Add Early Adopter notice to Profinity V2.3 pages
       const currentPath = window.location.pathname;
-      if (currentPath.includes('/Profinity_Software/Profinity_Version_2/')) {
+      if (currentPath.includes('/Profinity_Software/Profinity_Version_2.3/')) {
         const article = document.querySelector('.md-content__inner');
         if (article) {
           const notice = document.createElement('div');
           notice.className = 'admonition admonition-info';
           notice.setAttribute('open', '');
           notice.innerHTML = `
-            <div class="admonition-title">Profinity V2 is now in General Availability</div>
-            <p>This is a brand new product, please assist us in making it better by providing feedback and suggestions or reporting issues via the Feedback Form in Profinity.  Thanks so much for your help!</p>
+            <div class="admonition-title">Early Adopter Documentation</div>
+            <p>General Availability Release is coming soon. Documentation is being published now for Early Adopters, contact Prohelion at contact@prohelion.com to get access to the Early Adopter release.</p>
 </p>
           `;
           

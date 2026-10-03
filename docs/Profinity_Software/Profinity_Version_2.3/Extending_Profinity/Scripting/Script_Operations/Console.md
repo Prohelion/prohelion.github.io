@@ -1,5 +1,6 @@
 ---
 title: Console
+description: "Script operations for console output and logging messages to the Profinity log."
 ---
 
 # Console

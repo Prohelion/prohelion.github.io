@@ -1,5 +1,6 @@
 ---
 title: Operating Power and Cooling
+description: "WaveSculptor22 power output, thermal specifications, and customer-supplied heatsink or waterblock mounting on M4 tapped holes."
 ---
 
 # Operating Power and Cooling

@@ -1,5 +1,6 @@
 ---
 title: State Component
+description: "State machine visualization component using Mermaid flowcharts to display system states and transitions."
 ---
 
 # State

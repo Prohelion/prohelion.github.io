@@ -1,5 +1,6 @@
 ---
 title: SSO and Sign-In Method
+description: "Configure OpenID Connect single sign-on as the site-wide sign-in method for all Profinity users."
 ---
 
 # SSO and sign-in method

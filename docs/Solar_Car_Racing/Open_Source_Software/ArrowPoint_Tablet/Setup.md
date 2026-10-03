@@ -1,5 +1,6 @@
 ---
 title: Setup
+description: "Installation guide for deploying ArrowPoint Android app to tablets and phones via Android Studio and USB."
 ---
 
 ## Installation on the Tablet or Phone

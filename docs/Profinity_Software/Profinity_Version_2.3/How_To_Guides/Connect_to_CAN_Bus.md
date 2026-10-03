@@ -1,5 +1,6 @@
 ---
 title: How to Connect to CAN Bus
+description: "Connect Profinity to your CAN bus network using supported adapters like Peak USB, SocketCAN, or Ethernet bridges."
 ---
 
 # How to Connect to CAN Bus

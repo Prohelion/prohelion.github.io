@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "WaveSculptor Motor Interface Type 3 specifications for sin/cos resolver position sensors and dual Pt100 platinum temperature elements with shielding guidance."
 ---
 
 # WaveSculptor Motor Interface Type 3: Resolver and pt100

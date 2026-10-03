@@ -1,5 +1,6 @@
 ---
 title: Actions Component
+description: "Interactive buttons for triggering system actions, navigation, or user interactions."
 ---
 
 # Actions

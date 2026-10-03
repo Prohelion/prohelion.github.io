@@ -1,5 +1,6 @@
 ---
 title: Motor Setup and Testing
+description: "WaveSculptor22 motor setup, configuration, and testing procedures including low-power and high-power bench and software testing."
 ---
 
 # Motor Setup and Testing 

@@ -1,5 +1,6 @@
 ---
 title: Prohelion Cloud Dashboard
+description: "Access Prohelion Cloud platform for device monitoring, management, analytics, and rule-based automation."
 ---
 
 # Prohelion Cloud Dashboard

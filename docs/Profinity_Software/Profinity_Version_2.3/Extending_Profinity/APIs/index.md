@@ -1,5 +1,6 @@
 ---
 title: Profinity Rest APIs
+description: "Overview of Profinity's REST API architecture, security authentication with Bearer tokens, and accessing realtime and historical data."
 ---
 
 # Profinity Rest APIs

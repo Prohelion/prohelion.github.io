@@ -1,5 +1,6 @@
 ---
 title: Materials and Equipment Required
+description: "Complete materials and equipment specifications for building 50µH 100A inductors, including toroid cores, litz wire, tape, varnish, connectors, and tools."
 ---
 
 # Materials and Equipment Required 

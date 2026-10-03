@@ -1,5 +1,6 @@
 ---
 title: Prohelion WaveSculptor Motor Controllers
+description: "Complete documentation for Prohelion WaveSculptor motor controllers, motor sense interfaces, inductor coils, and configuration software for electric vehicle motor management."
 ---
 
 # WaveSculptor 22

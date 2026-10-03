@@ -1,5 +1,6 @@
 ---
 title: Component Pack CLI
+description: "Command-line tool for validating, packing, and installing custom component bundles (YAML, scripts, and DBC files)."
 ---
 
 # Component Pack CLI

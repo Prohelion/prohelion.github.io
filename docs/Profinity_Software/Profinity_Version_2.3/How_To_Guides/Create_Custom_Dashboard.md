@@ -1,5 +1,6 @@
 ---
 title: How to Create a Custom Dashboard
+description: "Create custom dashboards for Profinity components using YAML syntax with data bindings to display real-time component data."
 ---
 
 # How to Create a Custom Dashboard

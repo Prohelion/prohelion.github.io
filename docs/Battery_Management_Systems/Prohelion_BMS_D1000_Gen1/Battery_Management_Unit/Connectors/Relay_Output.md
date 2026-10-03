@@ -1,5 +1,6 @@
 ---
 title: Relay Output
+description: "Voltage-free relay output connector for the Prohelion BMS D1000 Gen1 Battery Management Unit with 12V and ground pins for auxiliary load control."
 ---
 
 # Relay Output

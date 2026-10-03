@@ -1,5 +1,6 @@
 ---
 title: Appendix B - Crimping
+description: "WaveSculptor22 crimping guide for Molex MicroFit connectors and high power bolt lug connections with detailed procedures."
 ---
 
 # Appendix B: Guide to Successful Crimping

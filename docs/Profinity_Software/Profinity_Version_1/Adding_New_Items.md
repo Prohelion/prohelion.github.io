@@ -1,5 +1,6 @@
 ---
 title: Adding to the Profile
+description: "Guide to adding new items to your Profinity V1 profile, including item configuration and unique naming requirements."
 ---
 
 # Adding new items to your Profile

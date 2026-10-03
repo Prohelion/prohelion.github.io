@@ -1,5 +1,6 @@
 ---
 title: Construction Procedure
+description: "Detailed steps for winding, insulating, varnishing, and crimping a 50µH 100A inductor suitable for Prohelion WaveSculptor motor controllers."
 ---
 
 # Construction Procedure

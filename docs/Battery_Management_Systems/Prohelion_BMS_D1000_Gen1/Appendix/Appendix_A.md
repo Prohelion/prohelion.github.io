@@ -1,5 +1,6 @@
 ---
 title: Additional Reading
+description: "Reference links to BMU wiring diagrams, CMU assembly guidelines, CAN protocol specifications, and power resistor datasheets for Prohelion BMS D1000 Gen1."
 ---
 
 # Additional Documentation 

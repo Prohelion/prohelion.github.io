@@ -1,5 +1,6 @@
 ---
 title: How to Set Up Profinity as a Kiosk Application
+description: "Configure Profinity to run as a kiosk application that auto-launches in fullscreen mode on Windows, Linux, or macOS."
 ---
 
 # How to Set Up Profinity as a Kiosk Application

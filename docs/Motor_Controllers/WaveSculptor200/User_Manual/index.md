@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "User manual overview for the Prohelion WaveSculptor200 motor controller covering operation, connections, mounting, communications, cooling, and setup."
 ---
 
 # WaveSculptor200 User Manual

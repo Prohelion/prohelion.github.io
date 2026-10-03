@@ -1,5 +1,6 @@
 ---
 title: Charging
+description: "Charger control strategy for the Prohelion BMS D1000 Gen1, including PID-based current control, balancing logic, and constant current/constant voltage charging phases."
 ---
 
 # Charger Control

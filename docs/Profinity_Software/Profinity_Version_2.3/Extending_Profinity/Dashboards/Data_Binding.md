@@ -1,5 +1,6 @@
 ---
 title: Data Binding
+description: "Connect dashboard components to live data sources including CAN bus messages, properties, and time series."
 ---
 
 # Data Binding in Profinity Dashboards

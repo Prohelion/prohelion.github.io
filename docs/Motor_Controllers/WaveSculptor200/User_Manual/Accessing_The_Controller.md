@@ -1,5 +1,6 @@
 ---
 title: Accessing The Controller
+description: "WaveSculptor200 controller inspection cover access procedures, safety precautions, and fastener requirements for maintenance."
 ---
 
 # Accessing The Controller

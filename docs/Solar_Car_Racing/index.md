@@ -1,3 +1,8 @@
+---
+title: Solar Car Racing Solutions
+description: "Prohelion's comprehensive suite of racing-proven products and solutions for solar car racing teams worldwide."
+---
+
 # Solar Car Racing Solutions
 
 Prohelion provides a comprehensive suite of products and solutions specifically designed for solar car racing teams. Our racing-proven technology combines high performance, reliability, and ease of use to help teams achieve their competitive goals.

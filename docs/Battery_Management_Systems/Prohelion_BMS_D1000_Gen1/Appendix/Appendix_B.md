@@ -1,5 +1,6 @@
 ---
 title: Component Sources
+description: "Recommended component suppliers and part numbers for connectors, cables, and crimps used in Prohelion BMS D1000 Gen1 assembly."
 ---
 
 # Recommended Component Sources

@@ -1,10 +1,21 @@
 ---
 title: Extending Profinity
+description: "Extend Profinity with scripting, tag layer, rules, APIs, dashboards, plugins, custom components, and MCP support."
 ---
 
 # Extending Profinity
 
 Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules](./Rules/Alerts.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), the [Profinity SDK](./SDK.md), [MCP Support](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
+
+<figure markdown>
+![Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security, then exposes that through APIs to your own business systems and apps, and through MCP to AI agents](../../../assets/images/2.3/2.3-diagram-extensibility.png)
+<figcaption>Make Profinity the hub of your solution</figcaption>
+</figure>
+
+<figure markdown>
+![Core components ship with every instance and plugins add more, but data in (devices, chargers, protocol and content-pack plugins) and data out (historians, loggers, publishers, rule actions, cloud) all meet in the same tag tree](../../../assets/images/2.3/2.3-diagram-components-overview.png)
+<figcaption>Components for every direction data flows</figcaption>
+</figure>
 
 For mobile access, see [Profinity Mobile](../Mobile/index.md).
 

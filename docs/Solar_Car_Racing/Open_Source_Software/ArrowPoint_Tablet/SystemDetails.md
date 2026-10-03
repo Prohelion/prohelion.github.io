@@ -1,5 +1,6 @@
 ---
 title: System Details & Alerts
+description: "System status monitoring and customizable threshold-based alerting for vehicle parameters via CSV configuration."
 ---
 
 This screen shows information on key systems that may go out of range as well as the current state of the vehicle (Neutral / Drive / Reverse) is regen being used (it currently is in the picture below as it's red), is the driver braking (no) and are they using the Horn (no).

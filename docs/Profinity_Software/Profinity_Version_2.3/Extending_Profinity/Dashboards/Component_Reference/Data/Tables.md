@@ -1,5 +1,6 @@
 ---
 title: Tables Component
+description: "Data table display with heatmap visualization, highlighting, and value threshold alerts for multi-dimensional data."
 ---
 
 # Tables

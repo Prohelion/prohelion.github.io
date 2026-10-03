@@ -1,5 +1,6 @@
 ---
 title: Dashboard Examples
+description: "Progressive examples from simple hello-world dashboards to complete real-world implementations."
 ---
 
 # Dashboard Examples

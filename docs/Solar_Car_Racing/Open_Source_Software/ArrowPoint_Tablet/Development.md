@@ -1,5 +1,6 @@
 ---
 title: Development
+description: "Development guide for ArrowPoint Android app including Android Studio setup and UDP compatibility issues."
 ---
 
 If you are planning to contribute to the development of this tool, please see our [Contribution File](https://github.com/Prohelion/ArrowPoint-CANbus-Tools/blob/master/CONTRIBUTING.md) on GitHub.

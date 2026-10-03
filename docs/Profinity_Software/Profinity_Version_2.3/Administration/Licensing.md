@@ -1,5 +1,6 @@
 ---
 title: Licensing
+description: "Manage Profinity licensing with offline signed license files, check feature entitlements, and configure trial licenses."
 ---
 
 # Licensing

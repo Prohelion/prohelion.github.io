@@ -1,5 +1,6 @@
 ---
 title: How to Connect Profinity to AI
+description: "Connect Profinity to AI tools like Claude Desktop or Cursor IDE using the Model Context Protocol (MCP) server integration."
 ---
 
 # How to Connect Profinity to AI

@@ -1,5 +1,6 @@
 ---
 title: Connectors
+description: "Connector specifications and pinouts for the Prohelion 48V Battery Management System, including part numbers and high-current connection details."
 ---
 
 # Connectors

@@ -1,5 +1,6 @@
 ---
 title: CAN Bus DBC
+description: "Introduction to DBC file format in Profinity V1 for viewing CAN Bus messages and signals, including DBC viewer configuration."
 ---
 
 # CAN Bus DBC

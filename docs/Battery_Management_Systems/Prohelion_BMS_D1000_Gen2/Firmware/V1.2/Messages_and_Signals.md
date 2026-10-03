@@ -1,5 +1,6 @@
 ---
 title: ProhelionBmsD1000Gen2 - DBC Messages and Signals
+description: "CAN bus message and signal definitions for Prohelion BMS D1000 Gen2 V1.2 firmware, including heartbeat, state, current, voltage, and node telemetry messages."
 ---
 <!--- Auto-generated markdown documentation from device CAN database (dbc) -->
 

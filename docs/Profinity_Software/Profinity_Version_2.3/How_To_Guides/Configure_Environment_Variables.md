@@ -1,5 +1,6 @@
 ---
 title: How to Configure Environment Variables
+description: "Configure Profinity using environment variables for flexible deployments across Windows, Linux, macOS, and Docker environments."
 ---
 
 # How to Configure Environment Variables

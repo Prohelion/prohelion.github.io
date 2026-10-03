@@ -1,5 +1,6 @@
 ---
 title: Cooling
+description: "WaveSculptor200 liquid cooling system design with radiator, pump, reservoir, and tubing component recommendations and installation guide."
 ---
 
 # Cooling

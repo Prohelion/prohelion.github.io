@@ -1,5 +1,6 @@
 ---
 title: How to Replay CAN Bus Logs
+description: "Replay recorded CAN bus messages from CSV files to test your Profinity system without live CAN hardware."
 ---
 
 # How to Replay CAN Bus Logs

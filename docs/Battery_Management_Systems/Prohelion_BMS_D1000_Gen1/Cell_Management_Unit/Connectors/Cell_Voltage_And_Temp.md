@@ -1,5 +1,6 @@
 ---
 title: Cell Voltages & Temp
+description: "Cell voltage and temperature sense connector for the Prohelion BMS D1000 Gen1 Cell Management Unit, including thermistor selection and wiring procedures."
 ---
 
 # Cell Voltage & Temperature Sense Connector 

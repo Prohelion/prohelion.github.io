@@ -1,5 +1,6 @@
 ---
 title: Cooling
+description: "WaveSculptor22 customer-supplied heatsink design with efficiency calculations, thermal loss models, and M4 mechanical interface."
 ---
 
 # Cooling

@@ -1,5 +1,6 @@
 ---
 title: How to Configure Data Logging
+description: "Configure data logging to CSV files, InfluxDB, Prometheus, MQTT brokers, or webhooks to capture CAN bus data."
 ---
 
 # How to Configure Data Logging

@@ -1,5 +1,6 @@
 ---
 title: Docker Installation
+description: "Install and run Profinity in Docker containers with environment variables for flexible production deployments."
 ---
 
 # Installing Profinity On Docker

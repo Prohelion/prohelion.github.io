@@ -1,5 +1,6 @@
 ---
 title: Receive Scripts
+description: "Scripts that automatically execute when matching CAN bus packets are received."
 ---
 
 # Receive Scripts

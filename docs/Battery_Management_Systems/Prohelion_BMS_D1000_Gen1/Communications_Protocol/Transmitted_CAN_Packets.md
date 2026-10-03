@@ -1,5 +1,6 @@
 ---
 title: Transmitted CAN Packets
+description: "Transmitted CAN packet format and telemetry specifications for the Prohelion BMS D1000 Gen1, including heartbeat, cell voltages, temperatures, and status messages."
 ---
 
 # Transmitted CAN Packets

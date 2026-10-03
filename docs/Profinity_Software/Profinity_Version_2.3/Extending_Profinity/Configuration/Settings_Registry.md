@@ -1,5 +1,6 @@
 ---
 title: Settings Registry
+description: "Centralised system settings in Config.yaml with structured sections for security, app settings, and server discovery."
 ---
 
 # Settings registry and configuration files

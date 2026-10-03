@@ -1,5 +1,6 @@
 ---
 title: Development & APIs
+description: "Reference for developing against the ArrowPoint Telemetry microservice architecture built with Spring Boot."
 ---
 
 If you are interested in contributing to the solution, please see our contribution file here:

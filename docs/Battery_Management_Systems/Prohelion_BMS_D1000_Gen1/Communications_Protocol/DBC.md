@@ -1,5 +1,6 @@
 ---
 title: DBC File
+description: "Vector DBC file for decoding CAN messages transmitted by the Prohelion BMS D1000 Gen1 BMU, including signal definitions for all telemetry messages."
 ---
 
 # Prohelion D1000 Gen 1 DBC

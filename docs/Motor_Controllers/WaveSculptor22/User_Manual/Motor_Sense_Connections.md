@@ -1,5 +1,6 @@
 ---
 title: Motor Sense Connections
+description: "WaveSculptor22 motor sense adapter connections for Hall sensors on BLDC motors and temperature monitoring with 14-way connector."
 ---
 
 # Motor Sense Connections 

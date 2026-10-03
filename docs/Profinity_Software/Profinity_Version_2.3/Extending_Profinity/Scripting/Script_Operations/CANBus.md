@@ -1,5 +1,6 @@
 ---
 title: CAN bus
+description: "Script operations for sending, receiving, and working with CAN bus packets and data."
 ---
 
 # CAN bus

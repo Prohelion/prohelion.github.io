@@ -1,5 +1,6 @@
 ---
 title: How to Add Images to Your Dashboard
+description: "Add custom images (SVG, PNG, JPG, GIF) to your Profinity dashboards by storing them in the profile's Images directory."
 ---
 
 # How to Add Images to Your Dashboard

@@ -1,5 +1,6 @@
 ---
 title: Common Problems & Solutions
+description: "Troubleshooting guide for CAN-Ethernet bridge issues including firewall configuration, network topology, and connectivity problems."
 ---
 
 #### Firewall Requirements

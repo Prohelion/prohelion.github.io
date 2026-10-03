@@ -1,5 +1,6 @@
 ---
 title: CAN Bus Connector
+description: "CAN bus connector for Cell Management Unit communication to the Prohelion BMS D1000 Gen1, including termination and isolation requirements."
 ---
 
 # CMU CAN Bus Connector

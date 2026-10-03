@@ -1,5 +1,6 @@
 ---
 title: Profinity
+description: "Prohelion Profinity CAN bus management platform: connects CAN-based solutions to modern cloud, APIs, and big data technologies."
 ---
 
 # Prohelion Profinity
@@ -76,6 +77,14 @@ The worlds most modern CAN bus management solution, featuring
     </figure>
 
     [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version_2.3/index.md)
+
+-   :material-tools:{ .lg .middle } __Profinity 2.2__
+
+    ---
+
+    The previous Profinity release, kept beside 2.3.
+
+    [:octicons-arrow-right-24: Profinity 2.2 Documentation](Profinity_Version_2.2/index.md)
 
 -   :material-tools:{ .lg .middle } __Profinity Version 1 (Retired)__
 

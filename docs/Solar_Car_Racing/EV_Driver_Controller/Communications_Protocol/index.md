@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "Complete CAN bus communications protocol specification for the Prohelion EV driver controls module."
 ---
 
 # EV Driver Controls CAN Bus Communications Protocol Specification 

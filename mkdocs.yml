@@ -1,5 +1,9 @@
 site_name: Prohelion Documentation
 site_url: https://docs.prohelion.com
+site_description: >-
+  Official technical documentation for Prohelion's Profinity CAN bus management
+  software, Battery Management Systems, Motor Controllers, Solar Charge
+  Controllers, and Solar Car Racing electronics.
 
 extra_css:
   - assets/stylesheets/theme.css

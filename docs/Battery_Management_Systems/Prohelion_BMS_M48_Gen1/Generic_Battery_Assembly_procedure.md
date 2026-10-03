@@ -1,5 +1,6 @@
 ---
 title: Generic Battery Assembly Procedure
+description: "Generic battery assembly procedure for the Prohelion 48V Battery Management System, including cell-sense wiring, front-panel harness, and thermistor assembly."
 ---
 
 # Generic Battery Assembly Procedure

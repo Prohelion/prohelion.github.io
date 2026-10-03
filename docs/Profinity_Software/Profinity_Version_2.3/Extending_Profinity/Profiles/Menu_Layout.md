@@ -1,5 +1,6 @@
 ---
 title: Menu Layout
+description: "Customize profile and component menu placement using drag-and-drop layout editor."
 ---
 
 # Profile and component menu layout

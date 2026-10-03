@@ -1,5 +1,6 @@
 ---
 title: Group Component
+description: "Container for organizing related components in horizontal or vertical arrangement with flexible sizing."
 ---
 
 # Group

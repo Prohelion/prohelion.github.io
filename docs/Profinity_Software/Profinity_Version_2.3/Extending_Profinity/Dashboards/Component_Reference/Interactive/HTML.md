@@ -1,5 +1,6 @@
 ---
 title: HTML Component
+description: "Embed custom HTML content with references to profile assets for rich text formatting and custom layouts."
 ---
 
 # HTML

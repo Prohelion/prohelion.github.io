@@ -1,5 +1,6 @@
 ---
 title: Software Specifications
+description: "Software specifications for the Prohelion 48V Battery Management System, including firmware state machine, BMS outputs, and operational states for charge/discharge control."
 ---
 
 # Software Specifications

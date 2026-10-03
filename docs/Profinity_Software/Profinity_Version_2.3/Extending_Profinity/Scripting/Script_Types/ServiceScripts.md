@@ -1,5 +1,6 @@
 ---
 title: Service Scripts
+description: "Continuous, long-running scripts with service-like lifecycle management and event handling."
 ---
 
 # Service Scripts

@@ -1,5 +1,6 @@
 ---
 title: Charts Component
+description: "Data visualization component supporting line, bar, radar, pie, doughnut, bubble, scatter, and polar area charts."
 ---
 
 # Charts

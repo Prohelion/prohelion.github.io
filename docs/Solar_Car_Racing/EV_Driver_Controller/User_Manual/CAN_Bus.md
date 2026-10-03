@@ -1,5 +1,6 @@
 ---
 title: CAN Bus
+description: "CAN bus wiring standards, topology requirements, and connector specifications for the EV driver controls."
 ---
 
 # CAN Bus

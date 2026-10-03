@@ -1,5 +1,6 @@
 ---
 title: Datalogging
+description: "Configure WaveSculptor data logging with adjustable update rates (200ms, 1s, 10s) to record telemetry and drive commands in comma-delimited text files."
 ---
 
 # Datalogging

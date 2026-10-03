@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2 - Hardware Components
+description: "Prohelion BMS D1000 Gen2 Cell Management Unit specifications, including up to 14 cell voltage measurements, temperature sensing, and 650mA balancing current."
 ---
 
 This section provides information on the Prohelion D1000 Gen2 Cell Management Unit (CMU). 

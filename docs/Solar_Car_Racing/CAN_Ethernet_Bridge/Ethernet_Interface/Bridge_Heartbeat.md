@@ -1,5 +1,6 @@
 ---
 title: Bridge Heartbeat
+description: "Specification of the periodic UDP heartbeat datagrams sent by the bridge for network presence detection and status."
 ---
 
 # Bridge Heartbeat

@@ -1,5 +1,6 @@
 ---
 title: OEM White-Label Mobile
+description: "Build and distribute white-label Profinity Mobile apps with custom branding and bundle identifiers."
 ---
 
 # OEM white-label mobile builds

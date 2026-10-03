@@ -1,5 +1,6 @@
 ---
 title: Running Profinity as a Service or Daemon
+description: "Configure Profinity to run as a system service on Linux, macOS, or Windows with automatic startup and failure recovery."
 ---
 
 # Running Profinity as a Service

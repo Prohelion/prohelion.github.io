@@ -1,5 +1,6 @@
 ---
 title: Motor Output
+description: "WaveSculptor22 three-phase motor output with 100A current rating, 120V maximum voltage, and phase inductance requirements."
 ---
 
 # Motor Output

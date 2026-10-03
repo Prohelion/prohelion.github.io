@@ -1,5 +1,6 @@
 ---
 title: Graphing
+description: "Basic graphing dashboard for tablet users to visualize key vehicle performance attributes in real time."
 ---
 
 The graphing dashboard allows you to do basic graphing of key attributes on the tablet, this is generally useful when team members want to know something but do not want to be bothering the strategy or telemetry teams.

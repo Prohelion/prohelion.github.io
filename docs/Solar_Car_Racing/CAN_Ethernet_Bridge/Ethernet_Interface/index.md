@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "Reference guide for the Ethernet interface covering UDP/TCP bridging protocols and advanced communications features."
 ---
 
 # CAN-Ethernet Bridge Ethernet Interface

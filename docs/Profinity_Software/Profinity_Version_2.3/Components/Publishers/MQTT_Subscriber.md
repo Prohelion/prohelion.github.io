@@ -1,5 +1,6 @@
 ---
 title: MQTT Subscriber
+description: "Subscribe to external Sparkplug B sources via MQTT and write incoming metrics into the profile tag tree."
 ---
 
 # MQTT Subscriber
@@ -12,12 +13,12 @@ platform's data into Profinity as ordinary tags, so it can be viewed on a dashbo
 included in a rule, or read by a script the same way any other tag can.
 
 !!! info "Not the same feature as Tag Relay"
-    **Tag Relay** (Profinity-to-Profinity) moves a snapshot of tags between two Profinity
-    instances over its own proprietary protocol — it does not speak Sparkplug, and this component
-    does not replace it. The MQTT Subscriber is specifically for an **external**, Sparkplug B
-    source: a third-party edge device, gateway, or platform (for example Ignition) publishing
-    Sparkplug over MQTT. Use Tag Relay when both ends are Profinity; use the MQTT Publisher and
-    MQTT Subscriber pair when one end is not.
+    [**Tag Relay**](../../Extending_Profinity/Tag_Layer/Tag_Relay.md) (Profinity-to-Profinity)
+    moves a snapshot of tags between two Profinity instances over its own proprietary protocol —
+    it does not speak Sparkplug, and this component does not replace it. The MQTT Subscriber is
+    specifically for an **external**, Sparkplug B source: a third-party edge device, gateway, or
+    platform (for example Ignition) publishing Sparkplug over MQTT. Use Tag Relay when both ends
+    are Profinity; use the MQTT Publisher and MQTT Subscriber pair when one end is not.
 
 ## Adding an MQTT Subscriber
 
@@ -121,6 +122,7 @@ disconnected or error state.
 - [Webhook Publisher](./Webhook_Publisher.md)
 - [Script Types](../../Extending_Profinity/Scripting/Script_Types/index.md)
 - [Tag layer](../../Extending_Profinity/Tag_Layer/index.md)
+- [Tag relay](../../Extending_Profinity/Tag_Layer/Tag_Relay.md)
 
 ## Engineering reference
 

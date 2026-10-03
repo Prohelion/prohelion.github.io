@@ -1,5 +1,6 @@
 ---
 title: Mechanical
+description: "Physical dimensions, weight, and IP rating specifications for the CAN-Ethernet bridge ABS plastic enclosure."
 ---
 
 # Mechanical

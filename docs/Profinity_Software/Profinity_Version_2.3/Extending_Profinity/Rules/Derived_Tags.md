@@ -1,5 +1,6 @@
 ---
 title: Derived Tags
+description: "Virtual tags computed automatically from expressions or scripts that behave like real tags."
 ---
 
 # Derived (virtual) tags

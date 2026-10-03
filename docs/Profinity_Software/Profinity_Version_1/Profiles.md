@@ -1,5 +1,6 @@
 ---
 title: Profiles
+description: "Overview of Profinity V1 profiles: how they work, device configuration, profile properties, and file storage mechanisms."
 ---
 
 # Profinity Profiles

@@ -1,10 +1,16 @@
 ---
 title: Profinity AI
+description: "Query live instance data, search documentation, and get help through the integrated AI chat assistant."
 ---
 
 # Profinity AI
 
 Profinity AI is a chat assistant built into Profinity, available from the side menu once an administrator has configured it (see [Profinity AI settings](../Administration/Security/AI_Assistant.md)). It can answer questions about the live state of this Profinity instance, look up how-to and reference material from docs.prohelion.com, and, if the administrator has enabled it, search the web.
+
+<figure markdown>
+![Profinity AI gathers context from the whole Profile — devices, alerts, documentation, and history — correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../../../assets/images/2.3/2.3-diagram-ai-diagnostics.png)
+<figcaption>Context in, cross-system diagnosis out</figcaption>
+</figure>
 
 !!! info "Your Messages May Leave This Instance"
     Profinity AI is answered by an external AI provider unless your administrator has configured a local, self-hosted model. Ask your administrator which provider is configured before discussing sensitive data with the assistant.

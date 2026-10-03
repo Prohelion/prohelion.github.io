@@ -1,5 +1,6 @@
 ---
 title: Tag Tree Path
+description: "Mount components at nested locations in the tag tree hierarchy instead of at the root level."
 ---
 
 # Tag Tree Path

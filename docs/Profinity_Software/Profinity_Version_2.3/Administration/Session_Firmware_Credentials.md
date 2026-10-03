@@ -1,5 +1,6 @@
 ---
 title: Session Firmware Credentials
+description: "Store firmware unlock keys and passcodes in the user session instead of persisting them on disk."
 ---
 
 # Session firmware credentials

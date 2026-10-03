@@ -1,5 +1,6 @@
 ---
 title: Profinity SDK
+description: "Developer kit including libraries, component pack CLI, and script tools for building extensions."
 ---
 
 # Profinity SDK

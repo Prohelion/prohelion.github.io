@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "WaveSculptor Motor Interface Type 6 specifications for quadrature encoder with single-ended outputs and NTC thermistor temperature sensing with schmitt-trigger inputs."
 ---
 
 # WaveSculptor Motor Interface Type 6: Encoder and Thermistor 

@@ -1,5 +1,6 @@
 ---
 title: CAN bus Adapters
+description: "Add and configure CAN bus adapters including Prohelion bridges, Peak USB, SocketCAN, and EwertEnergy."
 ---
 
 # CAN bus Adapters

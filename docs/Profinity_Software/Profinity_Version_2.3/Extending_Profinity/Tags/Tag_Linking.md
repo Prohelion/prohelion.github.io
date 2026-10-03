@@ -1,5 +1,6 @@
 ---
 title: Tag Linking
+description: "Tag Explorer context menu flows to quickly create collections, rules, and dashboard bindings."
 ---
 
 # Tag linking from Tag Explorer

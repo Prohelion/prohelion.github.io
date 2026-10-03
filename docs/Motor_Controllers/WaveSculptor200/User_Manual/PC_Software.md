@@ -1,5 +1,6 @@
 ---
 title: PC Software
+description: "How to configure a WaveSculptor200 motor controller using Prohelion Profinity or the standalone PC software, including CAN-Ethernet bridge setup."
 ---
 
 # PC Software

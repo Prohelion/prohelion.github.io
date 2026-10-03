@@ -1,5 +1,6 @@
 ---
 title: Titlebar Component
+description: "Header section with status lamps and navigation menus for dashboard identification and controls."
 ---
 
 # Titlebar

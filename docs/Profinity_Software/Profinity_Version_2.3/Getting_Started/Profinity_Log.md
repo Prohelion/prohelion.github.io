@@ -1,5 +1,6 @@
 ---
 title: System Logs
+description: "Access Profinity's built-in system logs to view timestamped entries with message levels for troubleshooting and issue diagnosis."
 ---
 
 # Profinity System Logs

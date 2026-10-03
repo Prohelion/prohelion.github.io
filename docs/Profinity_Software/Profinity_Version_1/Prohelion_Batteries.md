@@ -1,5 +1,6 @@
 ---
 title: Prohelion Batteries
+description: "Guide to Prohelion battery management systems in Profinity V1, including BMU configuration, firmware flashing, and cell monitoring."
 ---
 
 # Prohelion Batteries

@@ -1,5 +1,6 @@
 ---
 title: Pill Component
+description: "Status pill with central icon and grouped readouts for compact component status and key metric display."
 ---
 
 # Pill

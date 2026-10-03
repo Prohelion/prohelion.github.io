@@ -1,5 +1,6 @@
 ---
 title: Assembly Procedure
+description: "Step-by-step procedure for assembling the cell management unit wiring harness for Prohelion BMS D1000 Gen1, including jig setup, cutting, and branch splitting."
 ---
 
 # Assembly Procedure

@@ -1,5 +1,6 @@
 ---
 title: Webhook Publisher
+description: "Push profile tag collections to HTTP endpoints via POST with JSON payloads on interval or change."
 ---
 
 # Webhook Publisher
