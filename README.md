@@ -39,6 +39,10 @@ code .
 
 A link checker is used to validate all URLs on the site before publishing, we have been using the [Integrity Link Checker](https://peacockmedia.software/mac/integrity/free.html) for Mac, on Windows [LinkChecker](http://wummel.github.io/linkchecker/) is a good soltuion, but any link checker you like is fine.
 
+## Version folders
+
+When a new Profinity docs version is forked, copy the previous version folder and keep it (`Profinity_Version_2.2` stays beside `Profinity_Version_2.3`). Do not rename the old folder away in the same change that adds the new one — `mkdocs gh-deploy --force` publishes only what is in the tree.
+
 ## Publishing the documentation
 
 Any documentation that is commited to the main branch of this repo will be automatically deployed.  A GitHub CI script will publish the site and post it to the gh-pages branch on github from where the site is staticly served by GitHub to the domain https://docs.prohelion.com
