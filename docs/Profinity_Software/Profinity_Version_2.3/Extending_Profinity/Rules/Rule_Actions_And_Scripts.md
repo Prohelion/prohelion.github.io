@@ -33,6 +33,7 @@ Configure:
 - **`description`** — text shown in ALL ALERTS.
 - **`level`** — severity for filtering and display.
 - **`evaluationTickSeconds`** — engine evaluation interval.
+- **`publishStateTagPath`** — optional tag path to which the rule mirrors its current state whenever that state changes (see [Rule state publishing](./Derived_Tags.md#rule-state-publishing)).
 
 ## Action picker
 
@@ -95,16 +96,15 @@ same message shape, so a subscriber sees identical structure regardless of which
 | There is no existing MQTT broker to publish to | Multiple systems need to subscribe to the same rule notifications via one broker topic |
 
 Both actions connect, send, and disconnect once per firing — they do not hold a connection open
-between rule firings, the same stateless per-call pattern the existing Email action already uses
+between rule firings, the same stateless per-call pattern the Email action uses
 for its SMTP connection. Both honour the rule engine's per-action timeout: an action that does not
-complete in time is cancelled and logged without blocking evaluation of other rules, the same
-behaviour any other slow action already has today.
+complete in time is cancelled and logged without blocking evaluation of other rules, as with any other slow action.
 
 ### Webhook action settings
 
 | Setting | Purpose |
 |---|---|
-| **Destination URL** | The HTTP(S) endpoint the action POSTs to when the rule transitions. May embed a token (for example `https://host/hooks/<secret>`); stored encrypted at rest the same way a Slack webhook URL already is. |
+| **Destination URL** | The HTTP(S) endpoint the action POSTs to when the rule transitions. May embed a token (for example `https://host/hooks/<secret>`); stored encrypted at rest, as a Slack webhook URL is. |
 | **Auth mode** | **None**, **Bearer token**, **API key header**, or **Basic auth** — same four modes as the [Webhook Publisher](../../Components/Publishers/Webhook_Publisher.md). |
 | **Bearer token** | Shown when **Auth mode** is **Bearer token**. Sent as `Authorization: Bearer <token>`. |
 | **API key header name** / **API key header value** | Shown when **Auth mode** is **API key header**. The header name and value sent on every request, for example `X-Api-Key`. |
@@ -133,7 +133,7 @@ behaviour any other slow action already has today.
 
 - [Tag expressions](./Tag_Expressions.md)
 - [ALL ALERTS](./Alerts.md)
-- [Scripting rule scripts](../Scripting/Rule_Scripts.md)
+- [Rule scripts](../Scripting/Rule_Scripts.md)
 - [Tag layer](../Tag_Layer/index.md)
 - [Derived tags](./Derived_Tags.md)
 - [Webhook Publisher](../../Components/Publishers/Webhook_Publisher.md)

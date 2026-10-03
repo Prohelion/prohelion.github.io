@@ -27,7 +27,7 @@ Use Tag Explorer to:
 - Inspect **data quality** indicators (stale quality uses a Carbon icon — distinct from **rule alert** triangles).
 - Open context-menu flows for [tag linking](../Tags/Tag_Linking.md).
 
-## Collections and rules
+## Collections, rules, and alerts
 
 | Feature | Side menu route | View permission |
 |---------|-----------------|-----------------|
@@ -35,11 +35,11 @@ Use Tag Explorer to:
 | Rules | `/tags?view=tag_rules` | `TagRulesView` |
 | ALL ALERTS | `/tags?view=alerts` | `AlertsView` |
 
-Visual editors are also available from component and profile settings depending on profile layout.
+Depending on the profile layout, the visual editors are also available from component and profile settings.
 
 ## Key API areas (integrators)
 
-New and changed `/api/v2` controllers on 2.3 include:
+The new and changed `/api/v2` controllers in 2.3 include:
 
 | Area | Controllers (representative) |
 |------|------------------------------|
@@ -50,7 +50,7 @@ New and changed `/api/v2` controllers on 2.3 include:
 
 Legacy **`DataController`** is removed from the v2 surface — use tag-layer endpoints for new integrations.
 
-All endpoints require appropriate permissions — see [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md) and the engineering [endpoint authorization matrix](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A8-Endpoint-Authorization-Matrix.md).
+All endpoints require the appropriate permissions — see [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md) and the engineering [endpoint authorization matrix](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A8-Endpoint-Authorization-Matrix.md).
 
 ## Tag relay
 

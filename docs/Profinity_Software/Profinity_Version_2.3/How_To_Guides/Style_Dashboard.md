@@ -1,25 +1,25 @@
 ---
 title: How to Style Your Dashboard
-description: "Apply custom CSS styling to Profinity dashboard elements for branding and visual customization."
+description: "Apply custom CSS styling to Profinity dashboard elements for branding and visual customisation."
 ---
 
 # How to Style Your Dashboard
 
-Apply custom CSS styling to your dashboard elements for branding and visual customization.
+Apply custom CSS styling to your dashboard elements for branding and visual customisation.
 
 ## Prerequisites
 
 - Profinity V2 installed
 - A dashboard to style
 - Basic CSS knowledge
-- Access to `/Profile/Styles` directory
+- Access to the `/Profile/Styles` directory
 
 ## Steps
 
 ### Step 1: Create CSS File
 
 1. Navigate to your profile directory
-2. Go to `Styles` folder (create if needed)
+2. Go to the `Styles` folder (create it if needed)
 3. Create a CSS file (e.g., `custom-dashboard.css`)
 
 ### Step 2: Write Your CSS
@@ -62,7 +62,7 @@ Example CSS file:
 
 ### Step 4: Apply CSS Classes
 
-Use `class` property in dashboard components:
+Use the `class` property in dashboard components:
 
 ```yaml
 - group:
@@ -78,18 +78,19 @@ Use `class` property in dashboard components:
 ### Step 5: Verify Styling
 
 1. Save your dashboard
-2. Verify CSS file is loaded
+2. Verify the CSS file is loaded
 3. Check elements are styled correctly
 4. Test on different screen sizes
 
 ## Tips
 
-- **Use Descriptive Class Names**: Name classes clearly
-- **Keep Styles Modular**: Separate CSS files for different purposes
-- **Test Responsive**: Ensure styles work on different screen sizes
-- **Use CSS Variables**: For consistent theming
+- **Use Descriptive Class Names**: name classes clearly
+- **Keep Styles Modular**: use separate CSS files for different purposes
+- **Test Responsive**: ensure styles work on different screen sizes
+- **Use CSS Variables**: use them for consistent theming
 
 ## Related Documentation
 
-- [Profile Directories](../Extending_Profinity/Dashboards/Profile_Directories.md) - Complete profile directories guide
+- [Profile Directories](../Extending_Profinity/Dashboards/Profile_Directories.md) - the full profile directories reference
 - [HTML Component](../Extending_Profinity/Dashboards/Component_Reference/Interactive/HTML.md) - HTML component reference
+- [Conditional Styling](../Extending_Profinity/Dashboards/Conditional_Styling.md) - styling driven by data values

@@ -5,7 +5,7 @@ description: "Hide component types from the add-component catalog using glob pat
 
 # Disable components in the catalog
 
-Administrators and OEMs can **hide component types** from the add-component catalog using glob patterns in configuration. Hidden types do not appear in **Available Components** or Plugin Manager availability lists.
+Administrators and OEMs can **hide component types** from the add-component catalog using glob patterns in configuration. Hidden types do not appear in **Available Components** or in the Plugin Manager availability lists.
 
 ## Configuration
 
@@ -15,15 +15,15 @@ Administrators and OEMs can **hide component types** from the add-component cata
 2. Navigate to **App Settings** → **Component catalog**.
 3. Use the per-item enable/disable controls to hide or show component types and groups.
 
-Each toggle calls a REST endpoint behind the scenes and updates the **`DisabledComponents`** / **`DisabledGroups`** lists in `Config.yaml`. The change applies immediately and does not restart the engine.
+Each toggle calls a REST endpoint and updates the **`DisabledComponents`** / **`DisabledGroups`** lists in `Config.yaml`. The change applies immediately and does not restart the engine.
 
 ### Custom.yaml (OEM override)
 
-OEM deployments may supply additional overrides in **`Custom.yaml`** when using OEM packaging. Precedence follows engine `ComponentCatalogAvailabilityService` — Config.yaml is the operator-facing source; Custom.yaml can further restrict for branded builds.
+OEM deployments using OEM packaging can supply additional overrides in **`Custom.yaml`**. Precedence follows the engine's `ComponentCatalogAvailabilityService`: Config.yaml is the operator-facing source, and Custom.yaml can restrict further for branded builds.
 
 ## Plugin Manager reflection
 
-The **Components & Plugins** admin screen reflects which types are available vs hidden/disabled.
+The **Components & Plugins** admin screen reflects which types are available and which are hidden or disabled.
 
 <figure markdown>
 ![Plugin Manager showing catalog enable or hidden type indicator](../../../../assets/images/2.3/2.3-plugin-manager-catalog-toggle.png)
@@ -32,7 +32,7 @@ The **Components & Plugins** admin screen reflects which types are available vs 
 
 ## Pattern syntax
 
-The admin UI stores disabled types and groups as glob patterns matching component type ids — for example, disabling experimental types results in:
+The admin UI stores disabled types and groups as glob patterns matching component type ids. For example, disabling experimental types results in:
 
 ```yaml
 DisabledComponents:
@@ -40,7 +40,7 @@ DisabledComponents:
   - LegacyCharger
 ```
 
-Test with a non-admin engineer account to confirm hidden types do not appear under **ADD COMPONENT**.
+To confirm a change, sign in with a non-admin engineer account and check that hidden types do not appear under **ADD COMPONENT**.
 
 ## Related documentation
 

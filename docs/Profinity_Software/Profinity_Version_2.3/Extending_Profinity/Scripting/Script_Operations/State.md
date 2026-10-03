@@ -5,9 +5,7 @@ description: "Thread-safe state management for persistence between script invoca
 
 # State
 
-Scripts in Profinity have a lifecycle where they will run and then stop.  Sometimes it is necessary to share information between invocations of Scripts or to share information between different scripts.  Profinity provides a state management mechanism to enable this.
-
-This documentation provides a comprehensive guide to using the Profinity State for managing script state in Profinity applications. It covers all major functionality, including state storage, retrieval, and thread-safe operations, with examples in C# and Python.
+Scripts in Profinity have a lifecycle in which they run and then stop, so information that must survive between invocations of a script, or be shared between different scripts, needs to be held in state. Profinity provides a state management mechanism for this, covering state storage, retrieval, and thread-safe operations, with examples in C# and Python.
 
 Profinity provides two distinct ways to manage state in scripts:
 
@@ -15,11 +13,11 @@ Profinity provides two distinct ways to manage state in scripts:
 
 - `GlobalState` - Manages state that can be shared between different scripts. When you run multiple scripts, they can all access and modify the same global state, allowing for inter-script communication and data sharing.
 
-Both provide a robust set of features for storing and retrieving script state data, including concurrent access support and atomic updates. This section gives you a high-level understanding of what these classes can do.
+Both support storing and retrieving script state data, including concurrent access and atomic updates.
 
 ## Key Features
 
-This section lists the core capabilities of the ProfinityScriptState class. These features represent the main functionality you'll use when working with script state management in your applications.
+The `ProfinityScriptState` class provides the following core capabilities.
 
 - Thread-safe state storage and retrieval
 - Atomic state updates
@@ -31,13 +29,11 @@ This section lists the core capabilities of the ProfinityScriptState class. Thes
 
 ## Basic Usage
 
-This section provides detailed examples of how to use both State and GlobalState in your applications. Each example is shown in C# and Python to accommodate different development environments.
-
-Basic operations cover the fundamental tasks you'll perform with both State and GlobalState, including storing and retrieving state values. These are the building blocks for more complex state management scenarios.
+The following examples show how to use both `State` and `GlobalState` in scripts, each in C# and Python. Storing and retrieving values are the building blocks for more complex state management.
 
 ### Storing State Values
 
-Storing state values is a fundamental operation. This section shows how to save data to both local and global state stores, with examples of different value types and update scenarios.
+The following examples save data to both the local and global state stores, using different value types.
 
 === "C#"
 
@@ -69,7 +65,7 @@ Storing state values is a fundamental operation. This section shows how to save 
 
 ### Retrieving State Values
 
-Retrieving state values can be done for any stored key in both local and global state. This section shows how to access stored data and handle cases where values don't exist.
+Any stored key can be retrieved from both the local and global state stores, and a key that does not exist returns null.
 
 === "C#"
 
@@ -101,7 +97,7 @@ Retrieving state values can be done for any stored key in both local and global 
 
 ## More Complete Examples
 
-This section provides complete, real-world examples showing how to use both State and GlobalState in typical scenarios. The examples demonstrate proper state management, error handling, and type safety.
+The following examples show both `State` and `GlobalState` in typical scenarios, including a run counter and shared configuration.
 
 === "C#"
 
@@ -161,7 +157,7 @@ This section provides complete, real-world examples showing how to use both Stat
 
 ## Important Notes
 
-This section highlights critical information you should be aware of when using the Profinity State. These notes cover thread safety, value types, and state management considerations.
+The following notes cover thread safety, value types, and state management considerations.
 
 1. **Thread Safety**: Both State and GlobalState are designed to be thread-safe and can be used in multi-threaded environments. All operations are atomic and concurrent access is supported.
 
@@ -178,11 +174,11 @@ This section highlights critical information you should be aware of when using t
 
 ## Best Practices
 
-Following these best practices will help you create robust and efficient state management in your scripts. This section provides guidelines for proper usage and common pitfalls to avoid.
+The following practices avoid common state management problems.
 
 1. Use descriptive keys that clearly indicate the purpose of the stored value.
 
-2. Always check for null when retrieving values to handle cases where the key doesn't exist.
+2. Always check for null when retrieving values to handle cases where the key does not exist.
 
 3. Be consistent with the types of values you store under each key to avoid type-related issues.
 

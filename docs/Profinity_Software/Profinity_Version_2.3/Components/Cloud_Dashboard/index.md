@@ -5,29 +5,30 @@ description: "Access Prohelion Cloud platform for device monitoring, management,
 
 # Prohelion Cloud Dashboard
 
-Prohelion Cloud is a comprehensive IoT platform that provides robust device monitoring, management, and data storage solutions for field devices. 
+Prohelion Cloud is an IoT platform for monitoring and managing field devices and storing their data, and it allows an organisation to monitor, analyse and manage its IoT devices and assets remotely.
 
-Our platform enables organizations to efficiently monitor, analyse, and manage their IoT devices and assets from anywhere in the world, offering enterprise-grade features with a focus on reliability and scalability.
+Access to Prohelion Cloud is by request, and an access request is logged in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
 
-To access Prohelion Cloud, please log an access request in [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
+## Features
 
-## Key Features of Prohelion Cloud Dashboard
+### Data Visualisation
 
-### Advanced Data Visualization
-- Customizable dashboards with drag-and-drop widgets
-- Multiple chart types and visualization options
-- Time-series data visualization and analysis
-- Custom widget development capabilities
-- Real-time data streaming and visualization
+- Customisable dashboards with drag-and-drop widgets
+- Multiple chart types and visualisation options
+- Time-series data visualisation and analysis
+- Custom widget development
+- Real-time data streaming and visualisation
 
-### Comprehensive Device Management
+### Device Management
+
 - Device provisioning and auto-registration
 - Telemetry and attribute management
 - Device state monitoring and control
-- Device grouping and organization
+- Device grouping and organisation
 - Bulk device operations
 
-### Powerful Rule Engine
+### Rule Engine
+
 - Complex event processing and filtering
 - Data validation and transformation
 - Alarm creation and management
@@ -36,36 +37,38 @@ To access Prohelion Cloud, please log an access request in [Prohelion Support Po
 - Message queuing and reprocessing
 - Conditional actions based on device data
 
-### Advanced Analytics
-- Time-series data storage with efficient compression
+### Analytics
+
+- Time-series data storage with compression
 - Data aggregation
-- Predictive analytics capabilities
+- Predictive analytics
 - Custom data processing functions
 - Integration with external analytics tools
 - Historical data analysis
 - Trend analysis and forecasting
 
-### Enterprise Features
-- Advanced reporting
+### Reporting and Administration
+
+- Reporting
 - Scheduler for automated tasks
 - Audit logging
 
 ## Getting Started
 
-To begin using Prohelion Cloud, you'll need:
+Using Prohelion Cloud requires:
 
-1. A Prohelion Cloud account
-2. Compatible devices with network connectivity
-3. Basic understanding of your device's data points
+- A Prohelion Cloud account.
+- Compatible devices with network connectivity.
+- A working knowledge of the data points that each device reports.
 
-Our support team is available to help with:
+Prohelion support assists with:
 
 - Device onboarding and configuration
-- Dashboard customization
+- Dashboard customisation
 - Rule chain setup
 - Integration with existing systems
 - Custom development needs
 - Security configuration
 - Analytics setup
 
-We offer comprehensive documentation, tutorials, and a dedicated support team to ensure a smooth transition to cloud-based monitoring and management. 
+Prohelion also provides documentation, tutorials and a dedicated support team to assist the transition to cloud-based monitoring and management.

@@ -20,10 +20,10 @@ Header section with status lamps and navigation. The titlebar provides dashboard
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the titlebar |
 | `class` | optional (string) | CSS class for styling |
-| `lamp` | optional (object) | Status lamp configuration |
-| `menu` | optional (object) | Navigation menu |
-| `showTitlebar` | optional (boolean) | Show the titlebar background (default: true) |
-| `showActions` | optional (boolean) | Show actions in the titlebar (default: true) |
+| `lamp` | optional (object) | Status lamp shown in the titlebar |
+| `menu` | optional (object) | Navigation menu (entries such as `menuitem`, `submenu` and `modal`) |
+| `showTitlebar` | optional (boolean) | Whether to show the titlebar background (default: `true`) |
+| `showActions` | optional (boolean) | Whether to show actions in the titlebar (default: `true`) |
 
 **Example:**
 

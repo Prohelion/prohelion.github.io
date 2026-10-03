@@ -9,7 +9,7 @@ The CANBus functionality in Profinity provides tools for working with CAN (Contr
 
 ## Key Features
 
-This section lists the core capabilities of the CANBus functionality. These features represent the main functionality you'll use when working with CAN bus communication in your scripts.
+The CANBus functionality provides the following core capabilities.
 
 - Send CAN packets to the bus
 - Access the latest received CAN packets
@@ -18,16 +18,16 @@ This section lists the core capabilities of the CANBus functionality. These feat
 
 ## Usage
 
-This section provides detailed examples of how to use the CANBus functionality in your scripts. Each example is shown in C# and Python to accommodate different development environments.
+The following examples show how to use the CANBus functionality in scripts. Each example is shown in C# and Python, and the sending example also has a Lua version.
 
 ### Sending CAN Packets
 
-Sending CAN packets is a fundamental operation. This section shows how to create and transmit CAN packets to the bus.
+The following examples create a CAN packet and transmit it to the bus.
 
 === "C#"
 
     ```csharp
-    using Profinity.ComponentSdk.Models.CANBus;
+    using Profinity.Sdk.Models.CANBus;
 
     // Create and send a CAN packet
     var packet = new CanBusPacket(0x123, new byte[] { 0x01, 0x02, 0x03, 0x04 });
@@ -37,7 +37,7 @@ Sending CAN packets is a fundamental operation. This section shows how to create
 === "Python"
 
     ```python
-    from Profinity.ComponentSdk.Models.CANBus import CanBusPacket
+    from Profinity.Sdk.Models.CANBus import CanBusPacket
 
     # Create and send a CAN packet
     packet = CanBusPacket(0x123, [0x01, 0x02, 0x03, 0x04])
@@ -58,12 +58,12 @@ The `SendMessage()` method returns the number of interfaces the packet was sent 
 
 ### Accessing Latest Received Packets
 
-Profinity maintains a cache of the latest received CAN packets. You can access the most recent packet or query packets by CAN ID.
+Profinity maintains a cache of the latest received CAN packets, from which a script can read the most recent packet or query packets by CAN ID.
 
 === "C#"
 
     ```csharp
-    using Profinity.ComponentSdk.Models.CANBus;
+    using Profinity.Sdk.Models.CANBus;
 
     // Get the most recently received packet (any CAN ID)
     CanBusPacket latestPacket = Profinity.CANBus.LatestCanBusPacketReceived;
@@ -81,7 +81,7 @@ Profinity maintains a cache of the latest received CAN packets. You can access t
 === "Python"
 
     ```python
-    from Profinity.ComponentSdk.Models.CANBus import CanBusPacket
+    from Profinity.Sdk.Models.CANBus import CanBusPacket
 
     # Get the most recently received packet (any CAN ID)
     latest_packet = Profinity.CANBus.LatestCanBusPacketReceived
@@ -102,7 +102,7 @@ For testing purposes, you can inject CAN packets into the system as if they were
 === "C#"
 
     ```csharp
-    using Profinity.ComponentSdk.Models.CANBus;
+    using Profinity.Sdk.Models.CANBus;
 
     // Create a test packet
     var testPacket = new CanBusPacket(0x123, new byte[] { 0x01, 0x02, 0x03 });
@@ -114,7 +114,7 @@ For testing purposes, you can inject CAN packets into the system as if they were
 === "Python"
 
     ```python
-    from Profinity.ComponentSdk.Models.CANBus import CanBusPacket
+    from Profinity.Sdk.Models.CANBus import CanBusPacket
 
     # Create a test packet
     test_packet = CanBusPacket(0x123, [0x01, 0x02, 0x03])
@@ -132,7 +132,7 @@ For real-time CAN packet reception, use [Receive Scripts](../Script_Types/Receiv
     ```csharp
     using System;
     using Profinity.Scripting;
-    using Profinity.ComponentSdk.Models.CANBus;
+    using Profinity.Sdk.Models.CANBus;
 
     public class MyReceiverScript : ProfinityScript, IProfinityReceiverScript
     {
@@ -154,14 +154,14 @@ For real-time CAN packet reception, use [Receive Scripts](../Script_Types/Receiv
 
 ## Complete Example
 
-This section provides a complete example showing how to send a packet and then check for a response.
+The following example sends a packet and then checks for a response.
 
 === "C#"
 
     ```csharp
     using System;
     using Profinity.Scripting;
-    using Profinity.ComponentSdk.Models.CANBus;
+    using Profinity.Sdk.Models.CANBus;
 
     public class CanExample : ProfinityScript, IProfinityRunnableScript
     {
@@ -193,7 +193,7 @@ This section provides a complete example showing how to send a packet and then c
 
     ```python
     import time
-    from Profinity.ComponentSdk.Models.CANBus import CanBusPacket
+    from Profinity.Sdk.Models.CANBus import CanBusPacket
 
     # Send a request packet
     request_packet = CanBusPacket(0x100, [0x01, 0x02])
@@ -213,7 +213,7 @@ This section provides a complete example showing how to send a packet and then c
 
 ## Best Practices
 
-Following these best practices will help you create robust and efficient CAN bus applications.
+The following practices apply to scripts that use the CAN bus.
 
 1. For real-time packet reception, use Receive Scripts rather than polling `LatestCanBusPacketReceived`.
 2. The `LatestCanBusPacketsReceived` dictionary only stores the most recent packet for each CAN ID - older packets are overwritten.

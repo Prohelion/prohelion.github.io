@@ -5,7 +5,7 @@ description: "Display icons from the profile images directory with optional data
 
 # Icon
 
-Icon component for displaying icons from the /Profile/Images directory.
+Icon component for displaying icons from the `/Profile/Images` directory.
 
 <figure markdown>
 ![Icon component displaying an icon from the Profile Images directory](../../images/icon.png)
@@ -14,7 +14,7 @@ Icon component for displaying icons from the /Profile/Images directory.
 
 **Best for:** Displaying icons, status indicators, visual elements
 
-**When not to use:** When you need interactive buttons (use Action instead) or when you need icons within other components (use component-specific icon properties)
+**When not to use:** When interactive buttons are needed (use Action instead) or when icons are needed within other components (use component-specific icon properties)
 
 **Parameters:**
 
@@ -23,8 +23,8 @@ Icon component for displaying icons from the /Profile/Images directory.
 | `id` | optional (string) | Unique identifier for the icon |
 | `class` | optional (string) | CSS class for styling |
 | `label` | optional (string) | Display label |
-| `image` | required (string) | Icon image filename from /Profile/Images directory |
-| `recess` | optional (boolean) | Whether icon is recessed |
+| `image` | required (string) | Icon image filename from the `/Profile/Images` directory |
+| `recess` | optional (boolean) | Whether the icon is displayed recessed (inset) |
 | `enabled` | optional (boolean) | Whether the icon is enabled |
 | `visible` | optional (boolean) | Whether the icon is visible |
 | `bind` | optional (array) | Data binding configuration |
@@ -97,7 +97,7 @@ dashboard:
 
 **Recessed Icon Example:**
 
-Recessed icons have a different visual appearance (appearing inset). Use recessed icons for inactive or secondary states:
+Recessed icons appear inset, which suits inactive or secondary states:
 
 ``` yaml
 dashboard:

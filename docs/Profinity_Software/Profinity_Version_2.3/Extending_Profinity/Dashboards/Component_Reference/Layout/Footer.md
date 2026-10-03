@@ -21,7 +21,7 @@ Bottom section with navigation menus. The footer provides additional navigation 
 | `id` | optional (string) | Unique identifier for the footer |
 | `class` | optional (string) | CSS class for styling |
 | `visible` | optional (boolean) | Whether the footer is visible |
-| `menu` | optional (object) | Navigation menu |
+| `menu` | optional (object) | Navigation menu (not used by the web interface footer) |
 | `bind` | optional (array) | Data binding configuration |
 
 **Example:**

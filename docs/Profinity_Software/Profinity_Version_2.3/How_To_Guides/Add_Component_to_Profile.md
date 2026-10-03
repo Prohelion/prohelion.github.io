@@ -11,7 +11,7 @@ Add and configure components in your active profile to monitor CAN bus devices.
 
 - Profinity V2 installed and running
 - An active profile
-- Access to create components
+- The `ComponentModify` permission, which allows components to be added
 
 ## Steps
 
@@ -26,8 +26,9 @@ Add and configure components in your active profile to monitor CAN bus devices.
    - **Prohelion Components** (BMU, Motor Controller, MPPT, etc.)
    - **Custom Component**
    - **CAN Bus Adapters**
-   - **Loggers** (File, InfluxDB, MQTT)
-   - **Discovered** (auto-discovered devices)
+   - **Loggers** (File, InfluxDB, Prometheus)
+   - **Publishers & Subscribers** (MQTT, Webhook)
+   - Auto-discovered adapters, which are shown at the top of the screen
 
 ### Step 3: Configure Component Settings
 
@@ -39,21 +40,21 @@ Add and configure components in your active profile to monitor CAN bus devices.
 
 ### Step 4: Verify Component Added
 
-1. Component appears in the sidebar
-2. Check status indicator:
-   - **Green**: Connected and working
-   - **Yellow**: Connected but no data
-   - **Red**: Error (check logs)
-   - **Grey**: Not connected
+1. Confirm the component appears in the sidebar
+2. Check the status indicator:
+   - **Green**: The device is available, sending valid data and in a valid state
+   - **Yellow**: The device is available, but is either not sending data or in a warning state
+   - **Red**: The device is in an error state (check the [logs](../Getting_Started/Profinity_Log.md))
+   - **Grey**: The device is not available, not connected or not visible on the network
 
 ### Step 5: Connect Component (if needed)
 
 1. Click on the component in the sidebar
 2. Click **Connect** button
-3. Wait for status to turn green
+3. Wait for the status to turn green
 4. Verify data is appearing
 
 ## Related Documentation
 
-- [Adding New Components](../Getting_Started/Adding_New_Components.md) - Detailed component setup guide
+- [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md) - the full component setup reference
 - [CAN Bus Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) - Adapter configuration

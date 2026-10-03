@@ -7,7 +7,7 @@ description: "Push profile tag collections to HTTP endpoints via POST with JSON 
 
 The **Webhook Publisher** pushes the current values of one or more profile tag collections to a
 configured HTTP(S) URL, either on a fixed interval or whenever a member tag's value changes — the
-same two trigger modes the [MQTT Publisher](./MQTT_Publisher.md) already gives you, over a plain
+same two trigger modes the [MQTT Publisher](./MQTT_Publisher.md) provides, over a plain
 HTTP POST instead of an MQTT broker. It sits in the **Publishers & Subscribers** category: a
 publisher pushes to a subscriber that is actively listening right now (an HTTP receiver, or a
 broker's subscribed clients), which is a different consumption model from a **Logger**, which
@@ -36,7 +36,7 @@ category, then configure its settings.
 
 | Setting | Purpose |
 |---|---|
-| **Logging mode** | **Snapshot** publishes every collection member on each interval tick, regardless of whether the value changed; **On Change** publishes only when a member's value has changed since the last publish; **Everything** publishes every sample that arrives, including unchanged ones — the same three modes the MQTT Publisher gives you. |
+| **Logging mode** | **Snapshot** publishes every collection member on each interval tick, regardless of whether the value changed; **On Change** publishes only when a member's value has changed since the last publish; **Everything** publishes every sample that arrives, including unchanged ones — the same three modes the MQTT Publisher provides. |
 | **Interval (sec)** | For **Snapshot** mode, how often a full publish runs. For **On Change**/**Everything**, how often accumulated changes are flushed. |
 
 ## Authentication
@@ -52,8 +52,8 @@ request:
 | **Basic auth** | Adds `Authorization: Basic <base64(username:password)>`. |
 
 Whichever mode you choose, the credential is stored encrypted at rest, the same way a Slack
-webhook URL or an SMTP password already is elsewhere in Profinity — expect the same masked-in-UI
-behaviour you already see on those settings.
+webhook URL or an SMTP password is elsewhere in Profinity, and it is masked in the UI in the same
+way as those settings.
 
 !!! warning "No destination address restriction"
     Profinity does not restrict which addresses a Webhook Publisher's destination URL can point
@@ -93,7 +93,7 @@ so a fast-changing collection does not produce a storm of individual requests.
 
 A failed delivery is retried automatically with a short exponential backoff before the publisher
 reports failure; there is no separate configuration for retry count or backoff in this release.
-Beyond the standard **Error** status every other publisher and logger component already gives you,
+Beyond the standard **Error** status that every other publisher and logger component provides,
 the Webhook Publisher exposes two properties for a dashboard or the component panel:
 
 | Property | Meaning |

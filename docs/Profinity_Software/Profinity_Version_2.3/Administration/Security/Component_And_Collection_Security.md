@@ -3,7 +3,7 @@ title: Component and Collection Security
 description: "Control which users can see profile components and tag collections through role-based security restrictions."
 ---
 
-# Component and collection security
+# Component and Collection Security
 
 Component and collection security controls which users can **see** a profile component or a tag collection, independent of who can **modify** it. A user without `ComponentModify` or `TagCollectionsModify` already cannot change a component or a collection; this feature goes further and can remove the resource from that user's view entirely — from the tag tree, the actions list, DBC, firmware, alerts, MCP results, and the tag collections picker.
 

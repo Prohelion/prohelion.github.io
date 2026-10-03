@@ -38,14 +38,14 @@ category, then configure its settings.
 | **Broker port** | The broker's port. Defaults to `1883`. |
 | **Trust all server certificates** | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
 | **Username** / **Password** | Credentials for broker authentication, when the broker requires them. Password is stored encrypted at rest. |
-| **Client ID** | Optional MQTT client id. Leave blank to generate one. |
+| **Client ID** | Optional MQTT client ID. Leave blank to generate one. |
 
 ### Sparkplug settings
 
 | Setting | Purpose |
 |---|---|
 | **Topic filter** | The Sparkplug topic filter to subscribe to. Defaults to `spBv1.0/#` — the whole Sparkplug B namespace. Narrow it to a specific group, for example `spBv1.0/{group}/#`, to subscribe to only that group. |
-| **Host ID** | The Sparkplug host id this subscriber publishes on `spBv1.0/STATE/{hostId}`. Must not contain `+`, `#`, or `/`. |
+| **Host ID** | The Sparkplug host ID this subscriber publishes on `spBv1.0/STATE/{hostId}`. Must not contain `+`, `#`, or `/`. |
 
 ### Tags settings
 
@@ -86,26 +86,26 @@ derived tag — that one metric is skipped and logged; the rest of the message i
 - **Messages ignored as data:** `STATE`, `NCMD`, `DCMD` — even under the default `spBv1.0/#`
   filter, so the subscriber does not mistake its own published `STATE`/rebirth command for
   incoming data.
-- **Host state.** The subscriber publishes its own online/offline state, retained, to
+- **Host state:** The subscriber publishes its own online/offline state, retained, to
   `spBv1.0/STATE/{hostId}`: `{"online": true, "timestamp": <unix ms>}` while connected, and
   `{"online": false, ...}` on a graceful stop or via MQTT's Last Will if the connection drops
   unexpectedly. This retained message is not deleted when the subscriber goes offline — a
   reconnecting subscriber (or a Sparkplug-aware consumer) can see the last known state.
-- **Sequence and rebirth.** Sparkplug's per-edge-node sequence number and alias map are tracked
+- **Sequence and rebirth:** Sparkplug's per-edge-node sequence number and alias map are tracked
   per edge node. A gap in the sequence triggers this subscriber to request a rebirth (`NCMD`/`DCMD`
   with `Node Control/Rebirth`) rather than applying the gapped payload as current values — so a
   dropped message cannot leave a stale value silently accepted as current.
-- **Death, and a birth that omits a previously-known metric.** The tag is not deleted; its
+- **Death, or a birth that omits a previously-known metric:** The tag is not deleted; its
   quality is set to **Stale** instead, so history and dashboard bindings against that tag path
   keep working, just flagged as no longer live.
-- **Aliases.** A metric published by alias only (no name) after its birth resolves normally. An
+- **Aliases:** A metric published by alias only (no name) after its birth resolves normally. An
   alias seen with no matching birth is skipped — it is not invented as a new tag.
-- **Data types.** Scalar types only — boolean, string, integer widths, float, double, and
+- **Data types:** Scalar types only — boolean, string, integer widths, float, double, and
   DateTime. Sparkplug dataset, template, bytes, and property-set values are not supported and are
   skipped.
-- **Malformed payloads** are logged and dropped without tearing down the session — one bad
-  message does not disconnect the subscriber.
-- **Reconnect** uses an exponential backoff starting at 1 second and capped at 60 seconds — a
+- **Malformed payloads:** A malformed payload is logged and dropped without tearing down the
+  session, so one bad message does not disconnect the subscriber.
+- **Reconnect:** Reconnection uses an exponential backoff starting at 1 second and capped at 60 seconds — a
   slower, more broker-friendly curve than the MQTT Publisher's fixed 5-second retry, appropriate
   for a subscriber that only needs to catch up on the current state once reconnected, not push on
   a schedule.
@@ -121,8 +121,8 @@ disconnected or error state.
 - [MQTT Publisher](./MQTT_Publisher.md)
 - [Webhook Publisher](./Webhook_Publisher.md)
 - [Script Types](../../Extending_Profinity/Scripting/Script_Types/index.md)
-- [Tag layer](../../Extending_Profinity/Tag_Layer/index.md)
-- [Tag relay](../../Extending_Profinity/Tag_Layer/Tag_Relay.md)
+- [Tag Layer](../../Extending_Profinity/Tag_Layer/index.md)
+- [Tag Relay](../../Extending_Profinity/Tag_Layer/Tag_Relay.md)
 
 ## Engineering reference
 

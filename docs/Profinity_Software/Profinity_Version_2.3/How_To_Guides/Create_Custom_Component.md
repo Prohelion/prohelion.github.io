@@ -1,17 +1,17 @@
 ---
 title: How to Create a Custom Component
-description: "Create custom CAN bus components in Profinity using DBC files and optional dashboard YAML for any device."
+description: "Create custom CAN bus components in Profinity using an optional DBC file and optional dashboard YAML for any device."
 ---
 
 # How to Create a Custom Component
 
-Add any CAN bus device to Profinity by creating a Custom Component with a DBC file and optional dashboard.
+Add any CAN bus device to Profinity by creating a Custom Component with an optional DBC file and an optional dashboard.
 
 ## Prerequisites
 
-- A DBC file for your CAN bus device
+- (Optional) A DBC file for your CAN bus device, which is needed only for CAN-bound dashboard data or the Messages & Signals viewer
 - (Optional) A dashboard YAML file
-- Access to create components in Profinity
+- The `ComponentModify` permission, which allows components to be added
 
 ## Steps
 
@@ -27,21 +27,25 @@ Add any CAN bus device to Profinity by creating a Custom Component with a DBC fi
 2. Set the **CAN ID** if required
 3. Configure connection settings
 
-### Step 3: Add Your DBC File
+### Step 3: Add Your DBC File (if required)
 
 **Option A - Using DBC Editor:**
+
 1. Click the **DBC Editor** icon in the toolbar
 2. Paste your DBC content or upload a DBC file
 3. Editor validates your DBC syntax
 4. Save the DBC configuration
 
 **Option B - Upload DBC File:**
+
 1. Find the DBC file upload option in settings
 2. Click **Browse** and select your `.dbc` file
 3. Upload the file
 4. Profinity parses and validates the DBC file
 
 ### Step 4: (Optional) Add a Custom Dashboard
+
+If no dashboard is provided, Profinity provides a default one.
 
 1. Click the **Dashboard Editor** icon
 2. Start with "Hello World" template or upload existing YAML
@@ -73,15 +77,15 @@ Once created, your Custom Component:
 - **Receives CAN messages** defined in your DBC file
 - **Displays signals** in the dashboard (if configured)
 - **Can be logged** to InfluxDB, Prometheus, or files
-- **Can be monitored** in real-time
+- **Can be monitored** in real time
 - **Can be used in scripts** via the Profinity API
 
 ## Tips
 
-- **Test with CAN Log Replay**: Use the CAN log replay feature to test your component with recorded messages
-- **Start Simple**: Begin with a basic dashboard and add complexity gradually
-- **Validate DBC**: Ensure your DBC file is valid before uploading
-- **Use Examples**: Look at existing component dashboards for reference
+- **Test with CAN Log Replay**: use the [CAN log replay](./Replay_CAN_Logs.md) feature to test your component with recorded messages
+- **Start Simple**: begin with a basic dashboard and add complexity gradually
+- **Validate DBC**: ensure your DBC file is valid before uploading
+- **Use Examples**: look at existing component dashboards for reference
 
 ## Troubleshooting
 
@@ -91,7 +95,7 @@ Once created, your Custom Component:
 
 ## Related Documentation
 
-- [Custom Components](../Extending_Profinity/Custom_Components/index.md) - Complete Custom Component guide
-- [DBC Documentation](../CAN_Utilities/CAN_Bus_DBC.md) - Understanding DBC files
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - Creating dashboards
+- [Custom Components](../Extending_Profinity/Custom_Components/index.md) - the full Custom Component reference
+- [DBC Documentation](../CAN_Utilities/CAN_Bus_DBC.md) - understanding DBC files
+- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - creating dashboards
 - [Data Binding](../Extending_Profinity/Dashboards/Data_Binding.md) - Connecting data to dashboards

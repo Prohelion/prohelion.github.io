@@ -10,7 +10,7 @@ description: "Install Profinity on macOS and Linux by extracting platform-specif
 
 ## Zip Installation
 
-Profinity is available as a downloadable archive for macOS and Linux platforms. This approach does not require an installer.
+Profinity is available as a downloadable archive for macOS and Linux platforms, which does not require an installer. To run Profinity as a service that starts on boot, use the bootstrap installer described in [Running Profinity as a Service](./Running_As_Service.md) instead.
 
 The Prohelion GitHub releases page publishes a separate archive for each supported host architecture. Select the archive that matches the host operating system and CPU architecture.
 
@@ -26,11 +26,11 @@ The Prohelion GitHub releases page publishes a separate archive for each support
 [Download Profinity for Linux ARM :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Linux-arm.tar.gz){ .md-button }
 [Download Profinity Portable (macOS) :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Portable.zip){ .md-button }
 
-The Linux archives are self-contained and include the required .NET runtime, so no separate runtime installation is needed on those hosts. The macOS/portable archive is framework-dependent and requires the .NET 10 ASP.NET Core runtime. This is downloaded and verified automatically by the bundled startup script the first time Profinity is started, provided the host has internet access. To install the runtime manually instead, or to prepare a host without internet access in advance, download it directly.
+The Linux archives are self-contained and include the required .NET runtime, so no separate runtime installation is needed on those hosts. The macOS/portable archive is framework-dependent and requires the .NET 10 ASP.NET Core runtime. This is downloaded and verified automatically by the bundled startup script the first time Profinity is started, provided the host has internet access. To install the runtime manually instead, or to prepare a host without internet access in advance, download it directly from Microsoft.
 
 [Download ASP.NET Core 10 :material-download:](https://dotnet.microsoft.com/en-us/download/dotnet/10.0){ .md-button }
 
-On **Linux 2.3+**, writable data is stored under **`/var/lib/prohelion/profinity`** by default (not `~/.local/share`). See [Artifacts directory](./Artifacts_Directory.md).
+On Linux with Profinity 2.3 or later, writable data is stored under `/var/lib/prohelion/profinity` by default (not `~/.local/share`). See [Artifacts directory](./Artifacts_Directory.md).
 
 ## Extracting and Starting Profinity
 
@@ -75,7 +75,7 @@ To start Profinity, run:
 
 `profinity.sh` runs preflight checks appropriate to the archive before starting Profinity. On the self-contained Linux archives, it checks the host architecture and required system libraries. On the macOS/portable archive, it checks for a compatible .NET runtime and, if none is found, installs one automatically from a checksum-verified Microsoft installer. Run `./profinity.sh --check-only` to run these checks without starting Profinity.
 
-The following or similar should then appear.
+Output similar to the following then appears.
 
 ```text
 Prohelion Profinity - v2.3.10.0
@@ -97,22 +97,22 @@ INFO: Profinity Services Starting
 INFO: Now listening on: http://127.0.0.1:18080
 ```
 
-With Profinity running, open the URL defined in the `Config.yaml` file (i.e., `http://profinity:18080`) to access the Profinity web client. 
+With Profinity running, open the URL defined in the `Config.yaml` file (for example, `http://profinity:18080`) to access the Profinity web client. 
 
-Connecting to the Profinity web client will direct you to the Profinity login page. 
+Connecting to the Profinity web client directs the browser to the Profinity login page.
 
 <figure markdown>
 ![Profinity login page](../images/login_page.png)
 <figcaption>Profinity V2 login page</figcaption>
 </figure>
 
-A fresh install of Profinity will only have the administrator user active. To log in, use the following login details.
+A fresh install of Profinity has only the administrator user active. To log in, use the following login details, and change the password immediately as described in the [Security Guide](./Security.md#default-credentials).
 
 Username: `admin`
 
 Password: `password`
 
-After logging in, you will arrive at the Profinity homepage.
+After logging in, the Profinity homepage is shown.
 
 <figure markdown>
 ![Profinity Homepage](../images/homepage.png)

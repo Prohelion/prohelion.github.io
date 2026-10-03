@@ -3,11 +3,11 @@ title: Two-Factor Authentication
 description: "Configure TOTP-based two-factor authentication policy for local users including recovery codes and device trust."
 ---
 
-# Two-factor authentication
+# Two-Factor Authentication
 
 Profinity 2.3 supports **TOTP-based two-factor authentication (2FA)** for **local** users when site **Sign-in method** is **Local**. Policy is configured site-wide in **Config.yaml** under **Security Policy → Two-Factor Policy**.
 
-SSO users rely on their identity provider for MFA.
+The UI and the other security pages also use the term **MFA** (multi-factor authentication) for this feature. SSO users rely on their identity provider for MFA.
 
 ## Two-factor policy settings
 
@@ -58,7 +58,7 @@ After password validation, local users with enrolled MFA see the MFA step:
 
 ## Self-service MFA management
 
-When **Enforce two-factor for local users** is enabled, signed-in local users can open **Two-factor authentication** from the **pill menu** to change authenticator or regenerate recovery codes. See [MFA account management](./MFA_Account_Management.md).
+When **Enforce two-factor for local users** is enabled, signed-in local users can open **Two-factor authentication** from the **pill menu** to reset their authenticator or regenerate recovery codes. See [MFA account management](./MFA_Account_Management.md).
 
 ## Secrets storage
 

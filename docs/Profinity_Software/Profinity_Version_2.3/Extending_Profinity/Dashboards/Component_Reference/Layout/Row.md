@@ -1,18 +1,18 @@
 ---
 title: Row Component
-description: "Layout container for organizing multiple components horizontally or vertically within dashboards."
+description: "Layout container for organising multiple components horizontally or vertically within dashboards."
 ---
 
 # Row
 
-A row is a layout container that can hold multiple components. Rows are the fundamental building blocks of dashboard layout, allowing you to organize components horizontally or vertically.
+A row is a layout container that can hold multiple components. Rows are the fundamental building blocks of dashboard layout and organise components horizontally or vertically.
 
 <figure markdown>
-![Row layout container organizing multiple components in a dashboard](../../images/row.png)
-<figcaption>Row layout container organizing multiple components in a dashboard</figcaption>
+![Row layout container organising multiple components in a dashboard](../../images/row.png)
+<figcaption>Row layout container organising multiple components in a dashboard</figcaption>
 </figure>
 
-**Best for:** Creating logical sections, organizing related components, controlling layout direction
+**Best for:** Creating logical sections, organising related components, controlling layout direction
 
 **Parameters:**
 
@@ -20,8 +20,8 @@ A row is a layout container that can hold multiple components. Rows are the fund
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the row |
 | `class` | optional (string) | CSS class for styling |
-| `direction` | optional (string) | Layout direction - "vertical" or "horizontal" (default: "vertical") |
-| `height` | optional (string) | Height value in CSS format (e.g., '100px', '50vh', 'auto') |
+| `direction` | optional (string) | Layout direction, `vertical` or `horizontal` (default: `vertical`) |
+| `height` | optional (string) | Height in CSS format, for example `100px`, `50vh` or `auto` |
 | `items` | required (array) | Array of components to display in the row |
 
 **Example:**

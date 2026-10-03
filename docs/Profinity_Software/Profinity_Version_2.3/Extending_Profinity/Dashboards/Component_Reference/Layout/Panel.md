@@ -1,18 +1,18 @@
 ---
 title: Panel Component
-description: "Individual titled panel within a grid layout for organizing related content and data visualizations."
+description: "Individual titled panel within a grid layout for organising related content and data visualisations."
 ---
 
 # Panel
 
-Individual panel within a panels grid. Each panel can contain various components and provides a titled container for organizing related content.
+Individual panel within a panels grid. Each panel can contain various components and provides a titled container for organising related content.
 
 <figure markdown>
-![Panel component displaying a titled container with organized content](../../images/panel.png)
-<figcaption>Panel component displaying a titled container with organized content</figcaption>
+![Panel component displaying a titled container with organised content](../../images/panel.png)
+<figcaption>Panel component displaying a titled container with organised content</figcaption>
 </figure>
 
-**Best for:** Individual data sections, titled content areas, organized information display
+**Best for:** Individual data sections, titled content areas, organised information display
 
 **Parameters:**
 
@@ -21,10 +21,10 @@ Individual panel within a panels grid. Each panel can contain various components
 | `id` | optional (string) | Unique identifier for the panel |
 | `class` | optional (string) | CSS class for styling |
 | `title` | required (string) | Panel title |
-| `menu` | optional (object) | Menu configuration for the panel |
-| `width` | optional (string) | Width value in CSS format (e.g., '100px', '50%', 'auto') |
-| `height` | optional (string) | Height value in CSS format (e.g., '100px', '50vh', 'auto') |
-| `items` | required (array) | Components within the panel (chart, lamps, state, group, readouts, table, html) |
+| `menu` | optional (object) | Menu configuration (the web interface shows a static menu icon in the panel header) |
+| `width` | optional (string) | Width in CSS format, for example `100px`, `50%` or `auto` |
+| `height` | optional (string) | Height in CSS format, for example `100px`, `50vh` or `auto` |
+| `items` | required (array) | Components within the panel: `chart`, `lamps`, `state`, `group`, `readouts`, `table` or `html` |
 
 **Basic Example:**
 

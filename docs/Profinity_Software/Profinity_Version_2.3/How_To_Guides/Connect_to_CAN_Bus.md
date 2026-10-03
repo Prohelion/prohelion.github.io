@@ -12,18 +12,20 @@ Connect Profinity to your CAN bus network using a supported adapter.
 - Profinity V2 installed
 - A supported CAN bus adapter (Peak USB, SocketCAN, CAN-Ethernet Bridge, etc.)
 - Adapter drivers installed (if required)
-- Access to create components in Profinity
+- The `ComponentModify` permission, which allows components to be added
 
 ## Steps
 
 ### Step 1: Install Adapter Drivers (if required)
 
 **For Peak USB Adapters:**
+
 1. Install the Peak drivers before starting Profinity
 2. Use Peak tools to verify the adapter is working
-3. Verify the adapter appears in device manager (Windows)
+3. Verify the adapter appears in Device Manager (Windows)
 
 **For SocketCAN (Linux/macOS):**
+
 1. Ensure SocketCAN is enabled in your kernel
 2. Install socketcand if using remote SocketCAN
 3. Verify CAN interfaces are available
@@ -40,11 +42,10 @@ Connect Profinity to your CAN bus network using a supported adapter.
 ### Step 3: Auto-Discover the Adapter
 
 1. Navigate to the **ADD COMPONENT** window
-2. Look for the **Discovered** category
-3. Your adapter should appear in the discovered list
-4. Click on your adapter to add it
+2. Look for your adapter among the discovered adapters, which are shown at the top of the screen
+3. Click on your adapter to add it
 
-If your adapter doesn't appear in the discovered list, proceed to manual configuration.
+If your adapter does not appear among the discovered adapters, proceed to manual configuration.
 
 ### Step 4: Add Adapter Manually (if needed)
 
@@ -60,7 +61,7 @@ If your adapter doesn't appear in the discovered list, proceed to manual configu
 ### Step 5: Configure Adapter Settings
 
 1. Click on your adapter in the sidebar
-2. Open **Change Settings** (gear icon)
+2. Open **Change Settings** (top-right of the adapter dashboard)
 3. Configure settings:
    - **Auto Connect**: Enable to auto-connect on startup
    - **Allow Loopback Traffic**: Enable if needed (Tritium adapters only)
@@ -74,7 +75,7 @@ If your adapter doesn't appear in the discovered list, proceed to manual configu
 3. Check the status indicator:
    - **Green**: Connected and receiving data
    - **Yellow**: Connected but no data arriving
-   - **Red**: Connection error (check logs)
+   - **Red**: Connection error (check the [logs](../Getting_Started/Profinity_Log.md))
    - **Grey**: Not connected
 
 ### Step 7: Verify Connection
@@ -90,18 +91,21 @@ If your adapter doesn't appear in the discovered list, proceed to manual configu
 ## Troubleshooting
 
 **Adapter Not Discovered:**
+
 - Check adapter is powered and connected
 - Verify network connectivity (for Ethernet bridges)
 - Check firewall settings
 - Verify drivers are installed
 
 **No Data Arriving:**
+
 - Verify CAN bus bitrate matches all devices
 - Check physical CAN bus connections
 - Ensure devices on CAN bus are powered
 - Check adapter status for errors
 
 **Connection Errors:**
+
 - Check adapter logs in Profinity
 - Verify adapter is not in use by another application
 - Restart Profinity and try again
@@ -109,6 +113,6 @@ If your adapter doesn't appear in the discovered list, proceed to manual configu
 
 ## Related Documentation
 
-- [CAN Bus Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) - Complete adapter documentation
-- [Adding New Components](../Getting_Started/Adding_New_Components.md) - General component setup
-- [Virtual CAN Adapter](../Components/Adaptors/Virtual_CAN_Adapter.md) - Using virtual adapters
+- [CAN Bus Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) - the full adapter reference
+- [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md) - general component setup
+- [Virtual CAN Adapter](../Components/Adaptors/Virtual_CAN_Adapter.md) - using virtual adapters

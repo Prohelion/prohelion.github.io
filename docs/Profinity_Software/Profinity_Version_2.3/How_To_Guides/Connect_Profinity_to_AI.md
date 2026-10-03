@@ -5,116 +5,116 @@ description: "Connect Profinity to AI tools like Claude Desktop or Cursor IDE us
 
 # How to Connect Profinity to AI
 
-Connect Profinity to AI tools and LLMs using the Model Context Protocol (MCP) server integration.
+Connect Profinity to AI tools and large language models (LLMs) using the Model Context Protocol (MCP) server integration.
 
 ## Prerequisites
 
 - Profinity V2 installed and running
-- Admin access to system configuration
-- An AI tool or LLM that supports MCP (e.g., Claude Desktop, Cursor IDE)
-- Understanding of MCP protocol
+- Administrator access to the Profinity AI settings and to user management
+- An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header (for example Claude Desktop or Cursor IDE)
+- Familiarity with how your AI tool adds an MCP server
 
 ## Steps
 
-### Step 1: Enable MCP Server in Profinity
+### Step 1: Enable the MCP Server in Profinity
 
-1. Navigate to **ADMIN** → **System Configuration**
-2. Find **MCP Server** section in Application Configuration
-3. Enable **MCP Server** option
+1. Navigate to **ADMIN** > **System Configuration**
+2. Find the **Profinity AI** category, and its **MCP Server** field group
+3. Enable **Enable MCP Server**
 4. Click **Save**
 
-**Note:** The MCP server will be available at `http://localhost:18080/sse` (using the default Profinity web server port).
+Enabling or disabling the MCP server takes effect only after Profinity restarts, so wait approximately 15 seconds before reloading the page.
 
-### Step 2: Create Service Account and Get Token
+The MCP server is then available at `http://localhost:18080/api/v2/Ai/Mcp` (using the default Profinity web server port). It uses Streamable HTTP transport, not SSE, so there is no `/sse` path.
 
-The MCP server requires authentication using JWT tokens. Users must have the `SystemRead` security role to access MCP endpoints.
+### Step 2: Create a Service Account and Get a Token
 
-1. Create a user account with the `SystemRead` role:
-   - Navigate to **ADMIN** → **User Management**
-   - Create a new user (e.g., "mcp-service")
-   - Set **Service Account** to `true`
-   - Assign the `SystemRead` security role
+Every call to the MCP server requires a JWT bearer token for a user with the `McpView` permission. Each tool also checks its own permission before returning data: `TagView` for the tag tools and `AlertsView` for the alert tools. A tag or alert the user cannot view is omitted from the response.
+
+1. Create a service account with the required permissions:
+   - Navigate to **Users & Groups** and click **+ Add user**
+   - Enter a name (for example "mcp-service")
+   - Enable **Service account**
+   - Assign a role that includes `McpView`, `TagView` and `AlertsView`
    - Save the user
+2. Click the user's row, open the **User Actions** tab and click **Generate Token**
+3. Copy the token and store it in a secrets manager; service account tokens do not expire
 
-2. Generate a JWT token for the service account:
-   - Authenticate via the Profinity API: `POST /api/v2/Users/Authenticate`
-   - Use the service account username and password
-   - Save the token from the response (service account tokens never expire)
+Alternatively, authenticate with the service account username and password through the Profinity API:
 
-**Example API call:**
 ```bash
 curl -X POST http://localhost:18080/api/v2/Users/Authenticate \
   -H "Content-Type: application/json" \
   -d '{"username":"mcp-service","password":"your-password"}'
 ```
 
+See [Service Accounts](../Administration/Security/Service_Accounts.md) for the full token steps.
+
 ### Step 3: Configure Your AI Tool
 
-The following should be taken as examples only, check with your tools documentation on how to configure MCP over SSE to your tool.
+The following is an example only. Configuration differs between tools, so check your tool's documentation for how to add a remote MCP server over Streamable HTTP with a bearer token.
 
-Examples on using SSE with OLLAMA are also available on the Prohelion GitHub page `https://www.github.com/prohelion`.
+Examples of using MCP with OLLAMA are also available on the Prohelion GitHub page `https://www.github.com/prohelion`.
 
-**Example For Claude Desktop:**
+**Example configuration for a client that supports Streamable HTTP with custom headers:**
 
-1. Open Claude Desktop settings
-2. Navigate to MCP server configuration
-3. Add MCP server with authentication:
+1. Open the MCP server configuration of your AI tool
+2. Add an MCP server named `profinity` with the endpoint and an `Authorization` header:
    ```json
    {
      "mcpServers": {
        "profinity": {
-         "command": "npx",
-         "args": [
-           "@modelcontextprotocol/server-fetch",
-           "http://localhost:18080/sse"
-         ],
-         "env": {
-           "AUTHORIZATION": "Bearer YOUR_JWT_TOKEN_HERE"
+         "type": "http",
+         "url": "http://localhost:18080/api/v2/Ai/Mcp",
+         "headers": {
+           "Authorization": "Bearer YOUR_JWT_TOKEN_HERE"
          }
        }
      }
    }
    ```
-   **Note:** Replace `YOUR_JWT_TOKEN_HERE` with the JWT token from Step 2.
-4. Restart Claude Desktop
+   Replace `YOUR_JWT_TOKEN_HERE` with the token from Step 2.
+3. Restart the AI tool
 
 ### Step 4: Verify Connection
 
 1. In your AI tool, try querying Profinity data
-2. Check MCP server responds correctly
-3. Verify you can access component data, profiles, and dashboards
+2. Check the MCP server responds correctly
+3. Verify you can access component names, tags, tag values and alerts
 
 ### Step 5: Use AI Features
 
-Once connected, you can:
+Once connected, the AI tool can use the ten read-only MCP tools to:
 
-- Query component data
-- Analyse dashboards
-- Generate scripts
-- Troubleshoot issues
+- Discover components and search the tag tree
+- Read current tag values and tag history
+- Review active alerts and alert history
+
+The MCP server does not expose any tool that changes Profinity data, so changes such as generating dashboards or scripts are made in your AI tool and applied separately (see [AI Skills](../Profinity_AI/AI_Skills.md)).
 
 ## Example Queries
 
 - "What components are in my active profile?"
 - "Show me the current battery voltage from the BMU"
-- "Create a dashboard for monitoring motor controller temperatures"
-- "Help me write a script to log data every 5 seconds"
+- "Which alerts have been raised in the last hour?"
+- "Plot the motor controller temperature over the last 24 hours"
 
 ## Tips
 
 - **Start Simple**: Begin with basic queries to verify the connection
 - **Check Logs**: Monitor Profinity logs for MCP connection issues
-- **Firewall Settings**: Ensure the MCP port is accessible if connecting remotely
-- **Authentication**: Use strong credentials for production deployments
+- **Firewall Settings**: Ensure the Profinity web server port is accessible if connecting remotely
+- **Authentication**: Use a service account with only the permissions required, and keep its token in a secrets manager
 
 ## Troubleshooting
 
-- **Connection Failed**: Verify MCP server is enabled and port is correct
-- **No Data Available**: Ensure you have active components and profiles
-- **Authentication Errors**: Check credentials match in both systems
+- **Connection Failed**: Verify the MCP server is enabled, Profinity has restarted, and the endpoint is `/api/v2/Ai/Mcp`
+- **No Data Available**: Ensure there are active components and profiles, and that the token's user has `TagView` or `AlertsView`
+- **Authentication Errors**: Check the token is complete and the user has `McpView`
 
 ## Related Documentation
 
-- [MCP Server](../Extending_Profinity/MCP_Server.md) - Complete MCP server documentation
-- [Scripting](../Extending_Profinity/Scripting/index.md) - Learn about Profinity scripting
+- [MCP Server](../Extending_Profinity/MCP_Server.md) - the full MCP server reference, including every tool and its parameters
+- [Profinity AI](../Profinity_AI/index.md) - the built-in chat assistant, which uses the same MCP server
+- [Scripting](../Extending_Profinity/Scripting/index.md) - Profinity scripting
 - [APIs](../Extending_Profinity/APIs/index.md) - REST API documentation

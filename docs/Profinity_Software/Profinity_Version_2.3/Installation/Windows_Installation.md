@@ -10,14 +10,14 @@ description: "Install Profinity on Windows using the Setup Wizard MSI installer 
 
 ## Installation on Windows
 
-Installing Profinity on your Windows machine is relatively simple due to the Profinity Setup Wizard.
+The Profinity Setup Wizard installs Profinity on a Windows machine.
 
 [Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
 
-1. Open the downloaded file `Profinity.Install.msi` from your downloads directory
-2. Follow the prompts in the Profinity Setup Wizard
+1. Open the downloaded file `Profinity.Install.msi` from your downloads directory.
+2. Follow the prompts in the Profinity Setup Wizard.
 
-Launching the Profinity desktop client will take you directly to the Profinity homepage.
+Launching the Profinity desktop client opens the Profinity homepage directly.
 
 <figure markdown>
 ![Profinity Homepage](../images/homepage.png)
@@ -25,21 +25,21 @@ Launching the Profinity desktop client will take you directly to the Profinity h
 </figure>
 
 !!! warning "Available Ports for Windows"
-    Even when Profinity is just being run as a Desktop application, it still connects to all available TCP interfaces on the running machine on port 18080 by default.  If you do not want your Profinity instance to be accessed remotely, change the default IP address that Profinity runs on to localhost (127.0.0.1) in the [System Configuration](../Administration/System_Config.md).
+    Even when Profinity is just being run as a Desktop application, it still listens on all available network interfaces on the running machine, on TCP port 18080 by default.  To prevent remote access to the Profinity instance, change the default IP address that Profinity runs on to localhost (127.0.0.1) in the [System Configuration](../Administration/System_Config.md).
 
 ### Starting and Stopping Profinity
 
-A a Windows Desktop application, Profinity is started by running the application from the Start Menu.  
+As a Windows desktop application, Profinity is started by running the application from the Start Menu.
 
-To stop Profinity, shutdown the Application.
+To stop Profinity, shut down the application.
 
 ### Accessing a Desktop Application Instance via a Web Browser
 
 With Profinity Desktop running, you can also access the user interface as a web application if the Profinity instance is running on an address other than 127.0.0.1.  
 
-To do so open the URL defined in the [Admin / System Configuration / Web panel](../Administration/System_Config.md) (i.e., `http://profinity:18080`) to access the Profinity web client. For users that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine or the IP address of the machine and `http://[Your IP Address]:18080` if accessed remotely.
+To do so, open the URL defined in the [Admin / System Configuration / Web panel](../Administration/System_Config.md) (for example, `http://profinity:18080`) to access the Profinity web client. For installations that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine, or `http://[Your IP Address]:18080` if accessed remotely.
 
-Connecting to the Profinity web client will direct you to the Profinity login page. However, for security a fresh install of Profinity Desktop on Windows will not have an account created that you can log in with.  Create a user account using the desktop application and then you can login as normal. 
+Connecting to the Profinity web client directs the browser to the Profinity login page. For security, a fresh install of Profinity Desktop on Windows has no account that can be used to log in, so create a user account in the desktop application first and then log in as normal.
 
 <figure markdown>
 ![Profinity login page](../images/login_page.png)

@@ -5,21 +5,21 @@ description: "Special profile directories for storing dashboard assets: images, 
 
 # Profile Directories
 
-Profinity provides profile-specific directories for organizing dashboard assets. These directories allow you to store images, stylesheets, and content files that can be referenced in your dashboard YAML configurations.
+Profinity provides profile-specific directories for organising dashboard assets, which store the images, stylesheets, and content files that dashboard YAML configurations reference.
 
 ## Overview
 
-When working with dashboards, you'll often need to reference external assets like images, custom CSS styles, or HTML templates. Profinity automatically serves files from three special directories in your profile:
+Dashboards often reference external assets such as images, custom CSS styles, or HTML templates, and Profinity automatically serves files from three special directories in the profile:
 
 - **`/Profile/Images`** - Store images used in dashboards (icons, interactive images, etc.)
 - **`/Profile/Styles`** - Store custom CSS stylesheets
 - **`/Profile/Content`** - Store general content files (HTML snippets, templates, etc.)
 
-All assets in these directories are automatically served by Profinity and can be referenced in your dashboard YAML files by filename only (not full paths).
+All assets in these directories are automatically served by Profinity. Component properties in dashboard YAML reference them by filename only (not full paths), while HTML component content uses the full path, as described in [File References in Dashboard YAML](#file-references-in-dashboard-yaml).
 
 ## Directory Structure
 
-Your profile directory structure will look like this:
+The profile directory structure is as follows:
 
 ```text
 Profile/
@@ -38,7 +38,7 @@ Profile/
 
 ## /Profile/Images
 
-The `/Profile/Images` directory is used to store all image files that you want to use in your dashboards. Images are referenced by filename only in your YAML configuration.
+The `/Profile/Images` directory stores all image files used in dashboards, and component properties reference them by filename only.
 
 ### What to Store in /Profile/Images
 
@@ -94,13 +94,14 @@ html:
 ### Image Formats
 
 Profinity supports common image formats:
+
 - **SVG** - Vector graphics (recommended for icons and logos)
 - **PNG** - Raster graphics with transparency support
 - **JPG/JPEG** - Raster graphics for photographs
 - **GIF** - Animated or static raster graphics
 
 !!! tip "SVG for Icons"
-    SVG files are recommended for icons as they scale perfectly at any size and are typically smaller than raster formats.
+    SVG files are recommended for icons because they scale to any size and are typically smaller than raster formats.
 
 ## /Profile/Styles
 
@@ -180,7 +181,7 @@ The `/Profile/Content` directory is used to store HTML snippets, templates, or o
 
 **Referencing Content Files:**
 
-While you can't directly include files from `/Profile/Content` in YAML, you can reference them in HTML components:
+Files from `/Profile/Content` cannot be included directly in YAML, but HTML components can reference them:
 
 ```yaml
 html:
@@ -231,16 +232,12 @@ icon:
 **Incorrect:**
 ```yaml
 icon:
-  image: /Profile/Images/nav_battery_active.svg  # Don't use full paths
+  image: /Profile/Images/nav_battery_active.svg  # Do not use full paths
 ```
 
 ### Path Resolution
 
-Profinity automatically resolves file references based on the file type:
-
-- Files with image extensions (`.svg`, `.png`, `.jpg`, etc.) are looked up in `/Profile/Images`
-- Files referenced in HTML `href` or `src` attributes should use the full path (`/Profile/Styles/filename.css`)
-- Files in HTML components that reference external resources should use the full path
+Profinity automatically resolves file references in component properties based on the file type, so files with image extensions (`.svg`, `.png`, `.jpg`, and so on) are looked up in `/Profile/Images`. Files referenced from within an HTML component, such as in `href`, `src`, or `data` attributes, are not resolved this way and must use the full path (for example, `/Profile/Styles/filename.css`).
 
 **Full Paths in HTML:**
 ```yaml
@@ -262,7 +259,7 @@ pill:
 
 ### Custom Branding
 
-Store your company logo and branding assets in `/Profile/Images` and reference them in dashboards:
+Company logos and branding assets are stored in `/Profile/Images` and referenced in dashboards:
 
 ```yaml
 html:
@@ -275,7 +272,7 @@ html:
 
 ### Themed Dashboards
 
-Create custom CSS themes in `/Profile/Styles` to match your organization's brand:
+Custom CSS themes in `/Profile/Styles` match a dashboard to an organisation's brand:
 
 ```yaml
 html:
@@ -288,7 +285,7 @@ html:
 
 ### Reusable Components
 
-Store reusable HTML templates in `/Profile/Content` for consistent dashboard sections:
+Reusable HTML templates in `/Profile/Content` give dashboard sections a consistent structure:
 
 ```yaml
 html:
@@ -304,12 +301,12 @@ html:
 
 ## Tips and Best Practices
 
-1. **Organize Files Logically** - Use subdirectories within Images, Styles, and Content if you have many files
-2. **Use Descriptive Filenames** - Name files clearly so they're easy to identify and reference
-3. **Optimize File Sizes** - Compress images and minify CSS for better performance
-4. **Version Control** - Keep track of asset changes, especially when working in teams
-5. **Document Assets** - Maintain a README or documentation about what each asset is used for
-6. **Test References** - Verify all file references work after deploying dashboards
+- **Organise Files Logically** - Use subdirectories within Images, Styles, and Content if there are many files
+- **Use Descriptive Filenames** - Name files clearly so they are easy to identify and reference
+- **Optimise File Sizes** - Compress images and minify CSS for better performance
+- **Version Control** - Keep track of asset changes, especially when working in teams
+- **Document Assets** - Maintain a README or documentation about what each asset is used for
+- **Test References** - Verify all file references work after deploying dashboards
 
 ## Related Documentation
 

@@ -5,7 +5,7 @@ description: "Display numerical and text values with units, precision control, a
 
 # Readouts
 
-Display of numerical or text values. Readouts are the primary way to show sensor data, measurements, and other numerical information from your system.
+Display of numerical or text values. Readouts are the primary way to show sensor data, measurements, and other numerical information from the system.
 
 <figure markdown>
 ![Readouts component showing numerical and text value displays](../../images/readouts.png)
@@ -22,7 +22,7 @@ Display of numerical or text values. Readouts are the primary way to show sensor
 | `class` | optional (string) | CSS class for styling |
 | `items` | required (array) | Array of readout items |
 
-**Readout Item Structure:**
+**Readout Parameters:**
 
 Each item in `items` must contain a `readout` object with:
 

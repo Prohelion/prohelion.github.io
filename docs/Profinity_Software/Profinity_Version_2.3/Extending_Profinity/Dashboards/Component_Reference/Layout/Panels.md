@@ -1,18 +1,18 @@
 ---
 title: Panels Component
-description: "Grid layout of multiple panel containers for organizing complex information into separate sections."
+description: "Grid layout of multiple panel containers for organising complex information into separate sections."
 ---
 
 # Panels
 
-Panels create a grid layout of individual panel components. This creates a flexible grid system where each panel can contain different types of content and data visualizations.
+Panels create a grid layout of individual panel components, where each panel can contain different types of content and data visualisations.
 
 <figure markdown>
 ![Panels component showing a grid layout of multiple panel containers](../../images/panels.png)
 <figcaption>Panels component showing a grid layout of multiple panel containers</figcaption>
 </figure>
 
-**Best for:** Creating dashboard sections with multiple data views, organizing complex information into digestible panels
+**Best for:** Creating dashboard sections with multiple data views, organising complex information into separate panels
 
 **Parameters:**
 

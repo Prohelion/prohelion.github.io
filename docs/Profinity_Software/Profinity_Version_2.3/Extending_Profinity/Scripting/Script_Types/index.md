@@ -5,7 +5,7 @@ description: "Seven script execution modes including Run, Receive, Service, and 
 
 # Script Types in Profinity
 
-Profinity supports seven script execution modes, each with specific use cases and execution contexts. This document explains the differences between these script execution modes and when to use each one. Understanding these script execution modes is crucial for developing effective automation and monitoring solutions in Profinity.
+Profinity supports seven script execution modes, each with specific use cases and execution contexts: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service. This page explains the differences between the modes and when to use each one.
 
 <figure markdown>
 ![Script types selection](../../../images/script_run_modes.png)
@@ -14,24 +14,24 @@ Profinity supports seven script execution modes, each with specific use cases an
 
 | Script Type                                   | Description| Best For                                                                                            | Not Recommended For        |
 |-----------------------------------------------|-|-----------------------------------------------------------------------------------------------------|----------------------------|
-| [Run](./RunScripts.md)            | A Run Script, can simply be run by the operator, or scheduled to be run on a regular basis.  They are typically used do jobs that are short, sharp and don't require a lot of state management | - One-time operations<br>- Manual tasks<br>- Testing<br>- Troubleshooting      | - Continuous monitoring<br>- Real-time responses |
-| [Receive](./ReceiveScripts.md)    | Receive Scripts are scripts that can be setup to run each time a particular CAN Packet is received.  They are generally used to respond to the receipt of a packet with a reply message | - CAN message processing<br>- Real-time data handling<br>- Protocol implementation                  | - Long-running operations<br>- System configuration<br>- Manual tasks |
-| [Service](./ServiceScripts.md)    | Service Scripts implement full lifecycle management and generally are designed for tasks that need to run for a long time | - Continuous monitoring<br>- Long-running tasks<br>- Critical services<br>- System-level operations |  - Quick responses<br>- One-time operations<br>- Manual tasks |
-| TimeInterval | Scripts that run on a time-based interval (e.g., every 5 minutes, every hour). Uses the Run script engine but executes automatically at regular intervals | - Periodic tasks<br>- Regular data collection<br>- Scheduled maintenance<br>- Interval-based monitoring | - Real-time responses<br>- Event-driven operations<br>- Complex scheduling requirements |
+| [Run](./RunScripts.md)            | A Run Script can be run by the operator, or scheduled to run on a regular basis. Run Scripts are typically used for jobs that are short and do not require a lot of state management | - One-time operations<br>- Manual tasks<br>- Testing<br>- Troubleshooting      | - Continuous monitoring<br>- Real-time responses |
+| [Receive](./ReceiveScripts.md)    | Receive Scripts (Run On Receipt of CAN Message mode) run each time a matching CAN packet is received, and are generally used to respond to the receipt of a packet with a reply message | - CAN message processing<br>- Real-time data handling<br>- Protocol implementation                  | - Long-running operations<br>- System configuration<br>- Manual tasks |
+| [Service](./ServiceScripts.md)    | Service Scripts implement full lifecycle management and are designed for tasks that need to run for a long time | - Continuous monitoring<br>- Long-running tasks<br>- Critical services<br>- System-level operations |  - Quick responses<br>- One-time operations<br>- Manual tasks |
+| TimeInterval | Scripts that run on a time-based interval (for example, every 5 minutes or every hour). Uses the Run script engine but executes automatically at regular intervals | - Periodic tasks<br>- Regular data collection<br>- Scheduled maintenance<br>- Interval-based monitoring | - Real-time responses<br>- Event-driven operations<br>- Complex scheduling requirements |
 | CronSchedule | Scripts that run on a cron schedule using Quartz cron expressions. Provides flexible scheduling for complex time-based requirements | - Complex scheduling requirements<br>- Time-of-day operations<br>- Weekly/monthly tasks<br>- Advanced scheduling patterns | - Simple intervals<br>- Manual tasks<br>- Real-time responses |
 | Run On Tag Change | Scripts that run each time a specific tag's value changes. Used to compute derived values or react to state changes without polling | - Derived/computed tags<br>- Reacting to another component's output<br>- Chained automation | - One-time operations<br>- Manual tasks |
 | Run On Alert | Scripts named as a rule action (`onTrue`/`onFalse`), invoked when the rule transitions. See [Rule scripts](../Rule_Scripts.md) | - Rule notifications and side effects<br>- Custom alert handling beyond the built-in actions | - Anything not driven by a rule firing<br>- Long-running work (keep it fast; see Trigger Overlap) |
 
 ## Best Practices
 
-!!! Info "Important Please Remember that"
-    When you are using Profinity scripting you are adding functionality to the core of Profinity itself.  If you write inefficient code, leak memory or resources or just do some thing silly, that code is running inside Profinity.  Think about your code and if you see negative impacts on Profinity when your scripts are run, review your code.
+!!! info "Scripts Run Inside Profinity"
+    Scripts add functionality to the core of Profinity itself. Inefficient code, leaked memory or leaked resources run inside the Profinity engine and affect it directly, so review a script whenever Profinity shows a negative impact while that script is running.
 
-Best Practice for Profinity Scripting, include:
+Best practices for Profinity scripting include the following.
 
-___Choose the Right Type of Script Execution___
+**Choose the right type of script execution**
 
-- Use Run scripts for manual operations
+- Use Run On Demand scripts for manual operations
 - Use Receive scripts for CAN message processing
 - Use Service scripts for critical, long-running operations
 - Use TimeInterval scripts for periodic tasks with simple intervals
@@ -39,7 +39,7 @@ ___Choose the Right Type of Script Execution___
 - Use Run On Tag Change scripts to react to another tag's value without polling
 - Use Run On Alert scripts for custom logic on a rule firing
 
-___Be Efficient with Resource Management___
+**Manage resources efficiently**
 
 - Keep scripts efficient
 - Monitor resource usage
@@ -47,7 +47,7 @@ ___Be Efficient with Resource Management___
 - Consider system load when scheduling tasks
 - Implement proper service recovery mechanisms
 
-___Use Error Handling___
+**Handle errors**
 
 - Implement proper error handling
 - Log errors appropriately to the Profinity Logs
@@ -55,7 +55,7 @@ ___Use Error Handling___
 - Consider retry mechanisms for scheduled tasks
 - Implement service health monitoring
 
-___Use State Management With Required___
+**Use state management where required**
 
 - Use appropriate state scope (State vs GlobalState)
 - Clean up state when no longer needed

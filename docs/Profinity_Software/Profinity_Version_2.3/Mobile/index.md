@@ -5,11 +5,11 @@ description: "Connect to Profinity from iOS or Android with UDP server discovery
 
 # Profinity Mobile
 
-**Profinity Mobile** is a companion app for iOS and Android that connects to a Profinity engine over HTTPS and displays the web UI in a mobile shell. Profinity 2.3 adds **UDP heartbeat discovery** so devices on the same LAN can find servers without typing URLs.
+**Profinity Mobile** is a companion app for iOS and Android that connects to a Profinity engine over HTTPS and displays the web UI in a mobile shell. Profinity 2.3 adds **UDP heartbeat discovery**, so that devices on the same local area network (LAN) can find servers without typing URLs.
 
 ## Install the app
 
-Install **Profinity Mobile** from your organisation's app distribution channel (App Store, TestFlight, Play Store, or OEM build).
+Install **Profinity Mobile** from your organisation's app distribution channel (App Store, TestFlight, Play Store, or an OEM build).
 
 For OEM white-label builds, see [OEM white-label](./OEM_White_Label.md).
 
@@ -32,18 +32,18 @@ Saving Config.yaml restarts the engine.
 
 ## Discovery protocol
 
-Mobile listens for UDP broadcasts on port **49025** (default). Payload JSON includes root key **`ProfinityHeartbeat`**.
+Profinity Mobile listens for UDP broadcasts on port **49025** (default), and the JSON payload has the root key **`ProfinityHeartbeat`**.
 
 Full wire format: engineering [PROFINITY-HEARTBEAT.md](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Profinity-Mobile/docs/PROFINITY-HEARTBEAT.md).
 
 !!! warning "Not CAN bridge beacons"
-    Profinity heartbeat uses port **49025**. CAN Ethernet bridge discovery uses a different port (42000) — do not confuse the two.
+    Profinity heartbeat uses port **49025**, whereas CAN Ethernet bridge discovery uses a different port (42000), so the two must not be confused.
 
 ## Connect from the app
 
 1. Connect the phone to the **same Wi-Fi** network as the Profinity server.
-2. Open Profinity Mobile — the **discovery list** shows servers broadcasting heartbeat.
-3. Select your server and connect (HTTPS preferred when configured).
+2. Open Profinity Mobile, where the **discovery list** shows servers broadcasting heartbeat.
+3. Select your server and connect (HTTPS is preferred when configured).
 
 <figure markdown>
 ![Mobile app server discovery list on a physical phone](../../../assets/images/2.3/2.3-mobile-discovery-list.png)
@@ -62,19 +62,21 @@ Full wire format: engineering [PROFINITY-HEARTBEAT.md](https://github.com/Prohel
 | **Password** | Standard Profinity login (respects site Local/SSO policy in the WebView) |
 | **Kiosk** | Auto-login with a configured kiosk user (see [Kiosk Mode](../Administration/Kiosk_Mode.md)) |
 
-Back navigation returns to server selection without clearing server TLS trust prompts you may have accepted.
+Back navigation returns to server selection without clearing any server TLS trust prompts that have been accepted.
 
 ## Troubleshooting
 
 | Issue | Remedy |
 |-------|--------|
-| No servers in list | Confirm heartbeat enabled; same subnet; firewall allows UDP 49025 |
-| Android emulator empty list | Emulators **cannot** receive LAN broadcasts — use a **physical phone** |
-| Certificate warnings | Install trusted HTTPS cert on server or accept prompt once per server |
-| SSO in mobile WebView | Site must use **Sso** sign-in method; complete IdP flow in embedded browser |
+| No servers in list | Confirm heartbeat is enabled, the phone and server are on the same subnet, and the firewall allows UDP 49025 |
+| Android emulator list is empty | Emulators **cannot** receive LAN broadcasts, so use a **physical phone** |
+| Certificate warnings | Install a trusted HTTPS certificate on the server, or accept the prompt once per server |
+| SSO in mobile WebView | The site must use the **Sso** sign-in method, and the identity provider (IdP) flow is completed in the embedded browser |
 
 ## Related documentation
 
 - [OEM white-label](./OEM_White_Label.md)
 - [Kiosk Mode](../Administration/Kiosk_Mode.md)
-- [Artifacts directory](../Installation/Artifacts_Directory.md)
+- [Settings registry](../Extending_Profinity/Configuration/Settings_Registry.md) - the **Server Discovery** settings
+- [SSO and sign-in method](../Administration/Security/SSO_and_Sign_In.md)
+- [Release notes 2.3.10](../Release_Notes/2.3.10.md)

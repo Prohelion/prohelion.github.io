@@ -7,7 +7,7 @@ description: "Understand where Profinity stores configuration, profiles, plugins
 
 Profinity stores writable data — configuration, profiles, plugins, and logs — in a single **artifacts directory**. This is separate from the install directory that contains `Profinity Engine.dll` and other binaries.
 
-Understanding the artifacts path is essential when upgrading from 2.2.x, deploying on Linux as a service, or mounting Docker volumes.
+The artifacts path matters when upgrading from 2.2.x, deploying on Linux as a service, or mounting Docker volumes.
 
 ## Default locations by platform
 
@@ -17,15 +17,15 @@ Understanding the artifacts path is essential when upgrading from 2.2.x, deployi
 | **macOS** | `~/Library/Application Support/Prohelion/Profinity` |
 | **Linux (2.3+)** | `/var/lib/prohelion/profinity` |
 
-Company/Product path segments follow platform-normal casing: Pascal `Prohelion/Profinity` on Windows and macOS, lowercase `prohelion/profinity` on Linux. Everything under that root uses the same layout on every platform.
+The company and product path segments follow platform-normal casing: Pascal `Prohelion/Profinity` on Windows and macOS, lowercase `prohelion/profinity` on Linux. Everything under that root uses the same layout on every platform.
 
 Typical subfolders:
 
 | Subfolder | Contents |
 |-----------|----------|
-| `Config/` | `Config.yaml`, `Security.yaml`, `Plugins.yaml` |
+| `Config/` | `Config.yaml`, `Security.yaml`, `plugins.yaml` |
 | `Profiles/` | Profile and component YAML, dashboards, scripts |
-| `Plugins/` | User-installed DLL plugin folders |
+| `plugins/` | User-installed DLL plugin folders |
 | `Logs/` | File logs when enabled |
 
 !!! info "Linux path change in 2.3"
@@ -38,9 +38,9 @@ Typical subfolders:
 
 ## Override with PROFINITY_HOME
 
-Set the environment variable **`PROFINITY_HOME`** to the full path of the artifacts root when you need:
+Set the environment variable **`PROFINITY_HOME`** to the full path of the artifacts root to support:
 
-- Multiple Profinity instances on one host (use unique `PROFINITY_HOME` and HTTP/HTTPS ports).
+- Multiple Profinity instances on one host (each with a unique `PROFINITY_HOME` and unique HTTP/HTTPS ports).
 - Staging or test layouts outside the default path.
 - Docker or custom images with a non-standard mount root.
 
@@ -97,16 +97,16 @@ sudo chown profinity:profinity /var/lib/prohelion/profinity
 
 Unix installs (created by `install.sh`, and updated in place by `update.sh`) include **`profinity.sh`** in the install root. It resolves the edition from `edition.json`, runs preflight checks (including invariant globalization and, for the portable edition, the .NET runtime), and then starts the engine — either the self-contained `app/Profinity` binary or `dotnet app/Profinity.dll`, depending on edition. Always start Profinity through `profinity.sh` on Linux and macOS rather than calling `dotnet Profinity.dll` directly:
 
-- **Interactive:** `./profinity.sh` — runs in the foreground; Ctrl+C stops it.
-- **Service:** `./profinity.sh -s` (or `--service`) — tells the engine to run in OS service mode. This is the form used by the systemd `ExecStart` line; see [Running as a Service](./Running_As_Service.md).
-- **Preflight only:** `./profinity.sh --check-only` — runs dependency and preflight checks and exits.
+- **Interactive:** `./profinity.sh` runs in the foreground, and `Ctrl-C` stops it.
+- **Service:** `./profinity.sh -s` (or `--service`) tells the engine to run in OS service mode. This is the form used by the systemd `ExecStart` line; see [Running as a Service](./Running_As_Service.md).
+- **Preflight only:** `./profinity.sh --check-only` runs dependency and preflight checks and exits.
 
 ## Docker volumes
 
 Docker images may use a different in-container root (for example `/app/prohelion/profinity`). Mount host volumes to match the path the container resolves, or set **`PROFINITY_HOME`** explicitly in the compose file.
 
 !!! warning "Update volume mounts after upgrading to 2.3 on Linux"
-    If your compose file still mounts `./config` to `/root/.local/share/Prohelion/Profinity/Config`, update mounts to the image's current artifacts root or set `PROFINITY_HOME` so config and profiles persist across container restarts.
+    If a compose file still mounts `./config` to `/root/.local/share/Prohelion/Profinity/Config`, update the mounts to the image's current artifacts root or set `PROFINITY_HOME` so that config and profiles persist across container restarts.
 
 See [Docker Installation](./Docker_Installation.md) for compose examples.
 

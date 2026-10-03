@@ -3,7 +3,7 @@ title: RBAC and Permissions
 description: "Assign and manage security roles with 27 granular permissions to control user access across Profinity."
 ---
 
-# RBAC and permissions
+# RBAC and Permissions
 
 Profinity 2.3 uses **role-based access control (RBAC)** with **27 granular permissions**. Users are assigned one or more **roles**; each role holds a list of permissions. There are no per-user permission lists and no legacy security **groups**.
 
@@ -89,7 +89,7 @@ Users:
 | `TagCollectionsView` / `TagCollectionsModify` | Collections editor (modify implies view) |
 | `AlertsView` | ALL ALERTS; ack, unack, silence |
 | `PluginView` / `PluginModify` | Components & Plugins admin |
-| `McpView` | MCP endpoint (`/mcp`) — included in the default Administrators bundle |
+| `McpView` | MCP endpoint (`/api/v2/Ai/Mcp`) — included in the default Administrators bundle |
 | `ReceiveExternalTags` | Accept tags received from external sources |
 | `AiAssistant` | Profinity AI side-menu entry |
 
@@ -109,7 +109,7 @@ When creating roles, these templates are a useful starting point:
 | **Administrators** | Full bundle, including `McpView` |
 
 !!! tip "Principle of least privilege"
-    Create dedicated accounts such as `demo.operator` with only the **Operators** template for day-to-day monitoring. Reserve **Administrators** for break-glass administration.
+    Create dedicated accounts such as `demo.operator` with only the **Operator** template for day-to-day monitoring. Reserve **Administrators** for break-glass administration.
 
 ## Side menu and admin visibility
 
@@ -141,5 +141,9 @@ For a full endpoint matrix, see the Profinity engineering [Secured Functionality
 
 - [Managing users](../Manage_Users.md)
 - [Password policy](./Password_Policy.md)
+- [Component and collection security](./Component_And_Collection_Security.md)
+- [Service accounts](./Service_Accounts.md)
 - [SSO and sign-in method](./SSO_and_Sign_In.md)
+- [Two-factor authentication](./Two_Factor_Authentication.md)
+- [Security guide](../../Installation/Security.md)
 - [Release notes 2.3.10](../../Release_Notes/2.3.10.md)

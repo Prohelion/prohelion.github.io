@@ -5,13 +5,11 @@ description: "Scripts that automatically execute when matching CAN bus packets a
 
 # Receive Scripts
 
-Receive scripts are specialized scripts designed to handle incoming CAN (Controller Area Network) messages in real-time. They automatically execute when a matching CAN packet is received, making them essential for CAN bus monitoring, protocol implementation, and real-time data processing. 
-
-These scripts are particularly useful in applications where immediate response to CAN messages is required.
+Receive scripts handle incoming CAN (Controller Area Network) messages in real time. They execute automatically when a matching CAN packet is received, which suits CAN bus monitoring, protocol implementation, and real-time data processing, particularly where an immediate response to a CAN message is required.
 
 ## Characteristics
 - Automatic execution when matching CAN packets are received
-- Implement the `Receive` method (C#) or `receive` function (Python)
+- Implement the `Receive` method (C#) or `receive` function (Python and Lua)
 - Can be configured to match specific CAN IDs or a range of IDs
 - Full access to the received CAN packet data
 
@@ -26,7 +24,7 @@ Receive scripts run **synchronously** for **each** matching CAN packet. On a bus
 
 ## Examples
 
-The following example demonstrates how to implement Receive scripts in each supported language. Each example shows how to handle incoming CAN packets, with a focus on accessing the CAN ID in hexadecimal format. These examples represent the minimum implementation needed for a functional Receive script.
+The following example shows how to implement a Receive script in each supported language, handling an incoming CAN packet and reading its CAN ID in hexadecimal format. It is the minimum implementation needed for a functional Receive script.
 
 This example demonstrates a Receive script that:
 
@@ -40,11 +38,11 @@ This example demonstrates a Receive script that:
     ```csharp
     using System;
     using Profinity.Scripting;
-    using Profinity.Comms.CANBus;
+    using Profinity.Sdk.Models.CANBus;
 
     public class CSharpRunTest : ProfinityScript, IProfinityReceiverScript
     {
-        public void Receive(CanPacket canPacket)
+        public void Receive(CanBusPacket canPacket)
         {
             Profinity.Console.WriteLine("CSharp CanId Received : " + canPacket.CanIdAsHex);
         }
@@ -56,4 +54,12 @@ This example demonstrates a Receive script that:
     ```python
     def receive(canPacket):
         print("Python CanPacket Id Received : " + canPacket.CanIdAsHex)
+    ```
+
+=== "Lua"
+
+    ```lua
+    function receive(canPacket)
+        print('Lua CanPacket Id Received : ' .. canPacket.CanIdAsHex)
+    end
     ```

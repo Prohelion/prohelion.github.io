@@ -5,7 +5,7 @@ description: "Create custom dashboards for Profinity components using YAML synta
 
 # How to Create a Custom Dashboard
 
-This guide walks you through creating your first custom dashboard for a Custom Component.
+Create your first custom dashboard for a Custom Component.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Replace the static label with a data binding:
         source: '{COMPONENT_NAME}.Temperature.Value'
 ```
 
-**Note:** `{COMPONENT_NAME}` is automatically replaced with your component's actual name at runtime.
+`{COMPONENT_NAME}` is replaced automatically with your component's actual name at runtime.
 
 ### Step 3: Add More Components
 
@@ -66,6 +66,8 @@ Add additional readouts:
 
 ## Next Steps
 
+- Read the [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md), the full reference for dashboards
 - Learn about [Core Elements](../Extending_Profinity/Dashboards/Core_Elements.md) for more complex layouts
-- Explore [Component Reference](../Extending_Profinity/Dashboards/Component_Reference/index.md) for available components
+- Explore the [Component Reference](../Extending_Profinity/Dashboards/Component_Reference/index.md) for available components
+- Connect live data with [Data Binding](../Extending_Profinity/Dashboards/Data_Binding.md)
 - See [Examples](../Extending_Profinity/Dashboards/Examples.md) for complete dashboard examples

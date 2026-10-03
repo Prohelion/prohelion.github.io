@@ -3,9 +3,9 @@ title: Core Elements
 description: "The four core dashboard element types (titlebar, row, accordion, footer) and hierarchical structure."
 ---
 
-# The Four Core Dashboard Elements
+# Core Elements
 
-A Profinity dashboard is built using a hierarchical structure of four core element types. These elements are arranged vertically and provide the foundation for creating dynamic, data-driven user interfaces.
+A Profinity dashboard is built using a hierarchical structure of four core element types, which are arranged vertically and provide the foundation for dynamic, data-driven user interfaces.
 
 ## Table of Contents
 
@@ -19,35 +19,35 @@ A Profinity dashboard is built using a hierarchical structure of four core eleme
 - [Layout Directions](#layout-directions)
 - [Component Nesting](#component-nesting)
 - [Complete Example](#complete-example)
-- [Dashboard Structure](#dashboard-structure)
+    - [Complete Dashboard YAML](#complete-dashboard-yaml)
 
 ## Understanding the Structure
 
-Dashboards are defined as collections of full-width items arranged vertically. Each top-level element can be one of several types, and they can be nested to create complex layouts:
+Dashboards are defined as collections of full-width items arranged vertically. Each top-level element can be one of several types, and elements can be nested to create complex layouts:
 
 - **Rows** contain **Groups** and **Components**
-- **Groups** organize related **Components** together
+- **Groups** organise related **Components** together
 - **Components** display actual data and controls
-- **Panels** provide titled containers for organizing content
-- **HTML** and **Image** components provide rich content display
+- **Panels** provide titled containers for organising content
+- **HTML** and **Image** components display custom content
 
 This hierarchical approach allows for flexible layouts that adapt to different screen sizes and content requirements.
 
 ## Understanding the `items` Property
 
-The `items` property is one of the most fundamental and widely used concepts in Profinity dashboard configuration. It appears at almost every level of the dashboard hierarchy and is used to define the contents of container elements.
+The `items` property is the most widely used concept in Profinity dashboard configuration. It appears at almost every level of the dashboard hierarchy and defines the contents of container elements.
 
-### What is `items`?
+### Role of `items`
 
-The `items` property is an array that contains the child elements of any container component. It's how you specify what goes inside containers like `dashboard`, `row`, `group`, `panel`, `accordion`, and many other components.
+The `items` property is an array that contains the child elements of any container component, and it specifies what goes inside containers such as `dashboard`, `row`, `group`, `panel`, `accordion`, and many other components.
 
-### Where `items` is Used
+### Where `items` Is Used
 
 The `items` property appears at multiple levels:
 
 - **Top level**: `dashboard: items:` - Contains the top-level elements (titlebar, rows, accordions, footer)
 - **Rows**: `row: items:` - Contains groups and components within a row
-- **Groups**: `group: items:` - Contains components organized within a group
+- **Groups**: `group: items:` - Contains components organised within a group
 - **Panels**: `panel: items:` - Contains components displayed within a panel
 - **Accordions**: `accordion: items:` - Contains rows and components within an accordion section
 - **Component containers**: Many components like `pill`, `lamps`, `readouts`, `tabs` use `items:` to contain their child elements
@@ -112,10 +112,10 @@ panel:
                     label: "Status"
 ```
 
-Understanding how `items` works is essential for building dashboards, as it's the mechanism that allows you to nest and organize components at any level of the dashboard hierarchy.
+The `items` property is the mechanism that nests and organises components at every level of the dashboard hierarchy, so it underlies every other page in this guide.
 
 !!! info "Profile Directories"
-    Profinity provides profile-specific directories (`/Profile/Images`, `/Profile/Styles`, and `/Profile/Content`) for organizing dashboard assets like images, stylesheets, and HTML templates. For detailed information about using these directories, including examples and best practices, see the [Profile Directories](./Profile_Directories.md) documentation.
+    Profinity provides profile-specific directories (`/Profile/Images`, `/Profile/Styles`, and `/Profile/Content`) for organising dashboard assets like images, stylesheets, and HTML templates. For detailed information about using these directories, including examples and best practices, see the [Profile Directories](./Profile_Directories.md) documentation.
 
 ## The Four Core Elements
 
@@ -131,41 +131,41 @@ The header section of your dashboard, typically containing:
 <figcaption>Dashboard titlebar showing status lamps and navigation menus</figcaption>
 </figure>
 
-**When to use:** Every dashboard should have a titlebar to provide context and navigation.
+**When to use:** Use a titlebar to provide context and navigation.
 
 **Learn more:** [Titlebar Reference](./Component_Reference/Layout/Titlebar.md)
 
 ### 2. Row
-Layout containers that organize components horizontally or vertically.
+Layout containers that organise components horizontally or vertically.
 
 <figure markdown>
-![Row layout container organizing multiple components horizontally or vertically](images/row.png)
-<figcaption>Row layout container organizing multiple components horizontally or vertically</figcaption>
+![Row layout container organising multiple components horizontally or vertically](images/row.png)
+<figcaption>Row layout container organising multiple components horizontally or vertically</figcaption>
 </figure>
 
 **Key features:**
 
 - Can hold multiple components or groups
 - Supports both horizontal and vertical layouts
-- Essential for organizing dashboard content
+- Essential for organising dashboard content
 
 **When to use:** Use rows to create logical sections of your dashboard and control component arrangement.
 
 **Learn more:** [Row Reference](./Component_Reference/Layout/Row.md)
 
 ### 3. Accordion
-Collapsible sections for organizing content that can be expanded or collapsed.
+Collapsible sections for organising content that can be expanded or collapsed.
 
 <figure markdown>
-![Accordion component showing collapsible sections for organizing content](images/accordion.png)
-<figcaption>Accordion component showing collapsible sections for organizing content</figcaption>
+![Accordion component showing collapsible sections for organising content](images/accordion.png)
+<figcaption>Accordion component showing collapsible sections for organising content</figcaption>
 </figure>
 
 **Key features:**
 
-- Keeps dashboards clean and organized
+- Keeps dashboards clean and organised
 - Allows users to focus on relevant information
-- Perfect for detailed information that's not always needed
+- Suited to detailed information that is not always needed
 
 **When to use:** Use accordions for detailed information, settings, or secondary data that users can access when needed.
 
@@ -200,7 +200,7 @@ Rows can specify their direction, allowing you to create both vertical and horiz
 
 ## Component Nesting
 
-The hierarchical structure allows for flexible component organization:
+The hierarchical structure allows for flexible component organisation:
 
 ```text
 Dashboard
@@ -222,18 +222,17 @@ This nesting system enables you to create sophisticated layouts while maintainin
 
 ## Complete Example
 
-The following example demonstrates how all four core elements work together in a real dashboard. This example shows:
+The following example is a complete motor controller dashboard. It does not include a titlebar or footer, but it shows rows, an accordion, and the components nested inside them:
 
-- A **titlebar** with status lamps and navigation
-- **Rows** organizing different sections of data
-- **Groups** containing related components like readouts and charts
-- **Panels** for organizing complex data displays
+- **Rows** organising different sections of data
+- **Groups** containing related components such as readouts and charts
+- **Panels** for organising complex data displays
 - **Accordions** for collapsible detailed information
-- **Tabs** for organizing different views within accordions
+- **Tabs** for organising different views within accordions
 
-This comprehensive example includes data bindings to CAN bus signals, showing how the dashboard connects to real vehicle data.
+The example includes data bindings to CAN bus signals, showing how the dashboard connects to real vehicle data. The same dashboard is analysed section by section in [Full Example](./Example.md), and appears alongside smaller examples in [Examples](./Examples.md).
 
-## Dashboard Structure
+### Complete Dashboard YAML
 
 ``` yaml
 dashboard:

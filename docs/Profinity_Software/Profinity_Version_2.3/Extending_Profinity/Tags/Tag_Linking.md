@@ -5,7 +5,7 @@ description: "Tag Explorer context menu flows to quickly create collections, rul
 
 # Tag linking from Tag Explorer
 
-Profinity 2.3 ships **Tag Explorer context menu** flows to create collections, rules, and dashboard bindings from selected tags. This reduces copy-paste between Tag Explorer and visual editors.
+Profinity 2.3 ships **Tag Explorer context menu** flows to create collections, rules, and dashboard bindings from selected tags, which reduces copying and pasting between Tag Explorer and the visual editors.
 
 !!! note "Partial GA (A7)"
     **Shipped in 2.3:** context menu actions from Tag Explorer. **Not shipped:** reciprocal editors (for example adding a rule from the collections editor via context menu only), where-used panels, and collection↔rule cross-links from every editor surface.
@@ -38,11 +38,11 @@ Use an account such as **demo.engineer** with the Engineer role template for aut
 
 After choosing an action, complete configuration in the visual editor and **save**.
 
-Create-collection and create-rule flows write membership / condition expressions under the hood — leaf picks become `tag.Is("…")`, branch picks become `tag.MatchesPath("…")`. See [Tag expressions](../Rules/Tag_Expressions.md).
+The create-collection and create-rule flows generate the membership and condition expressions automatically: leaf picks become `tag.Is("…")`, and branch picks become `tag.MatchesPath("…")`. See [Tag expressions](../Rules/Tag_Expressions.md).
 
 ## What is not available in 2.3 GA
 
-Do not document or promise:
+The following are not available:
 
 - Reciprocal "add to collection" from rules editor context menus only.
 - Full where-used navigation across all tag consumers.

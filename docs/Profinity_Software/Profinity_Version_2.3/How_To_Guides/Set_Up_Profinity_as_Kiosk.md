@@ -11,29 +11,30 @@ Configure Profinity to run as a kiosk application that automatically launches in
 
 - Profinity V2 installed **as a service or in Docker with automatic start enabled**
 - Profinity must be **running** before configuring the browser for kiosk mode
-- Admin access to the system
+- Administrator access to the system
 - A profile configured and ready to display
-- Understanding of your operating system's kiosk mode features
+- An enabled user to act as the kiosk user, holding only the permissions the display needs (see [Kiosk Mode](../Administration/Kiosk_Mode.md#requirements) for the requirements)
+- Familiarity with your operating system's kiosk mode features
 
 ## Steps
 
 ### Step 1: Configure Kiosk Mode in Profinity
 
-1. Navigate to **ADMIN** → **System Configuration**
-2. Find **Kiosk Mode** section
+Kiosk Mode is configured per profile, and it authenticates the browser automatically as the configured kiosk user so that no login page is shown.
+
+1. Navigate to **ADMIN** → **Profiles**
+2. Select or create the profile to display, and open its profile settings
 3. Enable **Kiosk Mode**
-4. Configure settings:
-   - **Auto-Start**: Enable
-   - **Fullscreen**: Enable
-   - **Startup Profile**: Select profile to load
-   - **URL**: Set initial URL/page
-5. Click **Save**
+4. Select a **Kiosk Mode User** from the dropdown (all enabled users are listed, so choose one with minimal permissions)
+5. Save the profile settings
+6. Ensure this profile is the active profile, because Kiosk Mode applies only to the active profile
 
 ### Step 2: Configure Browser for Kiosk Mode
 
 **Important**: Ensure Profinity is installed as a service or in Docker with automatic start, and that it is running before configuring the browser. The browser will fail to connect if Profinity is not already running.
 
 **Windows:**
+
 1. Create desktop shortcut
 2. Right-click → Properties
 3. In Target, add: `--kiosk http://localhost:18080`
@@ -42,6 +43,7 @@ Configure Profinity to run as a kiosk application that automatically launches in
 6. Copy shortcut to startup folder
 
 **Linux:**
+
 1. Create systemd service: `sudo nano /etc/systemd/system/profinity-kiosk.service`
 2. Add service file:
    ```ini
@@ -62,6 +64,7 @@ Configure Profinity to run as a kiosk application that automatically launches in
 4. Start: `sudo systemctl start profinity-kiosk.service`
 
 **macOS:**
+
 1. Open Automator
 2. Create new Application
 3. Add "Run Shell Script" action
@@ -72,25 +75,26 @@ Configure Profinity to run as a kiosk application that automatically launches in
 
 ### Step 3: Configure System Startup
 
-1. **Ensure Profinity starts automatically** - Profinity must be installed as a service or in Docker with automatic start enabled
-2. **Verify Profinity is running** - Before configuring the browser, ensure Profinity service is running and accessible at `http://localhost:18080`
-3. Configure browser to start after Profinity (with a delay to ensure Profinity is fully started)
-4. Test startup sequence
+1. **Ensure Profinity starts automatically** - Profinity must be installed as a service (see [Running as a Service](../Installation/Running_As_Service.md)) or in Docker with automatic start enabled
+2. **Verify Profinity is running** - the Profinity service must be running and accessible at `http://localhost:18080`
+3. Configure the browser to start after Profinity, with a delay to ensure Profinity is fully started
+4. Test the startup sequence
 
 ### Step 4: Secure Kiosk Mode
 
 1. Disable browser navigation
 2. Disable keyboard shortcuts (Alt+F4, Ctrl+Alt+Del)
-3. Hide taskbar/system tray
+3. Hide the taskbar and system tray
 4. Configure timeouts if needed
+5. Confirm the kiosk user holds only the permissions the display needs, for example the **Read-only** role template, because anyone at the display inherits them
 
 ### Step 5: Test Kiosk Mode
 
 1. Restart the system
 2. Verify Profinity starts automatically
-3. Verify browser opens in kiosk mode
-4. Verify correct profile loads
-5. Verify fullscreen display works
+3. Verify the browser opens in kiosk mode
+4. Verify the correct profile loads and signs in automatically
+5. Verify the fullscreen display works
 
 ## Advanced Configuration
 
@@ -120,21 +124,22 @@ chart:
 
 ## Tips
 
-- **Test Thoroughly**: Test all functionality in kiosk mode before deployment
-- **Monitor Performance**: Ensure system has adequate resources
-- **Backup Configuration**: Keep a backup of your kiosk configuration
-- **Update Process**: Plan how to update Profinity without breaking kiosk mode
-- **Remote Access**: Consider remote monitoring for kiosk systems
+- **Test Thoroughly**: test all functionality in kiosk mode before deployment
+- **Monitor Performance**: ensure the system has adequate resources
+- **Backup Configuration**: keep a backup of your kiosk configuration
+- **Update Process**: plan how to update Profinity without breaking kiosk mode
+- **Remote Access**: consider remote monitoring for kiosk systems
 
 ## Troubleshooting
 
-- **Browser Not Starting**: Check system startup order and service dependencies
-- **Wrong Profile**: Verify startup profile setting in Profinity
-- **Display Issues**: Check display configuration and resolution settings
-- **Performance Issues**: Monitor system resources and optimize dashboard complexity
+- **Browser Not Starting**: check system startup order and service dependencies
+- **Wrong Profile**: verify the intended profile is the active profile
+- **Login Page Shown**: verify Kiosk Mode is enabled for the active profile and a valid kiosk user is selected
+- **Display Issues**: check display configuration and resolution settings
+- **Performance Issues**: monitor system resources and optimise dashboard complexity
 
 ## Related Documentation
 
-- [Kiosk Mode](../Administration/Kiosk_Mode.md) - Complete kiosk mode configuration guide
-- [Running as Service](../Installation/Running_As_Service.md) - Configure Profinity as a service
-- [System Configuration](../Administration/System_Config.md) - System configuration options
+- [Kiosk Mode](../Administration/Kiosk_Mode.md) - the full Kiosk Mode reference, including requirements and token management
+- [Running as a Service](../Installation/Running_As_Service.md) - configure Profinity as a service
+- [Profiles](../Administration/Profiles.md) - profile settings, including Kiosk Mode

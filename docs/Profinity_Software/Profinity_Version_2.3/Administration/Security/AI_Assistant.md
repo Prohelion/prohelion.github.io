@@ -11,7 +11,7 @@ Once enabled, the assistant can query live data from this Profinity instance thr
 
 ## Enable Profinity AI
 
-Open **Admin > Instance Settings**, find the **Profinity AI** category, and set the fields below.
+Open **ADMIN > System Configuration**, find the **Profinity AI** category, and set the fields below.
 
 | UI field | Config field | Description |
 |----------|--------------|--------------|
@@ -27,10 +27,10 @@ Open **Admin > Instance Settings**, find the **Profinity AI** category, and set 
 
 <figure markdown>
 ![Profinity AI settings tab showing provider, model, API key and web search fields](../../../../assets/images/2.3/2.3-ai-assistant-settings-tab.png)
-<figcaption>Profinity AI settings under Admin > Instance Settings (screenshot placeholder — provide SS-48)</figcaption>
+<figcaption>Profinity AI settings under ADMIN > System Configuration (screenshot placeholder — provide SS-48)</figcaption>
 </figure>
 
-Profinity rejects a save that leaves the configuration in an inconsistent state, so it is worth knowing the rules in advance rather than discovering them one at a time:
+Profinity rejects a save that leaves the configuration in an inconsistent state, according to the following rules:
 
 - The response timeout must fall within 30–3600 seconds.
 - A model must be set before Profinity AI can be enabled.
@@ -43,7 +43,7 @@ Profinity treats a configuration that passes these checks as ready to use. It do
 ## Data handling and security
 
 !!! warning "Prompts and Data Leave the Instance Boundary"
-    Sending a message through Profinity AI sends the conversation, and any Profinity data the assistant retrieves through MCP to answer it, to the configured provider outside this instance. If web search is enabled, search queries are also sent to the provider's web-search capability, and documentation queries are sent to docs.prohelion.com. Review this data flow against your organisation's security requirements before enabling Profinity AI for a regulated or air-gapped-leaning deployment.
+    Sending a message through Profinity AI sends the conversation, and any Profinity data the assistant retrieves through MCP to answer it, to the configured provider outside this instance. If web search is enabled, search queries are also sent to the provider's web-search capability, and documentation queries are sent to docs.prohelion.com. Review this data flow against your organisation's security requirements before enabling Profinity AI for a regulated or air-gapped deployment.
 
 The API key is decrypted only inside the Profinity Engine process, for the duration of a single request to the provider. It is never sent to the browser, at any point.
 
@@ -51,7 +51,7 @@ Live-data access through MCP is scoped to the permissions of the user asking the
 
 ## Permissions
 
-A user needs the **AI Assistant** permission to see and use the **Profinity AI** menu item; this permission also grants the **MCP View** permission automatically, since the assistant needs it to query live data on the user's behalf. The **AI Assistant** permission is included in the Desktop role by default and can be added to or removed from other roles like any other permission (see [RBAC and permissions](RBAC_Permissions.md)).
+A user needs the **AI Assistant** permission to see and use the **Profinity AI** menu item; this permission also grants the **MCP View** permission automatically, since the assistant needs it to query live data on the user's behalf. The **AI Assistant** permission is included in the default Administrators role and in the Desktop role, and can be added to or removed from any role like any other permission (see [RBAC and permissions](RBAC_Permissions.md)).
 
 Changing the Profinity AI configuration itself uses the same instance-settings permission as other admin configuration areas.
 

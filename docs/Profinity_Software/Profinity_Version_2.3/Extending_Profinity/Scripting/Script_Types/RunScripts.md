@@ -5,7 +5,7 @@ description: "Flexible scripts executed manually on-demand or automatically on a
 
 # Run Scripts
 
-Run scripts are the most flexible and commonly used script type in Profinity. They can be executed either manually by users or automatically on a schedule, making them ideal for a wide range of automation tasks. These scripts are perfect for operations that need to be performed either on-demand or if scheduled at specific intervals, such as data collection, testing, or system configuration tasks.
+Run scripts are the most flexible and commonly used script type in Profinity. They can be executed either manually by users or automatically on a schedule, which suits a wide range of automation tasks that need to be performed on demand or at specific intervals, such as data collection, testing, or system configuration.
 
 Run scripts support three execution modes:
 
@@ -28,7 +28,7 @@ Run scripts support three execution modes:
 
 ## Examples
 
-The following examples demonstrate how to implement each script type in the supported programming languages. Each example shows the basic structure and key features of the script type, including proper initialization, execution flow, and cleanup. Note that while the examples are simple, they illustrate the essential patterns needed for each script type.
+The following example shows the basic structure of a Run script in each supported language. The example is simple, but it illustrates the essential pattern for the script type.
 
 This example demonstrates a basic Run script that:
 
@@ -63,4 +63,15 @@ This example demonstrates a basic Run script that:
     PrintMessage()
     ```
 
-Profinity uses [IronPython](https://ironpython.net/) with Python 3 compatibility enabled. All Python scripts use Python 3 syntax, including `print()` as a function (not a statement) and support for f-strings and other Python 3 features.
+=== "Lua"
+
+    ```lua
+    function RunMe()
+        print('This is a Lua message!')
+        print(Profinity.Message)
+    end
+
+    RunMe()
+    ```
+
+Profinity uses [IronPython](https://ironpython.net/) with Python 3 compatibility enabled. All Python scripts use Python 3 syntax, including `print()` as a function (not a statement) and f-strings.

@@ -1,4 +1,5 @@
 nav:
+  - index.md
   - Console.md
   - State.md
   - CANBus.md

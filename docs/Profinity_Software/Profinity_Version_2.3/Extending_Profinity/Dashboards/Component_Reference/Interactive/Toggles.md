@@ -19,7 +19,7 @@ Switch components. Toggles provide on/off controls for system settings and featu
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the toggle |
-| `class` | optional (string) | CSS class |
+| `class` | optional (string) | CSS class for styling |
 | `label` | required (string) | Toggle label |
 | `actionId` | required (string) | Action identifier |
 | `value` | optional (object) | Toggle state |

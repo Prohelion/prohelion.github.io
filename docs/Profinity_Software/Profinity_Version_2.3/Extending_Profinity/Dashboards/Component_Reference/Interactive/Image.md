@@ -5,7 +5,7 @@ description: "Interactive image component with clickable regions, icons, data va
 
 # Image
 
-Interactive image component with clickable regions, icons, data values, points, and annotation lines. Images are loaded from the /Profile/Images directory.
+Interactive image component with clickable regions, icons, data values, points, and annotation lines. Images are loaded from the `/Profile/Images` directory.
 
 <figure markdown>
 ![Interactive image component showing clickable regions, icons, data values, and annotation lines](../../images/image.png)
@@ -26,7 +26,7 @@ Interactive Images combine a base image with several overlay elements:
 - **Points**: Anchor points for annotation lines
 - **Annotation Lines**: Connecting lines between elements with optional waypoints (elbows)
 
-All elements are positioned relative to the base image, allowing you to create complex, data-driven visualizations.
+All overlay elements are positioned relative to the base image.
 
 **Parameters:**
 
@@ -35,7 +35,7 @@ All elements are positioned relative to the base image, allowing you to create c
 | `id` | optional (string) | Unique identifier for the image component |
 | `class` | optional (string) | CSS class for styling |
 | `label` | optional (string) | Display label |
-| `image` | required (string) | Filename of the image in `/Profile/Images` (no `value` wrapper) |
+| `image` | required (string) | Filename of the base image in `/Profile/Images`, given directly with no `value` wrapper |
 | `layers` | optional (array) | Named layers for visibility toggles |
 | `regions` | optional (array) | Clickable regions |
 | `icons` | optional (array) | Icons on the image |
@@ -51,7 +51,7 @@ All elements are positioned relative to the base image, allowing you to create c
 
 ## Base Image
 
-The base image is the foundation of an Interactive Image component. The image file must be stored in the profile's `/Profile/Images` directory and referenced by filename only.
+The base image is the foundation of an Interactive Image component. The image file must be stored in the profile's `/Profile/Images` directory (see [Image Storage](#image-storage)) and is referenced by filename only.
 
 ```yaml
 image:
@@ -59,17 +59,6 @@ image:
 ```
 
 The image serves as the coordinate system for all overlay elements. Regions, icons, data values, and points are positioned relative to this base image.
-
-**Component fields (all optional except `image`):**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `image` | required (string) | Filename of the image in /Profile/Images directory |
-| `regions` | optional (array) | Array of clickable regions |
-| `icons` | optional (array) | Array of icons to display on the image |
-| `dataValues` | optional (array) | Array of data values to display |
-| `points` | optional (array) | Array of anchor points for annotation lines |
-| `annotationLines` | optional (array) | Array of annotation lines connecting elements |
 
 ## Regions
 
@@ -122,9 +111,9 @@ Icons are positioned elements that can display emoji, SVG paths, or image files.
 | `id` | required (string) | Unique identifier for the icon |
 | `x` | required (number) | X coordinate (percentage or pixels) |
 | `y` | required (number) | Y coordinate (percentage or pixels) |
-| `icon` | required (string) | Icon source - emoji (e.g., `"⚠️"`), SVG path, or image filename from `/Profile/Images` |
+| `icon` | required (string) | Icon source: an emoji character, an SVG path, or an image filename from `/Profile/Images` |
 | `size` | optional (number) | Icon size in pixels |
-| `color` | optional (string) | Icon color (for SVG paths only) |
+| `color` | optional (string) | Icon colour (SVG paths only) |
 | `label` | optional (string) | Tooltip text displayed on hover |
 | `action` | optional (string) | Action type - `"navigate"` or `"action"` |
 | `target` | optional (string) | URL for navigation |
@@ -173,7 +162,7 @@ icons:
 
 ## Data Values
 
-Data Values display real-time data from the Profinity system. They support multiple display types (text, graph/bar chart, status/lamp) and can bind to any data source.
+Data Values display real-time data from the Profinity system. They support three display types (text, graph as a bar chart, and status as a lamp) and can bind to any data source.
 
 ### Data Value Parameters
 
@@ -186,7 +175,7 @@ Data Values display real-time data from the Profinity system. They support multi
 | `bind` | required (string/array) | Data binding configuration |
 | `displayType` | optional (string) | How to display - `"text"` (default), `"graph"` (bar chart), or `"status"` (lamp) |
 | `maxValue` | optional (number) | Maximum value for bar chart (required if `displayType` is `"graph"`) |
-| `lampColor` | optional (string) | Lamp color when `displayType` is `"status"` (default: `"grey"`) |
+| `lampColor` | optional (string) | Lamp colour when `displayType` is `"status"` (default: `"grey"`) |
 | `unit` | optional (string) | Unit for the value |
 | `precision` | optional (number) | Number of decimal places |
 | `enabled` | optional (boolean) | Whether the data value is enabled |
@@ -256,8 +245,8 @@ Points are anchor points for annotation lines. They can be displayed as visual m
 | `id` | required (string) | Unique identifier for the point |
 | `x` | required (number) | X coordinate (percentage or pixels) |
 | `y` | required (number) | Y coordinate (percentage or pixels) |
-| `size` | optional (number) | Point size in pixels (if > 0, the point will be displayed) |
-| `color` | optional (string) | Point color (defaults to grey) |
+| `size` | optional (number) | Point size in pixels (default: `8`); a value of `0` hides the point |
+| `color` | optional (string) | Point colour (default: grey) |
 
 **Visible Point Example:**
 
@@ -347,7 +336,7 @@ Regions always use pixel coordinates in the `xywh` format. Icons, data values, a
 
 ## Image Storage
 
-Interactive Image files must be stored in the profile's `/Profile/Images` directory. Images are referenced by filename only (not full paths).
+Image files, both base images and icon files, are stored in the profile's `/Profile/Images` directory and referenced by filename only, never by full path.
 
 ```text
 /Profile/Images/
@@ -357,14 +346,14 @@ Interactive Image files must be stored in the profile's `/Profile/Images` direct
   └── custom-icon.png
 ```
 
-Images are served from `/Profile/Images/{filename}` URL path, so you can reference them in your dashboard YAML:
+Images are served from the `/Profile/Images/{filename}` URL path, so the dashboard YAML references them as follows:
 
 ```yaml
 image:
   image: "device-diagram.png"  # File in /Profile/Images/
 ```
 
-## Tooltips and Hover Behavior
+## Tooltips and Hover Behaviour
 
 - **Regions**: Display tooltips on hover (if `label` is provided)
 - **Icons**: Display tooltips on hover (if `label` is provided)
@@ -374,7 +363,7 @@ Tooltips are positioned above the element and follow the mouse cursor.
 
 ## Complete Example
 
-Here's a complete example combining all Interactive Image features:
+The following example combines all Interactive Image features:
 
 ```yaml
 dashboard:
@@ -462,9 +451,9 @@ dashboard:
 
 ## Best Practices
 
-1. **Use appropriate coordinate systems**: Use percentage coordinates for elements that should scale with the image, pixel coordinates for fixed-size elements
-2. **Keep IDs unique**: All element IDs (regions, icons, data values, points) must be unique within an Interactive Image
-3. **Use descriptive labels**: Provide labels for regions and icons to improve usability
-4. **Optimize image size**: Use appropriately sized images to balance quality and performance
-5. **Test interactivity**: Verify that regions and icons navigate correctly and actions work as expected
-6. **Use data bindings**: Bind data values to live system data for real-time updates
+- **Coordinate systems**: Use percentage coordinates for elements that should scale with the image, and pixel coordinates for fixed-size elements
+- **Unique IDs**: All element IDs (regions, icons, data values, points) must be unique within an Interactive Image
+- **Labels**: Provide labels for regions and icons so that the tooltips are informative
+- **Image size**: Use appropriately sized images to balance quality and performance
+- **Testing**: Verify that regions and icons navigate correctly and that actions work as expected
+- **Data bindings**: Bind data values to live system data for real-time updates

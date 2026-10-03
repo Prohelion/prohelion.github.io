@@ -17,8 +17,8 @@ systems a site already runs. Each is installed the same way as any other
 !!! info "Scope of this page"
     This page describes what each protocol plugin is for, at a glance. It is not a
     configuration or settings reference for any individual plugin — see
-    [DLL plugins](./index.md) for how to install and enable a plugin once you have it,
-    and contact Prohelion support for plugin-specific configuration guidance.
+    [DLL plugins](./index.md) for how to install and enable a plugin once it is available,
+    and Prohelion support can provide plugin-specific configuration guidance.
 
 ## Available protocol plugins
 
@@ -39,7 +39,7 @@ dashboard, included in a collection, watched by a rule, or read by a script.
 Alongside the compiled protocol plugins above, some device integrations ship as
 **Python + YAML content packs** instead — built on the same [Custom Component
 mechanism](../Custom_Components/index.md) available to anyone packaging their own
-device. These are a template for building your own device pack rather than a
+device. These serve as a template for building a device pack of your own rather than as a
 protocol client; see [Component types](../Components/Component_Types.md) for the
 comparison between a compiled plugin and a Custom Component pack.
 

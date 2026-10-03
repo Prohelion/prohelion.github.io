@@ -18,7 +18,7 @@ Profinity 2.3 centralises many system settings in **Config.yaml** through the **
 
 Saving **Config.yaml** from System Configuration **restarts the engine**. Most **Security.yaml** and profile YAML changes do **not** require restart.
 
-## Config.yaml sections (writer reference)
+## Config.yaml sections
 
 | Tab / section | Keys operators should know |
 |---------------|------------------------------|
@@ -33,9 +33,9 @@ Profile-only settings remain on the profile legacy path — for example profile 
 
 ## Realtime reload
 
-Some Config.yaml sections reload without a full restart where the engine supports live reload; security integration blocks still require restart when documented in the admin UI warning.
+Some Config.yaml sections reload without a full restart where the engine supports live reload, while security integration blocks still require a restart where the admin UI warning says so.
 
-This reload happens the next time the relevant settings dialog is opened, or when an operator triggers an explicit reload action. It is not a live push: a settings dialog already open when the registry changes keeps the snapshot it loaded at open (or last reload) and does not automatically refresh while it remains open.
+A reload is picked up the next time the relevant settings dialog is opened, or when an operator triggers an explicit reload action. It is not a live push: a settings dialog that is already open when the registry changes keeps the snapshot it loaded at open (or at its last reload) and does not refresh while it remains open.
 
 Engineering reference: [settings-registry-architecture.md](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/System/settings-registry-architecture.md).
 

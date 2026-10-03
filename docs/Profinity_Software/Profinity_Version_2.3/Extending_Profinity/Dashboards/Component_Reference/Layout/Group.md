@@ -1,11 +1,11 @@
 ---
 title: Group Component
-description: "Container for organizing related components in horizontal or vertical arrangement with flexible sizing."
+description: "Container for organising related components in horizontal or vertical arrangement with flexible sizing."
 ---
 
 # Group
 
-A group is a container that organizes related components. Groups help create visual and logical groupings within rows, making dashboards more organized and easier to understand.
+A group is a container that organises related components. Groups create visual and logical groupings within rows, which keeps dashboards organised and easier to read.
 
 Groups can be arranged in two directions:
 
@@ -21,7 +21,7 @@ Groups can be arranged in two directions:
 <figcaption>Vertical group component showing components arranged from top to bottom</figcaption>
 </figure>
 
-**Best for:** Grouping related data displays, creating visual sections, organizing components with similar functions
+**Best for:** Grouping related data displays, creating visual sections, organising components with similar functions
 
 **Parameters:**
 
@@ -29,8 +29,8 @@ Groups can be arranged in two directions:
 |-----------|------|-------------|
 | `id` | optional (string) | Unique identifier for the group |
 | `class` | optional (string) | CSS class for styling |
-| `width` | optional (string) | Width value in CSS format (e.g., '100px', '50%', 'auto') |
-| `direction` | optional (string) | Layout direction - "vertical" or "horizontal" (default: "vertical") |
+| `width` | optional (string) | Width in CSS format, for example `100px`, `50%` or `auto` |
+| `direction` | optional (string) | Layout direction, `vertical` or `horizontal` (default: `vertical`) |
 | `items` | required (array) | Array of components within the group |
 
 **Horizontal Group Example:**

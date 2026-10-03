@@ -11,18 +11,18 @@ MQTT broker, either on a fixed interval or whenever a member tag's value changes
 store — a file, a database, a time-series engine — for later, disconnected retrieval, whereas a
 publisher pushes to a subscriber that is actively listening right now, the same distinction that
 also separates the [Webhook Publisher](./Webhook_Publisher.md) from the file and database loggers
-under [Loggers](../Loggers/File_Loggers.md). If you have configured this component before under
-its previous name, **MQTT Logger**, no configuration or wire behaviour has changed — only the
-category and component name have moved.
+under [Loggers](../Loggers/File_Loggers.md). A component configured under its previous name,
+**MQTT Logger**, is unaffected: no configuration or wire behaviour has changed, only the
+category and component name.
 
-If you want to go the other direction — subscribe to an external MQTT/Sparkplug source and bring
-its values into Profinity as tags — see the [MQTT Subscriber](./MQTT_Subscriber.md), the
+To go in the other direction, subscribing to an external MQTT/Sparkplug source and bringing
+its values into Profinity as tags, see the [MQTT Subscriber](./MQTT_Subscriber.md), the
 publisher's inbound counterpart.
 
-## What is MQTT?
+## About MQTT
 
 MQTT is a publish-subscribe messaging protocol built for low-bandwidth, high-latency networks,
-which makes it well suited to IoT and telemetry use cases. A broker sits between publishers and
+which makes it well suited to Internet of Things (IoT) and telemetry use cases. A broker sits between publishers and
 subscribers and handles message delivery, so Profinity does not need a direct connection to every
 downstream consumer — it publishes once to the broker, and every subscriber to that topic
 receives the update.
@@ -86,7 +86,7 @@ either check is silently dropped from that publish rather than sent with a stale
 **Sparkplug B** publishes the industry-standard Sparkplug topic and payload convention: a birth
 certificate (`NBIRTH`) on connect, data messages (`NDATA`) on each publish, and a broker-delivered
 death certificate (`NDEATH`) via MQTT's Last Will and Testament if the connection drops
-unexpectedly. Sparkplug also subscribes to a command topic and republishes a birth certificate on
+unexpectedly. The publisher also subscribes to a Sparkplug command topic and republishes a birth certificate on
 request, matching how a Sparkplug-aware SCADA or IIoT platform expects an edge node to behave.
 Sparkplug B is not offered on the [Webhook Publisher](./Webhook_Publisher.md): it is a
 topic-namespace and session convention specific to MQTT, not a serialisation format that has any
@@ -96,7 +96,7 @@ meaning over a stateless HTTP POST.
 
 The MQTT Publisher reports **Error** status if the connection to the broker fails or a publish
 attempt fails, and returns to its normal running status on the next successful publish, the same
-status behaviour every other logger and publisher component already gives you. Check the
+status behaviour as every other logger and publisher component. Check the
 [Logs](../../Getting_Started/Profinity_Log.md) for the underlying error when a publisher shows an
 error state.
 

@@ -5,10 +5,10 @@ description: "Virtual tags computed automatically from expressions or scripts th
 
 # Derived (virtual) tags
 
-A **derived tag** is a value Profinity computes automatically, once, that then behaves exactly
+A **derived tag** is a value that Profinity computes automatically and that then behaves exactly
 like a real tag to every consumer — dashboards, the historian, rules, and the API all see the
-same quality/timestamp envelope and can subscribe to it the same way. You configure the
-computation once; Profinity keeps it current.
+same quality and timestamp envelope and can subscribe to it the same way. The computation is
+configured once, and Profinity keeps it current.
 
 Profinity 2.3 supports two ways to compute a derived tag's value:
 
@@ -17,7 +17,7 @@ Profinity 2.3 supports two ways to compute a derived tag's value:
 - **Script-driven** — a script publishes a computed value using existing scripting capabilities.
   Use this when the computation needs more than a single expression.
 
-See [Expression vs script](#expression-vs-script-which-to-use) below for which one fits your case.
+See [Expression vs script](#expression-vs-script-which-to-use) below for which one fits a given case.
 
 ## Open the Derived Tags editor
 
@@ -25,8 +25,8 @@ See [Expression vs script](#expression-vs-script-which-to-use) below for which o
 - Component/profile settings → derived tags visual editor.
 
 Derived tags are organised into **groups**, the same tree structure [Collections](./Collections.md)
-already uses — the Derived Tags editor uses the same tree-and-inspector interaction pattern as the
-Collections editor, so if you already know that editor, this one works the same way.
+already uses, and the Derived Tags editor uses the same tree-and-inspector interaction pattern as the
+Collections editor, so the two editors work the same way.
 
 <figure markdown>
 ![Derived Tags editor showing a group and a derived tag with its expression](../../../../assets/images/2.3/2.3-derived-tags-editor.png)
@@ -39,8 +39,7 @@ An expression-based derived tag names one or more **dependencies** — short ali
 source tag paths — and a formula that combines them. It recomputes the moment any dependency
 changes.
 
-Derived tags can be organised into **groups**, purely for organisation, the same way Collections
-groups are. A group can optionally set a **mount path**: a derived tag with a *relative* mount
+Groups are purely for organisation, the same as Collections groups. A group can optionally set a **mount path**: a derived tag with a *relative* mount
 path mounts underneath its group's mount path; a derived tag that gives its own *absolute* path
 mounts there instead, overriding the group. A nested group's own mount path narrows further under
 its parent's, exactly like a Collections group's scope does.
@@ -76,17 +75,17 @@ work.
 <figcaption>Derived tag inspector with live preview (screenshot placeholder — provide SS-59)</figcaption>
 </figure>
 
-### Deleting a derived tag that's depended on
+### Deleting a derived tag that others depend on
 
-If another derived tag's expression or a rule expression depends on the tag you're deleting, the
-editor names the dependent(s) before letting the delete go through — the same protection
-Collections already gives you before deleting a collection a rule references.
+If another derived tag's expression or a rule expression depends on the tag being deleted, the
+editor names the dependent(s) before letting the delete go through, the same protection
+Collections gives before a collection that a rule references is deleted.
 
 ## Script-driven derived tags
 
-For a computation that doesn't fit one expression — multiple steps, state carried between runs,
-or publishing several tags from one computation — write a script instead. This uses **existing**
-scripting capabilities; there's no separate "derived tag script" concept to learn.
+A computation that does not fit one expression — multiple steps, state carried between runs,
+or publishing several tags from one computation — is written as a script instead. This uses
+**existing** scripting capabilities, and there is no separate "derived tag script" concept.
 
 1. Add a **Script** component (or use an existing one) and set its mode to **Run On Tag Change**
    (see [Script Types](../Scripting/Script_Types/index.md)), watching the source tag(s).
@@ -100,8 +99,8 @@ component.
 === "C#"
 
     ```csharp
-    using Profinity.ComponentSdk.Abstractions.Scripting;
-    using Profinity.ComponentSdk.Models.Tags;
+    using Profinity.Sdk.Abstractions.Scripting;
+    using Profinity.Sdk.Models.Tags;
 
     public class CSharpDerivedTagExample : ProfinityScript, IProfinityTagChangeScript
     {
@@ -168,21 +167,21 @@ all three shipped as templates alongside Profinity's other example scripts.
     value, not a freshly computed one.
 
 Other trigger modes are available too — **Time Interval**, **Cron Schedule**, and **Run On
-Demand** — for a computation that isn't purely reactive to a tag change. See
+Demand** — for a computation that is not purely reactive to a tag change. See
 [Script Types](../Scripting/Script_Types/index.md).
 
 ## Expression vs script — which to use
 
 | Use an **expression** when... | Use a **script** when... |
 |---|---|
-| The computation is simple real-time math, a unit conversion, or combining a handful of tags | The logic needs multiple steps, branching, or state carried between runs |
+| The computation is simple real-time maths, a unit conversion, or combining a handful of tags | The logic needs multiple steps, branching, or state carried between runs |
 | You want automatic history with no extra setup | You need a timed/on-demand trigger rather than pure tag-change reactivity |
 | | You want to populate several tags from one computation |
 
 ## Rule state publishing
 
 A rule can also publish its own current state to a tag — this is a property on the **rule
-itself**, not a derived tag, since it's the rules engine surfacing its own output rather than a
+itself**, not a derived tag, since it is the rules engine surfacing its own output rather than a
 value derived from other tags. Set **`publishStateTagPath`** on a rule (in the Rules editor) to
 mirror that rule's current state to the given tag path whenever it changes. See
 [Rule actions and scripts](./Rule_Actions_And_Scripts.md).

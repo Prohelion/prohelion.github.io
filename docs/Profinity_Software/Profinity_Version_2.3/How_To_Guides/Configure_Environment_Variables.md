@@ -18,25 +18,31 @@ Use environment variables to configure Profinity for flexible deployments across
 ### Step 1: Understand Environment Variable Usage
 
 Environment variables allow you to:
+
 - Change configuration without editing files
 - Use different settings for different environments
 - Deploy the same configuration across multiple systems
 
+Profinity substitutes a `${VARIABLE_NAME}` placeholder, or a `${VARIABLE_NAME:-default}` placeholder with a default value, when it loads a `Config.yaml` or profile file. A variable has an effect only where a placeholder references it, and Profinity does not reserve any variable names.
+
 ### Step 2: Set Environment Variables
 
 **Windows:**
+
 1. Open System Properties → Environment Variables
 2. Add new variables or edit existing ones
 3. Click **OK** to save
 4. Restart Profinity for changes to take effect
 
 **Linux/macOS:**
+
 1. Edit your shell profile (`.bashrc`, `.zshrc`, etc.)
 2. Add: `export VARIABLE_NAME=value`
 3. Or set in systemd service file (for services)
 4. Restart Profinity
 
 **Docker:**
+
 1. Set in `docker-compose.yml`:
    ```yaml
    environment:
@@ -48,16 +54,18 @@ Environment variables allow you to:
 
 ### Step 3: Reference Variables in Config Files
 
-In your `Config.yaml` or `Profile.yaml` files:
+In your `Config.yaml` or profile files, add a placeholder wherever a value should come from the environment:
 
 ```yaml
-http:
-  port: ${HTTP_PORT:-18080}  # Use HTTP_PORT or default to 18080
-  address: ${HTTP_ADDRESS:-0.0.0.0}
-
-logging:
-  level: ${LOG_LEVEL:-Info}
+AppSettings:
+  ProfinityServer:
+    HttpPort: ${HTTP_PORT:-18080}  # Use HTTP_PORT or default to 18080
+    HttpAddress: ${HTTP_ADDRESS:-0.0.0.0}
+  Logs:
+    LogLevel: ${LOG_LEVEL:-Info}
 ```
+
+A placeholder without a default must have its variable set, or the configuration fails to load.
 
 ### Step 4: Use Variables in Docker Compose
 
@@ -87,16 +95,18 @@ services:
 3. Verify settings are applied
 4. Check logs for configuration details
 
-## Common Environment Variables
+## Example Environment Variables
 
-- `HTTP_PORT` - HTTP server port (default: 18080)
-- `HTTPS_PORT` - HTTPS server port (default: 18443)
-- `LOG_LEVEL` - Logging level (Info, Debug, Warning, Error)
-- `PROFILE_NAME` - Default profile name
-- `CONFIG_NAME` - Configuration name
-- `ENABLE_SCRIPTING` - Enable scripting (true/false)
+The following names are used in the examples in this guide and are not reserved by Profinity; the defaults shown apply only where a placeholder specifies them.
+
+- `HTTP_PORT` - HTTP server port (default used in the examples: 18080)
+- `HTTPS_PORT` - HTTPS server port (default used in the examples: 18443)
+- `LOG_LEVEL` - logging level (`Fatal`, `Error`, `Warn`, `Info`, `Debug` or `Trace`)
+- `PROFILE_NAME` - profile name
+- `CONFIG_NAME` - configuration name
+- `ENABLE_SCRIPTING` - enable scripting (true or false)
 
 ## Related Documentation
 
-- [Environment Variables](../Installation/Environment_Variables.md) - Complete environment variable reference
+- [Environment Variables](../Installation/Environment_Variables.md) - the full reference for syntax, defaults and supported files
 - [Docker Installation](../Installation/Docker_Installation.md) - Docker environment setup

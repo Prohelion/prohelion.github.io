@@ -5,16 +5,16 @@ description: "Dynamically change component appearance, visibility, and behaviour
 
 # Conditional Styling
 
-Conditional styling allows your dashboard components to dynamically change their appearance, visibility, and behaviour based on real-time data values. This creates responsive dashboards that adapt to system state, providing immediate visual feedback to users.
+Conditional styling allows dashboard components to change their appearance, visibility, and behaviour based on real-time data values, so that a dashboard adapts to system state and gives users immediate visual feedback.
 
-## What is Conditional Styling?
+## Overview
 
 Conditional styling uses data binding to apply different styles, classes, or visibility states to components based on the current value of data sources. This enables:
 
 - **Visual Status Indicators** - Components change colour or style based on system state
 - **Dynamic Visibility** - Show or hide components based on data conditions
 - **Real-time Feedback** - Immediate visual response to data changes
-- **Enhanced User Experience** - Clear visual cues for system status and alerts
+- **Clear Status Cues** - Visual signals for system status and alerts
 
 ## How Conditional Styling Works
 
@@ -39,7 +39,7 @@ Show or hide components based on data values. This is useful for displaying info
 - Hide advanced settings for basic users
 - Show detailed data only when expanded
 
-## Conditional Display Examples
+#### Conditional Display Example
 
 ``` yaml
 dashboard:
@@ -70,7 +70,7 @@ Change CSS classes and styling properties based on data values. This allows comp
 - Highlight components when values exceed thresholds
 - Show different themes based on system mode
 
-## Dynamic Styling Examples
+#### Dynamic Styling Example
 
 ``` yaml
 dashboard:
@@ -93,10 +93,10 @@ dashboard:
 
 ### 3. Conditional Visibility
 
-Control component visibility using the `enabled` property. This is more efficient than conditional display as it doesn't render hidden components.
+Control component visibility using the `enabled` property. This is more efficient than conditional display because hidden components are not rendered.
 
 **Use Cases:**
-- Show/hide entire sections based on user permissions
+- Show or hide entire sections based on user permissions
 - Display components only when relevant data is available
 - Hide advanced features for basic users
 - Show maintenance information when systems are offline
@@ -129,8 +129,9 @@ Apply different styles based on data value ranges or conditions. This is particu
 
 ## Next Steps
 
-Now that you understand conditional styling, you can:
+The following pages relate to conditional styling:
+
 - Learn about [Data Binding](./Data_Binding.md) to connect styling to your data sources
 - Explore [Component Reference](./Component_Reference/index.md) for styling options available on each component
 - See [Core Elements](./Core_Elements.md) to understand how conditional styling works with dashboard structure
-- Review [Examples](./Examples.md) for complete dashboard implementations with conditional styling
+- Review [Examples](./Examples.md) and the annotated [Full Example](./Example.md) for complete dashboard implementations

@@ -5,7 +5,7 @@ description: "Configure Profinity using environment variable substitution in con
 
 # Environment Variables in Profinity
 
-Profinity supports environment variable substitution in both configuration files and profile files, allowing you to create flexible, environment-specific configurations without hardcoding values.
+Profinity supports environment variable substitution in both configuration files and profile files, allowing flexible, environment-specific configurations to be created without hardcoding values.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ Profinity supports environment variable substitution in both configuration files
     - [Windows](#windows)
     - [Linux/macOS](#linuxmacos)
     - [Docker Deployment](#docker-deployment)
-- [Variable Behavior](#variable-behavior)
+- [Variable Behaviour](#variable-behaviour)
     - [Defined Variables](#defined-variables)
     - [Undefined Variables](#undefined-variables)
     - [Mixed Values](#mixed-values)
@@ -32,14 +32,12 @@ Profinity supports environment variable substitution in both configuration files
 
 ## Overview
 
-Environment variables enable you to:
+Environment variables allow:
 
-- **Use different settings** across development, staging, and production environments
-- **Keep sensitive information** out of configuration files
-- **Share configuration templates** across teams
-- **Easily modify settings** without editing files
-
-This functionality makes Profinity configurations flexible and maintainable across different environments and deployments.
+- **Different settings** across development, staging, and production environments.
+- **Sensitive information** to be kept out of configuration files.
+- **Configuration templates** to be shared across teams.
+- **Settings to be modified** without editing files.
 
 ## Syntax
 
@@ -60,7 +58,7 @@ Components:
 
 ### Default Values
 
-Profinity supports default values for environment variables using the `${VARIABLE_NAME:-default}` syntax. If the environment variable is not set or is empty, the default value will be used instead.
+Profinity supports default values for environment variables using the `${VARIABLE_NAME:-default}` syntax. If the environment variable is not set or is empty, the default value is used instead.
 
 **Examples:**
 
@@ -81,7 +79,7 @@ RollsizeMB: ${LOG_ROLLSIZE:-100}  # Uses 100 if LOG_ROLLSIZE is not set
 EnableScripting: ${ENABLE_SCRIPTING:-true}  # Uses true if ENABLE_SCRIPTING is not set
 ```
 
-**Behavior:**
+**Behaviour:**
 - If the environment variable is set and has a value, that value is used
 - If the environment variable is not set or is empty, the default value (after the `:-`) is used
 - Variables without defaults must be set, or the configuration will fail to load
@@ -92,7 +90,7 @@ Environment variable names must:
 
 | Requirement | Description | Example |
 |-------------|-------------|---------|
-| **Use word characters only** | Letters, numbers, and underscores | `${PROFILE_NAME}`, `${VAR123}` |
+| **Use word characters only** | Letters, numbers, and underscores, and the first character must not be a number | `${PROFILE_NAME}`, `${VAR123}` |
 | **Be enclosed in brackets** | Must use `${}` syntax | `${ADAPTER_IP}` |
 | **Be case-sensitive** | Uppercase and lowercase matter | `${Profile_Name}` ≠ `${profile_name}` |
 
@@ -163,7 +161,7 @@ Components:
 
 ## Setting Environment Variables
 
-Environment variables can be set using various methods depending on your operating system and deployment method.
+Environment variables can be set in several ways, depending on the operating system and deployment method.
 
 ### Windows
 
@@ -196,7 +194,7 @@ export ADAPTER_PORT="8080"
 ```
 
 #### Persistent Configuration
-Add to your shell profile file (`~/.bashrc`, `~/.profile`, or `~/.zshrc`):
+Add the variables to a shell profile file (`~/.bashrc`, `~/.profile`, or `~/.zshrc`):
 
 ```bash
 echo 'export PROFILE_NAME="Production Profile"' >> ~/.bashrc
@@ -207,7 +205,7 @@ echo 'export ADAPTER_PORT="8080"' >> ~/.bashrc
 ### Docker Deployment
 
 #### Environment File (.env)
-Create a `.env` file in your project directory:
+Create a `.env` file in the project directory:
 
 ```env
 PROFILE_NAME=Production Profile
@@ -239,13 +237,13 @@ services:
       - .env
 ```
 
-## Variable Behavior
+## Variable Behaviour
 
-Environment variables are processed when Profinity loads configuration or profile files. Understanding how they behave is crucial for successful deployment.
+Environment variables are processed when Profinity loads configuration or profile files.
 
 ### Defined Variables
 
-When an environment variable is defined and has a value, it will be automatically replaced:
+When an environment variable is defined and has a value, it is replaced automatically:
 
 ```yaml
 # Original configuration
@@ -257,22 +255,21 @@ IpAddress: 192.168.1.100
 
 ### Undefined Variables
 
-When an environment variable is not defined or is empty, the placeholder remains unchanged:
+When an environment variable without a default value is not defined or is empty, Profinity cannot read the file that references it. The file fails to load, and the names of the undefined variables are written to the log:
 
 ```yaml
 # Original configuration
 IpAddress: ${UNDEFINED_IP}
 
-# Result (variable not defined)
-IpAddress: ${UNDEFINED_IP}
+# Result when UNDEFINED_IP is not defined: the file fails to load
 ```
 
 !!! warning "Configuration Loading Errors"
-    If an undefined variable results in invalid values (like `${UNDEFINED_IP}` for an IP address field), the configuration or profile will fail to load with an appropriate error message.
+    A configuration or profile file that references an undefined variable with no default value fails to load, so define every variable that has no default before starting Profinity, or give it a default with the `${VARIABLE_NAME:-default}` syntax.
 
 ### Mixed Values
 
-You can combine environment variables with static values in the same configuration:
+Environment variables can be combined with static values in the same configuration:
 
 ```yaml
 Components:

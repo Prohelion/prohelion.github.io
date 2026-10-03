@@ -5,13 +5,11 @@ description: "Script operations for loading, parsing, and working with DBC files
 
 # DBC
 
-The DBC functionality in Profinity provides tools for working with CAN bus database files. These files define the structure of CAN messages, including signals, message IDs, and data formats. This section gives you a high-level understanding of what the DBC functionality can do.
-
-Use the DBC viewer in Profinity to get the Component, Message and Signal names that you want to track
+The DBC functionality in Profinity provides tools for working with CAN bus database files. These files define the structure of CAN messages, including signals, message IDs, and data formats. Use the DBC viewer in Profinity to find the Component, Message and Signal names that a script needs to track.
 
 ## Key Features
 
-This section lists the core capabilities of the DBC functionality. These features represent the main functionality you'll use when working with DBC files in your applications.
+The DBC functionality provides the following core capabilities.
 
 - Load and parse DBC files
 - Access message definitions
@@ -21,17 +19,17 @@ This section lists the core capabilities of the DBC functionality. These feature
 
 ## Usage
 
-This section provides detailed examples of how to use the DBC functionality in your applications. Each example is shown in C# and Python to accommodate different development environments.
+The following examples show how to use the DBC functionality in scripts. Each example is shown in C# and Python.
 
 ### Basic Operations
 
-Basic operations cover the fundamental tasks you'll perform with DBC files, including loading and accessing message definitions.
+Basic operations cover the fundamental tasks performed with DBC files, such as accessing message and signal definitions.
 
-## GetDbcSignal Method
+### GetDbcSignal Method
 
 The `GetDbcSignal` method retrieves a signal definition from the loaded DBC file using the component name, message name, and signal name.
 
-### Syntax
+#### Syntax
 
 === "C#"
 
@@ -45,17 +43,17 @@ The `GetDbcSignal` method retrieves a signal definition from the loaded DBC file
     signal = Profinity.DBC.GetDbcSignal(component, message, signal)
     ```
 
-### Parameters
+#### Parameters
 
 - `component`: The name of the component that sends/receives the message
 - `message`: The name of the CAN message containing the signal
 - `signal`: The name of the signal to retrieve
 
-### Return Value
+#### Return Value
 
 Returns a `DbcSignal` object containing the signal definition, or `null` if the signal is not found.
 
-### Value Property
+#### Value Property
 
 The most important property of the returned `DbcSignal` object is the `Value` property, which returns the current physical value of the signal.
 
@@ -83,8 +81,8 @@ The most important property of the returned `DbcSignal` object is the `Value` pr
         print(f"Current engine speed: {current_value} {signal.Unit}")
     ```
 
-### Important Notes
+#### Important Notes
 
 1. The component, message, and signal names are case-sensitive
-2. Returns null if any of the parameters don't match definitions in the DBC file
+2. Returns `null` if any of the parameters do not match definitions in the DBC file
 3. The `Value` property automatically converts the raw CAN data to the physical value using the signal's factor and offset

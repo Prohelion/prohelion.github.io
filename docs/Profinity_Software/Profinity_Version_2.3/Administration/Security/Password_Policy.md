@@ -3,7 +3,7 @@ title: Password Policy
 description: "Configure password policies for local sign-in including length, complexity, and expiry requirements."
 ---
 
-# Password policy
+# Password Policy
 
 Profinity 2.3 enforces **password policy** for **local** sign-in (when site **Sign-in method** is **Local**). Policy is configured in **Config.yaml** under **Security Policy → Password Policy**.
 
@@ -33,7 +33,7 @@ Saving Config.yaml restarts the Profinity engine.
 
 ## Forced password change
 
-Administrators can require a user to change password on next login:
+A user with **SecurityAdmin** permission can require another user to change their password on next login:
 
 1. Open **Users & Groups** → select the user.
 2. Enable **Require password change**.
@@ -60,6 +60,8 @@ Users with local accounts can change password from **`/change-password`** when s
 ## Related documentation
 
 - [SSO and sign-in method](./SSO_and_Sign_In.md)
+- [Two-factor authentication](./Two_Factor_Authentication.md)
 - [MFA account management](./MFA_Account_Management.md)
+- [RBAC and permissions](./RBAC_Permissions.md)
 - [Managing users](../Manage_Users.md)
 - [Security guide](../../Installation/Security.md)

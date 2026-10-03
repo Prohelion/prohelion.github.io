@@ -1,25 +1,25 @@
 ---
-title: Profinity Rest APIs
+title: Profinity REST APIs
 description: "Overview of Profinity's REST API architecture, security authentication with Bearer tokens, and accessing realtime and historical data."
 ---
 
-# Profinity Rest APIs
+# Profinity REST APIs
 
-Profinity V2 is a fully API native application with a modern architecture. It supports API security and an open interface model based around REST & JSON. This allows you to build custom applications using the Profinity APIs to provide additional capabilities to your solutions, custom user interfaces, or to extend the out-of-the-box functionality to meet your needs.
+Profinity V2 is a fully API native application with a modern architecture. It supports API security and an open interface model based around REST and JSON, which allows custom applications to use the Profinity APIs to add capabilities to a solution, to provide custom user interfaces, or to extend the out-of-the-box functionality.
 
-As well as supporting RESTful APIs, Profinity's overall solution allows you to build completely custom user interfaces based on Profinity and host those interfaces either externally or within the Profinity solution.
+As well as supporting RESTful APIs, Profinity allows completely custom user interfaces to be built on top of it and hosted either externally or within Profinity itself (see [Hosting](../Hosting/index.md)).
 
-!!! info "Important Information Regarding Profinity Rest APIs"
-    Prohelion's API solution is currently evolving rapidly as we develop new capabilities. Please be aware of this when developing solutions based on Profinity's APIs, as available APIs and models may evolve rapidly from release to release.
+!!! info "Important Information Regarding Profinity REST APIs"
+    Prohelion's API solution is currently evolving rapidly as Prohelion develops new capabilities, so the available APIs and models can change substantially from release to release. Allow for this when developing solutions based on the Profinity APIs.
 
-!!! danger "Profinity APIs are Powerful"
-    While our APIs support security and can be encrypted, be aware that by using Profinity's APIs you need to be careful with what power you are providing the user to ensure that they do not accidentally damage your environment or equipment.
+!!! danger "API Users Can Damage Equipment"
+    The Profinity APIs support security and can be encrypted, but an API user can change system and equipment state. Grant API access only to the users and applications that need it, and limit what each of them can do, so that nobody can accidentally damage the environment or equipment.
 
 ## Using Profinity APIs
 
-Profinity V2 itself is built around our APIs so as of V2 all APIs are running all the time.  
+Profinity V2 is built around its own APIs, so as of V2 all APIs are running whenever Profinity is running.
 
-To see the [Swagger](https://swagger.io) interface for Profinity, simply go to the URL that Profinity is running on and add `/swagger`, so for example if Profinity is running on `localhost:18080`, then `http://localhost:18080/swagger`, should take you to the Swagger UI.
+The [Swagger](https://swagger.io) interface for Profinity is available by adding `/swagger` to the URL that Profinity is running on, so for example if Profinity is running on `localhost:18080`, the Swagger UI is at `http://localhost:18080/swagger`.
 
 <figure markdown>
 ![Showing the Profinity APIs](../../images/swagger.png)
@@ -30,11 +30,11 @@ To see the [Swagger](https://swagger.io) interface for Profinity, simply go to t
 
 ## Profinity API Security
 
-To use Swagger calls in the GUI, you will need to generate and then provide your Bearer token to the APIs if you wish to test them using Swagger. To generate the Bearer token, in the Swagger GUI execute a call against the `/Users/Authenticate` API and then apply the returned Bearer token by clicking on the Authorise button in the top right of the Swagger API.
+Profinity APIs require a Bearer token, so testing them from the Swagger GUI means generating a token first and then providing it to Swagger. To generate the token, execute a call against the `/api/v2/Users/Authenticate` API in the Swagger GUI and apply the returned token with the **Authorize** button in the top right of the Swagger page.
 
-To get a security token call a Profinity instance on the `/users/authenticate` endpoint with a POST request containing the username and password you wish to adopt for your API usage as the JSON body.  For example
+To get a security token from any other client, send a POST request to the `/api/v2/Users/Authenticate` endpoint of the Profinity instance, with the username and password of the Profinity user that the API calls will run as in the JSON body. For example:
 
-### Post request on http://localhost:18080/users/authenticate
+### Post request on http://localhost:18080/api/v2/Users/Authenticate
 
 ```json
 {
@@ -42,10 +42,10 @@ To get a security token call a Profinity instance on the `/users/authenticate` e
   "password": "password"
 }
 ```
-!!! warning "HTTPS is required for password security"
-    Note that calling this API over an HTTP connection can leave you exposed to network scanning which could expose your password. For custom applications running on the Profinity server, the `localhost` address can be used and does not expose this risk. If your application is calling Profinity across a network, we recommend HTTPS for API usage.
+!!! warning "Use HTTPS to Protect Passwords"
+    Calling this API over an HTTP connection can expose the password to network scanning. Custom applications running on the Profinity server can use the `localhost` address, which does not carry this risk, while an application that calls Profinity across a network should use HTTPS for all API usage.
 
-Profinity will respond to this request if your username and password are valid with a security token like this
+If the username and password are valid, Profinity responds to this request with a security token like this:
 
 ```json
 {
@@ -54,15 +54,15 @@ Profinity will respond to this request if your username and password are valid w
 ```
 
 <figure markdown>
-![Generating a Authorization token via Swagger](../../images/swagger_authentication.png)
-<figcaption>Generating a Authorization token via Swagger</figcaption>
+![Generating an Authorization token via Swagger](../../images/swagger_authentication.png)
+<figcaption>Generating an Authorization token via Swagger</figcaption>
 </figure>
 <br>
 
 
-The contents of this token should then be passed in each subsequent request as a Bearer Token, check the documentation of your client side tools to determine how best to achieve this with the tool you are using to call Profinity.
+The contents of this token must be passed in each subsequent request as a Bearer token, and the documentation of the client-side tool calling Profinity describes how to do this for that tool.
 
-In Swagger this token is applied by using the Authorize button in the top right of the screen and pasting in the token you have generated
+In Swagger the token is applied by clicking the **Authorize** button in the top right of the screen and pasting in the generated token:
 
 <figure markdown>
 ![Entering the token in Swagger](../../images/swagger_authorize_button.png)
@@ -73,8 +73,8 @@ In Swagger this token is applied by using the Authorize button in the top right 
 
 ## Accessing Historical Data via APIs
 
-APIs can provide both realtime and historical data, when a InfluxDB database is configured in the profile.  If no InfluxDB is setup, then only realtime data is available.
+APIs can provide both realtime and historical data when an InfluxDB database is configured in the profile. If no InfluxDB database is set up, only realtime data is available.
 
-The __/api/v2/CAN/{Message}/{Signal}__ api is used to get historical data.  To use this API request a DBC Message and Signal as well as a InfluxDB time range that you wish to retrieve the data for.  The API will then call InfluxDB and retrieve all of the data stored across that time frame for this signal.
+The `/api/v2/CAN/{Message}/{Signal}` API is used to get historical data. A request names a DBC message and signal together with the InfluxDB time range to retrieve, and the API then calls InfluxDB and returns all of the data stored for that signal across that time range.
 
-For more information on configuring InfluxDB see the [InfluxDB and Prometheus Integration](../../Components/Loggers/InfluxDB_Prometheus_Logger.md) section of this documentation.
+For more information on configuring InfluxDB see [InfluxDB and Prometheus Logging](../../Components/Loggers/InfluxDB_Prometheus_Logger.md).
