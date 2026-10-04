@@ -43,9 +43,13 @@ The side menu icon uses the Carbon alert style — not the legacy `dash_alerts_a
 
 Typical columns include time, rule name, tag, and **description** (from the rule's `description` field).
 
+## Alert levels
+
+Every rule and threshold step carries a `level`, and the six permitted values in ascending severity are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`. A rule that omits `level` defaults to `Info`, and an unrecognised value is rejected when the rules file loads. The `triggerLevel` of a parent action uses the same values and fires for alerts at that level or above. The `level` filter on the Active and History queries, and on the MCP alert tools, is case-insensitive.
+
 ## Live indicators
 
-Profinity polls active alerts approximately every **one second** and shows indicators in:
+The web client polls active alerts every **four seconds** and shows indicators in:
 
 - **Dashboard widgets** bound to alerting tags — yellow alert triangle on the bottom-right of the widget.
 - **Tag Explorer** — alert icon on leaf tags (and branch rollup where configured).
@@ -72,7 +76,7 @@ From ALL ALERTS (requires `AlertsView` — same permission for mutations):
 |--------|--------|
 | **Acknowledge** | Marks alert as seen/handled |
 | **Unacknowledge** | Reverts acknowledgement |
-| **Silence** | Suppresses notifications for a time-limited period |
+| **Silence** | Suppresses notifications for the number of minutes given in `durationMinutes` on the request |
 
 ### REST API
 
@@ -91,7 +95,7 @@ From ALL ALERTS (requires `AlertsView` — same permission for mutations):
 <figcaption>Monitoring logic that scales with the fleet</figcaption>
 </figure>
 
-Rules support **dwell** (condition must hold for a duration) and **deadband** (hysteresis) configured in the rules visual editor. Engine evaluation interval is controlled by **`evaluationTickSeconds`** in rule configuration.
+Rules support **dwell** (the condition must hold for a duration, set with `dwellSeconds` or `dwellMinutes`) and **deadband** (hysteresis, set on a threshold step with `clearValue` or `clearExpression`), configured in the rules visual editor or in `rules.yaml`. Engine evaluation interval is controlled by **`evaluationTickSeconds`** in rule configuration.
 
 Conditions use the same `tag` expression language as collections. Numeric trip and clear conditions:
 

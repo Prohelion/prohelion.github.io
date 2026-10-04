@@ -75,8 +75,8 @@ Timeout: ${ADAPTER_TIMEOUT:-}  # Uses empty string if ADAPTER_TIMEOUT is not set
 # Variable with default in Logs section
 RollsizeMB: ${LOG_ROLLSIZE:-100}  # Uses 100 if LOG_ROLLSIZE is not set
 
-# Boolean with default
-EnableScripting: ${ENABLE_SCRIPTING:-true}  # Uses true if ENABLE_SCRIPTING is not set
+# Boolean with default (the key under AppSettings.Scripts)
+Enabled: ${ENABLE_SCRIPTING:-false}  # Uses false if ENABLE_SCRIPTING is not set
 ```
 
 **Behaviour:**
@@ -112,7 +112,7 @@ Environment variables are supported in both Profinity Config and Profile files, 
 
 ### Configuration Files
 
-Environment variables work in the main Profinity configuration file (`Config.yaml`):
+Environment variables work in the main Profinity configuration file (`config.yaml`):
 
 ```yaml
 Name: ${CONFIG_NAME}
@@ -123,7 +123,8 @@ AppSettings:
   Logs:
     LogLevel: ${LOG_LEVEL}
     RollsizeMB: ${LOG_ROLLSIZE:-100}  # Default to 100 if not set
-  EnableScripting: ${ENABLE_SCRIPTING:-true}  # Default to true if not set
+  Scripts:
+    Enabled: ${ENABLE_SCRIPTING:-false}  # Default to false if not set
 Options:
   WebServer:
     Enabled: true
@@ -220,22 +221,26 @@ BMU_MILLI_VALID=750
 docker run -e PROFILE_NAME="Production Profile" \
            -e ADAPTER_IP="192.168.1.100" \
            -e ADAPTER_PORT="8080" \
-           profinity
+           prohelion/profinity:latest
 ```
 
 #### Docker Compose
 ```yaml
-version: '3.8'
 services:
   profinity:
-    image: profinity
+    image: prohelion/profinity:latest
     environment:
+      - PROFINITY_HOME=/app/Prohelion
       - PROFILE_NAME=Production Profile
       - ADAPTER_IP=192.168.1.100
       - ADAPTER_PORT=8080
     env_file:
       - .env
+    volumes:
+      - $HOME/Prohelion:/app/Prohelion:rw
 ```
+
+`PROFINITY_HOME` must match the container-side mount path, as described in [Docker Installation](./Docker_Installation.md). The variables in the `environment` section only affect the files that reference them with the `${VARIABLE_NAME}` syntax, such as `config.yaml` and the profile files stored in the mounted volume.
 
 ## Variable Behaviour
 
@@ -291,7 +296,7 @@ These examples demonstrate how to use environment variables in both configuratio
 
 ### Configuration File Example
 
-**Config.yaml:**
+**config.yaml:**
 ```yaml
 Name: ${CONFIG_NAME}
 Description: ${CONFIG_DESCRIPTION}
@@ -307,7 +312,8 @@ AppSettings:
     RollsizeMB: ${LOG_ROLLSIZE:-100}  # Default to 100 if not set
     MaxLogFiles: ${MAX_LOG_FILES:-10}  # Default to 10 if not set
     LogLevel: ${LOG_LEVEL}
-  EnableScripting: ${ENABLE_SCRIPTING:-true}  # Default to true if not set
+  Scripts:
+    Enabled: ${ENABLE_SCRIPTING:-false}  # Default to false if not set
 Options:
   WebServer:
     Enabled: true
@@ -331,7 +337,7 @@ LOG_LEVEL=Info
 
 ### Profile File Example
 
-**Profile.yaml:**
+**profile.yaml:**
 ```yaml
 Name: ${PROFILE_NAME}
 Description: ${PROFILE_DESCRIPTION}

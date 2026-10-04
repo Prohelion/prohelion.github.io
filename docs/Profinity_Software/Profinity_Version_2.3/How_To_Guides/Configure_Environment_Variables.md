@@ -23,7 +23,7 @@ Environment variables allow you to:
 - Use different settings for different environments
 - Deploy the same configuration across multiple systems
 
-Profinity substitutes a `${VARIABLE_NAME}` placeholder, or a `${VARIABLE_NAME:-default}` placeholder with a default value, when it loads a `Config.yaml` or profile file. A variable has an effect only where a placeholder references it, and Profinity does not reserve any variable names.
+Profinity substitutes a `${VARIABLE_NAME}` placeholder, or a `${VARIABLE_NAME:-default}` placeholder with a default value, when it loads a `config.yaml` or profile file. A variable has an effect only where a placeholder references it, and Profinity itself reads `PROFINITY_HOME`, which sets the [artifacts directory](../Installation/Artifacts_Directory.md), and the key-material variables `PROFINITY_JWT_SIGNING_KEY`, `PROFINITY_ENCRYPTION_KEY` and `PROFINITY_JWT_RSA_PRIVATE_KEY_PEM`.
 
 ### Step 2: Set Environment Variables
 
@@ -54,7 +54,7 @@ Profinity substitutes a `${VARIABLE_NAME}` placeholder, or a `${VARIABLE_NAME:-d
 
 ### Step 3: Reference Variables in Config Files
 
-In your `Config.yaml` or profile files, add a placeholder wherever a value should come from the environment:
+In your `config.yaml` or profile files, add a placeholder wherever a value should come from the environment:
 
 ```yaml
 AppSettings:
@@ -97,7 +97,7 @@ services:
 
 ## Example Environment Variables
 
-The following names are used in the examples in this guide and are not reserved by Profinity; the defaults shown apply only where a placeholder specifies them.
+The following names are used in the examples in this guide and are not read by Profinity unless a placeholder references them; the defaults shown apply only where a placeholder specifies them.
 
 - `HTTP_PORT` - HTTP server port (default used in the examples: 18080)
 - `HTTPS_PORT` - HTTPS server port (default used in the examples: 18443)

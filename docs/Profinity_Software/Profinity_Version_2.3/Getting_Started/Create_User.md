@@ -5,7 +5,7 @@ description: "Create new Profinity users and assign security roles to control ac
 
 # Creating a User
 
-After installing Profinity it is recommended to create a new user to suit your security requirements, and additional users to support different types of user. To create a new user, open the pill menu (top-right), select **Users & Groups** and then **+ Add user**, which allows you to define the new user and their associated login details.
+After installing Profinity it is recommended to create a new user to suit your security requirements, and additional users to support different types of user. To create a new user, select **ADMIN** in the side menu, then **Users & Groups** and then **+ Add user**, which allows you to define the new user and their associated login details.
 
 <figure markdown>
 ![Add user](../images/add_user.png)

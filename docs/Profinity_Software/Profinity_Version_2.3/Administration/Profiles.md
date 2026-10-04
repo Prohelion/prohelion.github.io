@@ -7,7 +7,7 @@ description: "Create and manage profiles to organise device configurations, with
 
 A Profile is the core mechanism by which Profinity maintains the configuration of your system. Any component that you add to your system becomes associated with the active Profile, and the configuration for each device is retained after Profinity is shut down. Profinity keeps track of your Profiles and loads the most recently used one each time you start the tool.
 
-The `Profile` menu is located in the `ADMIN` tab.
+The **Profile** pill is located on the **ADMIN** page, which is opened by selecting **ADMIN** in the side menu.
 
 <figure markdown>
 ![Profinity Profile menu](../images/profiles_menu.png)
@@ -18,8 +18,8 @@ The `Profile` menu is located in the `ADMIN` tab.
 
 To change which profile is currently active in Profinity:
 
-1. Navigate to the **ADMIN** tab
-2. Open **Profiles**
+1. Select **ADMIN** in the side menu
+2. Select the **Profile** pill
 3. In the profile list, locate the profile you want to activate
 4. Click **ACTIVATE** on the profile row to make it the active profile
 5. The selected profile becomes active immediately
@@ -33,8 +33,8 @@ You can edit a profile's name and description to better organise your profiles.
 
 ### Editing Profile Name and Description
 
-1. Navigate to the **ADMIN** tab
-2. Open **Profiles**
+1. Select **ADMIN** in the side menu
+2. Select the **Profile** pill
 3. In the profile list, **click on the name** of the profile you want to edit
 4. A dialog opens allowing you to modify:
    - **Profile Name**: Must be unique across all profiles
@@ -56,8 +56,8 @@ You can edit a profile's name and description to better organise your profiles.
 
 To create a new Profile:
 
-1. Navigate to the **ADMIN** tab
-2. Open **Profiles**
+1. Select **ADMIN** in the side menu
+2. Select the **Profile** pill
 3. Click the **+ ADD PROFILE** button
 4. Enter a unique profile name and optional description
 5. Build your system configuration from scratch
@@ -76,8 +76,8 @@ Kiosk Mode enables automatic user authentication for a profile, bypassing the lo
 
 To enable Kiosk Mode for a profile:
 
-1. Navigate to the **ADMIN** tab
-2. Open **Profiles**
+1. Select **ADMIN** in the side menu
+2. Select the **Profile** pill
 3. Select the profile you want to configure (it does not need to be active)
 4. Click on the profile name or settings icon to open profile settings
 5. Enable the **Kiosk Mode** option
@@ -96,12 +96,12 @@ For detailed information about Kiosk Mode, including requirements, security best
 
 To download a Profile Pack, including all associated DBC files, scripts, battery cell profiles, etc.:
 
-1. Navigate to the **ADMIN** tab
-2. Open **Profiles**
+1. Select **ADMIN** in the side menu
+2. Select the **Profile** pill
 3. Click the **download button** (download icon) next to the profile in the profile list
 4. The Profile Pack will be downloaded as a ZIP file containing all profile-related files
 
-Profinity ships with an example Profile called the PET Profile (Prohelion / Elmar / Tritium), which contains the necessary configuration to support a vehicle based on Prohelion, Elmar, and Tritium technologies. If you want to use this Profile as a basis for your own work, Prohelion recommends copying it to a new file name because the file is overwritten each time you install a new version of Profinity.
+Profinity ships with an example Profile called the Example Profile, which contains a Prohelion 12v battery, a Prohelion BMU, three Elmar Solar MPPT devices and two Prohelion WaveSculptor 22 Motor Controllers, as described in the [Quick Start Guide](../Getting_Started/Quick_Start.md). If you want to use this Profile as a basis for your own work, Prohelion recommends copying it to a new file name because the file is overwritten each time you install a new version of Profinity.
 
 ## Profinity Profile Packs
 
@@ -120,7 +120,7 @@ Profile packs can be downloaded from Profinity as a ZIP file, containing all the
 
 In Profinity, the Profiles and all the related files are stored by default in directories under the directory:
 
-`/Documents/Prohelion/Profinity/Profiles`
+`profiles` inside the [artifacts directory](../Installation/Artifacts_Directory.md), which is `%LOCALAPPDATA%\Prohelion\Profinity\profiles` on Windows
 
 While it is possible to edit the Profile files directly in a text editor, Prohelion does not recommend it. If you do edit a file directly, Profinity generally reloads the file automatically once you save your changes.
 
@@ -128,7 +128,7 @@ Profinity provides profile-specific directories for organising dashboard assets:
 
 ### /Profile/Images
 
-- **Location**: `{ProfileDirectory}/Images/`
+- **Location**: `{ProfileDirectory}/images/`
 - **Purpose**: Store images used in dashboards (icons, interactive images, etc.)
 - **Usage**: Reference images by filename only (e.g., `image: "my-icon.svg"`)
 - **Access**: Images are served from `/Profile/Images/{filename}` URL path
@@ -136,7 +136,7 @@ Profinity provides profile-specific directories for organising dashboard assets:
 
 ### /Profile/Styles
 
-- **Location**: `{ProfileDirectory}/Styles/`
+- **Location**: `{ProfileDirectory}/styles/`
 - **Purpose**: Store custom CSS stylesheets for dashboard styling
 - **Usage**: Reference stylesheets by filename (e.g., `Profile.css`, `variables.css`)
 - **Access**: Stylesheets are served from `/Profile/Styles/{filename}` URL path
@@ -144,7 +144,7 @@ Profinity provides profile-specific directories for organising dashboard assets:
 
 ### /Profile/Content
 
-- **Location**: `{ProfileDirectory}/Content/`
+- **Location**: `{ProfileDirectory}/content/`
 - **Purpose**: Store general content files (HTML snippets, templates, etc.)
 - **Usage**: Reference content files by filename
 - **Access**: Content files are served from `/Profile/Content/{filename}` URL path

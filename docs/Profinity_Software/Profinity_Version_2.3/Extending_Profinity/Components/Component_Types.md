@@ -18,7 +18,7 @@ Profinity 2.3 distinguishes three extension models, each with its own packaging 
 |--|----------------------|-------------------------|----------------|
 | **Type** | Built-in `CustomComponent` | Built-in `DashboardComponent` | Author-compiled assembly |
 | **DBC** | Optional | No | Varies by plugin |
-| **Primary files** | DBC, dashboard YAML, `actions.yaml`, scripts, maps | Dashboard YAML only | `.dll` + manifest in nupkg/zip |
+| **Primary files** | DBC, dashboard YAML, `actions.yaml`, scripts, maps | Dashboard YAML only | `.dll` plus an optional `dependencies/` folder, in a nupkg or zip |
 | **Packaging** | Optional `profinity-component-pack` zip/nupkg | N/A (profile YAML) | Plugin Manager `.nupkg`/zip |
 | **Install path** | Profile component folder | Profile component folder | `{Artifacts}/plugins/{id}/` |
 | **Example** | G-STAR IV custom sample | Profile YAML dashboard-only component | Rinstrum Scale Plugin |
@@ -39,7 +39,7 @@ Beyond basic DBC + dashboard, Custom Components support:
 
 Optional packaging: [Component Pack CLI](./Component_Pack_CLI.md).
 
-Authoring reference: [SDK Plugin Authoring](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/SDK/SDK-Plugin-Authoring.md) and [Custom Components](../Custom_Components/index.md).
+Authoring reference: [Custom Components](../Custom_Components/index.md) and the [Profinity SDK](../SDK.md).
 
 ## Dashboard Component
 

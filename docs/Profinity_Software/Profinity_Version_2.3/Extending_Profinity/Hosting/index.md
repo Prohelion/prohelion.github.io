@@ -17,8 +17,8 @@ By default the Profinity web server serves the `index.html` file from this folde
 
 ## Production Configuration and HTTPS
 
-The Profinity web server supports SSL / TLS certificates for production environments. There are two options for providing a certificate: the Windows Certificate Store, or a certificate file and password, which works on Windows, macOS and Linux.
+The Profinity web server supports SSL / TLS certificates for production environments. There are two options for providing a certificate: the Windows Certificate Store, or a certificate file with its password (`Cert File`, `Cert File Password` and optionally `Cert Key File`), which works on Windows, macOS and Linux.
 
-`HttpsRedirect` can be set to force all HTTP traffic to the HTTPS interface, in which case a second, HTTPS, interface must also be provided in the `Urls` option. Consider disabling Swagger in a production environment.
+`HttpsRedirect` (**Redirect all Http traffic to Https**) can be set to force all HTTP traffic to the HTTPS interface, and the setting is rejected as invalid if it is enabled while Https is disabled. The Extensions Web server listens on port 19080 for HTTP and 19443 for HTTPS by default, and these are set in the **IP Port for Http** and **IP Port for Https** fields. Consider disabling Swagger in a production environment.
 
-When using a certificate from the Windows Certificate Store, the `CertStoreName`, `CertStoreLocation` and `CertStoreSubject` properties must be provided in the configuration file.
+When using a certificate from the Windows Certificate Store, the `CertStoreName`, `CertStoreLocation` and `CertStoreSubject` properties (shown as **Windows Cert Store**, **Windows Cert Store Location** and **Windows Cert Store Subject**) must all be provided, and Profinity validates that the named store and certificate exist.

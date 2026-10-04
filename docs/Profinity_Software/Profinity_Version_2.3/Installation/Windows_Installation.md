@@ -37,7 +37,7 @@ To stop Profinity, shut down the application.
 
 With Profinity Desktop running, you can also access the user interface as a web application if the Profinity instance is running on an address other than 127.0.0.1.  
 
-To do so, open the URL defined in the [Admin / System Configuration / Web panel](../Administration/System_Config.md) (for example, `http://profinity:18080`) to access the Profinity web client. For installations that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine, or `http://[Your IP Address]:18080` if accessed remotely.
+To do so, open the URL defined in the Profinity Web panel of [System Configuration](../Administration/System_Config.md) (reached from **ADMIN** in the side menu) to access the Profinity web client. For installations that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine, or `http://[Your IP Address]:18080` if accessed remotely.
 
 Connecting to the Profinity web client directs the browser to the Profinity login page. For security, a fresh install of Profinity Desktop on Windows has no account that can be used to log in, so create a user account in the desktop application first and then log in as normal.
 

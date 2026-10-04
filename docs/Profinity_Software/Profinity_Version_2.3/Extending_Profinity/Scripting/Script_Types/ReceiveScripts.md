@@ -37,14 +37,13 @@ This example demonstrates a Receive script that:
 
     ```csharp
     using System;
-    using Profinity.Scripting;
     using Profinity.Sdk.Models.CANBus;
 
-    public class CSharpRunTest : ProfinityScript, IProfinityReceiverScript
+    public class CSharpReceiveExample : ProfinityScript, IProfinityReceiverScript
     {
         public void Receive(CanBusPacket canPacket)
         {
-            Profinity.Console.WriteLine("CSharp CanId Received : " + canPacket.CanIdAsHex);
+            Profinity.Console.WriteLine("CSharp CanBusId Received : " + canPacket.CanIdAsHex);
         }
     }
     ```

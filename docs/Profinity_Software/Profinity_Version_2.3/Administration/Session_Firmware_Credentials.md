@@ -65,17 +65,15 @@ The POST body takes the following shape:
 ## Session lifetime
 
 - Credentials remain until **logout** or session expiry.
-- Timeout policies follow site **Session policy** in Config.yaml.
+- Timeout policies follow site **Session policy** in config.yaml.
 - Plan operator workflows so firmware tasks complete within one signed-in session.
 
 ## Pitfalls
 
 - Admin keys can no longer be saved in component YAML — that pattern is removed.
 - Backup files from 2.2.x may contain old persisted keys; review and remove after upgrade.
-- Engineering may need to provide a Gen2 or Rinstrum component on a demo profile for screenshots.
 
 ## Related documentation
 
 - [RBAC and permissions](./Security/RBAC_Permissions.md)
 - [Release notes 2.3.10](../Release_Notes/2.3.10.md)
-- Engineering reference: [A12 Session Firmware Credentials](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A12-Session-Firmware-Credentials.md)

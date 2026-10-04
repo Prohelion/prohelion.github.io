@@ -50,7 +50,18 @@ services:
         - 18080:18080
         - 18443:18443
         - 4876:4876
+      # PROFINITY_HOME must match the container-side mount path below, otherwise the
+      # security keys and profiles are written to the container's writable layer and are
+      # lost when the image is updated
+      environment:
+        - PROFINITY_HOME=/app/Prohelion
+      volumes:
+        - $HOME/Prohelion:/app/Prohelion:rw
 ```
+
+This mirrors the compose file published with Profinity. The ports are the HTTP port (`18080`), the HTTPS port (`18443`) and the Tritium CAN adapter port (`4876`), which is a fixed value that the Tritium adapter uses for both UDP and TCP traffic. Docker publishes a port as TCP unless the mapping ends in `/udp`, so add `- 4876:4876/udp` when a Tritium adapter is reached through the published ports, and use host networking where multicast adapter discovery is required. The container runs as the non-root `app` user, so the host directory mounted at `PROFINITY_HOME` must be writable by that user.
+
+The Profinity artifacts directory inside the container is whatever `PROFINITY_HOME` names. With the mount above, the configuration is stored in `/app/Prohelion/config`, the profiles in `/app/Prohelion/profiles` and the logs in `/app/Prohelion/logs`, which appear on the host under `$HOME/Prohelion`. The Docker install script published with Profinity follows the same pattern with `PROFINITY_HOME=/var/lib/prohelion/profinity` mounted from a local `data` directory, which is also the default artifacts path on Linux, and either path is valid provided that the environment variable and the mount destination match.
 
 For more information about Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/).
 
@@ -135,34 +146,37 @@ services:
     ports:
       - "${HTTP_PORT:-18080}:18080"
       - "${HTTPS_PORT:-18443}:18443"
-      - "${UDP_PORT:-4876}:4876"
+      - "4876:4876"
     environment:
+      # The artifacts directory inside the container, which must match the volume below
+      - PROFINITY_HOME=/app/Prohelion
+
       # Profinity Configuration
       - CONFIG_NAME=${CONFIG_NAME:-Production Configuration}
       - HTTP_ADDRESS=${HTTP_ADDRESS:-0.0.0.0}
       - HTTP_PORT=${HTTP_PORT:-18080}
       - LOG_LEVEL=${LOG_LEVEL:-Info}
-      - ENABLE_SCRIPTING=${ENABLE_SCRIPTING:-true}
+      - ENABLE_SCRIPTING=${ENABLE_SCRIPTING:-false}
       
       # Profile Configuration
       - PROFILE_NAME=${PROFILE_NAME:-Docker Profile}
       - ADAPTER_IP=${ADAPTER_IP:-192.168.1.100}
       - ADAPTER_PORT=${ADAPTER_PORT:-8080}
     volumes:
-      - ./profiles:/root/Prohelion/Profinity/Profiles
-      - ./config:/root/Prohelion/Profinity/Config
+      - ./profiles:/app/Prohelion/profiles
+      - ./config:/app/Prohelion/config
 ```
 
 For more information about Docker Compose environment variables, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/).
 
 !!! info "Docker volumes (2.3+)"
-    The `volumes` section mounts local directories into the container. Profinity resolves the artifacts directory inside the container based on user and `PROFINITY_HOME`. On Linux hosts running 2.3+, the default artifacts path is **`/var/lib/prohelion/profinity`** when not using a custom layout. Legacy compose examples mounting `/root/Prohelion/Profinity/` may still work — verify with `docker compose exec` and align mounts after upgrade. See [Artifacts directory](./Artifacts_Directory.md).
+    The `volumes` section mounts local directories into the container. Profinity resolves the artifacts directory inside the container from `PROFINITY_HOME` when it is set, and otherwise from the platform default, which is `/var/lib/prohelion/profinity` on Linux. The sub-folders beneath the artifacts directory use lowercase names (`config`, `profiles`, `logs`), and Linux file systems are case-sensitive, so mounts should target those names. Compose files written for 2.2 that mount `/root/Prohelion/Profinity/...` need their mounts moved to the new `PROFINITY_HOME` path, because the automatic migration from legacy operating system locations is skipped whenever `PROFINITY_HOME` is set. See [Artifacts directory](./Artifacts_Directory.md).
 
 !!! tip "Validating profile paths"
     To verify where Profinity is storing profiles and config files, open a shell in the running container:
     ```bash
     docker compose exec profinity bash
-    ls -la /root/Prohelion/Profinity/
+    ls -la /app/Prohelion/
     ```
     This shows the actual directory structure used by Profinity inside the container.
 
@@ -176,9 +190,8 @@ Create a `.env` file in the same directory as the `docker-compose.yml` file:
 # Profinity Configuration
 CONFIG_NAME=Production Configuration
 HTTP_ADDRESS=0.0.0.0
-HTTP_PORT=18080
 LOG_LEVEL=Info
-ENABLE_SCRIPTING=true
+ENABLE_SCRIPTING=false
 
 # Profile Configuration
 PROFILE_NAME=Docker Profile
@@ -188,15 +201,14 @@ ADAPTER_PORT=8080
 # Network Configuration
 HTTP_PORT=18080
 HTTPS_PORT=18443
-UDP_PORT=4876
 ```
 
 For more information about `.env` files in Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
 !!! tip "Using Environment Variables in Config and Profile Files"
-    When using environment variables with Docker, they can be referenced directly in the Profinity `Config.yaml` and `Profile.yaml` files. These files should be placed in the mounted volume directories that map to `/root/Prohelion/Profinity/Config` and `/root/Prohelion/Profinity/Profiles` inside the container. When Profinity starts in Docker, it substitutes the environment variables in these files with the values from the `.env` file or the Docker Compose `environment` section.
+    When using environment variables with Docker, they can be referenced directly in the Profinity `config.yaml` file and the profile files. These files should be placed in the mounted volume directories that map to `/app/Prohelion/config` and `/app/Prohelion/profiles` inside the container. When Profinity starts in Docker, it substitutes the environment variables in these files with the values from the `.env` file or the Docker Compose `environment` section.
     
-    For complete examples and detailed information about using environment variables in `Config.yaml` and `Profile.yaml` files, including syntax, default values, and variable naming rules, see the [Environment Variables](./Environment_Variables.md) documentation.
+    For complete examples and detailed information about using environment variables in the `config.yaml` file and the profile files, including syntax, default values, and variable naming rules, see the [Environment Variables](./Environment_Variables.md) documentation.
 
 #### Using Environment Files with Docker Compose
 
@@ -226,14 +238,15 @@ services:
   profinity:
     image: prohelion/profinity:latest
     environment:
+      - PROFINITY_HOME=/app/Prohelion
       - CONFIG_NAME=Development Configuration
       - LOG_LEVEL=Debug
       - ENABLE_SCRIPTING=true
       - PROFILE_NAME=Development Profile
       - ADAPTER_IP=127.0.0.1
     volumes:
-      - ./dev-profiles:/root/Prohelion/Profinity/Profiles
-      - ./dev-config:/root/Prohelion/Profinity/Config
+      - ./dev-profiles:/app/Prohelion/profiles
+      - ./dev-config:/app/Prohelion/config
 ```
 
 **Production Environment**
@@ -244,15 +257,16 @@ services:
     image: prohelion/profinity:latest
     restart: always
     environment:
+      - PROFINITY_HOME=/app/Prohelion
       - CONFIG_NAME=Production Configuration
       - LOG_LEVEL=Info
       - ENABLE_SCRIPTING=false
       - PROFILE_NAME=Production Profile
       - ADAPTER_IP=${PRODUCTION_ADAPTER_IP}
     volumes:
-      - ./prod-profiles:/root/Prohelion/Profinity/Profiles
-      - ./prod-config:/root/Prohelion/Profinity/Config
-      - ./logs:/root/Prohelion/Profinity/Logs
+      - ./prod-profiles:/app/Prohelion/profiles
+      - ./prod-config:/app/Prohelion/config
+      - ./logs:/app/Prohelion/logs
 ```
 
 For more information about Docker Compose file overrides, see the [official Docker documentation](https://docs.docker.com/compose/extends/).

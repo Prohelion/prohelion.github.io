@@ -1,6 +1,9 @@
 nav:
     - Lamps.md
+    - Lamp.md
     - Readouts.md
     - Charts.md
     - State.md
     - Tables.md
+    - Caption.md
+    - Log.md

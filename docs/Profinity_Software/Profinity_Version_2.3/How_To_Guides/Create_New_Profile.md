@@ -16,7 +16,7 @@ Create a new profile to manage different configurations for different setups or 
 
 ### Step 1: Access Profile Management
 
-1. Navigate to **ADMIN** → **Profiles**
+1. Select **ADMIN** in the side menu, then **Profile**
 2. The profile list opens
 
 ### Step 2: Create New Profile
@@ -42,7 +42,7 @@ Alternatively, click **UPLOAD PROFILE PACK** to import a Profile Pack from anoth
 ### Step 5: Save Profile Settings
 
 1. Profile settings are saved automatically
-2. Switch between profiles using **ADMIN** → **Profiles**
+2. Switch between profiles by selecting **ADMIN** in the side menu and opening the **Profile** pill
 3. Each profile maintains its own configuration
 
 ## Tips

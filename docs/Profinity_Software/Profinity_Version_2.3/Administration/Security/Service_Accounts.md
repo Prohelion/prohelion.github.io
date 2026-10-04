@@ -9,7 +9,7 @@ Profinity 2.3 supports **service accounts** — dedicated user records with long
 
 ## Create a service account
 
-1. Open **Users & Groups** → **+ Add user** (or edit an existing automation user).
+1. Select **ADMIN** in the side menu, then **Users & Groups** → **+ Add user** (or edit an existing automation user).
 2. Enable the **Service account** toggle.
 3. Save the user, then click the user's row to open their settings dialog.
 4. Select the **User Actions** tab.
@@ -43,7 +43,7 @@ Pass the token as a bearer token on `/api/v2` requests:
 Authorization: Bearer {your-service-token}
 ```
 
-For MCP setup and testing, see [MCP Server](../../Extending_Profinity/MCP_Server.md) and the engineering [MCP Testing guide](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Guides/MCP-Testing.md).
+For MCP setup and testing, see [MCP Server](../../Extending_Profinity/MCP_Server.md).
 
 ## Revoke access
 

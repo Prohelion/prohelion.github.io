@@ -18,45 +18,49 @@ Status pill component with grouped readouts and icon. Pills display multiple rel
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the pill |
-| `class` | optional (string) | CSS class for styling |
-| `icon` | optional (object) | Icon configuration |
-| `items` | required (array) | Array of pill groups |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | CSS class added to the pill element |
+| `title` | string | No | None | Heading shown above the icon and groups, inside the same pill |
+| `icon` | object | No | None | Icon shown at the left of the pill. When omitted, the icon area is left empty |
+| `items` | array | Yes | None | Array of pill groups, laid out horizontally in order |
 
 **Icon Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `image` | required (string) | Icon image filename from /Profile/Images directory |
-| `recess` | optional (boolean) | Whether icon is recessed |
-| `value` | optional (number) | Icon value |
-| `bind` | optional (array) | Data binding for icon |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `image` | string | No | None | Carbon icon name, a legacy icon filename such as `nav_battery_active.svg`, or an image filename from the `/Profile/Images` directory |
+| `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed frame at a larger size |
+| `value` | number | No | None | State of the icon between `0` and `1`, which selects a state-specific CSS class for icons that are styled by class rather than by `image` |
+| `bind` | array | No | None | Data binding for the icon. Only the `value` target is handled |
 
 **Pill Group Parameters:**
 
 Each item in `items` must contain a `pillgroup` object with:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the pill group |
-| `class` | optional (string) | CSS class for styling |
-| `items` | required (array) | Array of value items |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | Not used by the web interface |
+| `items` | array | Yes | None | Array of value items |
 
 Each item in the pill group's `items` must contain a `value` object (a pill item) with:
 
 **Pill Item Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `label` | required (string) | Display label |
-| `value` | optional (number/string) | Static value |
-| `unit` | optional (string) | Unit of measurement |
-| `precision` | optional (number) | Decimal precision |
-| `enabled` | optional (boolean) | Not used by the web interface (pill items are always enabled) |
-| `visible` | optional (boolean) | Not used by the web interface (pill items are always shown) |
-| `bind` | optional (array) | Data binding configuration |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `label` | string | No | None | Caption shown beside the value. The caption can be bound with the `label` target |
+| `value` | number or string | No | None | Static value. When no data is available, the pill shows `--` and the item is displayed as stale |
+| `unit` | string | No | None | Unit appended after a numeric value. The unit can be bound with the `unit` target |
+| `precision` | number | No | None | Number of decimal places for numeric values |
+| `dotColor` | string | No | None | Shows a status dot beside the value. Use `success`, `warning` or `error`, which the web interface resolves to the colours of the design system, or a raw CSS colour as an alternative that bypasses the design system. The dot is not shown when `hyperlink` is set |
+| `hyperlink` | string | No | None | When set, the value is displayed as a link. A path that starts with `Profile/` resolves against the Profinity server |
+| `openHyperLinkInNewWindow` | boolean | No | `false` | When `true` and `hyperlink` is set, the link opens in a new browser tab. The parameter has no effect without `hyperlink` |
+| `enabled` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed normally |
+| `visible` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed |
+| `bind` | array | No | None | Data binding for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
 
 **Example:**
 
@@ -66,6 +70,7 @@ dashboard:
     - row:
         items:
           - pill:
+              title: MOTOR CONTROLLER
               icon:
                 image: nav_motorcontrollers_active.svg
                 recess: false
@@ -75,28 +80,31 @@ dashboard:
                     items:
                       - value:
                           label: BUS VOLTAGE
-                          openHyperLinkInNewWindow: false
-                          enabled: true
+                          unit: V
                           precision: 1
                           bind:
                             - target: value
-                              source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                              source: 'DBC/BusMeasurement/BusVoltage'
                       - value:
                           label: BUS CURRENT
-                          openHyperLinkInNewWindow: false
-                          enabled: true
+                          unit: A
                           precision: 1
                           bind:
                             - target: value
-                              source: '{COMPONENT_NAME}.BusMeasurement.BusCurrent'
+                              source: 'DBC/BusMeasurement/BusCurrent'
                 - pillgroup:
                     items:
                       - value:
                           label: DSP TEMP
-                          openHyperLinkInNewWindow: false
-                          enabled: true
+                          unit: °C
                           precision: 1
+                          dotColor: warning
                           bind:
                             - target: value
-                              source: '{COMPONENT_NAME}.DspBoardTempMeasurement.DspBoardTemp'
+                              source: 'DBC/DspBoardTempMeasurement/DspBoardTemp'
+                      - value:
+                          label: DOCUMENTATION
+                          value: Open
+                          hyperlink: https://www.prohelion.com
+                          openHyperLinkInNewWindow: true
 ```

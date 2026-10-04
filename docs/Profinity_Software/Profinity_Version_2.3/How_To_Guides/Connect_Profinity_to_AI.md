@@ -1,6 +1,6 @@
 ---
 title: How to Connect Profinity to AI
-description: "Connect Profinity to AI tools like Claude Desktop or Cursor IDE using the Model Context Protocol (MCP) server integration."
+description: "Connect Profinity to AI tools and MCP clients using the Profinity Model Context Protocol (MCP) server over Streamable HTTP with a bearer token."
 ---
 
 # How to Connect Profinity to AI
@@ -11,19 +11,19 @@ Connect Profinity to AI tools and large language models (LLMs) using the Model C
 
 - Profinity V2 installed and running
 - Administrator access to the Profinity AI settings and to user management
-- An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header (for example Claude Desktop or Cursor IDE)
+- An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header, because the Profinity MCP server authenticates every request with a JWT bearer token
 - Familiarity with how your AI tool adds an MCP server
 
 ## Steps
 
 ### Step 1: Enable the MCP Server in Profinity
 
-1. Navigate to **ADMIN** > **System Configuration**
+1. Select **ADMIN** in the side menu, then **System Configuration**
 2. Find the **Profinity AI** category, and its **MCP Server** field group
 3. Enable **Enable MCP Server**
 4. Click **Save**
 
-Enabling or disabling the MCP server takes effect only after Profinity restarts, so wait approximately 15 seconds before reloading the page.
+Enabling or disabling the MCP server takes effect only after Profinity restarts, and Profinity shows a "Restarting, please wait..." message and refreshes the settings once the engine is running again.
 
 The MCP server is then available at `http://localhost:18080/api/v2/Ai/Mcp` (using the default Profinity web server port). It uses Streamable HTTP transport, not SSE, so there is no `/sse` path.
 
@@ -32,7 +32,7 @@ The MCP server is then available at `http://localhost:18080/api/v2/Ai/Mcp` (usin
 Every call to the MCP server requires a JWT bearer token for a user with the `McpView` permission. Each tool also checks its own permission before returning data: `TagView` for the tag tools and `AlertsView` for the alert tools. A tag or alert the user cannot view is omitted from the response.
 
 1. Create a service account with the required permissions:
-   - Navigate to **Users & Groups** and click **+ Add user**
+   - Select **ADMIN** in the side menu, then **Users & Groups**, and click **+ Add user**
    - Enter a name (for example "mcp-service")
    - Enable **Service account**
    - Assign a role that includes `McpView`, `TagView` and `AlertsView`
@@ -52,11 +52,11 @@ See [Service Accounts](../Administration/Security/Service_Accounts.md) for the f
 
 ### Step 3: Configure Your AI Tool
 
-The following is an example only. Configuration differs between tools, so check your tool's documentation for how to add a remote MCP server over Streamable HTTP with a bearer token.
+A Profinity MCP client needs three things: the Streamable HTTP endpoint `http://localhost:18080/api/v2/Ai/Mcp`, the HTTP transport, and an `Authorization: Bearer <token>` header sent on every request. How those three values are entered differs between AI tools, so check your tool's documentation for how to add a remote MCP server over Streamable HTTP with a custom header.
 
 Examples of using MCP with OLLAMA are also available on the Prohelion GitHub page `https://www.github.com/prohelion`.
 
-**Example configuration for a client that supports Streamable HTTP with custom headers:**
+**Example configuration for a client that reads an `mcpServers` JSON file with `type`, `url` and `headers` fields (the form used by tools such as Claude Code and Cursor):**
 
 1. Open the MCP server configuration of your AI tool
 2. Add an MCP server named `profinity` with the endpoint and an `Authorization` header:
@@ -75,6 +75,14 @@ Examples of using MCP with OLLAMA are also available on the Prohelion GitHub pag
    ```
    Replace `YOUR_JWT_TOKEN_HERE` with the token from Step 2.
 3. Restart the AI tool
+
+Claude Code can add the same server from its command line:
+
+```bash
+claude mcp add --transport http profinity http://localhost:18080/api/v2/Ai/Mcp --header "Authorization: Bearer YOUR_JWT_TOKEN_HERE"
+```
+
+A client that cannot send a custom `Authorization` header, including a connector that supports only OAuth sign-in, cannot connect to the Profinity MCP server, because the server rejects an unauthenticated request.
 
 ### Step 4: Verify Connection
 

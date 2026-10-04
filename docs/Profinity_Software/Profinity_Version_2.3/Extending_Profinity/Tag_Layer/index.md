@@ -29,13 +29,13 @@ Use Tag Explorer to:
 
 ## Collections, rules, and alerts
 
-| Feature | Side menu route | View permission |
-|---------|-----------------|-----------------|
-| Collections | `/tags?view=tag_collections` | `TagCollectionsView` |
-| Rules | `/tags?view=tag_rules` | `TagRulesView` |
-| ALL ALERTS | `/tags?view=alerts` | `AlertsView` |
+| Feature | Where it opens | View permission |
+|---------|----------------|-----------------|
+| Collections | Side menu → **TAG UTILITIES** → **COLLECTIONS** (editor window) | `TagCollectionsView` |
+| Rules | Side menu → **TAG UTILITIES** → **RULES** (editor window, when the Tag Rule Actions feature is enabled) | `TagRulesView` |
+| ALL ALERTS | Side menu → **ALL ALERTS** (`/tags?view=alerts`) | `AlertsView` |
 
-Depending on the profile layout, the visual editors are also available from component and profile settings.
+The **TAG UTILITIES** group appears for users with `TagView`, and the collections and rules editors need a loaded profile and the view permission shown, whereas saving needs `TagCollectionsModify` or `TagRulesModify`.
 
 ## Key API areas (integrators)
 
@@ -50,7 +50,7 @@ The new and changed `/api/v2` controllers in 2.3 include:
 
 Legacy **`DataController`** is removed from the v2 surface — use tag-layer endpoints for new integrations.
 
-All endpoints require the appropriate permissions — see [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md) and the engineering [endpoint authorization matrix](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A8-Endpoint-Authorization-Matrix.md).
+All endpoints require the appropriate permissions — see [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md).
 
 ## Tag relay
 
@@ -58,14 +58,6 @@ Profinity instances can share live tags with each other over the network — one
 instance publishes a snapshot, another ingests it as remote, read-only tags under
 that site's own prefix. See [Tag relay](./Tag_Relay.md) for how sender and receiver
 roles work, transport options, and licensing.
-
-## Engineering references
-
-Normative architecture (link, do not duplicate in operator guides):
-
-- [Tag layer RFC](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/01-rfc-tag-layer.md)
-- [Rules engine](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.7-rules-engine.md)
-- [Collections and filters](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.5-collections-and-filters.md)
 
 ## Related documentation
 

@@ -10,14 +10,23 @@
  * 4. Validates against ui-schema.json using Ajv
  *
  * To run this script:
- *   cd Profinity-Docs
- *   node scripts/validate-dashboard-examples.js
+ *   cd Profinity-Docs/scripts
+ *   node validate-dashboard-examples.js              # validates the 2.3 Dashboards pages
+ *   node validate-dashboard-examples.js --recursive  # also validates sub-folders (Component_Reference)
+ *   node validate-dashboard-examples.js --docs <dir> # validates another folder (for example the 2.2 copy)
  *
  * Prerequisites:
- *   npm install ajv yaml
+ *   npm install            (installs ajv and yaml)
  *
  * The script expects to find the schema at:
- *   ../Profinity/Profinity-Engine/UserInterface/Factories/ui-schema.json
+ *   ../Profinity/Profinity-Engine/UserInterface/Factories/ui.schema.json
+ *
+ * Expected-invalid examples:
+ *   A YAML block (or a section of a block) that starts with a comment line beginning
+ *   "# Incorrect" is a deliberate counter-example, for instance on the Troubleshooting page.
+ *   It is expected to FAIL schema validation, and the run fails if it validates.
+ *   A section that starts with "# Correct" (or has no marker) must validate.
+ *   A single block may hold several sections, each starting with one of these marker comments.
  */
 
 const fs = require('fs');
@@ -28,160 +37,143 @@ const Ajv = require('ajv');
 // Path to the schema file - relative to Profinity-Docs root
 // IMPORTANT: Always use the schema from Profinity-Engine (source of truth), not any copies in Profinity-Web-GUI
 // The schema in Profinity-Engine is the authoritative version
-const SCHEMA_PATH = path.join(__dirname, '../../Profinity/Profinity-Engine/UserInterface/Factories/ui-schema.json');
+const SCHEMA_PATH = path.join(__dirname, '../../Profinity/Profinity-Engine/UserInterface/Factories/ui.schema.json');
 
 // Path to the documentation directory - relative to Profinity-Docs root
-const DOCS_PATH = path.join(__dirname, '../docs/Profinity_Software/Profinity_Version_2/Extending_Profinity/Dashboards');
+const DEFAULT_DOCS_PATH = path.join(
+  __dirname,
+  '../docs/Profinity_Software/Profinity_Version_2.3/Extending_Profinity/Dashboards'
+);
+const argv = process.argv.slice(2);
+const docsArgIndex = argv.indexOf('--docs');
+const DOCS_PATH =
+  docsArgIndex >= 0 && argv[docsArgIndex + 1]
+    ? path.resolve(process.cwd(), argv[docsArgIndex + 1])
+    : DEFAULT_DOCS_PATH;
+const RECURSIVE = argv.includes('--recursive');
+
+/**
+ * Matches the marker comment that starts a counter-example ("# Incorrect ...") or a
+ * correct example ("# Correct ..."). A leading cross or tick emoji is also accepted.
+ */
+const MARKER_PATTERN = /^#\s*(?:[\u274C\u2705]\s*)?(Incorrect|Correct)\b/i;
+
+/** Component keys that may start a fragment that is not a full dashboard. */
+const FRAGMENT_ROOTS = [
+  'row', 'group', 'pill', 'readouts', 'lamps', 'chart', 'table', 'panels', 'panel', 'tabs',
+  'accordion', 'titlebar', 'footer', 'action', 'toggle', 'state', 'html', 'image', 'icon',
+];
+
+function isValidatableSection(text) {
+  if (/^dashboard:/m.test(text) || /^content:/m.test(text)) {
+    return true;
+  }
+  const firstLine = text
+    .split('\n')
+    .find(l => l.trim() !== '' && !l.trim().startsWith('#'));
+  if (!firstLine) {
+    return false;
+  }
+  const m = firstLine.match(/^([a-z]+):/);
+  return Boolean(m && FRAGMENT_ROOTS.includes(m[1]));
+}
+
+/**
+ * Splits one YAML code block into sections. Each section starts at a marker comment line
+ * and carries the expectation ("valid" or "invalid") named by that marker.
+ */
+function splitSections(lines) {
+  const sections = [];
+  let current = { expect: 'valid', startOffset: 0, lines: [] };
+  lines.forEach((line, idx) => {
+    const marker = line.trim().match(MARKER_PATTERN);
+    if (marker) {
+      sections.push(current);
+      current = {
+        expect: marker[1].toLowerCase() === 'incorrect' ? 'invalid' : 'valid',
+        startOffset: idx,
+        lines: [],
+      };
+    }
+    current.lines.push(line);
+  });
+  sections.push(current);
+  return sections;
+}
+
+/**
+ * Splits a section on repeated "dashboard:" roots, so that several dashboards in one section
+ * are each validated.
+ */
+function splitDashboards(text) {
+  const matches = [...text.matchAll(/^dashboard:/gm)];
+  if (matches.length <= 1) {
+    return [text];
+  }
+  const parts = [];
+  let last = 0;
+  for (let i = 1; i < matches.length; i++) {
+    parts.push(text.substring(last, matches[i].index));
+    last = matches[i].index;
+  }
+  parts.push(text.substring(last));
+  return parts;
+}
 
 /**
  * Extracts YAML code blocks from markdown content
- * @returns {Array<{file: string, lineNumber: number, yaml: string, wrappedYaml: string}>}
+ * @returns {Array<{file: string, lineNumber: number, yaml: string, wrappedYaml: string, expect: string}>}
  */
 function extractYamlBlocks(content, filename) {
   const examples = [];
   const lines = content.split('\n');
-  let inYamlBlock = false;
-  let inSkippedBlock = false;
-  let yamlLines = [];
+  let inBlock = false;
+  let blockIsYaml = false;
+  let blockLines = [];
   let startLine = 0;
 
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (line === undefined) {
+    const trimmed = (lines[i] || '').trim();
+
+    if (!inBlock) {
+      if (trimmed.startsWith('```')) {
+        inBlock = true;
+        // Only fences labelled yaml/yml are validated. Plain fences are directory trees and similar.
+        blockIsYaml = /^```\s*(yaml|yml)\s*$/i.test(trimmed);
+        blockLines = [];
+        startLine = i + 2; // first content line, one-based
+      }
       continue;
     }
-    const trimmed = line.trim();
 
-    // Match code blocks that start with ```
-    const isCodeBlockStart = trimmed.startsWith('```');
-    const isCodeBlockEnd = trimmed === '```';
-
-    // Check if it's a YAML block (has yaml or yml after ```)
-    const yamlBlockPattern = /^```\s*(yaml|yml)\s*$/i;
-    const isYamlBlock = yamlBlockPattern.test(trimmed);
-
-    if (isCodeBlockStart && !inYamlBlock && !inSkippedBlock) {
-      // Extract language from code block (e.g., ```yaml, ```text, ```)
-      const languageMatch = trimmed.match(/^```\s*(\w+)?\s*$/i);
-      const blockLanguage = (languageMatch?.[1]?.toLowerCase() || '').trim();
-
-      // Skip known non-YAML languages
-      const skipLanguages = [
-        'text',
-        'json',
-        'javascript',
-        'js',
-        'typescript',
-        'ts',
-        'css',
-        'html',
-        'markdown',
-        'md',
-        'plain',
-      ];
-
-      if (skipLanguages.includes(blockLanguage)) {
-        // Mark that we're in a skipped block
-        inSkippedBlock = true;
-        continue;
-      }
-
-      // Only process if it's explicitly marked as yaml/yml, or if it's a plain ``` block
-      if (isYamlBlock || trimmed === '```') {
-        inYamlBlock = true;
-        startLine = i + 1;
-        yamlLines = [];
-        continue;
-      }
-    }
-
-    // Handle end of code blocks
-    if (isCodeBlockEnd) {
-      if (inYamlBlock) {
-        if (yamlLines.length > 0) {
-          const yaml = yamlLines.join('\n');
-
-          // Split YAML if it contains multiple dashboard blocks (incorrect/correct examples)
-          // Look for patterns like "# ❌" or "# ✅" followed by "dashboard:"
-          // Also handle cases where there's just a comment line before dashboard:
-          const splitPattern = /(?=^#\s*[❌✅]\s*(?:Incorrect|Correct).*?\n\s*dashboard:)/m;
-          let yamlParts = yaml.split(splitPattern);
-
-          // If no split occurred, check for multiple dashboard: blocks
-          if (yamlParts.length === 1) {
-            const dashboardMatches = [...yaml.matchAll(/^dashboard:/gm)];
-            if (dashboardMatches.length > 1) {
-              // Split on each dashboard: occurrence after the first
-              let lastIndex = 0;
-              yamlParts = [];
-              for (let i = 1; i < dashboardMatches.length; i++) {
-                const match = dashboardMatches[i];
-                if (match === undefined) {
-                  continue;
-                }
-                const matchIndex = match.index;
-                if (matchIndex === undefined) {
-                  continue;
-                }
-                yamlParts.push(yaml.substring(lastIndex, matchIndex).trim());
-                lastIndex = matchIndex;
-              }
-              yamlParts.push(yaml.substring(lastIndex).trim());
-            }
+    if (trimmed === '```') {
+      if (blockIsYaml && blockLines.length > 0) {
+        for (const section of splitSections(blockLines)) {
+          const sectionText = section.lines.join('\n');
+          if (!isValidatableSection(sectionText)) {
+            continue;
           }
-
-          for (let partIdx = 0; partIdx < yamlParts.length; partIdx++) {
-            const partValue = yamlParts[partIdx];
-            if (partValue === undefined) {
+          for (const part of splitDashboards(sectionText)) {
+            const yaml = part.trim();
+            if (!yaml || !isValidatableSection(yaml)) {
               continue;
             }
-            let part = partValue.trim();
-            if (!part) {
-              continue;
-            }
-
-            // Remove comment markers if present (handle both single line and multi-line)
-            // Remove lines that start with # and contain ❌ or ✅
-            part = part
-              .split('\n')
-              .filter(line => {
-                const trimmed = line.trim();
-                return !trimmed.match(/^#\s*[❌✅]/);
-              })
-              .join('\n')
-              .trim();
-
-            // Also remove standalone comment lines
-            part = part.replace(/^#\s*[❌✅]\s*(?:Incorrect|Correct).*?\n\s*/im, '');
-            part = part.replace(/^#\s*Note:.*?\n\s*/im, '');
-
-            if (part && part.includes('dashboard:')) {
-              const wrappedYaml = wrapDashboardIfNeeded(part);
-              const partIndex = yaml.indexOf(part);
-              const lineOffset =
-                partIdx > 0 && partIndex >= 0 ? yaml.substring(0, partIndex).split('\n').length : 0;
-              examples.push({
-                file: filename,
-                lineNumber: startLine + lineOffset,
-                yaml: part,
-                wrappedYaml,
-              });
-            }
+            examples.push({
+              file: filename,
+              lineNumber: startLine + section.startOffset,
+              yaml,
+              wrappedYaml: wrapDashboardIfNeeded(yaml),
+              expect: section.expect,
+            });
           }
         }
-        inYamlBlock = false;
-        yamlLines = [];
       }
-      if (inSkippedBlock) {
-        inSkippedBlock = false;
-      }
+      inBlock = false;
+      blockLines = [];
       continue;
     }
 
-    if (inYamlBlock) {
-      yamlLines.push(line);
-    }
-    // If we're in a skipped block, just continue without capturing
+    blockLines.push(lines[i]);
   }
 
   return examples;
@@ -191,6 +183,11 @@ function extractYamlBlocks(content, filename) {
  * Wraps YAML in a complete dashboard structure if it's not already wrapped
  */
 function wrapDashboardIfNeeded(yaml) {
+  // Ignore leading comment lines (for example "# Correct") when deciding how to wrap
+  yaml = yaml
+    .split('\n')
+    .filter((l, i, arr) => !(l.trim().startsWith('#') && arr.slice(0, i).every(p => p.trim() === '' || p.trim().startsWith('#'))))
+    .join('\n');
   const trimmed = yaml.trim();
 
   // Check if it already starts with dashboard: or content:
@@ -229,17 +226,8 @@ function wrapDashboardIfNeeded(yaml) {
       const yamlLib = require('yaml');
       const parsed = yamlLib.parse(yaml);
 
-      // Components that can be direct dashboard items
-      const directItems = [
-        'row',
-        'group',
-        'panels',
-        'accordion',
-        'titlebar',
-        'footer',
-        'pill',
-        'tabs',
-      ];
+      // Only these elements can be direct items of a dashboard; everything else is wrapped in a row
+      const directItems = ['row', 'accordion', 'titlebar', 'footer'];
       const componentName = Object.keys(parsed)[0];
 
       if (componentName && !directItems.includes(componentName)) {
@@ -419,10 +407,21 @@ function getMarkdownFiles() {
     }
 
     console.log(`Found docs directory at: ${resolvedPath}`);
-    const files = fs.readdirSync(resolvedPath);
-    const markdownFiles = files
-      .filter(file => file.endsWith('.md'))
-      .map(file => path.join(resolvedPath, file));
+    const collect = dir => {
+      const result = [];
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          if (RECURSIVE && entry.name !== 'images') {
+            result.push(...collect(full));
+          }
+        } else if (entry.name.endsWith('.md')) {
+          result.push(full);
+        }
+      }
+      return result;
+    };
+    const markdownFiles = collect(resolvedPath);
     return markdownFiles;
   } catch (error) {
     console.error(
@@ -501,87 +500,38 @@ function main() {
     });
   }
 
-  // Report results
-  const validCount = validationResults.filter(r => r.valid).length;
-  const invalidCount = validationResults.filter(r => !r.valid).length;
+  // A failure is a block expected to be valid that is invalid, or an expected-invalid
+  // ("# Incorrect") block that unexpectedly validates.
+  const failures = validationResults.filter(r =>
+    r.example.expect === 'invalid' ? r.valid : !r.valid
+  );
+  const expectedInvalid = validationResults.filter(r => r.example.expect === 'invalid');
+  const expectedInvalidCaught = expectedInvalid.filter(r => !r.valid).length;
+  const mustBeValid = validationResults.filter(r => r.example.expect !== 'invalid');
+  const validCount = mustBeValid.filter(r => r.valid).length;
 
   console.log('Validation Summary:');
   console.log(`  Total examples: ${validationResults.length}`);
-  console.log(`  Valid: ${validCount}`);
-  console.log(`  Invalid: ${invalidCount}\n`);
+  console.log(`  Must be valid: ${mustBeValid.length}  (valid: ${validCount})`);
+  console.log(
+    `  Marked "# Incorrect" (must fail): ${expectedInvalid.length}  (correctly rejected: ${expectedInvalidCaught})`
+  );
+  console.log(`  Invalid: ${failures.length}\n`);
 
-  if (invalidCount > 0) {
-    // Write detailed errors to file for analysis
-    const errorFile = path.join(__dirname, '../validation-errors.json');
-    const errorDetails = validationResults
-      .filter(r => !r.valid)
-      .map(({ example, errors }) => ({
-        file: example.file,
-        lineNumber: example.lineNumber,
-        yaml: example.yaml,
-        errors: errors.map(e => ({
-          dataPath: e.dataPath || e.schemaPath,
-          message: e.message,
-          params: e.params,
-        })),
-      }));
-    fs.writeFileSync(errorFile, JSON.stringify(errorDetails, null, 2));
-    console.log(`Detailed errors written to: ${errorFile}\n`);
-
-    // Group errors by type for easier fixing
-    const errorGroups = {};
-    validationResults
-      .filter(r => !r.valid)
-      .forEach(({ errors }) => {
-        const firstError = errors[0];
-        if (firstError) {
-          const errorKey = `${firstError.dataPath || firstError.schemaPath}: ${firstError.message}`;
-          errorGroups[errorKey] = (errorGroups[errorKey] || 0) + 1;
-        }
-      });
-
-    console.log('Error summary (grouped by type):');
-    Object.entries(errorGroups)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)
-      .forEach(([error, count]) => {
-        console.log(`  ${count}x: ${error}`);
-      });
-
-    // Show first invalid example in detail
-    const firstInvalid = validationResults.filter(r => !r.valid)[0];
-    if (firstInvalid) {
-      const { example, errors } = firstInvalid;
-      console.log('\n=== FIRST INVALID EXAMPLE ===');
-      console.log(`\nFile: ${example.file}`);
-      console.log(`Line: ${example.lineNumber}`);
-      console.log(`\nFull YAML Example:`);
+  if (failures.length > 0) {
+    failures.forEach(({ example, errors, valid }) => {
+      console.log(`\n--- ${example.file}:${example.lineNumber} (${example.expect === 'invalid' ? 'marked Incorrect but it VALIDATES' : 'expected valid'}) ---`);
       console.log(example.yaml);
-      console.log(`\nValidation Errors:`);
-      errors.forEach((err, idx) => {
-        console.log(`\n  Error ${idx + 1}:`);
-        console.log(`    Path: ${err.dataPath || err.schemaPath}`);
-        console.log(`    Message: ${err.message}`);
-        if (err.params) {
-          console.log(`    Params: ${JSON.stringify(err.params, null, 2)}`);
-        }
-      });
-      console.log(`\n=== END OF EXAMPLE ===\n`);
-    }
-
-    // List all invalid examples
-    console.log('\nAll invalid examples:');
-    validationResults
-      .filter(r => !r.valid)
-      .forEach(({ example, errors }) => {
-        const firstError = errors[0];
-        console.log(`  ${example.file}:${example.lineNumber} - ${firstError ? firstError.message : 'Unknown error'}`);
-      });
-
-    console.log('\n❌ Validation failed. Please fix the errors above.\n');
+      if (!valid) {
+        errors.slice(0, 5).forEach(err => {
+          console.log(`  ${err.instancePath || err.schemaPath}: ${err.message} ${JSON.stringify(err.params)}`);
+        });
+      }
+    });
+    console.log('\n\u274C Validation failed. Please fix the examples above.\n');
     process.exit(1);
   } else {
-    console.log('✅ All examples are valid!\n');
+    console.log('\u2705 All examples behave as expected (valid examples validate, "# Incorrect" examples are rejected).\n');
     process.exit(0);
   }
 }

@@ -5,7 +5,7 @@ description: "Enable SCIM user provisioning from identity providers and configur
 
 # SCIM and SIEM
 
-Profinity 2.3 configures **SCIM user provisioning** and **SIEM log export** in **Config.yaml** under **Security Config**. These settings moved from Security.yaml in earlier releases; saving Config.yaml **restarts the engine**.
+Profinity 2.3 configures **SCIM user provisioning** and **SIEM log export** in **config.yaml** under **Security Config**. These settings moved from security.yaml in earlier releases; saving config.yaml **restarts the engine**.
 
 OIDC SSO configuration is covered in [SSO and sign-in method](./SSO_and_Sign_In.md). SCIM provisioning uses the same site OIDC provider context — there is no separate `OidcProviderId` selector.
 
@@ -38,7 +38,7 @@ Authenticate with the configured **bearer token** (HTTP `Authorization: Bearer .
 
 ### Default roles for provisioned users
 
-Map default **Assigned roles** for newly provisioned users in SCIM settings (Config.yaml `DefaultAssignedRoles`). Ensure provisioned users receive appropriate permissions — avoid assigning **Administrators** by default.
+Map default **Assigned roles** for newly provisioned users in SCIM settings (config.yaml `DefaultAssignedRoles`). Ensure provisioned users receive appropriate permissions — avoid assigning **Administrators** by default.
 
 ## SIEM export
 
@@ -60,7 +60,7 @@ Verify firewall rules allow outbound traffic from the Profinity host to the SIEM
 
 ## Security considerations
 
-- Treat SCIM bearer tokens like passwords — restrict access to Config.yaml backups.
+- Treat SCIM bearer tokens like passwords — restrict access to config.yaml backups.
 - Use TLS for Profinity HTTPS so administrative changes and SSO flows are not exposed on the network.
 - Review SIEM volume and minimum log level to avoid flooding the collector during debug logging.
 

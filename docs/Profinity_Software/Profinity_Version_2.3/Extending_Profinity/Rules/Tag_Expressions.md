@@ -157,8 +157,3 @@ These spellings, used in early builds, fail validation. Rewrite them as shown:
 - [Derived tags](./Derived_Tags.md)
 - [Tag linking](../Tags/Tag_Linking.md)
 - [Tag layer](../Tag_Layer/index.md)
-
-Engineering reference (member tables):
-
-- [Collections and filters](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.5-collections-and-filters.md)
-- [Rules engine](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.7-rules-engine.md)

@@ -5,7 +5,7 @@ description: "Extend Profinity with scripting, tag layer, rules, APIs, dashboard
 
 # Extending Profinity
 
-Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules](./Rules/Alerts.md), [Derived tags](./Rules/Derived_Tags.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), the [Profinity SDK](./SDK.md), [MCP Server](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
+Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules and alerts](./Rules/Alerts.md), [Derived tags](./Rules/Derived_Tags.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), the [Profinity SDK](./SDK.md), [MCP Server](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
 
 <figure markdown>
 ![Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security, then exposes that through APIs to your own business systems and apps, and through MCP to AI agents](../../../assets/images/2.3/2.3-diagram-extensibility.png)
@@ -25,15 +25,15 @@ The [tag layer](./Tag_Layer/index.md) provides Tag Explorer, collections, rules,
 
 ## Profiles, configuration, and theming (2.3)
 
-[Menu layout](./Profiles/Menu_Layout.md) covers customising per-profile and per-component menu placement. The [settings registry](./Configuration/Settings_Registry.md) covers the centralised Config.yaml settings model. [Theming](./Theming/index.md) covers branding and theme customisation through the engine Themes API.
+[Menu layout](./Profiles/Menu_Layout.md) covers customising per-profile and per-component menu placement. The [settings registry](./Configuration/Settings_Registry.md) covers the centralised config.yaml settings model. [Theming](./Theming/index.md) covers branding and theme customisation through the engine Themes API.
 
 ## Scripting
 
 Profinity's [scripting capabilities](./Scripting/index.md) automate tasks and create custom operations in C#, Python, or Lua, so each script can be written in the language best suited to the task. Scripts range from manual one-off operations to continuous, long-running processes, which suits teams automating repetitive tasks, integrating with other systems, or building workflows aligned to their own business processes.
 
-| C# Scripting | Python |
-|--------------|--------|
-|![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) |
+| C# Scripting | Python | Lua |
+|--------------|--------|-----|
+|![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) | ![Lua Logo](../images/LuaLogo.png) |
 
 ## Dashboards
 

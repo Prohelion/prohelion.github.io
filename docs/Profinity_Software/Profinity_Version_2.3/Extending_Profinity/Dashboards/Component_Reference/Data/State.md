@@ -16,16 +16,16 @@ State machine visualisation component. State components display the current stat
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the state component |
-| `class` | optional (string) | CSS class for styling |
-| `label` | optional (string) | Display label |
-| `model` | required (string) | Mermaid flowchart definition |
-| `value` | optional (string) | Current state value |
-| `enabled` | optional (boolean) | Whether the state component is enabled |
-| `visible` | optional (boolean) | Whether the state component is visible |
-| `bind` | optional (array) | Data binding configuration |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | Not used by the web interface |
+| `label` | string | No | None | Not used by the web interface |
+| `model` | string | Yes | None | Mermaid state machine definition that lists the states and the transitions between them. Without a model, the component shows that no model is available |
+| `value` | string | No | None | Identifier of the active state, which the diagram highlights. The identifier must match a node identifier in `model`, for example `IDLE` for the node `IDLE(Idle)` |
+| `enabled` | boolean | No | `true` | Not used by the web interface |
+| `visible` | boolean | No | `true` | Not used by the web interface |
+| `bind` | array | No | None | Data binding. Bind a tag to the `value` target to drive the highlighted state. Only the `value` target is handled |
 
 **Example:**
 
@@ -38,6 +38,6 @@ dashboard:
               model: "flowchart LR\r\n\tERROR(Error)\r\n\tIDLE(Idle)\r\n\tENABLE(Enable)\r\n\tDISCOVERY(Discovery)\r\n\tMEASURE(Measure)\r\n\tPRECHARGE(Precharge)\r\n\tRUN(Run)\r\n\tIDLE --> ENABLE\r\n\tIDLE --> DISCOVERY\r\n\tENABLE --> MEASURE\r\n\tMEASURE --> PRECHARGE\r\n\tPRECHARGE --> RUN\r\n"
               bind:
                 - target: value
-                  source: Prohelion BMU.[Property].State.Controller.CurrentState.Name
+                  source: /Prohelion BMU/Properties/State/Controller/CurrentState/Name
                   toType: string
 ```

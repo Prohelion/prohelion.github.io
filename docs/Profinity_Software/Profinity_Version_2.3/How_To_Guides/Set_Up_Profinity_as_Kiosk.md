@@ -22,7 +22,7 @@ Configure Profinity to run as a kiosk application that automatically launches in
 
 Kiosk Mode is configured per profile, and it authenticates the browser automatically as the configured kiosk user so that no login page is shown.
 
-1. Navigate to **ADMIN** → **Profiles**
+1. Select **ADMIN** in the side menu, then **Profile**
 2. Select or create the profile to display, and open its profile settings
 3. Enable **Kiosk Mode**
 4. Select a **Kiosk Mode User** from the dropdown (all enabled users are listed, so choose one with minimal permissions)
@@ -98,22 +98,21 @@ Kiosk Mode is configured per profile, and it authenticates the browser automatic
 
 ## Advanced Configuration
 
-### URL Parameters for Kiosk Mode
+### Hiding the Side Menu
 
-You can use URL parameters when launching:
+Profinity pages that are rendered from a dashboard accept the `noMenu=true` query parameter, which hides the side menu so that only the dashboard is shown. Append it to the address of the dashboard page that the browser opens, as `?noMenu=true` after the page path (or `&noMenu=true` where the address already has a query string).
 
-```
-http://localhost:18080?profile=MyProfile&fullscreen=true
-```
+Profinity does not read query parameters that select a profile or request fullscreen. The profile that is shown is always the active profile, and fullscreen display is provided by the browser's own kiosk switch (`--kiosk`) described in Step 2.
 
-### Auto-Refresh Dashboard
+### Auto-Refresh Charts
 
-Configure dashboards to auto-refresh:
+Charts update from live data by default. A chart in a dashboard can instead poll for new data at a fixed interval by setting `refreshInterval` in milliseconds, with a minimum of `1000`, and setting it turns off the live updates for that chart:
 
 ```yaml
 # In your dashboard YAML
-chart:
-  refreshInterval: 1000  # Refresh every second
+- chart:
+    type: line
+    refreshInterval: 1000  # Refresh every second
 ```
 
 ### Prevent User Exit

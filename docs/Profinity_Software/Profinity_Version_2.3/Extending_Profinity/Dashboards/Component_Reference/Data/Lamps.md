@@ -16,36 +16,23 @@ Grid of status indicators. Lamps use colour and on/off state to communicate syst
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the lamps component |
-| `class` | optional (string) | CSS class for styling |
-| `items` | required (array) | Array of lamp groups |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | CSS class added to the `lamp-grid` element |
+| `items` | array | Yes | None | Array of lamp groups. Each group is displayed as one column |
 
 **Lamp Group Parameters:**
 
 Each item in `items` must contain a `lampgroup` object with:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the lamp group |
-| `class` | optional (string) | CSS class for styling |
-| `items` | required (array) | Array of lamps |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | Not used by the web interface |
+| `items` | array | Yes | None | Array of lamps. The column width scales automatically with the number of lamps |
 
-Each item in the lamp group's `items` must contain a `lamp` object with:
-
-**Lamp Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the lamp |
-| `class` | optional (string) | CSS class for styling |
-| `color` | required (string) | Lamp colour, for example `green`, `red`, `amber`, `disabled` or `grey` |
-| `label` | optional (string) | Display label |
-| `value` | optional (number) | Lamp value, typically `0` or `1` |
-| `enabled` | optional (boolean) | Whether the lamp is enabled |
-| `visible` | optional (boolean) | Whether the lamp is visible |
-| `bind` | optional (array) | Data binding configuration |
+Each item in the lamp group's `items` must contain a `lamp` object. The [Lamp](Lamp.md) page describes the lamp parameters, the colour names and the way that a lamp decides what to display.
 
 **Example:**
 
@@ -65,7 +52,7 @@ dashboard:
                           enabled: true
                           bind:
                             - target: enabled
-                              source: '{COMPONENT_NAME}.Status.Online'
+                              source: 'DBC/Status/Online'
                               toType: boolean
                       - lamp:
                           color: "red"
@@ -74,7 +61,7 @@ dashboard:
                           enabled: false
                           bind:
                             - target: enabled
-                              source: '{COMPONENT_NAME}.Status.Error'
+                              source: 'DBC/Status/Error'
                               toType: boolean
                       - lamp:
                           color: "amber"
@@ -83,6 +70,6 @@ dashboard:
                           enabled: false
                           bind:
                             - target: enabled
-                              source: '{COMPONENT_NAME}.Status.Warning'
+                              source: 'DBC/Status/Warning'
                               toType: boolean
 ```

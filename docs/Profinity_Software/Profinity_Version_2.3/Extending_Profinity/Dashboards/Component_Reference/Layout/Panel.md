@@ -16,15 +16,16 @@ Individual panel within a panels grid. Each panel can contain various components
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the panel |
-| `class` | optional (string) | CSS class for styling |
-| `title` | required (string) | Panel title |
-| `menu` | optional (object) | Menu configuration (the web interface shows a static menu icon in the panel header) |
-| `width` | optional (string) | Width in CSS format, for example `100px`, `50%` or `auto` |
-| `height` | optional (string) | Height in CSS format, for example `100px`, `50vh` or `auto` |
-| `items` | required (array) | Components within the panel: `chart`, `lamps`, `state`, `group`, `readouts`, `table` or `html` |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | Modifier applied to the panel body as `panel__body--{class}`, for example `sunken`, and not applied to the panel container |
+| `title` | string | Yes | None | Header label shown above the panel body |
+| `menu` | object | No | None | When present, the web interface shows a static menu icon in the panel header. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions or dialogs. See [Menu](Menu.md) |
+| `width` | string | No | None | Width in CSS format, for example `100px`, `50%` or `auto`, applied to the panel |
+| `height` | string | No | None | Height in CSS format, for example `100px`, `50vh` or `auto`, applied to the body area of the panel |
+| `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows to fit its content and never shrinks below this value, and the value never stretches the panel to fill space |
+| `items` | array | Yes | None | Components displayed in the body of the panel. The schema allows `chart`, `lamps`, `state`, `group`, `readouts`, `table`, `html`, `redirect` and `caption`, and any other component is placed inside a `group` |
 
 **Basic Example:**
 
@@ -53,9 +54,9 @@ dashboard:
                                 precision: 1
 ```
 
-**Menu Configuration Example:**
+**Menu Icon Example:**
 
-Panels can include menu configurations for actions and navigation:
+The `menu` parameter makes the web interface show a menu icon in the panel header. The icon is static, so the menu items are not displayed:
 
 ``` yaml
 dashboard:
@@ -69,24 +70,8 @@ dashboard:
                     menu:
                       items:
                         - menuitem:
-                            label: "Refresh"
-                            action: "refresh"
-                        - menuitem:
                             label: "Settings"
                             navigate: "/settings"
-                        - modal:
-                            id: "panel-settings"
-                            image: dash_config.svg
-                            imageAlt: "Panel Settings"
-                            settings:
-                              create: false
-                              update: true
-                              delete: false
-                              send: false
-                              reload: true
-                              showTabs: true
-                              refreshOnClose: true
-                              urlSettings: /api/v2/ActiveProfile/Component/{COMPONENT_NAME}/settings
                     items:
                       - lamps:
                           items:
@@ -173,7 +158,7 @@ dashboard:
 
 **Complex Nested Structures:**
 
-Panels can contain complex nested component structures:
+Panels can contain complex nested component structures, in which a `group` holds the components that the panel does not accept directly:
 
 ``` yaml
 dashboard:
@@ -185,18 +170,12 @@ dashboard:
                 - panel:
                     title: "Motor Controller Overview"
                     height: "auto"
-                    menu:
-                      items:
-                        - menuitem:
-                            label: "View Details"
-                            navigate: "/component?componentId=Motor%20Controller"
                     items:
                       - group:
                           direction: "horizontal"
                           items:
                             - icon:
                                 image: nav_motorcontrollers_active.svg
-                                label: "Motor Controller"
                             - readouts:
                                 items:
                                   - readout:
@@ -204,21 +183,21 @@ dashboard:
                                       precision: 1
                                       bind:
                                         - target: value
-                                          source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                                          source: 'DBC/BusMeasurement/BusVoltage'
                                   - readout:
                                       label: "Bus Current"
                                       precision: 1
                                       bind:
                                         - target: value
-                                          source: '{COMPONENT_NAME}.BusMeasurement.BusCurrent'
+                                          source: 'DBC/BusMeasurement/BusCurrent'
                       - chart:
                           type: "line"
                           legend: false
-                          showControls: true
                           refreshInterval: 1000
                           bind:
                             - target: value
-                              source: '[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                              source: 'DBC/BusMeasurement/BusVoltage'
+                              seriesMode: timeSeries
                       - lamps:
                           items:
                             - lampgroup:
@@ -226,16 +205,18 @@ dashboard:
                                   - lamp:
                                       color: "green"
                                       label: "Online"
+                                      value: 1
                                       bind:
                                         - target: enabled
-                                          source: '{COMPONENT_NAME}.Status.Online'
+                                          source: 'DBC/Status/Online'
                                           toType: boolean
                                   - lamp:
                                       color: "red"
                                       label: "Error"
+                                      value: 1
                                       bind:
                                         - target: enabled
-                                          source: '{COMPONENT_NAME}.Status.Error'
+                                          source: 'DBC/Status/Error'
                                           toType: boolean
 ```
 
@@ -249,28 +230,15 @@ dashboard:
           - panels:
               items:
                 - panel:
-                    id: "main-panel"
-                    class: "status-panel"
+                    class: "sunken"
                     title: "System Status"
                     height: "60vh"
+                    minHeight: "200px"
                     menu:
                       items:
                         - menuitem:
-                            label: "Refresh Data"
-                            action: "refresh"
-                        - modal:
-                            id: "panel-config"
-                            image: dash_config.svg
-                            imageAlt: "Configure Panel"
-                            settings:
-                              create: false
-                              update: true
-                              delete: false
-                              send: false
-                              reload: true
-                              showTabs: true
-                              refreshOnClose: true
-                              urlSettings: /api/v2/ActiveProfile/Component/{COMPONENT_NAME}/settings
+                            label: "Details"
+                            navigate: "/component?componentId=Motor%20Controller"
                     items:
                       - group:
                           direction: "vertical"
@@ -282,9 +250,10 @@ dashboard:
                                         - lamp:
                                             color: "green"
                                             label: "Online"
+                                            value: 1
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.Online'
+                                                source: 'DBC/Status/Online'
                                                 toType: boolean
                             - readouts:
                                 items:
@@ -292,10 +261,11 @@ dashboard:
                                       label: "Temperature"
                                       bind:
                                         - target: value
-                                          source: '{COMPONENT_NAME}.Temperature.Value'
+                                          source: 'DBC/Temperature/Value'
                             - chart:
                                 type: "line"
                                 bind:
                                   - target: value
-                                    source: '[TimeSeries].{COMPONENT_NAME}.Temperature.Value'
+                                    source: 'DBC/Temperature/Value'
+                                    seriesMode: timeSeries
 ```

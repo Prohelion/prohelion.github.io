@@ -14,8 +14,7 @@ description: "Group tags for filtering, dashboards, and rules using visual edito
 
 ## Open the collections editor
 
-- Side menu → **COLLECTIONS** (`/tags?view=tag_collections`) when the active profile supports tag collections, or
-- Component/profile settings → collections visual editor.
+Side menu → **TAG UTILITIES** → **COLLECTIONS**, which opens the collections editor as a window over the current page. The entry appears for users who hold **`TagView`** and **`TagCollectionsView`** while a profile is loaded.
 
 <figure markdown>
 ![Collections visual editor with member list](../../../../assets/images/2.3/2.3-collections-visual-editor.png)
@@ -24,6 +23,17 @@ description: "Group tags for filtering, dashboards, and rules using visual edito
 
 Requires **`TagCollectionsView`** to view and **`TagCollectionsModify`** to save.
 
+## Groups, scope and the editor layout
+
+The editor shows the collections as a tree on one side and an inspector for the selected node on the other, and a `collections.yaml` document can also be edited as YAML with a schema. The `collections` list holds two kinds of node.
+
+| Node | Fields | Purpose |
+|------|--------|---------|
+| Group | `group.id`, `displayName`, `scope`, `items` | Organises collections into a hierarchy, and passes its `scope` down to every collection beneath it |
+| Collection | `collection.id`, `displayName`, `scope`, `expression`, `security` | Selects tags with a membership expression |
+
+The `id` of a collection is immutable and is the value that rules use in their `scope.collection` references. A `scope` is either a path prefix string or an object with a `prefix`, and the inspector shows it as **Scope prefix** under **Binding** for a collection. A relative scope on a collection joins beneath the scope of its group, whereas an absolute scope replaces the inherited one. The inspector requires a display name and a non-empty expression before a collection can be saved, and a user who holds the security administration permission can also set a collection's `security` policy (`mode` of `All` or `Restricted`, with `allowedRoles`). The built-in **(All Tags)** collection with the id `All` is owned by the engine, is shown read-only in the tree and is never written to the file.
+
 ## Document version and ids
 
 After upgrading from 2.2.x:
@@ -31,14 +41,12 @@ After upgrading from 2.2.x:
 - Open each collection in the **visual editor** and **save** it once, which stamps `version: "2.3"` and normalises the ids of any collection whose YAML was edited by hand.
 - The `id` field ties collection members to editor state and API resources.
 
-Engineering reference: [02.5 collections and filters](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.5-collections-and-filters.md).
-
 ## Create collections from Tag Explorer
 
-A collection can be started from the Tag Explorer context menu — see [Tag linking](../Tags/Tag_Linking.md).
+A collection can be started from the Tag Explorer context menu, as described in [Tag linking](../Tags/Tag_Linking.md).
 
-!!! note "Partial GA linking"
-    Reciprocal editors (for example "add rule to collection" from the collections view only) are **not** shipped in 2.3 GA. Use the shipped Tag Explorer flows.
+!!! note "Reciprocal linking"
+    Reciprocal editors (for example "add rule to collection" from the collections view only) are **not** available in 2.3. Use the Tag Explorer flows.
 
 ## Membership expression
 

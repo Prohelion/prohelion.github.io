@@ -7,13 +7,13 @@ description: "Editable visual dashboard editor for arranging widgets and binding
 
 Profinity 2.3 adds an **editable dashboard visual editor** for component dashboards. Authors with **`DashboardModify`** can arrange widgets, bind tags, and preview layout without hand-editing YAML for every change.
 
-Schema source of truth: `ui-schema.json` in the Profinity engine (validated by `npm run validate-dashboards` in this documentation repo).
+The editor validates the dashboard against the dashboard schema while it is edited, lists any schema validation issues, and does not save a dashboard that has them.
 
 ## Open the visual editor
 
 1. Open a component that uses a custom dashboard.
-2. Open **Settings** → dashboard section.
-3. Launch the **visual editor**.
+2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar, which is shown to users with the `DashboardModify` permission.
+3. The editor opens in **DESIGN** mode, which is the visual editor. Select **YAML** to edit the YAML source directly.
 
 <figure markdown>
 ![Dashboard visual editor canvas and component tree](../../../../assets/images/2.3/2.3-dashboard-visual-editor.png)
@@ -37,23 +37,14 @@ Dashboard widgets show live **alert indicators** when bound tags have active rul
 |---------|-------|
 | **Editable layout** | Drag-and-drop and tree editing with live preview |
 | **Chart multi-source** | Charts can bind multiple tag sources per schema |
-| **`HtmlContent` map bindings** | Latitude/longitude → OpenStreetMap iframe via `map` binding type |
-| **Interactive image** | Top-level `image:` string per schema — not a nested `value:` wrapper |
-
-Example profile dashboard YAML ships under the Profinity **Example Profile** — validate after editing:
-
-```bash
-cd Profinity-Docs/scripts
-npm run validate-dashboards
-```
-
-Must report **Invalid: 0**.
+| **`HtmlContent` map bindings** | Latitude and longitude tags (`latSource` and `lonSource` in the `map` property) display an OpenStreetMap embed |
+| **Interactive image** | The background image is the top-level `image:` filename string of the `image` component, without a nested `value:` wrapper |
 
 ## Profile home dashboard vs component dashboard
 
 | Concept | Description |
 |---------|-------------|
-| **Component dashboard** | YAML in component folder; edited via component settings |
+| **Component dashboard** | YAML in the component folder; edited with the **Edit Dashboard** icon on the component |
 | **Profile home dashboard** | `UseCustomProfileDashboard` on profile — replaces profile home screen |
 | **Dashboard Component** | Separate built-in component type — YAML-only, no DBC |
 

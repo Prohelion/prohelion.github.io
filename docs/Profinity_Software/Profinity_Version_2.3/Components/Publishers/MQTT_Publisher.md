@@ -34,9 +34,8 @@ include:
 
 - **A local or self-hosted broker**, such as [Mosquitto](https://mosquitto.org/) or
   [HiveMQ](https://www.hivemq.com/).
-- **A managed cloud MQTT service**, such as [AWS IoT](https://aws.amazon.com/iot/),
-  [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/), or
-  [Google Cloud IoT](https://cloud.google.com/iot).
+- **A managed cloud MQTT service**, such as [AWS IoT](https://aws.amazon.com/iot/) or
+  [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/).
 
 ## Adding an MQTT Publisher
 
@@ -72,8 +71,9 @@ Shown only when **Payload** is set to **Sparkplug B**:
 
 | Setting | Purpose |
 |---|---|
+| **Auto Start** | Starts the publisher automatically when the profile is loaded, and is enabled by default. |
 | **Logging mode** | **Snapshot** publishes every collection member on each interval tick, regardless of whether the value changed; **On Change** publishes only when a member's value has changed since the last publish; **Everything** publishes every sample that arrives, including unchanged ones. |
-| **Interval (sec)** | For **Snapshot** mode, how often a full publish runs. For **On Change**/**Everything**, how often accumulated changes are flushed. |
+| **Update Interval (Seconds)** | For **Snapshot** mode, how often a full publish runs. For **On Change**/**Everything**, how often accumulated changes are flushed. |
 
 ## Payload formats
 
@@ -96,7 +96,8 @@ meaning over a stateless HTTP POST.
 
 The MQTT Publisher reports **Error** status if the connection to the broker fails or a publish
 attempt fails, and returns to its normal running status on the next successful publish, the same
-status behaviour as every other logger and publisher component. Check the
+status behaviour as every other logger and publisher component. While the connection is down, the
+publisher tries to reconnect to the broker every 5 seconds. Check the
 [Logs](../../Getting_Started/Profinity_Log.md) for the underlying error when a publisher shows an
 error state.
 
@@ -106,10 +107,3 @@ error state.
 - [MQTT Subscriber](./MQTT_Subscriber.md)
 - [File Loggers](../Loggers/File_Loggers.md)
 - [Rule actions and scripts](../../Extending_Profinity/Rules/Rule_Actions_And_Scripts.md)
-
-## Engineering reference
-
-Normative design for the Publishers & Subscribers category and the MQTT Logger → MQTT Publisher
-rename: [A35 — Webhook & MQTT Publishers](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A35-Publishers.md).
-Normative design for the category rename to Publishers & Subscribers and the MQTT Subscriber:
-[A36 — MQTT Subscriber](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A36-Subscribers.md).

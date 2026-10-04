@@ -6,8 +6,9 @@ description: "Built-in, Webhook, MQTT, and Run On Alert script actions that exec
 # Rule actions and scripts
 
 Profinity 2.3 rules can run **built-in actions**, **Webhook**/**MQTT** actions, and a **script**
-set to **Run On Alert** mode. Every action receives an **action context** that includes
-**`TriggeredTags`** — the tags that caused the rule to fire.
+set to **Run On Alert** mode. Every action receives an **action context** that lists the
+tags that caused the rule to fire. The list is named **`TriggeredTags`** in the script context and
+**`triggeringTags`** in the Webhook and MQTT JSON message.
 
 <figure markdown>
 ![A rule firing sends its full JSON context to pluggable actions — log, Slack, PagerDuty, or a script — with cooldown throttling and actions set once and inherited down the rule tree](../../../../assets/images/2.3/2.3-diagram-rule-actions.png)
@@ -42,18 +43,12 @@ When editing a rule, add actions from the action picker:
 - Built-in actions: **ProfinityLog** and **None**.
 - **Webhook** and **MQTT** actions — see [Webhook and MQTT actions](#webhook-and-mqtt-actions) below.
 - Component actions such as **Slack** and **Email**.
-- Any **C#**, **Python**, or **Lua Script** component set to **Run On Alert** mode.
+- Any **CSharp Script**, **Python Script**, or **Lua Script** component set to **Run On Alert** mode, as described in [Rule scripts](../Scripting/Rule_Scripts.md).
 
 <figure markdown>
 ![Rule action picker showing built-in, Webhook/MQTT, and script actions](../../../../assets/images/2.3/2.3-rule-action-picker.png)
 <figcaption>Rule action picker (screenshot placeholder — provide SS-27)</figcaption>
 </figure>
-
-!!! info "Dedicated Rule Script components are gone"
-    Earlier 2.3 builds had dedicated **C# Rule Script**/**Python Rule Script**/**Lua Rule Script**
-    components and a `Profinity.Rule` script variable. Those are removed (2026-09-25). A rule
-    action is now **Run On Alert**, a mode on the same general script component used for every
-    other trigger — see [Rule scripts](../Scripting/Rule_Scripts.md).
 
 ## TriggeredTags
 
@@ -61,19 +56,20 @@ Every rule action — built-in, Webhook, MQTT, component, or script — receives
 context, which includes **`TriggeredTags`**: every tag in the rule's scope currently evaluating
 true. Use this to log, branch logic, or pass values to downstream actions.
 
-For the script action's version of this context, see [Rule scripts](../Scripting/Rule_Scripts.md).
-Engineering reference: [rules engine documentation](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/Tag-Layer/02.7-rules-engine.md) (sections 9.7–9.8).
+For the script action's version of this context, see [Rule scripts](../Scripting/Rule_Scripts.md). The Webhook and MQTT actions send the same list as the **`triggeringTags`** array of their JSON message, described under [Webhook and MQTT actions](#webhook-and-mqtt-actions).
 
 ## Alert level
 
 Set **`level`** on a rule to classify alert severity. ALL ALERTS and indicators respect active rule state combined with level.
+
+The valid levels, from least to most severe, are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`. Level names are not case-sensitive, `Information` is accepted as `Info` and `Warn` as `Warning`, and a rule with no level is treated as `Info`, whereas an unrecognised level on a rule, threshold step or `triggerLevel` is rejected when the rules file loads. The same names are used as the `triggerLevel` of an action that is configured on a parent rule file or group, which fires only for rules at or above that level. A script receives the level as the string `RuleLevel`, whereas the Webhook and MQTT JSON message does not include the level.
 
 ## Webhook and MQTT actions
 
 Alongside the built-in actions above, a rule can fire a **Webhook** action or an **MQTT** action
 when it transitions — the same "push a notification out" role Slack and Email actions already
 fill, just to a generic HTTP destination or MQTT broker instead of a vendor API. Both send the
-same message shape, so a subscriber sees identical structure regardless of which one a rule uses:
+same message shape, so a subscriber sees identical structure regardless of which one a rule uses. The JSON property names are camelCase, `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`, and `triggeringTags` is the same list that a script receives as `TriggeredTags`:
 
 ```json
 {

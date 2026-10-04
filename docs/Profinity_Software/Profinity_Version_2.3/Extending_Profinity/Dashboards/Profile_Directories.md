@@ -29,6 +29,7 @@ Profile/
 │   ├── device-diagram.png
 │   └── custom-logo.svg
 ├── Styles/
+│   ├── profile.css
 │   ├── custom-dashboard.css
 │   └── theme-override.css
 └── Content/
@@ -56,6 +57,11 @@ pill:
   icon:
     image: nav_battery_active.svg
     recess: false
+  items:
+    - pillgroup:
+        items:
+          - value:
+              label: "Battery"
 ```
 
 **Using Icons in Icon Components:**
@@ -71,14 +77,19 @@ icon:
 
 ```yaml
 image:
-  value:
-    image: device-diagram.png
-    regions:
-      - id: "battery-region"
-        coordinates: "xywh=100,100,200,150"
-        action: "navigate"
+  image: device-diagram.png
+  regions:
+    - id: "battery-region"
+      x: 20
+      y: 25
+      width: 30
+      height: 20
+      action:
+        invoke: Navigate
         target: "/component?componentId=Battery%20Pack"
 ```
+
+The background image is the `image` property of the `image` component, and it is a filename only. The `x`, `y`, `width`, and `height` of a region are percentages of the image size, and a region `action` is an object with an `invoke` value of `Navigate`, `Component`, `System`, or `Endpoint`.
 
 **Using Images in HTML Components:**
 
@@ -105,7 +116,7 @@ Profinity supports common image formats:
 
 ## /Profile/Styles
 
-The `/Profile/Styles` directory is used to store custom CSS stylesheets that can be linked in your HTML components or applied to dashboard elements.
+The `/Profile/Styles` directory is used to store custom CSS stylesheets that the web interface applies to dashboard elements through the `class` parameter and the `class` attribute of HTML content. The web interface loads only the file named `profile.css` from the directory, and that file can load other stylesheets in the directory with the CSS `@import` rule.
 
 ### What to Store in /Profile/Styles
 
@@ -116,12 +127,21 @@ The `/Profile/Styles` directory is used to store custom CSS stylesheets that can
 
 ### Examples
 
-**Linking Stylesheets in HTML Components:**
+**Loading Stylesheets:**
+
+The HTML sanitiser removes a `link` element from the `content` of an HTML component, so a stylesheet is not linked from the HTML. Place the rules in `/Profile/Styles/profile.css`, which the web interface loads when the file is present, and import further files from it:
+
+```css
+/* /Profile/Styles/profile.css */
+@import url("custom-dashboard.css");
+@import url("theme-override.css");
+```
+
+Then apply the rules with the `class` attribute:
 
 ```yaml
 html:
   content: |
-    <link rel="stylesheet" href="/Profile/Styles/custom-dashboard.css" />
     <div class="custom-panel">
       <h2>Custom Styled Content</h2>
       <p>This content uses custom CSS from /Profile/Styles</p>
@@ -143,7 +163,7 @@ group:
               value: 25.5
 ```
 
-Then in `/Profile/Styles/custom-dashboard.css`:
+Then in `/Profile/Styles/custom-dashboard.css`, which `profile.css` imports:
 
 ```css
 .custom-info-box {
@@ -181,32 +201,15 @@ The `/Profile/Content` directory is used to store HTML snippets, templates, or o
 
 **Referencing Content Files:**
 
-Files from `/Profile/Content` cannot be included directly in YAML, but HTML components can reference them:
+Files from `/Profile/Content` cannot be included directly in YAML, and the HTML sanitiser removes the `object`, `embed` and `script` elements, so an HTML component shows a content file in an `iframe` or links to it with an `a` element:
 
 ```yaml
 html:
   content: |
     <div class="dashboard-header">
-      <!-- Reference external content -->
-      <object data="/Profile/Content/header-template.html" type="text/html"></object>
       <h1>Dashboard Title</h1>
-    </div>
-```
-
-**Using Content for Dynamic Loading:**
-
-```yaml
-html:
-  content: |
-    <div id="content-container">
-      <script>
-        // Load content from Profile/Content directory
-        fetch('/Profile/Content/help-text.html')
-          .then(response => response.text())
-          .then(html => {
-            document.getElementById('content-container').innerHTML = html;
-          });
-      </script>
+      <iframe src="/Profile/Content/header-template.html" width="100%" height="120"></iframe>
+      <a href="/Profile/Content/help-text.html" target="_blank">Open the help text</a>
     </div>
 ```
 
@@ -231,21 +234,22 @@ icon:
 
 **Incorrect:**
 ```yaml
+# Avoid - do not use full paths in component properties
 icon:
-  image: /Profile/Images/nav_battery_active.svg  # Do not use full paths
+  image: /Profile/Images/nav_battery_active.svg
 ```
 
 ### Path Resolution
 
-Profinity automatically resolves file references in component properties based on the file type, so files with image extensions (`.svg`, `.png`, `.jpg`, and so on) are looked up in `/Profile/Images`. Files referenced from within an HTML component, such as in `href`, `src`, or `data` attributes, are not resolved this way and must use the full path (for example, `/Profile/Styles/filename.css`).
+Profinity automatically resolves file references in component properties based on the file type, so files with image extensions (`.svg`, `.png`, `.jpg`, and so on) are looked up in `/Profile/Images`. Files referenced from within an HTML component, such as in `href` or `src` attributes, are not resolved this way and must use the full path (for example, `/Profile/Content/filename.html`).
 
 **Full Paths in HTML:**
 ```yaml
 html:
   content: |
-    <link rel="stylesheet" href="/Profile/Styles/custom.css" />
     <img src="/Profile/Images/logo.png" alt="Logo" />
-    <object data="/Profile/Content/template.html"></object>
+    <iframe src="/Profile/Content/template.html" width="100%" height="120"></iframe>
+    <a href="/Profile/Content/help-text.html" target="_blank">Help</a>
 ```
 
 **Filename Only in Component Properties:**
@@ -253,6 +257,11 @@ html:
 pill:
   icon:
     image: nav_battery_active.svg  # Just the filename
+  items:
+    - pillgroup:
+        items:
+          - value:
+              label: "Battery"
 ```
 
 ## Common Use Cases
@@ -272,12 +281,11 @@ html:
 
 ### Themed Dashboards
 
-Custom CSS themes in `/Profile/Styles` match a dashboard to an organisation's brand:
+Custom CSS themes in `/Profile/Styles` match a dashboard to an organisation's brand, by importing the theme from `profile.css` with `@import url("brand-theme.css");` and applying its classes:
 
 ```yaml
 html:
   content: |
-    <link rel="stylesheet" href="/Profile/Styles/brand-theme.css" />
     <div class="branded-panel">
       <!-- Themed content -->
     </div>
@@ -292,7 +300,7 @@ html:
   content: |
     <div class="info-section">
       <!-- Include common header -->
-      <iframe src="/Profile/Content/common-header.html" frameborder="0"></iframe>
+      <iframe src="/Profile/Content/common-header.html" width="100%" height="80"></iframe>
       <div class="main-content">
         <!-- Dashboard content -->
       </div>

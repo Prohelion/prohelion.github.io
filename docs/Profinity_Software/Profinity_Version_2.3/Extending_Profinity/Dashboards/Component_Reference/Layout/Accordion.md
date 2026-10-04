@@ -16,14 +16,15 @@ Collapsible sections for organising content. Accordions keep dashboards unclutte
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the accordion |
-| `class` | optional (string) | CSS class for styling |
-| `label` | required (string) | Section label |
-| `visible` | optional (boolean) | Whether the accordion is visible |
-| `bind` | optional (array) | Data binding configuration |
-| `items` | required (array) | Array of row objects within the accordion |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | CSS class added to the accordion element |
+| `label` | string | Yes | None | Caption of the button that expands and collapses the section |
+| `defaultExpanded` | boolean | No | `false` | Whether the accordion starts expanded when the dashboard loads. The accordion remains collapsible by the user either way, and an accordion that omits the parameter starts collapsed |
+| `visible` | boolean | No | `true` | When `false`, or when bound to `false`, the whole accordion is hidden |
+| `bind` | array | No | None | Data binding. The `visible` target shows and hides the accordion |
+| `items` | array | Yes | None | Accordion sections, where each item must be an object that contains a `row` |
 
 **Basic Example:**
 
@@ -42,7 +43,7 @@ dashboard:
                           value: "72:15:30"
                       - readout:
                           label: "Version"
-                          value: "2.1.0"
+                          value: "2.3.0"
 ```
 
 **Data Binding for Visibility:**
@@ -57,7 +58,7 @@ dashboard:
         visible: true
         bind:
           - target: visible
-            source: '{COMPONENT_NAME}.Settings.ShowAdvanced'
+            source: 'DBC/Settings/ShowAdvanced'
             toType: boolean
         items:
           - row:
@@ -111,13 +112,14 @@ dashboard:
 
 **Conditional Content:**
 
-Use data binding to conditionally show different content within accordions:
+Use data binding to conditionally show content within accordions. Rows do not accept `visible` or `bind`, so the visibility binding is placed on a component inside the row, such as a readout:
 
 ``` yaml
 dashboard:
   items:
     - accordion:
         label: "Component Status"
+        defaultExpanded: true
         items:
           - row:
               items:
@@ -128,28 +130,24 @@ dashboard:
                             - lamp:
                                 color: "green"
                                 label: "Status"
-                                enabled: true
+                                value: 1
                                 bind:
                                   - target: enabled
-                                    source: '{COMPONENT_NAME}.Status.Online'
+                                    source: 'DBC/Status/Online'
                                     toType: boolean
                                   - target: color
-                                    source: '{COMPONENT_NAME}.Status.Color'
+                                    source: 'DBC/Status/Color'
                                     toType: string
-          - row:
-              visible: true
-              bind:
-                - target: visible
-                  source: '{COMPONENT_NAME}.Status.HasWarnings'
-                  toType: boolean
-              items:
                 - readouts:
                     items:
                       - readout:
                           label: "Warning Count"
                           bind:
                             - target: value
-                              source: '{COMPONENT_NAME}.Status.WarningCount'
+                              source: 'DBC/Status/WarningCount'
+                            - target: visible
+                              source: 'DBC/Status/HasWarnings'
+                              toType: boolean
 ```
 
 **Complete Example with All Features:**
@@ -161,10 +159,11 @@ dashboard:
         id: "main-accordion"
         class: "system-accordion"
         label: "System Information"
+        defaultExpanded: true
         visible: true
         bind:
           - target: visible
-            source: '{COMPONENT_NAME}.Settings.ShowSystemInfo'
+            source: 'DBC/Settings/ShowSystemInfo'
             toType: boolean
         items:
           - row:
@@ -176,15 +175,18 @@ dashboard:
                           value: "72:15:30"
                       - readout:
                           label: "Version"
-                          value: "2.1.0"
-          - accordion:
-              label: "Detailed Metrics"
+                          value: "2.3.0"
+          - row:
               items:
-                - row:
+                - accordion:
+                    label: "Detailed Metrics"
                     items:
-                      - chart:
-                          type: "line"
-                          bind:
-                            - target: value
-                              source: '{COMPONENT_NAME}.Metrics.History'
+                      - row:
+                          items:
+                            - chart:
+                                type: "line"
+                                bind:
+                                  - target: value
+                                    source: 'DBC/Metrics/History'
+                                    seriesMode: timeSeries
 ```

@@ -1,6 +1,6 @@
 ---
 title: Component Catalog
-description: "Hide component types from the add-component catalog using glob patterns in Config.yaml or the admin UI."
+description: "Hide component types from the add-component catalog using glob patterns in config.yaml or the admin UI."
 ---
 
 # Disable components in the catalog
@@ -15,11 +15,11 @@ Administrators and OEMs can **hide component types** from the add-component cata
 2. Navigate to **App Settings** → **Component catalog**.
 3. Use the per-item enable/disable controls to hide or show component types and groups.
 
-Each toggle calls a REST endpoint and updates the **`DisabledComponents`** / **`DisabledGroups`** lists in `Config.yaml`. The change applies immediately and does not restart the engine.
+Each toggle calls a REST endpoint and updates the **`DisabledComponents`** / **`DisabledGroups`** lists in `config.yaml`. The change applies immediately and does not restart the engine.
 
 ### Custom.yaml (OEM override)
 
-OEM deployments using OEM packaging can supply additional overrides in **`Custom.yaml`**. Precedence follows the engine's `ComponentCatalogAvailabilityService`: Config.yaml is the operator-facing source, and Custom.yaml can restrict further for branded builds.
+OEM deployments using OEM packaging can supply additional overrides in **`Custom.yaml`**. Precedence follows the engine's `ComponentCatalogAvailabilityService`: config.yaml is the operator-facing source, and Custom.yaml can restrict further for branded builds.
 
 ## Plugin Manager reflection
 

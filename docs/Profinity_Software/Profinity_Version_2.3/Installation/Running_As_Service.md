@@ -176,11 +176,7 @@ Running Profinity under a dedicated user account, rather than LocalSystem, reduc
 
 ### Profile files
 
-When running as a service, the Prohelion home directory of the service user is
-
-`C:\Windows\SysWOW64\Prohelion\Profinity`
-
-This can be difficult to work with in some environments, and modifying files stored in the Windows directory directly is not generally recommended. Installing Profinity under a user account avoids this; for example:
+When running as a service, Profinity resolves its [artifacts directory](./Artifacts_Directory.md) in the same way as the desktop application, as `%LOCALAPPDATA%\Prohelion\Profinity` of the account that the service runs under. For the default LocalSystem account that folder is inside the system profile (for the 32-bit Windows build, beneath `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Prohelion\Profinity`), which is inside the Windows directory and can be difficult to work with in some environments, and modifying files stored in the Windows directory directly is not generally recommended. Installing Profinity under a user account avoids this, and the `PROFINITY_HOME` system environment variable can be set to place the artifacts directory at a path of your choosing instead; for example:
 
 ```bat
 ProfinityService.cmd install [Username to install under]

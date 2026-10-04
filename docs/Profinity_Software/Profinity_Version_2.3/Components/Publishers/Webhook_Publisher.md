@@ -37,7 +37,8 @@ category, then configure its settings.
 | Setting | Purpose |
 |---|---|
 | **Logging mode** | **Snapshot** publishes every collection member on each interval tick, regardless of whether the value changed; **On Change** publishes only when a member's value has changed since the last publish; **Everything** publishes every sample that arrives, including unchanged ones — the same three modes the MQTT Publisher provides. |
-| **Interval (sec)** | For **Snapshot** mode, how often a full publish runs. For **On Change**/**Everything**, how often accumulated changes are flushed. |
+| **Update Interval (Seconds)** | For **Snapshot** mode, how often a full publish runs. For **On Change**/**Everything**, how often accumulated changes are flushed. |
+| **Auto Start** | Starts the publisher automatically when the profile is loaded, and is enabled by default. |
 
 ## Authentication
 
@@ -91,8 +92,7 @@ so a fast-changing collection does not produce a storm of individual requests.
 
 ## Delivery health
 
-A failed delivery is retried automatically with a short exponential backoff before the publisher
-reports failure; there is no separate configuration for retry count or backoff in this release.
+A delivery that fails, because the destination returns a status other than a success code or because the request cannot connect or times out after 10 seconds, is attempted up to three times in total, with a wait of 1 second before the second attempt and 2 seconds before the third, before the publisher reports failure. These values are fixed defaults of the Webhook transport and there is no setting for the attempt count or backoff in this release.
 Beyond the standard **Error** status that every other publisher and logger component provides,
 the Webhook Publisher exposes two properties for a dashboard or the component panel:
 
@@ -107,7 +107,3 @@ the Webhook Publisher exposes two properties for a dashboard or the component pa
 - [MQTT Subscriber](./MQTT_Subscriber.md)
 - [File Loggers](../Loggers/File_Loggers.md)
 - [Rule actions and scripts](../../Extending_Profinity/Rules/Rule_Actions_And_Scripts.md)
-
-## Engineering reference
-
-Normative design: [A35 — Webhook & MQTT Publishers](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A35-Publishers.md).

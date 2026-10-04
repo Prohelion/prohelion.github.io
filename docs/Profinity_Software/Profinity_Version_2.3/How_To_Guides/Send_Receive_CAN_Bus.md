@@ -18,7 +18,7 @@ Send and receive CAN bus messages using Profinity's built-in CAN tools.
 
 ### Step 1: Check User Permissions
 
-1. Open the pill menu (top-right) and select **Users & Groups**
+1. Select **ADMIN** in the side menu, then **Users & Groups**
 2. Click your user account
 3. Ensure one of the **Assigned roles** includes `CANView`, which allows CAN messages to be received and viewed
 4. To send messages, ensure an assigned role includes `CANSend`, which also includes `CANView`
@@ -26,9 +26,9 @@ Send and receive CAN bus messages using Profinity's built-in CAN tools.
 
 Changing a user's roles revokes their active sessions, so the user must sign in again for the change to take effect.
 
-### Step 2: Open the Send & Receive CAN Window
+### Step 2: Open the Send & Received CAN Window
 
-1. Click on **SEND & RECEIVE CAN** in the menu
+1. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN** (users who hold only `CANView` see **RECEIVED CAN** instead)
 2. The CAN Activity window opens
 3. All CAN messages currently on the network are shown
 

@@ -11,7 +11,7 @@ DLL plugins are **distinct** from **Custom Component packs** (zip or nupkg bundl
 
 ## Where to manage plugins
 
-Plugins are managed from the pill menu → **Components & Plugins** (`/admin?view=plugins`). Opening the screen requires **`PluginView`**, and uploading, enabling, disabling, or deleting a plugin requires **`PluginModify`**.
+Plugins are managed by selecting **ADMIN** in the side menu and opening the **Components & Plugins** pill (`/admin?view=plugins`). Opening the screen requires **`PluginView`**, and uploading, enabling, disabling, or deleting a plugin requires **`PluginModify`**.
 
 <figure markdown>
 ![Plugin Manager upload control and plugin list](../../../../assets/images/2.3/2.3-plugin-manager-upload.png)
@@ -26,24 +26,22 @@ Installed plugins live under:
 {Artifacts}/plugins/{pluginId}/
 ```
 
-Registry metadata is stored in `{Artifacts}/Config/plugins.yaml`.
+Registry metadata is stored in `{Artifacts}/config/plugins.yaml`. Both folder names are lowercase, which matters on Linux where the file system is case-sensitive, and an upgrade from an earlier release renames the older `Plugins` and `Config/Plugins.yaml` names automatically. Plugins that ship with Profinity are loaded from `plugins/core` under the engine install folder and are listed alongside the installed ones.
 
 ## Install a plugin
 
-1. Build a plugin against `Profinity.Sdk` from the [Profinity SDK](../SDK.md) kit, following the [SDK Plugin Authoring guide](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/SDK/SDK-Plugin-Authoring.md), and pack it as a `.nupkg` or zip.
-2. In Plugin Manager, **upload** the package.
+1. Build a plugin against `Profinity.Sdk` from the [Profinity SDK](../SDK.md) kit, and pack it as a `.nupkg` or zip. A zip holds the plugin DLL and an optional `dependencies/` folder at its root, and a `.nupkg` holds its files under `content/` or its DLLs under `lib/`.
+2. Name the package after the plugin, because the plugin id is taken from the archive file name without its extension (for example `my_plugin.zip` installs as `my_plugin`) and may contain only letters, digits, hyphens and underscores. In Plugin Manager, **upload** the package, which also requires the **Custom Plugins** licensed feature.
 3. **Enable** the plugin.
 4. Where supported, hot reload picks up enabled plugins without a full reinstall.
 
-The [Rinstrum Scale Plugin](https://github.com/Prohelion/Profinity/tree/feature/Profinity_2_3/Rinstrum-Scale-Plugin) is a sample plugin that includes Linux systemd deploy notes.
-
 ## REST API
 
-The base path is `/api/v2/plugins`, which lists, uploads, enables, disables, and deletes plugins, and requires the matching `PluginView` or `PluginModify` permission.
+The base path is `/api/v2/plugins`, which lists, uploads (`POST /api/v2/plugins/upload`, multipart field `pluginArchive`), enables, disables, and deletes plugins, and requires the matching `PluginView` or `PluginModify` permission. The listing, upload and delete operations also require the **Custom Plugins** licensed feature.
 
 ## NuGet feed
 
-Plugins are installed from **local packages only** for 2.3 GA, and Profinity does not document a public NuGet **feed** publishing workflow in this release. See [Profinity SDK](../SDK.md) for how to get `Profinity.Sdk` itself.
+Plugins are installed from **local packages only** in this release, and Profinity does not document a public NuGet **feed** publishing workflow in this release. See [Profinity SDK](../SDK.md) for how to get `Profinity.Sdk` itself.
 
 ## Related documentation
 

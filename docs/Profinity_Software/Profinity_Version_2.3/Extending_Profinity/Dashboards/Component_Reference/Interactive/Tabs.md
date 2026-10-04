@@ -16,23 +16,25 @@ Tabbed interface with header lamps and body content. Tabs organise information i
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `items` | required (array) | Array of tab objects |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | CSS class added to the `tabs` element |
+| `items` | array | Yes | None | Array of objects that each contain a single `tab`, which form the tab strip. A tabs component with one tab displays the tab as the active tab without a switching control |
 
 **Tab Parameters:**
 
 Each item in `items` must contain a `tab` object with:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the tab |
-| `class` | optional (string) | CSS class for styling |
-| `enabled` | optional (boolean) | Whether the tab is enabled |
-| `visible` | optional (boolean) | Whether the tab is visible |
-| `bind` | optional (array) | Data binding configuration |
-| `header` | required (array) | Tab header items (typically lamps) |
-| `items` | required (array) | Tab panel content, typically panels (the legacy name `body` is converted to `items` by the dashboard editor) |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | Not used by the web interface |
+| `enabled` | boolean | No | `true` | When `false`, the tab header is displayed in the disabled style. The state can be bound with the `enabled` target |
+| `visible` | boolean | No | `true` | When `false`, the tab header is hidden. The state can be bound with the `visible` target, and a tab whose bound data is unavailable is hidden |
+| `bind` | array | No | None | Data binding for the tab. The `enabled` and `visible` targets are handled |
+| `header` | array | Yes | None | Content of the tab label in the tab strip. Each item must be an object that contains a `lamp`, which is displayed as the status lamp and caption of the tab. See [Lamp](../Data/Lamp.md) |
+| `items` | array | Yes | None | Content shown when the tab is active. Each item must be an object that contains a `panels` grid. The legacy name `body` is converted to `items` by the dashboard editor |
 
 **Example:**
 
@@ -64,11 +66,11 @@ dashboard:
                                             precision: 1
                                             bind:
                                               - target: value
-                                                source: '{COMPONENT_NAME}.VoltageRail15VMeasurement.Supply15V'
+                                                source: 'DBC/VoltageRail15VMeasurement/Supply15V'
                                         - readout:
                                             label: 1.9v RAIL
                                             precision: 1
                                             bind:
                                               - target: value
-                                                source: '{COMPONENT_NAME}.VoltageRail3V31V9Measurement.Supply1V9'
+                                                source: 'DBC/VoltageRail3V31V9Measurement/Supply1V9'
 ```

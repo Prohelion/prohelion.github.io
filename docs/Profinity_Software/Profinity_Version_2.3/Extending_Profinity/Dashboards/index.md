@@ -39,20 +39,21 @@ For more information on Custom Components, see the [Custom Components](../Custom
 Dashboards can also be used as profile-level home pages that replace the standard home page. To create a Profile Dashboard:
 
 1. **Create your dashboard layout** in a YAML file
-2. **Upload the dashboard file** via Profile settings ("Upload Default Dashboard" option)
+2. **Upload the dashboard file** via Profile settings, by turning on the "Custom Home Dashboard" option and choosing the file in the "Dashboard YAML file (Optional)" field
 3. **The dashboard will replace the standard home page** when the profile is active
 
 For more information on Profile Dashboards, see the [Profile Dashboard](../../Administration/Profile_Dashboard.md) documentation.
 
 ## Your First Dashboard: "Hello World"
 
-When you open the dashboard editor, you will see a template sample already loaded. You can also click the **"New Template"** button at any time to reset to the Hello World template. This template provides a simple starting point for creating your dashboard.
+A component that has no dashboard of its own starts from a template sample, which is the "Hello World" starting point used in this guide. In the dashboard editor, the **NEW FROM TEMPLATE** button replaces the YAML with this template at any time, after a confirmation prompt. This template provides a simple starting point for creating your dashboard.
 
 ### The Hello World Template
 
-The template that loads when you click "New Template" or when you first open the editor looks like this:
+The template that loads when you select **NEW FROM TEMPLATE**, or that a new custom component starts with, is the following file shipped with Profinity (a component can supply its own template, in which case that template loads instead):
 
 ``` yaml
+version: "2.3"
 dashboard:
     items:
         - row:
@@ -61,22 +62,25 @@ dashboard:
             - group:
                 class: statscontainer
                 items:
-                    - pill:                        
-                        icon:                      
-                            image: nav_custom_active.svg
+                    - pill:
+                        icon:
+                            image: IbmWatsonKnowledgeStudio
                         items:
                         - pillgroup:
                             items:
                             - value:
-                                label: CUSTOM COMPONENT
+                                label: CUSTOM DASHBOARD
+                            - value:
+                                label: For more information on how to configure dashboard files, see the Profinity documentation at https://docs.prohelion.com
 ```
 
 This template creates a simple dashboard with:
 
+- A **version** declaration (`version: "2.3"`)
 - A **row** container (vertical layout)
 - A **group** with styling (`statscontainer` class)
 - A **pill** component with an icon
-- A **value** readout showing "CUSTOM COMPONENT"
+- A **value** readout showing "CUSTOM DASHBOARD", and a second value that points to the documentation
 
 This is your starting point. You can modify this template to add your own components and data bindings.
 
@@ -85,6 +89,7 @@ This is your starting point. You can modify this template to add your own compon
 Adding a data binding to the Hello World template connects it to real component data, as in the following modified template:
 
 ``` yaml
+version: "2.3"
 dashboard:
     items:
         - row:
@@ -93,27 +98,28 @@ dashboard:
             - group:
                 class: statscontainer
                 items:
-                    - pill:                        
-                        icon:                      
-                            image: nav_custom_active.svg
+                    - pill:
+                        icon:
+                            image: IbmWatsonKnowledgeStudio
                         items:
                         - pillgroup:
                             items:
                             - value:
-                                label: CUSTOM COMPONENT
+                                label: CUSTOM DASHBOARD
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.YourSignal.YourValue'
+                                    source: DBC/YourMessage/YourSignal
 ```
 
-The `bind` section connects the value to live data from your component. Leave `{COMPONENT_NAME}` as written, because Profinity replaces it automatically with the name of the component that owns the dashboard (see [Data Binding](./Data_Binding.md#component-name-placeholders)), and replace `YourSignal.YourValue` with the actual signal path from your DBC file.
+The `bind` section connects the value to live data from your component. A source that starts with `DBC/` is relative to the component that owns the dashboard (see [Data Binding](./Data_Binding.md#binding-source-paths)), so replace `YourMessage` and `YourSignal` with the message and signal names from your DBC file.
 
 ### Adding More Components
 
 You can expand the template by adding more components. For example, to add multiple readouts:
 
 ``` yaml
+version: "2.3"
 dashboard:
     items:
         - row:
@@ -122,9 +128,9 @@ dashboard:
             - group:
                 class: statscontainer
                 items:
-                    - pill:                        
-                        icon:                      
-                            image: nav_custom_active.svg
+                    - pill:
+                        icon:
+                            image: IbmWatsonKnowledgeStudio
                         items:
                         - pillgroup:
                             items:
@@ -133,20 +139,20 @@ dashboard:
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.Temperature.Value'
+                                    source: DBC/Temperature/Value
                             - value:
                                 label: PRESSURE
                                 precision: 2
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.Pressure.Value'
+                                    source: DBC/Pressure/Value
 ```
 
 ### What You Have Learned
 
 You have started working with dashboards. You now know:
 
-- The Hello World template structure that loads when you click "New Template"
+- The Hello World template structure that loads from **NEW FROM TEMPLATE**
 - How to modify the template to add your own components
 - How to add data bindings to connect dashboards to real component data
 - How to expand the template with additional components
@@ -165,15 +171,14 @@ The following pages cover each part of dashboard development in more detail:
 The dashboard editor uses a schema to validate your YAML dashboard file. The editor provides:
 
 - **Syntax highlighting and auto-complete** while editing
-- **Real-time validation errors** as soon as an issue is introduced
-- **Schema compliance checking** - invalid dashboards cannot be loaded
-- **Save protection** - prevents invalid configurations from being saved
+- **Real-time validation errors** as soon as an issue is introduced, listed as schema validation issues in the visual editor
+- **Save protection** - the visual editor refuses to save a dashboard that has schema validation issues, and the server rejects an invalid dashboard that is submitted through the API
 
-Because only schema-valid dashboards can be saved, every deployed dashboard conforms to the schema.
+Because saving is blocked while schema validation issues remain, a dashboard saved from the editor conforms to the schema.
 
 ## Viewing Dashboard Source
 
-All of the dashboards in Profinity are built using this dashboard system, so the source YAML of any existing dashboard is a useful starting point alongside the examples in this guide. Users with the security permission to change settings in Profinity can open it by selecting the small pencil icon at the top right of the toolbar, and the steps are described in [How to View Dashboard Source](../../How_To_Guides/View_Dashboard_Source.md).
+All of the dashboards in Profinity are built using this dashboard system, so the source YAML of any existing dashboard is a useful starting point alongside the examples in this guide. Users with the `DashboardModify` security permission can open it by selecting the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar, and the steps are described in [How to View Dashboard Source](../../How_To_Guides/View_Dashboard_Source.md).
 
 ## Recommended Reading
 

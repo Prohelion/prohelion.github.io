@@ -24,7 +24,7 @@ All loggers are configured in the same manner, by adding a logger as a component
 
 The Profinity data log replayer allows you to replay log files that have previously been recorded in Profinity.
 
-To use this tool, select the log file and click the play button to start the replay. A number of options are available that change the way the log file is replayed: sliding the slider back and forth moves to new locations in the CAN bus replay file, pausing suspends the replay so that it can be restarted later if required, and pressing the trashcan icon deletes the log. Log files that you have recorded earlier or on other Profinity instances can be uploaded to this Profinity instance via the `UPLOAD CANBUS LOG` button.
+To use this tool, select the log file and click the play button to start the replay. A number of options are available that change the way the log file is replayed: sliding the slider back and forth moves to new locations in the CAN bus replay file, pausing suspends the replay so that it can be restarted later if required, and pressing the trashcan icon deletes the log. Log files that you have recorded earlier or on other Profinity instances can be uploaded to this Profinity instance via the **Upload CAN Log files** control.
 
 <figure markdown>
 ![Data Log Replayer](../images/log_replayer.png)

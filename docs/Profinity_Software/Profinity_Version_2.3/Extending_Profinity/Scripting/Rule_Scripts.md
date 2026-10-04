@@ -5,21 +5,14 @@ description: "Scripts set to Run On Alert mode that execute when rules fire with
 
 # Rule Scripts
 
-!!! info "Superseded 2026-09-25 — dedicated Rule Script components are gone"
-    Earlier 2.3 builds had dedicated **C# Rule Script** / **Python Rule Script** / **Lua Rule
-    Script** components and a `Profinity.Rule` script variable. Those are removed. A rule action
-    is now **Run On Alert**, a mode on the same general **C#**, **Python**, and **Lua Script**
-    components used for every other script trigger. This page describes the current behaviour.
-
 A script becomes a rule action by setting its **Script Mode** to **Run On Alert** — the same
 component used for Run On Demand, Run On Tag Change, and every other trigger, just switched into
-a different mode. There is no separate "rule script" component to add, and no `Profinity.Rule`
-script variable to check for `null`; the rule passes its firing context directly as a parameter to
-the method the script implements.
+a different mode. There is no separate "rule script" component to add, and the rule passes its
+firing context directly as a parameter to the method the script implements.
 
 ## Setting a script to Run On Alert
 
-1. Add a **C#**, **Python**, or **Lua Script** component (or use an existing one).
+1. Add a **CSharp Script**, **Python Script**, or **Lua Script** component (or use an existing one).
 2. Set **Script Mode** to **Run On Alert**.
 3. Name that component in the rule's **`onTrue`**/**`onFalse`** action list, the same way any
    other rule action is referenced by component name.
@@ -33,7 +26,13 @@ When the rule fires, Profinity calls the script's alert method once, passing the
 as a parameter — the same context every other rule action receives (see
 [Rule actions and scripts](../Rules/Rule_Actions_And_Scripts.md)): rule id/name/level, the edge
 that fired, the triggering tag, and **`TriggeredTags`** — every tag in the rule's scope that is
-currently true.
+currently true. The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`,
+`RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`,
+`Message`, `ExpandedMessage` and `TriggeredTags`, with the same names in C#, Python and Lua. `RuleLevel`
+is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (see
+[Alert level](../Rules/Rule_Actions_And_Scripts.md#alert-level)), `Transition` is one of `EnteredTrue`,
+`EnteredFalse`, `EnteredStep` or `ExitedStep`, and each row in `TriggeredTags` has `TagId`, `Value`,
+`Quality` and `MetaType`.
 
 === "C#"
 
@@ -81,10 +80,7 @@ currently true.
     end
     ```
 
-Full source: [`CSharpAlertTemplate.cs`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/CSharp/CSharpAlertTemplate.cs) ·
-[`PythonAlertTemplate.py`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Python/PythonAlertTemplate.py) ·
-[`LuaAlertTemplate.lua`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Lua/LuaAlertTemplate.lua) —
-all three are shipped as templates alongside Profinity's other example scripts.
+The full files `CSharpAlertTemplate.cs`, `PythonAlertTemplate.py` and `LuaAlertTemplate.lua` ship as templates in the `example_scripts` folder of the Profinity directory (in its `CSharp`, `Python` and `Lua` subfolders), alongside Profinity's other example scripts.
 
 !!! warning "Manually running the script does not call this method"
     A component menu's **Run Script** action, and the Run On Demand/scheduled paths, do not call

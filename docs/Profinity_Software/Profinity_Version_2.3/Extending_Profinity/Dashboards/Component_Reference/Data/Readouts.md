@@ -16,31 +16,30 @@ Display of numerical or text values. Readouts are the primary way to show sensor
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the readouts component |
-| `class` | optional (string) | CSS class for styling |
-| `items` | required (array) | Array of readout items |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | CSS class added to the `readouts` element |
+| `items` | array | Yes | None | Array of readout items. Each item is displayed as one readout |
 
 **Readout Parameters:**
 
 Each item in `items` must contain a `readout` object with:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the readout |
-| `class` | optional (string) | CSS class for styling |
-| `label` | required (string) | Display label |
-| `value` | optional (number/string) | Static value |
-| `unit` | optional (string) | Unit of measurement |
-| `precision` | optional (number) | Decimal precision for numerical values |
-| `min` | optional (number) | Minimum value |
-| `max` | optional (number) | Maximum value |
-| `enabled` | optional (boolean) | Whether the readout is enabled |
-| `visible` | optional (boolean) | Whether the readout is visible |
-| `bind` | optional (array) | Data binding configuration |
-| `action` | optional (string) | Action to perform on click |
-| `param` | optional (string) | Parameter for the action |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | Not used by the web interface |
+| `label` | string | Yes | None | Caption of the readout. The caption can be bound with the `label` target, and it is underlined when `action` is set |
+| `value` | number or string | No | None | Static value. The value is formatted with `unit` and `precision`. When no data is available, the readout shows `--` and is displayed as stale |
+| `unit` | string | No | None | Unit appended after a numeric value. When `unit` is omitted and the bound tag defines a unit in its metadata, the web interface fills in that unit. The unit can be bound with the `unit` target |
+| `precision` | number | No | None | Number of decimal places for numeric values |
+| `width` | integer | No | `1` | Number of columns that the readout spans, from `1` to `4`. A value greater than `1` displays the readout as a wide readout |
+| `enabled` | boolean | No | `true` | When `false`, the readout is displayed in the disabled style and remains visible. The state can be bound with the `enabled` target |
+| `visible` | boolean | No | `true` | When `false`, the readout is hidden. The state can be bound with the `visible` target |
+| `bind` | array | No | None | Data binding. The `value`, `label`, `unit`, `enabled` and `visible` targets are handled |
+| `action` | string | No | None | Underlines the caption as a visual cue and helps to identify the readout. The web interface does not run an action when the readout is clicked |
+| `param` | string | No | None | Not used by the web interface |
 
 **Example:**
 
@@ -59,14 +58,15 @@ dashboard:
                     enabled: true
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.TemperatureMeasurement.Value'
+                        source: 'DBC/TemperatureMeasurement/Value'
                 - readout:
                     label: "Pressure"
                     value: 1013.25
                     unit: "hPa"
                     precision: 2
+                    width: 2
                     enabled: true
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.PressureMeasurement.Value'
+                        source: 'DBC/PressureMeasurement/Value'
 ```

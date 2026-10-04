@@ -40,4 +40,4 @@ Scripts in all three languages can write information and error messages to the P
    - [IronPython Documentation](https://ironpython.net/documentation/)
    - [NLua Documentation](https://github.com/NLua/NLua)
 3. Experiment by creating simple scripts that integrate multiple features.
-4. Review the example scripts in the Example Scripts folder of the Profinity installation.
+4. Review the example scripts in the `example_scripts` folder of the Profinity directory.

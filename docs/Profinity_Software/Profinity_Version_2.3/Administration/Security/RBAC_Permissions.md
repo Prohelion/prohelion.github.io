@@ -11,7 +11,7 @@ Permissions control what appears in the side menu, admin pills, and which `/api/
 
 ## Where to manage roles
 
-1. Open the **pill menu** (top-right) as a user with **SecurityAdmin** permission.
+1. Select **ADMIN** in the side menu as a user with **SecurityAdmin** permission.
 2. Select **Users & Groups** (`/admin?view=users`).
 3. Use the **Users** tab to assign **Assigned roles** to each user.
 4. Use the **Roles** tab to create or edit roles and their permission toggles.
@@ -39,14 +39,14 @@ Permissions control what appears in the side menu, admin pills, and which `/api/
 | **Assigned role** | Role membership on a user |
 | **Permission** | Atomic capability (for example `TagView`, `CANSend`) |
 
-On upgrade from 2.2.x, Profinity migrates Security.yaml automatically:
+On upgrade from 2.2.x, Profinity migrates security.yaml automatically:
 
 - `SecurityGroups` → `Roles`
 - User `SecurityGroups` → `AssignedRoles`
 - Group `SecurityRoles` → role `Permissions`
 - Document stamp becomes `Version: "2.3"` (missing version is treated as legacy `"1"`)
 
-Example Security.yaml fragment:
+Example security.yaml fragment:
 
 ```yaml
 Version: "2.3"
@@ -73,7 +73,7 @@ Users:
 | Permission | Typical use |
 |------------|-------------|
 | `SecurityAdmin` | Users & Groups admin; user and role CRUD |
-| `SystemAdmin` | System Configuration (Config.yaml) |
+| `SystemAdmin` | System Configuration (config.yaml) |
 | `ProfileModify` | Profiles admin; add/switch/delete profiles |
 | `ComponentModify` | Add/remove components; component settings |
 | `ComponentAllowActions` | Run component actions (scripts, firmware actions) |
@@ -93,7 +93,22 @@ Users:
 | `ReceiveExternalTags` | Accept tags received from external sources |
 | `AiAssistant` | Profinity AI side-menu entry |
 
-**Implied permissions:** `CANSend` includes `CANView`; `TagRulesModify` includes `TagRulesView` and `TagView`; `PluginModify` includes `PluginView`; and similar pairs documented in the engineering reference.
+**Implied permissions:** granting the permission in the first column also grants every permission listed beside it, and the implication chains, so `TagRulesModify` also grants `TagView` by way of `TagRulesView`.
+
+| Permission | Also grants |
+|------------|-------------|
+| `FirmwareModify` | `FirmwareView` |
+| `CANSend` | `CANView` |
+| `CANReplay` | `CANView` |
+| `DBCView` | `TagView` |
+| `TagReplay` | `TagView` |
+| `ChargingControl` | `ChargingView` |
+| `TagRulesModify` | `TagRulesView`, `TagView` |
+| `TagCollectionsModify` | `TagCollectionsView`, `TagView` |
+| `TagRulesView` | `TagView` |
+| `TagCollectionsView` | `TagView` |
+| `PluginModify` | `PluginView` |
+| `AiAssistant` | `McpView` |
 
 ## Default role templates
 
@@ -129,8 +144,6 @@ Permissions gate UI entries. For example:
 
 - Role CRUD: `/api/v2/Roles` (replaces legacy `/api/v2/SecurityGroups`).
 - JWT claims use granular permission names (`TagView`, `SecurityAdmin`, etc.).
-
-For a full endpoint matrix, see the Profinity engineering [Secured Functionality Reference](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Security/Secured-Functionality-Reference.md).
 
 ## Pitfalls
 

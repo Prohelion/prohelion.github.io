@@ -11,7 +11,7 @@ Profinity keeps track of your Profiles and loads the most recently used one each
 
 ## Managing Profiles
 
-You can manage your Profiles through the **ADMIN** section of Profinity. Navigate to the **ADMIN** tab and select **Profiles** to:
+You can manage your Profiles through the **ADMIN** section of Profinity. Select **ADMIN** in the side menu, then the **Profile** pill, to:
 
 - **Switch between profiles**: You can have multiple profiles configured in Profinity. Click **ACTIVATE** on a profile in the list to make it the active profile, which is useful when you are working with different system configurations or testing different setups.
 

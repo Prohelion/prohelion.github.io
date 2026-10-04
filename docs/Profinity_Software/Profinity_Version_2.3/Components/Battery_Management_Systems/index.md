@@ -19,7 +19,7 @@ description: "Monitor and manage Prohelion battery management systems including 
 
 Prohelion designs and sells Battery Management Systems (BMS) for both automotive and fixed location environments.
 
-The Prohelion Battery Management technology is built around three main components. All systems include the Battery Management Unit (BMU) master board and a number of Cell Management Units (CMUs) or Nodes, and in some Prohelion Battery Management Systems the master board and Cell Management Units are integrated into a single board solution.
+The Prohelion Battery Management technology is built around two main components, which are present in all systems: the Battery Management Unit (BMU) master board, and a number of Cell Management Units (CMUs) or Nodes. In some Prohelion Battery Management Systems the master board and Cell Management Units are integrated into a single board solution, and the D1000 Gen2 adds a Battery Junction Unit (BJU) that monitors the overall pack current and voltages.
 
 For more information on these products, please see the main [Prohelion Website](https://www.prohelion.com/product-category/bms/).
 
@@ -125,7 +125,7 @@ The colour of the voltage readings highlights additional information about the s
 !!! danger "Wrong BMU Configuration Values Are Dangerous"
     Changing the configuration of your BMU can lead to dangerous situations if the wrong values are set for your pack. Only make these changes if you understand the purpose of each value.
 
-To update the configuration of your Battery Management Unit, click on the `Setup and Configuration` button in the top-right of the BMU dashboard. The BMU firmware options are only present if the BMU is physically connected to the network. Once the BMU configuration has been changed, the settings are saved to the device.
+To update the configuration of your Battery Management Unit, open the `Change Settings` menu in the top-right of the BMU dashboard and select the `Firmware Settings` tab. The BMU firmware options are only present if the BMU is physically connected to the network. Once the BMU configuration has been changed, the settings are saved to the device.
 
 !!! info "Firmware Settings or Firmware Utilities tab not visible"
     Profinity only allows the firmware on a device to be set if the device is in a suitable configuration. If the Firmware Settings or Firmware Utilities tabs are not visible, Profinity is unable to see the device or the device is not in a suitable state to have its firmware changed.
@@ -138,6 +138,6 @@ To update the configuration of your Battery Management Unit, click on the `Setup
 
 ## Flashing the BMU Firmware
 
-To flash the BMU firmware, select the `Firmware Utilities` button on the top-right of the BMU dashboard.
+To flash the BMU firmware, open the `Change Settings` menu on the top-right of the BMU dashboard, select the `Firmware Utilities` tab and run the `Update Firmware` action.
 
 For Gen1 BMU units a CAN to Ethernet bridge or a [Virtual CAN Adapter](../Adaptors/Virtual_CAN_Adapter.md) is required for this operation, whereas Gen2 units can be flashed with any supported CAN Adapter.

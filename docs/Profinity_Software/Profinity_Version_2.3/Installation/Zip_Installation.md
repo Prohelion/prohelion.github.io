@@ -97,7 +97,7 @@ INFO: Profinity Services Starting
 INFO: Now listening on: http://127.0.0.1:18080
 ```
 
-With Profinity running, open the URL defined in the `Config.yaml` file (for example, `http://profinity:18080`) to access the Profinity web client. 
+With Profinity running, open the address that the `Now listening on` line of the log reports, or the `HttpAddress` and `HttpPort` values in the `config.yaml` file, to access the Profinity web client. By default Profinity listens on all network interfaces (`0.0.0.0`) on port `18080`, so the web client is reached at `http://localhost:18080` on the local machine, or at `http://[Host name or IP address]:18080` from another machine, whereas the sample log above was taken from an instance bound to the loopback address `127.0.0.1`, which is reachable from the local machine only. 
 
 Connecting to the Profinity web client directs the browser to the Profinity login page.
 
