@@ -91,14 +91,14 @@ dashboard:
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                                    source: DBC/BusMeasurement/BusVoltage
                             - value:
                                 label: BUS CURRENT
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.BusMeasurement.BusCurrent'
+                                    source: DBC/BusMeasurement/BusCurrent
                       - pillgroup:
                           items:
                             - value:
@@ -107,21 +107,21 @@ dashboard:
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.DspBoardTempMeasurement.DspBoardTemp'
+                                    source: DBC/DspBoardTempMeasurement/DspBoardTemp
                             - value:
                                 label: MOTOR TEMP
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.HeatsinkMotorTempMeasurement.MotorTemp'
+                                    source: DBC/HeatsinkMotorTempMeasurement/MotorTemp
                             - value:
                                 label: HEATSINK TEMP
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.HeatsinkMotorTempMeasurement.HeatsinkTemp'
+                                    source: DBC/HeatsinkMotorTempMeasurement/HeatsinkTemp
                       - pillgroup:
                           items:
                             - value:
@@ -130,14 +130,14 @@ dashboard:
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.VelocityMeasurement.MotorVelocity'
+                                    source: DBC/VelocityMeasurement/MotorVelocity
                             - value:
                                 label: MPS
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.VelocityMeasurement.VehicleVelocity'
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
           - row:
               direction: vertical
               class: trunkpadded
@@ -152,7 +152,10 @@ dashboard:
                                 legend: false
                                 bind:
                                   - target: value
-                                    source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+                                    source: Properties/BusPower
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
                       - panel:
                           title: VELOCITY (M/S)
                           items:
@@ -161,7 +164,10 @@ dashboard:
                                 legend: false
                                 bind:
                                   - target: value
-                                    source: "[TimeSeries].{COMPONENT_NAME}.VelocityMeasurement.VehicleVelocity"
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
                       - panel:
                           title: CONTROLLER LIMITS
                           items:
@@ -176,7 +182,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitOutputVoltagePWM'
+                                                source: DBC/Status/LimitOutputVoltagePWM
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -185,7 +191,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitMotorCurrent'
+                                                source: DBC/Status/LimitMotorCurrent
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -194,7 +200,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitVelocity'
+                                                source: DBC/Status/LimitVelocity
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -203,7 +209,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitBusCurrent'
+                                                source: DBC/Status/LimitBusCurrent
                                                 toType: boolean
                                   - lampgroup:
                                       items:
@@ -214,7 +220,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitBusVoltageUpper'
+                                                source: DBC/Status/LimitBusVoltageUpper
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -223,7 +229,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitBusVoltageLower'
+                                                source: DBC/Status/LimitBusVoltageLower
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -232,7 +238,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitIpmOrMotorTemp'
+                                                source: DBC/Status/LimitIpmOrMotorTemp
                                                 toType: boolean
                       - panel:
                           title: CONTROLLER ERRORS
@@ -248,7 +254,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorHardwareOverCurrent'
+                                                source: DBC/Status/ErrorHardwareOverCurrent
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -257,7 +263,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorSoftwareOverCurrent'
+                                                source: DBC/Status/ErrorSoftwareOverCurrent
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -266,7 +272,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorDcBusOverVoltage'
+                                                source: DBC/Status/ErrorDcBusOverVoltage
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -275,7 +281,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorWatchdogCausedLastReset'
+                                                source: DBC/Status/ErrorWatchdogCausedLastReset
                                                 toType: boolean
                                   - lampgroup:
                                       items:
@@ -286,7 +292,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorConfigRead'
+                                                source: DBC/Status/ErrorConfigRead
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -295,7 +301,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.Error15vRailUnderVoltage'
+                                                source: DBC/Status/Error15vRailUnderVoltage
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -304,7 +310,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorDesaturationFault'
+                                                source: DBC/Status/ErrorDesaturationFault
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -313,7 +319,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorMotorOverSpeed'
+                                                source: DBC/Status/ErrorMotorOverSpeed
                                                 toType: boolean
     - accordion:
         label: MORE DETAILS
@@ -330,7 +336,7 @@ dashboard:
                                 color: disabled
                                 value: 1
                                 label: INFO
-                          body:
+                          items:
                             - panels:
                                 items:
                                   - panel:
@@ -343,19 +349,19 @@ dashboard:
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.VoltageRail15VMeasurement.Supply15V'
+                                                      source: DBC/VoltageRail15VMeasurement/Supply15V
                                               - readout:
                                                   label: 1.9v RAIL
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.VoltageRail3V31V9Measurement.Supply1V9'
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply1V9
                                               - readout:
                                                   label: 3.3v RAIL
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.VoltageRail3V31V9Measurement.Supply3V3'
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply3V3
                                   - panel:
                                       title: Phase Currents
                                       items:
@@ -366,13 +372,13 @@ dashboard:
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.PhaseCurrentMeasurement.PhaseCurrentB'
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentB
                                               - readout:
                                                   label: PHASE CURRENT C
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.PhaseCurrentMeasurement.PhaseCurrentC'
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentC
                                   - panel:
                                       title: Motor Vectors
                                       items:
@@ -383,37 +389,37 @@ dashboard:
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.BackEMFMeasurementPrediction.BEMFd'
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFd
                                               - readout:
                                                   label: BEMF Vq
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.BackEMFMeasurementPrediction.BEMFq'
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFq
                                               - readout:
                                                   label: MOTOR VOLTAGE Vd
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorVoltageVectorMeasurement.Vd'
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vd
                                               - readout:
                                                   label: MOTOR VOLTAGE Vq
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorVoltageVectorMeasurement.Vq'
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vq
                                               - readout:
                                                   label: MOTOR CURRENT Id
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorCurrentVectorMeasurement.Id'
+                                                      source: DBC/MotorCurrentVectorMeasurement/Id
                                               - readout:
                                                   label: MOTOR CURRENT Iq
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorCurrentVectorMeasurement.Iq'
+                                                      source: DBC/MotorCurrentVectorMeasurement/Iq
                                   - panel:
                                       title: Speed & Distance
                                       items:
@@ -424,13 +430,13 @@ dashboard:
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.SlipSpeedMeasurement.SlipSpeed'
+                                                      source: DBC/SlipSpeedMeasurement/SlipSpeed
                                               - readout:
                                                   label: ODOMETER
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.OdometerBusAhMeasurement.Odometer'
+                                                      source: DBC/OdometerBusAhMeasurement/Odometer
                                   - panel:
                                       title: Other
                                       items:
@@ -440,22 +446,22 @@ dashboard:
                                                   label: PART ID
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.IDInfo.TritiumID'
+                                                      source: DBC/IDInfo/TritiumID
                                               - readout:
                                                   label: SERIAL NUMBER
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.IDInfo.SerialNumber'
+                                                      source: DBC/IDInfo/SerialNumber
                                               - readout:
                                                   label: TX ERROR COUNT
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.Status.TxErrorCount'
+                                                      source: DBC/Status/TxErrorCount
                                               - readout:
                                                   label: RX ERROR COUNT
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.Status.RxErrorCount'
+                                                      source: DBC/Status/RxErrorCount
 ```
 
 ## Section-by-Section Analysis
@@ -480,9 +486,9 @@ The dashboard begins with a **pill component** that serves as the central status
 
 The second row contains **panels with charts** for trend analysis:
 
-- **Bus Power Chart** - Shows power consumption over time using bus current data
+- **Bus Power Chart** - Shows power consumption over time using the calculated `BusPower` property of the component
 - **Velocity Chart** - Displays vehicle speed trends
-- **Time Series Data** - Uses `[TimeSeries]` data source for historical information
+- **Time Series Data** - Binds with `seriesMode: timeSeries` to plot recent history
 - **Clean Layout** - Each chart is in its own titled panel
 
 **Key Features:**
@@ -498,13 +504,13 @@ The **controller limits panel** shows system protection status:
 
 - **Amber Status Lamps** - Indicates when various limits are active
 - **Full Limit Coverage** - Monitors voltage, current, velocity, and temperature limits
-- **Real-time Status** - Lamps enable/disable based on actual limit conditions
+- **Real-time Status** - Lamps light or grey out based on actual limit conditions
 - **Two-Row Layout** - Organises limits into logical groups
 
 **Key Features:**
 
 - Visual indicators provide immediate status awareness
-- Boolean data binding shows/hides lamps based on limit states
+- Boolean data binding lights or greys the lamp based on limit states
 - Amber colour indicates warning conditions
 - Grouped layout prevents information overload
 
@@ -556,10 +562,10 @@ dashboard:
                     label: "Bus Voltage"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                        source: DBC/BusMeasurement/BusVoltage
 ```
-- Uses DBC signal names for real-time data
-- Component name placeholder for reusability
+- Uses DBC message and signal names for real-time data
+- The path is relative to the component that owns the dashboard, so the dashboard is reusable across components
 
 ### Time Series Data Binding
 ```yaml
@@ -571,10 +577,13 @@ dashboard:
               type: line
               bind:
                 - target: value
-                  source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+                  source: DBC/BusMeasurement/BusCurrent
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+                  timeRangeStop: "0m"
 ```
-- Historical data for charts and trends
-- Automatic time series management
+- Recent history for charts and trends, over the window set by `timeRangeStart` and `timeRangeStop`
+- Without `seriesMode: timeSeries`, a chart shows only the latest value
 
 ### Boolean Status Binding
 ```yaml
@@ -588,13 +597,14 @@ dashboard:
                     items:
                       - lamp:
                           color: "amber"
+                          value: 1
                           label: "Motor Current Limit"
                           bind:
                             - target: enabled
-                              source: '{COMPONENT_NAME}.Status.LimitMotorCurrent'
+                              source: DBC/Status/LimitMotorCurrent
                               toType: boolean
 ```
-- Shows/hides status indicators based on conditions
+- Lights or greys each status indicator based on conditions
 - Type conversion ensures proper boolean handling
 
 ## Customisation Guide

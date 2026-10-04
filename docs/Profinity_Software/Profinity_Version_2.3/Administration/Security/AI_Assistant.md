@@ -11,7 +11,7 @@ Once enabled, the assistant can query live data from this Profinity instance thr
 
 ## Enable Profinity AI
 
-Open **ADMIN > System Configuration**, find the **Profinity AI** category, and set the fields below.
+Select **ADMIN** in the side menu, then **System Configuration**, find the **Profinity AI** category, and set the fields below.
 
 | UI field | Config field | Description |
 |----------|--------------|--------------|
@@ -23,11 +23,11 @@ Open **ADMIN > System Configuration**, find the **Profinity AI** category, and s
 | Enable web search | `EnableWebSearch` | Lets the assistant search the web as part of answering a question. Available for **Claude**, **OpenAI**, and **OpenRouter**; not available for **Local**. |
 | Reasoning | `ReasoningMode` | **Low**, **Medium** (default), or **High**. Higher settings can produce better answers at the cost of a longer response time. |
 | Response timeout (seconds) | `NetworkTimeoutSeconds` | 30–3600, default 300. Local and reasoning-heavy models often need several minutes to respond. |
-| Enable MCP Server | `Mcp.Enabled` | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically; it can also be turned on by itself, with Profinity AI left off, for external MCP clients such as Claude Desktop. See [MCP Server](../../Extending_Profinity/MCP_Server.md). |
+| Enable MCP Server | `Mcp.Enabled` | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically; it can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. See [MCP Server](../../Extending_Profinity/MCP_Server.md). |
 
 <figure markdown>
 ![Profinity AI settings tab showing provider, model, API key and web search fields](../../../../assets/images/2.3/2.3-ai-assistant-settings-tab.png)
-<figcaption>Profinity AI settings under ADMIN > System Configuration (screenshot placeholder — provide SS-48)</figcaption>
+<figcaption>Profinity AI settings under ADMIN &rarr; System Configuration (screenshot placeholder — provide SS-48)</figcaption>
 </figure>
 
 Profinity rejects a save that leaves the configuration in an inconsistent state, according to the following rules:
@@ -64,6 +64,6 @@ Changing the Profinity AI configuration itself uses the same instance-settings p
 
 ## Related documentation
 
-- [MCP Server](../../Extending_Profinity/MCP_Server.md) — the live-data connection Profinity AI uses, and how to connect an external MCP client such as Claude Desktop.
+- [MCP Server](../../Extending_Profinity/MCP_Server.md) — the live-data connection Profinity AI uses, and how to connect an external MCP client.
 - [Profinity AI](../../Profinity_AI/index.md) — the operator-facing guide to using the chat window.
 - [RBAC and permissions](RBAC_Permissions.md) — assigning the AI Assistant permission to roles.

@@ -15,26 +15,26 @@ For OEM white-label builds, see [OEM white-label](./OEM_White_Label.md).
 
 ## Enable server discovery on the engine
 
-1. On the Profinity server, open **System Configuration**.
+1. On the Profinity server, select **ADMIN** in the side menu, then **System Configuration**.
 2. Locate **Server Discovery** (application configuration section).
 3. Configure:
-    - **Server name** — friendly name shown in the mobile list (for example `Profinity-Docs-Demo`).
-    - **Send heartbeat** — enabled.
-    - **UDP port** — default **49025**.
-    - **Interval** — heartbeat broadcast interval.
+    - **Profinity Server Name** — friendly name shown in the mobile list, which defaults to the host name of the machine (for example `Workshop-Profinity`).
+    - **Send Profinity Heartbeat** — enabled by default.
+    - **Heartbeat UDP port** — default **49025**.
+    - **Heartbeat interval (seconds)** — heartbeat broadcast interval, from 1 to 60 seconds, with a default of 3.
 
 <figure markdown>
 ![Server Discovery settings in System Configuration](../../../assets/images/2.3/2.3-config-server-discovery.png)
 <figcaption>Server Discovery heartbeat settings (screenshot placeholder — provide SS-28)</figcaption>
 </figure>
 
-Saving Config.yaml restarts the engine.
+Saving config.yaml restarts the engine.
 
 ## Discovery protocol
 
 Profinity Mobile listens for UDP broadcasts on port **49025** (default), and the JSON payload has the root key **`ProfinityHeartbeat`**.
 
-Full wire format: engineering [PROFINITY-HEARTBEAT.md](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Profinity-Mobile/docs/PROFINITY-HEARTBEAT.md).
+Each heartbeat is a single UTF-8 JSON datagram, and a datagram is valid only when it holds the `ProfinityHeartbeat` root object. That object carries the product `version` (which must match the app, currently `2.3`), the `serverName`, the list of `serverIps` (a datagram with an empty list is ignored), the `activeProfile`, the `httpPort` and `httpsPort`, and a `preferHttps` flag that tells the app to try HTTPS first.
 
 !!! warning "Not CAN bridge beacons"
     Profinity heartbeat uses port **49025**, whereas CAN Ethernet bridge discovery uses a different port (42000), so the two must not be confused.

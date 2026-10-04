@@ -59,7 +59,7 @@ The following examples show standard output and error stream usage in each langu
         print("Operation completed successfully")
     except Exception as ex:
         # Write error to error stream
-        print(f"Error occurred: {ex.Message}", file=sys.stderr)
+        print(f"Error occurred: {ex}", file=sys.stderr)
     ```
 
 === "Lua"

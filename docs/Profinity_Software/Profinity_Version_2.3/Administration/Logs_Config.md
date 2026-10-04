@@ -9,7 +9,7 @@ Profinity has a built-in logging mechanism that captures information about the o
 
 ## Viewing the Logs
 
-To access the system logs, navigate to the `ADMIN` tab, then select `Logs`.
+To access the system logs, select **ADMIN** in the side menu, then the **Logs** pill.
 
 <figure markdown>
 ![Profinity Log](../images/system_logs.png)
@@ -20,7 +20,7 @@ Each log entry contains a timestamp, a message level (for example `Info`, `Warn`
 
 ## System Logs Configuration
 
-From the `ADMIN` tab, selecting `System Configuration` then `Logging` brings up a menu containing options for modifying the log level, logs rollover size, and number of retained logs.
+From **ADMIN** in the side menu, selecting **System Configuration** then `Logging` brings up a menu containing options for modifying the log level, logs rollover size, and number of retained logs.
 
 | Option              | Description                                                                     |
 | ------------------- | ------------------------------------------------------------------------------- |
@@ -29,7 +29,7 @@ From the `ADMIN` tab, selecting `System Configuration` then `Logging` brings up 
 | `Retained Logs`     | The number of log files that can be created before overwriting the oldest file  |
 
 !!! warning "Changes to the system config"
-    Modifying any parameters in the `System Configuration` menu triggers a reboot of Profinity. If using the web client, wait around 15 seconds after saving the changes before reloading the page.
+    Modifying any parameters in the `System Configuration` menu triggers a reboot of Profinity. If using the web client, wait for the restart to complete before reloading the page, because the web client shows a restarting message while it waits for the engine to return.
 
 <figure markdown>
 ![System logs configuration](../images/logging_config.png)

@@ -39,7 +39,7 @@ Dashboard YAML files are created and edited through the Custom Component editor'
 
 ### Can I use existing dashboards as templates?
 
-Yes. The source YAML of any existing dashboard can be viewed by adding `?source` to the component URL, or by selecting the pencil icon on the toolbar (see [How to View Dashboard Source](../../How_To_Guides/View_Dashboard_Source.md)), which allows the dashboard to be copied and modified.
+Yes. The source YAML of any existing dashboard can be viewed by adding `?source` to the component URL, or, for users with the `DashboardModify` permission, by selecting the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar (see [How to View Dashboard Source](../../How_To_Guides/View_Dashboard_Source.md)), which allows the dashboard to be copied and modified.
 
 ## Component Questions
 
@@ -86,7 +86,7 @@ dashboard:
 
 ### How do I create a chart?
 
-Use a `chart` component with data binding:
+Use a `chart` component with data binding. A chart plots recent history when the binding sets `seriesMode: timeSeries`:
 
 ``` yaml
 dashboard:
@@ -97,7 +97,10 @@ dashboard:
               type: line
               bind:
                 - target: value
-                  source: "[TimeSeries].{COMPONENT_NAME}.Data.Value"
+                  source: DBC/Data/Value
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+                  timeRangeStop: "0m"
 ```
 
 ### How do I show status indicators?
@@ -145,7 +148,7 @@ dashboard:
 
 ### How do I connect to CAN bus data?
 
-Use data binding with DBC signal paths:
+Use data binding with a DBC path in the form `DBC/MessageName/SignalName`:
 
 ``` yaml
 dashboard:
@@ -158,16 +161,16 @@ dashboard:
                     label: "Example"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.MessageName.SignalName'
+                        source: DBC/MessageName/SignalName
 ```
 
-### What is {COMPONENT_NAME}?
+### How does a binding refer to the component that owns the dashboard?
 
-`{COMPONENT_NAME}` is a placeholder that gets replaced with the actual component name at runtime. This allows you to create reusable dashboard templates.
+A source that starts with `DBC/` or `Properties/` is relative to the component that owns the dashboard, so the same dashboard works for any component that has the same signals. A source that starts with `/` is absolute and names a tag in another component. Dashboards written for earlier versions with the `{COMPONENT_NAME}` placeholder still load, and Profinity converts them to the relative form (see [Binding Source Paths](./Data_Binding.md#binding-source-paths)).
 
 ### How do I access logged/historical data?
 
-Use the `store: "logged"` property with time range settings:
+Use the `store: logged` property with time range settings:
 
 ``` yaml
 dashboard:
@@ -178,8 +181,8 @@ dashboard:
               type: line
               bind:
                 - target: value
-                  source: '{COMPONENT_NAME}.Temperature.Value'
-                  store: "logged"
+                  source: DBC/Temperature/Value
+                  store: logged
                   timeRangeStart: "-10m"
                   timeRangeStop: "0m"
                   aggregationWindow: "1m"
@@ -201,10 +204,11 @@ dashboard:
                     items:
                       - lamp:
                           color: "green"
+                          value: 1
                           label: "Status"
                           bind:
                             - target: enabled
-                              source: '{COMPONENT_NAME}.Status.Online'
+                              source: DBC/Status/Online
                               toType: boolean
 ```
 
@@ -223,7 +227,7 @@ dashboard:
                     label: "Voltage"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.Voltage.Value'
+                        source: DBC/Voltage/Value
                         gain: 0.001
                         offset: 0
 ```
@@ -259,7 +263,17 @@ dashboard:
 
 ### Where do I put custom CSS styles?
 
-Place stylesheets in the `/Profile/Styles` directory. Reference them in HTML:
+Place the rules in a file named `profile.css` in the `/Profile/Styles` directory, which the web interface loads for every page when the file is present, and apply the rules with the `class` attribute. The HTML sanitiser removes a `link` element from the `content` of an HTML component, so a stylesheet cannot be linked from the HTML. The `profile.css` file can load further stylesheets from the same directory with the CSS `@import` rule:
+
+``` css
+/* /Profile/Styles/profile.css */
+@import url("custom.css");
+
+.info-box {
+  border: 1px solid #0f62fe;
+  padding: 1rem;
+}
+```
 
 ``` yaml
 dashboard:
@@ -267,8 +281,9 @@ dashboard:
     - row:
         items:
           - html:
+              class: "info-box"
               content: |
-                <link rel="stylesheet" href="/Profile/Styles/custom.css" />
+                <p>Styled by the rules in profile.css</p>
 ```
 
 ### What is the /Profile/Content directory for?
@@ -346,7 +361,7 @@ dashboard:
                     visible: false
                     bind:
                       - target: visible
-                        source: '{COMPONENT_NAME}.Status.ShowDetails'
+                        source: DBC/Status/ShowDetails
                         toType: boolean
     - accordion:
         label: "Details"
@@ -378,7 +393,8 @@ Check your data binding:
 - Verify the `source` path is correct
 - Ensure the component is connected and sending data
 - Check that signal names match your DBC file
-- Verify data logging is enabled for time series data
+- Verify data logging is enabled when the binding uses `store: logged`
+- Check that a chart binding sets `seriesMode: timeSeries`, because a chart without it shows only the latest value
 
 ### Why is my chart blank?
 
@@ -410,13 +426,13 @@ Verify that:
 ### How do I improve dashboard performance?
 
 - Limit the number of components
-- Use `refreshInterval` for charts
+- Set `refreshInterval` (in milliseconds, minimum 1000) on charts that do not need live updates
 - Hide unused sections with accordions
 - Simplify data bindings where possible
 
 ### How do I make my dashboard reusable?
 
-- Use `{COMPONENT_NAME}` placeholder instead of hard-coding component names
+- Use relative sources such as `DBC/Message/Signal` instead of hard-coding component names
 - Create generic signal names in your DBC file
 - Reference profile assets by filename only, as described in [Profile Directories](./Profile_Directories.md)
 - Document your dashboard structure
@@ -425,7 +441,7 @@ Verify that:
 
 ### How do I create an interactive image?
 
-Use the `image` component with regions, icons, and data values:
+Use the `image` component with regions, icons, and data values. Positions and sizes are percentages of the image, and each `action` is an object with an `invoke` value of `Navigate`, `Component`, `System`, or `Endpoint`:
 
 ``` yaml
 dashboard:
@@ -436,9 +452,13 @@ dashboard:
               image: "diagram.png"
               regions:
                   - id: "region-1"
-                    coordinates: "xywh=10,10,50,50"
-                    action: "navigate"
-                    target: "/component?componentId=Component1"
+                    x: 10
+                    y: 10
+                    width: 50
+                    height: 50
+                    action:
+                      invoke: Navigate
+                      target: "/component?componentId=Component1"
               icons:
                   - id: "icon-1"
                     x: 50
@@ -450,7 +470,7 @@ dashboard:
                     y: 20
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.Data.Value'
+                        source: DBC/Data/Value
 ```
 
 ### How do I use custom HTML?
@@ -483,8 +503,8 @@ dashboard:
               type: line
               bind:
                 - target: value
-                  source: '{COMPONENT_NAME}.Temperature.Value'
-                  store: "logged"
+                  source: DBC/Temperature/Value
+                  store: logged
                   timeRangeStart: "-1h"
                   aggregationWindow: "5m"
                   aggregationFunction: "mean"

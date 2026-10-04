@@ -17,10 +17,10 @@ Profinity AI is a chat assistant built into Profinity, available from the side m
 
 ## Open Profinity AI
 
-Users with the **AI Assistant** permission see a **Profinity AI** entry in the side menu, above **Admin**. Selecting it opens the chat window.
+Users with the **AI Assistant** permission see a **Profinity AI** entry in the side menu, above **ADMIN**. Selecting it opens the chat window.
 
 <figure markdown>
-![Side menu with Profinity AI entry above Admin](../../../assets/images/2.3/2.3-side-menu-profinity-ai.png)
+![Side menu with Profinity AI entry above ADMIN](../../../assets/images/2.3/2.3-side-menu-profinity-ai.png)
 <figcaption>Profinity AI in the side menu (screenshot placeholder — provide SS-49)</figcaption>
 </figure>
 

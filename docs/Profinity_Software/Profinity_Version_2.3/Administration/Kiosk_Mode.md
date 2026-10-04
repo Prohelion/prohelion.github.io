@@ -23,8 +23,8 @@ Kiosk Mode automatically authenticates users when a profile is active, eliminati
 
 To enable Kiosk Mode for a profile:
 
-1. Navigate to the **ADMIN** tab.
-2. Open **Profiles**.
+1. Select **ADMIN** in the side menu.
+2. Open the **Profile** pill.
 3. Select or create the profile you want to configure.
 4. Open the profile settings.
 5. Enable **Kiosk Mode**.

@@ -33,8 +33,8 @@ dashboard:
 
 ### Step 2: Access Profile Settings
 
-1. Navigate to the **ADMIN** tab
-2. Click on **Profiles**
+1. Select **ADMIN** in the side menu
+2. Select the **Profile** pill
 3. Click on the name of your profile in the list to open its settings
 
 ### Step 3: Upload the Dashboard
@@ -65,6 +65,9 @@ To revert to the default home page:
 1. Open the profile settings
 2. Disable the **Custom Home Dashboard** option
 3. Save the profile settings
+
+!!! warning "Removing the dashboard deletes its file"
+    Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting, so the file cannot be recovered from Profinity afterwards. Download or copy the dashboard YAML before saving the profile if it is needed again. If the file cannot be deleted, for example because of a file permission problem, the dashboard file setting is not cleared and the error is written to the log.
 
 ## Related Documentation
 

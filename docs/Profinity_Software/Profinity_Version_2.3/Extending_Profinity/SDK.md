@@ -26,19 +26,19 @@ one job, and the library is only what a compiled C# plugin references.
 !!! info "Script simulation guide coming separately"
     `profinity-script` and its `sim`/`new` commands are part of the kit today, but the dedicated
     how-to guide for using them is not published yet — the underlying capability is still
-    settling. Check back for the guide, or see the
-    [A37 SDK script host](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A37-SDK.md)
-    engineering plan for the current design in the meantime.
+    settling. The `README.txt` in the kit shows the two entry points, `profinity-script new tag-change --language python`
+    and `profinity-script sim`, run from the `profinity-script` folder.
 
 ## Getting the kit
 
 The Profinity SDK is not published to a public download link, a NuGet feed, or a file server —
-**contact Prohelion** for a copy. Prohelion sends one zip, versioned to match the Profinity
-release it targets; unzip it and each tool runs from its own subfolder inside.
+**contact Prohelion** for a copy. Prohelion sends one zip named `profinity-sdk-developer-{version}.zip`, versioned to match the Profinity
+release it targets. Unzipping it gives the `Profinity.Sdk` NuGet package (`.nupkg`) and a `README.txt` at the top level,
+with `profinity-script` and `profinity-component-pack` in their own subfolders.
 
-!!! info "No public NuGet feed for 2.3 GA"
+!!! info "No public NuGet feed in 2.3"
     `Profinity.Sdk` is a packable project, but publishing it to a public NuGet feed is deferred
-    past 2.3 GA. Reference the package from the kit's local folder, not from a feed.
+    past this release. Reference the package from the kit's local folder, not from a feed.
 
 ## Which piece to use
 
@@ -54,10 +54,3 @@ release it targets; unzip it and each tool runs from its own subfolder inside.
 - [Component Pack CLI](./Components/Component_Pack_CLI.md)
 - [Component types](./Components/Component_Types.md)
 - [Scripting](./Scripting/index.md)
-
-## Engineering reference
-
-Normative design for the single-kit packaging: in-repo
-[`Docs/Architecture/SDK/SDK-Plugin-Authoring.md`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/SDK/SDK-Plugin-Authoring.md).
-Normative design for `profinity-script`:
-[A37 — SDK script host](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A37-SDK.md).

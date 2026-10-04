@@ -34,15 +34,14 @@ This example demonstrates a basic Run script that:
 
 - Prints messages to the console
 - Accesses the Profinity message property
-- Returns a boolean result
+- Reports success or failure, which differs by language
 
 === "C#"
 
     ```csharp
     using System;
-    using Profinity.Scripting;
 
-    public class CSharpRunTest : ProfinityScript, IProfinityRunnableScript
+    public class CSharpRunExample : ProfinityScript, IProfinityRunnableScript
     {
         public bool Run()
         {
@@ -56,11 +55,11 @@ This example demonstrates a basic Run script that:
 === "Python"
 
     ```python
-    def PrintMessage():
+    def RunMe():
         print('This is a Python message!')
         print(Profinity.Message)
 
-    PrintMessage()
+    RunMe()
     ```
 
 === "Lua"
@@ -73,5 +72,7 @@ This example demonstrates a basic Run script that:
 
     RunMe()
     ```
+
+In C# the `Run()` method returns a boolean, where `true` reports success and `false` reports failure. Python and Lua Run scripts have no return value: the script file runs from the top, so the sample defines a function and then calls it, and a script reports failure by raising an error (or, in Python, by calling `sys.exit()` with a non-zero exit code, where `sys.exit(0)` is treated as success).
 
 Profinity uses [IronPython](https://ironpython.net/) with Python 3 compatibility enabled. All Python scripts use Python 3 syntax, including `print()` as a function (not a statement) and f-strings.

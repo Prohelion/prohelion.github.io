@@ -18,24 +18,27 @@ This guide explains how to diagnose and fix common issues when creating Profinit
 
 ## Schema Validation Errors
 
-The dashboard editor validates the YAML against the UI schema, and a dashboard that fails validation cannot be loaded. The following sections list common validation errors and how to fix them.
+The dashboard editor validates the YAML against the UI schema and lists each problem as a path followed by a message, such as `/dashboard/items/0/row/items/0/chart: must NOT have additional properties`. The visual editor refuses to save a dashboard that has validation issues, and a dashboard that fails validation when it loads is replaced by a load error screen that offers **Reset from Template** to users with the `DashboardModify` permission. The following sections list common validation errors and how to fix them.
 
-### Error: "Property 'charttype' is not defined"
+In each example, the block labelled `# Incorrect` shows the mistake and fails validation, and the block labelled `# Correct` shows the fix.
 
-**Problem:** The old property name `charttype` is used instead of `type`.
+### Error: "must NOT have additional properties" for `charttype`
+
+**Problem:** The old property name `charttype` is used instead of `type`. The editor reports `must NOT have additional properties` for `charttype`, and `must have required property 'type'`.
 
 **Solution:** Change `charttype` to `type`:
 
 ``` yaml
-# Incorrect - using 'charttype' instead of 'type' fails validation
-# The invalid property is not reproduced below, so that this page stays schema-valid
+# Incorrect - 'charttype' is not a chart property
 dashboard:
   items:
     - row:
         items:
           - chart:
-              type: line  # Correct: use 'type' not 'charttype'
+              charttype: line
+```
 
+``` yaml
 # Correct
 dashboard:
   items:
@@ -45,27 +48,26 @@ dashboard:
               type: line
 ```
 
-### Error: "Property 'groups' is not defined" (Pill component)
+### Error: "must NOT have additional properties" for `groups` (Pill component)
 
-**Problem:** Pill components use `items` with `pillgroup` structure, not `groups`.
+**Problem:** Pill components use `items` that contain `pillgroup` objects, not `groups`.
 
 **Solution:** Use the correct structure:
 
 ``` yaml
-# Incorrect - using 'groups' instead of 'items' with 'pillgroup'
-# The invalid 'groups' structure is not reproduced below, so that this page stays schema-valid
-# Note: pill must be wrapped in a row within dashboard.items
+# Incorrect - a pill has no 'groups' property
 dashboard:
   items:
     - row:
         items:
           - pill:
-              items:
-                - pillgroup:
-                    items:
-                      - value:
-                          label: "Value 1"
+              groups:
+                - items:
+                    - value:
+                        label: "Value 1"
+```
 
+``` yaml
 # Correct
 dashboard:
   items:
@@ -79,27 +81,26 @@ dashboard:
                           label: "Value 1"
 ```
 
-### Error: "Property 'groups' is not defined" (Lamps component)
+### Error: "must NOT have additional properties" for `groups` (Lamps component)
 
-**Problem:** Lamps components use `items` with `lampgroup` structure, not `groups`.
+**Problem:** Lamps components use `items` that contain `lampgroup` objects, not `groups`.
 
 **Solution:** Use the correct structure:
 
 ``` yaml
-# Incorrect - using 'groups' instead of 'items' with 'lampgroup'
-# The invalid 'groups' structure is not reproduced below, so that this page stays schema-valid
+# Incorrect - lamps has no 'groups' property
 dashboard:
   items:
     - row:
         items:
           - lamps:
-              items:
-                - lampgroup:
-                    items:
-                      - lamp:
-                          color: green
-                          label: "Status"
+              groups:
+                - lamps:
+                    - color: green
+                      label: "Status"
+```
 
+``` yaml
 # Correct
 dashboard:
   items:
@@ -115,25 +116,25 @@ dashboard:
                           value: 1
 ```
 
-### Error: "Property 'headersInfo' is not defined" (Table component)
+### Error: "must NOT have additional properties" for `headersInfo` (Table component)
 
-**Problem:** Table components use `tableHeaders` with `header` objects, not `headersInfo`.
+**Problem:** Table components use `tableHeaders` with `header` objects, not `headersInfo`, and the key of each column is `accessorKey` with a capital K.
 
 **Solution:** Use the correct structure:
 
 ``` yaml
-# Incorrect - using 'headersInfo' and 'accessorkey' instead of 'tableHeaders' and 'accessorKey'
-# The invalid property names are not reproduced below, so that this page stays schema-valid
+# Incorrect - 'headersInfo' and 'accessorkey' are not table properties
 dashboard:
   items:
     - row:
         items:
           - table:
-              tableHeaders:
-                - header:
-                    accessorKey: name
-                    value: "Name"
+              headersInfo:
+                - accessorkey: name
+                  value: "Name"
+```
 
+``` yaml
 # Correct
 dashboard:
   items:
@@ -146,25 +147,25 @@ dashboard:
                     value: "Name"
 ```
 
-### Error: "Readout items must contain 'readout' object"
+### Error: Readout items must contain a `readout` object
 
-**Problem:** Readout items must be wrapped in a `readout` object.
+**Problem:** Readout items must be wrapped in a `readout` object. Without the wrapper, the editor reports `must NOT have additional properties` for the readout fields and `must have required property 'readout'`.
 
 **Solution:** Wrap each readout item:
 
 ``` yaml
-# Incorrect - missing 'readout' wrapper
-# The unwrapped structure is not reproduced below, so that this page stays schema-valid; items must be 'readout' objects
+# Incorrect - the readout fields are not wrapped in a 'readout' object
 dashboard:
   items:
     - row:
         items:
           - readouts:
               items:
-                - readout:
-                    label: "Temperature"
-                    value: 25.5
+                - label: "Temperature"
+                  value: 25.5
+```
 
+``` yaml
 # Correct
 dashboard:
   items:
@@ -177,57 +178,76 @@ dashboard:
                     value: 25.5
 ```
 
-### Error: "Panel items must contain 'panel' object"
+### Error: Panel items must contain a `panel` object
 
 **Problem:** Panel items in a `panels` component must be wrapped in a `panel` object.
 
 **Solution:** Wrap each panel:
 
 ``` yaml
-# Incorrect - missing 'panel' wrapper
-# The unwrapped structure is not reproduced below, so that this page stays schema-valid; items must be 'panel' objects
+# Incorrect - the panel fields are not wrapped in a 'panel' object
 dashboard:
   items:
     - row:
         items:
           - panels:
               items:
-                - panel:
-                    title: "Status"
-                    items:
-                      - readouts:
-                          items:
-                            - readout:
-                                label: "Status"
-                                value: 0
-
-# Correct
-dashboard:
-  items:
-    - row:
-        items:
-          - panels:
-              items:
-                - panel:
-                    title: "Status"
-                    items:
-                      - readouts:
-                          items:
-                            - readout:
-                                label: "Status"
-                                value: 0
+                - title: "Status"
+                  items:
+                    - readouts:
+                        items:
+                          - readout:
+                              label: "Status"
+                              value: 0
 ```
-
-### Error: "Tab items must contain 'tab' object"
-
-**Problem:** Tab items must be wrapped in a `tab` object.
-
-**Solution:** Wrap each tab:
 
 ``` yaml
-# Incorrect - missing 'tab' wrapper
-# This structure fails because tabs.items must contain 'tab' objects, not direct properties
-# The unwrapped form (tabs.items: - enabled: true) is not reproduced below, so that this page stays schema-valid
+# Correct
+dashboard:
+  items:
+    - row:
+        items:
+          - panels:
+              items:
+                - panel:
+                    title: "Status"
+                    items:
+                      - readouts:
+                          items:
+                            - readout:
+                                label: "Status"
+                                value: 0
+```
+
+### Error: Tab items must contain a `tab` object, and a tab needs `header` and `items`
+
+**Problem:** Tab items must be wrapped in a `tab` object, and each `tab` has a `header` for the label shown in the tab strip and `items` for the content of the tab. A tab that holds its content under another name, such as `body`, fails validation with `must have required property 'items'` and `must NOT have additional properties`.
+
+**Solution:** Wrap each tab, and put the content of the tab in `items`:
+
+``` yaml
+# Incorrect - the tab fields are not wrapped in a 'tab' object
+dashboard:
+  items:
+    - row:
+        items:
+          - tabs:
+              items:
+                - enabled: true
+                  header:
+                    - lamp:
+                        color: green
+                        label: "Tab 1"
+                  items:
+                    - readouts:
+                        items:
+                          - readout:
+                              label: "Value"
+                              value: 0
+```
+
+``` yaml
+# Incorrect - the tab content is under 'body' instead of 'items'
 dashboard:
   items:
     - row:
@@ -235,23 +255,19 @@ dashboard:
           - tabs:
               items:
                 - tab:
-                    enabled: true
                     header:
                       - lamp:
                           color: green
                           label: "Tab 1"
                     body:
-                      - panels:
+                      - readouts:
                           items:
-                            - panel:
-                                title: "Content"
-                                items:
-                                  - readouts:
-                                      items:
-                                        - readout:
-                                            label: "Value"
-                                            value: 0
+                            - readout:
+                                label: "Value"
+                                value: 0
+```
 
+``` yaml
 # Correct
 dashboard:
   items:
@@ -265,7 +281,7 @@ dashboard:
                       - lamp:
                           color: green
                           label: "Tab 1"
-                    body:
+                    items:
                       - panels:
                           items:
                             - panel:
@@ -278,21 +294,40 @@ dashboard:
                                             value: 0
 ```
 
-### Error: "Invalid enum value" for chart type
+### Error: "must be equal to one of the allowed values" for chart type
 
 **Problem:** Using an invalid chart type value.
 
 **Solution:** Use one of the valid chart types: `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble`, `scatter`.
 
-### Error: "Required property 'source' is missing" in bind
+``` yaml
+# Incorrect - 'spline' is not a chart type
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: spline
+```
+
+``` yaml
+# Correct
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: line
+```
+
+### Error: "must have required property 'source'" in bind
 
 **Problem:** Every binding must have a `source` property.
 
 **Solution:** Add the `source` property:
 
 ``` yaml
-# Incorrect - bind missing 'source' property
-# The bind without 'source' is not reproduced below, so that this page stays schema-valid
+# Incorrect - the bind has a 'target' but no 'source'
 dashboard:
   items:
     - row:
@@ -303,8 +338,9 @@ dashboard:
                     label: "Temperature"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.Temperature'  # Required: bind must have both target and source
+```
 
+``` yaml
 # Correct
 dashboard:
   items:
@@ -316,7 +352,7 @@ dashboard:
                     label: "Temperature"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.Temperature.Value'
+                        source: DBC/DspBoardTempMeasurement/DspBoardTemp
 ```
 
 ## Data Binding Issues
@@ -328,17 +364,17 @@ dashboard:
 **Possible Causes:**
 
 1. **Incorrect Data Source Path**
-   - Check that the `source` path matches your DBC signal names exactly
-   - Verify component name is correct (or use `{COMPONENT_NAME}` placeholder)
+   - Check that the `source` path matches your DBC message and signal names exactly, in the form `DBC/Message/Signal`
+   - For a tag of another component, check that the path starts with `/` and that the component name is correct
    - Check for typos in property names
 
 2. **Data Source Does Not Exist**
    - Verify the component is connected and sending data
    - Check that the DBC file defines the signals the dashboard is trying to access
-   - Use the Profinity data browser to verify signal paths
+   - Use the Tag Explorer to verify signal paths
 
 3. **Type Mismatch**
-   - Ensure `toType` matches the expected data type
+   - Ensure `toType`, when it is set, matches the expected data type
    - Check that numeric values are not being treated as strings
 
 **Solution:**
@@ -355,7 +391,7 @@ dashboard:
                     label: "Bus Voltage"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                        source: DBC/BusMeasurement/BusVoltage
                         toType: number
 ```
 
@@ -371,7 +407,7 @@ dashboard:
 
 2. **Time Range Issues**
    - Ensure `timeRangeStart` is in the past (e.g., "-10m")
-   - Check that `timeRangeStop` is after `timeRangeStart`
+   - Check that `timeRangeStop` is after `timeRangeStart`, where `"0m"` means now
 
 3. **Aggregation Window Too Large**
    - Reduce `aggregationWindow` if no data is returned
@@ -389,8 +425,8 @@ dashboard:
               type: line
               bind:
                 - target: value
-                  source: '{COMPONENT_NAME}.Temperature.Value'
-                  store: "logged"
+                  source: DBC/Temperature/Value
+                  store: logged
                   timeRangeStart: "-10m"
                   timeRangeStop: "0m"
                   aggregationWindow: "1m"
@@ -423,12 +459,15 @@ dashboard:
                     items:
                       - lamp:
                           color: "green"
+                          value: 1
                           label: "Status"
                           bind:
                             - target: enabled
-                              source: '{COMPONENT_NAME}.Status.Online'
+                              source: DBC/Status/Online
                               toType: boolean
+```
 
+``` yaml
 # For numeric values
 dashboard:
   items:
@@ -440,7 +479,7 @@ dashboard:
                     label: "Temperature"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.Temperature.Value'
+                        source: DBC/Temperature/Value
                         toType: number
 ```
 
@@ -458,7 +497,7 @@ dashboard:
 
 2. **High-Frequency Data Updates**
    - Charts with very frequent updates can impact performance
-   - Use `refreshInterval` to limit update frequency
+   - Set `refreshInterval` (in milliseconds, minimum 1000) to poll the chart at a fixed interval instead of updating it live
 
 3. **Complex Data Bindings**
    - Multiple bindings with transformations can slow updates
@@ -467,7 +506,7 @@ dashboard:
 **Solutions:**
 
 ``` yaml
-# Limit chart refresh rate
+# Poll the chart every second instead of updating it live
 dashboard:
   items:
     - row:
@@ -477,8 +516,13 @@ dashboard:
               refreshInterval: 1000
               bind:
                 - target: value
-                  source: "[TimeSeries].{COMPONENT_NAME}.Data.Value"
+                  source: DBC/Data/Value
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+                  timeRangeStop: "0m"
+```
 
+``` yaml
 # Use accordions to hide unused sections
 dashboard:
   items:
@@ -501,7 +545,7 @@ dashboard:
 **Possible Causes:**
 
 1. **Incorrect Data Format**
-   - Time series data must be in specific format
+   - A chart shows only the latest value unless the binding sets `seriesMode: timeSeries`
    - Structured data must have `labels` and `datasets`
 
 2. **Missing Data**
@@ -520,8 +564,13 @@ dashboard:
               type: line
               bind:
                 - target: value
-                  source: "[TimeSeries].{COMPONENT_NAME}.Data.Value"
+                  source: DBC/Data/Value
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+                  timeRangeStop: "0m"
+```
 
+``` yaml
 # For structured data
 dashboard:
   items:
@@ -555,8 +604,8 @@ dashboard:
 
 **Issue:** Lamps not showing/hiding correctly
 
-- Verify `enabled` property is bound correctly
-- Check that `toType: boolean` is used for boolean bindings
+- Verify that the `enabled` binding source returns `0` or `1` (or `true` or `false`)
+- A lamp that is greyed out has `enabled` set to false, and a lamp bound to `color` takes the colour name that the binding returns (see [Conditional Styling](./Conditional_Styling.md))
 - Ensure `value` property is set (typically 1)
 
 ### Tables Component
@@ -582,8 +631,8 @@ dashboard:
 
 **Issue:** Time series chart not updating
 
-- Verify `[TimeSeries]` prefix is used in source
-- Check that data logging is enabled
+- Verify that the binding sets `seriesMode: timeSeries` (or `store: logged` for logged data)
+- Check that data logging is enabled when `store: logged` is used
 - Ensure time range is appropriate
 
 ### Image Component
@@ -596,9 +645,9 @@ dashboard:
 
 **Issue:** Regions not clickable
 
-- Verify `coordinates` are in `xywh` format
-- Check that `action` is set to "navigate" or "action"
-- Ensure `target` or `actionId` is provided
+- Verify that the region has `x`, `y`, `width`, and `height` values, which are percentages of the image size
+- Check that `action` is an object with an `invoke` value of `Navigate`, `Component`, `System`, or `Endpoint`
+- Ensure `target` is provided inside `action` when `invoke` is `Navigate`, or `actionId` when `invoke` is `Component` or `System`
 
 **Issue:** Data values not displaying
 
@@ -644,7 +693,7 @@ dashboard:
 
 **Mistake:** Typos in component names or signal paths.
 
-**Fix:** Use `{COMPONENT_NAME}` placeholder when possible, verify exact signal names from DBC files.
+**Fix:** Use relative paths such as `DBC/Message/Signal` for the component that owns the dashboard, start the path with `/` for a tag of another component, and verify exact message and signal names from the DBC file.
 
 ### Profile Asset Path Issues
 
@@ -656,7 +705,7 @@ dashboard:
 
 If an issue persists:
 
-1. **Check the Schema** - Review `ui-schema.json` for exact property requirements
+1. **Check the Schema** - Review the dashboard schema (`GET /api/v2/UI/schema`) for exact property requirements
 2. **Validate Your YAML** - Use the dashboard editor's validation to catch errors early
 3. **Review Examples** - Check [Examples](./Examples.md) and the annotated [Full Example](./Example.md) for working code samples
 4. **Check Component Reference** - See [Component Reference](./Component_Reference/index.md) for detailed property information

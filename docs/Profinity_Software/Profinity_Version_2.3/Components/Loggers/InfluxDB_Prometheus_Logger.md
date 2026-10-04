@@ -113,9 +113,12 @@ Adding a Prometheus Logger to Profinity is all that is required on the Profinity
 
 | Setting               | Purpose                                                                                  |
 | --------------------- | ---------------------------------------------------------------------------------------- |
-| Data endpoint URL     | The URL path, within the hostname and port, that the Prometheus data is served on.       |
-| Server Hostname       | The hostname or IP address that the Prometheus scraper connects to on the local machine. |
-| Server Port           | The port that the endpoint runs on.                                                      |
+| Data endpoint URL     | The URL path, within the hostname and port, that the Prometheus data is served on. The default is `metrics/`. |
+| Server Hostname       | The hostname or IP address that the Prometheus scraper connects to on the local machine. The default is `localhost`. |
+| Server Port           | The port that the endpoint runs on. The default is `7065`.                               |
+| Dashboard URL         | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
+| Update Interval (Seconds) | The interval, in seconds, between samples. The default is `10`, and the value must be between `10` and `86400`. |
+| Auto Start            | Starts the logger automatically when the profile is loaded, and is enabled by default.   |
 
 Once the Prometheus Logger is active, Prometheus can call Profinity on this URL to receive data. With all settings left at their defaults, for example, the data is served at:
 

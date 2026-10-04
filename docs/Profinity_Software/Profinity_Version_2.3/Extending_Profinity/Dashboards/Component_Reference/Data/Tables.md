@@ -16,44 +16,48 @@ Data table display. Tables present structured data in rows and columns, with hea
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the table |
-| `class` | optional (string) | CSS class for styling |
-| `label` | optional (string) | Display label |
-| `tableHeaders` | required (array) | Column header configuration |
-| `value` | optional (array) | Table data |
-| `selectColumns` | optional (boolean) | Whether the operator can show and hide individual columns |
-| `minValueToDisplay` | optional (number) | Numeric cells below this value are omitted |
-| `maxValueToDisplay` | optional (number) | Numeric cells above this value are omitted |
-| `heatmap` | optional (boolean) | Colour cells on a scale between the minimum and maximum values |
-| `highlightMin` | optional (boolean) | Highlight minimum values |
-| `highlightMax` | optional (boolean) | Highlight maximum values |
-| `highlightAtOrBelow` | optional (number) | Highlight values at or below this threshold |
-| `highlightAtOrAbove` | optional (number) | Highlight values at or above this threshold |
-| `highlightIfEqualTo` | optional (number) | Highlight specific values |
-| `alertAtOrBelow` | optional (number) | Alert for values at or below this threshold |
-| `alertAtOrAbove` | optional (number) | Alert for values at or above this threshold |
-| `alertIfEqualTo` | optional (number) | Alert for specific values |
-| `displayPositive` | optional (boolean) | Show the absolute value of negative numbers |
-| `conversionFactor` | optional (number) | Factor applied to displayed numbers, for example for unit conversion |
-| `precision` | optional (number) | Decimal precision for numerical values |
-| `rowNames` | optional (array) | Custom row names for time series data |
-| `columnNames` | optional (array) | Custom column names for time series data |
-| `enabled` | optional (boolean) | Whether the table is enabled |
-| `visible` | optional (boolean) | Whether the table is visible |
-| `bind` | optional (array) | Data binding configuration |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | Not used by the web interface |
+| `label` | string | No | None | Not used by the web interface |
+| `tableHeaders` | array | Yes | None | Column definitions for tables whose data is an array of row objects. The headers are not used when the bound data is a time series |
+| `value` | array | No | None | Not used for display. The value only marks the table as stale until data arrives, and the rows come from `bind` at run time |
+| `selectColumns` | boolean | No | `false` | Lets the operator show and hide individual columns |
+| `minValueToDisplay` | number | No | None | Numeric cells below this value are displayed empty |
+| `maxValueToDisplay` | number | No | None | Numeric cells above this value are displayed empty |
+| `heatmap` | boolean | No | `false` | Colours cells on a scale from pale yellow to green between the lowest and highest values in the table |
+| `highlightMin` | boolean | No | `false` | Highlights the lowest value or values in the table |
+| `highlightMax` | boolean | No | `false` | Highlights the highest value or values in the table |
+| `highlightAtOrBelow` | number | No | None | Highlights cells at or below this value |
+| `highlightAtOrAbove` | number | No | None | Highlights cells at or above this value |
+| `highlightIfEqualTo` | number | No | None | Highlights cells that equal this value exactly. An exact match takes priority over the range settings |
+| `alertAtOrBelow` | number | No | None | Colours cells at or below this value as an alert |
+| `alertAtOrAbove` | number | No | None | Colours cells at or above this value as an alert |
+| `alertIfEqualTo` | number | No | None | Colours cells that equal this value as an alert. An exact match takes priority over the range settings |
+| `displayPositive` | boolean | No | `false` | Shows the absolute value of negative numbers |
+| `conversionFactor` | number | No | None | Factor that multiplies each displayed number, for example for a unit conversion |
+| `precision` | number | No | None | Number of decimal places for numeric cells |
+| `rowNames` | array of string | No | None | Custom name for each row when the bound data is a time series. A row without a name uses the label of its series |
+| `columnNames` | array of string | No | None | Custom heading for each value column when the bound data is a time series. A column without a name is numbered from `1` |
+| `enabled` | boolean | No | `true` | Not used by the web interface |
+| `visible` | boolean | No | `true` | Not used by the web interface |
+| `bind` | array | No | None | Data binding that supplies the table data from tags, either as an array of row objects or as a series. Use the `value` target |
+
+The web interface applies the settings to each numeric cell in this order: the display range (`minValueToDisplay` and `maxValueToDisplay`) is tested against the original value, then `conversionFactor`, `displayPositive` and `precision` are applied to the displayed text. The highlight, alert and heatmap colours are chosen from the original value.
 
 **Table Header Parameters:**
 
 Each item in `tableHeaders` must contain a `header` object with:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `accessorKey` | required (string) | Key to access data in table rows |
-| `value` | required (string) | Display label for the column header |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `accessorKey` | string | Yes | None | Field path in each row object that supplies the cells of the column |
+| `value` | string | Yes | None | Text of the column header |
 
 **Example:**
+
+The example follows the cell voltage table of the Prohelion BMU dashboard, in which each cell value is in millivolts and the value `-32768` marks a cell position that is not present:
 
 ``` yaml
 dashboard:
@@ -67,10 +71,10 @@ dashboard:
                     value: Node Number
                 - header:
                     accessorKey: cell1mV
-                    value: Cell 1 mv
+                    value: Cell 1 mV
                 - header:
                     accessorKey: cell2mV
-                    value: Cell 2 mv
+                    value: Cell 2 mV
               minValueToDisplay: 0
               heatmap: true
               highlightMin: true
@@ -79,5 +83,5 @@ dashboard:
               displayPositive: true
               bind:
                 - target: value
-                  source: Prohelion BMU.[Property].PackData.Nodes.Values
+                  source: /Prohelion BMU/Properties/PackData/Nodes/Values
 ```

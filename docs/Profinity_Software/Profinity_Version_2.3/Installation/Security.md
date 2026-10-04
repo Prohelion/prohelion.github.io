@@ -92,7 +92,7 @@ For Docker deployment details, see the [Docker Installation](./Docker_Installati
 - **Code Review**: Always review script code before deployment, especially scripts from external sources
 - **Minimal Permissions**: When running Profinity as a service, configure it with the minimum necessary OS-level permissions
 - **Script Source Control**: Implement proper version control and review processes for scripts in production
-- **Enable Only When Needed**: Scripting is disabled by default and must be explicitly enabled in System Configuration
+- **Enable Only When Needed**: Scripting is disabled by default (`AppSettings.Scripts.Enabled` is `false` unless `config.yaml` sets it) and must be explicitly enabled in System Configuration, which also requires a licence that includes the Scripting feature
 
 ### Best Practices
 
@@ -125,7 +125,7 @@ For detailed information about scripting capabilities and security consideration
 
 ### Security roles
 
-Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists. Security.yaml is stamped `Version: "2.3"`.
+Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists. security.yaml is stamped `Version: "2.3"`.
 
 See [RBAC and permissions](../Administration/Security/RBAC_Permissions.md) for the full catalog and default templates (Read-only, Operator, Engineer, Security admin, System admin, Administrators).
 

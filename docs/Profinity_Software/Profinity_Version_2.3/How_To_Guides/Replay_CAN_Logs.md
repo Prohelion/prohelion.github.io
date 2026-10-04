@@ -18,14 +18,14 @@ Replay recorded CAN bus messages to test your system without live CAN bus data.
 
 ### Step 1: Access the CAN Log Replayer
 
-1. Click **CAN LOG REPLAY** in the side menu
+1. Select **CAN UTILITIES** in the side menu, then **CAN LOG REPLAY**
 2. The CAN Data Log Replayer opens, listing the available log files
 
 ### Step 2: Upload a Log File (if needed)
 
 Log files recorded earlier, or on other Profinity instances, can be added to this instance.
 
-1. Click the `UPLOAD CANBUS LOG` button
+1. Use the **Upload CAN Log files** control
 2. Select your log file
 3. The file appears in the list of available log files
 

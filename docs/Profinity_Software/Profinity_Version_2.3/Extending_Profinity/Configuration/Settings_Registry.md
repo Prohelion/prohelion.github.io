@@ -1,11 +1,11 @@
 ---
 title: Settings Registry
-description: "Centralised system settings in Config.yaml with structured sections for security, app settings, and server discovery."
+description: "Centralised system settings in config.yaml with structured sections for security, app settings, and server discovery."
 ---
 
 # Settings registry and configuration files
 
-Profinity 2.3 centralises many system settings in **Config.yaml** through the **settings registry**. Structured sections support validation, admin UI tabs, and selective realtime reload.
+Profinity 2.3 centralises many system settings in **config.yaml** through the **settings registry**. Structured sections support validation, admin UI tabs, and selective realtime reload.
 
 **Profile.yaml** retains profile-scoped fields that are not promoted to the global registry.
 
@@ -13,12 +13,12 @@ Profinity 2.3 centralises many system settings in **Config.yaml** through the **
 
 | File | Holds |
 |------|-------|
-| **Config.yaml** | Security **policy** (sign-in method, password policy, 2FA policy, session policy), Security **Config** (OIDC, SCIM, SIEM), application settings, component catalog, server discovery |
-| **Security.yaml** | Users, **roles**, 2FA secrets, external identity links (`Version: "2.3"`) |
+| **config.yaml** | Security **policy** (sign-in method, password policy, 2FA policy, session policy), Security **Config** (OIDC, SCIM, SIEM), application settings, component catalog, server discovery |
+| **security.yaml** | Users, **roles**, 2FA secrets, external identity links (`Version: "2.3"`) |
 
-Saving **Config.yaml** from System Configuration **restarts the engine**. Most **Security.yaml** and profile YAML changes do **not** require restart.
+Saving the **System Configuration** settings form restarts the engine, and a valid external edit to **config.yaml** on disk also restarts it once the engine has validated the file; an invalid file is ignored and the engine keeps running with its current configuration. Internal saves made by the engine itself, such as the component catalog toggles, user changes and profile changes, write **config.yaml** or **security.yaml** without a restart.
 
-## Config.yaml sections
+## config.yaml sections
 
 | Tab / section | Keys operators should know |
 |---------------|------------------------------|
@@ -33,11 +33,9 @@ Profile-only settings remain on the profile legacy path — for example profile 
 
 ## Realtime reload
 
-Some Config.yaml sections reload without a full restart where the engine supports live reload, while security integration blocks still require a restart where the admin UI warning says so.
+The settings registry does not hot-reload config.yaml sections: a change made through the System Configuration form or by editing the file takes effect through the engine restart described above, while the internal saves listed above apply to the running engine without one.
 
 A reload is picked up the next time the relevant settings dialog is opened, or when an operator triggers an explicit reload action. It is not a live push: a settings dialog that is already open when the registry changes keeps the snapshot it loaded at open (or at its last reload) and does not refresh while it remains open.
-
-Engineering reference: [settings-registry-architecture.md](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Docs/Architecture/System/settings-registry-architecture.md).
 
 ## Related documentation
 

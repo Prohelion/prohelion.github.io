@@ -112,9 +112,11 @@ derived tag — that one metric is skipped and logged; the rest of the message i
 
 ## Status
 
-The MQTT Subscriber reports connected/disconnected the same way the MQTT Publisher does. Check
-the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying error when it shows a
-disconnected or error state.
+The MQTT Subscriber reports the **On** status while it is connected to the broker, **Error** while
+it is running but not connected, and **Off** when it is stopped. While the connection is down, the
+subscriber reconnects with the backoff described under Sparkplug behaviour. Check the
+[Logs](../../Getting_Started/Profinity_Log.md) for the underlying error when it shows an **Error**
+status.
 
 ## Related documentation
 
@@ -123,7 +125,3 @@ disconnected or error state.
 - [Script Types](../../Extending_Profinity/Scripting/Script_Types/index.md)
 - [Tag Layer](../../Extending_Profinity/Tag_Layer/index.md)
 - [Tag Relay](../../Extending_Profinity/Tag_Layer/Tag_Relay.md)
-
-## Engineering reference
-
-Normative design: [A36 — MQTT Subscriber](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A36-Subscribers.md).

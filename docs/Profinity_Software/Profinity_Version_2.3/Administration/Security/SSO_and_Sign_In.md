@@ -5,13 +5,13 @@ description: "Configure OpenID Connect single sign-on as the site-wide sign-in m
 
 # SSO and Sign-In Method
 
-Profinity 2.3 uses a **site-wide sign-in method** configured in **Config.yaml**. Every user on the site signs in the same way: either **Local** (username and password) or **Sso** (OpenID Connect, OIDC, with an identity provider, IdP).
+Profinity 2.3 uses a **site-wide sign-in method** configured in **config.yaml**. Every user on the site signs in the same way: either **Local** (username and password) or **Sso** (OpenID Connect, OIDC, with an identity provider, IdP).
 
 Hybrid local and SSO on the same site is **not** supported. Per-user authentication mode from earlier releases is removed.
 
 ## Choose sign-in method
 
-1. Open **System Configuration** → **Security Policy**.
+1. Select **ADMIN** in the side menu, then **System Configuration**, and open **Security Policy**.
 2. Set **Sign-in method** to **Local** or **Sso**.
 3. When using Local, optionally enable **Enforce two-factor for local users** (see [Two-factor authentication](./Two_Factor_Authentication.md)).
 
@@ -47,7 +47,7 @@ When sign-in method is **Sso**, configure a single **`OidcSso`** block under **S
 </figure>
 
 !!! warning "Engine restart"
-    Saving Config.yaml restarts Profinity. Plan SSO cutover during a maintenance window.
+    Saving config.yaml restarts Profinity. Plan SSO cutover during a maintenance window.
 
 ## Login experience
 
@@ -75,7 +75,7 @@ If SSO is enabled but the provider is misconfigured, the login page may show an 
 
 SSO users are matched using **External identity links** on the Profinity user record:
 
-1. Open **Users & Groups** → select or create the user.
+1. Select **ADMIN** in the side menu, then **Users & Groups**, and select or create the user.
 2. Add an **External identity link** with provider and subject identifier from your IdP.
 
 <figure markdown>
@@ -94,8 +94,8 @@ SCIM uses the same OIDC site configuration. See [SCIM and SIEM](./SCIM_and_SIEM.
 ## Pitfalls
 
 - Only **one** SSO provider block is supported (not a multi-provider picker).
-- Do not store OIDC client secrets in profile YAML — they belong in Config.yaml Security Config.
-- **`Security.yaml`** holds users and identity links; **`Config.yaml`** holds SSO policy.
+- Do not store OIDC client secrets in profile YAML — they belong in config.yaml Security Config.
+- **`security.yaml`** holds users and identity links; **`config.yaml`** holds SSO policy.
 
 ## Related documentation
 

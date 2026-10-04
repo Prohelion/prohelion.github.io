@@ -25,10 +25,10 @@ The Model Context Protocol (MCP) is a standard protocol that lets AI assistants 
 
 ## Enabling the MCP server
 
-The MCP server is configured from the **Profinity AI** settings page (**ADMIN > System Configuration > Profinity AI**), under its own **MCP Server** field group. Enabling **Profinity AI** itself also enables the MCP server, since the assistant depends on it; the MCP server can also be enabled on its own, independently of Profinity AI, for external MCP clients such as Claude Desktop.
+The MCP server is configured from the **Profinity AI** settings page (select **ADMIN** in the side menu, open the **System Configuration** pill, then choose **Profinity AI**), under its own **MCP Server** field group. Enabling **Profinity AI** itself also enables the MCP server, since the assistant depends on it; the MCP server can also be enabled on its own, independently of Profinity AI, for external MCP clients such as Claude Desktop.
 
 !!! warning "Restart Required"
-    Enabling or disabling the MCP server takes effect only after Profinity restarts. After saving the configuration, wait approximately 15 seconds for the engine to restart before reloading the page.
+    Enabling or disabling the MCP server takes effect only after Profinity restarts. After saving the configuration, wait for the restart to complete before reloading the page, because the web client shows a restarting message while it waits for the engine to return.
 
 <figure markdown>
 ![Profinity AI settings page showing the MCP Server field group](../../../assets/images/2.3/2.3-ai-assistant-mcp-toggle.png)
@@ -37,7 +37,7 @@ The MCP server is configured from the **Profinity AI** settings page (**ADMIN > 
 
 ## Transport
 
-The MCP server uses Streamable HTTP transport (MCP protocol version 2.0 and later), and is stateless — it holds no session state between requests. It is available at:
+The MCP server uses the Streamable HTTP transport and is stateless, so it holds no session state between requests and issues no `Mcp-Session-Id`. It is built on the `ModelContextProtocol.AspNetCore` 2.0.0 package, where `2.0.0` is the version of that C# SDK and not an MCP protocol version. MCP protocol versions are date-based, and that SDK negotiates the revisions `2024-11-05`, `2025-03-26`, `2025-06-18`, `2025-11-25` and `2026-07-28` with the client. The endpoint is available at:
 
 ```text
 /api/v2/Ai/Mcp
@@ -205,55 +205,94 @@ To authenticate directly against the MCP server:
 
 ## Example client calls
 
-The following Python example calls three of the tools over HTTP with a bearer token.
+Most MCP clients, including the official MCP SDKs, perform the protocol handshake automatically, so only the endpoint URL and the `Authorization` header need to be supplied. A client that speaks the protocol directly must send an `initialize` request first, follow it with the `notifications/initialized` notification, and then call tools with `tools/call`, using JSON-RPC 2.0 messages that carry `jsonrpc` and `id` fields. The Streamable HTTP transport requires an `Accept` header that lists both `application/json` and `text/event-stream`, and the server may answer a POST with either a JSON body or a single server-sent event, so a direct client must handle both.
+
+The following Python example performs that handshake and calls three of the tools. It negotiates the `2025-11-25` revision, one of the revisions listed under [Transport](#transport).
 
 ```python
+import json
 import requests
 
 PROFINITY_MCP_URL = "https://your-profinity-host/api/v2/Ai/Mcp"
 TOKEN = "YOUR_JWT_TOKEN_HERE"
+PROTOCOL_VERSION = "2025-11-25"
 
 headers = {
     "Authorization": f"Bearer {TOKEN}",
     "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
 }
+
+next_id = 0
+
+
+def read_message(response):
+    """Return the JSON-RPC message from a JSON or server-sent event response."""
+    response.raise_for_status()
+    if response.headers.get("Content-Type", "").startswith("text/event-stream"):
+        for line in response.text.splitlines():
+            if line.startswith("data:"):
+                return json.loads(line[len("data:"):].strip())
+        raise RuntimeError("No data event in response")
+    return response.json()
+
+
+def call(method, params=None):
+    """Send a JSON-RPC request and return its result."""
+    global next_id
+    next_id += 1
+    payload = {"jsonrpc": "2.0", "id": next_id, "method": method, "params": params or {}}
+    message = read_message(requests.post(PROFINITY_MCP_URL, headers=headers, json=payload))
+    if "error" in message:
+        raise RuntimeError(message["error"])
+    return message["result"]
+
+
+def call_tool(name, arguments):
+    """Call a tool and decode the text content it returns."""
+    result = call("tools/call", {"name": name, "arguments": arguments})
+    return [json.loads(item["text"]) for item in result["content"] if item["type"] == "text"]
+
+
+# Handshake: initialize, then confirm with the initialized notification.
+init = call(
+    "initialize",
+    {
+        "protocolVersion": PROTOCOL_VERSION,
+        "capabilities": {},
+        "clientInfo": {"name": "example-client", "version": "1.0"},
+    },
+)
+headers["MCP-Protocol-Version"] = init["protocolVersion"]
+requests.post(
+    PROFINITY_MCP_URL,
+    headers=headers,
+    json={"jsonrpc": "2.0", "method": "notifications/initialized"},
+).raise_for_status()
 
 # Discover available components
-payload = {
-    "method": "tools/call",
-    "params": {"name": "get_all_components", "arguments": {}},
-}
-response = requests.post(PROFINITY_MCP_URL, headers=headers, json=payload)
-components = response.json()
+components = call_tool("get_all_components", {})
 
 # Read the current value of a specific tag
-payload = {
-    "method": "tools/call",
-    "params": {
-        "name": "get_tag_sample_by_canonical_id",
-        "arguments": {"fullTagId": "MyBMS/DBC/MessageName/SignalName"},
-    },
-}
-response = requests.post(PROFINITY_MCP_URL, headers=headers, json=payload)
-sample = response.json()
+sample = call_tool(
+    "get_tag_sample_by_canonical_id",
+    {"fullTagId": "MyBMS/DBC/MessageName/SignalName"},
+)
 
 # Read the last hour of a tag as a time series
-payload = {
-    "method": "tools/call",
-    "params": {
-        "name": "get_tag_series",
-        "arguments": {
-            "fullTagId": "MyBMS/DBC/MessageName/SignalName",
-            "start": "-1h",
-            "stop": "0m",
-            "aggregationWindow": "1m",
-            "aggregationFunction": "mean",
-        },
+series = call_tool(
+    "get_tag_series",
+    {
+        "fullTagId": "MyBMS/DBC/MessageName/SignalName",
+        "start": "-1h",
+        "stop": "0m",
+        "aggregationWindow": "1m",
+        "aggregationFunction": "mean",
     },
-}
-response = requests.post(PROFINITY_MCP_URL, headers=headers, json=payload)
-series = response.json()
+)
 ```
+
+The `2026-07-28` revision changes the handshake (the MCP C# SDK documents it as using `server/discover` and per-request metadata in place of `initialize`), so a client that must use that revision should rely on an MCP SDK rather than hand-written JSON-RPC.
 
 ## Use cases
 

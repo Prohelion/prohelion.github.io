@@ -20,10 +20,10 @@ profinity-component-pack install --package bundle.zip --profinity-dir <Artifacts
 | Command | Purpose |
 |---------|---------|
 | **validate** | Check component folder structure and required files |
-| **pack** | Create zip or content nupkg bundle for distribution |
-| **install** | Extract bundle into a profile under the artifacts directory |
+| **pack** | Create a bundle for distribution, as a `.zip` or a `.nupkg` according to the extension of `--output` (a `.nupkg` also needs `pluginVersion` and a non-empty `author` in `component_metadata.yaml`) |
+| **install** | Extract the bundle into the `components` folder of the named profile, at `{profinity-dir}/profiles/{profile}/components` |
 
-`--engine-dir <engine-bin>` is required on **install** — the tool uses it to validate the bundle against the installed SDK version. `--zip` is an alias for `--package` and is mutually exclusive with it.
+`--component-dir`, `--output`, `--package` (or `--zip`), `--profinity-dir`, `--engine-dir` and `--profile` each take a value and may be given once, and the first positional argument is accepted in place of `--component-dir` (or `--package` for **install**), with the second positional argument in place of `--output` for **pack**. `--engine-dir <engine-bin>` is required on **install** — the tool uses it to validate the bundle against the installed SDK version. `--zip` is an alias for `--package` and is mutually exclusive with it.
 
 Run the tool from the kit's `profinity-component-pack` subfolder (see [Profinity SDK](../SDK.md) for how to get the kit).
 
@@ -43,4 +43,3 @@ Run the tool from the kit's `profinity-component-pack` subfolder (see [Profinity
 - [Profinity SDK](../SDK.md)
 - [Component types](./Component_Types.md)
 - [Custom Components](../Custom_Components/index.md)
-- Engineering [A2 Advanced Custom Components](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A2-Advanced-Custom-Components.md)

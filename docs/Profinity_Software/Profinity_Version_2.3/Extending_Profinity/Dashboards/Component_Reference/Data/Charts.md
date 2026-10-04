@@ -25,21 +25,34 @@ Profinity supports multiple chart types. Line and bar charts are shown below:
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the chart |
-| `class` | optional (string) | CSS class for styling |
-| `type` | required (string) | Chart type: `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. See [Chart Types](#chart-types) for details |
-| `value` | required (object/array) | Chart data (structured object with labels/datasets, or time series array) |
-| `legend` | optional (boolean) | Whether to show the legend (default: `false`) |
-| `refreshInterval` | optional (number) | Automatic refresh interval in milliseconds (minimum: 0) |
-| `showControls` | optional (boolean) | Whether to show the time range and refresh controls |
-| `min` | optional (number) | Minimum value of the chart scale (calculated automatically if not specified) |
-| `max` | optional (number) | Maximum value of the chart scale (calculated automatically if not specified) |
-| `label` | optional (string) | Chart label |
-| `enabled` | optional (boolean) | Whether the chart is enabled |
-| `visible` | optional (boolean) | Whether the chart is visible |
-| `bind` | optional (array) | Data binding configuration |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Stable identity used to track the chart instance. The value is not displayed |
+| `class` | string | No | None | Not used by the web interface |
+| `type` | string | Yes | None | Chart type, one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. See [Chart Types](#chart-types) for details |
+| `value` | object or array | No | None | Static chart data in the Chart.js dataset format (for example `labels` and `datasets`, or the datasets of a `bubble`, `scatter` or `radar` chart), or a seed shape for a chart whose live series come from `bind` |
+| `legend` | boolean | No | `false` | Whether to show the legend. The default is `true` for `pie`, `doughnut` and `polarArea` charts, and a line chart with more than one series also shows its legend |
+| `refreshInterval` | number | No | None | Automatic refresh interval in milliseconds. The web interface honours values of `1000` and above, and a chart with a refresh interval polls for its data instead of using the live data feed |
+| `showControls` | boolean | No | None | Not used by the web interface |
+| `min` | number | No | None | Fixed lower bound of the value axis. The bound is calculated from the data when omitted |
+| `max` | number | No | None | Fixed upper bound of the value axis. The bound is calculated from the data when omitted |
+| `label` | string | No | None | Title displayed above the chart |
+| `enabled` | boolean | No | `true` | Not used by the web interface |
+| `visible` | boolean | No | `true` | Not used by the web interface |
+| `bind` | array | No | None | Tag and time-series bindings that supply the chart data. Use the `value` target |
+
+**Chart Binding Options:**
+
+A chart binding accepts the following properties in addition to the common binding properties that the [Data Binding](../../Data_Binding.md) page describes:
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `seriesMode` | string | `instant` | How the bound samples are presented: `instant` for the live value, `timeSeries` for an absolute series of recent samples, or `timeSeriesDelta` for the differences between successive samples |
+| `seriesType` | string | Chart type | Overrides the chart `type` for one series with `line`, `bar` or `scatter` |
+| `stackScale` | boolean | `false` | When `true`, the series gets its own value axis in a stack of axes |
+| `store` | string | `local` | `local` for recent samples held in memory or `logged` for samples read from the logged history |
+| `timeRangeStart` | string | None | Start of the time range for the series, in the InfluxDB range format. Always set `timeRangeStart` and `timeRangeStop` on a series binding, because a hand-written `seriesMode: timeSeries` binding without a window receives no default |
+| `timeRangeStop` | string | None | End of the time range for the series, where `0m` is now |
 
 ## Chart Types
 
@@ -66,7 +79,7 @@ dashboard:
               legend: false
               bind:
                 - target: value
-                  source: Prohelion BMU.[Property].PackData.CellTempsSummaryGraph   
+                  source: /Prohelion BMU/Properties/PackData/CellTempsSummaryGraph
 ```
 
 **Static Chart Example:**
@@ -97,10 +110,27 @@ dashboard:
         items:
           - chart:
               type: line
+              label: Bus Current
               legend: false
-              showControls: true
-              refreshInterval: 1000
               bind:
                 - target: value
-                  source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+                  source: "DBC/BusMeasurement/BusCurrent"
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+```
+
+**Refresh Interval Example:**
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: line
+              refreshInterval: 5000
+              bind:
+                - target: value
+                  source: "DBC/BusMeasurement/BusCurrent"
+                  seriesMode: timeSeries
 ```

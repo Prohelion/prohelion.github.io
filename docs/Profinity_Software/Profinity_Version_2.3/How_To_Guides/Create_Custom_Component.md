@@ -17,9 +17,8 @@ Add any CAN bus device to Profinity by creating a Custom Component with an optio
 
 ### Step 1: Create a New Custom Component
 
-1. Navigate to **ADMIN** → **Components**
-2. Click **Add Component**
-3. Select **Custom Component**
+1. Select **ADD COMPONENT** in the side menu (or on the home page)
+2. Select **Custom Component**
 
 ### Step 2: Configure Basic Settings
 

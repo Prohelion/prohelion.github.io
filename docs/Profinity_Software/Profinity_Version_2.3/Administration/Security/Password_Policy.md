@@ -5,14 +5,14 @@ description: "Configure password policies for local sign-in including length, co
 
 # Password Policy
 
-Profinity 2.3 enforces **password policy** for **local** sign-in (when site **Sign-in method** is **Local**). Policy is configured in **Config.yaml** under **Security Policy → Password Policy**.
+Profinity 2.3 enforces **password policy** for **local** sign-in (when site **Sign-in method** is **Local**). Policy is configured in **config.yaml** under **Security Policy → Password Policy**.
 
 SSO users authenticate through the identity provider; local password rules do not apply to them.
 
 ## Configure password policy
 
 1. Sign in as a user with **SystemAdmin** permission.
-2. Open the pill menu → **System Configuration**.
+2. Select **ADMIN** in the side menu, then **System Configuration**.
 3. Open **Security Policy** → **Password Policy**.
 
 | Setting | Description |
@@ -24,7 +24,7 @@ SSO users authenticate through the identity provider; local password rules do no
 | **Require special character** | At least one non-alphanumeric character |
 | **Maximum age (days)** | Password expiry; leave the field empty to disable expiry |
 
-Saving Config.yaml restarts the Profinity engine.
+Saving config.yaml restarts the Profinity engine.
 
 <figure markdown>
 ![Password policy settings in System Configuration](../../../../assets/images/2.3/2.3-password-policy-config.png)
@@ -35,8 +35,8 @@ Saving Config.yaml restarts the Profinity engine.
 
 A user with **SecurityAdmin** permission can require another user to change their password on next login:
 
-1. Open **Users & Groups** → select the user.
-2. Enable **Require password change**.
+1. Select **ADMIN** in the side menu, then **Users & Groups**, and select the user.
+2. Enable **Require password change on next login**.
 
 The default `admin` account may be configured to require password change on first login after a fresh install.
 
@@ -49,13 +49,13 @@ When a user with this flag signs in, Profinity shows a **change password** dialo
 
 ## Changing password when logged in
 
-Users with local accounts can change password from **`/change-password`** when signed in (if your deployment exposes that route in the UI or bookmarks).
+Users with local accounts can change their own password when signed in by selecting **ADMIN** in the side menu, then the **Change My Password** pill, which is shown only when the site sign-in method is Local and the session is not a kiosk session.
 
 ## Best practices
 
 - Change default `admin` / `password` credentials immediately after install.
 - Align **Maximum age** with your organisation's identity policy.
-- Use **Require password change** when resetting a compromised account instead of sharing temporary passwords in plain text.
+- Use **Require password change on next login** when resetting a compromised account instead of sharing temporary passwords in plain text.
 
 ## Related documentation
 

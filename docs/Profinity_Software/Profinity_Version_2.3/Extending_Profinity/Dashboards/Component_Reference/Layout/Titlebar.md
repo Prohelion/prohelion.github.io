@@ -5,25 +5,39 @@ description: "Header section with status lamps and navigation menus for dashboar
 
 # Titlebar
 
-Header section with status lamps and navigation. The titlebar provides dashboard identification, status information, and navigation controls.
+Header section with a status lamp and a toolbar of menu items. The titlebar provides dashboard identification, status information, and component-specific actions.
 
 <figure markdown>
 ![Dashboard titlebar component showing status lamps and navigation menus](../../images/titlebar.png)
 <figcaption>Dashboard titlebar component showing status lamps and navigation menus</figcaption>
 </figure>
 
-**Best for:** Dashboard identification, status indicators, navigation menus, component-specific actions
+**Best for:** Dashboard identification, status indicators, navigation links, component-specific actions and settings dialogs
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the titlebar |
-| `class` | optional (string) | CSS class for styling |
-| `lamp` | optional (object) | Status lamp shown in the titlebar |
-| `menu` | optional (object) | Navigation menu (entries such as `menuitem`, `submenu` and `modal`) |
-| `showTitlebar` | optional (boolean) | Whether to show the titlebar background (default: `true`) |
-| `showActions` | optional (boolean) | Whether to show actions in the titlebar (default: `true`) |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | CSS class added to the titlebar element |
+| `lamp` | object | No | None | Status lamp shown in the left group of the titlebar. See [Lamp](../Data/Lamp.md) |
+| `menu` | object | No | None | Menu whose items are shown as icons in the toolbar at the right of the titlebar. See [Menu](Menu.md) |
+| `showTitlebar` | boolean | No | `true` | When `false`, the titlebar background, the hamburger menu button and the lamp are hidden, and the toolbar remains visible on a transparent background |
+| `showActions` | boolean | No | `true` | When `false`, the toolbar of menu items is hidden |
+
+When both `showTitlebar` and `showActions` are `false`, the titlebar is not displayed and takes no space.
+
+**Menu Content:**
+
+The web interface displays each item of the titlebar `menu` as an icon, without the item caption, and supports the following item types:
+
+| Item type | Behaviour in the titlebar |
+|-----------|---------------------------|
+| `menuitem` | Icon link that navigates to the `navigate` target when clicked. A `lamp` on the item is displayed beside the icon |
+| `modal` | Icon that opens a dialog, such as a component settings dialog, when clicked |
+| `action` | Icon button that runs the action when clicked |
+| `toggle` | Switch that runs the action when clicked |
+| `submenu` and `logo` | Accepted by the schema and displayed by the same menu code, although both are designed for the side menu rather than the titlebar |
 
 **Example:**
 
@@ -38,7 +52,7 @@ dashboard:
           enabled: true
           bind:
             - target: color
-              source: Prohelion BMU.[Property].StatusColourText
+              source: /Prohelion BMU/Properties/StatusColourText
               toType: string
         menu:
           items:

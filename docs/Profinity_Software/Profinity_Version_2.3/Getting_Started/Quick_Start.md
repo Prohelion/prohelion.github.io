@@ -30,8 +30,8 @@ Profinity includes an **Example Profile** that demonstrates various dashboard fe
 
 To load the Example Profile:
 
-1. Navigate to the **ADMIN** tab
-2. Click on **Profiles**
+1. Select **ADMIN** in the side menu
+2. Select the **Profile** pill
 3. Click **ACTIVATE** on the **Example Profile** row in the list to make it the active profile
 
 The Example Profile includes the following pre-configured components:
@@ -51,13 +51,13 @@ For more information about profiles, see the [Profiles Guide](./Profiles.md).
 
 ## Step 3: Run the Example CAN Log
 
-The Example Profile works best with data flowing through the system, and Profinity includes an **Example Log** (`Example Log.csv`) that can be replayed to simulate CAN bus traffic.
+The Example Profile works best with data flowing through the system, and Profinity includes an **Example Log** (`example_log.csv`) that can be replayed to simulate CAN bus traffic.
 
 To replay the Example CAN Log:
 
-1. Navigate to the **CAN Bus** section in the left sidebar
-2. Click on **CAN Log Replay** (or navigate to the CAN Log Replay view)
-3. Select **Example Log.csv** from the list of available log files, then click **Play** to start the replay
+1. Select **CAN UTILITIES** in the side menu
+2. Select **CAN LOG REPLAY**
+3. Select **example_log.csv** from the list of available log files, then click **Play** to start the replay
 
 The log replays CAN bus messages, and data flows through the dashboards in the Example Profile.
 
@@ -117,4 +117,4 @@ For more detailed information on creating and editing dashboards, see:
 
 - The [Dashboard Troubleshooting Guide](../Extending_Profinity/Dashboards/Troubleshooting.md) covers common issues
 - The [Dashboard FAQ](../Extending_Profinity/Dashboards/FAQ.md) answers frequently asked questions
-- Contact Prohelion through the Feedback form in the Profinity Admin menu
+- Contact Prohelion through the Feedback pill on the **ADMIN** page

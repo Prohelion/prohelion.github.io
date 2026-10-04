@@ -7,14 +7,25 @@ description: "Build and distribute white-label Profinity Mobile apps with custom
 
 OEM partners can ship **white-label** builds of Profinity Mobile with custom branding, bundle identifiers, and default server hints.
 
-## Documentation location
+## Branding configuration
 
-Authoritative build and branding instructions are maintained in the Profinity engineering repository:
+OEM partners rebrand the app by editing the build-time file `app.config.yaml` and the branding assets, and then building signed iOS and Android binaries. The file holds these fields:
 
-- [WHITE-LABEL.md](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Profinity-Mobile/WHITE-LABEL.md) — full `app.config.yaml` field reference, bundle ID and branding steps
-- [BUILD.md](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Profinity-Mobile/BUILD.md) — see §3 "Configure (white-label)" and §5–6 for app store and MDM submission for OEMs
+| Field | Description |
+|-------|-------------|
+| `appName` | Display name on the splash screen and in the app stores |
+| `companyName` | Subtitle on the splash screen |
+| `primaryColor` | Action colour for buttons and badges |
+| `navBackground` | Navigation and toolbar background colour |
+| `secondaryColor` | Muted text colour |
+| `brandRed` | Logo accent colour |
+| `splashLogo`, `landingLogo` and `appIcon` | Paths to the splash logo, the landing page logo and the app icon source artwork |
+| `development.androidEmulatorHostConnect` | Set to `true` only for development builds that connect an Android emulator to a Profinity server on the host machine |
+| `discovery.profinityHeartbeatPort` | Must match the engine **Heartbeat UDP port** (default 49025) |
+| `discovery.profinityHeartbeatVersion` | Profinity product version, currently `2.3` |
+| `discovery.staleTimeoutMs` | Time in milliseconds after which a server that has not been seen is removed from the discovery list |
 
-This page does not duplicate OEM build steps — follow the mobile documentation held alongside the code, on the branch that matches your engine release.
+The iOS bundle identifier and the Android application identifier are set in the native projects, and each OEM sets them to its own namespace. The `npm run configure` command regenerates the generated application configuration from `app.config.yaml` (and runs automatically as part of `npm run setup` and `npm run validate`), and the launcher icons are regenerated from the `appIcon` artwork when the app is built.
 
 ## Operator-facing summary
 

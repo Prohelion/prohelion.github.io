@@ -87,7 +87,7 @@ A computation that does not fit one expression — multiple steps, state carried
 or publishing several tags from one computation — is written as a script instead. This uses
 **existing** scripting capabilities, and there is no separate "derived tag script" concept.
 
-1. Add a **Script** component (or use an existing one) and set its mode to **Run On Tag Change**
+1. Add a **CSharp Script**, **Python Script** or **Lua Script** component (or use an existing one) and set its mode to **Run On Tag Change**
    (see [Script Types](../Scripting/Script_Types/index.md)), watching the source tag(s).
 2. In the script, read the triggering value and publish the computed result with
    `Profinity.Tags.SetValue(...)`.
@@ -156,10 +156,7 @@ component.
     end
     ```
 
-Full source: [`CSharpDerivedTagTemplate.cs`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/CSharp/CSharpDerivedTagTemplate.cs) ·
-[`PythonDerivedTagTemplate.py`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Python/PythonDerivedTagTemplate.py) ·
-[`LuaDerivedTagTemplate.lua`](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/Default-Profinity-Dir/example_scripts/Lua/LuaDerivedTagTemplate.lua) —
-all three shipped as templates alongside Profinity's other example scripts.
+The full files `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` ship as templates in the `example_scripts` folder of the Profinity directory (in its `CSharp`, `Python` and `Lua` subfolders), alongside Profinity's other example scripts.
 
 !!! warning "A read never re-runs the script"
     Reading the published tag returns the **last value the script pushed** — the same cache
@@ -190,10 +187,6 @@ mirror that rule's current state to the given tag path whenever it changes. See
 
 Derived tags follow the same access model as Collections and Rules — see
 [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md).
-
-## Engineering reference
-
-Normative design: [A33 — Virtual (derived) tags](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A33-Derived-Virtual-Tags.md).
 
 ## Related documentation
 

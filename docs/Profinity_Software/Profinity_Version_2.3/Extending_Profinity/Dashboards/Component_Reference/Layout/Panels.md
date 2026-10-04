@@ -16,9 +16,13 @@ Panels create a grid layout of individual panel components, where each panel can
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `items` | required (array) | Array of panel objects |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Not used by the web interface |
+| `class` | string | No | None | CSS class added to the grid element, alongside `panels__grid` |
+| `height` | string | No | None | Height in CSS format, applied directly to the grid and overriding any height the grid would otherwise take |
+| `minHeight` | string | No | None | Minimum height in CSS format. The grid grows to fit its content and never shrinks below this value, and the value never stretches the grid to fill space |
+| `items` | array | Yes | None | Array of objects that each contain a single `panel`, which the grid lays out as zones |
 
 **Example:**
 

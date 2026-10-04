@@ -42,17 +42,24 @@ multiple sites, vehicles, or installations.
   instance cannot write back to a site through relay. Local tags, collections, rules,
   and alerts on the receiver can still reference relayed tags the same way they
   reference any other tag.
-- **Conflict handling.** If an incoming batch of relayed tags would collide with tags
-  the receiver already owns, the whole batch is rejected — never partially applied —
-  so a naming clash on one site cannot silently corrupt tags from another.
+- **Conflict handling.** The receiver validates a whole batch against its live tag tree before it changes anything, and a single collision rejects the entire batch, so nothing is partially applied (see [Collision rules](#collision-rules)).
+
+## Collision rules
+
+A batch is rejected whole, with no tags created or updated, when any item in it meets one of these conditions:
+
+- The path is already occupied by a tag that relay does not own, such as a local device tag, a script register or a derived tag.
+- A relay-owned leaf already exists where the batch needs a branch, or a relay-owned branch already exists where the batch needs a leaf.
+- The batch itself asks for both a branch and a leaf at the same path.
+
+A relay-owned leaf that already exists where the batch carries a leaf is not a collision, and its sample is updated. Over HTTPS the sender receives a `409 Conflict` response carrying the reason, and a malformed batch (for example an unsupported relay version) receives `400 Bad Request`. Over MQTT the receiver logs a warning and discards the batch. A path occupied by a tag relay does not own is never skipped on its own while the rest of the batch is applied.
 
 ## Known limitations
 
 - Relay currently exports a sender's full tag tree to its peers — there is no
   field-level filtering of what gets published to a given receiver yet.
-- A tag path already occupied on the receiver by something relay does not own (a local
-  device tag, a script register, a derived tag) is skipped for that one path; the rest
-  of the batch is still applied.
+- A collision on a single path rejects the whole batch for that sender, so a naming clash
+  stops updates from that sender until the clash is removed or the receiver prefix is changed.
 
 ## Licensing
 

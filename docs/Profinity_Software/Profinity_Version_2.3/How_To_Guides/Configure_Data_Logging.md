@@ -32,9 +32,8 @@ listening right now, which is why they sit in their own category rather than und
 
 ### Step 2: Add a Logger or Publisher Component
 
-1. Navigate to **ADMIN** → **Components**
-2. Click **Add Component**
-3. Select your logger or publisher type:
+1. Select **ADD COMPONENT** in the side menu (or on the home page)
+2. Select your logger or publisher type:
    - **CAN File Logger**, **CAN SFTP Logger**, **TAG File Logger** or **TAG SFTP Logger** (under Loggers)
    - **InfluxDB v1 Logger** (under Loggers) or **InfluxDB v2 Historian** or **InfluxDB v3 Historian** (under Historians), matching your InfluxDB version, or **Prometheus Logger** (under Loggers)
    - **MQTT Publisher** (under Publishers & Subscribers)

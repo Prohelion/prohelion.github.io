@@ -5,7 +5,7 @@ description: "View Profinity version, license summary, and software credits from
 
 # System Information
 
-To see which version of Profinity you are running, select the `System Information` option in the `ADMIN` tab.
+To see which version of Profinity you are running, select **ADMIN** in the side menu, then the **System Information** pill.
 
 <figure markdown>
 ![System information](../images/system_info.png)

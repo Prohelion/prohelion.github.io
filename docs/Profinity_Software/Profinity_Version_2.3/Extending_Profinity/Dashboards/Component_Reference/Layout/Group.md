@@ -25,13 +25,13 @@ Groups can be arranged in two directions:
 
 **Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | optional (string) | Unique identifier for the group |
-| `class` | optional (string) | CSS class for styling |
-| `width` | optional (string) | Width in CSS format, for example `100px`, `50%` or `auto` |
-| `direction` | optional (string) | Layout direction, `vertical` or `horizontal` (default: `vertical`) |
-| `items` | required (array) | Array of components within the group |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | No | None | Set as the `id` attribute of the group element |
+| `class` | string | No | None | CSS class added to the group, alongside the horizontal or vertical layout class |
+| `width` | string | No | None | Width in CSS format, for example `100px`, `50%` or `auto` |
+| `direction` | string | No | `vertical` | Layout direction, `vertical` or `horizontal` |
+| `items` | array | Yes | None | Components displayed in the group |
 
 **Horizontal Group Example:**
 

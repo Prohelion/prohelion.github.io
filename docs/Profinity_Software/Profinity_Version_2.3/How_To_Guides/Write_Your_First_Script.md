@@ -18,7 +18,7 @@ Create your first Profinity script to automate tasks and interact with your CAN 
 
 ### Step 1: Enable Scripting
 
-1. Navigate to **ADMIN** → **System Configuration** (see [System Configuration](../Administration/System_Config.md) for detail)
+1. Select **ADMIN** in the side menu and open the **System Configuration** pill (see [System Configuration](../Administration/System_Config.md) for detail)
 2. Find the **Optional Capabilities** section
 3. Enable **Enable Scripting**
 4. Click **Save**
@@ -40,7 +40,7 @@ Tag Change and Alert modes also exist; see [Script Types](../Extending_Profinity
 A script is a component in your profile, and the language is set by which script component you add.
 
 1. Click **ADD COMPONENT** (see [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md))
-2. Select the **C#** or **Python** Script component
+2. Select the **CSharp Script**, **Python Script** or **Lua Script** component
 3. The script component settings and the script editor open, where the script is written (Step 4) and its **Script Mode** is set (Step 5)
 
 ### Step 4: Write Your First Script
@@ -51,7 +51,6 @@ Use the same patterns as in [Run Scripts](../Extending_Profinity/Scripting/Scrip
 
 ```csharp
 using System;
-using Profinity.Scripting;
 
 public class MyFirstRunScript : ProfinityScript, IProfinityRunnableScript
 {
@@ -87,7 +86,7 @@ main()
 
 ### Step 6: Test Your Script
 
-1. Run the script from the script component, using the **Run** or **Test** control (the label depends on your Profinity version)
+1. Run the script from the script component's menu by selecting **Run Script** (available when **Script Mode** is **Run On Demand**), and use **Cancel Script** to stop a script that is still running
 2. Check script console output and the Profinity log for results
 3. Review error messages, fix issues, and test again
 
@@ -99,7 +98,7 @@ main()
 
 ## Next Steps: More Advanced Scripts
 
-Use names from your DBC and profile (**Component**, **Message**, and **Signal** are case-sensitive). Confirm them in the DBC viewer in Profinity (see [DBC](../Extending_Profinity/Scripting/Script_Operations/DBC.md)).
+Use names from your DBC and profile (**Component**, **Message**, and **Signal** are case-sensitive, and a name that does not exist raises an error). Confirm them in the DBC viewer in Profinity (see [DBC](../Extending_Profinity/Scripting/Script_Operations/DBC.md)).
 
 ### Reading a DBC signal value
 
@@ -111,10 +110,14 @@ Use names from your DBC and profile (**Component**, **Message**, and **Signal** 
     try
     {
         var signal = Profinity.DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed");
-        if (signal != null)
+        double currentValue = signal.Value;
+        string ts = DateTime.Now.ToString("HH:mm:ss");
+        if (double.IsNaN(currentValue))
         {
-            double currentValue = signal.Value;
-            string ts = DateTime.Now.ToString("HH:mm:ss");
+            Profinity.Console.WriteLine($"{ts} — No valid value for EngineSpeed yet");
+        }
+        else
+        {
             Profinity.Console.WriteLine($"{ts} — Engine speed: {currentValue} {signal.Unit}");
         }
     }
@@ -127,14 +130,17 @@ Use names from your DBC and profile (**Component**, **Message**, and **Signal** 
 === "Python"
 
     ```python
+    import math
     import sys
     from datetime import datetime
 
     try:
         signal = Profinity.DBC.GetDbcSignal("ECU", "EngineData", "EngineSpeed")
-        if signal:
-            current_value = signal.Value
-            ts = datetime.now().strftime("%H:%M:%S")
+        current_value = signal.Value
+        ts = datetime.now().strftime("%H:%M:%S")
+        if math.isnan(current_value):
+            print(f"{ts} — No valid value for EngineSpeed yet")
+        else:
             print(f"{ts} — Engine speed: {current_value} {signal.Unit}")
     except Exception as ex:
         print(f"DBC read failed: {ex}", file=sys.stderr)
@@ -142,40 +148,34 @@ Use names from your DBC and profile (**Component**, **Message**, and **Signal** 
 
 ### Sending a CAN message
 
-You can build payload data from a **byte array** or set **typed properties** on **`CanPacket`** (for example **`Int32Pos0`**, **`Int32Pos1`**) when the layout matches your frames.
+You can build payload data from a **byte array** (in C#) or set **typed properties** on **`CanBusPacket`** (for example **`Int32Pos0`**, **`Int32Pos1`**) when the layout matches your frames. The `CanBusPacket` type is available to C# scripts without an extra `using` statement, and Python scripts import it from `Profinity.Sdk.Models.CANBus`.
 
 === "C#"
 
     ```csharp
-    using Profinity.Comms.CANBus;
-
     // Method 1: Byte array
-    var packetBytes = new CanPacket(0x123, new byte[] { 0x01, 0x02, 0x03, 0x04 });
-    Profinity.CANBus.SendMessage(packetBytes);
+    var packetBytes = new CanBusPacket(0x123, new byte[] { 0x01, 0x02, 0x03, 0x04 });
+    Profinity.CAN.Send(packetBytes);
 
     // Method 2: Property-based (common when filling structured data)
-    var packetProps = new CanPacket(0x100)
+    var packetProps = new CanBusPacket(0x100)
     {
         Int32Pos0 = 100,
         Int32Pos1 = 200
     };
-    Profinity.CANBus.SendMessage(packetProps);
+    Profinity.CAN.Send(packetProps);
     ```
 
 === "Python"
 
     ```python
-    from Profinity.Comms.CANBus import CanPacket
+    from Profinity.Sdk.Models.CANBus import CanBusPacket
 
-    # Method 1: Byte array
-    packet_bytes = CanPacket(0x123, [0x01, 0x02, 0x03, 0x04])
-    Profinity.CANBus.SendMessage(packet_bytes)
-
-    # Method 2: Property-based (common when filling structured data)
-    packet_props = CanPacket(0x100)
+    # Property-based (common when filling structured data)
+    packet_props = CanBusPacket(0x100)
     packet_props.Int32Pos0 = 100
     packet_props.Int32Pos1 = 200
-    Profinity.CANBus.SendMessage(packet_props)
+    Profinity.CAN.Send(packet_props)
     ```
 
 ### Script state (persist between runs)
@@ -183,8 +183,7 @@ You can build payload data from a **byte array** or set **typed properties** on 
 === "C#"
 
     ```csharp
-    object runCountObj = Profinity.State.Get("runCount");
-    int runCount = runCountObj != null ? (int)runCountObj : 0;
+    int runCount = Profinity.State.Get("runCount") is int previousCount ? previousCount : 0;
     runCount++;
     Profinity.State.Set("runCount", runCount);
     Profinity.Console.WriteLine($"This script has completed {runCount} time(s).");

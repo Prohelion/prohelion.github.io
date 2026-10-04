@@ -45,4 +45,3 @@ Each component can override placement using the same drag/reorder editor as the 
 
 - [Profiles](../../Administration/Profiles.md)
 - [RBAC and permissions](../../Administration/Security/RBAC_Permissions.md)
-- Engineering [A4 Profile Menu Layout](https://github.com/Prohelion/Profinity/blob/feature/Profinity_2_3/plans/2.3/A4-Profile-Menu-Layout.md)

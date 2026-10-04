@@ -44,7 +44,6 @@ This example demonstrates a Service script that:
     ```csharp
     using System;
     using System.Threading;
-    using Profinity.Scripting;
 
     public class CSharpServiceTest : ProfinityBaseService
     {

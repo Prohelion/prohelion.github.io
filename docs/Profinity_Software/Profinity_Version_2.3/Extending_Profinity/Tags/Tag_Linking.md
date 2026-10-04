@@ -7,20 +7,23 @@ description: "Tag Explorer context menu flows to quickly create collections, rul
 
 Profinity 2.3 ships **Tag Explorer context menu** flows to create collections, rules, and dashboard bindings from selected tags, which reduces copying and pasting between Tag Explorer and the visual editors.
 
-!!! note "Partial GA (A7)"
-    **Shipped in 2.3:** context menu actions from Tag Explorer. **Not shipped:** reciprocal editors (for example adding a rule from the collections editor via context menu only), where-used panels, and collection↔rule cross-links from every editor surface.
+!!! note "Scope of the 2.3 release"
+    **Available in 2.3:** the Tag Explorer context menu actions listed below. **Not available:** reciprocal editors (for example adding a rule from the collections editor via a context menu only), where-used panels, and collection-to-rule cross-links from every editor surface.
 
 ## Prerequisites
 
-- **`TagCollectionsModify`** for collection and some create flows.
-- **`TagView`** for Tag Explorer.
-- **`DashboardModify`** when adding tags to dashboards.
+Tag Explorer itself requires **`TagView`**. Each context menu action then checks its own permission, and an action whose permission is missing is shown disabled, while the whole menu is hidden from a user who holds none of these permissions.
 
-Use an account such as **demo.engineer** with the Engineer role template for authoring screenshots.
+| Action | Permission required |
+|--------|---------------------|
+| **Add tag(s) to dashboard…** | `DashboardModify` |
+| **Create collection from tag(s)…** | `TagCollectionsModify` |
+| **Create rule from tag(s)…** | `TagRulesModify` |
+| **Rules on this Tag**, **Rules impacted by this tag** | `TagRulesView` |
 
 ## Open the context menu
 
-1. Open **TAG EXPLORER** (`/tags`).
+1. Open **TAG EXPLORER** (`/tags?view=tag_explorer`).
 2. Right-click a **leaf tag** or branch as appropriate.
 
 <figure markdown>
@@ -30,23 +33,24 @@ Use an account such as **demo.engineer** with the Engineer role template for aut
 
 ## Shipped menu actions
 
-| Action | Scope | Status | Result |
-|--------|-------|--------|--------|
-| **Add tag(s) to dashboard…** | Leaf tags only | Partial | Opens a dashboard picker and creates a binding draft; completing the bind still requires the dashboard editor |
-| **Create collection from tag(s)…** | Branch, leaf, or root (submenu) | Complete | Opens collections visual editor with draft members |
-| **Create rule from tag(s)…** | Selected tags | Complete | Opens rules visual editor with draft rule |
+| Action | Scope | Result |
+|--------|-------|--------|
+| **Add tag(s) to dashboard…** | Leaf tags only | Opens a dashboard picker and creates a binding draft; completing the bind still requires the dashboard editor |
+| **Create collection from tag(s)…** | Branch, leaf, or root | Opens a submenu for the primary filter (**Branch**, **Meta type**, **Unit**, **Value** or **Quality**), then an insert-location picker, then the collections visual editor with a draft collection |
+| **Create rule from tag(s)…** | Selected tags | Opens an insert-location picker, then the rules visual editor with a draft rule |
+| **Rules on this Tag** | Selected tags | Lists the rules that reference the selection and opens the rules editor on the chosen rule source |
+| **Rules impacted by this tag** | Selected tags | Lists the rules affected by the selection, and opens the rules editor with that rule selected |
 
 After choosing an action, complete configuration in the visual editor and **save**.
 
-The create-collection and create-rule flows generate the membership and condition expressions automatically: leaf picks become `tag.Is("…")`, and branch picks become `tag.MatchesPath("…")`. See [Tag expressions](../Rules/Tag_Expressions.md).
+The create-collection and create-rule flows generate the expressions automatically. A selection of leaf tags becomes a set of `tag.Is("…")` matches, a single selected branch becomes a scope prefix with the expression `tag.HasValue`, and several selected branches become `tag.MatchesPath("…")` matches joined with `||` and combined with `tag.HasValue`. For collections, a primary filter other than **Branch** replaces this with an expression built from the selected tags' metadata type, unit, value or quality. See [Tag expressions](../Rules/Tag_Expressions.md).
 
-## What is not available in 2.3 GA
+## What is not available in 2.3
 
 The following are not available:
 
 - Reciprocal "add to collection" from rules editor context menus only.
 - Full where-used navigation across all tag consumers.
-- Tag relay federation workflows (see [Tag layer](../Tag_Layer/index.md)).
 
 ## Related documentation
 

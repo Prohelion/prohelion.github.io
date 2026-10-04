@@ -16,8 +16,8 @@ For the full permission catalog and default role templates, see [RBAC and permis
 
 ## Creating a new user
 
-1. Open the **pill menu** (top-right) → **Users & Groups** (`/admin?view=users`).
-    - Requires **SecurityAdmin** permission.
+1. Select **ADMIN** in the side menu, then **Users & Groups** (`/admin?view=users`).
+    - Requires **SecurityAdmin** permission, and the **Users & Groups** pill is shown only when the licence includes the Profinity Server feature.
 2. Click **+ Add user**.
 3. Enter a username and initial password (for local sign-in).
 4. Assign one or more **roles** under **Assigned roles**.
@@ -37,7 +37,7 @@ Administrator actions for an existing user — **Reset MFA**, **Reset Password**
 ## Security roles (2.3)
 
 !!! info "Roles, not legacy groups"
-    Security.yaml in Profinity **2.3** uses **roles** only (`Version: "2.3"`). Each role bundles granular **permissions** (for example `TagView`, `CANSend`, `SecurityAdmin`). Users hold **Assigned roles**.
+    security.yaml in Profinity **2.3** uses **roles** only (`Version: "2.3"`). Each role bundles granular **permissions** (for example `TagView`, `CANSend`, `SecurityAdmin`). Users hold **Assigned roles**.
 
 ### Default templates
 
@@ -47,7 +47,7 @@ Administrator actions for an existing user — **Reset MFA**, **Reset Password**
 | **Operator** | Day-to-day CAN and component actions |
 | **Engineer** | Profile, component, dashboard, and tag rule editing |
 | **Security admin** | User and role administration |
-| **System admin** | System Configuration (Config.yaml) |
+| **System admin** | System Configuration (config.yaml) |
 | **Administrators** | Full permission bundle |
 
 Custom roles are supported — open the **Roles** tab in Users & Groups.
@@ -71,7 +71,7 @@ Custom roles are supported — open the **Roles** tab in Users & Groups.
 After creating a user:
 
 1. Share login credentials securely (local sign-in only).
-2. Enable **Require password change** so the user must set a new password at first login.
+2. Enable **Require password change on next login** so the user must set a new password at first login.
 3. Verify the user sees only the expected side menu entries for their roles.
 
 !!! warning "Security notice"

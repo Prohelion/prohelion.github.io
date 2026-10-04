@@ -81,7 +81,7 @@ If your adapter does not appear among the discovered adapters, proceed to manual
 ### Step 7: Verify Connection
 
 1. Check that the status indicator turns green
-2. Open the **SEND & RECEIVE CAN** window
+2. Open the **SEND & RECEIVED CAN** window under **CAN UTILITIES** in the side menu
 3. Verify CAN messages are appearing in the activity panel
 4. If no messages appear, check:
    - CAN bus bitrate matches network

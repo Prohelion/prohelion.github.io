@@ -5,7 +5,7 @@ description: "Thread-safe state management for persistence between script invoca
 
 # State
 
-Scripts in Profinity have a lifecycle in which they run and then stop, so information that must survive between invocations of a script, or be shared between different scripts, needs to be held in state. Profinity provides a state management mechanism for this, covering state storage, retrieval, and thread-safe operations, with examples in C# and Python.
+Scripts in Profinity have a lifecycle in which they run and then stop, so information that must survive between invocations of a script, or be shared between different scripts, needs to be held in state. Profinity provides a state management mechanism for this, covering state storage, retrieval, and thread-safe operations, with examples in C#, Python and Lua.
 
 Profinity provides two distinct ways to manage state in scripts:
 
@@ -29,7 +29,7 @@ The `ProfinityScriptState` class provides the following core capabilities.
 
 ## Basic Usage
 
-The following examples show how to use both `State` and `GlobalState` in scripts, each in C# and Python. Storing and retrieving values are the building blocks for more complex state management.
+The following examples show how to use both `State` and `GlobalState` in scripts, each in C#, Python and Lua. Storing and retrieving values are the building blocks for more complex state management.
 
 ### Storing State Values
 
@@ -63,6 +63,16 @@ The following examples save data to both the local and global state stores, usin
     Profinity.GlobalState.Set("sharedConfig", {"Name": "Global", "Value": 200})
     ```
 
+=== "Lua"
+
+    ```lua
+    -- Store a value that persists between runs of this script
+    Profinity.State:Set('scriptRunCount', 42)
+
+    -- Store a value that can be shared with other scripts
+    Profinity.GlobalState:Set('totalScriptsRun', 'Shared data')
+    ```
+
 ### Retrieving State Values
 
 Any stored key can be retrieved from both the local and global state stores, and a key that does not exist returns null.
@@ -76,9 +86,12 @@ Any stored key can be retrieved from both the local and global state stores, and
     // Retrieve state shared by other scripts
     object totalRuns = Profinity.GlobalState.Get("totalScriptsRun");
 
-    // Retrieve and cast to specific type
-    int lastRunValue = (int)Profinity.State.Get("lastRunConfig");
-    var sharedConfig = Profinity.GlobalState.Get("sharedConfig");
+    // Retrieve and test for a specific type, because Get returns object
+    if (Profinity.State.Get("scriptRunCount") is int lastRunValue)
+    {
+        Profinity.Console.WriteLine($"Previous value: {lastRunValue}");
+    }
+    object sharedConfig = Profinity.GlobalState.Get("sharedConfig");
     ```
 
 === "Python"
@@ -93,6 +106,19 @@ Any stored key can be retrieved from both the local and global state stores, and
     # Retrieve and use values
     last_run_config = Profinity.State.Get("lastRunConfig")
     shared_config = Profinity.GlobalState.Get("sharedConfig")
+    ```
+
+=== "Lua"
+
+    ```lua
+    -- Retrieve state from previous runs of this script
+    local runCount = Profinity.State:Get('scriptRunCount')
+
+    -- Retrieve state shared by other scripts
+    local totalRuns = Profinity.GlobalState:Get('totalScriptsRun')
+
+    print('Run count: ' .. tostring(runCount))
+    print('Total runs: ' .. tostring(totalRuns))
     ```
 
 ## More Complete Examples
@@ -116,7 +142,7 @@ The following examples show both `State` and `GlobalState` in typical scenarios,
     });
 
     // Track number of times this script has run
-    int runCount = (int)(Profinity.State.Get("runCount") ?? 0);
+    int runCount = Profinity.State.Get("runCount") is int previousCount ? previousCount : 0;
     Profinity.State.Set("runCount", runCount + 1);
 
     // Share data between scripts
@@ -129,6 +155,8 @@ The following examples show both `State` and `GlobalState` in typical scenarios,
 === "Python"
 
     ```python
+    from datetime import datetime
+
     # Store configuration that persists between runs of this script
     Profinity.State.Set("scriptConfig", {
         "Timeout": 5000,

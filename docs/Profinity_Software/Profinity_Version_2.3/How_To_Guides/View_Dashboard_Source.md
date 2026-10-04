@@ -24,7 +24,7 @@ Access the YAML source code of existing dashboards to learn from examples and mo
 
 ### Step 2: Access Profile Dashboard Source
 
-1. Navigate to **ADMIN** → **Profiles**
+1. Select **ADMIN** in the side menu, then **Profile**
 2. Select your profile
 3. Open profile settings
 4. Find the uploaded dashboard file

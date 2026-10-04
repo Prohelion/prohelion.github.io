@@ -8,14 +8,160 @@ description: "Progressive examples from simple hello-world dashboards to complet
 This guide provides examples of Profinity dashboards, from simple component displays to complete real-world implementations. All examples use the correct schema structure and demonstrate best practices.
 
 !!! tip "New to Dashboards?"
-    Readers new to dashboards should begin with the [Progressive Examples](#progressive-examples) section, which appears after the complete dashboard and the real-world scenarios. It starts with a simple "Hello World" dashboard and builds up to more complex examples step by step.
+    Readers new to dashboards should begin with the [Progressive Examples](#progressive-examples) section, which is the first section on this page. It starts with a simple "Hello World" dashboard and builds up to more complex examples step by step, before the complete motor controller dashboard and the real-world scenarios.
 
 ## Table of Contents
 
+- [Progressive Examples](#progressive-examples) - The starting point for new readers, building from "Hello World" to complex dashboards
 - [Complete Dashboard Example](#complete-dashboard-example) - Full motor controller dashboard
 - [Real-World Scenarios](#real-world-scenarios) - Step-by-step walkthroughs
-- [Progressive Examples](#progressive-examples) - The starting point for new readers, building from "Hello World" to complex dashboards
 - [Component-Specific Examples](#component-specific-examples) - Examples for individual component types
+
+## Progressive Examples
+
+These examples build from the simplest possible dashboard to more complex ones, and are the recommended starting point for readers new to dashboard development.
+
+### Example 0: Hello World (The Template)
+
+A new custom component starts with this Hello World template, and the **NEW FROM TEMPLATE** button in the dashboard editor loads it again at any time (a component can supply its own template, in which case that template loads instead). It is the template shipped with Profinity:
+
+``` yaml
+version: "2.3"
+dashboard:
+    items:
+        - row:
+            direction: vertical
+            items:
+            - group:
+                class: statscontainer
+                items:
+                    - pill:
+                        icon:
+                            image: IbmWatsonKnowledgeStudio
+                        items:
+                        - pillgroup:
+                            items:
+                            - value:
+                                label: CUSTOM DASHBOARD
+                            - value:
+                                label: For more information on how to configure dashboard files, see the Profinity documentation at https://docs.prohelion.com
+```
+
+This template provides a starting point with:
+
+- A version declaration (`version: "2.3"`)
+- A vertical row layout
+- A styled group container
+- A pill component with an icon
+- A value readout showing "CUSTOM DASHBOARD", and a second value that points to the documentation
+
+This template can be modified to add data bindings and additional components, and it is the same template described in the [Dashboard Development Guide](./index.md#your-first-dashboard-hello-world).
+
+### Example 1: Simple Readout with Formatting
+
+Add units and precision to make the readout more informative:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    value: 25.5
+                    unit: "°C"
+                    precision: 1
+```
+
+### Example 2: Multiple Readouts with Binding
+
+Add data binding to multiple readouts:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    value: 0
+                    unit: "°C"
+                    precision: 1
+                    bind:
+                      - target: value
+                        source: DBC/Temperature/Value
+                - readout:
+                    label: "Pressure"
+                    value: 0
+                    unit: "hPa"
+                    precision: 2
+                    bind:
+                      - target: value
+                        source: DBC/Pressure/Value
+```
+
+### Example 3: Add Status Lamps
+
+Include status indicators:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: green
+                          label: "Online"
+                          value: 1
+                          enabled: true
+                          bind:
+                            - target: enabled
+                              source: DBC/Status/Online
+                              toType: boolean
+          - readouts:
+              items:
+                - readout:
+                    label: "Temperature"
+                    value: 0
+                    unit: "°C"
+                    precision: 1
+                    bind:
+                      - target: value
+                        source: DBC/Temperature/Value
+```
+
+### Example 4: Add Charts
+
+Include time series charts:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - panels:
+              items:
+                - panel:
+                    title: "Temperature Trend"
+                    items:
+                      - chart:
+                          type: line
+                          legend: false
+                          bind:
+                            - target: value
+                              source: DBC/Temperature/Value
+                              seriesMode: timeSeries
+                              timeRangeStart: "-5m"
+                              timeRangeStop: "0m"
+```
 
 ## Complete Dashboard Example
 
@@ -31,13 +177,13 @@ This dashboard example shows how to:
 - **Organise Complex Information** - Using accordions and tabs for detailed data
 - **Implement Data Binding** - Connect dashboard components to CAN bus data sources
 - **Create Clear Layouts** - Using rows, groups, panels, and pills effectively
-- **Use Profile Assets** - Reference images from /Profile/Images directory
+- **Use Icons** - Name a Carbon icon, or a legacy icon filename that resolves to a Carbon icon, in the `image` parameter of a pill icon
 
 ### Dashboard Structure Overview
 
 The dashboard is organised into several logical sections:
 
-1. **Status Pill** - Central component showing key metrics with an icon from /Profile/Images
+1. **Status Pill** - Central component showing key metrics with a Carbon icon, because the legacy filename `nav_motorcontrollers_active.svg` in the YAML resolves to a Carbon icon rather than to a file in /Profile/Images
 2. **Performance Charts** - Real-time graphs of power and velocity
 3. **Controller Limits** - Visual indicators for system protection limits
 4. **Error Monitoring** - Status lamps for various error conditions
@@ -68,14 +214,14 @@ dashboard:
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                                    source: DBC/BusMeasurement/BusVoltage
                             - value:
                                 label: BUS CURRENT
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.BusMeasurement.BusCurrent'
+                                    source: DBC/BusMeasurement/BusCurrent
                       - pillgroup:
                           items:
                             - value:
@@ -84,21 +230,21 @@ dashboard:
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.DspBoardTempMeasurement.DspBoardTemp'
+                                    source: DBC/DspBoardTempMeasurement/DspBoardTemp
                             - value:
                                 label: MOTOR TEMP
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.HeatsinkMotorTempMeasurement.MotorTemp'
+                                    source: DBC/HeatsinkMotorTempMeasurement/MotorTemp
                             - value:
                                 label: HEATSINK TEMP
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.HeatsinkMotorTempMeasurement.HeatsinkTemp'
+                                    source: DBC/HeatsinkMotorTempMeasurement/HeatsinkTemp
                       - pillgroup:
                           items:
                             - value:
@@ -107,14 +253,14 @@ dashboard:
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.VelocityMeasurement.MotorVelocity'
+                                    source: DBC/VelocityMeasurement/MotorVelocity
                             - value:
                                 label: MPS
                                 enabled: true
                                 precision: 1
                                 bind:
                                   - target: value
-                                    source: '{COMPONENT_NAME}.VelocityMeasurement.VehicleVelocity'
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
           - row:
               direction: vertical
               class: trunkpadded
@@ -129,7 +275,10 @@ dashboard:
                                 legend: false
                                 bind:
                                   - target: value
-                                    source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+                                    source: Properties/BusPower
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
                       - panel:
                           title: VELOCITY (M/S)
                           items:
@@ -138,7 +287,10 @@ dashboard:
                                 legend: false
                                 bind:
                                   - target: value
-                                    source: "[TimeSeries].{COMPONENT_NAME}.VelocityMeasurement.VehicleVelocity"
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
                       - panel:
                           title: CONTROLLER LIMITS
                           items:
@@ -153,7 +305,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitOutputVoltagePWM'
+                                                source: DBC/Status/LimitOutputVoltagePWM
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -162,7 +314,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitMotorCurrent'
+                                                source: DBC/Status/LimitMotorCurrent
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -171,7 +323,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitVelocity'
+                                                source: DBC/Status/LimitVelocity
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -180,7 +332,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitBusCurrent'
+                                                source: DBC/Status/LimitBusCurrent
                                                 toType: boolean
                                   - lampgroup:
                                       items:
@@ -191,7 +343,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitBusVoltageUpper'
+                                                source: DBC/Status/LimitBusVoltageUpper
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -200,7 +352,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitBusVoltageLower'
+                                                source: DBC/Status/LimitBusVoltageLower
                                                 toType: boolean
                                         - lamp:
                                             color: amber
@@ -209,7 +361,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.LimitIpmOrMotorTemp'
+                                                source: DBC/Status/LimitIpmOrMotorTemp
                                                 toType: boolean
                       - panel:
                           title: CONTROLLER ERRORS
@@ -225,7 +377,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorHardwareOverCurrent'
+                                                source: DBC/Status/ErrorHardwareOverCurrent
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -234,7 +386,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorSoftwareOverCurrent'
+                                                source: DBC/Status/ErrorSoftwareOverCurrent
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -243,7 +395,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorDcBusOverVoltage'
+                                                source: DBC/Status/ErrorDcBusOverVoltage
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -252,7 +404,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorWatchdogCausedLastReset'
+                                                source: DBC/Status/ErrorWatchdogCausedLastReset
                                                 toType: boolean
                                   - lampgroup:
                                       items:
@@ -263,7 +415,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorConfigRead'
+                                                source: DBC/Status/ErrorConfigRead
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -272,7 +424,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.Error15vRailUnderVoltage'
+                                                source: DBC/Status/Error15vRailUnderVoltage
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -281,7 +433,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorDesaturationFault'
+                                                source: DBC/Status/ErrorDesaturationFault
                                                 toType: boolean
                                         - lamp:
                                             color: red
@@ -290,7 +442,7 @@ dashboard:
                                             enabled: false
                                             bind:
                                               - target: enabled
-                                                source: '{COMPONENT_NAME}.Status.ErrorMotorOverSpeed'
+                                                source: DBC/Status/ErrorMotorOverSpeed
                                                 toType: boolean
     - accordion:
         label: MORE DETAILS
@@ -307,7 +459,7 @@ dashboard:
                                 color: disabled
                                 value: 1
                                 label: INFO
-                          body:
+                          items:
                             - panels:
                                 items:
                                   - panel:
@@ -320,19 +472,19 @@ dashboard:
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.VoltageRail15VMeasurement.Supply15V'
+                                                      source: DBC/VoltageRail15VMeasurement/Supply15V
                                               - readout:
                                                   label: 1.9v RAIL
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.VoltageRail3V31V9Measurement.Supply1V9'
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply1V9
                                               - readout:
                                                   label: 3.3v RAIL
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.VoltageRail3V31V9Measurement.Supply3V3'
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply3V3
                                   - panel:
                                       title: Phase Currents
                                       items:
@@ -343,13 +495,13 @@ dashboard:
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.PhaseCurrentMeasurement.PhaseCurrentB'
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentB
                                               - readout:
                                                   label: PHASE CURRENT C
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.PhaseCurrentMeasurement.PhaseCurrentC'
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentC
                                   - panel:
                                       title: Motor Vectors
                                       items:
@@ -360,37 +512,37 @@ dashboard:
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.BackEMFMeasurementPrediction.BEMFd'
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFd
                                               - readout:
                                                   label: BEMF Vq
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.BackEMFMeasurementPrediction.BEMFq'
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFq
                                               - readout:
                                                   label: MOTOR VOLTAGE Vd
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorVoltageVectorMeasurement.Vd'
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vd
                                               - readout:
                                                   label: MOTOR VOLTAGE Vq
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorVoltageVectorMeasurement.Vq'
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vq
                                               - readout:
                                                   label: MOTOR CURRENT Id
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorCurrentVectorMeasurement.Id'
+                                                      source: DBC/MotorCurrentVectorMeasurement/Id
                                               - readout:
                                                   label: MOTOR CURRENT Iq
                                                   precision: 3
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.MotorCurrentVectorMeasurement.Iq'
+                                                      source: DBC/MotorCurrentVectorMeasurement/Iq
                                   - panel:
                                       title: Speed & Distance
                                       items:
@@ -401,13 +553,13 @@ dashboard:
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.SlipSpeedMeasurement.SlipSpeed'
+                                                      source: DBC/SlipSpeedMeasurement/SlipSpeed
                                               - readout:
                                                   label: ODOMETER
                                                   precision: 1
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.OdometerBusAhMeasurement.Odometer'
+                                                      source: DBC/OdometerBusAhMeasurement/Odometer
                                   - panel:
                                       title: Other
                                       items:
@@ -417,22 +569,22 @@ dashboard:
                                                   label: PART ID
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.IDInfo.TritiumID'
+                                                      source: DBC/IDInfo/TritiumID
                                               - readout:
                                                   label: SERIAL NUMBER
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.IDInfo.SerialNumber'
+                                                      source: DBC/IDInfo/SerialNumber
                                               - readout:
                                                   label: TX ERROR COUNT
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.Status.TxErrorCount'
+                                                      source: DBC/Status/TxErrorCount
                                               - readout:
                                                   label: RX ERROR COUNT
                                                   bind:
                                                     - target: value
-                                                      source: '{COMPONENT_NAME}.Status.RxErrorCount'
+                                                      source: DBC/Status/RxErrorCount
 ```
 
 ## Real-World Scenarios
@@ -486,7 +638,7 @@ dashboard:
                     precision: 1
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.BusMeasurement.BusVoltage'
+                        source: DBC/BusMeasurement/BusVoltage
 ```
 
 **Step 3: Add Status Indicators**
@@ -509,7 +661,7 @@ dashboard:
                           enabled: true
                           bind:
                             - target: enabled
-                              source: '{COMPONENT_NAME}.Status.Online'
+                              source: DBC/Status/Online
                               toType: boolean
 ```
 
@@ -527,7 +679,10 @@ dashboard:
               legend: false
               bind:
                 - target: value
-                  source: "[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent"
+                  source: DBC/BusMeasurement/BusCurrent
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+                  timeRangeStop: "0m"
 ```
 
 **Step 5: Organise with Panels**
@@ -580,7 +735,7 @@ dashboard:
                           unit: "%"
                           bind:
                             - target: value
-                              source: '{COMPONENT_NAME}.StateOfCharge.SOCPercent'
+                              source: DBC/StateOfCharge/SOCPercent
                               gain: 100
 ```
 
@@ -603,161 +758,26 @@ dashboard:
                     displayType: "text"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.CellVoltages[0]'
+                        source: DBC/CellVoltages/Cell1
                     unit: "V"
                     precision: 3
               regions:
                   - id: "cell-region-1"
-                    coordinates: "xywh=10,20,50,30"
-                    action: "navigate"
-                    target: "/component?componentId=Battery&view=cell1"
+                    x: 10
+                    y: 20
+                    width: 50
+                    height: 30
+                    action:
+                      invoke: Navigate
+                      target: "/component?componentId=Battery&view=cell1"
                     label: "Cell 1"
-```
-
-## Progressive Examples
-
-These examples build from the simplest possible dashboard to more complex ones, and are the recommended starting point for readers new to dashboard development.
-
-### Example 0: Hello World (The Template)
-
-When the dashboard editor opens, or when the **"New Template"** button is selected, the editor loads this Hello World template:
-
-``` yaml
-dashboard:
-    items:
-        - row:
-            direction: vertical
-            items:
-            - group:
-                class: statscontainer
-                items:
-                    - pill:                        
-                        icon:                      
-                            image: nav_custom_active.svg
-                        items:
-                        - pillgroup:
-                            items:
-                            - value:
-                                label: CUSTOM COMPONENT
-```
-
-This template provides a starting point with:
-
-- A vertical row layout
-- A styled group container
-- A pill component with an icon
-- A value readout showing "CUSTOM COMPONENT"
-
-This template can be modified to add data bindings and additional components, and it is the same template described in the [Dashboard Development Guide](./index.md#your-first-dashboard-hello-world).
-
-### Example 1: Simple Readout with Formatting
-
-Add units and precision to make the readout more informative:
-
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "Temperature"
-                    value: 25.5
-                    unit: "°C"
-                    precision: 1
-```
-
-### Example 2: Multiple Readouts with Binding
-
-Add data binding to multiple readouts:
-
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "Temperature"
-                    value: 0
-                    unit: "°C"
-                    precision: 1
-                    bind:
-                      - target: value
-                        source: '{COMPONENT_NAME}.Temperature.Value'
-                - readout:
-                    label: "Pressure"
-                    value: 0
-                    unit: "hPa"
-                    precision: 2
-                    bind:
-                      - target: value
-                        source: '{COMPONENT_NAME}.Pressure.Value'
-```
-
-### Example 3: Add Status Lamps
-
-Include status indicators:
-
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - lamps:
-              items:
-                - lampgroup:
-                    items:
-                      - lamp:
-                          color: green
-                          label: "Online"
-                          value: 1
-                          enabled: true
-                          bind:
-                            - target: enabled
-                              source: '{COMPONENT_NAME}.Status.Online'
-                              toType: boolean
-          - readouts:
-              items:
-                - readout:
-                    label: "Temperature"
-                    value: 0
-                    unit: "°C"
-                    precision: 1
-                    bind:
-                      - target: value
-                        source: '{COMPONENT_NAME}.Temperature.Value'
-```
-
-### Example 4: Add Charts
-
-Include time series charts:
-
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - panels:
-              items:
-                - panel:
-                    title: "Temperature Trend"
-                    items:
-                      - chart:
-                          type: line
-                          legend: false
-                          bind:
-                            - target: value
-                              source: "[TimeSeries].{COMPONENT_NAME}.Temperature.Value"
 ```
 
 ## Component-Specific Examples
 
 ### HTML Component Example
 
-Display custom HTML content with references to profile assets:
+Display custom HTML content with references to profile assets. The `info-box` classes are styled by rules in the `profile.css` file of the `/Profile/Styles` directory, because the sanitiser removes a `link` element from `content`:
 
 ``` yaml
 dashboard:
@@ -767,7 +787,6 @@ dashboard:
           - html:
               class: "info-box"
               content: |
-                <link rel="stylesheet" href="/Profile/Styles/custom.css" />
                 <div class="info-box__header">System Information</div>
                 <div class="info-box__content">
                   <p>This dashboard monitors system status.</p>
@@ -777,7 +796,7 @@ dashboard:
 
 ### Image Component Example
 
-Interactive image with regions, icons, and data values:
+Interactive image with regions, icons, and data values. The `x`, `y`, `width`, and `height` values are percentages of the image size, and `action` is an object whose `invoke` value is `Navigate`, `Component`, `System`, or `Endpoint`:
 
 ``` yaml
 dashboard:
@@ -792,14 +811,19 @@ dashboard:
                     y: 30
                     icon: "StatusIcon.svg"
                     size: 32
-                    action: "navigate"
-                    target: "/component?componentId=Status"
+                    action:
+                      invoke: Navigate
+                      target: "/component?componentId=Status"
                     label: "Status"
               regions:
                   - id: "main-region"
-                    coordinates: "xywh=20,20,60,40"
-                    action: "navigate"
-                    target: "/component?componentId=Main"
+                    x: 20
+                    y: 20
+                    width: 60
+                    height: 40
+                    action:
+                      invoke: Navigate
+                      target: "/component?componentId=Main"
                     label: "Main Component"
                     visibleBorder: true
               dataValues:
@@ -810,7 +834,7 @@ dashboard:
                     displayType: "text"
                     bind:
                       - target: value
-                        source: '{COMPONENT_NAME}.Voltage.Value'
+                        source: DBC/Voltage/Value
                     unit: "V"
                     precision: 2
 ```
@@ -843,7 +867,7 @@ dashboard:
               precision: 3
               bind:
                 - target: value
-                  source: '{COMPONENT_NAME}.CellData.Values'
+                  source: DBC/CellData/Values
 ```
 
 ## Next Steps

@@ -38,10 +38,9 @@ The steps below use InfluxDB Cloud and the InfluxDB v2 Historian, which Profinit
 
 ### Step 2: Add the InfluxDB v2 Historian Component
 
-1. Navigate to **ADMIN** → **Components**
-2. Click **Add Component**
-3. Select the **InfluxDB v2 Historian** (under Historians)
-4. Click **Add**
+1. Select **ADD COMPONENT** in the side menu (or on the home page)
+2. Select the **InfluxDB v2 Historian** (under Historians)
+3. Click **Add**
 
 ### Step 3: Configure the InfluxDB Connection
 
@@ -76,29 +75,51 @@ The steps below use InfluxDB Cloud and the InfluxDB v2 Historian, which Profinit
    ```
    from(bucket: "my-profinity-data")
      |> range(start: -1h)
-     |> filter(fn: (r) => r["_measurement"] == "component_name")
+     |> filter(fn: (r) => r["_measurement"] == "Your_Profile_Name")
    ```
 5. Verify data is arriving
 6. If it is not, check the [Profinity logs](../Getting_Started/Profinity_Log.md) for connection errors
 
 ## Data Structure in InfluxDB
 
-Profinity logs data with this structure:
+Profinity writes one point per tag sample, with this structure:
 
-- **Measurement**: Component name
-- **Tags**: Component ID, signal names
-- **Fields**: Signal values
-- **Timestamp**: Data timestamp
+- **Measurement**: the active profile name, with spaces and any character other than a letter or digit replaced by an underscore (so `Example Profile` becomes `Example_Profile`)
+- **Tags**:
+    - `profile`: the same formatted profile name
+    - `transmitter`: always empty in this release
+    - `component`: the first segment of the canonical tag path, which is the component, formatted in the same way as the profile name
+    - `message`: the DBC message name for a DBC signal tag, or the property marker for a component property tag
+    - `signal`: the DBC signal name, or the dotted property path
+    - `full_tag_id`: the canonical tag path, unaltered
+- **Fields**: a single numeric field named `value`
+- **Timestamp**: the sample timestamp in UTC, written with nanosecond precision
 
-**Example Data Point**:
+**Example Data Point** (illustrative values; the component, message and signal names depend on the profile and DBC file):
 ```
-measurement: "Prohelion BMU"
+measurement: "Example_Profile"
 tags:
-  componentId: "bmu-001"
+  profile: "Example_Profile"
+  transmitter: ""
+  component: "Prohelion_BMU"
+  message: "Pack_Status"
   signal: "PackVoltage"
+  full_tag_id: "Prohelion BMU/DBC/Pack_Status/PackVoltage"
 fields:
   value: 400.5
 timestamp: 2024-01-17T10:30:00Z
+```
+
+Tags other than DBC signals and component properties, such as relayed or registered tags, are written with the tag path (after the component) in `signal`, joined with dots, and a fixed tag-layer marker in `message`.
+
+To read the data back, filter on the measurement, the `value` field and the tags, for example:
+
+```
+from(bucket: "my-profinity-data")
+  |> range(start: -1h)
+  |> filter(fn: (r) => r["_measurement"] == "Example_Profile")
+  |> filter(fn: (r) => r["_field"] == "value")
+  |> filter(fn: (r) => r["component"] == "Prohelion_BMU" and r["signal"] == "PackVoltage")
 ```
 
 ## Tips
@@ -106,7 +127,7 @@ timestamp: 2024-01-17T10:30:00Z
 - **Start Small**: confirm data is arriving with a short interval before relying on the historian
 - **Monitor Bandwidth**: cloud logging uses network bandwidth
 - **Optimise Intervals**: balance data granularity against cost
-- **Use Tags Efficiently**: tags are indexed and help with queries
+- **Use Tags Efficiently**: tags are indexed, so filter on `component`, `message` and `signal` in queries where possible
 - **Set Retention Policies**: configure data retention to manage costs
 - **Monitor Costs**: InfluxDB Cloud charges based on data usage
 

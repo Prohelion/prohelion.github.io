@@ -18,7 +18,7 @@ Profile Dashboards use the same dashboard system as Custom Component dashboards,
 To create a Profile Dashboard for a profile:
 
 1. **Create a dashboard YAML file** using the [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md)
-2. **Navigate to the ADMIN tab** and open **Profiles**
+2. **Select ADMIN in the side menu** and open the **Profile** pill
 3. **Select the profile** you want to configure
 4. **Open the profile settings**
 5. **Enable the Custom Home Dashboard option**
@@ -28,7 +28,7 @@ To create a Profile Dashboard for a profile:
 Once configured, the Profile Dashboard is displayed as the home page when the profile is active. If the "Dashboard YAML file (Optional)" field is left empty when the profile settings are saved, Profinity creates a starter dashboard from the built-in template, which can be replaced later with your own file.
 
 !!! info "Dashboard Location"
-    Profile Dashboards are stored in the profile's `Dashboards` directory. The dashboard file is part of the profile and is included when the profile is exported or shared.
+    Profile Dashboards are stored in the profile's `dashboards` directory. The dashboard file is part of the profile and is included when the profile is exported or shared.
 
 ## Dashboard Requirements
 
@@ -62,13 +62,16 @@ Both use the same YAML format and dashboard components, but Profile Dashboards a
 
 To remove a Profile Dashboard from a profile:
 
-1. Navigate to the **ADMIN** tab and open **Profiles**
+1. Select **ADMIN** in the side menu and open the **Profile** pill
 2. Select the profile you want to modify
 3. Open the profile settings
 4. Disable the **Custom Home Dashboard** option
 5. Save the profile settings
 
 When the Profile Dashboard is removed, the standard Profinity home page is displayed when the profile is active.
+
+!!! warning "Removing the dashboard deletes its file"
+    Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting, so keep a copy of the file if it is needed again. If the file cannot be deleted, the dashboard file setting is not cleared and the error is written to the log.
 
 ## Related Documentation
 

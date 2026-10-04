@@ -9,107 +9,154 @@ Conditional styling allows dashboard components to change their appearance, visi
 
 ## Overview
 
-Conditional styling uses data binding to apply different styles, classes, or visibility states to components based on the current value of data sources. This enables:
+Conditional styling uses data binding to change how a component looks or whether it appears, based on the current value of a data source. This enables:
 
-- **Visual Status Indicators** - Components change colour or style based on system state
-- **Dynamic Visibility** - Show or hide components based on data conditions
+- **Visual Status Indicators** - Lamps change colour or label based on system state
+- **Dynamic Visibility** - Show or hide readouts, tabs, accordions, and the footer based on data conditions
 - **Real-time Feedback** - Immediate visual response to data changes
 - **Clear Status Cues** - Visual signals for system status and alerts
 
 ## How Conditional Styling Works
 
-Conditional styling uses the same data binding system as other dashboard components, but targets styling properties instead of content. The system evaluates data values and applies appropriate styling based on your configuration.
+Conditional styling uses the same `bind` list as every other dashboard component. The `target` of a binding names the component property that the data drives, and each component accepts only a fixed set of targets. A binding with a target that the component does not support is ignored.
 
 ### Key Concepts
 
-- **Data Binding** - Connect styling properties to data sources
-- **Value Mapping** - Map data values to specific styles or classes
-- **Real-time Updates** - Styling changes automatically as data updates
-- **CSS Integration** - Works with your existing CSS classes and styles
+- **Data Binding** - Connect a property such as `visible`, `enabled`, or `color` to a data source
+- **Value Mapping** - Use `mapToText` to turn a number or boolean into a colour name or label
+- **Real-time Updates** - The component updates automatically as the data changes
+- **Supported Targets** - The targets in the following table are the ones that control visibility and styling
+
+| Target | Effect | Components |
+|--------|--------|------------|
+| `visible` | Hides the component when the value is false (`0` or `false`) | Readout, Tab, Accordion, Footer |
+| `enabled` | Greys the component out when the value is false, but keeps it on screen | Readout, Lamp, Tab, Action, Toggle |
+| `color` | Sets the lamp colour (`red`, `green`, `amber`, `grey`, `on`, `off`, `disabled`, `unknown`) | Lamp |
+| `label` | Replaces the label text | Readout, Lamp, Pill value |
+| `classes` | Adds CSS class names to the component | Action, Toggle |
+
+The Readout, Lamp, Tab, Accordion, Footer, and Action definitions in the [Component Reference](./Component_Reference/index.md) and the dashboard schema list the targets for each component.
 
 ## Types of Conditional Styling
 
 ### 1. Conditional Display
 
-Show or hide components based on data values. This is useful for displaying information only when relevant.
+Show or hide a component based on a data value, by binding the `visible` target. This is useful for displaying information only when it is relevant.
 
 **Use Cases:**
-- Show error messages only when errors occur
-- Display maintenance information when systems are offline
-- Hide advanced settings for basic users
-- Show detailed data only when expanded
+
+- Show a detail readout only when a limit is active
+- Hide a tab or an accordion when the data it shows is not available
+- Hide advanced readouts until a condition is met
 
 #### Conditional Display Example
 
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - group:
-              class: "conditional-panel"
-              items:
-                - readouts:
-                    items:
-                      - readout:
-                          label: "Special Value"
-                          value: 0
-                          bind:
-                            - target: "value"
-                              source: "data.special_value"
-                              toType: "number"
-```
-
-### 2. Dynamic Styling
-
-Change CSS classes and styling properties based on data values. This allows components to visually adapt to system state.
-
-**Use Cases:**
-- Change component colours based on status
-- Apply different styles for different data ranges
-- Highlight components when values exceed thresholds
-- Show different themes based on system mode
-
-#### Dynamic Styling Example
+The following readout always shows the bus current, and it appears only while the controller reports that the bus current limit is active, because the `visible` binding follows the `LimitBusCurrent` status signal. When the signal is `0` the readout is hidden, and when it is `1` the readout is shown.
 
 ``` yaml
 dashboard:
   items:
     - row:
-        class: "status-row"
         items:
           - readouts:
               items:
                 - readout:
-                    label: "Status"
-                    class: "status-panel"
+                    label: "BUS CURRENT (LIMITED)"
+                    unit: "A"
+                    precision: 1
+                    value: 0
                     bind:
-                      - target: "class"
-                        source: "data.status"
-                        mapToText:
-                          trueValue: "status-panel online"
-                          falseValue: "status-panel offline"
+                      - target: value
+                        source: DBC/BusMeasurement/BusCurrent
+                      - target: visible
+                        source: DBC/Status/LimitBusCurrent
+                        toType: boolean
 ```
 
-### 3. Conditional Visibility
+A `visible` binding only changes the display when it receives a value. If the data source stops reporting, a readout, accordion or footer keeps its last visibility state, whereas a tab is hidden because the tab treats a missing value as false.
 
-Control component visibility using the `enabled` property. This is more efficient than conditional display because hidden components are not rendered.
+### 2. Dynamic Styling
+
+Change the colour or label of a component based on data values. This allows components to visually adapt to system state.
 
 **Use Cases:**
-- Show or hide entire sections based on user permissions
-- Display components only when relevant data is available
-- Hide advanced features for basic users
-- Show maintenance information when systems are offline
+
+- Change a lamp colour when a status flag is set
+- Show a text label such as "Online" or "Offline" in place of a number
+- Apply CSS classes to an action or toggle based on system mode (using the `classes` target)
+
+#### Dynamic Styling Example
+
+The following lamp is green while the `LimitBusCurrent` flag is `0` and amber while it is `1`. The `partition` list alternates a label and a threshold, so a value below `1` takes the first colour and a value of `1` or more takes the second.
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: green
+                          label: "BUS CURRENT LIMIT"
+                          value: 1
+                          bind:
+                            - target: color
+                              source: DBC/Status/LimitBusCurrent
+                              mapToText:
+                                partition: ["green", 1, "amber"]
+                                bias: right
+```
+
+### 3. Conditional Visibility and Enabled State
+
+Use the `visible` target to remove a component from view, and the `enabled` target to leave it on screen in a disabled (greyed) state.
+
+**Use Cases:**
+
+- Hide an accordion that holds maintenance information until a fault is present
+- Grey out a lamp or a tab while a component is offline, so that users can see that the item exists
+- Hide a readout that does not apply to the current mode
+
+`visible` is supported on readouts, tabs, accordions, and the footer, and it is not supported on rows, groups, panels, or lamps. To hide a lamp, place it in an accordion that has a `visible` binding.
 
 ### 4. Value-Based Styling
 
-Apply different styles based on data value ranges or conditions. This is particularly useful for status indicators and alerts.
+Apply different styles based on data value ranges. This is particularly useful for status indicators and alerts.
 
 **Use Cases:**
+
 - Change lamp colours based on temperature ranges
 - Highlight values that exceed safe limits
-- Show different styles for different error types
+- Show different labels for different error types
 - Apply visual indicators for system states
+
+#### Value-Based Styling Example
+
+The following lamp is green below 60, amber from 60 up to (but not including) 80, and red from 80 upward. With `bias: right`, a value equal to a threshold takes the label after that threshold, and with `bias: left` it takes the label before it.
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: green
+                          label: "DSP TEMP"
+                          value: 1
+                          bind:
+                            - target: color
+                              source: DBC/DspBoardTempMeasurement/DspBoardTemp
+                              mapToText:
+                                partition: ["green", 60, "amber", 80, "red"]
+                                bias: right
+```
 
 ## Best Practices
 

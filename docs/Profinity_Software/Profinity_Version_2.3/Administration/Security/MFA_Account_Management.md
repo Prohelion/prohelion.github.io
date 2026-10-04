@@ -5,11 +5,11 @@ description: "Reset TOTP-based multi-factor authentication for users or manage s
 
 # MFA Account Management
 
-Profinity 2.3 separates **self-service MFA** (pill menu) from **administrator reset** actions (the **User Actions** tab of a user's settings dialog). These flows apply to **local** users when site sign-in method is **Local**.
+Profinity 2.3 separates **self-service MFA** (the **ADMIN** page) from **administrator reset** actions (the **User Actions** tab of a user's settings dialog). These flows apply to **local** users when site sign-in method is **Local**.
 
-## Self-service: pill menu
+## Self-service: ADMIN page
 
-When **Enforce two-factor for local users** is enabled, signed-in local users see **Two-factor authentication** in the **pill menu** (top-right).
+When **Enforce two-factor for local users** is enabled, signed-in local users see a **Two-factor authentication** pill on the **ADMIN** page, which is opened by selecting **ADMIN** in the side menu.
 
 <figure markdown>
 ![Pill menu with Two-factor authentication entry](../../../../assets/images/2.3/2.3-pill-two-factor-authentication.png)
@@ -31,7 +31,7 @@ From this dialog users can:
 
 Users with **SecurityAdmin** can reset another user's MFA:
 
-1. Open **Users & Groups**.
+1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Click the target user's row (not your own) to open their settings dialog.
 3. Select the **User Actions** tab.
 4. Click **Reset MFA** and confirm.
@@ -41,7 +41,7 @@ API: `POST /api/v2/Users/{username}/TwoFactor/Reset`
 After reset, the user must complete **`/two-factor-setup`** on next login when MFA is enforced.
 
 !!! note "Cannot reset your own MFA"
-    **Reset MFA** is hidden on the administrator's **own User Actions** tab. Use the pill menu **Two-factor authentication** for self-service.
+    **Reset MFA** is hidden on the administrator's **own User Actions** tab. Use the **Two-factor authentication** pill on the **ADMIN** page for self-service.
 
 <figure markdown>
 ![User Actions tab in a user's settings dialog, showing Reset MFA and Reset Password actions](../../../../assets/images/2.3/2.3-users-reset-mfa-password-buttons.png)
@@ -55,7 +55,7 @@ After reset, the user must complete **`/two-factor-setup`** on next login when M
 
 ## Administrator: Reset password
 
-**Reset Password**, also on the **User Actions** tab of the target user's settings dialog, sets a temporary password and typically flags **Require password change** so the user sets a new password on next login.
+**Reset Password**, also on the **User Actions** tab of the target user's settings dialog, sets a temporary password and typically flags **Require password change on next login** so the user sets a new password on next login.
 
 API: `POST /api/v2/Users/{username}/Password/Reset`
 
