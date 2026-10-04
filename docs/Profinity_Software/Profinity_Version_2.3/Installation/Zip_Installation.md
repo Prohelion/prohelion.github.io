@@ -21,16 +21,16 @@ The Prohelion GitHub releases page publishes a separate archive for each support
 | Linux, 32-bit ARM (ARMv6 / ARMv7) | `Profinity-Linux-arm.tar.gz` | tar.gz | Bundled (self-contained); the host may also need a system ICU library |
 | macOS (any architecture), or any other unsupported architecture | `Profinity-Portable.zip` | zip | Not bundled. Requires the .NET 10 ASP.NET Core runtime; `profinity.sh` installs this automatically if it is not already present — see [Extracting and Starting Profinity](#extracting-and-starting-profinity) |
 
-[Download Profinity for Linux x64 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Linux-x64.tar.gz){ .md-button }
-[Download Profinity for Linux ARM64 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Linux-arm64.tar.gz){ .md-button }
-[Download Profinity for Linux ARM :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Linux-arm.tar.gz){ .md-button }
-[Download Profinity Portable (macOS) :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity-Portable.zip){ .md-button }
+!!! info "Profinity v2.3 Download Information"
+    Profinity v2.3 is currently available for Early Adopters only.  Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the program and to receive the installation files.
+
+## When is ASP.NET Core Runtime Required?
 
 The Linux archives are self-contained and include the required .NET runtime, so no separate runtime installation is needed on those hosts. The macOS/portable archive is framework-dependent and requires the .NET 10 ASP.NET Core runtime. This is downloaded and verified automatically by the bundled startup script the first time Profinity is started, provided the host has internet access. To install the runtime manually instead, or to prepare a host without internet access in advance, download it directly from Microsoft.
 
 [Download ASP.NET Core 10 :material-download:](https://dotnet.microsoft.com/en-us/download/dotnet/10.0){ .md-button }
 
-On Linux with Profinity 2.3 or later, writable data is stored under `/var/lib/prohelion/profinity` by default (not `~/.local/share`). See [Artifacts directory](./Artifacts_Directory.md).
+On Linux with Profinity 2.3 or later, writable data is stored under `/var/lib/prohelion/profinity` by default (not `~/.local/share`). See [Artefacts directory](./Artifacts_Directory.md).
 
 ## Extracting and Starting Profinity
 
@@ -96,6 +96,8 @@ INFO: Profinity Profile : Default 11
 INFO: Profinity Services Starting
 INFO: Now listening on: http://127.0.0.1:18080
 ```
+
+## Accessing the Profinity Instance
 
 With Profinity running, open the address that the `Now listening on` line of the log reports, or the `HttpAddress` and `HttpPort` values in the `config.yaml` file, to access the Profinity web client. By default Profinity listens on all network interfaces (`0.0.0.0`) on port `18080`, so the web client is reached at `http://localhost:18080` on the local machine, or at `http://[Host name or IP address]:18080` from another machine, whereas the sample log above was taken from an instance bound to the loopback address `127.0.0.1`, which is reachable from the local machine only. 
 

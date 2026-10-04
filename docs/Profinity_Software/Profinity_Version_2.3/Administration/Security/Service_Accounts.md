@@ -17,7 +17,7 @@ Profinity 2.3 supports **service accounts** — dedicated user records with long
 
 <figure markdown>
 ![Service account toggle and token dialog with token redacted](../../images/2.3-service-account-token-dialog.png)
-<figcaption>Service account token dialog (redact token string — provide SS-46)</figcaption>
+<figcaption>Service account token dialog</figcaption>
 </figure>
 
 !!! danger "Copy the token once"
@@ -29,11 +29,11 @@ Assign **roles** to the service account the same as interactive users. Common pa
 
 | Use case | Suggested permissions |
 |----------|----------------------|
-| Read-only monitoring | Read-only role template |
+| Read-only monitoring | A role holding view permissions only, as suggested in [Roles and permissions](../Roles_and_Permissions.md#which-roles-to-create) |
 | Tag/query automation | `TagView` plus any required read APIs |
 | MCP access | `McpView` (included in the default Administrators role; assign it explicitly to any other role) |
 
-See [RBAC and permissions](./RBAC_Permissions.md).
+See [Roles and permissions](../Roles_and_Permissions.md).
 
 ## Using the token
 
@@ -43,7 +43,7 @@ Pass the token as a bearer token on `/api/v2` requests:
 Authorization: Bearer {your-service-token}
 ```
 
-For MCP setup and testing, see [MCP Server](../../Extending_Profinity/MCP_Server.md).
+For MCP setup and testing, see [MCP Server](../../Integrating_to_Profinity/MCP_Server.md).
 
 ## Revoke access
 
@@ -54,6 +54,6 @@ For MCP setup and testing, see [MCP Server](../../Extending_Profinity/MCP_Server
 ## Related documentation
 
 - [Managing users](../Manage_Users.md)
-- [MCP Server](../../Extending_Profinity/MCP_Server.md)
-- [RBAC and permissions](./RBAC_Permissions.md)
+- [MCP Server](../../Integrating_to_Profinity/MCP_Server.md)
+- [Roles and permissions](../Roles_and_Permissions.md)
 - [Component and collection security](./Component_And_Collection_Security.md) — how restricted components and collections apply to service accounts.

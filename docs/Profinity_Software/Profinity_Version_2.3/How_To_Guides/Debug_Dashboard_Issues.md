@@ -27,15 +27,15 @@ Troubleshoot and fix common dashboard problems.
 
 ### Step 2: Verify Data Bindings
 
-1. Check data binding sources:
+1. Check the tag that each binding names:
    ```yaml
    bind:
      - target: value
-       source: '{COMPONENT_NAME}.Signal.Value'  # Verify source exists
+       source: DBC/Message/Signal  # Verify the tag exists
    ```
 2. Verify component name is correct
-3. Verify signal path matches your DBC file
-4. Check signal is receiving data
+3. Find the tag in the Tag Explorer and check that its path matches the `source` exactly
+4. Check the tag has a current value and a good quality flag
 
 ### Step 3: Check Component Status
 
@@ -68,7 +68,7 @@ Troubleshoot and fix common dashboard problems.
 
 1. Check Profinity logs for dashboard errors
 2. Look for data binding errors
-3. Check for missing component or signal errors
+3. Check for missing component or tag errors
 4. Review validation messages
 
 ### Step 7: Compare with Working Dashboard
@@ -106,6 +106,6 @@ Troubleshoot and fix common dashboard problems.
 
 ## Related Documentation
 
-- [Troubleshooting Guide](../Extending_Profinity/Dashboards/Troubleshooting.md) - the full dashboard troubleshooting reference
-- [Dashboard FAQ](../Extending_Profinity/Dashboards/FAQ.md) - frequently asked questions
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - schema validation information
+- [Troubleshooting Guide](../Customising_Profinity/Dashboards/Troubleshooting.md) - the full dashboard troubleshooting reference
+- [Dashboard FAQ](../Customising_Profinity/Dashboards/FAQ.md) - frequently asked questions
+- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) - schema validation information

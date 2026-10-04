@@ -397,3 +397,21 @@ sh
 gz
 fi
 wi
+# 2.3 technical terms
+unscoped
+substring
+dataset
+js
+sanitiser
+sanitises
+submenus
+gapped
+unencrypted
+republishes
+passcode
+misconfigured
+cutover
+ollama
+unacknowledging
+# UI label 'Component catalog' and MCP tool get_tag_catalog
+catalog

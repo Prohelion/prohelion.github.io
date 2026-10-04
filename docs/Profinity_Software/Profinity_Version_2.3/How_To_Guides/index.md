@@ -50,4 +50,4 @@ Concise step-by-step guides for common Profinity tasks. Each guide links to the 
 
 - [Profinity V2 Overview](../index.md) - the documentation home page
 - [Quick Start Guide](../Getting_Started/Quick_Start.md) - installation through to a first dashboard edit
-- [Dashboard FAQ](../Extending_Profinity/Dashboards/FAQ.md) - frequently asked questions
+- [Dashboard FAQ](../Customising_Profinity/Dashboards/FAQ.md) - frequently asked questions

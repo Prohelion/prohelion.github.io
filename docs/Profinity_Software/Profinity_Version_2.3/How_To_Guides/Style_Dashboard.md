@@ -91,6 +91,6 @@ Use the `class` property in dashboard components:
 
 ## Related Documentation
 
-- [Profile Directories](../Extending_Profinity/Dashboards/Profile_Directories.md) - the full profile directories reference
-- [HTML Component](../Extending_Profinity/Dashboards/Component_Reference/Interactive/HTML.md) - HTML component reference
-- [Conditional Styling](../Extending_Profinity/Dashboards/Conditional_Styling.md) - styling driven by data values
+- [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md) - the full profile directories reference
+- [HTML Component](../Customising_Profinity/Dashboards/Component_Reference/Interactive/HTML.md) - HTML component reference
+- [Conditional Styling](../Customising_Profinity/Dashboards/Conditional_Styling.md) - styling driven by data values

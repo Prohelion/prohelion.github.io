@@ -26,7 +26,7 @@ The page shows:
 
 <figure markdown>
 ![License page showing state, edition, expiry, fingerprint, and the licensed features and component tables](../images/2.3-license-status-entitlements.png)
-<figcaption>ADMIN &rarr; License — status, entitlements, and fingerprint (screenshot placeholder — provide SS-53)</figcaption>
+<figcaption>ADMIN &rarr; License — status, entitlements, and fingerprint</figcaption>
 </figure>
 
 !!! info "Available versus licensed"
@@ -44,7 +44,7 @@ To apply a commercial or evaluation licence:
 
 <figure markdown>
 ![License upload dialog with a license.yaml file selected](../images/2.3-license-upload-dialog.png)
-<figcaption>Uploading a license.yaml file from ADMIN &rarr; License (screenshot placeholder — provide SS-54)</figcaption>
+<figcaption>Uploading a license.yaml file from ADMIN &rarr; License</figcaption>
 </figure>
 
 Profinity validates the file's signature and expiry, and checks that its fingerprint matches the instance, before applying it. If validation fails, Profinity rejects the upload and the existing licence, if any, remains in effect. A `license.yaml` file can also be installed without using the UI, by copying it directly into the instance's licence folder; this is the usual path for headless or scripted deployments.
@@ -89,5 +89,5 @@ The fingerprint is a value computed from the installation itself, unique to that
 ## Related documentation
 
 - [System information](System_Info.md) — instance version and licence summary shown alongside other system details.
-- [RBAC and permissions](Security/RBAC_Permissions.md) — assigning the SecurityAdmin permission needed to manage licences.
+- [Roles and permissions](Roles_and_Permissions.md) — assigning the SecurityAdmin permission needed to manage licences.
 - [System configuration](System_Config.md) — the site-level configuration layer that can narrow, but never exceed, what the licence permits.

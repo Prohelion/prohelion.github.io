@@ -1,10 +1,12 @@
 nav:
-    - Adaptors
+    - Adapters
+    - Industrial_Protocols
     - Battery_Management_Systems
     - Chargers_and_Power
-    - Cloud_Dashboard
-    - Custom_Components
-    - Loggers
     - Motor_Controller
     - MPPT
-    - Publishers
+    - Loggers
+    - Publishers_and_Subscribers
+    - Dashboard
+    - Cloud_Dashboard
+    - Custom_Components

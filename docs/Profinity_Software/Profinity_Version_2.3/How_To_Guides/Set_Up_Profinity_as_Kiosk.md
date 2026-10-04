@@ -86,7 +86,7 @@ Kiosk Mode is configured per profile, and it authenticates the browser automatic
 2. Disable keyboard shortcuts (Alt+F4, Ctrl+Alt+Del)
 3. Hide the taskbar and system tray
 4. Configure timeouts if needed
-5. Confirm the kiosk user holds only the permissions the display needs, for example the **Read-only** role template, because anyone at the display inherits them
+5. Confirm the kiosk user holds only the permissions the display needs, for example a read-only role built from view permissions only, because anyone at the display inherits them
 
 ### Step 5: Test Kiosk Mode
 

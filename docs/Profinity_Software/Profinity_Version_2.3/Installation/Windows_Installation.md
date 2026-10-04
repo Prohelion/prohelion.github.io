@@ -12,7 +12,8 @@ description: "Install Profinity on Windows using the Setup Wizard MSI installer 
 
 The Profinity Setup Wizard installs Profinity on a Windows machine.
 
-[Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
+!!! info "Profinity v2.3 Download Information"
+    Profinity v2.3 is currently available for Early Adopters only.  Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the program and to receive the installation files.
 
 1. Open the downloaded file `Profinity.Install.msi` from your downloads directory.
 2. Follow the prompts in the Profinity Setup Wizard.

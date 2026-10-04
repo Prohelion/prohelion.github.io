@@ -23,7 +23,7 @@ Running Profinity as a service automates its startup and ensures continuous oper
 
 As of version 2, Profinity is available to run in server mode on Windows, Docker, macOS and Linux (x86_64 and ARM64, plus 32-bit ARM on Linux).
 
-In this mode, the Profinity GUI is available only via the browser (there is no desktop support). It is served by REST APIs, which are also available to [custom applications](../Extending_Profinity/Hosting/index.md) hosted on the Profinity Server.
+In this mode, the Profinity GUI is available only via the browser (there is no desktop support). It is served by REST APIs, which are also available to [custom applications](../Customising_Profinity/Hosting/index.md) hosted on the Profinity Server.
 
 !!! info "Why Profinity Server?"
     Profinity Server supports CAN bus based platforms that need an API-centric front end for user kiosks or other interfaces, data analytics and reporting, remote logging, or deployment in the cloud, on desktop, or on embedded hardware.
@@ -32,7 +32,7 @@ In this mode, the Profinity GUI is available only via the browser (there is no d
 
 Profinity Server does not require any additional Prohelion hardware to run. It can be used as a general-purpose development framework for building web UIs for CAN bus based architectures, or for providing a server interface to CAN infrastructure with cloud connectivity.  
 
-When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
+When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/Adapters/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
 
 !!! info "Licensing for Production Environments"
     Use of Profinity Server in production environments on Windows, Docker, Linux or macOS may require an additional licence key, depending on the commercial arrangement with Prohelion.
@@ -176,7 +176,7 @@ Running Profinity under a dedicated user account, rather than LocalSystem, reduc
 
 ### Profile files
 
-When running as a service, Profinity resolves its [artifacts directory](./Artifacts_Directory.md) in the same way as the desktop application, as `%LOCALAPPDATA%\Prohelion\Profinity` of the account that the service runs under. For the default LocalSystem account that folder is inside the system profile (for the 32-bit Windows build, beneath `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Prohelion\Profinity`), which is inside the Windows directory and can be difficult to work with in some environments, and modifying files stored in the Windows directory directly is not generally recommended. Installing Profinity under a user account avoids this, and the `PROFINITY_HOME` system environment variable can be set to place the artifacts directory at a path of your choosing instead; for example:
+When running as a service, Profinity resolves its [artefacts directory](./Artifacts_Directory.md) in the same way as the desktop application, as `%LOCALAPPDATA%\Prohelion\Profinity` of the account that the service runs under. For the default LocalSystem account that folder is inside the system profile (for the 32-bit Windows build, beneath `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Prohelion\Profinity`), which is inside the Windows directory and can be difficult to work with in some environments, and modifying files stored in the Windows directory directly is not generally recommended. Installing Profinity under a user account avoids this, and the `PROFINITY_HOME` system environment variable can be set to place the artefacts directory at a path of your choosing instead; for example:
 
 ```bat
 ProfinityService.cmd install [Username to install under]

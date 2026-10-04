@@ -1,100 +1,62 @@
 ---
 title: How to Create a Custom Component
-description: "Create custom CAN bus components in Profinity using an optional DBC file and optional dashboard YAML for any device."
+description: "Add a Custom Component to a profile and attach an optional DBC file, dashboard, script, and actions."
 ---
 
 # How to Create a Custom Component
 
-Add any CAN bus device to Profinity by creating a Custom Component with an optional DBC file and an optional dashboard.
+Add a device Profinity does not already ship by creating a Custom Component in the active profile. The DBC file and the dashboard are both optional. A DBC file is what the Messages and Signals viewer and CAN-signal dashboard bindings read, and when no dashboard is uploaded Profinity writes a starter dashboard named after the component, which you then build out in the [dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md).
+
+What each file does is in [Custom Components](../Developing_with_Profinity/Custom_Components/index.md). How the component behaves once it is in the profile is in [Custom Components](../Components/Custom_Components/index.md).
 
 ## Prerequisites
 
-- (Optional) A DBC file for your CAN bus device, which is needed only for CAN-bound dashboard data or the Messages & Signals viewer
-- (Optional) A dashboard YAML file
 - The `ComponentModify` permission, which allows components to be added
+- (Optional) A DBC file, needed for the Messages and Signals viewer or for dashboard bindings that read CAN signals
+- (Optional) A dashboard YAML file, a main script (`.cs`, `.py`, or `.lua`), or the other pack files described in the authoring reference
 
 ## Steps
 
-### Step 1: Create a New Custom Component
+### Step 1: Add the component
 
 1. Select **ADD COMPONENT** in the side menu (or on the home page)
 2. Select **Custom Component**
+3. Enter a **Name** that is unique in the profile, and save
 
-### Step 2: Configure Basic Settings
+### Step 2: Attach pack files
 
-1. Enter a **Component Name** (e.g., "My CAN Device")
-2. Set the **CAN ID** if required
-3. Configure connection settings
+Open the component settings and use the **Pack files** tab.
 
-### Step 3: Add Your DBC File (if required)
+| Section | Field | Use it for |
+|---------|-------|------------|
+| Device | **Upload DBC File** | The `.dbc` file, if the device needs one |
+| Presentation | **Upload Dashboard** | A finished dashboard YAML file |
+| Behaviour | **Actions YAML file** | `actions.yaml`, for menu actions |
+| Behaviour | **Rules YAML file** | Rules for this component's tags |
+| Maps | **Settings Map YAML file** | Extra settings fields |
+| Maps | **Firmware Map YAML file** | Firmware settings fields |
+| Firmware | **Firmware Actions YAML file** | `firmware.yaml`, naming the load and save scripts |
 
-**Option A - Using DBC Editor:**
+Leave a field empty when that file is not needed. With **Upload Dashboard** empty, Profinity writes the starter dashboard and the dashboard editor opens on that file. Once a DBC file is set, the component menu includes **Edit DBC File** and, after the file parses, **Messages and Signals**.
 
-1. Click the **DBC Editor** icon in the toolbar
-2. Paste your DBC content or upload a DBC file
-3. Editor validates your DBC syntax
-4. Save the DBC configuration
+If the device's CAN identifiers use a different base address than the DBC was written for, enable **Rebase DBC** and set **Rebase Address**.
 
-**Option B - Upload DBC File:**
+### Step 3: (Optional) Add a main script
 
-1. Find the DBC file upload option in settings
-2. Click **Browse** and select your `.dbc` file
-3. Upload the file
-4. Profinity parses and validates the DBC file
+On the **Scripts** tab, set **Main Script** to a `.cs`, `.py`, or `.lua` file in the component folder. **Auto Start Main Script** starts that service when the profile loads. Leave auto start off when the operator should start it from the menu, and add a `mainScriptToggle` entry to `actions.yaml` so Connect / Disconnect appears. See the authoring reference for that file.
 
-### Step 4: (Optional) Add a Custom Dashboard
+### Step 4: Check the component
 
-If no dashboard is provided, Profinity provides a default one.
+1. Confirm the component is in the side menu and opens its dashboard
+2. Where a DBC file was uploaded, open **Messages and Signals** and confirm the expected messages are arriving
+3. Where a main script was set, connect it and confirm the tags the script publishes are updating on the dashboard
 
-1. Click the **Dashboard Editor** icon
-2. Start with "Hello World" template or upload existing YAML
-3. Create dashboard with data bindings:
-   ```yaml
-   bind:
-     - target: value
-       source: '{COMPONENT_NAME}.YourMessage.YourSignal'
-   ```
-4. Save the dashboard
-
-### Step 5: Save and Activate
-
-1. Click **Save** to save your Custom Component
-2. Component appears in your component list
-3. Add it to your active profile if needed
-
-### Step 6: Verify the Component
-
-1. Check component appears in the sidebar
-2. View component dashboard to see data
-3. Verify CAN messages are being received
-4. Check signals are displaying correctly
-
-## Using Your Custom Component
-
-Once created, your Custom Component:
-
-- **Receives CAN messages** defined in your DBC file
-- **Displays signals** in the dashboard (if configured)
-- **Can be logged** to InfluxDB, Prometheus, or files
-- **Can be monitored** in real time
-- **Can be used in scripts** via the Profinity API
-
-## Tips
-
-- **Test with CAN Log Replay**: use the [CAN log replay](./Replay_CAN_Logs.md) feature to test your component with recorded messages
-- **Start Simple**: begin with a basic dashboard and add complexity gradually
-- **Validate DBC**: ensure your DBC file is valid before uploading
-- **Use Examples**: look at existing component dashboards for reference
-
-## Troubleshooting
-
-- **No data appearing**: Check that CAN messages are being received and match your DBC definitions
-- **Dashboard not loading**: Validate your YAML syntax in the dashboard editor
-- **Signals not found**: Verify signal names match exactly (case-sensitive)
+[CAN log replay](./Replay_CAN_Logs.md) can supply recorded traffic while the DBC and the dashboard are being checked.
 
 ## Related Documentation
 
-- [Custom Components](../Extending_Profinity/Custom_Components/index.md) - the full Custom Component reference
-- [DBC Documentation](../CAN_Utilities/CAN_Bus_DBC.md) - understanding DBC files
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - creating dashboards
-- [Data Binding](../Extending_Profinity/Dashboards/Data_Binding.md) - Connecting data to dashboards
+- [Custom Components](../Components/Custom_Components/index.md) — the component in a profile, including Messages and Signals
+- [Authoring a Custom Component](../Developing_with_Profinity/Custom_Components/index.md) — files, scripts, maps, and packs
+- [How to Create a Custom Dashboard](./Create_Custom_Dashboard.md)
+- [CAN bus DBC](../CAN_Utilities/CAN_Bus_DBC.md)
+- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md)

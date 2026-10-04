@@ -63,6 +63,6 @@ Review the source to understand:
 
 ## Related Documentation
 
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - the full dashboard reference
-- [Examples](../Extending_Profinity/Dashboards/Examples.md) - Dashboard examples
-- [Component Reference](../Extending_Profinity/Dashboards/Component_Reference/index.md) - Component documentation
+- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) - the full dashboard reference
+- [Examples](../Customising_Profinity/Dashboards/Examples.md) - Dashboard examples
+- [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md) - Component documentation

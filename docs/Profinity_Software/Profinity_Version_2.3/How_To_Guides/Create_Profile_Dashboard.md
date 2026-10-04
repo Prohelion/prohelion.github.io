@@ -1,61 +1,59 @@
 ---
 title: How to Create a Profile Dashboard
-description: "Create and upload custom dashboards to replace the default Profinity home page for your profile."
+description: "Create a custom dashboard in the visual editor to replace the default Profinity home page for your profile, or upload a YAML file instead."
 ---
 
 # How to Create a Profile Dashboard
 
-Replace the default Profinity home page with a custom dashboard for your profile.
+Replace the default Profinity home page with a custom dashboard for your profile. You build it in the dashboard [visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md). If you already have a dashboard YAML file, you can upload it instead.
 
 ## Prerequisites
 
 - An active profile in Profinity
-- A dashboard YAML file ready to upload
 - The `ProfileModify` permission, which allows profile settings to be changed
+- The `DashboardModify` permission, which allows dashboards to be edited
+- Optional: an existing dashboard YAML file to upload, if you are not starting from the starter dashboard
 
 ## Steps
 
-### Step 1: Create Your Dashboard YAML
-
-1. Create a dashboard YAML file in the dashboard editor or a text editor, using the `.yaml` extension
-2. Your dashboard should start with:
-
-```yaml
-dashboard:
-  items:
-    - titlebar:
-        # Your titlebar configuration
-    - row:
-        items:
-          # Your dashboard content
-```
-3. For examples, see the [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md)
-
-### Step 2: Access Profile Settings
+### Step 1: Turn On the Custom Home Dashboard
 
 1. Select **ADMIN** in the side menu
 2. Select the **Profile** pill
 3. Click on the name of your profile in the list to open its settings
+4. Enable the **Custom Home Dashboard** option
+5. Leave the **Dashboard YAML file (Optional)** field empty and save the profile settings
 
-### Step 3: Upload the Dashboard
+Profinity creates a starter dashboard from the built-in template.
 
-1. In the profile settings, enable the **Custom Home Dashboard** option
-2. In the **Dashboard YAML file (Optional)** field, select your dashboard YAML file
+### Step 2: Build the Dashboard in the Visual Editor
+
+1. Navigate to the home page (click the home icon or refresh)
+2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar
+3. In **DESIGN** mode, add rows, groups and widgets, set their properties and bind tags. See [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md) for the steps
+4. Resolve anything listed under **Schema validation issues**, then select **SAVE**
+
+### Step 3: Verify the Dashboard
+
+1. Close the editor. DESIGN is an outline, not a live preview, so the home page behind the editor is where you see the result
+2. Your custom dashboard displays instead of the default home page
+3. The dashboard is active whenever this profile is active
+
+### Alternative: Upload a YAML File
+
+If you already have a dashboard YAML file, for example one written before 2.3 or shared from another profile, upload it instead of building a new one:
+
+1. Open the profile settings and enable the **Custom Home Dashboard** option
+2. In the **Dashboard YAML file (Optional)** field, select your dashboard YAML file (it must have the `.yaml` extension)
 3. Save the profile settings
 
-If the field is left empty when the settings are saved, Profinity creates a starter dashboard from the built-in template, which can be replaced later with your own file.
-
-### Step 4: Verify the Dashboard
-
-1. Navigate to the home page (click home icon or refresh)
-2. Your custom dashboard should display instead of the default home page
-3. The dashboard is active whenever this profile is active
+An uploaded dashboard opens in the visual editor like any other, so you can keep changing it there.
 
 ## Tips
 
-- **Test First**: test your dashboard in the Dashboard Editor before uploading
-- **Backup**: keep a copy of your dashboard YAML file
-- **Validation**: ensure your YAML is valid and passes schema validation, because invalid dashboards do not load
+- **Start Small**: begin from the starter dashboard and add one widget at a time
+- **Backup**: keep a copy of your dashboard YAML file (the **YAML** tab shows it)
+- **Validation**: the editor will not save a dashboard that fails schema validation, and invalid dashboards do not load
 - **Profile-Specific**: each profile can have its own custom dashboard
 
 ## Removing a Profile Dashboard
@@ -72,4 +70,4 @@ To revert to the default home page:
 ## Related Documentation
 
 - [Profile Dashboard](../Administration/Profile_Dashboard.md) - the full reference for profile dashboards
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - the dashboard development reference
+- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) - the dashboard development reference

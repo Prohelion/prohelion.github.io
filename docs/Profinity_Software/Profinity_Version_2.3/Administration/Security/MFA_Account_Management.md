@@ -13,8 +13,8 @@ When the site sign-in method is **Local** and **Enforce two-factor for local use
 
 From this dialog users can:
 
-- View MFA enrollment status.
-- **Reset Authenticator** (re-enroll TOTP).
+- View MFA enrolment status.
+- **Reset Authenticator** (re-enrol TOTP).
 - **Regenerate recovery codes**.
 
 ## Administrator: Reset MFA
@@ -28,7 +28,7 @@ Users with **SecurityAdmin** can reset another user's MFA:
 
 API: `POST /api/v2/Users/{username}/TwoFactor/Reset`
 
-After reset, the user must complete **`/two-factor-setup`** on next login when MFA is enforced.
+After reset, the user must complete two-factor setup on next login when MFA is enforced.
 
 !!! note "Cannot reset your own MFA"
     **Reset MFA** is hidden on the administrator's **own User Actions** tab. Use the **Two-Factor Authentication** pill on the **ADMIN** page for self-service.
@@ -48,4 +48,4 @@ SSO users are out of scope for Profinity MFA reset — manage credentials and MF
 - [Two-factor authentication](./Two_Factor_Authentication.md)
 - [Password policy](./Password_Policy.md)
 - [Managing users](../Manage_Users.md)
-- [RBAC and permissions](./RBAC_Permissions.md)
+- [Roles and permissions](../Roles_and_Permissions.md)

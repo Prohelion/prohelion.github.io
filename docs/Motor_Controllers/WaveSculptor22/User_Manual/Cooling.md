@@ -100,7 +100,7 @@ The WaveSculptor provides a large flat surface to attach to your cooling solutio
 
 Use a thin layer of thermal grease or conformable thermal gap filler pad to fill any air gaps between the WaveSculptor cold plate and your heatsink, and provide the best thermal path between the two.  This material is not required to be electrically insulating.
 
-Attach the heatsink to the cold plate using eight M4 screws threading into the tapped inserts in the motor controller base, making certain to note the maximum screw depth specified in the [datasheet](../Datasheet//index.md).  
+Attach the heatsink to the cold plate using eight M4 screws threading into the tapped inserts in the motor controller base, making certain to note the maximum screw depth specified in the [datasheet](../Datasheet/index.md).  
 
 !!! warning "Warning"
     Exceeding this depth will force the screw into internal components of the motor controller, almost certainly damaging it.

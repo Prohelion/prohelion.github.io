@@ -100,21 +100,21 @@ To make a simple change:
 
 For more detailed information on creating and editing dashboards, see:
 
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - the full guide to dashboard development
-- [Core Elements](../Extending_Profinity/Dashboards/Core_Elements.md) - dashboard structure
-- [Data Binding](../Extending_Profinity/Dashboards/Data_Binding.md) - connecting data to your dashboard
-- [Component Reference](../Extending_Profinity/Dashboards/Component_Reference/index.md) - available dashboard components
+- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) - the full guide to dashboard development
+- [Core Elements](../Customising_Profinity/Dashboards/Core_Elements.md) - dashboard structure
+- [Data Binding](../Customising_Profinity/Dashboards/Data_Binding.md) - connecting data to your dashboard
+- [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md) - available dashboard components
 
 ## Next Steps
 
 1. **Explore Components**: Learn about [Adding Components to Your Profile](./Adding_New_Components.md)
-2. **Create Custom Dashboards**: Follow the [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) to build your own
+2. **Create Custom Dashboards**: Follow the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) to build your own
 3. **Visualise Data**: See how to [visualise data](./Visualising_Data.md) from your components
 4. **Configure Logging**: Set up [CAN bus logging](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) for your system
 5. **Manage Users**: [Create additional users](./Create_User.md) for your Profinity instance
 
 ## Getting Help
 
-- The [Dashboard Troubleshooting Guide](../Extending_Profinity/Dashboards/Troubleshooting.md) covers common issues
-- The [Dashboard FAQ](../Extending_Profinity/Dashboards/FAQ.md) answers frequently asked questions
+- The [Dashboard Troubleshooting Guide](../Customising_Profinity/Dashboards/Troubleshooting.md) covers common issues
+- The [Dashboard FAQ](../Customising_Profinity/Dashboards/FAQ.md) answers frequently asked questions
 - Contact Prohelion through the Feedback pill on the **ADMIN** page

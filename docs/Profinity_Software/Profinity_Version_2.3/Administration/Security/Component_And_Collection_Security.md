@@ -23,7 +23,7 @@ The Security tab is visible only to a user with **SecurityAdmin**. Any other use
 
 <figure markdown>
 ![Security tab on a component settings dialog, showing the Mode dropdown and Allowed roles list](../../images/2.3-component-security-tab.png)
-<figcaption>Security tab on a component settings dialog (screenshot placeholder — provide SS-55)</figcaption>
+<figcaption>Security tab on a component settings dialog</figcaption>
 </figure>
 
 ## Open the Security panel on a collection
@@ -38,7 +38,7 @@ The same panel appears for the built-in **(All Tags)** collection and for every 
 
 <figure markdown>
 ![Security panel in the Collections editor inspector, showing the Mode dropdown and Allowed roles list](../../images/2.3-collection-security-panel.png)
-<figcaption>Security panel on a collection in the Collections editor (screenshot placeholder — provide SS-56)</figcaption>
+<figcaption>Security panel on a collection in the Collections editor</figcaption>
 </figure>
 
 ## Mode and allowed roles
@@ -97,7 +97,7 @@ Profinity does not drop these names silently. A SecurityAdmin sees them as unres
 
 ## Permissions
 
-Only **SecurityAdmin** can view or change component and collection security. See [RBAC and permissions](RBAC_Permissions.md) for how permissions and roles are assigned generally.
+Only **SecurityAdmin** can view or change component and collection security. See [Roles and permissions](../Roles_and_Permissions.md) for how permissions and roles are assigned generally.
 
 ## REST API
 
@@ -110,6 +110,6 @@ Both endpoints operate on the active profile only; there is no route to edit sec
 
 ## Related documentation
 
-- [RBAC and permissions](RBAC_Permissions.md) — how permissions, roles, and role assignment work generally.
-- [Tag layer](../../Extending_Profinity/Tag_Layer/index.md) — the tag tree that component security prunes.
-- [Collections](../../Extending_Profinity/Rules/Collections.md) — creating and editing tag collections, including the built-in (All Tags) collection that collection security also covers.
+- [Roles and permissions](../Roles_and_Permissions.md) — how permissions, roles, and role assignment work generally.
+- [Tag layer](../../Tags/index.md) — the tag tree that component security prunes.
+- [Collections](../../Tags/Collections.md) — creating and editing tag collections, including the built-in (All Tags) collection that collection security also covers.

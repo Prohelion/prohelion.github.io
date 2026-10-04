@@ -1,17 +1,17 @@
 ---
-title: Artifacts Directory
-description: "Understand where Profinity stores configuration, profiles, plugins, and logs in the artifacts directory on Windows, macOS, and Linux."
+title: Artefacts Directory
+description: "Understand where Profinity stores configuration, profiles, plugins, and logs in the artefacts directory on Windows, macOS, and Linux."
 ---
 
-# Profinity artifacts directory
+# Profinity artefacts directory
 
-Profinity stores writable data — configuration, profiles, plugins, and logs — in a single **artifacts directory**. This is separate from the install directory that contains `Profinity Engine.dll` and other binaries.
+Profinity stores writable data — configuration, profiles, plugins, and logs — in a single **artefacts directory**. This is separate from the install directory that contains `Profinity Engine.dll` and other binaries.
 
-The artifacts path matters when upgrading from 2.2.x, deploying on Linux as a service, or mounting Docker volumes.
+The artefacts path matters when upgrading from 2.2.x, deploying on Linux as a service, or mounting Docker volumes.
 
 ## Default locations by platform
 
-| Platform | Default artifacts path |
+| Platform | Default artefacts path |
 |----------|------------------------|
 | **Windows** | `%LOCALAPPDATA%\Prohelion\Profinity` |
 | **macOS** | `~/.local/share/Prohelion/Profinity` |
@@ -38,7 +38,7 @@ Earlier releases used capitalised names (`Config`, `Config.yaml`, `Profiles`, `L
 
 ## Override with PROFINITY_HOME
 
-Set the environment variable **`PROFINITY_HOME`** to the full path of the artifacts root to support:
+Set the environment variable **`PROFINITY_HOME`** to the full path of the artefacts root to support:
 
 - Multiple Profinity instances on one host (each with a unique `PROFINITY_HOME` and unique HTTP/HTTPS ports).
 - Staging or test layouts outside the default path.
@@ -52,7 +52,7 @@ export PROFINITY_HOME=/var/lib/Prohelion-Staging/Profinity
 
 ## Automatic migration on startup
 
-On first start after upgrading to 2.3, Profinity migrates legacy trees into the resolved artifacts directory. Migration is **non-fatal**: a locked or offline file does not block engine start; partial progress resumes on the next restart.
+On first start after upgrading to 2.3, Profinity migrates legacy trees into the resolved artefacts directory. Migration is **non-fatal**: a locked or offline file does not block engine start; partial progress resumes on the next restart.
 
 ### Windows and macOS sources
 
@@ -76,12 +76,12 @@ For systemd deployments (including Rinstrum scale integrations), a typical layou
 
 | Path | Purpose |
 |------|---------|
-| `/var/lib/prohelion/profinity` | Artifacts (config, profiles, plugins, logs) |
+| `/var/lib/prohelion/profinity` | Artefacts (config, profiles, plugins, logs) |
 | `/etc/profinity/env` | JWT signing key and encryption key (created once by deploy) |
 | `/opt/profinity` | Install root (`profinity.sh`, `update.sh`, `VERSION`, `edition.json`) |
 | `/opt/profinity/app` | Profinity binaries (self-contained or portable) |
 
-`/opt/profinity` is the default install root created by the bootstrap installer (`install.sh`); pass `--install-dir` to use a different location. The `profinity` service user is created by the installer and owns `/var/lib/prohelion/profinity`. On a manual or file-only install (`install.sh --no-systemd`), create the artifacts directory and set ownership before first start:
+`/opt/profinity` is the default install root created by the bootstrap installer (`install.sh`); pass `--install-dir` to use a different location. The `profinity` service user is created by the installer and owns `/var/lib/prohelion/profinity`. On a manual or file-only install (`install.sh --no-systemd`), create the artefacts directory and set ownership before first start:
 
 ```bash
 sudo mkdir -p /var/lib/prohelion/profinity
@@ -98,10 +98,10 @@ Unix installs (created by `install.sh`, and updated in place by `update.sh`) inc
 
 ## Docker volumes
 
-The artifacts directory inside a container is the path named by **`PROFINITY_HOME`**, so the compose file sets `PROFINITY_HOME` to the container-side mount path (for example `PROFINITY_HOME=/app/Prohelion` with `$HOME/Prohelion:/app/Prohelion:rw`, as in the compose file published with Profinity). Without `PROFINITY_HOME` the container resolves the Linux default of `/var/lib/prohelion/profinity`, and any data written there is lost with the container unless that path is mounted. The image runs as the non-root `app` user, so the mounted host directory must be writable by that user.
+The artefacts directory inside a container is the path named by **`PROFINITY_HOME`**, so the compose file sets `PROFINITY_HOME` to the container-side mount path (for example `PROFINITY_HOME=/app/Prohelion` with `$HOME/Prohelion:/app/Prohelion:rw`, as in the compose file published with Profinity). Without `PROFINITY_HOME` the container resolves the Linux default of `/var/lib/prohelion/profinity`, and any data written there is lost with the container unless that path is mounted. The image runs as the non-root `app` user, so the mounted host directory must be writable by that user.
 
 !!! warning "Update volume mounts after upgrading to 2.3 on Linux"
-    If a compose file still mounts `./config` to `/root/.local/share/Prohelion/Profinity/Config` or `/root/Prohelion/Profinity/Config`, update the mounts to the artifacts root named by `PROFINITY_HOME`, and set `PROFINITY_HOME` so that config and profiles persist across container restarts.
+    If a compose file still mounts `./config` to `/root/.local/share/Prohelion/Profinity/Config` or `/root/Prohelion/Profinity/Config`, update the mounts to the artefacts root named by `PROFINITY_HOME`, and set `PROFINITY_HOME` so that config and profiles persist across container restarts.
 
 See [Docker Installation](./Docker_Installation.md) for compose examples.
 
@@ -110,7 +110,7 @@ See [Docker Installation](./Docker_Installation.md) for compose examples.
 | Symptom | Check |
 |---------|--------|
 | Empty profile after upgrade | Confirm migration logs; verify `PROFINITY_HOME` is not pointing at an empty directory |
-| Permission denied on Linux | `chown` artifacts tree to the service user; `/var/lib` requires root to create, then hand off ownership |
+| Permission denied on Linux | `chown` artefacts tree to the service user; `/var/lib` requires root to create, then hand off ownership |
 | Two instances share config | Each instance needs a unique `PROFINITY_HOME` and unique HTTP/HTTPS ports |
 
 ## Related documentation
