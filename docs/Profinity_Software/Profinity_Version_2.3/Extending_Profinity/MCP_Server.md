@@ -31,7 +31,7 @@ The MCP server is configured from the **Profinity AI** settings page (select **A
     Enabling or disabling the MCP server takes effect only after Profinity restarts. After saving the configuration, wait for the restart to complete before reloading the page, because the web client shows a restarting message while it waits for the engine to return.
 
 <figure markdown>
-![Profinity AI settings page showing the MCP Server field group](../../../assets/images/2.3/2.3-ai-assistant-mcp-toggle.png)
+![Profinity AI settings page showing the MCP Server field group](../images/2.3-ai-assistant-mcp-toggle.png)
 <figcaption>MCP Server field group on the Profinity AI settings page (screenshot placeholder — provide SS-52)</figcaption>
 </figure>
 

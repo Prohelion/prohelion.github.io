@@ -18,7 +18,7 @@ The composed mount point at runtime is the parent path combined with the compone
 The **Tag tree path** field sits in the **Component Identifier** section of a component's settings dialog, directly below **Name**. It accepts a slash-separated path to the parent folder only — it must not include the component's own name, which Profinity appends automatically at runtime. The default value is `/`, meaning the component mounts at the root of the tag tree; leaving the field at its default is equivalent to the pre-2.3 behaviour, where every component's tags sat directly under its own name.
 
 <figure markdown>
-![Component settings dialog showing the Tag tree path field under Component Identifier](../../../../assets/images/2.3/2.3-tag-tree-path-setting.png)
+![Component settings dialog showing the Tag tree path field under Component Identifier](../../images/2.3-tag-tree-path-setting.png)
 <figcaption>Tag tree path field in the component settings dialog (screenshot placeholder — provide SS-57)</figcaption>
 </figure>
 

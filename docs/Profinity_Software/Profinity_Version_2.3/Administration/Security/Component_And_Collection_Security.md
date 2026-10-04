@@ -22,7 +22,7 @@ Only a user with the **SecurityAdmin** permission can see or change these settin
 The Security tab is visible only to a user with **SecurityAdmin**. Any other user, including one with `ComponentModify`, does not see the tab at all.
 
 <figure markdown>
-![Security tab on a component settings dialog, showing the Mode dropdown and Allowed roles list](../../../../assets/images/2.3/2.3-component-security-tab.png)
+![Security tab on a component settings dialog, showing the Mode dropdown and Allowed roles list](../../images/2.3-component-security-tab.png)
 <figcaption>Security tab on a component settings dialog (screenshot placeholder — provide SS-55)</figcaption>
 </figure>
 
@@ -37,7 +37,7 @@ The Security tab is visible only to a user with **SecurityAdmin**. Any other use
 The same panel appears for the built-in **(All Tags)** collection and for every custom collection. Changes save with the rest of the collection's settings.
 
 <figure markdown>
-![Security panel in the Collections editor inspector, showing the Mode dropdown and Allowed roles list](../../../../assets/images/2.3/2.3-collection-security-panel.png)
+![Security panel in the Collections editor inspector, showing the Mode dropdown and Allowed roles list](../../images/2.3-collection-security-panel.png)
 <figcaption>Security panel on a collection in the Collections editor (screenshot placeholder — provide SS-56)</figcaption>
 </figure>
 

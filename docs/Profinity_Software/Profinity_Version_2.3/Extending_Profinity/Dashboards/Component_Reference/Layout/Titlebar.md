@@ -29,7 +29,7 @@ When both `showTitlebar` and `showActions` are `false`, the titlebar is not disp
 
 **Menu Content:**
 
-The web interface displays each item of the titlebar `menu` as an icon, without the item caption, and supports the following item types:
+The web interface passes every item of the titlebar `menu` through the shared menu item renderer and displays it as an icon, without the item caption. The renderer handles all six item types, with the following behaviour in the titlebar:
 
 | Item type | Behaviour in the titlebar |
 |-----------|---------------------------|
@@ -37,7 +37,10 @@ The web interface displays each item of the titlebar `menu` as an icon, without 
 | `modal` | Icon that opens a dialog, such as a component settings dialog, when clicked |
 | `action` | Icon button that runs the action when clicked |
 | `toggle` | Switch that runs the action when clicked |
-| `submenu` and `logo` | Accepted by the schema and displayed by the same menu code, although both are designed for the side menu rather than the titlebar |
+| `logo` | Rendered in the same way as a `menuitem`, as an icon link to the `navigate` target |
+| `submenu` | Rendered as an icon that expands its child `items` inline in the toolbar when clicked, and the `location` parameter is not used |
+
+The `logo` and `submenu` types are designed for the side menu, and the side menu handles `menuitem`, `modal`, `logo` and `submenu` entries only. The side menu does not display `action` or `toggle` entries, so those two types are suitable for the titlebar but not for the side menu. A titlebar menu typically contains `menuitem`, `modal`, `action` and `toggle` items.
 
 **Example:**
 

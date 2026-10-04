@@ -106,7 +106,7 @@ CM_ SG_ 1538 MosfetTemperature "Temperature as measured at the Mosfet";
 CM_ SG_ 1538 ControllerTemperature "Temperature as measured at the controller";
 CM_ SG_ 1539 TwelveVolt "Voltage as measured at the 12v power auxillary supply";
 CM_ SG_ 1539 ThreeVolt "Voltage as measured at the 3v power supply";
-CM_ SG_ 1540 MaxOutputVoltage "Maximim Output voltage configured for the device";
+CM_ SG_ 1540 MaxOutputVoltage "Maximum Output voltage configured for the device";
 CM_ SG_ 1540 MaxInputCurrent "Maximum Input current configured for the device";
 CM_ SG_ 1542 OutputVoltageBatterySide "Output Voltage (Battery side of fuse)";
 CM_ SG_ 1542 PowerConnectorTemp "Power connector temperature";

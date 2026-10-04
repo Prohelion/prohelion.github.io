@@ -21,11 +21,6 @@ OIDC SSO configuration is covered in [SSO and sign-in method](./SSO_and_Sign_In.
 
 3. Set a **bearer token** for SCIM clients (store securely; rotate periodically).
 
-<figure markdown>
-![SCIM settings with bearer token field redacted](../../../../assets/images/2.3/2.3-scim-settings.png)
-<figcaption>SCIM provisioning toggle and bearer token (redact token — provide SS-44)</figcaption>
-</figure>
-
 ### Endpoint
 
 SCIM clients call:
@@ -50,11 +45,6 @@ Configure **SIEM Export** under **Security Config**:
 | **Port** | Collector port |
 | **Protocol** | Transport (for example TCP, UDP — per deployment) |
 | **Minimum log level** | Only events at or above this level are forwarded |
-
-<figure markdown>
-![SIEM export host port and protocol settings](../../../../assets/images/2.3/2.3-siem-export-settings.png)
-<figcaption>SIEM export configuration (screenshot placeholder — provide SS-45)</figcaption>
-</figure>
 
 Verify firewall rules allow outbound traffic from the Profinity host to the SIEM collector.
 

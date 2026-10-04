@@ -11,7 +11,7 @@ tags that caused the rule to fire. The list is named **`TriggeredTags`** in the 
 **`triggeringTags`** in the Webhook and MQTT JSON message.
 
 <figure markdown>
-![A rule firing sends its full JSON context to pluggable actions — log, Slack, PagerDuty, or a script — with cooldown throttling and actions set once and inherited down the rule tree](../../../../assets/images/2.3/2.3-diagram-rule-actions.png)
+![A rule firing sends its full JSON context to pluggable actions — log, Slack, PagerDuty, or a script — with cooldown throttling and actions set once and inherited down the rule tree](../../images/2.3-diagram-rule-actions.png)
 <figcaption>One integration point for every response</figcaption>
 </figure>
 
@@ -23,7 +23,7 @@ Open rules from:
 - Component/profile **rules** settings and visual editor.
 
 <figure markdown>
-![Rules visual editor with expanded rule showing threshold and dwell fields](../../../../assets/images/2.3/2.3-rules-visual-editor.png)
+![Rules visual editor with expanded rule showing threshold and dwell fields](../../images/2.3-rules-visual-editor.png)
 <figcaption>Rules visual editor (screenshot placeholder — provide SS-26)</figcaption>
 </figure>
 
@@ -44,11 +44,6 @@ When editing a rule, add actions from the action picker:
 - **Webhook** and **MQTT** actions — see [Webhook and MQTT actions](#webhook-and-mqtt-actions) below.
 - Component actions such as **Slack** and **Email**.
 - Any **CSharp Script**, **Python Script**, or **Lua Script** component set to **Run On Alert** mode, as described in [Rule scripts](../Scripting/Rule_Scripts.md).
-
-<figure markdown>
-![Rule action picker showing built-in, Webhook/MQTT, and script actions](../../../../assets/images/2.3/2.3-rule-action-picker.png)
-<figcaption>Rule action picker (screenshot placeholder — provide SS-27)</figcaption>
-</figure>
 
 ## TriggeredTags
 

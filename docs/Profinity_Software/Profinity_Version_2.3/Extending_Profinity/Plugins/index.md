@@ -13,11 +13,6 @@ DLL plugins are **distinct** from **Custom Component packs** (zip or nupkg bundl
 
 Plugins are managed by selecting **ADMIN** in the side menu and opening the **Components & Plugins** pill (`/admin?view=plugins`). Opening the screen requires **`PluginView`**, and uploading, enabling, disabling, or deleting a plugin requires **`PluginModify`**.
 
-<figure markdown>
-![Plugin Manager upload control and plugin list](../../../../assets/images/2.3/2.3-plugin-manager-upload.png)
-<figcaption>Plugin Manager with upload (screenshot placeholder — provide SS-40)</figcaption>
-</figure>
-
 ## On-disk layout
 
 Installed plugins live under:

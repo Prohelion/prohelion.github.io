@@ -165,7 +165,7 @@ dashboard:
 
 ## Complete Dashboard Example
 
-This example is a complete motor controller dashboard that applies many of the concepts covered in this guide. The dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters. The same YAML is analysed section by section, with data binding patterns and customisation guidance, in [Full Example](./Example.md).
+This example is a complete motor controller dashboard that applies many of the concepts covered in this guide. The dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters, using message and signal names from the [WaveSculptor22 DBC file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md). The same YAML is analysed section by section, with data binding patterns and customisation guidance, in [Full Example](./Example.md).
 
 ### What This Example Demonstrates
 

@@ -26,7 +26,7 @@ Add an **MQTT Subscriber** component to your profile from the **Publishers & Sub
 category, then configure its settings.
 
 <figure markdown>
-![MQTT Subscriber settings](../../../../assets/images/2.3/2.3-mqtt-subscriber-settings.png)
+![MQTT Subscriber settings](../../images/2.3-mqtt-subscriber-settings.png)
 <figcaption>MQTT Subscriber configuration page (screenshot placeholder — provide SS-62)</figcaption>
 </figure>
 

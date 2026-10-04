@@ -21,11 +21,6 @@ Open **System Configuration** → **Security Policy** → **Two-Factor Policy**:
 
 Enabling **Enforce two-factor for local users** (Security Policy) requires all local users to complete enrollment.
 
-<figure markdown>
-![Two-factor policy configuration fields](../../../../assets/images/2.3/2.3-two-factor-policy-config.png)
-<figcaption>Two-Factor Policy settings (screenshot placeholder — provide SS-13)</figcaption>
-</figure>
-
 ## Enrollment flow
 
 When MFA is required, users are directed to **`/two-factor-setup`** after password validation:
@@ -34,27 +29,12 @@ When MFA is required, users are directed to **`/two-factor-setup`** after passwo
 2. **Verify** a one-time code.
 3. **Save recovery codes** and acknowledge storage (when policy requires).
 
-<figure markdown>
-![Two-factor setup QR code step](../../../../assets/images/2.3/2.3-two-factor-setup-qr.png)
-<figcaption>MFA enrollment QR step (screenshot placeholder — provide SS-14)</figcaption>
-</figure>
-
-<figure markdown>
-![Recovery codes step with codes redacted](../../../../assets/images/2.3/2.3-two-factor-setup-recovery-codes.png)
-<figcaption>Recovery codes on enrollment — redact codes in published screenshots (provide SS-15)</figcaption>
-</figure>
-
 ## Login with MFA
 
 After password validation, local users with enrolled MFA see the MFA step:
 
 - Enter TOTP code from authenticator app.
 - Optionally check **Remember this device** when policy allows.
-
-<figure markdown>
-![Login MFA step with TOTP field](../../../../assets/images/2.3/2.3-login-mfa-step.png)
-<figcaption>MFA step during login (screenshot placeholder — provide SS-16)</figcaption>
-</figure>
 
 ## Self-service MFA management
 

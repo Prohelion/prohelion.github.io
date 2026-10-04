@@ -16,7 +16,7 @@ The editor validates the dashboard against the dashboard schema while it is edit
 3. The editor opens in **DESIGN** mode, which is the visual editor. Select **YAML** to edit the YAML source directly.
 
 <figure markdown>
-![Dashboard visual editor canvas and component tree](../../../../assets/images/2.3/2.3-dashboard-visual-editor.png)
+![Dashboard visual editor canvas and component tree](../../images/2.3-dashboard-visual-editor.png)
 <figcaption>Dashboard visual editor (screenshot placeholder — provide SS-33)</figcaption>
 </figure>
 
@@ -25,7 +25,7 @@ The editor validates the dashboard against the dashboard schema while it is edit
 Select a widget to open the **bind inspector** — list and edit tag bindings for each target property.
 
 <figure markdown>
-![Bind inspector for a selected dashboard widget](../../../../assets/images/2.3/2.3-dashboard-bind-inspector.png)
+![Bind inspector for a selected dashboard widget](../../images/2.3-dashboard-bind-inspector.png)
 <figcaption>Bind inspector (screenshot placeholder — provide SS-34)</figcaption>
 </figure>
 

@@ -81,7 +81,7 @@ Component-specific dashboards can be viewed in the same way:
 
 Either route opens the dashboard editor, which allows you to:
 
-- View the complete YAML structure of the dashboard
+- View the complete structure of the dashboard and edit it it visually or in YAML
 - See how components are configured
 - Understand data bindings and styling
 - Make edits and see them reflected immediately
@@ -93,8 +93,8 @@ Either route opens the dashboard editor, which allows you to:
 
 To make a simple change:
 
-1. Find a text element or label in the dashboard YAML
-2. Change the text content
+1. Find a text element or label in the dashboard
+2. Change the text content, by clicking on the dashboard element and modifying it in the inspector
 3. Save your changes
 4. See the update reflected in the dashboard immediately
 

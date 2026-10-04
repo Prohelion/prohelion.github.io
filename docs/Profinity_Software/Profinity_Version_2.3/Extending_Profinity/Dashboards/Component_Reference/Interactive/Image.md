@@ -89,7 +89,7 @@ Regions are clickable rectangular areas on the image. Regions can navigate to ot
 | `y` | number | No | None | Top edge of the region as a percentage of the image height, from `0` to `100` |
 | `width` | number | No | None | Width of the region as a percentage of the image width |
 | `height` | number | No | None | Height of the region as a percentage of the image height |
-| `coordinates` | string | No | None | Legacy rectangle in `xywh=x,y,width,height` format, used only when `x`, `y`, `width` and `height` are not all set. The four values are percentages, and the engine rewrites the string into `x`, `y`, `width` and `height` when the dashboard is saved |
+| `coordinates` | string | No | None | Legacy rectangle in `xywh=x,y,width,height` format, used only when `x`, `y`, `width` and `height` are not all set. The four values are plain numbers that are percentages, without a `%` or `px` suffix, and the engine rewrites the string into `x`, `y`, `width` and `height` when the dashboard is saved, provided that the region also has an `id` and an `action` |
 | `action` | object | Yes | None | Action invocation run when the region is clicked. See [Action Invocation](#action-invocation) |
 | `label` | string | No | None | Tooltip text displayed on hover |
 | `visibleBorder` | boolean | No | `true` | Whether to show the border of the region |
@@ -388,7 +388,7 @@ layers:
 
 ## Coordinates
 
-The web interface treats every position on an Interactive Image as a percentage of the displayed image, where `0` is the left edge or top edge of the image and `100` is the right edge or bottom edge. The rule applies to the `x` and `y` of regions, icons, buttons, data values and points, to the `width` and `height` of regions, and to the elbows of annotation lines, and it keeps the overlays aligned when the image is scaled. Pixel coordinates are not supported, so a value above `100` places an element outside the image, even though some parameter descriptions in the schema mention pixels. The `size` of an icon and of a point is the only measurement in pixels.
+The web interface treats every position on an Interactive Image as a percentage of the displayed image, where `0` is the left edge or top edge of the image and `100` is the right edge or bottom edge. The rule applies to the `x` and `y` of regions, icons, buttons, data values and points, to the `width` and `height` of regions, and to the elbows of annotation lines, and it keeps the overlays aligned when the image is scaled. Pixel coordinates are not supported, even though the schema description of an icon, point and data value mentions pixels, because the web interface always multiplies the value by the displayed image width or height and divides by `100`, and it does not clamp the result, so a value above `100` places an element outside the image. Every one of these properties is declared in the schema as a number, so the value is written as a plain number such as `50` or `12.5`. A string such as `"50%"` or `"120px"` does not match the schema type, and a region whose `x`, `y`, `width` and `height` are not all numbers is not drawn from those properties. The `size` of an icon and of a point is the only measurement in pixels.
 
 ```yaml
 icons:

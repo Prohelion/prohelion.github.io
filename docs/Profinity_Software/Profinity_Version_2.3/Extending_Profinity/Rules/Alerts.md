@@ -8,7 +8,7 @@ description: "Surface rule-generated alerts across the UI with active/history ta
 Profinity 2.3 surfaces rule-generated alerts in **ALL ALERTS**, live indicators across the UI, and the `/api/v2/Alerts` API. Operators with **`AlertsView`** permission can view, acknowledge, unacknowledge, and silence alerts.
 
 <figure markdown>
-![The ALL ALERTS page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge/silence controls](../../../../assets/images/2.3/2.3-diagram-alerts.png)
+![The ALL ALERTS page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge/silence controls](../../images/2.3-diagram-alerts.png)
 <figcaption>Nothing gets missed in a log file</figcaption>
 </figure>
 
@@ -18,7 +18,7 @@ Profinity 2.3 surfaces rule-generated alerts in **ALL ALERTS**, live indicators 
 - Navigate directly to `/tags?view=alerts` in the browser.
 
 <figure markdown>
-![Side menu with ALL ALERTS entry](../../../../assets/images/2.3/2.3-side-menu-all-alerts.png)
+![Side menu with ALL ALERTS entry](../../images/2.3-side-menu-all-alerts.png)
 <figcaption>ALL ALERTS in the side menu (screenshot placeholder — provide SS-21)</figcaption>
 </figure>
 
@@ -32,12 +32,12 @@ The side menu icon uses the Carbon alert style — not the legacy `dash_alerts_a
 | **History** | Paginated history (newest first) |
 
 <figure markdown>
-![ALL ALERTS Active tab with alert table](../../../../assets/images/2.3/2.3-alerts-active-tab.png)
+![ALL ALERTS Active tab with alert table](../../images/2.3-alerts-active-tab.png)
 <figcaption>Active alerts table (screenshot placeholder — provide SS-22)</figcaption>
 </figure>
 
 <figure markdown>
-![ALL ALERTS History tab with pagination](../../../../assets/images/2.3/2.3-alerts-history-tab.png)
+![ALL ALERTS History tab with pagination](../../images/2.3-alerts-history-tab.png)
 <figcaption>Alert history (screenshot placeholder — provide SS-23)</figcaption>
 </figure>
 
@@ -56,12 +56,12 @@ The web client polls active alerts every **four seconds** and shows indicators i
 - **Side menu** — ALL ALERTS entry when alerts are active.
 
 <figure markdown>
-![Dashboard widget with yellow alert triangle indicator](../../../../assets/images/2.3/2.3-dashboard-alert-indicator.png)
+![Dashboard widget with yellow alert triangle indicator](../../images/2.3-dashboard-alert-indicator.png)
 <figcaption>Dashboard alert indicator on a bound widget (screenshot placeholder — provide SS-24)</figcaption>
 </figure>
 
 <figure markdown>
-![Tag Explorer with rule alert icon on a leaf tag](../../../../assets/images/2.3/2.3-tag-explorer-alert-indicator.png)
+![Tag Explorer with rule alert icon on a leaf tag](../../images/2.3-tag-explorer-alert-indicator.png)
 <figcaption>Rule alert on a tag in Tag Explorer (screenshot placeholder — provide SS-25)</figcaption>
 </figure>
 
@@ -91,7 +91,7 @@ From ALL ALERTS (requires `AlertsView` — same permission for mutations):
 ## Rule evaluation: dwell and deadband
 
 <figure markdown>
-![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../../../../assets/images/2.3/2.3-diagram-rules.png)
+![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../../images/2.3-diagram-rules.png)
 <figcaption>Monitoring logic that scales with the fleet</figcaption>
 </figure>
 

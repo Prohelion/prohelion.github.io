@@ -8,7 +8,7 @@ description: "Query live instance data, search documentation, and get help throu
 Profinity AI is a chat assistant built into Profinity, available from the side menu once an administrator has configured it (see [Profinity AI settings](../Administration/Security/AI_Assistant.md)). It can answer questions about the live state of this Profinity instance, look up how-to and reference material from docs.prohelion.com, and, if the administrator has enabled it, search the web.
 
 <figure markdown>
-![Profinity AI gathers context from the whole Profile — devices, alerts, documentation, and history — correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../../../assets/images/2.3/2.3-diagram-ai-diagnostics.png)
+![Profinity AI gathers context from the whole Profile — devices, alerts, documentation, and history — correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/2.3-diagram-ai-diagnostics.png)
 <figcaption>Context in, cross-system diagnosis out</figcaption>
 </figure>
 
@@ -20,7 +20,7 @@ Profinity AI is a chat assistant built into Profinity, available from the side m
 Users with the **AI Assistant** permission see a **Profinity AI** entry in the side menu, above **ADMIN**. Selecting it opens the chat window.
 
 <figure markdown>
-![Side menu with Profinity AI entry above ADMIN](../../../assets/images/2.3/2.3-side-menu-profinity-ai.png)
+![Side menu with Profinity AI entry above ADMIN](../images/2.3-side-menu-profinity-ai.png)
 <figcaption>Profinity AI in the side menu (screenshot placeholder — provide SS-49)</figcaption>
 </figure>
 
@@ -29,14 +29,14 @@ Users with the **AI Assistant** permission see a **Profinity AI** entry in the s
 The chat window opens with a short greeting and three example prompts to get started, covering a system-health question, a documentation search, and a how-to question. Type a question of your own and press **Enter** to send it, or **Shift+Enter** to add a new line without sending.
 
 <figure markdown>
-![Profinity AI chat window in its empty state with suggested prompts](../../../assets/images/2.3/2.3-ai-chat-empty-state.png)
+![Profinity AI chat window in its empty state with suggested prompts](../images/2.3-ai-chat-empty-state.png)
 <figcaption>Profinity AI chat window with suggested prompts (screenshot placeholder — provide SS-50)</figcaption>
 </figure>
 
 While Profinity AI is answering, the status indicator at the top of the window reads **Thinking…**; once a question has been answered it reads **Connected to this environment**. The response streams in as it is generated, rather than appearing all at once.
 
 <figure markdown>
-![Profinity AI chat window mid-conversation with a streamed response](../../../assets/images/2.3/2.3-ai-chat-conversation.png)
+![Profinity AI chat window mid-conversation with a streamed response](../images/2.3-ai-chat-conversation.png)
 <figcaption>A conversation in progress (screenshot placeholder — provide SS-51)</figcaption>
 </figure>
 

@@ -29,7 +29,7 @@ already uses, and the Derived Tags editor uses the same tree-and-inspector inter
 Collections editor, so the two editors work the same way.
 
 <figure markdown>
-![Derived Tags editor showing a group and a derived tag with its expression](../../../../assets/images/2.3/2.3-derived-tags-editor.png)
+![Derived Tags editor showing a group and a derived tag with its expression](../../images/2.3-derived-tags-editor.png)
 <figcaption>Derived Tags editor (screenshot placeholder — provide SS-58)</figcaption>
 </figure>
 
@@ -71,7 +71,7 @@ can be queried for history like any other tag — with **no extra configuration*
 work.
 
 <figure markdown>
-![Derived tag inspector showing dependencies and expression with a live preview value](../../../../assets/images/2.3/2.3-derived-tag-expression-inspector.png)
+![Derived tag inspector showing dependencies and expression with a live preview value](../../images/2.3-derived-tag-expression-inspector.png)
 <figcaption>Derived tag inspector with live preview (screenshot placeholder — provide SS-59)</figcaption>
 </figure>
 

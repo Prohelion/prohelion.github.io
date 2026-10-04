@@ -8,7 +8,7 @@ description: "Log CAN data to InfluxDB (V1, V2, V3) or Prometheus for time-serie
 Profinity can both [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) from a CAN bus network and log CAN bus data to time-series databases such as InfluxDB and Prometheus.
 
 <figure markdown>
-![Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back; Publishers and subscribers (MQTT, Webhook) stream it in both directions; Loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out; a Prohelion Cloud dashboard gives hosted monitoring](../../../../assets/images/2.3/2.3-diagram-data-out.png)
+![Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back; Publishers and subscribers (MQTT, Webhook) stream it in both directions; Loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out; a Prohelion Cloud dashboard gives hosted monitoring](../../images/2.3-diagram-data-out.png)
 <figcaption>Data out of Profinity: historians, publishers and subscribers, loggers, and Prohelion Cloud</figcaption>
 </figure>
 

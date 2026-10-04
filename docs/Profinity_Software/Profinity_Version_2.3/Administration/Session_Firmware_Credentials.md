@@ -22,23 +22,13 @@ This replaces persisting sensitive passcodes in component YAML.
 3. On the firmware-related tab, locate the **session credential** field at the top.
 4. Enter the credential and **Apply** to unlock firmware actions for this session.
 
-<figure markdown>
-![Session credential field before unlock](../../../assets/images/2.3/2.3-session-credential-locked.png)
-<figcaption>Session credential field before unlock (screenshot placeholder — provide SS-31)</figcaption>
-</figure>
-
-<figure markdown>
-![Session credential field after successful unlock](../../../assets/images/2.3/2.3-session-credential-unlocked.png)
-<figcaption>Firmware settings after unlock — redact passcode values (provide SS-32)</figcaption>
-</figure>
-
 Required permission: **`ComponentModify`** (and component access as configured).
 
 ## Device families
 
 | Family | Credential | Without session unlock |
 |--------|------------|------------------------|
-| **Gen2 BMS** | Firmware Configuration Key | User key `0x1234` only; admin key `0x789F` requires unlock |
+| **Gen2 BMS** | Firmware Configuration Key | User key `0x1234` only; admin key `0x789F` requires unlock (the configuration parameters that require the admin key are marked with the Admin permission in the [Firmware V1.2 Configuration Parameters](../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Configuration_Parameters.md)) |
 | **Rinstrum scale** | Safe Setup Passcode, Full Setup Passcode | No setup passcodes until session is set |
 
 ## API

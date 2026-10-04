@@ -27,7 +27,7 @@ Tag Explorer itself requires **`TagView`**. Each context menu action then checks
 2. Right-click a **leaf tag** or branch as appropriate.
 
 <figure markdown>
-![Tag Explorer context menu on a leaf tag](../../../../assets/images/2.3/2.3-tag-explorer-context-menu.png)
+![Tag Explorer context menu on a leaf tag](../../images/2.3-tag-explorer-context-menu.png)
 <figcaption>Tag Explorer context menu (screenshot placeholder — provide SS-41)</figcaption>
 </figure>
 

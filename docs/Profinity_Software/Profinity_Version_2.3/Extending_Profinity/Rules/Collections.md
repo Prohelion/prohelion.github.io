@@ -8,7 +8,7 @@ description: "Group tags for filtering, dashboards, and rules using visual edito
 **Collections** group tags for filtering, dashboards, and rules. Profinity 2.3 stamps collections YAML with **`version: "2.3"`**; each entry carries a plain `id` field so the visual editor can round-trip edits without losing identity.
 
 <figure markdown>
-![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../../../../assets/images/2.3/2.3-diagram-collections.png)
+![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../../images/2.3-diagram-collections.png)
 <figcaption>Groups defined by rules, not lists</figcaption>
 </figure>
 
@@ -17,7 +17,7 @@ description: "Group tags for filtering, dashboards, and rules using visual edito
 Side menu → **TAG UTILITIES** → **COLLECTIONS**, which opens the collections editor as a window over the current page. The entry appears for users who hold **`TagView`** and **`TagCollectionsView`** while a profile is loaded.
 
 <figure markdown>
-![Collections visual editor with member list](../../../../assets/images/2.3/2.3-collections-visual-editor.png)
+![Collections visual editor with member list](../../images/2.3-collections-visual-editor.png)
 <figcaption>Collections visual editor (screenshot placeholder — provide SS-43)</figcaption>
 </figure>
 

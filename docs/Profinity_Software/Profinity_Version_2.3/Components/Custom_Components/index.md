@@ -20,7 +20,7 @@ For the moment, Profinity provides a DBC Viewer that takes a DBC file and shows 
 
 To use the DBC Viewer with a third-party DBC file, [create a new component](../../Getting_Started/Adding_New_Components.md) in your [Profile](../../Administration/Profiles.md) and provide the DBC file in the configuration properties for the new component. The item then appears in your profile, and right-clicking it gives access to information about its Messages and Signals.
 
-Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../MPPT/index.md) and the [WaveSculptor](../Motor_Controller/index.md) have DBC support built into the component, and also allow Messages and Signals to be viewed without a separate DBC file.
+Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../MPPT/index.md) and the [WaveSculptor](../Motor_Controller/index.md) have DBC support built into the component, and also allow Messages and Signals to be viewed without a separate DBC file. The DBC file of the WaveSculptor22 is published in the [hardware documentation](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md), and the [EV Driver Controls DBC file](../../../../Solar_Car_Racing/EV_Driver_Controller/Communications_Protocol/DBC.md) can be used in the same way to create a custom component for a device that has no built-in support.
 
 ## Custom Dashboards
 

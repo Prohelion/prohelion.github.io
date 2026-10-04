@@ -25,7 +25,7 @@ The page shows:
 - **Licensed component groups** — the same status for licensed component groups, such as protocol or hardware-integration bundles.
 
 <figure markdown>
-![License page showing state, edition, expiry, fingerprint, and the licensed features and component tables](../../../assets/images/2.3/2.3-license-status-entitlements.png)
+![License page showing state, edition, expiry, fingerprint, and the licensed features and component tables](../images/2.3-license-status-entitlements.png)
 <figcaption>ADMIN &rarr; License — status, entitlements, and fingerprint (screenshot placeholder — provide SS-53)</figcaption>
 </figure>
 
@@ -43,7 +43,7 @@ To apply a commercial or evaluation licence:
 5. On the License page, use **Update license file** and select the `license.yaml` file.
 
 <figure markdown>
-![License upload dialog with a license.yaml file selected](../../../assets/images/2.3/2.3-license-upload-dialog.png)
+![License upload dialog with a license.yaml file selected](../images/2.3-license-upload-dialog.png)
 <figcaption>Uploading a license.yaml file from ADMIN &rarr; License (screenshot placeholder — provide SS-54)</figcaption>
 </figure>
 

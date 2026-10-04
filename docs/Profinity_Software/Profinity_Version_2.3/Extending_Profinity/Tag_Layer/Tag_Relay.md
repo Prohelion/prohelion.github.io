@@ -12,7 +12,7 @@ they came from. It is the mechanism behind a fleet or head-office view spanning
 multiple sites, vehicles, or installations.
 
 <figure markdown>
-![At each site, a local Tags → Collections → Rules → Actions and Alerts pipeline runs on its own; Tag Relay lifts that up to a central fleet instance with its own fleet-wide collections, rules, and alerts spanning every site](../../../../assets/images/2.3/2.3-diagram-fleet-overview.png)
+![At each site, a local Tags → Collections → Rules → Actions and Alerts pipeline runs on its own; Tag Relay lifts that up to a central fleet instance with its own fleet-wide collections, rules, and alerts spanning every site](../../images/2.3-diagram-fleet-overview.png)
 <figcaption>Each site keeps running independently — relay only adds a shared view on top</figcaption>
 </figure>
 
@@ -26,7 +26,7 @@ multiple sites, vehicles, or installations.
 ## How it works
 
 <figure markdown>
-![Site instances run a Tag Relay Sender publishing live tags over HTTPS with JWT or MQTT; a central instance runs a Tag Relay Receiver, showing each site's tags under its own prefix, e.g. SiteA/System1/Battery/PackVoltage](../../../../assets/images/2.3/2.3-diagram-tag-relay.png)
+![Site instances run a Tag Relay Sender publishing live tags over HTTPS with JWT or MQTT; a central instance runs a Tag Relay Receiver, showing each site's tags under its own prefix, e.g. SiteA/System1/Battery/PackVoltage](../../images/2.3-diagram-tag-relay.png)
 <figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
 </figure>
 

@@ -41,7 +41,7 @@ Model files are stored in the `Models` directory of the profile and are referenc
 
 ## Coordinates
 
-Every overlay position is given as `x`, `y` and `z` in model space, which uses the same units and axes as the loaded model files. Positions are not percentages, which is the difference from an [Image](Image.md) component, and multiple models share the same space. The `size` of an icon is the only measurement in pixels, and the `size` of a point and the `radius` of a region are in model units.
+Every overlay position is given as `x`, `y` and `z` in model space, which uses the same units and axes as the loaded model files. Each coordinate is a plain number, and a missing or non-numeric coordinate is read as `0`. Positions are not percentages, which is the difference from an [Image](Image.md) component, and multiple models share the same space. The `size` of an icon is the only measurement in pixels, and the `size` of a point and the `radius` of a region are in model units.
 
 ## Model Entry Parameters
 

@@ -8,12 +8,12 @@ description: "Extend Profinity with scripting, tag layer, rules, APIs, dashboard
 Profinity can be extended and customised to meet specific needs, using [Scripting](./Scripting/index.md), [Tag layer](./Tag_Layer/index.md), [Rules and alerts](./Rules/Alerts.md), [Derived tags](./Rules/Derived_Tags.md), [APIs](./APIs/index.md), [Dashboards](./Dashboards/index.md), [Plugins](./Plugins/index.md), [Custom Components](./Custom_Components/index.md), the [Profinity SDK](./SDK.md), [MCP Server](./MCP_Server.md), and [Hosting](./Hosting/index.md), turning Profinity into an application server tailored to the deployment.
 
 <figure markdown>
-![Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security, then exposes that through APIs to your own business systems and apps, and through MCP to AI agents](../../../assets/images/2.3/2.3-diagram-extensibility.png)
+![Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security, then exposes that through APIs to your own business systems and apps, and through MCP to AI agents](../images/2.3-diagram-extensibility.png)
 <figcaption>Make Profinity the hub of your solution</figcaption>
 </figure>
 
 <figure markdown>
-![Core components ship with every instance and plugins add more, but data in (devices, chargers, protocol and content-pack plugins) and data out (historians, loggers, publishers, rule actions, cloud) all meet in the same tag tree](../../../assets/images/2.3/2.3-diagram-components-overview.png)
+![Core components ship with every instance and plugins add more, but data in (devices, chargers, protocol and content-pack plugins) and data out (historians, loggers, publishers, rule actions, cloud) all meet in the same tag tree](../images/2.3-diagram-components-overview.png)
 <figcaption>Components for every direction data flows</figcaption>
 </figure>
 
@@ -31,9 +31,14 @@ The [tag layer](./Tag_Layer/index.md) provides Tag Explorer, collections, rules,
 
 Profinity's [scripting capabilities](./Scripting/index.md) automate tasks and create custom operations in C#, Python, or Lua, so each script can be written in the language best suited to the task. Scripts range from manual one-off operations to continuous, long-running processes, which suits teams automating repetitive tasks, integrating with other systems, or building workflows aligned to their own business processes.
 
+<!-- Logo sources (page note, not rendered).
+     C#: https://github.com/dotnet/brand/tree/main/logo/language-icons (csharp-128.png)
+     Python: https://www.python.org/community/logos/
+     Lua: https://www.lua.org/images/ (lua-logo.gif), copyright 1998 Lua.org, graphic design by Alexandre Nakonechnyj -->
+
 | C# Scripting | Python | Lua |
 |--------------|--------|-----|
-|![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) | ![Lua Logo](../images/LuaLogo.png) |
+| ![C# Logo](../images/CSharpLogo.png) | ![Python Logo](../images/PythonLogo.png) | ![Lua Logo](../images/LuaLogo.png) |
 
 ## Dashboards
 

@@ -26,11 +26,6 @@ SSO users authenticate through the identity provider; local password rules do no
 
 Saving config.yaml restarts the Profinity engine.
 
-<figure markdown>
-![Password policy settings in System Configuration](../../../../assets/images/2.3/2.3-password-policy-config.png)
-<figcaption>Password policy fields in Security Policy (screenshot placeholder — provide SS-05)</figcaption>
-</figure>
-
 ## Forced password change
 
 A user with **SecurityAdmin** permission can require another user to change their password on next login:
@@ -43,7 +38,7 @@ The default `admin` account may be configured to require password change on firs
 When a user with this flag signs in, Profinity shows a **change password** dialog before granting access to the application.
 
 <figure markdown>
-![Forced password change dialog on login](../../../../assets/images/2.3/2.3-forced-password-change-dialog.png)
+![Forced password change dialog on login](../../images/2.3-forced-password-change-dialog.png)
 <figcaption>Password change required before continuing (screenshot placeholder — provide SS-06)</figcaption>
 </figure>
 
