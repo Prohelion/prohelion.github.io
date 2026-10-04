@@ -8,7 +8,7 @@ description: "Scripting capabilities with C#, Python, and Lua for automation, CA
 This section covers scripting in Profinity, including supported languages, script types, and available operations.
 
 <figure markdown>
-![Rule actions respond to alerts (Webhook, Slack, MQTT, Email), scripts in Python, Lua, or C# read and write tags like any other component, and Tag Relay links Profinity instances together over HTTPS or MQTT](../../../../assets/images/2.3/2.3-diagram-automation.png)
+![Rule actions respond to alerts (Webhook, Slack, MQTT, Email), scripts in Python, Lua, or C# read and write tags like any other component, and Tag Relay links Profinity instances together over HTTPS or MQTT](../../images/2.3-diagram-automation.png)
 <figcaption>React, program and share — built in</figcaption>
 </figure>
 

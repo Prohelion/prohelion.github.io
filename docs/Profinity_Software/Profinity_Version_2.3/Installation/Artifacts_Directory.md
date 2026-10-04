@@ -36,11 +36,6 @@ Earlier releases used capitalised names (`Config`, `Config.yaml`, `Profiles`, `L
 !!! info "Linux path change in 2.3"
     Profinity 2.2 on Linux used the XDG layout (`~/.local/share/Prohelion/Profinity`). From **2.3**, the default is **`/var/lib/prohelion/profinity`** (lowercase, matching standard `/var/lib` packaging conventions) for service-oriented deployments. Migration runs automatically on first start after upgrade, and also covers hosts that were previously migrated to a Pascal-cased `/var/lib/Prohelion/Profinity` path.
 
-<figure markdown>
-![Linux artifacts directory showing Config and Profiles folders](../../../assets/images/2.3/2.3-linux-artifacts-path.png)
-<figcaption>Linux artifacts directory at `/var/lib/prohelion/profinity` (screenshot placeholder — provide SS-35)</figcaption>
-</figure>
-
 ## Override with PROFINITY_HOME
 
 Set the environment variable **`PROFINITY_HOME`** to the full path of the artifacts root to support:
@@ -74,11 +69,6 @@ On first start after upgrading to 2.3, Profinity migrates legacy trees into the 
 Legacy folders are removed only after every file is present at the destination with matching content.
 
 The desktop application shows a progress window during migration. On all hosts, select **ADMIN** in the side menu, then the **Logs** pill, to see the per-file migration messages.
-
-<figure markdown>
-![Startup log lines showing migration from a legacy path](../../../assets/images/2.3/2.3-startup-migration-log.png)
-<figcaption>Log output after migration from a legacy artifacts path (screenshot placeholder — provide SS-36)</figcaption>
-</figure>
 
 ## Linux service layout
 

@@ -10,7 +10,7 @@ systems a site already runs. Each is installed the same way as any other
 [DLL plugin](./index.md), through **Components & Plugins** in the admin UI.
 
 <figure markdown>
-![BACnet, EtherNet/IP, Modbus, OPC UA, and S7 protocol plugins, each polling values into Profinity tags or exposing Profinity's tag tree to third-party clients, plus Python + YAML content packs built on the Custom Component mechanism](../../../../assets/images/2.3/2.3-diagram-protocol-plugins.png)
+![BACnet, EtherNet/IP, Modbus, OPC UA, and S7 protocol plugins, each polling values into Profinity tags or exposing Profinity's tag tree to third-party clients, plus Python + YAML content packs built on the Custom Component mechanism](../../images/2.3-diagram-protocol-plugins.png)
 <figcaption>Plug into the systems your site already runs</figcaption>
 </figure>
 

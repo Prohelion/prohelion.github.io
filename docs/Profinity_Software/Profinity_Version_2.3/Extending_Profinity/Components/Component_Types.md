@@ -8,7 +8,7 @@ description: "Comparison of three Profinity extension models: Custom Components,
 Profinity 2.3 distinguishes three extension models, each with its own packaging and install path, so the right model needs to be chosen before building rather than after.
 
 <figure markdown>
-![Package a device's comms protocol, tags, rules, and dashboards as one plugin — shippable as Python + YAML or compiled — then install it so it behaves like a native device: build, package, install, reuse across every site](../../../../assets/images/2.3/2.3-diagram-build-your-own-plugin.png)
+![Package a device's comms protocol, tags, rules, and dashboards as one plugin — shippable as Python + YAML or compiled — then install it so it behaves like a native device: build, package, install, reuse across every site](../../images/2.3-diagram-build-your-own-plugin.png)
 <figcaption>Package your device as a plugin</figcaption>
 </figure>
 
@@ -33,7 +33,7 @@ Beyond basic DBC + dashboard, Custom Components support:
 - **`component_metadata.yaml`** — display metadata.
 
 <figure markdown>
-![Custom Component settings showing script and actions fields](../../../../assets/images/2.3/2.3-custom-component-settings.png)
+![Custom Component settings showing script and actions fields](../../images/2.3-custom-component-settings.png)
 <figcaption>Custom Component advanced settings (screenshot placeholder — provide SS-47)</figcaption>
 </figure>
 

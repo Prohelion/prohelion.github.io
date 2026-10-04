@@ -17,7 +17,7 @@ Service scripts are designed for continuous, long-running operations that need t
 Long-running work in **`Run()`** / **`run()`** should observe **`Profinity.ScriptCancelled`**. This flag becomes **`true`** when the service is **stopped**, **paused**, or when Profinity is shutting down, so loops can exit and release resources promptly.
 
 - If **`run()`** uses its **own** `while` loop, test **`not Profinity.ScriptCancelled`** (or `!Profinity.ScriptCancelled` in C#) in the loop condition and optionally break out before slow steps.
-- When the service is **paused**, cancellation is signaled so an inner loop can finish; on **continue**, the engine may call **`run()`** again with a fresh cancellation scope (the **Example Scripts** folder in your Profinity installation includes **Python**, **C#** and **Lua** service templates with both single-step and loop-style **`run`** patterns).
+- When the service is **paused**, cancellation is signalled so an inner loop can finish; on **continue**, the engine may call **`run()`** again with a fresh cancellation scope (the **Example Scripts** folder in your Profinity installation includes **Python**, **C#** and **Lua** service templates with both single-step and loop-style **`run`** patterns).
 - In **Python**, use **`import time`** if you call **`time.sleep`** in the service body. In **C#**, **`Thread.Sleep`** is typical (add **`using System.Threading;`**). In **Lua**, use the **`sleep(seconds)`** global; each call is clamped to a maximum of **30 seconds**, so a loop that needs to wait longer should call **`sleep()`** again on the next iteration rather than passing one large value.
 
 ## Python: module-level variables and `global`

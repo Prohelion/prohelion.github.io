@@ -16,21 +16,6 @@ Permissions control what appears in the side menu, admin pills, and which `/api/
 3. Use the **Users** tab to assign **Assigned roles** to each user.
 4. Use the **Roles** tab to create or edit roles and their permission toggles.
 
-<figure markdown>
-![Pill menu showing Users and Groups and System Configuration](../../../../assets/images/2.3/2.3-admin-users-groups-pill.png)
-<figcaption>Admin pill menu with Users & Groups entry (screenshot placeholder — provide SS-01)</figcaption>
-</figure>
-
-<figure markdown>
-![User settings showing assigned roles](../../../../assets/images/2.3/2.3-users-assigned-roles.png)
-<figcaption>Assigned roles on a user account (screenshot placeholder — provide SS-02)</figcaption>
-</figure>
-
-<figure markdown>
-![Roles tab with permission category toggles expanded](../../../../assets/images/2.3/2.3-roles-permission-toggles.png)
-<figcaption>Role permission toggles by category (screenshot placeholder — provide SS-03)</figcaption>
-</figure>
-
 ## Roles-only model (2.3)
 
 | Term | Meaning |
@@ -134,11 +119,6 @@ Permissions gate UI entries. For example:
 - **TAG EXPLORER** requires `TagView`.
 - **Components & Plugins** requires `PluginView` (not SecurityAdmin alone).
 - **System Configuration** requires `SystemAdmin`.
-
-<figure markdown>
-![Side menu comparison between operator and administrator accounts](../../../../assets/images/2.3/2.3-side-menu-operator-vs-admin.png)
-<figcaption>Side menu entries differ by assigned roles (screenshot placeholder — provide SS-04)</figcaption>
-</figure>
 
 ## API integrators
 

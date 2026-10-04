@@ -78,7 +78,7 @@ Profinity supports three main types of data sources, each suited to different us
 The most common data source uses DBC (Database CAN) format for CAN bus messages and signals, in the form `DBC/<Message>/<Signal>`:
 
 - `DBC/BusMeasurement/BusVoltage` - Accesses a signal (BusVoltage) from a CAN message (BusMeasurement)
-- `DBC/Status/LimitBusCurrent` - Accesses a status signal (LimitBusCurrent) from a CAN message (Status)
+- `DBC/Status/LimitBusCurrent` - Accesses a limit flag signal (LimitBusCurrent, set when the bus current setpoint is limiting the motor torque) from a CAN message (Status)
 - `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent` - Accesses a signal of a named component
 
 **Best for:** Real-time data, sensor readings, status indicators that have been defined in DBC
@@ -88,7 +88,7 @@ The most common data source uses DBC (Database CAN) format for CAN bus messages 
 Use `Properties/` to access properties that a component calculates or holds in addition to its DBC signals, which is generally for advanced users only:
 
 - `Properties/StatusColourText` - The status colour of the component
-- `Properties/BusPower` - The bus power that the WaveSculptor 22 component calculates from bus voltage and current
+- `Properties/BusPower` - The bus power, in watts, that the WaveSculptor 22 component calculates as the product of the `BusVoltage` and `BusCurrent` signals, which is not a signal transmitted by the WaveSculptor
 - `Properties/PackData/BatteryMilliVolts` - Battery voltage data of a Prohelion BMU component (nested names are separated by `/`)
 
 **Best for:** Component status, calculated values, and data structures where the component has the functionality defined in code. The property names available depend on the component, and they are listed in the Tag Explorer.
@@ -163,7 +163,8 @@ dashboard:
           - readouts:
               items:
                 - readout:
-                    label: "Temperature"
+                    label: "DSP Temperature"
+                    unit: "°C"
                     bind:
                       - target: "value"
                         source: "DBC/DspBoardTempMeasurement/DspBoardTemp"
@@ -226,7 +227,8 @@ dashboard:
           - readouts:
               items:
                 - readout:
-                    label: "Temperature"
+                    label: "DSP Temperature"
+                    unit: "°C"
                     bind:
                       - target: "value"
                         source: "DBC/DspBoardTempMeasurement/DspBoardTemp"
@@ -236,9 +238,9 @@ dashboard:
                 - lampgroup:
                     items:
                       - lamp:
-                          color: "green"
+                          color: "amber"
                           value: 1
-                          label: "Status"
+                          label: "Bus Current Limit"
                           bind:
                             - target: "enabled"
                               source: "DBC/Status/LimitBusCurrent"
@@ -305,7 +307,7 @@ dashboard:
                       - lamp:
                           color: "green"
                           value: 1
-                          label: "Status"
+                          label: "Configuration Read OK"
                           bind:
                             - target: "enabled"
                               source: "DBC/Status/ErrorConfigRead"

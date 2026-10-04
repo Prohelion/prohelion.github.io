@@ -15,7 +15,7 @@ description: "Control and manage battery charging using supported chargers inclu
 
 ## Introduction
 
-Profinity can manage charging of your pack by controlling your Prohelion BMU and a charger to put charge in the pack.
+Profinity can manage charging of your pack by controlling your Prohelion BMU and a charger to put charge in the pack, which requires a charger that can be controlled remotely because a BMS that can only switch a charger on and off results in slow or poor balancing of the cells (see the [D1000 Gen1 Charger Control](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Operation/Charging.md) documentation). The D1000 Gen1 BMU raises the charge current setpoint until the highest cell voltage reaches the Balance Threshold and then reduces it to hold that voltage, and it transmits the charging cell voltage error, cell temperature margin and total pack capacity for an external charger in the Charger Control Information packet. The D1000 Gen2 selects the charging method with the `chargingMethod` configuration parameter, which takes the values None, EVSE and External, and its charge states close the negative charge contactor (contactor 4) in `CHARGE_CONNECT` once the battery and charger voltages match and the positive charge contactor (contactor 5) in `CHARGE_ENABLED` (see the [Firmware V1.2 State Machine](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/State_Machine.md) and [Configuration Parameters](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Configuration_Parameters.md)).
 
 Profinity Charging supports three charging products (listed below) as well as balancing capabilities to keep the pack cells balanced and in good condition.
 
@@ -28,7 +28,7 @@ Profinity Charging supports three charging products (listed below) as well as ba
 
 **TDK Power Supplies**
 
-Profinity supports [TDK](https://www.tdk.com) Programmable Power Supplies such as the Genesys family, using their TCP interface. TDK Power Supplies that only have a serial interface for programming require a [TCP to Serial Converter](https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134) in the solution so that Profinity can communicate via TCP.
+Profinity supports [TDK](https://www.tdk.com) Programmable Power Supplies such as the Genesys family, using their SCPI command interface over TCP. TDK Power Supplies that only have a serial interface for programming require a [TCP to Serial Converter](https://www.jaycar.com.au/serial-to-ethernet-converter/p/XC4134) in the solution so that Profinity can communicate via TCP.
 
 **Elcon Chargers**
 
@@ -36,7 +36,7 @@ Elcon Chargers are widely used in the EV industry, and Profinity controls an Elc
 
 **Siglent Power Supplies**
 
-Profinity can control Siglent Power Supplies that support a programmable TCP interface. Units such as the [Siglent SPD3303X-E](https://siglentna.com/power-supplies/spd3303x-spd3303x-e-series-programmable-dc-power-supply/) are widely used by Prohelion customers for desktop testing scenarios.
+Profinity can control Siglent Power Supplies that support SCPI commands over a programmable TCP interface. Units such as the [Siglent SPD3303X-E](https://siglentna.com/power-supplies/spd3303x-spd3303x-e-series-programmable-dc-power-supply/) are widely used by Prohelion customers for desktop testing scenarios.
 
 ## Charging Steps
 
@@ -87,7 +87,7 @@ All devices in the configuration must show the green circle in the Profile windo
 
 **Confirm that the pack engages**
 
-A common charging issue is current flowing from the battery into the charger during pre-charge, which can cause the pre-charge sequence to fail so that the pack does not engage.
+A common charging issue is current flowing from the battery into the charger during pre-charge, which can cause the pre-charge sequence to fail so that the pack does not engage, because any load that draws current during precharge slows or prevents the rise of the output voltage so that precharge does not complete in the expected time (see [Precharge](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Operation/Precharge.md)). On a D1000 Gen2 the failure is reported by the `PRECHARGE FAIL REASON` lamps, such as `PRECHARGE TIMEOUT` and `PRECHARGE STABLE CURRENT`, which correspond to the `BMSPrechargeFailTIMEOUT` and `BMSPrechargeFailSTABLECURRENT` signals of the [Firmware V1.2 Messages and Signals](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Messages_and_Signals.md).
 
 This issue can be tested outside of charging by trying to engage the pack with the "Engage Contactors" button while connected to the charger. If the contactors do not engage while the charger is connected, the issue exists.
 

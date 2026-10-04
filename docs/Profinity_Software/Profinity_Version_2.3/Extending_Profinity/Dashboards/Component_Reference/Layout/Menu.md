@@ -16,6 +16,7 @@ A menu is a list of items that the titlebar, the panel and the footer accept in 
 | Component | Behaviour |
 |-----------|-----------|
 | [Titlebar](Titlebar.md) | Each item is displayed as an icon in the toolbar at the right of the titlebar, without its caption |
+| Side menu | Displays `menuitem`, `modal`, `logo` and `submenu` entries, and does not display `action` or `toggle` entries. A `submenu` is placed in the top or bottom zone of the side menu by its `location` |
 | [Panel](Panel.md) | A static menu icon is displayed in the panel header, and the items are not displayed |
 | [Footer](Footer.md) | Not used by the web interface |
 

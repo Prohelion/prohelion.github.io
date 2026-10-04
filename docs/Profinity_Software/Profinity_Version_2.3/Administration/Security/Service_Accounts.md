@@ -16,7 +16,7 @@ Profinity 2.3 supports **service accounts** — dedicated user records with long
 5. Click **Generate Token** (or **View Token** for an existing service account). The token dialog appears, showing the bearer token.
 
 <figure markdown>
-![Service account toggle and token dialog with token redacted](../../../../assets/images/2.3/2.3-service-account-token-dialog.png)
+![Service account toggle and token dialog with token redacted](../../images/2.3-service-account-token-dialog.png)
 <figcaption>Service account token dialog (redact token string — provide SS-46)</figcaption>
 </figure>
 

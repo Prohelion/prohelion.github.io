@@ -24,7 +24,7 @@ For OEM white-label builds, see [OEM white-label](./OEM_White_Label.md).
     - **Heartbeat interval (seconds)** — heartbeat broadcast interval, from 1 to 60 seconds, with a default of 3.
 
 <figure markdown>
-![Server Discovery settings in System Configuration](../../../assets/images/2.3/2.3-config-server-discovery.png)
+![Server Discovery settings in System Configuration](../images/2.3-config-server-discovery.png)
 <figcaption>Server Discovery heartbeat settings (screenshot placeholder — provide SS-28)</figcaption>
 </figure>
 
@@ -37,23 +37,13 @@ Profinity Mobile listens for UDP broadcasts on port **49025** (default), and the
 Each heartbeat is a single UTF-8 JSON datagram, and a datagram is valid only when it holds the `ProfinityHeartbeat` root object. That object carries the product `version` (which must match the app, currently `2.3`), the `serverName`, the list of `serverIps` (a datagram with an empty list is ignored), the `activeProfile`, the `httpPort` and `httpsPort`, and a `preferHttps` flag that tells the app to try HTTPS first.
 
 !!! warning "Not CAN bridge beacons"
-    Profinity heartbeat uses port **49025**, whereas CAN Ethernet bridge discovery uses a different port (42000), so the two must not be confused.
+    Profinity heartbeat uses port **49025**, whereas the heartbeat datagrams of a CAN to Ethernet bridge use UDP port 4876 (multicast group 239.255.60.60, see [Bridge Heartbeat](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/Bridge_Heartbeat.md) and [CAN-UDP Bridging](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md)) and SocketCANd adapters are discovered on UDP port 42000, so the three must not be confused.
 
 ## Connect from the app
 
 1. Connect the phone to the **same Wi-Fi** network as the Profinity server.
 2. Open Profinity Mobile, where the **discovery list** shows servers broadcasting heartbeat.
 3. Select your server and connect (HTTPS is preferred when configured).
-
-<figure markdown>
-![Mobile app server discovery list on a physical phone](../../../assets/images/2.3/2.3-mobile-discovery-list.png)
-<figcaption>Server discovery list — must be captured on a physical device (provide SS-29)</figcaption>
-</figure>
-
-<figure markdown>
-![Mobile app connected home WebView](../../../assets/images/2.3/2.3-mobile-connected-home.png)
-<figcaption>Connected mobile session (provide SS-30)</figcaption>
-</figure>
 
 ## Login modes
 

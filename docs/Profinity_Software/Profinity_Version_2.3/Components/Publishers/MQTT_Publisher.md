@@ -43,7 +43,7 @@ Add an **MQTT Publisher** component to your profile from the **Publishers & Subs
 category, then configure its settings.
 
 <figure markdown>
-![MQTT Publisher settings](../../../../assets/images/2.3/2.3-mqtt-publisher-settings.png)
+![MQTT Publisher settings](../../images/2.3-mqtt-publisher-settings.png)
 <figcaption>MQTT Publisher configuration page (screenshot placeholder — provide SS-60)</figcaption>
 </figure>
 

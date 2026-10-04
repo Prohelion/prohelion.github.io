@@ -8,7 +8,7 @@ description: "Profinity's tag catalog foundation for Tag Explorer, collections, 
 The **tag layer** is Profinity's catalog of live and configured tag values — the foundation for Tag Explorer, collections, rules, and alerts introduced in 2.3.
 
 <figure markdown>
-![Many source types — a CAN/DBC signal, a device property, a register, a firmware field — all become one Tag with an address, value, quality flag, and metadata, readable as an instantaneous value or as time-series history](../../../../assets/images/2.3/2.3-diagram-tags.png)
+![Many source types — a CAN/DBC signal, a device property, a register, a firmware field — all become one Tag with an address, value, quality flag, and metadata, readable as an instantaneous value or as time-series history](../../images/2.3-diagram-tags.png)
 <figcaption>One data model for every signal</figcaption>
 </figure>
 
@@ -17,7 +17,7 @@ The **tag layer** is Profinity's catalog of live and configured tag values — t
 Open **TAG EXPLORER** from the side menu (`/tags` or `/tags?view=tag_explorer`). Requires **`TagView`** permission.
 
 <figure markdown>
-![Tag Explorer tree and table view](../../../../assets/images/2.3/2.3-tag-explorer-tree.png)
+![Tag Explorer tree and table view](../../images/2.3-tag-explorer-tree.png)
 <figcaption>Tag Explorer browse view (screenshot placeholder — provide SS-42)</figcaption>
 </figure>
 

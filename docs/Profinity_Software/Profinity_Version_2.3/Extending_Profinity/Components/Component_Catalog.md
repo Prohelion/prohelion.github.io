@@ -25,11 +25,6 @@ OEM deployments using OEM packaging can supply additional overrides in **`Custom
 
 The **Components & Plugins** admin screen reflects which types are available and which are hidden or disabled.
 
-<figure markdown>
-![Plugin Manager showing catalog enable or hidden type indicator](../../../../assets/images/2.3/2.3-plugin-manager-catalog-toggle.png)
-<figcaption>Component catalog visibility in Plugin Manager (screenshot placeholder — provide SS-37)</figcaption>
-</figure>
-
 ## Pattern syntax
 
 The admin UI stores disabled types and groups as glob patterns matching component type ids. For example, disabling experimental types results in:

@@ -9,23 +9,13 @@ Profinity 2.3 separates **self-service MFA** (the **ADMIN** page) from **adminis
 
 ## Self-service: ADMIN page
 
-When **Enforce two-factor for local users** is enabled, signed-in local users see a **Two-factor authentication** pill on the **ADMIN** page, which is opened by selecting **ADMIN** in the side menu.
-
-<figure markdown>
-![Pill menu with Two-factor authentication entry](../../../../assets/images/2.3/2.3-pill-two-factor-authentication.png)
-<figcaption>Two-factor authentication in the pill menu (screenshot placeholder — provide SS-17)</figcaption>
-</figure>
+When the site sign-in method is **Local** and **Enforce two-factor for local users** is enabled, signed-in users see a **Two-Factor Authentication** pill in the **Account** group on the **ADMIN** page, alongside **Change My Password**. Open the **ADMIN** page by selecting **ADMIN** in the side menu. The pill is not shown in kiosk mode.
 
 From this dialog users can:
 
 - View MFA enrollment status.
 - **Reset Authenticator** (re-enroll TOTP).
 - **Regenerate recovery codes**.
-
-<figure markdown>
-![Two-factor authentication self-service dialog](../../../../assets/images/2.3/2.3-pill-two-factor-dialog.png)
-<figcaption>Self-service MFA management dialog (screenshot placeholder — provide SS-18)</figcaption>
-</figure>
 
 ## Administrator: Reset MFA
 
@@ -41,17 +31,7 @@ API: `POST /api/v2/Users/{username}/TwoFactor/Reset`
 After reset, the user must complete **`/two-factor-setup`** on next login when MFA is enforced.
 
 !!! note "Cannot reset your own MFA"
-    **Reset MFA** is hidden on the administrator's **own User Actions** tab. Use the **Two-factor authentication** pill on the **ADMIN** page for self-service.
-
-<figure markdown>
-![User Actions tab in a user's settings dialog, showing Reset MFA and Reset Password actions](../../../../assets/images/2.3/2.3-users-reset-mfa-password-buttons.png)
-<figcaption>Reset MFA and Reset Password actions on the User Actions tab of another user's settings dialog (screenshot placeholder — provide SS-19)</figcaption>
-</figure>
-
-<figure markdown>
-![Reset MFA confirmation dialog](../../../../assets/images/2.3/2.3-users-reset-confirm-dialog.png)
-<figcaption>Reset MFA confirmation (screenshot placeholder — provide SS-20)</figcaption>
-</figure>
+    **Reset MFA** is hidden on the administrator's **own User Actions** tab. Use the **Two-Factor Authentication** pill on the **ADMIN** page for self-service.
 
 ## Administrator: Reset password
 

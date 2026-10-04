@@ -222,7 +222,7 @@ This nesting system enables you to create sophisticated layouts while maintainin
 
 ## Complete Example
 
-The following example is a complete motor controller dashboard. It does not include a titlebar or footer, but it shows rows, an accordion, and the components nested inside them:
+The following example is a complete motor controller dashboard for a Prohelion WaveSculptor 22, whose message and signal names come from the [WaveSculptor22 DBC file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md). It does not include a titlebar or footer, but it shows rows, an accordion, and the components nested inside them:
 
 - **Rows** organising different sections of data
 - **Groups** containing related components such as readouts and charts

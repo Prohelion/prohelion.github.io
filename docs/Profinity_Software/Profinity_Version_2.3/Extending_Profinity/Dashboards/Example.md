@@ -5,7 +5,7 @@ description: "Annotated real-world motor controller dashboard example with data 
 
 # Full Example
 
-This example is a complete motor controller dashboard that applies many of the concepts covered in this guide. The dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters.
+This example is a complete motor controller dashboard that applies many of the concepts covered in this guide. The dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters, and every message and signal name in the YAML is taken from the [WaveSculptor22 DBC file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md), which the [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes.
 
 The YAML on this page is identical to the Complete Dashboard Example in [Examples](./Examples.md), which also holds the smaller progressive, scenario, and component-specific examples. This page adds the section-by-section analysis, data binding patterns, and customisation guidance for the dashboard.
 
@@ -60,11 +60,11 @@ The dashboard is organised into several logical sections:
 
 This dashboard connects to a Prohelion WaveSculptor 22 motor controller system and displays data from:
 
-- **Bus Measurements** - Voltage and current from the main power bus
-- **Temperature Sensors** - DSP board, motor, and heatsink temperatures
-- **Velocity Data** - Motor RPM and vehicle speed measurements
-- **Status Information** - Controller limits, errors, and system state
-- **Detailed Measurements** - Phase currents, voltage rails, and motor vectors
+- **Bus Measurements** - `BusVoltage` (V) and `BusCurrent` (A) from the main power bus, which the WaveSculptor broadcasts every 200 ms in the `BusMeasurement` message
+- **Temperature Sensors** - `DspBoardTemp`, `MotorTemp` and `HeatsinkTemp`, all in °C and broadcast every second
+- **Velocity Data** - `MotorVelocity` in rpm and `VehicleVelocity` in m/s (the `MPS` readout)
+- **Status Information** - The seven limit flags and eight of the nine error flags of the `Status` message, which is broadcast every 200 ms (the `ErrorBadMotorPositionHallSeq` flag is not bound in this example)
+- **Detailed Measurements** - Phase B and C currents (RMS, in A), the 15 V, 1.9 V and 3.3 V rails, the motor voltage, motor current and back-EMF vectors, slip speed (Hz, valid for induction motors only), odometer (m), the device identifier, the serial number, and the CAN transmit and receive error counts
 
 ## Complete Dashboard Example
 
@@ -486,8 +486,8 @@ The dashboard begins with a **pill component** that serves as the central status
 
 The second row contains **panels with charts** for trend analysis:
 
-- **Bus Power Chart** - Shows power consumption over time using the calculated `BusPower` property of the component
-- **Velocity Chart** - Displays vehicle speed trends
+- **Bus Power Chart** - Shows power consumption over time using the calculated `BusPower` property of the component, which is the product of `BusVoltage` and `BusCurrent` and is not a signal transmitted by the WaveSculptor
+- **Velocity Chart** - Displays vehicle speed trends from the `VehicleVelocity` signal, in metres per second
 - **Time Series Data** - Binds with `seriesMode: timeSeries` to plot recent history
 - **Clean Layout** - Each chart is in its own titled panel
 
@@ -519,7 +519,7 @@ The **controller limits panel** shows system protection status:
 The **controller errors panel** displays critical system faults:
 
 - **Red Status Lamps** - Indicates active error conditions
-- **Full Error Coverage** - Monitors hardware, software, and communication errors
+- **Error Coverage** - Monitors the over current, over voltage, watchdog, configuration, 15 V rail, desaturation and motor over speed errors, and does not monitor the bad motor position hall sequence error
 - **Immediate Visibility** - Critical errors are prominently displayed
 - **Organised Layout** - Errors grouped by type and severity
 
@@ -527,7 +527,7 @@ The **controller errors panel** displays critical system faults:
 
 - Red colour indicates critical conditions requiring attention
 - Boolean binding shows errors only when active
-- Error lamps cover the hardware, software, and communication faults bound in this example
+- The `WATCHDOG RESET` lamp is a warning more than a fault, because the controller continues to operate and the flag stays set until the next reset or power cycle, and the `CONFIG READ` lamp indicates that default values replaced the stored configuration values (see the [Observation](../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual)
 - Clear labelling for quick error identification
 
 ### Detailed Information Section
@@ -613,7 +613,7 @@ dashboard:
 
 To adapt this dashboard for other motor controllers or systems:
 
-1. **Update Data Sources** - Replace CAN signal names with your system's signals
+1. **Update Data Sources** - Replace CAN signal names with your system's signals, and check them against the DBC file for the controller, because the [WaveSculptor200](../../../../Motor_Controllers/WaveSculptor200/User_Manual/Appendix_C.md) transmits extended error flags and IPM phase temperatures that the WaveSculptor22 does not
 2. **Modify Measurements** - Adjust the specific parameters you want to monitor
 3. **Customise Layout** - Rearrange panels and sections for your needs
 4. **Adjust Precision** - Set appropriate decimal places for your measurements

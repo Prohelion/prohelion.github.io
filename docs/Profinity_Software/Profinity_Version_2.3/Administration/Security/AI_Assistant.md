@@ -26,7 +26,7 @@ Select **ADMIN** in the side menu, then **System Configuration**, find the **Pro
 | Enable MCP Server | `Mcp.Enabled` | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically; it can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. See [MCP Server](../../Extending_Profinity/MCP_Server.md). |
 
 <figure markdown>
-![Profinity AI settings tab showing provider, model, API key and web search fields](../../../../assets/images/2.3/2.3-ai-assistant-settings-tab.png)
+![Profinity AI settings tab showing provider, model, API key and web search fields](../../images/2.3-ai-assistant-settings-tab.png)
 <figcaption>Profinity AI settings under ADMIN &rarr; System Configuration (screenshot placeholder — provide SS-48)</figcaption>
 </figure>
 

@@ -17,7 +17,7 @@ Editing the profile menu layout requires **`ProfileModify`**.
 4. Drag to reorder menu groups and assign components.
 
 <figure markdown>
-![Profile menu layout editor with drag list](../../../../assets/images/2.3/2.3-profile-menu-layout-editor.png)
+![Profile menu layout editor with drag list](../../images/2.3-profile-menu-layout-editor.png)
 <figcaption>Profile menu layout editor (screenshot placeholder — provide SS-38)</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ Each component can override placement using the same drag/reorder editor as the 
 3. Drag to reorder menu groups and assign the component's placement within the menu tree.
 
 <figure markdown>
-![Component menu placement editor with drag list](../../../../assets/images/2.3/2.3-component-menu-placement.png)
+![Component menu placement editor with drag list](../../images/2.3-component-menu-placement.png)
 <figcaption>Component menu placement editor (screenshot placeholder — provide SS-39)</figcaption>
 </figure>
 

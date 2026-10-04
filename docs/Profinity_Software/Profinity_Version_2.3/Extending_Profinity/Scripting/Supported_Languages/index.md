@@ -7,9 +7,14 @@ description: "Scripting support for C#, Python (IronPython), and Lua (NLua) with
 
 Profinity scripting supports three languages: C#, Python (via [IronPython](https://ironpython.net/)), and Lua (via [NLua](https://github.com/NLua/NLua)). Each language is integrated with the .NET framework, so scripts can use .NET libraries directly. This page describes each language and the considerations for choosing between them.
 
+<!-- Logo sources (page note, not rendered).
+     C#: https://github.com/dotnet/brand/tree/main/logo/language-icons (csharp-128.png)
+     Python: https://www.python.org/community/logos/
+     Lua: https://www.lua.org/images/ (lua-logo.gif), copyright 1998 Lua.org, graphic design by Alexandre Nakonechnyj -->
+
 | C# Scripting | Python | Lua |
 |--------------|--------|-----|
-|![C# Logo](../../../images/CSharpLogo.png) | ![Python Logo](../../../images/PythonLogo.png) | Lua (via NLua) |
+| ![C# Logo](../../../images/CSharpLogo.png) | ![Python Logo](../../../images/PythonLogo.png) | ![Lua Logo](../../../images/LuaLogo.png) |
 
 The choice of scripting language is a matter of preference. Profinity supports three to suit developers from different programming backgrounds, and the features available are common across all of them: each supports the same script types (Run, Receive, Service, Tag Change and Rule Script, the last being a script set to Run On Alert mode) and the same host API surface, exposed through the `Profinity` script variable.
 

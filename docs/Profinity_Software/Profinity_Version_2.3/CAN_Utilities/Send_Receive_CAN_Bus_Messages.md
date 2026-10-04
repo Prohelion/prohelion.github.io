@@ -44,7 +44,7 @@ Packets can be sent only once, or can be saved so that Profinity adds the packet
 Click on the `+` symbol to schedule a new CAN Packet to be sent.
 
 !!! info "Default is little endian"
-    The default byte order used is little endian to align with Windows / Intel systems. Little endian is used by most of the Prohelion technologies.
+    The default byte order used is little endian to align with Windows / Intel systems. Little endian is used by most of the Prohelion technologies, including the WaveSculptor, whose data fields are sent least significant byte first (see the [WaveSculptor22 CAN protocol appendix](../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md)).
 
 <figure markdown>
 ![Send CAN Packet](../images/send_can_packet.png)
