@@ -101,7 +101,7 @@ For Docker deployment details, see the [Docker Installation](./Docker_Installati
 - Isolate critical scripts from general script access where possible
 - Document all scripts and their purposes for security reviews
 
-For detailed information about scripting capabilities and security considerations, see the [Scripting](../Extending_Profinity/Scripting/index.md) documentation.
+For detailed information about scripting capabilities and security considerations, see the [Scripting](../Developing_with_Profinity/Scripting/index.md) documentation.
 
 ## User Account Security
 
@@ -127,7 +127,7 @@ For detailed information about scripting capabilities and security consideration
 
 Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists. security.yaml is stamped `Version: "2.3"`.
 
-See [RBAC and permissions](../Administration/Security/RBAC_Permissions.md) for the full catalog and default templates (Read-only, Operator, Engineer, Security admin, System admin, Administrators).
+See [Roles and permissions](../Administration/Roles_and_Permissions.md) for the full catalogue, the built-in Administrators role, and suggested starting points for other roles.
 
 ### Role assignment guidelines
 
@@ -146,7 +146,7 @@ Kiosk Mode allows automatic authentication without manual login, which is conven
 ### Security Considerations
 
 - **Choose the Kiosk Mode User Carefully**: Profinity does not restrict which enabled user can be selected, including administrators, and anyone at the kiosk inherits that user's permissions
-- **Limited Permissions**: Assign the kiosk user only the permissions the display needs, for example the **Read-only** role template
+- **Limited Permissions**: Assign the kiosk user only the permissions the display needs, for example a read-only role built from view permissions only
 - **Physical Access Control**: Kiosk Mode devices should be physically secured as they bypass login requirements
 - **Network Isolation**: Consider network isolation for devices using Kiosk Mode, especially in production environments
 
@@ -180,10 +180,10 @@ Before deploying Profinity in a production environment:
 ## Related Documentation
 
 - [System Configuration](../Administration/System_Config.md) - HTTPS and security settings
-- [RBAC and permissions](../Administration/Security/RBAC_Permissions.md) - Roles and permissions (2.3)
+- [Roles and permissions](../Administration/Roles_and_Permissions.md) - Roles and permissions (2.3)
 - [SSO and sign-in method](../Administration/Security/SSO_and_Sign_In.md) - Local vs SSO
 - [Two-factor authentication](../Administration/Security/Two_Factor_Authentication.md) - MFA policy
 - [Managing Users](../Administration/Manage_Users.md) - User accounts and role assignment
 - [Kiosk Mode](../Administration/Kiosk_Mode.md) - Kiosk Mode configuration and security
-- [Scripting](../Extending_Profinity/Scripting/index.md) - Scripting security considerations
+- [Scripting](../Developing_with_Profinity/Scripting/index.md) - Scripting security considerations
 - [Docker Installation](./Docker_Installation.md) - Docker deployment security

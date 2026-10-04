@@ -1,6 +1,6 @@
 ---
 title: Profile Dashboard
-description: "Create custom home page dashboards for profiles using YAML files and the dashboard system."
+description: "Create custom home page dashboards for profiles with the dashboard visual editor, with YAML upload as an alternative."
 ---
 
 # Profile Dashboard
@@ -9,7 +9,7 @@ A Profile Dashboard is a custom home page that replaces the standard Profinity h
 
 ## What is a Profile Dashboard?
 
-A Profile Dashboard is a custom YAML dashboard file that serves as the home page for a profile. When a profile with a Profile Dashboard configured is active, the dashboard replaces the standard Profinity home page, providing a custom interface for your system.
+A Profile Dashboard is a custom dashboard that serves as the home page for a profile. You build it in the dashboard [visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md), and it is stored as a YAML file in the profile. When a profile with a Profile Dashboard configured is active, the dashboard replaces the standard Profinity home page, providing a custom interface for your system.
 
 Profile Dashboards use the same dashboard system as Custom Component dashboards, so the same dashboard components, data bindings, and features are available. The difference is that Profile Dashboards are profile-level (home page) rather than component-specific.
 
@@ -17,28 +17,29 @@ Profile Dashboards use the same dashboard system as Custom Component dashboards,
 
 To create a Profile Dashboard for a profile:
 
-1. **Create a dashboard YAML file** using the [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md)
-2. **Select ADMIN in the side menu** and open the **Profile** pill
-3. **Select the profile** you want to configure
-4. **Open the profile settings**
-5. **Enable the Custom Home Dashboard option**
-6. **Upload the dashboard file** using the "Dashboard YAML file (Optional)" field
-7. **Save the profile settings**
+1. **Select ADMIN in the side menu** and open the **Profile** pill
+2. **Select the profile** you want to configure
+3. **Open the profile settings**
+4. **Enable the Custom Home Dashboard option** and leave the "Dashboard YAML file (Optional)" field empty
+5. **Save the profile settings**. Profinity creates a starter dashboard from the built-in template
+6. **Edit the dashboard in the visual editor** by selecting the pencil (**Edit Dashboard**) icon on the home page, as described in [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md)
 
-Once configured, the Profile Dashboard is displayed as the home page when the profile is active. If the "Dashboard YAML file (Optional)" field is left empty when the profile settings are saved, Profinity creates a starter dashboard from the built-in template, which can be replaced later with your own file.
+Once configured, the Profile Dashboard is displayed as the home page when the profile is active.
+
+**Already have a dashboard YAML file?** Select it in the "Dashboard YAML file (Optional)" field in step 4 instead. It opens in the visual editor like any other dashboard.
 
 !!! info "Dashboard Location"
     Profile Dashboards are stored in the profile's `dashboards` directory. The dashboard file is part of the profile and is included when the profile is exported or shared.
 
 ## Dashboard Requirements
 
-Profile Dashboards must:
+Profile Dashboards built in the visual editor meet these automatically. They apply when you upload or hand-edit a YAML file. Profile Dashboards must:
 
 - **Be valid YAML files**: the dashboard file must use valid YAML syntax.
 - **Comply with the dashboard schema**: the dashboard must pass schema validation.
 - **Use the `.yaml` extension**: the dashboard file must have a `.yaml` extension.
 
-For more information on creating dashboards, see the [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md).
+For more information on creating dashboards, see the [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md) and the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md).
 
 ## Use Cases
 
@@ -56,7 +57,7 @@ Profile Dashboards and Component Dashboards use the same dashboard system but se
 - **Profile Dashboard**: profile-level home page that replaces the standard home page.
 - **Component Dashboard**: component-specific interface accessed via the component sidebar.
 
-Both use the same YAML format and dashboard components, but Profile Dashboards are always displayed as the home page, while Component Dashboards are accessed through individual components.
+Both use the same visual editor, YAML format and dashboard components, but Profile Dashboards are always displayed as the home page, while Component Dashboards are accessed through individual components.
 
 ## Removing a Profile Dashboard
 
@@ -76,5 +77,6 @@ When the Profile Dashboard is removed, the standard Profinity home page is displ
 ## Related Documentation
 
 - [Profiles](./Profiles.md) - profile configuration and management
-- [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md) - how to create dashboards
-- [Custom Components](../Extending_Profinity/Custom_Components/index.md) - Custom Components overview
+- [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md) - how to build dashboards
+- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) - the dashboard YAML reference
+- [Custom Components](../Developing_with_Profinity/Custom_Components/index.md) - Custom Components overview

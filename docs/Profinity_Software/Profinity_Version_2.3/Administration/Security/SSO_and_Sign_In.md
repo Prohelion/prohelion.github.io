@@ -39,11 +39,11 @@ When sign-in method is **Sso**, configure a single **`OidcSso`** block under **S
 
 ### Local sign-in
 
-When **Sign-in method** is **Local**, `/login` shows username and password fields only.
+When **Sign-in method** is **Local**, the login page shows username and password fields only.
 
 ### SSO sign-in
 
-When **Sign-in method** is **Sso** and the provider is configured, `/login` shows **Sign in with {provider}** button(s). No password form is shown.
+When **Sign-in method** is **Sso** and the provider is configured, the login page shows **Sign in with {provider}** button(s). No password form is shown.
 
 If SSO is enabled but the provider is misconfigured, the login page may show an empty or error state — verify `OidcSso` fields and IdP registration.
 
@@ -72,5 +72,5 @@ SCIM uses the same OIDC site configuration. See [SCIM and SIEM](./SCIM_and_SIEM.
 
 - [Two-factor authentication](./Two_Factor_Authentication.md)
 - [SCIM and SIEM](./SCIM_and_SIEM.md)
-- [RBAC and permissions](./RBAC_Permissions.md)
+- [Roles and permissions](../Roles_and_Permissions.md)
 - [Release notes 2.3.10](../../Release_Notes/2.3.10.md)

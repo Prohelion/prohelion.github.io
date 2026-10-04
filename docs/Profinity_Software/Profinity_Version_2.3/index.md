@@ -12,8 +12,8 @@ Profinity V2.3 updates the capabilities of Prohelion's Profinity V2.2 suite by a
 - Tags: A unified data model that allows any type of protocol to be displayed in a common manner, for both realtime and historical data
 - Rules: Intelligent rules that can sit over the top of Tags and help identify issues or out of range behaviours
 - Actions: Triggered by rules these actions can take corrective behaviour
-- Contenxt Driven AI: With Tags, Rules and Actions, AI now has the context it needs to help identify and address issues in your system.
-- Plug Ins: Your components or 3rd party components can now be added to Profinity in the same way that standard Prohelion components can.  This allows Profinity to be easily extended for additional components or whitelabled solutions.
+- Context Driven AI: With Tags, Rules and Actions, AI now has the context it needs to help identify and address issues in your system.
+- Plugins: Your components or 3rd party components can now be added to Profinity in the same way that standard Prohelion components can.  This allows Profinity to be easily extended for additional components or white-labelled solutions.
 
 
 # The new Profinity v2.3 Architecture

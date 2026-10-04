@@ -21,7 +21,7 @@ Users with the **AI Assistant** permission see a **Profinity AI** entry in the s
 
 <figure markdown>
 ![Side menu with Profinity AI entry above ADMIN](../images/2.3-side-menu-profinity-ai.png)
-<figcaption>Profinity AI in the side menu (screenshot placeholder — provide SS-49)</figcaption>
+<figcaption>Profinity AI in the side menu</figcaption>
 </figure>
 
 ## Ask a question
@@ -30,14 +30,14 @@ The chat window opens with a short greeting and three example prompts to get sta
 
 <figure markdown>
 ![Profinity AI chat window in its empty state with suggested prompts](../images/2.3-ai-chat-empty-state.png)
-<figcaption>Profinity AI chat window with suggested prompts (screenshot placeholder — provide SS-50)</figcaption>
+<figcaption>Profinity AI chat window with suggested prompts</figcaption>
 </figure>
 
 While Profinity AI is answering, the status indicator at the top of the window reads **Thinking…**; once a question has been answered it reads **Connected to this environment**. The response streams in as it is generated, rather than appearing all at once.
 
 <figure markdown>
 ![Profinity AI chat window mid-conversation with a streamed response](../images/2.3-ai-chat-conversation.png)
-<figcaption>A conversation in progress (screenshot placeholder — provide SS-51)</figcaption>
+<figcaption>A conversation in progress</figcaption>
 </figure>
 
 Profinity AI answers questions about this instance by querying live data through the same permissions you have — it cannot see tags, alerts, or configuration you could not otherwise see through Profinity yourself.
@@ -53,5 +53,5 @@ You can send another question while Profinity AI is still answering the previous
 ## Related documentation
 
 - [Profinity AI settings](../Administration/Security/AI_Assistant.md) — administrator configuration, permissions, and data-handling notes.
-- [MCP Server](../Extending_Profinity/MCP_Server.md) — the live-data connection Profinity AI uses.
+- [MCP Server](../Integrating_to_Profinity/MCP_Server.md) — the live-data connection Profinity AI uses.
 - [AI Skills](./AI_Skills.md) — a separate toolkit for building Profinity dashboards and other config with an AI coding assistant, outside Profinity itself.

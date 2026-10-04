@@ -9,9 +9,8 @@ description: "Connect to Profinity from iOS or Android with UDP server discovery
 
 ## Install the app
 
-Install **Profinity Mobile** from your organisation's app distribution channel (App Store, TestFlight, Play Store, or an OEM build).
-
-For OEM white-label builds, see [OEM white-label](./OEM_White_Label.md).
+!!! info "Profinity v2.3 Download Information"
+    Profinity v2.3 mobile app is currently available for Early Adopters only.  Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the program and to receive the installation files.
 
 ## Enable server discovery on the engine
 
@@ -25,19 +24,14 @@ For OEM white-label builds, see [OEM white-label](./OEM_White_Label.md).
 
 <figure markdown>
 ![Server Discovery settings in System Configuration](../images/2.3-config-server-discovery.png)
-<figcaption>Server Discovery heartbeat settings (screenshot placeholder — provide SS-28)</figcaption>
+<figcaption>Server Discovery heartbeat settings</figcaption>
 </figure>
 
 Saving config.yaml restarts the engine.
 
 ## Discovery protocol
 
-Profinity Mobile listens for UDP broadcasts on port **49025** (default), and the JSON payload has the root key **`ProfinityHeartbeat`**.
-
-Each heartbeat is a single UTF-8 JSON datagram, and a datagram is valid only when it holds the `ProfinityHeartbeat` root object. That object carries the product `version` (which must match the app, currently `2.3`), the `serverName`, the list of `serverIps` (a datagram with an empty list is ignored), the `activeProfile`, the `httpPort` and `httpsPort`, and a `preferHttps` flag that tells the app to try HTTPS first.
-
-!!! warning "Not CAN bridge beacons"
-    Profinity heartbeat uses port **49025**, whereas the heartbeat datagrams of a CAN to Ethernet bridge use UDP port 4876 (multicast group 239.255.60.60, see [Bridge Heartbeat](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/Bridge_Heartbeat.md) and [CAN-UDP Bridging](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md)) and SocketCANd adapters are discovered on UDP port 42000, so the three must not be confused.
+Profinity Mobile listens for UDP broadcasts on port **49025** (default) but this can be adjusted as required.  The mobile app uses the discovery protocol to find local instances of Profinity on the network so user can easily identify and connect to them from their mobile device.
 
 ## Connect from the app
 
@@ -65,8 +59,7 @@ Back navigation returns to server selection without clearing any server TLS trus
 
 ## Related documentation
 
-- [OEM white-label](./OEM_White_Label.md)
+- [OEM white-label](OEM_White_Label.md)
 - [Kiosk Mode](../Administration/Kiosk_Mode.md)
-- [Settings registry](../Extending_Profinity/Configuration/Settings_Registry.md) - the **Server Discovery** settings
 - [SSO and sign-in method](../Administration/Security/SSO_and_Sign_In.md)
 - [Release notes 2.3.10](../Release_Notes/2.3.10.md)

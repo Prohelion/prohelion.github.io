@@ -111,7 +111,7 @@ Depending on the configuration of your system, a Profile Pack could contain:
 
 - The [Profile](#profiles) and configured devices
 - [DBC](../CAN_Utilities/CAN_Bus_DBC.md) files
-- [Scripts](../Extending_Profinity/Scripting/index.md)
+- [Scripts](../Developing_with_Profinity/Scripting/index.md)
 - [CAN Logs](../Components/Loggers/File_Loggers.md)
 
 Profile packs can be downloaded from Profinity as a ZIP file, containing all the contents of the Profile. They can then be uploaded to a different instance of Profinity if you want to share information between Profile instances.
@@ -120,7 +120,7 @@ Profile packs can be downloaded from Profinity as a ZIP file, containing all the
 
 In Profinity, the Profiles and all the related files are stored by default in directories under the directory:
 
-`profiles` inside the [artifacts directory](../Installation/Artifacts_Directory.md), which is `%LOCALAPPDATA%\Prohelion\Profinity\profiles` on Windows
+`profiles` inside the [artefacts directory](../Installation/Artifacts_Directory.md), which is `%LOCALAPPDATA%\Prohelion\Profinity\profiles` on Windows
 
 While it is possible to edit the Profile files directly in a text editor, Prohelion does not recommend it. If you do edit a file directly, Profinity generally reloads the file automatically once you save your changes.
 

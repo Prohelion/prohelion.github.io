@@ -124,7 +124,7 @@ If your adapter does not appear among the discovered adapters, proceed to manual
 
 ## Related Documentation
 
-- [CAN Bus Adapters](../Components/Adaptors/CAN_Bus_Adapters.md) - the full adapter reference
+- [CAN Bus Adapters](../Components/Adapters/CAN_Bus_Adapters.md) - the full adapter reference
 - [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md) - general component setup
-- [Virtual CAN Adapter](../Components/Adaptors/Virtual_CAN_Adapter.md) - using virtual adapters
+- [Virtual CAN Adapter](../Components/Adapters/Virtual_CAN_Adapter.md) - using virtual adapters
 - [CAN to Ethernet Bridge documentation](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) - the bridge user manual, datasheet and troubleshooting

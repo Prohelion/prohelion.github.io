@@ -9,7 +9,7 @@ OEM partners can ship **white-label** builds of Profinity Mobile with custom bra
 
 ## Branding configuration
 
-OEM partners rebrand the app by editing the build-time file `app.config.yaml` and the branding assets, and then building signed iOS and Android binaries. The file holds these fields:
+OEM partners rebrand the app by editing the build-time file `app.config.yaml` which is included in the mobile SDK and the branding assets, and then building signed iOS and Android binaries. The file holds these fields:
 
 | Field | Description |
 |-------|-------------|
@@ -30,10 +30,10 @@ The iOS bundle identifier and the Android application identifier are set in the 
 ## Operator-facing summary
 
 - End users install the OEM-branded app from the OEM's distribution channel.
-- **Server discovery** and **login behaviour** are the same as [standard Profinity Mobile](./index.md).
+- **Server discovery** and **login behaviour** are the same as [standard Profinity Mobile](index.md).
 - **HTTPS certificates** and **SSO** must be coordinated with the deployed Profinity engine version.
 
 ## Related documentation
 
-- [Profinity Mobile](./index.md)
+- [Profinity Mobile](index.md)
 - [Release notes 2.3.10](../Release_Notes/2.3.10.md)

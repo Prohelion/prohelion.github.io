@@ -8,7 +8,10 @@
 - [Quick Start Guide](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Getting_Started/Quick_Start.html): Install Profinity, load an example profile, replay CAN logs, and edit your first dashboard.
 - [Windows Installation](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Installation/Windows_Installation.html): Install Profinity on Windows using the setup wizard.
 - [Managing Users](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Administration/Manage_Users.html): Administration guide for user accounts and access.
-- [Extending Profinity](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Extending_Profinity/index.html): APIs, components, custom components, dashboards, hosting, MCP server, scripting and theming for building on Profinity.
+- [Customising Profinity](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Customising_Profinity/index.html): Dashboards, theming, hosting and OEM white-label mobile builds.
+- [Tags](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Tags/index.html): The tag layer, tag relay, tag linking, derived tags, collections, alerts and rule actions.
+- [Integrating to Profinity](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Integrating_to_Profinity/index.html): REST APIs and the MCP server for connecting other systems and AI assistants.
+- [Developing with Profinity](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/index.html): Scripting, Custom Components, DLL plugins and the Profinity SDK.
 - [How To Guides](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/How_To_Guides/index.html): Task-focused guides covering dashboards, CAN bus, data logging, scripting and more.
 - [Release Notes](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Release_Notes/index.html): Version history and changelog for Profinity V2.
 - [Profinity V1 (Retired)](https://docs.prohelion.com/Profinity_Software/Profinity_Version_1/index.html): Documentation for the retired first-generation Profinity server.

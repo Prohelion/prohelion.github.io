@@ -15,15 +15,15 @@ Open **System Configuration** → **Security Policy** → **Two-Factor Policy**:
 
 | Setting | Description |
 |---------|-------------|
-| **Require recovery codes on enrollment** | Users must save recovery codes when enrolling (default: enabled) |
+| **Require recovery codes on enrolment** | Users must save recovery codes when enrolling (default: enabled) |
 | **Allow remember device** | Show "Remember this device" on MFA login step |
 | **Remember device duration (days)** | Trusted device cookie lifetime (1–90 days when allow is enabled) |
 
-Enabling **Enforce two-factor for local users** (Security Policy) requires all local users to complete enrollment.
+Enabling **Enforce two-factor for local users** (Security Policy) requires all local users to complete enrolment.
 
-## Enrollment flow
+## Enrolment flow
 
-When MFA is required, users are directed to **`/two-factor-setup`** after password validation:
+When MFA is required, users are taken to the two-factor setup screen after password validation:
 
 1. **Scan QR code** with an authenticator app.
 2. **Verify** a one-time code.

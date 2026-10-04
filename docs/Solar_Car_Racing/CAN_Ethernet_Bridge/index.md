@@ -35,6 +35,6 @@ description: "Product overview and navigation hub for CAN-Ethernet bridge docume
 
     Our battery and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../../Profinity_Software/Profinity_Version_2.3/Components/Adaptors/CAN_Bus_Adapters.md)
+    [:octicons-arrow-right-24: Supporting Software](../../Profinity_Software/Profinity_Version_2.3/Components/Adapters/CAN_Bus_Adapters.md)
 
 </div>

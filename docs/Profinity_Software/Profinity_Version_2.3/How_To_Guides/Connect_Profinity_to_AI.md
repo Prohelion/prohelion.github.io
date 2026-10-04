@@ -122,7 +122,7 @@ The MCP server does not expose any tool that changes Profinity data, so changes 
 
 ## Related Documentation
 
-- [MCP Server](../Extending_Profinity/MCP_Server.md) - the full MCP server reference, including every tool and its parameters
+- [MCP Server](../Integrating_to_Profinity/MCP_Server.md) - the full MCP server reference, including every tool and its parameters
 - [Profinity AI](../Profinity_AI/index.md) - the built-in chat assistant, which uses the same MCP server
-- [Scripting](../Extending_Profinity/Scripting/index.md) - Profinity scripting
-- [APIs](../Extending_Profinity/APIs/index.md) - REST API documentation
+- [Scripting](../Developing_with_Profinity/Scripting/index.md) - Profinity scripting
+- [APIs](../Integrating_to_Profinity/APIs/index.md) - REST API documentation

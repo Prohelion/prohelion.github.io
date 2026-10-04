@@ -68,5 +68,5 @@ See the [full README](https://github.com/Prohelion/Profinity/tree/master/Profini
 ## Related documentation
 
 - [Profinity AI](./index.md) — the in-product chat assistant, a different feature from AI Skills.
-- [MCP Server](../Extending_Profinity/MCP_Server.md) — optional server connection AI Skills can use for schema discovery.
-- [Profinity REST APIs](../Extending_Profinity/APIs/index.md) — the REST API that AI Skills use to fetch your live schema and push generated configs.
+- [MCP Server](../Integrating_to_Profinity/MCP_Server.md) — optional server connection AI Skills can use for schema discovery.
+- [Profinity REST APIs](../Integrating_to_Profinity/APIs/index.md) — the REST API that AI Skills use to fetch your live schema and push generated configs.

@@ -15,7 +15,11 @@ description: "Control and manage battery charging using supported chargers inclu
 
 ## Introduction
 
-Profinity can manage charging of your pack by controlling your Prohelion BMU and a charger to put charge in the pack, which requires a charger that can be controlled remotely because a BMS that can only switch a charger on and off results in slow or poor balancing of the cells (see the [D1000 Gen1 Charger Control](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Operation/Charging.md) documentation). The D1000 Gen1 BMU raises the charge current setpoint until the highest cell voltage reaches the Balance Threshold and then reduces it to hold that voltage, and it transmits the charging cell voltage error, cell temperature margin and total pack capacity for an external charger in the Charger Control Information packet. The D1000 Gen2 selects the charging method with the `chargingMethod` configuration parameter, which takes the values None, EVSE and External, and its charge states close the negative charge contactor (contactor 4) in `CHARGE_CONNECT` once the battery and charger voltages match and the positive charge contactor (contactor 5) in `CHARGE_ENABLED` (see the [Firmware V1.2 State Machine](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/State_Machine.md) and [Configuration Parameters](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Configuration_Parameters.md)).
+Profinity can manage charging of your pack by controlling your Prohelion D1000 Gen1 BMU and a charger to put charge in the pack, which requires a charger that can be controlled remotely because a BMS that can only switch a charger on and off results in slow or poor balancing of the cells (see the [D1000 Gen1 Charger Control](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Operation/Charging.md) documentation). 
+
+The D1000 Gen1 BMU raises the charge current setpoint until the highest cell voltage reaches the Balance Threshold and then reduces it to hold that voltage, and it transmits the charging cell voltage error, cell temperature margin and total pack capacity for an external charger in the Charger Control Information packet. 
+
+Charging with the D1000 Gen2 is generally handled by the hardware, see the D1000 Gen2 documentation for more details.
 
 Profinity Charging supports three charging products (listed below) as well as balancing capabilities to keep the pack cells balanced and in good condition.
 

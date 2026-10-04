@@ -1,0 +1,666 @@
+---
+title: Full Example
+description: "Annotated real-world motor controller dashboard example with data binding and layout patterns."
+---
+
+# Full Example
+
+This example is a complete motor controller dashboard that applies many of the concepts covered in this guide. The dashboard monitors a Prohelion WaveSculptor 22 motor controller system and provides real-time monitoring of electrical, thermal, and performance parameters, and every message and signal name in the YAML is taken from the [WaveSculptor22 DBC file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md), which the [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes.
+
+The YAML on this page is identical to the Complete Dashboard Example in [Examples](./Examples.md), which also holds the smaller progressive, scenario, and component-specific examples. This page adds the section-by-section analysis, data binding patterns, and customisation guidance for the dashboard.
+
+## Table of Contents
+
+- [What This Example Demonstrates](#what-this-example-demonstrates)
+- [Dashboard Structure Overview](#dashboard-structure-overview)
+- [Tags Used](#tags-used)
+- [Complete Dashboard Example](#complete-dashboard-example)
+- [Section-by-Section Analysis](#section-by-section-analysis)
+    - [Status Pill Section](#status-pill-section)
+    - [Performance Charts Section](#performance-charts-section)
+    - [Controller Limits Section](#controller-limits-section)
+    - [Error Monitoring Section](#error-monitoring-section)
+    - [Detailed Information Section](#detailed-information-section)
+- [Data Binding Patterns](#data-binding-patterns)
+    - [Binding to a Tag](#binding-to-a-tag)
+    - [Time Series Data Binding](#time-series-data-binding)
+    - [Boolean Status Binding](#boolean-status-binding)
+- [Customisation Guide](#customisation-guide)
+    - [Adapting for Different Systems](#adapting-for-different-systems)
+    - [Adding New Sections](#adding-new-sections)
+    - [Performance Considerations](#performance-considerations)
+- [Best Practices Demonstrated](#best-practices-demonstrated)
+    - [Layout Organisation](#layout-organisation)
+    - [Data Presentation](#data-presentation)
+    - [User Experience](#user-experience)
+- [Next Steps](#next-steps)
+
+## What This Example Demonstrates
+
+This dashboard example shows how to:
+
+- **Monitor Key Performance Metrics** - Bus voltage, current, temperatures, and velocity
+- **Display Real-time Charts** - Power consumption and velocity trends over time
+- **Show System Status** - Controller limits and error conditions with visual indicators
+- **Organise Complex Information** - Using accordions and tabs for detailed data
+- **Implement Data Binding** - Bind dashboard components to tags, including the tags that the controller's DBC file publishes
+- **Create Clear Layouts** - Using rows, groups, panels, and pills effectively
+
+## Dashboard Structure Overview
+
+The dashboard is organised into several logical sections:
+
+1. **Status Pill** - Central component showing key metrics with an icon
+2. **Performance Charts** - Real-time graphs of power and velocity
+3. **Controller Limits** - Visual indicators for system protection limits
+4. **Error Monitoring** - Status lamps for various error conditions
+5. **Detailed Information** - Collapsible section with the full set of detailed measurements
+
+## Tags Used
+
+This dashboard binds to tags of a Prohelion WaveSculptor 22 motor controller component. The `DBC/` tags come from the signals in the controller's DBC file, and `Properties/` tags are calculated by the component. The dashboard displays:
+
+- **Bus Measurements** - `BusVoltage` (V) and `BusCurrent` (A) from the main power bus, which the WaveSculptor broadcasts every 200 ms in the `BusMeasurement` message
+- **Temperature Sensors** - `DspBoardTemp`, `MotorTemp` and `HeatsinkTemp`, all in °C and broadcast every second
+- **Velocity Data** - `MotorVelocity` in rpm and `VehicleVelocity` in m/s (the `MPS` readout)
+- **Status Information** - The seven limit flags and eight of the nine error flags of the `Status` message, which is broadcast every 200 ms (the `ErrorBadMotorPositionHallSeq` flag is not bound in this example)
+- **Detailed Measurements** - Phase B and C currents (RMS, in A), the 15 V, 1.9 V and 3.3 V rails, the motor voltage, motor current and back-EMF vectors, slip speed (Hz, valid for induction motors only), odometer (m), the device identifier, the serial number, and the CAN transmit and receive error counts
+
+## Complete Dashboard Example
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        direction: vertical
+        items:
+          - group:
+              class: statscontainer
+              items:
+                - pill:
+                    icon:
+                      image: nav_motorcontrollers_active.svg
+                      recess: false
+                      value: 0
+                    items:
+                      - pillgroup:
+                          items:
+                            - value:
+                                label: BUS VOLTAGE
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/BusMeasurement/BusVoltage
+                            - value:
+                                label: BUS CURRENT
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/BusMeasurement/BusCurrent
+                      - pillgroup:
+                          items:
+                            - value:
+                                label: DSP TEMP
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/DspBoardTempMeasurement/DspBoardTemp
+                            - value:
+                                label: MOTOR TEMP
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/HeatsinkMotorTempMeasurement/MotorTemp
+                            - value:
+                                label: HEATSINK TEMP
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/HeatsinkMotorTempMeasurement/HeatsinkTemp
+                      - pillgroup:
+                          items:
+                            - value:
+                                label: RPM
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/VelocityMeasurement/MotorVelocity
+                            - value:
+                                label: MPS
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
+          - row:
+              direction: vertical
+              class: trunkpadded
+              items:
+                - panels:
+                    items:
+                      - panel:
+                          title: BUS POWER (W)
+                          items:
+                            - chart:
+                                type: line
+                                legend: false
+                                bind:
+                                  - target: value
+                                    source: Properties/BusPower
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
+                      - panel:
+                          title: VELOCITY (M/S)
+                          items:
+                            - chart:
+                                type: line
+                                legend: false
+                                bind:
+                                  - target: value
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
+                      - panel:
+                          title: CONTROLLER LIMITS
+                          items:
+                            - lamps:
+                                items:
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: OUTPUT VOLTAGE PWM
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitOutputVoltagePWM
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: MOTOR CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitMotorCurrent
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: VELOCITY
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitVelocity
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: BUS CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitBusCurrent
+                                                toType: boolean
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: BUS VOLTAGE UPPER
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitBusVoltageUpper
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: BUS VOLTAGE LOWER
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitBusVoltageLower
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: IPM OR MOTOR TEMP
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitIpmOrMotorTemp
+                                                toType: boolean
+                      - panel:
+                          title: CONTROLLER ERRORS
+                          items:
+                            - lamps:
+                                items:
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: HARDWARE OVER CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorHardwareOverCurrent
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: SOFTWARE OVER CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorSoftwareOverCurrent
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: DC BUS OVER VOLTAGE
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorDcBusOverVoltage
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: WATCHDOG RESET
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorWatchdogCausedLastReset
+                                                toType: boolean
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: CONFIG READ
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorConfigRead
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: 15v UNDER VOLTAGE
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/Error15vRailUnderVoltage
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: DESATURATION FAULT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorDesaturationFault
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: MOTOR OVERSPEED
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorMotorOverSpeed
+                                                toType: boolean
+    - accordion:
+        label: MORE DETAILS
+        items:
+          - row:
+              direction: vertical
+              items:
+                - tabs:
+                    items:
+                      - tab:
+                          enabled: true
+                          header:
+                            - lamp:
+                                color: disabled
+                                value: 1
+                                label: INFO
+                          items:
+                            - panels:
+                                items:
+                                  - panel:
+                                      title: Low Voltage
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: 15v RAIL
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/VoltageRail15VMeasurement/Supply15V
+                                              - readout:
+                                                  label: 1.9v RAIL
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply1V9
+                                              - readout:
+                                                  label: 3.3v RAIL
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply3V3
+                                  - panel:
+                                      title: Phase Currents
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: PHASE CURRENT B
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentB
+                                              - readout:
+                                                  label: PHASE CURRENT C
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentC
+                                  - panel:
+                                      title: Motor Vectors
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: BEMF Vd
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFd
+                                              - readout:
+                                                  label: BEMF Vq
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFq
+                                              - readout:
+                                                  label: MOTOR VOLTAGE Vd
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vd
+                                              - readout:
+                                                  label: MOTOR VOLTAGE Vq
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vq
+                                              - readout:
+                                                  label: MOTOR CURRENT Id
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorCurrentVectorMeasurement/Id
+                                              - readout:
+                                                  label: MOTOR CURRENT Iq
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorCurrentVectorMeasurement/Iq
+                                  - panel:
+                                      title: Speed & Distance
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: SLIP SPEED
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/SlipSpeedMeasurement/SlipSpeed
+                                              - readout:
+                                                  label: ODOMETER
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/OdometerBusAhMeasurement/Odometer
+                                  - panel:
+                                      title: Other
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: PART ID
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/IDInfo/TritiumID
+                                              - readout:
+                                                  label: SERIAL NUMBER
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/IDInfo/SerialNumber
+                                              - readout:
+                                                  label: TX ERROR COUNT
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/Status/TxErrorCount
+                                              - readout:
+                                                  label: RX ERROR COUNT
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/Status/RxErrorCount
+```
+
+## Section-by-Section Analysis
+
+### Status Pill Section
+
+The dashboard begins with a **pill component** that serves as the central status display:
+
+- **Icon Configuration** - Uses a motor controller icon to identify the component type
+- **Grouped Readouts** - Organises related measurements into logical groups
+- **Key Metrics Display** - Shows bus voltage, current, temperatures, and velocity
+- **Real-time Updates** - All values update automatically from CAN bus data
+
+**Key Features:**
+
+- Central icon provides immediate component identification
+- Grouped layout makes related data easy to scan
+- Precision settings ensure appropriate decimal places for each measurement
+- Each binding names a tag, and the `DBC/` tags correspond to CAN message signals
+
+### Performance Charts Section
+
+The second row contains **panels with charts** for trend analysis:
+
+- **Bus Power Chart** - Shows power consumption over time using the `Properties/BusPower` tag, which the component calculates as the product of `BusVoltage` and `BusCurrent`, and which is not a signal transmitted by the WaveSculptor
+- **Velocity Chart** - Displays vehicle speed trends from the `DBC/VelocityMeasurement/VehicleVelocity` tag, in metres per second
+- **Time Series Data** - Binds with `seriesMode: timeSeries` to plot recent history
+- **Clean Layout** - Each chart is in its own titled panel
+
+**Key Features:**
+
+- Line charts provide smooth trend visualisation
+- Time series data automatically updates with new values
+- Legend disabled for cleaner appearance
+- Separate panels allow independent chart management
+
+### Controller Limits Section
+
+The **controller limits panel** shows system protection status:
+
+- **Amber Status Lamps** - Indicates when various limits are active
+- **Full Limit Coverage** - Monitors voltage, current, velocity, and temperature limits
+- **Real-time Status** - Lamps light or grey out based on actual limit conditions
+- **Two-Row Layout** - Organises limits into logical groups
+
+**Key Features:**
+
+- Visual indicators provide immediate status awareness
+- Boolean data binding lights or greys the lamp based on limit states
+- Amber colour indicates warning conditions
+- Grouped layout prevents information overload
+
+### Error Monitoring Section
+
+The **controller errors panel** displays critical system faults:
+
+- **Red Status Lamps** - Indicates active error conditions
+- **Error Coverage** - Monitors the over current, over voltage, watchdog, configuration, 15 V rail, desaturation and motor over speed errors, and does not monitor the bad motor position hall sequence error
+- **Immediate Visibility** - Critical errors are prominently displayed
+- **Organised Layout** - Errors grouped by type and severity
+
+**Key Features:**
+
+- Red colour indicates critical conditions requiring attention
+- Boolean binding shows errors only when active
+- The `WATCHDOG RESET` lamp is a warning more than a fault, because the controller continues to operate and the flag stays set until the next reset or power cycle, and the `CONFIG READ` lamp indicates that default values replaced the stored configuration values (see the [Observation](../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual)
+- Clear labelling for quick error identification
+
+### Detailed Information Section
+
+The **accordion section** provides the detailed system measurements:
+
+- **Collapsible Design** - Keeps detailed information accessible but not cluttered
+- **Tabbed Interface** - Organises detailed data into logical categories
+- **Multiple Data Categories** - Low voltage, phase currents, motor vectors, speed/distance, and other data
+- **High Precision** - Detailed measurements with appropriate decimal places
+
+**Key Features:**
+
+- Progressive disclosure keeps the main dashboard clean
+- Tabbed interface organises complex information
+- High-precision readouts for detailed analysis
+- Every measurement bound in the dashboard is available from one place
+
+## Data Binding Patterns
+
+This example demonstrates several important data binding patterns:
+
+### Binding to a Tag
+```yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "Bus Voltage"
+                    bind:
+                      - target: value
+                        source: DBC/BusMeasurement/BusVoltage
+```
+- Binds the tag that the component publishes for a DBC signal, which gives the latest value in real time
+- The path is relative to the component that owns the dashboard, so the dashboard is reusable across components
+
+### Time Series Data Binding
+```yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: line
+              bind:
+                - target: value
+                  source: DBC/BusMeasurement/BusCurrent
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+                  timeRangeStop: "0m"
+```
+- Recent history for charts and trends, over the window set by `timeRangeStart` and `timeRangeStop`
+- Without `seriesMode: timeSeries`, a chart shows only the latest value
+
+### Boolean Status Binding
+```yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - lamps:
+              items:
+                - lampgroup:
+                    items:
+                      - lamp:
+                          color: "amber"
+                          value: 1
+                          label: "Motor Current Limit"
+                          bind:
+                            - target: enabled
+                              source: DBC/Status/LimitMotorCurrent
+                              toType: boolean
+```
+- Lights or greys each status indicator based on conditions
+- Type conversion ensures proper boolean handling
+
+## Customisation Guide
+
+### Adapting for Different Systems
+
+To adapt this dashboard for other motor controllers or systems:
+
+1. **Update Tags** - Replace each `source` with the path of the matching tag for your system, which you can copy from the Tag Explorer, and check the DBC file for the controller, because the [WaveSculptor200](../../../../Motor_Controllers/WaveSculptor200/User_Manual/Appendix_C.md) transmits extended error flags and IPM phase temperatures that the WaveSculptor22 does not
+2. **Modify Measurements** - Adjust the specific parameters you want to monitor
+3. **Customise Layout** - Rearrange panels and sections for your needs
+4. **Adjust Precision** - Set appropriate decimal places for your measurements
+5. **Update Labels** - Change labels to match your system terminology
+
+### Adding New Sections
+
+- **Additional Charts** - Add more panels with different time series data
+- **New Status Indicators** - Include additional limit or error monitoring
+- **Custom Measurements** - Add readouts for system-specific parameters
+- **Interactive Elements** - Include actions or toggles for system control
+
+### Performance Considerations
+
+- **Data Update Frequency** - High-frequency data may impact chart performance
+- **Number of Components** - More components require more processing power
+- **Complex Bindings** - Simple data bindings perform better than complex transformations
+
+## Best Practices Demonstrated
+
+This example follows several dashboard design best practices:
+
+### Layout Organisation
+- **Logical Grouping** - Related information is grouped together
+- **Progressive Disclosure** - Detailed information is in collapsible sections
+- **Visual Hierarchy** - Important information is prominently displayed
+- **Consistent Spacing** - Uniform layout throughout the dashboard
+
+### Data Presentation
+- **Appropriate Precision** - Decimal places match measurement requirements
+- **Clear Labelling** - All measurements have descriptive labels
+- **Visual Indicators** - Status lamps provide immediate visual feedback
+- **Real-time Updates** - All data updates automatically
+
+### User Experience
+- **Intuitive Layout** - Information flows logically from general to specific
+- **Quick Access** - Key metrics are immediately visible
+- **Detailed Analysis** - Full measurement data available when needed
+- **Clean Presentation** - Consistent, organised layout
+
+## Next Steps
+
+The following pages build on this example:
+
+- **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
+- **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to bind your dashboards to tags
+- **Explore Components** - Use [Component Reference](./Component_Reference/index.md) for detailed component information
+- **Add Styling** - Apply [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
+- **See More Examples** - Browse the progressive and component-specific [Examples](./Examples.md)
+- **Create Your Own** - Use this example as a template for your specific system

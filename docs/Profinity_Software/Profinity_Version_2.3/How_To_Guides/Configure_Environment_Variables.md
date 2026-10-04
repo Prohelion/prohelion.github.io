@@ -23,7 +23,7 @@ Environment variables allow you to:
 - Use different settings for different environments
 - Deploy the same configuration across multiple systems
 
-Profinity substitutes a `${VARIABLE_NAME}` placeholder, or a `${VARIABLE_NAME:-default}` placeholder with a default value, when it loads a `config.yaml` or profile file. A variable has an effect only where a placeholder references it, and Profinity itself reads `PROFINITY_HOME`, which sets the [artifacts directory](../Installation/Artifacts_Directory.md), and the key-material variables `PROFINITY_JWT_SIGNING_KEY`, `PROFINITY_ENCRYPTION_KEY` and `PROFINITY_JWT_RSA_PRIVATE_KEY_PEM`.
+Profinity substitutes a `${VARIABLE_NAME}` placeholder, or a `${VARIABLE_NAME:-default}` placeholder with a default value, when it loads a `config.yaml` or profile file. A variable has an effect only where a placeholder references it, and Profinity itself reads `PROFINITY_HOME`, which sets the [artefacts directory](../Installation/Artifacts_Directory.md), and the key-material variables `PROFINITY_JWT_SIGNING_KEY`, `PROFINITY_ENCRYPTION_KEY` and `PROFINITY_JWT_RSA_PRIVATE_KEY_PEM`.
 
 ### Step 2: Set Environment Variables
 

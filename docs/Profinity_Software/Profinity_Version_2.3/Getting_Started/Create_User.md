@@ -16,4 +16,4 @@ Each user is also assigned one or more roles, which bundle the permissions that 
 
 ## More Information
 
-Additional information on how to create and manage users, and the full permission catalogue, can be found in [Manage Users](../Administration/Manage_Users.md) and [RBAC and permissions](../Administration/Security/RBAC_Permissions.md).
+Additional information on how to create and manage users, and the full permission catalogue, can be found in [Manage Users](../Administration/Manage_Users.md) and [Roles and permissions](../Administration/Roles_and_Permissions.md).

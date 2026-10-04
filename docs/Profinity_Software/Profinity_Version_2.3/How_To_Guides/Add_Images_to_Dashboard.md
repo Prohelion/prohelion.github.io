@@ -72,11 +72,11 @@ image:
 
 - Use descriptive filenames for easy identification
 - Optimise image file sizes for better performance
-- Keep images organized in subdirectories if you have many files
+- Keep images organised in subdirectories if you have many files
 - Test images in the dashboard editor before deploying
 
 ## Related Documentation
 
-- [Profile Directories](../Extending_Profinity/Dashboards/Profile_Directories.md) - the full reference for profile directories
-- [Icon Component](../Extending_Profinity/Dashboards/Component_Reference/Interactive/Icon.md) - Icon component reference
-- [Image Component](../Extending_Profinity/Dashboards/Component_Reference/Interactive/Image.md) - Interactive image component reference
+- [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md) - the full reference for profile directories
+- [Icon Component](../Customising_Profinity/Dashboards/Component_Reference/Interactive/Icon.md) - Icon component reference
+- [Image Component](../Customising_Profinity/Dashboards/Component_Reference/Interactive/Image.md) - Interactive image component reference

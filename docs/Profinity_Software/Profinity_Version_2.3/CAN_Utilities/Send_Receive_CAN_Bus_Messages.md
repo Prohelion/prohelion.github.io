@@ -10,7 +10,7 @@ Profinity can monitor CAN bus traffic on your network and also allows you to tra
 Messages can be transmitted either via the `SEND & RECEIVED CAN` window, which is documented below, or via the [CAN Data Log Replayer](Logging_Replaying_CAN_Bus_Messages.md#can-data-log-replayer).
 
 !!! info "Check user privileges"
-    Before trying to send or receive any CAN packets, ensure that the current user holds the associated permission: `CANView` to receive and `CANSend` to send (`CANSend` includes `CANView`). The replayer requires `CANReplay`. See [RBAC and permissions](../Administration/Security/RBAC_Permissions.md).
+    Before trying to send or receive any CAN packets, ensure that the current user holds the associated permission: `CANView` to receive and `CANSend` to send (`CANSend` includes `CANView`). The replayer requires `CANReplay`. See [Roles and permissions](../Administration/Roles_and_Permissions.md).
 
 ## Receive CAN Packets
 

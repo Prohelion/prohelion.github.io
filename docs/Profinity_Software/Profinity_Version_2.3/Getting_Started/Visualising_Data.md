@@ -14,4 +14,4 @@ Each component in your system will have an associated dashboard which can be acc
 <figcaption>Example of Dashboard Visualising Data</figcaption>
 </figure>
 
-To see how a dashboard is built, or to create your own, see [How to View Dashboard Source](../How_To_Guides/View_Dashboard_Source.md) and the [Dashboard Development Guide](../Extending_Profinity/Dashboards/index.md).
+To see how a dashboard is built, or to create your own, see [How to View Dashboard Source](../How_To_Guides/View_Dashboard_Source.md) and the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md).

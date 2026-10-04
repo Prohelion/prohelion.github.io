@@ -4,11 +4,14 @@ nav:
     - index.md
     - Getting_Started
     - Installation
-    - Release_Notes
-    - Mobile
     - Components
+    - Tags
     - CAN_Utilities
-    - Administration
+    - Customising_Profinity
+    - Mobile
     - Profinity_AI
-    - Extending_Profinity
+    - Administration
+    - Integrating_to_Profinity
+    - Developing_with_Profinity
     - How_To_Guides
+    - Release_Notes

@@ -15,7 +15,7 @@ You can manage your Profiles through the **ADMIN** section of Profinity. Select 
 
 - **Switch between profiles**: You can have multiple profiles configured in Profinity. Click **ACTIVATE** on a profile in the list to make it the active profile, which is useful when you are working with different system configurations or testing different setups.
 
-- **Create new profiles**: You can create new profiles to organize different system configurations. Each profile maintains its own set of components, dashboards, and settings.
+- **Create new profiles**: You can create new profiles to organise different system configurations. Each profile maintains its own set of components, dashboards, and settings.
 
 - **Manage existing profiles**: View, edit, or delete profiles as needed.
 

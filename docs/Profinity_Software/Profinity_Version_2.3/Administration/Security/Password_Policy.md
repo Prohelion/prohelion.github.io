@@ -39,7 +39,7 @@ When a user with this flag signs in, Profinity shows a **change password** dialo
 
 <figure markdown>
 ![Forced password change dialog on login](../../images/2.3-forced-password-change-dialog.png)
-<figcaption>Password change required before continuing (screenshot placeholder — provide SS-06)</figcaption>
+<figcaption>Password change required before continuing</figcaption>
 </figure>
 
 ## Changing password when logged in
@@ -57,6 +57,6 @@ Users with local accounts can change their own password when signed in by select
 - [SSO and sign-in method](./SSO_and_Sign_In.md)
 - [Two-factor authentication](./Two_Factor_Authentication.md)
 - [MFA account management](./MFA_Account_Management.md)
-- [RBAC and permissions](./RBAC_Permissions.md)
+- [Roles and permissions](../Roles_and_Permissions.md)
 - [Managing users](../Manage_Users.md)
 - [Security guide](../../Installation/Security.md)
