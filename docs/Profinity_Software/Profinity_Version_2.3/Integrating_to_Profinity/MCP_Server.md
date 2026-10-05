@@ -183,7 +183,7 @@ Returns a page of past alert state transitions (raised, cleared, acknowledged, s
 
 Every call to the MCP server requires a valid JWT bearer token, checked against the **MCP View** permission at the endpoint itself. Beyond that gate, each tool checks its own domain permission before returning data: the tag-related tools require **Tag View**, and the alert-related tools require **Alerts View**.
 
-The **AI Assistant** permission automatically grants **MCP View**, so a user with access to Profinity AI does not need MCP View granted separately (see [Profinity AI settings](../Administration/Security/AI_Assistant.md)).
+The **AI Assistant** permission automatically grants **MCP View**, so a user with access to Profinity AI does not need MCP View granted separately (see [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md)).
 
 To authenticate directly against the MCP server:
 
@@ -196,7 +196,7 @@ To authenticate directly against the MCP server:
     ```
 
 !!! info "Service Accounts"
-    For a long-lived integration such as an external MCP client, use a [service account](../Administration/Security/Service_Accounts.md) with the required permissions and a non-expiring token, rather than a personal user account.
+    For a long-lived integration such as an external MCP client, use a [service account](../Administration/Users_and_Access/Service_Accounts.md) with the required permissions and a non-expiring token, rather than a personal user account.
 
 ## Example client calls
 
@@ -293,7 +293,7 @@ The `2026-07-28` revision changes the handshake (the MCP C# SDK documents it as 
 
 The MCP server supports:
 
-- AI assistants that answer questions about the current state of a Profinity instance, including [Profinity AI](../Profinity_AI/index.md) itself
+- AI assistants that answer questions about the current state of a Profinity instance, including [AI Chat](../Profinity_AI/AI_Chat.md) itself
 - External analysis tools that need read access to tag values or alert history
 - Monitoring integrations that poll system state programmatically
 - Reporting tools that build on current or historical tag and alert data
@@ -307,9 +307,9 @@ The MCP server supports:
 
 ## Related documentation
 
-- [Profinity AI settings](../Administration/Security/AI_Assistant.md) — enabling the MCP server as part of, or independently of, Profinity AI
-- [Service accounts](../Administration/Security/Service_Accounts.md) — long-lived credentials for external MCP clients
-- [Profinity AI](../Profinity_AI/index.md) — the built-in assistant that uses this MCP server
+- [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md) — enabling the MCP server as part of, or independently of, Profinity AI
+- [Service accounts](../Administration/Users_and_Access/Service_Accounts.md) — long-lived credentials for external MCP clients
+- [AI Chat](../Profinity_AI/AI_Chat.md) — the built-in assistant that uses this MCP server
 - [AI Skills](../Profinity_AI/AI_Skills.md) — an external toolkit that also uses this MCP server, for building dashboards and other config with an AI coding assistant
 - [APIs](APIs/index.md) — RESTful API documentation
 - [Scripting](../Developing_with_Profinity/Scripting/index.md) — Profinity scripting capabilities

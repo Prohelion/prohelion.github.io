@@ -1,13 +1,13 @@
 ---
 title: AI Skills
-description: "Seven skills for AI coding assistants to generate dashboards, rules, collections, scripts, plugins, derived tags, and example apps."
+description: "Seven skills that let Claude Code, Cursor, Codex, and ChatGPT build Profinity config and code, and act as a power-user alternative to AI Chat."
 ---
 
 # AI Skills
 
 **AI Skills** is a pack of seven skills for AI coding assistants — Claude and other tools — that help you build Profinity dashboards, rules, collections, scripts, plugins, derived tags, and example apps. Every skill works from Profinity's own live schema and API, and from curated examples drawn from Profinity's own shipped content, so that what it generates matches the conventions of your instance rather than a format the assistant has had to guess.
 
-This is a different thing from [Profinity AI](./index.md), the chat assistant built into the product: Profinity AI answers questions about a running instance from inside Profinity itself; AI Skills is a toolkit used with your own AI coding assistant, outside Profinity, while you are building dashboards, rules, or integrations.
+This is a different thing from [AI Chat](./AI_Chat.md), the chat assistant built into the product: AI Chat answers questions about a running instance from inside Profinity itself; AI Skills is a toolkit used with your own AI coding assistant, outside Profinity, while you are building dashboards, rules, or integrations.
 
 ## The seven skills
 
@@ -35,6 +35,52 @@ Each skill is self-contained:
 - **Optionally: read access to the MCP server** — some skills use the MCP server for additional schema discovery, but it is read-only and never used to push changes. If MCP is unavailable, the skill falls back to REST API alone.
 
 If the REST API is not available when a skill is asked to generate something, the skill says so and stops, rather than guessing an endpoint or falling back to a remembered schema.
+
+## Supported AI tools
+
+AI Skills ships in two forms, so it works with two families of AI tool.
+
+| Form | Works with | How you use it |
+|------|-----------|----------------|
+| **Agent skills** (`SKILL.md` folders) | Claude Code, Cursor, Codex, and other agents that load `SKILL.md` skills | Install with `npx skills add`; the agent discovers the skills and runs them |
+| **ChatGPT Custom GPTs** | ChatGPT | Someone builds a Custom GPT once from the files in the pack, then others use it |
+
+Agent skills are the full experience. When the tool can run commands, the script and plugin skills run `profinity-script` and `profinity-component-pack` themselves and read the output. Claude Code and Cursor are the tools the skills name explicitly: the skills know where Cursor keeps its `mcp.json` sign-in details and reuse them.
+
+ChatGPT has more limits, because a Custom GPT has no shell and its connection is fixed when it is built:
+
+- Whoever builds the GPT does a short one-time setup: paste the instructions, upload the example files, and import the OpenAPI Actions file with your Profinity host in it. Profinity is deployed per customer, so there is no ready-made GPT to share.
+- The dashboard, rules, collections, derived tag, and app GPTs can read and save through the REST API. The script and plugin GPTs cannot. They give you the commands to run yourself.
+- Dashboards are written as YAML, but the save endpoints accept only JSON. The GPT converts and shows you the result first.
+
+!!! note "Other Tools"
+    Any tool that loads `SKILL.md` skills should be able to use the agent skills, but Prohelion has only written setup guidance for the tools above.
+
+## Use AI Skills instead of AI Chat
+
+[AI Chat](./AI_Chat.md) is built for everyone with the AI Assistant permission and needs no setup on their machine. Power users can use their own AI tool for the same job instead, which suits people who want:
+
+- **Their own model or provider**, rather than the single provider configured for the whole instance.
+- **Conversations that persist**, because AI Chat keeps history only for the current browser tab.
+- **Other work alongside the questions**, such as files, code, and other systems in the same session.
+
+For this, connect your tool to the [MCP Server](../Integrating_to_Profinity/MCP_Server.md) using [How to Connect Profinity to AI](../How_To_Guides/Connect_Profinity_to_AI.md). That gives it the same read-only live data AI Chat uses: tags and their history, alert rules, active alerts, and alert history. Add AI Skills on top and the same tool can also build and change things, always showing you the payload before it saves.
+
+Your own tool does not get AI Chat's built-in documentation lookup, so point it at [docs.prohelion.com](https://docs.prohelion.com) if you want it to cite the manuals. It sees only what your sign-in is permitted to see, and your messages go to whichever provider that tool uses, so check that provider against your organisation's data-handling rules.
+
+## Developing with Profinity
+
+AI Skills is also an assistant for people building on Profinity. Because each skill reads your instance's live schema and API, it generates what your Profinity version accepts, not what the assistant remembers from an older release.
+
+| You are building | Use |
+|------------------|-----|
+| A dashboard or component dashboard | Dashboard Builder |
+| Alert rules, tag collections, or derived tags | Tag Rules, Tag Collections, Derived Tags |
+| An in-profile script, with simulation before you deploy | Script |
+| A custom component plugin, packed for installation | Plugin |
+| An application or integration against the REST API | App |
+
+The Script and Plugin skills work beside the Profinity developer kit (`Profinity.Sdk`, `profinity-script`, `profinity-component-pack`). Contact Prohelion for a copy; each skill's `sdk.md` explains how it finds the kit. See [Developing with Profinity](../Developing_with_Profinity/index.md) for the underlying SDK and plugin documentation.
 
 ## Installing AI Skills
 
@@ -67,6 +113,9 @@ See the [full README](https://github.com/Prohelion/Profinity/tree/master/Profini
 
 ## Related documentation
 
-- [Profinity AI](./index.md) — the in-product chat assistant, a different feature from AI Skills.
+- [Profinity AI](./index.md) — the overview of AI Chat and AI Skills.
+- [AI Chat](./AI_Chat.md) — the in-product chat assistant, a different feature from AI Skills.
+- [How to Connect Profinity to AI](../How_To_Guides/Connect_Profinity_to_AI.md) — connect your own AI tool to the MCP Server.
+- [Developing with Profinity](../Developing_with_Profinity/index.md) — the SDK, plugins, and scripting that the Script and Plugin skills build on.
 - [MCP Server](../Integrating_to_Profinity/MCP_Server.md) — optional server connection AI Skills can use for schema discovery.
 - [Profinity REST APIs](../Integrating_to_Profinity/APIs/index.md) — the REST API that AI Skills use to fetch your live schema and push generated configs.
