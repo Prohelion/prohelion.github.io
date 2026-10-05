@@ -12,7 +12,7 @@ This guide takes you from a fresh installation to a running system in four steps
 On Windows, follow the [Windows Installation Guide](../Installation/Windows_Installation.md) to install Profinity using the setup wizard.
 
 !!! tip "Other Platforms"
-    On macOS or Linux, see the [Zip Installation Guide](../Installation/Zip_Installation.md). For Docker deployments, see the [Docker Installation Guide](../Installation/Docker_Installation.md).
+    On macOS or Linux, see the [Linux and macOS Installation Guide](../Installation/Zip_Installation.md). For Docker deployments, see the [Docker Installation Guide](../Installation/Docker_Installation.md).
 
 After installation, launch Profinity from the Start Menu, which opens the Profinity homepage.
 

@@ -125,7 +125,7 @@ See [Docker Installation](./Docker_Installation.md) for compose examples.
 
 ## Related documentation
 
-- [Zip Installation](./Zip_Installation.md)
+- [Linux and macOS Installation](./Zip_Installation.md)
 - [Docker Installation](./Docker_Installation.md)
 - [Running as a Service](./Running_As_Service.md)
 - [Release notes 2.3.10](../Release_Notes/2.3.10.md)

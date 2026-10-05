@@ -44,7 +44,7 @@ When not using Prohelion hardware, a way to connect to the CAN bus network is st
 
 ## Linux Setup
 
-On Linux, Profinity is installed with the bootstrap installer (`install.sh`) into an install root — `/opt/profinity` by default — and runs as a systemd service through the `profinity.sh` launcher that ships in that install root.
+On Linux, Profinity runs as a systemd service through the `profinity.sh` launcher in the install root (`/opt/profinity` by default). Install Profinity first by following the [bootstrap installer](./Zip_Installation.md#bootstrap-installer) steps in the macOS and Linux installation guide, which also creates the `profinity` service user and the unit file described below.
 
 !!! info "Things can vary on Linux from version to version"
     These instructions are a guide, and the service setup can differ between Linux distributions and releases.  If they do not work, check the documentation for the distribution on how to set up a daemon or service.
@@ -58,15 +58,9 @@ On Linux, Profinity is installed with the bootstrap installer (`install.sh`) int
 | **Interactive** | `/opt/profinity/profinity.sh` | Runs in the terminal; Ctrl+C stops it. Useful for testing a configuration before enabling the service. |
 | **Service (systemd)** | `systemctl start profinity` | The unit's `ExecStart` runs `profinity.sh -s`. `-s` tells the engine to run in OS service mode (`UseSystemd()`); it does not select a Windows/Linux user account. |
 
-### Step 1: Install Profinity and the systemd unit
+### Step 1: Review the systemd Unit
 
-The bootstrap installer creates the install root, the `profinity` service user, and (on Linux, when systemd is present) the systemd unit in one step:
-
-```bash
-curl -fsSL https://github.com/Prohelion/Profinity/releases/latest/download/install.sh | sudo bash
-```
-
-This installs Profinity into `/opt/profinity` (pass `--install-dir` to use a different path) and writes `/etc/systemd/system/profinity.service` with the following content:
+The installer writes `/etc/systemd/system/profinity.service` with the following content:
 
 ```ini
 [Unit]
@@ -86,7 +80,7 @@ TimeoutSec=900
 WantedBy=multi-user.target
 ```
 
-Installing does not start the service. Pass `--no-systemd` to `install.sh` to skip the service user and systemd unit and unpack Profinity as files only.
+Adjust `WorkingDirectory` and `ExecStart` if Profinity was installed with a different `--install-dir`. If Profinity was installed with `--no-systemd` or from an archive, create this file manually, create the `profinity` user and set up the [artefacts directory](./Artifacts_Directory.md) first.
 
 ### Step 2: Enable and Start the Service
 
@@ -107,13 +101,11 @@ The installer already enables the unit, so only the start command is normally re
    sudo systemctl start profinity.service
    ```
 
-### Updating
-
-`update.sh`, installed alongside `profinity.sh` in the install root, fetches the matching release for the installed edition and swaps the application files in place. If the `profinity` service is active, `update.sh` stops it before applying the update and restarts it afterwards.
+To update an installed copy, see [Updating](./Zip_Installation.md#updating).
 
 ## macOS Setup
 
-On macOS, Profinity is installed with the same bootstrap installer (`install.sh`) into the same install root as Linux — `/opt/profinity` by default — with the `profinity.sh` launcher shipped in that install root. `launchd` runs Profinity as a service on macOS, in the same role systemd fills on Linux.
+On macOS, Profinity is installed with the same [bootstrap installer](./Zip_Installation.md#bootstrap-installer) as Linux, into the same install root (`/opt/profinity` by default), with the `profinity.sh` launcher shipped in that install root. `launchd` runs Profinity as a service on macOS, in the same role systemd fills on Linux.
 
 ### Step 1: Create a launchd Plist File
 
