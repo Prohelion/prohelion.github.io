@@ -31,10 +31,12 @@ Typical subfolders, which use lowercase names on every platform (Linux file syst
 | `tag_logs/` | Tag logs |
 | `license/`, `certificates/`, `themes/`, `webroot/` | Licence state, generated and uploaded certificates, themes and web content |
 
+The Linux installer pre-creates only `config/`, `profiles/`, `plugins/` and `logs/`. Profinity creates the other folders on demand.
+
 Earlier releases used capitalised names (`Config`, `Config.yaml`, `Profiles`, `Logs`), and the migration on first start renames them to the lowercase forms. The same lowercase names are used for these files throughout the documentation.
 
 !!! info "Linux path change in 2.3"
-    Profinity 2.2 on Linux used the XDG layout (`~/.local/share/Prohelion/Profinity`). From **2.3**, the default is **`/var/lib/prohelion/profinity`** (lowercase, matching standard `/var/lib` packaging conventions) for service-oriented deployments. Migration runs automatically on first start after upgrade, and also covers hosts that were previously migrated to a Pascal-cased `/var/lib/Prohelion/Profinity` path.
+    Profinity 2.2 on Linux used the XDG layout (`~/.local/share/Prohelion/Profinity`). From **2.3**, the default is **`/var/lib/prohelion/profinity`** (lowercase, matching standard `/var/lib` packaging conventions) for service-oriented deployments. Migration runs automatically on first start after upgrade (unless `PROFINITY_HOME` is set; see [Automatic migration on startup](#automatic-migration-on-startup)), and also covers hosts that were previously migrated to a Pascal-cased `/var/lib/Prohelion/Profinity` path.
 
 ## Override with PROFINITY_HOME
 
@@ -47,17 +49,23 @@ Set the environment variable **`PROFINITY_HOME`** to the full path of the artefa
 Example (Linux shell):
 
 ```bash
-export PROFINITY_HOME=/var/lib/Prohelion-Staging/Profinity
+export PROFINITY_HOME=/var/lib/prohelion-staging/profinity
 ```
 
 ## Automatic migration on startup
 
 On first start after upgrading to 2.3, Profinity migrates legacy trees into the resolved artefacts directory. Migration is **non-fatal**: a locked or offline file does not block engine start; partial progress resumes on the next restart.
 
+!!! warning "Migration does not run when PROFINITY_HOME is set"
+    When `PROFINITY_HOME` is set, Profinity does **not** copy data from the legacy locations below, so a custom root is never filled from the default install. Copy any data you need into the custom root yourself. This includes Docker deployments that set `PROFINITY_HOME`. The in-place rename of capitalised folders (`Config`, `Profiles`, `Logs`) to lowercase still runs under any root.
+
 ### Windows and macOS sources
 
 1. `~/Documents/Prohelion/Profinity` — files copied when the destination does not already have the same path (fill gaps only).
 2. `~/Prohelion/Profinity` — merged with overwrite on collision when moving to the application-data target.
+3. The same folder under the application-data location with the other casing (lowercase `prohelion/profinity`) — renamed in place on case-insensitive volumes, otherwise merged with overwrite on collision.
+
+Sources are processed in the order listed. On Windows and macOS, `~/Prohelion/Profinity` is the older, authoritative location, so it overwrites. On Linux the same folder only fills gaps, and `~/.local/share/Prohelion/Profinity` (the 2.2 layout) is the source that overwrites.
 
 ### Linux sources
 
@@ -68,7 +76,7 @@ On first start after upgrading to 2.3, Profinity migrates legacy trees into the 
 
 Legacy folders are removed only after every file is present at the destination with matching content.
 
-The desktop application shows a progress window during migration. On all hosts, select **ADMIN** in the side menu, then the **Logs** pill, to see the per-file migration messages.
+The Windows desktop application shows a progress window during migration. On all hosts, the per-file migration messages appear in the **Admin** area under **Logs**.
 
 ## Linux service layout
 
@@ -81,11 +89,11 @@ For systemd deployments (including Rinstrum scale integrations), a typical layou
 | `/opt/profinity` | Install root (`profinity.sh`, `update.sh`, `VERSION`, `edition.json`) |
 | `/opt/profinity/app` | Profinity binaries (self-contained or portable) |
 
-`/opt/profinity` is the default install root created by the bootstrap installer (`install.sh`); pass `--install-dir` to use a different location. The `profinity` service user is created by the installer and owns `/var/lib/prohelion/profinity`. On a manual or file-only install (`install.sh --no-systemd`), create the artefacts directory and set ownership before first start:
+`/opt/profinity` is the default install root created by the bootstrap installer (`install.sh`); pass `--install-dir` to use a different location. The `profinity` service user is created by the installer, which sets ownership of `/var/lib/prohelion` (and so the artefacts directory) to that user. On a manual or file-only install (`install.sh --no-systemd`), create the artefacts directory and set ownership before first start:
 
 ```bash
 sudo mkdir -p /var/lib/prohelion/profinity
-sudo chown profinity:profinity /var/lib/prohelion/profinity
+sudo chown -R profinity:profinity /var/lib/prohelion
 ```
 
 ## Linux launcher (profinity.sh)
@@ -103,13 +111,15 @@ The artefacts directory inside a container is the path named by **`PROFINITY_HOM
 !!! warning "Update volume mounts after upgrading to 2.3 on Linux"
     If a compose file still mounts `./config` to `/root/.local/share/Prohelion/Profinity/Config` or `/root/Prohelion/Profinity/Config`, update the mounts to the artefacts root named by `PROFINITY_HOME`, and set `PROFINITY_HOME` so that config and profiles persist across container restarts.
 
+The one-line Docker installer (`install-docker.sh`) takes a different approach: it sets `PROFINITY_HOME=/var/lib/prohelion/profinity` inside the container and mounts `./data` there. Either layout works, provided `PROFINITY_HOME` matches the container-side mount path.
+
 See [Docker Installation](./Docker_Installation.md) for compose examples.
 
 ## Troubleshooting
 
 | Symptom | Check |
 |---------|--------|
-| Empty profile after upgrade | Confirm migration logs; verify `PROFINITY_HOME` is not pointing at an empty directory |
+| Empty profile after upgrade | Confirm migration logs; if `PROFINITY_HOME` is set, legacy data is not migrated, so copy it across or unset the variable |
 | Permission denied on Linux | `chown` artefacts tree to the service user; `/var/lib` requires root to create, then hand off ownership |
 | Two instances share config | Each instance needs a unique `PROFINITY_HOME` and unique HTTP/HTTPS ports |
 
