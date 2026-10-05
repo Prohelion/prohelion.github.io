@@ -415,3 +415,14 @@ ollama
 unacknowledging
 # UI label 'Component catalog' and MCP tool get_tag_catalog
 catalog
+# Product term: the Profinity Artifacts directory (literal name, not the AU "artefact" prose spelling)
+artifact
+artifacts
+# Possessive written with a curly apostrophe (Profinity’s) tokenises as 'profinitys'
+profinitys
+# EtherNet/IP and Allen-Bradley PLC terms
+backplane
+logix
+# Valid English
+prepended
+rebrands
