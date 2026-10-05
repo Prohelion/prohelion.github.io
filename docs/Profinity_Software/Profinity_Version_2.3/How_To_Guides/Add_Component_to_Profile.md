@@ -57,4 +57,4 @@ Add and configure components in your active profile to monitor CAN bus devices.
 ## Related Documentation
 
 - [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md) - the full component setup reference
-- [CAN Bus Adapters](../Components/Adapters/CAN_Bus_Adapters.md) - Adapter configuration
+- [CAN Bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) - Adapter configuration

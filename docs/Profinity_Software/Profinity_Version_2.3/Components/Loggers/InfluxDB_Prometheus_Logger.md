@@ -52,54 +52,9 @@ When these settings are correct, data flows into InfluxDB V1. If it does not, ch
 !!! warning "InfluxDB Cloud HealthCheck Warning"
     InfluxDB Cloud does not support the InfluxDB Health Check API, so the InfluxDB Health Check setting must be set to false when InfluxDB Cloud is used to store your data.
 
-### InfluxDB v2 Historian
+### InfluxDB v2 and v3 Historians
 
-InfluxDB V2 uses token-based authentication and introduces the concepts of buckets and organisations, replacing the database and retention policy concepts from V1.
-
-To log your CAN bus data to InfluxDB V2, first install InfluxDB V2 and confirm that it is running, then add an InfluxDB v2 Historian to your profile and configure the following options:
-
-| Setting               | Purpose                                                                                               |
-| --------------------- | ----------------------------------------------------------------------------------------------------- |
-| InfluxDB Bucket       | The InfluxDB bucket that the data is stored in.                                                       |
-| InfluxDB Organisation | The InfluxDB organisation that owns the bucket.                                                       |
-| InfluxDB Token        | The security token of the user that Profinity connects to InfluxDB as.                                  |
-| Influx Server URL     | The endpoint URL that InfluxDB is running on.                                                         |
-| Dashboard URL         | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link.             |
-| InfluxDB Health Check | Performs a health check on the connection at regular intervals.                                        |
-| Collections            | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
-| Logging Interval (Sec) | The interval, in seconds, at which log data is sent.                                                   |
-| Logging mode          | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. See [Logging Modes](#logging-modes). |
-| Allow Retrieval       | Allows data to be retrieved through this historian using the APIs.                                         |
-| Designated tag historian reader | Exactly one logger or historian in the profile should enable this (Influx or SQL), because long-range tag and history queries use that instance as the tag data store. |
-
-When these settings are correct, data flows into InfluxDB V2. If it does not, check the [Logs](../../Getting_Started/Profinity_Log.md) for more details.
-
-!!! warning "InfluxDB Cloud HealthCheck Warning"
-    InfluxDB Cloud does not support the InfluxDB Health Check API, so the InfluxDB Health Check setting must be set to false when InfluxDB Cloud is used to store your data.
-
-### InfluxDB v3 Historian
-
-InfluxDB V3 uses token-based authentication and introduces the concept of databases, which replaces both the bucket and organisation concepts from V2. V3 simplifies the data model by using a single database concept instead of the bucket/organisation hierarchy.
-
-To log your CAN bus data to InfluxDB V3, first install InfluxDB V3 and confirm that it is running, then add an InfluxDB v3 Historian to your profile and configure the following options:
-
-| Setting               | Purpose                                                                                               |
-| --------------------- | ----------------------------------------------------------------------------------------------------- |
-| InfluxDB Database     | The InfluxDB V3 database that the data is stored in. Replaces the bucket and organisation concepts used by V2. |
-| InfluxDB Token        | The security token of the user that Profinity connects to InfluxDB as.                                  |
-| Influx Server URL     | The endpoint URL that InfluxDB is running on.                                                         |
-| Dashboard URL         | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link.             |
-| InfluxDB Health Check | Performs a health check on the connection at regular intervals.                                        |
-| Collections            | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
-| Logging Interval (Sec) | The interval, in seconds, at which log data is sent.                                                   |
-| Logging mode          | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. See [Logging Modes](#logging-modes). |
-| Allow Retrieval       | Allows data to be retrieved through this historian using the APIs.                                         |
-| Designated tag historian reader | Exactly one logger or historian in the profile should enable this (Influx or SQL), because long-range tag and history queries use that instance as the tag data store. |
-
-When these settings are correct, data flows into InfluxDB V3. If it does not, check the [Logs](../../Getting_Started/Profinity_Log.md) for more details.
-
-!!! warning "InfluxDB Cloud HealthCheck Warning"
-    InfluxDB Cloud does not support the InfluxDB Health Check API, so the InfluxDB Health Check setting must be set to false when InfluxDB Cloud is used to store your data.
+The InfluxDB V2 and V3 components are registered as historians rather than loggers, because they additionally allow data to be read back through the APIs, and they are documented in the **Historians** section: see the [InfluxDB v2 Historian](../Historians/InfluxDB_v2_Historian.md) and the [InfluxDB v3 Historian](../Historians/InfluxDB_v3_Historian.md). They share the [Logging modes](#logging-modes) described below.
 
 ### Logging Modes
 

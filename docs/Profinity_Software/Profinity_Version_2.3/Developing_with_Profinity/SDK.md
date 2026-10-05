@@ -34,8 +34,8 @@ The Profinity SDK is not published to a public download link, a NuGet feed, or a
 release it targets. Unzipping it gives the `Profinity.Sdk` NuGet package (`.nupkg`) and a `README.txt` at the top level,
 with `profinity-script` and `profinity-component-pack` in their own subfolders.
 
-!!! info "No public NuGet feed in 2.3"
-    `Profinity.Sdk` is not available from a public NuGet feed in 2.3. Reference the package from the kit's local folder.
+!!! info "Reference the SDK locally"
+    `Profinity.Sdk` is distributed in the kit rather than from a public NuGet feed. Reference the package from the kit's local folder.
 
 ## Which piece to use
 

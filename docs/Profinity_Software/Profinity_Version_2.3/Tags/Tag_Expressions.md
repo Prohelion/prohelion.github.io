@@ -152,7 +152,7 @@ These spellings, used in early builds, fail validation. Rewrite them as shown:
 ## Related documentation
 
 - [Collections](./Collections.md)
-- [ALL ALERTS](./Alerts.md)
+- [Alerts Log](./Alerts.md)
 - [Rule actions and scripts](./Actions.md)
 - [Derived tags](./Derived_Tags.md)
 - [Tag linking](Tag_Linking.md)

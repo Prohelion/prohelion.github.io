@@ -70,7 +70,7 @@ To update the configuration, open the `Change Settings` menu at the top-right of
 
 ## Flashing the BMU Firmware
 
-To flash the BMU firmware, open the `Change Settings` menu at the top-right of the BMU dashboard, select the `Firmware Utilities` tab and run the `Update Firmware` action. Gen1 BMU units require a [CAN to Ethernet bridge](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) or a [Virtual CAN Adapter](../Adapters/Virtual_CAN_Adapter.md) for this operation, whereas Gen2 units can be flashed with any supported CAN adapter.
+To flash the BMU firmware, open the `Change Settings` menu at the top-right of the BMU dashboard, select the `Firmware Utilities` tab and run the `Update Firmware` action. Gen1 BMU units require a [CAN to Ethernet bridge](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) or a [Virtual CAN Adapter](../CAN_Bus_Protocols/Virtual_CAN_Adapter.md) for this operation, whereas Gen2 units can be flashed with any supported CAN adapter.
 
 !!! warning "M48 Gen1 requires exactly two terminating resistors"
     The M48 Gen1 procedure uses a Virtual CAN Adapter and Hub together with a PEAK CAN adapter, and requires exactly two 120 Ohm terminating resistors on the CAN bus because any other number can corrupt the firmware. The procedure is described step by step in the [M48 Gen1 Firmware Update Procedure](../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Firmware_update_procedure.md).

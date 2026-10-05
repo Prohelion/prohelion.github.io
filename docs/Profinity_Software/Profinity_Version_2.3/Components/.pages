@@ -1,12 +1,14 @@
 nav:
-    - Adapters
+    - CAN_Bus_Protocols
     - Industrial_Protocols
     - Battery_Management_Systems
     - Chargers_and_Power
     - Motor_Controller
     - MPPT
     - Loggers
+    - Historians
     - Publishers_and_Subscribers
+    - Tag_Relays
     - Dashboard
     - Cloud_Dashboard
     - Custom_Components

@@ -34,19 +34,9 @@ The editor shows the collections as a tree on one side and an inspector for the 
 
 The `id` of a collection is immutable and is the value that rules use in their `scope.collection` references. A `scope` is either a path prefix string or an object with a `prefix`, and the inspector shows it as **Scope prefix** under **Binding** for a collection. A relative scope on a collection joins beneath the scope of its group, whereas an absolute scope replaces the inherited one. The inspector requires a display name and a non-empty expression before a collection can be saved, and a user who holds the security administration permission can also set a collection's `security` policy (`mode` of `All` or `Restricted`, with `allowedRoles`). The built-in **(All Tags)** collection with the id `All` is owned by the engine, is shown read-only in the tree and is never written to the file.
 
-## Document version and ids
-
-After upgrading from 2.2.x:
-
-- Open each collection in the **visual editor** and **save** it once, which stamps `version: "2.3"` and normalises the ids of any collection whose YAML was edited by hand.
-- Each collection member has an `id` that must be present and must not be changed.
-
 ## Create collections from Tag Explorer
 
 A collection can be started from the Tag Explorer context menu, as described in [Tag linking](Tag_Linking.md).
-
-!!! note "Reciprocal linking"
-    Reciprocal editors (for example "add rule to collection" from the collections view only) are **not** available in 2.3. Use the Tag Explorer flows.
 
 ## Membership expression
 
@@ -71,5 +61,5 @@ Collections are managed via `/api/v2` tag collections controllers with JSON requ
 - [Tag expressions](./Tag_Expressions.md)
 - [Tag layer](index.md)
 - [Tag linking](Tag_Linking.md)
-- [ALL ALERTS](./Alerts.md)
+- [Alerts Log](./Alerts.md)
 - [Derived tags](./Derived_Tags.md)

@@ -32,7 +32,7 @@ In this mode, the Profinity GUI is available only via the browser (there is no d
 
 Profinity Server does not require any additional Prohelion hardware to run. It can be used as a general-purpose development framework for building web UIs for CAN bus based architectures, or for providing a server interface to CAN infrastructure with cloud connectivity.  
 
-When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/Adapters/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
+When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
 
 !!! info "Licensing for Production Environments"
     Use of Profinity Server in production environments on Windows, Docker, Linux or macOS may require an additional licence key, depending on the commercial arrangement with Prohelion.
