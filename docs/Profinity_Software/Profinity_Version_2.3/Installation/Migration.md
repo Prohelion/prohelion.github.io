@@ -103,6 +103,6 @@ If issues occur during migration:
 
 - [Windows Installation](./Windows_Installation.md) - Installing V2 on Windows
 - [Docker Installation](./Docker_Installation.md) - Installing V2 using Docker
-- [Zip Installation](./Zip_Installation.md) - Installing V2 on macOS/Linux
+- [Linux and macOS Installation](./Zip_Installation.md) - Installing V2 on macOS/Linux
 - [Profiles](../Administration/Profiles.md) - Working with profiles in V2
 - [Security Guide](./Security.md) - Security considerations for V2
