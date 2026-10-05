@@ -2,5 +2,6 @@ nav:
   - index.md
   - Console.md
   - State.md
+  - Tags.md
   - CANBus.md
-  - DBC.md 
+  - DBC.md

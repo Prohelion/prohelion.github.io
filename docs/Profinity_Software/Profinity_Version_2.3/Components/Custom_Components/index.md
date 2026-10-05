@@ -42,9 +42,16 @@ The dashboard is the component's page in the profile. Profinity provides a YAML 
 
 Bindings, layout, and the visual editor are covered in the [Dashboard Development Guide](../../Customising_Profinity/Dashboards/index.md). A first dashboard for a Custom Component is in [How to Create a Custom Dashboard](../../How_To_Guides/Create_Custom_Dashboard.md).
 
+## Distributing a Custom Component as a plugin
+
+As of Profinity 2.3, a Custom Component that works in one profile can be turned into a plugin and distributed to other installations, with no rebuild of the component. The [Profinity SDK](../../Developing_with_Profinity/SDK.md) kit includes `profinity-component-pack`, which validates the component's files and packs them as a `.zip` or a `.nupkg`. An administrator then uploads the package under **ADMIN** → **Components & Plugins**, and the component appears in Add Component under the name the author gave it.
+
+The pack is a bundle of the component's own files (DBC, dashboard, scripts and maps), not a compiled DLL plugin. Packing and installing are covered in [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md#packing) and [Component Pack CLI](../../Developing_with_Profinity/Custom_Components/Component_Pack_CLI.md), and the kit is available from Prohelion (see [Profinity SDK](../../Developing_with_Profinity/SDK.md)).
+
 ## Related documentation
 
 - [How to Create a Custom Component](../../How_To_Guides/Create_Custom_Component.md) — add one to a profile
 - [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md) — files, scripts, maps, and packs
 - [Component types](../../Developing_with_Profinity/Custom_Components/Component_Types.md) — Custom Component, Dashboard Component, and DLL plugins
+- [Profinity SDK](../../Developing_with_Profinity/SDK.md) — the kit that packs a component for distribution
 - [CAN bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md) — the Messages and Signals viewer

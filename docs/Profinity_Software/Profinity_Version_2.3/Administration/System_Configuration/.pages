@@ -1,4 +1,10 @@
 nav:
     - index.md
+    - Application_Config.md
     - AI_Settings.md
+    - Logging.md
+    - Discovery.md
+    - Profinity_Web.md
+    - Extensions_Web.md
+    - Tags.md
     - Security

@@ -94,7 +94,8 @@ or publishing several tags from one computation — is written as a script inste
 
 Tag paths passed to `Profinity.Tags` are relative to the script's own host component, so a script
 is naturally suited to computing a derived value from — and publishing back to — tags on the same
-component.
+component. A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on
+other components (see [Tags in scripts](../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths)).
 
 === "C#"
 

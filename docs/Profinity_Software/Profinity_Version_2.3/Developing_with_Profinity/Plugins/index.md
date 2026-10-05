@@ -18,10 +18,6 @@ DLL plugins are **distinct** from **Custom Component packs** (zip or nupkg bundl
 3. Name the package after the plugin. The plugin id is taken from the archive file name without its extension (for example `my_plugin.zip` installs as `my_plugin`) and may contain only letters, digits, hyphens and underscores.
 4. Hand the package to an administrator to upload and enable. Uploading requires the **Custom Plugins** licensed feature.
 
-## REST API
-
-The base path is `/api/v2/plugins`, which lists, uploads (`POST /api/v2/plugins/upload`, multipart field `pluginArchive`), enables, disables and deletes plugins, and requires the matching `PluginView` or `PluginModify` permission. The listing, upload and delete operations also require the **Custom Plugins** licensed feature.
-
 ## NuGet feed
 
 Plugins are installed from **local packages only** in this release, and Profinity does not document a public NuGet **feed** publishing workflow in this release. See [Profinity SDK](../SDK.md) for how to get `Profinity.Sdk` itself.
