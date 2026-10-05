@@ -125,7 +125,7 @@ For detailed information about scripting capabilities and security consideration
 
 ### Security roles
 
-Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists. security.yaml is stamped `Version: "2.3"`.
+Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists.
 
 See [Roles and permissions](../Administration/Roles_and_Permissions.md) for the full catalogue, the built-in Administrators role, and suggested starting points for other roles.
 
