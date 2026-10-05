@@ -1,23 +1,14 @@
 ---
 title: Kiosk Mode
-description: "Configure automatic user authentication for kiosk displays and unattended systems, bypassing login for specific profiles."
+description: "Configure automatic sign-in for kiosk displays and unattended monitoring stations, bypassing the login page for a specific profile."
 ---
 
 # Kiosk Mode
 
-Kiosk Mode is a Profinity feature that enables automatic user authentication, bypassing the login page for specific profiles. When enabled, anyone accessing Profinity is automatically authenticated as the configured kiosk user, which allows access to the system without a manual login.
+Kiosk Mode signs a display in automatically as a user you choose, so that the login page is never shown on kiosk displays, public terminals and dedicated monitoring stations that need to stay signed in without anyone at the keyboard. It is set per profile and applies whenever that profile is the active profile.
 
 !!! warning "A kiosk session inherits the kiosk user's permissions"
-    Anyone who can reach a kiosk display or the Profinity web address of a kiosk profile acts as the kiosk user, with every permission that user holds. Profinity lists any enabled user in the Kiosk Mode User dropdown, including administrators, so assign a user with the minimum permissions required, such as a read-only role built from view permissions only. See [Security Best Practices](#security-best-practices).
-
-## What is Kiosk Mode?
-
-Kiosk Mode automatically authenticates users when a profile is active, eliminating the need for manual login. It is particularly useful for:
-
-- **Kiosk displays**: public-facing terminals or displays that should log in automatically.
-- **Public terminals**: shared workstations that need automatic access.
-- **Automated access**: systems that require unattended access without user interaction.
-- **Dedicated monitoring stations**: displays that stay logged in to a specific profile.
+    Anyone who can reach a kiosk display, or the Profinity web address of a kiosk profile, acts as the kiosk user with every permission that user holds. Profinity lists any enabled user in the Kiosk Mode User dropdown, including administrators, so choose a dedicated user with the minimum permissions required. See [Choosing the Kiosk User](#choosing-the-kiosk-user).
 
 ## Enabling Kiosk Mode
 
@@ -31,74 +22,36 @@ To enable Kiosk Mode for a profile:
 6. Select a **Kiosk Mode User** from the dropdown, which lists the enabled users.
 7. Save the profile settings.
 
-Profinity rejects the save if Kiosk Mode is enabled without a Kiosk Mode User, or if the selected user does not exist or is disabled.
+Profinity rejects the save if Kiosk Mode is enabled without a Kiosk Mode User, or if the selected user no longer exists or has been disabled. Kiosk Mode only applies to the active profile, so a display signs in automatically when a profile with Kiosk Mode enabled is active, and normal login is required when a profile without Kiosk Mode becomes active.
 
-!!! info "Profile Must Be Active"
-    Kiosk Mode only applies to the active profile. When a profile with Kiosk Mode enabled becomes active, users are automatically authenticated. When a profile without Kiosk Mode becomes active, normal login is required.
+For the browser and operating system setup that opens Profinity full screen on the display, see [How to Set Up Profinity as a Kiosk Application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
 
-## How Kiosk Mode Works
+## What the Display Does
 
-Kiosk Mode uses automatic authentication without requiring user credentials:
+When a browser opens Profinity on a profile with Kiosk Mode enabled, the login page appears briefly and then signs in as the kiosk user, which takes a few seconds and needs no username or password from anyone at the display.
 
-1. **Status Check**: when Profinity is accessed, the login page first checks whether Kiosk Mode is enabled for the active profile.
-2. **Automatic Authentication**: if Kiosk Mode is enabled, the frontend waits about three seconds and then requests authentication with no username or password.
-3. **Backend Processing**: the backend recognises a request with empty credentials as a Kiosk Mode authentication request and authenticates as the configured kiosk user.
-4. **Continuous Validation**: once authenticated, the frontend checks every five seconds that Kiosk Mode is still enabled, and logs the user out automatically if it has been disabled.
+If someone signs out on purpose, Profinity does not sign the display back in automatically, so that an operator can log in as a different user. The login page stays on the credentials form and shows a **Return to kiosk** button, which resumes the kiosk session.
 
-### Login Page Behaviour
+Kiosk Mode is checked continuously while the display is signed in. If an administrator disables Kiosk Mode, changes the Kiosk Mode User or switches to a profile without Kiosk Mode, the display is signed out within a few seconds and the normal login page is shown, and the previous kiosk session can no longer be used.
 
-When Kiosk Mode is enabled:
+## Choosing the Kiosk User
 
-- The login page checks the Kiosk Mode status when it loads.
-- If Kiosk Mode is enabled, the login page attempts automatic authentication after a brief delay, and users bypass the login page entirely when authentication succeeds.
-- If a user explicitly logs out, Profinity does not re-authenticate automatically. The login page stays on the credentials form so the operator can sign in as a different account, and a **Return to kiosk** button is shown to resume the kiosk session.
+The kiosk user must exist and must be enabled, and Profinity does not restrict which roles that user holds. The permissions of the selected user are therefore the only control over what an unattended display can do, so create a dedicated account for the purpose, such as `kiosk-display`, rather than reusing a person's account, which also makes kiosk access easy to identify in the system logs.
 
-## Requirements
+Assign the dedicated account a read-only role built from view permissions only, as described in [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md#which-roles-to-create). Never select an administrator or a user holding a high-risk permission such as `CANSend`, because anyone at the display would inherit it.
 
-Kiosk Mode places the following requirements on the selected user account:
+A kiosk session expires under the normal token expiry policy. A display that runs for months without attention can use a kiosk user marked as a service account, whose session never expires, provided the account is treated with the same care as any long-lived credential. Review the kiosk user from time to time to confirm it is still appropriate and enabled, and disable Kiosk Mode on any profile that no longer needs it.
 
-- **Must exist**: the user must be defined in Profinity.
-- **Must be enabled**: disabled users cannot be selected and cannot authenticate in Kiosk Mode.
+## Troubleshooting
 
-Profinity does not restrict which roles the kiosk user holds. The kiosk session carries the full permissions of the selected user, so the choice of user is the control that limits what an unattended display can do.
-
-## Use Cases
-
-### Kiosk Displays
-
-Kiosk displays in public areas can log in automatically to display system information without requiring user interaction, which suits monitoring stations, information displays, and public-facing terminals.
-
-### Dedicated Monitoring Stations
-
-Dedicated monitoring stations that run continuously can use Kiosk Mode to authenticate and display system data without manual login, which keeps system information available without interruption.
-
-### Automated Systems
-
-Automated systems that require programmatic access can use Kiosk Mode to obtain consistent authentication without manual intervention.
-
-## Token Management
-
-Kiosk Mode tokens work in the same way as regular user tokens:
-
-- **Standard Tokens**: by default, Kiosk Mode tokens expire according to the normal token expiration policy.
-- **Service Accounts**: if the kiosk user is configured as a service account, the token never expires, which suits long-running automated systems.
-- **Token Refresh**: Kiosk Mode tokens can be refreshed like regular tokens, preserving the `kiosk_mode` claim if Kiosk Mode is still enabled.
-- **Automatic Revocation**: when Kiosk Mode is disabled, when the kiosk user is changed, or when the profile is switched, all tokens for the previous kiosk user are revoked automatically.
-
-## Security Best Practices
-
-When using Kiosk Mode:
-
-- **Use dedicated kiosk user accounts**: create specific user accounts for Kiosk Mode rather than using regular user accounts, which makes kiosk access easier to track and manage.
-- **Limit user permissions**: assign the kiosk user only the minimum permissions required, for example a read-only role built from view permissions only, as suggested in [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md#which-roles-to-create). Never select an administrator or a user holding high-risk permissions such as `CANSend`, because Profinity does not prevent it and anyone at the kiosk would inherit them.
-- **Service accounts for automation**: if Kiosk Mode is used for automated systems, consider marking the kiosk user as a service account to enable non-expiring tokens, and treat that token with the same care as any long-lived credential.
-- **Review kiosk users regularly**: periodically review kiosk user configurations to confirm they remain appropriate and enabled.
-- **Monitor access**: monitor Kiosk Mode usage through the system logs to confirm it is used as intended.
-- **Disable when not needed**: disable Kiosk Mode when it is not required, to reduce security exposure.
-- **Profile awareness**: Kiosk Mode is profile-specific, so normal login is required after switching to a profile without Kiosk Mode.
+- **The login page is shown instead of signing in:** confirm that the profile is the active profile, that Kiosk Mode is enabled on it and that a valid, enabled user is selected as the Kiosk Mode User. If the display was signed out on purpose, select **Return to kiosk**.
+- **The display shows the wrong profile:** Kiosk Mode signs in to the active profile only, so make the intended profile active.
+- **The display was signed out unexpectedly:** Kiosk Mode was disabled, the Kiosk Mode User was changed or a different profile was made active. Check the profile settings and sign the display in again.
+- **A user is missing from the Kiosk Mode User dropdown:** only enabled users are listed, so enable the user in [Managing Users](./Users_and_Access/Manage_Users.md).
+- **The save is rejected:** select an existing, enabled user before saving, as Kiosk Mode cannot be enabled without one.
 
 ## Related Documentation
 
 - [Profiles](./Profiles.md) - profile configuration and management
-- [Managing Users](./Users_and_Access/Manage_Users.md) - user accounts, roles, and permissions
-- [System Configuration](./System_Configuration/index.md) - system-wide configuration settings
+- [Managing Users](./Users_and_Access/Manage_Users.md) - user accounts, roles and permissions
+- [How to Set Up Profinity as a Kiosk Application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md) - browser and operating system setup for a kiosk display
