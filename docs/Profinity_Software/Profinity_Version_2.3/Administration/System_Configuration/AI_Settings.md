@@ -7,6 +7,9 @@ description: "Configure the instance-wide Profinity AI assistant with external p
 
 Profinity AI is an instance-wide chat assistant, configured once by an administrator and then made available to any permitted user from the side menu. A single configuration applies to the whole instance; Profinity 2.3 does not support per-user API keys or per-user provider selection.
 
+!!! info "Licence required"
+    Profinity AI requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../Licensing.md) for what each edition includes.
+
 Once enabled, the assistant can query live data from this Profinity instance through the built-in MCP server, search docs.prohelion.com for how-to and reference material, and, if the administrator enables it, search the web. Requests are answered by an external AI provider (Claude, OpenAI, or OpenRouter) or by a local, self-hosted model.
 
 ## Enable Profinity AI

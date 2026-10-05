@@ -5,11 +5,11 @@ description: "Log CAN bus messages or tag collection values to local files or a 
 
 # File and Tag Loggers
 
-File loggers in Profinity write either native CAN bus messages or the values of the tags in selected tag collections to a file, which can then be stored locally or transmitted remotely to an SFTP server.
+File loggers in Profinity write either native CAN bus messages or the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to a file, which can then be stored locally or transmitted remotely to an SFTP server.
 
 ## Logger Variants
 
-File based loggers in Profinity are available in four variants, each added to a Profile as its own component under **Loggers**:
+File based loggers in Profinity are available in four variants, each added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers**:
 
 | Logger          | Details                                                                                                      |
 |-----------------|--------------------------------------------------------------------------------------------------------------|

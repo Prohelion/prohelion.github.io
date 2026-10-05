@@ -12,6 +12,9 @@ separate downloads, because a script or component author needs more than the lib
 own — the kit bundles the library together with the two command-line tools that run and
 pack what is written against it.
 
+!!! info "Licence required"
+    The Profinity SDK is an add-on to your Desktop, Server or Enterprise edition, supplied by Prohelion on request. See [Licensing](../Administration/Licensing.md).
+
 ## What is in the kit
 
 | Item | What it is for | Where to read more |

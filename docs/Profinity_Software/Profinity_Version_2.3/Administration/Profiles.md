@@ -74,7 +74,7 @@ Kiosk Mode enables automatic user authentication for a profile, bypassing the lo
 
 ### Enabling Kiosk Mode
 
-To enable Kiosk Mode for a profile:
+To enable [Kiosk Mode](./Kiosk_Mode.md) for a profile:
 
 1. Select **ADMIN** in the side menu
 2. Select the **Profile** pill

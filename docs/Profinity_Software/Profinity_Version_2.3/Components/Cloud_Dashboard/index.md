@@ -7,7 +7,10 @@ description: "Access Prohelion Cloud platform for device monitoring, management,
 
 Prohelion Cloud is an IoT platform for monitoring and managing field devices and storing their data, and it allows an organisation to monitor, analyse and manage its IoT devices and assets remotely.
 
-With the introduction of Profinity v2.3 many of these functions can be handled by Profinity itself, so while the Cloud Dashboard will remain for existing clients, we would suggest looking at using Profinity Rules, Dashboards and Tag Relays to achieve similar results.
+!!! info "Licence required"
+    The Prohelion Cloud Dashboard component requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
+
+With the introduction of Profinity 2.3 many of these functions can be handled by Profinity itself, so while the Cloud Dashboard will remain for existing clients, we would suggest looking at using Profinity Rules, [Dashboards](../../Customising_Profinity/Dashboards/index.md) and [Tag Relays](../Tag_Relays/index.md) to achieve similar results.
 
 Access to Prohelion Cloud is by request, and an access request is logged in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
 

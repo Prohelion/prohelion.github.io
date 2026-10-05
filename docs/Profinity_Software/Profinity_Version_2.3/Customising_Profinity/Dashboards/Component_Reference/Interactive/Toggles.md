@@ -5,7 +5,7 @@ description: "Switch controls that run an action when clicked and show an on or 
 
 # Toggles
 
-Switch components. Toggles provide on/off controls for component features, and a toggle runs an action each time that it is clicked while a data binding shows whether the feature is currently on or off.
+Switch components. Toggles provide on/off controls for component features, and a toggle runs an action each time that it is clicked while [data binding](../../Data_Binding.md) shows whether the feature is currently on or off.
 
 <figure markdown>
 ![Toggles component displaying switch controls for enabling or disabling features](../../images/toggles.png)

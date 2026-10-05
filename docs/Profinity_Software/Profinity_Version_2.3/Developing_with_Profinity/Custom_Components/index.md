@@ -5,7 +5,7 @@ description: "Author a Custom Component from DBC, dashboard, script, action, and
 
 # Custom Components
 
-A Custom Component is one built-in component type, `CustomComponent`, plus the files uploaded for that instance. As of Profinity 2.3 those files can include a DBC, a dashboard, a rules file, a main script, `actions.yaml`, `settings_map.yaml`, `firmware_map.yaml`, and `firmware.yaml`. Adding the component in a profile and filling in those files is enough to run it, and packing is a separate step used only when the same component should be installed somewhere else.
+A Custom Component is one built-in component type, `CustomComponent`, plus the files uploaded for that instance. As of Profinity 2.3 those files can include a [DBC](../../CAN_Utilities/CAN_Bus_DBC.md), a dashboard, a rules file, a main script, `actions.yaml`, `settings_map.yaml`, `firmware_map.yaml`, and `firmware.yaml`. Adding the component in a profile and filling in those files is enough to run it, and packing is a separate step used only when the same component should be installed somewhere else.
 
 Day-to-day behaviour in a profile, including the Messages and Signals viewer, is covered under [Custom Components](../../Components/Custom_Components/index.md). The click path to add one is [How to Create a Custom Component](../../How_To_Guides/Create_Custom_Component.md). How this type compares with a DLL plugin is [Component types](Component_Types.md).
 

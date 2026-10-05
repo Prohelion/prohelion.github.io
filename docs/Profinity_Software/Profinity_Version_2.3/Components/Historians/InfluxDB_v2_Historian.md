@@ -5,7 +5,7 @@ description: "Record tag history to an InfluxDB V2 server and read it back throu
 
 # InfluxDB v2 Historian
 
-The **InfluxDB v2 Historian** writes the values of the tags in the collections you select to an InfluxDB V2 server, and allows that history to be read back out through the APIs. It sits in the **Historians** category and requires the **Historians** licensed feature. Each recorded value belongs to a [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Tag_Tree_Path.md).
+The **InfluxDB v2 Historian** writes the values of the tags in the [collections](../../Tags/Collections.md) you select to an InfluxDB V2 server, and allows that history to be read back out through the APIs. It sits in the **Historians** category and requires the **Historians** licensed feature. Each recorded value belongs to a [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Tag_Tree_Path.md).
 
 !!! danger "InfluxDB V1, V2, and V3 are Separate, Incompatible Products"
     InfluxDB V1, V2, and V3 are **separate, incompatible products** with different APIs, authentication methods, and configuration requirements. The component type selected in Profinity must match the InfluxDB version installed, and using the wrong component type results in connection failures. This page covers V2 only, and the [InfluxDB v3 Historian](InfluxDB_v3_Historian.md) is documented separately.

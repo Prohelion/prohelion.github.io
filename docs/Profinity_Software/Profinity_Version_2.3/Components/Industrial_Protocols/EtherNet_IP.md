@@ -7,7 +7,8 @@ description: "Configure the EtherNet/IP PLC component to poll Allen-Bradley CIP 
 
 The **EtherNet/IP PLC** component is a CIP tag client for Allen-Bradley (Rockwell) PLCs. It connects to one PLC and polls the PLC tags you list in its point map, publishing each one as a Profinity tag. It supports ControlLogix, CompactLogix, Micro800, PLC-5 and SLC controllers.
 
-The EtherNet/IP plugin is not included in the standard Profinity installation. It is supplied by Prohelion on request and installed like any other [DLL plugin](../../Administration/Components_and_Plugins.md). It also requires the **Industrial Protocols** licensed component group; see [Licensing](../../Administration/Licensing.md). See [Industrial protocols](index.md) for an overview.
+!!! info "Licence required"
+    The EtherNet/IP plugin is not part of the standard installation. Prohelion supplies it on request, you install it like any other [DLL plugin](../../Administration/Components_and_Plugins.md), and it requires the **Industrial Protocols** licensed component group, an add-on to your edition. See [Licensing](../../Administration/Licensing.md), or [Industrial protocols](index.md) for an overview.
 
 You add an EtherNet/IP PLC to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [Adding Components to Your Profile](../../Getting_Started/Adding_New_Components.md). Add one component for each PLC you want to read. The settings below can be changed later from the component's `Change Settings` menu.
 

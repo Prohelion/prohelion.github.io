@@ -5,7 +5,7 @@ description: "Tag Explorer context menu flows to quickly create collections, rul
 
 # Tag linking from Tag Explorer
 
-Profinity 2.3 ships **Tag Explorer context menu** flows to create collections, rules, and dashboard bindings from selected tags, which reduces copying and pasting between Tag Explorer and the visual editors.
+Profinity 2.3 ships **Tag Explorer context menu** flows to create collections, rules, and [dashboard](../Customising_Profinity/Dashboards/index.md) bindings from selected tags, which reduces copying and pasting between Tag Explorer and the visual editors.
 
 ## Prerequisites
 

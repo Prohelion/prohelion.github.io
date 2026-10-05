@@ -9,6 +9,41 @@ Profinity uses an offline, signed licence file to control which commercial featu
 
 A licence sets the commercial **ceiling** for the instance. The final set of available features and components is the combination of the licence, the OEM customisation file (`Custom.yaml`), and the site configuration (`config.yaml`); a feature is only available when all three allow it. Config-level toggles can narrow what the licence permits, but never grant more than the licence allows.
 
+## What each edition includes
+
+Not every feature described in this documentation is available on every instance. The core product is substantial: the features ticked in every column are available in every edition, including an unlicensed instance, and a licence adds the rest.
+
+### Features by edition
+
+| Feature | Unlicensed (Personal use only) | Desktop | Server | Enterprise |
+|---------|:----------:|:-------:|:------:|:----------:|
+| Local web UI and [REST API](../Integrating_to_Profinity/APIs/index.md) | ✔ | ✔ | ✔ | ✔ |
+| Tags: [tag tree](../Tags/index.md), [derived tags](../Tags/Derived_Tags.md), [expressions](../Tags/Tag_Expressions.md), [linking](../Tags/Tag_Linking.md), [collections](../Tags/Collections.md), [logging and replay](../Tags/Logging_Replaying_Tags.md) | ✔ | ✔ | ✔ | ✔ |
+| [Dashboards](../Customising_Profinity/Dashboards/index.md) and the [Dashboard component](../Components/Dashboard/index.md), plus [kiosk mode](Kiosk_Mode.md) | ✔ | ✔ | ✔ | ✔ |
+| [Rules](../Tags/index.md), the [Alerts Log](../Tags/Alerts.md) and the built-in Profinity Log [action](../Tags/Actions.md) | ✔ | ✔ | ✔ | ✔ |
+| Device components: [battery management systems](../Components/Battery_Management_Systems/index.md), [motor controllers](../Components/Motor_Controller/index.md), [chargers and power](../Components/Chargers_and_Power/index.md) and [MPPTs](../Components/MPPT/index.md) | ✔ | ✔ | ✔ | ✔ |
+| CAN adapters: [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) and the [virtual CAN adapter](../Components/CAN_Bus_Protocols/Virtual_CAN_Adapter.md) | ✔ | ✔ | ✔ | ✔ |
+| CAN utilities: [send and receive](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md), [logging and replay](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) and [DBC files](../CAN_Utilities/CAN_Bus_DBC.md) | ✔ | ✔ | ✔ | ✔ |
+| Loggers: [file and SFTP loggers](../Components/Loggers/File_Loggers.md), and the [InfluxDB (v1) and Prometheus loggers](../Components/Loggers/InfluxDB_Prometheus_Logger.md) | ✔ | ✔ | ✔ | ✔ |
+| [Scripting](../Developing_with_Profinity/Scripting/index.md) in [C#, Lua and Python](../Developing_with_Profinity/Scripting/Supported_Languages/index.md) | ✔ | ✔ | ✔ | ✔ |
+| Custom extensions: [custom plugins](../Developing_with_Profinity/Plugins/index.md), [DLL plugins](Components_and_Plugins.md) and [custom components](../Components/Custom_Components/index.md) | ✔ | ✔ | ✔ | ✔ |
+| Historians: [InfluxDB v2](../Components/Historians/InfluxDB_v2_Historian.md), [InfluxDB v3](../Components/Historians/InfluxDB_v3_Historian.md) and [TAG SQL](../Components/Historians/TAG_SQL_Historian.md) | – | ✔ | ✔ | ✔ |
+| [Themes and branding](../Customising_Profinity/Theming/index.md) | – | ✔ | ✔ | ✔ |
+| Tag Rule Actions: Email, Slack, Webhook and MQTT [rule actions](../Tags/Actions.md) | – | – | ✔ | ✔ |
+| Data Relay: [Tag Relays](../Components/Tag_Relays/index.md) ([sender](../Components/Tag_Relays/Tag_Relay_Sender.md), [receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md)), [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md), [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber.md), [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md) and the [Cloud Dashboard](../Components/Cloud_Dashboard/index.md) | – | – | ✔ | ✔ |
+| [Two-Factor Authentication](System_Configuration/Security/Two_Factor_Authentication.md) | – | – | ✔ | ✔ |
+| Profinity AI: [AI Chat](../Profinity_AI/AI_Chat.md), [AI settings](System_Configuration/AI_Settings.md) and the [MCP server](../Integrating_to_Profinity/MCP_Server.md) | – | – | ✔ | ✔ |
+| Profinity Server: [Users & Groups](Users_and_Access/Manage_Users.md) and [Roles](Users_and_Access/Roles_and_Permissions.md) | – | – | ✔ | ✔ |
+| Enterprise Security: [SSO](System_Configuration/Security/SSO_and_Sign_In.md) and [SCIM](System_Configuration/Security/SCIM_and_SIEM.md) | – | – | – | ✔ |
+| [Industrial Protocols](../Components/Industrial_Protocols/index.md): [BACnet](../Components/Industrial_Protocols/BACnet.md), [EtherNet/IP](../Components/Industrial_Protocols/EtherNet_IP.md), [Modbus](../Components/Industrial_Protocols/Modbus.md), [OPC UA](../Components/Industrial_Protocols/OPC_UA.md) and [S7](../Components/Industrial_Protocols/S7.md) | – | Add-on | Add-on | Add-on |
+| [Profinity SDK](../Developing_with_Profinity/SDK.md): the `Profinity.Sdk` library, [`profinity-component-pack`](../Developing_with_Profinity/Custom_Components/Component_Pack_CLI.md) and `profinity-script` | – | Add-on | Add-on | Add-on |
+
+- **Unlicensed** is the state of a Desktop installation with no licence file, and of any instance after its 14-day local trial expires. An unlicensed Desktop installation is for personal, non-commercial use only and must not be used for commercial purposes. Commercial use requires a purchased Desktop licence; contact Prohelion.
+- Without Profinity Server there are no user accounts or roles. A Desktop installation runs as a single built-in admin user.
+- The 14-day local trial and sales evaluation licences include everything in the **Server** edition, but not **Enterprise Security**.
+- **Add-on** means something licensed separately from the edition, available on any commercial edition. Industrial Protocols is a component group that needs the matching plugin installed as well. The Profinity SDK is a developer kit that Prohelion supplies on request.
+- Pages for licence-dependent features carry a **Licence required** note at the top. The **License** page in the product is always the authority for your instance, because configuration can further narrow what a licence allows.
+
 ## Check licence status
 
 Select **ADMIN** in the side menu, then **License**. A user needs the **SecurityAdmin** permission to view or change this page.
@@ -65,7 +100,7 @@ A Profinity instance that has never had a licence applied issues itself a one-ti
 
 ## Desktop free-use policy
 
-A Desktop installation is not required to have a licence for non-commercial use, and does not issue or consume the automatic local trial described above. It keeps the unlicensed entitlement set indefinitely and shows a notice on the Home screen explaining the non-commercial-use restriction and directing commercial users to contact Prohelion. If a trial or commercial `license.yaml` is installed on a Desktop host manually, Profinity validates and applies it in the same way as on a server host.
+An unlicensed Desktop installation is provided for personal, non-commercial use only and must not be used for commercial purposes. Commercial use requires a purchased Desktop licence from Prohelion. A Desktop installation does not need a licence for personal use, and does not issue or consume the automatic local trial described above. It keeps the unlicensed entitlement set indefinitely and shows a notice on the Home screen explaining the non-commercial-use restriction and directing commercial users to contact Prohelion to purchase a Desktop licence. If a trial or commercial `license.yaml` is installed on a Desktop host manually, Profinity validates and applies it in the same way as on a server host.
 
 ## The machine fingerprint
 

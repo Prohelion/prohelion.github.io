@@ -9,7 +9,7 @@ Add custom images to your dashboards using the `/Profile/Images` directory.
 
 ## Prerequisites
 
-- Access to your profile's Images directory
+- Access to your [profile's](../Getting_Started/Profiles.md) Images directory
 - Image files in supported formats (SVG, PNG, JPG, GIF)
 - A dashboard to edit
 
@@ -32,7 +32,7 @@ Profile/
 
 ### Step 2: Reference the Image in Components
 
-**For Icons (Pill or Icon components):**
+**For [Icons](../Customising_Profinity/Dashboards/Component_Reference/Interactive/Icon.md) (Pill or Icon components):**
 ```yaml
 icon:
   image: device-icon.png  # Use filename only

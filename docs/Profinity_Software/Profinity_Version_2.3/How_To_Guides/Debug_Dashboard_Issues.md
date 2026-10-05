@@ -11,7 +11,7 @@ Troubleshoot and fix common dashboard problems.
 
 - Profinity V2 installed and running
 - A dashboard with issues
-- Access to the dashboard editor
+- Access to the [dashboard editor](../Customising_Profinity/Dashboards/Visual_Editor.md)
 
 ## Steps
 
@@ -27,7 +27,7 @@ Troubleshoot and fix common dashboard problems.
 
 ### Step 2: Verify Data Bindings
 
-1. Check the tag that each binding names:
+1. Check the tag that each [binding](../Customising_Profinity/Dashboards/Data_Binding.md) names:
    ```yaml
    bind:
      - target: value

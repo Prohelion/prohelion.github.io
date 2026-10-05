@@ -12,7 +12,7 @@ After installing Profinity it is recommended to create a new user to suit your s
 <figcaption>New user menu</figcaption>
 </figure>
 
-Each user is also assigned one or more roles, which bundle the permissions that allow or restrict particular Profinity functionality for that user. The default Administrators role includes the full permission bundle, so assigning it grants the permissions of every other role.
+Each user is also assigned one or more [roles](../Administration/Users_and_Access/Roles_and_Permissions.md), which bundle the permissions that allow or restrict particular Profinity functionality for that user. The default Administrators role includes the full permission bundle, so assigning it grants the permissions of every other role.
 
 ## More Information
 

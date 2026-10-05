@@ -5,7 +5,7 @@ description: "Configure Profinity using environment variable substitution in con
 
 # Environment Variables in Profinity
 
-Profinity supports environment variable substitution in both configuration files and profile files, allowing flexible, environment-specific configurations to be created without hardcoding values.
+Profinity supports environment variable substitution in both configuration files and [profile](../Administration/Profiles.md) files, allowing flexible, environment-specific configurations to be created without hardcoding values.
 
 ## Table of Contents
 

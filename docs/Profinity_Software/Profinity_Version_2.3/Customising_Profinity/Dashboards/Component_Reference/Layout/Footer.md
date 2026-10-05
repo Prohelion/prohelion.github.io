@@ -12,7 +12,7 @@ Bottom section of the dashboard. The web interface displays the footer bar and c
 <figcaption>Dashboard footer component with navigation menus and controls</figcaption>
 </figure>
 
-**Best for:** Showing or hiding the footer bar of a dashboard from a data binding
+**Best for:** Showing or hiding the footer bar of a dashboard from [data binding](../../Data_Binding.md)
 
 **When not to use:** To provide navigation links, help links or actions, because the web interface does not display `menu` items in the footer. Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) component instead
 

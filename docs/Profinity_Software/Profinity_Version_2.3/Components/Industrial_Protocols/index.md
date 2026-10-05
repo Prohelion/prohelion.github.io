@@ -16,9 +16,8 @@ installed like any other [DLL plugin](../../Administration/Components_and_Plugin
 <figcaption>Plug into the systems your site already runs</figcaption>
 </figure>
 
-## Licensing
-
-The protocol plugins require the **Industrial Protocols** licensed component group, in the same way [Tag Relays](../Tag_Relays/index.md) require the **Data Relay** licensed feature. Installing a plugin does not make its components available on its own: the instance's licence must include the Industrial Protocols group. See [Licensing](../../Administration/Licensing.md) to check whether it is licensed and available on your instance. The **Licensed component groups** table lists it as **Industrial Protocols**.
+!!! info "Licence required"
+    The protocol plugins also require the **Industrial Protocols** licensed component group, an add-on to your Desktop, Server or Enterprise edition. Installing a plugin does not make its components available without it. See [Licensing](../../Administration/Licensing.md) to check your instance, where the group is listed as **Industrial Protocols** under **Licensed component groups**.
 
 Each plugin has its own page describing its settings and point map, linked from the table below. [DLL plugins](../../Administration/Components_and_Plugins.md) explains how to install and enable a plugin once you have it.
 
@@ -34,7 +33,7 @@ Each plugin has its own page describing its settings and point map, linked from 
 
 Each plugin brings data in as ordinary Profinity tags — once polled, a value from any
 of these protocols behaves the same as a tag from a CAN device: it can be shown on a
-dashboard, included in a collection, watched by a rule, or read by a script.
+[dashboard](../../Customising_Profinity/Dashboards/index.md), included in a [collection](../../Tags/Collections.md), watched by a rule, or read by a [script](../../Developing_with_Profinity/Scripting/index.md).
 
 ## Related documentation
 

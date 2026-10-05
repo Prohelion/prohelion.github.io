@@ -5,7 +5,7 @@ description: "Create custom home page dashboards for profiles with the dashboard
 
 # Profile Dashboard
 
-A Profile Dashboard is a custom home page that replaces the standard Profinity home page when a profile is active. Profile Dashboards allow you to create a personalised landing page for your profile using the same dashboard system used for component dashboards.
+A Profile Dashboard is a custom home page that replaces the standard Profinity home page when a [profile](./Profiles.md) is active. Profile Dashboards allow you to create a personalised landing page for your profile using the same dashboard system used for component dashboards.
 
 ## What is a Profile Dashboard?
 

@@ -1,18 +1,18 @@
 ---
 title: Adding Components to Your Profile
-description: "Add components like hardware devices and CAN adapters to your Profinity profile by using the dashboard interface."
+description: "Add components like hardware devices and protocol adapters to your Profinity profile by using the dashboard interface."
 ---
 
 # Adding Components to Your Profile
 
-Components can be added to your Profile by selecting the `+ ADD COMPONENT` button from the sidebar or homepage.
+Components can be added to your [Profile](./Profiles.md) by selecting the `+ ADD COMPONENT` button from the sidebar or homepage.
 
 A page with all the currently supported components is presented, including hardware devices, data loggers and custom scripts, allowing you to select the component that you wish to add. The page also includes filter options to help locate the correct component.
 
 Some CAN bus adapters in Profinity can be auto-discovered, and a discovered adapter that is available in your configuration is shown at the top of the screen.  You can filter the devices shown by selecting a filter on the left hand side of the screen.
 
-!!! info "Add a CAN Adapter First"
-    Adding a CAN Adapter allows Profinity to receive CAN traffic from the devices connected to your CAN bus network, and without CAN traffic Profinity is limited in what it is able to show and do. The supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges, are described in [CAN bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), and a step-by-step procedure is given in [How to Connect to CAN Bus](../How_To_Guides/Connect_to_CAN_Bus.md).
+!!! info "Add a Protocol Adapter First"
+    Adding a protocol adapter allows Profinity to receive data from external systems, and without incoming data Profinity is limited in what it is able to show and do. For CAN bus networks, the supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges, are described in [CAN bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), and a step-by-step procedure is given in [How to Connect to CAN Bus](../How_To_Guides/Connect_to_CAN_Bus.md). For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, OPC UA and S7, described in [Industrial Protocols](../Components/Industrial_Protocols/index.md).
 
 <figure markdown>
 ![Add a new component to the Profile](../images/add_adapter_autodiscovery.png)

@@ -10,6 +10,9 @@ set to **Run On Alert** mode. Every action receives an **action context** that l
 tags that caused the rule to fire. The list is named **`TriggeredTags`** in the script context and
 **`triggeringTags`** in the Webhook and MQTT JSON message.
 
+!!! info "Licence required"
+    The Email, Slack, Webhook and MQTT rule actions requires the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions. Without it those actions are unavailable; a script set to **Run On Alert** needs only the **Scripting** feature, which every edition includes. See [Licensing](../Administration/Licensing.md) for what each edition includes.
+
 <figure markdown>
 ![A rule firing sends its full JSON context to pluggable actions — log, Slack, PagerDuty, or a script — with cooldown throttling and actions set once and inherited down the rule tree](../images/2.3-diagram-rule-actions.png)
 <figcaption>One integration point for every response</figcaption>

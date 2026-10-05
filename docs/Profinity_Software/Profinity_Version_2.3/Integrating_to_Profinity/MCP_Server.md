@@ -7,6 +7,9 @@ description: "Model Context Protocol server for AI assistants and MCP-aware tool
 
 Profinity includes a Model Context Protocol (MCP) server, which lets AI assistants and other MCP-aware tools query live data from a Profinity instance over a standard protocol. The server exposes read-only tools for tag discovery, tag values and history, and alert state; it does not expose any tool that writes or changes Profinity data.
 
+!!! info "Licence required"
+    The MCP server requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../Administration/Licensing.md) for what each edition includes.
+
 ## Table of Contents
 
 - [What is MCP?](#what-is-mcp)
@@ -25,7 +28,7 @@ The Model Context Protocol (MCP) is a standard protocol that lets AI assistants 
 
 ## Enabling the MCP server
 
-The MCP server is configured from the **Profinity AI** settings page (select **ADMIN** in the side menu, open the **System Configuration** pill, then choose **Profinity AI**), under its own **MCP Server** field group. Enabling **Profinity AI** itself also enables the MCP server, since the assistant depends on it; the MCP server can also be enabled on its own, independently of Profinity AI, for external MCP clients such as Claude Desktop.
+The MCP server is configured from the **[Profinity AI](../Administration/System_Configuration/AI_Settings.md)** settings page (select **ADMIN** in the side menu, open the **System Configuration** pill, then choose **Profinity AI**), under its own **MCP Server** field group. Enabling **Profinity AI** itself also enables the MCP server, since the assistant depends on it; the MCP server can also be enabled on its own, independently of Profinity AI, for external MCP clients such as Claude Desktop.
 
 !!! warning "Restart Required"
     Enabling or disabling the MCP server takes effect only after Profinity restarts. After saving the configuration, wait for the restart to complete before reloading the page, because the web client shows a restarting message while it waits for the engine to return.

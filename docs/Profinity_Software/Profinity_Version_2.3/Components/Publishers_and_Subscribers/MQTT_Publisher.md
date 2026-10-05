@@ -5,7 +5,7 @@ description: "Publish profile tag collections to MQTT brokers in JSON or Sparkpl
 
 # MQTT Publisher
 
-The **MQTT Publisher** pushes the current values of one or more profile tag collections to an
+The **MQTT Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections.md) to an
 MQTT broker, either on a fixed interval or whenever a member tag's value changes. It sits in the
 **Publishers & Subscribers** category rather than **Loggers**: a logger writes to a queryable
 store — a file, a database, a time-series engine — for later, disconnected retrieval, whereas a
@@ -14,6 +14,9 @@ also separates the [Webhook Publisher](./Webhook_Publisher.md) from the file and
 under [Loggers](../Loggers/File_Loggers.md). A component configured under its previous name,
 **MQTT Logger**, is unaffected: no configuration or wire behaviour has changed, only the
 category and component name.
+
+!!! info "Licence required"
+    The MQTT Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
 To go in the other direction, subscribing to an external MQTT/Sparkplug source and bringing
 its values into Profinity as tags, see the [MQTT Subscriber](MQTT_Subscriber.md), the

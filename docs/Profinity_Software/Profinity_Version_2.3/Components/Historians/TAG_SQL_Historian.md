@@ -5,7 +5,7 @@ description: "Record tag history to a SQL database and read it back through the 
 
 # TAG SQL Historian
 
-The **TAG SQL Historian** writes the values of the tags in the collections you select to a table in a SQL database, and allows that history to be read back out through the APIs. It sits in the **Historians** category and requires the **Historians** licensed feature. Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](../Loggers/InfluxDB_Prometheus_Logger.md).
+The **TAG SQL Historian** writes the values of the tags in the [collections](../../Tags/Collections.md) you select to a table in a SQL database, and allows that history to be read back out through the APIs. It sits in the **Historians** category and requires the **Historians** licensed feature. Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](../Loggers/InfluxDB_Prometheus_Logger.md).
 
 A **tag** is Profinity's common data model for a signal, as described in the [Tag layer](../../Tags/index.md) documentation, and each row the historian writes belongs to one tag, identified by its [tag tree path](../../Tags/Tag_Tree_Path.md).
 

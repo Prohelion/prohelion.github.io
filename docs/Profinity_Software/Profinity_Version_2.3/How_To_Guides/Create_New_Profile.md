@@ -10,7 +10,7 @@ Create a new profile to manage different configurations for different setups or 
 ## Prerequisites
 
 - Profinity V2 installed and running
-- The `ProfileModify` permission, which allows profiles to be added and switched
+- The `ProfileModify` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows profiles to be added and switched
 
 ## Steps
 
@@ -35,7 +35,7 @@ Alternatively, click **UPLOAD PROFILE PACK** to import a Profile Pack from anoth
 
 ### Step 4: Configure Profile
 
-1. Add components to your new profile (see [Add Component to Profile](./Add_Component_to_Profile.md))
+1. Add [components](../Components/Custom_Components/index.md) to your new profile (see [Add Component to Profile](./Add_Component_to_Profile.md))
 2. Configure component settings
 3. (Optional) Upload a custom dashboard (see [Create Profile Dashboard](./Create_Profile_Dashboard.md))
 
@@ -48,7 +48,7 @@ Alternatively, click **UPLOAD PROFILE PACK** to import a Profile Pack from anoth
 ## Tips
 
 - **Use Descriptive Names**: name profiles clearly (for example "Site A - Production")
-- **Profile-Specific Dashboards**: each profile can have its own custom dashboard
+- **Profile-Specific Dashboards**: each profile can have its own custom [dashboard](./Create_Profile_Dashboard.md)
 - **Component Isolation**: components in one profile do not affect another profile
 - **Profile Switching**: switch profiles without restarting Profinity
 

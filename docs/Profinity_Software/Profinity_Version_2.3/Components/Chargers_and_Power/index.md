@@ -46,7 +46,7 @@ Profinity can control Siglent Power Supplies that support SCPI commands over a p
 
 ### Step 1 - Add a Charger to your Profile
 
-A charger is configured as a device in Profinity, so the first step to charging your pack is to add a charger to your Profile. Your Profile must also include a Prohelion BMU so that Profinity can control the battery.
+A charger is configured as a device in Profinity, so the first step to charging your pack is to add a charger to your Profile. Your Profile must also include a [Prohelion BMS](../Battery_Management_Systems/index.md) so that Profinity can control the battery.
 
 <figure markdown>
 ![Add a Charger](../../images/add_charger.png)
@@ -83,7 +83,7 @@ Charge then flows from the charger to the pack.
 
 ## Troubleshooting Charging
 
-Charging can be complex to set up, as it requires both the charger and the Prohelion BMU to be managed so that they operate as expected. When troubleshooting a charging setup, consider the following.
+Charging can be complex to set up, as it requires both the charger and the [Prohelion BMS](../Battery_Management_Systems/index.md) to be managed so that they operate as expected. When troubleshooting a charging setup, consider the following.
 
 **Confirm that each device works independently**
 

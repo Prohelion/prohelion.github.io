@@ -112,7 +112,7 @@ dashboard:
 
 **Conditional Content:**
 
-Use data binding to conditionally show content within accordions. Rows do not accept `visible` or `bind`, so the visibility binding is placed on a component inside the row, such as a readout:
+Use [data binding](../../Data_Binding.md) to conditionally show content within accordions. Rows do not accept `visible` or `bind`, so the visibility binding is placed on a component inside the row, such as a readout:
 
 ``` yaml
 dashboard:

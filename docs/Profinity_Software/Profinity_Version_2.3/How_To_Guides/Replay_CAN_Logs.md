@@ -10,9 +10,9 @@ Replay recorded CAN bus messages to test your system without live CAN bus data.
 ## Prerequisites
 
 - Profinity V2 installed and running
-- A recorded CAN bus log file from a File or SFTP logger (see [File Loggers](../Components/Loggers/File_Loggers.md)), or the `Example Log.csv` supplied with Profinity
-- The `CANReplay` permission, which provides the **CAN LOG REPLAY** side-menu entry
-- A CAN bus adapter connected (optional for testing)
+- A recorded CAN bus log file from a [File Logger](../Components/Loggers/File_Loggers.md) or SFTP logger, or the `Example Log.csv` supplied with Profinity
+- The `CANReplay` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which provides the **CAN LOG REPLAY** side-menu entry
+- A [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected (optional for testing)
 
 ## Steps
 

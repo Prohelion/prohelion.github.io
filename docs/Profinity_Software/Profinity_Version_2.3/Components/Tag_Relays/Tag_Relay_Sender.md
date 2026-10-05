@@ -5,7 +5,7 @@ description: "Publish a snapshot of selected tag collections to a remote Profini
 
 # Tag Relay Sender
 
-The **Tag Relay Sender** exports the tags that belong to the collections you select and sends them, at a fixed interval, to a remote Profinity instance running a [Tag Relay Receiver](Tag_Relay_Receiver.md). It sits in the **Tag Relays** category and requires the **Data Relay** licensed feature.
+The **Tag Relay Sender** exports the tags that belong to the [collections](../../Tags/Collections.md) you select and sends them, at a fixed interval, to a remote Profinity instance running a [Tag Relay Receiver](Tag_Relay_Receiver.md). It sits in the **Tag Relays** category and requires the **Data Relay** licensed feature.
 
 Everything the sender exports is a **tag**, Profinity's common data model for a signal, which is described in the [Tag layer](../../Tags/index.md) documentation. The position of each tag in the exported tree is its [tag tree path](../../Tags/Tag_Tree_Path.md), and the concept of sender and receiver roles is covered in [Tag relay](../../Tags/Tag_Relay.md).
 

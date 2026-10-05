@@ -5,7 +5,7 @@ description: "Seven skills that let Claude Code, Cursor, Codex, and ChatGPT buil
 
 # AI Skills
 
-**AI Skills** is a pack of seven skills for AI coding assistants — Claude and other tools — that help you build Profinity dashboards, rules, collections, scripts, plugins, derived tags, and example apps. Every skill works from Profinity's own live schema and API, and from curated examples drawn from Profinity's own shipped content, so that what it generates matches the conventions of your instance rather than a format the assistant has had to guess.
+**AI Skills** is a pack of seven skills for AI coding assistants — Claude and other tools — that help you build Profinity [dashboards](../Customising_Profinity/Dashboards/index.md), rules, [collections](../Tags/Collections.md), [scripts](../Developing_with_Profinity/Scripting/index.md), [plugins](../Developing_with_Profinity/Plugins/index.md), [derived tags](../Tags/Derived_Tags.md), and example apps. Every skill works from Profinity's own live schema and API, and from curated examples drawn from Profinity's own shipped content, so that what it generates matches the conventions of your instance rather than a format the assistant has had to guess.
 
 This is a different thing from [AI Chat](./AI_Chat.md), the chat assistant built into the product: AI Chat answers questions about a running instance from inside Profinity itself; AI Skills is a toolkit used with your own AI coding assistant, outside Profinity, while you are building dashboards, rules, or integrations.
 
@@ -32,9 +32,9 @@ Each skill is self-contained:
 ## What AI Skills needs to work
 
 - **Authenticated access to your Profinity REST API** — used to fetch your live schema. The same credentials and permissions that apply to any other API call apply here.
-- **Optionally: read access to the MCP server** — some skills use the MCP server for additional schema discovery, but it is read-only and never used to push changes. If MCP is unavailable, the skill falls back to REST API alone.
+- **Optionally: read access to the [MCP server](../Integrating_to_Profinity/MCP_Server.md)** — some skills use the MCP server for additional schema discovery, but it is read-only and never used to push changes. If MCP is unavailable, the skill falls back to REST API alone.
 
-If the REST API is not available when a skill is asked to generate something, the skill says so and stops, rather than guessing an endpoint or falling back to a remembered schema.
+If the [REST API](../Integrating_to_Profinity/APIs/index.md) is not available when a skill is asked to generate something, the skill says so and stops, rather than guessing an endpoint or falling back to a remembered schema.
 
 ## Supported AI tools
 

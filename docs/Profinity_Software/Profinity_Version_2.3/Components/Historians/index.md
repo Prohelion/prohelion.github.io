@@ -5,7 +5,7 @@ description: "Historian components store tag history in a database and allow it 
 
 # Historians
 
-A **historian** is a logging component that writes the history of your [tags](../../Tags/index.md) to a database and, unlike a [logger](../Loggers/File_Loggers.md), also allows that history to be read back out again through the APIs. Dashboards, trend charts and integrations that ask for long-range tag history are answered from the historian, so a profile that needs more than the recent in-memory values needs one.
+A **historian** is a logging component that writes the history of your [tags](../../Tags/index.md) to a database and, unlike a [logger](../Loggers/File_Loggers.md), also allows that history to be read back out again through the APIs. [Dashboards](../../Customising_Profinity/Dashboards/index.md), trend charts and integrations that ask for long-range tag history are answered from the historian, so a profile that needs more than the recent in-memory values needs one.
 
 Profinity provides three historians, and each selects the tags it records through [collections](../../Tags/Collections.md), in the same way as a logger.
 
@@ -23,7 +23,7 @@ More than one historian, or a logger that supports retrieval, can write in the s
 
 ## Licensing
 
-Historians require the **Historians** licensed feature. See [Licensing](../../Administration/Licensing.md) to check whether it is available on your instance.
+Historians require the **Historians** licensed feature, included in the **Desktop**, **Server** and **Enterprise** editions. See [Licensing](../../Administration/Licensing.md) to check whether it is available on your instance.
 
 ## Related documentation
 

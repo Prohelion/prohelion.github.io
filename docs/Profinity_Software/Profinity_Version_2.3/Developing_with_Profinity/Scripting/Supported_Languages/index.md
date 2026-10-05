@@ -16,7 +16,7 @@ Profinity scripting supports three languages: C#, Python (via [IronPython](https
 |--------------|--------|-----|
 | ![C# Logo](../../../images/CSharpLogo.png) | ![Python Logo](../../../images/PythonLogo.png) | ![Lua Logo](../../../images/LuaLogo.png) |
 
-The choice of scripting language is a matter of preference. Profinity supports three to suit developers from different programming backgrounds, and the features available are common across all of them: each supports the same script types (Run, Receive, Service, Tag Change and Rule Script, the last being a script set to Run On Alert mode) and the same host API surface, exposed through the `Profinity` script variable.
+The choice of scripting language is a matter of preference. Profinity supports three to suit developers from different programming backgrounds, and the features available are common across all of them: each supports the same [script types](../Script_Types/index.md) (Run, Receive, Service, Tag Change and Rule Script, the last being a script set to Run On Alert mode) and the same host API surface, exposed through the `Profinity` script variable.
 
 | Language | Strengths | Considerations |
 |----------|-----------|----------------|
@@ -24,7 +24,7 @@ The choice of scripting language is a matter of preference. Profinity supports t
 | Python | - Clean syntax<br>- Rich ecosystem<br>- Suited to data processing<br>- Easy to learn | - Slower execution<br>- Less suitable for real-time operations<br>- Memory management considerations |
 | Lua | - Lightweight, minimal syntax<br>- Fast startup and low memory use<br>- Familiar to embedded and game-scripting backgrounds<br>- Direct General Purpose Input/Output (GPIO) and serial port interop | - Smaller standard library than C# or Python<br>- Fewer third-party packages available<br>- Native Lua tables are 1-indexed, but .NET collections such as `TriggeredTags` keep 0-based indexing |
 
-Functionality beyond what Profinity Scripting provides is available by calling the Profinity APIs from your own tools.
+Functionality beyond what Profinity Scripting provides is available by calling the [Profinity APIs](../../../Integrating_to_Profinity/APIs/index.md) from your own tools.
 
 ## C# Scripting
 

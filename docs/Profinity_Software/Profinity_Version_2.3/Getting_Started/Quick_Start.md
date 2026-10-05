@@ -5,7 +5,7 @@ description: "Get started with Profinity V2 by installing on Windows or Linux, l
 
 # Quick Start Guide
 
-This guide takes you from a fresh installation to a running system in four steps: installing Profinity, loading the example profile, replaying example CAN logs, and editing your first dashboard.
+This guide takes you from a fresh installation to a running system in five steps: installing Profinity, loading the example [profile](Profiles.md), replaying example CAN logs, editing your first dashboard, and looking at the rules and alerts.
 
 ## Step 1: Install Profinity on Windows
 
@@ -105,6 +105,40 @@ For more detailed information on creating and editing dashboards, see:
 - [Data Binding](../Customising_Profinity/Dashboards/Data_Binding.md) - connecting data to your dashboard
 - [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md) - available dashboard components
 
+## Step 5: Look at the Rules and Alerts
+
+With data flowing, Profinity's rules watch your tags and raise alerts when something needs attention. Rules are defined in the profile, and the alerts they raise appear in the Alerts Log and as indicators across the UI.
+
+To view the rules:
+
+1. Select **TAG UTILITIES** in the side menu
+2. Select **RULES** to open the rules editor
+3. Expand the rule groups for the Example Profile's battery components
+
+The Example Profile includes battery management system (BMS) alert rules for the Prohelion 12v Battery and the Prohelion BMU, arranged in groups such as **Cell limits** (cell over voltage, under voltage and over temperature) and **Critical status flags** (for example communications timeouts and emergency stop). Open a rule to see the tags it watches, its condition, its `level` and its description.
+
+!!! note "Permissions"
+    The **RULES** entry needs a loaded profile and the `TagRulesView` permission. Saving changes needs `TagRulesModify`. The default `admin` user can do both. Email, Slack, Webhook, MQTT, and rule-script actions need the **Tag Rule Actions** feature (Server and Enterprise).
+
+To view the alerts:
+
+1. Select **ALL ALERTS** in the side menu to open the Alerts Log
+2. On the **Active** tab, see any alerts currently firing
+3. Select the **History** tab to see earlier alerts, newest first
+4. Select an alert to **Acknowledge** it, or **Silence** it for a set number of minutes
+
+Alerts also show as a yellow triangle on dashboard widgets bound to the affected tag, and on the matching leaf in Tag Explorer. The web client refreshes these every four seconds, so they appear and clear as the data changes.
+
+!!! tip "Learning from Examples"
+    As with dashboards, the quickest way to learn rules is to read an existing one. Open a rule in the editor, note the condition it uses, then find the tag it watches in Tag Explorer to see what would make it fire.
+
+For more detail, see:
+
+- [Alerts Log](../Tags/Alerts.md) - alert levels, indicators, acknowledging and silencing
+- [Rule actions and scripts](../Tags/Actions.md) - what happens when a rule fires
+- [Tag expressions](../Tags/Tag_Expressions.md) - writing rule conditions
+- [Tag layer](../Tags/index.md) - how tags, collections, rules and alerts fit together
+
 ## Next Steps
 
 1. **Explore Components**: Learn about [Adding Components to Your Profile](./Adding_New_Components.md)
@@ -112,6 +146,7 @@ For more detailed information on creating and editing dashboards, see:
 3. **Visualise Data**: See how to [visualise data](./Visualising_Data.md) from your components
 4. **Configure Logging**: Set up [CAN bus logging](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) for your system
 5. **Manage Users**: [Create additional users](./Create_User.md) for your Profinity instance
+6. **Write Your Own Rules**: Follow the [Tag layer](../Tags/index.md) guide to create rules and alerts for your system
 
 ## Getting Help
 

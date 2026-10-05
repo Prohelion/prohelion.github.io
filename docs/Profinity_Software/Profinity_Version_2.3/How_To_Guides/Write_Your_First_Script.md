@@ -10,9 +10,9 @@ Create your first Profinity script to automate tasks and interact with your CAN 
 ## Prerequisites
 
 - Profinity V2 installed and running
-- An active profile with components configured
+- An active [profile](../Getting_Started/Profiles.md) with components configured
 - Basic understanding of **C#** or **Python** (Profinity scripting uses [IronPython](https://ironpython.net/) for Python, and also supports Lua; see [Supported Languages](../Developing_with_Profinity/Scripting/Supported_Languages/index.md))
-- Scripting enabled in Profinity configuration
+- [Scripting](../Developing_with_Profinity/Scripting/index.md) enabled in Profinity configuration
 
 ## Steps
 
@@ -27,11 +27,11 @@ For security context and behaviour, read [Profinity Scripting](../Developing_wit
 
 ### Step 2: Choose Your Script Type
 
-For your first script, use a **Run script** (see [Run Scripts](../Developing_with_Profinity/Scripting/Script_Types/RunScripts.md)). The script type is set by the **Script Mode** of the script component, and the main types are:
+For your first script, use a **[Run script](../Developing_with_Profinity/Scripting/Script_Types/RunScripts.md)** (see [Run Scripts](../Developing_with_Profinity/Scripting/Script_Types/RunScripts.md)). The script type is set by the **Script Mode** of the script component, and the main types are:
 
 - **Run scripts** - run on demand or on a schedule (time interval or cron)
-- **Receive scripts** - run when selected CAN messages are received
-- **Service scripts** - long-running background services with lifecycle control
+- **[Receive scripts](../Developing_with_Profinity/Scripting/Script_Types/ReceiveScripts.md)** - run when selected CAN messages are received
+- **[Service scripts](../Developing_with_Profinity/Scripting/Script_Types/ServiceScripts.md)** - long-running background services with lifecycle control
 
 Tag Change and Alert modes also exist; see [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md).
 

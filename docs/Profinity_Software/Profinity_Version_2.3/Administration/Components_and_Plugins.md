@@ -5,7 +5,7 @@ description: "Install and manage plugins, and choose which component types engin
 
 # Components & Plugins
 
-**Components & Plugins** is where administrators control which components Profinity offers. A **plugin** adds compiled components to Profinity, such as support for a device or protocol that does not ship in the box, and the **component catalogue** lists every component type that is available and decides which of them engineers see when they add a component to a Profile. The screen has two halves, **INSTALLED PLUGINS** at the top for installing and switching plugins on and off, and **COMPONENT CATALOGUE** below it for hiding or showing individual component types.
+**Components & Plugins** is where administrators control which components Profinity offers. A **plugin** adds compiled components to Profinity, such as support for a device or protocol that does not ship in the box, and the **component catalogue** lists every component type that is available and decides which of them engineers see when they add a component to a [Profile](Profiles.md). The screen has two halves, **INSTALLED PLUGINS** at the top for installing and switching plugins on and off, and **COMPONENT CATALOGUE** below it for hiding or showing individual component types.
 
 Select **ADMIN** in the side menu and open the **Components & Plugins** pill. Opening the screen requires the **`PluginView`** permission, and uploading, enabling, disabling, deleting or changing the catalogue requires **`PluginModify`**, without which the tables are shown without action buttons. See [Roles and permissions](Users_and_Access/Roles_and_Permissions.md).
 

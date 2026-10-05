@@ -7,6 +7,9 @@ description: "Query live instance data, search documentation, and get help throu
 
 AI Chat is the chat assistant of [Profinity AI](./index.md), built into Profinity, available from the side menu once an administrator has configured it (see [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md)). It can answer questions about the live state of this Profinity instance, look up how-to and reference material from docs.prohelion.com, and, if the administrator has enabled it, search the web.
 
+!!! info "Licence required"
+    AI Chat requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../Administration/Licensing.md) for what each edition includes.
+
 !!! info "Your Messages May Leave This Instance"
     Profinity AI is answered by an external AI provider unless your administrator has configured a local, self-hosted model. Ask your administrator which provider is configured before discussing sensitive data with the assistant.
 

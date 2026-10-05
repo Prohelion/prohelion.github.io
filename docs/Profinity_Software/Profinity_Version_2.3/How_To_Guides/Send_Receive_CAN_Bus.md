@@ -10,9 +10,9 @@ Send and receive CAN bus messages using Profinity's built-in CAN tools.
 ## Prerequisites
 
 - Profinity V2 installed and running
-- CAN bus adapter connected and active
-- A role that includes the `CANView` permission to receive and view CAN messages, and `CANSend` to send them
-- Active profile with adapter configured
+- [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected and active
+- A [role](../Administration/Users_and_Access/Roles_and_Permissions.md) that includes the `CANView` permission to receive and view CAN messages, and `CANSend` to send them
+- Active [profile](../Getting_Started/Profiles.md) with adapter configured
 
 ## Steps
 

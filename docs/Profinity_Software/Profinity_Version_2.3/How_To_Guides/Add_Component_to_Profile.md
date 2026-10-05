@@ -24,10 +24,10 @@ Add and configure components in your active profile to monitor CAN bus devices.
 
 1. Choose the component type you want to add:
    - **Prohelion Components** (BMU, Motor Controller, MPPT, etc.)
-   - **Custom Component**
-   - **CAN Bus Adapters**
-   - **Loggers** (CAN File, TAG File, InfluxDB, Prometheus)
-   - **Publishers & Subscribers** (MQTT, Webhook)
+   - **[Custom Component](../Components/Custom_Components/index.md)**
+   - **[CAN Bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md)**
+   - **[Loggers](../Components/Loggers/File_Loggers.md)** (CAN File, TAG File, InfluxDB, Prometheus)
+   - **[Publishers & Subscribers](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** (MQTT, Webhook)
    - Auto-discovered adapters, which are shown at the top of the screen
 
 ### Step 3: Configure Component Settings

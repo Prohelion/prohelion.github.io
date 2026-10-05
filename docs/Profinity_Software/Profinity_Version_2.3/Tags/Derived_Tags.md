@@ -6,7 +6,7 @@ description: "Virtual tags computed automatically from expressions or scripts th
 # Derived (virtual) tags
 
 A **derived tag** is a value that Profinity computes automatically and that then behaves exactly
-like a real tag to every consumer — dashboards, the historian, rules, and the API all see the
+like a real tag to every consumer — [dashboards](../Customising_Profinity/Dashboards/index.md), the [historian](../Components/Historians/index.md), [rules](./Actions.md), and the API all see the
 same quality and timestamp envelope and can subscribe to it the same way. The computation is
 configured once, and Profinity keeps it current.
 

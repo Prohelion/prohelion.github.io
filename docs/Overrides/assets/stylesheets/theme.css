@@ -7,3 +7,27 @@
     
     --md-footer-bg-color: #0b0b0b;
 }
+
+/* Early Adopter announcement banner (v2.3 pages): brand red, high contrast, distinct from the black header */
+.md-banner {
+    --pve-banner-bg: color-mix(in srgb, var(--md-secondary-text-color) 85%, black);
+    background-color: var(--pve-banner-bg);
+}
+
+.md-banner .md-banner__inner {
+    color: #ffffff;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    padding: 0.7rem 0.8rem;
+}
+
+.md-banner .md-banner__inner strong,
+.md-banner .md-banner__inner a {
+    color: #ffffff;
+    white-space: normal;
+}
+
+.md-banner .md-banner__inner a {
+    text-decoration: underline;
+}

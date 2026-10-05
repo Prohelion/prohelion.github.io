@@ -10,8 +10,8 @@ Connect Profinity to AI tools and large language models (LLMs) using the Model C
 ## Prerequisites
 
 - Profinity V2 installed and running
-- Administrator access to the Profinity AI settings and to user management
-- An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header, because the Profinity MCP server authenticates every request with a JWT bearer token
+- Administrator access to the Profinity [AI Settings](../Administration/System_Configuration/AI_Settings.md) and to user management
+- An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header, because the Profinity [MCP server](../Integrating_to_Profinity/MCP_Server.md) authenticates every request with a JWT bearer token
 - Familiarity with how your AI tool adds an MCP server
 
 ## Steps

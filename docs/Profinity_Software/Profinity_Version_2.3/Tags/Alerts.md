@@ -50,7 +50,7 @@ Every rule and threshold step carries a `level`, and the six permitted values in
 
 The web client polls active alerts every **four seconds** and shows indicators in:
 
-- **Dashboard widgets** bound to alerting tags — yellow alert triangle on the bottom-right of the widget.
+- **[Dashboard](../Customising_Profinity/Dashboards/index.md) widgets** bound to alerting tags — yellow alert triangle on the bottom-right of the widget.
 - **Tag Explorer** — alert icon on leaf tags (and branch rollup where configured).
 - **Side menu** — ALL ALERTS entry when alerts are active.
 

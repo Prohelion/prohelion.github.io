@@ -12,8 +12,8 @@ description: "Install Profinity on Windows using the Setup Wizard MSI installer 
 
 The Profinity Setup Wizard installs Profinity on a Windows machine.
 
-!!! info "Profinity v2.3 Download Information"
-    Profinity v2.3 is currently available for Early Adopters only.  Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the program and to receive the installation files.
+!!! info "Profinity 2.3 Download Information"
+    Profinity 2.3 is currently available for Early Adopters only.  Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the program and to receive the installation files.
 
 1. Open the downloaded file `Profinity.Install.msi` from your downloads directory.
 2. Follow the prompts in the Profinity Setup Wizard.
@@ -40,7 +40,7 @@ With Profinity Desktop running, you can also access the user interface as a web 
 
 To do so, open the URL defined in the Profinity Web panel of [System Configuration](../Administration/System_Configuration/Profinity_Web.md) (reached from **ADMIN** in the side menu) to access the Profinity web client. For installations that followed the default setup procedure, the default URL is `http://localhost:18080` on the local machine, or `http://[Your IP Address]:18080` if accessed remotely.
 
-Connecting to the Profinity web client directs the browser to the Profinity login page. For security, a fresh install of Profinity Desktop on Windows has no account that can be used to log in, so create a user account in the desktop application first and then log in as normal.
+Connecting to the Profinity web client directs the browser to the Profinity login page. For security, a fresh install of Profinity Desktop on Windows has no account that can be used to log in, so create a [user account](../Getting_Started/Create_User.md) in the desktop application first and then log in as normal.
 
 <figure markdown>
 ![Profinity login page](../images/login_page.png)

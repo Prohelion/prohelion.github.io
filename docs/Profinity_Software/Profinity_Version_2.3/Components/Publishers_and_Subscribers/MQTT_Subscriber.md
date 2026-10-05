@@ -9,8 +9,11 @@ The **MQTT Subscriber** connects to a broker, subscribes to a Sparkplug B namesp
 the incoming metrics into the profile tag tree as read-only tags — the inbound counterpart to the
 [MQTT Publisher](MQTT_Publisher.md), which only sends. It sits in the same **Publishers &
 Subscribers** category. Use it to bring an external Sparkplug-speaking edge node or SCADA/IIoT
-platform's data into Profinity as ordinary tags, so it can be viewed on a dashboard, logged,
+platform's data into Profinity as ordinary tags, so it can be viewed on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged,
 included in a rule, or read by a script the same way any other tag can.
+
+!!! info "Licence required"
+    The MQTT Subscriber requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
 !!! info "Not the same feature as Tag Relay"
     [**Tag Relay**](../../Tags/Tag_Relay.md) (Profinity-to-Profinity)
@@ -71,7 +74,7 @@ segments underneath.
 
 If an incoming metric's path is already occupied by something that is not one of this
 subscriber's own tags — an existing device tag, a Tag Relay mirror, a script register, or a
-derived tag — that one metric is skipped and logged; the rest of the message is still applied.
+[derived tag](../../Tags/Derived_Tags.md) — that one metric is skipped and logged; the rest of the message is still applied.
 
 ## Sparkplug behaviour
 

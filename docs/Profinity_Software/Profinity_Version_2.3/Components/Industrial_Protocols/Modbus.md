@@ -7,7 +7,8 @@ description: "Configure the Modbus Device component to poll coils and registers 
 
 The **Modbus Device** component is a Modbus master. It connects to one Modbus slave over TCP or over a serial (RTU) line, and polls the coils and registers you list in its point map, publishing each one as a Profinity tag. It is typically used for industrial devices and distributed I/O.
 
-The Modbus plugin is not included in the standard Profinity installation. It is supplied by Prohelion on request and installed like any other [DLL plugin](../../Administration/Components_and_Plugins.md). It also requires the **Industrial Protocols** licensed component group; see [Licensing](../../Administration/Licensing.md). See [Industrial protocols](index.md) for an overview.
+!!! info "Licence required"
+    The Modbus plugin is not part of the standard installation. Prohelion supplies it on request, you install it like any other [DLL plugin](../../Administration/Components_and_Plugins.md), and it requires the **Industrial Protocols** licensed component group, an add-on to your edition. See [Licensing](../../Administration/Licensing.md), or [Industrial protocols](index.md) for an overview.
 
 You add a Modbus Device to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [Adding Components to Your Profile](../../Getting_Started/Adding_New_Components.md). Add one component for each slave you want to read. The settings below can be changed later from the component's `Change Settings` menu.
 

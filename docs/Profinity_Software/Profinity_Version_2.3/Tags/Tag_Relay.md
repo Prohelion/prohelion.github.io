@@ -34,8 +34,8 @@ multiple sites, vehicles, or installations.
 - **Transport.** A sender can be reached over HTTPS with a JWT, or over MQTT — both are
   supported in the same release, and the choice is per sender.
 - **Read-only mirrors.** Relayed tags on the receiver are read-only — the receiving
-  instance cannot write back to a site through relay. Local tags, collections, rules,
-  and alerts on the receiver can still reference relayed tags the same way they
+  instance cannot write back to a site through relay. Local tags, [collections](./Collections.md), [rules](./Actions.md),
+  and [alerts](./Alerts.md) on the receiver can still reference relayed tags the same way they
   reference any other tag.
 - **Conflict handling.** The receiver validates a whole batch against its live tag tree before it changes anything, and a single collision rejects the entire batch, so nothing is partially applied (see [Collision rules](#collision-rules)).
 
@@ -43,7 +43,7 @@ multiple sites, vehicles, or installations.
 
 A batch is rejected whole, with no tags created or updated, when any item in it meets one of these conditions:
 
-- The path is already occupied by a tag that relay does not own, such as a local device tag, a script register or a derived tag.
+- The path is already occupied by a tag that relay does not own, such as a local device tag, a script register or a [derived tag](./Derived_Tags.md).
 - A relay-owned leaf already exists where the batch needs a branch, or a relay-owned branch already exists where the batch needs a leaf.
 - The batch itself asks for both a branch and a leaf at the same path.
 

@@ -10,7 +10,6 @@ This guide provides instructions on how to run Profinity as a service on Windows
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Hardware Requirements](#hardware-requirements)
 - [Linux Setup](#linux-setup)
 - [macOS Setup](#macos-setup)
 - [Windows Setup](#windows-setup)
@@ -27,20 +26,6 @@ In this mode, the Profinity GUI is available only via the browser (there is no d
 
 !!! info "Why Profinity Server?"
     Profinity Server supports CAN bus based platforms that need an API-centric front end for user kiosks or other interfaces, data analytics and reporting, remote logging, or deployment in the cloud, on desktop, or on embedded hardware.
-
-## Hardware Requirements
-
-Profinity Server does not require any additional Prohelion hardware to run. It can be used as a general-purpose development framework for building web UIs for CAN bus based architectures, or for providing a server interface to CAN infrastructure with cloud connectivity.  
-
-When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
-
-!!! info "Licensing for Production Environments"
-    Use of Profinity Server in production environments on Windows, Docker, Linux or macOS may require an additional licence key, depending on the commercial arrangement with Prohelion.
-
-    For production environments without an existing Profinity Server arrangement, contact Prohelion through the <a href="https://www.prohelion.com/contact-us/">Prohelion contact page</a> for further information.
-
-!!! info "Running in Docker"
-    If Profinity is running inside Docker, Docker rather than Profinity is configured as a service: configure Docker to start the Profinity container automatically on startup. See the Docker documentation for details.
 
 ## Linux Setup
 
