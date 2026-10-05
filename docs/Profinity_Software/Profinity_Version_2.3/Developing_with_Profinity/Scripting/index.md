@@ -19,7 +19,7 @@ If you are new to Profinity scripting, read the security note below before writi
 !!! warning "Profinity Scripts Execute With the Same Security Permissions as Profinity Itself"
     Because Profinity Scripting runs inside the Profinity engine, any script executes with the same operating system security permissions as Profinity itself, so you need to understand what each script on your system does before it is enabled.
 
-To keep the Profinity environment secure, scripting is disabled until it is explicitly enabled. To enable Profinity Scripting, open [System Configuration](../../Administration/System_Config.md) and enable Scripting.
+To keep the Profinity environment secure, scripting is disabled until it is explicitly enabled. To enable Profinity Scripting, open [System Configuration](../../Administration/System_Configuration/index.md) and enable Scripting.
 
 <figure markdown>
 ![Profinity System Configuration](../../images/app_configuration.png)

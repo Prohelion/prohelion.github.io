@@ -61,5 +61,5 @@ Back navigation returns to server selection without clearing any server TLS trus
 
 - [OEM white-label](OEM_White_Label.md)
 - [Kiosk Mode](../Administration/Kiosk_Mode.md)
-- [SSO and sign-in method](../Administration/Security/SSO_and_Sign_In.md)
+- [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md)
 - [Release notes 2.3.10](../Release_Notes/2.3.10.md)

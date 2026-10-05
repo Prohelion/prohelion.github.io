@@ -5,7 +5,7 @@ description: "Build and package external DLL plugins against Profinity.Sdk, and 
 
 # DLL plugins
 
-Profinity 2.3 supports **external DLL plugins**: author-compiled assemblies packaged as **`.nupkg`** or **zip**. Administrators install them through **Components & Plugins**. See [Plugins](../../Administration/Plugins.md) in Administration for installing, enabling and removing them.
+Profinity 2.3 supports **external DLL plugins**: author-compiled assemblies packaged as **`.nupkg`** or **zip**. Administrators install them through **Components & Plugins**. See [Plugins](../../Administration/Components_and_Plugins.md) in Administration for installing, enabling and removing them.
 
 DLL plugins are **distinct** from **Custom Component packs** (zip or nupkg bundles of YAML and scripts built with `profinity-component-pack`), which are covered in [Component Pack CLI](../Custom_Components/Component_Pack_CLI.md).
 
@@ -28,9 +28,9 @@ Plugins are installed from **local packages only** in this release, and Profinit
 
 ## Related documentation
 
-- [Plugins (administration)](../../Administration/Plugins.md)
+- [Plugins (administration)](../../Administration/Components_and_Plugins.md)
 - [Profinity SDK](../SDK.md)
 - [Component types](../Custom_Components/Component_Types.md)
 - [Component Pack CLI](../Custom_Components/Component_Pack_CLI.md)
 - [Industrial protocols](../../Components/Industrial_Protocols/index.md) — BACnet, EtherNet/IP, Modbus, OPC UA and S7
-- [Roles and permissions](../../Administration/Roles_and_Permissions.md)
+- [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md)

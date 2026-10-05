@@ -97,7 +97,7 @@ Profinity does not drop these names silently. A SecurityAdmin sees them as unres
 
 ## Permissions
 
-Only **SecurityAdmin** can view or change component and collection security. See [Roles and permissions](../Roles_and_Permissions.md) for how permissions and roles are assigned generally.
+Only **SecurityAdmin** can view or change component and collection security. See [Roles and permissions](Roles_and_Permissions.md) for how permissions and roles are assigned generally.
 
 ## REST API
 
@@ -110,6 +110,6 @@ Both endpoints operate on the active profile only; there is no route to edit sec
 
 ## Related documentation
 
-- [Roles and permissions](../Roles_and_Permissions.md) — how permissions, roles, and role assignment work generally.
+- [Roles and permissions](Roles_and_Permissions.md) — how permissions, roles, and role assignment work generally.
 - [Tag layer](../../Tags/index.md) — the tag tree that component security prunes.
 - [Collections](../../Tags/Collections.md) — creating and editing tag collections, including the built-in (All Tags) collection that collection security also covers.

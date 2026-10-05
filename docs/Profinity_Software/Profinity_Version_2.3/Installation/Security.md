@@ -38,7 +38,7 @@ When Profinity is accessed over a network rather than only through localhost, al
 
 ### Configuring HTTPS
 
-Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Config.md) interface, using either of the following:
+Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Configuration/index.md) interface, using either of the following:
 
 - **Windows Certificate Store**: For Windows deployments using certificates installed in the system certificate store
 - **Certificate Files**: For cross-platform deployments using `.pfx` or `.p12` certificate files
@@ -50,7 +50,7 @@ Profinity supports HTTPS configuration through the [System Configuration](../Adm
 - **Restrict HTTP Access**: For production, bind HTTP to localhost only and require HTTPS for remote access
 - **Certificate Management**: Implement proper certificate renewal procedures to avoid service disruptions
 
-For detailed HTTPS configuration instructions, see the [System Configuration](../Administration/System_Config.md) documentation.
+For detailed HTTPS configuration instructions, see the [System Configuration](../Administration/System_Configuration/index.md) documentation.
 
 ## Docker Security
 
@@ -127,7 +127,7 @@ For detailed information about scripting capabilities and security consideration
 
 Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists.
 
-See [Roles and permissions](../Administration/Roles_and_Permissions.md) for the full catalogue, the built-in Administrators role, and suggested starting points for other roles.
+See [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for the full catalogue, the built-in Administrators role, and suggested starting points for other roles.
 
 ### Role assignment guidelines
 
@@ -137,7 +137,7 @@ See [Roles and permissions](../Administration/Roles_and_Permissions.md) for the 
 - **Regular audits**: Periodically review user accounts and role assignments.
 - **High risk**: `CANSend` allows injecting CAN frames — assign only to trusted operators.
 
-For detailed information on user management, see [Managing Users](../Administration/Manage_Users.md).
+For detailed information on user management, see [Managing Users](../Administration/Users_and_Access/Manage_Users.md).
 
 ## Kiosk Mode Security
 
@@ -179,11 +179,11 @@ Before deploying Profinity in a production environment:
 
 ## Related Documentation
 
-- [System Configuration](../Administration/System_Config.md) - HTTPS and security settings
-- [Roles and permissions](../Administration/Roles_and_Permissions.md) - Roles and permissions (2.3)
-- [SSO and sign-in method](../Administration/Security/SSO_and_Sign_In.md) - Local vs SSO
-- [Two-factor authentication](../Administration/Security/Two_Factor_Authentication.md) - MFA policy
-- [Managing Users](../Administration/Manage_Users.md) - User accounts and role assignment
+- [System Configuration](../Administration/System_Configuration/index.md) - HTTPS and security settings
+- [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) - Roles and permissions (2.3)
+- [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md) - Local vs SSO
+- [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication.md) - MFA policy
+- [Managing Users](../Administration/Users_and_Access/Manage_Users.md) - User accounts and role assignment
 - [Kiosk Mode](../Administration/Kiosk_Mode.md) - Kiosk Mode configuration and security
 - [Scripting](../Developing_with_Profinity/Scripting/index.md) - Scripting security considerations
 - [Docker Installation](./Docker_Installation.md) - Docker deployment security

@@ -1,13 +1,10 @@
 nav:
-    - System_Config.md
+    - System_Configuration
+    - Users_and_Access
     - Profiles.md
     - Profile_Dashboard.md
     - Menu_Layout.md
-    - Component_Catalog.md
-    - Plugins.md
-    - Manage_Users.md
-    - Roles_and_Permissions.md
-    - Security
+    - Components_and_Plugins.md
     - Session_Firmware_Credentials.md
     - Kiosk_Mode.md
     - Logs_Config.md

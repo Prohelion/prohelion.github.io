@@ -1,9 +1,0 @@
-nav:
-    - Password_Policy.md
-    - SSO_and_Sign_In.md
-    - Two_Factor_Authentication.md
-    - MFA_Account_Management.md
-    - Service_Accounts.md
-    - SCIM_and_SIEM.md
-    - Component_And_Collection_Security.md
-    - AI_Assistant.md
