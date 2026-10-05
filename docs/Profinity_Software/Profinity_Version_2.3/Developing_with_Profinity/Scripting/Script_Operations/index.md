@@ -24,6 +24,10 @@ Profinity provides two state stores for keeping and sharing data:
 
 See the [State](./State.md) documentation for examples and usage.
 
+## Tags
+
+Scripts can read tag values, publish values to tags, and attach metadata to the tags they publish. See the [Tags](./Tags.md) documentation for examples and usage.
+
 ## Console Output
 
 Scripts in all three languages can write information and error messages to the Profinity log. See the [Console](./Console.md) documentation for examples and usage.
@@ -33,6 +37,7 @@ Scripts in all three languages can write information and error messages to the P
 1. Explore the detailed documentation for each feature:
    - [Console](./Console.md)
    - [State](./State.md)
+   - [Tags](./Tags.md)
    - [CAN bus](./CANBus.md)
    - [DBC](./DBC.md)
 2. Review the language-specific documentation:

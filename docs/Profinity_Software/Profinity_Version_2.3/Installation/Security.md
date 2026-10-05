@@ -38,7 +38,7 @@ When Profinity is accessed over a network rather than only through localhost, al
 
 ### Configuring HTTPS
 
-Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Configuration/index.md) interface, using either of the following:
+Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Configuration/Profinity_Web.md#https-certificates) interface, using either of the following:
 
 - **Windows Certificate Store**: For Windows deployments using certificates installed in the system certificate store
 - **Certificate Files**: For cross-platform deployments using `.pfx` or `.p12` certificate files
@@ -50,7 +50,7 @@ Profinity supports HTTPS configuration through the [System Configuration](../Adm
 - **Restrict HTTP Access**: For production, bind HTTP to localhost only and require HTTPS for remote access
 - **Certificate Management**: Implement proper certificate renewal procedures to avoid service disruptions
 
-For detailed HTTPS configuration instructions, see the [System Configuration](../Administration/System_Configuration/index.md) documentation.
+For detailed HTTPS configuration instructions, see the [System Configuration](../Administration/System_Configuration/Profinity_Web.md#https-certificates) documentation.
 
 ## Docker Security
 

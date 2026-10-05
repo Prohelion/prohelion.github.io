@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - SSO_and_Sign_In.md
     - Password_Policy.md
     - Two_Factor_Authentication.md

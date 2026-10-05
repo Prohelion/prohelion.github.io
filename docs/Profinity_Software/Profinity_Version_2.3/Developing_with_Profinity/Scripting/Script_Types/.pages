@@ -3,4 +3,5 @@ nav:
   - RunScripts.md
   - ReceiveScripts.md
   - ServiceScripts.md
+  - TagChangeScripts.md
   - Rule_Scripts.md

@@ -17,9 +17,9 @@ Profinity supports seven script execution modes, each with specific use cases an
 | [Run](./RunScripts.md)            | A Run Script can be run by the operator, or scheduled to run on a regular basis. Run Scripts are typically used for jobs that are short and do not require a lot of state management | - One-time operations<br>- Manual tasks<br>- Testing<br>- Troubleshooting      | - Continuous monitoring<br>- Real-time responses |
 | [Receive](./ReceiveScripts.md)    | Receive Scripts (Run On Receipt of CAN Message mode) run each time a matching CAN packet is received, and are generally used to respond to the receipt of a packet with a reply message | - CAN message processing<br>- Real-time data handling<br>- Protocol implementation                  | - Long-running operations<br>- System configuration<br>- Manual tasks |
 | [Service](./ServiceScripts.md)    | Service Scripts implement full lifecycle management and are designed for tasks that need to run for a long time | - Continuous monitoring<br>- Long-running tasks<br>- Critical services<br>- System-level operations |  - Quick responses<br>- One-time operations<br>- Manual tasks |
-| TimeInterval | Scripts that run on a time-based interval (for example, every 5 minutes or every hour). Uses the Run script engine but executes automatically at regular intervals | - Periodic tasks<br>- Regular data collection<br>- Scheduled maintenance<br>- Interval-based monitoring | - Real-time responses<br>- Event-driven operations<br>- Complex scheduling requirements |
-| CronSchedule | Scripts that run on a cron schedule using Quartz cron expressions. Provides flexible scheduling for complex time-based requirements | - Complex scheduling requirements<br>- Time-of-day operations<br>- Weekly/monthly tasks<br>- Advanced scheduling patterns | - Simple intervals<br>- Manual tasks<br>- Real-time responses |
-| Run On Tag Change | Scripts that run each time a specific tag's value changes. Used to compute derived values or react to state changes without polling | - Derived/computed tags<br>- Reacting to another component's output<br>- Chained automation | - One-time operations<br>- Manual tasks |
+| [Run On Time Interval](./RunScripts.md) | A [Run Script](./RunScripts.md) scheduled to run at a fixed interval (for example, every 5 minutes or every hour). Uses the Run script engine but executes automatically | - Periodic tasks<br>- Regular data collection<br>- Scheduled maintenance<br>- Interval-based monitoring | - Real-time responses<br>- Event-driven operations<br>- Complex scheduling requirements |
+| [Run On CRON Schedule](./RunScripts.md) | A [Run Script](./RunScripts.md) scheduled with a Quartz cron expression, for complex time-based requirements | - Complex scheduling requirements<br>- Time-of-day operations<br>- Weekly/monthly tasks<br>- Advanced scheduling patterns | - Simple intervals<br>- Manual tasks<br>- Real-time responses |
+| [Tag Change](./TagChangeScripts.md) (Run On Tag Change) | Scripts that run each time a specific tag's value changes. Used to compute derived values or react to state changes without polling | - Derived/computed tags<br>- Reacting to another component's output<br>- Chained automation | - One-time operations<br>- Manual tasks |
 | Run On Alert | Scripts named as a rule action (`onTrue`/`onFalse`), invoked when the rule transitions. See [Rule scripts](Rule_Scripts.md) | - Rule notifications and side effects<br>- Custom alert handling beyond the built-in actions | - Anything not driven by a rule firing<br>- Long-running work (keep it fast; see Trigger Overlap) |
 
 ## Best Practices
@@ -34,8 +34,8 @@ Best practices for Profinity scripting include the following.
 - Use Run On Demand scripts for manual operations
 - Use Receive scripts for CAN message processing
 - Use Service scripts for critical, long-running operations
-- Use TimeInterval scripts for periodic tasks with simple intervals
-- Use CronSchedule scripts for complex scheduling requirements
+- Use Run scripts in Time Interval mode for periodic tasks with simple intervals
+- Use Run scripts in CRON Schedule mode for complex scheduling requirements
 - Use Run On Tag Change scripts to react to another tag's value without polling
 - Use Run On Alert scripts for custom logic on a rule firing
 

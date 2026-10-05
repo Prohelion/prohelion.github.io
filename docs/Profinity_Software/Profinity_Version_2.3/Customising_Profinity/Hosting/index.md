@@ -7,7 +7,7 @@ description: "Host custom applications using Profinity's integrated web server w
 
 As well as hosting the REST APIs and Swagger interface, Profinity includes an integrated web server that can host a custom application built on those APIs in any modern web technology, including frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) as well as traditional HTML and JavaScript.
 
-Once the Extensions Web server is enabled in **System Configuration** (see [Extensions Web](../../Administration/System_Configuration/index.md#extensions-web)), the application is placed in the `webroot` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md):
+Once the Extensions Web server is enabled in **System Configuration** (see [Extensions Web](../../Administration/System_Configuration/Extensions_Web.md)), the application is placed in the `webroot` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md):
 
 ```text
 {Artifacts}/webroot
