@@ -1,52 +1,55 @@
 ---
 title: Profinity AI
-description: "Query live instance data, search documentation, and get help through the integrated AI chat assistant."
+description: "How Profinity AI uses the context of your whole Profile, through AI Chat inside Profinity and AI Skills in your own AI tool."
 ---
 
 # Profinity AI
 
-Profinity AI is a chat assistant built into Profinity, available from the side menu once an administrator has configured it (see [Profinity AI settings](../Administration/Security/AI_Assistant.md)). It can answer questions about the live state of this Profinity instance, look up how-to and reference material from docs.prohelion.com, and, if the administrator has enabled it, search the web.
+Profinity AI gives AI the context of a running Profinity system, so it can work across devices rather than one signal at a time. It comes in two parts: **AI Chat**, an assistant built into Profinity, and **AI Skills**, a toolkit for your own AI coding assistant.
 
 <figure markdown>
 ![Profinity AI gathers context from the whole Profile — devices, alerts, documentation, and history — correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/2.3-diagram-ai-diagnostics.png)
 <figcaption>Context in, cross-system diagnosis out</figcaption>
 </figure>
 
-!!! info "Your Messages May Leave This Instance"
-    Profinity AI is answered by an external AI provider unless your administrator has configured a local, self-hosted model. Ask your administrator which provider is configured before discussing sensitive data with the assistant.
+## What Profinity AI can see
 
-## Open Profinity AI
+A general-purpose AI assistant knows nothing about your system. Profinity AI is connected to it, and draws on four kinds of context:
 
-Users with the **AI Assistant** permission see a **Profinity AI** entry in the side menu, above **ADMIN**. Selecting it opens the chat window.
+| Context | What it covers |
+|---------|----------------|
+| **Live data** | Every component in the Profile and its tags, with current values and data quality |
+| **Rules and alerts** | The alert rules you have defined, the alerts that are active, and the alert history |
+| **History and trends** | Long-term values from the historian, not just the latest reading |
+| **Documentation** | Manuals, procedures, and how-to material from docs.prohelion.com |
 
-## Ask a question
+Live data, rules, alerts, and history reach the assistant through the [MCP Server](../Integrating_to_Profinity/MCP_Server.md), which is read-only. Profinity AI cannot change tags, alerts, or configuration through it.
 
-The chat window opens with a short greeting and three example prompts to get started, covering a system-health question, a documentation search, and a how-to question. Type a question of your own and press **Enter** to send it, or **Shift+Enter** to add a new line without sending.
+## From context to diagnosis
 
-<figure markdown>
-![Profinity AI chat window in its empty state with suggested prompts](../images/2.3-ai-chat-empty-state.png)
-<figcaption>Profinity AI chat window with suggested prompts</figcaption>
-</figure>
+With that context in one place, Profinity AI can:
 
-While Profinity AI is answering, the status indicator at the top of the window reads **Thinking…**; once a question has been answered it reads **Connected to this environment**. The response streams in as it is generated, rather than appearing all at once.
+1. Gather context from the whole Profile.
+2. Correlate signals across devices.
+3. Match alerts to the relevant documentation.
+4. Compare current readings against history and trends.
+5. Propose a likely root cause and next steps, with the evidence it used.
 
-<figure markdown>
-![Profinity AI chat window mid-conversation with a streamed response](../images/2.3-ai-chat-conversation.png)
-<figcaption>A conversation in progress</figcaption>
-</figure>
+So a question such as "Why is Cell 12 overheating?" can be answered from the alert, the neighbouring cells, the cooling system, and the service manual together.
 
-Profinity AI answers questions about this instance by querying live data through the same permissions you have — it cannot see tags, alerts, or configuration you could not otherwise see through Profinity yourself.
+!!! info "Permissions Still Apply"
+    Profinity AI sees only what the signed-in user could already see in Profinity. Tags and alerts you do not have permission to view are left out of its answers.
 
-You can send another question while Profinity AI is still answering the previous one; it is queued and answered in turn. Use **Stop** to cancel a response in progress, and **New chat** to clear the conversation and start again.
+## Choose how to use it
 
-## Limitations for 2.3
+| | Where it runs | Use it to |
+|---|---|---|
+| **[AI Chat](./AI_Chat.md)** | Inside Profinity, from the side menu | Ask questions about this instance: system health, alert investigation, and how-to questions |
+| **[AI Skills](./AI_Skills.md)** | In your own AI tool (Claude Code, Cursor, Codex, ChatGPT), outside Profinity | Build dashboards, rules, collections, scripts, plugins, derived tags, and example apps from your live schema, and develop with Profinity |
 
-- Conversation history is kept only for the current browser tab and is cleared when the tab is closed. Profinity AI does not keep a record of past conversations across sessions or devices.
-- Profinity AI uses one configuration for the whole instance; there is no per-user choice of provider or model.
-- The example prompts shown in the empty state are suggestions only — Profinity AI is not limited to those topics.
+They are separate: AI Chat answers questions, and AI Skills helps you build things. Power users can also pair AI Skills with the MCP Server to use their own AI tool instead of AI Chat.
 
 ## Related documentation
 
-- [Profinity AI settings](../Administration/Security/AI_Assistant.md) — administrator configuration, permissions, and data-handling notes.
-- [MCP Server](../Integrating_to_Profinity/MCP_Server.md) — the live-data connection Profinity AI uses.
-- [AI Skills](./AI_Skills.md) — a separate toolkit for building Profinity dashboards and other config with an AI coding assistant, outside Profinity itself.
+- [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md) — administrator configuration, permissions, and data-handling notes.
+- [MCP Server](../Integrating_to_Profinity/MCP_Server.md) — the live-data connection behind both parts.

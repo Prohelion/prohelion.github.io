@@ -48,7 +48,7 @@ curl -X POST http://localhost:18080/api/v2/Users/Authenticate \
   -d '{"username":"mcp-service","password":"your-password"}'
 ```
 
-See [Service Accounts](../Administration/Security/Service_Accounts.md) for the full token steps.
+See [Service Accounts](../Administration/Users_and_Access/Service_Accounts.md) for the full token steps.
 
 ### Step 3: Configure Your AI Tool
 
@@ -123,6 +123,6 @@ The MCP server does not expose any tool that changes Profinity data, so changes 
 ## Related Documentation
 
 - [MCP Server](../Integrating_to_Profinity/MCP_Server.md) - the full MCP server reference, including every tool and its parameters
-- [Profinity AI](../Profinity_AI/index.md) - the built-in chat assistant, which uses the same MCP server
+- [AI Chat](../Profinity_AI/AI_Chat.md) - the built-in chat assistant, which uses the same MCP server
 - [Scripting](../Developing_with_Profinity/Scripting/index.md) - Profinity scripting
 - [APIs](../Integrating_to_Profinity/APIs/index.md) - REST API documentation
