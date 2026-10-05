@@ -12,7 +12,7 @@ A page with all the currently supported components is presented, including hardw
 Some CAN bus adapters in Profinity can be auto-discovered, and a discovered adapter that is available in your configuration is shown at the top of the screen.  You can filter the devices shown by selecting a filter on the left hand side of the screen.
 
 !!! info "Add a CAN Adapter First"
-    Adding a CAN Adapter allows Profinity to receive CAN traffic from the devices connected to your CAN bus network, and without CAN traffic Profinity is limited in what it is able to show and do. The supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges, are described in [CAN bus Adapters](../Components/Adapters/CAN_Bus_Adapters.md), and a step-by-step procedure is given in [How to Connect to CAN Bus](../How_To_Guides/Connect_to_CAN_Bus.md).
+    Adding a CAN Adapter allows Profinity to receive CAN traffic from the devices connected to your CAN bus network, and without CAN traffic Profinity is limited in what it is able to show and do. The supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges, are described in [CAN bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), and a step-by-step procedure is given in [How to Connect to CAN Bus](../How_To_Guides/Connect_to_CAN_Bus.md).
 
 <figure markdown>
 ![Add a new component to the Profile](../images/add_adapter_autodiscovery.png)

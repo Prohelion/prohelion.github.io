@@ -66,7 +66,7 @@ Select an element that can show live data to open its **Binding** section in the
 
 You can also start from tags: choosing tags to link to a dashboard opens the **Add component for selected tags** window, which offers only the element types that suit the tags you chose. See [Tag Linking](../../Tags/Tag_Linking.md).
 
-Dashboard widgets show live **alert indicators** when bound tags have active rule alerts, as described in [ALL ALERTS](../../Tags/Alerts.md).
+Dashboard widgets show live **alert indicators** when bound tags have active rule alerts, as described in [Alerts Log](../../Tags/Alerts.md).
 
 ## Validate and save
 

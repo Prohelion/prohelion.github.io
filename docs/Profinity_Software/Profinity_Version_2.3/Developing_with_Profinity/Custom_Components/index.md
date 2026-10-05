@@ -46,7 +46,7 @@ A binding that reads a CAN signal uses the DBC names. A binding that reads a val
 
 ## Rules
 
-**Rules YAML file** is an optional rules document for this component, evaluated when its tags change. Alerts raised from those rules appear in [ALL ALERTS](../../Tags/Alerts.md). Menu actions in `actions.yaml` are a separate mechanism from rule actions.
+**Rules YAML file** is an optional rules document for this component, evaluated when its tags change. Alerts raised from those rules appear in [Alerts Log](../../Tags/Alerts.md). Menu actions in `actions.yaml` are a separate mechanism from rule actions.
 
 ## Main script
 

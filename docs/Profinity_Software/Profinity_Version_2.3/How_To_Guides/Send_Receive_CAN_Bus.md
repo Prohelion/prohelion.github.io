@@ -166,4 +166,4 @@ The CAN Activity panel shows:
 
 - [Send / Receive CAN](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md) - the full CAN utilities reference
 - [Connect to CAN Bus](./Connect_to_CAN_Bus.md) - Setting up CAN adapters
-- [CAN Bus Adapters](../Components/Adapters/CAN_Bus_Adapters.md) - Adapter documentation
+- [CAN Bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) - Adapter documentation

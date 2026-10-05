@@ -1,0 +1,6 @@
+title: Historians
+nav:
+    - index.md
+    - InfluxDB_v2_Historian.md
+    - InfluxDB_v3_Historian.md
+    - TAG_SQL_Historian.md

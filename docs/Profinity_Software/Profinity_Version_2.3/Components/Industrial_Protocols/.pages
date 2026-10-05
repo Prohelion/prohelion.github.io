@@ -1,2 +1,7 @@
 nav:
   - index.md
+  - BACnet.md
+  - EtherNet_IP.md
+  - Modbus.md
+  - OPC_UA.md
+  - S7.md

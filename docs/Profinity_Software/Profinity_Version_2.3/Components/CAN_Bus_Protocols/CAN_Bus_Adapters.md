@@ -7,7 +7,7 @@ description: "Add and configure CAN bus adapters including Prohelion and Tritium
 
 An adapter is the technology used to connect Profinity to your CAN bus network.
 
-Profinity on Windows supports the [Prohelion and Tritium CAN to Ethernet bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) (listed as `Tritium Can to Ethernet Bridge`, with the `Prohelion Virtual CAN to Ethernet Bridge` covered on the [Virtual CAN Adapter](Virtual_CAN_Adapter.md) page), SocketCAN using the [SocketCanD](https://github.com/linux-can/socketcand) technology, the [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1) (including a Peak adapter running CAN FD), and the Ewert Energy CANdapter.
+Profinity on Windows supports the [Prohelion and Tritium CAN to Ethernet bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) (listed as `Tritium Can to Ethernet Bridge`, with the `Prohelion Virtual CAN to Ethernet Bridge` covered on the [Virtual CAN Adapter](Virtual_CAN_Adapter.md) page), SocketCAN via native SocketCAN on Unix and over TCP by using the [SocketCanD](https://github.com/linux-can/socketcand) technology, the [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1) (including a Peak adapter running CAN FD), and the Ewert Energy CANdapter.
 
 !!! info "When running the Peak CAN to USB Adapter"
     It is necessary to install the driver for the device before starting Profinity. Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity, and then autodiscover the adapter as normal.

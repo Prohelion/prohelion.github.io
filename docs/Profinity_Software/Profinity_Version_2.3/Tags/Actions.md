@@ -31,7 +31,7 @@ Configure:
 
 - Thresholds and conditions on tag values (for example `tag.Value > 4.2` / clear `tag.Value < 4.0`, or `tag.IsStale` for no-data). See [Tag expressions](./Tag_Expressions.md).
 - **Dwell** and **deadband** for stable alerting.
-- **`description`** — text shown in ALL ALERTS.
+- **`description`** — text shown in Alerts Log.
 - **`level`** — severity for filtering and display.
 - **`evaluationTickSeconds`** — engine evaluation interval.
 - **`publishStateTagPath`** — optional tag path to which the rule mirrors its current state whenever that state changes (see [Rule state publishing](./Derived_Tags.md#rule-state-publishing)).
@@ -55,7 +55,7 @@ For the script action's version of this context, see [Rule scripts](../Developin
 
 ## Alert level
 
-Set **`level`** on a rule to classify alert severity. ALL ALERTS and indicators respect active rule state combined with level.
+Set **`level`** on a rule to classify alert severity. Alerts Log and indicators respect active rule state combined with level.
 
 The valid levels, from least to most severe, are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`. Level names are not case-sensitive, `Information` is accepted as `Info` and `Warn` as `Warning`, and a rule with no level is treated as `Info`, whereas an unrecognised level on a rule, threshold step or `triggerLevel` is rejected when the rules file loads. The same names are used as the `triggerLevel` of an action that is configured on a parent rule file or group, which fires only for rules at or above that level. A script receives the level as the string `RuleLevel`, whereas the Webhook and MQTT JSON message does not include the level.
 
@@ -123,7 +123,7 @@ complete in time is cancelled and logged without blocking evaluation of other ru
 ## Related documentation
 
 - [Tag expressions](./Tag_Expressions.md)
-- [ALL ALERTS](./Alerts.md)
+- [Alerts Log](./Alerts.md)
 - [Rule scripts](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md)
 - [Tag layer](index.md)
 - [Derived tags](./Derived_Tags.md)
