@@ -39,16 +39,7 @@ The **TAG UTILITIES** group appears for users with `TagView`, and the collection
 
 ## Key API areas (integrators)
 
-The new and changed `/api/v2` controllers in 2.3 include:
-
-| Area | Controllers (representative) |
-|------|------------------------------|
-| Tags | `TagsController`, `TagDefinitionController`, `TagQuerySetController`, `TagExpressionsController` |
-| Collections | `TagCollectionsController` |
-| Rules | `TagRulesController` |
-| Alerts | `AlertsController` |
-
-Legacy **`DataController`** is removed from the v2 surface — use tag-layer endpoints for new integrations.
+Integrations can work with tags, tag collections, tag rules and alerts through the REST API under `/api/v2`. The Swagger page on your Profinity instance lists every endpoint and the parameters it accepts. The older data endpoint is not part of the v2 API, so use the tag endpoints for new integrations.
 
 All endpoints require the appropriate permissions — see [Roles and permissions](../Administration/Roles_and_Permissions.md).
 

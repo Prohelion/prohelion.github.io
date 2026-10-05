@@ -19,7 +19,7 @@ Each toggle calls a REST endpoint and updates the **`DisabledComponents`** / **`
 
 ### Custom.yaml (OEM override)
 
-OEM deployments using OEM packaging can supply additional overrides in **`Custom.yaml`**. Precedence follows the engine's `ComponentCatalogAvailabilityService`: config.yaml is the operator-facing source, and Custom.yaml can restrict further for branded builds.
+OEM deployments using OEM packaging can supply additional overrides in **`Custom.yaml`**. config.yaml is the operator-facing source of which components are available, and Custom.yaml can restrict that list further for branded builds.
 
 ## Plugin Manager reflection
 

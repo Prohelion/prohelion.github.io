@@ -42,11 +42,6 @@ To apply a commercial or evaluation licence:
 4. Transfer the file to the machine running Profinity (for example by USB drive or secure file copy) if the instance has no network access.
 5. On the License page, use **Update license file** and select the `license.yaml` file.
 
-<figure markdown>
-![License upload dialog with a license.yaml file selected](../images/2.3-license-upload-dialog.png)
-<figcaption>Uploading a license.yaml file from ADMIN &rarr; License</figcaption>
-</figure>
-
 Profinity validates the file's signature and expiry, and checks that its fingerprint matches the instance, before applying it. If validation fails, Profinity rejects the upload and the existing licence, if any, remains in effect. A `license.yaml` file can also be installed without using the UI, by copying it directly into the instance's licence folder; this is the usual path for headless or scripted deployments.
 
 !!! warning "The fingerprint is instance-specific"

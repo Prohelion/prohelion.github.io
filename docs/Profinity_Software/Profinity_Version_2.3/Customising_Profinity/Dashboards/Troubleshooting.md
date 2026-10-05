@@ -21,7 +21,7 @@ This guide explains how to diagnose and fix common issues when creating Profinit
 !!! tip "Using the visual editor?"
     In **DESIGN** mode the same problems are listed under **Schema validation issues**, and **SAVE** is blocked until they are fixed. The examples below show the YAML behind each problem. Use the **YAML** tab to see and edit the exact lines they refer to.
 
-The dashboard editor validates the YAML against the UI schema and lists each problem as a path followed by a message, such as `/dashboard/items/0/row/items/0/chart: must NOT have additional properties`. The visual editor refuses to save a dashboard that has validation issues, and a dashboard that fails validation when it loads is replaced by a load error screen that offers **Reset from Template** to users with the `DashboardModify` permission. The following sections list common validation errors and how to fix them.
+The dashboard editor checks the dashboard YAML and lists each problem as a path followed by a message, such as `/dashboard/items/0/row/items/0/chart: must NOT have additional properties`. The visual editor refuses to save a dashboard that has validation issues, and a dashboard that fails validation when it loads is replaced by a load error screen that offers **Reset from Template** to users with the `DashboardModify` permission. The following sections list common validation errors and how to fix them.
 
 In each example, the block labelled `# Incorrect` shows the mistake and fails validation, and the block labelled `# Correct` shows the fix.
 

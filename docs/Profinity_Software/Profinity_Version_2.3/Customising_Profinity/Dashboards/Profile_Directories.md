@@ -43,7 +43,7 @@ The asset directories in a profile are as follows:
 ```
 
 !!! note "Folder names on disk and in URLs"
-    Profinity stores these directories with lowercase names (`images`, `models`, `styles`, `content`), and older profiles that use capitalised names are renamed when they are migrated. The files are served from the capitalised URL paths `/Profile/Images`, `/Profile/Models`, `/Profile/Styles` and `/Profile/Content`, which are the paths used throughout this page.
+    Profinity stores these directories with lowercase names (`images`, `models`, `styles`, `content`), and profiles that use capitalised names are renamed to lowercase when they are upgraded. The files are served from the capitalised URL paths `/Profile/Images`, `/Profile/Models`, `/Profile/Styles` and `/Profile/Content`, which are the paths used throughout this page.
 
 ## /Profile/Images
 

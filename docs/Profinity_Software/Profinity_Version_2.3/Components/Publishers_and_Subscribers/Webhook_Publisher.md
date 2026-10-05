@@ -20,11 +20,6 @@ when there is no existing MQTT infrastructure in place to publish to.
 Add a **Webhook Publisher** component to your profile from the **Publishers & Subscribers**
 category, then configure its settings.
 
-<figure markdown>
-![Webhook Publisher settings](../../images/2.3-webhook-publisher-settings.png)
-<figcaption>Webhook Publisher configuration page</figcaption>
-</figure>
-
 ### Connection settings
 
 | Setting | Purpose |

@@ -72,7 +72,7 @@ A dashboard that has no owning component, such as a profile home dashboard, has 
 If a component is mounted at a nested location in the tag tree, an absolute path includes that location. See [Tag Tree Path](../../Tags/Tag_Tree_Path.md).
 
 !!! note "Earlier formats"
-    Dashboards written for earlier versions used dots instead of slashes, as in `{COMPONENT_NAME}.BusMeasurement.BusVoltage`, `{COMPONENT_NAME}.[Property].Status`, and `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent`. Profinity still reads these forms and rewrites them to the slash form when the dashboard loads, so older dashboards continue to work. New dashboards should use the slash form shown in this guide.
+    Dashboards written for earlier versions used dots instead of slashes, as in `{COMPONENT_NAME}.BusMeasurement.BusVoltage`, `{COMPONENT_NAME}.[Property].Status`, and `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent`. Older dashboards that use these forms continue to work. New dashboards should use the slash form shown in this guide.
 
 ### Component Name Placeholders
 
@@ -139,9 +139,9 @@ dashboard:
                   timeRangeStop: "0m"
 ```
 
-A window of `-5m` to `0m` is stamped automatically only when a legacy `[TimeSeries]` binding is migrated, when the SDK `Chart` class creates a binding, and when the visual editor adds a series, whereas a hand-written `seriesMode: timeSeries` binding without a window receives no default. Always set `timeRangeStart` and `timeRangeStop` on a series binding. Time values use a relative form, where `-5m` is five minutes before now and `0m` is now.
+A window of `-5m` to `0m` is set automatically when the visual editor adds a series, whereas a hand-written `seriesMode: timeSeries` binding without a window receives no default. Always set `timeRangeStart` and `timeRangeStop` on a series binding. Time values use a relative form, where `-5m` is five minutes before now and `0m` is now.
 
-**Best for:** Charts, trend visualisation, and live history of any numeric tag. The legacy prefix `[TimeSeries]` is still read and converted to `seriesMode: timeSeries`.
+**Best for:** Charts, trend visualisation, and live history of any numeric tag. Older dashboards that use the `[TimeSeries]` prefix continue to work, and new dashboards should use `seriesMode: timeSeries`.
 
 ### Logged Data
 

@@ -25,11 +25,6 @@ Select **ADMIN** in the side menu, then **System Configuration**, find the **Pro
 | Response timeout (seconds) | `NetworkTimeoutSeconds` | 30–3600, default 300. Local and reasoning-heavy models often need several minutes to respond. |
 | Enable MCP Server | `Mcp.Enabled` | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically; it can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. See [MCP Server](../../Integrating_to_Profinity/MCP_Server.md). |
 
-<figure markdown>
-![Profinity AI settings tab showing provider, model, API key and web search fields](../../images/2.3-ai-assistant-settings-tab.png)
-<figcaption>Profinity AI settings under ADMIN &rarr; System Configuration</figcaption>
-</figure>
-
 Profinity rejects a save that leaves the configuration in an inconsistent state, according to the following rules:
 
 - The response timeout must fall within 30–3600 seconds.
