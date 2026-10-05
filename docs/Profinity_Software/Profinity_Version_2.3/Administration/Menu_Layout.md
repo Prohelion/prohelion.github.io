@@ -25,7 +25,7 @@ The **custom menu** is always enabled for profiles that use the layout editor â€
 
 ## Per-component placement
 
-Each component can override placement using the same drag/reorder editor as the profile **Menu Layout** tab (both tabs share the underlying `MenuLayoutManager` component):
+Each component can override placement using the same drag/reorder editor as the profile **Menu Layout** tab (both tabs use the same layout editor):
 
 1. Open the component **Settings**.
 2. Open the **Menu** tab.

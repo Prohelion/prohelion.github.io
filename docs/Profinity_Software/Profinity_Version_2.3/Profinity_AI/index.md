@@ -19,11 +19,6 @@ Profinity AI is a chat assistant built into Profinity, available from the side m
 
 Users with the **AI Assistant** permission see a **Profinity AI** entry in the side menu, above **ADMIN**. Selecting it opens the chat window.
 
-<figure markdown>
-![Side menu with Profinity AI entry above ADMIN](../images/2.3-side-menu-profinity-ai.png)
-<figcaption>Profinity AI in the side menu</figcaption>
-</figure>
-
 ## Ask a question
 
 The chat window opens with a short greeting and three example prompts to get started, covering a system-health question, a documentation search, and a how-to question. Type a question of your own and press **Enter** to send it, or **Shift+Enter** to add a new line without sending.

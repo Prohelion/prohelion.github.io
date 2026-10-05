@@ -39,7 +39,7 @@ The `id` of a collection is immutable and is the value that rules use in their `
 After upgrading from 2.2.x:
 
 - Open each collection in the **visual editor** and **save** it once, which stamps `version: "2.3"` and normalises the ids of any collection whose YAML was edited by hand.
-- The `id` field ties collection members to editor state and API resources.
+- Each collection member has an `id` that must be present and must not be changed.
 
 ## Create collections from Tag Explorer
 

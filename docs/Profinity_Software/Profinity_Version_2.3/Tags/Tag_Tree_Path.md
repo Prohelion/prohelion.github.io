@@ -5,7 +5,7 @@ description: "Mount components at nested locations in the tag tree hierarchy ins
 
 # Tag Tree Path
 
-Every component in a profile mounts a branch in the Profinity tag tree, and by default that branch sits at the root of the tree under the component's own name. The **Tag tree path** setting (wire name `tagTreeParentPath`) enables nested component mounting: it changes where a component mounts by giving it a parent folder, so that its tags nest under another location in the tree instead of standing alone at the root.
+Every component in a profile mounts a branch in the Profinity tag tree, and by default that branch sits at the root of the tree under the component's own name. The **Tag tree path** setting (`tagTreeParentPath` in YAML) enables nested component mounting: it changes where a component mounts by giving it a parent folder, so that its tags nest under another location in the tree instead of standing alone at the root.
 
 ## Why nest a component
 
@@ -17,11 +17,6 @@ The composed mount point at runtime is the parent path combined with the compone
 
 The **Tag tree path** field sits in the **Component Identifier** section of a component's settings dialog, directly below **Name**. It accepts a slash-separated path to the parent folder only — it must not include the component's own name, which Profinity appends automatically at runtime. The default value is `/`, meaning the component mounts at the root of the tag tree; leaving the field at its default is equivalent to the pre-2.3 behaviour, where every component's tags sat directly under its own name.
 
-<figure markdown>
-![Component settings dialog showing the Tag tree path field under Component Identifier](../images/2.3-tag-tree-path-setting.png)
-<figcaption>Tag tree path field in the component settings dialog</figcaption>
-</figure>
-
 ## Absolute versus relative dashboard binds
 
 Once a component is nested, the distinction between an absolute and a relative dashboard bind determines whether a `source:` value in a `bind:` entry follows the component if it moves.
@@ -30,7 +25,7 @@ A **relative bind** has no leading slash and is resolved against the component's
 
 An **absolute bind** carries a leading slash and is not qualified against any component root — for example, `/Vehicles/Car1/Charger/DBC/BMSInfo/Flag` on the profile home dashboard or on a different component's dashboard, referencing a tag that belongs to another component entirely. Use an absolute bind whenever a dashboard needs to read a tag that belongs to a different component than the one the dashboard is attached to. Because the path is a literal string rather than a reference resolved against a moving root, an absolute bind is tied to the exact tag tree path in effect when it was written.
 
-The legacy `{COMPONENT_NAME}` placeholder, documented in [Data Binding](../Customising_Profinity/Dashboards/Data_Binding.md), still loads correctly and is expanded to whichever path form applies, but it is a load-only shim: Profinity rewrites it to an explicit relative or absolute path the next time the dashboard is saved.
+The legacy `{COMPONENT_NAME}` placeholder, documented in [Data Binding](../Customising_Profinity/Dashboards/Data_Binding.md), still works in older dashboards, and Profinity replaces it with an explicit relative or absolute path the next time the dashboard is saved.
 
 ## Changing the path on an already-deployed component
 

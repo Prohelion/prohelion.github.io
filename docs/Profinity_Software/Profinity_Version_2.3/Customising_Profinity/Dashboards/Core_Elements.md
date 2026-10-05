@@ -172,7 +172,7 @@ Collapsible sections for organising content that can be expanded or collapsed.
 **Learn more:** [Accordion Reference](./Component_Reference/Layout/Accordion.md)
 
 ### 4. Footer
-Bottom section of the dashboard that the web interface displays as a bar, which can be shown and hidden with a data binding, although the footer does not display the content of its `menu` parameter.
+Bottom section of the dashboard that the web interface displays as a bar, which can be shown and hidden with a data binding, although a menu added to the footer is not displayed.
 
 <figure markdown>
 ![Dashboard footer bar](images/footer.png)

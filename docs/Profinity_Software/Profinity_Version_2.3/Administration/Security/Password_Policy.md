@@ -46,6 +46,13 @@ When a user with this flag signs in, Profinity shows a **change password** dialo
 
 Users with local accounts can change their own password when signed in by selecting **ADMIN** in the side menu, then the **Change My Password** pill, which is shown only when the site sign-in method is Local and the session is not a kiosk session.
 
+Enter your current password, then choose and confirm a new one, and select **Update Password**. The dialog shows the minimum length as you type; the site policy is enforced when you save.
+
+<figure markdown>
+![Change Password dialog with current, new and confirm new password fields](../../images/2.3-change-password.png)
+<figcaption>Changing your own password</figcaption>
+</figure>
+
 ## Best practices
 
 - Change default `admin` / `password` credentials immediately after install.

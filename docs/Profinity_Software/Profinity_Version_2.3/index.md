@@ -15,7 +15,6 @@ Profinity V2.3 updates the capabilities of Prohelion's Profinity V2.2 suite by a
 - Context Driven AI: With Tags, Rules and Actions, AI now has the context it needs to help identify and address issues in your system.
 - Plugins: Your components or 3rd party components can now be added to Profinity in the same way that standard Prohelion components can.  This allows Profinity to be easily extended for additional components or white-labelled solutions.
 
-
 # The new Profinity v2.3 Architecture
 
 <figure markdown>
@@ -23,16 +22,11 @@ Profinity V2.3 updates the capabilities of Prohelion's Profinity V2.2 suite by a
 <figcaption>One platform, from device to dashboard</figcaption>
 </figure>
 
+# Profinity v2.3 Editable Dashboards        
+
 <figure markdown>
 ![Profinity](images/wavesculptor.png)
 <figcaption>Profinity V2 - Showing a Motor Controller Dashboard</figcaption>
-</figure>
-
-Profinity is built around the concept of [Profiles](Getting_Started/Profiles.md), which are sets of configured devices in your system.  By switching between Profiles you can support multiple configurations across different sites or different combinations of technologies. The configuration of the system is largely driven by the Profinity GUI, but once configured, the solution can run as a service, providing continuous data streams off servers or embedded devices, or run from the cloud.
-
-<figure markdown>
-![Prohelion battery management systems, WaveSculptor and Elmar Solar MPPT drives, and chargers and power supplies, each connecting through the CAN bus adapter of your choice or directly over SCPI](images/2.3-diagram-devices-adapters.png)
-<figcaption>Native connectivity for your hardware</figcaption>
 </figure>
 
 ## Release notes

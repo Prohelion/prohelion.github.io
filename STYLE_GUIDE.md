@@ -94,6 +94,20 @@ This section was built from a mix of direct source review and automated page-fet
 - Link to reference materials for advanced concepts
 - Explain relationships between concepts in narrative form, in keeping with the long-sentence rhythm in 2.3
 
+### 2.8 Write for the User, Not the Builder
+
+Published documentation is read by people who use Profinity, not by people who built it. The reader has the product in front of them and nothing else: no access to the source code, internal plans, task lists, review findings, ticket numbers or the history of how a feature was designed. Every page must make sense to that reader alone.
+
+- Describe what the user sees and does: which screen to open, what a setting controls, what happens when they change it, and what to expect afterwards. Start from the user's goal, not from how the feature is implemented.
+- Do not reference class names, method names, file paths in the source repository, database tables, internal service names or architecture layers unless the reader must type or select that exact thing. Where a name is visible in the product (a menu item, a field, a file the user edits, an API route the user calls), use it exactly as it appears; where it is not, describe the behaviour instead.
+- Do not explain why the code is structured the way it is. Design rationale, refactoring history, "previously this was..." and "this was changed because..." belong in release notes or engineering records, not in the user guide. State the current behaviour as settled fact, dated to a version where it matters (see 2.4).
+- Do not point to internal artefacts: plan files, `tasks/` documents, review or finding IDs, branch names, pull requests, internal ticket numbers. If a limitation or upcoming change matters to the reader, state it in plain terms ("For the moment, Profinity does not...") without citing where it was tracked.
+- Do not use internal shorthand or codenames the reader has never been shown. If a term is not in the product UI, the public documentation or the glossary, define it in place or replace it with plain words.
+- Prefer a worked example in user terms ("To alert when pack temperature exceeds 45 °C, open Alerts and...") over a description of the underlying mechanism. Include mechanism only when it changes what the user should do, such as a timing, ordering or limit that affects their configuration, and then explain it in one or two plain sentences.
+- Cover failure from the user's side: the message or symptom they will see, the likely cause in their setup, and the action that fixes it. Do not describe which internal component raised the error.
+
+Test every page before publishing by asking whether a new customer, with only the product and these docs, could follow it end to end. If any sentence only makes sense to someone who has read the code or the plan, rewrite it in terms of what the user sees and does, or delete it. This applies equally to hand-written and AI-drafted pages; drafts generated from code or planning documents are especially prone to carrying internal wording across.
+
 ## 3. Content Elements
 
 ### Images and Diagrams
@@ -225,6 +239,7 @@ def example_function():
 - Check code examples are current
 - Ensure images are clear and relevant
 - Validate technical accuracy
+- Confirm the page reads as a user guide: no source-code names, internal plan or ticket references, or design-history commentary (see 2.8)
 
 ---
 

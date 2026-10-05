@@ -30,11 +30,6 @@ The MCP server is configured from the **Profinity AI** settings page (select **A
 !!! warning "Restart Required"
     Enabling or disabling the MCP server takes effect only after Profinity restarts. After saving the configuration, wait for the restart to complete before reloading the page, because the web client shows a restarting message while it waits for the engine to return.
 
-<figure markdown>
-![Profinity AI settings page showing the MCP Server field group](../images/2.3-ai-assistant-mcp-toggle.png)
-<figcaption>MCP Server field group on the Profinity AI settings page</figcaption>
-</figure>
-
 ## Transport
 
 The MCP server uses the Streamable HTTP transport and is stateless, so it holds no session state between requests and issues no `Mcp-Session-Id`. It is built on the `ModelContextProtocol.AspNetCore` 2.0.0 package, where `2.0.0` is the version of that C# SDK and not an MCP protocol version. MCP protocol versions are date-based, and that SDK negotiates the revisions `2024-11-05`, `2025-03-26`, `2025-06-18`, `2025-11-25` and `2026-07-28` with the client. The endpoint is available at:
