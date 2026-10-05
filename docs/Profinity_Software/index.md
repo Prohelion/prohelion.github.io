@@ -7,10 +7,10 @@ description: "Prohelion Profinity CAN bus management platform: connects CAN-base
 
 Profinity is our comprehensive CAN bus management platform, designed to connect your CAN-based solutions to modern cloud, AI, API, and big data technologies. 
 
-[Download Profinity V2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
+[Download Profinity v2.2 :material-download:](https://github.com/Prohelion/Profinity/releases/latest/download/Profinity.Install.msi){ .md-button }
    
 <figure markdown>
-![Profinity V2 Interface](Profinity_Version_2.3/images/prohelion_bmu.png)
+![Profinity 2.2 Interface](Profinity_Version_2.2/images/prohelion_bmu.png)
 <figcaption>Managing a Prohelion BMU in the modern web-based interface of Profinity V2</figcaption>
 </figure>
 
@@ -60,11 +60,29 @@ The worlds most modern CAN bus management solution, featuring
 
 <div class="grid cards" markdown>
 
--   :material-tools:{ .lg .middle } __Profinity V2__
+-   :material-tools:{ .lg .middle } __Profinity 2.3__
 
     ---
 
-    The latest version of Profinity, featuring:
+    The latest Profinity release, featuring:
+
+    - Tags
+    - Visual Editors
+    - Rules and Action
+    - Native AI Capabilities
+
+    <figure markdown>
+    ![Profinity 2.3 visual dashboard editor](Profinity_Version_2.3/images/2.3-dashboard-visual-editor.png)
+    <figcaption>The new visual dashboard editor in Profinity 2.3</figcaption>
+    </figure>
+
+    [:octicons-arrow-right-24: Profinity 2.3 Documentation](Profinity_Version_2.3/index.md)
+
+-   :material-tools:{ .lg .middle } __Profinity 2.2__
+
+    ---
+
+    The previous Profinity release, adding:
 
     - Modern container and API-centric architecture
     - Enhanced cloud connectivity
@@ -72,17 +90,9 @@ The worlds most modern CAN bus management solution, featuring
     - Advanced device management
 
     <figure markdown>
-    ![Profinity V2 Interface](Profinity_Version_2.3/images/wavesculptor.png)
-    <figcaption>Modern web-based interface of Profinity V2</figcaption>
+    ![Profinity 2.2 Interface](Profinity_Version_2.2/images/wavesculptor.png)
+    <figcaption>Configuring a WaveSculptor in Profinity 2.2</figcaption>
     </figure>
-
-    [:octicons-arrow-right-24: Profinity V2 Documentation](Profinity_Version_2.3/index.md)
-
--   :material-tools:{ .lg .middle } __Profinity 2.2__
-
-    ---
-
-    The previous Profinity release, kept beside 2.3.
 
     [:octicons-arrow-right-24: Profinity 2.2 Documentation](Profinity_Version_2.2/index.md)
 

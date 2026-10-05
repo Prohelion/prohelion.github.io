@@ -19,7 +19,7 @@ Hybrid local and SSO on the same site is **not** supported. Per-user authenticat
 ## Configure OIDC SSO
 
 !!! note "Licensing"
-    Enabling SSO (`SecurityOidcSso.Enabled`) requires the **EnterpriseSecurity** product feature. Without this licence, the toggle is unavailable.
+    Enabling SSO (`SecurityOidcSso.Enabled`) requires the **Enterprise Security** feature, included in the **Enterprise** edition only. Without this licence, the toggle is unavailable.
 
 When sign-in method is **Sso**, configure a single **`OidcSso`** block under **Security Config**:
 

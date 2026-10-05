@@ -19,12 +19,12 @@ Set up data logging or publishing to send CAN bus messages or tag values to file
 
 Profinity supports:
 
-- **CAN File Logger** and **CAN SFTP Logger** - log native CAN bus messages to a file, either on the local file system or transmitted to an SFTP server
-- **TAG File Logger** and **TAG SFTP Logger** - log the values of the tags in selected tag collections to a file, either locally or transmitted to an SFTP server
-- **InfluxDB v1 Logger**, **InfluxDB v2 Historian** and **InfluxDB v3 Historian** - log to an InfluxDB time-series database, one component for each InfluxDB version
-- **Prometheus Logger** - serves data for a Prometheus server to collect
-- **MQTT Publisher** - publishes data to an MQTT broker
-- **Webhook Publisher** - publishes data to an HTTP(S) URL
+- **[CAN File Logger](../Components/Loggers/File_Loggers.md)** and **CAN SFTP Logger** - log native CAN bus messages to a file, either on the local file system or transmitted to an SFTP server
+- **[TAG File Logger](../Components/Loggers/File_Loggers.md)** and **TAG SFTP Logger** - log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections.md) to a file, either locally or transmitted to an SFTP server
+- **[InfluxDB v1 Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)**, **[InfluxDB v2 Historian](../Components/Historians/InfluxDB_v2_Historian.md)** and **[InfluxDB v3 Historian](../Components/Historians/InfluxDB_v3_Historian.md)** - log to an InfluxDB time-series database, one component for each InfluxDB version
+- **[Prometheus Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)** - serves data for a Prometheus server to collect
+- **[MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** - publishes data to an MQTT broker
+- **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** - publishes data to an HTTP(S) URL
 
 The file, SFTP, InfluxDB v1 and Prometheus components are **Loggers**, and the InfluxDB v2 and v3 components are **Historians**, which are the same kind of time-series sink and which can additionally be read back through the APIs: all of them write to a queryable store for later, disconnected retrieval.
 The MQTT Publisher and Webhook Publisher are in the **Publishers & Subscribers** category: they push to a subscriber that is actively

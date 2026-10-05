@@ -26,7 +26,7 @@ InfluxDB, Prometheus and Grafana are each available in commercially supported an
 !!! danger "InfluxDB V1, V2, and V3 are Separate, Incompatible Products"
     InfluxDB V1, V2, and V3 are **separate, incompatible products** with different APIs, authentication methods, and configuration requirements. The component type selected in Profinity must match the InfluxDB version installed, and using the wrong component type results in connection failures.
 
-Profinity provides a separate component for each InfluxDB version, so the version of InfluxDB in use must be known before an InfluxDB component is added to your profile. The InfluxDB V1 component is registered as the **InfluxDB v1 Logger**, whereas the V2 and V3 components are registered as the **InfluxDB v2 Historian** and the **InfluxDB v3 Historian**, which are the same kind of time-series sink and which additionally allow data to be read back through the APIs.
+Profinity provides a separate component for each InfluxDB version, so the version of InfluxDB in use must be known before an InfluxDB component is added to your [profile](../../Getting_Started/Profiles.md). The InfluxDB V1 component is registered as the **InfluxDB v1 Logger**, whereas the V2 and V3 components are registered as the [**InfluxDB v2 Historian**](../Historians/InfluxDB_v2_Historian.md) and the [**InfluxDB v3 Historian**](../Historians/InfluxDB_v3_Historian.md), which are the same kind of time-series sink and which additionally allow data to be read back through the APIs.
 
 ### InfluxDB v1 Logger
 

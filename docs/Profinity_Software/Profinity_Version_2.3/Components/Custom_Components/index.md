@@ -5,7 +5,7 @@ description: "Add a device Profinity does not already ship by placing a Custom C
 
 # Custom Components
 
-A Custom Component is the built-in profile component for a device that Profinity does not already ship a type for. As of Profinity 2.3 it can carry an optional DBC file, a dashboard, a rules file, a long-running script, operator actions, and settings and firmware maps, and once it is in a profile it is monitored, graphed, and logged the same way as a Prohelion device.
+A Custom Component is the built-in profile component for a device that Profinity does not already ship a type for. As of Profinity 2.3 it can carry an optional DBC file, a [dashboard](../../Customising_Profinity/Dashboards/index.md), a rules file, a long-running [script](../../Developing_with_Profinity/Scripting/index.md), operator actions, and settings and firmware maps, and once it is in a profile it is monitored, graphed, and logged the same way as a Prohelion device.
 
 Built-in components such as the [Elmar Solar MPPT](../MPPT/index.md) and the [WaveSculptor](../Motor_Controller/index.md) already include their own DBC support, so Messages and Signals is available on those components without a separate file. A Custom Component is the same idea for a third-party CAN device, or for a device whose live values a script publishes as tags.
 

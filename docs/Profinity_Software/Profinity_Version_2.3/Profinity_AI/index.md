@@ -7,6 +7,9 @@ description: "How Profinity AI uses the context of your whole Profile, through A
 
 Profinity AI gives AI the context of a running Profinity system, so it can work across devices rather than one signal at a time. It comes in two parts: **AI Chat**, an assistant built into Profinity, and **AI Skills**, a toolkit for your own AI coding assistant.
 
+!!! info "Licence required"
+    AI Chat and the built-in MCP server requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../Administration/Licensing.md) for what each edition includes.
+
 <figure markdown>
 ![Profinity AI gathers context from the whole Profile — devices, alerts, documentation, and history — correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/2.3-diagram-ai-diagnostics.png)
 <figcaption>Context in, cross-system diagnosis out</figcaption>
@@ -18,7 +21,7 @@ A general-purpose AI assistant knows nothing about your system. Profinity AI is 
 
 | Context | What it covers |
 |---------|----------------|
-| **Live data** | Every component in the Profile and its tags, with current values and data quality |
+| **Live data** | Every component in the [Profile](../Getting_Started/Profiles.md) and its tags, with current values and data quality |
 | **Rules and alerts** | The alert rules you have defined, the alerts that are active, and the alert history |
 | **History and trends** | Long-term values from the historian, not just the latest reading |
 | **Documentation** | Manuals, procedures, and how-to material from docs.prohelion.com |

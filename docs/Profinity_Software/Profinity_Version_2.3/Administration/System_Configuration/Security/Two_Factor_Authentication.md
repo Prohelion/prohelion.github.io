@@ -7,6 +7,9 @@ description: "Configure TOTP-based two-factor authentication policy for local us
 
 Profinity 2.3 supports **TOTP-based two-factor authentication (2FA)** for **local** users when site **Sign-in method** is **Local**. Policy is configured site-wide in **config.yaml** under **Security Policy → Two-Factor Policy**.
 
+!!! info "Licence required"
+    Two-factor authentication requires the **Two-Factor Authentication** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Licensing.md) for what each edition includes.
+
 The UI and the other security pages also use the term **MFA** (multi-factor authentication) for this feature. SSO users rely on their identity provider for MFA.
 
 ## Two-factor policy settings

@@ -12,7 +12,7 @@ Apply custom CSS styling to your dashboard elements for branding and visual cust
 - Profinity V2 installed
 - A dashboard to style
 - Basic CSS knowledge
-- Access to the `/Profile/Styles` directory
+- Access to the [profile](../Getting_Started/Profiles.md) directory's `Styles` folder
 
 ## Steps
 
@@ -47,22 +47,18 @@ Example CSS file:
 }
 ```
 
-### Step 3: Link CSS in Dashboard
+### Step 3: Load the CSS
 
-**Using HTML Component:**
+The HTML sanitiser removes `link` elements from the `content` of an [HTML](../Customising_Profinity/Dashboards/Component_Reference/Interactive/HTML.md) component, so a stylesheet cannot be linked from the dashboard. Instead, import it from `/Profile/Styles/profile.css`, which the web interface loads when the file is present:
 
-```yaml
-- html:
-    content: |
-      <link rel="stylesheet" href="/Profile/Styles/custom-dashboard.css" />
-      <div class="custom-panel">
-        <h2>Styled Content</h2>
-      </div>
+```css
+/* /Profile/Styles/profile.css */
+@import url("custom-dashboard.css");
 ```
 
 ### Step 4: Apply CSS Classes
 
-Use the `class` property in dashboard components:
+Use the `class` property in dashboard [components](../Customising_Profinity/Dashboards/Component_Reference/index.md):
 
 ```yaml
 - group:

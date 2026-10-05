@@ -5,7 +5,7 @@ description: "Command-line tool for validating, packing, and installing custom c
 
 # Component Pack CLI
 
-The **`profinity-component-pack`** command-line tool ships as part of the [Profinity SDK](../SDK.md) developer kit, not with the engine install itself. It validates, packs, and installs **Custom Component file bundles** (YAML, scripts, maps) — **not** DLL plugins.
+The **`profinity-component-pack`** command-line tool ships as part of the [Profinity SDK](../SDK.md) developer kit, not with the engine install itself. It validates, packs, and installs **[Custom Component](index.md) file bundles** (YAML, scripts, maps) — **not** DLL plugins.
 
 DLL plugins are installed through Plugin Manager instead — see [DLL plugins](../Plugins/index.md).
 
@@ -29,8 +29,9 @@ Run the tool from the kit's `profinity-component-pack` subfolder (see [Profinity
 
 ## When to use
 
+- **Distributing a script-based Custom Component as a plugin.** Pack the component folder into a `.nupkg` that an administrator uploads in [Components and Plugins](../../Administration/Components_and_Plugins.md), instead of copying files into each profile by hand.
 - OEM distribution of Custom Component folders without manual copying.
-- CI pipelines that produce signed zip bundles for field engineers.
+- CI pipelines that produce versioned bundles for field engineers.
 - Repeatable installs into staging `PROFINITY_HOME` trees.
 
 ## When not to use

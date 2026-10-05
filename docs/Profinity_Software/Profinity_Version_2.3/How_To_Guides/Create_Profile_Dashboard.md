@@ -9,8 +9,8 @@ Replace the default Profinity home page with a custom dashboard for your profile
 
 ## Prerequisites
 
-- An active profile in Profinity
-- The `ProfileModify` permission, which allows profile settings to be changed
+- An active [profile](../Getting_Started/Profiles.md) in Profinity
+- The `ProfileModify` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows profile settings to be changed
 - The `DashboardModify` permission, which allows dashboards to be edited
 - Optional: an existing dashboard YAML file to upload, if you are not starting from the starter dashboard
 

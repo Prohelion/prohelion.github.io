@@ -33,7 +33,7 @@ Profinity supports five types of script, each designed for specific use cases, w
 - [Run Scripts](./Script_Types/RunScripts.md): For manual or scheduled operations (Run On Demand, Run On Time Interval and Run On CRON Schedule modes)
 - [Receive Scripts](./Script_Types/ReceiveScripts.md): For handling incoming CAN messages
 - [Service Scripts](./Script_Types/ServiceScripts.md): For continuous, long-running operations
-- Tag Change Scripts (Run On Tag Change mode): For reacting when a watched tag's value changes
+- [Tag Change Scripts](./Script_Types/TagChangeScripts.md) (Run On Tag Change mode): For reacting when a watched tag's value changes
 - [Rule Scripts](./Script_Types/Rule_Scripts.md) (Run On Alert mode): For custom handling when a rule fires
 
 The [Script Types](./Script_Types/index.md) documentation describes each mode and when to use it.

@@ -5,11 +5,11 @@ description: "Comparison of two Profinity extension models: Custom Components an
 
 # Custom Component and DLL plugins
 
-A custom component is how you add something to a Profinity profile that Profinity does not already ship: a third-party device, a screen built from existing tags, or a new component type of your own. Once it is in a profile, it is monitored, graphed, logged, and used by rules and scripts in the same way as a built-in component.
+A [custom component](index.md) is how you add something to a Profinity profile that Profinity does not already ship: a third-party device, a screen built from existing tags, or a new component type of your own. Once it is in a profile, it is monitored, graphed, logged, and used by rules and scripts in the same way as a built-in component.
 
 There are two ways to create one:
 
-- **Custom Component** — for a device you can describe with files. You supply a DBC, a dashboard, scripts, and menu actions, and Profinity runs them on its built-in `CustomComponent` type. No compiling is needed.
+- **Custom Component** — for a device you can describe with files. You supply a [DBC](../../CAN_Utilities/CAN_Bus_DBC.md), a dashboard, scripts, and menu actions, and Profinity runs them on its built-in `CustomComponent` type. No compiling is needed.
 - **DLL plugin** — for a component that needs compiled code. You build an assembly against the SDK and install it through Plugin Manager, and it registers a new component type.
 
 Choose a Custom Component first, and a DLL plugin only when files and scripts are not enough.

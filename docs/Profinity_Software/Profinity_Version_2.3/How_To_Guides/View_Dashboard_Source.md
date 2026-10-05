@@ -10,12 +10,12 @@ Access the YAML source code of existing dashboards to learn from examples and mo
 ## Prerequisites
 
 - Profinity V2 installed and running
-- Access to a dashboard (component or profile dashboard)
+- Access to a dashboard (component or [profile](../Getting_Started/Profiles.md) dashboard)
 - User privileges to view dashboard source
 
 ## Steps
 
-### Step 1: Access Dashboard Source for Component Dashboards
+### Step 1: Access Dashboard Source for [Component](../Components/Custom_Components/index.md) Dashboards
 
 1. Navigate to the component in the sidebar
 2. Click the **Edit** icon (pencil) in the toolbar

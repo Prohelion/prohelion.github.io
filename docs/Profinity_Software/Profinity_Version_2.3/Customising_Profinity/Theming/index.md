@@ -6,7 +6,7 @@ description: "Customise Profinity appearance with themes, colours, logos, and li
 # Themes and branding
 
 !!! warning "Licensed feature"
-    Themes and branding is a licensed feature. It is for customers who hold the rights to white-label and distribute Profinity, such as OEM partners who ship Profinity under their own brand. If you do not hold those rights, keep the default Profinity appearance and contact Prohelion about licensing before you apply a custom theme.
+    Themes and branding is a licensed feature, available with a commercial licence only. Profinity does not technically enforce this, but it must not be used on an unlicensed instance. It is for customers who hold the rights to white-label and distribute Profinity, such as OEM partners who ship Profinity under their own brand. If you do not hold those rights, keep the default Profinity appearance and contact Prohelion about licensing before you apply a custom theme.
 
 Profinity 2.3 applies theme and branding settings from a `theme.yaml` file in the `themes` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and the web client reads the result so that OEM colours, logos and the application title replace the defaults.
 

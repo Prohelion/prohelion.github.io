@@ -15,12 +15,23 @@ description: "Install Profinity on Linux and macOS with the bootstrap installer,
 | [Bootstrap installer](#bootstrap-installer) (`install.sh`) | Installing on a Linux server or embedded device, or any host where Profinity should start on boot | Selects the correct archive for the host, installs into `/opt/profinity`, creates the `profinity` service user and, on Linux with systemd, the `profinity.service` unit |
 | [Archive installation](#archive-installation) | Trying Profinity, running it interactively, or installing without root or systemd | Files extracted into a folder of choice and started by hand with `./profinity.sh` |
 
+## Hardware Requirements and Licensing
+
+Profinity Server does not require any additional Prohelion hardware to run. It can be used as a general-purpose development framework for building web UIs for CAN bus based architectures, or for providing a server interface to CAN infrastructure with cloud connectivity.  
+
+When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
+
+!!! info "Licensing for Production Environments"
+    Use of Profinity Server in production environments on Windows, Docker, Linux or macOS may require an additional licence key, depending on the commercial arrangement with Prohelion.
+
+    For production environments without an existing Profinity Server arrangement, contact Prohelion through the <a href="https://www.prohelion.com/contact-us/">Prohelion contact page</a> for further information.
+
 ## Bootstrap Installer
 
 The bootstrap installer (`install.sh`) downloads the release archive that matches the host operating system and CPU architecture, verifies it, and unpacks it into an install root: `/opt/profinity` by default. On Linux with systemd it also creates the `profinity` service user, the [artefacts directory](./Artifacts_Directory.md) and the `profinity.service` unit. Installing does not start Profinity. On Linux the installer must be run as root (`sudo`), unless `--no-systemd` and a writable `--install-dir` are used.
 
 !!! info "Where the installer comes from"
-    Profinity v2.3 is currently available for Early Adopters only and is not published on GitHub. Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the programme. Prohelion supplies the installer download address and the channel name to use; the download site needs no login. Download the installer from the supplied address, then run it with the channel:
+    Profinity 2.3 is currently available for Early Adopters only and is not published on GitHub. Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the programme. Prohelion supplies the installer download address and the channel name to use; the download site needs no login. Download the installer from the supplied address, then run it with the channel:
 
     ```bash
     curl -fsSL -o install.sh <installer address supplied by Prohelion>

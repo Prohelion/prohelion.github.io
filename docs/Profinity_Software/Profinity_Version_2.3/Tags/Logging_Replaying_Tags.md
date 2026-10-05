@@ -5,7 +5,7 @@ description: "Record tag values to files and replay recorded tag logs with playb
 
 # Log / Replay Tags
 
-Profinity can record the values of your tags to a file and replay that recording later, so a tag-driven [collection](Collections.md), [rule](Actions.md), [alert](Alerts.md) or dashboard behaves as it did when the data was captured. This is the tag-layer equivalent of [logging and replaying CAN bus messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md), and it works with any tag, not only those decoded from CAN.
+Profinity can record the values of your tags to a file and replay that recording later, so a tag-driven [collection](Collections.md), [rule](Actions.md), [alert](Alerts.md) or [dashboard](../Customising_Profinity/Dashboards/index.md) behaves as it did when the data was captured. This is the tag-layer equivalent of [logging and replaying CAN bus messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md), and it works with any tag, not only those decoded from CAN.
 
 ## Logging Tags
 
@@ -46,4 +46,4 @@ Logs recorded by a TAG File Logger on this instance are stored under the `tag_lo
 
 ## Replay Through the API
 
-Integrators can drive the replayer through the REST API under `/api/v2/Tags/Replay`: list the available logs, start a replay with a starting percentage and an optional loop flag, stop it, and read its status. These endpoints need the same **Replay tag changes** permission, and the Swagger page on your Profinity instance lists the parameters.
+Integrators can drive the replayer through the [REST API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2/Tags/Replay`: list the available logs, start a replay with a starting percentage and an optional loop flag, stop it, and read its status. These endpoints need the same **Replay tag changes** permission, and the Swagger page on your Profinity instance lists the parameters.

@@ -69,6 +69,9 @@ For more information about Docker Compose, see the [official Docker documentatio
 
 The Profinity Docker container is started and stopped using commands from the [Docker Compose toolset](https://docs.docker.com/compose/reference/). First, navigate to the directory containing the `docker-compose.yml` file.
 
+!!! info "Running in Docker"
+    If Profinity is running inside Docker, Docker rather than Profinity is configured as a service: configure Docker to start the Profinity container automatically on startup. See the Docker documentation for details.
+
 #### Basic Commands
 
 **Start Profinity:**

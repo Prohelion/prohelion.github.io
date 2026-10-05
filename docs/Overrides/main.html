@@ -35,6 +35,12 @@
   }
   </script>
 {% endblock %}
+{% block announce -%}
+  {%- if page and page.file and 'Profinity_Software/Profinity_Version_2.3/' in page.file.src_uri -%}
+  <strong>Profinity v2.3 General Availability Release is coming soon.</strong>
+  Documentation is being published now for Early Adopters, contact Prohelion at <a href="mailto:contact@prohelion.com">contact@prohelion.com</a> to get access to the Early Adopter release, or download Profinity v2.2 for the current General Availability release.
+  {%- endif -%}
+{%- endblock %}
 {% block scripts %}
   {{ super() }}
   <script src="{{ 'assets/javascripts/custom.129bd6ad.min.js' | url }}"></script>
@@ -46,30 +52,6 @@
         logoLink.href = 'https://prohelion.com';
         logoLink.target = '_blank';
         logoLink.rel = 'noopener noreferrer';
-      }
-
-      // Add Early Adopter notice to Profinity V2.3 pages
-      const currentPath = window.location.pathname;
-      if (currentPath.includes('/Profinity_Software/Profinity_Version_2.3/')) {
-        const article = document.querySelector('.md-content__inner');
-        if (article) {
-          const notice = document.createElement('div');
-          notice.className = 'admonition admonition-info';
-          notice.setAttribute('open', '');
-          notice.innerHTML = `
-            <div class="admonition-title">Profinity v2.3 Early Adopter Documentation</div>
-            <p>Profinity v2.3 General Availability Release is coming soon. Documentation is being published now for Early Adopters, contact Prohelion at contact@prohelion.com to get access to the Early Adopter release, or download Profinity v2.2 for the current General Availability release.</p>
-</p>
-          `;
-          
-          // Insert at the top of the article content
-          const firstChild = article.firstElementChild;
-          if (firstChild && firstChild.tagName === 'H1') {
-            firstChild.after(notice);
-          } else {
-            article.insertBefore(notice, article.firstChild);
-          }
-        }
       }
     });
   </script>

@@ -15,16 +15,14 @@ You can manage your Profiles through the **ADMIN** section of Profinity. Select 
 
 - **Switch between profiles**: You can have multiple profiles configured in Profinity. Click **ACTIVATE** on a profile in the list to make it the active profile, which is useful when you are working with different system configurations or testing different setups.
 
+<figure markdown>
+![Profinity Profiles selector showing the list of profiles, with ACTIVATE buttons and the currently active profile marked ACTIVE](../images/profiles_menu.png)
+<figcaption>The Profinity Profiles selector (ADMIN → Profile), where the active profile is marked <strong>ACTIVE</strong></figcaption>
+</figure>
+
 - **Create new profiles**: You can create new profiles to organise different system configurations. Each profile maintains its own set of components, dashboards, and settings.
 
 - **Manage existing profiles**: View, edit, or delete profiles as needed.
-
-You can see the components that are in your active Profile in the menu on the left of the screen, and you can add to the Profile by clicking on the [+ ADD COMPONENT](./Adding_New_Components.md) button in the left-most menu of Profinity or on the home page.
-
-<figure markdown>
-![Profinity Homepage](../images/homepage.png)
-<figcaption>Profinity homepage (showing the `+ ADD COMPONENT` button in both locations)</figcaption>
-</figure>
 
 ## More Information
 

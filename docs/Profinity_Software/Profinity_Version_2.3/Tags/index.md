@@ -32,14 +32,14 @@ Use Tag Explorer to:
 | Feature | Where it opens | View permission |
 |---------|----------------|-----------------|
 | Collections | Side menu → **TAG UTILITIES** → **COLLECTIONS** (editor window) | `TagCollectionsView` |
-| Rules | Side menu → **TAG UTILITIES** → **RULES** (editor window, when the Tag Rule Actions feature is enabled) | `TagRulesView` |
+| Rules | Side menu → **TAG UTILITIES** → **RULES** (editor window) | `TagRulesView` |
 | Alerts Log | Side menu → **ALL ALERTS** | `AlertsView` |
 
 The **TAG UTILITIES** group appears for users with `TagView`, and the collections and rules editors need a loaded profile and the view permission shown, whereas saving needs `TagCollectionsModify` or `TagRulesModify`.
 
 ## Key API areas (integrators)
 
-Integrations can work with tags, tag collections, tag rules and alerts through the REST API under `/api/v2`. The Swagger page on your Profinity instance lists every endpoint and the parameters it accepts. The older data endpoint is not part of the v2 API, so use the tag endpoints for new integrations.
+Integrations can work with tags, tag collections, tag rules and alerts through the [REST API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2`. The Swagger page on your Profinity instance lists every endpoint and the parameters it accepts. The older data endpoint is not part of the v2 API, so use the tag endpoints for new integrations.
 
 All endpoints require the appropriate permissions — see [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 

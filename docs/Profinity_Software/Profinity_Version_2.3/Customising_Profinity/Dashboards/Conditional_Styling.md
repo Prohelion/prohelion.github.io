@@ -9,7 +9,7 @@ Conditional styling allows dashboard components to change their appearance, visi
 
 ## Overview
 
-Conditional styling uses data binding to change how a component looks or whether it appears, based on the current value of a tag. This enables:
+Conditional styling uses [data binding](./Data_Binding.md) to change how a component looks or whether it appears, based on the current value of a tag. This enables:
 
 - **Visual Status Indicators** - Lamps change colour or label based on system state
 - **Dynamic Visibility** - Show or hide readouts, tabs, accordions, and the footer based on data conditions

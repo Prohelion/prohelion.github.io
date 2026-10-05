@@ -68,6 +68,11 @@ This is the most distinctive — and most commonly lost when AI rewrites prose �
 
 - Assume a technically literate reader. Domain jargon (CAN Bus, DBC, BMU, CMU, HVIL, ASIL D, precharge, regen) is used freely, expanded once on first use if it's an acronym, then used bare — not re-explained on every page.
 - Product, feature and UI element names are proper nouns and always capitalised: Profinity, Profile, Adapter, WaveSculptor200, Battery Management Unit. Reference on-screen UI labels exactly as they appear, in quotes or Title Case: `'Add / New Item'`, the "Engage Contactors" button.
+- Version numbers use three forms, and only these:
+  - In sentences and headings, write the product and the number with no letter: Profinity 2.3, Profinity 2.2, "As of Profinity 1.11". If the product name is already in the sentence, "version 2.3" is fine. Do not write V2.3 or v2.3 in prose.
+  - On a button, a git tag, or a quoted installer banner, use a lowercase v: "Download Profinity v2.2", `v2.3.10.0`.
+  - **Profinity V2**, capital V and no minor number, is the product generation. "Security (V2 Only)" and "Profinity V2 installed" stay in that form.
+  - Leave paths, document keys, and other products as they are. Folder names such as `Profinity_Version_2.3`, YAML stamps such as `version: "2.3"`, API paths such as `/api/v2`, and third-party names such as InfluxDB v2 are not Profinity release names. Quote software output literally.
 - Keep configuration fields, parameters and code identifiers literal — don't "prettify" `serialNumber` into "Serial Number" where the text is referring to the actual field name.
 
 ### 2.6 Signs of AI-Generated Prose — Avoid These
@@ -91,7 +96,7 @@ This section was built from a mix of direct source review and automated page-fet
 ### 2.7 Technical Level
 - Assume technical competence but don't assume expertise
 - Define specialised terms on first use, briefly and in-line — not as a separate glossary entry
-- Link to reference materials for advanced concepts
+- Link to reference materials for advanced concepts, and link the first mention of any concept that has its own page (see Links and Cross-References)
 - Explain relationships between concepts in narrative form, in keeping with the long-sentence rhythm in 2.3
 
 ### 2.8 Write for the User, Not the Builder
@@ -174,10 +179,20 @@ def example_function():
 ## 6. Technical References
 
 ### Links and Cross-References
-- Use descriptive link text
-- Link to related documentation
+- Use descriptive link text: link the words that name the thing being linked to, never "click here" or "this page"
 - Provide context for external links
-- Use relative paths for internal links
+- Use relative paths to the `.md` file for internal links, for example `[Derived Tags](../Tags/Derived_Tags.md)`, so MkDocs can check them at build time
+
+#### Linking Concepts in Prose
+When a sentence mentions a Profinity concept, component or feature that has its own page, link the first mention to that page, so a reader who does not know the term can follow it without searching. This applies to features and UI areas (Profiles, Derived Tags, Historians, the Visual Editor, Kiosk Mode), component and script types, administration topics (Roles and Permissions, Licensing) and the how-to guides that put a reference page into practice.
+
+- Link the first mention on a page, using the words already in the sentence. Link again only where a long page returns to the concept in a distant section, and never repeat the same link within a paragraph.
+- Do not link in headings, admonition titles, code spans or code blocks, image alt text or table header rows, and never link a page to itself. Where a heading names a concept, link it in the first sentence beneath.
+- Link where the reader benefits from the destination: a definition, a procedure or a reference they would otherwise have to find. Skip generic words ("tag" in a sentence about something else, "profile" used loosely) and terms the page is itself explaining.
+- Reference and concept pages should point to the how-to that applies them, and how-to guides should point back to the reference pages for each concept they use. Where one guide naturally follows another, say so with a link.
+- Keep link density readable: as a guide, a handful of links per page, not several per sentence. If a paragraph is mostly blue, keep only the links the reader is most likely to need.
+- Do not reword a sentence to fit a link. If the link text does not read naturally in place, leave the word unlinked.
+- Link to the page for the version being documented. Pages under `Profinity_Version_2.3` link to other `Profinity_Version_2.3` pages, never to earlier versions, unless the sentence is about that earlier version.
 
 ### Citations
 - Cite sources when referencing external material
@@ -223,6 +238,7 @@ def example_function():
 ### Numbers and Units
 - Spell out numbers under 10
 - Use numerals for 10 and above
+- Version numbers always use numerals, including versions under 10 (Profinity 2.3). See Terminology for when to add a v.
 - Include units where applicable
 - Use SI units with imperial in parentheses
 
@@ -235,7 +251,7 @@ def example_function():
 - Archive obsolete content appropriately
 
 ### Quality Checks
-- Verify all links work
+- Verify all links work, and that the first mention of each concept that has its own page is linked (see Links and Cross-References)
 - Check code examples are current
 - Ensure images are clear and relevant
 - Validate technical accuracy

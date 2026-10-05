@@ -10,7 +10,7 @@ description: "Understand the key differences and recommended approach for migrat
 
 Because V2 is **not backwards compatible** with Profinity V1:
 
-- **V2 profiles cannot be opened in V1**: profile formats have changed and V1 cannot read V2 profile files.
+- **V2 [profiles](../Administration/Profiles.md) cannot be opened in V1**: profile formats have changed and V1 cannot read V2 profile files.
 - **V1 and V2 configurations are incompatible**: system configuration formats differ between versions.
 - **API changes**: the API structure and endpoints have changed significantly.
 - **No downgrade path**: once profiles or configurations are migrated to V2, they cannot be reverted to V1.

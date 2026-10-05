@@ -5,7 +5,7 @@ description: "Understand where Profinity stores configuration, profiles, plugins
 
 # Profinity artefacts directory
 
-Profinity stores writable data — configuration, profiles, plugins, and logs — in a single **artefacts directory**. This is separate from the install directory that contains `Profinity Engine.dll` and other binaries.
+Profinity stores writable data — configuration, [profiles](../Administration/Profiles.md), plugins, and logs — in a single **artefacts directory**. This is separate from the install directory that contains `Profinity Engine.dll` and other binaries.
 
 The artefacts path matters when upgrading from 2.2.x, deploying on Linux as a service, or mounting Docker volumes.
 

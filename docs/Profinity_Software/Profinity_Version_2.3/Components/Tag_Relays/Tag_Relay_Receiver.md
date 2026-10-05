@@ -7,7 +7,7 @@ description: "Receive tags from remote Profinity instances and mount them as rea
 
 The **Tag Relay Receiver** ingests the snapshots published by one or more [Tag Relay Senders](Tag_Relay_Sender.md) and mounts the incoming tags in the local tag tree as read-only tags beneath a prefix that identifies where they came from. It sits in the **Tag Relays** category and requires the **Data Relay** licensed feature.
 
-A **tag** is Profinity's common data model for a signal, with an address, a value, a quality flag and metadata, as described in the [Tag layer](../../Tags/index.md) documentation. Once relayed tags are mounted on the receiver they behave like any other tag, so they can be browsed in Tag Explorer, placed in [collections](../../Tags/Collections.md), shown on a dashboard, logged, and used in rules and scripts. The concept, collision rules and limitations are covered in [Tag relay](../../Tags/Tag_Relay.md).
+A **tag** is Profinity's common data model for a signal, with an address, a value, a quality flag and metadata, as described in the [Tag layer](../../Tags/index.md) documentation. Once relayed tags are mounted on the receiver they behave like any other tag, so they can be browsed in Tag Explorer, placed in [collections](../../Tags/Collections.md), shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged, and used in rules and scripts. The concept, collision rules and limitations are covered in [Tag relay](../../Tags/Tag_Relay.md).
 
 ## Adding a Tag Relay Receiver
 

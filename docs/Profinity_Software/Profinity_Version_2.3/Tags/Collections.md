@@ -5,7 +5,7 @@ description: "Group tags for filtering, dashboards, and rules using visual edito
 
 # Tag collections
 
-**Collections** group tags for filtering, dashboards, and rules. Profinity 2.3 stamps collections YAML with **`version: "2.3"`**; each entry carries a plain `id` field so the visual editor can round-trip edits without losing identity.
+**Collections** group tags for filtering, [dashboards](../Customising_Profinity/Dashboards/index.md), and [rules](./Actions.md). Profinity 2.3 stamps collections YAML with **`version: "2.3"`**; each entry carries a plain `id` field so the visual editor can round-trip edits without losing identity.
 
 <figure markdown>
 ![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../images/2.3-diagram-collections.png)
@@ -54,7 +54,7 @@ Full vocabulary (path matching, values, metadata, wildcards): [Tag expressions](
 
 ## API
 
-Collections are managed via `/api/v2` tag collections controllers with JSON request and response bodies. Permissions follow `TagCollectionsView` / `TagCollectionsModify`.
+Collections are managed via the [REST API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2` tag collections controllers with JSON request and response bodies. Permissions follow `TagCollectionsView` / `TagCollectionsModify`.
 
 ## Related documentation
 

@@ -12,8 +12,8 @@ Configure Profinity to run as a kiosk application that automatically launches in
 - Profinity V2 installed **as a service or in Docker with automatic start enabled**
 - Profinity must be **running** before configuring the browser for kiosk mode
 - Administrator access to the system
-- A profile configured and ready to display
-- An enabled user to act as the kiosk user, holding only the permissions the display needs (see [Kiosk Mode](../Administration/Kiosk_Mode.md#requirements) for the requirements)
+- A [profile](../Getting_Started/Profiles.md) configured and ready to display
+- An enabled [user](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, holding only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs (see [Kiosk Mode](../Administration/Kiosk_Mode.md#requirements) for the requirements)
 - Familiarity with your operating system's kiosk mode features
 
 ## Steps

@@ -7,7 +7,7 @@ description: "A built-in profile component that renders a YAML-only dashboard bo
 
 A Dashboard Component is a built-in profile component that renders a **YAML-only** dashboard, with **no DBC**. It suits human-machine interface (HMI) style screens that bind to existing tags without defining CAN messages.
 
-Because it only displays tags that already exist, there is nothing to compile or pack. The dashboard YAML lives in the profile component folder.
+Because it only displays [tags](../../Tags/index.md) that already exist, there is nothing to compile or pack. The dashboard YAML lives in the profile component folder.
 
 ## Building the dashboard
 

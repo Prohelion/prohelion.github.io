@@ -21,7 +21,7 @@ Select **CAN UTILITIES** in the side menu, then the `SEND & RECEIVED CAN` menu i
 <figcaption>Receive CAN Packets</figcaption>
 </figure>
 
-Clicking on the `CAN Activity` table headers allows you to filter and/or sort the messages by CAN ID, direction, flags, and so on. Depending on the adapter, you may also be able to change settings such as endian representation or local traffic filtering.
+Clicking on the `CAN Activity` table headers allows you to filter and/or sort the messages by CAN ID, direction, flags, and so on. Depending on the [adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), you may also be able to change settings such as endian representation or local traffic filtering.
 
 There are two additional controls available at the top of the window, named `Spaced data` and `Heatmap`. Toggling on the `Spaced data` option breaks the CAN traffic data into individual hex bytes to make it easier to read. With the `Heatmap` option toggled, bytes that change value frequently are highlighted with warmer colours and bytes that remain relatively constant are highlighted with cooler colours.
 
@@ -37,7 +37,7 @@ Packets can be sent only once, or can be saved so that Profinity adds the packet
     If you set up a CAN Packet in Profinity to send regularly and then log off from Profinity, the packet continues to send. To stop a packet sending, delete it in the Scheduled CAN Packet list.
 
 !!! info "Scheduled Packets Are Saved In Your Profile"
-    If you change Profile or restart Profinity your saved packets are not lost, they are restored. However, packets do not automatically start sending again on a schedule, and you need to restart them manually.
+    If you change [Profile](../Getting_Started/Profiles.md) or restart Profinity your saved packets are not lost, they are restored. However, packets do not automatically start sending again on a schedule, and you need to restart them manually.
 
 ### Adding a Scheduled Packet
 
@@ -60,3 +60,9 @@ Setting an interval causes Profinity to send your CAN packet at your chosen loop
 ### Sending a Packet on Demand
 
 If your packet is not set up on a schedule, you can send it manually at any time by clicking on the send arrow in the Scheduled CAN Packets window, or by selecting the line of the CAN Packet and pressing the space bar.
+
+## Related documentation
+
+- [How to Send and Receive CAN Bus Messages](../How_To_Guides/Send_Receive_CAN_Bus.md)
+- [How to Connect to CAN Bus](../How_To_Guides/Connect_to_CAN_Bus.md)
+- [Log / Replay CAN bus Messages](Logging_Replaying_CAN_Bus_Messages.md)

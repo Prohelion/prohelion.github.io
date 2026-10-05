@@ -5,7 +5,7 @@ description: "Push profile tag collections to HTTP endpoints via POST with JSON 
 
 # Webhook Publisher
 
-The **Webhook Publisher** pushes the current values of one or more profile tag collections to a
+The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections.md) to a
 configured HTTP(S) URL, either on a fixed interval or whenever a member tag's value changes — the
 same two trigger modes the [MQTT Publisher](./MQTT_Publisher.md) provides, over a plain
 HTTP POST instead of an MQTT broker. It sits in the **Publishers & Subscribers** category: a
@@ -14,6 +14,9 @@ broker's subscribed clients), which is a different consumption model from a **Lo
 writes to a queryable store such as a file or database for later, disconnected retrieval. Use the
 Webhook Publisher when the consumer is an ordinary HTTP service rather than an MQTT-aware one, or
 when there is no existing MQTT infrastructure in place to publish to.
+
+!!! info "Licence required"
+    The Webhook Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
 ## Adding a Webhook Publisher
 

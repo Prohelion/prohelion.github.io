@@ -34,7 +34,7 @@ If an adapter is defined and visible on the network but is not currently associa
 
 Configuring a CAN bus adapter manually follows a very similar process to other components.
 
-First, [add the adapter](../../Getting_Started/Adding_New_Components.md) to your Profile. When a CAN bus adapter is added, Profinity prompts for the following information about the device, and these details can be changed later with the `Change Settings` button at the top-right of the adapter dashboard.
+First, [add the adapter](../../Getting_Started/Adding_New_Components.md) to your [Profile](../../Getting_Started/Profiles.md). When a CAN bus adapter is added, Profinity prompts for the following information about the device, and these details can be changed later with the `Change Settings` button at the top-right of the adapter dashboard.
 
 | Parameter                | Description                                               |
 |--------------------------|-----------------------------------------------------------|

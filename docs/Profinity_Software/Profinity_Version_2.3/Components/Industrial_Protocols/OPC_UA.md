@@ -12,7 +12,8 @@ The OPC UA plugin provides two components, which can be used on their own or tog
 | **OPC UA Client** | Connects to a remote OPC UA server and polls the nodes you list into Profinity tags. |
 | **OPC UA Server** | Listens for OPC UA clients and exposes this profile's tag tree to them as a read-only address space. |
 
-The OPC UA plugin is not included in the standard Profinity installation. It is supplied by Prohelion on request and installed like any other [DLL plugin](../../Administration/Components_and_Plugins.md). It also requires the **Industrial Protocols** licensed component group; see [Licensing](../../Administration/Licensing.md). See [Industrial protocols](index.md) for an overview.
+!!! info "Licence required"
+    The OPC UA plugin is not part of the standard installation. Prohelion supplies it on request, you install it like any other [DLL plugin](../../Administration/Components_and_Plugins.md), and it requires the **Industrial Protocols** licensed component group, an add-on to your edition. See [Licensing](../../Administration/Licensing.md), or [Industrial protocols](index.md) for an overview.
 
 Both components are added to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [Adding Components to Your Profile](../../Getting_Started/Adding_New_Components.md). The settings below can be changed later from the component's `Change Settings` menu.
 

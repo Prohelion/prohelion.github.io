@@ -53,7 +53,7 @@ The legacy `{COMPONENT_NAME}` placeholder, documented in [Data Binding](../Custo
 ## Changing the path on a deployed component
 
 !!! warning "Moving a Component Breaks Absolute Binds in Other Dashboards"
-    Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and historian data recorded under the old path is not carried across.
+    Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and [Historian](../Components/Historians/index.md) data recorded under the old path is not carried across.
 
 Changing a deployed component's **Tag tree path**, or renaming it, automatically updates the [Alerts](Alerts.md) and [Collections](Collections.md) that refer to it, along with the profile home dashboard's `source:` bindings. Profinity checks each path against the live tag tree before rewriting it, so an unrelated branch that happens to share a name is never touched. The same updates appear in `rules.yaml` and `collections.yaml` for anyone who edits those files directly.
 

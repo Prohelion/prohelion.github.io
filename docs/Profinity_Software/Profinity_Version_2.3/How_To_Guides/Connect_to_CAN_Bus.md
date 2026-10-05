@@ -10,9 +10,9 @@ Connect Profinity to your CAN bus network using a supported adapter.
 ## Prerequisites
 
 - Profinity V2 installed
-- A supported CAN bus adapter (Peak USB, SocketCAN, SocketCANd, Ewert Energy CANdapter, or a Prohelion or Tritium CAN to Ethernet bridge)
+- A supported [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) (Peak USB, SocketCAN, SocketCANd, Ewert Energy CANdapter, or a Prohelion or Tritium CAN to Ethernet bridge)
 - Adapter drivers installed (if required)
-- The `ComponentModify` permission, which allows components to be added
+- The `ComponentModify` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows components to be added
 
 ## Steps
 

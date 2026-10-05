@@ -9,12 +9,12 @@ description: "Connect to Profinity from iOS or Android with UDP server discovery
 
 ## Install the app
 
-!!! info "Profinity v2.3 Download Information"
-    Profinity v2.3 mobile app is currently available for Early Adopters only.  Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the program and to receive the installation files.
+!!! info "Profinity 2.3 Download Information"
+    Profinity 2.3 mobile app is currently available for Early Adopters only.  Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the program and to receive the installation files.
 
 ## Enable server discovery on the engine
 
-1. On the Profinity server, select **ADMIN** in the side menu, then **System Configuration**.
+1. On the Profinity server, select **ADMIN** in the side menu, then [**System Configuration**](../Administration/System_Configuration/index.md).
 2. Locate **Server Discovery** (application configuration section).
 3. Configure:
     - **Profinity Server Name** — friendly name shown in the mobile list, which defaults to the host name of the machine (for example `Workshop-Profinity`).

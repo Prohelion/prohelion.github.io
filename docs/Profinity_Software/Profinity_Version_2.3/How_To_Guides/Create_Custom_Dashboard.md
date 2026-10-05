@@ -20,7 +20,7 @@ No YAML knowledge is needed for the visual steps. The YAML alternative for each 
 
 1. Navigate to your **Custom Component** in the sidebar
 2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar
-3. The editor opens in **DESIGN** mode, the visual editor, with a "Hello World" starter dashboard
+3. The editor opens in **DESIGN** mode, the visual editor, with a "CUSTOM DASHBOARD" starter dashboard
 
 ### Step 2: Add Your First Data Binding
 

@@ -17,7 +17,7 @@ OIDC SSO configuration is covered in [SSO and sign-in method](./SSO_and_Sign_In.
 2. Enable **SCIM provisioning**.
 
     !!! note "Licensing"
-        Enabling SCIM provisioning (`SecurityScimProvisioning.Enabled`) requires the **EnterpriseSecurity** product feature. Without this licence, the toggle is unavailable.
+        Enabling SCIM provisioning (`SecurityScimProvisioning.Enabled`) requires the **Enterprise Security** feature, included in the **Enterprise** edition only. Without this licence, the toggle is unavailable.
 
 3. Set a **bearer token** for SCIM clients (store securely; rotate periodically).
 

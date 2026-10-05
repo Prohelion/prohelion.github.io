@@ -13,7 +13,7 @@ Configure Profinity to log CAN bus data to InfluxDB for cloud-based data analyti
 - An InfluxDB instance (cloud or self-hosted), with its version known, because InfluxDB V1, V2 and V3 are separate, incompatible products and Profinity provides a separate component for each
 - An InfluxDB bucket (V2) or database (V1 and V3) created and accessible
 - Network access to your InfluxDB server
-- The `ComponentModify` permission, which allows loggers and historians to be added
+- The `ComponentModify` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows [loggers](../Components/Loggers/File_Loggers.md) and [historians](../Components/Historians/index.md) to be added
 
 The steps below use InfluxDB Cloud and the InfluxDB v2 Historian, which Profinity groups under Historians and which is the same kind of time-series sink as the InfluxDB v1 Logger, which is the typical cloud setup. For V1 or V3 the connection settings differ, as listed in [InfluxDB and Prometheus Logging](../Components/Loggers/InfluxDB_Prometheus_Logger.md).
 

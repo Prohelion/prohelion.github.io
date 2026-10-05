@@ -5,7 +5,7 @@ description: "Configure automatic sign-in for kiosk displays and unattended moni
 
 # Kiosk Mode
 
-Kiosk Mode signs a display in automatically as a user you choose, so that the login page is never shown on kiosk displays, public terminals and dedicated monitoring stations that need to stay signed in without anyone at the keyboard. It is set per profile and applies whenever that profile is the active profile.
+Kiosk Mode signs a display in automatically as a user you choose, so that the login page is never shown on kiosk displays, public terminals and dedicated monitoring stations that need to stay signed in without anyone at the keyboard. It is set per [profile](Profiles.md) and applies whenever that profile is the active profile.
 
 !!! warning "A kiosk session inherits the kiosk user's permissions"
     Anyone who can reach a kiosk display, or the Profinity web address of a kiosk profile, acts as the kiosk user with every permission that user holds. Profinity lists any enabled user in the Kiosk Mode User dropdown, including administrators, so choose a dedicated user with the minimum permissions required. See [Choosing the Kiosk User](#choosing-the-kiosk-user).
