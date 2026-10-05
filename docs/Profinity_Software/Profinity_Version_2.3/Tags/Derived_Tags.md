@@ -186,7 +186,7 @@ mirror that rule's current state to the given tag path whenever it changes. See
 ## Permissions
 
 Derived tags follow the same access model as Collections and Rules — see
-[Roles and permissions](../Administration/Roles_and_Permissions.md).
+[Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
 ## Related documentation
 

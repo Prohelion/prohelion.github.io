@@ -57,5 +57,5 @@ Verify firewall rules allow outbound traffic from the Profinity host to the SIEM
 ## Related documentation
 
 - [SSO and sign-in method](./SSO_and_Sign_In.md)
-- [Roles and permissions](../Roles_and_Permissions.md)
-- [System configuration](../System_Config.md)
+- [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md)
+- [System configuration](../index.md)

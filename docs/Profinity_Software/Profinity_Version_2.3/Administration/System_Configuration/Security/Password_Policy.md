@@ -38,7 +38,7 @@ The default `admin` account may be configured to require password change on firs
 When a user with this flag signs in, Profinity shows a **change password** dialog before granting access to the application.
 
 <figure markdown>
-![Forced password change dialog on login](../../images/2.3-forced-password-change-dialog.png)
+![Forced password change dialog on login](../../../images/2.3-forced-password-change-dialog.png)
 <figcaption>Password change required before continuing</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ Users with local accounts can change their own password when signed in by select
 Enter your current password, then choose and confirm a new one, and select **Update Password**. The dialog shows the minimum length as you type; the site policy is enforced when you save.
 
 <figure markdown>
-![Change Password dialog with current, new and confirm new password fields](../../images/2.3-change-password.png)
+![Change Password dialog with current, new and confirm new password fields](../../../images/2.3-change-password.png)
 <figcaption>Changing your own password</figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ Enter your current password, then choose and confirm a new one, and select **Upd
 
 - [SSO and sign-in method](./SSO_and_Sign_In.md)
 - [Two-factor authentication](./Two_Factor_Authentication.md)
-- [MFA account management](./MFA_Account_Management.md)
-- [Roles and permissions](../Roles_and_Permissions.md)
-- [Managing users](../Manage_Users.md)
-- [Security guide](../../Installation/Security.md)
+- [MFA account management](../../Users_and_Access/MFA_Account_Management.md)
+- [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md)
+- [Managing users](../../Users_and_Access/Manage_Users.md)
+- [Security guide](../../../Installation/Security.md)

@@ -29,6 +29,8 @@ The page shows:
 <figcaption>ADMIN &rarr; License — status, entitlements, and fingerprint</figcaption>
 </figure>
 
+Component groups are licensed separately from product features. For example, the BACnet, EtherNet/IP, Modbus, OPC UA and S7 [industrial protocol plugins](../Components/Industrial_Protocols/index.md) all require the **Industrial Protocols** component group, whereas [Tag Relays](../Components/Tag_Relays/index.md) require the **Data Relay** feature. Without the matching entitlement the components show as unavailable, even when the plugin is installed.
+
 !!! info "Available versus licensed"
     A feature can be licensed but still unavailable, for example when it has been turned off in site configuration. The **Licensed** column always reflects the licence file; the **Available** column reflects the actual runtime state and names the layer responsible when it is blocked.
 
@@ -84,5 +86,5 @@ The fingerprint is a value computed from the installation itself, unique to that
 ## Related documentation
 
 - [System information](System_Info.md) — instance version and licence summary shown alongside other system details.
-- [Roles and permissions](Roles_and_Permissions.md) — assigning the SecurityAdmin permission needed to manage licences.
-- [System configuration](System_Config.md) — the site-level configuration layer that can narrow, but never exceed, what the licence permits.
+- [Roles and permissions](Users_and_Access/Roles_and_Permissions.md) — assigning the SecurityAdmin permission needed to manage licences.
+- [System configuration](System_Configuration/index.md) — the site-level configuration layer that can narrow, but never exceed, what the licence permits.

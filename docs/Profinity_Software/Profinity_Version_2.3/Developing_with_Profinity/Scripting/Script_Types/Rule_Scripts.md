@@ -17,7 +17,7 @@ firing context directly as a parameter to the method the script implements.
 3. Name that component in the rule's **`onTrue`**/**`onFalse`** action list, the same way any
    other rule action is referenced by component name.
 
-Enable scripting in [System Configuration](../../../Administration/System_Config.md) before using
+Enable scripting in [System Configuration](../../../Administration/System_Configuration/index.md) before using
 script actions, which every script trigger requires.
 
 ## The alert context

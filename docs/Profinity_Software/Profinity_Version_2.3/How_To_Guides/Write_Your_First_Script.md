@@ -18,7 +18,7 @@ Create your first Profinity script to automate tasks and interact with your CAN 
 
 ### Step 1: Enable Scripting
 
-1. Select **ADMIN** in the side menu and open the **System Configuration** pill (see [System Configuration](../Administration/System_Config.md) for detail)
+1. Select **ADMIN** in the side menu and open the **System Configuration** pill (see [System Configuration](../Administration/System_Configuration/index.md) for detail)
 2. Find the **Optional Capabilities** section
 3. Enable **Enable Scripting**
 4. Click **Save**

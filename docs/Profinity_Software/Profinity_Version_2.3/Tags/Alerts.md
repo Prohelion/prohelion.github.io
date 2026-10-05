@@ -1,20 +1,20 @@
 ---
-title: ALL ALERTS
+title: Alerts Log
 description: "Surface rule-generated alerts across the UI with active/history tabs and live alert indicators."
 ---
 
-# ALL ALERTS
+# Alerts Log
 
-Profinity 2.3 surfaces rule-generated alerts in **ALL ALERTS**, live indicators across the UI, and the `/api/v2/Alerts` API. Operators with **`AlertsView`** permission can view, acknowledge, unacknowledge, and silence alerts.
+Profinity 2.3 surfaces rule-generated alerts in **Alerts Log**, live indicators across the UI, and the `/api/v2/Alerts` API. Operators with **`AlertsView`** permission can view, acknowledge, unacknowledge, and silence alerts.
 
 <figure markdown>
-![The ALL ALERTS page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge/silence controls](../images/2.3-diagram-alerts.png)
+![The Alerts Log page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge/silence controls](../images/2.3-diagram-alerts.png)
 <figcaption>Nothing gets missed in a log file</figcaption>
 </figure>
 
-## Open ALL ALERTS
+## Open Alerts Log
 
-Select **ALL ALERTS** in the side menu.
+Select **ALL ALERTS** in the side menu to open the Alerts Log.
 
 <figure markdown>
 ![Side menu with ALL ALERTS entry](../images/2.3-side-menu-all-alerts.png)
@@ -31,12 +31,12 @@ The side menu icon uses the Carbon alert style — not the legacy `dash_alerts_a
 | **History** | Paginated history (newest first) |
 
 <figure markdown>
-![ALL ALERTS Active tab with alert table](../images/2.3-alerts-active-tab.png)
+![Alerts Log Active tab with alert table](../images/2.3-alerts-active-tab.png)
 <figcaption>Active alerts table</figcaption>
 </figure>
 
 <figure markdown>
-![ALL ALERTS History tab with pagination](../images/2.3-alerts-history-tab.png)
+![Alerts Log History tab with pagination](../images/2.3-alerts-history-tab.png)
 <figcaption>Alert history</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ The web client polls active alerts every **four seconds** and shows indicators i
 
 ## Acknowledge, unacknowledge, and silence
 
-From ALL ALERTS (requires `AlertsView` — same permission for mutations):
+From Alerts Log (requires `AlertsView` — same permission for mutations):
 
 | Action | Effect |
 |--------|--------|
@@ -116,4 +116,4 @@ How to write conditions: [Tag expressions](./Tag_Expressions.md). Also see [Rule
 - [Tag expressions](./Tag_Expressions.md)
 - [Tag layer](index.md)
 - [Collections](./Collections.md)
-- [Roles and permissions](../Administration/Roles_and_Permissions.md)
+- [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)

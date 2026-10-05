@@ -45,7 +45,7 @@ SSO users are out of scope for Profinity MFA reset — manage credentials and MF
 
 ## Related documentation
 
-- [Two-factor authentication](./Two_Factor_Authentication.md)
-- [Password policy](./Password_Policy.md)
-- [Managing users](../Manage_Users.md)
-- [Roles and permissions](../Roles_and_Permissions.md)
+- [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md)
+- [Password policy](../System_Configuration/Security/Password_Policy.md)
+- [Managing users](Manage_Users.md)
+- [Roles and permissions](Roles_and_Permissions.md)

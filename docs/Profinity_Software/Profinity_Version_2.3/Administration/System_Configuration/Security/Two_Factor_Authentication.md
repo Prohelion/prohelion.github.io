@@ -38,7 +38,7 @@ After password validation, local users with enrolled MFA see the MFA step:
 
 ## Self-service MFA management
 
-When **Enforce two-factor for local users** is enabled, signed-in local users can open the **Two-factor authentication** pill on the **ADMIN** page to reset their authenticator or regenerate recovery codes. See [MFA account management](./MFA_Account_Management.md).
+When **Enforce two-factor for local users** is enabled, signed-in local users can open the **Two-factor authentication** pill on the **ADMIN** page to reset their authenticator or regenerate recovery codes. See [MFA account management](../../Users_and_Access/MFA_Account_Management.md).
 
 ## Secrets storage
 
@@ -47,5 +47,5 @@ When **Enforce two-factor for local users** is enabled, signed-in local users ca
 ## Related documentation
 
 - [SSO and sign-in method](./SSO_and_Sign_In.md)
-- [MFA account management](./MFA_Account_Management.md)
+- [MFA account management](../../Users_and_Access/MFA_Account_Management.md)
 - [Password policy](./Password_Policy.md)

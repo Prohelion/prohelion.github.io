@@ -72,5 +72,5 @@ SCIM uses the same OIDC site configuration. See [SCIM and SIEM](./SCIM_and_SIEM.
 
 - [Two-factor authentication](./Two_Factor_Authentication.md)
 - [SCIM and SIEM](./SCIM_and_SIEM.md)
-- [Roles and permissions](../Roles_and_Permissions.md)
-- [Release notes 2.3.10](../../Release_Notes/2.3.10.md)
+- [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md)
+- [Release notes 2.3.10](../../../Release_Notes/2.3.10.md)

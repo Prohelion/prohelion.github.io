@@ -388,5 +388,5 @@ BMU1_BASE_ADDRESS=101
 For additional information on Profinity configuration and profiles, see:
 
 - [Profinity Profiles](../Administration/Profiles.md) - Detailed profile management
-- [System Configuration](../Administration/System_Config.md) - System-level configuration options
+- [System Configuration](../Administration/System_Configuration/index.md) - System-level configuration options
 - [Getting Started with Profiles](../Getting_Started/Profiles.md) - Basic profile concepts

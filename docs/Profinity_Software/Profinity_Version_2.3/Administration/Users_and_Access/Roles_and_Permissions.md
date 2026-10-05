@@ -111,7 +111,7 @@ The tables follow the headings in the role editor, using the names shown there. 
 
 | Permission | What it allows |
 |------------|----------------|
-| **View alerts** | Seeing the alerts dashboard and history in **ALL ALERTS**, and acknowledging, unacknowledging and silencing alerts |
+| **View alerts** | Seeing the alerts dashboard and history in **Alerts Log**, and acknowledging, unacknowledging and silencing alerts |
 | **View plugins** | Seeing installed plugins in **Components & Plugins** |
 | **Modify plugins** | Uploading, enabling and disabling plugins. Also turns on **View plugins** |
 
@@ -119,7 +119,7 @@ The tables follow the headings in the role editor, using the names shown there. 
 
 | Permission | What it allows |
 |------------|----------------|
-| **Profinity AI** | Using the **Profinity AI** chat assistant, described in [AI Assistant](./Security/AI_Assistant.md). Also turns on **MCP integration** |
+| **Profinity AI** | Using the **Profinity AI** chat assistant, described in [AI Assistant](../System_Configuration/AI_Settings.md). Also turns on **MCP integration** |
 | **MCP integration** | Connecting tools that use the MCP endpoint to read live data from Profinity |
 | **Receive external tags** | Accepting tag snapshots and updates sent from another Profinity system |
 
@@ -137,16 +137,16 @@ A missing menu entry or admin page almost always means the person's roles lack t
 | **CAN LOG REPLAY** or **TAG LOG REPLAY** | **Replay CAN logs** or **Replay tag changes** |
 | **Profinity AI** | **Profinity AI** |
 
-If the permission is present and the person still cannot see a particular component or tag collection, that item may be restricted to certain roles, as described in [Component and collection security](./Security/Component_And_Collection_Security.md).
+If the permission is present and the person still cannot see a particular component or tag collection, that item may be restricted to certain roles, as described in [Component and collection security](./Component_And_Collection_Security.md).
 
 There is no single administrator permission. Someone who needs broad access is given the **Administrators** role, or a role with the specific permissions they need.
 
 ## Related documentation
 
 - [Managing Users](./Manage_Users.md)
-- [Password policy](./Security/Password_Policy.md)
-- [Two-factor authentication](./Security/Two_Factor_Authentication.md)
-- [Service accounts](./Security/Service_Accounts.md)
-- [SSO and sign-in method](./Security/SSO_and_Sign_In.md)
-- [Component and collection security](./Security/Component_And_Collection_Security.md)
-- [Security guide](../Installation/Security.md)
+- [Password policy](../System_Configuration/Security/Password_Policy.md)
+- [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md)
+- [Service accounts](./Service_Accounts.md)
+- [SSO and sign-in method](../System_Configuration/Security/SSO_and_Sign_In.md)
+- [Component and collection security](./Component_And_Collection_Security.md)
+- [Security guide](../../Installation/Security.md)

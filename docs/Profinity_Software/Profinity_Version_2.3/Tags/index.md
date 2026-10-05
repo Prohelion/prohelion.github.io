@@ -33,7 +33,7 @@ Use Tag Explorer to:
 |---------|----------------|-----------------|
 | Collections | Side menu → **TAG UTILITIES** → **COLLECTIONS** (editor window) | `TagCollectionsView` |
 | Rules | Side menu → **TAG UTILITIES** → **RULES** (editor window, when the Tag Rule Actions feature is enabled) | `TagRulesView` |
-| ALL ALERTS | Side menu → **ALL ALERTS** | `AlertsView` |
+| Alerts Log | Side menu → **ALL ALERTS** | `AlertsView` |
 
 The **TAG UTILITIES** group appears for users with `TagView`, and the collections and rules editors need a loaded profile and the view permission shown, whereas saving needs `TagCollectionsModify` or `TagRulesModify`.
 
@@ -41,7 +41,11 @@ The **TAG UTILITIES** group appears for users with `TagView`, and the collection
 
 Integrations can work with tags, tag collections, tag rules and alerts through the REST API under `/api/v2`. The Swagger page on your Profinity instance lists every endpoint and the parameters it accepts. The older data endpoint is not part of the v2 API, so use the tag endpoints for new integrations.
 
-All endpoints require the appropriate permissions — see [Roles and permissions](../Administration/Roles_and_Permissions.md).
+All endpoints require the appropriate permissions — see [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
+
+## Logging and replaying tags
+
+The TAG File Logger records tag values to a file, and the **TAG LOG REPLAY** screen plays a recording back onto your live tags. See [Log / replay tags](Logging_Replaying_Tags.md).
 
 ## Tag relay
 
@@ -50,13 +54,19 @@ instance publishes a snapshot, another ingests it as remote, read-only tags unde
 that site's own prefix. See [Tag relay](./Tag_Relay.md) for how sender and receiver
 roles work, transport options, and licensing.
 
+<figure markdown>
+![At each site, a local Tags → Collections → Rules → Actions and Alerts pipeline runs on its own; Tag Relay lifts that up to a central fleet instance with its own fleet-wide collections, rules, and alerts spanning every site](../images/2.3-diagram-fleet-overview.png)
+<figcaption>Each site keeps running independently — relay only adds a shared view on top</figcaption>
+</figure>
+
 ## Related documentation
 
 - [Tag relay](./Tag_Relay.md)
 - [Tag linking](Tag_Linking.md)
 - [Tag tree path](Tag_Tree_Path.md)
 - [Tag expressions](Tag_Expressions.md)
-- [ALL ALERTS](Alerts.md)
+- [Alerts Log](Alerts.md)
 - [Collections](Collections.md)
 - [Rule actions and scripts](Actions.md)
 - [Derived tags](Derived_Tags.md)
+- [Log / replay tags](Logging_Replaying_Tags.md)

@@ -46,7 +46,7 @@ Live-data access through MCP is scoped to the permissions of the user asking the
 
 ## Permissions
 
-A user needs the **AI Assistant** permission to see and use the **Profinity AI** menu item; this permission also grants the **MCP View** permission automatically, since the assistant needs it to query live data on the user's behalf. The **AI Assistant** permission is included in the default Administrators role and in the Desktop role, and can be added to or removed from any role like any other permission (see [Roles and permissions](../Roles_and_Permissions.md)).
+A user needs the **AI Assistant** permission to see and use the **Profinity AI** menu item; this permission also grants the **MCP View** permission automatically, since the assistant needs it to query live data on the user's behalf. The **AI Assistant** permission is included in the default Administrators role and in the Desktop role, and can be added to or removed from any role like any other permission (see [Roles and permissions](../Users_and_Access/Roles_and_Permissions.md)).
 
 Changing the Profinity AI configuration itself uses the same instance-settings permission as other admin configuration areas.
 
@@ -60,5 +60,5 @@ Changing the Profinity AI configuration itself uses the same instance-settings p
 ## Related documentation
 
 - [MCP Server](../../Integrating_to_Profinity/MCP_Server.md) — the live-data connection Profinity AI uses, and how to connect an external MCP client.
-- [Profinity AI](../../Profinity_AI/index.md) — the operator-facing guide to using the chat window.
-- [Roles and permissions](../Roles_and_Permissions.md) — assigning the AI Assistant permission to roles.
+- [AI Chat](../../Profinity_AI/AI_Chat.md) — the operator-facing guide to using the chat window.
+- [Roles and permissions](../Users_and_Access/Roles_and_Permissions.md) — assigning the AI Assistant permission to roles.

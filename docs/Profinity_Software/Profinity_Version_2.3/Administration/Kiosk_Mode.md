@@ -90,7 +90,7 @@ Kiosk Mode tokens work in the same way as regular user tokens:
 When using Kiosk Mode:
 
 - **Use dedicated kiosk user accounts**: create specific user accounts for Kiosk Mode rather than using regular user accounts, which makes kiosk access easier to track and manage.
-- **Limit user permissions**: assign the kiosk user only the minimum permissions required, for example a read-only role built from view permissions only, as suggested in [Roles and permissions](./Roles_and_Permissions.md#which-roles-to-create). Never select an administrator or a user holding high-risk permissions such as `CANSend`, because Profinity does not prevent it and anyone at the kiosk would inherit them.
+- **Limit user permissions**: assign the kiosk user only the minimum permissions required, for example a read-only role built from view permissions only, as suggested in [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md#which-roles-to-create). Never select an administrator or a user holding high-risk permissions such as `CANSend`, because Profinity does not prevent it and anyone at the kiosk would inherit them.
 - **Service accounts for automation**: if Kiosk Mode is used for automated systems, consider marking the kiosk user as a service account to enable non-expiring tokens, and treat that token with the same care as any long-lived credential.
 - **Review kiosk users regularly**: periodically review kiosk user configurations to confirm they remain appropriate and enabled.
 - **Monitor access**: monitor Kiosk Mode usage through the system logs to confirm it is used as intended.
@@ -100,5 +100,5 @@ When using Kiosk Mode:
 ## Related Documentation
 
 - [Profiles](./Profiles.md) - profile configuration and management
-- [Managing Users](./Manage_Users.md) - user accounts, roles, and permissions
-- [System Configuration](./System_Config.md) - system-wide configuration settings
+- [Managing Users](./Users_and_Access/Manage_Users.md) - user accounts, roles, and permissions
+- [System Configuration](./System_Configuration/index.md) - system-wide configuration settings

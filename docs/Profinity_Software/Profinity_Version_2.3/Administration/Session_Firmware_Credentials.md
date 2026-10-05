@@ -65,5 +65,5 @@ The POST body takes the following shape:
 
 ## Related documentation
 
-- [Roles and permissions](./Roles_and_Permissions.md)
+- [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md)
 - [Release notes 2.3.10](../Release_Notes/2.3.10.md)

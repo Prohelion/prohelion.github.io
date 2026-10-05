@@ -95,7 +95,7 @@ If both versions must run temporarily:
 If issues occur during migration:
 
 - Review the installation guide for the platform ([Windows](./Windows_Installation.md), [macOS and Linux](./Zip_Installation.md) or [Docker](./Docker_Installation.md)).
-- Check the [System Configuration](../Administration/System_Config.md) documentation for configuration guidance.
+- Check the [System Configuration](../Administration/System_Configuration/index.md) documentation for configuration guidance.
 - Contact [Prohelion Support](https://prohelion.atlassian.net/servicedesk/customer/portals) for assistance.
 - Use the [Feedback](../Administration/Feedback.md) feature in Profinity to report issues.
 

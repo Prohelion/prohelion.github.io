@@ -44,4 +44,4 @@ Each component can override placement using the same drag/reorder editor as the 
 ## Related documentation
 
 - [Profiles](./Profiles.md)
-- [Roles and permissions](./Roles_and_Permissions.md)
+- [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md)

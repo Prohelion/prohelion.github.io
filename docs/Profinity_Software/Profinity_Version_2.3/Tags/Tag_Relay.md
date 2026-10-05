@@ -11,11 +11,6 @@ ingesting that snapshot as remote, read-only tags under a prefix that identifies
 they came from. It is the mechanism behind a fleet or head-office view spanning
 multiple sites, vehicles, or installations.
 
-<figure markdown>
-![At each site, a local Tags → Collections → Rules → Actions and Alerts pipeline runs on its own; Tag Relay lifts that up to a central fleet instance with its own fleet-wide collections, rules, and alerts spanning every site](../images/2.3-diagram-fleet-overview.png)
-<figcaption>Each site keeps running independently — relay only adds a shared view on top</figcaption>
-</figure>
-
 !!! info "Not the same feature as the MQTT Subscriber"
     **Tag relay** is Profinity-to-Profinity only, over its own snapshot format — it does
     not speak Sparkplug. If the other end is a third-party Sparkplug B source (an edge
@@ -70,6 +65,7 @@ whether it is licensed and available on a given instance.
 ## Related documentation
 
 - [Tag layer](./index.md)
+- [Tag Relay Sender](../Components/Tag_Relays/Tag_Relay_Sender.md) and [Tag Relay Receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md) — the components that implement the two roles
 - [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber.md) — for ingesting an external, non-Profinity Sparkplug source instead
 - [Licensing](../Administration/Licensing.md)
-- [Roles and permissions](../Administration/Roles_and_Permissions.md)
+- [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)

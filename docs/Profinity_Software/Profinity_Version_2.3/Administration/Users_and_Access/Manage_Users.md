@@ -23,11 +23,11 @@ All of this is done from **Users & Groups**, which requires the **SecurityAdmin*
 5. Save.
 
 <figure markdown>
-![Add user interface showing the new user creation form](../images/add_user.png)
+![Add user interface showing the new user creation form](../../images/add_user.png)
 <figcaption>New user creation form</figcaption>
 </figure>
 
-Sites that use single sign-on create the user in the same way and then add **External identity links**, as described in [SSO and sign-in method](./Security/SSO_and_Sign_In.md). An account that exists for automation rather than a person is created by enabling **Service account**, which produces an API token, as described in [Service accounts](./Security/Service_Accounts.md).
+Sites that use single sign-on create the user in the same way and then add **External identity links**, as described in [SSO and sign-in method](../System_Configuration/Security/SSO_and_Sign_In.md). An account that exists for automation rather than a person is created by enabling **Service account**, which produces an API token, as described in [Service accounts](./Service_Accounts.md).
 
 ## Giving a user the right access
 
@@ -42,13 +42,13 @@ To change the access of an existing user, click the user's row in Users & Groups
 
 | Task | Where to find it |
 |------|------------------|
-| Reset a user's password | **User Actions** tab, then **Reset Password**. See [MFA account management](./Security/MFA_Account_Management.md) |
-| Reset a user's two-factor authentication | **User Actions** tab, then **Reset MFA**. See [MFA account management](./Security/MFA_Account_Management.md) |
-| Create or view an API token for a service account | **User Actions** tab, then **Generate Token** or **View Token**. See [Service accounts](./Security/Service_Accounts.md) |
+| Reset a user's password | **User Actions** tab, then **Reset Password**. See [MFA account management](./MFA_Account_Management.md) |
+| Reset a user's two-factor authentication | **User Actions** tab, then **Reset MFA**. See [MFA account management](./MFA_Account_Management.md) |
+| Create or view an API token for a service account | **User Actions** tab, then **Generate Token** or **View Token**. See [Service accounts](./Service_Accounts.md) |
 
 ## Password and sign-in rules
 
-Password length, age and complexity are set site-wide in the [Password policy](./Security/Password_Policy.md), and [Two-factor authentication](./Security/Two_Factor_Authentication.md) describes how the second sign-in step is enabled and what users see.
+Password length, age and complexity are set site-wide in the [Password policy](../System_Configuration/Security/Password_Policy.md), and [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md) describes how the second sign-in step is enabled and what users see.
 
 ## After creating a user
 
@@ -60,5 +60,5 @@ Share the sign-in details securely when the user signs in locally, and enable **
 ## Related documentation
 
 - [Roles and permissions](./Roles_and_Permissions.md)
-- [Security guide](../Installation/Security.md)
-- [Kiosk Mode](./Kiosk_Mode.md)
+- [Security guide](../../Installation/Security.md)
+- [Kiosk Mode](../Kiosk_Mode.md)

@@ -16,7 +16,7 @@ The **System Configuration** pill is located on the **ADMIN** page, which is ope
 |--------------------|------------------|------------|
 | Application Config | Packet retention, updates, tag history window and scripting | [Application Config](#application-config) |
 | AI                 | The Profinity AI assistant and the MCP server | [AI](#ai) |
-| Logging            | Log level, rollover size and retained logs | [Logs](Logs_Config.md#system-logs-configuration) |
+| Logging            | Log level, rollover size and retained logs | [Logs](../Logs_Config.md#system-logs-configuration) |
 | Discovery          | The LAN heartbeat that lets Profinity Mobile find this server | [Discovery](#discovery) |
 | Web                | The main HTTP and HTTPS web server and its certificates | [Profinity Web](#profinity-web) |
 | Extensions Web     | A second web server for custom applications and the API | [Extensions Web](#extensions-web) |
@@ -34,21 +34,21 @@ The **System Configuration** pill is located on the **ADMIN** page, which is ope
 |`Enable Scripting`                  | This field must be selected for the Profinity instance to support scripting. Scripting requires security considerations and as such is not activated by default, and it can only be enabled when the Profinity licence includes the Scripting feature. |
 
 <figure markdown>
-![Profinity System Configuration](../images/app_configuration.png)
+![Profinity System Configuration](../../images/app_configuration.png)
 <figcaption>Profinity System Configuration</figcaption>
 </figure>
 
 ## AI
 
-The AI tab configures the instance-wide Profinity AI assistant (provider, model, API key and web search) and the MCP server that it uses. It is described in [Profinity AI settings](Security/AI_Assistant.md). Enabling Profinity AI also enables the [MCP Server](../Integrating_to_Profinity/MCP_Server.md), which can also be enabled on its own for external MCP clients.
+The AI tab configures the instance-wide Profinity AI assistant (provider, model, API key and web search) and the MCP server that it uses. It is described in [Profinity AI settings](AI_Settings.md). Enabling Profinity AI also enables the [MCP Server](../../Integrating_to_Profinity/MCP_Server.md), which can also be enabled on its own for external MCP clients.
 
 ## Logging
 
-The Logging tab sets the log level, the log rollover size and the number of retained logs. It is described in [Logs](Logs_Config.md#system-logs-configuration).
+The Logging tab sets the log level, the log rollover size and the number of retained logs. It is described in [Logs](../Logs_Config.md#system-logs-configuration).
 
 ## Discovery
 
-Profinity can broadcast a small UDP heartbeat on the local network so that [Profinity Mobile](../Mobile/index.md) can find this server without the address being typed in.
+Profinity can broadcast a small UDP heartbeat on the local network so that [Profinity Mobile](../../Mobile/index.md) can find this server without the address being typed in.
 
 | Parameter                          | Description |
 |------------------------------------|--|
@@ -62,7 +62,7 @@ Profinity can broadcast a small UDP heartbeat on the local network so that [Prof
 The Web tab allows you to configure all the parameters that control how Profinity offers its web server connections to users. Profinity supports both HTTP and HTTPS connections as well as custom HTTPS certificates.
 
 <figure markdown>
-![Profinity web menu](../images/profinity_web.png)
+![Profinity web menu](../../images/profinity_web.png)
 <figcaption>Profinity web menu</figcaption>
 </figure>
 
@@ -84,7 +84,7 @@ Profinity can run a second, separate web server that serves custom applications 
 By using the Extensions Web, Profinity can be configured to run custom Kiosk applications and custom web applications for vehicles, among others.
 
 <figure markdown>
-![Extensions web menu](../images/extensions_web.png)
+![Extensions web menu](../../images/extensions_web.png)
 <figcaption>Extensions web menu</figcaption>
 </figure>
 

@@ -29,11 +29,11 @@ Assign **roles** to the service account the same as interactive users. Common pa
 
 | Use case | Suggested permissions |
 |----------|----------------------|
-| Read-only monitoring | A role holding view permissions only, as suggested in [Roles and permissions](../Roles_and_Permissions.md#which-roles-to-create) |
+| Read-only monitoring | A role holding view permissions only, as suggested in [Roles and permissions](Roles_and_Permissions.md#which-roles-to-create) |
 | Tag/query automation | `TagView` plus any required read APIs |
 | MCP access | `McpView` (included in the default Administrators role; assign it explicitly to any other role) |
 
-See [Roles and permissions](../Roles_and_Permissions.md).
+See [Roles and permissions](Roles_and_Permissions.md).
 
 ## Using the token
 
@@ -53,7 +53,7 @@ For MCP setup and testing, see [MCP Server](../../Integrating_to_Profinity/MCP_S
 
 ## Related documentation
 
-- [Managing users](../Manage_Users.md)
+- [Managing users](Manage_Users.md)
 - [MCP Server](../../Integrating_to_Profinity/MCP_Server.md)
-- [Roles and permissions](../Roles_and_Permissions.md)
+- [Roles and permissions](Roles_and_Permissions.md)
 - [Component and collection security](./Component_And_Collection_Security.md) — how restricted components and collections apply to service accounts.

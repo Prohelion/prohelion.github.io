@@ -14,7 +14,7 @@ Profinity can be tailored to the deployment without writing a line of applicatio
 | [Hosting](./Hosting/index.md) | Serve a custom web application from Profinity's integrated web server, with SSL/TLS. |
 | [OEM white-label mobile](../Mobile/OEM_White_Label.md) | Ship a branded Profinity mobile app to your customers. |
 
-[Menu layout](../Administration/Menu_Layout.md) covers per-profile and per-component menu placement, and the [component catalog](../Administration/Component_Catalog.md) covers hiding component types, both under Administration.
+[Menu layout](../Administration/Menu_Layout.md) covers per-profile and per-component menu placement, and the [component catalog](../Administration/Components_and_Plugins.md) covers hiding component types, both under Administration.
 
 ## Dashboards
 
