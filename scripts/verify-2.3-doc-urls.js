@@ -40,7 +40,6 @@ const PAGES = [
   { section: 'Security and administration (D03, D04, D25–D27, D30)', id: 'D30', title: 'Service accounts', md: 'Profinity_Software/Profinity_Version_2.3/Administration/Users_and_Access/Service_Accounts.md' },
   { section: 'Security and administration (D03, D04, D25–D27, D30)', id: '—', title: 'Managing users (updated)', md: 'Profinity_Software/Profinity_Version_2.3/Administration/Users_and_Access/Manage_Users.md' },
   { section: 'Security and administration (D03, D04, D25–D27, D30)', id: '—', title: 'Security guide (updated roles section)', md: 'Profinity_Software/Profinity_Version_2.3/Installation/Security.md' },
-  { section: 'Session firmware (D10)', id: 'D10', title: 'Session firmware credentials', md: 'Profinity_Software/Profinity_Version_2.3/Administration/Session_Firmware_Credentials.md' },
   { section: 'Tag layer, rules, alerts (D06, D07, D14, D16, D20)', id: 'D16', title: 'Tag layer overview', md: 'Profinity_Software/Profinity_Version_2.3/Tags/index.md' },
   { section: 'Tag layer, rules, alerts (D06, D07, D14, D16, D20)', id: 'D14', title: 'Tag linking', md: 'Profinity_Software/Profinity_Version_2.3/Tags/Tag_Linking.md' },
   { section: 'Tag layer, rules, alerts (D06, D07, D14, D16, D20)', id: 'D06', title: 'Alerts Log', md: 'Profinity_Software/Profinity_Version_2.3/Tags/Alerts.md' },
