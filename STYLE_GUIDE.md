@@ -71,7 +71,7 @@ This is the most distinctive â€” and most commonly lost when AI rewrites prose â
 - Product, feature and UI element names are proper nouns and always capitalised: Profinity, Profile, Adapter, WaveSculptor200, Battery Management Unit. Reference on-screen UI labels exactly as they appear, in quotes or Title Case: `'Add / New Item'`, the "Engage Contactors" button.
 - Version numbers use three forms, and only these:
   - In sentences and headings, write the product and the number with no letter: Profinity 2.3, Profinity 2.2, "As of Profinity 1.11". If the product name is already in the sentence, "version 2.3" is fine. Do not write V2.3 or v2.3 in prose.
-  - On a button, a git tag, or a quoted installer banner, use a lowercase v: "Download Profinity v2.2", `v2.3.10.0`.
+  - On a button, a git tag, or a quoted installer banner, use a lowercase v: "Download Profinity v2.2", `v2.3.x.x`.
   - **Profinity V2**, capital V and no minor number, is the product generation. "Security (V2 Only)" and "Profinity V2 installed" stay in that form.
   - Leave paths, document keys, and other products as they are. Folder names such as `Profinity_Version_2.3`, YAML stamps such as `version: "2.3"`, API paths such as `/api/v2`, and third-party names such as InfluxDB v2 are not Profinity release names. Quote software output literally.
 - Expand an acronym in full on its first use on every page, for example "Message Queuing Telemetry Transport (MQTT)", because readers arrive on a page from search; later uses on the same page are bare. Universal terms (API, CAN, URL, YAML, JSON, HTTP, HTTPS, UI, CSV, PDF, ID) are not expanded.
