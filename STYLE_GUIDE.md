@@ -22,6 +22,7 @@ title: Document Title
 - H3 (###): Subsections
 - H4 (####): Minor subsections
 - Avoid going deeper than H4
+- Write headings and admonition titles in Title Case: capitalise the first and last word and every other word except a, an, the, and, but, or, nor, for, of, in, at, to, by, as, via and vs. Words whose case depends on the grammar of the heading (on, up, off, out, over, with, from, into, per) keep the case that reads correctly, so "Set Up InfluxDB" and "Turn On the Custom Home Dashboard" capitalise the particle while "Running V1 and V2 on One Machine" does not. Acronyms, product names, code spans and quoted software output keep their own form.
 
 ## 2. Voice and Tone
 
@@ -73,6 +74,8 @@ This is the most distinctive — and most commonly lost when AI rewrites prose �
   - On a button, a git tag, or a quoted installer banner, use a lowercase v: "Download Profinity v2.2", `v2.3.10.0`.
   - **Profinity V2**, capital V and no minor number, is the product generation. "Security (V2 Only)" and "Profinity V2 installed" stay in that form.
   - Leave paths, document keys, and other products as they are. Folder names such as `Profinity_Version_2.3`, YAML stamps such as `version: "2.3"`, API paths such as `/api/v2`, and third-party names such as InfluxDB v2 are not Profinity release names. Quote software output literally.
+- Expand an acronym in full on its first use on every page, for example "Message Queuing Telemetry Transport (MQTT)", because readers arrive on a page from search; later uses on the same page are bare. Universal terms (API, CAN, URL, YAML, JSON, HTTP, HTTPS, UI, CSV, PDF, ID) are not expanded.
+- Write on-screen UI labels (buttons, tabs, menu items and field names) in **bold**, exactly as they appear, without quotation marks. Reserve backticks for values the reader types, file names, paths, YAML keys and code identifiers.
 - Keep configuration fields, parameters and code identifiers literal — don't "prettify" `serialNumber` into "Serial Number" where the text is referring to the actual field name.
 
 ### 2.6 Signs of AI-Generated Prose — Avoid These
@@ -82,6 +85,7 @@ None of these patterns appear in Prohelion's existing documentation. Treat them 
 - Contractions anywhere in commercial product documentation (Profinity, BMS, Motor Controllers, etc.) — this is an ArrowPoint/open-source community trait, and ArrowPoint is explicitly out of scope for commercial docs (see 2.1)
 - Exclamation marks used for anything other than genuine safety emphasis
 - Emoji
+- Em dashes: none of Prohelion's human-authored documentation uses them, so use a comma, colon or full stop, or restructure the sentence, and use "to" for ranges. Quoted software output and literal UI labels that contain a dash are left as they are
 - Marketing adjectives and superlatives — "powerful", "seamless", "cutting-edge", "industry-leading", "comprehensive suite"
 - Stock AI openers and filler — "In today's fast-paced world...", "Let's dive in...", "Great question!", "It's worth noting that...", "In conclusion..."
 - Rhetorical questions as section openers

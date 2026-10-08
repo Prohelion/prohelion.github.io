@@ -26,8 +26,8 @@ const updateChecklist = process.argv.includes('--update-checklist');
 
 /** @type {{ section: string, id: string, title: string, md: string }[]} */
 const PAGES = [
-  { section: 'Release notes (D01, D24)', id: 'D01', title: 'Profinity 2.3.10 release notes', md: 'Profinity_Software/Profinity_Version_2.3/Release_Notes/2.3.10.md' },
-  { section: 'Release notes (D01, D24)', id: 'D24', title: 'Release notes index (2.3.10 entry)', md: 'Profinity_Software/Profinity_Version_2.3/Release_Notes/index.md' },
+  { section: 'Release notes (D01, D24)', id: 'D01', title: 'Profinity 2.3.1 release notes', md: 'Profinity_Software/Profinity_Version_2.3/Release_Notes/2.3.1.md' },
+  { section: 'Release notes (D01, D24)', id: 'D24', title: 'Release notes index (2.3.1 entry)', md: 'Profinity_Software/Profinity_Version_2.3/Release_Notes/index.md' },
   { section: 'Installation (D02)', id: 'D02', title: 'Artifacts directory', md: 'Profinity_Software/Profinity_Version_2.3/Installation/Artifacts_Directory.md' },
   { section: 'Installation (D02)', id: 'D02', title: 'Zip installation (Linux path note)', md: 'Profinity_Software/Profinity_Version_2.3/Installation/Zip_Installation.md' },
   { section: 'Installation (D02)', id: 'D02', title: 'Docker installation (volume note)', md: 'Profinity_Software/Profinity_Version_2.3/Installation/Docker_Installation.md' },
@@ -127,7 +127,7 @@ function writeChecklist(results) {
     '',
     '# Profinity 2.3 documentation review checklist',
     '',
-    '**Branch:** `feature/Profinity_2_3` · **Engine version:** 2.3.10',
+    '**Branch:** `feature/Profinity_2_3` · **Release:** 2.3',
     '',
     'URLs in this page are generated from the built site. Re-sync after doc changes:',
     '',
