@@ -113,6 +113,9 @@ The installation directory of Profinity contains a file called `ProfinityService
 
 `C:\Program Files (x86)\Prohelion\Profinity\ProfinityService.cmd`
 
+!!! warning "The Windows Service Runs the Desktop Application, Which Accepts Local Connections Only"
+    `ProfinityService.cmd` registers `Profinity.exe`, the Windows desktop application, as the service. That makes the service a desktop host, so it serves its web interface to the local machine only, on 127.0.0.1, and a Server licence does not change that. To serve other machines, run Profinity on Linux, in Docker or on macOS, where it runs in server mode and a Server licence allows remote access. See the note on local connections in [Windows Installation](./Windows_Installation.md).
+
 Running the script requires administrator privileges, so open a command prompt as an administrator by searching for cmd, right-clicking it, and selecting **Run as administrator**.
 
 A default installation installs the service under the LocalSystem user. Prohelion recommends installing Profinity under a dedicated user account instead, because a dedicated account holds fewer privileges than LocalSystem and keeps the artefacts directory out of the Windows directory. When Profinity runs as a service, it resolves its [artefacts directory](./Artifacts_Directory.md) in the same way as the desktop application, as `%LOCALAPPDATA%\Prohelion\Profinity` of the account that the service runs under. For LocalSystem that folder is inside the system profile (for the 32-bit Windows build, beneath `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Prohelion\Profinity`), which is inside the Windows directory and is difficult to work with, and Prohelion does not recommend modifying files in the Windows directory directly.
