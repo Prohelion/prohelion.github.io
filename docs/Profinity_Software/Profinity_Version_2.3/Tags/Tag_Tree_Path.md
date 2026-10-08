@@ -34,7 +34,7 @@ The **Tag tree path** field sits in the **Component Identifier** section of a co
 
 A component named `Charger` with a **Tag tree path** of `Vehicles/Car1` mounts at `Vehicles/Car1/Charger`. Every mount point must be unique, so if two components would resolve to the same or an overlapping location, or to a location published by a [Tag Relay](Tag_Relay.md) receiver, Profinity rejects the change and reports which paths overlap, with a message in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.`, so change the **Tag tree path** or the name of one of the two components until the paths no longer overlap.
 
-In the profile's collections and rules, write a scope as the full path from the root of the tag tree, so the tags of the `Charger` component above are scoped with `Vehicles/Car1/Charger`.
+In the profile's collections and rules, write a scope as the full path from the root of the tag tree, so the tags of the `Charger` component above are scoped with `Vehicles/Car1/Charger`. A component's own `rules.yaml` is different: its relative scopes start at where the component is mounted, so a `scope.prefix` of `DBC` in the `Charger` component's rules resolves to `Vehicles/Car1/Charger/DBC`, and a component at the root resolves it to `Charger/DBC`.
 
 ## Absolute and Relative Dashboard Binds
 
