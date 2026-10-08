@@ -11,7 +11,7 @@ This guide provides instructions on how to run Profinity as a service on Windows
 
 Running Profinity as a service automates its startup and ensures continuous operation, which suits production environments where reliability and uptime are critical.
 
-As of Profinity V2, Profinity runs in server mode on Windows, Docker, macOS and Linux (x86-64 and 64-bit ARM, plus 32-bit ARM on Linux). In this mode the Profinity user interface is available only through a browser, with no desktop application, and it is served by REST APIs that are also available to [custom applications](../Customising_Profinity/Hosting/index.md) hosted on the Profinity Server.
+As of Profinity V2, Profinity runs in server mode on Docker, macOS and Linux (x86-64 and 64-bit ARM, plus 32-bit ARM on Linux). On Windows the service runs the desktop application and becomes a server when a Server licence is applied. In server mode the Profinity user interface is available only through a browser, with no desktop application, and it is served by REST APIs that are also available to [custom applications](../Customising_Profinity/Hosting/index.md) hosted on the Profinity Server.
 
 !!! info "Profinity Server Suits Kiosk, Analytics and Cloud Deployments"
     Profinity Server supports CAN bus based platforms that need an API-centric front end for user kiosks or other interfaces, data analytics and reporting, remote logging, or deployment in the cloud, on desktop, or on embedded hardware.
@@ -113,8 +113,8 @@ The installation directory of Profinity contains a file called `ProfinityService
 
 `C:\Program Files (x86)\Prohelion\Profinity\ProfinityService.cmd`
 
-!!! warning "The Windows Service Runs the Desktop Application, Which Accepts Local Connections Only"
-    `ProfinityService.cmd` registers `Profinity.exe`, the Windows desktop application, as the service. That makes the service a desktop host, so it serves its web interface to the local machine only, on 127.0.0.1, and a Server licence does not change that. To serve other machines, run Profinity on Linux, in Docker or on macOS, where it runs in server mode and a Server licence allows remote access. See the note on local connections in [Windows Installation](./Windows_Installation.md).
+!!! warning "The Windows Service Needs a Server Licence to Accept Remote Connections"
+    `ProfinityService.cmd` registers `Profinity.exe`, the Windows desktop application, as the service. Without a Server licence the service serves its web interface to the local machine only, on 127.0.0.1. With a Server licence applied under **ADMIN > License**, it uses the address set under [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) and creates the default `admin` account (password change required at first sign-in), so other machines can sign in. A service has no application window, so apply the licence file before you rely on remote access, and expect the engine to restart when you apply it. See the note on local connections in [Windows Installation](./Windows_Installation.md).
 
 Running the script requires administrator privileges, so open a command prompt as an administrator by searching for cmd, right-clicking it, and selecting **Run as administrator**.
 

@@ -27,7 +27,7 @@ The **Web** tab holds the parameters that control how Profinity offers its web s
 The certificate options are shared with the Extensions Web tab and are described in [HTTPS certificates](#https-certificates) below.
 
 !!! warning "Remote Access Needs Profinity Server"
-    Without a **Profinity Server** licence, and on a Desktop host, Profinity forces both the HTTP and the HTTPS address to `127.0.0.1` whatever is entered here, so the web interface can be reached only from the same computer. Entering `0.0.0.0` does not change this, and the log records "Remote web access requires a Server license." See [Licensing](../Licensing.md).
+    Without a **Profinity Server** licence, including on a Desktop host, Profinity forces both the HTTP and the HTTPS address to `127.0.0.1` whatever is entered here, so the web interface can be reached only from the same computer. Entering `0.0.0.0` does not change this, and the log records "Remote web access requires a Server license." See [Licensing](../Licensing.md).
 
 ## Troubleshooting
 
