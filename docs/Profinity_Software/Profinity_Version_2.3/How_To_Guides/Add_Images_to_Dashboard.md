@@ -54,7 +54,7 @@ image:
 
 ## Check the Image
 
-Save the dashboard, and the image appears in it. If the image area stays empty, the filename in the dashboard differs from the file in the `images` folder, because the match is case-sensitive, or the file format is not one of SVG, PNG, JPG or GIF, or the file is in a folder other than the active profile's `images` folder. Correct the name, convert the file or move it, and save again.
+Save the dashboard, and the image appears in it. If the image area stays empty, the filename in the dashboard differs from the file in the `images` folder, because the match is case-sensitive, or the file format is not one of SVG, PNG, JPG, WEBP or GIF, or the file is in a folder other than the active profile's `images` folder. Correct the name, convert the file or move it, and save again.
 
 ## Image Format Recommendations
 
