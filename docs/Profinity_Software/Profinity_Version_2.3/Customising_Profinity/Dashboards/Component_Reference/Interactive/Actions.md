@@ -23,7 +23,7 @@ Use an action for system controls, navigation buttons, data refresh and other co
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS classes applied to the button or icon |
 | `label` | string | No | None | Caption of the button, also used as the title of the confirmation dialog and as the caption of the progress bar. In `auto` mode the label decides the display, so an action with a label is displayed as a button and an action without a label is displayed as an icon |
-| `image` | string | No | None | Icon name, for example `Renew` or `Settings`, shown on `icon` and `button` actions. An icon filename such as `nav_battery_active.svg` is also accepted, and a name that matches no known icon is loaded as an image file from the `/Profile/Images` directory. See [Icon](Icon.md) for how to find icon names |
+| `image` | string | No | None | Icon name, for example `Renew` or `Settings`, shown on `icon` and `button` actions. An icon filename such as `nav_battery_active.svg` is also accepted, and a name that matches no known icon is loaded as an image file from the `/Profile/Images` directory. See [Icon](../Content/Icon.md) for how to find icon names |
 | `imageAlt` | string | No | None | Accessible label for the icon |
 | `mode` | string | Yes | None | Display mode, one of `icon`, `button` or `auto`. `auto` displays a button when `label` is set and an icon otherwise |
 | `invoke` | string | No | `Component` | How a click is carried out, one of `Component`, `System`, `Endpoint` or `Navigate`. See [Invoke Types](#invoke-types) |
@@ -47,7 +47,7 @@ Use an action for system controls, navigation buttons, data refresh and other co
 | `Component` | Runs the action named by `actionId` on the component that owns the dashboard, and posts `value` with the request. This is the default |
 | `System` | Runs the system-level action named by `actionId` on the Profinity engine. The available system actions are `UPDATE PROFINITY`, `INSTALL PROFINITY` and `RESTART PROFINITY` |
 | `Navigate` | Navigates the web interface to `target`, without a request to the server |
-| `Endpoint` | Describes an HTTP request in `endpointAction`. An `Endpoint` invocation fails on an action button. Use `Endpoint` on a region, icon or button of an [Image](Image.md) or [Model](Model.md) component, where the web interface sends the request itself |
+| `Endpoint` | Describes an HTTP request in `endpointAction`. The browser sends the request, on an action button or on a region, icon or button of an [Image](Image.md) or [Model](Model.md) component |
 
 ### Endpoint Action Parameters
 
@@ -62,8 +62,8 @@ Use an action for system controls, navigation buttons, data refresh and other co
 | `confirmMessage` | string | No | None | Message of a confirmation dialog shown before the request is sent |
 | `successKinds` | array of string | No | None | What the interface does after the request succeeds, using the values `Toast`, `ReloadSettings`, `ShowServiceAccountTokenDialog` and `RefreshOnClose` |
 
-!!! warning "Endpoint Actions Fail on Action Buttons"
-    An action button with `invoke: Endpoint` fails when it is clicked, because the engine answers the request with the message "Endpoint and Navigate invokes are not executed by this API." Use `Endpoint` only on a region, icon or button of an Image or Model component.
+!!! info "Endpoint Actions Run From the Browser"
+    The browser sends the HTTP request itself, with the signed-in user's credentials, so an action button with `invoke: Endpoint` works the same way as an `Endpoint` on a region, icon or button of an [Image](Image.md) or [Model](Model.md) component. The engine's action service does not run `Endpoint` or `Navigate` invocations, and answers one that reaches it with "Endpoint and Navigate invokes are not executed by this API." If the request fails, the browser shows an error message with the reason.
 
 ## Example
 

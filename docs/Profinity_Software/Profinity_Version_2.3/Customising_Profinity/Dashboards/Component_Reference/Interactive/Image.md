@@ -14,7 +14,7 @@ An interactive image is a base image from the `/Profile/Images` directory with o
 
 ## When to Use
 
-Use an interactive image for device diagrams, system layouts, interactive schematics and visual data overlays. Use the [HTML](HTML.md) component with an `img` element for a simple static image, the [Charts](../Data/Charts.md) component for charts, and the [Model](Model.md) component for a three-dimensional view.
+Use an interactive image for device diagrams, system layouts, interactive schematics and visual data overlays. Use the [HTML](../Content/HTML.md) component with an `img` element for a simple static image, the [Charts](../Data/Charts.md) component for charts, and the [Model](Model.md) component for a three-dimensional view.
 
 The base image carries seven kinds of overlay element. Regions are clickable rectangles that navigate to another page or run an action, icons and buttons are positioned graphics and controls that can run an action, data values display live system data, points anchor annotation lines, annotation lines connect elements and may bend at waypoints called elbows, and layers are named groups of overlay elements that the operator shows and hides. Icons can be an emoji, a Scalable Vector Graphics (SVG) path or an image file, and every overlay element is positioned relative to the base image.
 

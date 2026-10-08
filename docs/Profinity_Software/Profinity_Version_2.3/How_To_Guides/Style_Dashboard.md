@@ -37,7 +37,7 @@ Create the `styles` folder in the profile directory if it does not exist, then c
 
 ## Split the Styles Across Files
 
-A large set of styles can be kept in further files in the same folder, for example `custom-dashboard.css`, which `profile.css` loads with a CSS `@import` rule. The web interface loads only `profile.css`, and the HTML sanitiser removes `link` elements from the `content` of an [HTML](../Customising_Profinity/Dashboards/Component_Reference/Interactive/HTML.md) component, so a stylesheet cannot be linked from the dashboard and must be imported from `profile.css`:
+A large set of styles can be kept in further files in the same folder, for example `custom-dashboard.css`, which `profile.css` loads with a CSS `@import` rule. The web interface loads only `profile.css`, and the HTML sanitiser removes `link` elements from the `content` of an [HTML](../Customising_Profinity/Dashboards/Component_Reference/Content/HTML.md) component, so a stylesheet cannot be linked from the dashboard and must be imported from `profile.css`:
 
 ```css
 /* /Profile/Styles/profile.css */
@@ -66,5 +66,5 @@ Save the dashboard, close the editor and reload the page, because the web interf
 ## Related Documentation
 
 - [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md) - the full profile directories reference
-- [HTML Component](../Customising_Profinity/Dashboards/Component_Reference/Interactive/HTML.md) - HTML component reference
+- [HTML Component](../Customising_Profinity/Dashboards/Component_Reference/Content/HTML.md) - HTML component reference
 - [Conditional Styling](../Customising_Profinity/Dashboards/Conditional_Styling.md) - styling driven by data values

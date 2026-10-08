@@ -14,7 +14,7 @@ An HTML component displays custom HTML, including images from `/Profile/Images`,
 
 ## When to Use
 
-Use an HTML component for custom content, rich text formatting, embedded images, documentation snippets and a live map of a GPS position. Use [Readouts](../Data/Readouts.md), [Tables](../Data/Tables.md) and similar components for structured data, and [Actions](Actions.md) and [Toggles](Toggles.md) for interactive elements.
+Use an HTML component for custom content, rich text formatting, embedded images, documentation snippets and a live map of a GPS position. Use [Readouts](../Data/Readouts.md), [Tables](../Data/Tables.md) and similar components for structured data, and [Actions](../Interactive/Actions.md) and [Toggles](../Interactive/Toggles.md) for interactive elements.
 
 ## Parameters
 

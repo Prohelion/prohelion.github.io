@@ -30,7 +30,7 @@ Use a pill for component status and key metrics, where several related values si
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `image` | string | No | None | Icon name such as `BatteryCharging`, an icon filename such as `nav_battery_active.svg`, or an image filename from the `/Profile/Images` directory. See [Icon](../Interactive/Icon.md) for the icon names |
+| `image` | string | No | None | Icon name such as `BatteryCharging`, an icon filename such as `nav_battery_active.svg`, or an image filename from the `/Profile/Images` directory. See [Icon](../Content/Icon.md) for the icon names |
 | `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed frame at a larger size |
 | `value` | number | No | None | State of the icon between `0` and `1`. The value only affects icons that change with state, and has no visible effect on an icon drawn from `image` |
 | `bind` | array | No | None | Data binding for the icon. Only the `value` target is handled |

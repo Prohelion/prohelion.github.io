@@ -14,7 +14,7 @@ An icon is a single graphic that displays an icon from the [Carbon icon library]
 
 ## When to Use
 
-Use an icon to display a graphic, a status indicator or another visual element. Use [Actions](Actions.md) when the icon must be a button, and the `image` parameter of the component itself when an icon is needed inside another component.
+Use an icon to display a graphic, a status indicator or another visual element. Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the `image` parameter of the component itself when an icon is needed inside another component.
 
 ## Parameters
 
