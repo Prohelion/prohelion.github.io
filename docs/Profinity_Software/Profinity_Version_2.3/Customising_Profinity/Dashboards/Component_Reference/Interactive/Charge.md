@@ -20,7 +20,7 @@ The `id` and `class` parameters are not used by the web interface, and the compo
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | Not used by the web interface |
 | `chargerId` | string | Yes | None | Identifier of the charger component in the profile that the controller sets up and starts |
-| `defaultBatteryId` | string | No | None | Battery that is selected when the component loads |
+| `defaultBatteryId` | string | No | None | Battery that is selected when the component loads. When it is not set, Profinity selects the first battery it can find. If the profile has no battery, the Start button is disabled and the component shows "No Battery"; if batteries exist but none is selected when Start is pressed, no charge starts and the component shows "No Battery Selected" |
 | `availableBatteryIds` | array of string | Yes | None | Batteries that the operator can step through with the battery selector. When the list is empty, the component shows the **No Battery** message and a charge cannot start |
 | `maxCurrent` | number | Yes | None | Maximum charge current in amps that the current control allows |
 | `systemCharging` | boolean | Yes | None | Whether the component starts in the charging state. The component reads the charger status once a second after it loads, so the status from the charger replaces this value |
