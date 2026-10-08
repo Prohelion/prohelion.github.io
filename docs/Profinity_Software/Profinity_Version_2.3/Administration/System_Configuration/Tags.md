@@ -5,7 +5,7 @@ description: "Limits for the in-memory tag history buffer on the System Configur
 
 # Tags
 
-!!! warning "Saving restarts Profinity"
+!!! warning "Saving Restarts Profinity"
     Saving changes on any System Configuration tab restarts Profinity. See [System Configuration](index.md) for what to expect.
 
 Profinity keeps a rolling in-memory history of recent tag values, which is used for dashboard charts and for the recent-history queries described under [Application Config](Application_Config.md). The Tags tab sets the limits on that buffer, so that it cannot grow without bound on a busy instance.

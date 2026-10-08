@@ -426,3 +426,23 @@ logix
 # Valid English
 prepended
 rebrands
+
+# Added during the 2.3 docs quality pass
+vaulta
+ins
+deprovisioning
+syslog
+txt
+precharges
+stereolithography
+autocompletion
+numpy
+unpowered
+unsynchronised
+unreviewed
+npm
+xcode
+durationminutes
+jsonl
+misspelt
+enrollment

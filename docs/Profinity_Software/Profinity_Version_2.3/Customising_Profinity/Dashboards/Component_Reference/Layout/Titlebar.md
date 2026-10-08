@@ -1,20 +1,22 @@
 ---
 title: Titlebar Component
-description: "Header section with status lamps and navigation menus for dashboard identification and controls."
+description: "Header bar of a dashboard with a status lamp and a toolbar of menu items for identification, navigation, actions and dialogs."
 ---
 
 # Titlebar
 
-Header section with a status lamp and a toolbar of menu items. The titlebar provides dashboard identification, status information, and component-specific actions.
+The titlebar is the header bar of a dashboard, with a status lamp and a toolbar of menu items that provide dashboard identification, status information, navigation, component-specific actions and settings dialogs.
 
 <figure markdown>
-![Dashboard titlebar component showing status lamps and navigation menus](../../images/titlebar.png)
-<figcaption>Dashboard titlebar component showing status lamps and navigation menus</figcaption>
+![Dashboard titlebar component showing a status lamp and a menu toolbar](../../images/titlebar.png)
+<figcaption>Dashboard titlebar component showing a status lamp and a menu toolbar</figcaption>
 </figure>
 
-**Best for:** Dashboard identification, status indicators, navigation links, component-specific actions and settings dialogs
+## When to Use
 
-**Parameters:**
+Use the titlebar for dashboard identification, a status indicator, navigation links, component-specific actions and settings dialogs. The `menu` of a titlebar can hold every [menu item type](Menu.md#item-types), including the `modal` item that opens a dialog.
+
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -27,21 +29,24 @@ Header section with a status lamp and a toolbar of menu items. The titlebar prov
 
 When both `showTitlebar` and `showActions` are `false`, the titlebar is not displayed and takes no space.
 
-**Menu Content:**
+## Notes
 
-The web interface passes every item of the titlebar `menu` through the shared menu item renderer and displays it as an icon, without the item caption. The renderer handles all five item types, with the following behaviour in the titlebar:
+### Menu Items in the Titlebar
+
+The titlebar displays every item of its `menu` as an icon, without the item caption, and each item type behaves as follows:
 
 | Item type | Behaviour in the titlebar |
 |-----------|---------------------------|
 | `menuitem` | Icon link that navigates to the `navigate` target when clicked. A `lamp` on the item is displayed beside the icon |
 | `action` | Icon button that runs the action when clicked |
 | `toggle` | Switch that runs the action when clicked |
-| `logo` | Rendered in the same way as a `menuitem`, as an icon link to the `navigate` target |
-| `submenu` | Rendered as an icon that expands its child `items` inline in the toolbar when clicked, and the `location` parameter is not used |
+| `modal` | Icon that opens a dialog when clicked: a settings dialog, an editor, the Change Password dialog, the Two-Factor Authentication dialog or the Profinity AI chat. See [Modal Parameters](Menu.md#modal-parameters) |
+| `logo` | Displayed in the same way as a `menuitem`, as an icon link to the `navigate` target |
+| `submenu` | Icon that expands its child `items` inline in the toolbar when clicked. The `location` parameter is not used |
 
-The `logo` and `submenu` types are designed for the side menu, and the side menu handles `menuitem`, `logo` and `submenu` entries only. The side menu does not display `action` or `toggle` entries, so those two types are suitable for the titlebar but not for the side menu. A titlebar menu typically contains `menuitem`, `action` and `toggle` items.
+A titlebar menu usually contains `menuitem`, `action`, `toggle` and `modal` items. The `logo` and `submenu` types suit the side menu, which displays `menuitem`, `modal`, `logo` and `submenu` entries and does not display `action` or `toggle` entries.
 
-**Example:**
+## Example
 
 ``` yaml
 dashboard:
@@ -62,4 +67,12 @@ dashboard:
                 image: nav_custom_active.svg
                 imageAlt: Messages and Signals
                 navigate: dbc?view=messages&componentIdFilter=Prohelion+BMU
+            - modal:
+                id: default
+                image: dash_config.svg
+                imageAlt: Change Settings
+                settings:
+                  update: true
+                  reload: true
+                  urlSettings: /api/v2/ActiveProfile/Component/Prohelion%20BMU/settings
 ```

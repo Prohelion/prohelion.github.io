@@ -5,165 +5,63 @@ description: "Send and receive CAN bus messages using Profinity's built-in tools
 
 # How to Send and Receive CAN Bus Messages
 
-Send and receive CAN bus messages using Profinity's built-in CAN tools.
+Send and receive CAN bus messages using Profinity's built-in CAN tools. Receiving shows the traffic on the bus, and sending transmits a packet once or on a schedule.
 
 ## Prerequisites
 
 - Profinity V2 installed and running
 - [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected and active
-- A [role](../Administration/Users_and_Access/Roles_and_Permissions.md) that includes the `CANView` permission to receive and view CAN messages, and `CANSend` to send them
+- A [role](../Administration/Users_and_Access/Roles_and_Permissions.md) that includes the **View CAN data** permission to receive and view CAN messages, and **Send CAN messages** to send them
 - Active [profile](../Getting_Started/Profiles.md) with adapter configured
 
-## Steps
+## Check User Permissions
 
-### Step 1: Check User Permissions
+On a Server or Enterprise installation, select **ADMIN** in the side menu, then **Users & Groups**, click your user account, and check that one of the **Assigned roles** includes **View CAN data**, which allows CAN messages to be received and viewed. To send messages, check that an assigned role includes **Send CAN messages**, which also includes **View CAN data**. Change the roles if needed and click **Save**. Changing a user's roles revokes their active sessions, so the user must sign in again for the change to take effect. A Desktop installation runs as a built-in user that holds every permission, so it needs no change (see [Licensing](../Administration/Licensing.md)).
 
-1. Select **ADMIN** in the side menu, then **Users & Groups**
-2. Click your user account
-3. Ensure one of the **Assigned roles** includes `CANView`, which allows CAN messages to be received and viewed
-4. To send messages, ensure an assigned role includes `CANSend`, which also includes `CANView`
-5. Click **Save**
+## Receive CAN Messages
 
-Changing a user's roles revokes their active sessions, so the user must sign in again for the change to take effect.
+Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN**, which opens the CAN Activity window showing all CAN messages currently on the network. A user who holds only **View CAN data** sees **RECEIVED CAN** instead and cannot send. The CAN Activity panel shows these columns:
 
-### Step 2: Open the Send & Received CAN Window
+| Column | Contents |
+|--------|----------|
+| **CAN ID** | The message identifier |
+| **Data** | The message data bytes |
+| **Direction** | Incoming or outgoing |
+| **Count** | The number of times the message was seen |
+| **Time** | The timestamp of the last message |
 
-1. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN** (users who hold only `CANView` see **RECEIVED CAN** instead)
-2. The CAN Activity window opens
-3. All CAN messages currently on the network are shown
+Two toggle icons change the view. **Spaced data** breaks the data into individual hex bytes and is on by default, and **Heatmap** highlights frequently changing bytes in warmer colours and relatively constant bytes in cooler colours and is also on by default. Click a column header to sort by that column, use the filters to show specific CAN IDs or data patterns, and click a message to see its details.
 
-### Step 3: View Received CAN Messages
+## Send a CAN Packet
 
-The CAN Activity panel shows:
+1. Click the **+** icon in the scheduled packets panel at the bottom of the window, or double-click a message in the CAN Activity panel and click **+**, which opens the packet editor.
+2. Enter the **CAN ID** (hex or decimal), and select the **Endian** byte order (little endian by default).
+3. Choose the **Data Format**, which is **Bytes**, **Int16**, **Int32**, **Floats** or **Raw Data**, and enter the values. The raw data updates automatically as the values change. For example, in **Bytes** the values `0x01`, `0x02` and `0x03` go in bytes 0 to 2, and in **Int16** the values `1234` and `5678` go in `Int16[0]` and `Int16[1]` and are converted to bytes automatically.
+4. Set the **Interval (ms)** to choose how often the packet is sent, for example 100 ms sends it 10 times per second, and leave it blank for manual send only.
+5. Click **Save** to add the packet to the scheduled list, where it appears in the scheduled packets panel and, if an interval is set, starts sending at once.
+6. To send a packet manually, select it in the scheduled packets panel and click the **Send** arrow button, or press the **Space** key, and the packet is sent immediately.
+7. Check the CAN Activity panel, where the sent message appears with an outgoing direction, and confirm that the CAN ID and data match your configuration.
 
-- **CAN ID**: Message identifier
-- **Data**: Message data bytes
-- **Direction**: Incoming or outgoing
-- **Count**: Number of times message was seen
-- **Time**: Timestamp of last message
+## Manage Scheduled Packets
 
-**View Options:**
-
-- **Spaced Data**: breaks data into individual hex bytes (default: on)
-- **Heatmap**: highlights frequently changing bytes in warmer colours and relatively constant bytes in cooler colours (default: on)
-
-### Step 4: Filter and Sort Messages
-
-1. Click column headers to sort by that column
-2. Use filters to show specific CAN IDs or data patterns
-3. Click on a message to see details
-
-### Step 5: Add a Scheduled CAN Packet
-
-1. Click the **+** icon in the Scheduled CAN Packets panel (bottom of window)
-2. Or double-click a message in the CAN Activity panel and click **+**
-
-### Step 6: Configure the CAN Packet
-
-1. **CAN ID**: Enter the CAN message ID (hex or decimal)
-2. **Endian**: Select byte order (default: little endian)
-3. **Data Format**: Choose how to enter data:
-   - **Bytes**: Enter individual byte values
-   - **Int16**: Enter 16-bit integer values
-   - **Int32**: Enter 32-bit integer values
-   - **Floats**: Enter floating-point values
-   - **Raw Data**: Enter raw hex data
-
-4. **Interval (ms)**: Set how often to send (for example, 100 ms sends the packet 10 times per second)
-   - Leave blank for manual send only
-
-### Step 7: Enter Message Data
-
-**Example - Entering Bytes:**
-
-- Byte 0: `0x01`
-- Byte 1: `0x02`
-- Byte 2: `0x03`
-- Raw data updates automatically
-
-**Example - Entering Int16:**
-
-- Int16[0]: `1234`
-- Int16[1]: `5678`
-- Values are converted to bytes automatically
-
-### Step 8: Save the Packet
-
-1. Click **Save** to add packet to scheduled list
-2. Packet appears in Scheduled CAN Packets panel
-3. If interval is set, packet starts sending automatically
-
-### Step 9: Send Packet Manually (if not scheduled)
-
-1. Select the packet in Scheduled CAN Packets panel
-2. Click the **Send** arrow button
-3. Or select the packet and press **Space** key
-4. Packet is sent immediately
-
-### Step 10: Verify Packet Transmission
-
-1. Check the CAN Activity panel
-2. Your sent message should appear with outgoing direction
-3. Verify the CAN ID and data match your configuration
-
-## Managing Scheduled Packets
-
-### Stop a Scheduled Packet
-
-1. Select the packet in Scheduled CAN Packets panel
-2. Delete the packet, as logging off does not stop a scheduled packet
-3. The packet stops sending
-
-### Edit a Scheduled Packet
-
-1. Select the packet in Scheduled CAN Packets panel
-2. Click **Edit** or double-click
-3. Modify settings
-4. Click **Save**
-
-### Delete a Scheduled Packet
-
-1. Select the packet in Scheduled CAN Packets panel
-2. Click **Delete** or press **Delete** key
-3. Packet is removed from schedule
-
-## Tips
-
-- **Test First**: send packets manually before scheduling
-- **Monitor Activity**: watch the CAN Activity panel to see your messages
-- **Check Network Expectations**: ensure the CAN ID, data format and CAN bus bitrate match what the network expects
-- **Use Heatmap**: the heatmap helps identify active messages
-- **Save Packets**: scheduled packets are saved in your profile
-
-## Important Notes
-
-- **Scheduled Packets Continue**: scheduled packets continue sending even after logging off, so delete the packet to stop it
-- **Profile-Based**: scheduled packets are saved with your profile
-- **Manual Restart**: packets do not start automatically after a profile change or restart
+A scheduled packet is saved with the profile. A packet with an interval starts sending when it is saved, and it keeps sending after the user signs out, so logging off does not stop it. Packets do not start automatically after a profile change or a restart of Profinity. To stop a packet, select it in the scheduled packets panel and delete it, by clicking **Delete** or pressing the **Delete** key, which removes it from the schedule. To change a packet, select it, click **Edit** or double-click it, modify the settings and click **Save**. Sending a packet manually before scheduling it, and checking that the CAN ID, data format and CAN bus bit rate match what the network expects, avoids sending unexpected traffic to a live bus.
 
 ## Troubleshooting
 
-**Packet Not Sending:**
+### A Packet Does Not Send
 
-- Check adapter is connected (green status)
-- Verify the user has the `CANSend` permission
-- Check CAN ID is valid
-- Ensure interval is set or use manual send
+A scheduled packet that never appears in the CAN Activity panel has usually met one of four conditions: the adapter is not connected (its status indicator is not green), the signed-in user lacks the **Send CAN messages** permission, the CAN ID is not valid, or no interval is set, in which case the packet waits for a manual send. Work through them in that order, then select the packet and click the **Send** arrow to confirm it transmits before relying on the schedule.
 
-**Packet Not Appearing in Activity:**
+### A Packet Does Not Appear in the Activity Panel
 
-- Check filters are not hiding your message
-- Verify adapter is receiving traffic
-- Check CAN bus bitrate matches
+A packet that was sent but is missing from the CAN Activity panel is usually hidden by a filter, or the adapter is not receiving traffic back, or the CAN bus bit rate does not match the network. Clear the filters, check that the adapter is receiving traffic, and check the bit rate.
 
-**Wrong Data Format:**
+### The Data Is Wrong
 
-- Verify endian setting matches your system
-- Check data format conversion (bytes vs. integers)
-- Review raw data to confirm values
+Data that differs from what was entered usually has the wrong byte order or the wrong data format. Check that the **Endian** setting matches your system, check the conversion between bytes and integers, and review the raw data to confirm the values.
 
 ## Related Documentation
 
 - [Send / Receive CAN](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md) - the full CAN utilities reference
-- [Connect to CAN Bus](./Connect_to_CAN_Bus.md) - Setting up CAN adapters
-- [CAN Bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) - Adapter documentation
+- [Connect to CAN Bus](./Connect_to_CAN_Bus.md) - setting up CAN adapters
+- [CAN Bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) - adapter documentation

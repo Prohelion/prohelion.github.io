@@ -1,79 +1,37 @@
 ---
 title: Prohelion Cloud Dashboard
-description: "Access Prohelion Cloud platform for device monitoring, management, analytics, and rule-based automation."
+description: "Send Profinity tag values to the Prohelion Cloud platform with the Prohelion Cloud Dashboard component, including settings, licensing and network requirements."
 ---
 
 # Prohelion Cloud Dashboard
 
-Prohelion Cloud is an IoT platform for monitoring and managing field devices and storing their data, and it allows an organisation to monitor, analyse and manage its IoT devices and assets remotely.
+Prohelion Cloud is an Internet of Things (IoT) platform that stores the data reported by field devices and lets an organisation monitor and manage those devices and assets remotely. The Prohelion Cloud Dashboard component publishes the values of selected [tag collections](../../Tags/Collections.md) from a Profile to a device in Prohelion Cloud at a fixed interval, where they can be viewed on cloud-hosted dashboards.
 
-!!! info "Licence required"
-    The Prohelion Cloud Dashboard component requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
+From Profinity 2.3, [Rules](../../Tags/index.md), [Dashboards](../../Customising_Profinity/Dashboards/index.md) and [Tag Relays](../Tag_Relays/index.md) cover many of the functions that Prohelion Cloud provides, so the Cloud Dashboard remains available for existing customers and new deployments are usually better served by those features.
 
-With the introduction of Profinity 2.3 many of these functions can be handled by Profinity itself, so while the Cloud Dashboard will remain for existing clients, we would suggest looking at using Profinity Rules, [Dashboards](../../Customising_Profinity/Dashboards/index.md) and [Tag Relays](../Tag_Relays/index.md) to achieve similar results.
+!!! info "Licence Required"
+    The Prohelion Cloud Dashboard component requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the component is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
-Access to Prohelion Cloud is by request, and an access request is logged in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
+## Get Access to Prohelion Cloud
 
-## Features
+Access to Prohelion Cloud is by request. Raise an access request in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals), and Prohelion support assists with device onboarding, dashboard set-up and integration with existing systems. The component needs an access token and a device ID for the device in Prohelion Cloud, so have both to hand before adding it.
 
-### Data Visualisation
+## Add the Component
 
-- Customisable dashboards with drag-and-drop widgets
-- Multiple chart types and visualisation options
-- Time-series data visualisation and analysis
-- Custom widget development
-- Real-time data streaming and visualisation
+Only one Prohelion Cloud Dashboard component can exist in a Profile. Add it from **ADD COMPONENT** (see [Add a Component to a Profile](../../How_To_Guides/Add_Component_to_Profile.md)), choose **Prohelion Cloud Dashboard** and complete the following settings.
 
-### Device Management
+| Setting | Default | Notes |
+|---|---|---|
+| **Name** | Prohelion Cloud Dashboard | The name shown in the Profile. |
+| **Prohelion Access Token** | None | The access token for the device. Required, and stored encrypted. |
+| **Prohelion Device ID** | None | The device ID in Prohelion Cloud. Required. |
+| **Update Interval (Seconds)** | 60 | Seconds between samples sent to Prohelion Cloud, from 10 to 86400. |
+| **Collections** | None | The tag collections to send. At least one is required, because the component does not start until a collection is selected. |
+| **Logging mode** | Snapshot | **Snapshot** sends every collection member at each interval, **On Change** sends only values that have changed, and **Everything** sends every sample, including unchanged ones. See [Logging Modes](../Loggers/InfluxDB_Prometheus_Logger.md#logging-modes). |
+| **Auto Start** | On | Starts sending when the Profile loads. |
 
-- Device provisioning and auto-registration
-- Telemetry and attribute management
-- Device state monitoring and control
-- Device grouping and organisation
-- Bulk device operations
+The component connects out from the Profinity server to Prohelion Cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection. No inbound port is needed.
 
-### Rule Engine
+## Troubleshooting
 
-- Complex event processing and filtering
-- Data validation and transformation
-- Alarm creation and management
-- Integration with external systems
-- Custom rule chains for workflow automation
-- Message queuing and reprocessing
-- Conditional actions based on device data
-
-### Analytics
-
-- Time-series data storage with compression
-- Data aggregation
-- Predictive analytics
-- Custom data processing functions
-- Integration with external analytics tools
-- Historical data analysis
-- Trend analysis and forecasting
-
-### Reporting and Administration
-
-- Reporting
-- Scheduler for automated tasks
-- Audit logging
-
-## Getting Started
-
-Using Prohelion Cloud requires:
-
-- A Prohelion Cloud account.
-- Compatible devices with network connectivity.
-- A working knowledge of the data points that each device reports.
-
-Prohelion support assists with:
-
-- Device onboarding and configuration
-- Dashboard customisation
-- Rule chain setup
-- Integration with existing systems
-- Custom development needs
-- Security configuration
-- Analytics setup
-
-Prohelion also provides documentation, tutorials and a dedicated support team to assist the transition to cloud-based monitoring and management.
+The component cannot be saved without an access token and a device ID, and reports "You must provide a device access token." or "You must provide a device ID." when either is empty. If the component is added but no data reaches Prohelion Cloud, check that the Profile has the **Data Relay** feature licensed, that the token and device ID match the device in Prohelion Cloud, that at least one collection is selected, and that outbound traffic on port 1883 is allowed, then read the Profinity logs for the connection error. For the shared settings of MQTT components, see [MQTT Publisher](../Publishers_and_Subscribers/MQTT_Publisher.md).

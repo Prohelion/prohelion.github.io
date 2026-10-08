@@ -5,36 +5,18 @@ description: "Flexible scripts executed manually on-demand or automatically on a
 
 # Run Scripts
 
-Run scripts are the most flexible and commonly used script type in Profinity. They can be executed either manually by users or automatically on a schedule, which suits a wide range of automation tasks that need to be performed on demand or at specific intervals, such as data collection, testing, or system configuration.
+Run scripts are the general-purpose script type: they run when an operator starts them or on a schedule, which suits data collection, testing and system configuration. A Run script can use the CAN bus, DBC, State, Console and Tags operations, can write to the console, and can stop early when it checks `Profinity.ScriptCancelled`.
 
-Run scripts support three execution modes:
-
-- **Run On Demand**: Scripts executed manually by users
-- **Time Interval**: Scripts that run automatically at regular intervals (e.g., every 5 minutes, every hour)
-- **Cron Schedule**: Scripts that run on a cron schedule using Quartz cron expressions
-
-## Characteristics
-- Can be executed manually or on a schedule
-- Can interact with CAN bus, DBC files, and state management
-- Support for console output
-- Can be used for testing, data collection, and automation
-- Support for cancellation handling
-- Support for time-based scheduling (TimeInterval and CronSchedule modes)
+A Run script has three modes, chosen with **Script Mode**. **Run On Demand** runs the script when an operator selects **Run Script** from the script component's menu, and **Cancel Script** stops a run that is still going. **Run On Time Interval** runs the script automatically at a fixed interval set with **Time Interval** and **Time Interval Unit** (Seconds, Minutes, Hours or Days), for example every 5 minutes or every hour. **Run On CRON Schedule** runs the script from a [Quartz cron expression](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) entered in **Cron Schedule**. A Quartz expression has six or seven fields that start with seconds, which differs from a standard five-field cron expression, so `0 0 6 ? * MON-FRI` runs the script at 06:00 on every weekday. The scheduled modes are started with **Start Scheduled Script** and stopped with **Stop Scheduled Script**, or start by themselves when **Auto Start Script** is on.
 
 <figure markdown>
 ![Run script configuration](../../../images/python_run_script.png)
-<figcaption>Run script editor and scheduling options</figcaption>
+<figcaption>Run Script Editor and Scheduling Options</figcaption>
 </figure>
 
 ## Examples
 
-The following example shows the basic structure of a Run script in each supported language. The example is simple, but it illustrates the essential pattern for the script type.
-
-This example demonstrates a basic Run script that:
-
-- Prints messages to the console
-- Accesses the Profinity message property
-- Reports success or failure, which differs by language
+The example shows the basic structure of a Run script in each supported language. It writes two messages to the console, one fixed and one taken from `Profinity.Message`, and reports success. In C# the `Run()` method returns a boolean, where `true` reports success and `false` reports failure. Python and Lua Run scripts have no return value: the script file runs from the top, so the sample defines a function and then calls it, and a script reports failure by raising an error (or, in Python, by calling `sys.exit()` with a non-zero exit code, where `sys.exit(0)` is treated as success). The interfaces used by the C# sample are available to a script by default, so the sample needs no `using` line for them.
 
 === "C#"
 
@@ -73,6 +55,4 @@ This example demonstrates a basic Run script that:
     RunMe()
     ```
 
-In C# the `Run()` method returns a boolean, where `true` reports success and `false` reports failure. Python and Lua Run scripts have no return value: the script file runs from the top, so the sample defines a function and then calls it, and a script reports failure by raising an error (or, in Python, by calling `sys.exit()` with a non-zero exit code, where `sys.exit(0)` is treated as success).
-
-Profinity uses [IronPython](https://ironpython.net/) with Python 3 compatibility enabled. All Python scripts use Python 3 syntax, including `print()` as a function (not a statement) and f-strings.
+Python scripts run on [IronPython](https://ironpython.net/) with Python 3 syntax, as described on [Supported Languages](../Supported_Languages/index.md).

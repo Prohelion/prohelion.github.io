@@ -5,34 +5,17 @@ description: "Tailor how Profinity looks and behaves for your deployment with da
 
 # Customising Profinity
 
-Profinity can be tailored to the deployment without writing a line of application code. Build [dashboards](./Dashboards/index.md) that show the system the way your operators think about it, apply your own [branding and theme](./Theming/index.md), [host a web application](./Hosting/index.md) alongside Profinity, or ship a branded app with [OEM white-label mobile builds](../Mobile/OEM_White_Label.md).
+Profinity can be tailored to a deployment without application code. [Dashboards](./Dashboards/index.md) show the system in the terms operators use, a [theme](./Theming/index.md) applies branding, a [hosted web application](./Hosting/index.md) runs alongside Profinity, and [OEM white-label mobile builds](../Mobile/OEM_White_Label.md) let an original equipment manufacturer (OEM) ship a branded app.
 
 | Page | Use it to |
 |------|-----------|
-| [Dashboards](./Dashboards/index.md) | Build data-driven operator interfaces in the [visual dashboard editor](./Dashboards/Visual_Editor.md), with YAML behind it as a fallback. |
-| [Theming](./Theming/index.md) | Apply branding and theme customisation through the engine Themes API. |
-| [Hosting](./Hosting/index.md) | Serve a custom web application from Profinity's integrated web server, with SSL/TLS. |
+| [Dashboards](./Dashboards/index.md) | Build operator interfaces that show live data from Profinity tags in the [visual dashboard editor](./Dashboards/Visual_Editor.md), with YAML behind it as a fallback. |
+| [Theming](./Theming/index.md) | Apply branding and theme customisation from a `theme.yaml` file. |
+| [Hosting](./Hosting/index.md) | Serve a custom web application from Profinity's integrated web server, with Secure Sockets Layer / Transport Layer Security (SSL/TLS) certificates. |
 | [OEM white-label mobile](../Mobile/OEM_White_Label.md) | Ship a branded Profinity mobile app to your customers. |
 
-[Menu layout](../Administration/Menu_Layout.md) covers per-profile and per-component menu placement, and the [component catalog](../Administration/Components_and_Plugins.md) covers hiding component types, both under Administration.
+A dashboard can be the page of a [Custom Component](../Developing_with_Profinity/Custom_Components/index.md), a profile home page, or a standalone [Dashboard Component](../Components/Dashboard/index.md) that binds to existing tags. [Menu Layout](../Administration/Menu_Layout.md) covers per-profile and per-component menu placement, and [Components and Plugins](../Administration/Components_and_Plugins.md) covers hiding component types, both under Administration.
 
-## Dashboards
+## Where Next
 
-Profinity's [dashboard system](./Dashboards/index.md) creates dynamic, data-driven user interfaces. In 2.3 you build them in the [visual dashboard editor](./Dashboards/Visual_Editor.md), with YAML configuration files behind it as a fallback. Dashboards display real-time information from CAN bus systems and connect directly to Profinity's data sources.
-
-Dashboards can be used in multiple contexts:
-
-- **Custom Components**: component-specific interfaces, optionally with DBC files.
-- **Profile Dashboards**: replace the standard home page with a custom dashboard.
-
-Dashboards use a declarative YAML approach, so teams monitoring complex systems, building operator interfaces, or developing custom data visualisation can do so without a separate development effort. They support data displays, charts, status indicators, and interactive elements, all connected to live data through Profinity's data binding so they update as the system state changes.
-
-## Hosting
-
-Profinity includes an [integrated web server](./Hosting/index.md) that hosts custom applications, whether they use modern web technologies such as ReactJS or Angular, or traditional HTML and JavaScript. It supports SSL/TLS certificates so hosted applications are secured in production, which suits organisations deploying custom web applications as part of a single, unified Profinity experience.
-
-## Where next
-
-- Building something that needs code? See [Developing with Profinity](../Developing_with_Profinity/index.md).
-- Connecting another system or an AI assistant? See [Integrating to Profinity](../Integrating_to_Profinity/index.md).
-- Working with tags, rules and alerts? See [Tags](../Tags/index.md).
+Developers who need code should start with [Developing with Profinity](../Developing_with_Profinity/index.md), integrations with other systems and AI assistants are covered in [Integrating to Profinity](../Integrating_to_Profinity/index.md), and tags, rules and alerts are covered in [Tags](../Tags/index.md).

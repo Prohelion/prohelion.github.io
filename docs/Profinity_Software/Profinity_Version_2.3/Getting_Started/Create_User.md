@@ -5,7 +5,10 @@ description: "Create new Profinity users and assign security roles to control ac
 
 # Creating a User
 
-After installing Profinity it is recommended to create a new user to suit your security requirements, and additional users to support different types of user. To create a new user, select **ADMIN** in the side menu, then **Users & Groups** and then **+ Add user**, which allows you to define the new user and their associated login details.
+!!! info "Licence Required"
+    Creating users needs the **Profinity Server** licensed feature, included in the **Server** and **Enterprise** editions, and the **Security administration** permission. Without the feature there are no user accounts or roles: a Desktop installation runs as a single built-in admin user, and **Users & Groups** shows that user and group administration requires a Server licence. See [Licensing](../Administration/Licensing.md) for what each edition includes.
+
+Create a new user after installing Profinity, with further users for each type of operator. To create a new user, select **ADMIN** in the side menu, then **Users & Groups** and then **+ Add user**, enter a username and an initial password for local sign-in, choose one or more roles under **Assigned roles**, and save, which creates the account and its login details.
 
 <figure markdown>
 ![Add user](../images/add_user.png)
@@ -16,4 +19,4 @@ Each user is also assigned one or more [roles](../Administration/Users_and_Acces
 
 ## More Information
 
-Additional information on how to create and manage users, and the full permission catalogue, can be found in [Manage Users](../Administration/Users_and_Access/Manage_Users.md) and [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
+[Managing Users](../Administration/Users_and_Access/Manage_Users.md) covers creating and managing users, including password resets and service accounts, and [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists the full permission catalogue.

@@ -5,52 +5,24 @@ description: "Create new Profinity profiles to manage different configurations f
 
 # How to Create a New Profile
 
-Create a new profile to manage different configurations for different setups or locations.
+Create a new [profile](../Getting_Started/Profiles.md) to manage different configurations for different setups or locations. A profile is created by adding one, or by importing a Profile Pack from another Profinity instance.
 
 ## Prerequisites
 
 - Profinity V2 installed and running
-- The `ProfileModify` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows profiles to be added and switched
+- The **Modify profiles** permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows profiles to be added and switched
 
-## Steps
+## Create the Profile
 
-### Step 1: Access Profile Management
+Select **ADMIN** in the side menu, then the **Profile** pill, which opens the profile list, and click **Add profile**. Enter a unique **Profile Name** that identifies the site or purpose, for example "Production Site" or "Test Rig", add an optional description, and save the profile. To import a Profile Pack from another Profinity instance instead, use **Upload Profile Pack**.
 
-1. Select **ADMIN** in the side menu, then **Profile**
-2. The profile list opens
+## Activate the Profile
 
-### Step 2: Create New Profile
+Locate the new profile in the list and click **ACTIVATE** on its row, and it becomes the active profile immediately without restarting Profinity. Each profile keeps its own components, so a component added to one profile does not appear in another, and **ACTIVATE** on any row switches to that profile.
 
-1. Click the **+ ADD PROFILE** button
-2. Enter a unique **Profile Name** (for example "Production Site" or "Test Rig") and an optional description
-3. Save the profile
+## Configure the Profile
 
-Alternatively, click **UPLOAD PROFILE PACK** to import a Profile Pack from another Profinity instance.
-
-### Step 3: Load the Profile
-
-1. Locate your new profile in the list
-2. Click **ACTIVATE** on the profile row
-3. The profile becomes the active profile immediately
-
-### Step 4: Configure Profile
-
-1. Add [components](../Components/Custom_Components/index.md) to your new profile (see [Add Component to Profile](./Add_Component_to_Profile.md))
-2. Configure component settings
-3. (Optional) Upload a custom dashboard (see [Create Profile Dashboard](./Create_Profile_Dashboard.md))
-
-### Step 5: Save Profile Settings
-
-1. Profile settings are saved automatically
-2. Switch between profiles by selecting **ADMIN** in the side menu and opening the **Profile** pill
-3. Each profile maintains its own configuration
-
-## Tips
-
-- **Use Descriptive Names**: name profiles clearly (for example "Site A - Production")
-- **Profile-Specific Dashboards**: each profile can have its own custom [dashboard](./Create_Profile_Dashboard.md)
-- **Component Isolation**: components in one profile do not affect another profile
-- **Profile Switching**: switch profiles without restarting Profinity
+With the new profile active, add [components](../Getting_Started/Adding_New_Components.md) to it as described in [How to Add a Component to Your Profile](./Add_Component_to_Profile.md), and configure their settings. A profile can also have its own home dashboard, which [How to Create a Profile Dashboard](./Create_Profile_Dashboard.md) describes. Changes to the profile, such as components added to it, are saved with the profile.
 
 ## Related Documentation
 

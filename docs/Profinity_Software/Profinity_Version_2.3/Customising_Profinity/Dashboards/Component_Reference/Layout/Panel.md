@@ -5,29 +5,36 @@ description: "Individual titled panel within a grid layout for organising relate
 
 # Panel
 
-Individual panel within a panels grid. Each panel can contain various components and provides a titled container for organising related content.
+A panel is a titled container within a [panels](Panels.md) grid that holds related content and data visualisations.
 
 <figure markdown>
 ![Panel component displaying a titled container with organised content](../../images/panel.png)
 <figcaption>Panel component displaying a titled container with organised content</figcaption>
 </figure>
 
-**Best for:** Individual data sections, titled content areas, organised information display
+## When to Use
 
-**Parameters:**
+Use a panel for one titled section of data inside a panels grid. Use a [Group](Group.md) when the components need no title or panel frame.
+
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Modifier applied to the panel body as `panel__body--{class}`, for example `sunken`, and not applied to the panel container |
+| `class` | string | No | None | Style variant of the panel body. `sunken` is the only variant that Profinity defines, and it suits charts and state diagrams. The variant applies to the panel body and not to the whole panel |
 | `title` | string | Yes | None | Header label shown above the panel body |
-| `menu` | object | No | None | When present, the web interface shows a static menu icon in the panel header. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions or dialogs. See [Menu](Menu.md) |
+| `menu` | object | No | None | When present, the panel header shows a static menu icon. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions or dialogs. See [Menu](Menu.md) |
 | `width` | string | No | None | Width in CSS format, for example `100px`, `50%` or `auto`, applied to the panel |
 | `height` | string | No | None | Height in CSS format, for example `100px`, `50vh` or `auto`, applied to the body area of the panel |
 | `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows to fit its content and never shrinks below this value, and the value never stretches the panel to fill space |
-| `items` | array | Yes | None | Components displayed in the body of the panel. The schema allows `chart`, `lamps`, `state`, `group`, `readouts`, `table`, `html`, `redirect` and `caption`, and any other component is placed inside a `group` |
+| `items` | array | Yes | None | Components displayed in the body of the panel: a [chart](../Data/Charts.md), [lamps](../Data/Lamps.md), [state](../Data/State.md) diagram, [group](Group.md), [readouts](../Data/Readouts.md), [table](../Data/Tables.md), [html](../Interactive/HTML.md), [redirect](../Interactive/Redirect.md) or [caption](../Data/Caption.md). Place any other component inside a `group` |
 
-**Basic Example:**
+!!! info "Panel Menu Items Are Not Displayed"
+    A panel with a `menu` shows a static menu icon in its header, and clicking the icon does nothing. Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) component for navigation and actions.
+
+## Example
+
+### Basic Example
 
 ``` yaml
 dashboard:
@@ -54,36 +61,7 @@ dashboard:
                                 precision: 1
 ```
 
-**Menu Icon Example:**
-
-The `menu` parameter makes the web interface show a menu icon in the panel header. The icon is static, so the menu items are not displayed:
-
-``` yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - panels:
-              items:
-                - panel:
-                    title: "System Status"
-                    menu:
-                      items:
-                        - menuitem:
-                            label: "Settings"
-                            navigate: "/settings"
-                    items:
-                      - lamps:
-                          items:
-                            - lampgroup:
-                                items:
-                                  - lamp:
-                                      color: "green"
-                                      label: "Online"
-                                      value: 1
-```
-
-**Height Variations:**
+### Height Variations
 
 Panels support different height configurations for flexible layouts:
 
@@ -126,7 +104,7 @@ dashboard:
                                 value: 42
 ```
 
-**Width Example:**
+### Width Example
 
 Panels also support explicit width values to control horizontal sizing within layouts:
 
@@ -156,7 +134,7 @@ dashboard:
                           content: "<p>Fixed width content area</p>"
 ```
 
-**Complex Nested Structures:**
+### Complex Nested Structures
 
 Panels can contain complex nested component structures, in which a `group` holds the components that the panel does not accept directly:
 
@@ -198,6 +176,8 @@ dashboard:
                             - target: value
                               source: 'DBC/BusMeasurement/BusVoltage'
                               seriesMode: timeSeries
+                              timeRangeStart: "-5m"
+                              timeRangeStop: "0m"
                       - lamps:
                           items:
                             - lampgroup:
@@ -220,7 +200,7 @@ dashboard:
                                           toType: boolean
 ```
 
-**Complete Example with All Features:**
+### Complete Example
 
 ``` yaml
 dashboard:
@@ -234,11 +214,6 @@ dashboard:
                     title: "System Status"
                     height: "60vh"
                     minHeight: "200px"
-                    menu:
-                      items:
-                        - menuitem:
-                            label: "Details"
-                            navigate: "/component?componentId=Motor%20Controller"
                     items:
                       - group:
                           direction: "vertical"
@@ -268,4 +243,6 @@ dashboard:
                                   - target: value
                                     source: 'DBC/Temperature/Value'
                                     seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
 ```

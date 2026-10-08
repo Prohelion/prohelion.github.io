@@ -11,24 +11,26 @@ Profinity provides three historians, and each selects the tags it records throug
 
 | Historian | Stores data in | Documentation |
 |---|---|---|
-| InfluxDB v2 Historian | An InfluxDB V2 server, using a bucket and organisation. | [InfluxDB v2 Historian](InfluxDB_v2_Historian.md) |
-| InfluxDB v3 Historian | An InfluxDB V3 server, using a database. | [InfluxDB v3 Historian](InfluxDB_v3_Historian.md) |
+| InfluxDB v2 Historian | An InfluxDB v2 server, using a bucket and organisation. | [InfluxDB v2 Historian](InfluxDB_v2_Historian.md) |
+| InfluxDB v3 Historian | An InfluxDB v3 server, using a database. | [InfluxDB v3 Historian](InfluxDB_v3_Historian.md) |
 | TAG SQL Historian | A SQL database: SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL or Oracle. | [TAG SQL Historian](TAG_SQL_Historian.md) |
 
-The InfluxDB version in use must be known before a component is chosen, because InfluxDB V1, V2 and V3 are separate, incompatible products, and the InfluxDB v1 Logger is documented with the Prometheus Logger under [InfluxDB and Prometheus logging](../Loggers/InfluxDB_Prometheus_Logger.md).
+## Which InfluxDB Component Do I Need
 
-## Designating the historian that is read from
+Check which InfluxDB version your server runs before adding a component, because InfluxDB v1, v2 and v3 are incompatible and a component only connects to the version it was built for. An InfluxDB v2 server organises data into buckets that belong to an organisation, so it needs the [InfluxDB v2 Historian](InfluxDB_v2_Historian.md), which asks for a bucket, an organisation and a token. An InfluxDB v3 server stores data in a single database, so it needs the [InfluxDB v3 Historian](InfluxDB_v3_Historian.md), which asks for a database and a token. An InfluxDB v1 server needs the **InfluxDB v1 Logger**, which is a logger rather than a historian and is documented under [InfluxDB and Prometheus Logging](../Loggers/InfluxDB_Prometheus_Logger.md).
 
-More than one historian, or a logger that supports retrieval, can write in the same profile, but long-range tag and history queries are answered from exactly one of them. Enable **Designated tag historian reader** on that one component, and leave it disabled on the others, so that Profinity knows which store to query.
+## Designating the Historian That Is Read From
+
+More than one historian can write in the same profile, but long-range tag and history queries are answered from exactly one of them. Enable **Designated tag historian reader** on that one component and leave it disabled on the others. If no component is designated, or more than one is, Profinity has no store to read history from and the long-range queries are not answered. An InfluxDB historian is designated only while its **Allow Retrieval** setting is also enabled.
 
 ## Licensing
 
 Historians require the **Historians** licensed feature, included in the **Desktop**, **Server** and **Enterprise** editions. See [Licensing](../../Administration/Licensing.md) to check whether it is available on your instance.
 
-## Related documentation
+## Related Documentation
 
 - [Loggers](../Loggers/File_Loggers.md)
-- [InfluxDB and Prometheus logging](../Loggers/InfluxDB_Prometheus_Logger.md)
-- [Configure data logging](../../How_To_Guides/Configure_Data_Logging.md)
-- [Tag layer](../../Tags/index.md)
+- [InfluxDB and Prometheus Logging](../Loggers/InfluxDB_Prometheus_Logger.md)
+- [Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md)
+- [Tag Layer](../../Tags/index.md)
 - [Collections](../../Tags/Collections.md)

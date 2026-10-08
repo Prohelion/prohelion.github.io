@@ -1,5 +1,6 @@
 title: Publishers & Subscribers
 nav:
+    - index.md
     - MQTT_Publisher.md
     - Webhook_Publisher.md
     - MQTT_Subscriber.md

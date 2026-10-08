@@ -5,122 +5,75 @@ description: "Connect Profinity to your CAN bus network using supported adapters
 
 # How to Connect to CAN Bus
 
-Connect Profinity to your CAN bus network using a supported adapter.
+Connect Profinity to your CAN bus network using a supported adapter. The work has two halves: preparing and cabling the adapter, and adding the adapter to the profile, setting it up, connecting it and checking that messages arrive.
 
 ## Prerequisites
 
 - Profinity V2 installed
 - A supported [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) (Peak USB, SocketCAN, SocketCANd, Ewert Energy CANdapter, or a Prohelion or Tritium CAN to Ethernet bridge)
-- Adapter drivers installed (if required)
-- The `ComponentModify` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows components to be added
+- Adapter drivers installed, where the adapter needs them
+- The **Modify components** permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows components to be added
 
-## Steps
+## Prepare the Adapter
 
-### Step 1: Install Adapter Drivers (if required)
+### Peak USB Adapters
 
-**For Peak USB Adapters:**
+Install the Peak drivers before starting Profinity, use the Peak tools to verify that the adapter is working, and on Windows confirm that the adapter appears in Device Manager.
 
-1. Install the Peak drivers before starting Profinity
-2. Use Peak tools to verify the adapter is working
-3. Verify the adapter appears in Device Manager (Windows)
+### SocketCAN
 
-**For SocketCAN (Linux/macOS):**
+The SocketCAN adapter is not available on Windows, and it needs SocketCAN enabled in the kernel. For remote SocketCAN, install socketcand and allow UDP port 42000 through the firewall, because SocketCANd adapters are discovered on that port. Confirm that the CAN interfaces are available, and set the bit rate of the interface in the operating system, because Profinity does not set it, for example `sudo ip link set can0 up type can bitrate 500000` on Linux. The [CAN Bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) page gives the details of each adapter.
 
-1. Ensure SocketCAN is enabled in your kernel (the SocketCAN adapter is not available on Windows)
-2. Install socketcand if using remote SocketCAN, and allow UDP port 42000 through the firewall because SocketCANd adapters are discovered on that port
-3. Verify CAN interfaces are available, and set the bit rate of the interface in the operating system because Profinity does not set it
+### CAN to Ethernet Bridges
 
-**For CAN to Ethernet bridges:**
+Power the bridge with 9 to 30 V DC on pin 9 of the DB9 connector (13.8 V nominal), because the bridge takes its power from the CAN connector. Allow UDP and TCP port 4876 through the firewall, which the Profinity installer does automatically. Place the PC and the bridge on the same subnet, ideally with a static IP address on the bridge (see [Supported Network Setups](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Supported_Network_Setups.md)).
 
-1. Power the bridge with 9 to 30 V DC on pin 9 of the DB9 connector (13.8 V nominal), because the bridge takes its power from the CAN connector
-2. Allow UDP and TCP port 4876 through the firewall, which the Profinity installer does automatically
-3. Place the PC and the bridge on the same subnet, ideally with a static IP address on the bridge (see [Supported Network Setups](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Supported_Network_Setups.md))
+## Cable the Adapter
 
-### Step 2: Connect Your Adapter
+Plug a USB adapter into the computer's USB port. Connect an Ethernet bridge to the network, or directly to the PC, with an Ethernet cable, and press the reset button if the bridge has previously been on another network. For SocketCAN, configure the CAN interface as described above. Then connect the adapter to the CAN bus network, which must be terminated with a 120 ohm resistor at each end because the CAN to Ethernet bridge does not terminate the bus, and confirm that the physical connections are secure.
 
-1. Connect your CAN bus adapter to your computer
-   - USB adapter: Plug into USB port
-   - Ethernet bridge: Connect to the network (or directly to the PC) with an Ethernet cable and press the reset button if the bridge has previously been on another network
-   - SocketCAN: Configure CAN interface
-2. Connect the adapter to your CAN bus network, which must be terminated with a 120 ohm resistor at each end because the CAN to Ethernet bridge does not terminate the bus
-3. Verify physical connections are secure
+## Add the Adapter in Profinity
 
-### Step 3: Auto-Discover the Adapter
+1. Select **ADD COMPONENT** in the side menu, and look for the adapter among the discovered adapters, which are shown at the top of the screen. If the adapter is listed, click it to add it.
+2. If the adapter is not listed, select **CAN Bus Adapter** or the specific adapter type, and enter the adapter details described below.
+3. Select **ADD COMPONENT** at the bottom of the dialog to add the adapter to the profile.
 
-1. Navigate to the **ADD COMPONENT** window
-2. Look for your adapter among the discovered adapters, which are shown at the top of the screen
-3. Click on your adapter to add it
+A manually added adapter asks for the following:
 
-If your adapter does not appear among the discovered adapters, proceed to manual configuration.
+- **Name**: a unique name for the adapter
+- **Type**: the adapter type
+- **Network Protocol**, **Tritium Protocol Version**, **IP Address** and **Bus Number**: for a Tritium CAN to Ethernet bridge, select UDP or TCP, select V1 or V2 to match the bridge, enter the IP address of the bridge (TCP only) and enter the bus number of the bridge
+- **Network Adapter**: the network interface, for the Virtual CAN to Ethernet Bridge
+- **PCAN Channel ID** and **PCAN BaudRate**: for a Peak adapter
+- **Candapter COM Port** and **Candapter BaudRate**: for an Ewert Energy CANdapter
+- **Bus Name**: the CAN interface, for SocketCAN
 
-### Step 4: Add Adapter Manually (if needed)
+## Set the Adapter Up and Connect It
 
-1. Click **ADD COMPONENT** in Profinity
-2. Select **CAN Bus Adapter** or your specific adapter type
-3. Enter adapter details:
-   - **Name**: Give your adapter a unique name
-   - **Type**: Select your adapter type
-   - **Network Protocol**, **Tritium Protocol Version**, **IP Address** and **Bus Number**: For a Tritium CAN to Ethernet bridge, select UDP or TCP, select V1 or V2 to match the bridge, enter the IP address of the bridge (TCP only) and enter the bus number of the bridge
-   - **Network Adapter**: Select the network interface (for the Virtual CAN to Ethernet Bridge)
-   - **PCAN Channel ID** and **PCAN BaudRate**: For a Peak adapter
-   - **Candapter COM Port** and **Candapter BaudRate**: For an Ewert Energy CANdapter
-   - **Bus Name**: Select the CAN interface (for SocketCAN)
-4. Click **Add** or **Save**
+1. Click the adapter in the sidebar, open **Change Settings** (top right of the adapter dashboard), and save the settings described below.
+2. Click **Connect** on the adapter dashboard, and wait for the adapter to connect.
+3. Check that the status indicator turns green, as defined in the colour table in [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md). An adapter that is connected but sees no traffic shows yellow, and a red indicator means a connection error, so check the [logs](../Getting_Started/Profinity_Log.md).
+4. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN** (a user who holds only the **View CAN data** permission sees **RECEIVED CAN** instead), and confirm that messages appear in the CAN Activity panel. [How to Send and Receive CAN Bus Messages](./Send_Receive_CAN_Bus.md) describes the panel.
 
-### Step 5: Configure Adapter Settings
+The adapter settings are:
 
-1. Click on your adapter in the sidebar
-2. Open **Change Settings** (top-right of the adapter dashboard)
-3. Configure settings:
-   - **Auto Connect**: Enable to auto-connect on startup
-   - **Allow Loopback Traffic**: Enable if needed (Tritium adapters in UDP mode only)
-   - **Bitrate**: Set the CAN bus bitrate where the adapter has one (the Peak and CANdapter baud rate settings, which default to 500 kbit/s), and match it to the network. A CAN to Ethernet bridge holds its bit rate (default 500 kbit/s) in the bridge firmware settings, as described in [CAN Bridge Configuration](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md)
-4. Click **Save**
-
-### Step 6: Connect the Adapter
-
-1. Click the **Connect** button on your adapter dashboard
-2. Wait for the adapter to connect
-3. Check the status indicator:
-   - **Green**: Connected and receiving data
-   - **Yellow**: Connected but no data arriving
-   - **Red**: Connection error (check the [logs](../Getting_Started/Profinity_Log.md))
-   - **Grey**: Not connected
-
-### Step 7: Verify Connection
-
-1. Check that the status indicator turns green
-2. Open the **SEND & RECEIVED CAN** window under **CAN UTILITIES** in the side menu
-3. Verify CAN messages are appearing in the activity panel
-4. If no messages appear, check:
-   - CAN bus bitrate matches network
-   - Physical connections are correct
-   - Adapter is properly powered
+- **Auto Connect**: enable to connect the adapter when Profinity starts.
+- **Allow Loopback Traffic**: enable where needed, which applies to Tritium adapters in UDP mode only.
+- The bit rate, where the adapter has one: the **PCAN BaudRate** and **Candapter BaudRate** settings default to 500 kbit/s and must match the network. A CAN to Ethernet bridge holds its bit rate (default 500 kbit/s) in the bridge firmware settings, as described in [CAN Bridge Configuration](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md).
 
 ## Troubleshooting
 
-**Adapter Not Discovered:**
+### The Adapter Is Not Discovered
 
-- Check adapter is powered and connected
-- Verify network connectivity (for Ethernet bridges), including that the PC and the bridge are in the same subnet, which causes most bridge issues (see the [Quickstart](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Quickstart.md))
-- Check firewall settings (UDP and TCP port 4876 for bridges, and UDP port 42000 for SocketCANd)
-- For a bridge over WiFi, check that the router passes broadcast UDP, and for a bridge across subnets add it manually over TCP because Auto Discovery relies on UDP heartbeats
-- Verify drivers are installed
+An adapter that does not appear at the top of the **ADD COMPONENT** screen is usually unpowered, disconnected, in a different subnet or blocked by a firewall, or its driver is missing. Check that the adapter is powered and connected, that the drivers are installed, and that the firewall allows UDP and TCP port 4876 for bridges and UDP port 42000 for SocketCANd. Most bridge problems come from the PC and the bridge being in different subnets (see the [Quickstart](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Quickstart.md)). For a bridge over WiFi, check that the router passes broadcast UDP, and for a bridge across subnets add it manually over TCP, because Auto Discovery relies on UDP heartbeats.
 
-**No Data Arriving:**
+### No Data Arrives
 
-- Verify CAN bus bitrate matches all devices
-- Check physical CAN bus connections
-- Ensure devices on CAN bus are powered
-- Check adapter status for errors
+An adapter that is green or yellow with an empty CAN Activity panel usually has a bit rate that does not match the network, a loose or broken connection, or devices on the bus that are not powered. Confirm that the bit rate matches every device on the bus, check the physical CAN bus connections, make sure the devices are powered, and look at the adapter status for errors.
 
-**Connection Errors:**
+### The Connection Fails
 
-- Check adapter logs in Profinity
-- Verify adapter is not in use by another application, and for a bridge in TCP mode that no other client holds the single TCP connection that a bridge accepts
-- Wait 30 seconds to a minute if the bridge was rapidly connected and disconnected, because the bridge then rejects TCP connections temporarily (see [Common Problems and Solutions](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Common_Problems_And_Solutions.md))
-- Restart Profinity and try again
-- Check adapter documentation for specific issues
+A red indicator after **Connect** means the adapter is held by another application, or the bridge refuses the connection. Check the adapter logs in Profinity, and confirm that no other application is using the adapter and, for a bridge in TCP mode, that no other client holds the single TCP connection that a bridge accepts. A bridge that was rapidly connected and disconnected rejects TCP connections temporarily, so wait 30 seconds to a minute (see [Common Problems and Solutions](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Common_Problems_And_Solutions.md)), and restart Profinity if the connection still fails.
 
 ## Related Documentation
 

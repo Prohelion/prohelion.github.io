@@ -7,20 +7,16 @@ description: "Configure automatic sign-in for kiosk displays and unattended moni
 
 Kiosk Mode signs a display in automatically as a user you choose, so that the login page is never shown on kiosk displays, public terminals and dedicated monitoring stations that need to stay signed in without anyone at the keyboard. It is set per [profile](Profiles.md) and applies whenever that profile is the active profile.
 
-!!! warning "A kiosk session inherits the kiosk user's permissions"
+!!! warning "A Kiosk Session Inherits the Kiosk User's Permissions"
     Anyone who can reach a kiosk display, or the Profinity web address of a kiosk profile, acts as the kiosk user with every permission that user holds. Profinity lists any enabled user in the Kiosk Mode User dropdown, including administrators, so choose a dedicated user with the minimum permissions required. See [Choosing the Kiosk User](#choosing-the-kiosk-user).
 
 ## Enabling Kiosk Mode
 
-To enable Kiosk Mode for a profile:
+To enable Kiosk Mode, select **ADMIN** in the side menu, open the **Profile** pill, select or create the profile and open its settings, then:
 
-1. Select **ADMIN** in the side menu.
-2. Open the **Profile** pill.
-3. Select or create the profile you want to configure.
-4. Open the profile settings.
-5. Enable **Kiosk Mode**.
-6. Select a **Kiosk Mode User** from the dropdown, which lists the enabled users.
-7. Save the profile settings.
+1. Enable **Kiosk Mode**.
+2. Select a **Kiosk Mode User** from the dropdown, which lists the enabled users.
+3. Save the profile settings.
 
 Profinity rejects the save if Kiosk Mode is enabled without a Kiosk Mode User, or if the selected user no longer exists or has been disabled. Kiosk Mode only applies to the active profile, so a display signs in automatically when a profile with Kiosk Mode enabled is active, and normal login is required when a profile without Kiosk Mode becomes active.
 
@@ -36,11 +32,11 @@ Kiosk Mode is checked continuously while the display is signed in. If an adminis
 
 ## Choosing the Kiosk User
 
-The kiosk user must exist and must be enabled, and Profinity does not restrict which roles that user holds. The permissions of the selected user are therefore the only control over what an unattended display can do, so create a dedicated account for the purpose, such as `kiosk-display`, rather than reusing a person's account, which also makes kiosk access easy to identify in the system logs.
+The kiosk user must exist and must be enabled, and Profinity does not restrict which roles that user holds. The permissions of the selected user are therefore the only control over what an unattended display can do, so create a dedicated account for the purpose, such as `kiosk-display`, rather than reusing a person's account, which also makes kiosk access easy to identify in the system logs. A dedicated user is created in **Users & Groups**, which needs the Profinity Server feature, as described in [Licensing](Licensing.md).
 
-Assign the dedicated account a read-only role built from view permissions only, as described in [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md#which-roles-to-create). Never select an administrator or a user holding a high-risk permission such as `CANSend`, because anyone at the display would inherit it.
+Assign the dedicated account a read-only role built from view permissions only, as described in [Roles and Permissions](./Users_and_Access/Roles_and_Permissions.md#which-roles-to-create). Never select an administrator or a user holding a high-risk permission such as **Send CAN messages**, because anyone at the display would inherit it.
 
-A kiosk session expires under the normal token expiry policy. A display that runs for months without attention can use a kiosk user marked as a service account, whose session never expires, provided the account is treated with the same care as any long-lived credential. Review the kiosk user from time to time to confirm it is still appropriate and enabled, and disable Kiosk Mode on any profile that no longer needs it.
+A kiosk session expires after the **Access token lifetime (minutes)** set in [Session Policy and Login Lockout](System_Configuration/Security/index.md#session-policy-and-login-lockout), which is 120 minutes by default. A display that runs for months without attention can use a kiosk user marked as a service account, whose session never expires, provided the account is treated with the same care as any long-lived credential. Review the kiosk user from time to time to confirm it is still appropriate and enabled, and disable Kiosk Mode on any profile that no longer needs it.
 
 ## Troubleshooting
 
@@ -52,6 +48,6 @@ A kiosk session expires under the normal token expiry policy. A display that run
 
 ## Related Documentation
 
-- [Profiles](./Profiles.md) - profile configuration and management
-- [Managing Users](./Users_and_Access/Manage_Users.md) - user accounts, roles and permissions
-- [How to Set Up Profinity as a Kiosk Application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md) - browser and operating system setup for a kiosk display
+- [Profiles](./Profiles.md): profile configuration and management
+- [Managing Users](./Users_and_Access/Manage_Users.md): user accounts, roles and permissions
+- [How to Set Up Profinity as a Kiosk Application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md): browser and operating system setup for a kiosk display

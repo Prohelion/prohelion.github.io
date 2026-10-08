@@ -3,15 +3,15 @@ title: Tag Expressions
 description: "Expression language for collections, rules, and derived tags to filter and compute tag values."
 ---
 
-# Tag expressions
+# Tag Expressions
 
 Collections, rules, and derived tags share one small expression language. Collections and rules write a **boolean** expression over a single parameter named `tag`. Derived tags write a **value formula** over the aliases they declare (`a`, `b`, …). The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
 
-Expressions are edited in the visual editors (guided builder or free text), and an invalid member fails validation with a message that points at the correct spelling.
+Expressions are typed in the [collections](./Collections.md), [rules](./Actions.md) and [derived tags](./Derived_Tags.md) editors, using either the guided builder or free text, and an invalid member fails validation when the file is saved, with a message that points at the correct spelling.
 
-## Picking tags
+## Picking Tags
 
-Use these only on `tag` (collections and rules). A derived alias already chose its tag, so path methods are rejected there.
+Path matching is available only on `tag`, so collections and rules can select tags by their position in the tree, whereas a derived alias has already chosen its tag and Profinity rejects path methods there. A leading `/` in the path given to `Is` or `MatchesPath` is ignored, so `/Vehicles/Car1` and `Vehicles/Car1` match the same tags.
 
 | Member | Meaning |
 |--------|---------|
@@ -19,7 +19,7 @@ Use these only on `tag` (collections and rules). A derived alias already chose i
 | `tag.MatchesPath("…")` | Path segments from the start, plus everything underneath |
 | `tag.MatchesName("…")` | Last path segment only |
 
-### Worked examples
+### Worked Examples
 
 One exact tag:
 
@@ -27,7 +27,7 @@ One exact tag:
 tag.Is("Elmar Solar MPPT/DBC/PowerOutput/OutputCurrent")
 ```
 
-Everything belonging to one component (whole segment match — does **not** match `Elmar Solar MPPT 2`):
+Everything belonging to one component, which matches whole segments and therefore does not match `Elmar Solar MPPT 2`:
 
 ```text
 tag.MatchesPath("Elmar Solar MPPT")
@@ -57,7 +57,7 @@ Leaf name contains (case-insensitive):
 tag.MatchesName("*Current*")
 ```
 
-Do **not** add a trailing `*` to mean "under this component". `tag.MatchesPath("Elmar Solar MPPT")` already includes the subtree. A trailing `*` means the **segment** may continue (`Elmar Solar MPPT*`), which also matches a neighbouring component whose name merely starts with that text.
+`tag.MatchesPath("Elmar Solar MPPT")` already includes everything beneath that component, so a trailing `*` is not needed. A trailing `*` lets the last segment continue, so `Elmar Solar MPPT*` also matches a neighbouring component whose name starts with the same text.
 
 ## Wildcards
 
@@ -71,11 +71,11 @@ One `*` dialect for path segments and leaf names:
 | `*putCurr*` | Contains |
 | `*` | Any segment |
 
-An interior `*` such as `Out*Current` is a **validation error**. Wildcards may only sit at the start or end of a pattern token.
+An interior `*` such as `Out*Current` fails validation, because wildcards may only sit at the start or end of a pattern token.
 
-## Values and quality
+## Values and Quality
 
-Pick the member that matches the comparison you mean. Numeric coercion is built into `Value` — do not wrap a reading in a conversion helper.
+Each member suits one kind of comparison, and `Value` converts to a number itself, so a reading needs no conversion helper. `Value` is empty when the tag quality is Bad or Unavailable, so a comparison such as `tag.Value > 5` is false rather than an error for such a tag, and `Text` is empty for a numeric tag.
 
 | Member | Use for |
 |--------|---------|
@@ -84,7 +84,7 @@ Pick the member that matches the comparison you mean. Numeric coercion is built 
 | `Bool` | Boolean flags (`tag.Bool == true`) |
 | `HasValue` | Quality is Good or Stale |
 | `Quality` | `"Good"`, `"Stale"`, `"Bad"`, `"Unavailable"` |
-| `IsStale` | Quality is Stale (preferred for no-data rules) |
+| `IsStale` | Quality is Stale, which is how to detect missing data |
 
 Examples:
 
@@ -97,11 +97,11 @@ tag.IsStale
 tag.MatchesPath("Elmar Solar MPPT") && tag.IsStale
 ```
 
-Sample age in seconds is **not** part of the language. Use `tag.IsStale` with the rules evaluation tick.
+Sample age in seconds is not part of the language, so use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rule actions and scripts](./Actions.md).
 
 ## Metadata
 
-Catalogue fields on `tag` only:
+Tag metadata fields are available on `tag` only:
 
 ```text
 tag.Meta.Type == "dbc.signal"
@@ -109,7 +109,7 @@ tag.Meta.Text("unit") == "A"
 tag.Meta.Number("limits/min") <= 100
 ```
 
-## Derived formulas
+## Derived Formulas
 
 Aliases expose only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality`, `IsStale`). Path methods and the wrong parameter name (`tag.…`) are rejected.
 
@@ -121,9 +121,9 @@ Math.Abs(a.Value - b.Value)
 Math.Round(a.Value * 100, 2)
 ```
 
-The only allowed static helpers are `Math.Abs`, `Math.Min`, `Math.Max`, and `Math.Round`.
+Static members of `Math` are available in formulas, as in the `Math.Abs` example above.
 
-## Guided builder
+## Guided Builder
 
 | Facet | Emits |
 |-------|-------|
@@ -136,9 +136,9 @@ The only allowed static helpers are `Math.Abs`, `Math.Min`, `Math.Max`, and `Mat
 
 Use **Free text** when the builder cannot express the predicate (complex `&&` / `||`, unusual meta keys, or derived formulas).
 
-## Unsupported spellings
+## Unsupported Spellings
 
-These spellings, used in early builds, fail validation. Rewrite them as shown:
+These spellings fail validation in Profinity 2.3. Rewrite them as shown:
 
 | Do not use | Use instead |
 |------------|-------------|
@@ -149,7 +149,7 @@ These spellings, used in early builds, fail validation. Rewrite them as shown:
 | `tag.Meta.Field(…)` | `tag.Meta.Text(…)` or `tag.Meta.Number(…)` |
 | `tag.SampleAgeSeconds` / `SecondsSinceUpdate` | `tag.IsStale` |
 
-## Related documentation
+## Related Documentation
 
 - [Collections](./Collections.md)
 - [Alerts Log](./Alerts.md)

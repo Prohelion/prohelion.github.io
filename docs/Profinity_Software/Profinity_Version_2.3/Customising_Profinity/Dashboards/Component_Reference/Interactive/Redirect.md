@@ -7,11 +7,11 @@ description: "Immediately navigates to another page or address when the dashboar
 
 A redirect navigates to another location as soon as the dashboard displays the component. The component draws nothing, so it is used in a dashboard that exists only to send the user elsewhere.
 
-**Best for:** Dashboards that forward the user to another page or to an external address
+## When to Use
 
-**When not to use:** To provide a link that the user clicks (use an [Action](Actions.md) with `invoke: Navigate`, or an `a` element in an [HTML](HTML.md) component), because the redirect cannot wait for a click
+Use a redirect in a dashboard that forwards the user to another page or to an external address. Do not use a redirect to provide a link that the user clicks, because the redirect cannot wait for a click. Use an [Action](Actions.md) with `invoke: Navigate`, or an `a` element in an [HTML](HTML.md) component, for a link.
 
-**Parameters:**
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -19,7 +19,7 @@ A redirect navigates to another location as soon as the dashboard displays the c
 | `class` | string | No | None | Not used by the web interface |
 | `url` | string | Yes | None | Location to navigate to. A path that starts with a single `/` is opened inside the web interface, and any other address replaces the current page in the browser |
 
-**Example:**
+## Example
 
 ``` yaml
 dashboard:

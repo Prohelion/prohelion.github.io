@@ -5,16 +5,18 @@ description: "Grid of colour-coded status indicators for quick system state visu
 
 # Lamps
 
-Grid of status indicators. Lamps use colour and on/off state to communicate system status at a glance.
+Lamps are a grid of status indicators that use colour and on or off state to communicate system status at a glance.
 
 <figure markdown>
 ![Lamps component displaying a grid of status indicators with colour-coded states](../../images/lamps.png)
 <figcaption>Lamps component displaying a grid of status indicators with colour-coded states</figcaption>
 </figure>
 
-**Best for:** Status indicators, error/warning displays, system state visualisation, quick status overview
+## When to Use
 
-**Parameters:**
+Use lamps for status indicators, error and warning displays and a quick overview of system state. Use a single [Lamp](Lamp.md) for one indicator beside other components, and [Readouts](Readouts.md) when the value itself must be read.
+
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -22,7 +24,7 @@ Grid of status indicators. Lamps use colour and on/off state to communicate syst
 | `class` | string | No | None | CSS class added to the `lamp-grid` element |
 | `items` | array | Yes | None | Array of lamp groups. Each group is displayed as one column |
 
-**Lamp Group Parameters:**
+### Lamp Group Parameters
 
 Each item in `items` must contain a `lampgroup` object with:
 
@@ -32,9 +34,9 @@ Each item in `items` must contain a `lampgroup` object with:
 | `class` | string | No | None | Not used by the web interface |
 | `items` | array | Yes | None | Array of lamps. The column width scales automatically with the number of lamps |
 
-Each item in the lamp group's `items` must contain a `lamp` object. The [Lamp](Lamp.md) page describes the lamp parameters, the colour names and the way that a lamp decides what to display.
+Each item in the lamp group's `items` must contain a `lamp` object. The [Lamp](Lamp.md) page describes the lamp parameters, the colour names and the [display rules](Lamp.md#display-rules) that a lamp follows, including why a lamp driven by an `enabled` binding also needs `value: 1`.
 
-**Example:**
+## Example
 
 ``` yaml
 dashboard:

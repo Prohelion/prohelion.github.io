@@ -5,28 +5,34 @@ description: "Scripts set to Run On Alert mode that execute when rules fire with
 
 # Rule Scripts
 
-A script becomes a rule action by setting its **Script Mode** to **Run On Alert** — the same
-component used for Run On Demand, Run On Tag Change, and every other trigger, just switched into
-a different mode. There is no separate "rule script" component to add, and the rule passes its
-firing context directly as a parameter to the method the script implements.
+!!! info "Licence Required"
+    A script set to **Run On Alert** needs the **Scripting** licensed feature, included in the **Desktop**, **Server**, and **Enterprise** editions. An unlicensed instance cannot add or run scripts. See [Licensing](../../../Administration/Licensing.md).
 
-## Setting a script to Run On Alert
+A rule script is a script component with **Script Mode** set to **Run On Alert**. There is no separate rule script component to add, and the rule passes its firing context directly as a parameter to the method the script implements.
 
-1. Add a **CSharp Script**, **Python Script**, or **Lua Script** component (or use an existing one).
-2. Set **Script Mode** to **Run On Alert**.
-3. Name that component in the rule's **`onTrue`**/**`onFalse`** action list, the same way any
-   other rule action is referenced by component name.
+## Setting a Script to Run On Alert
 
-Enable scripting in [System Configuration](../../../Administration/System_Configuration/Application_Config.md) before using
-script actions, which every script trigger requires.
+Enable scripting in [System Configuration](../../../Administration/System_Configuration/Application_Config.md) first, because every script trigger requires it. Then add a **CSharp Script**, **Python Script** or **Lua Script** component (or use an existing one), set **Script Mode** to **Run On Alert**, and name that component in the `actions` list of a rule, in the same way any other rule action is referenced by component name. The rule below calls a script component named `PackTempScript` when the pack temperature passes 45:
 
-## The alert context
+```yaml
+version: "2.3"
+rules:
+  scope:
+    prefix: Vehicles/Car1
+  rules:
+    - rule:
+        id: pack_temperature_high
+        level: Warning
+        scope:
+          prefix: Battery/PackTemperature
+        expression: tag.Value > 45
+        actions:
+          - action: PackTempScript
+```
 
-When the rule fires, Profinity calls the script's alert method once, passing the firing context
-as a parameter — the same context every other rule action receives (see
-[Rule actions and scripts](../../../Tags/Actions.md)): rule id/name/level, the edge
-that fired, the triggering tag, and **`TriggeredTags`** — every tag in the rule's scope that is
-currently true. The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`,
+## The Alert Context
+
+When the rule fires, Profinity calls the script's alert method once, passing the firing context as a parameter. This is the same context every other rule action receives (see [Rule Actions and Scripts](../../../Tags/Actions.md)): the rule id, name and level, the edge that fired, the triggering tag, and `TriggeredTags`, which holds every tag in the rule's scope that is currently true. The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`,
 `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`,
 `Message`, `ExpandedMessage` and `TriggeredTags`, with the same names in C#, Python and Lua. `RuleLevel`
 is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (see
@@ -82,34 +88,26 @@ is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (see
 
 The full files `CSharpAlertTemplate.cs`, `PythonAlertTemplate.py` and `LuaAlertTemplate.lua` ship as templates in the `example_scripts` folder of the Profinity directory (in its `CSharp`, `Python` and `Lua` subfolders), alongside Profinity's other example scripts.
 
-!!! warning "Manually running the script does not call this method"
-    A component menu's **Run Script** action, and the Run On Demand/scheduled paths, do not call
-    `OnAlert`/`on_alert` — only a rule firing does. There is no "run this manually to test" path
-    for the alert method itself; test by driving the rule's condition true.
+!!! warning "Running the Script by Hand Does Not Call This Method"
+    The **Run Script** action on a component menu, and the Run On Demand and scheduled paths, do not call
+    `OnAlert` or `on_alert`. Only a rule firing does, so the alert method is tested by driving the rule's condition true.
 
-## Trigger overlap
+## Trigger Overlap
 
-If the alert method is still running when the rule fires again, **Trigger Overlap** decides what
-happens — the same setting **Run On Tag Change** and **Run On Receipt of CAN Message** already
-use:
+If the alert method is still running when the rule fires again, **Trigger Overlap** decides what happens. It is the same setting that **Run On Tag Change** and **Run On Receipt of CAN Message** use:
 
-- **Drop** (default) — discard the new firing while the current one is still running.
-- **Queue** — hold a bounded backlog, up to **Queue Depth** (1–100, default 8), and run it once
-  the current firing completes.
+- **Drop** (the default): discards the new firing while the current one is still running.
+- **Queue**: holds a bounded backlog, up to **Queue Depth** (1 to 100, default 8), and runs it once the current firing completes.
 
-Keep the alert method fast: a slow script under **Queue** mode can build a backlog, and under
-**Drop** mode can silently miss firings.
+The alert method should stay fast, because a slow script under **Queue** builds a backlog and under **Drop** silently misses firings.
 
-## Status while running as a rule action
+## Status While Running as a Rule Action
 
-**Run On Alert** has no Start/Stop lifecycle the way **Run On Tag Change** does — a rule invokes
-it, it does not sit watching. Between firings its status reads **Not Run** or **Run N times**;
-status shows **Running** only while `OnAlert`/`on_alert` is actually on the stack. The component's
-menu in this mode is **Edit Script** only.
+**Run On Alert** has no start and stop lifecycle, because a rule invokes the script and the script does not sit watching. Between firings its status reads **Not Run** or **Run N times**, and the status shows **Running** while `OnAlert` or `on_alert` is executing. The component's menu in this mode is **Edit Script** only.
 
-## Related documentation
+## Related Documentation
 
-- [Rule actions and scripts](../../../Tags/Actions.md)
+- [Rule Actions and Scripts](../../../Tags/Actions.md)
 - [Script Types](./index.md)
-- [Profinity scripting](../index.md)
-- [Write your first script](../../../How_To_Guides/Write_Your_First_Script.md)
+- [Profinity Scripting](../index.md)
+- [Write Your First Script](../../../How_To_Guides/Write_Your_First_Script.md)

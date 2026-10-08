@@ -5,25 +5,17 @@ description: "Progressive examples from simple hello-world dashboards to complet
 
 # Dashboard Examples
 
-This guide provides examples of Profinity dashboards, from simple component displays to complete real-world implementations. All examples use the correct schema structure and demonstrate best practices.
+This page shows Profinity dashboards from simple component displays to complete real-world implementations, and every YAML block validates against the dashboard schema. Readers new to dashboards should begin with the progressive examples, which build from a Hello World dashboard to charts, and the complete motor controller dashboard is listed and analysed in [Full Example](./Full_Example.md).
 
-!!! tip "New to Dashboards?"
-    Readers new to dashboards should begin with the [Progressive Examples](#progressive-examples) section, which is the first section on this page. It starts with a simple "Hello World" dashboard and builds up to more complex examples step by step, before the complete motor controller dashboard and the real-world scenarios.
-
-## Table of Contents
-
-- [Progressive Examples](#progressive-examples) - The starting point for new readers, building from "Hello World" to complex dashboards
-- [Complete Dashboard Example](#complete-dashboard-example) - Full motor controller dashboard
-- [Real-World Scenarios](#real-world-scenarios) - Step-by-step walkthroughs
-- [Component-Specific Examples](#component-specific-examples) - Examples for individual component types
+Tag paths such as `DBC/Temperature/Value` and image names such as `BatteryIcon.svg` are placeholders. Replace them with tags from the [Tag Explorer](../../Tags/index.md) and with files in the `images` directory of the profile, or the readouts stay blank and the images do not appear. The `version` stamp is optional in the schema, so the Hello World template includes `version: "2.3"` and the other examples omit it.
 
 ## Progressive Examples
 
-These examples build from the simplest possible dashboard to more complex ones, and are the recommended starting point for readers new to dashboard development.
+These examples build from the simplest possible dashboard to more complex ones.
 
-### Example 0: Hello World (The Template)
+### Example 0: Hello World Template
 
-A new custom component starts with this Hello World template, and the **NEW FROM TEMPLATE** button in the dashboard editor loads it again at any time (a component can supply its own template, in which case that template loads instead). It is the template shipped with Profinity:
+A new custom component starts with this Hello World template, and the **NEW FROM TEMPLATE** button in the visual editor loads it again at any time (a component can supply its own template, in which case that template loads instead):
 
 ``` yaml
 version: "2.3"
@@ -47,19 +39,11 @@ dashboard:
                                 label: For more information on how to configure dashboard files, see the Profinity documentation at https://docs.prohelion.com
 ```
 
-This template provides a starting point with:
-
-- A version declaration (`version: "2.3"`)
-- A vertical row layout
-- A styled group container
-- A pill component with an icon
-- A value readout showing "CUSTOM DASHBOARD", and a second value that points to the documentation
-
-This template can be modified to add data bindings and additional components, and it is the same template described in the [Dashboard Development Guide](./index.md#your-first-dashboard-hello-world).
+The template is a vertical row holding a styled group with one pill, which has an icon and two values: one labelled `CUSTOM DASHBOARD` and one that points to the documentation. Add bindings and further components to it, as in the examples that follow.
 
 ### Example 1: Simple Readout with Formatting
 
-Add units and precision to make the readout more informative:
+A readout with a unit and a precision shows a value as `25.5 °C`:
 
 ``` yaml
 dashboard:
@@ -77,7 +61,7 @@ dashboard:
 
 ### Example 2: Multiple Readouts with Binding
 
-Add data binding to multiple readouts:
+Two readouts, each bound to a tag, show a temperature to one decimal place and a pressure to two:
 
 ``` yaml
 dashboard:
@@ -106,7 +90,7 @@ dashboard:
 
 ### Example 3: Add Status Lamps
 
-Include status indicators:
+A lamp bound to `enabled` lights while the `Online` flag is set, beside a bound readout:
 
 ``` yaml
 dashboard:
@@ -140,7 +124,7 @@ dashboard:
 
 ### Example 4: Add Charts
 
-Include time series charts:
+A line chart bound with `seriesMode: timeSeries` plots the last five minutes of a tag inside a titled panel:
 
 ``` yaml
 dashboard:
@@ -163,19 +147,15 @@ dashboard:
                               timeRangeStop: "0m"
 ```
 
-## Complete Dashboard Example
-
-The complete WaveSculptor motor controller dashboard, which applies most of the concepts in this guide, is listed in full and analysed section by section in [Full Example](./Full_Example.md), so the YAML is not repeated here.
-
 ## Real-World Scenarios
 
 ### Building a Motor Controller Dashboard
 
-This walkthrough shows how to build a complete motor controller dashboard step by step.
+The following blocks are building blocks for a motor controller dashboard. Each block shows only the part being added, so combine the parts you need under one `dashboard:`, and see [Full Example](./Full_Example.md) for the finished dashboard.
 
-**Step 1: Create the Basic Structure**
+#### Basic Structure
 
-Start with a simple row containing a titlebar and basic layout:
+A titlebar with a lamp, and a vertical row holding a readout:
 
 ``` yaml
 dashboard:
@@ -200,9 +180,9 @@ dashboard:
                           precision: 1
 ```
 
-**Step 2: Add Data Binding**
+#### Data Binding
 
-Connect the readouts to actual CAN bus data:
+A readout bound to the bus voltage tag:
 
 ``` yaml
 dashboard:
@@ -221,9 +201,9 @@ dashboard:
                         source: DBC/BusMeasurement/BusVoltage
 ```
 
-**Step 3: Add Status Indicators**
+#### Status Indicators
 
-Include lamps for system status:
+A lamp that lights with the `Online` flag:
 
 ``` yaml
 dashboard:
@@ -245,9 +225,9 @@ dashboard:
                               toType: boolean
 ```
 
-**Step 4: Add Charts**
+#### Charts
 
-Include time series charts for trend analysis:
+A time series chart of the bus current:
 
 ``` yaml
 dashboard:
@@ -265,9 +245,9 @@ dashboard:
                   timeRangeStop: "0m"
 ```
 
-**Step 5: Organise with Panels**
+#### Panels
 
-Group related components into panels:
+A titled panel that groups related lamps:
 
 ``` yaml
 dashboard:
@@ -292,9 +272,11 @@ dashboard:
 
 ### Creating a Battery Monitoring Dashboard
 
-This example shows how to create a battery monitoring dashboard with interactive images.
+The following blocks build a battery monitoring dashboard with an interactive image, and each shows only the part being added.
 
-**Step 1: Create the Main Layout**
+#### Main Layout
+
+A pill with an icon and a state of charge value scaled to a percentage:
 
 ``` yaml
 dashboard:
@@ -319,9 +301,9 @@ dashboard:
                               gain: 100
 ```
 
-**Step 2: Add Interactive Image**
+#### Interactive Image
 
-Include an interactive image showing battery layout:
+An interactive [Image](./Component_Reference/Interactive/Image.md) of the battery layout, with a cell voltage value and a clickable region:
 
 ``` yaml
 dashboard:
@@ -357,7 +339,7 @@ dashboard:
 
 ### HTML Component Example
 
-Display custom HTML content with references to profile assets. The `info-box` classes are styled by rules in the `profile.css` file of the `/Profile/Styles` directory, because the sanitiser removes a `link` element from `content`:
+An [HTML](./Component_Reference/Interactive/HTML.md) component shows custom HTML content with references to profile assets:
 
 ``` yaml
 dashboard:
@@ -374,9 +356,11 @@ dashboard:
                 </div>
 ```
 
+The `info-box` classes are styled by rules in the `profile.css` file of the `/Profile/Styles` directory, because the HTML sanitiser removes a `link` element from `content`.
+
 ### Image Component Example
 
-Interactive image with regions, icons, and data values. The `x`, `y`, `width`, and `height` values are percentages of the image size, and `action` is an object whose `invoke` value is `Navigate`, `Component`, `System`, or `Endpoint`:
+An interactive image with a region, an icon and a data value:
 
 ``` yaml
 dashboard:
@@ -419,9 +403,11 @@ dashboard:
                     precision: 2
 ```
 
+The `x`, `y`, `width` and `height` values are percentages of the image size, and `action` is an object whose `invoke` value is `Navigate`, `Component`, `System` or `Endpoint`.
+
 ### Table Component Example
 
-Data table with highlighting:
+A [Table](./Component_Reference/Data/Tables.md) with a heat map and highlighting:
 
 ``` yaml
 dashboard:
@@ -450,15 +436,8 @@ dashboard:
                   source: DBC/CellData/Values
 ```
 
-## Next Steps
+The `heatmap` setting colours cells on a green to yellow scale between the minimum and maximum, `highlightAtOrBelow` highlights cells at or below 2.5, and `alertAtOrBelow` applies alert colouring to low values at or below 2.0.
 
-The following pages build on these examples:
+## Where Next
 
-- **Read the Full Analysis** - Review the [Full Example](./Full_Example.md) for a section-by-section analysis of the complete motor controller dashboard
-- **Start with the Basics** - Begin with [Core Elements](./Core_Elements.md) to understand dashboard structure
-- **Learn Data Binding** - Study [Data Binding](./Data_Binding.md) to bind your dashboards to tags
-- **Explore Components** - Use [Component Reference](./Component_Reference/index.md) for detailed component information
-- **Add Styling** - Apply [Conditional Styling](./Conditional_Styling.md) for dynamic visual effects
-- **Troubleshoot Issues** - Check [Troubleshooting](./Troubleshooting.md) for common problems and solutions
-- **Get Help** - Review [FAQ](./FAQ.md) for answers to common questions
-
+[Full Example](./Full_Example.md) analyses the complete motor controller dashboard, [Data Binding](./Data_Binding.md) describes the binding settings used here, and [Troubleshooting](./Troubleshooting.md) covers validation errors and binding problems.

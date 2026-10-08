@@ -1,78 +1,41 @@
 ---
-title: CAN bus DBC
+title: CAN Bus DBC
 description: "View and analyse CAN messages and signals using DBC files with text and numeric range filtering."
 ---
 
-# CAN bus DBC
+# CAN Bus DBC
 
-[DBC](http://socialledge.com/sjsu/index.php/DBC_Format) (CAN database) is a file format that can be used to describe the format and nature of CAN bus data. With a DBC file, CAN data can be understood more clearly and broken down into Signals and Messages, the fundamental building blocks of a DBC file.
+[DBC](http://socialledge.com/sjsu/index.php/DBC_Format) (CAN database) is a file format that describes the format and nature of Controller Area Network (CAN) bus data, and with a DBC file CAN data can be understood more clearly and broken down into Signals and Messages, the fundamental building blocks of a DBC file. For the moment, Profinity provides a DBC Viewer that takes a DBC file and shows the CAN bus traffic travelling through the Profinity system as Messages and Signals.
 
-For the moment, Profinity provides a DBC Viewer that takes a DBC file and shows the CAN bus traffic travelling through the Profinity system as Messages and Signals.
+Many of the components supported by Profinity, such as the [Elmar Solar MPPT](../Components/MPPT/index.md) and the [WaveSculptor](../Components/Motor_Controller/index.md), have DBC support built in and show their Messages and Signals without a separate DBC file. The DBC files that describe Prohelion devices are published with the hardware documentation, for example the [WaveSculptor22 DBC file](../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md) and the [EV Driver Controls DBC file](../../../Solar_Car_Racing/EV_Driver_Controller/Communications_Protocol/DBC.md), and either can be supplied to a Custom Component as a third-party DBC file.
+
+## Opening the DBC Viewer
+
+Select **CAN UTILITIES** in the side menu and then **DBC MESSAGES & SIGNALS** to see every Message and Signal in the profile, which needs the **View DBC definitions** permission. A component that has DBC support also has a **Messages and Signals** item in its menu, which opens the same viewer already filtered to that component.
 
 <figure markdown>
 ![CAN DBC Viewer](../images/dbc_canbus_message.png)
 <figcaption>CAN DBC Viewer</figcaption>
 </figure>
 
-To use the DBC Viewer with a third-party DBC file you need to [create a new item](../Getting_Started/Adding_New_Components.md) in your [Profile](../Getting_Started/Profiles.md) and provide the DBC file in the configuration properties for that new item.
-
-Once this has been done, the item appears in your profile, and right mouse clicking on it gives access to information about its Messages and Signals.
+To use the DBC Viewer with a third-party DBC file, [add a Custom Component](../Getting_Started/Adding_New_Components.md) to your [Profile](../Getting_Started/Profiles.md) and provide the file in its **Upload DBC File (Optional)** setting. Once the file has parsed, the component appears in your profile with the **Messages and Signals** menu item. See [How to Create a Custom Component](../How_To_Guides/Create_Custom_Component.md) for the full steps.
 
 ## Filters
 
-The DBC viewer supports filtering messages and signals to help you focus on specific CAN bus traffic. You can filter by Component, Message, Signal, Value, and Unit columns using logical operators.
+The DBC Viewer filters messages and signals by Component, Message, Signal, Value and Unit, so that the view shows only the CAN bus traffic of interest. Leaving a filter empty shows every result for that column, filters on several columns apply together, and the global search box filters across all columns at once.
 
-### Text Filters (Component, Message, Signal, Unit)
+### Text Filters
 
-Text filters support logical operators to combine multiple search terms. All text filtering is case-insensitive.
+The Message and Signal columns take a text filter that is not case-sensitive. Space-separated terms must all match, so `battery voltage` shows rows containing both words, and the explicit operators `&` and `AND` behave the same way. The operators `|`, `OR` and a comma match any of the terms instead, so `error, warning, fault` shows every row that contains at least one of the three. The global search box accepts the same operators.
 
-#### AND Logic (Default)
+```text
+BMU temperature
+BMU | MPPT
+error, warning, fault
+```
 
-By default, space-separated terms use AND logic - all terms must match:
+The first line shows rows containing both `BMU` and `temperature`, the second shows rows containing either `BMU` or `MPPT`, and the third shows rows containing any of the three words. The Component and Unit columns offer a checklist of the values present to choose from instead of a text box.
 
-- `battery voltage` - Matches rows containing both "battery" AND "voltage"
-- `motor temp` - Matches rows containing both "motor" AND "temp"
+### Numeric Range Filter
 
-You can also use explicit AND operators:
-
-- `battery & voltage` - Matches rows containing both "battery" AND "voltage"
-- `battery AND voltage` - Matches rows containing both "battery" AND "voltage" (case-insensitive)
-
-#### OR Logic
-
-Use OR operators to match any of the specified terms:
-
-- `battery | voltage` - Matches rows containing "battery" OR "voltage"
-- `battery OR voltage` - Matches rows containing "battery" OR "voltage" (case-insensitive)
-- `battery, voltage` - Matches rows containing "battery" OR "voltage" (comma-separated)
-
-#### Examples
-
-- `BMU` - Shows all rows containing "BMU"
-- `BMU temperature` - Shows rows containing both "BMU" AND "temperature"
-- `BMU | MPPT` - Shows rows containing "BMU" OR "MPPT"
-- `voltage current` - Shows rows containing both "voltage" AND "current"
-- `error, warning, fault` - Shows rows containing "error" OR "warning" OR "fault"
-
-### Numeric Range Filter (Value Column)
-
-The Value column supports numeric range filtering using min/max values:
-
-- **Min only**: Shows values greater than or equal to the minimum
-- **Max only**: Shows values less than or equal to the maximum
-- **Min and Max**: Shows values within the specified range (inclusive)
-
-#### Examples
-
-- Min: `0`, Max: `100` - Shows values between 0 and 100 (inclusive)
-- Min: `50`, Max: (empty) - Shows values greater than or equal to 50
-- Min: (empty), Max: `100` - Shows values less than or equal to 100
-
-### Filter Tips
-
-- **Empty filters**: Leaving a filter empty shows all results for that column
-- **Combining filters**: You can apply filters to multiple columns simultaneously
-- **Global search**: Use the global search box to filter across all columns at once
-- **Case sensitivity**: All text filters are case-insensitive
-
-Many of the other components supported by Profinity such as the [Elmar Solar MPPT](../Components/MPPT/index.md) and the [WaveSculptor](../Components/Motor_Controller/index.md) have support for DBC built in to the component and also allow you to view Messages and Signals, without requiring a separate DBC file. The DBC files that describe Prohelion devices are published with the hardware documentation, for example the [WaveSculptor22 DBC file](../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md) and the [EV Driver Controls DBC file](../../../Solar_Car_Racing/EV_Driver_Controller/Communications_Protocol/DBC.md), and either can be supplied to a new component as a third-party DBC file.
+The Value column takes a minimum and a maximum. With only a minimum, it shows values greater than or equal to that number, with only a maximum, it shows values less than or equal to that number, and with both it shows values within the range, inclusive. For example, a minimum of `0` and a maximum of `100` shows values from 0 to 100, and a minimum of `50` with the maximum left empty shows values of 50 and above.

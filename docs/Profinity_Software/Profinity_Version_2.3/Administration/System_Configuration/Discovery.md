@@ -5,7 +5,7 @@ description: "Configure the LAN heartbeat that lets Profinity Mobile find this P
 
 # Discovery
 
-!!! warning "Saving restarts Profinity"
+!!! warning "Saving Restarts Profinity"
     Saving changes on any System Configuration tab restarts Profinity. See [System Configuration](index.md) for what to expect.
 
 Profinity can broadcast a small UDP heartbeat on the local network so that [Profinity Mobile](../../Mobile/index.md) can find this server without the address being typed in.

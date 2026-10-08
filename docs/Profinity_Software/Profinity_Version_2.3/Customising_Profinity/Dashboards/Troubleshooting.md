@@ -5,29 +5,20 @@ description: "Diagnose and fix common dashboard issues including schema validati
 
 # Troubleshooting Guide
 
-This guide explains how to diagnose and fix common issues when creating Profinity dashboards, and covers schema validation errors, data binding issues, performance problems, and component-specific troubleshooting.
-
-## Table of Contents
-
-- [Schema Validation Errors](#schema-validation-errors)
-- [Data Binding Issues](#data-binding-issues)
-- [Performance Considerations](#performance-considerations)
-- [Component-Specific Troubleshooting](#component-specific-troubleshooting)
-- [Common Mistakes](#common-mistakes)
-- [Getting More Help](#getting-more-help)
+This page explains how to diagnose and fix problems with Profinity dashboards. It covers schema validation errors by their message, data that does not update or display, performance, and problems with individual components.
 
 ## Schema Validation Errors
 
-!!! tip "Using the visual editor?"
-    In **DESIGN** mode the same problems are listed under **Schema validation issues**, and **SAVE** is blocked until they are fixed. The examples below show the YAML behind each problem. Use the **YAML** tab to see and edit the exact lines they refer to.
+!!! tip "The Visual Editor Lists Schema Problems for You"
+    In **DESIGN** mode the same problems are listed under **Schema validation issues**, and **SAVE** is blocked until they are fixed. The examples below show the YAML behind each problem, and the **YAML** tab shows the exact lines that they refer to.
 
-The dashboard editor checks the dashboard YAML and lists each problem as a path followed by a message, such as `/dashboard/items/0/row/items/0/chart: must NOT have additional properties`. The visual editor refuses to save a dashboard that has validation issues, and a dashboard that fails validation when it loads is replaced by a load error screen that offers **Reset from Template** to users with the `DashboardModify` permission. The following sections list common validation errors and how to fix them.
+The editor checks the dashboard YAML and lists each problem as a path followed by a message, such as `/dashboard/items/0/row/items/0/chart: must NOT have additional properties`, where the numbers in the path count from zero. A dashboard that fails validation when it loads is replaced by a load error screen with the text "The dashboard's saved layout doesn't match the current schema. Reset it from the template, or open Edit Dashboard to repair the file manually." Users with the **Modify dashboards** permission can select **Reset from Template**, which discards the saved layout and loads the template, or open the YAML in **Edit Dashboard** and correct it. The following sections list common validation errors and how to fix them.
 
 In each example, the block labelled `# Incorrect` shows the mistake and fails validation, and the block labelled `# Correct` shows the fix.
 
 ### Error: "must NOT have additional properties" for `charttype`
 
-**Problem:** The old property name `charttype` is used instead of `type`. The editor reports `must NOT have additional properties` for `charttype`, and `must have required property 'type'`.
+**Problem:** A chart takes its kind from `type`, not `charttype`, so the editor reports `must NOT have additional properties` for `charttype`, and `must have required property 'type'`.
 
 **Solution:** Change `charttype` to `type`:
 
@@ -51,7 +42,7 @@ dashboard:
               type: line
 ```
 
-### Error: "must NOT have additional properties" for `groups` (Pill component)
+### Error: "must NOT have additional properties" for `groups` (Pill Component)
 
 **Problem:** Pill components use `items` that contain `pillgroup` objects, not `groups`.
 
@@ -84,7 +75,7 @@ dashboard:
                           label: "Value 1"
 ```
 
-### Error: "must NOT have additional properties" for `groups` (Lamps component)
+### Error: "must NOT have additional properties" for `groups` (Lamps Component)
 
 **Problem:** Lamps components use `items` that contain `lampgroup` objects, not `groups`.
 
@@ -119,7 +110,7 @@ dashboard:
                           value: 1
 ```
 
-### Error: "must NOT have additional properties" for `headersInfo` (Table component)
+### Error: "must NOT have additional properties" for `headersInfo` (Table Component)
 
 **Problem:** Table components use `tableHeaders` with `header` objects, not `headersInfo`, and the key of each column is `accessorKey` with a capital K.
 
@@ -150,7 +141,7 @@ dashboard:
                     value: "Name"
 ```
 
-### Error: Readout items must contain a `readout` object
+### Error: Readout Items Must Contain a `readout` Object
 
 **Problem:** Readout items must be wrapped in a `readout` object. Without the wrapper, the editor reports `must NOT have additional properties` for the readout fields and `must have required property 'readout'`.
 
@@ -181,7 +172,7 @@ dashboard:
                     value: 25.5
 ```
 
-### Error: Panel items must contain a `panel` object
+### Error: Panel Items Must Contain a `panel` Object
 
 **Problem:** Panel items in a `panels` component must be wrapped in a `panel` object.
 
@@ -222,7 +213,7 @@ dashboard:
                                 value: 0
 ```
 
-### Error: Tab items must contain a `tab` object, and a tab needs `header` and `items`
+### Error: Tab Items Must Contain a `tab` Object, and a Tab Needs `header` and `items`
 
 **Problem:** Tab items must be wrapped in a `tab` object, and each `tab` has a `header` for the label shown in the tab strip and `items` for the content of the tab. A tab that holds its content under another name, such as `body`, fails validation with `must have required property 'items'` and `must NOT have additional properties`.
 
@@ -297,7 +288,7 @@ dashboard:
                                             value: 0
 ```
 
-### Error: "must be equal to one of the allowed values" for chart type
+### Error: "must be equal to one of the allowed values" for Chart Type
 
 **Problem:** Using an invalid chart type value.
 
@@ -323,7 +314,7 @@ dashboard:
               type: line
 ```
 
-### Error: "must have required property 'source'" in bind
+### Error: "must have required property 'source'" in `bind`
 
 **Problem:** Every binding must have a `source` property.
 
@@ -362,25 +353,7 @@ dashboard:
 
 ### Data Not Updating
 
-**Symptoms:** Dashboard components show static values or do not update when data changes.
-
-**Possible Causes:**
-
-1. **Incorrect Tag Path**
-   - Find the tag in the Tag Explorer and check that the `source` path matches it exactly, for example `DBC/Message/Signal` for a CAN signal
-   - For a tag of another component, check that the path starts with `/` and that the component name is correct
-   - Check for typos in the names within the path
-
-2. **Tag Does Not Exist or Has No Value**
-   - Open the tag in the Tag Explorer and check that it exists and shows a current value and a good quality flag
-   - Verify the component is connected and sending data
-   - For a `DBC/` tag, check that the DBC file defines the signal
-
-3. **Type Mismatch**
-   - Ensure `toType`, when it is set, matches the expected data type
-   - Check that numeric values are not being treated as strings
-
-**Solution:**
+Components that show static values, or do not update when the data changes, usually have a `source` that does not match a tag. Open the tag in the Tag Explorer and check that the path in the binding matches it exactly, including a leading `/` for a tag of another component, and that the tag exists and shows a current value with a good quality flag. For a `DBC/` tag, check that the DBC file defines the signal and that the component is connected and sending data. If the tag shows a value but the component does not, check that `toType`, when it is set, matches the type that the tag publishes, because a number treated as a string displays but does not drive a lamp or a chart.
 
 ``` yaml
 # Verify the source path matches the tag path in the Tag Explorer
@@ -400,23 +373,7 @@ dashboard:
 
 ### Binding to Logged Data Not Working
 
-**Symptoms:** Logged data bindings return no data or errors.
-
-**Possible Causes:**
-
-1. **InfluxDB Not Configured**
-   - Verify InfluxDB is running and configured
-   - Check that data logging is enabled
-
-2. **Time Range Issues**
-   - Ensure `timeRangeStart` is in the past (e.g., "-10m")
-   - Check that `timeRangeStop` is after `timeRangeStart`, where `"0m"` means now
-
-3. **Aggregation Window Too Large**
-   - Reduce `aggregationWindow` if no data is returned
-   - Try smaller windows like "1s" or "10s"
-
-**Solution:**
+A logged binding that returns no data usually means that data logging is not configured and enabled for the profile (see [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md)), or that the time range is invalid. Set `timeRangeStart` in the past (for example `-10m`) and `timeRangeStop` after it, where `0m` means now. An invalid time range or aggregation window makes the binding return no data, so start with a simple binding such as the following and add the aggregation back once it returns data.
 
 ``` yaml
 # Start with a simple logged data binding
@@ -438,17 +395,7 @@ dashboard:
 
 ### Type Conversion Errors
 
-**Symptoms:** Values display incorrectly or cause errors.
-
-**Possible Causes:**
-
-1. **Missing `toType` for Boolean Values**
-   - Boolean bindings often need explicit type conversion
-
-2. **Incorrect Type Conversion**
-   - Using `toType: number` on non-numeric data
-
-**Solution:**
+Values that display incorrectly are usually the result of a `toType` that does not suit the data, such as `toType: number` on a non-numeric tag. Components convert most targets themselves, so set `toType` only where a value displays incorrectly: `boolean` for a flag bound to `enabled` or `visible`, and `number` for a numeric value.
 
 ``` yaml
 # For boolean values
@@ -486,27 +433,44 @@ dashboard:
                         toType: number
 ```
 
-## Performance Considerations
+### Charts Not Rendering
 
-### Dashboard Loads Slowly
+A chart that appears blank shows only the latest value unless its binding sets `seriesMode: timeSeries`, so add the series settings first. Then check in the Tag Explorer that the tag has a current value, and for logged data that the time range is valid. A chart that is given static data in its `value` property, rather than a binding, needs that data to have `labels` and `datasets`.
 
-**Symptoms:** Dashboard takes a long time to load or becomes unresponsive.
+``` yaml
+# For time series data
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: line
+              bind:
+                - target: value
+                  source: DBC/Data/Value
+                  seriesMode: timeSeries
+                  timeRangeStart: "-5m"
+                  timeRangeStop: "0m"
+```
 
-**Possible Causes:**
+``` yaml
+# For structured data
+dashboard:
+  items:
+    - row:
+        items:
+          - chart:
+              type: bar
+              value:
+                labels: ["Jan", "Feb", "Mar"]
+                datasets:
+                  - label: "Sales"
+                    data: [10, 20, 30]
+```
 
-1. **Too Many Components**
-   - Large numbers of components can slow rendering
-   - Consider using accordions or tabs to hide unused sections
+## Performance
 
-2. **High-Frequency Data Updates**
-   - Charts with very frequent updates can impact performance
-   - Set `refreshInterval` (in milliseconds, minimum 1000) to poll the chart at a fixed interval instead of updating it live
-
-3. **Complex Data Bindings**
-   - Multiple bindings with transformations can slow updates
-   - Simplify bindings where possible
-
-**Solutions:**
+A dashboard that loads slowly or becomes unresponsive usually holds many components or charts with very frequent updates. Place unused sections in an accordion or tabs, and set `refreshInterval` (in milliseconds, minimum 1000) on a chart to poll it at a fixed interval instead of updating it live.
 
 ``` yaml
 # Poll the chart every second instead of updating it live
@@ -541,180 +505,36 @@ dashboard:
                           value: 0
 ```
 
-### Charts Not Rendering
-
-**Symptoms:** Charts appear blank or do not display data.
-
-**Possible Causes:**
-
-1. **Incorrect Data Format**
-   - A chart shows only the latest value unless the binding sets `seriesMode: timeSeries`
-   - Structured data must have `labels` and `datasets`
-
-2. **Missing Data**
-   - Verify the tag has a current value in the Tag Explorer
-   - Check time range for logged data
-
-**Solution:**
-
-``` yaml
-# For time series data
-dashboard:
-  items:
-    - row:
-        items:
-          - chart:
-              type: line
-              bind:
-                - target: value
-                  source: DBC/Data/Value
-                  seriesMode: timeSeries
-                  timeRangeStart: "-5m"
-                  timeRangeStop: "0m"
-```
-
-``` yaml
-# For structured data
-dashboard:
-  items:
-    - row:
-        items:
-          - chart:
-              type: bar
-              value:
-                labels: ["Jan", "Feb", "Mar"]
-                datasets:
-                  - label: "Sales"
-                    data: [10, 20, 30]
-```
-
 ## Component-Specific Troubleshooting
 
-### Pill Component
+### Image Does Not Appear
 
-**Issue:** Icon not displaying
+An icon or image that does not display is not being found. The web interface looks for the name first among the images built into Profinity and then in the `/Profile/Images` directory, so check that the file exists there, that the filename matches exactly including its case, that the property holds the filename alone and not a full path, and that the extension is one of `.svg`, `.png`, `.jpg`, `.jpeg` or `.webp`. A profile image with the same name as a built-in image is never used, so rename it. See [Profile Directories](./Profile_Directories.md#profileimages).
 
-- Verify image file exists in `/Profile/Images` directory
-- Check image filename matches exactly (case-sensitive)
-- Ensure image format is supported (SVG, PNG, JPG)
+### Pill Values Do Not Group
 
-**Issue:** Values not grouping correctly
+Each `pillgroup` must contain an `items` array, and each item must be wrapped in a `value` object.
 
-- Ensure each `pillgroup` contains `items` array
-- Each item must be wrapped in a `value` object
+### Lamps Do Not Light or Change Colour
 
-### Lamps Component
+An `enabled` binding must return `0` or `1` (or `false` or `true`), and a lamp that is greyed out has `enabled` set to false. A lamp bound to `color` takes the colour name that the binding returns (see [Conditional Styling](./Conditional_Styling.md)), and the `value` property of the lamp must be set, typically to 1.
 
-**Issue:** Lamps not showing/hiding correctly
+### Table Shows No Data or No Highlighting
 
-- Verify that the `enabled` binding source returns `0` or `1` (or `true` or `false`)
-- A lamp that is greyed out has `enabled` set to false, and a lamp bound to `color` takes the colour name that the binding returns (see [Conditional Styling](./Conditional_Styling.md))
-- Ensure `value` property is set (typically 1)
+Check that `tableHeaders` has the structure shown under the `headersInfo` error above, that each `accessorKey` matches a data property name, and that the data array is bound. Highlighting needs numeric data values and threshold properties such as `highlightAtOrBelow` or `highlightAtOrAbove`.
 
-### Tables Component
+### Chart Type Is Not Supported or a Time Series Chart Does Not Update
 
-**Issue:** Table shows no data
+The `type` property (not `charttype`) must be one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. A time series chart needs `seriesMode: timeSeries` in its binding, or `store: logged` with data logging enabled, and a suitable time range.
 
-- Verify `tableHeaders` structure is correct
-- Check that `accessorKey` matches data property names
-- Ensure data array is bound correctly
+### Image Regions Are Not Clickable or Data Values Are Missing
 
-**Issue:** Highlighting not working
+A region needs `x`, `y`, `width` and `height` values, which are percentages of the image size, and an `action` that is an object with an `invoke` value of `Navigate`, `Component`, `System` or `Endpoint`. The `action` needs a `target` when `invoke` is `Navigate`, or an `actionId` when `invoke` is `Component` or `System`. A data value that does not display needs a correct `bind`, a suitable `displayType`, and `maxValue` for the `graph` display type.
 
-- Verify threshold values are correct
-- Check that `highlightAtOrBelow`, `highlightAtOrAbove` are set correctly
-- Ensure data values are numeric
+### HTML Content Does Not Render
 
-### Charts Component
-
-**Issue:** Chart type not supported
-
-- Use one of: `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble`, `scatter`
-- Check that `type` property (not `charttype`) is used
-
-**Issue:** Time series chart not updating
-
-- Verify that the binding sets `seriesMode: timeSeries` (or `store: logged` for logged data)
-- Check that data logging is enabled when `store: logged` is used
-- Ensure time range is appropriate
-
-### Image Component
-
-**Issue:** Image not loading
-
-- Verify image file exists in `/Profile/Images` directory
-- Check filename matches exactly (case-sensitive)
-- Ensure image is referenced by filename only (not full path)
-
-**Issue:** Regions not clickable
-
-- Verify that the region has `x`, `y`, `width`, and `height` values, which are percentages of the image size
-- Check that `action` is an object with an `invoke` value of `Navigate`, `Component`, `System`, or `Endpoint`
-- Ensure `target` is provided inside `action` when `invoke` is `Navigate`, or `actionId` when `invoke` is `Component` or `System`
-
-**Issue:** Data values not displaying
-
-- Verify `bind` is correctly configured
-- Check that `displayType` is set appropriately
-- Ensure `maxValue` is set for `graph` display type
-
-### HTML Component
-
-**Issue:** HTML content not rendering
-
-- Verify HTML is valid
-- Check that content is properly escaped in YAML
-- Use YAML literal block syntax (`|` or `>`) for multi-line content
-
-**Issue:** Images/styles not loading in HTML
-
-- Use `/Profile/Images/{filename}` for images
-- Use `/Profile/Styles/{filename}` for stylesheets
-- Verify files exist in the correct directories
-
-## Common Mistakes
-
-### Using Old Property Names
-
-**Mistake:** Using deprecated property names like `charttype`, `groups`, `headersInfo`.
-
-**Fix:** Always use current property names: `type`, `items` with proper structure, `tableHeaders`.
-
-### Incorrect Nesting Structure
-
-**Mistake:** Not wrapping items in required objects (e.g., `readout`, `lamp`, `value`, `panel`, `tab`).
-
-**Fix:** Always check the schema structure and wrap items correctly.
-
-### Missing Required Properties
-
-**Mistake:** Omitting required properties like `source` in bindings, `label` in readouts, `color` in lamps.
-
-**Fix:** Review component documentation for required properties.
-
-### Incorrect Tag Paths
-
-**Mistake:** Typos in component names or in the names within a tag path.
-
-**Fix:** Copy the path from the Tag Explorer. Use relative paths such as `DBC/Message/Signal` for a tag of the component that owns the dashboard, and start the path with `/` for a tag of another component.
-
-### Profile Asset Path Issues
-
-**Mistake:** Using full file paths instead of just filenames for profile assets.
-
-**Fix:** Reference images, styles, and content by filename only in component properties. Profinity automatically serves them from `/Profile/Images`, `/Profile/Styles`, and `/Profile/Content` (see [Profile Directories](./Profile_Directories.md)).
+The HTML must be valid and properly escaped in YAML, and multi-line content uses a literal block (`|` or `>`). The HTML sanitiser removes the `script`, `embed`, `object`, `form`, `input` and `button` elements, so content that depends on them does not appear. Images and stylesheets in HTML use the full paths `/Profile/Images/{filename}` and `/Profile/Styles/{filename}`, and the files must exist in those directories.
 
 ## Getting More Help
 
-If an issue persists:
-
-1. **Check the Schema** - Review the dashboard schema (`GET /api/v2/UI/schema`) for exact property requirements
-2. **Validate Your YAML** - Use the dashboard editor's validation to catch errors early
-3. **Review Examples** - Check [Examples](./Examples.md) and the annotated [Full Example](./Full_Example.md) for working code samples
-4. **Check Component Reference** - See [Component Reference](./Component_Reference/index.md) for detailed property information
-5. **Contact Prohelion** - If issues persist, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) with:
-
-   - The YAML configuration
-   - Any error messages
-   - The expected and actual behaviour
-
+Review the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements, use the validation in the visual editor to catch errors early, and compare the dashboard with [Examples](./Examples.md), the annotated [Full Example](./Full_Example.md) and the [Component Reference](./Component_Reference/index.md). If the problem persists, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) and include the YAML configuration, any error messages, and the expected and actual behaviour.

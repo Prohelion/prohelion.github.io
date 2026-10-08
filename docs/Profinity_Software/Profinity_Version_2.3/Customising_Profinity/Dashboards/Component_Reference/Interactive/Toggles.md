@@ -5,29 +5,31 @@ description: "Switch controls that run an action when clicked and show an on or 
 
 # Toggles
 
-Switch components. Toggles provide on/off controls for component features, and a toggle runs an action each time that it is clicked while [data binding](../../Data_Binding.md) shows whether the feature is currently on or off.
+A toggle is an on/off switch that runs an action each time it is clicked, while [data binding](../../Data_Binding.md) shows whether the feature is currently on or off.
 
 <figure markdown>
 ![Toggles component displaying switch controls for enabling or disabling features](../../images/toggles.png)
 <figcaption>Toggles component displaying switch controls for enabling or disabling features</figcaption>
 </figure>
 
-**Best for:** Feature switches, enable and disable controls, and any action that alternates between two states
+## When to Use
 
-**Parameters:**
+Use a toggle for feature switches, enable and disable controls, and any action that alternates between two states. Use an [Action](Actions.md) for a one-way command such as a refresh.
+
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | CSS classes added to the toggle, alongside `toggle-action` |
-| `label` | string | Yes | None | Two captions separated by a vertical bar character, for example the text `ON`, a vertical bar and the text `OFF`, as the example below shows. The text before the vertical bar is shown at the left of the switch and the text after it at the right |
+| `class` | string | No | None | CSS classes added to the toggle |
+| `label` | string | Yes | None | Two captions separated by a vertical bar, written as `ON|OFF`. The text before the bar is shown at the left of the switch and the text after it at the right |
 | `action` | object | Yes | None | Action invocation that is submitted when the toggle is clicked. See [Action Invocation Parameters](#action-invocation-parameters) |
 | `value` | object | No | None | Payload posted with the action request |
 | `enabled` | boolean | No | `true` | Whether the toggle can be clicked. The state can be bound with the `enabled` target |
 | `visible` | boolean | No | `true` | Not used by the web interface |
-| `bind` | array | No | None | Data binding. The `enabled`, `tooltip` and `classes` targets are handled. Bind the `classes` target to a boolean and map `true` to `on` and `false` to `off` to show the current state of the switch |
+| `bind` | array | No | None | Data binding. The `enabled`, `tooltip` and `classes` targets are handled. Bind the `classes` target to a boolean and map `true` to `on` and `false` to `off` to show the current state of the switch, because a toggle without that binding does not show whether the feature is on or off |
 
-## Action Invocation Parameters
+### Action Invocation Parameters
 
 The `action` object is an action invocation, which is the same object that the regions, icons and buttons of an [Image](Image.md) or [Model](Model.md) component use for their `action`.
 
@@ -42,7 +44,7 @@ The `action` object is an action invocation, which is the same object that the r
 | `trackProgress` | boolean | No | None | Polls the progress of the action after a `Component` or `System` request |
 | `restartingOnSuccess` | boolean | No | None | Shows a wait dialog after the action succeeds and polls until the engine is running again |
 
-**Example:**
+## Example
 
 ``` yaml
 dashboard:
