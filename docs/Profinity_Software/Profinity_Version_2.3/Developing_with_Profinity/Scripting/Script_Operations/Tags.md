@@ -13,7 +13,7 @@ Access to tags varies by language:
 - Python: `Profinity.Tags.SetValue(...)`
 - Lua: `Profinity.Tags:SetValue(...)` (note the colon)
 
-## Tag paths
+## Tag Paths
 
 Paths passed to `Profinity.Tags` can address any tag in the tag tree. How a path is written decides where it starts:
 
@@ -26,20 +26,14 @@ A leading `/` means the same as it does in dashboards and rules: the root of the
 
 Use a relative path for a script's own component, which keeps the script working if the component is renamed or copied, and a leading `/` to read or write tags that belong to other components. If the component is mounted in a folder using a [Tag tree path](../../../Tags/Tag_Tree_Path.md), a relative path still starts at the component, and a path with a leading `/` starts at the root of the whole tree, so it includes that folder.
 
-!!! note "Paths are not a security boundary"
+!!! note "Paths Are Not a Security Boundary"
     Resolving relative paths under the host component is for convenience. It is not a sandbox or an authorisation check, and a script can reach any tag in the tree, so treat scripts as trusted code that runs inside the Profinity engine.
 
 Tag ids passed to a [Tag Change script](../Script_Types/TagChangeScripts.md) are full tag ids. To use one with `Profinity.Tags`, add a leading `/`, for example `Profinity.Tags.GetSample("/" + tagId)`, and to compare one, match on the end of the id, as the examples there do.
 
-## Key Features
+A script can read the current sample for a tag, including its quality and timestamp, publish a value to a tag (creating the tag path if it does not exist), clear a value or mark a tag stale, attach catalogue metadata to a tag, and browse the tag catalogue.
 
-- Read the current sample for a tag, including its quality and timestamp
-- Publish a value to a tag, creating the tag path if it does not exist
-- Clear a value or mark a tag stale
-- Attach catalogue metadata to a tag
-- Browse the tag catalogue
-
-## Reading tag values
+## Reading Tag Values
 
 `GetSample` returns a sample for the tag. If the tag cannot be found, the sample has a `Quality` of `Unavailable` rather than throwing, so check the quality before using the value. `ReadSample` returns `true` and fills in the sample only when the tag exists.
 
@@ -111,7 +105,7 @@ To read a tag on another component, start the path with `/`:
     local voltage = Profinity.Tags:GetSample('/Battery/Voltage')
     ```
 
-## Writing tag values
+## Writing Tag Values
 
 `SetValue` publishes a value to a tag. It creates the tag path first if it does not exist, and returns `true` when the write succeeds. Values must be scalar (a number, string or true/false value). Other types are rejected.
 
@@ -153,10 +147,10 @@ To read a tag on another component, start the path with `/`:
     Profinity.Tags:MarkStale('SpeedKmh')
     ```
 
-!!! warning "Avoid loops"
-    A script that writes a tag it is also watching in a [Tag Change script](../Script_Types/TagChangeScripts.md) can trigger itself. Watch the source tag and publish to a different tag.
+!!! warning "A Script Can Trigger Itself"
+    A script that writes a tag it is also watching in a [Tag Change script](../Script_Types/TagChangeScripts.md) can trigger itself, so it should watch the source tag and publish to a different tag.
 
-## Creating tags and adding metadata
+## Creating Tags and Adding Metadata
 
 `EnsurePath` creates a writable tag path without writing a value, and can attach catalogue metadata at the same time. `SetMeta` adds or updates metadata on an existing tag, either one key at a time or as a dictionary. Each returns `true` on success.
 
@@ -177,14 +171,15 @@ To read a tag on another component, start the path with `/`:
 === "Lua"
 
     ```lua
+    Profinity.Tags:EnsurePath('SpeedKmh')
     Profinity.Tags:SetMeta('SpeedKmh', 'description', 'Vehicle speed in kilometres per hour')
     ```
 
-## Browsing the tag catalogue
+## Browsing the Tag Catalogue
 
 `GetCatalog` returns the tag tree as a nested JSON object, and `GetFlatCatalog` returns it as a flat JSON array of tags. Both take an optional `includeLeafSamples` argument. Pass `true` to include each leaf tag's current sample, which is more expensive on large trees.
 
-## Method summary
+## Method Summary
 
 | Method | Purpose |
 |--------|---------|
@@ -198,7 +193,7 @@ To read a tag on another component, start the path with `/`:
 | `GetCatalog([includeLeafSamples])` | Returns the tag tree as nested JSON. |
 | `GetFlatCatalog([includeLeafSamples])` | Returns the tag tree as a flat JSON array. |
 
-## Related documentation
+## Related Documentation
 
 - [Tag Change scripts](../Script_Types/TagChangeScripts.md)
 - [Derived tags](../../../Tags/Derived_Tags.md)

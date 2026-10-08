@@ -5,28 +5,13 @@ description: "Script operations for console output and logging messages to the P
 
 # Console
 
-The Console class provides output operations for Profinity scripts. The Console object is automatically provided in all scripts and offers a simple interface for writing to the standard output and error streams.
+Console output is available in every script and writes to two streams. Standard output goes to the Profinity log at the `Info` level and error output goes to the Profinity log at the `Error` level. The output is written to the script log only when the script's **Log Script Output** setting is on, and the setting is off by default, so a script whose `print()` output does not appear in the log needs that setting switched on.
 
-The Console class is a wrapper around the Profinity Log. It handles both streams with automatic encoding support and stream management, sending standard output to the Profinity log at the `Info` level and error output at the `Error` level.
-
-Access to console functionality varies by language:
-
-- C#: Access through `Profinity.Console`
-- Python: Use the built-in `print()` function. For error output, use `print(..., file=sys.stderr)`
-- Lua: Use the built-in `print(...)` function. For error output, use the `stderr(...)` global
-
-## Key Features
-
-The Console class provides the following core capabilities.
-
-- Write text to the console output stream
-- Write text to the error stream
-- Automatic stream encoding support
-- Automatic stream management and disposal
+Each language writes to the console in its own way. In C# the console is `Profinity.Console`. In Python, `print()` writes standard output and `print(..., file=sys.stderr)` writes error output. In Lua, `print(...)` writes standard output and the `stderr(...)` global writes error output.
 
 ## Example Usage
 
-The following examples show standard output and error stream usage in each language.
+The examples below show standard output and error stream usage in each language.
 
 === "C#"
 
@@ -79,7 +64,4 @@ The following examples show standard output and error stream usage in each langu
     end
     ```
 
-## Best Practices
-
-1. Use the standard output stream for normal program output and the error stream for error messages and warnings.
-2. Limit the amount of output a script generates, because the output is stored in memory.
+The standard output stream is for normal program output and the error stream is for error messages and warnings. Output is held in memory, so a script should limit how much it writes.

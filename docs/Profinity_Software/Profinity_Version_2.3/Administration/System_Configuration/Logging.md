@@ -5,23 +5,25 @@ description: "Set the log level, log rollover size and number of retained logs o
 
 # Logging
 
-!!! warning "Saving restarts Profinity"
+!!! warning "Saving Restarts Profinity"
     Saving changes on any System Configuration tab restarts Profinity. See [System Configuration](index.md) for what to expect.
 
-The Logging tab of [System Configuration](index.md) has options for modifying the log level, logs rollover size, and number of retained logs.
+The Logging tab of [System Configuration](index.md) holds the log level, the log rollover size and the number of retained logs.
 
-| Option              | Description                                                                     |
-| ------------------- | ------------------------------------------------------------------------------- |
-| `Log Level`         | The scope of messages shown in the system logs                                  |
-| `Log Rollover Size` | The maximum file size for each log file created, in MB                          |
-| `Retained Logs`     | The number of log files that can be created before overwriting the oldest file  |
+| Option | Default | Range | Description |
+| ------ | ------- | ----- | ----------- |
+| `Log Level` | `Info` | `Trace`, `Debug`, `Info`, `Warn`, `Error`, `Fatal` | Only messages at this level or higher are recorded in the log files. |
+| `Log Rollover Size (MB)` | 1 | 1 to 4096 | The size a log file reaches before a new file is started. |
+| `Retained Logs` | 10 | 1 to 1000000 | The number of log files kept, after which the oldest are deleted. |
+
+The default rollover size of 1 MB fills quickly on a busy instance, so raise **Log Rollover Size (MB)** when a lower log level is used for diagnosis.
 
 <figure markdown>
-![System logs configuration](../../images/logging_config.png)
-<figcaption>Profinity logs configuration menu</figcaption>
+![Logging tab of System Configuration showing log level, rollover size and retained logs](../../images/logging_config.png)
+<figcaption>Profinity Logs Configuration Menu</figcaption>
 </figure>
 
-Logging levels are a standard industry term and define the types of messages that are displayed to the user in the system logs. Each progressive logging level also encompasses all entries of the previous levels, so `Trace` includes every message from `Debug` through `Fatal`. A brief description of the various log levels is given below.
+Each logging level also includes every more severe level, so `Trace` records every message from `Debug` through `Fatal`. The levels are described below.
 
 | Logging Level   | Description                                                                                          |
 | ----------------| ---------------------------------------------------------------------------------------------------- |
@@ -32,7 +34,7 @@ Logging levels are a standard industry term and define the types of messages tha
 | `Debug`         | Intermediate level of visibility that is helpful for debugging. Details some of the underlying application processes     |
 | `Trace`         | Grants full visibility of underlying application execution. Only necessary when performing debugging |
 
-!!! info "Log levels are persistent"
+!!! info "Log Levels Are Persistent"
     Once a log level is set, it remains in effect across restarts of Profinity.
 
 To read the logs, see [Logs](../Logs_Config.md).

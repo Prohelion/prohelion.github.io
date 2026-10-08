@@ -5,31 +5,33 @@ description: "Display an icon from the Carbon icon set or the profile images dir
 
 # Icon
 
-Icon component for displaying an icon. The icon is a Carbon icon, a legacy icon filename, or an image from the `/Profile/Images` directory.
+An icon is a single graphic that displays an icon from the [Carbon icon library](https://carbondesignsystem.com/elements/icons/library/), an icon filename, or an image from the `/Profile/Images` directory.
 
 <figure markdown>
 ![Icon component displaying an icon from the Profile Images directory](../../images/icon.png)
 <figcaption>Icon component displaying an icon from the Profile Images directory</figcaption>
 </figure>
 
-**Best for:** Displaying icons, status indicators, visual elements
+## When to Use
 
-**When not to use:** When interactive buttons are needed (use [Actions](Actions.md)) or when icons are needed within other components (use component-specific icon properties)
+Use an icon to display a graphic, a status indicator or another visual element. Use [Actions](Actions.md) when the icon must be a button, and the `image` parameter of the component itself when an icon is needed inside another component.
 
-**Parameters:**
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Prefix of a legacy sprite CSS class (`{class}_{suffix}`), used only when `image` does not resolve to an icon. It is not a general styling class |
+| `class` | string | No | None | Not normally needed. The value is used only when `image` does not resolve to an icon, and it is not a general styling class |
 | `label` | string | No | None | Not used by the web interface |
-| `image` | string | Yes | None | Carbon icon name, a legacy icon filename such as `nav_motorcontrollers_active.svg`, or the filename of an image in the `/Profile/Images` directory. A name that matches no known icon is loaded as an image file |
+| `image` | string | Yes | None | Icon name such as `BatteryCharging`, an icon filename such as `nav_motorcontrollers_active.svg`, or the filename of an image in the `/Profile/Images` directory. A name that matches no known icon is loaded as an image file, so a misspelt icon name does not show the icon |
 | `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed (inset) frame at a larger size |
 | `enabled` | boolean | No | `true` | Not used by the web interface |
 | `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | Data binding. Only the `value` target is handled, and the value is limited to the range `0` to `1`. The value has no visible effect on an icon that is drawn from `image` |
 
-**Basic Example:**
+## Example
+
+### Basic Example
 
 ``` yaml
 dashboard:
@@ -41,7 +43,7 @@ dashboard:
               recess: false
 ```
 
-**Carbon Icon Example:**
+### Carbon Icon Example
 
 ``` yaml
 dashboard:
@@ -52,7 +54,7 @@ dashboard:
               image: BatteryCharging
 ```
 
-**Profile Image Example:**
+### Profile Image Example
 
 An image that is not a known icon is loaded from the `/Profile/Images` directory:
 
@@ -65,7 +67,7 @@ dashboard:
               image: custom-logo.png
 ```
 
-**Recessed Icon Example:**
+### Recessed Icon Example
 
 Recessed icons appear inset in a larger frame:
 

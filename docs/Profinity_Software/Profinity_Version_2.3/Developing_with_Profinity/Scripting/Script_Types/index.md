@@ -5,60 +5,43 @@ description: "Seven script execution modes including Run, Receive, Service, and 
 
 # Script Types in Profinity
 
-Profinity supports seven script execution modes, each with specific use cases and execution contexts: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service. This page explains the differences between the modes and when to use each one.
+Profinity supports seven script modes, each with its own trigger and execution context: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service. The **Script Mode** setting selects the mode, and this page explains the differences between the modes and when to use each one.
 
 <figure markdown>
 ![Script types selection](../../../images/script_run_modes.png)
-<figcaption>Script type selection and configuration in the Profinity UI</figcaption>
+<figcaption>Script Mode Selection and Configuration in the Profinity UI</figcaption>
 </figure>
 
-| Script Type                                   | Description| Best For                                                                                            | Not Recommended For        |
-|-----------------------------------------------|-|-----------------------------------------------------------------------------------------------------|----------------------------|
-| [Run](./RunScripts.md)            | A Run Script can be run by the operator, or scheduled to run on a regular basis. Run Scripts are typically used for jobs that are short and do not require a lot of state management | - One-time operations<br>- Manual tasks<br>- Testing<br>- Troubleshooting      | - Continuous monitoring<br>- Real-time responses |
-| [Receive](./ReceiveScripts.md)    | Receive Scripts (Run On Receipt of CAN Message mode) run each time a matching CAN packet is received, and are generally used to respond to the receipt of a packet with a reply message | - CAN message processing<br>- Real-time data handling<br>- Protocol implementation                  | - Long-running operations<br>- System configuration<br>- Manual tasks |
-| [Service](./ServiceScripts.md)    | Service Scripts implement full lifecycle management and are designed for tasks that need to run for a long time | - Continuous monitoring<br>- Long-running tasks<br>- Critical services<br>- System-level operations |  - Quick responses<br>- One-time operations<br>- Manual tasks |
-| [Run On Time Interval](./RunScripts.md) | A [Run Script](./RunScripts.md) scheduled to run at a fixed interval (for example, every 5 minutes or every hour). Uses the Run script engine but executes automatically | - Periodic tasks<br>- Regular data collection<br>- Scheduled maintenance<br>- Interval-based monitoring | - Real-time responses<br>- Event-driven operations<br>- Complex scheduling requirements |
-| [Run On CRON Schedule](./RunScripts.md) | A [Run Script](./RunScripts.md) scheduled with a Quartz cron expression, for complex time-based requirements | - Complex scheduling requirements<br>- Time-of-day operations<br>- Weekly/monthly tasks<br>- Advanced scheduling patterns | - Simple intervals<br>- Manual tasks<br>- Real-time responses |
-| [Tag Change](./TagChangeScripts.md) (Run On Tag Change) | Scripts that run each time a specific tag's value changes. Used to compute derived values or react to state changes without polling | - Derived/computed tags<br>- Reacting to another component's output<br>- Chained automation | - One-time operations<br>- Manual tasks |
-| Run On Alert | Scripts named as a rule action (`onTrue`/`onFalse`), invoked when the rule transitions. See [Rule scripts](Rule_Scripts.md) | - Rule notifications and side effects<br>- Custom alert handling beyond the built-in actions | - Anything not driven by a rule firing<br>- Long-running work (keep it fast; see Trigger Overlap) |
+## Choosing a Mode
 
-## Best Practices
+A [Run Script](./RunScripts.md) is started by the operator in Run On Demand mode, and suits short jobs that need little state, such as one-time operations, testing and troubleshooting. The same Run Script engine also covers two scheduled modes: Run On Time Interval starts the script at a fixed interval, for example every 5 minutes or every hour, and Run On CRON Schedule starts it from a Quartz cron expression, which suits time-of-day, weekly and monthly work. A [Receive Script](./ReceiveScripts.md) runs in Run On Receipt of CAN Message mode, each time a matching CAN packet arrives, and is normally used to answer a packet with a reply message. A [Service Script](./ServiceScripts.md) runs in Run as Service mode and implements a full lifecycle (start, stop, pause and continue), which suits continuous monitoring and other work that runs for a long time. A [Tag Change Script](./TagChangeScripts.md) runs in Run On Tag Change mode each time a watched tag changes, which suits computed tags, reacting to another component's output and chained automation without polling. A [Rule Script](./Rule_Scripts.md) runs in Run On Alert mode when a rule names it as an action, for notifications and side effects beyond the built-in rule actions.
+
+A Run Script is not the right choice for continuous monitoring or real-time responses, and a Service Script is not the right choice for one-off or manual tasks. A Receive, Tag Change or Rule Script handler should return quickly, because a new event that arrives while it is still running is handled according to **Trigger Overlap**.
+
+## Script Settings
+
+Each script component has the following settings. The schedule, receive and tag change settings appear only for the mode that uses them.
+
+| Setting | Applies to | Meaning |
+|---------|------------|---------|
+| **Script Mode** | All | The mode the script runs in |
+| **Auto Start Script** | All | Starts the script when Profinity starts. Off by default |
+| **Log Script Output** | All | Writes the script's console output to the script log. Off by default |
+| **Trigger Overlap** | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
+| **Queue Depth** | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
+| **Time Interval** and **Time Interval Unit** | Run On Time Interval | How often the script runs, in seconds, minutes, hours or days |
+| **Cron Schedule** | Run On CRON Schedule | The Quartz cron expression that decides when the script runs |
+| **Maximum Run Time (seconds)** | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
+| **Base Address**, **Address Range** and **Milliseconds Valid** | Run On Receipt of CAN Message | The CAN addresses the script receives, in hexadecimal, and how long traffic from the device counts as valid. **Milliseconds Valid** defaults to 5000 and accepts 0 to 60000 |
+| **Tag Paths** and **Collections** | Run On Tag Change | The tags and tag collections that trigger the script |
+
+## Keeping Scripts Healthy
+
+A script runs inside the Profinity engine, so a loop, lock or open connection that is never released slows every other component. A script should be reviewed whenever Profinity performs badly while that script is running.
 
 !!! info "Scripts Run Inside Profinity"
-    Scripts add functionality to the core of Profinity itself. Inefficient code, leaked memory or leaked resources run inside the Profinity engine and affect it directly, so review a script whenever Profinity shows a negative impact while that script is running.
+    Inefficient code, leaked memory or leaked resources run inside the Profinity engine and affect it directly.
 
-Best practices for Profinity scripting include the following.
+Keep each script short, release anything it opens when the script stops, and set **Maximum Run Time (seconds)** on any script that could stall. A Tag Change, Receive or Rule Script handler stops at **Maximum Run Time (seconds)** only when the script checks `Profinity.ScriptCancelled`, so a long handler should check it regularly. A script that fails should write the failure to the Profinity Logs, with **Log Script Output** switched on while the script is being developed, so that a failed scheduled run can be traced afterwards. For event-driven scripts, use **Queue** with a small **Queue Depth** when no event may be lost and **Drop** when only the newest state matters.
 
-**Choose the right type of script execution**
-
-- Use Run On Demand scripts for manual operations
-- Use Receive scripts for CAN message processing
-- Use Service scripts for critical, long-running operations
-- Use Run scripts in Time Interval mode for periodic tasks with simple intervals
-- Use Run scripts in CRON Schedule mode for complex scheduling requirements
-- Use Run On Tag Change scripts to react to another tag's value without polling
-- Use Run On Alert scripts for custom logic on a rule firing
-
-**Manage resources efficiently**
-
-- Keep scripts efficient
-- Monitor resource usage
-- Clean up resources when scripts end
-- Consider system load when scheduling tasks
-- Implement proper service recovery mechanisms
-
-**Handle errors**
-
-- Implement proper error handling
-- Log errors appropriately to the Profinity Logs
-- Handle timeouts and resource limits
-- Consider retry mechanisms for scheduled tasks
-- Implement service health monitoring
-
-**Use state management where required**
-
-- Use appropriate state scope (State vs GlobalState)
-- Clean up state when no longer needed
-- Handle state conflicts in service scripts
-- Consider state persistence for scheduled tasks
-- Implement proper service state management
+State follows the same rule. Use `State` for values that belong to one script, and use `GlobalState` only for values that several scripts share, and remove a value once nothing needs it. See [State](../Script_Operations/State.md) for how each scope behaves.

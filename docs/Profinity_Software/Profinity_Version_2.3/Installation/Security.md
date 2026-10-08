@@ -8,74 +8,35 @@ description: "Implement essential security controls for Profinity production dep
 !!! danger "Profinity Controls Critical Hardware"
     Profinity is used to control and monitor critical hardware including battery management systems, motor controllers, charging systems, and other safety-critical components. Treat security as a priority throughout deployment. Improper security configuration can lead to equipment damage, safety hazards, or system failures.
 
-This guide covers essential security considerations for deploying and operating Profinity. For detailed information on specific features, refer to the relevant documentation sections.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [HTTPS Configuration](#https-configuration)
-- [Docker Security](#docker-security)
-- [Scripting Security](#scripting-security)
-- [User Account Security](#user-account-security)
-- [Kiosk Mode Security](#kiosk-mode-security)
-- [Production Deployment Checklist](#production-deployment-checklist)
-- [Related Documentation](#related-documentation)
+This guide covers the security controls that matter when deploying and operating Profinity, and links to the pages for each feature.
 
 ## Overview
 
-Profinity V2 provides control over critical automotive and energy systems. Configuring Profinity securely involves four areas:
-
-- **Network Security**: Protecting Profinity from unauthorised network access
-- **User Access Control**: Limiting user permissions to only what is necessary
-- **Script Security**: Understanding the security implications of running scripts
-- **Production Hardening**: Configuring Profinity securely for production environments
+Profinity V2 provides control over critical automotive and energy systems. Securing it involves six areas: [HTTPS](#https-configuration) protects the network path, [Docker](#docker-security) settings isolate the container, the [security files and keys](#protect-the-security-files-and-keys) hold the secrets, [scripting](#scripting-security) controls what code runs with the engine's privileges, [user accounts](#user-account-security) limit who can do what, and [Kiosk Mode](#kiosk-mode-security) controls unattended displays. The [checklist](#production-deployment-checklist) at the end summarises the steps for a production deployment.
 
 ## HTTPS Configuration
 
-### Why HTTPS Is Critical
+### HTTPS Protects Credentials in Transit
 
-When Profinity is accessed over a network rather than only through localhost, all communication should use HTTPS to prevent unauthorised access and protect credentials and data. Without HTTPS, usernames, passwords, API tokens, and sensitive system data can be intercepted.
+When Profinity is accessed over a network rather than only through localhost, all communication should use HTTPS, because without it usernames, passwords, API tokens and system data can be intercepted.
 
 ### Configuring HTTPS
 
-Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Configuration/Profinity_Web.md#https-certificates) interface, using either of the following:
-
-- **Windows Certificate Store**: For Windows deployments using certificates installed in the system certificate store
-- **Certificate Files**: For cross-platform deployments using `.pfx` or `.p12` certificate files
+Profinity supports HTTPS configuration through the [System Configuration](../Administration/System_Configuration/Profinity_Web.md#https-certificates) interface, using either a certificate from the Windows Certificate Store (for Windows deployments) or a `.pfx` or `.p12` certificate file (for cross-platform deployments).
 
 ### Production Recommendations
 
-- **Enable HTTPS Redirect**: Configure "Redirect all Http traffic to Https" to force all connections to use encrypted communication
-- **Use Valid Certificates**: Use certificates from trusted Certificate Authorities (CAs) for production deployments
-- **Restrict HTTP Access**: For production, bind HTTP to localhost only and require HTTPS for remote access
-- **Certificate Management**: Implement proper certificate renewal procedures to avoid service disruptions
-
-For detailed HTTPS configuration instructions, see the [System Configuration](../Administration/System_Configuration/Profinity_Web.md#https-certificates) documentation.
+For production, turn on **Redirect all Http traffic to Https** so that every connection uses encryption, use certificates from a trusted Certificate Authority (CA), and plan certificate renewal so that an expiry does not interrupt the service. Binding HTTP to localhost only and requiring HTTPS for remote access keeps credentials off the network, but [Profinity Mobile](../Mobile/index.md) connects over the local network, so keep the HTTPS port reachable from the networks that phones use. For detailed instructions, see the [System Configuration](../Administration/System_Configuration/Profinity_Web.md#https-certificates) documentation.
 
 ## Docker Security
 
-When deploying Profinity using Docker, consider these security best practices:
+The Profinity image runs as the non-root `app` user, so a container already runs without root privileges; keep it that way and make sure the host directory mounted at `PROFINITY_HOME` is writable by that user. Set CPU and memory limits on the container to prevent resource exhaustion, use Docker networks to isolate Profinity from other services, and use only official Profinity images from Prohelion repositories.
 
-### Container Security
+Give mounted volumes that hold profiles, configurations or logs file system permissions that match their sensitivity, mount configuration files read-only so that a container cannot modify them accidentally, and encrypt backups of sensitive data and keep them in a secured location. Publish only the ports you need to the host, restrict access to them with a host firewall, and place a reverse proxy such as nginx or Traefik in front of Profinity for production deployments. For deployment details, see the [Docker Installation](./Docker_Installation.md) documentation.
 
-- **Run as Non-Root**: Configure Docker containers to run with non-root user privileges where possible
-- **Resource Limits**: Set appropriate CPU and memory limits to prevent resource exhaustion attacks
-- **Network Isolation**: Use Docker networks to isolate Profinity containers from other services
-- **Image Security**: Only use official Profinity images from trusted sources (Prohelion repositories)
+## Protect the Security Files and Keys
 
-### Volume Mounting
-
-- **Sensitive Data**: Ensure that mounted volumes containing profiles, configurations, or logs have appropriate file system permissions
-- **Read-Only Mounts**: Consider mounting configuration files as read-only where appropriate to prevent accidental modification
-- **Backup Security**: Secure backup locations and ensure backups of sensitive data are encrypted
-
-### Network Exposure
-
-- **Port Binding**: Only expose necessary ports to the host system
-- **Firewall Configuration**: Use host-level firewalls to restrict access to Profinity ports
-- **Reverse Proxy**: Consider using a reverse proxy (nginx, Traefik, etc.) with additional security features for production deployments
-
-For Docker deployment details, see the [Docker Installation](./Docker_Installation.md) documentation.
+`security.yaml` in the `config/` folder of the [artefacts directory](./Artifacts_Directory.md) holds users, roles, two-factor secrets and the keys that sign sessions and encrypt secrets. Restrict read access to that folder to the account that runs Profinity, include `security.yaml` in encrypted backups, and never commit a file that contains real keys to source control. In a Docker container, `security.yaml` and its keys are written to the container's own storage when `PROFINITY_HOME` does not match a mounted volume, and replacing the image then regenerates the keys and resets Profinity to the default administrator account, so always set `PROFINITY_HOME` to the container path of a mounted volume.
 
 ## Scripting Security
 
@@ -87,103 +48,62 @@ For Docker deployment details, see the [Docker Installation](./Docker_Installati
     - modify system configuration
     - control connected hardware (batteries, chargers, motor controllers)
 
-### Security Implications
-
-- **Code Review**: Always review script code before deployment, especially scripts from external sources
-- **Minimal Permissions**: When running Profinity as a service, configure it with the minimum necessary OS-level permissions
-- **Script Source Control**: Implement proper version control and review processes for scripts in production
-- **Enable Only When Needed**: Scripting is disabled by default (`AppSettings.Scripts.Enabled` is `false` unless `config.yaml` sets it) and must be explicitly enabled in System Configuration, which also requires a licence that includes the Scripting feature
-
-### Best Practices
-
-- Only enable scripting when necessary for the use case
-- Regularly audit active scripts for security and functionality
-- Isolate critical scripts from general script access where possible
-- Document all scripts and their purposes for security reviews
-
-For detailed information about scripting capabilities and security considerations, see the [Scripting](../Developing_with_Profinity/Scripting/index.md) documentation.
+Scripting is switched off by default. An administrator turns it on with **Enable Scripting** under **ADMIN > System Configuration**, and the setting is available only when the licence includes the **Scripting** feature (Desktop, Server and Enterprise editions; an unlicensed instance does not include scripting). Enable it only when the use case needs it, review script code before deployment (especially scripts from external sources), keep production scripts under version control with a review process, and audit active scripts regularly. When Profinity runs as a service, give it the minimum operating system permissions it needs, and document each script and its purpose for security reviews. For details, see the [Scripting](../Developing_with_Profinity/Scripting/index.md) documentation.
 
 ## User Account Security
 
 ### Default Credentials
 
 !!! danger "Change Default Credentials Immediately"
-    Fresh installations of Profinity include a default administrator account:
+    Fresh installations of Profinity Server on Linux, macOS and Docker include a default administrator account:
 
     - Username: `admin`
     - Password: `password`
 
-    **These default credentials must be changed immediately** after installation. Leaving default credentials active exposes the system to unauthorised access.
+    Profinity asks for a new password at the first sign-in with these credentials, and leaving the default credentials active exposes the system to unauthorised access.
 
-### User Account Best Practices
+The Windows desktop application does not create this account, and the desktop user signs in without a password; see [Windows Installation](./Windows_Installation.md).
 
-1. **Change Default Passwords**: Immediately change the default admin password after installation
-2. **Create Dedicated Users**: Create user accounts for each person or system that needs access
-3. **Use Strong Passwords**: Enforce strong password policies appropriate for the organisation
-4. **Regular Password Updates**: Implement password rotation policies for production systems
-5. **Disable Unused Accounts**: Disable or remove user accounts that are no longer needed
+### User Account Practices
 
-### Security roles
+Create an account for each person or system that needs access instead of sharing the administrator account, enforce a password policy that suits the organisation (see [Password Policy](../Administration/System_Configuration/Security/Password_Policy.md)), rotate passwords on production systems, and disable or remove accounts that are no longer needed. Creating user accounts and roles needs the **Profinity Server** licensed feature.
 
-Profinity 2.3 uses **27 granular permissions** grouped into **roles**. Users receive **assigned roles** — there are no legacy security groups or per-user permission lists.
+### Sign-In, Two-Factor and Session Controls
 
-See [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for the full catalogue, the built-in Administrators role, and suggested starting points for other roles.
+Profinity 2.3 offers a site sign-in method (Local or SSO), two-factor authentication for local users, a password policy, a session policy, SIEM export and service accounts with long-lived tokens. Two-factor authentication needs the Server edition, and SSO and SCIM need the Enterprise edition. See [SSO and Sign-In](../Administration/System_Configuration/Security/SSO_and_Sign_In.md), [Two-Factor Authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication.md), [SCIM and SIEM](../Administration/System_Configuration/Security/SCIM_and_SIEM.md) and [Service Accounts](../Administration/Users_and_Access/Service_Accounts.md).
 
-### Role assignment guidelines
+### Security Roles
 
-- **Principle of least privilege**: Assign users only the minimum permissions needed for their role.
-- **Monitoring accounts**: Create read-only role assignments for dashboards and Tag Explorer.
-- **Separate admin accounts**: Avoid sharing administrator accounts; create individual accounts for each administrator.
-- **Regular audits**: Periodically review user accounts and role assignments.
-- **High risk**: `CANSend` allows injecting CAN frames — assign only to trusted operators.
-
-For detailed information on user management, see [Managing Users](../Administration/Users_and_Access/Manage_Users.md).
+Profinity 2.3 uses 27 granular permissions grouped into roles, and users receive assigned roles; there are no security groups or per-user permission lists. Assign users only the permissions their work needs, give monitoring accounts read-only roles for dashboards and the Tag Explorer, use individual administrator accounts, and review accounts and role assignments periodically. The **Send CAN messages** permission lets a user inject CAN frames onto the bus, so assign it only to trusted operators. See [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for the full catalogue and the built-in Administrators role, and [Managing Users](../Administration/Users_and_Access/Manage_Users.md) for user management.
 
 ## Kiosk Mode Security
 
-Kiosk Mode allows automatic authentication without manual login, which is convenient but requires careful security configuration.
-
-### Security Considerations
-
-- **Choose the Kiosk Mode User Carefully**: Profinity does not restrict which enabled user can be selected, including administrators, and anyone at the kiosk inherits that user's permissions
-- **Limited Permissions**: Assign the kiosk user only the permissions the display needs, for example a read-only role built from view permissions only
-- **Physical Access Control**: Kiosk Mode devices should be physically secured as they bypass login requirements
-- **Network Isolation**: Consider network isolation for devices using Kiosk Mode, especially in production environments
-
-### Best Practices
-
-- Use dedicated user accounts specifically for kiosk mode
-- Disable Kiosk Mode when not needed (e.g., when profiles are not active)
-- Regularly review kiosk user permissions to ensure they remain minimal
-- Monitor kiosk mode access through system logs
-
-For detailed Kiosk Mode configuration and security best practices, see the [Kiosk Mode](../Administration/Kiosk_Mode.md) documentation.
+Kiosk Mode signs a selected user in automatically without a login, which is convenient but needs careful configuration. Profinity does not restrict which enabled user is selected, including administrators, so anyone at the kiosk inherits that user's permissions. Use a dedicated user with only the view permissions the display needs, such as a read-only role, review that user's permissions regularly, and monitor kiosk access through the logs. Secure the device physically, because Kiosk Mode bypasses the login page, isolate it on its own network segment in production, and disable Kiosk Mode when it is not needed. See [Kiosk Mode](../Administration/Kiosk_Mode.md) for the configuration.
 
 ## Production Deployment Checklist
 
 Before deploying Profinity in a production environment:
 
-- [ ] Change default administrator password
-- [ ] Configure HTTPS with valid certificates
-- [ ] Enable HTTPS redirect (disable HTTP for remote access)
-- [ ] Create individual user accounts (no shared accounts)
-- [ ] Assign users minimum necessary permissions
-- [ ] Review and audit all active scripts
-- [ ] Configure firewall rules to restrict access
-- [ ] Enable logging and monitoring
-- [ ] Implement backup procedures for configurations and profiles
-- [ ] Document security configuration and access procedures
-- [ ] If using Docker, configure appropriate container security
-- [ ] Disable scripting if not required
-- [ ] Review and disable Kiosk Mode if not needed
+- [ ] Change the default administrator password.
+- [ ] Configure HTTPS with valid certificates and turn on the HTTPS redirect.
+- [ ] Create individual user accounts and assign minimum permissions.
+- [ ] Apply a Server licence if you need remote access, users or roles.
+- [ ] Restrict read access to `security.yaml` and encrypt backups of it.
+- [ ] Review and audit all active scripts, and disable scripting if it is not required.
+- [ ] Configure firewall rules to restrict access to Profinity ports.
+- [ ] Review the logs on a schedule and forward them to your monitoring system.
+- [ ] Back up configurations and profiles on a schedule, and test a restore.
+- [ ] Write down the security configuration and who may change it.
+- [ ] If using Docker, mount a volume at `PROFINITY_HOME` and follow the [Docker security](#docker-security) guidance.
+- [ ] Review Kiosk Mode and disable it if it is not needed.
 
 ## Related Documentation
 
-- [System Configuration](../Administration/System_Configuration/index.md) - HTTPS and security settings
-- [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) - Roles and permissions (2.3)
-- [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md) - Local vs SSO
-- [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication.md) - MFA policy
-- [Managing Users](../Administration/Users_and_Access/Manage_Users.md) - User accounts and role assignment
-- [Kiosk Mode](../Administration/Kiosk_Mode.md) - Kiosk Mode configuration and security
-- [Scripting](../Developing_with_Profinity/Scripting/index.md) - Scripting security considerations
-- [Docker Installation](./Docker_Installation.md) - Docker deployment security
+- [System Configuration](../Administration/System_Configuration/index.md): HTTPS and security settings.
+- [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md): roles and permissions in 2.3.
+- [SSO and Sign-In](../Administration/System_Configuration/Security/SSO_and_Sign_In.md): Local and SSO sign-in.
+- [Two-Factor Authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication.md): two-factor policy.
+- [Managing Users](../Administration/Users_and_Access/Manage_Users.md): user accounts and role assignment.
+- [Kiosk Mode](../Administration/Kiosk_Mode.md): Kiosk Mode configuration and security.
+- [Scripting](../Developing_with_Profinity/Scripting/index.md): scripting security considerations.
+- [Docker Installation](./Docker_Installation.md): Docker deployment.

@@ -5,58 +5,32 @@ description: "Replay recorded CAN bus messages from log files to test your Profi
 
 # How to Replay CAN Bus Logs
 
-Replay recorded CAN bus messages to test your system without live CAN bus data.
+Replay recorded CAN bus messages to test dashboards, rules and custom components without live CAN bus data, or to debug a component configuration against a recording.
 
 ## Prerequisites
 
 - Profinity V2 installed and running
-- A recorded CAN bus log file from a [File Logger](../Components/Loggers/File_Loggers.md) or SFTP logger, or the `Example Log.csv` supplied with Profinity
-- The `CANReplay` permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which provides the **CAN LOG REPLAY** side-menu entry
+- A recorded CAN bus log file from a [File Logger](../Components/Loggers/File_Loggers.md) or an SSH File Transfer Protocol (SFTP) logger, or the `example_log.csv` supplied with Profinity. Logs from InfluxDB or Prometheus cannot be replayed, so use a File or SFTP logger to record logs for later replay.
+- The **Replay CAN logs** permission (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which provides the **CAN LOG REPLAY** side-menu entry
+- A profile whose components match the recording. `example_log.csv` carries the CAN traffic of the Example Profile's components, so load the Example Profile first (see the [Quick Start Guide](../Getting_Started/Quick_Start.md)), because only components whose CAN addresses match the logged messages receive data
 - A [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected (optional for testing)
 
 ## Steps
 
-### Step 1: Access the CAN Log Replayer
+1. Select **CAN UTILITIES** in the side menu, then **CAN LOG REPLAY**, which opens the CAN Data Log Replayer and lists the available log files.
+2. If the log file is not listed, for example a file recorded earlier or on another Profinity instance, use the **Upload CAN Log files** control and select the file, which then appears in the list.
+3. Select the log file in the list and click **Play** to start the replay. Replayed messages appear in the [CAN Activity panel](./Send_Receive_CAN_Bus.md), components receive them, dashboards update, and the slider shows the position in the log.
 
-1. Select **CAN UTILITIES** in the side menu, then **CAN LOG REPLAY**
-2. The CAN Data Log Replayer opens, listing the available log files
+## Control the Replay
 
-### Step 2: Upload a Log File (if needed)
+The slider moves the replay to any position in the log, **Pause** suspends the replay and **Play** resumes it, **Stop** ends it, and **Loop** replays the log continuously. The trashcan icon deletes a log file from the list, which is separate from controlling a replay.
 
-Log files recorded earlier, or on other Profinity instances, can be added to this instance.
+## If Nothing Happens
 
-1. Use the **Upload CAN Log files** control
-2. Select your log file
-3. The file appears in the list of available log files
-
-### Step 3: Start the Replay
-
-1. Select the log file in the list
-2. Click **Play** (the replay button) in the replayer to start the replay
-3. Watch the CAN Activity panel to see the replayed messages
-
-### Step 4: Monitor the Replay
-
-1. Check the CAN Activity panel shows replayed messages
-2. Verify components are receiving data
-3. Check dashboards update with the replayed data
-4. Monitor replay progress with the slider
-
-### Step 5: Move Through, Pause or Delete a Log
-
-1. Slide the slider back and forth to move to a new position in the log
-2. Click **Pause** to pause the replay, and click **Play** to resume it
-3. Click **Stop** to stop the replay, or enable **Loop** to replay the log continuously
-4. Click the trashcan icon to delete a log file from the list
-
-## Tips
-
-- **Test Without Hardware**: use replay to test dashboards without CAN hardware
-- **Debug Issues**: replay logs to debug component configurations
-- **Record First**: use a File or SFTP logger to record logs for later replay, because logs from InfluxDB or Prometheus cannot be replayed
-- **Test Custom Components**: replay recorded messages to check a [Custom Component](./Create_Custom_Component.md) against its DBC file
+Only a CAN message log recorded by a File or SFTP logger can be replayed, so an uploaded file of another kind does not play. If the **CAN LOG REPLAY** entry is missing from the side menu, the signed-in user lacks the **Replay CAN logs** permission. If the replay runs but the dashboards stay empty, no component in the active profile listens to the replayed CAN IDs, so load the profile that the log was recorded against. Recorded tag values are replayed separately with **TAG LOG REPLAY**, described in [Log / Replay Tags](../Tags/Logging_Replaying_Tags.md).
 
 ## Related Documentation
 
 - [Log / Replay CAN bus Messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) - the full logging and replay reference
 - [How to Send and Receive CAN Bus Messages](./Send_Receive_CAN_Bus.md) - CAN message tools
+- [How to Create a Custom Component](./Create_Custom_Component.md) - check a Custom Component against its DBC file with recorded messages

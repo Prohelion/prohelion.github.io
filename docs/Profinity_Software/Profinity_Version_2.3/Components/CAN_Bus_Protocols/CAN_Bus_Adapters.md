@@ -1,74 +1,108 @@
 ---
-title: CAN bus Adapters
+title: CAN Bus Adapters
 description: "Add and configure CAN bus adapters including Prohelion and Tritium CAN to Ethernet bridges, Peak USB, SocketCAN, SocketCANd and Ewert Energy CANdapter."
 ---
 
-# CAN bus Adapters
+# CAN Bus Adapters
 
-An adapter is the technology used to connect Profinity to your CAN bus network.
+An adapter connects Profinity to a Controller Area Network (CAN) bus. Profinity supports the following adapters.
 
-Profinity on Windows supports the [Prohelion and Tritium CAN to Ethernet bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) (listed as `Tritium Can to Ethernet Bridge`, with the `Prohelion Virtual CAN to Ethernet Bridge` covered on the [Virtual CAN Adapter](Virtual_CAN_Adapter.md) page), SocketCAN via native SocketCAN on Unix and over TCP by using the [SocketCanD](https://github.com/linux-can/socketcand) technology, the [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1) (including a Peak adapter running CAN FD), and the Ewert Energy CANdapter.
+| Adapter | Connection |
+|---------|------------|
+| [Prohelion and Tritium CAN to Ethernet bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md), listed as **Tritium Can to Ethernet Bridge** | Ethernet, over UDP or TCP |
+| **Prohelion Virtual CAN to Ethernet Bridge**, covered on the [Virtual CAN Adapter](Virtual_CAN_Adapter.md) page | Ethernet, relaying to another adapter |
+| SocketCANd, using the [socketcand](https://github.com/linux-can/socketcand) daemon | Ethernet, over TCP |
+| [Peak CAN to USB Adapter](https://www.peak-system.com/PCAN-USB.199.0.html?&L=1), including a Peak adapter running CAN FD | USB |
+| Ewert Energy CANdapter | USB (COM port) |
+| Native [SocketCAN](https://docs.kernel.org/networking/can.html) | The local operating system, on Docker and Linux installs only |
 
-!!! info "When running the Peak CAN to USB Adapter"
-    It is necessary to install the driver for the device before starting Profinity. Use the supplied Peak tools to ensure your adapter is working as expected before starting Profinity, and then autodiscover the adapter as normal.
+Native SocketCAN is available when Profinity runs in [Docker](../../Installation/Docker_Installation.md) or on a Unix [zip installation](../../Installation/Zip_Installation.md), and is not available on Windows. SocketCAN is a Linux kernel feature.
 
-When running Profinity on [Docker](../../Installation/Docker_Installation.md) or on [macOS / Unix](../../Installation/Zip_Installation.md), additional support is also provided for the native [SocketCAN adapter](https://docs.kernel.org/networking/can.html), which is not available on Windows.
+!!! warning "Install the Peak Driver Before Starting Profinity"
+    The Peak CAN to USB Adapter needs its driver installed before Profinity starts. Use the supplied Peak tools to confirm the adapter works, then add the adapter with Auto Discovery as normal.
 
-Adapters can be added in one of two ways, either via Auto Discovery or manually.
+Adapters are added in one of two ways, through Auto Discovery or manually.
 
 ## Adapter Auto Discovery
 
-In many cases the supported CAN bus adapters can be found automatically via the Auto Discovery mechanism.
-
-If an adapter is defined and visible on the network but is not currently associated with the current Profile, then a `Discovered` category will appear in the `ADD COMPONENT` window. The `Discovered` category lists all of the adapters that are currently visible to Profinity. If an adapter does not appear there, it either has configuration issues that need to be addressed [manually](#adapter-manual-configuration) or is not currently discoverable.
+Auto Discovery finds the supported CAN bus adapters that are visible to Profinity. If an adapter is visible on the network but is not yet in the current Profile, a **Discovered** category appears in the **ADD COMPONENT** window and lists every adapter that Profinity can currently see. An adapter that is missing from the list has configuration issues that need [manual configuration](#adapter-manual-configuration), or is not discoverable.
 
 <figure markdown>
-![Add an Adapter via AutoDiscovery](../../images/add_adapter_autodiscovery.png)
+![Add an adapter through Auto Discovery from the Discovered category](../../images/add_adapter_autodiscovery.png)
 <figcaption>Add an Adapter via AutoDiscovery</figcaption>
 </figure>
 
-!!! info "CAN over Ethernet bridge not found by Auto Discovery"
-    A CAN to Ethernet bridge is discovered from the UDP heartbeat datagrams that the bridge sends periodically (see [Bridge Heartbeat](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/Bridge_Heartbeat.md)), so the bridge and the PC must be on the same subnet, any firewall must allow UDP and TCP port 4876 (and UDP port 42000 for SocketCanD, which Profinity opens when it is installed), and a WiFi router must pass broadcast UDP. Auto Discovery does not work across subnets, in which case the bridge is added manually with its IP address and the TCP protocol. The bridges have a number of configuration options and at times do not behave as expected, so see the documentation on the [CAN to Ethernet bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md), the [Quickstart](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Quickstart.md), the [Supported Network Setups](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Supported_Network_Setups.md) and [Common Problems and Solutions](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Common_Problems_And_Solutions.md) for troubleshooting advice.
+!!! info "Check the Network When a CAN to Ethernet Bridge Is Not Found"
+    Profinity discovers a CAN to Ethernet bridge from the UDP heartbeat datagrams that the bridge sends periodically (see [Bridge Heartbeat](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/Bridge_Heartbeat.md)). If the bridge does not appear in the **Discovered** category, check the following.
+
+    - The bridge and the PC are on the same subnet, because Auto Discovery does not work across subnets. Across subnets, add the bridge manually with its IP address and the TCP protocol.
+    - Any firewall allows UDP and TCP port 4876 for the bridge. For SocketCANd, the firewall must allow UDP port 42000 for discovery and TCP port 29536 (or the configured `Port`) for the connection.
+    - A WiFi router passes broadcast UDP.
+
+    The bridge documentation covers further troubleshooting: the [CAN to Ethernet bridges](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md), the [Quickstart](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Quickstart.md), the [Supported Network Setups](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Supported_Network_Setups.md) and [Common Problems and Solutions](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Common_Problems_And_Solutions.md).
 
 ## Adapter Manual Configuration
 
-Configuring a CAN bus adapter manually follows a very similar process to other components.
+Manual configuration follows the same process as other components. First [add the adapter](../../Getting_Started/Adding_New_Components.md) to the [Profile](../../Getting_Started/Profiles.md). Profinity then prompts for the following information about the device, and the **Change Settings** button at the top-right of the adapter dashboard changes these details later.
 
-First, [add the adapter](../../Getting_Started/Adding_New_Components.md) to your [Profile](../../Getting_Started/Profiles.md). When a CAN bus adapter is added, Profinity prompts for the following information about the device, and these details can be changed later with the `Change Settings` button at the top-right of the adapter dashboard.
+| Parameter                | Description                                               | Default |
+|--------------------------|-----------------------------------------------------------|---------|
+| `Name`                   | The name of the component. Must be unique.                | The adapter name |
+| `Auto Connect`           | Enables the device automatically when Profinity starts.   | On |
+| `Allow Loopback Traffic` | Echoes traffic back to the system itself, so the bridge receives the traffic that it sent. Only the Tritium adapters support this option, and only when the `Network Protocol` is UDP. | Off |
 
-| Parameter                | Description                                               |
-|--------------------------|-----------------------------------------------------------|
-| `Name`                   | The name of the component. Must be unique.                |
-| `Auto Connect`           | Automatically enables the device when starting Profinity. |
-| `Allow Loopback Traffic` | Allows loopback traffic, which echoes traffic back to the system itself. Only the Tritium adapters support this option, and only when the Network Protocol is UDP, in which case the bridge receives the traffic that it has sent itself. |
+The remaining parameters depend on the type of adapter.
 
-The remaining parameters depend on the type of adapter. A Tritium CAN to Ethernet bridge adapter asks for the following.
+### Tritium CAN to Ethernet Bridge
 
-| Parameter                 | Description                                                                                  |
-|---------------------------|----------------------------------------------------------------------------------------------|
-| `Network Protocol`        | `UDP` or `TCP`. UDP is the default protocol of the bridge, uses the multicast group 239.255.60.60 on port 4876, and allows several clients to share one bridge, whereas TCP is a point-to-point connection to the IP address of the bridge on port 4876, is reliable, and is limited to one TCP connection per physical bridge. |
-| `Tritium Protocol Version` | `V1` or `V2`, which must match the protocol of the bridge (see the version note below). |
-| `IP Address`              | The IP address of the bridge, which is required for a TCP connection and ignored for UDP.    |
-| `Bus Number`              | The virtual bus number of the bridge, which allows several bridges on one Ethernet segment to form separate virtual CAN buses. Version 1 bridges support bus numbers 0 to 15 (Profinity accepts 0 to 13 for V1), and version 2 bridges use a 16-bit bus number. |
-| `UDP TTL`                 | The time to live of the UDP packets that Profinity transmits, which defaults to 128. |
-| `Forward Address` and `Forward Address Range` | For a TCP connection only, the lowest CAN identifier that the bridge forwards over the TCP connection and the size of the identifier range that is forwarded, which by default cover every CAN identifier (see [CAN-TCP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_TCP_Bridging.md)). |
+| Parameter                 | Description                                                                                  | Default |
+|---------------------------|----------------------------------------------------------------------------------------------|---------|
+| `Network Protocol`        | `UDP` or `TCP`. | `UDP` |
+| `Tritium Protocol Version` | `V1` or `V2`, which must match the protocol of the bridge. | `V1` |
+| `IP Address`              | The IP address of the bridge. Required for TCP and ignored for UDP. | `127.0.0.1` |
+| `Bus Number`              | The virtual bus number of the bridge, which lets several bridges on one Ethernet segment form separate virtual CAN buses. | 13 |
+| `UDP TTL`                 | The time to live of the UDP packets that Profinity transmits. | 128 (1 to 1024) |
+| `Forward Address` | For TCP only, the lowest CAN identifier that the bridge forwards over the TCP connection. | `0x0` |
+| `Forward Address Range` | For TCP only, the size of the identifier range that the bridge forwards. | All CAN identifiers |
 
-The `Tritium Protocol Version` must match the bridge because the bridge firmware has two major releases, V1 and V2, which speak different protocols, where V2 widens the bus identifier from 4 bits to 16 bits (see [CAN-UDP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md) and [Fundamentals](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Fundamentals.md)). A V1 bridge can be updated to V2 by refreshing its firmware, Auto Discovery identifies the version of the bridge and sets it correctly, and Profinity works with both versions provided that the version is correct in the adapter settings. Two bridges that share a bus number on one Ethernet network relay traffic between their CAN buses, which is intended only when two CAN buses are joined into one virtual bus (see [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md)), so every other bridge needs a unique bus number, otherwise a message sent to one bridge is received by both.
+UDP is the default protocol of the bridge. It uses the multicast group 239.255.60.60 on port 4876 and lets several clients share one bridge. TCP is a reliable point-to-point connection to the IP address of the bridge on port 4876, and a physical bridge accepts only one TCP connection. The forwarding settings are described in [CAN-TCP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_TCP_Bridging.md).
 
-A bridge adapter does not have a CAN bit rate parameter, because the bit rate is held in the bridge itself (default 500 kbit/s) and is changed through the bridge firmware settings, which also hold the static IP address option, the virtual bus number and the firmware version, as described in [CAN Bridge Configuration](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md). Setting the bridge to a static IP address on the same subnet as the PC is the most reliable arrangement (see [Supported Network Setups](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Supported_Network_Setups.md)).
+The `Tritium Protocol Version` must match the bridge, because firmware V1 and V2 speak different protocols and V2 widens the bus identifier from 4 bits to 16 bits (see [CAN-UDP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md) and [Fundamentals](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Fundamentals.md)). Auto Discovery detects the version and sets it correctly, and refreshing the firmware of a V1 bridge updates it to V2. Version 1 bridges support bus numbers 0 to 15, and Profinity accepts 0 to 13 for V1. Version 2 bridges use a 16-bit bus number.
 
-A Peak Systems adapter asks for the `PCAN Channel ID` shown by Auto Discovery and a `PCAN BaudRate` (default 500K), a Peak Systems CANFD adapter adds the `Connect With CAN FD` option and an FD bit rate, an Ewert Energy CANdapter asks for the `Candapter COM Port` and `Candapter BaudRate` (default 500K), and a SocketCAN adapter asks for the `Bus Name` of the interface (for example `can0`), whose bit rate is set in the operating system rather than in Profinity.
+Two bridges that share a bus number on one Ethernet network relay traffic between their CAN buses, so use this deliberately to join two CAN buses into one virtual bus (see [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md)). Give every other bridge a unique bus number, otherwise a message sent to one bridge is received by both.
+
+A bridge adapter has no CAN bit rate parameter, because the bridge holds the bit rate (default 500 kbit/s). The bridge firmware settings change the bit rate and also hold the static IP address option, the virtual bus number and the firmware version, as described in [CAN Bridge Configuration](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md). A static IP address on the same subnet as the PC is the most reliable arrangement (see [Supported Network Setups](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Supported_Network_Setups.md)).
+
+### SocketCANd
+
+| Parameter    | Description                                                         | Default |
+|--------------|---------------------------------------------------------------------|---------|
+| `Bus Name`   | The name of the SocketCAN bus to connect to, such as `can0`.        | `can0` |
+| `IP Address` | The IP address of the machine running the socketcand daemon.        | `127.0.0.1` |
+| `Port`       | The port the socketcand daemon listens on, from 1 to 65535.         | 29536 |
+| `Timeout`    | The TCP timeout of the adapter in milliseconds, from 0 to 60000.    | 2000 |
+
+### Peak, CANdapter and Native SocketCAN
+
+| Adapter | Parameters | Defaults |
+|---------|------------|----------|
+| Peak Systems | `PCAN Channel ID`, as shown by Auto Discovery, and `PCAN BaudRate` | `500K` |
+| Peak Systems CAN FD | `Connect With CAN FD` and, when it is on, `PCAN BaudRate FD` (J2284_4 at 500 kbit/s with 2 Mbit/s data, or J2284_5 at 500 kbit/s with 5 Mbit/s data) | CAN FD off, J2284_4 |
+| Ewert Energy CANdapter | `Candapter COM Port` and `Candapter BaudRate` | `500K` |
+| Native SocketCAN | `Bus Name` of the interface, such as `can0`. The operating system sets the bit rate, not Profinity. | `can0` |
 
 ## Adapter Status
 
-Once your adapter has been added to the Profile, a coloured status indicator is displayed in the sidebar next to the device name, and a green circle is the expected state. The colour signals for the adapters are as follows:
+Once the adapter is added to the Profile, a coloured status indicator appears in the sidebar next to the device name. Green is the state of a working adapter.
 
-| Colour   | Meaning                                               |
-| -------- | ----------------------------------------------------- |
-| `Green`  | Good, adapter is connected and data is arriving       |
-| `Yellow` | Warning, adapter is connected but no data is arriving |
-| `Red`    | Error, see the logs for more details                  |
-| `Grey`   | N/A, adapter is not connected                         |
+| Colour | Meaning                                               |
+| ------ | ----------------------------------------------------- |
+| Green  | Good: the adapter is connected and data is arriving.       |
+| Yellow | Warning: the adapter is connected but no data is arriving. |
+| Red    | Error: the [Profinity log](../../Getting_Started/Profinity_Log.md) has the details. |
+| Grey   | Not applicable: the adapter is not connected.                         |
 
-!!! info "CAN bus bitrate"
-    In order for all of the devices on your CAN bus to communicate, they must all be operating at the same bitrate, including the CAN bus adapter that connects Profinity to your CAN bus. Prohelion devices ship with a factory default of 500 kbit/s, which is the default of the bridge, the Peak adapter and the CANdapter in Profinity, and the Prohelion devices support 1 Mbit/s, 500, 250, 125, 100 and 50 kbit/s, so a device that is changed from the default constrains the other devices in the network and should be considered when designing your system. The CAN to Ethernet bridge does not terminate the bus, so the CAN bus must be terminated with 120 ohm resistors at each end (see the [bridge DB9 connector datasheet](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Datasheet/DB9_Connector.md)).
+If the indicator is yellow, check that the bit rate matches the bus, that the bus is terminated and that another device is transmitting. If it is red, read the Profinity log, then check the Peak driver, the IP address and port of a TCP bridge or the interface name of a SocketCAN adapter.
+
+!!! info "Set the Same Bit Rate on Every CAN Device"
+    Every device on the CAN bus, including the adapter that connects Profinity, must operate at the same bit rate to communicate. Prohelion devices ship with a factory default of 500 kbit/s, which is also the default of the bridge, the Peak adapter and the CANdapter in Profinity. Prohelion devices support 1 Mbit/s and 500, 250, 125, 100 and 50 kbit/s, so a device changed from the default constrains the rest of the network. The CAN to Ethernet bridge does not terminate the bus, so terminate the CAN bus with 120 ohm resistors at each end (see the [bridge DB9 connector datasheet](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Datasheet/DB9_Connector.md)).

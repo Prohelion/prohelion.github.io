@@ -5,16 +5,18 @@ description: "Display numerical and text values with units, precision control, a
 
 # Readouts
 
-Display of numerical or text values. Readouts are the primary way to show sensor data, measurements, and other numerical information from the system.
+Readouts display numerical or text values with units and precision, and they are the primary way to show sensor data, measurements and other numerical information from the system.
 
 <figure markdown>
 ![Readouts component showing numerical and text value displays](../../images/readouts.png)
 <figcaption>Readouts component showing numerical and text value displays</figcaption>
 </figure>
 
-**Best for:** Sensor readings, measurements, numerical data display, text information, real-time values
+## When to Use
 
-**Parameters:**
+Use readouts for sensor readings, measurements, text information and other real-time values. Use a [Chart](Charts.md) when the trend matters more than the latest value, and a [Table](Tables.md) for a large set of related values.
+
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -22,7 +24,7 @@ Display of numerical or text values. Readouts are the primary way to show sensor
 | `class` | string | No | None | CSS class added to the `readouts` element |
 | `items` | array | Yes | None | Array of readout items. Each item is displayed as one readout |
 
-**Readout Parameters:**
+### Readout Parameters
 
 Each item in `items` must contain a `readout` object with:
 
@@ -37,11 +39,11 @@ Each item in `items` must contain a `readout` object with:
 | `width` | integer | No | `1` | Number of columns that the readout spans, from `1` to `4`. A value greater than `1` displays the readout as a wide readout |
 | `enabled` | boolean | No | `true` | When `false`, the readout is displayed in the disabled style and remains visible. The state can be bound with the `enabled` target |
 | `visible` | boolean | No | `true` | When `false`, the readout is hidden. The state can be bound with the `visible` target |
-| `bind` | array | No | None | Data binding. The `value`, `label`, `unit`, `enabled` and `visible` targets are handled |
-| `action` | string | No | None | Underlines the caption as a visual cue and helps to identify the readout. The web interface does not run an action when the readout is clicked |
+| `bind` | array | No | None | [Data binding](../../Data_Binding.md). The `value`, `label`, `unit`, `enabled` and `visible` targets are handled |
+| `action` | string | No | None | Underlines the caption. Clicking the readout does not run an action |
 | `param` | string | No | None | Not used by the web interface |
 
-**Example:**
+## Example
 
 ``` yaml
 dashboard:

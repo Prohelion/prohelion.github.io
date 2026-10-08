@@ -5,14 +5,14 @@ description: "Control what each person can see and do in Profinity by creating r
 
 # Roles and Permissions
 
-Profinity decides what each person can see and do through **roles**. A role is a named list of things that people holding it are allowed to do, such as viewing tags, sending CAN messages or editing profiles, and you give each user one or more roles when you set up their account. A person who holds two roles can do everything either role allows, and there is no way to give a single user an extra permission without a role, so to find out who can do something you only ever need to look at the roles.
+Profinity decides what each person can see and do through **roles**. A role is a named list of things that people holding it are allowed to do, such as viewing tags, sending CAN messages or editing profiles, and each user is given one or more roles when the account is set up. A person who holds two roles can do everything either role allows, and there is no way to give a single user an extra permission without a role, so to find out who can do something only the roles need to be checked.
 
-This page shows how to create a role, give it to a person, and work out why someone cannot see something they expect to. Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md), and you need the **Security administration** permission to open it.
+This page shows how to create a role, give it to a person, and work out why someone cannot see something they expect to. Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md), which requires the **Security administration** permission and a licence that includes the Profinity Server feature, as described in [Licensing](../Licensing.md).
 
 !!! info "Desktop Mode"
     Profinity in Windows Desktop Mode does not use roles, because it signs in automatically with a built-in account that can do everything. The rest of this page applies when Profinity is used through the Web or the API.
 
-## Create a role
+## Create a Role
 
 1. Select **ADMIN** in the side menu, then **Users & Groups**, and open the **Roles** tab.
 2. Click **+ Add role**.
@@ -24,7 +24,7 @@ Some permissions need another one to be useful, so Profinity switches the second
 
 To change a role later, open the **Roles** tab and click the role. A role that is still given to one or more users cannot be deleted, so remove it from those users first.
 
-## Give a role to a person
+## Give a Role to a Person
 
 1. Open the **Users** tab of **Users & Groups** and click the person's row.
 2. Choose one or more roles under **Assigned roles**.
@@ -32,10 +32,10 @@ To change a role later, open the **Roles** tab and click the role. A role that i
 
 A new user is given roles in the same way while the account is being created, as described in [Managing Users](./Manage_Users.md#creating-a-new-user).
 
-!!! warning "The person is signed out"
+!!! warning "The Person Is Signed Out"
     Changing someone's **Assigned roles**, or changing what a role allows, signs out everyone affected, and they must sign in again. Make the change when nobody is part-way through something that matters, such as a firmware update or a logging session.
 
-## Which roles to create
+## Which Roles to Create
 
 Profinity comes with one role, **Administrators**, which allows everything and is given to the default `admin` account on a new installation. Because it includes managing users and changing the system configuration, keep it for setting up a site and for emergencies, and give everyone else a narrower role of your own.
 
@@ -51,10 +51,10 @@ Most sites need only a handful of roles, and the ones below are a good place to 
 
 Keeping the last two to a single permission means someone who looks after accounts and also runs the system holds two roles, instead of one role that is much wider than either job needs.
 
-!!! tip "Start narrow"
+!!! tip "Start Narrow"
     Give each person the smallest role that lets them do their job and widen it when a real need appears. A person who loses access they relied on notices straight away, whereas a person who has quietly held too much access may never be noticed.
 
-## What each permission allows
+## What Each Permission Allows
 
 The tables follow the headings in the role editor, using the names shown there. A note in the right-hand column means that switching the permission on also switches on the one named.
 
@@ -62,11 +62,11 @@ The tables follow the headings in the role editor, using the names shown there. 
 
 | Permission | What it allows |
 |------------|----------------|
-| **Security administration** | Opening **Users & Groups** to manage users, roles, two-factor authentication, external identity links and session revoking, and changing the **Security** settings of components and tag collections |
-| **System administration** | Changing **System Configuration**, including single sign-on, SCIM, SIEM and the security policy |
-| **Modify profiles** | Creating, changing and deleting profiles, and opening the **Profiles** page |
+| **Security administration** | Opening **License** and **Users & Groups** to manage users, roles, two-factor authentication, external identity links and session revoking, using **Restart Profinity**, and changing the **Security** settings of components and tag collections |
+| **System administration** | Changing **System Configuration**, including single sign-on (SSO), System for Cross-domain Identity Management (SCIM) provisioning, Security Information and Event Management (SIEM) export and the security policy |
+| **Modify profiles** | Creating, changing and deleting profiles, and opening the **Profile** and **Menu Layout** pills on the **ADMIN** page |
 
-### Components, dashboards and firmware
+### Components, Dashboards and Firmware
 
 | Permission | What it allows |
 |------------|----------------|
@@ -86,7 +86,7 @@ The tables follow the headings in the role editor, using the names shown there. 
 | **Replay CAN logs** | Uploading and replaying CAN log files, and the **CAN LOG REPLAY** menu entry. Also turns on **View CAN data** |
 | **View DBC definitions** | Seeing DBC message and signal definitions. Also turns on **View tags** |
 
-!!! warning "Send CAN messages is high-risk"
+!!! warning "Send CAN Messages Is High-Risk"
     A person who can send CAN messages can place frames directly onto the bus, which on a vehicle or battery system can command real hardware. Give it only to people trusted to operate that equipment.
 
 ### Charging
@@ -107,7 +107,7 @@ The tables follow the headings in the role editor, using the names shown there. 
 | **View tag collections** | Seeing tag collections. Also turns on **View tags** |
 | **Modify tag collections** | Creating, changing and deleting tag collections. Also turns on **View tag collections** and **View tags** |
 
-### Alerts and plugins
+### Alerts and Plugins
 
 | Permission | What it allows |
 |------------|----------------|
@@ -119,29 +119,31 @@ The tables follow the headings in the role editor, using the names shown there. 
 
 | Permission | What it allows |
 |------------|----------------|
-| **Profinity AI** | Using the **Profinity AI** chat assistant, described in [AI Assistant](../System_Configuration/AI_Settings.md). Also turns on **MCP integration** |
-| **MCP integration** | Connecting tools that use the MCP endpoint to read live data from Profinity |
+| **Profinity AI** | Using the **Profinity AI** chat assistant, described in [Profinity AI Settings](../System_Configuration/AI_Settings.md). Also turns on **MCP integration** |
+| **MCP integration** | Connecting tools that use the Model Context Protocol (MCP) endpoint to read live data from Profinity |
 | **Receive external tags** | Accepting tag snapshots and updates sent from another Profinity system |
 
-## When a person cannot see something
+## When a Person Cannot See Something
 
-A missing menu entry or admin page almost always means the person's roles lack the matching permission. Open the person in **Users & Groups**, note their **Assigned roles**, and check those roles for the permission below.
+A missing menu entry or admin page means the person's roles lack the matching permission, unless the licence does not include the feature or the item is restricted to certain roles. Open the person in **Users & Groups**, note their **Assigned roles**, and check those roles for the permission below.
 
 | The person cannot see | The role needs |
 |-----------------------|----------------|
 | **Users & Groups** | **Security administration**, and a licence that includes the Profinity Server feature |
 | **System Configuration** | **System administration** |
+| **License** or **Restart Profinity** | **Security administration** |
+| **Profile** or **Menu Layout** | **Modify profiles** |
 | **Components & Plugins** | **View plugins**, which **Security administration** does not include |
 | **TAG EXPLORER** | **View tags** |
 | **ALL ALERTS** | **View alerts** |
 | **CAN LOG REPLAY** or **TAG LOG REPLAY** | **Replay CAN logs** or **Replay tag changes** |
 | **Profinity AI** | **Profinity AI** |
 
-If the permission is present and the person still cannot see a particular component or tag collection, that item may be restricted to certain roles, as described in [Component and collection security](./Component_And_Collection_Security.md).
+If the permission is present and the person still cannot see a particular component or tag collection, that item is restricted to certain roles, so check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security.md).
 
 There is no single administrator permission. Someone who needs broad access is given the **Administrators** role, or a role with the specific permissions they need.
 
-## Related documentation
+## Related Documentation
 
 - [Managing Users](./Manage_Users.md)
 - [Password policy](../System_Configuration/Security/Password_Policy.md)

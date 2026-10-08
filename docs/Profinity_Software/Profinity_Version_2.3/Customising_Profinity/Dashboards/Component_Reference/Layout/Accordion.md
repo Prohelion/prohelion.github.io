@@ -5,16 +5,18 @@ description: "Collapsible sections for organising dashboard content that can be 
 
 # Accordion
 
-Collapsible sections for organising content. Accordions keep dashboards uncluttered by letting users expand and collapse sections of information as needed.
+An accordion is a set of collapsible sections that the operator expands and collapses as needed, which keeps a dashboard uncluttered.
 
 <figure markdown>
 ![Accordion component displaying collapsible sections for organising dashboard content](../../images/accordion.png)
 <figcaption>Accordion component displaying collapsible sections for organising dashboard content</figcaption>
 </figure>
 
-**Best for:** Detailed information that is not always needed, settings panels, secondary data, keeping dashboards uncluttered
+## When to Use
 
-**Parameters:**
+Use an accordion for detailed information that is not always needed, such as settings and secondary data. Use [Tabs](../Interactive/Tabs.md) when the operator switches between whole views, because a tab strip shows one view at a time.
+
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -23,10 +25,14 @@ Collapsible sections for organising content. Accordions keep dashboards unclutte
 | `label` | string | Yes | None | Caption of the button that expands and collapses the section |
 | `defaultExpanded` | boolean | No | `false` | Whether the accordion starts expanded when the dashboard loads. The accordion remains collapsible by the user either way, and an accordion that omits the parameter starts collapsed |
 | `visible` | boolean | No | `true` | When `false`, or when bound to `false`, the whole accordion is hidden |
-| `bind` | array | No | None | Data binding. The `visible` target shows and hides the accordion |
+| `bind` | array | No | None | [Data binding](../../Data_Binding.md). The `visible` target shows and hides the accordion |
 | `items` | array | Yes | None | Accordion sections, where each item must be an object that contains a `row` |
 
-**Basic Example:**
+A `row` does not accept `visible` or `bind`, so content inside an accordion is shown and hidden by binding `visible` on the accordion itself or on a component inside the row.
+
+## Example
+
+### Basic Example
 
 ``` yaml
 dashboard:
@@ -43,10 +49,10 @@ dashboard:
                           value: "72:15:30"
                       - readout:
                           label: "Version"
-                          value: "2.3.0"
+                          value: "1.4.2"
 ```
 
-**Data Binding for Visibility:**
+### Data Binding for Visibility
 
 Control accordion visibility based on system state or conditions:
 
@@ -70,7 +76,7 @@ dashboard:
                           value: "Enabled"
 ```
 
-**Nested Accordions:**
+### Nested Accordions
 
 Accordions can be nested within other accordions for hierarchical organisation:
 
@@ -110,9 +116,9 @@ dashboard:
                                       value: "Required"
 ```
 
-**Conditional Content:**
+### Conditional Content
 
-Use [data binding](../../Data_Binding.md) to conditionally show content within accordions. Rows do not accept `visible` or `bind`, so the visibility binding is placed on a component inside the row, such as a readout:
+To show content inside an accordion only under certain conditions, place the visibility binding on a component inside the row, such as the readout in this example:
 
 ``` yaml
 dashboard:
@@ -150,7 +156,7 @@ dashboard:
                               toType: boolean
 ```
 
-**Complete Example with All Features:**
+### Complete Example
 
 ``` yaml
 dashboard:
@@ -175,7 +181,7 @@ dashboard:
                           value: "72:15:30"
                       - readout:
                           label: "Version"
-                          value: "2.3.0"
+                          value: "1.4.2"
           - row:
               items:
                 - accordion:
@@ -189,4 +195,6 @@ dashboard:
                                   - target: value
                                     source: 'DBC/Metrics/History'
                                     seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
 ```

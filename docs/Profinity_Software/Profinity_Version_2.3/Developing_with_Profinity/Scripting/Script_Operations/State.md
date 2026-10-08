@@ -5,35 +5,15 @@ description: "Thread-safe state management for persistence between script invoca
 
 # State
 
-Scripts in Profinity have a lifecycle in which they run and then stop, so information that must survive between invocations of a script, or be shared between different scripts, needs to be held in state. Profinity provides a state management mechanism for this, covering state storage, retrieval, and thread-safe operations, with examples in C#, Python and Lua.
-
-Profinity provides two distinct ways to manage state in scripts:
-
-- `State` - Manages state that persists between invocations of the same script. When you run a script multiple times, the state stored using `State` will be maintained between runs of that specific script.
-
-- `GlobalState` - Manages state that can be shared between different scripts. When you run multiple scripts, they can all access and modify the same global state, allowing for inter-script communication and data sharing.
-
-Both support storing and retrieving script state data, including concurrent access and atomic updates.
-
-## Key Features
-
-The `ProfinityScriptState` class provides the following core capabilities.
-
-- Thread-safe state storage and retrieval
-- Atomic state updates
-- Support for any object type as state values
-- Simple key-value storage interface
-- Concurrent access support
-- State persistence between script invocations (State)
-- Cross-script state sharing (GlobalState)
+Scripts in Profinity run and then stop, so information that must survive between invocations of a script, or be shared between different scripts, needs to be held in state. Profinity provides two key-value stores for this, with examples below in C#, Python and Lua. `State` holds values that persist between runs of the same script, so a script that runs several times finds the values it stored on the earlier runs. `GlobalState` holds values that every script can read and change, which allows scripts to pass data to each other. Either store accepts any object type as a value, and each individual call is thread-safe, so several scripts can use the stores at the same time.
 
 ## Basic Usage
 
-The following examples show how to use both `State` and `GlobalState` in scripts, each in C#, Python and Lua. Storing and retrieving values are the building blocks for more complex state management.
+The examples below show how to use both `State` and `GlobalState` in scripts, each in C#, Python and Lua. Storing and retrieving values are the building blocks for more complex state management.
 
 ### Storing State Values
 
-The following examples save data to both the local and global state stores, using different value types.
+The examples below save data to both the local and global state stores, using different value types.
 
 === "C#"
 
@@ -123,7 +103,7 @@ Any stored key can be retrieved from both the local and global state stores, and
 
 ## More Complete Examples
 
-The following examples show both `State` and `GlobalState` in typical scenarios, including a run counter and shared configuration.
+The examples below show both `State` and `GlobalState` in typical scenarios, including a run counter and shared configuration. The C# and Python versions are shown, and Lua uses the `Profinity.State:Get` and `Profinity.State:Set` calls from the examples above for the same pattern.
 
 === "C#"
 
@@ -183,39 +163,9 @@ The following examples show both `State` and `GlobalState` in typical scenarios,
     })
     ```
 
-## Important Notes
+## Thread Safety and Limits
 
-The following notes cover thread safety, value types, and state management considerations.
+Each store has three methods: `Get(key)`, `Set(key, value)` and `Clear()`, which removes every value in the store. The individual calls are thread-safe, but a sequence of calls is not atomic, so a read followed by a write, such as the run counter in the examples above, can lose an update when two scripts run it at the same time on the same `GlobalState` key. Neither store survives a Profinity restart, and both keep their values in memory, so a script should store only the data it needs.
 
-1. **Thread Safety**: Both State and GlobalState are designed to be thread-safe and can be used in multi-threaded environments. All operations are atomic and concurrent access is supported.
-
-2. **Value Types**: Both state stores can hold any object type, but you should be consistent with the types you store and retrieve for each key.
-
-3. **Null Values**: The `Get` method returns null for non-existent keys. Always check for null when retrieving values.
-
-4. **State Persistence**: 
-   - `State` maintains values between different runs of the same script
-   - `GlobalState` maintains values that can be accessed by any script
-   - Neither persists between Profinity application restarts
-
-5. **Memory Usage**: Be mindful of the amount of data you store in both local and global state, as it remains in memory.
-
-## Best Practices
-
-The following practices avoid common state management problems.
-
-1. Use descriptive keys that clearly indicate the purpose of the stored value.
-
-2. Always check for null when retrieving values to handle cases where the key does not exist.
-
-3. Be consistent with the types of values you store under each key to avoid type-related issues.
-
-4. Consider using a naming convention for your state keys to avoid conflicts and improve code readability.
-
-5. Use `GlobalState` for data that needs to be shared between different scripts.
-
-6. Use `State` for data that should persist between runs of the same script.
-
-7. When using `GlobalState`, consider using script-specific prefixes in your keys to avoid conflicts between different scripts.
-
+`Get` returns null for a key that has not been set, so every `Get` should be checked for null. Name each key for its purpose, store one value type under each key, and prefix the keys written to `GlobalState` with the script name so that two scripts do not overwrite each other.
 

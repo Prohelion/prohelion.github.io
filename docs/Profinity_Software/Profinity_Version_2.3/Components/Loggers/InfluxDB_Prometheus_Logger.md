@@ -1,15 +1,15 @@
 ---
-title: InfluxDB / Prometheus
-description: "Log CAN data to InfluxDB (V1, V2, V3) or Prometheus for time-series storage and analysis."
+title: InfluxDB and Prometheus Logging
+description: "Log tag collection values to InfluxDB v1 with the InfluxDB v1 Logger, or serve them to Prometheus with the Prometheus Logger."
 ---
 
 # InfluxDB and Prometheus Logging
 
-Profinity can both [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) from a CAN bus network and log CAN bus data to time-series databases such as InfluxDB and Prometheus.
+Profinity can [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) from a CAN bus network, and the loggers on this page send the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to time-series databases. This page documents the **InfluxDB v1 Logger**, which is the logger for InfluxDB v1 servers, and the **Prometheus Logger**.
 
 <figure markdown>
-![Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back; Publishers and subscribers (MQTT, Webhook) stream it in both directions; Loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out; a Prohelion Cloud dashboard gives hosted monitoring](../../images/2.3-diagram-data-out.png)
-<figcaption>Data out of Profinity: historians, publishers and subscribers, loggers, and Prohelion Cloud</figcaption>
+![Data out of Profinity: historians, publishers and subscribers, loggers and Prohelion Cloud](../../images/2.3-diagram-data-out.png)
+<figcaption>Data out of Profinity. Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back, publishers and subscribers (MQTT, Webhook) stream it in both directions, loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out, and a Prohelion Cloud dashboard gives hosted monitoring.</figcaption>
 </figure>
 
 <figure markdown>
@@ -17,63 +17,62 @@ Profinity can both [log and replay messages](../../CAN_Utilities/Logging_Replayi
 <figcaption>InfluxDB dashboard showing pack voltage and pack current logged by Profinity</figcaption>
 </figure>
 
-[InfluxDB](https://www.influxdata.com) is an all-in-one tool that provides both data storage and visualisation, whereas [Prometheus](https://prometheus.io) provides data storage only and is typically coupled with [Grafana](https://grafana.com) for visualisation.
+[InfluxDB](https://www.influxdata.com) both stores and visualises data, whereas [Prometheus](https://prometheus.io) stores data only and is usually coupled with [Grafana](https://grafana.com) for visualisation.
 
-InfluxDB, Prometheus and Grafana are each available in commercially supported and open source (community supported) editions.
+## Logging Modes
+
+The **Logging mode** setting determines what Profinity sends to the database on each interval, and it applies to the InfluxDB v1 Logger, the [InfluxDB v2 Historian](../Historians/InfluxDB_v2_Historian.md), the [InfluxDB v3 Historian](../Historians/InfluxDB_v3_Historian.md) and the other collection-based loggers. Nothing is logged until at least one tag collection is selected in **Collections**.
+
+- **Snapshot**, the default, sends the current value of every member of the selected collections on each interval.
+- **On Change** sends every change recorded for those members during the interval.
+- **Everything** sends every sample that arrives, including unchanged values.
+
+**Everything** gives the most detailed recording and the largest volume of data, so choose the mode by the resolution of measurement required.
 
 ## InfluxDB
 
-!!! danger "InfluxDB V1, V2, and V3 are Separate, Incompatible Products"
-    InfluxDB V1, V2, and V3 are **separate, incompatible products** with different APIs, authentication methods, and configuration requirements. The component type selected in Profinity must match the InfluxDB version installed, and using the wrong component type results in connection failures.
+!!! warning "Match the Component to Your InfluxDB Version"
+    InfluxDB v1, v2 and v3 are separate products with different APIs, authentication methods and configuration requirements. Using the wrong component type results in connection failures.
 
-Profinity provides a separate component for each InfluxDB version, so the version of InfluxDB in use must be known before an InfluxDB component is added to your [profile](../../Getting_Started/Profiles.md). The InfluxDB V1 component is registered as the **InfluxDB v1 Logger**, whereas the V2 and V3 components are registered as the [**InfluxDB v2 Historian**](../Historians/InfluxDB_v2_Historian.md) and the [**InfluxDB v3 Historian**](../Historians/InfluxDB_v3_Historian.md), which are the same kind of time-series sink and which additionally allow data to be read back through the APIs.
+Profinity provides a separate component for each InfluxDB version, so the version of InfluxDB in use must be known before a component is added to a [profile](../../Getting_Started/Profiles.md). The InfluxDB v1 component is the **InfluxDB v1 Logger**, documented below. The v2 and v3 components are registered as the **InfluxDB v2 Historian** and the **InfluxDB v3 Historian**, which write data in the same way and additionally allow it to be read back through the APIs, and they are documented in the Historians section.
 
 ### InfluxDB v1 Logger
 
-InfluxDB V1 uses username/password authentication and the concept of databases and retention policies.
+InfluxDB v1 uses username and password authentication and the concept of databases and retention policies. To log data to InfluxDB v1, first install InfluxDB v1 and confirm that it is running, then add an **InfluxDB v1 Logger** to the profile and configure the following settings.
 
-To log your CAN bus data to InfluxDB V1, first install InfluxDB V1 and confirm that it is running, then add an InfluxDB v1 Logger to your profile and configure the following options:
+| Setting | Default | Purpose |
+|---|---|---|
+| **InfluxDB Database** | None | The InfluxDB database that the data is stored in. Required. |
+| **InfluxDB Username** | Blank | The username for InfluxDB authentication. Leave blank for unsecured connections. |
+| **InfluxDB Password** | Blank | The password for InfluxDB authentication. Leave blank for unsecured connections. |
+| **InfluxDB Retention Policy** | `autogen` | The InfluxDB retention policy used when writing data. |
+| **Influx Server URL** | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
+| **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
+| **InfluxDB Health Check** | On | Performs a health check on the connection at regular intervals. |
+| **Collections** | None | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
+| **Logging Interval (Sec)** | 10 | The interval, in seconds, at which log data is sent, with a minimum of 1. |
+| **Logging mode** | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. See [Logging Modes](#logging-modes). |
+| **Auto Start** | On | Starts the logger when the profile is loaded. |
 
-| Setting                    | Purpose                                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------- |
-| InfluxDB Database          | The InfluxDB database that the data is stored in.                                                     |
-| InfluxDB Username          | The username for InfluxDB authentication. Leave blank for unsecured connections.                      |
-| InfluxDB Password          | The password for InfluxDB authentication. Leave blank for unsecured connections.                      |
-| InfluxDB Retention Policy  | The InfluxDB retention policy used when writing data. The default is `autogen`.                       |
-| Influx Server URL          | The endpoint URL that InfluxDB is running on.                                                         |
-| Dashboard URL              | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link.             |
-| InfluxDB Health Check      | Performs a health check on the connection at regular intervals.                                        |
-| Collections            | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
-| Logging Interval (Sec)     | The interval, in seconds, at which log data is sent.                                                   |
-| Logging mode               | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. See [Logging Modes](#logging-modes). |
+When these settings are correct, data flows into InfluxDB v1. If it does not, check the [Logs](../../Getting_Started/Profinity_Log.md) for more details.
 
-When these settings are correct, data flows into InfluxDB V1. If it does not, check the [Logs](../../Getting_Started/Profinity_Log.md) for more details.
-
-!!! warning "InfluxDB Cloud HealthCheck Warning"
-    InfluxDB Cloud does not support the InfluxDB Health Check API, so the InfluxDB Health Check setting must be set to false when InfluxDB Cloud is used to store your data.
-
-### InfluxDB v2 and v3 Historians
-
-The InfluxDB V2 and V3 components are registered as historians rather than loggers, because they additionally allow data to be read back through the APIs, and they are documented in the **Historians** section: see the [InfluxDB v2 Historian](../Historians/InfluxDB_v2_Historian.md) and the [InfluxDB v3 Historian](../Historians/InfluxDB_v3_Historian.md). They share the [Logging modes](#logging-modes) described below.
-
-### Logging Modes
-
-The `Logging mode` setting determines what Profinity sends to Influx on each interval. With `Snapshot`, Profinity sends every value currently stored in its DBC register on the interval. With `On Change`, Profinity sends a list of every change recorded on the DBC message or signal during that interval. With `Everything`, Profinity sends every sample that arrives, including unchanged values. The mode therefore selects between a lower detail (lower data) recording and a higher detail (higher data) recording, depending on the resolution of measurement required.
+!!! warning "Switch Off the Health Check for InfluxDB Cloud"
+    InfluxDB Cloud does not support the InfluxDB Health Check API, and **InfluxDB Health Check** is on by default, so it must be set to off when InfluxDB Cloud is used to store the data.
 
 ## Prometheus
 
-[Prometheus](https://prometheus.io) logging works differently from InfluxDB logging. InfluxDB expects its data to be pushed to it, whereas Prometheus treats Profinity as a source of data and calls it to request the latest values. Prometheus also has no graphing capability out of the box, and is usually coupled with a tool such as [Grafana](https://grafana.com) to provide it.
+[Prometheus](https://prometheus.io) logging works differently from InfluxDB logging. InfluxDB expects its data to be pushed to it, whereas Prometheus treats Profinity as a source of data and calls it to request the latest values. Prometheus also has no graphing capability out of the box, so it is usually coupled with a tool such as Grafana.
 
-Adding a Prometheus Logger to Profinity is all that is required on the Profinity side to set up Prometheus logging, and the following connection values can be set, in addition to the **Collections** setting, which selects the tag collections that are served and which must contain at least one collection before the component starts:
+Adding a **Prometheus Logger** to Profinity is all that is required on the Profinity side to set up Prometheus logging, and the following connection values can be set, in addition to the **Collections** setting, which selects the tag collections that are served and which must contain at least one collection before the component starts.
 
-| Setting               | Purpose                                                                                  |
-| --------------------- | ---------------------------------------------------------------------------------------- |
-| Data endpoint URL     | The URL path, within the hostname and port, that the Prometheus data is served on. The default is `metrics/`. |
-| Server Hostname       | The hostname or IP address that the Prometheus scraper connects to on the local machine. The default is `localhost`. |
-| Server Port           | The port that the endpoint runs on. The default is `7065`.                               |
-| Dashboard URL         | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
-| Update Interval (Seconds) | The interval, in seconds, between samples. The default is `10`, and the value must be between `10` and `86400`. |
-| Auto Start            | Starts the logger automatically when the profile is loaded, and is enabled by default.   |
+| Setting | Default | Purpose |
+|---|---|---|
+| **Data endpoint URL** | `metrics/` | The URL path, within the hostname and port, that the Prometheus data is served on. |
+| **Server Hostname** | `localhost` | The hostname or IP address that the Prometheus scraper connects to on the local machine. |
+| **Server Port** | 7065 | The port that the endpoint runs on, from 1 to 65535. |
+| **Dashboard URL** | Blank | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
+| **Update Interval (Seconds)** | 10 | The interval, in seconds, between samples, from 10 to 86400. |
+| **Auto Start** | On | Starts the logger automatically when the profile is loaded. |
 
 Once the Prometheus Logger is active, Prometheus can call Profinity on this URL to receive data. With all settings left at their defaults, for example, the data is served at:
 
@@ -81,4 +80,4 @@ Once the Prometheus Logger is active, Prometheus can call Profinity on this URL 
 http://localhost:7065/metrics
 ```
 
-Configuring [Prometheus](https://prometheus.io) to receive and display this data is covered in the Prometheus documentation.
+If the logger does not start, Profinity writes the failure to the [Logs](../../Getting_Started/Profinity_Log.md) and the logger stays off. If Prometheus shows no data, check that the logger is running, that the scraper is configured with the same hostname, port and endpoint path, and that at least one collection with tags is selected. Configuring Prometheus to receive and display this data is covered in the Prometheus documentation.

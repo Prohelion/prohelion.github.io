@@ -5,53 +5,41 @@ description: "Model Context Protocol server for AI assistants and MCP-aware tool
 
 # MCP Server
 
-Profinity includes a Model Context Protocol (MCP) server, which lets AI assistants and other MCP-aware tools query live data from a Profinity instance over a standard protocol. The server exposes read-only tools for tag discovery, tag values and history, and alert state; it does not expose any tool that writes or changes Profinity data.
+Profinity includes a Model Context Protocol (MCP) server, which lets AI assistants and other MCP-aware tools query live data from a Profinity instance over a standard protocol. The server exposes read-only tools for tag discovery, tag values and history, and alert state, and it does not expose any tool that writes or changes Profinity data. An MCP client can use it to answer questions about live tags and alerts, to pull history into an analysis tool, or to feed a monitoring or reporting system, all with the permissions of the account it authenticates as.
 
-!!! info "Licence required"
+!!! info "Licence Required"
     The MCP server requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../Administration/Licensing.md) for what each edition includes.
 
-## Table of Contents
+## About MCP
 
-- [What is MCP?](#what-is-mcp)
-- [Enabling the MCP server](#enabling-the-mcp-server)
-- [Transport](#transport)
-- [Available tools](#available-tools)
-- [Authentication and permissions](#authentication-and-permissions)
-- [Example client calls](#example-client-calls)
-- [Use cases](#use-cases)
-- [Security considerations](#security-considerations)
-- [Related documentation](#related-documentation)
+MCP is a standard protocol that lets AI assistants and other external tools query a system's data without a bespoke integration for each tool. In Profinity, the MCP server answers queries about tags, tag values and alerts, scoped to the permissions of the authenticated caller. The built-in [AI Chat](../Profinity_AI/AI_Chat.md) uses the same server.
 
-## What is MCP?
+## Enabling the MCP Server
 
-The Model Context Protocol (MCP) is a standard protocol that lets AI assistants and other external tools query a system's data without a bespoke integration for each tool. In Profinity, the MCP server answers queries about tags, tag values, and alerts, scoped to the permissions of the authenticated caller.
-
-## Enabling the MCP server
-
-The MCP server is configured from the **[Profinity AI](../Administration/System_Configuration/AI_Settings.md)** settings page (select **ADMIN** in the side menu, open the **System Configuration** pill, then choose **Profinity AI**), under its own **MCP Server** field group. Enabling **Profinity AI** itself also enables the MCP server, since the assistant depends on it; the MCP server can also be enabled on its own, independently of Profinity AI, for external MCP clients such as Claude Desktop.
+The MCP server is configured from the **[Profinity AI](../Administration/System_Configuration/AI_Settings.md)** settings page (select **ADMIN** in the side menu, open the **System Configuration** pill, then choose **Profinity AI**), under its own **MCP Server** field group, where the toggle is **Enable MCP Server**. Turning on **Enable Profinity AI** also enables the MCP server, since the assistant depends on it, and the MCP server can be enabled on its own, with Profinity AI left off, for external MCP clients such as Claude Desktop.
 
 !!! warning "Restart Required"
     Enabling or disabling the MCP server takes effect only after Profinity restarts. After saving the configuration, wait for the restart to complete before reloading the page, because the web client shows a restarting message while it waits for the engine to return.
 
 ## Transport
 
-The MCP server uses the Streamable HTTP transport and is stateless, so it holds no session state between requests and issues no `Mcp-Session-Id`. It is built on the `ModelContextProtocol.AspNetCore` 2.0.0 package, where `2.0.0` is the version of that C# SDK and not an MCP protocol version. MCP protocol versions are date-based, and that SDK negotiates the revisions `2024-11-05`, `2025-03-26`, `2025-06-18`, `2025-11-25` and `2026-07-28` with the client. The endpoint is available at:
+The MCP server uses the Streamable HTTP transport and is stateless, so it holds no session state between requests and issues no `Mcp-Session-Id`. It accepts the protocol revisions `2024-11-05`, `2025-03-26`, `2025-06-18`, `2025-11-25` and `2026-07-28`, and an MCP client library negotiates the revision automatically. The endpoint is available at:
 
 ```text
 /api/v2/Ai/Mcp
 ```
 
-resolved against the Profinity web server's host, port, and protocol.
+resolved against the Profinity web server's host, port and protocol.
 
-## Available tools
+## Available Tools
 
-The MCP server provides ten read-only tools. None of them acknowledge, unacknowledge, silence, or otherwise change alert or tag state — use the REST Alerts API or the Profinity UI for that.
+The MCP server provides ten read-only tools. None of them acknowledge, unacknowledge, silence, or otherwise change alert or tag state, so those changes are made with the REST Alerts API or the Profinity UI.
 
-A tag or alert the calling user does not have permission to view is omitted from a tool's response; it is never reported as an error, so a response that looks smaller than expected on a shared instance usually reflects the caller's own permissions rather than a fault.
+A tag or alert the calling user does not have permission to view is omitted from a tool's response and is never reported as an error, so a response that looks smaller than expected on a shared instance usually reflects the caller's own permissions rather than a fault.
 
 ### get_all_components
 
-The recommended first call. Returns a lightweight list of active component names visible to the caller, for use as the `componentId` argument to other tools.
+The recommended first call, which returns a lightweight list of active component names visible to the caller, for use as the `componentId` argument to other tools.
 
 **Parameters:** none
 
@@ -72,11 +60,11 @@ Searches the live tag tree by name fragment, unit, meta-type, component, or tag-
 | `includeMetadata` | optional (default: true) | If true, include unit, comment, and scaling metadata on each result |
 | `limit` | optional (default: 25) | Maximum results, 1–50 |
 
-**Returns:** `{items, count, limit, truncated}`
+**Returns:** `{items, count, limit, truncated}`, where `truncated` is true when more tags matched than the `limit` allowed
 
 ### get_tag_catalog
 
-Returns the tag catalogue for the active profile, nested by segment or as a paginated flat list. Use `get_all_components` first, then scope with `componentId` or `tagPrefix` — an unscoped nested catalogue above roughly 200,000 characters is refused.
+Returns the tag catalogue for the active profile, nested by segment or as a paginated flat list. Use `get_all_components` first, then scope with `componentId` or `tagPrefix`, because an unscoped nested catalogue above roughly 200,000 characters is refused.
 
 | Parameter | Type | Description |
 |-----------|------|--------------|
@@ -113,7 +101,7 @@ Batch-reads current values for up to 50 canonical tag IDs in one call.
 
 ### get_tag_series
 
-Returns current or historical values for a single canonical tag ID, using the same range and aggregation rules as `POST /api/v2/TagQuerySet`. Omit `start`/`stop` for the current value.
+Returns current or historical values for a single canonical tag ID, using the same range and aggregation rules as `POST /api/v2/TagQuerySet` (see [Accessing Historical Data via APIs](APIs/index.md#accessing-historical-data-via-apis)). Omit `start`/`stop` for the current value.
 
 | Parameter | Type | Description |
 |-----------|------|--------------|
@@ -182,30 +170,41 @@ Returns a page of past alert state transitions (raised, cleared, acknowledged, s
 
 **Returns:** a page of alert history events
 
-## Authentication and permissions
+## Authentication and Permissions
 
-Every call to the MCP server requires a valid JWT bearer token, checked against the **MCP View** permission at the endpoint itself. Beyond that gate, each tool checks its own domain permission before returning data: the tag-related tools require **Tag View**, and the alert-related tools require **Alerts View**.
+Every call to the MCP server requires a valid JSON Web Token (JWT) bearer token, checked against the **MCP integration** permission at the endpoint itself. Beyond that gate, each tool checks its own domain permission before returning data: the tag-related tools require **View tags**, and the alert-related tools require **View alerts**. In the permission list that the sign-in response returns, these appear as `McpView`, `TagView` and `AlertsView`.
 
-The **AI Assistant** permission automatically grants **MCP View**, so a user with access to Profinity AI does not need MCP View granted separately (see [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md)).
+The **Profinity AI** permission automatically grants **MCP integration**, so a user with access to Profinity AI does not need **MCP integration** granted separately (see [Profinity AI Settings](../Administration/System_Configuration/AI_Settings.md)).
 
 To authenticate directly against the MCP server:
 
 1. Create a user account with the required permissions, or use an existing one.
-2. Generate a JWT token for the user, through the Profinity API or the user management interface.
+2. Generate a JWT token for the user by signing in through `POST /api/v2/Users/Authenticate`, as described under [Profinity API Security](APIs/index.md#profinity-api-security). A personal token expires after the **Security Token Expiration (minutes)** setting in **Application Config**, whereas a service account token does not expire.
 3. Include the token in the `Authorization` header of every request:
 
     ```text
     Authorization: Bearer YOUR_JWT_TOKEN_HERE
     ```
 
-!!! info "Service Accounts"
-    For a long-lived integration such as an external MCP client, use a [service account](../Administration/Users_and_Access/Service_Accounts.md) with the required permissions and a non-expiring token, rather than a personal user account.
+!!! info "Service Accounts for Long-Lived Clients"
+    An external MCP client that runs for a long time should use a [service account](../Administration/Users_and_Access/Service_Accounts.md) with the required permissions and a non-expiring token, rather than a personal user account.
 
-## Example client calls
+## Troubleshooting Connections
 
-Most MCP clients, including the official MCP SDKs, perform the protocol handshake automatically, so only the endpoint URL and the `Authorization` header need to be supplied. A client that speaks the protocol directly must send an `initialize` request first, follow it with the `notifications/initialized` notification, and then call tools with `tools/call`, using JSON-RPC 2.0 messages that carry `jsonrpc` and `id` fields. The Streamable HTTP transport requires an `Accept` header that lists both `application/json` and `text/event-stream`, and the server may answer a POST with either a JSON body or a single server-sent event, so a direct client must handle both.
+| Response | Cause | Fix |
+|----------|-------|-----|
+| 401 | The request has no token, or the token has expired | Sign in again, or use a service account token |
+| 403 | The user lacks **MCP integration** | Add the permission to one of the user's roles (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)) |
+| 404 | The MCP server is not enabled, the **AI** feature is not licensed, or Profinity has not restarted since the setting changed | Turn on **Enable MCP Server**, check the licence and restart Profinity |
+| 429 with `Too many MCP requests. Please try again later.` | The per-user rate limit on MCP requests was exceeded | Reduce the request rate and retry later |
 
-The following Python example performs that handshake and calls three of the tools. It negotiates the `2025-11-25` revision, one of the revisions listed under [Transport](#transport).
+A tool that returns fewer results than expected, rather than an error, reflects the caller's **View tags** or **View alerts** permission.
+
+## Example Client Calls
+
+Most MCP clients, including the official MCP SDKs, perform the protocol handshake automatically, so only the endpoint URL and the `Authorization` header need to be supplied. A client that speaks the protocol directly must send an `initialize` request first, follow it with the `notifications/initialized` notification, and then call tools with `tools/call`, using JavaScript Object Notation Remote Procedure Call (JSON-RPC) 2.0 messages that carry `jsonrpc` and `id` fields. The Streamable HTTP transport requires an `Accept` header that lists both `application/json` and `text/event-stream`, and the server may answer a POST with either a JSON body or a single server-sent event, so a direct client must handle both.
+
+The following Python example is an advanced, hand-written client that performs that handshake and calls three of the tools. It negotiates the `2025-11-25` revision, one of the revisions listed under [Transport](#transport). A client that uses an MCP library needs only the endpoint URL and the `Authorization` header, and [Connect Profinity to AI](../How_To_Guides/Connect_Profinity_to_AI.md) describes how to set one up.
 
 ```python
 import json
@@ -290,29 +289,13 @@ series = call_tool(
 )
 ```
 
-The `2026-07-28` revision changes the handshake (the MCP C# SDK documents it as using `server/discover` and per-request metadata in place of `initialize`), so a client that must use that revision should rely on an MCP SDK rather than hand-written JSON-RPC.
+The `2026-07-28` revision changes the handshake, so a client that must use that revision should rely on an MCP client library rather than hand-written JSON-RPC.
 
-## Use cases
+## Related Documentation
 
-The MCP server supports:
-
-- AI assistants that answer questions about the current state of a Profinity instance, including [AI Chat](../Profinity_AI/AI_Chat.md) itself
-- External analysis tools that need read access to tag values or alert history
-- Monitoring integrations that poll system state programmatically
-- Reporting tools that build on current or historical tag and alert data
-
-## Security considerations
-
-- Every request requires a valid JWT bearer token and the MCP View permission.
-- Every tool additionally checks Tag View or Alerts View before returning data, and omits anything the caller cannot see rather than reporting an error.
-- All ten tools are read-only; none of them can change tag values, alert state, or configuration.
-- MCP traffic is rate-limited per authenticated user.
-
-## Related documentation
-
-- [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md) — enabling the MCP server as part of, or independently of, Profinity AI
-- [Service accounts](../Administration/Users_and_Access/Service_Accounts.md) — long-lived credentials for external MCP clients
-- [AI Chat](../Profinity_AI/AI_Chat.md) — the built-in assistant that uses this MCP server
-- [AI Skills](../Profinity_AI/AI_Skills.md) — an external toolkit that also uses this MCP server, for building dashboards and other config with an AI coding assistant
-- [APIs](APIs/index.md) — RESTful API documentation
-- [Scripting](../Developing_with_Profinity/Scripting/index.md) — Profinity scripting capabilities
+- [Profinity AI Settings](../Administration/System_Configuration/AI_Settings.md): enabling the MCP server as part of, or independently of, Profinity AI
+- [Service Accounts](../Administration/Users_and_Access/Service_Accounts.md): long-lived credentials for external MCP clients
+- [AI Chat](../Profinity_AI/AI_Chat.md): the built-in assistant that uses this MCP server
+- [AI Skills](../Profinity_AI/AI_Skills.md): an external toolkit that also uses this MCP server, for building dashboards and other configuration with an AI coding assistant
+- [APIs](APIs/index.md): the REST API documentation
+- [Scripting](../Developing_with_Profinity/Scripting/index.md): Profinity scripting capabilities

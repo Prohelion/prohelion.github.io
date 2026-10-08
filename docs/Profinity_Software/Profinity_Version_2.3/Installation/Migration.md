@@ -5,104 +5,34 @@ description: "Understand the key differences and recommended approach for migrat
 
 # Migration from Profinity V1 to V2
 
-!!! info "Profinity V2 Overview"
-    Profinity V2 is a significant architectural upgrade from V1. V2 retains the functionality of V1 and adds new capabilities, but the two versions are **not backwards compatible**.
+!!! info "V2 Is Not Backwards Compatible with V1"
+    Profinity V2 is a significant architectural upgrade from V1. It retains the functionality of V1 and adds new capabilities, but the two versions are not compatible. This page covers moving from V1 to V2. To upgrade from Profinity 2.2 to Profinity 2.3, see [Upgrading From 2.2](../Release_Notes/2.3.1.md#upgrading-from-22).
 
-Because V2 is **not backwards compatible** with Profinity V1:
+Because the formats differ, V2 [profiles](../Administration/Profiles.md) cannot be opened in V1, V1 and V2 system configurations cannot be used by the other version, and the API structure and endpoints have changed significantly. There is no downgrade path: once profiles or configurations are migrated to V2, they cannot be reverted to V1, so keep your V1 backups. V2 includes all the core functionality of V1, with a web-based interface and an expanded API.
 
-- **V2 [profiles](../Administration/Profiles.md) cannot be opened in V1**: profile formats have changed and V1 cannot read V2 profile files.
-- **V1 and V2 configurations are incompatible**: system configuration formats differ between versions.
-- **API changes**: the API structure and endpoints have changed significantly.
-- **No downgrade path**: once profiles or configurations are migrated to V2, they cannot be reverted to V1.
+## Recommended Approach: Clean Installation
 
-## Functionality Preservation
+Prohelion recommends a clean installation of Profinity V2, removing V1 before installing V2.
 
-Although the formats are incompatible, V2 includes:
+1. Back up the V1 profiles, configuration files, DBC files and any custom scripts or data, and document the component settings and addresses and any custom V1 settings to replicate in V2.
+2. Uninstall V1 using the standard uninstallation procedure, and remove the files in the V1 profile directory.
+3. Install V2 as a new installation rather than an upgrade of V1, following the installation guide for the target platform ([Windows](./Windows_Installation.md), [macOS and Linux](./Zip_Installation.md) or [Docker](./Docker_Installation.md)), and verify that V2 is running.
+4. Recreate the configuration: create new profiles, add components in the V2 interface, import or recreate DBC files, and configure system settings for the target environment.
+5. Verify that all components are detected and configured correctly, test critical functionality before putting the system into production, and review security settings and user accounts, starting with the default administrator password described in the [Security Guide](./Security.md#default-credentials).
 
-- All core functionality from V1.
-- Enhanced features and capabilities.
-- Improved architecture and performance.
-- A modern web-based interface.
-- Expanded API capabilities.
+## Running V1 and V2 on One Machine
 
-## Migration Recommendations
-
-### Recommended Approach: Clean Installation
-
-!!! tip "Recommended: Clean Installation"
-    Prohelion recommends a **clean installation** of Profinity V2, removing V1 before installing V2.
-
-1. **Back up V1 data**: before uninstalling, back up the V1 profiles, configurations, and any custom scripts or data.
-2. **Document configuration**: document any custom V1 settings to be replicated in V2.
-3. **Uninstall V1**: remove Profinity V1 using the standard uninstallation procedure.
-4. **Install V2**: install Profinity V2 following the installation guide for the target platform ([Windows](./Windows_Installation.md), [macOS and Linux](./Zip_Installation.md) or [Docker](./Docker_Installation.md)).
-5. **Recreate configuration**: set up the V2 installation and recreate the profiles using V2 tools.
-
-### Co-Existence (Not Recommended)
-
-While it is technically possible to run both V1 and V2 on the same machine, this is **not recommended** because:
-
-- Port conflicts occur if both versions try to use the same network ports.
-- Profiles can be confused between versions.
-- Running both systems increases resource usage.
-- Data can fall out of synchronisation between the versions.
-
-If both versions must run temporarily:
-
-- Use different ports for each version.
-- Run each version under different user accounts.
-- Keep profiles and configurations clearly separated.
-- Plan to migrate completely to V2 as soon as practical.
-
-## Migration Steps
-
-### 1. Pre-Migration Planning
-
-- Review the current V1 setup and document all components.
-- Identify all profiles in use.
-- Document any custom scripts or configurations.
-- Decide which V2 features to adopt.
-
-### 2. Backup Existing Data
-
-- Export all V1 profiles and save copies.
-- Back up configuration files.
-- Document component settings and addresses.
-- Save any custom DBC files or scripts.
-
-### 3. Uninstall V1 and Install V2
-
-- Use the V1 installer to uninstall V1, and remove all files in the V1 Profile directory.
-- Follow the appropriate installation guide for the platform ([Windows](./Windows_Installation.md), [macOS and Linux](./Zip_Installation.md) or [Docker](./Docker_Installation.md)), installing V2 as a new installation rather than an upgrade of V1.
-- Verify V2 is running correctly before proceeding.
-
-### 4. Recreate Configuration
-
-- Create new profiles in V2.
-- Add components using the V2 interface.
-- Import or recreate DBC files as needed.
-- Configure system settings for the target environment.
-
-### 5. Verify and Test
-
-- Verify all components are detected and configured correctly.
-- Test critical functionality before putting the system into production.
-- Review security settings and user accounts, starting with the default administrator password described in the [Security Guide](./Security.md#default-credentials).
-- Ensure all expected features are working.
+Running both versions on one machine causes port conflicts, mixed-up profiles and unsynchronised data, so Prohelion does not recommend it. If both versions must run temporarily, give each version different ports and a different user account, keep their profiles and configurations separate, and complete the move to V2 as soon as practical.
 
 ## Getting Help
 
-If issues occur during migration:
-
-- Review the installation guide for the platform ([Windows](./Windows_Installation.md), [macOS and Linux](./Zip_Installation.md) or [Docker](./Docker_Installation.md)).
-- Check the [System Configuration](../Administration/System_Configuration/index.md) documentation for configuration guidance.
-- Contact [Prohelion Support](https://prohelion.atlassian.net/servicedesk/customer/portals) for assistance.
-- Use the [Feedback](../Administration/Feedback.md) feature in Profinity to report issues.
+If issues occur during migration, review the installation guide for the platform, check the [System Configuration](../Administration/System_Configuration/index.md) documentation for configuration guidance, contact [Prohelion Support](https://prohelion.atlassian.net/servicedesk/customer/portals), or use the [Feedback](../Administration/Feedback.md) feature in Profinity to report issues.
 
 ## Related Documentation
 
-- [Windows Installation](./Windows_Installation.md) - Installing V2 on Windows
-- [Docker Installation](./Docker_Installation.md) - Installing V2 using Docker
-- [Linux and macOS Installation](./Zip_Installation.md) - Installing V2 on macOS/Linux
-- [Profiles](../Administration/Profiles.md) - Working with profiles in V2
-- [Security Guide](./Security.md) - Security considerations for V2
+- [Windows Installation](./Windows_Installation.md): installing V2 on Windows.
+- [Docker Installation](./Docker_Installation.md): installing V2 using Docker.
+- [Linux and macOS Installation](./Zip_Installation.md): installing V2 on macOS and Linux.
+- [Profiles](../Administration/Profiles.md): working with profiles in V2.
+- [Security Guide](./Security.md): security considerations for V2.
+- [Release Notes 2.3](../Release_Notes/2.3.1.md): what changed in Profinity 2.3 and how to upgrade from 2.2.

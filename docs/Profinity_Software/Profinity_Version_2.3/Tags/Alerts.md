@@ -1,34 +1,34 @@
 ---
 title: Alerts Log
-description: "Surface rule-generated alerts across the UI with active/history tabs and live alert indicators."
+description: "View, acknowledge and silence rule-generated alerts in the Alerts Log, with active and history tabs and live alert indicators."
 ---
 
 # Alerts Log
 
-Profinity 2.3 surfaces rule-generated alerts in **Alerts Log**, live indicators across the UI, and the `/api/v2/Alerts` API. Operators with **`AlertsView`** permission can view, acknowledge, unacknowledge, and silence alerts.
+Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indicators across the UI, and through the `/api/v2/Alerts` API. Operators with the **View alerts** permission can view and acknowledge alerts and silence their actions, and an alert's text, level and links come from the [rule](./Actions.md) that raised it.
 
 <figure markdown>
-![The Alerts Log page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge/silence controls](../images/2.3-diagram-alerts.png)
-<figcaption>Nothing gets missed in a log file</figcaption>
+![The Alerts Log page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge and silence controls](../images/2.3-diagram-alerts.png)
+<figcaption>Alerts Log with Active and History tabs and the alert detail panel</figcaption>
 </figure>
 
 ## Open Alerts Log
 
-Select **ALL ALERTS** in the side menu to open the Alerts Log.
+Select **ALL ALERTS** in the side menu to open the Alerts Log, which shows the page heading **ALERTS**.
 
 <figure markdown>
 ![Side menu with ALL ALERTS entry](../images/2.3-side-menu-all-alerts.png)
 <figcaption>ALL ALERTS in the side menu</figcaption>
 </figure>
 
-The side menu icon uses the Carbon alert style — not the legacy `dash_alerts_active.svg` asset.
-
-## Active and History tabs
+## Active and History Tabs
 
 | Tab | Content |
 |-----|---------|
 | **Active** | Rule alerts currently firing |
-| **History** | Paginated history (newest first) |
+| **History** | Paginated history, newest first |
+
+Both tabs show the time (labelled **Active Time** on the **Active** tab, which is when the current episode began), the component, the rule, the level, the status and an actions column. Each row has a **More info** button that opens a detail dialog with the alert's message, tag, time and status, followed by the rule's `description`, which supports Markdown, and any `moreInformation` links under **DOCUMENTATION**. Both tabs can be filtered by level, the **Active** tab can also be filtered by acknowledgement status, and the **History** tab has a date range. Tables show 25, 50, 75 or 100 rows per page, and 25 by default.
 
 <figure markdown>
 ![Alerts Log Active tab with alert table](../images/2.3-alerts-active-tab.png)
@@ -40,19 +40,13 @@ The side menu icon uses the Carbon alert style — not the legacy `dash_alerts_a
 <figcaption>Alert history</figcaption>
 </figure>
 
-Typical columns include time, rule name, tag, and **description** (from the rule's `description` field).
+## Alert Levels
 
-## Alert levels
+Every rule and threshold step carries a `level`, and the six permitted values in ascending severity are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`. The valid names, their aliases and the defaults are described under [Alert Level](./Actions.md#alert-level), and the level filter on the Active and History queries is not case-sensitive.
 
-Every rule and threshold step carries a `level`, and the six permitted values in ascending severity are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`. A rule that omits `level` defaults to `Info`, and an unrecognised value is rejected when the rules file loads. The `triggerLevel` of a parent action uses the same values and fires for alerts at that level or above. The `level` filter on the Active and History queries, and on the MCP alert tools, is case-insensitive.
+## Live Indicators
 
-## Live indicators
-
-The web client polls active alerts every **four seconds** and shows indicators in:
-
-- **[Dashboard](../Customising_Profinity/Dashboards/index.md) widgets** bound to alerting tags — yellow alert triangle on the bottom-right of the widget.
-- **Tag Explorer** — alert icon on leaf tags (and branch rollup where configured).
-- **Side menu** — ALL ALERTS entry when alerts are active.
+The web client polls active alerts every four seconds and shows a yellow alert triangle at the bottom right of any [dashboard](../Customising_Profinity/Dashboards/index.md) widget bound to an alerting tag, an alert icon on tags in Tag Explorer that have an active alert, and a highlighted **ALL ALERTS** entry in the side menu while any alert is active. Hovering over an indicator shows a summary of the alert, and selecting it opens the Alerts Log when the user holds the **View alerts** permission.
 
 <figure markdown>
 ![Dashboard widget with yellow alert triangle indicator](../images/2.3-dashboard-alert-indicator.png)
@@ -64,56 +58,60 @@ The web client polls active alerts every **four seconds** and shows indicators i
 <figcaption>Rule alert on a tag in Tag Explorer</figcaption>
 </figure>
 
-!!! info "Alert vs stale data quality"
-    **Rule alerts** use a **yellow triangle**. **Stale tag data quality** on Tag Explorer uses a separate **Carbon** icon — not the alert triangle. If both appear, they indicate different conditions.
+!!! info "Alert vs Stale Data Quality"
+    Rule alerts use a yellow triangle. Stale data quality in Tag Explorer has its own icon, distinct from the alert triangle, so when both appear they indicate different conditions.
 
-## Acknowledge, unacknowledge, and silence
+## Acknowledge and Silence
 
-From Alerts Log (requires `AlertsView` — same permission for mutations):
+Acknowledging and silencing both need the **View alerts** permission, and both act on an alert that is currently active.
 
 | Action | Effect |
 |--------|--------|
-| **Acknowledge** | Marks alert as seen/handled |
-| **Unacknowledge** | Reverts acknowledgement |
-| **Silence** | Suppresses notifications for the number of minutes given in `durationMinutes` on the request |
+| **Acknowledge** | Marks the alert as seen and handled, and does not clear it. |
+| **Silence** | Suppresses the actions of the rule for that alert, so no Email, Slack, Webhook, MQTT, script or log action runs, while the alert stays active and visible with a silence badge. |
+
+The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab. Through the API a silence can last from 1 to 1440 minutes (24 hours), and a request outside that range is refused with "durationMinutes must be between 1 and 1440." The `/api/v2/Alerts/Unack` route reverts an acknowledgement.
 
 ### REST API
 
-| Method | Route |
-|--------|-------|
-| GET | `/api/v2/Alerts/Active` |
-| GET | `/api/v2/Alerts/History` |
-| POST | `/api/v2/Alerts/Ack` |
-| POST | `/api/v2/Alerts/Unack` |
-| POST | `/api/v2/Alerts/Silence` |
+| Method | Route | Body |
+|--------|-------|------|
+| GET | `/api/v2/Alerts/Active` | None. Optional query values `componentId`, `tagPrefix`, `unacknowledgedOnly` and `level`. |
+| GET | `/api/v2/Alerts/History` | None. |
+| POST | `/api/v2/Alerts/Ack` | `{ "ruleId": "...", "tagId": "..." }` |
+| POST | `/api/v2/Alerts/Unack` | `{ "ruleId": "...", "tagId": "..." }` |
+| POST | `/api/v2/Alerts/Silence` | `{ "ruleId": "...", "tagId": "...", "durationMinutes": 60 }` |
 
-## Rule evaluation: dwell and deadband
+## Rule Evaluation: Dwell and Deadband
 
 <figure markdown>
 ![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../images/2.3-diagram-rules.png)
-<figcaption>Monitoring logic that scales with the fleet</figcaption>
+<figcaption>Dwell, deadband and severity levels on a rule</figcaption>
 </figure>
 
-Rules support **dwell** (the condition must hold for a duration, set with `dwellSeconds` or `dwellMinutes`) and **deadband** (hysteresis, set on a threshold step with `clearValue` or `clearExpression`), configured in the rules visual editor or in `rules.yaml`. Engine evaluation interval is controlled by **`evaluationTickSeconds`** in rule configuration.
+Rules support **dwell**, where the condition must hold for a duration set with `dwellSeconds` or `dwellMinutes`, and **deadband**, where the alert clears at a different point from where it tripped, set on a threshold step with `clearValue` or `clearExpression` and on a boolean rule with `clearExpression`. Both are configured in the rules visual editor or in `rules.yaml`, and a complete example of each is shown under [A Complete rules.yaml Example](./Actions.md#a-complete-rulesyaml-example).
 
-Conditions use the same `tag` expression language as collections. Numeric trip and clear conditions:
+Rules evaluate whenever a tag in their scope changes. The `evaluationTickSeconds` setting adds a periodic extra pass, takes a whole number from 1 to 3600, and is required for a rule that detects stale data with `tag.IsStale`, because a stale tag does not change. When several rules files set it, the smallest value applies to the whole profile.
+
+Conditions use the same `tag` expression language as collections, so a numeric trip and clear pair is written as follows:
 
 ```text
 tag.Value > 4.2
 tag.Value < 4.0
 ```
 
-A no-data or stale sensor condition (preferred over sample age):
+A no-data or stale sensor condition is written as follows:
 
 ```text
 tag.IsStale
 ```
 
-How to write conditions: [Tag expressions](./Tag_Expressions.md). Also see [Rule actions and scripts](./Actions.md) and [Tag layer](index.md).
+The expression language is described in [Tag expressions](./Tag_Expressions.md), and the actions a rule runs are described in [Rule actions and scripts](./Actions.md).
 
-## Related documentation
+## Related Documentation
 
 - [Tag expressions](./Tag_Expressions.md)
+- [Rule actions and scripts](./Actions.md)
 - [Tag layer](index.md)
 - [Collections](./Collections.md)
 - [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)

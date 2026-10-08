@@ -5,27 +5,17 @@ description: "Script operations for loading, parsing, and working with DBC files
 
 # DBC
 
-The DBC functionality in Profinity provides tools for reading signals defined in the CAN bus database (DBC) files that are loaded by the components in a profile. These files define the structure of CAN messages, including signals, message IDs, and data formats. A script does not load or parse a DBC file itself, because the DBC file is loaded by the component that owns it, and the script looks up that component's signals by name through `Profinity.DBC`. Use the DBC viewer in Profinity to find the Component, Message and Signal names that a script needs to track.
+The DBC functionality in Profinity provides tools for reading signals defined in the CAN bus database (DBC) files that are loaded by the components in a profile. These files define the structure of CAN messages, including signals, message IDs, and data formats. A script does not load or parse a DBC file itself, because the DBC file is loaded by the component that owns it, and the script looks up that component's signals by name through `Profinity.DBC`. The [DBC viewer](../../../CAN_Utilities/CAN_Bus_DBC.md) shows the Component, Message and Signal names that a script needs to track.
 
-## Key Features
-
-The DBC functionality provides the following core capabilities.
-
-- Look up a signal definition from a component's loaded DBC file by component, message and signal name
-- Read signal properties such as the unit, minimum, maximum and comment
-- Read the current physical value of a signal, converted from the latest raw CAN data using the signal's factor and offset
+A script can look up a signal definition from a component's loaded DBC file by component, message and signal name, read signal properties such as the unit, minimum, maximum and comment, and read the current physical value of a signal, converted from the latest raw CAN data using the signal's factor and offset.
 
 ## Usage
 
-The following examples show how to use the DBC functionality in scripts. Each example is shown in C#, Python and Lua.
+The examples below show the DBC operations in C#, Python and Lua.
 
-### Basic Operations
+### The GetDbcSignal Method
 
-Basic operations cover the fundamental tasks performed with DBC signals, such as accessing signal definitions and reading their current values.
-
-### GetDbcSignal Method
-
-The `GetDbcSignal` method retrieves a signal definition from a component's loaded DBC file using the component name, message name, and signal name.
+The `GetDbcSignal` method retrieves a signal definition from a component's loaded DBC file using the component name, message name and signal name.
 
 #### Syntax
 
@@ -49,13 +39,15 @@ The `GetDbcSignal` method retrieves a signal definition from a component's loade
 
 #### Parameters
 
-- `component`: The name of the component that sends/receives the message
-- `message`: The name of the CAN message containing the signal
-- `signal`: The name of the signal to retrieve
+| Parameter | Meaning |
+|-----------|---------|
+| `component` | The name of the component in the profile that owns the DBC file |
+| `message` | The name of the CAN message containing the signal |
+| `signal` | The name of the signal to retrieve |
 
 #### Return Value
 
-Returns a `DbcSignal` object containing the signal definition. The method throws an `ArgumentException` when the component, message or signal cannot be found, so a script that may reference a missing name should wrap the call in `try`/`catch` (C#), `try`/`except` (Python) or `pcall` (Lua).
+Returns a `DbcSignal` object containing the signal definition. The method throws an `ArgumentException` when the component, message or signal cannot be found, so a script that could reference a missing name wraps the call in `try`/`catch` (C#), `try`/`except` (Python) or `pcall` (Lua).
 
 #### Value Property
 
@@ -125,8 +117,6 @@ The most important property of the returned `DbcSignal` object is the `Value` pr
     end
     ```
 
-#### Important Notes
+#### Names and Conversion
 
-1. The component, message, and signal names are case-sensitive
-2. Throws an `ArgumentException` if any of the parameters do not match definitions in the DBC file
-3. The `Value` property automatically converts the raw CAN data to the physical value using the signal's factor and offset, and returns `NaN` when the device is not valid or no current packet is available
+`GetDbcSignal` throws an `ArgumentException` (`Component not found:` followed by the name, when the component is the one that does not match) if any of the parameters do not match the profile or the DBC file. The `Value` property converts the raw CAN data to the physical value using the signal's factor and offset, and returns `NaN` when the device is not valid or no current packet is available.

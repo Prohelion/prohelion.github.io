@@ -5,18 +5,18 @@ description: "Status pill with central icon and grouped readouts for compact com
 
 # Pill
 
-Status pill component with grouped readouts and icon. Pills display multiple related values around a central icon, which suits component status and key metrics.
+A pill is a compact status display that shows several related values, arranged in groups, beside a central icon, which suits component status and key metrics.
 
 <figure markdown>
 ![Pill component showing status display with icon and grouped readouts](../../images/pill.png)
 <figcaption>Pill component showing status display with icon and grouped readouts</figcaption>
 </figure>
 
-**Best for:** Component status displays, key metric summaries, compact data presentation
+## When to Use
 
-**When not to use:** When individual readouts are needed without grouping, or when no icon is needed
+Use a pill for component status and key metrics, where several related values sit beside one icon. Use [Readouts](../Data/Readouts.md) when the values need no icon or grouping.
 
-**Parameters:**
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -26,18 +26,18 @@ Status pill component with grouped readouts and icon. Pills display multiple rel
 | `icon` | object | No | None | Icon shown at the left of the pill. When omitted, the icon area is left empty |
 | `items` | array | Yes | None | Array of pill groups, laid out horizontally in order |
 
-**Icon Parameters:**
+### Icon Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `image` | string | No | None | Carbon icon name, a legacy icon filename such as `nav_battery_active.svg`, or an image filename from the `/Profile/Images` directory |
+| `image` | string | No | None | Icon name such as `BatteryCharging`, an icon filename such as `nav_battery_active.svg`, or an image filename from the `/Profile/Images` directory. See [Icon](../Interactive/Icon.md) for the icon names |
 | `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed frame at a larger size |
-| `value` | number | No | None | State of the icon between `0` and `1`, which selects a state-specific CSS class for icons that are styled by class rather than by `image` |
+| `value` | number | No | None | State of the icon between `0` and `1`. The value only affects icons that change with state, and has no visible effect on an icon drawn from `image` |
 | `bind` | array | No | None | Data binding for the icon. Only the `value` target is handled |
 
-**Pill Group Parameters:**
+### Pill Group Parameters
 
-Each item in `items` must contain a `pillgroup` object with:
+Each item in the pill's `items` must contain a `pillgroup` object with:
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -45,9 +45,9 @@ Each item in `items` must contain a `pillgroup` object with:
 | `class` | string | No | None | Not used by the web interface |
 | `items` | array | Yes | None | Array of value items |
 
-Each item in the pill group's `items` must contain a `value` object (a pill item) with:
+### Pill Item Parameters
 
-**Pill Item Parameters:**
+Each item in the pill group's `items` must contain a `value` object, which is a pill item, with:
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -55,14 +55,14 @@ Each item in the pill group's `items` must contain a `value` object (a pill item
 | `value` | number or string | No | None | Static value. When no data is available, the pill shows `--` and the item is displayed as stale |
 | `unit` | string | No | None | Unit appended after a numeric value. The unit can be bound with the `unit` target |
 | `precision` | number | No | None | Number of decimal places for numeric values |
-| `dotColor` | string | No | None | Shows a status dot beside the value. Use `success`, `warning` or `error`, which the web interface resolves to the colours of the design system, or a raw CSS colour as an alternative that bypasses the design system. The dot is not shown when `hyperlink` is set |
+| `dotColor` | string | No | None | Shows a status dot beside the value. Use `success`, `warning` or `error` for the dashboard theme colours, or any CSS colour value. Give the item a `label` as well, because colour alone does not state the status. The dot is not shown when `hyperlink` is set |
 | `hyperlink` | string | No | None | When set, the value is displayed as a link. A path that starts with `Profile/` resolves against the Profinity server |
 | `openHyperLinkInNewWindow` | boolean | No | `false` | When `true` and `hyperlink` is set, the link opens in a new browser tab. The parameter has no effect without `hyperlink` |
 | `enabled` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed normally |
 | `visible` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed |
-| `bind` | array | No | None | Data binding for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
+| `bind` | array | No | None | [Data binding](../../Data_Binding.md) for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
 
-**Example:**
+## Example
 
 ``` yaml
 dashboard:

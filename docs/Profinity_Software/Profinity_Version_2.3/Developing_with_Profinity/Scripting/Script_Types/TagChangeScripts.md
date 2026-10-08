@@ -7,17 +7,9 @@ description: "Scripts set to Run On Tag Change mode that execute each time a wat
 
 A Tag Change script runs each time the value of a watched tag changes. It suits reacting to another component's output, computing values that need more than a single expression, and chaining automation, without polling the tag on a timer.
 
-A script becomes a Tag Change script by setting its **Script Mode** to **Run On Tag Change**. It is the same component used for every other script type, switched into a different mode.
+A script becomes a Tag Change script by setting its **Script Mode** to **Run On Tag Change**. It implements the `OnTagChange` method (C#) or the `on_tag_change` function (Python and Lua), which receives the tag's id and a sample holding the new value, quality and timestamp. The script can read and write other tags with [Tags](../Script_Operations/Tags.md) and keep earlier values between calls with [State](../Script_Operations/State.md).
 
-## Characteristics
-
-- Runs automatically when a watched tag changes
-- Implements the `OnTagChange` method (C#) or the `on_tag_change` function (Python and Lua)
-- Receives the tag's id and a sample holding the new value, quality and timestamp
-- Can read and write other tags with [Tags](../Script_Operations/Tags.md)
-- Can keep earlier values between calls with [State](../Script_Operations/State.md)
-
-## Choosing what to watch
+## Choosing What to Watch
 
 Enable scripting in [System Configuration](../../../Administration/System_Configuration/Application_Config.md) first, as every script type requires it. Then add a **CSharp Script**, **Python Script** or **Lua Script** component, set **Script Mode** to **Run On Tag Change**, and choose the tags to watch in the **Tag Change Settings** category:
 
@@ -28,7 +20,7 @@ Enable scripting in [System Configuration](../../../Administration/System_Config
 
 The script watches the union of the two lists, and at least one tag path or collection is required.
 
-## The method and its arguments
+## The Method and Its Arguments
 
 Profinity calls the method once for each tag that changes, passing:
 
@@ -75,19 +67,19 @@ Profinity calls the method once for each tag that changes, passing:
 
 The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `LuaTagChangeTemplate.lua` ship as templates in the `example_scripts` folder of the Profinity directory.
 
-!!! warning "One call per tag"
-    The `sample` argument is only the tag that changed. Reading any other tag returns its live value at that moment, not the value published together with this change. A frame, a payload, or several tags written as one update are already separate changes before your method runs, so do not assume sibling tags are consistent with each other.
+!!! warning "One Call per Tag"
+    The `sample` argument is only the tag that changed. Reading any other tag returns its live value at that moment, not the value published together with this change. A frame, a payload or several tags written as one update are already separate changes before the method runs, so sibling tags are not guaranteed to be consistent with each other.
 
 To read the tag that fired, including its quality and timestamp, pass its id back to [`Profinity.Tags`](../Script_Operations/Tags.md) with a leading `/`, which is the root of the tag tree: `Profinity.Tags.GetSample("/" + tagId)` in C# and Python, or `Profinity.Tags:GetSample('/' .. tagId)` in Lua. Without the `/`, the id would be treated as relative to the script's host component.
 
-A second write of the same value does not call the method when the source reports a change only if the stored sample differs.
+Writing the same value again does not call the method for sources that report a change only when the stored sample differs.
 
-!!! warning "Manually running the script does not call this method"
+!!! warning "Running the Script by Hand Does Not Call This Method"
     Run On Demand and scheduled runs do not call `OnTagChange` or `on_tag_change`. Only a change to a watched tag does, so test by changing the tag.
 
-## Publishing a computed tag
+## Publishing a Computed Tag
 
-A common use is computing one tag from another. This example converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values). See [Derived tags](../../../Tags/Derived_Tags.md) for when to choose this over an expression-based derived tag.
+A common use is computing one tag from another. This example, which follows the `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` templates shipped in the `example_scripts` folder of the Profinity directory, converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values). See [Derived Tags](../../../Tags/Derived_Tags.md) for when to choose this over an expression-based derived tag.
 
 === "C#"
 
@@ -145,7 +137,7 @@ A common use is computing one tag from another. This example converts a speed in
 
 Paths without a leading `/` are relative to the script's host component, so this script is meant to run on the component that owns both tags. To publish to a tag on another component, start the path with `/`, as described in [Tag paths](../Script_Operations/Tags.md#tag-paths). Reading the published tag never re-runs the script. It returns the last value the script wrote.
 
-## Trigger overlap
+## Trigger Overlap
 
 If the method is still running when another change arrives, **Trigger Overlap** decides what happens. It is the same setting used by Run On Alert and Run On Receipt of CAN Message:
 
@@ -154,7 +146,7 @@ If the method is still running when another change arrives, **Trigger Overlap** 
 
 Keep the method fast. A slow script under **Queue** builds a backlog, and under **Drop** silently misses changes. Store previous values in [State](../Script_Operations/State.md) rather than recomputing them. If a run must be bounded, set **Maximum Run Time (seconds)**. The handler stops only when the script checks `Profinity.ScriptCancelled`.
 
-## Related documentation
+## Related Documentation
 
 - [Tags in scripts](../Script_Operations/Tags.md)
 - [Derived tags](../../../Tags/Derived_Tags.md)

@@ -1,69 +1,52 @@
 ---
 title: Password Policy
-description: "Configure password policies for local sign-in including length, complexity, and expiry requirements."
+description: "Set password length, complexity and expiry rules for local sign-in, force password changes and let users change their own password."
 ---
 
 # Password Policy
 
-Profinity 2.3 enforces **password policy** for **local** sign-in (when site **Sign-in method** is **Local**). Policy is configured in **config.yaml** under **Security Policy → Password Policy**.
+The password policy applies to **local** sign-in, which is when the site **Sign-in method** is **Local**, and it sets the length, complexity and age rules for every local user's password. Users who sign in through single sign-on (SSO) authenticate with the identity provider, so these rules do not apply to them, as described in [SSO and Sign-In Method](./SSO_and_Sign_In.md).
 
-SSO users authenticate through the identity provider; local password rules do not apply to them.
+## Configuring the Password Policy
 
-## Configure password policy
+To set the policy, sign in as a user with the **System administration** permission, select **ADMIN** in the side menu, then **System Configuration**, and open the **Password Policy** group on the **Security** tab. Saving the tab restarts Profinity and interrupts active sessions.
 
-1. Sign in as a user with **SystemAdmin** permission.
-2. Select **ADMIN** in the side menu, then **System Configuration**.
-3. Open **Security Policy** → **Password Policy**.
+| Setting | Default | Range | Description |
+|---------|---------|-------|-------------|
+| **Minimum password length** | 8 | 1 to 256 | The minimum number of characters in a local user's password. |
+| **Require uppercase letter** | Off | On or off | The password must contain at least one uppercase letter. |
+| **Require lowercase letter** | Off | On or off | The password must contain at least one lowercase letter. |
+| **Require digit** | Off | On or off | The password must contain at least one digit. |
+| **Require special character** | Off | On or off | The password must contain at least one special character. |
+| **Maximum password age (days)** | Empty (no expiry) | 1 to 3650 | When set, local users must change their password after this many days. |
 
-| Setting | Description |
-|---------|-------------|
-| **Minimum length** | Minimum password character count |
-| **Require uppercase** | At least one uppercase letter |
-| **Require lowercase** | At least one lowercase letter |
-| **Require digit** | At least one numeric character |
-| **Require special character** | At least one non-alphanumeric character |
-| **Maximum age (days)** | Password expiry; leave the field empty to disable expiry |
+The shipped policy accepts any password of eight characters or more, with no complexity rules and no expiry, so a site that handles safety-critical equipment raises the minimum length and switches on the complexity rules, and sets **Maximum password age (days)** to match its organisation's identity policy. The dialog for changing a password shows the minimum length as the user types.
 
-Saving config.yaml restarts the Profinity engine.
+## Forced Password Change
 
-## Forced password change
+A user with the **Security administration** permission can require another user to change their password at the next sign-in, either by enabling **Require password change on next login** in the user's settings in **Users & Groups**, or by selecting **Reset Password** on the user's **User Actions** tab. **Reset Password** sets the same requirement and signs out the user's active sessions, and it is the preferred way to recover a compromised account because no temporary password has to be shared. **Reset Password** is not shown on an administrator's own account.
 
-A user with **SecurityAdmin** permission can require another user to change their password on next login:
-
-1. Select **ADMIN** in the side menu, then **Users & Groups**, and select the user.
-2. Enable **Require password change on next login**.
-
-The default `admin` account may be configured to require password change on first login after a fresh install.
-
-When a user with this flag signs in, Profinity shows a **change password** dialog before granting access to the application.
+A user with this requirement sees a **change password** dialog after signing in and cannot use Profinity until a new password that meets the policy is saved. A new installation creates the `admin` account with this requirement already set, so the first sign-in as `admin` always forces a password change. The default `admin` credentials are listed in the [Security guide](../../../Installation/Security.md).
 
 <figure markdown>
 ![Forced password change dialog on login](../../../images/2.3-forced-password-change-dialog.png)
-<figcaption>Password change required before continuing</figcaption>
+<figcaption>Password Change Required Before Continuing</figcaption>
 </figure>
 
-## Changing password when logged in
+## Changing Your Own Password
 
-Users with local accounts can change their own password when signed in by selecting **ADMIN** in the side menu, then the **Change My Password** pill, which is shown only when the site sign-in method is Local and the session is not a kiosk session.
-
-Enter your current password, then choose and confirm a new one, and select **Update Password**. The dialog shows the minimum length as you type; the site policy is enforced when you save.
+A local user changes their own password by selecting **ADMIN** in the side menu, then the **Change My Password** pill, which is shown only when the site sign-in method is **Local** and the session is not a kiosk session. The user enters the current password, chooses and confirms a new one, and selects **Update Password**, and the site policy is enforced when the new password is saved.
 
 <figure markdown>
 ![Change Password dialog with current, new and confirm new password fields](../../../images/2.3-change-password.png)
-<figcaption>Changing your own password</figcaption>
+<figcaption>Changing Your Own Password</figcaption>
 </figure>
 
-## Best practices
+## Related Documentation
 
-- Change default `admin` / `password` credentials immediately after install.
-- Align **Maximum age** with your organisation's identity policy.
-- Use **Require password change on next login** when resetting a compromised account instead of sharing temporary passwords in plain text.
-
-## Related documentation
-
-- [SSO and sign-in method](./SSO_and_Sign_In.md)
-- [Two-factor authentication](./Two_Factor_Authentication.md)
-- [MFA account management](../../Users_and_Access/MFA_Account_Management.md)
-- [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md)
-- [Managing users](../../Users_and_Access/Manage_Users.md)
-- [Security guide](../../../Installation/Security.md)
+- [SSO and Sign-In Method](./SSO_and_Sign_In.md)
+- [Two-Factor Authentication](./Two_Factor_Authentication.md)
+- [MFA Account Management](../../Users_and_Access/MFA_Account_Management.md)
+- [Roles and Permissions](../../Users_and_Access/Roles_and_Permissions.md)
+- [Managing Users](../../Users_and_Access/Manage_Users.md)
+- [Security Guide](../../../Installation/Security.md)

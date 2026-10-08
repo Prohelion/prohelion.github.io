@@ -5,44 +5,50 @@ description: "Available script operations including CAN bus, DBC, state manageme
 
 # Supported Operations
 
-The following operations are available to every script, regardless of the language used.
+The following operations are available to every script, regardless of the language used, through the `Profinity` object.
 
-## CAN bus Communication
+## CAN Bus Communication
 
-Scripts can send CAN packets and read the latest received packets. See the [CAN bus](./CANBus.md) documentation for examples and usage.
+Scripts can send CAN packets and read the latest received packets. See [CAN Bus](./CANBus.md) for examples and usage.
 
 ## DBC Message and Signal Information
 
-Scripts can read signal values from the loaded DBC files by component, message and signal name, with the raw CAN data converted to physical values. See the [DBC](./DBC.md) documentation for examples and usage.
+Scripts can read signal values from the loaded DBC files by component, message and signal name, with the raw CAN data converted to physical values. See [DBC](./DBC.md) for examples and usage.
 
 ## State Management
 
-Profinity provides two state stores for keeping and sharing data:
-
-- **Local State (State):** Use `State` for data persistence within a single script.
-- **Global State (GlobalState):** Use `GlobalState` to share data across multiple scripts.
-
-See the [State](./State.md) documentation for examples and usage.
+Profinity provides two state stores. `State` keeps data for a single script between its runs, and `GlobalState` shares data across multiple scripts. See [State](./State.md) for examples and usage.
 
 ## Tags
 
-Scripts can read tag values, publish values to tags, and attach metadata to the tags they publish. See the [Tags](./Tags.md) documentation for examples and usage.
+Scripts can read tag values, publish values to tags, and attach metadata to the tags they publish. See [Tags](./Tags.md) for examples and usage.
 
 ## Console Output
 
-Scripts in all three languages can write information and error messages to the Profinity log. See the [Console](./Console.md) documentation for examples and usage.
+Scripts in all three languages can write information and error messages to the Profinity log. See [Console](./Console.md) for examples and usage.
 
-## Next Steps
+## Component and Firmware Settings
 
-1. Explore the detailed documentation for each feature:
-   - [Console](./Console.md)
-   - [State](./State.md)
-   - [Tags](./Tags.md)
-   - [CAN bus](./CANBus.md)
-   - [DBC](./DBC.md)
-2. Review the language-specific documentation:
-   - [C# Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/)
-   - [IronPython Documentation](https://ironpython.net/documentation/)
-   - [NLua Documentation](https://github.com/NLua/NLua)
-3. Experiment by creating simple scripts that integrate multiple features.
-4. Review the example scripts in the `example_scripts` folder of the Profinity directory.
+A script that belongs to a [Custom Component](../../Custom_Components/index.md) reads the component's saved settings through `Profinity.ComponentSettings`, and its firmware settings through `Profinity.FirmwareSettings`. Both are keyed by the field identifiers defined in `settings_map.yaml` and `firmware_map.yaml`, so a serial port or baud rate entered on the component reaches the script without a code change. Each object has these methods:
+
+| Method | What it does |
+|--------|--------------|
+| `GetValue(fieldId)` | Returns the saved value of the field |
+| `TryGetValue(fieldId, out value)` | Returns whether the field exists, and its value when it does |
+| `SetValue(fieldId, value)` | Saves a new value for the field |
+| `TrySetValue(fieldId, value, out errorMessage)` | Saves a new value and reports an error message instead of failing |
+| `GetMetadata(fieldId)` | Returns the field's definition from the map file |
+| `GetAllMetadata()` | Returns the definitions of every field |
+
+The shipped G-STAR IV sample component reads its serial settings in Python in this way:
+
+```python
+port = Profinity.ComponentSettings.GetValue("comPort")
+baud_value = Profinity.ComponentSettings.GetValue("baudRate")
+```
+
+A script that is not hosted by a component cannot use either object, and a script run from `profinity-script sim` has no host component, so these calls fail there with a message that names the missing host component.
+
+## Where to Go Next
+
+Each operation has its own page, listed above. The [Profinity SDK](../../SDK.md) page describes how to write and test a script offline, and the `example_scripts` folder of the Profinity directory holds starting scripts for each script type. The language references are on [Supported Languages](../Supported_Languages/index.md).

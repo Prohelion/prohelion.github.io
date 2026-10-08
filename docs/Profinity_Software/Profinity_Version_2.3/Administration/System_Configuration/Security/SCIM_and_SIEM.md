@@ -1,61 +1,58 @@
 ---
 title: SCIM and SIEM
-description: "Enable SCIM user provisioning from identity providers and configure SIEM log export for security monitoring."
+description: "Enable SCIM user provisioning from identity providers and configure SIEM export of security audit events."
 ---
 
 # SCIM and SIEM
 
-Profinity 2.3 configures **SCIM user provisioning** and **SIEM log export** in **config.yaml** under **Security Config**. These settings moved from security.yaml in earlier releases; saving config.yaml **restarts the engine**.
+System for Cross-domain Identity Management (SCIM) provisioning lets an identity provider create and deactivate Profinity users automatically, and Security Information and Event Management (SIEM) export forwards Profinity's security audit events to a collector. Both are set on the **Security** tab of **System Configuration**, which requires the **System administration** permission, and saving the tab restarts Profinity and interrupts active sessions.
 
-OIDC SSO configuration is covered in [SSO and sign-in method](./SSO_and_Sign_In.md). SCIM provisioning uses the same site OIDC provider context — there is no separate `OidcProviderId` selector.
+## SCIM Provisioning
 
-## SCIM provisioning
+!!! note "Licence Required"
+    SCIM provisioning requires the **Enterprise Security** licensed feature, included in the **Enterprise** edition only. Without it, **Enable SCIM user provisioning** does not take effect. See [Licensing](../../Licensing.md) for what each edition includes.
 
-### Configuration
+The **SCIM Provisioning** group appears only when **Sign-in method** is **Sso**, because provisioned users sign in through the identity provider configured in [SSO and Sign-In Method](./SSO_and_Sign_In.md). To enable provisioning, switch on **Enable SCIM user provisioning**, enter a **SCIM bearer token**, and optionally enter **Default assigned roles**, then save. Profinity refuses to save and shows the message "SCIM bearer token is required when SCIM provisioning is enabled." when the token is empty, and "SSO must be configured when SCIM provisioning is enabled." when the SSO group has no **Authority URL (IdP issuer)**.
 
-1. Open **System Configuration** → **Security Config** → **SCIM**.
-2. Enable **SCIM provisioning**.
+| Setting | Description |
+|---------|-------------|
+| **Enable SCIM user provisioning** | Allows the identity provider to create and deactivate users through the SCIM 2.0 interface. Off by default. |
+| **SCIM bearer token** | The long-lived secret the identity provider presents as `Authorization: Bearer`. Treat it like a password. Replacing it means entering a new value here, saving, and entering the same value in the identity provider. |
+| **Default assigned roles** | A comma-separated list of Profinity roles given to every user that SCIM creates, because permissions are defined on roles. Names that do not match an existing role are ignored, and an empty list creates users with no role. |
 
-    !!! note "Licensing"
-        Enabling SCIM provisioning (`SecurityScimProvisioning.Enabled`) requires the **Enterprise Security** feature, included in the **Enterprise** edition only. Without this licence, the toggle is unavailable.
+### Endpoint and Supported Operations
 
-3. Set a **bearer token** for SCIM clients (store securely; rotate periodically).
-
-### Endpoint
-
-SCIM clients call:
+The identity provider calls the following address, authenticating with the bearer token:
 
 ```text
 https://{your-host}/scim/v2/Users
 ```
 
-Authenticate with the configured **bearer token** (HTTP `Authorization: Bearer ...`). Profinity implements the SCIM user resource operations required for provisioning integrations — refer to your IdP's SCIM setup guide for attribute mapping.
+Profinity supports creating a user (`POST`), listing users and reading one user by id (`GET`), and updating a user (`PATCH`), and it publishes its capabilities at `/scim/v2/ServiceProviderConfig`. Deprovisioning deactivates the user in Profinity (the identity provider sends `active: false`) and does not delete the account. Profinity does not support replacing a user with `PUT`, deleting a user, or SCIM groups, so group membership in the identity provider does not create or change Profinity roles, and the **Default assigned roles** setting is the only role assignment SCIM provides. Attribute mapping is configured in the identity provider, so follow its SCIM setup guide.
 
-### Default roles for provisioned users
+Choose **Default assigned roles** with care, because every provisioned user receives them, and avoid assigning **Administrators**. Role permissions are listed in [Roles and Permissions](../../Users_and_Access/Roles_and_Permissions.md).
 
-Map default **Assigned roles** for newly provisioned users in SCIM settings (config.yaml `DefaultAssignedRoles`). Ensure provisioned users receive appropriate permissions — avoid assigning **Administrators** by default.
+## SIEM Export
 
-## SIEM export
+When **Enable SIEM export** is on, Profinity forwards its security audit events, such as sign-ins, failed sign-ins and licence changes, to the collector configured in the **SIEM Export** group. The other settings appear only after **Enable SIEM export** is switched on.
 
-Configure **SIEM Export** under **Security Config**:
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Enable SIEM export** | Off | Forwards security audit events to the SIEM collector. |
+| **SIEM host** | Empty | The host name or IP address of the SIEM collector. |
+| **SIEM port** | 0 (unset) | The collector port, from 0 to 65535. Enter the port the collector listens on, because 0 means no port is set. |
+| **Protocol** | UDP | The transport used to send events, either `UDP` or `TCP`. |
+| **Minimum log level** | Info | Only audit events at this level or higher are exported. The options are `Trace`, `Debug`, `Info`, `Warn`, `Error` and `Fatal`. |
+| **Format** | Syslog | The message format. Syslog is the only option. |
 
-| Field | Purpose |
-|-------|---------|
-| **Host** | SIEM collector hostname or IP |
-| **Port** | Collector port |
-| **Protocol** | Transport (for example TCP, UDP — per deployment) |
-| **Minimum log level** | Only events at or above this level are forwarded |
+The firewall between the Profinity host and the collector must allow outbound traffic on the chosen protocol and port. Raising **Minimum log level** reduces the volume sent, which matters when the level is set low enough to forward every event.
 
-Verify firewall rules allow outbound traffic from the Profinity host to the SIEM collector.
+## Securing the Integration
 
-## Security considerations
+Restrict access to the site configuration backups that contain the SCIM bearer token, and serve Profinity over HTTPS, as described in [Profinity Web](../Profinity_Web.md), so that sign-in and provisioning traffic is not exposed on the network.
 
-- Treat SCIM bearer tokens like passwords — restrict access to config.yaml backups.
-- Use TLS for Profinity HTTPS so administrative changes and SSO flows are not exposed on the network.
-- Review SIEM volume and minimum log level to avoid flooding the collector during debug logging.
+## Related Documentation
 
-## Related documentation
-
-- [SSO and sign-in method](./SSO_and_Sign_In.md)
-- [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md)
-- [System configuration](../index.md)
+- [SSO and Sign-In Method](./SSO_and_Sign_In.md)
+- [Roles and Permissions](../../Users_and_Access/Roles_and_Permissions.md)
+- [System Configuration](../index.md)

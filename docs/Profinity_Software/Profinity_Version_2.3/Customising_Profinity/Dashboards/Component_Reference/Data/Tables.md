@@ -5,16 +5,18 @@ description: "Data table display with heatmap visualisation, highlighting, and v
 
 # Tables
 
-Data table display. Tables present structured data in rows and columns, with heatmaps, highlighting and threshold alerts to help analyse the data.
+A table presents structured data in rows and columns, with heatmaps, highlighting and threshold alerts that help analyse the data.
 
 <figure markdown>
 ![Tables component displaying structured data in rows and columns with heatmap visualisation](../../images/tables.png)
 <figcaption>Tables component displaying structured data in rows and columns with heatmap visualisation</figcaption>
 </figure>
 
-**Best for:** Structured data display, multi-dimensional data, data analysis, large datasets, comparative data
+## When to Use
 
-**Parameters:**
+Use a table for structured and multi-dimensional data, large sets of values and comparisons between values. Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md) when the shape of the data matters more than the exact values.
+
+## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -42,11 +44,16 @@ Data table display. Tables present structured data in rows and columns, with hea
 | `columnNames` | array of string | No | None | Custom heading for each value column when the bound data is a time series. A column without a name is numbered from `1` |
 | `enabled` | boolean | No | `true` | Not used by the web interface |
 | `visible` | boolean | No | `true` | Not used by the web interface |
-| `bind` | array | No | None | Data binding that supplies the table data from tags, either as an array of row objects or as a series. Use the `value` target |
+| `bind` | array | No | None | [Data binding](../../Data_Binding.md) that supplies the table data from tags, either as an array of row objects or as a series. Use the `value` target |
 
-The web interface applies the settings to each numeric cell in this order: the display range (`minValueToDisplay` and `maxValueToDisplay`) is tested against the original value, then `conversionFactor`, `displayPositive` and `precision` are applied to the displayed text. The highlight, alert and heatmap colours are chosen from the original value.
+The web interface applies the settings to each numeric cell in this order:
 
-**Table Header Parameters:**
+1. The display range (`minValueToDisplay` and `maxValueToDisplay`) is tested against the original value, and a cell outside the range is displayed empty.
+2. `conversionFactor`, `displayPositive` and `precision` are applied to the displayed text.
+
+The highlight, alert and heatmap colours are chosen from the original value.
+
+### Table Header Parameters
 
 Each item in `tableHeaders` must contain a `header` object with:
 
@@ -55,9 +62,9 @@ Each item in `tableHeaders` must contain a `header` object with:
 | `accessorKey` | string | Yes | None | Field path in each row object that supplies the cells of the column |
 | `value` | string | Yes | None | Text of the column header |
 
-**Example:**
+## Example
 
-The example follows the cell voltage table of the Prohelion BMU dashboard, in which each cell value is in millivolts and the value `-32768` marks a cell position that is not present:
+The example follows the cell voltage table of the Prohelion BMU dashboard, in which each cell value is in millivolts and the value `-32768` marks a cell position that is not present, so `minValueToDisplay: 0` leaves those cells empty:
 
 ``` yaml
 dashboard:
@@ -79,7 +86,6 @@ dashboard:
               heatmap: true
               highlightMin: true
               highlightMax: true
-              highlightIfEqualTo: -32768
               displayPositive: true
               bind:
                 - target: value

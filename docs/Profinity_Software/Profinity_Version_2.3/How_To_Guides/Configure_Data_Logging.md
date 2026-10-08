@@ -5,136 +5,99 @@ description: "Configure data logging to files, InfluxDB, Prometheus, MQTT broker
 
 # How to Configure Data Logging
 
-Set up data logging or publishing to send CAN bus messages or tag values to files, InfluxDB, Prometheus, an MQTT broker, or a webhook.
+Set up data logging or publishing to send CAN bus messages or tag values to files, InfluxDB, Prometheus, a Message Queuing Telemetry Transport (MQTT) broker, or a webhook. A reader follows one destination, so this guide gives a short chooser, one section for each destination, and a closing check that data is flowing.
 
 ## Prerequisites
 
 - An active profile with components configured
-- (For cloud logging) Access to InfluxDB, Prometheus, an MQTT broker, or a webhook receiver
-- The `ComponentModify` permission, which allows loggers and publishers to be added
+- Access to the destination: a file system or an SSH File Transfer Protocol (SFTP) server, InfluxDB, Prometheus, an MQTT broker, or a webhook receiver
+- The **Modify components** permission, which allows loggers and publishers to be added
+- The licensed feature for the destination, which is **Historians** for the InfluxDB v2 and v3 Historians (Desktop, Server and Enterprise editions) and **Data Relay** for the MQTT Publisher and Webhook Publisher (Server and Enterprise editions). The file and SFTP loggers, the InfluxDB v1 Logger and the Prometheus Logger are available in every edition. See [Licensing](../Administration/Licensing.md)
 
-## Steps
+## Choose a Destination
 
-### Step 1: Choose Your Logger or Publisher Type
+| Destination | Component | Category | What it needs |
+|-------------|-----------|----------|---------------|
+| A file on the local file system | **[CAN File Logger](../Components/Loggers/File_Loggers.md)** (native CAN bus messages), **[TAG File Logger](../Components/Loggers/File_Loggers.md)** (tag values) | Loggers | No licensed feature |
+| A file on an SFTP server | **CAN SFTP Logger**, **TAG SFTP Logger** | Loggers | No licensed feature |
+| InfluxDB v1 | **[InfluxDB v1 Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)** | Loggers | No licensed feature |
+| InfluxDB v2 or v3 | **[InfluxDB v2 Historian](../Components/Historians/InfluxDB_v2_Historian.md)**, **[InfluxDB v3 Historian](../Components/Historians/InfluxDB_v3_Historian.md)** | Historians | Historians |
+| Prometheus | **[Prometheus Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)** | Loggers | No licensed feature |
+| An MQTT broker | **[MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** | Publishers & Subscribers | Data Relay |
+| An HTTP(S) URL | **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** | Publishers & Subscribers | Data Relay |
 
-Profinity supports:
+The TAG loggers log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections.md). The Loggers and Historians write to a queryable store for later, disconnected retrieval, and the Historians can additionally be read back through the APIs. The MQTT Publisher and Webhook Publisher push to a receiver that is listening at that moment. InfluxDB V1, V2 and V3 are separate, incompatible products, so the component must match the installed InfluxDB version.
 
-- **[CAN File Logger](../Components/Loggers/File_Loggers.md)** and **CAN SFTP Logger** - log native CAN bus messages to a file, either on the local file system or transmitted to an SFTP server
-- **[TAG File Logger](../Components/Loggers/File_Loggers.md)** and **TAG SFTP Logger** - log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections.md) to a file, either locally or transmitted to an SFTP server
-- **[InfluxDB v1 Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)**, **[InfluxDB v2 Historian](../Components/Historians/InfluxDB_v2_Historian.md)** and **[InfluxDB v3 Historian](../Components/Historians/InfluxDB_v3_Historian.md)** - log to an InfluxDB time-series database, one component for each InfluxDB version
-- **[Prometheus Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)** - serves data for a Prometheus server to collect
-- **[MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** - publishes data to an MQTT broker
-- **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** - publishes data to an HTTP(S) URL
+## Add the Component
 
-The file, SFTP, InfluxDB v1 and Prometheus components are **Loggers**, and the InfluxDB v2 and v3 components are **Historians**, which are the same kind of time-series sink and which can additionally be read back through the APIs: all of them write to a queryable store for later, disconnected retrieval.
-The MQTT Publisher and Webhook Publisher are in the **Publishers & Subscribers** category: they push to a subscriber that is actively
-listening right now, which is why they sit in their own category rather than under Loggers.
+Select **ADD COMPONENT** in the side menu (or on the home page), select the logger or publisher type from the table above, and enter its settings as described in the section for the destination. A component whose licensed feature is missing shows as unavailable.
 
-### Step 2: Add a Logger or Publisher Component
+## Configure a File or SFTP Logger
 
-1. Select **ADD COMPONENT** in the side menu (or on the home page)
-2. Select your logger or publisher type:
-   - **CAN File Logger**, **CAN SFTP Logger**, **TAG File Logger** or **TAG SFTP Logger** (under Loggers)
-   - **InfluxDB v1 Logger** (under Loggers) or **InfluxDB v2 Historian** or **InfluxDB v3 Historian** (under Historians), matching your InfluxDB version, or **Prometheus Logger** (under Loggers)
-   - **MQTT Publisher** (under Publishers & Subscribers)
-   - **Webhook Publisher** (under Publishers & Subscribers)
+The **CAN File Logger** writes native CAN bus messages to the local file system and needs no destination setting, because it creates its files under the Profinity CAN bus log directory (`can_bus_logs/`) in a folder named after the profile and the component. The **TAG File Logger** writes tag values the same way, under the Profinity tag log directory (`tag_logs/`). The **CAN SFTP Logger** and the **TAG SFTP Logger** transmit the files to a server and require the **Remote Host**, **Remote Port**, **Remote server username**, **Remote server password** and **Remote Directory** settings, and the remote directory is relative to the home directory of the user on the SFTP server, so it must not start with `/`.
 
-### Step 3: Configure a File or SFTP Logger
+Set the **Update Interval (Seconds)**. For the **TAG File Logger** and **TAG SFTP Logger**, also set the **Logging mode** (`On Change`, `Snapshot` or `Everything`), the **File Format** (`CSV` or `JSON Lines`), and, when **Logging mode** is `On Change`, the **DBC Notification Mode** (`Value Change Only` or `Every Decoded Physical Sample`).
 
-1. Choose the logger that matches both what is logged and where it goes. The **CAN File Logger** writes native CAN bus messages to the local file system and needs no destination setting, because it creates its files under the Profinity CAN bus log directory (`can_bus_logs/`) in a folder named after the profile and the component. The **TAG File Logger** writes tag values the same way, under the Profinity tag log directory (`tag_logs/`). The **CAN SFTP Logger** and the **TAG SFTP Logger** transmit the files to a server and require the **Remote Host**, **Remote Port**, **Remote server username**, **Remote server password** and **Remote Directory** settings (the remote directory is relative to the home directory of the user on the SFTP server, so it must not start with `/`)
-2. Set the **Update Interval (Seconds)**. For the **TAG File Logger** and **TAG SFTP Logger**, also set the **Logging mode** (`On Change`, `Snapshot` or `Everything`), the **File Format** (`CSV` or `JSON Lines`), and, when **Logging mode** is **On Change**, the **DBC Notification Mode** (`Value Change Only` or `Every Decoded Physical Sample`)
-3. Set **Rotate By** to **No Rotation**, **Time** or **File Size**, which determines when the current log file is closed and a new one created, and then set **Rotation Interval (Sec)** for time based rotation or **Rotate MB** for size based rotation
-4. (Optional) Enable **Archive the Logs** to move rotated log files into an `archive` folder beneath the log folder (the **CAN SFTP Logger** and the **TAG SFTP Logger** always archive, so they do not show this setting), then optionally enable **Compress Logs** to compress rotated logs, and enable **Limit Number of Archive Files** and set the **Archive File Limit** to the number of log files to retain
-5. For the **TAG File Logger** and **TAG SFTP Logger**, select the tag collections to log in **Collections**. At least one collection must be configured before the logger starts, and only the tags in those collections are written. Adding a collection row works the same way as for InfluxDB, which is described in [Step 4](#step-4-configure-influxdb-or-prometheus)
-6. Save the component
+Set **Rotate By** to **No Rotation**, **Time** or **File Size**, which determines when the current log file is closed and a new one created, and then set **Rotation Interval (Sec)** for time-based rotation or **Rotate MB** for size-based rotation. File loggers can generate large files, so enable **Archive the Logs** to move rotated log files into an `archive` folder beneath the log folder (the **CAN SFTP Logger** and the **TAG SFTP Logger** always archive, so they do not show this setting), then optionally enable **Compress Logs** to compress rotated logs, and enable **Limit Number of Archive Files** and set the **Archive File Limit** to the number of log files to retain.
 
-### Step 4: Configure InfluxDB or Prometheus
+For the **TAG File Logger** and **TAG SFTP Logger**, select the tag collections to log in **Collections**. At least one collection must be configured before the logger starts, and only the tags in those collections are written. Adding a collection row works in the same way as for InfluxDB, which is described in the [InfluxDB section](#configure-an-influxdb-logger-or-historian). Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed.
 
-**InfluxDB:** the component type must match the installed InfluxDB version, because V1, V2 and V3 are separate, incompatible products.
+## Configure an InfluxDB Logger or Historian
 
-1. Add the **InfluxDB v1 Logger**, **InfluxDB v2 Historian** or **InfluxDB v3 Historian** for your version
-2. Enter the connection settings:
-   - **Influx Server URL** - the endpoint InfluxDB is running on
-   - **InfluxDB Database** for V1, **InfluxDB Bucket** and **InfluxDB Organisation** for V2, or **InfluxDB Database** for V3
-   - **InfluxDB Username** and **InfluxDB Password** for V1, or **InfluxDB Token** for V2 and V3
-3. Set the **Logging Interval (Sec)** and the **Logging mode** (`Snapshot`, `On Change` or `Everything`)
-4. In **Collections**, add a row for each tag collection to log and select the collection in that row, because the logger starts only when at least one collection is configured and logs only the tags that belong to the selected collections
-5. Save the component
+Add the **InfluxDB v1 Logger**, **InfluxDB v2 Historian** or **InfluxDB v3 Historian** for the InfluxDB version in use, and enter the connection settings:
 
-**Prometheus:** Prometheus collects data from Profinity rather than receiving it, so no destination is configured.
+- **Influx Server URL**: the endpoint InfluxDB is running on
+- **InfluxDB Database** for V1, **InfluxDB Bucket** and **InfluxDB Organisation** for V2, or **InfluxDB Database** for V3
+- **InfluxDB Username** and **InfluxDB Password** for V1, or **InfluxDB Token** for V2 and V3
 
-1. Add a **Prometheus Logger** component
-2. Set the **Data endpoint URL**, **Server Hostname** and **Server Port** (the defaults serve data at `http://localhost:7065/metrics`)
-3. In **Collections**, select the tag collections to serve, which works in the same way as for InfluxDB
-4. Configure the Prometheus server to collect from that URL
+Set the **Logging Interval (Sec)** and the **Logging mode** (`Snapshot`, `On Change` or `Everything`). In **Collections**, add a row for each tag collection to log and select the collection in that row, because the logger starts only when at least one collection is configured and logs only the tags that belong to the selected collections. Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed. [How to Log Data to the Cloud (InfluxDB)](./Log_Data_to_Cloud_Influx.md) works through the InfluxDB v2 Historian with InfluxDB Cloud.
 
-### Step 5: Configure MQTT Publisher or Webhook Publisher
+## Configure a Prometheus Logger
 
-**MQTT Publisher:**
+Prometheus collects data from Profinity rather than receiving it, so no destination is configured. Add a **Prometheus Logger** component and set the **Data endpoint URL**, **Server Hostname** and **Server Port**, where the defaults serve data at `http://localhost:7065/metrics`. In **Collections**, select the tag collections to serve, which works in the same way as for InfluxDB, and then configure the Prometheus server to collect from that URL.
 
-1. Set **Name**
-2. Configure the broker connection:
-   - **Server URL** - MQTT broker address (use `mqtts://` for TLS)
-   - **Username/Password** - if required
-   - **Device ID** - MQTT client ID
-3. Choose the **Payload** - JSON or Sparkplug B
-4. For a JSON payload, set the **Destination Topic** - the topic the messages are published to
-5. Choose **Logging mode** - Snapshot, On Change, or Everything
-6. Select which tag collections to publish
-7. Click **Save**
+## Configure an MQTT Publisher or Webhook Publisher
 
-**Webhook Publisher:**
+For the **MQTT Publisher**, set **Name** and configure the broker connection:
 
-1. Set **Name**
-2. Configure the destination:
-   - **Destination URL** - the HTTP(S) endpoint to POST to
-   - **Authentication** - None, Bearer token, API key header, or Basic auth
-3. Choose **Logging mode** - Snapshot, On Change, or Everything
-4. Select which tag collections to publish
-5. Click **Save**
+- **Server URL**: the MQTT broker address, using `mqtts://` for Transport Layer Security (TLS)
+- **Username** and **Password**: if required
+- **Device ID**: the MQTT client ID
 
-See [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md) and [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md) for the full setting reference, including the Sparkplug B settings.
+Choose the **Payload**, which is JSON or Sparkplug B. For a JSON payload, set the **Destination Topic**, which is the topic the messages are published to. Choose the **Logging mode** (`Snapshot`, `On Change` or `Everything`), select which tag collections to publish, and select **ADD COMPONENT** at the bottom of the dialog.
 
-### Step 6: Activate the Logger or Publisher
+For the **Webhook Publisher**, set **Name** and configure the destination:
 
-1. Ensure the logger or publisher is added to your active profile
-2. It starts automatically when the profile is loaded, provided it is set to start automatically
-3. Check its status in the component list
+- **Destination URL**: the HTTP(S) endpoint to POST to
+- **Authentication**: None, Bearer token, API key header, or Basic auth
 
-### Step 7: Verify Logging
+Choose the **Logging mode** (`Snapshot`, `On Change` or `Everything`), select which tag collections to publish, and select **ADD COMPONENT** at the bottom of the dialog. See [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md) and [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md) for the full setting reference, including the Sparkplug B settings.
 
-**File Logging:**
+## Start the Logger or Publisher
 
-- Check the log folder on the machine running Profinity (`can_bus_logs/` for a CAN File Logger, `tag_logs/` for a TAG File Logger) or the remote directory on the SFTP server for new log files
-- Verify data is being written
+Make sure the logger or publisher is added to the active profile. The **Auto Start** setting, which is on by default, starts the component when the profile is loaded, so with it off the component does not start when the profile loads. Check the component's status in the component list.
 
-**InfluxDB/Prometheus:**
+## Check That Data Is Flowing
 
-- Query the database (InfluxDB), or the Prometheus server, to verify data is arriving
-- Check the status of the logger or historian component
-
-**MQTT/Webhook:**
-
-- Subscribe to the configured MQTT topic, or check the webhook receiver's own logs, to see published messages
-- Check the publisher's status for connection information
-
-## Tips
-
-- **Start with File Logging**: it is the easiest to set up and verify
-- **Monitor Disk Space**: file loggers can generate large files, so use compression and archive limits
-- **Use Appropriate Intervals**: balance data granularity against resource usage
-- **Verify Cloud Loggers**: confirm data is arriving before relying on a cloud logger
-- **Limit Collections**: publish only the tag collections you need to reduce data volume
+For file logging, look in the log folder on the machine running Profinity (`can_bus_logs/` for a CAN File Logger, `tag_logs/` for a TAG File Logger), or in the remote directory on the SFTP server, for new log files. For InfluxDB or Prometheus, query the database, or the Prometheus server, to confirm that data is arriving, and check the status of the logger or historian component. For MQTT or a webhook, subscribe to the configured MQTT topic, or check the webhook receiver's own logs, to see published messages, and check the publisher's status for connection information.
 
 ## Troubleshooting
 
-- **No data being logged**: check that the logger or publisher is active and, for a TAG logger, InfluxDB, Prometheus or a publisher, that tag collections are selected
-- **Connection errors**: verify network connectivity and credentials
-- **Missing data**: check logging intervals and component data availability
+### No Data Is Logged
+
+A logger or publisher that writes nothing is usually not running, or has no tag collection to log. Check that the component is active and, for a TAG logger, InfluxDB, Prometheus or a publisher, that at least one tag collection is selected, because those components start only when a collection is configured. Also check that the components that feed the tags are receiving data.
+
+### A Connection Error Appears
+
+A connection error means the destination cannot be reached or does not accept the credentials. Check the network connectivity to the destination and the credentials, and for InfluxDB confirm that the component type matches the installed InfluxDB version, because using the wrong component type results in connection failures. The [Profinity logs](../Getting_Started/Profinity_Log.md) record connection errors.
+
+### Data Is Missing
+
+Gaps in logged data usually come from a logging interval that is too long for the data or from a component that stopped receiving data. Check the logging interval, because a shorter interval gives more granular data, and check that the component that supplies the data is receiving it.
 
 ## Related Documentation
 
 - [File and Tag Loggers](../Components/Loggers/File_Loggers.md) - full file and tag logger configuration
-- [InfluxDB and Prometheus Logging](../Components/Loggers/InfluxDB_Prometheus_Logger.md) - cloud logging setup
+- [InfluxDB and Prometheus Logging](../Components/Loggers/InfluxDB_Prometheus_Logger.md) - InfluxDB and Prometheus logging setup
 - [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md) - MQTT publishing configuration
 - [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md) - webhook publishing configuration

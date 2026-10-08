@@ -1,5 +1,6 @@
 nav:
     - Actions.md
+    - Charge.md
     - Toggles.md
     - Tabs.md
     - Redirect.md

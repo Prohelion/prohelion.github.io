@@ -5,121 +5,95 @@ description: "Subscribe to external Sparkplug B sources via MQTT and write incom
 
 # MQTT Subscriber
 
-The **MQTT Subscriber** connects to a broker, subscribes to a Sparkplug B namespace, and writes
-the incoming metrics into the profile tag tree as read-only tags — the inbound counterpart to the
-[MQTT Publisher](MQTT_Publisher.md), which only sends. It sits in the same **Publishers &
-Subscribers** category. Use it to bring an external Sparkplug-speaking edge node or SCADA/IIoT
-platform's data into Profinity as ordinary tags, so it can be viewed on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged,
-included in a rule, or read by a script the same way any other tag can.
+The **MQTT Subscriber** connects to a Message Queuing Telemetry Transport (MQTT) broker, subscribes to a [Sparkplug](https://sparkplug.eclipse.org/) B namespace, and writes the incoming metrics into the profile tag tree as read-only tags, and is the inbound counterpart to the [MQTT Publisher](MQTT_Publisher.md), which only sends. It sits in the **Publishers & Subscribers** category. Use it to bring the data of an external Sparkplug edge node, or of a supervisory control and data acquisition (SCADA) or industrial IoT platform, into Profinity as ordinary tags that can be shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged, used in a rule, or read by a script.
 
-!!! info "Licence required"
+!!! info "Licence Required"
     The MQTT Subscriber requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
-!!! info "Not the same feature as Tag Relay"
-    [**Tag Relay**](../../Tags/Tag_Relay.md) (Profinity-to-Profinity)
-    moves a snapshot of tags between two Profinity instances over its own proprietary protocol —
-    it does not speak Sparkplug, and this component does not replace it. The MQTT Subscriber is
-    specifically for an **external**, Sparkplug B source: a third-party edge device, gateway, or
-    platform (for example Ignition) publishing Sparkplug over MQTT. Use Tag Relay when both ends
-    are Profinity; use the MQTT Publisher and MQTT Subscriber pair when one end is not.
+!!! info "Use Tag Relay Between Two Profinity Instances"
+    The MQTT Subscriber is for an external Sparkplug B source, such as a third-party edge device, gateway or platform like Ignition. To share tags between two Profinity instances, use [Tag Relay](../Tag_Relays/index.md), which has its own snapshot format and does not use Sparkplug.
 
 ## Adding an MQTT Subscriber
 
-Add an **MQTT Subscriber** component to your profile from the **Publishers & Subscribers**
-category, then configure its settings.
+Add an **MQTT Subscriber** component to your profile from the **Publishers & Subscribers** category, then configure its settings.
 
-### Connection settings
+### Connection Settings
 
-| Setting | Purpose |
-|---|---|
-| **Server URL** | The broker's connection URL. Use an `mqtts://` scheme to enable TLS. |
-| **Broker port** | The broker's port. Defaults to `1883`. |
-| **Trust all server certificates** | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
-| **Username** / **Password** | Credentials for broker authentication, when the broker requires them. Password is stored encrypted at rest. |
-| **Client ID** | Optional MQTT client ID. Leave blank to generate one. |
+| Setting | Required | Purpose |
+|---|---|---|
+| **Server URL** | Yes | The broker's connection URL, for example `mqtt://broker.example.com` or `mqtts://broker.example.com`. The accepted schemes are `mqtt` and `mqtts`, and `mqtts://` enables Transport Layer Security (TLS). |
+| **Broker port** | No | The broker's port, from 1 to 65535. Defaults to `1883`. A port written in the **Server URL** takes precedence. With an `mqtts://` URL and no port in the URL, leaving **Broker port** at `1883` connects on `8883`, and any other value is used as entered. |
+| **Trust all server certificates** | No | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
+| **Username** / **Password** | No | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
+| **Client ID** | No | The MQTT client ID. Leave blank to generate one. |
 
-### Sparkplug settings
+### Sparkplug Settings
 
-| Setting | Purpose |
-|---|---|
-| **Topic filter** | The Sparkplug topic filter to subscribe to. Defaults to `spBv1.0/#` — the whole Sparkplug B namespace. Narrow it to a specific group, for example `spBv1.0/{group}/#`, to subscribe to only that group. |
-| **Host ID** | The Sparkplug host ID this subscriber publishes on `spBv1.0/STATE/{hostId}`. Must not contain `+`, `#`, or `/`. |
+| Setting | Required | Purpose |
+|---|---|---|
+| **Topic filter** | Yes | The Sparkplug topic filter to subscribe to. Defaults to `spBv1.0/#`, the whole Sparkplug B namespace. Narrow it to one group, for example `spBv1.0/Plant1/#`, to subscribe to only that group. |
+| **Host ID** | Yes | The name this subscriber announces as a Sparkplug primary host application, for example `Profinity`. It is published on `spBv1.0/STATE/{hostId}`. It must not contain `+`, `#` or `/`. |
 
-### Tags settings
+### Tags Settings
 
-| Setting | Purpose |
-|---|---|
-| **Tag path prefix** | The profile subtree subscribed metrics are written under. Required — this subtree is owned by the subscriber; nothing else may mount tags there. |
+| Setting | Required | Purpose |
+|---|---|---|
+| **Tag path prefix** | Yes | The profile subtree that subscribed metrics are written under, for example `External/Ignition`. The subscriber owns this subtree, so no other component or script should create tags beneath it. See [Tag tree path](../../Tags/Tag_Tree_Path.md) for the path rules. |
 
-## Where tags appear
+## Where Tags Appear
 
-An incoming metric is written to:
+An incoming metric is written to a path built from the **Tag path prefix** and the Sparkplug group, edge node, device and metric names:
 
 ```
 {prefix}/{groupId}/{edgeNodeId}/{deviceId}/{metric segments}
 ```
 
-`{deviceId}` is omitted for a node-level metric (Sparkplug `NBIRTH`/`NDATA`) and present for a
-device-level metric (`DBIRTH`/`DDATA`). A metric name that itself contains `/` adds further
-segments underneath.
+For example, with the prefix `External`, group `Plant1`, edge node `Node1`, device `Pump` and metric `Temp/Out`, the tag path is `External/Plant1/Node1/Pump/Temp/Out`. The device segment is omitted for a node-level metric, which arrives in `NBIRTH` and `NDATA` messages, and is present for a device-level metric, which arrives in `DBIRTH` and `DDATA` messages. A metric name that contains `/` adds further segments beneath the device.
 
-!!! warning "These tags are read-only"
-    A tag the MQTT Subscriber creates cannot be written to from a dashboard, a script, or any
-    other source — the write is rejected. The only thing that updates one of these tags is the
-    next Sparkplug message for that metric. If you need to react to an incoming value and take
-    some other action, use a **Run On Tag Change** script watching the tag (see
-    [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md)) — the script reads
-    the new sample the same way it would for any other tag change; it is not given the raw MQTT
-    payload.
+!!! warning "These Tags Are Read-Only"
+    A tag the MQTT Subscriber creates cannot be written to from a dashboard, a script or any other source, and the write is rejected. The only thing that updates one of these tags is the next Sparkplug message for that metric. To react to an incoming value, use a **Run On Tag Change** script watching the tag (see [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md)), which reads the new sample the same way it would for any other tag change and is not given the raw MQTT payload.
 
-If an incoming metric's path is already occupied by something that is not one of this
-subscriber's own tags — an existing device tag, a Tag Relay mirror, a script register, or a
-[derived tag](../../Tags/Derived_Tags.md) — that one metric is skipped and logged; the rest of the message is still applied.
+If an incoming metric's path is already occupied by something that is not one of this subscriber's own tags, such as an existing device tag, a Tag Relay mirror, a script register or a [derived tag](../../Tags/Derived_Tags.md), that one metric is skipped and a warning is written to the log. The rest of the message is still applied.
 
-## Sparkplug behaviour
+## Sparkplug Behaviour
 
-- **Messages applied:** `NBIRTH`, `NDATA`, `NDEATH`, `DBIRTH`, `DDATA`, `DDEATH`. Both node-level
-  and device-level publishers are handled, so a subscriber watching only for node topics does not
-  miss a platform that publishes at the device level.
-- **Messages ignored as data:** `STATE`, `NCMD`, `DCMD` — even under the default `spBv1.0/#`
-  filter, so the subscriber does not mistake its own published `STATE`/rebirth command for
-  incoming data.
-- **Host state:** The subscriber publishes its own online/offline state, retained, to
-  `spBv1.0/STATE/{hostId}`: `{"online": true, "timestamp": <unix ms>}` while connected, and
-  `{"online": false, ...}` on a graceful stop or via MQTT's Last Will if the connection drops
-  unexpectedly. This retained message is not deleted when the subscriber goes offline — a
-  reconnecting subscriber (or a Sparkplug-aware consumer) can see the last known state.
-- **Sequence and rebirth:** Sparkplug's per-edge-node sequence number and alias map are tracked
-  per edge node. A gap in the sequence triggers this subscriber to request a rebirth (`NCMD`/`DCMD`
-  with `Node Control/Rebirth`) rather than applying the gapped payload as current values — so a
-  dropped message cannot leave a stale value silently accepted as current.
-- **Death, or a birth that omits a previously-known metric:** The tag is not deleted; its
-  quality is set to **Stale** instead, so history and dashboard bindings against that tag path
-  keep working, just flagged as no longer live.
-- **Aliases:** A metric published by alias only (no name) after its birth resolves normally. An
-  alias seen with no matching birth is skipped — it is not invented as a new tag.
-- **Data types:** Scalar types only — boolean, string, integer widths, float, double, and
-  DateTime. Sparkplug dataset, template, bytes, and property-set values are not supported and are
-  skipped.
-- **Malformed payloads:** A malformed payload is logged and dropped without tearing down the
-  session, so one bad message does not disconnect the subscriber.
-- **Reconnect:** Reconnection uses an exponential backoff starting at 1 second and capped at 60 seconds — a
-  slower, more broker-friendly curve than the MQTT Publisher's fixed 5-second retry, appropriate
-  for a subscriber that only needs to catch up on the current state once reconnected, not push on
-  a schedule.
+### Messages Applied and Ignored
+
+The subscriber applies `NBIRTH`, `NDATA`, `NDEATH`, `DBIRTH`, `DDATA` and `DDEATH` messages, so it handles both node-level and device-level publishers. It ignores `STATE`, `NCMD` and `DCMD` messages as data, even under the default `spBv1.0/#` filter, so a command or state message is never written to a tag.
+
+### Host State
+
+While connected, the subscriber publishes a retained message `{"online": true, ...}` to `spBv1.0/STATE/{hostId}`, and publishes `{"online": false, ...}` on a graceful stop or, if the connection drops unexpectedly, through the broker's Last Will. The retained message stays on the broker while the subscriber is offline, so a Sparkplug-aware consumer can see the last known state.
+
+### Sequence Gaps and Rebirth
+
+When a message arrives out of sequence, the subscriber requests a rebirth from the edge node and does not apply the out-of-sequence values as current values.
+
+### Quality After Death
+
+When a metric dies, or a later birth message omits a metric that was known before, the tag is kept and its quality is set to **Stale**, so history and dashboard bindings against that tag path keep working and show the value as no longer live. See [Tags](../../Tags/index.md) for how data quality is shown.
+
+### Data Types
+
+The subscriber supports scalar metric types only: boolean, string, the integer widths, float, double and DateTime. Dataset, template, bytes and property-set values are skipped. A metric that arrives by alias with no earlier birth message is also skipped, because its name is not known.
+
+### Malformed Payloads
+
+A payload that cannot be decoded is logged and dropped, and the subscriber stays connected.
+
+### Reconnection
+
+After a lost connection the subscriber reconnects with an increasing wait that starts at 1 second and doubles up to a maximum of 60 seconds.
 
 ## Status
 
-The MQTT Subscriber reports the **On** status while it is connected to the broker, **Error** while
-it is running but not connected, and **Off** when it is stopped. While the connection is down, the
-subscriber reconnects with the backoff described under Sparkplug behaviour. Check the
-[Logs](../../Getting_Started/Profinity_Log.md) for the underlying error when it shows an **Error**
-status.
+The MQTT Subscriber shows **On** while it is connected to the broker, **Error** while it is running but not connected, and **Off** when it is stopped. While it is in **Error**, it retries as described under [Reconnection](#reconnection).
 
-## Related documentation
+If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying message, then confirm that the **Server URL** scheme and **Broker port** match the broker, and that the **Username** and **Password** are accepted. If the component stays **Off**, confirm that **Server URL**, **Topic filter**, **Host ID** and **Tag path prefix** are all set, because the subscriber does not start without them. If the component is **On** but no tags appear, check that the **Topic filter** covers the group you expect.
 
-- [MQTT Publisher](MQTT_Publisher.md)
-- [Webhook Publisher](Webhook_Publisher.md)
-- [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md)
-- [Tag Layer](../../Tags/index.md)
-- [Tag Relay](../../Tags/Tag_Relay.md)
+## Related Documentation
+
+- [MQTT Publisher](MQTT_Publisher.md) and [Webhook Publisher](Webhook_Publisher.md), the other Publishers & Subscribers components.
+- [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md), for reacting to incoming values.
+- [Tags](../../Tags/index.md) and [Tag tree path](../../Tags/Tag_Tree_Path.md).
+- [Tag Relays](../Tag_Relays/index.md), for sharing tags between Profinity instances.
