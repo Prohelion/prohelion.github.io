@@ -18,6 +18,9 @@ The **Profinity Software Development Kit (SDK)** is a single developer kit for b
 | `profinity-component-pack` | The command-line tool that validates and packs a Custom Component directory (YAML, scripts and maps) into a distributable bundle. | [Component Pack CLI](./Custom_Components/Component_Pack_CLI.md) |
 | `profinity-script` | The command-line tool for writing and simulating a script on a developer machine, against a simulated `Profinity` object, before the finished file is copied into a profile. | [Writing and Testing a Script](#writing-and-testing-a-script) |
 
+!!! info "The .NET 10 Runtime Is Required"
+    `profinity-script` and `profinity-component-pack` are not self-contained. They are .NET 10 programs that run on the .NET 10 runtime, so install the .NET 10 runtime or SDK on the developer machine before you run them, for example with `dotnet profinity-script.dll`. Building a plugin against `Profinity.Sdk` needs the .NET 10 SDK.
+
 `Profinity.Sdk` does not run scripts and does not pack a component. Each of the two tools does one job, and the library is only what a compiled C# plugin references.
 
 ## Getting the Kit
