@@ -18,7 +18,7 @@ File based loggers are available in four variants, each added to a [Profile](../
 | TAG File Logger | Writes the values of the tags in the selected tag collections to the local file system, as comma-separated values (CSV) or JSON Lines. |
 | TAG SFTP Logger | Transmits those tag values to a remote SFTP server, as CSV or JSON Lines. |
 
-All four loggers have **Auto Start**, which is on by default, so a logger begins logging when the Profile loads and needs no further action.
+All four loggers have **Auto Connect**, which is on by default, so a logger begins logging when the Profile loads and needs no further action.
 
 ### Where Files Are Written
 

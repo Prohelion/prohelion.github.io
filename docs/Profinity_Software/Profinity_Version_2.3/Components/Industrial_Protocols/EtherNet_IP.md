@@ -25,7 +25,7 @@ You add an EtherNet/IP PLC to your [Profile](../../Getting_Started/Profiles.md) 
 | **PLC kind** | The family of PLC: `ControlLogix` (the default), `CompactLogix`, `Micro800`, `PLC-5` or `SLC`. |
 | **Poll interval (ms)** | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
 | **Request timeout (ms)** | How long Profinity waits for the PLC to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |
-| **Reconnect delay (ms)** | How long Profinity waits before trying to reconnect after a connection is lost, in milliseconds. Between `0` and `600000`. The default is `2000`. |
+| **Reconnect delay (ms)** | How long Profinity waits between connection attempts, in milliseconds. Profinity keeps trying when the device is down at start and after a connection is lost. Between `0` and `600000`. The default is `2000`. |
 | **Auto Connect** | Connects to the PLC automatically when the profile is loaded. Off by default. |
 
 ## Point Map

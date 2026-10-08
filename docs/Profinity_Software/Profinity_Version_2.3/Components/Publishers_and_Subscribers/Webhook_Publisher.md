@@ -28,7 +28,7 @@ Add a **Webhook Publisher** component to your profile from the **Publishers & Su
 | **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
 | **Logging mode** | **Snapshot** | **Snapshot** publishes every collection member on each interval tick, regardless of whether the value changed. **On Change** publishes only when a member's value has changed since the last publish. **Everything** publishes every sample that arrives, including unchanged ones. |
 | **Update Interval (Seconds)** | 10 | From 10 to 86400 seconds. In **Snapshot** mode this is how often a full publish runs, and in **On Change** and **Everything** modes it is how often accumulated changes are sent. |
-| **Auto Start** | On | Starts the publisher automatically when the profile is loaded. |
+| **Auto Connect** | On | Starts the publisher automatically when the profile is loaded. |
 
 ## Authentication
 

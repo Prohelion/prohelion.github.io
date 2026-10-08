@@ -52,7 +52,7 @@ InfluxDB v1 uses username and password authentication and the concept of databas
 | **Collections** | None | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
 | **Logging Interval (Sec)** | 10 | The interval, in seconds, at which log data is sent, with a minimum of 1. |
 | **Logging mode** | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. See [Logging Modes](#logging-modes). |
-| **Auto Start** | On | Starts the logger when the profile is loaded. |
+| **Auto Connect** | On | Starts the logger when the profile is loaded. |
 
 When these settings are correct, data flows into InfluxDB v1. If it does not, check the [Logs](../../Getting_Started/Profinity_Log.md) for more details.
 
@@ -72,7 +72,7 @@ Adding a **Prometheus Logger** to Profinity is all that is required on the Profi
 | **Server Port** | 7065 | The port that the endpoint runs on, from 1 to 65535. |
 | **Dashboard URL** | Blank | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
 | **Update Interval (Seconds)** | 10 | The interval, in seconds, between samples, from 10 to 86400. |
-| **Auto Start** | On | Starts the logger automatically when the profile is loaded. |
+| **Auto Connect** | On | Starts the logger automatically when the profile is loaded. |
 
 Once the Prometheus Logger is active, Prometheus can call Profinity on this URL to receive data. With all settings left at their defaults, for example, the data is served at:
 
@@ -80,4 +80,4 @@ Once the Prometheus Logger is active, Prometheus can call Profinity on this URL 
 http://localhost:7065/metrics
 ```
 
-If the logger does not start, Profinity writes the failure to the [Logs](../../Getting_Started/Profinity_Log.md) and the logger stays off. If Prometheus shows no data, check that the logger is running, that the scraper is configured with the same hostname, port and endpoint path, and that at least one collection with tags is selected. Configuring Prometheus to receive and display this data is covered in the Prometheus documentation.
+If the logger cannot reach InfluxDB or open its Prometheus endpoint (for example the port is in use), it shows **Error**, writes the reason to the [Logs](../../Getting_Started/Profinity_Log.md) once, and retries every 5 seconds until the problem clears. If Prometheus shows no data, check that the logger is running, that the scraper is configured with the same hostname, port and endpoint path, and that at least one collection with tags is selected. Configuring Prometheus to receive and display this data is covered in the Prometheus documentation.

@@ -33,7 +33,7 @@ Which settings apply depends on the **Connection Mode**.
 | **Unit ID** | Both | The Modbus unit (slave) address. Between `0` and `255`. The default is `1`. |
 | **Poll interval (ms)** | Both | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
 | **Request timeout (ms)** | Both | How long Profinity waits for the slave to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |
-| **Reconnect delay (ms)** | Both | How long Profinity waits before trying to reconnect after a connection is lost, in milliseconds. Between `0` and `600000`. The default is `2000`. |
+| **Reconnect delay (ms)** | Both | How long Profinity waits between connection attempts, in milliseconds. Profinity keeps trying when the device is down at start and after a connection is lost. Between `0` and `600000`. The default is `2000`. |
 | **Auto Connect** | Both | Connects automatically when the profile is loaded. Off by default. |
 
 Match the serial settings to those configured on the slave. If they differ, the slave does not answer.

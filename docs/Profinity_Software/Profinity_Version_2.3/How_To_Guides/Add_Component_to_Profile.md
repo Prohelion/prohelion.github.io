@@ -26,7 +26,7 @@ Select **ADD COMPONENT** in the sidebar, which opens a page that lists every com
 - **[Publishers & Subscribers](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** (Message Queuing Telemetry Transport (MQTT) and Webhook)
 - **Scripts**, for scripts that run inside Profinity
 
-Select the type to add, and Profinity prompts for a **Component Name**, which must be unique in the profile, a **CAN ID** or address where the device needs one, the setting that starts the component automatically, and any settings specific to that component type. The start setting is **Auto Connect** on adapters and some devices, which connects the component when Profinity starts, and **Auto Start** on loggers and publishers. Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed, and the component's icon appears in the sidebar.
+Select the type to add, and Profinity prompts for a **Component Name**, which must be unique in the profile, a **CAN ID** or address where the device needs one, the setting that starts the component automatically, and any settings specific to that component type. The start setting is **Auto Connect** on every component that connects to a broker, device, server or database. With it on, the component connects when the profile loads. With it off, the component waits until you switch it on with its **Connect** or **Start** action, and it stays off until you do. Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed, and the component's icon appears in the sidebar.
 
 ## Check the Component Status
 

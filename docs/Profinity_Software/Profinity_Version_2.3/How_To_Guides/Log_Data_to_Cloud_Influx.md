@@ -53,7 +53,7 @@ influx auth create --org my-org --all-access
 
 ### Save and Start the Historian
 
-Click **ADD COMPONENT** at the bottom of the dialog (the button reads **SAVE** when the settings of an existing component are being changed) to add the historian to the active profile. The historian starts when the profile is loaded if **Auto Start** is on, which is the default.
+Click **ADD COMPONENT** at the bottom of the dialog (the button reads **SAVE** when the settings of an existing component are being changed) to add the historian to the active profile. The historian starts when the profile is loaded if **Auto Connect** is on, which is the default.
 
 ### Verify Data Logging
 
