@@ -117,11 +117,12 @@ Aliases expose only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Q
 a.Value * 1.60934
 a.Value - b.Value
 (a.Value + b.Value) / 2
-Math.Abs(a.Value - b.Value)
-Math.Round(a.Value * 100, 2)
+Math.Abs((a.Value ?? 0) - (b.Value ?? 0))
+Math.Round((a.Value ?? 0) * 100, 2)
+a.Value != null ? Math.Abs(a.Value ?? 0) : null
 ```
 
-Static members of `Math` are available in formulas, as in the `Math.Abs` example above.
+Static members of `Math` are available in formulas. A tag's `Value` can be empty, because a tag has no value until it has produced one, and `Math` functions need a number, so give them one with the `??` operator, as in `Math.Abs(a.Value ?? 0)`. `??` uses the right-hand number when the tag has no value, so the result is `0` in that case. To get no value instead, test first, as in `a.Value != null ? Math.Abs(a.Value ?? 0) : null`. A formula that passes `a.Value` straight to a `Math` function, such as `Math.Abs(a.Value)`, is rejected when the derived tag is saved, with the message "No applicable method 'Abs' exists in type 'Math'"; add `?? 0` to fix it. The same applies to `tag.Value` in collection and rule expressions.
 
 ## Guided Builder
 
