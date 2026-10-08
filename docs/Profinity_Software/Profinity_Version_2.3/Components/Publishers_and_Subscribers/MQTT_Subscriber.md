@@ -23,6 +23,7 @@ Add an **MQTT Subscriber** component to your profile from the **Publishers & Sub
 |---|---|---|
 | **Server URL** | Yes | The broker's connection URL, for example `mqtt://broker.example.com` or `mqtts://broker.example.com`. The accepted schemes are `mqtt` and `mqtts`, and `mqtts://` enables Transport Layer Security (TLS). |
 | **Broker port** | No | The broker's port, from 1 to 65535. Defaults to `1883`. A port written in the **Server URL** takes precedence. With an `mqtts://` URL and no port in the URL, leaving **Broker port** at `1883` connects on `8883`, and any other value is used as entered. |
+| **Auto Connect** | No | Connects to the broker when the profile is loaded. On by default. With it off, the subscriber waits until you switch it on with **Connect**. |
 | **Trust all server certificates** | No | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
 | **Username** / **Password** | No | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
 | **Client ID** | No | The MQTT client ID. Leave blank to generate one. |
@@ -83,7 +84,7 @@ A payload that cannot be decoded is logged and dropped, and the subscriber stays
 
 ### Reconnection
 
-After a lost connection the subscriber reconnects with an increasing wait that starts at 1 second and doubles up to a maximum of 60 seconds.
+The subscriber keeps trying to connect every 5 seconds, both when the broker is down at start and after a lost connection. It stays in **Error** until the broker is back, and the log records the reason once for each outage.
 
 ## Status
 

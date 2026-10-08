@@ -43,7 +43,7 @@ Shown only when **Payload** is **Sparkplug B**:
 | Setting | Default | Purpose |
 |---|---|---|
 | **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
-| **Auto Start** | On | Starts the publisher automatically when the profile is loaded. |
+| **Auto Connect** | On | Starts the publisher automatically when the profile is loaded. |
 | **Logging mode** | **Snapshot** | **Snapshot** publishes every collection member on each interval tick, regardless of whether the value changed. **On Change** publishes only when a member's value has changed since the last publish. **Everything** publishes every sample that arrives, including unchanged ones. |
 | **Update Interval (Seconds)** | 10 | From 10 to 86400 seconds. In **Snapshot** mode this is how often a full publish runs, and in **On Change** and **Everything** modes it is how often accumulated changes are sent. |
 
@@ -57,7 +57,7 @@ Shown only when **Payload** is **Sparkplug B**:
 
 The MQTT Publisher shows **On** while it is running, **Off** when it is stopped, and **Error** when the connection to the broker fails or a publish fails. The status returns to **On** after the next successful publish.
 
-In Sparkplug B mode the publisher retries a lost connection every 5 seconds. In JSON mode the publisher connects when it starts, so a broker that is unreachable at that point leaves the component in **Error** and publishing stops until the publisher is started again with **Start Logger**.
+In both modes the publisher keeps trying to connect every 5 seconds. A broker that is down when the publisher starts, or that goes away later, leaves the publisher in **Error** until the broker is back, and you do not need to restart the publisher. A rejected login is treated the same way, so fixing the credentials needs no restart either. The log records the reason once for each outage.
 
 If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying message, then confirm that the **Server URL** scheme and port match the broker, that the **Username** and **Password** are accepted, and that a **Device ID** is not already in use by another client. A broker with a self-signed certificate also needs **Trust all server certificates** enabled.
 

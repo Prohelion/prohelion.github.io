@@ -36,7 +36,7 @@ Use the client to bring values from a programmable logic controller (PLC), a sup
 | **Trust all server certificates** | Skips validation of the server's certificate. Off by default. Turn it on only when connecting to a trusted endpoint that uses a self-signed certificate. |
 | **Poll interval (ms)** | How often the node map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
 | **Request timeout (ms)** | How long Profinity waits for the server to answer a request, in milliseconds. Between `50` and `60000`. The default is `5000`. |
-| **Reconnect delay (ms)** | How long Profinity waits before trying to reconnect after a connection is lost, in milliseconds. Between `0` and `600000`. The default is `2000`. |
+| **Reconnect delay (ms)** | How long Profinity waits between connection attempts, in milliseconds. Profinity keeps trying when the device is down at start and after a connection is lost. Between `0` and `600000`. The default is `2000`. |
 | **Auto Connect** | Connects to the server automatically when the profile is loaded. Off by default. |
 
 ### Point Map
@@ -63,7 +63,7 @@ Use the server to let third-party OPC UA clients, such as a SCADA or historian s
 |---|---|
 | **Name** | The name of the component. Must be unique within the profile. |
 | **Bind URL** | The endpoint address that the server listens on, and the address clients connect to. Required, and must start with `opc.tcp://`. The default is `opc.tcp://0.0.0.0:4840/Profinity`. |
-| **Auto Start** | Starts the server automatically when the profile is loaded. Off by default. |
+| **Auto Connect** | Starts the server automatically when the profile is loaded. Off by default. |
 | **Trust all client certificates** | Skips validation of connecting clients' certificates. Off by default. Turn it on only on a trusted network. |
 
 ### What the Server Exposes

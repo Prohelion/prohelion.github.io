@@ -75,7 +75,7 @@ Choose the **Logging mode** (`Snapshot`, `On Change` or `Everything`), select wh
 
 ## Start the Logger or Publisher
 
-Make sure the logger or publisher is added to the active profile. The **Auto Start** setting, which is on by default, starts the component when the profile is loaded, so with it off the component does not start when the profile loads. Check the component's status in the component list.
+Make sure the logger or publisher is added to the active profile. The **Auto Connect** setting, which is on by default, starts the component when the profile is loaded, so with it off the component does not start when the profile loads. Check the component's status in the component list.
 
 ## Check That Data Is Flowing
 

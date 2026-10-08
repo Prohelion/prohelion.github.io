@@ -25,7 +25,7 @@ You add a BACnet Device to your [Profile](../../Getting_Started/Profiles.md) fro
 | **Device instance** | The BACnet device instance number of the device, which is the instance in the device's own Device object. Between `0` and `4194302`. The default is `0`. Profinity still sends every request to the **Remote host**, but it reads the Device object of the device at that address when it starts polling and compares the two numbers, and it reads no point while they differ, so that a changed address never leads to another device being read. Set this to the instance of the device you are connecting to, which a BACnet configuration tool or the device's own display shows, even when that instance is `0`. |
 | **Poll interval (ms)** | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
 | **Request timeout (ms)** | How long Profinity waits for the device to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |
-| **Reconnect delay (ms)** | How long Profinity waits before trying to reconnect after a connection is lost, in milliseconds. Between `0` and `600000`. The default is `2000`. |
+| **Reconnect delay (ms)** | How long Profinity waits between connection attempts, in milliseconds. Profinity keeps trying when the device is down at start and after a connection is lost. Between `0` and `600000`. The default is `2000`. |
 | **Auto Connect** | Connects to the device automatically when the profile is loaded. Off by default. |
 
 ## Point Map

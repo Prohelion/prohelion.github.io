@@ -5,7 +5,7 @@ description: "Monitor CAN bus traffic, send individual packets, and schedule per
 
 # Send / Receive CAN Bus Messages
 
-Profinity can monitor Controller Area Network (CAN) bus traffic on your network and also transmit messages back on to the CAN network from within the Profinity toolset, using the **SEND & RECEIVED CAN** window documented below. The [CAN Data Log Replayer](Logging_Replaying_CAN_Bus_Messages.md#can-data-log-replayer) is a separate tool that plays recorded messages into Profinity, and it does not transmit them on to the bus.
+Profinity can monitor Controller Area Network (CAN) bus traffic on your network and also transmit messages back on to the CAN network from within the Profinity toolset, using the **SEND & RECEIVED CAN** window documented below. The [CAN Data Log Replayer](Logging_Replaying_CAN_Bus_Messages.md#can-data-log-replayer) is a separate tool that plays recorded messages into Profinity, and it never transmits them on to the bus.
 
 !!! warning "A Sent Packet Can Command Connected Hardware"
     A packet sent from Profinity goes on to the live CAN bus and is acted on by every connected device, so a packet can start a motor controller, open a contactor or change a device setting. Check what is connected to the bus and what the packet's CAN ID and data mean before sending it, and be especially careful with a scheduled packet, which keeps sending until it is deleted.

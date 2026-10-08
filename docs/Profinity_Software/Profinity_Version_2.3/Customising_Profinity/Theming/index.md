@@ -6,7 +6,7 @@ description: "Customise Profinity appearance with themes, colours, logos, and li
 # Themes and Branding
 
 !!! warning "Themes Need a Commercial Licence"
-    Themes and branding require a commercial licence that includes white-label rights, such as the rights held by an original equipment manufacturer (OEM) that ships Profinity under its own brand. Profinity does not block an unlicensed instance from applying a theme, but doing so breaches the licence terms. Keep the default Profinity appearance and contact Prohelion about licensing before applying a custom theme.
+    Themes and branding are included in the Desktop licence and above, which carry white-label rights, such as the rights held by an original equipment manufacturer (OEM) that ships Profinity under its own brand. An unlicensed instance keeps its `theme.yaml` file but shows the default Profinity appearance. Contact Prohelion about licensing before you apply a custom theme.
 
 Profinity 2.3 applies theme and branding settings from a `theme.yaml` file in the `themes` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and the web client shows the colours, logos and application title from that file in place of the defaults.
 

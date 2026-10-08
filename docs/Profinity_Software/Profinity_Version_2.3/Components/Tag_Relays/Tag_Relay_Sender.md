@@ -19,7 +19,7 @@ Add a **Tag Relay Sender** component to your profile from the **Tag Relays** cat
 | **Sender tag path prefix** | Optional. Prepended as outer path segments on the exported tree, and placed beneath the receiver's own **Receiver tag path prefix**. A sender prefix of `Vehicle12` relayed to a receiver prefix of `Fleet` appears at `Fleet/Vehicle12/...`. |
 | **Exclude relay-managed nodes** | Excludes tags that were themselves received from another Tag Relay, so that mirrored data is not sent on again in a loop. Enabled by default. |
 | **Snapshot interval (seconds)** | How often a snapshot is published or posted, from 5 to 86400 seconds. Defaults to 60. Each snapshot carries every tag in the selected collections, so a short interval with a large collection produces a large payload. |
-| **Auto Start** | Starts sending automatically when the profile is loaded. Enabled by default. |
+| **Auto Connect** | Starts sending automatically when the profile is loaded. Enabled by default. |
 | **Collections** | The profile tag collections to export. Add one or more. |
 
 ### HTTPS Settings
@@ -47,7 +47,7 @@ The component shows **On** while it is running and **Off** when it is stopped. *
 
 ## Troubleshooting
 
-If the sender does not start, check the [Logs](../../Getting_Started/Profinity_Log.md). The sender refuses to start, and logs the reason, when no collection is selected, when a selected collection does not exist, when the HTTPS protocol is missing the **Remote base URL** or **Bearer token**, or when the MQTT protocol is missing the **MQTT broker URL** or **MQTT snapshot topic**.
+If the sender shows **Error**, it is running but cannot reach its broker, so it retries every second and the log records the reason once. If the sender does not start at all, check the [Logs](../../Getting_Started/Profinity_Log.md). The sender refuses to start, and logs the reason, when no collection is selected, when a selected collection does not exist, when the HTTPS protocol is missing the **Remote base URL** or **Bearer token**, or when the MQTT protocol is missing the **MQTT broker URL** or **MQTT snapshot topic**.
 
 If the sender shows **On** but the total number of messages sent stays at zero, the log holds a warning for each failed snapshot. Over HTTPS the warning carries the response code from the receiver, where 401 or 403 points to a missing or invalid token or a user without the **Receive external tags** permission, 409 means the receiver rejected the batch because of a [collision](../../Tags/Tag_Relay.md#collision-rules) with a tag that relay does not own, and 400 means the receiver rejected the request, which includes a request body over 5 MB. Over MQTT, the sender retries a lost broker connection every second and logs each failed connection, so check the broker URL, port, credentials and TLS settings.
 

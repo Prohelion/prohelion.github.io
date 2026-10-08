@@ -22,6 +22,7 @@ Add a **Tag Relay Receiver** component to your profile from the **Tag Relays** c
 
 | Setting | Purpose |
 |---|---|
+| **Auto Connect** | With the **MQTT** protocol, connects to the broker when the profile is loaded. On by default. With it off, the receiver waits until you switch it on with **Connect**. |
 | **MQTT broker URL** | The broker's connection URL. Use an `mqtts://` scheme to enable Transport Layer Security (TLS). Required when the protocol is MQTT. |
 | **MQTT broker port** | The broker's port. Defaults to `1883`. A port written in the broker URL takes precedence, and with an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`. |
 | **Trust all server certificates** | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |

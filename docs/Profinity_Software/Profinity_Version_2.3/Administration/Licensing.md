@@ -7,7 +7,7 @@ description: "Manage Profinity licensing with offline signed licence files, chec
 
 Profinity uses an offline, signed licence file to control which commercial features and components are available on an instance. There is no activation service and no online licence check: Profinity is designed to run on remote or air-gapped edge machines, so licensing works entirely from a file placed on the instance and a signature that Profinity validates locally.
 
-A licence sets the commercial **ceiling** for the instance. The final set of available features and components is the combination of the licence, the OEM customisation file (`Custom.yaml`), and the site configuration (`config.yaml`); a feature is only available when all three allow it, with the exception of themes and branding, which are a contractual term and are not blocked technically (see [Themes and Branding](../Customising_Profinity/Theming/index.md)). Config-level toggles can narrow what the licence permits, but never grant more than the licence allows.
+A licence sets the commercial **ceiling** for the instance. The final set of available features and components is the combination of the licence, the OEM customisation file (`Custom.yaml`), and the site configuration (`config.yaml`); a feature is only available when all three allow it (see [Themes and Branding](../Customising_Profinity/Theming/index.md)). Config-level toggles can narrow what the licence permits, but never grant more than the licence allows.
 
 ## What Each Edition Includes
 
@@ -41,7 +41,7 @@ Not every feature described in this documentation is available on every instance
 - **Unlicensed** is the state of a Desktop installation with no licence file, and of any instance after its 14-day local trial expires. Unlicensed Desktop use is limited to personal, non-commercial purposes, as described in [Desktop Free-Use Policy](#desktop-free-use-policy).
 - Without Profinity Server there are no user accounts or roles, and **Users & Groups** is not shown. A Desktop installation runs as a single built-in admin user.
 - Kiosk Mode is included in every edition, but it signs a display in as an enabled Profinity user, and a dedicated kiosk user is created in **Users & Groups**, which needs Profinity Server. See [Kiosk Mode](Kiosk_Mode.md).
-- Themes and branding show **No** for an unlicensed instance because they need a commercial licence with white-label rights, although Profinity does not block the theme technically.
+- Themes and branding show **No** for an unlicensed instance. The instance keeps its `theme.yaml` file but shows the default Profinity appearance until a Desktop or higher licence is installed.
 - The 14-day local trial and sales evaluation licences include everything in the **Server** edition, but not **Enterprise Security**.
 - **Add-on** means something licensed separately from the edition, available on any commercial edition. Industrial Protocols is a component group that needs the matching plugin installed as well, and the Rinstrum and Vaulta hardware component packs are licensed in the same way as component groups. The Profinity SDK is a developer kit that Prohelion supplies on request.
 - Pages for licence-dependent features carry a **Licence required** note at the top. The **License** page in the product is always the authority for your instance, because configuration can further narrow what a licence allows.
