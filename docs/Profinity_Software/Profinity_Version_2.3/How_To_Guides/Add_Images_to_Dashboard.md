@@ -1,6 +1,6 @@
 ---
 title: How to Add Images to Your Dashboard
-description: "Add custom images (SVG, PNG, JPG, GIF) to your Profinity dashboards by storing them in the images folder of the profile directory."
+description: "Add custom images (SVG, PNG, JPG, WEBP, GIF) to your Profinity dashboards by storing them in the images folder of the profile directory."
 ---
 
 # How to Add Images to Your Dashboard
@@ -10,7 +10,7 @@ Add custom images to your dashboards by placing them in the `images` folder of t
 ## Prerequisites
 
 - Access to the `images` folder of your [profile's](../Getting_Started/Profiles.md) directory
-- Image files in supported formats (SVG, PNG, JPG, GIF)
+- Image files in supported formats (SVG, PNG, JPG, WEBP, GIF)
 - A dashboard to edit
 
 ## Place the Image File
@@ -61,7 +61,8 @@ Save the dashboard, and the image appears in it. If the image area stays empty, 
 - **SVG** is best for icons and logos, because it scales without loss of quality and has a smaller file size.
 - **PNG** suits images with transparency.
 - **JPG** suits photographs.
-- **GIF** suits animated images.
+- **WEBP** suits photographs and images with transparency at a smaller file size.
+- **GIF** suits animated images. A GIF copied into the `images` folder is served and displays in a dashboard, but the image library in the visual editor lists and uploads only SVG, PNG, JPG and WEBP files, so place GIF files in the folder by hand.
 
 ## Related Documentation
 

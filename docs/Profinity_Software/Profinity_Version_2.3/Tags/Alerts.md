@@ -28,7 +28,7 @@ Select **ALL ALERTS** in the side menu to open the Alerts Log, which shows the p
 | **Active** | Rule alerts currently firing |
 | **History** | Paginated history, newest first |
 
-Both tabs show the time (labelled **Active Time** on the **Active** tab, which is when the current episode began), the component, the rule, the level, the status and an actions column. Each row has a **More info** button that opens a detail dialog with the alert's message, tag, time and status, followed by the rule's `description`, which supports Markdown, and any `moreInformation` links under **DOCUMENTATION**. Both tabs can be filtered by level, the **Active** tab can also be filtered by acknowledgement status, and the **History** tab has a date range. Tables show 25, 50, 75 or 100 rows per page, and 25 by default.
+Both tabs show the time (labelled **Active Time** on the **Active** tab, which is when the current episode began), the component, the rule, the level, the status and an actions column. Each row has a **More info** button that opens a detail dialog with the alert's message, tag, time and status, followed by any `relatedTags` of the rule under **RELATED TAGS**, then the rule's `description`, which supports Markdown, and any `moreInformation` links under **DOCUMENTATION**. Both tabs can be filtered by level, the **Active** tab can also be filtered by acknowledgement status, and the **History** tab has a date range. Tables show 25, 50, 75 or 100 rows per page, and 25 by default.
 
 <figure markdown>
 ![Alerts Log Active tab with alert table](../images/2.3-alerts-active-tab.png)
@@ -70,7 +70,7 @@ Acknowledging and silencing both need the **View alerts** permission, and both a
 | **Acknowledge** | Marks the alert as seen and handled, and does not clear it. |
 | **Silence** | Suppresses the actions of the rule for that alert, so no Email, Slack, Webhook, MQTT, script or log action runs, while the alert stays active and visible with a silence badge. |
 
-The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab. Through the API a silence can last from 1 to 1440 minutes (24 hours), and a request outside that range is refused with "durationMinutes must be between 1 and 1440." The `/api/v2/Alerts/Unack` route reverts an acknowledgement.
+The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab, and an acknowledged alert shows an **Unacknowledge alert** button in place of Acknowledge. Through the API a silence can last from 1 to 1440 minutes (24 hours), and a request outside that range is refused with "durationMinutes must be between 1 and 1440." The `/api/v2/Alerts/Unack` route is the same revert that the **Unacknowledge alert** button uses.
 
 ### REST API
 
