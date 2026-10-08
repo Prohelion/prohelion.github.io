@@ -25,6 +25,10 @@ This includes a login that is rejected. Profinity keeps trying and shows the rea
 
 If a connection is lost while the component is running, it goes to **Error** and tries again in the same way. The log records the first failure of an outage at error level and the later attempts at debug level, so a long outage does not fill the log. When the connection returns, the log records that it reconnected.
 
+## When Reads, Writes or Sends Keep Failing
+
+A component can be connected and still fail to read a value, write a point or send a message. Profinity reports that once for each outage. The first failure is written to the [Logs](../Getting_Started/Profinity_Log.md) as a warning that names what failed and why, later failures during the same outage are logged at debug level only, and the first success afterwards is logged as the component working again. A long outage does not fill the log, and a new outage warns again.
+
 ## Retry Timing
 
 Profinity retries every 5 seconds unless the component has its own setting.
