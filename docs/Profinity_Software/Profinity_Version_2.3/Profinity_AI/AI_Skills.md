@@ -62,7 +62,7 @@ The Script and Plugin skills work beside the Profinity developer kit (`Profinity
 
 ## Installing AI Skills
 
-Prohelion publishes AI Skills as `profinity-ai-skills.zip` with each Profinity release, at `https://files.prohelion.com/profinity/<branch>/skills/profinity-ai-skills.zip`, where `<branch>` is the release channel that Prohelion gives you. Download the zip, extract it into a folder, and point `npx skills add` at that folder. The zip has no wrapping folder, so create the destination folder when you extract:
+Prohelion supplies AI Skills as `profinity-ai-skills.zip` with each Profinity release. Contact Prohelion for the zip that matches your release. Extract it into a folder, and point `npx skills add` at that folder. The zip has no wrapping folder, so create the destination folder when you extract:
 
 ```bash
 unzip profinity-ai-skills.zip -d profinity-ai-skills
