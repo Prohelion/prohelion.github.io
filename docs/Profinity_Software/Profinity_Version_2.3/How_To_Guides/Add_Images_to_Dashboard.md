@@ -29,7 +29,7 @@ Profinity serves the folder of the active profile when a browser requests a file
 
 ## Reference the Image in a Component
 
-In an [Icon](../Customising_Profinity/Dashboards/Component_Reference/Interactive/Icon.md) component, or the icon of a pill component, set `image` to the filename only:
+In an [Icon](../Customising_Profinity/Dashboards/Component_Reference/Content/Icon.md) component, or the icon of a pill component, set `image` to the filename only:
 
 ```yaml
 icon:
@@ -67,5 +67,5 @@ Save the dashboard, and the image appears in it. If the image area stays empty, 
 ## Related Documentation
 
 - [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md) - the full reference for profile directories
-- [Icon Component](../Customising_Profinity/Dashboards/Component_Reference/Interactive/Icon.md) - Icon component reference
+- [Icon Component](../Customising_Profinity/Dashboards/Component_Reference/Content/Icon.md) - Icon component reference
 - [Image Component](../Customising_Profinity/Dashboards/Component_Reference/Interactive/Image.md) - interactive image component reference

@@ -9,7 +9,7 @@ A redirect navigates to another location as soon as the dashboard displays the c
 
 ## When to Use
 
-Use a redirect in a dashboard that forwards the user to another page or to an external address. Do not use a redirect to provide a link that the user clicks, because the redirect cannot wait for a click. Use an [Action](Actions.md) with `invoke: Navigate`, or an `a` element in an [HTML](HTML.md) component, for a link.
+Use a redirect in a dashboard that forwards the user to another page or to an external address. Do not use a redirect to provide a link that the user clicks, because the redirect cannot wait for a click. Use an [Action](../Interactive/Actions.md) with `invoke: Navigate`, or an `a` element in an [HTML](HTML.md) component, for a link.
 
 ## Parameters
 

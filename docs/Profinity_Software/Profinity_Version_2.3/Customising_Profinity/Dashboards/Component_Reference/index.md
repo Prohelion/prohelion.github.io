@@ -1,11 +1,11 @@
 ---
 title: Component Reference
-description: "Reference for the dashboard components in three categories: layout, data display, and interactive."
+description: "Reference for the dashboard components in four categories: layout, data display, content, and interactive."
 ---
 
 # Component Reference
 
-This reference describes the dashboard components available in Profinity, in three categories: Layout Components that structure a dashboard, Data Components that display and visualise data from the Controller Area Network (CAN) bus and system properties, and Interactive Components that provide interaction and control.
+This reference describes the dashboard components available in Profinity, in four categories: Layout Components that structure a dashboard, Data Components that display and visualise data from the Controller Area Network (CAN) bus and system properties, Content Components that show fixed content or direct the user elsewhere, and Interactive Components that provide interaction and control.
 
 ## How to Use This Reference
 
@@ -44,6 +44,14 @@ The **Parameters** tables list every parameter that Profinity accepts on a compo
 | [Caption](Data/Caption.md) | Bound text caption |
 | [Log](Data/Log.md) | Scrolling engine and script log |
 
+### Content Components
+
+| Component | Description |
+|-----------|-------------|
+| [Icon](Content/Icon.md) | Single icon |
+| [HTML](Content/HTML.md) | Custom HTML content or a map that follows a position |
+| [Redirect](Content/Redirect.md) | Immediate navigation to another location |
+
 ### Interactive Components
 
 | Component | Description |
@@ -52,11 +60,8 @@ The **Parameters** tables list every parameter that Profinity accepts on a compo
 | [Actions](Interactive/Actions.md) | Buttons and icons that run actions |
 | [Toggles](Interactive/Toggles.md) | On/off switches |
 | [Charge](Interactive/Charge.md) | Charger and power supply controller |
-| [Icon](Interactive/Icon.md) | Single icon |
-| [HTML](Interactive/HTML.md) | Custom HTML content or a map that follows a position |
 | [Image](Interactive/Image.md) | Image with regions, icons, buttons and data values |
 | [Model](Interactive/Model.md) | 3D model with regions, icons, buttons and data values |
-| [Redirect](Interactive/Redirect.md) | Immediate navigation to another location |
 
 ## Nesting Rules
 

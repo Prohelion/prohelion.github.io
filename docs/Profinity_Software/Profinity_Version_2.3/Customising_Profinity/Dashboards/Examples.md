@@ -339,7 +339,7 @@ dashboard:
 
 ### HTML Component Example
 
-An [HTML](./Component_Reference/Interactive/HTML.md) component shows custom HTML content with references to profile assets:
+An [HTML](./Component_Reference/Content/HTML.md) component shows custom HTML content with references to profile assets:
 
 ``` yaml
 dashboard:
