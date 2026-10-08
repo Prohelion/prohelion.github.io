@@ -5,6 +5,11 @@ site_description: >-
   software, Battery Management Systems, Motor Controllers, Solar Charge
   Controllers, and Solar Car Racing electronics.
 
+# Team-only working pages (writer brief, review checklist, to-do). Excluded so they
+# never reach the built site, the sitemap or the search index.
+exclude_docs: |
+  internal/
+
 extra_css:
   - assets/stylesheets/theme.css
 
@@ -277,6 +282,7 @@ plugins:
         'Profinity_Software/Profinity_Version_2.3/Customising_Profinity/Dashboards/Example.md': 'Profinity_Software/Profinity_Version_2.3/Customising_Profinity/Dashboards/Full_Example.md'
         'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Scripting/Rule_Scripts.md': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md'
         'Profinity_Software/Profinity_Version_2.3/Customising_Profinity/Mobile/OEM_White_Label.md': 'Profinity_Software/Profinity_Version_2.3/Mobile/OEM_White_Label.md'
+        'Profinity_Software/Profinity_Version_2.3/Release_Notes/2.3.10.md': 'Profinity_Software/Profinity_Version_2.3/Release_Notes/2.3.1.md'
 
 markdown_extensions:    
   - pymdownx.superfences
