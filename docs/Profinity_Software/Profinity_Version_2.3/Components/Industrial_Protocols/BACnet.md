@@ -22,7 +22,7 @@ You add a BACnet Device to your [Profile](../../Getting_Started/Profiles.md) fro
 | **Name** | The name of the component. Must be unique within the profile. |
 | **Local UDP port** | The User Datagram Protocol (UDP) port Profinity uses locally. Between `1` and `65535`. The default is `47808`, the standard BACnet/IP port (`0xBAC0` in hexadecimal). |
 | **Remote host** | The IP address of the BACnet device. Required, and it is the address Profinity sends every request to. The default is `127.0.0.1`. |
-| **Device instance** | The BACnet device instance number of the device. Between `0` and `4194303`. The default is `0`. Profinity 2.3 does not use this value to address the device, so the **Remote host** alone decides which device is read. |
+| **Device instance** | The BACnet device instance number of the device, which is the instance in the device's own Device object. Between `0` and `4194302`. The default is `0`. Profinity still sends every request to the **Remote host**, but it reads the Device object of the device at that address when it starts polling and compares the two numbers, and it reads no point while they differ, so that a changed address never leads to another device being read. Set this to the instance of the device you are connecting to, which a BACnet configuration tool or the device's own display shows, even when that instance is `0`. |
 | **Poll interval (ms)** | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
 | **Request timeout (ms)** | How long Profinity waits for the device to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |
 | **Reconnect delay (ms)** | How long Profinity waits before trying to reconnect after a connection is lost, in milliseconds. Between `0` and `600000`. The default is `2000`. |
@@ -53,4 +53,6 @@ Polled values behave like any other tag, so they can be shown on a [dashboard](.
 
 ## If a Point Shows Bad Quality
 
-If a point cannot be read, its tag is marked as bad quality. The usual causes are a wrong **Remote host**, an **Object type** or **Instance** that the device does not have, and a device that does not answer within the **Request timeout (ms)**. Check these before reading the [Log](../../Getting_Started/Profinity_Log.md), which records read failures at debug level.
+If a point cannot be read, its tag is marked as bad quality. The usual causes are a wrong **Remote host**, an **Object type** or **Instance** that the device does not have, and a device that does not answer within the **Request timeout (ms)**. Check these before reading the [Log](../../Getting_Started/Profinity_Log.md), which records point read failures at debug level.
+
+A **Device instance** that differs from the device at the **Remote host** marks every point as bad quality and records an error in the Log of the form `BACnet device at 192.168.1.20 reports Device instance 1234, but Device instance is set to 0`. Set **Device instance** to the number in the message, or correct the **Remote host** if the address now belongs to a different device. A device that does not answer the identity read, or that does not allow its Device object to be read, produces a warning that the device did not answer, and Profinity tries again every poll interval.
