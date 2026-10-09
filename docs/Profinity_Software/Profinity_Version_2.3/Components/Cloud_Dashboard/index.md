@@ -14,7 +14,7 @@ From Profinity 2.3, [Rules](../../Tags/index.md), [Dashboards](../../Customising
 
 ## Get Access to Prohelion Cloud
 
-Access to Prohelion Cloud is by request. Raise an access request in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals), and Prohelion support assists with device onboarding, dashboard set-up and integration with existing systems. The component needs an access token and a device ID for the device in Prohelion Cloud, so have both to hand before adding it.
+Access to Prohelion Cloud is by request. Raise an access request in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals), and Prohelion support assists with device onboarding, dashboard set-up and integration with existing systems. The component needs an access token and a device ID for the device in Prohelion Cloud, so have both to hand before adding it. Both are shown in your account on the Prohelion Cloud dashboard.
 
 ## Add the Component
 

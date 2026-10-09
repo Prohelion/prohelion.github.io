@@ -31,7 +31,7 @@ The Profinity Mobile source package includes the build guide (`BUILD.md`) and th
 
 ## What End Users and Operators Get
 
-End users install the OEM-branded app from the OEM's own distribution channel, and server discovery and login behaviour are the same as in [standard Profinity Mobile](index.md). The app only finds servers whose **Heartbeat UDP port** matches `discovery.profinityHeartbeatPort`, and a server that uses HTTPS with a self-signed certificate shows the user a certificate prompt on first connection, so install a trusted certificate on the server where the app is deployed to staff. Sign-in through SSO (single sign-on) needs a Profinity site set to the **Sso** sign-in method.
+End users install the OEM-branded app from the OEM's own store listing, or the OEM installs it on the phones of its service technicians, and server discovery and login behaviour are the same as in [standard Profinity Mobile](index.md). The app only finds servers whose **Heartbeat UDP port** matches `discovery.profinityHeartbeatPort`, and a server that uses HTTPS with a self-signed certificate shows the user a certificate prompt on first connection, so install a trusted certificate on the server where the app is deployed to staff. Sign-in through SSO (single sign-on) needs a Profinity site set to the **Sso** sign-in method.
 
 ## Related Documentation
 

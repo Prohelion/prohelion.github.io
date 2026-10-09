@@ -10,7 +10,7 @@ Profinity Mobile is a companion app for iOS and Android that connects to a Profi
 ## Install the App
 
 !!! info "Profinity 2.3 Download Information"
-    Profinity Mobile is currently available for Early Adopters only. Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the programme and to receive the installation files. Prohelion supplies the app as source code, and the organisation that distributes it builds and signs its own iOS and Android binaries, as described in [OEM White-Label Mobile Builds](OEM_White_Label.md).
+    Profinity Mobile is currently available for Early Adopters only. Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the programme and to receive the installation files. Prohelion does not publish the app in the public app stores. It supplies the app as source code, and the organisation that distributes it builds and signs its own iOS and Android binaries, as described in [OEM White-Label Mobile Builds](OEM_White_Label.md).
 
 ## Enable Server Discovery on the Engine
 
