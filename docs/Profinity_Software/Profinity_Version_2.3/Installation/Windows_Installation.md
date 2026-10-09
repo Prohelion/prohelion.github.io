@@ -41,7 +41,7 @@ To stop Profinity, shut down the application.
 
 With Profinity Desktop running, you can also open the user interface in a web browser on the same machine. Open the URL defined in the Profinity Web panel of [System Configuration](../Administration/System_Configuration/Profinity_Web.md) (reached from **ADMIN** in the side menu). For installations that followed the default setup procedure, the default URL is `http://localhost:18080`.
 
-Connecting to the Profinity web client directs the browser to the Profinity login page. The desktop application signs in without a password, and the installer does not create an administrator account for the login page, so a fresh install has no account that can be used to sign in from a browser, and an account can only be created with a Server licence applied, as the licence note above describes. Without one, use the desktop application window. If the browser cannot reach the address, check that Profinity is running and that another program is not using port 18080.
+Connecting to the Profinity web client directs the browser to the Profinity login page. The desktop application signs in without a password. A fresh install without a Server licence has no account for the login page, so use the desktop application window. Once a Server licence is applied, Profinity creates the default `admin` account (password `password`, changed at first sign-in), so a browser on this or another computer can sign in with it. If the browser cannot reach the address, check that Profinity is running and that another program is not using port 18080.
 
 <figure markdown>
 ![Profinity login page](../images/login_page.png)
@@ -50,4 +50,4 @@ Connecting to the Profinity web client directs the browser to the Profinity logi
 
 ### Next Steps
 
-If a Server licence is applied, create the first account with [Create User](../Getting_Started/Create_User.md), then work through the [Quick Start](../Getting_Started/Quick_Start.md), review the [Security Guide](./Security.md), and run Profinity in the background with [Running as a Service](./Running_As_Service.md).
+If a Server licence is applied, sign in as `admin`, change the password, create your own accounts with [Create User](../Getting_Started/Create_User.md), then work through the [Quick Start](../Getting_Started/Quick_Start.md), review the [Security Guide](./Security.md), and run Profinity in the background with [Running as a Service](./Running_As_Service.md).

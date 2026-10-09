@@ -14,7 +14,7 @@ On Windows, follow the [Windows Installation Guide](../Installation/Windows_Inst
 !!! tip "Other Platforms"
     On macOS or Linux, see the [Linux and macOS Installation Guide](../Installation/Zip_Installation.md). For Docker deployments, see the [Docker Installation Guide](../Installation/Docker_Installation.md).
 
-After installation, launch Profinity from the Start Menu, which opens the Profinity homepage. The Windows desktop application signs in automatically with a built-in account, so no login is needed to complete this guide, whereas installations that run Profinity as a web service, such as Docker and Linux, create an `admin` user with the password `password` and require a new password at the first sign in.
+After installation, launch Profinity from the Start Menu, which opens the Profinity homepage. The Windows desktop application signs in automatically with a built-in account, so no login is needed to complete this guide, whereas installations that run Profinity as a web service, such as Docker and Linux, and a Windows installation that holds a Server licence, create an `admin` user with the password `password` and require a new password at the first sign in.
 
 !!! warning "Change the Default Password"
     On Docker and Linux installations, change the default password at the first sign in, so that the system is not left running with publicly documented credentials. Select **ADMIN** in the side menu, then the **Change My Password** pill.

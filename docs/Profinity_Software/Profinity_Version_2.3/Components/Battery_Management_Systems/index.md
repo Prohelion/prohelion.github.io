@@ -92,7 +92,7 @@ The D1000 Gen2, M48 Gen2 and C48 Gen2 make their Admin parameters available only
 To unlock the Admin parameters, a user with the **Modify components** permission follows these steps.
 
 1. Open **Change Settings** at the top-right of the BMU dashboard.
-2. In the **Firmware Configuration Key** row, select **Enter**.
+2. On the **Prohelion BMU Settings** tab, in the **Firmware Configuration Key** row, select **Enter**.
 3. Type the key, which can be decimal or hexadecimal and ranges from 0 to 65535, and set the session duration in minutes. The duration defaults to 30 and accepts 1 to 1440 minutes.
 4. Select **Apply**. The dialog reloads, the row shows **Session active** with the expiry time and the permission level that the key gives, and the Admin parameters appear.
 

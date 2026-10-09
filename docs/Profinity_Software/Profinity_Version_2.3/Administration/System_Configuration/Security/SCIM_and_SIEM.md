@@ -43,7 +43,7 @@ When **Enable SIEM export** is on, Profinity forwards its security audit events,
 | **SIEM port** | 0 (unset) | The collector port, from 0 to 65535. Enter the port the collector listens on, because 0 means no port is set. |
 | **Protocol** | UDP | The transport used to send events, either `UDP` or `TCP`. |
 | **Minimum log level** | Info | Only audit events at this level or higher are exported. The options are `Trace`, `Debug`, `Info`, `Warn`, `Error` and `Fatal`. |
-| **Format** | Syslog | The message format. Syslog is the only option. |
+| **Format** | Syslog | The message format. Syslog is the only option. Profinity sends each event as the plain text line described under [Event Format](#event-format), without a syslog priority or header, so set the collector to accept a plain line over UDP or TCP. |
 
 The firewall between the Profinity host and the collector must allow outbound traffic on the chosen protocol and port. Raising **Minimum log level** reduces the volume sent, which matters when the level is set low enough to forward every event.
 
@@ -56,3 +56,13 @@ Restrict access to the site configuration backups that contain the SCIM bearer t
 - [SSO and Sign-In Method](./SSO_and_Sign_In.md)
 - [Roles and Permissions](../../Users_and_Access/Roles_and_Permissions.md)
 - [System Configuration](../index.md)
+
+## Event Format
+
+Each event is one line of text. It starts with `SECURITY|` and the event name, followed by `name=value` fields separated by `|`, in this order when they apply: `username`, `actor`, `target`, `ip`, `authMode`, `reason`, `from`, `to`, `backup`, and then one `change.<field>` entry for each changed field. A `|`, carriage return or line feed inside a value is replaced with `_`, and passwords and tokens are never written. For example, a failed local sign-in looks like this:
+
+```text
+SECURITY|LoginFailure|username=admin|ip=192.168.1.10|authMode=Local|reason=BadPassword
+```
+
+The event names include `LoginSuccess`, `LoginFailure`, `TokenRefresh`, `TokenRejected`, `UserCreated`, `UserUpdated`, `UserDeleted`, `PasswordChanged`, `GroupCreated`, `GroupUpdated`, `GroupDeleted`, `TwoFactorEnabled`, `TwoFactorDisabled`, `TwoFactorVerified`, `TwoFactorFailed`, `ExternalLoginSuccess`, `ExternalLoginFailure`, `SessionRevoked`, `SessionRevokeAll`, `ScimUserProvisioned`, `ScimUserDeactivated` and `LicenseApplied`.

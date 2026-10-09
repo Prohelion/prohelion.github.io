@@ -24,7 +24,7 @@ The **Session Policy** group sets how long a sign-in lasts and how Profinity res
 |---------|---------|-------|--------|
 | **Access token lifetime (minutes)** | 120 | 1 to 10080 (one week) | How long a sign-in remains valid, regardless of activity. When it ends the user signs in again. |
 | **Session idle timeout (minutes)** | Empty (no idle timeout) | 1 to 10080 | When set, a session ends after this period without activity, even if its access token is still valid. |
-| **Maximum concurrent sessions** | Empty (no limit) | 1 to 1000 | When set, limits how many active sessions one user can hold. |
+| **Maximum concurrent sessions** | Empty (no limit) | 1 to 1000 | When set, limits how many active sessions one user can hold. When a user signs in beyond the limit, Profinity ends that user's oldest session: it can no longer refresh its sign-in, so it stops working when its current access token expires. |
 | **Maximum login attempts** | 10 | 1 to 100 | The number of sign-in attempts allowed in one minute before the user is locked out. |
 | **Login lockout duration (minutes)** | 15 | 1 to 1440 | How long a locked-out user must wait before signing in again. |
 
