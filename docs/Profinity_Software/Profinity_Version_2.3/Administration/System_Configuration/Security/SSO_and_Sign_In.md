@@ -52,7 +52,7 @@ A person whose sign-in succeeds at the identity provider but who has no link, or
 
 ## Recovering from a Misconfigured Provider
 
-Because a site cannot mix **Local** and **Sso**, a misconfigured or unreachable identity provider prevents every user from signing in, so confirm the callback address and the issuer with a test account before relying on **Sso**. If Profinity starts with **Sso** selected and no **Authority URL (IdP issuer)**, it reverts to **Local** sign-in so that the site is not locked out. When the authority is set but wrong, the **Sign-in method** has to be set back to **Local** by editing the `config.yaml` file in the `config` folder of the [Artifacts directory](../../../Installation/Artifacts_Directory.md) and restarting Profinity, after which an administrator can sign in with a local password.
+Because a site cannot mix **Local** and **Sso**, a misconfigured or unreachable identity provider prevents every user from signing in, so confirm the callback address and the issuer with a test account before relying on **Sso**. If Profinity starts with **Sso** selected and no **Authority URL (IdP issuer)**, it reverts to **Local** sign-in so that the site is not locked out. When the authority is set but wrong, the **Sign-in method** has to be set back to **Local** by editing the `config.yaml` file in the `config` folder of the [Artifacts directory](../../../Installation/Artifacts_Directory.md), changing `authenticationMode` under the `securityPolicy` section to `Local`, and restarting Profinity, after which an administrator can sign in with a local password.
 
 ## Multi-Factor Authentication and SCIM
 
