@@ -10,7 +10,7 @@ The **InfluxDB v2 Historian** writes the values of the tags in the [collections]
 !!! warning "Match the Component to Your InfluxDB Version"
     Use this component only with an InfluxDB v2 server. The component type must match the InfluxDB version, and a mismatch causes connection failures. The [InfluxDB v3 Historian](InfluxDB_v3_Historian.md) is documented separately, and [Historians](index.md#which-influxdb-component-do-i-need) explains how to choose.
 
-Use this component if your InfluxDB server stores data in buckets that belong to an organisation. It authenticates with a token.
+Use this component if your InfluxDB server stores data in buckets that belong to an organisation. It authenticates with a token. InfluxDB Cloud is supported as well as a server you host: enter the Cloud URL and a token in the same way.
 
 ## Adding an InfluxDB v2 Historian
 

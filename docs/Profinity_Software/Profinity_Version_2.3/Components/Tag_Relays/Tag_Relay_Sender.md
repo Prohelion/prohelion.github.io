@@ -27,7 +27,7 @@ Add a **Tag Relay Sender** component to your profile from the **Tag Relays** cat
 | Setting | Purpose |
 |---|---|
 | **Remote base URL** | The remote Profinity base URL, for example `https://receiver:443/`. The path `/api/v2/Relay/snapshot` is appended. Required when the protocol is HTTPS. |
-| **Bearer token** | A JSON Web Token (JWT) for a user on the remote instance with the **Receive external tags** permission (or Admin). Required to start the sender when the protocol is HTTPS, and stored encrypted. |
+| **Bearer token** | A JSON Web Token (JWT) for a user on the remote instance with the **Receive external tags** permission (or Admin). Use the token of a service account created on the receiving instance for this, so the relay keeps working without anyone signing in again. Required to start the sender when the protocol is HTTPS, and stored encrypted. |
 | **Trust all server certificates** | Disables Transport Layer Security (TLS) server certificate validation. Enable only when connecting to a trusted receiver that uses a self-signed certificate. |
 
 ### MQTT Settings

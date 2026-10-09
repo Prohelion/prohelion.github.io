@@ -9,8 +9,8 @@ The WaveSculptor dashboard monitors a Prohelion WaveSculptor22 motor controller 
 
 The WaveSculptor communicates only over CAN and takes its low-voltage supply from the CAN cable. A [CAN adapter](../CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected to a powered CAN bus is therefore required before the dashboard shows any data.
 
-!!! info "Profinity 2.3 Supports the WaveSculptor22 Only"
-    Profinity 2.3 includes a component for the WaveSculptor22 and none for the WaveSculptor200, which uses a different Status message layout. A [Custom Component](../Custom_Components/index.md) with the WaveSculptor200 [DBC file](../../../../Motor_Controllers/WaveSculptor200/User_Manual/Appendix_C.md) can monitor a WaveSculptor200.
+!!! info "One Component Serves the WaveSculptor22 and the WaveSculptor200"
+    The WaveSculptor22 component monitors both the WaveSculptor22 and the WaveSculptor200. The two controllers send the same CAN messages with the same signals, and the WaveSculptor200 [DBC file](../../../../Motor_Controllers/WaveSculptor200/User_Manual/DBC.md) matches the one the component uses, so add the WaveSculptor22 component whichever controller you have.
 
 Profinity requests the settings below when the WaveSculptor is added, and the **Change Settings** button at the top-right of the dashboard changes them later.
 

@@ -443,7 +443,7 @@ The bindings in this dashboard follow three patterns that [Data Binding](./Data_
 
 To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can copy from the Tag Explorer, and adjust the measurements, layout, precision and labels to suit.
 
-!!! note "The WaveSculptor200 Publishes Different Signals"
-    Check the DBC file of the controller before copying the tags, because the [WaveSculptor200](../../../../Motor_Controllers/WaveSculptor200/User_Manual/Appendix_C.md) transmits extended error flags and intelligent power module (IPM) phase temperatures that the WaveSculptor22 does not.
+!!! note "The Same Dashboard Suits the WaveSculptor200"
+    The WaveSculptor200 sends the same CAN messages and signals as the WaveSculptor22, so the tags in this dashboard apply to both controllers.
 
 To add sections, copy a panel and bind it to other tags for more charts, add lamps for further limit or error flags, add readouts for system-specific parameters, or add [actions](./Component_Reference/Interactive/Actions.md) and [toggles](./Component_Reference/Interactive/Toggles.md) for control. The [Visual Editor](./Visual_Editor.md) is the quickest way to make these changes, and [Examples](./Examples.md) holds smaller dashboards to build from.
