@@ -5,7 +5,7 @@ description: "Script operations for console output and logging messages to the P
 
 # Console
 
-Console output is available in every script and writes to two streams. Standard output goes to the Profinity log at the `Info` level and error output goes to the Profinity log at the `Error` level. The output is written to the script log only when the script's **Log Script Output** setting is on, and the setting is off by default, so a script whose `print()` output does not appear in the log needs that setting switched on.
+Console output is available in every script and writes to two streams. Standard output reaches the Profinity log at the `Info` level only when the script's **Log Script Output** setting is on, and the setting is off by default, so a script whose `print()` output does not appear in the log needs that setting switched on. Error output and script exceptions always reach the Profinity log at the `Error` level, whatever the setting.
 
 Each language writes to the console in its own way. In C# the console is `Profinity.Console`. In Python, `print()` writes standard output and `print(..., file=sys.stderr)` writes error output. In Lua, `print(...)` writes standard output and the `stderr(...)` global writes error output.
 

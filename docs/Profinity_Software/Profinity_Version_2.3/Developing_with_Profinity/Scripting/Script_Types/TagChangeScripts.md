@@ -65,7 +65,7 @@ Profinity calls the method once for each tag that changes, passing:
     end
     ```
 
-The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `LuaTagChangeTemplate.lua` ship as templates in the `example_scripts` folder of the Profinity directory.
+The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `LuaTagChangeTemplate.lua` are built into Profinity as the templates it offers when you create a script of that type.
 
 !!! warning "One Call per Tag"
     The `sample` argument is only the tag that changed. Reading any other tag returns its live value at that moment, not the value published together with this change. A frame, a payload or several tags written as one update are already separate changes before the method runs, so sibling tags are not guaranteed to be consistent with each other.
@@ -79,7 +79,7 @@ Writing the same value again does not call the method for sources that report a 
 
 ## Publishing a Computed Tag
 
-A common use is computing one tag from another. This example, which follows the `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` templates shipped in the `example_scripts` folder of the Profinity directory, converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values). See [Derived Tags](../../../Tags/Derived_Tags.md) for when to choose this over an expression-based derived tag.
+A common use is computing one tag from another. This example, which follows the `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` templates built into Profinity, converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values). See [Derived Tags](../../../Tags/Derived_Tags.md) for when to choose this over an expression-based derived tag.
 
 === "C#"
 

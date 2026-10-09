@@ -86,7 +86,7 @@ is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (see
     end
     ```
 
-The full files `CSharpAlertTemplate.cs`, `PythonAlertTemplate.py` and `LuaAlertTemplate.lua` ship as templates in the `example_scripts` folder of the Profinity directory (in its `CSharp`, `Python` and `Lua` subfolders), alongside Profinity's other example scripts.
+The full files `CSharpAlertTemplate.cs`, `PythonAlertTemplate.py` and `LuaAlertTemplate.lua` are built into Profinity as the templates it offers when you create a script of that type.
 
 !!! warning "Running the Script by Hand Does Not Call This Method"
     The **Run Script** action on a component menu, and the Run On Demand and scheduled paths, do not call

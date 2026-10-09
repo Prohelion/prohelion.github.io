@@ -21,7 +21,7 @@ You add an EtherNet/IP PLC to your [Profile](../../Getting_Started/Profiles.md) 
 |---|---|
 | **Name** | The name of the component. Must be unique within the profile. |
 | **Gateway** | The IP address of the PLC, or of the gateway module that the PLC sits behind. Required. The default is `127.0.0.1`. |
-| **CIP path** | The route to the PLC's CPU (central processing unit), as comma-separated values passed to the PLC library as entered. The default is `1,0`, which is the backplane (`1`) and slot `0`; for a CPU in slot 2 of the same chassis, enter `1,2`. Leave it empty to send no path. Micro800 controllers ignore this setting even when it is filled in. |
+| **CIP path** | The route to the PLC's CPU (central processing unit), as comma-separated values passed to the PLC library as entered. The default is `1,0`, which is the backplane (`1`) and slot `0`; for a CPU in slot 2 of the same chassis, enter `1,2`. Leave it empty to send no path. For a CPU reached through a bridge module, enter the route as pairs of port and address, one pair for each hop, as the PLC library expects. PLC-5, SLC and MicroLogix controllers on EtherNet/IP normally need no path, so clear the default `1,0` for them unless you reach them through a DH+ bridge. Micro800 controllers ignore this setting even when it is filled in. |
 | **PLC kind** | The family of PLC: `ControlLogix` (the default), `CompactLogix`, `Micro800`, `PLC-5` or `SLC`. |
 | **Poll interval (ms)** | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
 | **Request timeout (ms)** | How long Profinity waits for the PLC to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |

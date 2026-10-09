@@ -16,7 +16,7 @@ An adapter connects Profinity to a Controller Area Network (CAN) bus. Profinity 
 | Ewert Energy CANdapter | USB (COM port) |
 | Native [SocketCAN](https://docs.kernel.org/networking/can.html) | The local operating system, on Docker and Linux installs only |
 
-Native SocketCAN is available when Profinity runs in [Docker](../../Installation/Docker_Installation.md) or on a Unix [zip installation](../../Installation/Zip_Installation.md), and is not available on Windows. SocketCAN is a Linux kernel feature.
+Native SocketCAN is available when Profinity runs in [Docker](../../Installation/Docker_Installation.md) or on a Unix [zip installation](../../Installation/Zip_Installation.md), and is not available on Windows. SocketCAN is a Linux kernel feature. A Peak or CANdapter adapter that you plug into a Linux host also appears there as a SocketCAN interface, so on Linux use the SocketCAN adapter, or the SocketCANd adapter from another machine, instead of the Peak or CANdapter adapter.
 
 !!! warning "Install the Peak Driver Before Starting Profinity"
     The Peak CAN to USB Adapter needs its driver installed before Profinity starts. Use the supplied Peak tools to confirm the adapter works, then add the adapter with Auto Discovery as normal.

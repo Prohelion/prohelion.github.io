@@ -118,7 +118,7 @@ Tag paths passed to `Profinity.Tags` are relative to the script's own host compo
     end
     ```
 
-The full files `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` ship as templates in the `example_scripts` folder of the Profinity directory (in its `CSharp`, `Python` and `Lua` subfolders), alongside Profinity's other example scripts.
+The full files `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` are built into Profinity as the templates it offers when you create a script of that type.
 
 !!! warning "A Read Never Re-Runs the Script"
     Reading the published tag returns the last value the script published. If nothing has triggered the script yet, the tag has no value rather than a freshly computed one.
