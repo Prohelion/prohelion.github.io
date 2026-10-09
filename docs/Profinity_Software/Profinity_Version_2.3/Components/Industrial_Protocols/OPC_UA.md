@@ -72,7 +72,7 @@ The server publishes the readable scalar values in the profile's tag tree. Each 
 
 ### Listening Address
 
-With the default **Bind URL**, the server listens on `localhost` only, because Profinity replaces a host of `0.0.0.0` with `localhost` when it starts the server. Clients on other machines cannot connect with the default. To accept remote clients, replace `0.0.0.0` in the **Bind URL** with the IP address or host name of the Profinity machine that those clients can reach, for example `opc.tcp://192.168.1.20:4840/Profinity`.
+With the default **Bind URL**, Profinity replaces a host of `0.0.0.0` with `localhost` in the address it advertises to clients, but the operating system shows the server listening on every network interface (`0.0.0.0` and `::`). A client on another computer can therefore reach the port, although the server tells it to use `localhost`, which some clients do not accept. Treat the port as reachable from the network and restrict it with a firewall unless you want remote access. To accept remote clients, replace `0.0.0.0` in the **Bind URL** with the IP address or host name of the Profinity machine that those clients can reach, for example `opc.tcp://192.168.1.20:4840/Profinity`.
 
 ## Certificates
 

@@ -68,7 +68,7 @@ Adding a **Prometheus Logger** to Profinity is all that is required on the Profi
 | Setting | Default | Purpose |
 |---|---|---|
 | **Data endpoint URL** | `metrics/` | The URL path, within the hostname and port, that the Prometheus data is served on. |
-| **Server Hostname** | `localhost` | The hostname or IP address that the Prometheus scraper connects to on the local machine. |
+| **Server Hostname** | `localhost` | The host name or IP address that Profinity's Prometheus endpoint answers to. With `localhost`, only a scraper on the same computer can read it. To let a scraper on another computer connect, enter the computer's host name or IP address, or `+` to answer on every address. On Windows, listening on anything other than `localhost` needs a URL reservation, for example `netsh http add urlacl url=http://+:7065/metrics user=DOMAIN\user`, or running Profinity with administrator rights. |
 | **Server Port** | 7065 | The port that the endpoint runs on, from 1 to 65535. |
 | **Dashboard URL** | Blank | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
 | **Update Interval (Seconds)** | 10 | The interval, in seconds, between samples, from 10 to 86400. |
