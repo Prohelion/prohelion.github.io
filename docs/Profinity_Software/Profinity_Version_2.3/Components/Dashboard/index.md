@@ -20,4 +20,6 @@ Dashboards are written in YAML and can be edited in the [Visual Editor](../../Cu
 <figcaption>Dashboard visual editor</figcaption>
 </figure>
 
+A relative tag path in a Dashboard Component starts at the Dashboard Component itself, which has no DBC, so a path such as `DBC/BusMeasurement/BusVoltage` finds no tag there. Bind to the tags of another component with an absolute path that starts with `/`, such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
+
 Read [Data Binding](../../Customising_Profinity/Dashboards/Data_Binding.md) to connect the dashboard to tags and the [Component Reference](../../Customising_Profinity/Dashboards/Component_Reference/index.md) for each element. Worked guides are [How to Create a Custom Dashboard](../../How_To_Guides/Create_Custom_Dashboard.md) and [How to Create a Profile Dashboard](../../How_To_Guides/Create_Profile_Dashboard.md).
