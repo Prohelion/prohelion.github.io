@@ -30,7 +30,7 @@ Use the client to bring values from a programmable logic controller (PLC), a sup
 |---|---|
 | **Name** | The name of the component. Must be unique within the profile. |
 | **Endpoint URL** | The address of the server. Required, and must start with `opc.tcp://`. The default is `opc.tcp://127.0.0.1:4840`. |
-| **Use security** | When off (the default), the client connects without message security. Turn it on to connect to a secured endpoint that the server offers. |
+| **Use security** | When off (the default), the client connects without message security. Turn it on to connect to an endpoint that uses security (message signing or encryption) when the server offers one. |
 | **Username** | An optional user name. Leave it empty to connect anonymously. |
 | **Password** | The password for the user name. It is stored encrypted. |
 | **Trust all server certificates** | Skips validation of the server's certificate. Off by default. Turn it on only when connecting to a trusted endpoint that uses a self-signed certificate. |
@@ -76,7 +76,7 @@ With the default **Bind URL**, the server listens on the loopback address `127.0
 
 ## Certificates
 
-Both components keep their OPC UA application certificates in the `opcua_pki` folder inside the Profinity data folder of the account that runs Profinity, in the `own`, `trusted`, `issuer` and `rejected` sub-folders. On Windows the folder is `%LocalAppData%\Prohelion\Profinity\opcua_pki`, and on Linux it is `~/.local/share/Prohelion/Profinity/opcua_pki`. To trust a certificate explicitly, rather than trusting all, place it in `trusted`. Certificates that are refused are placed in `rejected`, so a connection that fails on a certificate leaves the refused certificate there to move into `trusted` once you have confirmed it.
+Both components keep their OPC UA application certificates in the `opcua_pki` folder inside the Profinity data folder of the account that runs Profinity, in the `own`, `trusted`, `issuer` and `rejected` sub-folders. On Windows the folder is `%LocalAppData%\Prohelion\Profinity\opcua_pki`, on macOS it is `~/Library/Application Support/Prohelion/Profinity/opcua_pki`, and on Linux it is `~/.local/share/Prohelion/Profinity/opcua_pki`. The folder follows the home folder of the account that runs Profinity, not the `PROFINITY_HOME` setting or the `/var/lib/prohelion/profinity` data folder, so in Docker it sits inside the container rather than in the data volume, and the certificates are created again if the container is recreated. For a Windows service that runs as LocalSystem, the folder is under `C:\Windows\System32\config\systemprofile\AppData\Local\Prohelion\Profinity`. To trust a certificate explicitly, rather than trusting all, place it in `trusted`. Certificates that are refused are placed in `rejected`, so a connection that fails on a certificate leaves the refused certificate there to move into `trusted` once you have confirmed it.
 
 ## Dashboard
 
