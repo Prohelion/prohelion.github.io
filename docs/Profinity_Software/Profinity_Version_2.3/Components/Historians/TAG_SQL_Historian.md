@@ -50,6 +50,20 @@ When **Auto Create Table** is enabled the historian creates a table with the fol
 
 The columns follow the same field set as the tag change file logger described in [File Loggers](../Loggers/File_Loggers.md), so history written by either can be interpreted in the same way. If you create the table yourself, disable **Auto Create Table** and make sure the account in the connection string can insert into and read from it.
 
+## Example Connection Strings
+
+The connection string uses the format of the chosen provider. The examples below use placeholder names and passwords.
+
+| Provider | Example |
+|---|---|
+| SQLite | `Data Source=/var/lib/prohelion/profinity/history.db`. SQLite creates the file at the path you give, so use a full path to a folder the Profinity service can write to. |
+| SQL Server / Azure SQL | `Server=dbhost,1433;Database=Profinity;User Id=profinity;Password=<password>;Encrypt=True` |
+| PostgreSQL | `Host=dbhost;Port=5432;Database=profinity;Username=profinity;Password=<password>` |
+| MySQL | `Server=dbhost;Port=3306;Database=profinity;User ID=profinity;Password=<password>` |
+| Oracle | `User Id=profinity;Password=<password>;Data Source=dbhost:1521/ORCLPDB1` |
+
+The account in the connection string needs permission to insert into and select from the table. With **Auto Create Table** on, it also needs permission to create the table, and you can remove that permission after the first start.
+
 ## If the Historian Does Not Start
 
 Settings cannot be saved without a connection string (`You must provide a connection string for the database.`) or with an invalid table name (`Table name must use letters, digits, and underscore only, and cannot start with a digit.`). If the settings save but no rows arrive, the [Log](../../Getting_Started/Profinity_Log.md) shows the component name followed by `could not connect` and the reason for a connection that failed (the historian shows **Error** and retries every 5 seconds until the database is reachable), or `Failed to write to the` followed by the component name for a failed write, so check the connection string, that the database is reachable from the Profinity server and that the account can write to the table.

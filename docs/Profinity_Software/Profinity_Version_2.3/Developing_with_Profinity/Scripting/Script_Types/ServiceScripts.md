@@ -26,7 +26,7 @@ The lifecycle functions are separate functions. A counter or other mutable value
 
 ## Examples
 
-Each example implements all four lifecycle methods, although only the start method is required, and a `Run()` or `run()` that loops until `Profinity.ScriptCancelled` is set. The loop sleeps between iterations with `time.sleep` (Python), `Thread.Sleep` (C#) or `sleep` (Lua), and the Python version declares `global` for the shared run counter. The `example_scripts` folder of the Profinity directory holds Python, C# and Lua service templates with both single-step and loop-style `run` patterns.
+Each example implements all four lifecycle methods, although only the start method is required, and a `Run()` or `run()` that loops until `Profinity.ScriptCancelled` is set. The loop sleeps between iterations with `time.sleep` (Python), `Thread.Sleep` (C#) or `sleep` (Lua), and the Python version declares `global` for the shared run counter. Profinity's built-in Python, C# and Lua service templates with both single-step and loop-style `run` patterns.
 
 === "C#"
 

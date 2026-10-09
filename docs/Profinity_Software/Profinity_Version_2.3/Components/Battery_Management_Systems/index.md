@@ -28,7 +28,7 @@ When a Prohelion BMU is added to the Profile, Profinity prompts for the followin
 | Parameter            | Description                                                                                         | Default |
 |----------------------|-----------------------------------------------------------------------------------------------------|---------|
 | `Name`               | The name of the component. Must be unique.                                                          | The model name |
-| `Control Pack`       | Enables software control of the BMS from Profinity (engagement and disengagement of the pack), for the BMS units that support it. | Off |
+| `Control Pack`       | Enables software control of the BMS from Profinity (engagement and disengagement of the pack), for the BMS units that support it. A D1000 Gen2 charges through the Profinity **Charge** screen once **Control Pack** is on. | Off |
 | `Milliseconds Valid` | The timeout of the device, from 0 to 60000. If no traffic is received from the device within this time, Profinity treats the connection as lost. | 5000 |
 | `Base Address`       | The CAN address of the BMU, as described in the protocol documentation of each model. | `0x600`, or `0x100` for the C20 Gen1 |
 | `Firmware Configuration Key` | The D1000 Gen2, M48 Gen2 and C48 Gen2 only. Unlocks the administration-only firmware parameters for the current sign-in session (see [Unlock Administration Firmware Parameters](#unlock-administration-firmware-parameters)). | No active session |
@@ -87,7 +87,7 @@ The **Firmware Settings** and **Firmware Utilities** tabs appear only when Profi
 
 ### Unlock Administration Firmware Parameters
 
-The D1000 Gen2, M48 Gen2 and C48 Gen2 make their Admin parameters available only while a session unlock is active. The unlock is a **Firmware Configuration Key** entered in the **Firmware Configuration Key** row of the component settings. Profinity holds the key for the sign-in session only and never saves it to the Profile. Without an active session, Profinity works at the User permission level.
+The D1000 Gen2, M48 Gen2 and C48 Gen2 make their Admin parameters available only while a session unlock is active. The unlock is a **Firmware Configuration Key** entered in the **Firmware Configuration Key** row of the component settings. Profinity holds the key for the sign-in session only and never saves it to the Profile. Without an active session, Profinity works at the User permission level. The Admin key is not published. Contact Prohelion if you believe you need it.
 
 To unlock the Admin parameters, a user with the **Modify components** permission follows these steps.
 

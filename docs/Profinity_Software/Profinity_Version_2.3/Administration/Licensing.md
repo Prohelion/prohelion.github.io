@@ -43,7 +43,7 @@ Not every feature described in this documentation is available on every instance
 - Kiosk Mode is included in every edition, but it signs a display in as an enabled Profinity user, and a dedicated kiosk user is created in **Users & Groups**, which needs Profinity Server. See [Kiosk Mode](Kiosk_Mode.md).
 - Themes and branding show **No** for an unlicensed instance. The instance keeps its `theme.yaml` file but shows the default Profinity appearance until a Desktop or higher licence is installed.
 - The 14-day local trial and sales evaluation licences include everything in the **Server** edition, but not **Enterprise Security**.
-- **Add-on** means something licensed separately from the edition, available on any commercial edition. Industrial Protocols is a component group that needs the matching plugin installed as well, and the Rinstrum and Vaulta hardware component packs are licensed in the same way as component groups. The Profinity SDK is a developer kit that Prohelion supplies on request.
+- **Add-on** means something licensed separately from the edition, available on any commercial edition. Industrial Protocols is a component group that needs the matching plugin installed as well, and the partner hardware component packs are licensed in the same way as component groups. The Profinity SDK is a developer kit that Prohelion supplies on request.
 - Pages for licence-dependent features carry a **Licence required** note at the top. The **License** page in the product is always the authority for your instance, because configuration can further narrow what a licence allows.
 
 !!! warning "Remote Web Access Needs Profinity Server"

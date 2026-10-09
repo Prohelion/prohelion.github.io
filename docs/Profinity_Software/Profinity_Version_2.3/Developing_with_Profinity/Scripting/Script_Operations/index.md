@@ -51,4 +51,4 @@ A script that is not hosted by a component cannot use either object, and a scrip
 
 ## Where to Go Next
 
-Each operation has its own page, listed above. The [Profinity SDK](../../SDK.md) page describes how to write and test a script offline, and the `example_scripts` folder of the Profinity directory holds starting scripts for each script type. The language references are on [Supported Languages](../Supported_Languages/index.md).
+Each operation has its own page, listed above. The [Profinity SDK](../../SDK.md) page describes how to write and test a script offline, and Profinity offers a starting template for each script type when you create a script. The [Profinity repository on GitHub](https://github.com/Prohelion/Profinity/tree/master/Example%20Scripts) also holds further C# and Python examples. The language references are on [Supported Languages](../Supported_Languages/index.md).
