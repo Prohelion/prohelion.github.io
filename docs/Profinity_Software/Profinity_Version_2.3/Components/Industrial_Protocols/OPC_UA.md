@@ -62,7 +62,7 @@ Use the server to let third-party OPC UA clients, such as a SCADA or historian s
 | Setting | Description |
 |---|---|
 | **Name** | The name of the component. Must be unique within the profile. |
-| **Bind URL** | The endpoint address that the server listens on, and the address clients connect to. Required, and must start with `opc.tcp://`. The default is `opc.tcp://0.0.0.0:4840/Profinity`. |
+| **Bind URL** | The endpoint address that the server listens on, and the address clients connect to. Required, and must start with `opc.tcp://`. The default is `opc.tcp://127.0.0.1:4840/Profinity`, which accepts clients on this computer only. |
 | **Auto Connect** | Starts the server automatically when the profile is loaded. Off by default. |
 | **Trust all client certificates** | Skips validation of connecting clients' certificates. Off by default. Turn it on only on a trusted network. |
 
@@ -72,7 +72,7 @@ The server publishes the readable scalar values in the profile's tag tree. Each 
 
 ### Listening Address
 
-With the default **Bind URL**, Profinity replaces a host of `0.0.0.0` with `localhost` in the address it advertises to clients, but the operating system shows the server listening on every network interface (`0.0.0.0` and `::`). A client on another computer can therefore reach the port, although the server tells it to use `localhost`, which some clients do not accept. Treat the port as reachable from the network and restrict it with a firewall unless you want remote access. To accept remote clients, replace `0.0.0.0` in the **Bind URL** with the IP address or host name of the Profinity machine that those clients can reach, for example `opc.tcp://192.168.1.20:4840/Profinity`.
+With the default **Bind URL**, the server listens on the loopback address `127.0.0.1` only, so only clients on the Profinity computer can connect. A **Bind URL** with a host of `0.0.0.0` or `localhost`, which older versions of Profinity saved as the default, is treated in the same way. The server uses no security policy and accepts anonymous clients, so allow other computers only on a network you trust. To accept remote clients, replace the host in the **Bind URL** with the IP address or host name of the Profinity computer that those clients can reach, for example `opc.tcp://192.168.1.20:4840/Profinity`. An IP address listens on that address only, and a host name listens on every address of the computer. When the address changes, Profinity replaces the server certificate if it does not name the new address.
 
 ## Certificates
 
