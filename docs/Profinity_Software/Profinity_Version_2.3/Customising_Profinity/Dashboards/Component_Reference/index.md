@@ -59,7 +59,6 @@ The **Parameters** tables list every parameter that Profinity accepts on a compo
 | [Tabs](Interactive/Tabs.md) | Tabbed views |
 | [Actions](Interactive/Actions.md) | Buttons and icons that run actions |
 | [Toggles](Interactive/Toggles.md) | On/off switches |
-| [Charge](Interactive/Charge.md) | Charger and power supply controller |
 | [Image](Interactive/Image.md) | Image with regions, icons, buttons and data values |
 | [Model](Interactive/Model.md) | 3D model with regions, icons, buttons and data values |
 
