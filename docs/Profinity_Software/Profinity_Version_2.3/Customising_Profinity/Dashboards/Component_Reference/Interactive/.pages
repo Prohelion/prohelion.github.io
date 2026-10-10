@@ -1,10 +1,6 @@
 nav:
     - Actions.md
-    - Charge.md
     - Toggles.md
     - Tabs.md
-    - Redirect.md
-    - Icon.md
     - Image.md
-    - HTML.md
     - Model.md
