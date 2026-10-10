@@ -17,17 +17,17 @@ The **Web** tab holds the parameters that control how Profinity offers its web s
 
 | Parameter                          | Description |
 |------------------------------------|--|
-|`IP Address for Http`               | The IP address Profinity runs on for HTTP. The default is all IP addresses (0.0.0.0), however localhost (127.0.0.1) or a specific IP address can be set if required, and without a Profinity Server licence the address is forced to 127.0.0.1 (see below). |
+|`IP Address for Http`               | The IP address Profinity runs on for HTTP. The default is all IP addresses (0.0.0.0), however localhost (127.0.0.1) or a specific IP address can be set if required. Without a Profinity Server licence this setting is not shown and the address is always 127.0.0.1 (see below). |
 |`IP Port for Http`                  | The port used for HTTP (default is 18080). Setting this below 1024 requires admin permissions. |
 |`Enable Https`                      | Enable or disable the HTTPS server, which is enabled by default. |
-|`IP Address for Https`              | Same as the HTTP address but for HTTPS, with the same default and the same licence restriction. |
+|`IP Address for Https`              | Same as the HTTP address but for HTTPS, with the same default, and hidden under the same licence restriction. |
 |`IP Port for Https`                 | Same as the HTTP port but for HTTPS (default is 18443). |
 |`Redirect all Http traffic to Https`| Forces the system to use HTTPS for all traffic. It can only be enabled when HTTPS is enabled. |
 
 The certificate options are shared with the Extensions Web tab and are described in [HTTPS certificates](#https-certificates) below.
 
 !!! warning "Remote Access Needs Profinity Server"
-    Without a **Profinity Server** licence, including on a Desktop host, Profinity forces both the HTTP and the HTTPS address to `127.0.0.1` whatever is entered here, so the web interface can be reached only from the same computer. Entering `0.0.0.0` does not change this, and the log records "Remote web access requires a Server license." See [Licensing](../Licensing.md).
+    Without a **Profinity Server** licence, including on a Desktop host, the IP address settings are not shown on this tab, and Profinity forces both the HTTP and the HTTPS address to `127.0.0.1` even if Config.yaml holds another value, so the web interface can be reached only from the same computer. Entering `0.0.0.0` does not change this, and the log records "Remote web access requires a Server license." See [Licensing](../Licensing.md).
 
 ## Troubleshooting
 
