@@ -7,7 +7,7 @@ description: "Create service accounts with API tokens that never expire, for aut
 
 A service account is a user record that exists for automation rather than a person, and it signs in with a long-lived **API token** instead of a password, which suits integrations and Model Context Protocol (MCP) clients. A user with the **Security administration** permission manages service accounts in **Users & Groups**, and the page is shown only when the licence includes the Profinity Server feature.
 
-A service account token never expires, which differs from the sign-in of an ordinary user, so the token stays valid until an administrator generates a new one or disables the account. Treat the token like a password, store it in a secrets manager, and give the account only the permissions its integration needs.
+A service account token never expires, which differs from the sign-in of an ordinary user, so the token stays valid until an administrator generates a new one, changes the account's roles or disables the account. Treat the token like a password, store it in a secrets manager, and give the account only the permissions its integration needs.
 
 ## Creating a Service Account
 
@@ -45,7 +45,7 @@ For MCP setup and testing, see [MCP Server](../../Integrating_to_Profinity/MCP_S
 
 ## Revoking Access
 
-To revoke a service account's access, disable the account in **Users & Groups**, change its roles, which ends its sessions, or select **Generate Token** on its **User Actions** tab, which stops the old token working.
+To revoke a service account's access, disable the account in **Users & Groups**, change its roles, which also issues a new token and stops the old one working, or select **Generate Token** on its **User Actions** tab, which stops the old token working.
 
 ## Related Documentation
 
