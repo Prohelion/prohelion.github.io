@@ -14,7 +14,7 @@ Apply custom CSS styling to your dashboard elements for branding and visual cust
 - Basic CSS knowledge
 - Access to the `styles` folder of the [profile](../Getting_Started/Profiles.md) directory, which is `<artefacts directory>/profiles/<profile name>/styles`
 
-The [artefacts directory](../Installation/Artifacts_Directory.md) is `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/.local/share/Prohelion/Profinity` on macOS and `/var/lib/prohelion/profinity` on Linux, and on Docker it is the path inside the container named by `PROFINITY_HOME`, so on Docker the file must be created in the mounted volume that holds that directory. The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only its URL path (see [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md)).
+The [artefacts directory](../Installation/Artifacts_Directory.md) is `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS and `/var/lib/prohelion/profinity` on Linux, and on Docker it is the path inside the container named by `PROFINITY_HOME`, so on Docker the file must be created in the mounted volume that holds that directory. The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only its URL path (see [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md)).
 
 ## Create the Stylesheet
 

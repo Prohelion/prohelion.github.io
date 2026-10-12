@@ -58,7 +58,7 @@ Searches the live tag tree by name fragment, unit, meta-type, component, or tag-
 | `metaType` | optional | Restrict to a meta-type, for example `dbc.signal` |
 | `sampleLeavesOnly` | optional (default: true) | If true, return only tags that carry a value |
 | `includeMetadata` | optional (default: true) | If true, include unit, comment, and scaling metadata on each result |
-| `limit` | optional (default: 25) | Maximum results, 1–50 |
+| `limit` | optional (default: 25) | Maximum results, 1 to 50 |
 
 **Returns:** `{items, count, limit, truncated}`, where `truncated` is true when more tags matched than the `limit` allowed
 
@@ -74,7 +74,7 @@ Returns the tag catalogue for the active profile, nested by segment or as a pagi
 | `componentId` | optional | Restrict to a component name |
 | `tagPrefix` | optional | Restrict to a canonical tag path prefix; takes priority over `componentId` when both are set |
 | `pageIndex` | optional | Zero-based page index |
-| `pageSize` | optional | Page size, 1–500 |
+| `pageSize` | optional | Page size, 1 to 500 |
 | `sampleLeavesOnly` | optional (default: false) | Flat mode only: keep only tags that carry a value |
 
 **Returns:** a nested tree, or `{items, totalCount, pageIndex, pageSize}`
@@ -135,7 +135,7 @@ Returns the catalogue of defined alert rules, independent of whether any rule is
 |-----------|------|--------------|
 | `componentId` | optional | Restrict to rules scoped under this component |
 | `pageIndex` | optional (default: 0) | Zero-based page index |
-| `pageSize` | optional (default: 25) | Page size, 1–500 |
+| `pageSize` | optional (default: 25) | Page size, 1 to 500 |
 | `includeDisabled` | optional (default: false) | If true, include disabled rules |
 
 **Returns:** `{items, totalCount, pageIndex, pageSize}`
@@ -162,7 +162,7 @@ Returns a page of past alert state transitions (raised, cleared, acknowledged, s
 | `componentId` | optional | Restrict to alerts under this component or tag path prefix |
 | `tagPrefix` | optional | Restrict to alerts whose tag path starts with this prefix |
 | `pageIndex` | optional (default: 0) | Zero-based page index |
-| `pageSize` | optional (default: 25) | Page size, 1–500 |
+| `pageSize` | optional (default: 25) | Page size, 1 to 500 |
 | `compact` | optional (default: false) | If true, return rule definitions once with slim event rows, rather than repeating rule fields on every row |
 | `level` | optional | Restrict to a severity level |
 | `fromUtc` | optional | Inclusive UTC lower bound |
@@ -195,7 +195,7 @@ To authenticate directly against the MCP server:
 |----------|-------|-----|
 | 401 | The request has no token, or the token has expired | Sign in again, or use a service account token |
 | 403 | The user lacks **MCP integration** | Add the permission to one of the user's roles (see [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)) |
-| 404 | The MCP server is not enabled, the **AI** feature is not licensed, or Profinity has not restarted since the setting changed | Turn on **Enable MCP Server**, check the licence and restart Profinity |
+| 404 | The MCP server is not enabled, the **AI** feature is not licensed, Profinity has not restarted since the setting changed, or the request is not a Streamable HTTP MCP request, such as a browser request or one without the `Accept` header | Turn on **Enable MCP Server**, check the licence and restart Profinity |
 | 429 with `Too many MCP requests. Please try again later.` | The per-user rate limit on MCP requests was exceeded | Reduce the request rate and retry later |
 
 A tool that returns fewer results than expected, rather than an error, reflects the caller's **View tags** or **View alerts** permission.
@@ -246,8 +246,10 @@ def call(method, params=None):
 
 
 def call_tool(name, arguments):
-    """Call a tool and decode the text content it returns."""
+    """Call a tool and decode the text content it returns, raising if the tool reports an error."""
     result = call("tools/call", {"name": name, "arguments": arguments})
+    if result.get("isError"):
+        raise RuntimeError(result["content"])
     return [json.loads(item["text"]) for item in result["content"] if item["type"] == "text"]
 
 

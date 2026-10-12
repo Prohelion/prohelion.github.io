@@ -12,7 +12,7 @@ Profinity stores writable data (configuration, [profiles](../Administration/Prof
 | Platform | Default artefacts path |
 |----------|------------------------|
 | **Windows** | `%LOCALAPPDATA%\Prohelion\Profinity` |
-| **macOS** | `~/.local/share/Prohelion/Profinity` |
+| **macOS** | `~/Library/Application Support/Prohelion/Profinity` |
 | **Linux (2.3+)** | `/var/lib/prohelion/profinity` |
 
 Everything under that root uses the same layout on every platform, and the subfolders use lowercase names on every platform because Linux file systems are case-sensitive:

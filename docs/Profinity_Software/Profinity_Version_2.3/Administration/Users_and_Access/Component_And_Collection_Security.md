@@ -69,7 +69,9 @@ Role and user definitions are site-specific, while security grants travel with t
 
 ## What Stays Unaffected
 
-A hidden component keeps running, and rule evaluation, the collection members that rules use, and the tree that relays send are not filtered by component or collection security, because the restrictions apply to what users and the API see. A direct API request for a hidden component, collection or tag path returns `404 Not Found` and not `403 Forbidden`, so a caller cannot tell the difference between a resource that does not exist and one that is hidden from them.
+A hidden component keeps running, and rule evaluation, the collection members that rules use, and the tree that relays send are not filtered by component or collection security, because the restrictions apply to what users and the API see. A direct API request for a hidden component, collection or tag path returns `404 Not Found` and not `403 Forbidden`, so a caller cannot tell the difference between a resource that does not exist and one that is hidden from them. List responses, the tag catalogue, tag queries including historian queries, alerts and MCP tool results omit hidden items without an error.
+
+The CAN utilities and the script log are not filtered by component security. The Collections editor lists every collection, including restricted ones, to any user with **View tag collections**, and only the tag collections picker and the collection's members are filtered.
 
 ## Permissions
 
