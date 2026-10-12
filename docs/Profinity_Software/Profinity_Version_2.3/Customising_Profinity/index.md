@@ -1,6 +1,6 @@
 ---
 title: Customising Profinity
-description: "Tailor how Profinity looks and behaves for your deployment with dashboards, theming, hosted web applications, and OEM white-label mobile builds."
+description: "Tailor how Profinity looks and behaves for a deployment with dashboards, theming, hosted web applications, and OEM white-label mobile builds."
 ---
 
 # Customising Profinity
@@ -12,7 +12,7 @@ Profinity can be tailored to a deployment without application code. [Dashboards]
 | [Dashboards](./Dashboards/index.md) | Build operator interfaces that show live data from Profinity tags in the [visual dashboard editor](./Dashboards/Visual_Editor.md), with YAML behind it as a fallback. |
 | [Theming](./Theming/index.md) | Apply branding and theme customisation from a `theme.yaml` file. |
 | [Hosting](./Hosting/index.md) | Serve a custom web application from Profinity's integrated web server, with Secure Sockets Layer / Transport Layer Security (SSL/TLS) certificates. |
-| [OEM white-label mobile](../Mobile/OEM_White_Label.md) | Ship a branded Profinity mobile app to your customers. |
+| [OEM white-label mobile](../Mobile/OEM_White_Label.md) | Ship a branded Profinity mobile app to customers. |
 
 A dashboard can be the page of a [Custom Component](../Developing_with_Profinity/Custom_Components/index.md), a profile home page, or a standalone [Dashboard Component](../Components/Dashboard/index.md) that binds to existing tags. [Menu Layout](../Administration/Menu_Layout.md) covers per-profile and per-component menu placement, and [Components and Plugins](../Administration/Components_and_Plugins.md) covers hiding component types, both under Administration.
 

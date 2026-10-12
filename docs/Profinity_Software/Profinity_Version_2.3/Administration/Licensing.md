@@ -26,7 +26,8 @@ Not every feature described in this documentation is available on every instance
 | CAN utilities: [send and receive](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md), [logging and replay](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) and [DBC files](../CAN_Utilities/CAN_Bus_DBC.md) | Yes | Yes | Yes | Yes |
 | Loggers: [file and SFTP loggers](../Components/Loggers/File_Loggers.md), and the [InfluxDB (v1) and Prometheus loggers](../Components/Loggers/InfluxDB_Prometheus_Logger.md) | Yes | Yes | Yes | Yes |
 | [Scripting](../Developing_with_Profinity/Scripting/index.md) in [C#, Lua and Python](../Developing_with_Profinity/Scripting/Supported_Languages/index.md) | No | Yes | Yes | Yes |
-| Custom extensions: [custom plugins](../Developing_with_Profinity/Plugins/index.md), [dynamic-link library (DLL) plugins](Components_and_Plugins.md) and [custom components](../Components/Custom_Components/index.md) | Yes | Yes | Yes | Yes |
+| [Custom components](../Components/Custom_Components/index.md) | Yes | Yes | Yes | Yes |
+| Custom plugins: [custom plugins](../Developing_with_Profinity/Plugins/index.md) and [dynamic-link library (DLL) plugins](Components_and_Plugins.md) | No | Yes | Yes | Yes |
 | Historians: [InfluxDB v2](../Components/Historians/InfluxDB_v2_Historian.md), [InfluxDB v3](../Components/Historians/InfluxDB_v3_Historian.md) and [TAG SQL](../Components/Historians/TAG_SQL_Historian.md) | No | Yes | Yes | Yes |
 | [Themes and branding](../Customising_Profinity/Theming/index.md) | No | Yes | Yes | Yes |
 | Tag Rule Actions: Email, Slack, Webhook and Message Queuing Telemetry Transport (MQTT) [rule actions](../Tags/Actions.md), and the C#, Python and Lua rule scripts that run when an alert fires | No | No | Yes | Yes |
@@ -47,7 +48,7 @@ Not every feature described in this documentation is available on every instance
 - Pages for licence-dependent features carry a **Licence required** note at the top. The **License** page in the product is always the authority for your instance, because configuration can further narrow what a licence allows.
 
 !!! warning "Remote Web Access Needs Profinity Server"
-    Without a **Profinity Server** licence, including on a Desktop host, Profinity listens for web connections on `127.0.0.1` only, which means the web interface and API can be reached from the same computer and not from another one. This applies to an unlicensed instance and to an instance whose 14-day local trial has expired. When the web server starts, Profinity forces any HTTP or HTTPS address that is not a loopback address, such as `0.0.0.0`, to `127.0.0.1`, whatever is entered under [Profinity Web](System_Configuration/Profinity_Web.md), and records the message "Remote web access requires a Server license." in the [Profinity log](Logs_Config.md). A user who cannot reach Profinity from another computer should check the licence on the **License** page before changing the address or the firewall.
+    Without a **Profinity Server** licence, including on a Desktop host, Profinity listens for web connections on `127.0.0.1` only, which means the web interface and API can be reached from the same computer and not from another one. This applies to an unlicensed instance and to an instance whose 14-day local trial has expired. When the web server starts, Profinity forces any HTTP or HTTPS address that is not a loopback address, such as `0.0.0.0`, to `127.0.0.1`, whatever is entered under [Profinity Web](System_Configuration/Profinity_Web.md), and records a message beginning "Remote web access requires a Server license" in the [Profinity log](Logs_Config.md). A user who cannot reach Profinity from another computer should check the licence on the **License** page before changing the address or the firewall.
 
 ## Check Licence Status
 
@@ -87,7 +88,7 @@ Prohelion signs a `license.yaml` file for that fingerprint and returns it, and i
 Profinity validates the file's signature and expiry, and checks that its fingerprint matches the instance, before applying it. If validation fails, Profinity rejects the upload and the existing licence, if any, remains in effect. A `license.yaml` file can also be installed without using the UI, by copying it directly into the instance's licence folder; this is the usual path for headless or scripted deployments.
 
 !!! warning "The Fingerprint Is Instance-Specific"
-    A licence is signed for one machine's fingerprint. A licence issued for one instance does not apply to another, and Profinity reports the state as `WrongInstance` if an administrator uploads a licence issued for a different machine.
+    A licence is signed for one machine's fingerprint. A licence issued for one instance does not apply to another, and Profinity rejects an upload of a licence issued for a different machine, reporting the state as `WrongInstance` if such a file is placed directly in the licence folder.
 
 ## The 14-Day Local Trial
 
@@ -97,7 +98,7 @@ A Profinity instance that has never had a licence applied issues itself a one-ti
 - Runs for a maximum of 14 days from first startup.
 - Grants server-tier entitlements (the same feature set as a standard `Commercial` server licence), not enterprise-only features.
 - Is issued once per installation. Reinstalling or resetting the instance does not restart the trial, because the trial is recorded against the instance fingerprint.
-- Reports the state `Expiring` for its whole duration rather than `Trial`, because Profinity marks any local trial with 30 days or less remaining as `Expiring` and the local trial never lasts longer than 14 days. The `Trial` state appears only for a signed trial licence file with more than 30 days remaining.
+- Reports the state `Trial` while more than 7 days remain, and `Expiring` for the last 7 days. A signed trial licence file is reported as `Trial` while more than 30 days remain.
 - Is not available on Desktop hosts, which have a separate free-use policy (see below).
 
 !!! warning "When the Local Trial Expires"

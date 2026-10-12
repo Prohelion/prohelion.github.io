@@ -55,7 +55,7 @@ my_plugin.zip
     helper-library.dll
 ```
 
-Uploading a plugin needs the **Modify plugins** permission, and the **Custom Plugins** feature, which is available in every edition (see [Licensing](../../Administration/Licensing.md)).
+Uploading a plugin needs the **Modify plugins** permission, and the **Custom Plugins** feature, which is available from the Desktop edition upwards and not when unlicensed (see [Licensing](../../Administration/Licensing.md)).
 
 ## Where Plugins Come From
 

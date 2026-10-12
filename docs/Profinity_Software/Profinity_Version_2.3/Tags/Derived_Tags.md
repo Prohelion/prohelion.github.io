@@ -50,7 +50,7 @@ Each alias exposes only the reading members (`Value`, `Text`, `Bool`, `HasValue`
 
 ### Deleting a Derived Tag That Others Depend On
 
-If another derived tag's expression or a rule expression depends on the tag being deleted, the editor names the dependents before the delete goes through.
+If another derived tag lists the tag being deleted under its dependencies, the editor names those derived tags and asks for confirmation before the delete goes through. Rule expressions are not checked.
 
 ## Script-Driven Derived Tags
 

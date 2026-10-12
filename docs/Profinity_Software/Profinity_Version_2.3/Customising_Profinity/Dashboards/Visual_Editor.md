@@ -5,7 +5,7 @@ description: "Build and change Profinity dashboards in the Profinity 2.3 visual 
 
 # Dashboard Visual Editor
 
-From Profinity 2.3, the **visual editor** is the primary way to build and change a dashboard. You add widgets from a list, arrange them in a tree, set their properties in an inspector and bind them to tags, all without writing YAML. The **YAML** tab is still there as a fallback for anything the visual editor does not cover, and as the reference format when you share or review a dashboard.
+From Profinity 2.3, the **visual editor** is the primary way to build and change a dashboard. Widgets are added from a list, arranged in a tree, given properties in an inspector and bound to tags, all without writing YAML. The **YAML** tab is still there as a fallback for anything the visual editor does not cover, and as the reference format when a dashboard is shared or reviewed.
 
 Dashboards created before Profinity 2.3 keep working unchanged. Open one in the editor and it appears in the visual editor, ready to change.
 
@@ -28,15 +28,15 @@ Dashboards created before Profinity 2.3 keep working unchanged. Open one in the 
 | Area | What it does |
 |------|--------------|
 | **Dashboard tree** | Shows every element of the dashboard, nested as it is in the dashboard. Use the **Search dashboard** box to find an element by name or type. |
-| **Inspector** | Shows the properties of the selected element. With nothing selected it shows the **Header**, **Actions** and **Footer** switches for the dashboard. |
+| **Inspector** | Shows the properties of the selected element. With nothing selected it shows the **Show header**, **Show actions** and **Show footer** switches for the dashboard. **Show header** adds the title bar, **Show actions** adds the action buttons to it, and **Show footer** adds the footer, except on a dashboard that contains an accordion. With the header off and the actions on, the title bar is transparent and shows only the actions. |
 | **Schema validation issues** | Lists anything that does not match the dashboard schema. |
-| **Footer buttons** | **NEW FROM TEMPLATE** replaces the dashboard with the template after a confirmation prompt, **RELOAD** loads the saved dashboard again and discards the changes made since it was saved, and **SAVE** stores the dashboard. |
+| **Footer buttons** | **NEW FROM TEMPLATE** replaces the dashboard with the template after a confirmation prompt, **RELOAD** loads the saved dashboard again and discards the changes made since it was saved, and **SAVE** stores the dashboard. When an existing dashboard is edited and deletion is offered, a red **DELETE** button also appears. It asks for confirmation, then removes the dashboard file, clears it from the profile settings and returns to the home page. |
 
 ## Build a Dashboard
 
 ### Add an Element
 
-1. Select the container you want to add into, such as a row, group or pill, or leave the dashboard root selected.
+1. Select the container to add into, such as a row, group or pill, or leave the dashboard root selected.
 2. Select **Add**. The **Add component** window lists the element types that fit the selection, such as Row, Group, Pill, Readout, Lamp, Chart and Action.
 3. Choose a type. It is inserted as the first child of the selected container and becomes the selected element. With the dashboard root selected, the new element is inserted at the top of the dashboard.
 
@@ -70,16 +70,16 @@ A single-value element such as a readout or lamp binds one tag, and a chart bind
 <figcaption>Binding section of the inspector</figcaption>
 </figure>
 
-You can also start from tags: choosing tags to link to a dashboard opens the **Add component for selected tags** window, which offers only the element types that suit the tags you chose. See [Tag Linking](../../Tags/Tag_Linking.md).
+Building can also start from tags: choosing tags to link to a dashboard opens the **Add component for selected tag(s)** window, which offers only the element types that suit the chosen tags. See [Tag Linking](../../Tags/Tag_Linking.md).
 
 Dashboard widgets show live **alert indicators** when bound tags have active rule alerts, as described in [Alerts Log](../../Tags/Alerts.md).
 
 ## Validate and Save
 
-The editor checks the dashboard against the dashboard schema as you work and lists problems under **Schema validation issues**. **SAVE** shows a message and does not save while any issues remain, so a saved dashboard always conforms to the schema. The server also rejects an invalid dashboard submitted through the API. Closing the editor with unsaved changes asks for confirmation before the changes are discarded.
+The editor checks the dashboard against the dashboard schema while the dashboard is edited and lists problems under **Schema validation issues**. **SAVE** shows a message and does not save while any issues remain, so a saved dashboard always conforms to the schema. The server also rejects an invalid dashboard submitted through the API. Closing the editor with unsaved changes asks for confirmation before the changes are discarded.
 
 ## When to Use the YAML Tab
 
 Use the visual editor first, and switch to **YAML** to edit a property that the inspector marks as "use the YAML tab", to copy a dashboard or paste in one from the [Examples](./Examples.md), to review a whole dashboard at once or make the same change in many places, or to repair a dashboard that the visual editor cannot open.
 
-Switching tabs keeps your changes. Switching to **DESIGN** needs valid YAML, and if the YAML cannot be parsed the editor shows an error and stays on the **YAML** tab. See the [Dashboard Development Guide](./index.md) for the YAML structure, and [Troubleshooting](./Troubleshooting.md) for the validation messages.
+Switching tabs keeps the changes made. Switching to **DESIGN** needs valid YAML, and if the YAML cannot be parsed the editor shows an error and stays on the **YAML** tab. See the [Dashboard Development Guide](./index.md) for the YAML structure, and [Troubleshooting](./Troubleshooting.md) for the validation messages.

@@ -59,7 +59,7 @@ Dashboards that use the `{COMPONENT_NAME}` placeholder, documented in [Data Bind
 
 Changing a deployed component's **Tag tree path**, or renaming it, automatically updates the [Alerts](Alerts.md) and [Collections](Collections.md) that refer to it, along with the profile home dashboard's `source:` bindings. Only paths that refer to the moved component are updated, and an unrelated branch with the same name is left alone. The same updates appear in `rules.yaml` and `collections.yaml` for anyone who edits those files directly.
 
-Absolute binds inside other components' dashboards are not updated, because they are literal paths to the old location. Historian data recorded under the old path is not migrated, so a trend spanning the move shows a break at that point. Relative binds inside the moved component's own dashboard are unaffected.
+Absolute binds inside other components' dashboards are not updated, because they are literal paths to the old location. This includes binds that use the `[TimeSeries]` and `[TimeSeries_Delta]` source prefixes as well as those that begin with a slash. Historian data recorded under the old path is not migrated, so a trend spanning the move shows a break at that point. Relative binds inside the moved component's own dashboard are unaffected.
 
 Before relocating a component that other dashboards reference by absolute path, search those dashboards for its old path and update any matching `source:` values by hand.
 
