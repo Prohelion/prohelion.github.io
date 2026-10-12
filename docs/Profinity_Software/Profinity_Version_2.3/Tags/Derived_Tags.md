@@ -135,7 +135,7 @@ Other trigger modes are available too, namely **Run On Time Interval**, **Run On
 
 ## Rule State Publishing
 
-A rule can publish its own current state to a tag. Set **Publish state tag path** in the **Rule State** group of a rule in the Rules editor, and Profinity mirrors the rule's state to that tag path whenever it changes: a boolean rule publishes `true` or `false`, and a threshold rule publishes the index of its active step. The tag is read-only, so only the rule can write to it. See [Rule actions and scripts](./Actions.md).
+A rule can publish its own current state to a tag. Set **Publish state tag path** in the **Rule State** group of a rule in the Rules editor, and Profinity mirrors the rule's state to that tag path whenever it changes: a boolean rule publishes `true` or `false`, and a threshold rule publishes the zero-based index of its active step, or `-1` when no step is active. The tag is read-only, so only the rule can write to it. See [Rule actions and scripts](./Actions.md).
 
 ## Permissions and API
 
