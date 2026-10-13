@@ -41,7 +41,7 @@ The token is passed as a bearer token on `/api/v2` requests:
 Authorization: Bearer {your-service-token}
 ```
 
-For MCP setup and testing, see [MCP Server](../../Integrating_to_Profinity/MCP_Server.md).
+For MCP setup and testing, see [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md).
 
 ## Revoking Access
 
@@ -50,6 +50,6 @@ To revoke a service account's access, disable the account in **Users & Groups**,
 ## Related Documentation
 
 - [Managing Users](Manage_Users.md)
-- [MCP Server](../../Integrating_to_Profinity/MCP_Server.md)
+- [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md)
 - [Roles and Permissions](Roles_and_Permissions.md)
 - [Component and Collection Security](./Component_And_Collection_Security.md), which describes how restricted components and collections apply to service accounts

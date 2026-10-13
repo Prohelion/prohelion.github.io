@@ -26,7 +26,7 @@ Profinity AI is connected to your running system and draws on four kinds of cont
 | **History and trends** | Long-term values from the historian, not just the latest reading |
 | **Documentation** | Manuals, procedures, and how-to material from docs.prohelion.com |
 
-Live data, rules, alerts, and history reach the assistant through the [MCP Server](../Integrating_to_Profinity/MCP_Server.md), which is read-only. Profinity AI cannot change tags, alerts, or configuration through it.
+Live data, rules, alerts, and history reach the assistant through the [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md), which is read-only. Profinity AI cannot change tags, alerts, or configuration through it.
 
 ## From Context to Diagnosis
 
@@ -47,6 +47,6 @@ AI Chat answers questions and AI Skills helps you build things, and power users 
 ## Related Documentation
 
 - [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md): administrator configuration, permissions, and data-handling notes.
-- [MCP Server](../Integrating_to_Profinity/MCP_Server.md): the live-data connection behind both parts.
+- [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md): the live-data connection behind both parts.
 - [Licensing](../Administration/Licensing.md): the editions that include the **AI** feature.
 - [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md): the **Profinity AI** and **MCP integration** permissions.

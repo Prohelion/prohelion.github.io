@@ -12,7 +12,7 @@ Connect Profinity to AI tools and large language models (LLMs) using the Model C
 - Profinity 2.3 installed and running
 - A licence that includes the **AI** feature, which the MCP server needs, and the **Profinity Server** feature, which **Users & Groups** needs for the service account in Step 2. Both are included in the **Server** and **Enterprise** editions. On other editions the **Enable MCP Server** setting is unavailable. See [Licensing](../Administration/Licensing.md)
 - Administrator access to the Profinity [AI Settings](../Administration/System_Configuration/AI_Settings.md) and to user management
-- An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header, because the Profinity [MCP server](../Integrating_to_Profinity/MCP_Server.md) authenticates every request with a JSON Web Token (JWT) bearer token
+- An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header, because the Profinity [MCP server](../Integrating_to_Profinity/MCP_Server/index.md) authenticates every request with a JSON Web Token (JWT) bearer token
 - Familiarity with how your AI tool adds an MCP server
 
 ## Steps
@@ -114,7 +114,7 @@ An authentication error means the token is incomplete, or its user lacks the **M
 
 ## Related Documentation
 
-- [MCP Server](../Integrating_to_Profinity/MCP_Server.md) - the full MCP server reference, including every tool and its parameters
+- [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md) - the full MCP server reference, including every tool and its parameters
 - [AI Chat](../Profinity_AI/AI_Chat.md) - the built-in chat assistant, which uses the same MCP server
 - [Scripting](../Developing_with_Profinity/Scripting/index.md) - Profinity scripting
 - [APIs](../Integrating_to_Profinity/APIs/index.md) - REST API documentation

@@ -1,11 +1,11 @@
 ---
 title: Quick Start Guide
-description: "Get started with Profinity 2.3 by installing on Windows or Linux, loading an example profile, replaying CAN logs, editing your first dashboard and looking at rules and alerts."
+description: "Get started with Profinity 2.3 by installing on Windows or Linux, applying a licence, loading an example profile, replaying CAN logs, editing your first dashboard and looking at rules and alerts."
 ---
 
 # Quick Start Guide
 
-This guide takes you from a fresh installation to a running system in five steps: installing Profinity, loading the example [profile](Profiles.md), replaying example CAN logs, editing your first dashboard, and looking at the rules and alerts.
+This guide takes you from a fresh installation to a running system in six steps: installing Profinity, applying a licence if one has been issued, loading the example [profile](Profiles.md), replaying example CAN logs, editing your first dashboard, and looking at the rules and alerts.
 
 ## Step 1: Install Profinity on Windows
 
@@ -19,7 +19,19 @@ After installation, launch Profinity from the Start Menu, which opens the Profin
 !!! warning "Change the Default Password"
     On Docker and Linux installations, change the default password at the first sign in, so that the system is not left running with publicly documented credentials. Select **ADMIN** in the side menu, then the **Change My Password** pill.
 
-## Step 2: Load the Example Profile
+## Step 2: Apply a Licence
+
+A licence is not needed to complete the rest of this guide, because an unlicensed Desktop installation runs for personal, non-commercial use and other installations start a 14-day local trial. When Prohelion has issued a commercial or evaluation licence, apply it now.
+
+To apply a licence:
+
+1. Select **ADMIN** in the side menu, then the **License** pill
+2. Copy the **Fingerprint** and send it to Prohelion, which returns a signed `license.yaml` file for this installation
+3. Select **Update license file** and choose the `license.yaml` file, then check that **State** reads `Valid`
+
+The **License** pill needs the **Security administration** permission. For Docker, Linux services, installations with no network access and what to do when a licence is rejected, see [Applying a Licence](../Installation/Applying_a_Licence.md), and for what each edition includes, see [Licensing](../Administration/Licensing.md).
+
+## Step 3: Load the Example Profile
 
 Profinity includes an **Example Profile**, which is installed automatically and holds pre-configured components, a dashboard, styling and images that show how a profile fits together.
 
@@ -44,7 +56,7 @@ It also includes the following dashboard content:
 
 For more information about profiles, see [Profiles](./Profiles.md).
 
-## Step 3: Run the Example CAN Log
+## Step 4: Run the Example CAN Log
 
 The Example Profile works best with data flowing through the system, and Profinity includes an **Example Log** (`example_log.csv`) that can be replayed to simulate CAN bus traffic.
 
@@ -59,7 +71,7 @@ The log replays CAN bus messages, and data flows through the dashboards in the E
 !!! info "Replay Controls"
     The playback controls pause, resume and move to a new position in the log. See [How to Replay CAN Bus Logs](../How_To_Guides/Replay_CAN_Logs.md) for the steps and [Log / Replay CAN bus Messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) for the full reference.
 
-## Step 4: Edit Your First Dashboard
+## Step 5: Edit Your First Dashboard
 
 With the Example Profile running with data, an existing dashboard is the quickest way to learn how dashboards work. With the Example Profile active, the home page is still the standard home page, because the profile's home dashboard is switched off, so start from a component dashboard.
 
@@ -89,7 +101,7 @@ The edit appears on the dashboard behind the editor, because **DESIGN** is an ou
 - [Data Binding](../Customising_Profinity/Dashboards/Data_Binding.md) - connecting data to your dashboard
 - [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md) - available dashboard components
 
-## Step 5: Look at the Rules and Alerts
+## Step 6: Look at the Rules and Alerts
 
 With data flowing, Profinity's rules watch your tags and raise alerts when something needs attention. Rules are defined in the profile, and the alerts they raise appear in the Alerts Log and as indicators across the UI.
 

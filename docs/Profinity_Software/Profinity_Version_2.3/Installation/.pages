@@ -2,6 +2,7 @@ nav:
     - Windows_Installation.md
     - Docker_Installation.md
     - Zip_Installation.md
+    - Applying_a_Licence.md
     - Migration.md
     - Artifacts_Directory.md
     - Running_As_Service.md

@@ -26,7 +26,7 @@ Select **ADMIN** in the side menu, then **System Configuration**, find the **Pro
 | **Enable web search** | Lets the assistant search the web as part of answering a question. Available for **Claude**, **OpenAI**, and **OpenRouter**; not available for **Local**. |
 | **Reasoning** | **Low**, **Medium** (default), or **High**. Higher settings can produce better answers at the cost of a longer response time. |
 | **Response timeout (seconds)** | 30–3600, default 300. Local and reasoning-heavy models often need several minutes to respond. |
-| **Enable MCP Server** | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically; it can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. See [MCP Server](../../Integrating_to_Profinity/MCP_Server.md). |
+| **Enable MCP Server** | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically; it can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. See [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md). |
 
 Profinity rejects a save that leaves the configuration in an inconsistent state, according to the following rules:
 
@@ -61,6 +61,6 @@ Changing the Profinity AI configuration itself requires the **System administrat
 
 ## Related Documentation
 
-- [MCP Server](../../Integrating_to_Profinity/MCP_Server.md) : the live-data connection Profinity AI uses, and how to connect an external MCP client.
+- [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md) : the live-data connection Profinity AI uses, and how to connect an external MCP client.
 - [AI Chat](../../Profinity_AI/AI_Chat.md) : the operator-facing guide to using the chat window.
 - [Roles and Permissions](../Users_and_Access/Roles_and_Permissions.md): assigning the **Profinity AI** permission to roles.

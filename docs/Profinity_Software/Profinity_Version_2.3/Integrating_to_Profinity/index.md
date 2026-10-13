@@ -5,7 +5,7 @@ description: "Connect other systems, applications, and AI assistants to Profinit
 
 # Integrating to Profinity
 
-Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security, and exposes that platform through [REST APIs](./APIs/index.md) to business systems and applications, and through the [Model Context Protocol (MCP)](./MCP_Server.md) to AI agents.
+Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security, and exposes that platform through [REST APIs](./APIs/index.md) to business systems and applications, and through the [Model Context Protocol (MCP)](./MCP_Server/index.md) to AI agents.
 
 <figure markdown>
 ![Connected equipment feeds into Profinity, which exposes its platform through APIs to business systems and through MCP to AI agents](../images/2.3-diagram-extensibility.png)
@@ -20,7 +20,7 @@ Profinity provides RESTful interfaces to integrate with and extend its functiona
 
 ## MCP Server
 
-Profinity includes an [MCP server](./MCP_Server.md), which lets AI assistants (such as [AI Chat](../Profinity_AI/AI_Chat.md)) and other MCP-aware tools query system data and metadata. The server exposes ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`, and an MCP client can use it to answer questions about live tags and alerts, to pull history into an analysis tool, or to feed a monitoring or reporting system, all with the permissions of the account it authenticates as. See [MCP Server](./MCP_Server.md) for the full list of tools, authentication requirements and usage examples.
+Profinity includes an [MCP server](./MCP_Server/index.md), which lets AI assistants (such as [AI Chat](../Profinity_AI/AI_Chat.md)) and other MCP-aware tools query system data and metadata. The server exposes ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`, and an MCP client can use it to answer questions about live tags and alerts, to pull history into an analysis tool, or to feed a monitoring or reporting system, all with the permissions of the account it authenticates as. See [MCP Server](./MCP_Server/index.md) for the full list of tools, authentication requirements and usage examples.
 
 ## Other Ways to Move Data
 

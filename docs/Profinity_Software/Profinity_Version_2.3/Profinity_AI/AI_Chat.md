@@ -50,6 +50,6 @@ If the provider does not answer within the **Response timeout (seconds)** that t
 ## Related Documentation
 
 - [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md): administrator configuration, permissions, and data-handling notes.
-- [MCP Server](../Integrating_to_Profinity/MCP_Server.md): the live-data connection Profinity AI uses.
+- [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md): the live-data connection Profinity AI uses.
 - [Profinity AI overview](./index.md): how AI Chat and AI Skills draw on the same context.
 - [AI Skills](./AI_Skills.md): a separate toolkit for building Profinity dashboards and other configuration with an AI coding assistant, outside Profinity itself.
