@@ -1,15 +1,23 @@
 ---
 title: Console
-description: "Script operations for console output and logging messages to the Profinity log."
+description: "Write standard and error output from a Profinity script, and find out when that output reaches the Profinity log."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Console
 
-Console output is available in every script and writes to two streams. Standard output reaches the Profinity log at the `Info` level only when the script's **Log Script Output** setting is on, and the setting is off by default, so a script whose `print()` output does not appear in the log needs that setting switched on. Error output and script exceptions always reach the Profinity log at the `Error` level, whatever the setting.
+Console output is available in every script and writes to two streams.
+Standard output reaches the Profinity log at the `Info` level only when the script's **Log Script Output** setting is on, and the setting is off by default, so a script whose `print()` output does not appear in the log needs that setting switched on.
+Error output and script exceptions always reach the Profinity log at the `Error` level, whatever the setting.
 
-Each language writes to the console in its own way. In C# the console is `Profinity.Console`. In Python, `print()` writes standard output and `print(..., file=sys.stderr)` writes error output. In Lua, `print(...)` writes standard output and the `stderr(...)` global writes error output.
+Each language writes to the console in its own way.
+In C# the console is `Profinity.Console`.
+In Python, `print()` writes standard output and `print(..., file=sys.stderr)` writes error output.
+In Lua, `print(...)` writes standard output and the `stderr(...)` global writes error output.
 
-## Example Usage
+## Example usage
 
 The examples below show standard output and error stream usage in each language.
 
@@ -64,4 +72,5 @@ The examples below show standard output and error stream usage in each language.
     end
     ```
 
-The standard output stream is for normal program output and the error stream is for error messages and warnings. Output is held in memory, so a script should limit how much it writes.
+The standard output stream is for normal program output and the error stream is for error messages and warnings.
+Output is held in memory, so a script should limit how much it writes.

@@ -1,14 +1,19 @@
 ---
 title: Tags
-description: "Limits for the in-memory tag history buffer on the System Configuration Tags tab."
+description: "Set the limits on the in-memory tag history buffer, including points per tag, total points and time to live, on the Tags tab."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Tags
 
-!!! warning "Saving Restarts Profinity"
-    Saving changes on any System Configuration tab restarts Profinity. See [System Configuration](index.md) for what to expect.
+!!! warning "Saving restarts Profinity"
+    Saving changes on any System Configuration tab restarts Profinity.
+    Refer to [System Configuration](index.md) for what to expect.
 
-Profinity keeps a rolling in-memory history of recent tag values, which is used for dashboard charts and for the recent-history queries described under [Application Config](Application_Config.md). The Tags tab sets the limits on that buffer, so that it cannot grow without bound on a busy instance.
+Profinity keeps a rolling in-memory history of recent tag values, which is used for dashboard charts and for the recent-history queries described under [Application Config](Application_Config.md).
+The Tags tab sets the limits on that buffer, so that it cannot grow without bound on a busy instance.
 
 | Parameter                          | Description |
 |------------------------------------|--|

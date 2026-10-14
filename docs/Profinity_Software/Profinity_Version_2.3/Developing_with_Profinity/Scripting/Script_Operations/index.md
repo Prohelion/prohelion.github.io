@@ -1,35 +1,26 @@
 ---
-title: Supported Operations
-description: "Available script operations including CAN bus, DBC, state management, and console output."
+title: Supported operations
+description: "Look up what a script can do through the Profinity object: CAN bus, DBC, state, tags, console output and component settings."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Supported Operations
+# Supported operations
 
 The following operations are available to every script, regardless of the language used, through the `Profinity` object.
 
-## CAN Bus Communication
+- CAN bus communication: scripts can send CAN packets and read the latest received packets. Refer to [CAN Bus](./CANBus.md) for examples and usage.
+- DBC message and signal information: scripts can read signal values from the loaded DBC files by component, message, and signal name, with the raw CAN data converted to physical values. Refer to [DBC](./DBC.md) for examples and usage.
+- State management: Profinity provides two state stores. `State` keeps data for a single script between its runs, and `GlobalState` shares data across multiple scripts. Refer to [State](./State.md) for examples and usage.
+- Tags: scripts can read tag values, publish values to tags, and attach metadata to the tags they publish. Refer to [Tags](./Tags.md) for examples and usage.
+- Console output: scripts in all three languages can write information and error messages to the Profinity log. Refer to [Console](./Console.md) for examples and usage.
 
-Scripts can send CAN packets and read the latest received packets. See [CAN Bus](./CANBus.md) for examples and usage.
+## Component and firmware settings
 
-## DBC Message and Signal Information
-
-Scripts can read signal values from the loaded DBC files by component, message and signal name, with the raw CAN data converted to physical values. See [DBC](./DBC.md) for examples and usage.
-
-## State Management
-
-Profinity provides two state stores. `State` keeps data for a single script between its runs, and `GlobalState` shares data across multiple scripts. See [State](./State.md) for examples and usage.
-
-## Tags
-
-Scripts can read tag values, publish values to tags, and attach metadata to the tags they publish. See [Tags](./Tags.md) for examples and usage.
-
-## Console Output
-
-Scripts in all three languages can write information and error messages to the Profinity log. See [Console](./Console.md) for examples and usage.
-
-## Component and Firmware Settings
-
-A script that belongs to a [Custom Component](../../Custom_Components/index.md) reads the component's saved settings through `Profinity.ComponentSettings`, and its firmware settings through `Profinity.FirmwareSettings`. Both are keyed by the field identifiers defined in `settings_map.yaml` and `firmware_map.yaml`, so a serial port or baud rate entered on the component reaches the script without a code change. Each object has these methods:
+A script that belongs to a [Custom Component](../../Custom_Components/index.md) reads the component's saved settings through `Profinity.ComponentSettings`, and its firmware settings through `Profinity.FirmwareSettings`.
+Both are keyed by the field identifiers defined in `settings_map.yaml` and `firmware_map.yaml`, so a serial port or baud rate entered on the component reaches the script without a code change.
+Each object has these methods:
 
 | Method | What it does |
 |--------|--------------|
@@ -49,6 +40,9 @@ baud_value = Profinity.ComponentSettings.GetValue("baudRate")
 
 A script that is not hosted by a component cannot use either object, and a script run from `profinity-script sim` has no host component, so these calls fail there with a message that names the missing host component.
 
-## Where to Go Next
+## Where to go next
 
-Each operation has its own page, listed above. The [Profinity SDK](../../SDK.md) page describes how to write and test a script offline, and Profinity offers a starting template for each script type when you create a script. The [Profinity repository on GitHub](https://github.com/Prohelion/Profinity/tree/master/Example%20Scripts) also holds further C# and Python examples. The language references are on [Supported Languages](../Supported_Languages/index.md).
+Each operation has its own page, listed above.
+The [Profinity SDK](../../SDK.md) page describes how to write and test a script offline, and Profinity offers a starting template for each script type when you create a script.
+The [Profinity repository on GitHub](https://github.com/Prohelion/Profinity/tree/master/Example%20Scripts) also holds further C# and Python examples.
+The language references are on [Supported Languages](../Supported_Languages/index.md).

@@ -1,12 +1,18 @@
 ---
 title: Application Config
-description: "Packet retention, update checks, the recent tag history window and scripting on the System Configuration Application Config tab."
+description: "Set packet retention, update checks, the recent tag history window and scripting on the System Configuration Application Config tab."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Application Config
 
-!!! warning "Saving Restarts Profinity"
-    Saving changes on any System Configuration tab restarts Profinity. See [System Configuration](index.md) for what to expect.
+The Application Config tab of [System Configuration](index.md) holds packet retention, update checks, the recent tag history window and scripting.
+
+!!! warning "Saving restarts Profinity"
+    Saving changes on any System Configuration tab restarts Profinity.
+    Refer to [System Configuration](index.md) for what to expect.
 
 | Parameter                          | Description |
 |------------------------------------|--|

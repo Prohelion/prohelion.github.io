@@ -1,34 +1,48 @@
 ---
-title: How to View Dashboard Source
-description: "Access the YAML source code of existing dashboards to learn from examples and create custom dashboard modifications."
+title: How to view dashboard source
+description: "Open the YAML source of a component or profile dashboard in the dashboard editor, then copy it to learn from it or reuse it as a template."
+type: task
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# How to View Dashboard Source
+# How to view dashboard source
 
-Access the YAML source code of existing dashboards to learn from examples and modify them. The [Quick Start Guide](../Getting_Started/Quick_Start.md) introduces the same task with the Example Profile.
+Open the YAML source of an existing dashboard to learn from examples and modify them.
+The [Quick Start Guide](../Getting_Started/Quick_Start.md) introduces the same task with the Example Profile.
 
-## Prerequisites
+Before you start, you need:
 
-- Profinity V2 installed and running
-- Access to a dashboard (component or [profile](../Getting_Started/Profiles.md) dashboard)
-- The **Modify dashboards** permission, which shows the pencil icon that opens the dashboard editor
+- Profinity V2 installed and running.
+- Access to a dashboard (component or [profile](../Getting_Started/Profiles.md) dashboard).
+- The **Modify dashboards** permission, which shows the pencil icon that opens the dashboard editor.
 
-## Open a Component Dashboard's Source
+## Open a component dashboard's source
 
-Select the [component](../Components/Custom_Components/index.md) in the sidebar, then select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar, which opens the dashboard editor in **DESIGN** mode, and select the **YAML** tab to see the complete dashboard configuration.
+1. Select the [component](../Components/Custom_Components/index.md) in the sidebar.
+2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar. This opens the dashboard editor in **DESIGN** mode.
+3. Select the **YAML** tab to see the complete dashboard configuration.
 
-## Open a Profile Dashboard's Source
+## Open a profile dashboard's source
 
-A profile dashboard replaces the standard home page when **Custom Home Dashboard** is enabled in the profile settings (select **ADMIN** in the side menu, then **Profile**, and select the profile). With it enabled, navigate to the home page, select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar, and select the **YAML** tab. [How to Create a Profile Dashboard](./Create_Profile_Dashboard.md) describes enabling the option.
+A profile dashboard replaces the standard home page when **Custom Home Dashboard** is enabled in the profile settings.
+To find the setting, select **ADMIN** in the side menu, then **Profile**, and select the profile.
+[How to Create a Profile Dashboard](./Create_Profile_Dashboard.md) describes enabling the option.
 
-## Copy and Reuse a Dashboard
+With the option enabled:
 
-In the **YAML** tab, select all of the YAML, copy it with Ctrl+C or Cmd+C, and paste it into a text editor to save it, or paste it into a new dashboard, component or profile, to use it as a template. Modify the pasted source to suit the new dashboard, then save it as the new dashboard.
+1. Go to the home page.
+2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar.
+3. Select the **YAML** tab.
 
-Reading the YAML shows how components are organised, how data bindings are configured, how layout elements nest and how styling is applied. Copying a simple dashboard first and adding complexity in small, tested changes keeps a faulty change easy to find.
+## Copy and reuse a dashboard
 
-## Related Documentation
+1. In the **YAML** tab, select all of the YAML.
+2. Copy it with Ctrl+C or Cmd+C.
+3. Paste it into a text editor to save it, or paste it into a new dashboard, component, or profile to use it as a template.
+4. Modify the pasted source to suit the new dashboard, then save it as the new dashboard.
 
-- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) - the full dashboard reference
-- [Examples](../Customising_Profinity/Dashboards/Examples.md) - dashboard examples
-- [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md) - component documentation
+Reading the YAML shows how components are organised, how data bindings are configured, how layout elements nest and how styling is applied.
+Copying a simple dashboard first and adding complexity in small, tested changes keeps a faulty change easy to find.
+
+For more, refer to the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md), the dashboard [Examples](../Customising_Profinity/Dashboards/Examples.md) and the [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md).

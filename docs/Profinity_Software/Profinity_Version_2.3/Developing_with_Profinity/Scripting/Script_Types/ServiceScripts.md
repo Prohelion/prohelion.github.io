@@ -1,32 +1,37 @@
 ---
-title: Service Scripts
-description: "Continuous, long-running scripts with service-like lifecycle management and event handling."
+title: Service scripts
+description: "Run continuous, long-running work with a start, stop, pause, and continue lifecycle, and learn which methods a service script must implement."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Service Scripts
+# Service scripts
 
-Service scripts are designed for continuous, long-running operations that keep state and respond to system events. They have a full lifecycle of start, stop, pause and continue, which suits monitoring, continuous data logging and other work that must run reliably for extended periods. An operator controls a service from the script component's menu with **Start Service**, **Pause Service**, **Continue Service** and **Stop Service**, and the component shows its status as Running, Paused or Stopped. A service also starts by itself when **Auto Start Script** is on, and **Maximum Run Time (seconds)** cancels a run that takes too long.
+Service scripts are designed for continuous, long-running operations that keep state and respond to system events.
+They have a full lifecycle of start, stop, pause, and continue, which suits monitoring, continuous data logging and other work that must run reliably for extended periods.
+An operator controls a service from the script component's menu with **Start Service**, **Pause Service**, **Continue Service** and **Stop Service**, and the component shows its status as Running, Paused, or Stopped.
+
+## Settings
+
+A service also starts by itself when **Auto Start Script** is on, and **Maximum Run Time (seconds)** cancels a run that takes too long.
 
 <figure markdown>
-![Service script configuration](../../../images/python_service_script.png)
+![The script editor for a Python Service script, showing the Python service template with the on_start and on_stop functions](../../../images/python_service_script.png)
 <figcaption>Service Script Editor and Lifecycle Configuration</figcaption>
 </figure>
 
-## Which Lifecycle Methods Are Required
+## Which lifecycle methods are required
 
-Only `OnStart()` (C#) or `on_start` (Python and Lua) is required. In C#, `OnStop`, `OnPause`, `OnContinue` and `Run` are virtual, so a service overrides the ones it needs, and in Python and Lua the other functions (`on_stop`, `on_pause`, `on_continue` and `run`) are used only when the file defines them. The `on_stop()` function or `OnStop()` method is called both when the service is stopped by hand and when Profinity shuts down.
+Only `OnStart()` (C#) or `on_start` (Python and Lua) is required.
+In C#, `OnStop`, `OnPause`, `OnContinue` and `Run` are virtual, so a service overrides the ones it needs, and in Python and Lua the other functions (`on_stop`, `on_pause`, `on_continue` and `run`) are used only when the file defines them.
+The `on_stop()` function or `OnStop()` method is called both when the service is stopped by hand and when Profinity shuts down.
 
-## Cooperative Cancellation
+## Example
 
-Long-running work in `Run()` or `run()` should observe `Profinity.ScriptCancelled`, which becomes `true` when the service is stopped, paused or when Profinity is shutting down, so that loops exit and release resources promptly. A `run()` function with its own `while` loop tests `not Profinity.ScriptCancelled` (or `!Profinity.ScriptCancelled` in C#) in the loop condition, and may break out before slow steps. When the service is paused, cancellation is signalled so an inner loop can finish, and when the service continues Profinity calls `run()` again. In Python the service body uses `import time` for `time.sleep`, in C# `Thread.Sleep` needs `using System.Threading;`, and in Lua the `sleep(seconds)` global is limited to 30 seconds per call, so a longer wait is written as repeated calls.
-
-## Python Module-Level Variables
-
-The lifecycle functions are separate functions. A counter or other mutable value kept in a module-level name and assigned inside those functions is treated by Python as a local variable unless each function that assigns to it declares `global _my_var`. Leaving out `global` is a common mistake when state is reset in `on_start` and updated in `run()`.
-
-## Examples
-
-Each example implements all four lifecycle methods, although only the start method is required, and a `Run()` or `run()` that loops until `Profinity.ScriptCancelled` is set. The loop sleeps between iterations with `time.sleep` (Python), `Thread.Sleep` (C#) or `sleep` (Lua), and the Python version declares `global` for the shared run counter. Profinity's built-in Python, C# and Lua service templates with both single-step and loop-style `run` patterns.
+Each example implements all four lifecycle methods, although only the start method is required, and a `Run()` or `run()` that loops until `Profinity.ScriptCancelled` is set.
+The loop sleeps between iterations with `time.sleep` (Python), `Thread.Sleep` (C#) or `sleep` (Lua), and the Python version declares `global` for the shared run counter.
+Profinity's built-in Python, C# and Lua service templates with both single-step and loop-style `run` patterns.
 
 === "C#"
 
@@ -147,3 +152,18 @@ Each example implements all four lifecycle methods, although only the start meth
         return true
     end
     ```
+
+## Behaviour
+
+### Cooperative cancellation
+
+Long-running work in `Run()` or `run()` should observe `Profinity.ScriptCancelled`, which becomes `true` when the service is stopped, paused, or when Profinity is shutting down, so that loops exit and release resources promptly.
+A `run()` function with its own `while` loop tests `not Profinity.ScriptCancelled` (or `!Profinity.ScriptCancelled` in C#) in the loop condition, and may break out before slow steps.
+When the service is paused, cancellation is signalled so an inner loop can finish, and when the service continues Profinity calls `run()` again.
+In Python the service body uses `import time` for `time.sleep`, in C# `Thread.Sleep` needs `using System.Threading;`, and in Lua the `sleep(seconds)` global is limited to 30 seconds per call, so a longer wait is written as repeated calls.
+
+### Python module-level variables
+
+The lifecycle functions are separate functions.
+A counter or other mutable value kept in a module-level name and assigned inside those functions is treated by Python as a local variable unless each function that assigns to it declares `global _my_var`.
+Leaving out `global` is a common mistake when state is reset in `on_start` and updated in `run()`.

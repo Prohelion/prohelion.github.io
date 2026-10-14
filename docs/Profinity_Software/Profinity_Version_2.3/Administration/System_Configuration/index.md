@@ -1,16 +1,22 @@
 ---
 title: System Configuration
-description: "Every tab of the Profinity System Configuration page: application, logging, discovery, web, extensions web, tags, security, and AI settings."
+description: "Find the System Configuration tab for application, logging, discovery, web, extensions web, tags, security, and AI settings."
+type: index
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # System Configuration
 
-The **System Configuration** pill is located on the **ADMIN** page, which is opened by selecting **ADMIN** in the side menu, and contains the configuration options for the core Profinity instance. The settings are grouped into tabs, and each tab has its own page, listed below.
+The **System Configuration** pill is located on the **ADMIN** page, which is opened by selecting **ADMIN** in the side menu, and contains the configuration options for the core Profinity instance.
+The settings are grouped into tabs, and each tab has its own page, listed in the table.
 
-!!! warning "Saving Changes Restarts Profinity"
-    Saving changes in **System Configuration** restarts Profinity and interrupts all active sessions, whereas enabling or disabling components on the **Components & Plugins** page applies immediately without a restart. After the save, Profinity shows a "Restarting, please wait..." message and checks the engine every two seconds, then refreshes the settings automatically once the engine is running again, so the page does not need to be reloaded manually. If the engine has not returned to the running state within 60 seconds, Profinity reports that the restart is taking longer than expected, and the System Information page shows the current engine state.
+!!! warning "Saving changes restarts Profinity"
+    Saving changes in **System Configuration** restarts Profinity and interrupts all active sessions, whereas enabling or disabling components on the [Components & Plugins](../Components_and_Plugins.md) page applies immediately without a restart.
+    After the save, Profinity shows a "Restarting, please wait..." message and checks the engine every two seconds, then refreshes the settings automatically once the engine is running again, so the page does not need to be reloaded manually.
+    If the engine has not returned to the running state within 60 seconds, Profinity reports that the restart is taking longer than expected, and the [System Information](../System_Info.md) page shows the current engine state.
 
-## Tabs at a Glance
+## Tabs at a glance
 
 | Tab                | What it controls | Page |
 |--------------------|------------------|------------|

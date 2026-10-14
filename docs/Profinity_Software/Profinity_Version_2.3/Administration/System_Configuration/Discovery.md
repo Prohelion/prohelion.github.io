@@ -1,12 +1,16 @@
 ---
 title: Discovery
-description: "Configure the LAN heartbeat that lets Profinity Mobile find this Profinity server."
+description: "Configure the LAN heartbeat that lets Profinity Mobile find this Profinity server, including its name, UDP port and interval."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Discovery
 
-!!! warning "Saving Restarts Profinity"
-    Saving changes on any System Configuration tab restarts Profinity. See [System Configuration](index.md) for what to expect.
+!!! warning "Saving restarts Profinity"
+    Saving changes on any System Configuration tab restarts Profinity.
+    Refer to [System Configuration](index.md) for what to expect.
 
 Profinity can broadcast a small UDP heartbeat on the local network so that [Profinity Mobile](../../Mobile/index.md) can find this server without the address being typed in.
 

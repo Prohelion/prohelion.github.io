@@ -1,12 +1,16 @@
 ---
 title: Logging
 description: "Set the log level, log rollover size and number of retained logs on the System Configuration Logging tab."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Logging
 
-!!! warning "Saving Restarts Profinity"
-    Saving changes on any System Configuration tab restarts Profinity. See [System Configuration](index.md) for what to expect.
+!!! warning "Saving restarts Profinity"
+    Saving changes on any System Configuration tab restarts Profinity.
+    Refer to [System Configuration](index.md) for what to expect.
 
 The Logging tab of [System Configuration](index.md) holds the log level, the log rollover size and the number of retained logs.
 
@@ -23,18 +27,17 @@ The default rollover size of 1 MB fills quickly on a busy instance, so raise **L
 <figcaption>Profinity Logs Configuration Menu</figcaption>
 </figure>
 
-Each logging level also includes every more severe level, so `Trace` records every message from `Debug` through `Fatal`. The levels are described below.
+Each logging level also includes every more severe level, so `Trace` records every message from `Debug` through `Fatal`.
+The table lists the levels.
 
 | Logging Level   | Description                                                                                          |
 | ----------------| ---------------------------------------------------------------------------------------------------- |
-| `Fatal`         | Used when the application encounters an error that prevents critical functionality from working  |
+| `Fatal`         | Used when the application encounters an error that prevents critical functionality from working |
 | `Error`         | Used when the application encounters an error that prevents particular functionality from working, but other parts of the application may remain functional |
 | `Warn`          | Indicates something unexpected has happened, but the application continues to function               |
-| `Info`          | Standard log level containing informative messages indicating the actions of the application. E.g., when changing states, connecting to the web API, etc.         |
+| `Info`          | Standard log level containing informative messages indicating the actions of the application. For example, when changing states or connecting to the web API.         |
 | `Debug`         | Intermediate level of visibility that is helpful for debugging. Details some of the underlying application processes     |
 | `Trace`         | Grants full visibility of underlying application execution. Only necessary when performing debugging |
 
-!!! info "Log Levels Are Persistent"
-    Once a log level is set, it remains in effect across restarts of Profinity.
-
-To read the logs, see [Logs](../Logs_Config.md).
+Once a log level is set, it remains in effect across restarts of Profinity.
+To read the logs, refer to [Logs](../Logs_Config.md).

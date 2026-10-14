@@ -1,19 +1,22 @@
 ---
-title: CAN Bus
-description: "Script operations for sending, receiving, and working with CAN bus packets and data."
+title: CAN bus
+description: "Send CAN packets, read the latest received packets and look packets up by CAN ID from a Profinity script in C#, Python or Lua."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# CAN Bus
+# CAN bus
 
-The CAN bus operations let a script work with Controller Area Network (CAN) traffic: send CAN packets, read the latest received packets, and look packets up by CAN ID. They are reached through two script variables. `Profinity.CAN` is the script's own CAN client, which suits waiting for and buffering the packets one script cares about, and `Profinity.CANBus` is the shared cache of the latest packet for every CAN ID that the Profinity engine has seen. For real-time packet reception, [Receive Scripts](../Script_Types/ReceiveScripts.md) run automatically when matching CAN packets are received.
+The CAN bus operations let a script work with Controller Area Network (CAN) traffic: send CAN packets, read the latest received packets, and look packets up by CAN ID.
+They are reached through two script variables.
+`Profinity.CAN` is the script's own CAN client, which suits waiting for and buffering the packets one script cares about, and `Profinity.CANBus` is the shared cache of the latest packet for every CAN ID that the Profinity engine has seen.
+For real-time packet reception, [Receive Scripts](../Script_Types/ReceiveScripts.md) run automatically when matching CAN packets are received.
 
-## Usage
+## Sending CAN packets
 
-The examples below show the CAN bus operations in C#, Python and Lua.
-
-### Sending CAN Packets
-
-The following examples create a CAN packet and transmit it to the bus. A packet is created from its CAN ID and then filled using the typed data properties such as `Int32Pos0` and `Int32Pos1`, and in C# a packet can also be created directly from a byte array.
+The following examples create a CAN packet and transmit it to the bus.
+A packet is created from its CAN ID and then filled using the typed data properties such as `Int32Pos0` and `Int32Pos1`, and in C# a packet can also be created directly from a byte array.
 
 === "C#"
 
@@ -53,11 +56,15 @@ The following examples create a CAN packet and transmit it to the bus. A packet 
     local sent = Profinity.CAN:Send(packet)
     ```
 
-`Profinity.CAN.Send()` returns `true` when the packet was sent. `Profinity.CANBus.SendMessage()` returns the number of interfaces the packet was sent on (one for each CAN adapter the packet went out on, so more than one when several CAN adapters are configured).
+`Profinity.CAN.Send()` returns `true` when the packet was sent.
+`Profinity.CANBus.SendMessage()` returns the number of interfaces the packet was sent on (one for each CAN adapter the packet went out on, so more than one when several CAN adapters are configured).
 
-### Accessing Latest Received Packets
+## Accessing latest received packets
 
-Profinity maintains a cache of the latest received CAN packets, from which a script can read the most recent packet or query packets by CAN ID. `Profinity.CAN.LatestValidPacketReceivedByID()` returns the latest packet for a CAN ID only while it is still valid (a packet is expired once it is older than the script's **Milliseconds Valid** setting, which defaults to 5000 and accepts 0 to 60000, where 0 means packets never expire). **Milliseconds Valid** is shown only in Run On Receipt of CAN Message mode, and returns null (`None` in Python, `nil` in Lua) when no valid packet exists.
+Profinity maintains a cache of the latest received CAN packets, from which a script can read the most recent packet or query packets by CAN ID.
+`Profinity.CAN.LatestValidPacketReceivedByID()` returns the latest packet for a CAN ID only while it is still valid (a packet is expired once it is older than the script's **Milliseconds Valid** setting, which defaults to 5000 and accepts 0 to 60000, where 0 means packets never expire).
+The method returns null (`None` in Python, `nil` in Lua) when no valid packet exists.
+**Milliseconds Valid** is shown only in Run On Receipt of CAN Message mode.
 
 === "C#"
 
@@ -111,9 +118,10 @@ Profinity maintains a cache of the latest received CAN packets, from which a scr
     end
     ```
 
-## Receiving CAN Packets in Real-Time
+## Receiving CAN packets in real-time
 
-For real-time CAN packet reception, use [Receive Scripts](../Script_Types/ReceiveScripts.md). Receive scripts automatically execute when matching CAN packets are received, which suits real-time monitoring and processing.
+For real-time CAN packet reception, use [Receive Scripts](../Script_Types/ReceiveScripts.md).
+Receive scripts automatically execute when matching CAN packets are received, which suits real-time monitoring and processing.
 
 === "C#"
 
@@ -148,7 +156,7 @@ For real-time CAN packet reception, use [Receive Scripts](../Script_Types/Receiv
     end
     ```
 
-## Complete Example
+## Complete example
 
 The following example sends a packet and then checks for a response.
 
@@ -230,6 +238,9 @@ The following example sends a packet and then checks for a response.
     end
     ```
 
-## Notes on Receiving and Sending
+## Notes on receiving and sending
 
-Receive Scripts are the better choice for real-time packet reception than polling `LatestCanBusPacketReceived`. The `LatestCanBusPacketsReceived` dictionary stores only the most recent packet for each CAN ID, so an older packet is overwritten by a newer one. A script should check for null, `None` or `nil` before it reads packet properties, because no packet may exist for a given CAN ID. The `SendMessage()` return value is the number of interfaces the packet was sent on, which helps when debugging a multi-adapter configuration.
+Receive Scripts are the better choice for real-time packet reception than polling `LatestCanBusPacketReceived`.
+The `LatestCanBusPacketsReceived` dictionary stores only the most recent packet for each CAN ID, so an older packet is overwritten by a newer one.
+A script should check for null, `None` or `nil` before it reads packet properties, because no packet may exist for a given CAN ID.
+The `SendMessage()` return value is the number of interfaces the packet was sent on, which helps when debugging a multi-adapter configuration.
