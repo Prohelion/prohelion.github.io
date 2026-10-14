@@ -5,7 +5,7 @@ description: "View, acknowledge and silence rule-generated alerts in the Alerts 
 
 # Alerts Log
 
-Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indicators across the UI, and through the `/api/v2/Alerts` API. Operators with the **View alerts** permission can view and acknowledge alerts and silence their actions, and an alert's text, level and links come from the [rule](./Actions.md) that raised it.
+Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indicators across the UI, and through the [API](../Integrating_to_Profinity/APIs/Endpoint_Reference.md#alerts). Operators with the **View alerts** permission can view and acknowledge alerts and silence their actions, and an alert's text, level and links come from the [rule](./Rules.md) that raised it.
 
 <figure markdown>
 ![The Alerts Log page with Active and History tabs, and an alert detail panel showing what to do, related documentation, related tags, and acknowledge and silence controls](../images/2.3-diagram-alerts.png)
@@ -42,7 +42,7 @@ Both tabs show the time (labelled **Active Time** on the **Active** tab, which i
 
 ## Alert Levels
 
-Every rule and threshold step carries a `level`, and the six permitted values in ascending severity are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`. The valid names, their aliases and the defaults are described under [Alert Level](./Actions.md#alert-level), and the level filter on the Active and History queries is not case-sensitive.
+Every rule and threshold step carries a `level`, and the six permitted values in ascending severity are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`. The valid names, their aliases and the defaults are described under [Alert Level](./Rules.md#alert-level), and the level filter on the Active and History queries is not case-sensitive.
 
 ## Live Indicators
 
@@ -70,17 +70,7 @@ Acknowledging and silencing both need the **View alerts** permission, and both a
 | **Acknowledge** | Marks the alert as seen and handled, and does not clear it. |
 | **Silence** | Suppresses the actions of the rule for that alert, so no Email, Slack, Webhook, MQTT, script or log action runs, while the alert stays active and visible with a silence badge. |
 
-The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab, and an acknowledged alert shows an **Unacknowledge alert** button in place of Acknowledge. Through the API a silence can last from 1 to 1440 minutes (24 hours), and a request outside that range is refused with "durationMinutes must be between 1 and 1440." The `/api/v2/Alerts/Unack` route is the same revert that the **Unacknowledge alert** button uses.
-
-### REST API
-
-| Method | Route | Body |
-|--------|-------|------|
-| GET | `/api/v2/Alerts/Active` | None. Optional query values `componentId`, `tagPrefix`, `unacknowledgedOnly` and `level`. |
-| GET | `/api/v2/Alerts/History` | None. |
-| POST | `/api/v2/Alerts/Ack` | `{ "ruleId": "...", "tagId": "..." }` |
-| POST | `/api/v2/Alerts/Unack` | `{ "ruleId": "...", "tagId": "..." }` |
-| POST | `/api/v2/Alerts/Silence` | `{ "ruleId": "...", "tagId": "...", "durationMinutes": 60 }` |
+The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab, and an acknowledged alert shows an **Unacknowledge alert** button in place of Acknowledge.
 
 ## Rule Evaluation: Dwell and Deadband
 
@@ -89,7 +79,7 @@ The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit
 <figcaption>Dwell, deadband and severity levels on a rule</figcaption>
 </figure>
 
-Rules support **dwell**, where the condition must hold for a duration set with `dwellSeconds` or `dwellMinutes`, and **deadband**, where the alert clears at a different point from where it tripped, set on a threshold step with `clearValue` or `clearExpression` and on a boolean rule with `clearExpression`. Both are configured in the rules visual editor or in `rules.yaml`, and a complete example of each is shown under [A Complete rules.yaml Example](./Actions.md#a-complete-rulesyaml-example).
+Rules support **dwell**, where the condition must hold for a duration set with `dwellSeconds` or `dwellMinutes`, and **deadband**, where the alert clears at a different point from where it tripped, set on a threshold step with `clearValue` or `clearExpression` and on a boolean rule with `clearExpression`. Both are configured in the rules visual editor or in `rules.yaml`, and a complete example of each is shown under [A Complete rules.yaml Example](./Rules.md#a-complete-rulesyaml-example).
 
 Rules evaluate whenever a tag in their scope changes. The `evaluationTickSeconds` setting adds a periodic extra pass, takes a whole number from 1 to 3600, and is required for a rule that detects stale data with `tag.IsStale`, because a stale tag does not change. When several rules files set it, the smallest value applies to the whole profile.
 
@@ -106,12 +96,12 @@ A no-data or stale sensor condition is written as follows:
 tag.IsStale
 ```
 
-The expression language is described in [Tag expressions](./Tag_Expressions.md), and the actions a rule runs are described in [Rule actions and scripts](./Actions.md).
+The expression language is described in [Tag expressions](./Tag_Expressions.md), and the actions a rule runs are described in [Rules](./Rules.md) and [Actions](./Actions.md).
 
 ## Related Documentation
 
 - [Tag expressions](./Tag_Expressions.md)
-- [Rule actions and scripts](./Actions.md)
+- [Rules](./Rules.md) and [Actions](./Actions.md)
 - [Tag layer](index.md)
 - [Collections](./Collections.md)
 - [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)

@@ -5,7 +5,9 @@ nav:
     - Tag_Expressions.md
     - Collections.md
     - Derived_Tags.md
-    - Alerts.md
+    - Script_Driven_Derived_Tags.md
+    - Rules.md
     - Actions.md
+    - Alerts.md
     - Tag_Relay.md
     - Logging_Replaying_Tags.md

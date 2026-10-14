@@ -65,4 +65,4 @@ If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_
 
 - [Webhook Publisher](Webhook_Publisher.md) and [MQTT Subscriber](MQTT_Subscriber.md), the other Publishers & Subscribers components.
 - [File and Tag Loggers](../Loggers/File_Loggers.md), for writing to a file or database.
-- [Rule actions and scripts](../../Tags/Actions.md), where a rule can also send a one-off MQTT message or webhook. Rule actions need the **Tag Rule Actions** licensed feature.
+- [Rule Actions](../../Tags/Actions.md), where a rule can also send a one-off MQTT message or webhook. Rule actions need the **Tag Rule Actions** licensed feature.

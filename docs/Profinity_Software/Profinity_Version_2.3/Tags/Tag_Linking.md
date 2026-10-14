@@ -5,7 +5,7 @@ description: "Tag Explorer context menu flows to quickly create collections, rul
 
 # Tag Linking from Tag Explorer
 
-The Tag Explorer context menu in Profinity 2.3 creates [collections](./Collections.md), [rules](./Actions.md) and [dashboard](../Customising_Profinity/Dashboards/index.md) bindings from selected tags, so the selection does not need to be copied into the visual editors by hand.
+The Tag Explorer context menu in Profinity 2.3 creates [collections](./Collections.md), [rules](./Rules.md) and [dashboard](../Customising_Profinity/Dashboards/index.md) bindings from selected tags, so the selection does not need to be copied into the visual editors by hand.
 
 ## Prerequisites
 
@@ -45,5 +45,5 @@ The create-collection and create-rule flows generate the expressions automatical
 - [Tag layer](index.md)
 - [Tag expressions](Tag_Expressions.md)
 - [Collections](Collections.md)
-- [Rule actions and scripts](Actions.md)
+- [Rules](Rules.md) and [Actions](Actions.md)
 - [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md)

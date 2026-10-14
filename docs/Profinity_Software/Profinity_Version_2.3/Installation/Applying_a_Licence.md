@@ -38,6 +38,9 @@ Open **ADMIN**, then **License**, and check the following:
 - **Expires**, **Customer** and **Edition** match the licence that Prohelion issued.
 - The **Licensed features** and **Licensed component groups** tables show the expected entries as licensed and available.
 
+!!! note "Restart After Applying a Licence"
+    Restart Profinity after you apply a licence that adds features, in particular a Server licence. The address that the web interface listens on is set when Profinity starts, so other machines cannot connect until it has been restarted. Removing licensed features restarts Profinity automatically.
+
 If the page still shows the previous state after the file was copied into the folder, restart Profinity and check again.
 
 ## If the Licence Is Rejected

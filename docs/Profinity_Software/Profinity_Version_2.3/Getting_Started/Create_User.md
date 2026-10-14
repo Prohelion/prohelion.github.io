@@ -15,7 +15,17 @@ Create a new user after installing Profinity, with further users for each type o
 <figcaption>New user menu</figcaption>
 </figure>
 
-Each user is also assigned one or more [roles](../Administration/Users_and_Access/Roles_and_Permissions.md), which bundle the permissions that allow or restrict particular Profinity functionality for that user. The default Administrators role includes the full permission bundle, so assigning it grants the permissions of every other role.
+## Choosing Roles
+
+A role is a named set of permissions, and a person can hold more than one. A user can only do what their roles allow, so give each person the smallest set that lets them do their job. A good starting point is three roles:
+
+| Role | For people who | Typical access |
+|------|----------------|----------------|
+| **Viewer** | Watch the system but never change it | View data, tags, alerts and dashboards |
+| **Operator** | Run a vehicle, bench or pack each day | Everything a Viewer can do, plus running component actions and controlling charging |
+| **Engineer** | Set up and tune a system | Everything an Operator can do, plus changing profiles, components, dashboards and firmware |
+
+The default **Administrators** role includes every permission, so assigning it gives that person the access of every other role. Keep it for the few people who manage the installation. [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) explains how to create these roles and lists every permission.
 
 ## More Information
 

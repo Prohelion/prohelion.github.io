@@ -114,7 +114,7 @@ To view the rules:
 The Example Profile includes battery management system (BMS) alert rules for the Prohelion 12v and the Prohelion BMU, arranged in groups such as **Cell limits** (cell over voltage, under voltage and over temperature) and **Critical status flags** (for example communications timeouts and emergency stop). Open a rule to see the tags it watches, its condition, its `level` and its description.
 
 !!! note "Rules Editor Permissions"
-    The **RULES & ACTIONS** entry needs the **View tag rules** permission, and saving changes needs **Modify tag rules**. A signed-in `admin` user holds both. Actions that send an email, Slack message, webhook or MQTT message need the Tag Rule Actions feature, as described in [Rule Actions and Scripts](../Tags/Actions.md).
+    The **RULES & ACTIONS** entry needs the **View tag rules** permission, and saving changes needs **Modify tag rules**. A signed-in `admin` user holds both. Actions that send an email, Slack message, webhook or MQTT message need the Tag Rule Actions feature, as described in [Rule Actions](../Tags/Actions.md).
 
 To view the alerts:
 
@@ -131,7 +131,7 @@ Alerts also show as a yellow triangle on dashboard widgets bound to the affected
 For more detail, see:
 
 - [Alerts Log](../Tags/Alerts.md) - alert levels, indicators, acknowledging and silencing
-- [Rule Actions and Scripts](../Tags/Actions.md) - what happens when a rule fires
+- [Rule Actions](../Tags/Actions.md) - what happens when a rule fires
 - [Tag Expressions](../Tags/Tag_Expressions.md) - writing rule conditions
 - [Tags](../Tags/index.md) - how tags, collections, rules and alerts fit together
 

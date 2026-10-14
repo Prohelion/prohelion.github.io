@@ -32,11 +32,11 @@ rules:
 
 ## The Alert Context
 
-When the rule fires, Profinity calls the script's alert method once, passing the firing context as a parameter. This is the same context every other rule action receives (see [Rule Actions and Scripts](../../../Tags/Actions.md)): the rule id, name and level, the edge that fired, the triggering tag, and `TriggeredTags`, which holds every tag in the rule's scope that is currently true. The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`,
+When the rule fires, Profinity calls the script's alert method once, passing the firing context as a parameter. This is the same context every other rule action receives (see [Rule Actions](../../../Tags/Actions.md)): the rule id, name and level, the edge that fired, the triggering tag, and `TriggeredTags`, which holds every tag in the rule's scope that is currently true. The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`,
 `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`,
 `Message`, `ExpandedMessage` and `TriggeredTags`, with the same names in C#, Python and Lua. `RuleLevel`
 is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (see
-[Alert level](../../../Tags/Actions.md#alert-level)), `Transition` is one of `EnteredTrue`,
+[Alert level](../../../Tags/Rules.md#alert-level)), `Transition` is one of `EnteredTrue`,
 `EnteredFalse`, `EnteredStep` or `ExitedStep`, and each row in `TriggeredTags` has `TagId`, `Value`,
 `Quality` and `MetaType`.
 
@@ -107,7 +107,7 @@ The alert method should stay fast, because a slow script under **Queue** builds 
 
 ## Related Documentation
 
-- [Rule Actions and Scripts](../../../Tags/Actions.md)
+- [Rule Actions](../../../Tags/Actions.md)
 - [Script Types](./index.md)
 - [Profinity Scripting](../index.md)
 - [Write Your First Script](../../../How_To_Guides/Write_Your_First_Script.md)

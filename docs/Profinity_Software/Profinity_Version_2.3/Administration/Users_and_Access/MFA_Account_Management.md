@@ -20,17 +20,9 @@ A user with the **Security administration** permission can clear another user's 
 !!! note "Cannot Reset Your Own MFA"
     **Reset MFA** is hidden on the administrator's own **User Actions** tab, and on the tab of a service account. An administrator manages their own authenticator with the **Two-Factor Authentication** pill on the **ADMIN** page.
 
-| Method | Route | Purpose |
-|--------|-------|---------|
-| POST | `/api/v2/Users/{username}/TwoFactor/Reset` | Clears the user's authenticator enrolment. |
-
 ## Administrator Reset of a Password
 
 **Reset Password**, also on the **User Actions** tab of the other user's settings dialog, sets **Require password change on next login** and signs out the user's active sessions, so the user chooses a new password at the next sign-in and no temporary password has to be shared. Like **Reset MFA**, it is hidden on the administrator's own account, and it is shown only when the site **Sign-in method** is **Local**. The effect on the user is described in [Password Policy](../System_Configuration/Security/Password_Policy.md#forced-password-change).
-
-| Method | Route | Purpose |
-|--------|-------|---------|
-| POST | `/api/v2/Users/{username}/Password/Reset` | Requires a password change at the next sign-in and signs out active sessions. |
 
 ## SSO Users
 
@@ -42,3 +34,4 @@ For users who sign in through SSO, **Reset MFA** and **Reset Password** are not 
 - [Password Policy](../System_Configuration/Security/Password_Policy.md)
 - [Managing Users](Manage_Users.md)
 - [Roles and Permissions](Roles_and_Permissions.md)
+- [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#account-resets), the matching routes for integrators

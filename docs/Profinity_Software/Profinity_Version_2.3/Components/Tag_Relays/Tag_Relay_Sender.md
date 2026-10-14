@@ -7,6 +7,11 @@ description: "Publish a snapshot of selected tag collections to a remote Profini
 
 The **Tag Relay Sender** exports the [tags](../../Tags/index.md) that belong to the [collections](../../Tags/Collections.md) you select and sends them, as a full snapshot at a fixed interval, to a remote Profinity instance running a [Tag Relay Receiver](Tag_Relay_Receiver.md). It sits in the **Tag Relays** category and requires the **Data Relay** licensed feature. The position of each tag in the exported tree is its [tag tree path](../../Tags/Tag_Tree_Path.md), and the concept of sender and receiver roles is covered in [Tag Relay](../../Tags/Tag_Relay.md).
 
+<figure markdown>
+![Site instances run a Tag Relay Sender publishing live tags over HTTPS with a JSON Web Token (JWT) or over MQTT; a central instance runs a Tag Relay Receiver, showing each site's tags under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/2.3-diagram-tag-relay.png)
+<figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
+</figure>
+
 ## Adding a Tag Relay Sender
 
 Add a **Tag Relay Sender** component to your profile from the **Tag Relays** category, choose the protocol, and select the collections to export. Only the member tags of the selected collections are sent, so create the collections first, as described in [Collections](../../Tags/Collections.md). The sender does not start until at least one collection is selected and every selected collection exists in the profile.
@@ -26,7 +31,7 @@ Add a **Tag Relay Sender** component to your profile from the **Tag Relays** cat
 
 | Setting | Purpose |
 |---|---|
-| **Remote base URL** | The remote Profinity base URL, for example `https://receiver:443/`. The path `/api/v2/Relay/snapshot` is appended. Required when the protocol is HTTPS. |
+| **Remote base URL** | The remote Profinity base URL, for example `https://receiver:443/`. Required when the protocol is HTTPS. |
 | **Bearer token** | A JSON Web Token (JWT) for a user on the remote instance with the **Receive external tags** permission (or Admin). Use the token of a service account created on the receiving instance for this, so the relay keeps working without anyone signing in again. Required to start the sender when the protocol is HTTPS, and stored encrypted. |
 | **Trust all server certificates** | Disables Transport Layer Security (TLS) server certificate validation. Enable only when connecting to a trusted receiver that uses a self-signed certificate. |
 

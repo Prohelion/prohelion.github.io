@@ -50,6 +50,15 @@ Not every feature described in this documentation is available on every instance
 !!! warning "Remote Web Access Needs Profinity Server"
     Without a **Profinity Server** licence, including on a Desktop host, Profinity listens for web connections on `127.0.0.1` only, which means the web interface and API can be reached from the same computer and not from another one. This applies to an unlicensed instance and to an instance whose 14-day local trial has expired. When the web server starts, Profinity forces any HTTP or HTTPS address that is not a loopback address, such as `0.0.0.0`, to `127.0.0.1`, whatever is entered under [Profinity Web](System_Configuration/Profinity_Web.md), and records a message beginning "Remote web access requires a Server license" in the [Profinity log](Logs_Config.md). A user who cannot reach Profinity from another computer should check the licence on the **License** page before changing the address or the firewall.
 
+## Hardware Requirements and Remote Access
+
+Profinity Server does not require any additional Prohelion hardware to run. It can be used as a general-purpose development framework for building web UIs for CAN bus based architectures, or for providing a server interface to CAN infrastructure with cloud connectivity.  
+
+When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
+
+!!! info "Licence Required for Remote Access and User Accounts"
+    Opening the Profinity web interface from another machine, and creating user accounts and roles, need the **Profinity Server** licensed feature, which the Server and Enterprise editions include. Local access on the same machine needs no licence. A new installation that is not a Desktop host starts a one-time 14-day local trial with the Server features, and then drops to the unlicensed feature set, so remote access and user accounts stop working until a licence file is applied under **ADMIN > License**. Production use of Profinity Server on Windows, Docker, Linux or macOS needs a licence from Prohelion; contact Prohelion through the [Prohelion contact page](https://www.prohelion.com/contact-us/). See [Licensing](../Administration/Licensing.md).
+
 ## Check Licence Status
 
 Select **ADMIN** in the side menu, then **License**. A user needs the **Security administration** permission to view or change this page.
@@ -114,15 +123,6 @@ The fingerprint is a value computed from the installation itself, unique to that
 
 - It ties a signed `license.yaml` to one specific installation, so a licence file cannot be copied to another machine and reused.
 - It is the only piece of information an administrator needs to send to Prohelion to request a licence or evaluation, which keeps the process usable for edge machines with no internet access.
-
-## REST API
-
-| Method | Route | Purpose |
-|--------|-------|---------|
-| GET | `/api/v2/License` | Returns licence status and the entitled features and components lists. Requires **Security administration**. |
-| GET | `/api/v2/License/Fingerprint` | Returns the instance fingerprint used to request a licence. Requires **Security administration**. |
-| PUT | `/api/v2/License` | Uploads and applies a `license.yaml` document, validating signature, expiry, and fingerprint before saving it. Requires **Security administration**. |
-| GET | `/api/v2/Availability/Features` | Returns the current availability of every product feature, with the blocking layer named where a feature is unavailable. Requires an authenticated user. |
 
 ## Related Documentation
 

@@ -21,6 +21,8 @@ Profinity V2 is built around its own APIs, so the APIs are running whenever Prof
 
 The [Swagger](https://swagger.io) interface for Profinity is available by adding `/swagger` to the URL that Profinity is running on, so for example if Profinity is running on `localhost:18080`, the Swagger UI is at `http://localhost:18080/swagger`.
 
+The [Endpoint Reference](Endpoint_Reference.md) lists the routes for alerts, collections, derived tags, Profinity AI chat, security, account resets, tag relay and themes.
+
 <figure markdown>
 ![Showing the Profinity APIs](../../images/swagger.png)
 <figcaption>Showing the Profinity APIs</figcaption>

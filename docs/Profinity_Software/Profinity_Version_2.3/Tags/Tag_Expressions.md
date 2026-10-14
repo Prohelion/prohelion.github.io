@@ -7,7 +7,7 @@ description: "Expression language for collections, rules, and derived tags to fi
 
 Collections, rules, and derived tags share one small expression language. Collections and rules write a **boolean** expression over a single parameter named `tag`. Derived tags write a **value formula** over the aliases they declare (`a`, `b`, …). The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
 
-Expressions are typed in the [collections](./Collections.md), [rules](./Actions.md) and [derived tags](./Derived_Tags.md) editors, using either the guided builder or free text, and an invalid member fails validation when the file is saved, with a message that points at the correct spelling.
+Expressions are typed in the [collections](./Collections.md), [rules](./Rules.md) and [derived tags](./Derived_Tags.md) editors, using either the guided builder or free text, and an invalid member fails validation when the file is saved, with a message that points at the correct spelling.
 
 ## Picking Tags
 
@@ -97,7 +97,7 @@ tag.IsStale
 tag.MatchesPath("Elmar Solar MPPT") && tag.IsStale
 ```
 
-Sample age in seconds is not part of the language, so use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rule actions and scripts](./Actions.md).
+Sample age in seconds is not part of the language, so use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rules](./Rules.md) and [Actions](./Actions.md).
 
 ## Metadata
 
@@ -154,7 +154,7 @@ These spellings fail validation in Profinity 2.3. Rewrite them as shown:
 
 - [Collections](./Collections.md)
 - [Alerts Log](./Alerts.md)
-- [Rule actions and scripts](./Actions.md)
+- [Rules](./Rules.md) and [Actions](./Actions.md)
 - [Derived tags](./Derived_Tags.md)
 - [Tag linking](Tag_Linking.md)
 - [Tag layer](index.md)

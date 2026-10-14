@@ -5,7 +5,7 @@ description: "Log tag collection values to InfluxDB v1 with the InfluxDB v1 Logg
 
 # InfluxDB and Prometheus Logging
 
-Profinity can [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) from a CAN bus network, and the loggers on this page send the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to time-series databases. This page documents the **InfluxDB v1 Logger**, which is the logger for InfluxDB v1 servers, and the **Prometheus Logger**.
+Profinity can [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) from a CAN bus network, and the loggers on this page send the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to time-series databases. This page documents the two loggers that send tag values to a time-series database: the **InfluxDB v1 Logger**, for InfluxDB v1 servers, and the **Prometheus Logger**. A logger only writes data out. The InfluxDB v2 and v3 components are [historians](../Historians/index.md), which also let the data be read back, and they are documented in the Historians section.
 
 <figure markdown>
 ![Data out of Profinity: historians, publishers and subscribers, loggers and Prohelion Cloud](../../images/2.3-diagram-data-out.png)

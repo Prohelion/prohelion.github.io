@@ -7,6 +7,11 @@ description: "Log CAN bus messages or tag collection values to local files or a 
 
 File loggers in Profinity write either native CAN bus messages or the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to a file, which can then be stored locally or transmitted remotely to an SFTP server.
 
+<figure markdown>
+![Data out of Profinity: historians, publishers and subscribers, loggers and Prohelion Cloud](../../images/2.3-diagram-data-out.png)
+<figcaption>Data out of Profinity. Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back, publishers and subscribers (MQTT, Webhook) stream it in both directions, loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out, and a Prohelion Cloud dashboard gives hosted monitoring.</figcaption>
+</figure>
+
 ## Logger Variants
 
 File based loggers are available in four variants, each added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers** and each included in every edition:

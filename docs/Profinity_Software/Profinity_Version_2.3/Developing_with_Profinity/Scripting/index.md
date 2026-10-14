@@ -39,7 +39,7 @@ Profinity provides five built-in operations to every script through the `Profini
 
 ## Rule Scripts
 
-As of Profinity 2.3, a script set to **Run On Alert** mode can be named as a rule action and receives the firing context, including `TriggeredTags`. See [Rule Scripts](./Script_Types/Rule_Scripts.md) and [Rule Actions and Scripts](../../Tags/Actions.md).
+As of Profinity 2.3, a script set to **Run On Alert** mode can be named as a rule action and receives the firing context, including `TriggeredTags`. See [Rule Scripts](./Script_Types/Rule_Scripts.md) and [Rule Actions](../../Tags/Actions.md).
 
 ## Next Steps
 

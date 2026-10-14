@@ -77,17 +77,9 @@ The CAN utilities and the script log are not filtered by component security. The
 
 Only **Security administration** can view or change component and collection security. See [Roles and Permissions](Roles_and_Permissions.md) for how permissions and roles are assigned generally.
 
-## REST API
-
-The endpoints below work on the active profile only, and there is no route to edit security for a profile that is not currently loaded. A GET response includes an `unresolvedRoles` list alongside `mode` and `allowedRoles`, and a PUT accepts only `mode` and `allowedRoles`.
-
-| Method | Route | Permission | Purpose |
-|--------|-------|------------|---------|
-| GET, PUT | `/api/v2/ActiveProfile/components/{componentName}/security` | **Security administration** | Reads or writes the security policy for a component on the active profile. `{componentName}` is the component's display name. |
-| GET, PUT | `/api/v2/ActiveProfile/collections/{collectionId}/security` | **Security administration** | Reads or writes the security policy for a collection on the active profile, including the reserved `All` collection. |
-
 ## Related Documentation
 
 - [Roles and Permissions](Roles_and_Permissions.md), which explains how permissions, roles and role assignment work generally
 - [Tag Layer](../../Tags/index.md), the tag tree that component security prunes
 - [Collections](../../Tags/Collections.md), which covers creating and editing tag collections, including the built-in (All Tags) collection
+- [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#component-and-collection-security), the routes for integrators

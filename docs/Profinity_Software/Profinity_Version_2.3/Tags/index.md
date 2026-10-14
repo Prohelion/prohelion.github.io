@@ -5,7 +5,7 @@ description: "Profinity's tag catalogue foundation for Tag Explorer, collections
 
 # Tag Layer
 
-The **tag layer** is Profinity's catalogue of live and configured tag values, and it is the foundation for Tag Explorer, [collections](./Collections.md), [rules](./Actions.md) and [alerts](./Alerts.md) added in Profinity 2.3.
+The **tag layer** is Profinity's catalogue of live and configured tag values, and it is the foundation for Tag Explorer, [collections](./Collections.md), [rules](./Rules.md) and [alerts](./Alerts.md) added in Profinity 2.3.
 
 <figure markdown>
 ![Many source types, such as a Controller Area Network (CAN) DBC signal, a device property, a register or a firmware field, all become one tag with an address, value, quality flag and metadata, readable as an instantaneous value or as time-series history](../images/2.3-diagram-tags.png)
@@ -60,6 +60,6 @@ Profinity instances can share live tags with each other over the network, where 
 - [Tag expressions](Tag_Expressions.md)
 - [Alerts Log](Alerts.md)
 - [Collections](Collections.md)
-- [Rule actions and scripts](Actions.md)
+- [Rules](Rules.md) and [Actions](Actions.md)
 - [Derived tags](Derived_Tags.md)
 - [Log / replay tags](Logging_Replaying_Tags.md)

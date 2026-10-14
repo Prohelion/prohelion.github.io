@@ -15,14 +15,8 @@ description: "Install Profinity on Linux and macOS with the bootstrap installer,
 | [Bootstrap installer](#bootstrap-installer) (`install.sh`) | Installing on a Linux server or embedded device, or any host where Profinity should start on boot | Selects the correct archive for the host, installs into `/opt/profinity`, creates the `profinity` service user and, on Linux with systemd, the `profinity.service` unit |
 | [Archive installation](#archive-installation) | Trying Profinity, running it interactively, or installing without root or systemd | Files extracted into a folder of choice and started by hand with `./profinity.sh` |
 
-## Hardware Requirements and Licensing
-
-Profinity Server does not require any additional Prohelion hardware to run. It can be used as a general-purpose development framework for building web UIs for CAN bus based architectures, or for providing a server interface to CAN infrastructure with cloud connectivity.  
-
-When not using Prohelion hardware, a way to connect to the CAN bus network is still required; see the [CAN Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) page for supported CAN bus adapters.
-
-!!! info "Licence Required for Remote Access and User Accounts"
-    Opening the Profinity web interface from another machine, and creating user accounts and roles, need the **Profinity Server** licensed feature, which the Server and Enterprise editions include. Local access on the same machine needs no licence. A new installation that is not a Desktop host starts a one-time 14-day local trial with the Server features, and then drops to the unlicensed feature set, so remote access and user accounts stop working until a licence file is applied under **ADMIN > License**. Production use of Profinity Server on Windows, Docker, Linux or macOS needs a licence from Prohelion; contact Prohelion through the [Prohelion contact page](https://www.prohelion.com/contact-us/). See [Licensing](../Administration/Licensing.md).
+!!! info "Hardware and Licensing"
+    Profinity does not need Prohelion hardware to run, and opening the web interface from another machine needs a Server licence. See [Hardware Requirements and Remote Access](../Administration/Licensing.md#hardware-requirements-and-remote-access) in Licensing.
 
 ## Bootstrap Installer
 

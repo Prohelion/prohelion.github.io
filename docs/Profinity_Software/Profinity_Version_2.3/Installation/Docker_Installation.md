@@ -120,49 +120,9 @@ On macOS, use `shasum -a 256 -c install-docker.sh.sha256` in place of `sha256sum
 
 If the profile and configuration are back to their defaults after an image update, `PROFINITY_HOME` did not match the container-side mount path, so the data was written to the container and lost when it was replaced; set the variable to the mount path and restore the files from your backup. If Profinity fails to start with a permission error on the mounted directory, the `app` user cannot write to it, so change the ownership or permissions of the host directory. If a Tritium adapter is not found, publish port `4876` for UDP as well as TCP or use host networking, and if the host's SocketCAN interfaces are not visible inside the container, expose them to Docker as described under Directly Accessing Devices.
 
-## Complex Setup for Production Deployments
+## Production Deployments
 
-Environment variables are optional, but for production environments and deployments that run many Profinity instances they are the simplest way to configure the product.
-
-### Using Environment Variables for Configuration
-
-Profinity supports environment variable substitution in configuration and profile files, so one compose file can serve many instances. For detailed information about environment variables, including default values and syntax, see the [Environment Variables](./Environment_Variables.md) documentation.
-
-#### Docker Compose with Environment Variables
-
-Profinity can be configured using environment variables in the `docker-compose.yml` file. Docker Compose supports [environment variable substitution](https://docs.docker.com/compose/environment-variables/) in compose files, allowing variables to be used for port mapping and service configuration.
-
-```yaml
-services:
-  profinity:
-    image: prohelion/profinity:latest
-    restart: always
-    ports:
-      - "${HTTP_PORT:-18080}:${HTTP_PORT:-18080}"
-      - "${HTTPS_PORT:-18443}:${HTTPS_PORT:-18443}"
-      - "4876:4876"
-    environment:
-      # The artefacts directory inside the container, which must match the volume below
-      - PROFINITY_HOME=/app/Prohelion
-
-      # Profinity Configuration
-      - HTTP_ADDRESS=${HTTP_ADDRESS:-0.0.0.0}
-      - HTTP_PORT=${HTTP_PORT:-18080}
-      - LOG_LEVEL=${LOG_LEVEL:-Info}
-      - ENABLE_SCRIPTING=${ENABLE_SCRIPTING:-false}
-      
-      # Profile Configuration
-      - PROFILE_NAME=${PROFILE_NAME:-Docker Profile}
-      - ADAPTER_IP=${ADAPTER_IP:-192.168.1.100}
-      - ADAPTER_PORT=${ADAPTER_PORT:-8080}
-    volumes:
-      - ./profiles:/app/Prohelion/profiles
-      - ./config:/app/Prohelion/config
-```
-
-The published port on the host and the port inside the container use the same variable, so `HTTP_PORT=8080` publishes host port 8080 to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}` (see [Environment Variables](./Environment_Variables.md)). The Profinity image only declares ports 18080 and 18443, but Docker publishes any port the container listens on.
-
-For more information about Docker Compose environment variables, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/).
+For production environments, and deployments that run many Profinity instances, configure Profinity with environment variables so that one compose file can serve every instance. The compose files, `.env` files and environment-specific deployment examples are in [Environment Variables](./Environment_Variables.md#docker).
 
 !!! info "Docker Volumes in 2.3"
     The `volumes` section mounts local directories into the container. Profinity resolves the artefacts directory inside the container from `PROFINITY_HOME` when it is set, and otherwise from the platform default, which is `/var/lib/prohelion/profinity` on Linux. The sub-folders beneath the artefacts directory use lowercase names (`config`, `profiles`, `logs`), and Linux file systems are case-sensitive, so mounts should target those names. Compose files written for 2.2 that mount `/root/Prohelion/Profinity/...` need their mounts moved to the new `PROFINITY_HOME` path, because the automatic migration from legacy operating system locations is skipped whenever `PROFINITY_HOME` is set. See [Artefacts Directory](./Artifacts_Directory.md).
@@ -174,94 +134,6 @@ For more information about Docker Compose environment variables, see the [offici
     ls -la /app/Prohelion/
     ```
     This shows the actual directory structure used by Profinity inside the container.
-
-#### Environment File (.env)
-
-Docker Compose automatically loads environment variables from a `.env` file in the same directory as the `docker-compose.yml` file. Prohelion recommends this file for environment-specific configuration.
-
-Create a `.env` file in the same directory as the `docker-compose.yml` file:
-
-```env
-# Profinity Configuration
-HTTP_ADDRESS=0.0.0.0
-LOG_LEVEL=Info
-ENABLE_SCRIPTING=false
-
-# Profile Configuration
-PROFILE_NAME=Docker Profile
-ADAPTER_IP=192.168.1.100
-ADAPTER_PORT=8080
-
-# Network Configuration
-HTTP_PORT=18080
-HTTPS_PORT=18443
-```
-
-For more information about `.env` files in Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
-
-!!! tip "Using Environment Variables in Config and Profile Files"
-    When using environment variables with Docker, they can be referenced directly in the Profinity `config.yaml` file and the profile files. These files should be placed in the mounted volume directories that map to `/app/Prohelion/config` and `/app/Prohelion/profiles` inside the container. When Profinity starts in Docker, it substitutes the environment variables in these files with the values from the `.env` file or the Docker Compose `environment` section.
-    
-    For complete examples and detailed information about using environment variables in the `config.yaml` file and the profile files, including syntax, default values, and variable naming rules, see the [Environment Variables](./Environment_Variables.md) documentation.
-
-#### Using Environment Files with Docker Compose
-
-When multiple `.env` files are used for different environments:
-
-```bash
-# Start with specific environment file
-docker compose --env-file .env.production up
-
-# Start with development environment
-docker compose --env-file .env.development up
-
-# Use specific compose file with environment file
-docker compose -f docker-compose.prod.yml --env-file .env.production up
-```
-
-For more information about Docker Compose environment files, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
-
-#### Deployment Strategies
-
-Different Docker Compose files can be created for different environments, which allows the same base configuration to be used while customising settings for development, staging, and production.
-
-**Development Environment**
-```yaml
-# docker-compose.dev.yml
-services:
-  profinity:
-    image: prohelion/profinity:latest
-    environment:
-      - PROFINITY_HOME=/app/Prohelion
-      - LOG_LEVEL=Debug
-      - ENABLE_SCRIPTING=true
-      - PROFILE_NAME=Development Profile
-      - ADAPTER_IP=127.0.0.1
-    volumes:
-      - ./dev-profiles:/app/Prohelion/profiles
-      - ./dev-config:/app/Prohelion/config
-```
-
-**Production Environment**
-```yaml
-# docker-compose.prod.yml
-services:
-  profinity:
-    image: prohelion/profinity:latest
-    restart: always
-    environment:
-      - PROFINITY_HOME=/app/Prohelion
-      - LOG_LEVEL=Info
-      - ENABLE_SCRIPTING=false
-      - PROFILE_NAME=Production Profile
-      - ADAPTER_IP=${PRODUCTION_ADAPTER_IP}
-    volumes:
-      - ./prod-profiles:/app/Prohelion/profiles
-      - ./prod-config:/app/Prohelion/config
-      - ./logs:/app/Prohelion/logs
-```
-
-For more information about Docker Compose file overrides, see the [official Docker documentation](https://docs.docker.com/compose/extends/).
 
 !!! info "Directly Accessing Devices"
     Docker does not expose all devices to containers. Expose additional devices to Docker so that SocketCAN can be accessed natively, and use `network_mode: host` on Linux so that components that use UDP broadcasting can be discovered.  See the [official Docker documentation](https://docs.docker.com/compose/) for how to expose these devices to the Docker container.

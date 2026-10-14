@@ -5,7 +5,7 @@ description: "Virtual tags computed automatically from expressions or scripts th
 
 # Derived Tags
 
-A **derived tag**, also called a virtual tag, is a value that Profinity computes automatically and that then behaves exactly like a real tag to every consumer. [Dashboards](../Customising_Profinity/Dashboards/index.md), the [historian](../Components/Historians/index.md), [rules](./Actions.md) and the API all see the same quality and timestamp envelope and can subscribe to it the same way, so the computation is configured once and Profinity keeps it current. Profinity 2.3 computes a derived tag's value either from an expression, which recomputes whenever a source tag changes and needs no scripting, or from a script, which suits a computation that needs more than a single expression, and the table under [Expression vs Script](#expression-vs-script) shows which one fits a given case.
+A **derived tag**, also called a virtual tag, is a value that Profinity computes automatically and that then behaves exactly like a real tag to every consumer. [Dashboards](../Customising_Profinity/Dashboards/index.md), the [historian](../Components/Historians/index.md), [rules](./Rules.md) and the API all see the same quality and timestamp envelope and can subscribe to it the same way, so the computation is configured once and Profinity keeps it current. Profinity 2.3 computes a derived tag's value either from an expression, which recomputes whenever a source tag changes and needs no scripting, or from a script, which suits a computation that needs more than a single expression, and the table under [Expression vs Script](#expression-vs-script) shows which one fits a given case.
 
 ## Open the Derived Tags Editor
 
@@ -24,20 +24,10 @@ An expression-based derived tag names one or more **dependencies**, which are sh
 
 A derived tag that converts a vehicle's speed from mph to km/h, grouped under that vehicle:
 
-```yaml
-version: "2.3"
-derivedTags:
-  - group:
-      id: vehicle-conversions
-      displayName: Vehicle unit conversions
-      mountPath: Vehicles/Car1
-      items:
-        - derivedTag:
-            id: car1-speed-kmh
-            mountPath: SpeedKmh                      # relative -> Vehicles/Car1/SpeedKmh
-            dependsOn: { a: Vehicles/Car1/SpeedMph }
-            expression: "a.Value * 1.60934"
-```
+1. Create a group called **Vehicle unit conversions** with the mount path `Vehicles/Car1`.
+2. Inside it, create a derived tag with the mount path `SpeedKmh`. Because the path is relative, it mounts beneath the group's mount path.
+3. Add a dependency with the alias `a` that points at the tag `Vehicles/Car1/SpeedMph`.
+4. Set the expression to `a.Value * 1.60934`.
 
 Each alias exposes only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality` and `IsStale`), and path methods such as `MatchesPath` belong in collections and rules, as described in [Tag expressions](./Tag_Expressions.md). An expression can be up to 4096 characters long.
 
@@ -54,76 +44,7 @@ If another derived tag lists the tag being deleted under its dependencies, the e
 
 ## Script-Driven Derived Tags
 
-A computation that does not fit one expression, such as multiple steps, state carried between runs, or publishing several tags from one computation, is written as a script instead. Add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one, set its mode to **Run On Tag Change** with the source tags selected in its **Collections** setting (see [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md)), and publish the computed result from the script with `Profinity.Tags.SetValue(...)`.
-
-Tag paths passed to `Profinity.Tags` are relative to the script's own host component, so a script is naturally suited to computing a derived value from, and publishing back to, tags on the same component. A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on other components (see [Tags in scripts](../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths)).
-
-=== "C#"
-
-    ```csharp
-    using Profinity.Sdk.Abstractions.Scripting;
-    using Profinity.Sdk.Models.Tags;
-
-    public class CSharpDerivedTagExample : ProfinityScript, IProfinityTagChangeScript
-    {
-        private const string SourceTagPath = "SpeedMph";
-        private const string PublishedTagPath = "SpeedKmh";
-
-        public void OnTagChange(string tagId, DataTagSample sample)
-        {
-            if (!tagId.EndsWith(SourceTagPath, StringComparison.OrdinalIgnoreCase))
-            {
-                return;
-            }
-
-            double speedMph = Convert.ToDouble(sample.Value);
-            double speedKmh = speedMph * 1.60934;
-
-            Profinity.Tags.SetValue(PublishedTagPath, speedKmh);
-        }
-    }
-    ```
-
-=== "Python"
-
-    ```python
-    SOURCE_TAG_PATH = "SpeedMph"
-    PUBLISHED_TAG_PATH = "SpeedKmh"
-
-    def on_tag_change(tagId, sample):
-        if not str(tagId).lower().endswith(SOURCE_TAG_PATH.lower()):
-            return
-
-        speed_mph = float(sample.Value)
-        speed_kmh = speed_mph * 1.60934
-
-        Profinity.Tags.SetValue(PUBLISHED_TAG_PATH, speed_kmh)
-    ```
-
-=== "Lua"
-
-    ```lua
-    local SOURCE_TAG_PATH = 'SpeedMph'
-    local PUBLISHED_TAG_PATH = 'SpeedKmh'
-
-    function on_tag_change(tagId, sample)
-        if not tostring(tagId):lower():find(SOURCE_TAG_PATH:lower() .. '$') then
-            return
-        end
-
-        local speedMph = tonumber(sample.Value)
-        local speedKmh = speedMph * 1.60934
-
-        Profinity.Tags:SetValue(PUBLISHED_TAG_PATH, speedKmh)
-    end
-    ```
-
-The full files `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` are built into Profinity as the templates it offers when you create a script of that type.
-
-!!! warning "A Read Never Re-Runs the Script"
-    Reading the published tag returns the last value the script published. If nothing has triggered the script yet, the tag has no value rather than a freshly computed one.
-
-Other trigger modes are available too, namely **Run On Time Interval**, **Run On CRON Schedule** and **Run as Service**, for a computation that is not purely reactive to a tag change. See [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md).
+When one expression is not enough, for example because the computation has several steps, carries state between runs or publishes several tags, write it as a script instead. See [Script-Driven Derived Tags](./Script_Driven_Derived_Tags.md).
 
 ## Expression vs Script
 
@@ -135,16 +56,16 @@ Other trigger modes are available too, namely **Run On Time Interval**, **Run On
 
 ## Rule State Publishing
 
-A rule can publish its own current state to a tag. Set **Publish state tag path** in the **Rule State** group of a rule in the Rules editor, and Profinity mirrors the rule's state to that tag path whenever it changes: a boolean rule publishes `true` or `false`, and a threshold rule publishes the zero-based index of its active step, or `-1` when no step is active. The tag is read-only, so only the rule can write to it. When the rules load, the tag takes the state the rule last had, which Profinity restores from the alert log, or `false` (`-1` for a threshold rule) when the rule has no history, and it then changes whenever the rule changes state. A rule has a single state tag even when its scope matches many tags, so every matching tag writes to the same state tag and the value shown is that of whichever matching tag changed state most recently, not a summary of all of them. Where the state of each tag matters, define one rule per tag, each with its own **Publish state tag path**, and do not give two rules the same path, because Profinity does not load the rules when two of them share a path, and the error names both rules. See [Rule actions and scripts](./Actions.md).
+A rule can publish its own current state to a tag. Set **Publish state tag path** in the **Rule State** group of a rule in the Rules editor, and Profinity mirrors the rule's state to that tag path whenever it changes: a boolean rule publishes `true` or `false`, and a threshold rule publishes the zero-based index of its active step, or `-1` when no step is active. The tag is read-only, so only the rule can write to it. When the rules load, the tag takes the state the rule last had, which Profinity restores from the alert log, or `false` (`-1` for a threshold rule) when the rule has no history, and it then changes whenever the rule changes state. A rule has a single state tag even when its scope matches many tags, so every matching tag writes to the same state tag and the value shown is that of whichever matching tag changed state most recently, not a summary of all of them. Where the state of each tag matters, define one rule per tag, each with its own **Publish state tag path**, and do not give two rules the same path, because Profinity does not load the rules when two of them share a path, and the error names both rules. See [Rules](./Rules.md) and [Actions](./Actions.md).
 
-## Permissions and API
+## Permissions
 
-The derived tags editor and API use the same permission pair as collections: reading needs **View tag collections** and saving needs **Modify tag collections**. See [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md). Integrators can read and save the derived tags document at `/api/v2/Tags/DerivedTags`.
+The derived tags editor uses the same permission pair as collections: reading needs **View tag collections** and saving needs **Modify tag collections**. See [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md). Integrators can also use the [API](../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags).
 
 ## Related Documentation
 
 - [Tag expressions](./Tag_Expressions.md)
 - [Tag layer](index.md)
 - [Collections](./Collections.md)
-- [Rule actions and scripts](./Actions.md)
+- [Rules](./Rules.md) and [Actions](./Actions.md)
 - [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md)

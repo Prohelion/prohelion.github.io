@@ -53,14 +53,9 @@ A user needs the **Profinity AI** permission to see and use the **Profinity AI**
 
 Changing the Profinity AI configuration itself requires the **System administration** permission. External MCP clients also need the **AI** licensed feature, because the MCP server is part of it.
 
-### REST API
-
-| Method | Route | Purpose |
-|--------|-------|---------|
-| POST | `/api/v2/Ai/Chat` | Streams a chat response for the calling user, using the instance's Profinity AI configuration. |
-
 ## Related Documentation
 
 - [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md) : the live-data connection Profinity AI uses, and how to connect an external MCP client.
 - [AI Chat](../../Profinity_AI/AI_Chat.md) : the operator-facing guide to using the chat window.
 - [Roles and Permissions](../Users_and_Access/Roles_and_Permissions.md): assigning the **Profinity AI** permission to roles.
+- [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#profinity-ai): the chat route, for integrators.

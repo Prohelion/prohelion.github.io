@@ -28,7 +28,7 @@ A variable name uses only letters, numbers and underscores, must not start with 
 
 ## Supported File Types
 
-Substitution works in the main configuration file (`config.yaml`) and in the profile files (`profile.yaml`). Both files use camelCase keys and `version: "2.3"`.
+Substitution works in the main configuration file (`config.yaml`) and in the profile files (`profile.yaml`).
 
 ### Configuration File
 
@@ -135,23 +135,129 @@ docker run -e PROFILE_NAME="Production Profile" \
            prohelion/profinity:latest
 ```
 
+`PROFINITY_HOME` must match the container-side mount path, as described in [Docker Installation](./Docker_Installation.md#production-deployments). The variables in the `environment` section only affect the files that reference them with the `${VARIABLE_NAME}` syntax, such as `config.yaml` and the profile files stored in the mounted volume, and the host and container port numbers in the `ports` mapping must match the port that `config.yaml` listens on.
+
+#### Docker Compose with Environment Variables
+
+Profinity can be configured using environment variables in the `docker-compose.yml` file. Docker Compose supports [environment variable substitution](https://docs.docker.com/compose/environment-variables/) in compose files, allowing variables to be used for port mapping and service configuration.
+
 ```yaml
+services:
+  profinity:
+    image: prohelion/profinity:latest
+    restart: always
+    ports:
+      - "${HTTP_PORT:-18080}:${HTTP_PORT:-18080}"
+      - "${HTTPS_PORT:-18443}:${HTTPS_PORT:-18443}"
+      - "4876:4876"
+    environment:
+      # The artefacts directory inside the container, which must match the volume below
+      - PROFINITY_HOME=/app/Prohelion
+
+      # Profinity Configuration
+      - HTTP_ADDRESS=${HTTP_ADDRESS:-0.0.0.0}
+      - HTTP_PORT=${HTTP_PORT:-18080}
+      - LOG_LEVEL=${LOG_LEVEL:-Info}
+      - ENABLE_SCRIPTING=${ENABLE_SCRIPTING:-false}
+      
+      # Profile Configuration
+      - PROFILE_NAME=${PROFILE_NAME:-Docker Profile}
+      - ADAPTER_IP=${ADAPTER_IP:-192.168.1.100}
+      - ADAPTER_PORT=${ADAPTER_PORT:-8080}
+    volumes:
+      - ./profiles:/app/Prohelion/profiles
+      - ./config:/app/Prohelion/config
+```
+
+The published port on the host and the port inside the container use the same variable, so `HTTP_PORT=8080` publishes host port 8080 to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}`. The Profinity image only declares ports 18080 and 18443, but Docker publishes any port the container listens on.
+
+For more information about Docker Compose environment variables, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/).
+
+#### Environment File (.env)
+
+Docker Compose automatically loads environment variables from a `.env` file in the same directory as the `docker-compose.yml` file. Prohelion recommends this file for environment-specific configuration.
+
+Create a `.env` file in the same directory as the `docker-compose.yml` file:
+
+```env
+# Profinity Configuration
+HTTP_ADDRESS=0.0.0.0
+LOG_LEVEL=Info
+ENABLE_SCRIPTING=false
+
+# Profile Configuration
+PROFILE_NAME=Docker Profile
+ADAPTER_IP=192.168.1.100
+ADAPTER_PORT=8080
+
+# Network Configuration
+HTTP_PORT=18080
+HTTPS_PORT=18443
+```
+
+For more information about `.env` files in Docker Compose, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
+
+!!! tip "Using Environment Variables in Config and Profile Files"
+    When using environment variables with Docker, they can be referenced directly in the Profinity `config.yaml` file and the profile files. These files should be placed in the mounted volume directories that map to `/app/Prohelion/config` and `/app/Prohelion/profiles` inside the container. When Profinity starts in Docker, it substitutes the environment variables in these files with the values from the `.env` file or the Docker Compose `environment` section.
+
+#### Using Environment Files with Docker Compose
+
+When multiple `.env` files are used for different environments:
+
+```bash
+# Start with specific environment file
+docker compose --env-file .env.production up
+
+# Start with development environment
+docker compose --env-file .env.development up
+
+# Use specific compose file with environment file
+docker compose -f docker-compose.prod.yml --env-file .env.production up
+```
+
+For more information about Docker Compose environment files, see the [official Docker documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
+
+#### Deployment Strategies
+
+Different Docker Compose files can be created for different environments, which allows the same base configuration to be used while customising settings for development, staging, and production.
+
+**Development Environment**
+```yaml
+# docker-compose.dev.yml
 services:
   profinity:
     image: prohelion/profinity:latest
     environment:
       - PROFINITY_HOME=/app/Prohelion
-      - PROFILE_NAME=Production Profile
-      - HTTP_PORT=8080
-    env_file:
-      - .env
-    ports:
-      - "8080:8080"
+      - LOG_LEVEL=Debug
+      - ENABLE_SCRIPTING=true
+      - PROFILE_NAME=Development Profile
+      - ADAPTER_IP=127.0.0.1
     volumes:
-      - $HOME/Prohelion:/app/Prohelion:rw
+      - ./dev-profiles:/app/Prohelion/profiles
+      - ./dev-config:/app/Prohelion/config
 ```
 
-`PROFINITY_HOME` must match the container-side mount path, as described in [Docker Installation](./Docker_Installation.md). The variables in the `environment` section only affect the files that reference them with the `${VARIABLE_NAME}` syntax, such as `config.yaml` and the profile files stored in the mounted volume, and the host and container port numbers in the `ports` mapping must match the port that `config.yaml` listens on.
+**Production Environment**
+```yaml
+# docker-compose.prod.yml
+services:
+  profinity:
+    image: prohelion/profinity:latest
+    restart: always
+    environment:
+      - PROFINITY_HOME=/app/Prohelion
+      - LOG_LEVEL=Info
+      - ENABLE_SCRIPTING=false
+      - PROFILE_NAME=Production Profile
+      - ADAPTER_IP=${PRODUCTION_ADAPTER_IP}
+    volumes:
+      - ./prod-profiles:/app/Prohelion/profiles
+      - ./prod-config:/app/Prohelion/config
+      - ./logs:/app/Prohelion/logs
+```
+
+For more information about Docker Compose file overrides, see the [official Docker documentation](https://docs.docker.com/compose/extends/).
 
 ## Variable Behaviour
 

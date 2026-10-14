@@ -5,7 +5,12 @@ description: "Tag Relay Sender and Tag Relay Receiver components, which share li
 
 # Tag Relays
 
-The **Tag Relays** category contains the two components that share [tags](../../Tags/index.md) between Profinity instances: the [Tag Relay Sender](Tag_Relay_Sender.md) on the instance that owns the data, and the [Tag Relay Receiver](Tag_Relay_Receiver.md) on the instance that wants to see it. Together they let a head-office instance show the tags of many sites, vehicles or installations.
+Tag Relays let one Profinity instance show live tags from other instances. Each site, vehicle or installation runs a **[Tag Relay Sender](Tag_Relay_Sender.md)**, which publishes the tags you choose, and a central instance runs a **[Tag Relay Receiver](Tag_Relay_Receiver.md)**, which shows them alongside its own. A head office can then watch many sites from one place, with dashboards, alerts and rules working on the relayed tags as they do on local ones.
+
+<figure markdown>
+![Site instances run a Tag Relay Sender publishing live tags over HTTPS with a JSON Web Token (JWT) or over MQTT; a central instance runs a Tag Relay Receiver, showing each site's tags under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/2.3-diagram-tag-relay.png)
+<figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
+</figure>
 
 ## How the Components Fit Together
 

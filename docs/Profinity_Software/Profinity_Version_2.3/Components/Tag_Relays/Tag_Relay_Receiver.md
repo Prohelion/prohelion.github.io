@@ -7,6 +7,11 @@ description: "Receive tags from remote Profinity instances and mount them as rea
 
 The **Tag Relay Receiver** ingests the snapshots published by one or more [Tag Relay Senders](Tag_Relay_Sender.md) and mounts the incoming [tags](../../Tags/index.md) in the local tag tree as read-only tags beneath a prefix that identifies where they came from. It sits in the **Tag Relays** category and requires the **Data Relay** licensed feature. Once relayed tags are mounted they behave like any other tag, so they can be browsed in Tag Explorer, placed in [collections](../../Tags/Collections.md), shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged, and used in rules and scripts. The concept, collision rules and limitations are covered in [Tag Relay](../../Tags/Tag_Relay.md).
 
+<figure markdown>
+![Site instances run a Tag Relay Sender publishing live tags over HTTPS with a JSON Web Token (JWT) or over MQTT; a central instance runs a Tag Relay Receiver, showing each site's tags under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/2.3-diagram-tag-relay.png)
+<figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
+</figure>
+
 ## Adding a Tag Relay Receiver
 
 Add a **Tag Relay Receiver** component to your profile from the **Tag Relays** category and configure its settings.
@@ -32,7 +37,7 @@ Add a **Tag Relay Receiver** component to your profile from the **Tag Relays** c
 
 ### Receiving over HTTPS
 
-When the protocol is HTTPS the sender posts directly to this instance's relay API at `/api/v2/Relay/snapshot`, using a JSON Web Token (JWT) for a user with the **Receive external tags** permission (or Admin). Create a service account on this instance with that permission and give its token to the sender. The Tag Relay Receiver component supplies the receiver prefix and only displays the receiving state. An instance accepts a relay post for only one Tag Relay Receiver set to HTTPS, so add a single HTTPS receiver per instance. The API accepts a request body of up to 5 MB. See [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how to grant the permission.
+When the protocol is HTTPS the sender posts directly to this instance, using a JSON Web Token (JWT) for a user with the **Receive external tags** permission (or Admin). Create a service account on this instance with that permission and give its token to the sender. The Tag Relay Receiver component supplies the receiver prefix and only displays the receiving state. An instance accepts a relay post for only one Tag Relay Receiver set to HTTPS, so add a single HTTPS receiver per instance. Integrators can find the route in the [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#tag-relay). See [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how to grant the permission.
 
 !!! warning "Relayed Tags Are Read-Only"
     A tag created by the receiver cannot be written to from a dashboard, a script or any other source, and the only thing that updates it is the next snapshot from the sender. A path already occupied by a tag that relay does not own, such as a local device tag, causes the whole batch to be rejected, which is explained in [Collision rules](../../Tags/Tag_Relay.md#collision-rules).

@@ -5,7 +5,7 @@ description: "Group tags for filtering, dashboards, and rules using the visual e
 
 # Tag Collections
 
-**Collections** group tags for filtering, [dashboards](../Customising_Profinity/Dashboards/index.md), and [rules](./Actions.md). Profinity 2.3 writes collections YAML with `version: "2.3"`, and each collection has an `id` that rules use to refer to it and that cannot be changed once it is created.
+**Collections** group tags for filtering, [dashboards](../Customising_Profinity/Dashboards/index.md), and [rules](./Rules.md). You build and manage them in the visual editor.
 
 <figure markdown>
 ![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../images/2.3-diagram-collections.png)
@@ -21,47 +21,35 @@ Select **COLLECTIONS** under **TAG UTILITIES** in the side menu, which opens the
 <figcaption>Collections visual editor</figcaption>
 </figure>
 
-## Groups, Scope and the Editor Layout
+## Groups and Collections
 
-The editor shows the collections as a tree on one side and an inspector for the selected node on the other, and a `collections.yaml` document can also be edited as YAML with a schema. The `collections` list holds two kinds of node.
+The editor shows your collections as a tree on one side and the settings of the selected item on the other. The tree holds two kinds of item.
 
-| Node | Fields | Purpose |
-|------|--------|---------|
-| Group | `group.id`, `displayName`, `scope`, `items` | Organises collections into a hierarchy, and passes its `scope` down to every collection beneath it |
-| Collection | `collection.id`, `displayName`, `scope`, `expression`, `security` | Selects tags with a membership expression |
+| Item | Purpose |
+|------|---------|
+| Group | Organises collections into a hierarchy, and passes its scope down to every collection inside it |
+| Collection | Selects tags with a [membership expression](#membership-expression) |
 
-### Identity and Scope
+### Names and Scope
 
-The `id` of a collection is the value that rules use in their `scope.collection` references, so it stays fixed while the display name can change. A `scope` is either a path prefix string or an object with a `prefix`, and the inspector shows it as **Scope prefix** under **Binding** for a collection. A relative scope on a collection joins beneath the scope of its group, whereas an absolute scope, which starts with `/`, replaces the inherited one.
+Give each collection a display name, which you can change at any time. Rules refer to a collection by its identifier, which stays the same when you rename it, so rules keep working after a rename.
+
+The **Scope prefix**, shown under **Binding**, limits a collection to the tags beneath a path in the tag tree. A scope on a collection is added to the scope of its group, so a group scoped to `Vehicles/Car1` and a collection scoped to `Battery` together cover `Vehicles/Car1/Battery`. To ignore the group's scope, start the collection's scope with `/`.
 
 ### Saving and Security
 
-The inspector requires a display name and a non-empty expression before a collection can be saved. A user who holds the **Security administration** permission can also set the `security` policy of a collection, with a `mode` of `All` or `Restricted` and a list of `allowedRoles`. The built-in **(All Tags)** collection, with the id `All`, is read-only and does not appear in `collections.yaml`.
+A collection needs a display name and an expression before it can be saved. A user who holds the **Security administration** permission can also limit who sees a collection, by choosing **Restricted** and listing the roles that are allowed to use it. The built-in **(All Tags)** collection is read-only.
 
 ## A Worked Collections Example
 
-The following file defines one group that scopes everything beneath it to `Vehicles/Car1`, with a single collection of cell voltage signals inside it that only the `Engineers` role can see.
+To give the engineers on Car 1 a collection of its cell voltages that nobody else can see:
 
-```yaml
-version: "2.3"
-collections:
-  - group:
-      id: car1
-      displayName: Car 1
-      scope: Vehicles/Car1
-      items:
-        - collection:
-            id: CellVoltages
-            displayName: Cell voltages
-            scope: Battery
-            expression: tag.Meta.Type == "dbc.signal" && tag.MatchesName("*Voltage") && tag.HasValue
-            security:
-              mode: Restricted
-              allowedRoles:
-                - Engineers
-```
+1. Create a group called **Car 1** with the scope `Vehicles/Car1`.
+2. Inside it, create a collection called **Cell voltages** with the scope `Battery`.
+3. Set its expression to `tag.Meta.Type == "dbc.signal" && tag.MatchesName("*Voltage") && tag.HasValue`.
+4. Set its security to **Restricted**, and allow the **Engineers** role.
 
-The scope of `CellVoltages` joins under its group to give `Vehicles/Car1/Battery`. A rule refers to the collection by id with `scope.collection: CellVoltages`, as in the `cell_over_voltage` rule in [A Complete rules.yaml Example](./Actions.md#a-complete-rulesyaml-example).
+The collection now selects every cell voltage signal under `Vehicles/Car1/Battery`. A rule can use it, as in the `cell_over_voltage` rule in [A Complete rules.yaml Example](./Rules.md#a-complete-rulesyaml-example).
 
 ## Create Collections from Tag Explorer
 
@@ -81,10 +69,6 @@ tag.Value > 0
 
 The full expression vocabulary, covering path matching, values, metadata and wildcards, is described in [Tag expressions](./Tag_Expressions.md).
 
-## API
-
-Collections are managed through the [REST API](../Integrating_to_Profinity/APIs/index.md) at `/api/v2/Tags/Collections`, which accepts GET to read the document and PUT to save it, with JSON request and response bodies. Reading needs the **View tag collections** permission and saving needs **Modify tag collections**.
-
 ## Related Documentation
 
 - [Tag expressions](./Tag_Expressions.md)
@@ -92,3 +76,4 @@ Collections are managed through the [REST API](../Integrating_to_Profinity/APIs/
 - [Tag linking](./Tag_Linking.md)
 - [Alerts Log](./Alerts.md)
 - [Derived tags](./Derived_Tags.md)
+- [Endpoint reference](../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags), for integrators
