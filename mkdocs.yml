@@ -89,6 +89,7 @@ plugins:
         'Battery_Management_System/index.md': 'Battery_Management_Systems/index.md'
         'Battery_Management_System/1000V_BMS_Gen1/index.md': 'Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/index.md'
         'Battery_Management_System/48V_BMU_User_Manual/index.md': 'Battery_Management_Systems/Prohelion_BMS_M48_Gen1/index.md'
+        'Profinity_Software/Profinity_Version_2.3/How_To_Guides/Configure_Environment_Variables.md': 'Profinity_Software/Profinity_Version_2.3/Installation/Environment_Variables.md'
         'Profinity_Software/Profinity_Version_2/Administration/Feedback.md': 'Profinity_Software/Profinity_Version_2.2/Administration/Feedback.md'
         'Profinity_Software/Profinity_Version_2/Administration/Kiosk_Mode.md': 'Profinity_Software/Profinity_Version_2.2/Administration/Kiosk_Mode.md'
         'Profinity_Software/Profinity_Version_2/Administration/Logs_Config.md': 'Profinity_Software/Profinity_Version_2.2/Administration/Logs_Config.md'

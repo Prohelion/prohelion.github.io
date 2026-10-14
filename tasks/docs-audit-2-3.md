@@ -102,6 +102,23 @@ These were reported by the audit agents and **have not been verified against the
 | F9 | Capability claims in Profinity_AI/index need checking against the shipped product. | Profinity_AI |
 | F10 | Docker Compose examples include `ADAPTER_IP` and `ADAPTER_PORT`, which Profinity does not read. | Installation/Environment_Variables |
 
+### 3a. Resolutions so far
+
+Updated after the product facts were answered or checked against the code. "Code" means read from the product repo by a read-only check.
+
+| # | Resolution | Basis | Page changes needed |
+|---|---|---|---|
+| F1 | User accounts and roles exist on a Desktop host only with a Server licence. | Your answer | Correct Manage_Users and Roles_and_Permissions, which say Desktop has no accounts. Keep the Licensing wording. |
+| F2 | Four profile folders (`images`, `models`, `styles`, `content`), and the file is lowercase `profile.css`. The engine creates all four for new profiles. | Code (agent report) | Fix Administration/Profiles (three folders, `Profile.css`). In Profile_Directories, reword "models and content must be created by hand", which is true only of the shipped example profile. |
+| F3 | macOS data folder is `~/Library/Application Support/Prohelion/Profinity`. Linux is `/var/lib/prohelion/profinity`. | Code, and .NET run on a Mac | Fix the macOS path in the 2.3.1 breaking-change text (it says `~/.local/share/...`). Artifacts_Directory and the upgrade steps are right. |
+| F4 | Open. The repo's `docker-compose-profinityv2.yml` includes Watchtower. The installer's compose file and the page's example do not. | Code | Needs a decision on the supported Docker route, then fix or remove the Watchtower sentence at line 103 of Docker_Installation. |
+| F5 | A desktop licence does not allow browser sign-in. It needs a Server licence. | Your answer | Reword Windows_Installation. |
+| F6 | First read failure of an outage is Warning, repeats are Debug, first success is Info. Same for all five protocols. | Code (agent report, not re-read by me) | Correct BACnet.md. Connections_and_Reconnecting is right. |
+| F7 | No conflict. EtherNet/IP defaults to `Dword`, Modbus and S7 to `Word`, and all three pages say so correctly. | Code | None. |
+| F8 | Not yet checked. | | |
+| F9 | Not yet checked. | | |
+| F10 | `ADAPTER_IP` and `ADAPTER_PORT` are not built in. A profile can reference any environment variable as `${NAME}` or `${NAME:-default}`, and `ADAPTER_IP` appears only as a test example. `ADAPTER_PORT` is not in the code. | Code | Include them in a Compose example only if the profile shown references them, and say so. |
+
 Also to check: `docs/internal/` holds working files (open questions, TODOs, a writer brief). Confirm they are excluded from the published site.
 
 ## 4. Proposed target structure

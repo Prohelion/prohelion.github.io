@@ -31,3 +31,29 @@
 .md-banner .md-banner__inner a {
     text-decoration: underline;
 }
+
+/* Mermaid diagrams are monochrome: white nodes with black text and outline, and black arrows */
+:root > * {
+    --md-mermaid-node-bg-color: var(--md-primary-bg-color);
+    --md-mermaid-node-fg-color: var(--md-primary-fg-color);
+    --md-mermaid-edge-color: var(--md-primary-fg-color);
+    --md-mermaid-label-bg-color: var(--md-primary-bg-color);
+    --md-mermaid-label-fg-color: var(--md-primary-fg-color);
+}
+
+.md-typeset .mermaid .flowchart-link {
+    stroke-width: 2px;
+}
+
+.md-typeset .mermaid marker path {
+    fill: var(--md-primary-fg-color);
+    stroke: var(--md-primary-fg-color);
+    transform: scale(1.5);
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* Material shrink-wraps a figure to its content, which collapses a Mermaid diagram to a fraction of the column and shrinks its text. Let a figure that holds a diagram use the full column. */
+.md-typeset figure:has(.mermaid) {
+    width: 100%;
+}

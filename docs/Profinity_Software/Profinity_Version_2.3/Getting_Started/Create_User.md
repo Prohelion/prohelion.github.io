@@ -1,23 +1,36 @@
 ---
-title: Creating a User
-description: "Create new Profinity users and assign security roles to control access and functionality for different users."
+title: Create a user
+description: "Create a Profinity user, set an initial password and assign roles so the person can sign in with the access they need."
+type: task
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Creating a User
+# Create a user
 
-!!! info "Licence Required"
-    Creating users needs the **Profinity Server** licensed feature, included in the **Server** and **Enterprise** editions, and the **Security administration** permission. Without the feature there are no user accounts or roles: a Desktop installation runs as a single built-in admin user, and **Users & Groups** shows that user and group administration requires a Server licence. See [Licensing](../Administration/Licensing.md) for what each edition includes.
+Create a user account for each person who signs in to Profinity, and give it the roles that match their job.
+You need the **Security administration** permission and the **Profinity Server** licensed feature, which the **Server** and **Enterprise** editions include.
+Without the feature there are no user accounts or roles: a Desktop installation runs as a single built-in admin user, and **Users & Groups** shows that user and group administration requires a Server licence.
+[Licensing](../Administration/Licensing.md) lists what each edition includes.
 
-Create a new user after installing Profinity, with further users for each type of operator. To create a new user, select **ADMIN** in the side menu, then **Users & Groups** and then **+ Add user**, enter a username and an initial password for local sign-in, choose one or more roles under **Assigned roles**, and save, which creates the account and its login details.
+1. In the side menu, select **ADMIN**, then **Users & Groups**.
+2. Select **+ Add user**.
+3. Enter a username and an initial password for local sign-in.
+4. Under **Assigned roles**, choose one or more roles, then save.
 
 <figure markdown>
-![Add user](../images/add_user.png)
-<figcaption>New user menu</figcaption>
+![The Add user panel with the username, password and Assigned roles fields](../images/add_user.png)
+<figcaption>The Add user panel</figcaption>
 </figure>
 
-## Choosing Roles
+Profinity creates the account and its login details, and the new user can sign in with the username and initial password.
+If you are not sure which roles to assign, read the next section first.
 
-A role is a named set of permissions, and a person can hold more than one. A user can only do what their roles allow, so give each person the smallest set that lets them do their job. A good starting point is three roles:
+## Choose roles
+
+A role is a named set of permissions, and a person can hold more than one.
+A user can only do what their roles allow, so give each person the smallest set that lets them do their job.
+A good starting point is three roles:
 
 | Role | For people who | Typical access |
 |------|----------------|----------------|
@@ -25,8 +38,6 @@ A role is a named set of permissions, and a person can hold more than one. A use
 | **Operator** | Run a vehicle, bench or pack each day | Everything a Viewer can do, plus running component actions and controlling charging |
 | **Engineer** | Set up and tune a system | Everything an Operator can do, plus changing profiles, components, dashboards and firmware |
 
-The default **Administrators** role includes every permission, so assigning it gives that person the access of every other role. Keep it for the few people who manage the installation. [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) explains how to create these roles and lists every permission.
-
-## More Information
-
-[Managing Users](../Administration/Users_and_Access/Manage_Users.md) covers creating and managing users, including password resets and service accounts, and [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists the full permission catalogue.
+The default **Administrators** role includes every permission, so assigning it gives that person the access of every other role.
+Keep it for the few people who manage the installation.
+[Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) explains how to create these roles and lists every permission, and [Manage users](../Administration/Users_and_Access/Manage_Users.md) covers password resets and service accounts.

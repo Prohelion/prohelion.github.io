@@ -32,7 +32,7 @@ These guides cover common Profinity 2.3 jobs, such as connecting a CAN bus adapt
 ## Configure and Deploy
 
 - [How to Create a New Profile](./Create_New_Profile.md): sets up a profile for a separate site or configuration.
-- [How to Configure Environment Variables](./Configure_Environment_Variables.md): sets a configuration value from an environment variable.
+- [Environment variables](../Installation/Environment_Variables.md): sets a configuration value from an environment variable.
 - [How to Set Up Profinity as a Kiosk Application](./Set_Up_Profinity_as_Kiosk.md): runs Profinity fullscreen on a dedicated display.
 
 ## Extend Profinity

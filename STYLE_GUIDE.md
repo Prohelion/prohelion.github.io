@@ -220,7 +220,31 @@ Readers arrive from a search engine or an AI assistant, often on a single page, 
 
 - Every image has alt text that says what it shows, not "screenshot" or "diagram".
 - Do not carry information by colour alone.
-- Concept and component pages include a diagram of where the subject sits in the data flow. Sibling pages in the same category reuse the same diagram, so readers can compare them.
+- Concept and component pages include a diagram of where the subject sits in the data flow. Sibling pages in the same category reuse the same diagram shape, so readers can compare them.
+- Draw diagrams as Mermaid, not as image files. Mermaid is enabled in `mkdocs.yml`, so a diagram is plain text in the page, reviewed in a pull request and edited like any other content. Use an image only for a screenshot of the product, or for a drawing Mermaid cannot express.
+- Wrap a Mermaid diagram in the same `figure` and `figcaption` as an image. A Mermaid diagram has no alt text, so the caption states what the diagram shows, and the surrounding text states the flow in a sentence.
+- Show where each part runs by grouping nodes in a `subgraph` titled with the place, such as "Publishing instance", "MQTT server" or "Receiving instance". Draw the arrows between nodes, not between groups.
+- Keep diagrams narrow. Mermaid shrinks a diagram to fit the page width, so a wide diagram ends up with small, hard-to-read text. Use a left-to-right `flowchart` of five or fewer nodes in one row, with labels of one to three words that match the names the reader sees in the product, and no labels on the arrows. Put the trigger, format or condition in the caption and the text around the diagram. Use top-to-bottom (`flowchart TB`) when one node fans out to several, and split a diagram that needs more than about eight nodes.
+- Do not put colour, styling or click handlers in a diagram. Its colours (white nodes with black text and outline, black arrows, grey group boxes) come from the site stylesheet, so every diagram looks the same and a change is made in one place.
+
+````markdown
+<figure markdown>
+```mermaid
+flowchart LR
+    subgraph Publishing["Publishing instance"]
+        Tags --> Collections["Tag collections"] --> Publisher["MQTT Publisher"]
+    end
+    subgraph Server["MQTT server"]
+        Broker["MQTT broker"]
+    end
+    subgraph Receiving["Receiving instance"]
+        Subscriber["Subscriber"]
+    end
+    Publisher --> Broker --> Subscriber
+```
+<figcaption>The MQTT Publisher in the publishing instance sends tag collections to the broker on an MQTT server, and the broker delivers them to every subscriber in the receiving instance</figcaption>
+</figure>
+````
 
 ### Admonitions
 Use admonitions sparingly. Reserve `danger` and `warning` for safety, data loss and irreversible actions, and use `info` and `tip` no more than once or twice a page. If everything is flagged, nothing is.
@@ -380,6 +404,7 @@ When a sentence mentions a Profinity concept, component or feature that has its 
 - Confirm the page reads as a user guide: no source-code names, internal plan or ticket references, or design-history commentary (see 2.8)
 - Confirm the page has one type, follows that type's shape, and states its purpose in the first sentence (see Page types and templates)
 - Read the page aloud and remove structure it does not need (see 2.6a)
+- Confirm each Mermaid diagram renders on the built page, and that its caption and the text around it state what it shows
 - Confirm every fact on the page has one authoritative home and is linked rather than copied
 - Run the mkdocs build and spellcheck, and `scripts/verify-2.3-doc-urls.js`, with no new warnings
 - Add genuine product terms to the spellcheck word list instead of rewording around them
