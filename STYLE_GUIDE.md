@@ -26,7 +26,7 @@ last_reviewed: 2026-10-14
 ---
 ```
 
-- `type` is one of `tutorial`, `task`, `reference`, `concept` or `component` (see Page types and templates).
+- `type` is one of `tutorial`, `task`, `reference`, `concept`, `component` or `index` (see Page types and templates).
 - `owner` is the team accountable for keeping the page correct, not an individual.
 - `last_reviewed` is the date the page was last checked against the released product, in ISO format.
 
@@ -43,6 +43,7 @@ Every page does one job. Choose its type before writing, and keep to it: a page 
 | `reference` | Look up a fact | Complete, consistently laid-out entries | Instruction or opinion |
 | `concept` | Understand why and how | Explanation, a diagram, relationships to other parts | Step-by-step procedure |
 | `component` | Choose and configure a component | Purpose, diagram, quick start, settings table, tags, example, troubleshooting | Long background (link to a concept page) |
+| `index` | Find the right page in a section | One short paragraph, then a list of links with a one-line description each | Procedures or reference detail |
 
 Where a reader needs two types, link between two pages instead of combining them. A concept page links to the task that applies it, and a task links back to the reference for each setting it uses.
 
@@ -53,6 +54,7 @@ Page shapes are maximums, not minimums. Use only the parts a page needs, in the 
 - **Concept:** what it is in two sentences; why it exists and when to use it; how it works, with a diagram; how it relates to other parts of Profinity; where to go next.
 - **Tutorial:** what the reader will have at the end, shown first; time needed and prerequisites; a single path with no branches; a checkpoint after each stage; what to try next.
 - **Reference:** a one-line description, then complete entries in a consistent format, grouped logically.
+- **Index:** a section landing page. A short paragraph on what the section holds and who it is for, then a list of links, each with one line saying what the page lets the reader do. Group the links under a heading only when there are more than about eight.
 
 Every page, whatever its type, opens with a sentence that states its purpose, has a title the reader would search for, and ends by pointing to a next step.
 

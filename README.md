@@ -46,3 +46,17 @@ When a new Profinity docs version is forked, copy the previous version folder an
 ## Publishing the documentation
 
 Any documentation that is commited to the main branch of this repo will be automatically deployed.  A GitHub CI script will publish the site and post it to the gh-pages branch on github from where the site is staticly served by GitHub to the domain https://docs.prohelion.com
+
+## Checking a Profinity 2.3 page
+
+The rules are in `STYLE_GUIDE.md`, and the reasoning is in `BEST_PRACTICE_GUIDE.md`. Two tools check a page against them. Install [Vale](https://vale.sh) first (`brew install vale` on macOS), and run `npm install` in `scripts/` once.
+
+```
+cd scripts
+npm run lint-docs -- --details ../docs/Profinity_Software/Profinity_Version_2.3/Getting_Started/Create_User.md
+npm run lint-docs                 # every 2.3 page, summary only
+npm run test-lint                 # tests for the linter itself
+npm run generate-llms             # rebuild docs/llms-full.txt after changing page descriptions
+```
+
+Every page is reported, but only pages that declare a `type` in front matter (pages that have been refactored to the style guide) can fail the check. Add `type`, `owner` and `last_reviewed` to a page when you refactor it, and the check starts protecting it.

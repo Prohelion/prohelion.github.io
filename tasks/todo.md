@@ -25,3 +25,37 @@ No BDD tooling in this repo, so verification is a clean mkdocs build (no new lin
 - verify-2.3-doc-urls.js: 36/37 OK. The earlier D03 miss (stale RBAC_Permissions path) is fixed, so all 37 pass.
 - Left alone: docs/internal/2.3-documentation-todo.md (historical log of old paths), all 2.2 content.
 - Not committed.
+
+---
+
+# Batch 1: docs tooling and section landing pages (2.3 only)
+
+Scope: `docs/Profinity_Software/Profinity_Version_2.3/` only. Rules: STYLE_GUIDE.md. Audit and batch order: tasks/docs-audit-2-3.md.
+Decisions agreed: enforce with both Vale (prose rules) and a Node script (front matter, headings, llms.txt). Report on every page, fail only on pages that declare a `type` (refactored pages).
+No BDD tooling in this repo. The red checkpoint is: the linter fails on a deliberately bad fixture, passes on a good one, and reports issues on current untouched pages.
+
+## Steps
+- [x] Install Vale (`brew install vale`)
+- [x] `.vale.ini` and `styles/Prohelion/` rules: minimising words, contractions, em dashes, "e.g.", "please", sentence-case headings, "see" cross-references, future tense markers
+- [x] `scripts/lint-docs.js`: front matter (`type`, `owner`, `last_reviewed`, `description` 70 to 160), heading hierarchy (one H1, no skips), thin sections, bold lead-ins, admonition count, then run Vale and merge results; fail only for pages with a `type`
+- [x] Fixtures and `node --test` tests: bad fixture fails, good fixture passes, pilot pages pass
+- [x] `scripts/generate-llms-txt.js`: rebuild the 2.3 section of `docs/llms.txt` from section landing pages, and write `docs/llms-full.txt` listing every 2.3 page with its description
+- [x] Section landing pages: Getting_Started, Installation, Administration, Administration/Users_and_Access, Components/Loggers, Components/CAN_Bus_Protocols (short, link-only hubs, no new product claims)
+- [x] npm scripts and a short "Checking a page" note in the repo README
+- [x] Verify: mkdocs build with no new warnings, linter tests, run on all 2.3 pages and record the baseline counts
+
+## Not in this batch
+- CI changes. `.github/workflows/ci.yml` only deploys from master. Adding a lint job is a separate decision.
+
+## Review
+- Vale 3.24.0 installed. Rules in `.vale/styles/Prohelion/`, config in `.vale.ini`.
+- `scripts/lint-docs.js` (structure checks plus Vale), tests in `scripts/lint-docs.test.js` (5 passing). The bad fixture fails with 8 errors and 2 warnings, the good fixture passes.
+- Linting caught slips on the pilot pages before commit: missing serial commas (8) and a 183 character description. Both fixed.
+- `scripts/generate-llms-txt.js` writes `docs/llms-full.txt` (182 pages). `docs/llms.txt` stays a small hand-written index with a pointer to it.
+- Six `index` landing pages added, and `index` added as a page type in STYLE_GUIDE.md.
+- Baseline across 182 pages (9 enforced), after checking findings in context and tightening the rules: 2 errors, 712 warnings, 340 notes. Largest: heading case 679 (all sampled hits valid), serial comma 259 (a heuristic, notes only), directional wording 21, descriptions outside 70 to 160 characters 10.
+- Existing error-level hits, both valid: "powerful" in the 2.3 index.md, and "E.g." in Administration/System_Configuration/Logging.md.
+- First run produced false positives, now fixed: "just" in "just opened" and "not just", "please" and "doesn't" inside quoted software messages, and "enrollment" in a shipped UI label. Quoted text and bold UI labels are now ignored, "just" is only flagged before an action verb, future tense checks only "will", and the admonition count is a note.
+- mkdocs build: same 6 pre-existing warnings, none new.
+- Not done: CI. `.github/workflows/ci.yml` only deploys from master, so no job runs the linter yet.
+- Not committed.

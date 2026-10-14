@@ -1,3 +1,4 @@
 nav:
+    - index.md
     - CAN_Bus_Adapters.md
     - Virtual_CAN_Adapter.md

@@ -34,9 +34,9 @@ A good starting point is three roles:
 
 | Role | For people who | Typical access |
 |------|----------------|----------------|
-| **Viewer** | Watch the system but never change it | View data, tags, alerts and dashboards |
-| **Operator** | Run a vehicle, bench or pack each day | Everything a Viewer can do, plus running component actions and controlling charging |
-| **Engineer** | Set up and tune a system | Everything an Operator can do, plus changing profiles, components, dashboards and firmware |
+| **Viewer** | Watch the system but never change it | View data, tags, alerts, and dashboards |
+| **Operator** | Run a vehicle, bench, or pack each day | Everything a Viewer can do, plus running component actions and controlling charging |
+| **Engineer** | Set up and tune a system | Everything an Operator can do, plus changing profiles, components, dashboards, and firmware |
 
 The default **Administrators** role includes every permission, so assigning it gives that person the access of every other role.
 Keep it for the few people who manage the installation.

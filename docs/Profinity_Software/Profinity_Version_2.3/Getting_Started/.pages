@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Quick_Start.md
     - Create_User.md
     - Profiles.md

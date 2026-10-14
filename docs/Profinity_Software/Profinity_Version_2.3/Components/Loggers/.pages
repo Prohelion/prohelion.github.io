@@ -1,3 +1,4 @@
 nav:
+    - index.md
     - File_Loggers.md
     - InfluxDB_Prometheus_Logger.md

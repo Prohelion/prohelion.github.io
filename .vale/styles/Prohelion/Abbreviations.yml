@@ -1,0 +1,8 @@
+extends: existence
+message: "Write '%s' out in full: 'for example' for e.g., and 'that is' for i.e. (style guide 2.5)."
+level: error
+ignorecase: true
+nonword: true
+tokens:
+  - 'e\.g\.'
+  - 'i\.e\.'

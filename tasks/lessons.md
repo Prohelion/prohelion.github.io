@@ -20,3 +20,16 @@ Before finishing any docs page:
 5. Run `venv/bin/mkdocs build -d <temp dir>` and confirm no new warnings.
 
 Reviewer note: automated review passes over-flag legitimate API and field names, and invent roadmap in their suggested rewrites. Check each finding before applying it.
+
+## Look at a visual change in a real browser before calling it done
+
+Rule: render any diagram, style or layout change and read the screenshot. A clean mkdocs build only proves the HTML exists.
+
+Pattern to avoid: the first Mermaid diagram was reported as done after a build, then needed four rounds of fixes (too small, wrong colours, thin red arrows, missing server). The real cause of the small text was the theme shrink-wrapping a `figure` around the diagram, which no amount of redrawing would fix, and a screenshot showed it at once.
+
+How to check:
+
+1. `venv/bin/mkdocs build -d <scratch dir>`, serve that folder with `python3 -m http.server`.
+2. Screenshot the page with headless Chrome (`--headless=new --window-size=1400,900 --virtual-time-budget=15000 --screenshot=<file>`). The cookie banner blurs the page, so inject `.md-consent{display:none!important}body{filter:none!important}` into a scratch copy of the HTML.
+3. Use `--force-device-scale-factor=2` and `sips -c` to crop when judging arrows, borders or small text.
+4. Fix shared styling in `docs/Overrides/assets/stylesheets/theme.css`, never inside a page. The site uses a single light scheme with a black and white palette, so diagrams are monochrome, not red.

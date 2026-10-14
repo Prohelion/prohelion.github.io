@@ -1,0 +1,6 @@
+extends: existence
+message: "Check for a missing serial comma in '%s' (style guide 2.5). Use 'A, B, and C'."
+level: suggestion
+ignorecase: false
+tokens:
+  - '\b[A-Za-z]+, [A-Za-z]+ (?:and|or) [A-Za-z]+\b'

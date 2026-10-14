@@ -1,0 +1,6 @@
+extends: existence
+message: "Do not use an em dash. Use a comma, colon or full stop, or restructure the sentence (style guide 2.6)."
+level: error
+nonword: true
+tokens:
+  - '—'

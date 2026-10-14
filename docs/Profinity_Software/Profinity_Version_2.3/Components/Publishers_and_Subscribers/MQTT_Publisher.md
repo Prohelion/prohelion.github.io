@@ -59,7 +59,7 @@ Subscribe to the topic on your broker to see the data arrive, in the form shown 
 | **Trust all server certificates** | No | Disables TLS server certificate validation for this connection. Enable only when connecting to a trusted broker using a self-signed certificate. |
 | **Username** / **Password** | No | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
 | **Device ID** | Yes | The MQTT client ID this publisher connects with, which must be unique among the clients connected to the broker. It is also used as the Sparkplug **Edge Node ID** when that field is left empty. |
-| **Payload** | No | **JSON** publishes a flat object to the destination topic, and **Sparkplug B** publishes node birth, data and death messages on Sparkplug topics. Defaults to **JSON**. See [Payload formats](#payload-formats). |
+| **Payload** | No | **JSON** publishes a flat object to the destination topic, and **Sparkplug B** publishes node birth, data, and death messages on Sparkplug topics. Defaults to **JSON**. See [Payload formats](#payload-formats). |
 | **Destination Topic** | Yes, for JSON | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
 
 ### Sparkplug settings
@@ -82,7 +82,7 @@ Shown only when **Payload** is **Sparkplug B**:
 
 ## Payload formats
 
-**JSON** publishes a flat object of tag key to numeric value, with no timestamp, quality or metadata alongside it.
+**JSON** publishes a flat object of tag key to numeric value, with no timestamp, quality, or metadata alongside it.
 Each key is the tag path with every character other than a letter or digit replaced by an underscore, so `Vehicles/Car1/Speed` becomes the key `Vehicles_Car1_Speed`:
 
 ```json

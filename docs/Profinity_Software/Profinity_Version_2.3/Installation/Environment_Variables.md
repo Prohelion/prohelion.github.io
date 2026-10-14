@@ -1,6 +1,6 @@
 ---
 title: Environment variables
-description: "Set Profinity configuration and profile values from environment variables, with the placeholder syntax, the variables Profinity reads, and setup for Windows, Linux, macOS and Docker."
+description: "Set Profinity configuration and profile values from environment variables, with the placeholder syntax and setup for Windows, Linux, macOS, and Docker."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-14
@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # Environment variables
 
-Profinity substitutes environment variables into its configuration file (`config.yaml`) and into [profile](../Administration/Profiles.md) files, so one set of files can serve development, staging and production, keep sensitive values out of the files, and let you change a setting without editing a file.
+Profinity substitutes environment variables into its configuration file (`config.yaml`) and into [profile](../Administration/Profiles.md) files, so one set of files can serve development, staging, and production, keep sensitive values out of the files, and let you change a setting without editing a file.
 A variable has an effect only where a `${VARIABLE_NAME}` placeholder in one of those files references it.
 
 ## Change a setting from an environment variable

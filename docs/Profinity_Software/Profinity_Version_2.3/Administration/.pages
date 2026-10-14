@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - System_Configuration
     - Users_and_Access
     - Profiles.md

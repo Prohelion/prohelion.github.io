@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Manage_Users.md
     - Roles_and_Permissions.md
     - Service_Accounts.md

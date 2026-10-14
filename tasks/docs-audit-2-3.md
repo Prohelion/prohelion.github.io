@@ -211,3 +211,5 @@ Release notes should wait until the pages they link to settle. Title Case headin
 2. Who answers F1 to F10?
 3. Is the batch order in section 5 right, or should something start earlier?
 4. Should the sentence-case heading change run as part of each batch, as proposed, or wait for a separate pass?
+
+Decided 2026-10-14: sentence case is confirmed for the 2.3 docs, replacing Title Case. Headings are converted page by page as each page is refactored, as part of each batch.

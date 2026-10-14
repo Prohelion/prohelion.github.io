@@ -5,6 +5,7 @@
 ## Profinity Software
 
 - [Profinity V2.3 Overview](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/index.html): Current release (Early Adopter — contact Prohelion at contact@prohelion.com for access). Modern CAN bus management platform connecting CAN bus based solutions to AI, Cloud, APIs and Big Data technologies.
+- [All Profinity 2.3 pages](https://docs.prohelion.com/llms-full.txt): every 2.3 page with a one-line description, generated from the page front matter.
 - [Quick Start Guide](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Getting_Started/Quick_Start.html): Install Profinity, load an example profile, replay CAN logs, and edit your first dashboard.
 - [Windows Installation](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Installation/Windows_Installation.html): Install Profinity on Windows using the setup wizard.
 - [Managing Users](https://docs.prohelion.com/Profinity_Software/Profinity_Version_2.3/Administration/Users_and_Access/Manage_Users.html): Administration guide for user accounts and access.

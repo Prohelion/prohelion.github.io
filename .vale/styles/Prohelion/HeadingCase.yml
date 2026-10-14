@@ -1,0 +1,77 @@
+extends: capitalization
+message: "Use sentence case for the heading '%s' (style guide section 1)."
+level: warning
+scope:
+  - heading.h2
+  - heading.h3
+  - heading.h4
+match: $sentence
+indicators:
+  - ':'
+exceptions:
+  - Profinity
+  - Prohelion
+  - Desktop
+  - Server
+  - Enterprise
+  - Windows
+  - Linux
+  - macOS
+  - Docker
+  - Compose
+  - InfluxDB
+  - Prometheus
+  - Grafana
+  - MQTT
+  - Sparkplug
+  - Mosquitto
+  - HiveMQ
+  - BACnet
+  - Modbus
+  - OPC
+  - UA
+  - EtherNet
+  - IP
+  - S7
+  - CAN
+  - DBC
+  - YAML
+  - JSON
+  - API
+  - APIs
+  - REST
+  - MCP
+  - AI
+  - SDK
+  - URL
+  - URLs
+  - HTTP
+  - HTTPS
+  - TLS
+  - SQL
+  - SFTP
+  - CSV
+  - UI
+  - ID
+  - IDs
+  - BMS
+  - BMU
+  - MPPT
+  - WaveSculptor
+  - WaveSculptor22
+  - WaveSculptor200
+  - ADMIN
+  - Python
+  - .NET
+  - V1
+  - V2
+  - Gen1
+  - Gen2
+  - M48
+  - D1000
+  - Watchtower
+  - Peak
+  - Elmar
+  - PCAN
+  - Webhook
+  - Webhooks
