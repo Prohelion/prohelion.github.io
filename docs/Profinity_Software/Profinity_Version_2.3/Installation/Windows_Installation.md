@@ -1,53 +1,63 @@
 ---
-title: Windows Installation
-description: "Install Profinity on Windows using the Setup Wizard MSI installer for desktop application or web browser access."
+title: Install Profinity on Windows
+description: "Install Profinity on Windows with the Setup Wizard, open the web interface in a browser, and see what needs a Server licence."
+type: task
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Installing Profinity on Windows
+# Install Profinity on Windows
 
-!!! info "Available Profinity Releases"
-    Profinity is available as a standard desktop application on Windows machines, for selected [Unix platforms (including macOS and Linux)](./Zip_Installation.md) and as a [Docker container](./Docker_Installation.md) for Docker-enabled environments and cloud setups.
+The Profinity Setup Wizard installs Profinity as a desktop application on Windows.
+For Linux and macOS, refer to [Linux and macOS installation](./Zip_Installation.md), and for containers, refer to [Docker installation](./Docker_Installation.md).
 
-## Installation on Windows
+The installer places Profinity in `C:\Program Files (x86)\Prohelion\Profinity`, and keeps configuration, profiles, and logs in the [artefacts directory](./Artifacts_Directory.md), which is `%LOCALAPPDATA%\Prohelion\Profinity` by default.
+To upgrade a 2.2 installation, read [Upgrade from Profinity 2.2](./Upgrade_From_2_2.md) first.
 
-The Profinity Setup Wizard installs Profinity on a Windows machine. The installer places Profinity in `C:\Program Files (x86)\Prohelion\Profinity` and stores configuration, profiles and logs in the [artefacts directory](./Artifacts_Directory.md), which is `%LOCALAPPDATA%\Prohelion\Profinity` by default. To upgrade a 2.2 installation, back up the artefacts directory first and follow [Upgrading From 2.2](../Release_Notes/2.3.1.md#upgrading-from-22).
+## Install Profinity
 
-!!! info "Profinity 2.3 Download Information"
-    Profinity 2.3 is currently available for Early Adopters only. Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to register for the programme and to receive the installation files.
+1. Obtain the installer, `Profinity.Install.msi`, from Prohelion.
+2. Open `Profinity.Install.msi` and follow the prompts in the Setup Wizard.
+3. Start Profinity from the Start menu.
 
-1. Open the downloaded file `Profinity.Install.msi` from your downloads directory.
-2. Follow the prompts in the Profinity Setup Wizard.
-
-Launching the Profinity desktop client opens the Profinity homepage directly.
+Profinity opens its homepage in the desktop window.
+To stop Profinity, shut down the application.
 
 <figure markdown>
-![Profinity Homepage](../images/homepage.png)
+![The Profinity homepage in the desktop application window](../images/homepage.png)
 <figcaption>Profinity homepage</figcaption>
 </figure>
 
-!!! info "The Windows Desktop Application Accepts Local Connections Only"
-    Without a **Profinity Server** licence, the Windows desktop application binds its web interface to the local machine (127.0.0.1) on TCP port 18080 by default, whatever address is set in the [System Configuration](../Administration/System_Configuration/Profinity_Web.md), so the web interface cannot be opened from another machine. With a Server licence applied, Profinity uses the address that is set there, so other machines can open the web interface and sign in with their own accounts. A Desktop licence does not provide this: signing in from a web browser on another machine always needs a Server licence. The built-in desktop sign-in used by the application window works from the same computer only. The installer adds Windows Firewall exceptions for ports 4876 (TCP and UDP) and 42000 (UDP).
+## Open Profinity in a web browser
 
-!!! info "Licence Required for User Accounts"
-    Creating user accounts and roles needs the **Profinity Server** licensed feature, which the Server and Enterprise editions include; without it the **Users & Groups** screen is unavailable and Profinity Desktop runs as a single built-in administrator user. A Desktop host does not start the 14-day local trial, so apply a Server licence file under **ADMIN > License**. When a Server licence is active, Profinity creates the default `admin` account, which must change its password at first sign-in, so that people on other machines have an account to sign in with. See [Licensing](../Administration/Licensing.md).
-
-### Starting and Stopping Profinity
-
-As a Windows desktop application, Profinity is started by running the application from the Start Menu.
-
-To stop Profinity, shut down the application.
-
-### Accessing a Desktop Application Instance via a Web Browser
-
-With Profinity Desktop running, you can also open the user interface in a web browser on the same machine. Open the URL defined in the Profinity Web panel of [System Configuration](../Administration/System_Configuration/Profinity_Web.md) (reached from **ADMIN** in the side menu). For installations that followed the default setup procedure, the default URL is `http://localhost:18080`.
-
-Connecting to the Profinity web client directs the browser to the Profinity login page. The desktop application signs in without a password. A fresh install without a Server licence has no account for the login page, so use the desktop application window. Once a Server licence is applied, Profinity creates the default `admin` account (password `password`, changed at first sign-in), so a browser on this or another computer can sign in with it. If the browser cannot reach the address, check that Profinity is running and that another program is not using port 18080.
+With Profinity running, open the URL set in the Profinity Web panel of [System configuration](../Administration/System_Configuration/Profinity_Web.md), which you reach from **ADMIN** in the side menu.
+The default URL is `http://localhost:18080`, and the browser opens the Profinity sign-in page.
 
 <figure markdown>
-![Profinity login page](../images/login_page.png)
-<figcaption>Profinity login page</figcaption>
+![The Profinity sign-in page](../images/login_page.png)
+<figcaption>Profinity sign-in page</figcaption>
 </figure>
 
-### Next Steps
+The desktop application signs in without a password.
+A fresh installation without a Server licence has no account for the sign-in page, so use the desktop application window.
+If the browser cannot reach the address, check that Profinity is running and that no other program is using port 18080.
 
-If a Server licence is applied, sign in as `admin`, change the password, create your own accounts with [Create User](../Getting_Started/Create_User.md), then work through the [Quick Start](../Getting_Started/Quick_Start.md), review the [Security Guide](./Security.md), and run Profinity in the background with [Running as a Service](./Running_As_Service.md).
+## Remote access and user accounts
+
+Without a **Profinity Server** licence, the desktop application binds its web interface to the local machine (127.0.0.1) on TCP port 18080 by default, whatever address is set in System configuration.
+Other machines cannot open the web interface, and the installer adds Windows Firewall exceptions for ports 4876 (TCP and UDP) and 42000 (UDP).
+
+A Server licence changes this.
+Profinity then uses the address set in System configuration, so other machines can open the web interface and sign in with their own accounts.
+A Desktop licence does not provide this, because signing in from a browser on another machine always needs a Server licence.
+
+User accounts and roles need the Server licensed feature, which the Server and Enterprise editions include.
+Without it, **Users & Groups** is unavailable and Profinity runs as a single built-in administrator.
+A Desktop host does not start the 14-day local trial, so apply a Server licence file under **ADMIN > License**, as described in [Apply a licence](./Applying_a_Licence.md), and restart Profinity so the new address takes effect.
+With a Server licence active, Profinity creates the default `admin` account, which must change its password at first sign-in.
+Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
+
+## Next steps
+
+With a Server licence applied, sign in as `admin`, change the password, and create your own accounts with [Create a user](../Getting_Started/Create_User.md).
+Then work through the [Quick start guide](../Getting_Started/Quick_Start.md), review the [Security guide](./Security.md), and run Profinity in the background with [Running Profinity as a service](./Running_As_Service.md).

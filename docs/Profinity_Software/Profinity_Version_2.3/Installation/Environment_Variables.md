@@ -173,7 +173,7 @@ With `HTTP_PORT=8080`, host port 8080 maps to container port 8080, which matches
 The Profinity image declares only ports 18080 and 18443, but Docker publishes any port the container listens on.
 
 Keep the `config.yaml` and profile files that hold placeholders in the mounted volume folders that map to `/app/Prohelion/config` and `/app/Prohelion/profiles`.
-`PROFINITY_HOME` must match the container-side mount path, as described in [Docker installation](./Docker_Installation.md#production-deployments).
+`PROFINITY_HOME` must match the container-side mount path, as described in [Docker installation](./Docker_Installation.md#run-profinity-in-production).
 Docker Compose reads a `.env` file in the same folder as the compose file automatically, and to keep one file per environment, name it explicitly:
 
 ```bash

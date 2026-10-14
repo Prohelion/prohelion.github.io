@@ -12,13 +12,14 @@ Choose the installation method that matches your platform, then complete the set
 
 ## Choose an installation method
 
-- [Windows installation](Windows_Installation.md): the Setup Wizard installer, for the desktop application or browser access.
+- [Install Profinity on Windows](Windows_Installation.md): the Setup Wizard installer, for the desktop application or browser access.
 - [Linux and macOS installation](Zip_Installation.md): the bootstrap installer, or a downloaded archive, started with the `profinity.sh` script.
 - [Docker installation](Docker_Installation.md): run Profinity in containers, update the image, and configure it for production.
 
 ## After you install
 
-- [Applying a licence](Applying_a_Licence.md): apply a licence file and check that it has taken effect.
+- [Apply a licence](Applying_a_Licence.md): apply a licence file and check that it has taken effect.
+- [Upgrade from Profinity 2.2](Upgrade_From_2_2.md): back up, install 2.3, and check the licence, roles, dashboards, and integrations in order.
 - [Environment variables](Environment_Variables.md): set configuration and profile values from the environment.
 - [Artefacts directory](Artifacts_Directory.md): where Profinity keeps configuration, profiles, plugins, and logs.
 - [Running Profinity as a service or daemon](Running_As_Service.md): start automatically on Linux, macOS, or Windows, with failure recovery.

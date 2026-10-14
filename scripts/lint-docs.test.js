@@ -58,3 +58,17 @@ test('structure checks flag a skipped heading level and too many admonitions', (
   assert.ok(findings.some((f) => f.rule === 'Headings' && /jumps from H1 to H3/.test(f.message)));
   assert.ok(findings.some((f) => f.rule === 'Structure' && /admonitions/.test(f.message)));
 });
+
+test('a link to a missing page or anchor is an error', () => {
+  const fs = require('fs');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'lint-'));
+  fs.writeFileSync(path.join(tmp, 'other.md'), '---\ntitle: O\ndescription: "x"\n---\n\n# Other\n\n## Real heading\n');
+  const file = path.join(tmp, 'page.md');
+  const text = '---\ntitle: P\ndescription: "x"\n---\n\n# Page\n\n[ok](other.md#real-heading) [bad anchor](other.md#nope) [missing](gone.md)\n';
+  fs.writeFileSync(file, text);
+  const { linkFindings } = require('./lint-docs');
+  const found = linkFindings(file, text);
+  assert.strictEqual(found.length, 2, JSON.stringify(found));
+  assert.ok(found.some((f) => /#nope/.test(f.message)));
+  assert.ok(found.some((f) => /gone\.md/.test(f.message)));
+});

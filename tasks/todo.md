@@ -59,3 +59,31 @@ No BDD tooling in this repo. The red checkpoint is: the linter fails on a delibe
 - mkdocs build: same 6 pre-existing warnings, none new.
 - Not done: CI. `.github/workflows/ci.yml` only deploys from master, so no job runs the linter yet.
 - Not committed.
+
+---
+
+# Batch 2: Getting started and installation (2.3 only)
+
+Decisions (2026-10-14): both Docker routes are supported (installer with manual update, and the Watchtower compose file); Quick Start follows Windows with a link for Linux; Early Adopter release-status wording is removed from pages; the V1 migration page is kept and refactored to a task. Sentence case headings confirmed.
+
+## Installation section (done, not committed)
+- [x] Windows_Installation.md: task. F5 wording was already correct in the current text.
+- [x] Applying_a_Licence.md: task, restart note moved into the steps.
+- [x] Upgrade_From_2_2.md: new page, extracted from Release_Notes/2.3.1.md. The release notes keep a short pointer.
+- [x] Release_Notes/2.3.1.md: macOS data location corrected to `~/Library/Application Support/Prohelion/Profinity` (F3).
+- [x] Zip_Installation.md (Linux and macOS): task, hardware and licensing admonition removed, Early Adopter text removed.
+- [x] Docker_Installation.md: task, Watchtower stated as an option with the volume warning (F4), broken "Directly Accessing Devices" link fixed.
+- [x] Migration.md: task.
+- [x] Artifacts_Directory.md: reference. Linux service layout moved to Running_As_Service, Docker volumes to Docker_Installation.
+- [x] Running_As_Service.md: task, one page with three platform sections.
+- [x] Security.md: sentence case, typed concept, thin HTTPS subheadings merged.
+- [x] Environment_Variables.md link updated after the Docker heading rename.
+- [x] lint-docs.js gained a link and anchor check (6 tests pass). It found 4 existing broken links outside batch 2: 3 in Integrating_to_Profinity/MCP_Server/index.md and 1 in Tags/Rules.md.
+
+## Still to do in batch 2
+- [ ] Getting_Started: Quick_Start (tutorial, Windows path), Profiles (concept), Create_User done, merge Adding_New_Components into How_To_Guides/Add_Component_to_Profile, merge Profinity_Log into Administration/Logs_Config, merge Visualising_Data into Customising_Profinity/Dashboards/index. Each merge needs a redirect and link updates.
+- [ ] Release notes: split breaking changes and known issues from 2.3.1.md (ceiling, optional), retitle 2.2.5.
+
+## Open
+- The installer commands use GitHub release URLs. If 2.3 is not published there yet, these examples will not work until release. Confirm before publishing.
+- The Watchtower compose file has no public link in the docs. Add one if the file is published.

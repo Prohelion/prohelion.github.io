@@ -155,6 +155,58 @@ function structureFindings(text) {
   return { findings, data };
 }
 
+
+/** Heading slugs as MkDocs (Python-Markdown toc) generates them. */
+function slugify(text) {
+  return text
+    .replace(/`/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/[*_]/g, '')
+    .normalize('NFKD')
+    .replace(/[^\x00-\x7F]/g, '')
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/[-\s]+/g, '-');
+}
+
+const headingCache = new Map();
+function headingSlugs(file) {
+  if (headingCache.has(file)) return headingCache.get(file);
+  const slugs = new Set();
+  const seen = {};
+  for (const line of stripCode(splitFrontMatter(fs.readFileSync(file, 'utf8')).body)) {
+    const m = line.match(/^#{1,6}\s+(.*?)\s*(?:\{#([\w-]+)\})?\s*$/);
+    if (!m) continue;
+    const slug = m[2] || slugify(m[1]);
+    const n = seen[slug] || 0;
+    seen[slug] = n + 1;
+    slugs.add(n === 0 ? slug : `${slug}_${n}`);
+  }
+  headingCache.set(file, slugs);
+  return slugs;
+}
+
+/** Relative links to other pages must point at a file and, when given, an anchor that exists. */
+function linkFindings(file, text) {
+  const findings = [];
+  const { body, bodyOffset } = splitFrontMatter(text);
+  stripCode(body).forEach((line, i) => {
+    for (const m of line.matchAll(/\]\(([^)\s#]*)(?:#([^)\s]+))?\)/g)) {
+      const [, target, anchor] = m;
+      if (/^[a-z]+:/i.test(target) || (target && !target.endsWith('.md'))) continue;
+      const resolved = target ? path.resolve(path.dirname(file), target) : file;
+      if (!fs.existsSync(resolved)) {
+        findings.push({ rule: 'Links', severity: 'error', line: i + 1 + bodyOffset, message: `The link target ${target} does not exist.` });
+      } else if (anchor && !headingSlugs(resolved).has(anchor)) {
+        findings.push({ rule: 'Links', severity: 'error', line: i + 1 + bodyOffset, message: `The anchor #${anchor} does not exist in ${target || 'this page'}.` });
+      }
+    }
+  });
+  return findings;
+}
+
 function runVale(target) {
   const probe = spawnSync('vale', ['--version'], { encoding: 'utf8' });
   if (probe.error) {
@@ -203,6 +255,7 @@ function lintTarget(target, options = {}) {
   return files.map((file) => {
     const text = fs.readFileSync(file, 'utf8');
     const { findings, data } = structureFindings(text);
+    findings.push(...linkFindings(file, text));
     for (const a of valeByFile[path.resolve(file)] || []) {
       findings.push({
         rule: a.Check.replace(/^Prohelion\./, ''),
@@ -286,4 +339,4 @@ if (require.main === module) {
   process.exitCode = main(process.argv);
 }
 
-module.exports = { structureFindings, lintTarget, splitFrontMatter };
+module.exports = { structureFindings, linkFindings, lintTarget, splitFrontMatter };

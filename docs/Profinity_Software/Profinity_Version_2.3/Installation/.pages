@@ -4,6 +4,7 @@ nav:
     - Docker_Installation.md
     - Zip_Installation.md
     - Applying_a_Licence.md
+    - Upgrade_From_2_2.md
     - Migration.md
     - Artifacts_Directory.md
     - Running_As_Service.md
