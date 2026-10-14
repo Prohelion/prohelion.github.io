@@ -72,3 +72,9 @@ test('a link to a missing page or anchor is an error', () => {
   assert.ok(found.some((f) => /#nope/.test(f.message)));
   assert.ok(found.some((f) => /gone\.md/.test(f.message)));
 });
+
+test('a list number alone on its line is an error', () => {
+  const text = '---\ntitle: T\ndescription: "A description that is long enough to pass the seventy character minimum comfortably."\n---\n\n# T\n\n1.\n   Do the first thing.\n2. Do the second thing.\n';
+  const { findings } = structureFindings(text);
+  assert.ok(findings.some((f) => f.rule === 'EmptyListItem'), JSON.stringify(findings));
+});

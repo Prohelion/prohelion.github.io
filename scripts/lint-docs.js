@@ -144,6 +144,14 @@ function structureFindings(text) {
     add('Structure', 'info', 1, `${admonitions} admonitions in ${words} words. Use one or two a page, and no more than one per ${ADMONITION_WORDS} words (style guide 2.6a).`);
   }
 
+  // A list marker with nothing after it renders as an empty list item, which happens when a
+  // step is split over lines so that the number or bullet ends up alone.
+  lines.forEach((line, i) => {
+    if (/^\s*(?:\d+\.|[-*])\s*$/.test(line)) {
+      add('EmptyListItem', 'error', i + 1 + bodyOffset, 'A list marker has no text after it, so the item renders empty. Keep the first sentence of the item on the same line as its number.');
+    }
+  });
+
   // Procedures
   if (data && (data.type === 'task' || data.type === 'tutorial')) {
     const numbered = lines.filter((l) => /^\s*\d+\.\s+\S/.test(l)).length;
