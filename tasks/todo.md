@@ -87,3 +87,49 @@ Decisions (2026-10-14): both Docker routes are supported (installer with manual 
 ## Open
 - The installer commands use GitHub release URLs. If 2.3 is not published there yet, these examples will not work until release. Confirm before publishing.
 - The Watchtower compose file has no public link in the docs. Add one if the file is published.
+
+---
+
+# Wave 1: parallel refactor of Components, Tags, CAN Utilities, Customising, Mobile and Profinity AI (2.3 only)
+
+Run 2026-10-14 and 2026-10-15. 11 Sonnet writers (in place, no moves or splits), 11 independent Sonnet reviewers, then 9 fixers applying the reviews. Briefs and every report are in tasks/wave1/ (BRIEF, REVIEW_BRIEF, FIX_BRIEF, G* writer reports with "Fixes applied", R* reviewer reports).
+
+## Result
+- Typed pages:      105 of      183 (was 18). Whole-2.3 lint: every typed page passes with 0 errors and 0 warnings. Heading-case warnings fell from 679 to 281.
+- Mechanical fact check across 85 changed pages (every inline code value and number in the original must appear in the rewrite): only the version label "2.3" was missing on five pages, which was release-status wording removed on purpose.
+- Reviewers found nine invented statements in Hosting, Theming and Conditional_Styling (G7a), all removed by restoring the original prose. They also found a dropped phrase in Component_Reference/index.md (fixed), and a FAQ whose question headings had been removed (restored).
+- 16 Mermaid diagrams added to component and concept pages. None has been checked by a person against the product.
+
+## Found along the way
+- Caption.md, Lamp.md and Log.md under Customising_Profinity/Dashboards/Component_Reference/Data/ are ignored by the global gitignore rule "Data" (~/.gitignore_global line 12). They were never committed, so a build from git lacks them. Their text was checked against the old site/ build. Fixed at the source: the global rule was changed from Data to /Data (root-level only), so the three pages show as untracked and a normal git add picks them up. Root-level Data folders in the website repos are still ignored. Not yet committed.
+- mkdocs does not validate anchors in this repo. scripts/lint-docs.js does.
+
+## Not done
+- No page was split, merged or moved. Each writer's proposals are in its report.
+- Product questions are in each G report under "Questions".
+- Not committed.
+
+---
+
+# Wave 2: Administration, Developing, Integrating, How-To, Getting Started and Release Notes (2.3 only)
+
+Run 2026-10-15. 9 Sonnet writers, 9 independent reviewers, fixers for the groups that needed them. Briefs and every report are in tasks/wave2/ (BRIEF has a "Lessons from wave 1" section that was added after the wave 1 mistakes).
+
+## Result
+- Typed pages: 182 of 183. The one exception is the 2.3 root index.md, which had uncommitted edits before this work and was deliberately not touched. It has 1 lint error ("powerful") and 3 warnings (two Title Case headings, a long description), plus 3 spelling warnings in the mkdocs build.
+- Whole-site lint: 0 errors and 0 warnings on every typed page. mkdocs build: 3 warnings, all in the root index.md (the three MCP Server link warnings are fixed).
+- Mechanical fact check across 162 pages changed since HEAD: the only original tokens missing are the version label "2.3" (release-status wording removed on purpose) and `Profile.css` (corrected to `profile.css`, the verified F2 fact).
+- Reviewers found no invented facts in wave 2 (the wave 1 brief lessons worked). Real defects found and fixed: empty list items on the MCP Server page (a new linter check, EmptyListItem, now catches this), the Lua and logo attribution comment (restored), wrong or unverified image alt text, an unsupported "three of them serve dashboard assets" sentence, warnings turned into prose (restored as admonitions), and "when" softened from "only when" in the Desktop accounts rule.
+- Product facts applied: F1 (Desktop accounts only with a Server licence), F2 (four profile folders, `profile.css`).
+
+## Decisions made without asking (please confirm)
+- Getting Started merges NOT done: Adding_New_Components (15 inbound links), Profinity_Log (28), Visualising_Data (2) each do a distinct job, and merging would need about 45 link rewrites and redirects for little reader benefit. The two Add Component pages cross-link each other.
+- Release notes 2.3.1 not split: 28 heading anchors are linked from other pages.
+
+## Still open
+- Commit (nothing from waves 1 or 2 is committed).
+- Structural proposals in each G, D, I, H and A report (splits, shared overlay page, and so on).
+- Product questions in each report. Largest themes: Auto Connect wording (starts with Profinity or when the profile loads), curl example with password on the command line, AI capability claims, rule scripts needing the Server edition.
+- 16 Mermaid diagrams (all added in wave 1; wave 2 added none) are unchecked by a person.
+- The 2.3 root index.md.
+- CI lint job.
