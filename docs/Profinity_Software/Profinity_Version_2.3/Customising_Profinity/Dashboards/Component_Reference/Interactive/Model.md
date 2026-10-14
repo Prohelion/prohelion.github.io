@@ -1,17 +1,19 @@
 ---
-title: Model Component
-description: "Interactive 3D model component with clickable regions, icons, buttons, data values, points, and annotation lines in model space."
+title: Model component
+description: "Show a 3D model that operators orbit and zoom, with clickable regions, icons, buttons, live data values and annotation lines in model space."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Model
 
-A model component is an interactive three-dimensional view that loads one or more 3D model files from the `/Profile/Models` directory, lets the operator orbit and zoom the view, and overlays regions, icons, buttons, data values, points and annotation lines at positions in the space of the model. The component is the three-dimensional counterpart of the [Image](Image.md) component, and uses the same overlay structure.
+A model component is an interactive three-dimensional view that loads one or more 3D model files from the `/Profile/Models` directory, lets the operator orbit and zoom the view, and overlays regions, icons, buttons, data values, points, and annotation lines at positions in the space of the model. The component is the three-dimensional counterpart of the [Image](Image.md) component, and uses the same overlay structure.
 
-## When to Use
+Use a model component for vehicle, battery pack and machine views in which components are located in three dimensions, and for interactive models with live data labels.
+Use the [Image](Image.md) component for a flat diagram.
 
-Use a model component for vehicle, battery pack and machine views in which components are located in three dimensions, and for interactive models with live data labels. Use the [Image](Image.md) component for a flat diagram.
-
-## Model Files
+## Model files
 
 Model files are stored in the `/Profile/Models` directory and are referenced by the filename relative to that directory, including any subfolder, for example `engine.glb`. The component loads GL Transmission Format (GLTF) files, including the binary GLB form, and Stereolithography (STL) and Wavefront OBJ files, and a model that uses external textures needs those texture files stored beside the model with the same folder structure.
 
@@ -22,18 +24,18 @@ Model files are stored in the `/Profile/Models` directory and are referenced by 
 | `id` | string | No | None | Set as the `id` attribute of the model container |
 | `class` | string | No | None | CSS class added to the model container |
 | `label` | string | No | None | Not used by the web interface |
-| `models` | array | Yes | None | One or more model files, loaded into one shared coordinate space. At least one model is required. See [Model Entry Parameters](#model-entry-parameters) |
+| `models` | array | Yes | None | One or more model files, loaded into one shared coordinate space. At least one model is required. Refer to [Model entry parameters](#model-entry-parameters) |
 | `upAxis` | string | No | `Y` | Up axis of the model, `Y` or `Z`. Use `Z` for models exported from computer-aided design (CAD) tools that use Z as the up axis, such as SolidWorks |
 | `cameraPosition` | array of number | No | `[5, 5, 5]` | Initial camera position as `[x, y, z]` |
 | `cameraTarget` | array of number | No | `[0, 0, 0]` | Point that the camera looks at and orbits around, as `[x, y, z]` |
 | `fov` | number | No | `50` | Vertical field of view of the camera in degrees |
-| `layers` | array | No | None | Named layers for visibility toggles. The layer parameters are the same as those of an [Image](Image.md#layer-parameters) |
-| `regions` | array | No | None | Clickable spheres. See [Region Parameters](#region-parameters) |
-| `icons` | array | No | None | Icons anchored in model space. See [Icon Parameters](#icon-parameters) |
-| `buttons` | array | No | None | Buttons anchored in model space. See [Button Parameters](#button-parameters) |
-| `dataValues` | array | No | None | Live data overlays. See [Data Value Parameters](#data-value-parameters) |
-| `points` | array | No | None | Anchor points for annotation lines. See [Point Parameters](#point-parameters) |
-| `annotationLines` | array | No | None | Lines between overlay elements. See [Annotation Line Parameters](#annotation-line-parameters) |
+| `layers` | array | No | None | Named layers for visibility toggles. The layer parameters are the same as those of an [Image](Image.md#layers) |
+| `regions` | array | No | None | Clickable spheres. Refer to [Region parameters](#region-parameters) |
+| `icons` | array | No | None | Icons anchored in model space. Refer to [Icon parameters](#icon-parameters) |
+| `buttons` | array | No | None | Buttons anchored in model space. Refer to [Button parameters](#button-parameters) |
+| `dataValues` | array | No | None | Live data overlays. Refer to [Data value parameters](#data-value-parameters) |
+| `points` | array | No | None | Anchor points for annotation lines. Refer to [Point parameters](#point-parameters) |
+| `annotationLines` | array | No | None | Lines between overlay elements. Refer to [Annotation line parameters](#annotation-line-parameters) |
 | `bind` | array | No | None | [Data binding](../../Data_Binding.md) whose value replaces the overlay data of the model, using the same structure as the parameters above |
 | `enabled` | boolean | No | `true` | Not used by the web interface |
 | `unit` | string | No | None | Not used by the web interface. Set `unit` on each data value instead |
@@ -43,20 +45,20 @@ Model files are stored in the `/Profile/Models` directory and are referenced by 
 
 Every overlay position is given as `x`, `y` and `z` in model space, which uses the same units and axes as the loaded model files. Each coordinate is a plain number, and a missing or non-numeric coordinate is read as `0`. Positions are not percentages, which is the difference from an [Image](Image.md) component, and multiple models share the same space. The `size` of an icon is the only measurement in pixels, and the `size` of a point and the `radius` of a region are in model units.
 
-### Model Entry Parameters
+### Model entry parameters
 
 Each item in `models` has:
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `model` | string | Yes | None | Filename of the model in the `/Profile/Models` directory (GLB, GLTF, STL or OBJ). When the file is missing or cannot be loaded, the component shows the message "Error loading 3D model" in place of the model |
+| `model` | string | Yes | None | Filename of the model in the `/Profile/Models` directory (GLB, GLTF, STL, or OBJ). When the file is missing or cannot be loaded, the component shows the message "Error loading 3D model" in place of the model |
 | `layer` | string | No | None | Identifier of a layer. The model is hidden when that layer is switched off |
 
-### Action Invocation
+### Action invocation
 
-The `action` of a region, icon or button is an action invocation. The parameters are the same as those described for an [Image](Image.md#action-invocation) component, and the [Actions](Actions.md#invoke-types) page describes the invoke types.
+The `action` of a region, icon, or button is an action invocation. The parameters are the same as those described for an [Image](Image.md#action-invocation) component, and the [Actions](Actions.md#invoke-types) page describes the invoke types.
 
-### Region Parameters
+### Region parameters
 
 A region is a clickable sphere in model space.
 
@@ -72,7 +74,7 @@ A region is a clickable sphere in model space.
 | `visible` | boolean | No | `true` | When `false`, the sphere is not drawn and the clickable area remains |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the region |
 
-### Icon Parameters
+### Icon parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -80,14 +82,14 @@ A region is a clickable sphere in model space.
 | `x` | number | Yes | None | Position along the X axis of the model |
 | `y` | number | Yes | None | Position along the Y axis of the model |
 | `z` | number | Yes | None | Position along the Z axis of the model |
-| `icon` | string | Yes | None | Icon source: an image filename, an emoji character, SVG path data, or an `<svg>` element. The [Image](Image.md#icon-parameters) page describes the accepted forms |
+| `icon` | string | Yes | None | Icon source: an image filename, an emoji character, SVG path data, or an `<svg>` element. The [Image](Image.md#icons) page describes the accepted forms |
 | `size` | number | No | `24` | Icon size in pixels |
 | `color` | string | No | None | Icon colour, applied to SVG paths and text icons |
 | `label` | string | No | None | Accessible alternative text for the icon. The web interface does not show the label as a tooltip |
 | `action` | object | No | None | Action invocation run when the icon is clicked |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the icon |
 
-### Button Parameters
+### Button parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -99,7 +101,7 @@ A region is a clickable sphere in model space.
 | `action` | object | No | None | Action invocation run when the button is clicked |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the button |
 
-### Data Value Parameters
+### Data value parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -120,7 +122,7 @@ A region is a clickable sphere in model space.
 
 The display types behave as they do on an [Image](Image.md#display-types) component, including the rule that a `status` data value takes its colour from the bound value.
 
-### Point Parameters
+### Point parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -132,7 +134,7 @@ The display types behave as they do on an [Image](Image.md#display-types) compon
 | `color` | string | No | `grey` | Colour of the point |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the point |
 
-### Annotation Line Parameters
+### Annotation line parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -228,8 +230,8 @@ dashboard:
                       z: 0.2
 ```
 
-## Notes
+## Viewer controls
 
-### Viewer Controls
-
-The operator orbits and zooms the model with the pointer. Three controls sit over the view. **Reset view** returns the camera to its starting position, **XYZ** shows or hides a readout of the camera position, the point that the camera looks at and the field of view, and **Fullscreen** switches the view to and from full screen. While a model loads the component shows the message "Loading 3D model...".
+The operator orbits and zooms the model with the pointer.
+Three controls sit over the view.
+**Reset view** returns the camera to its starting position, **XYZ** shows or hides a readout of the camera position, the point that the camera looks at and the field of view, and **Fullscreen** switches the view to and from full screen. While a model loads the component shows the message "Loading 3D model...".

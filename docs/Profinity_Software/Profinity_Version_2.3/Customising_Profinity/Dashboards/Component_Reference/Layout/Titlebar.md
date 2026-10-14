@@ -1,6 +1,9 @@
 ---
-title: Titlebar Component
-description: "Header bar of a dashboard with a status lamp and a toolbar of menu items for identification, navigation, actions and dialogs."
+title: Titlebar component
+description: "Reference for the Titlebar dashboard component: the header bar with a status lamp and menu toolbar, with its parameters, menu item behaviour and an example."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Titlebar
@@ -12,9 +15,10 @@ The titlebar is the header bar of a dashboard, with a status lamp and a toolbar 
 <figcaption>Dashboard titlebar component showing a status lamp and a menu toolbar</figcaption>
 </figure>
 
-## When to Use
+## When to use
 
-Use the titlebar for dashboard identification, a status indicator, navigation links, component-specific actions and settings dialogs. The `menu` of a titlebar can hold every [menu item type](Menu.md#item-types), including the `modal` item that opens a dialog.
+Use the titlebar for dashboard identification, a status indicator, navigation links, component-specific actions and settings dialogs.
+The `menu` of a titlebar can hold every [menu item type](Menu.md#item-types), including the `modal` item that opens a dialog.
 
 ## Parameters
 
@@ -31,9 +35,9 @@ When both `showTitlebar` and `showActions` are `false`, the titlebar is not disp
 
 ## Notes
 
-### Menu Items in the Titlebar
+### Menu items in the titlebar
 
-The titlebar displays every item of its `menu` as an icon, without the item caption, and each item type behaves as follows:
+The titlebar displays every item of its `menu` as an icon, without the item caption, and each item type behaves as follows.
 
 | Item type | Behaviour in the titlebar |
 |-----------|---------------------------|

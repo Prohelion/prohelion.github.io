@@ -1,6 +1,9 @@
 ---
-title: Pill Component
-description: "Status pill with central icon and grouped readouts for compact component status and key metric display."
+title: Pill component
+description: "Reference for the Pill dashboard component: a compact status display with an icon and grouped values, with its parameters and an example."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Pill
@@ -12,9 +15,10 @@ A pill is a compact status display that shows several related values, arranged i
 <figcaption>Pill component showing status display with icon and grouped readouts</figcaption>
 </figure>
 
-## When to Use
+## When to use
 
-Use a pill for component status and key metrics, where several related values sit beside one icon. Use [Readouts](../Data/Readouts.md) when the values need no icon or grouping.
+Use a pill for component status and key metrics, where several related values sit beside one icon.
+Use [Readouts](../Data/Readouts.md) when the values need no icon or grouping.
 
 ## Parameters
 
@@ -22,11 +26,11 @@ Use a pill for component status and key metrics, where several related values si
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the pill element |
-| `title` | string | No | None | Heading shown above the icon and groups, inside the same pill |
+| `title` | string | No | None | Heading at the top of the pill, before the icon and groups |
 | `icon` | object | No | None | Icon shown at the left of the pill. When omitted, the icon area is left empty |
 | `items` | array | Yes | None | Array of pill groups, laid out horizontally in order |
 
-### Icon Parameters
+### Icon parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -35,7 +39,7 @@ Use a pill for component status and key metrics, where several related values si
 | `value` | number | No | None | State of the icon between `0` and `1`. The value only affects icons that change with state, and has no visible effect on an icon drawn from `image` |
 | `bind` | array | No | None | Data binding for the icon. Only the `value` target is handled |
 
-### Pill Group Parameters
+### Pill group parameters
 
 Each item in the pill's `items` must contain a `pillgroup` object with:
 
@@ -45,7 +49,7 @@ Each item in the pill's `items` must contain a `pillgroup` object with:
 | `class` | string | No | None | Not used by the web interface |
 | `items` | array | Yes | None | Array of value items |
 
-### Pill Item Parameters
+### Pill item parameters
 
 Each item in the pill group's `items` must contain a `value` object, which is a pill item, with:
 

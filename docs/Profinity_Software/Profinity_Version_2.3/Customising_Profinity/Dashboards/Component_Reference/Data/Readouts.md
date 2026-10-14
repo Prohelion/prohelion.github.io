@@ -1,20 +1,22 @@
 ---
-title: Readouts Component
+title: Readouts component
 description: "Display numerical and text values with units, precision control, and data binding for sensor readings and measurements."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Readouts
+# Readouts component
 
-Readouts display numerical or text values with units and precision, and they are the primary way to show sensor data, measurements and other numerical information from the system.
+Readouts display numerical or text values with units and precision, and they are the primary way to show sensor data, measurements, and other numerical information from the system.
 
 <figure markdown>
-![Readouts component showing numerical and text value displays](../../images/readouts.png)
+![A row of readouts, each with a caption, a numerical or text value, and a unit](../../images/readouts.png)
 <figcaption>Readouts component showing numerical and text value displays</figcaption>
 </figure>
 
-## When to Use
-
-Use readouts for sensor readings, measurements, text information and other real-time values. Use a [Chart](Charts.md) when the trend matters more than the latest value, and a [Table](Tables.md) for a large set of related values.
+Use readouts for sensor readings, measurements, text information and other real-time values.
+Use a [Chart](Charts.md) when the trend matters more than the latest value, and a [Table](Tables.md) for a large set of related values.
 
 ## Parameters
 
@@ -24,7 +26,7 @@ Use readouts for sensor readings, measurements, text information and other real-
 | `class` | string | No | None | CSS class added to the `readouts` element |
 | `items` | array | Yes | None | Array of readout items. Each item is displayed as one readout |
 
-### Readout Parameters
+### Readout parameters
 
 Each item in `items` must contain a `readout` object with:
 

@@ -1,6 +1,9 @@
 ---
-title: Panel Component
-description: "Individual titled panel within a grid layout for organising related content and data visualisations."
+title: Panel component
+description: "Reference for the Panel dashboard component: a titled container inside a panels grid, with its parameters, sizing options and examples."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Panel
@@ -12,9 +15,10 @@ A panel is a titled container within a [panels](Panels.md) grid that holds relat
 <figcaption>Panel component displaying a titled container with organised content</figcaption>
 </figure>
 
-## When to Use
+## When to use
 
-Use a panel for one titled section of data inside a panels grid. Use a [Group](Group.md) when the components need no title or panel frame.
+Use a panel for one titled section of data inside a panels grid.
+Use a [Group](Group.md) when the components need no title or panel frame.
 
 ## Parameters
 
@@ -22,19 +26,19 @@ Use a panel for one titled section of data inside a panels grid. Use a [Group](G
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | Style variant of the panel body. `sunken` is the only variant that Profinity defines, and it suits charts and state diagrams. The variant applies to the panel body and not to the whole panel |
-| `title` | string | Yes | None | Header label shown above the panel body |
-| `menu` | object | No | None | When present, the panel header shows a static menu icon. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions or dialogs. See [Menu](Menu.md) |
+| `title` | string | Yes | None | Title text in the panel header, at the top of the panel |
+| `menu` | object | No | None | When present, the panel header shows a static menu icon. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions, or dialogs. See [Menu](Menu.md) |
 | `width` | string | No | None | Width in CSS format, for example `100px`, `50%` or `auto`, applied to the panel |
 | `height` | string | No | None | Height in CSS format, for example `100px`, `50vh` or `auto`, applied to the body area of the panel |
 | `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows to fit its content and never shrinks below this value, and the value never stretches the panel to fill space |
-| `items` | array | Yes | None | Components displayed in the body of the panel: a [chart](../Data/Charts.md), [lamps](../Data/Lamps.md), [state](../Data/State.md) diagram, [group](Group.md), [readouts](../Data/Readouts.md), [table](../Data/Tables.md), [html](../Content/HTML.md), [redirect](../Content/Redirect.md) or [caption](../Data/Caption.md). Place any other component inside a `group` |
+| `items` | array | Yes | None | Components displayed in the body of the panel: a [chart](../Data/Charts.md), [lamps](../Data/Lamps.md), [state](../Data/State.md) diagram, [group](Group.md), [readouts](../Data/Readouts.md), [table](../Data/Tables.md), [html](../Content/HTML.md), [redirect](../Content/Redirect.md), or [caption](../Data/Caption.md). Place any other component inside a `group` |
 
-!!! info "Panel Menu Items Are Not Displayed"
-    A panel with a `menu` shows a static menu icon in its header, and clicking the icon does nothing. Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) component for navigation and actions.
+A panel with a `menu` shows a static menu icon in its header, and clicking the icon does nothing.
+Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) component for navigation and actions.
 
 ## Example
 
-### Basic Example
+### Basic example
 
 ``` yaml
 dashboard:
@@ -61,9 +65,9 @@ dashboard:
                                 precision: 1
 ```
 
-### Height Variations
+### Height variations
 
-Panels support different height configurations for flexible layouts:
+Panels support different height configurations for flexible layouts.
 
 ``` yaml
 dashboard:
@@ -104,9 +108,9 @@ dashboard:
                                 value: 42
 ```
 
-### Width Example
+### Width example
 
-Panels also support explicit width values to control horizontal sizing within layouts:
+Panels also support explicit width values to control horizontal sizing within layouts.
 
 ``` yaml
 dashboard:
@@ -134,9 +138,9 @@ dashboard:
                           content: "<p>Fixed width content area</p>"
 ```
 
-### Complex Nested Structures
+### Complex nested structures
 
-Panels can contain complex nested component structures, in which a `group` holds the components that the panel does not accept directly:
+Panels can contain complex nested component structures, in which a `group` holds the components that the panel does not accept directly.
 
 ``` yaml
 dashboard:
@@ -200,7 +204,7 @@ dashboard:
                                           toType: boolean
 ```
 
-### Complete Example
+### Complete example
 
 ``` yaml
 dashboard:

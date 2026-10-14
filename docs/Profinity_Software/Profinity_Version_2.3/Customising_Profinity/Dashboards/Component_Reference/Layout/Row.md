@@ -1,6 +1,9 @@
 ---
-title: Row Component
-description: "Layout container for organising multiple components horizontally or vertically within dashboards."
+title: Row component
+description: "Reference for the Row dashboard component: a layout container that arranges components vertically or horizontally, with its parameters and an example."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Row
@@ -12,9 +15,11 @@ A row is a layout container that holds several components and arranges them vert
 <figcaption>Row layout container organising multiple components in a dashboard</figcaption>
 </figure>
 
-## When to Use
+## When to use
 
-Use a row to divide a dashboard into logical sections and to control the direction in which the components of a section are laid out. A row stacks its items vertically unless `direction` is set to `horizontal`, so set `direction: horizontal` to place items side by side. Use a [Group](Group.md) when a set of related components needs a shared `width`, because a row takes a `height` and not a width.
+Use a row to divide a dashboard into logical sections and to control the direction in which the components of a section are laid out.
+A row stacks its items vertically unless `direction` is set to `horizontal`, so set `direction: horizontal` to place items side by side.
+Use a [Group](Group.md) when a set of related components needs a shared `width`, because a row takes a `height` and not a width.
 
 ## Parameters
 

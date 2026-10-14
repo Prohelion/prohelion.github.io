@@ -1,17 +1,21 @@
 ---
-title: Menu Component
-description: "Menu structure used by the titlebar and side menu, with menu items, submenus, logos, toggles, dialogs and actions."
+title: Menu component
+description: "Reference for the Menu component used by the titlebar and side menu: item types, submenus, logos, toggles, dialogs, and actions with their parameters."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Menu
 
 A menu is a list of items that the [titlebar](Titlebar.md) and the side menu display, where each entry is an object that contains exactly one item type: `menuitem`, `submenu`, `logo`, `toggle`, `modal` or `action`.
 
-## When to Use
+## When to use
 
-Use a menu to add icon links, actions, switches and dialog buttons to the toolbar of a titlebar, and to define the entries of the side menu. Do not use a menu in a panel or a footer, because the web interface does not display menu items there.
+Use a menu to add icon links, actions, switches, and dialog buttons to the toolbar of a titlebar, and to define the entries of the side menu.
+Do not use a menu in a panel or a footer, because the web interface does not display menu items there.
 
-## Where Menus Appear
+## Where menus appear
 
 | Component | Behaviour |
 |-----------|-----------|
@@ -22,7 +26,7 @@ Use a menu to add icon links, actions, switches and dialog buttons to the toolba
 
 ## Parameters
 
-### Menu Parameters
+### Menu parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -30,7 +34,7 @@ Use a menu to add icon links, actions, switches and dialog buttons to the toolba
 | `class` | string | No | `menu` | CSS class of the menu element |
 | `items` | array | Yes | None | Array of menu entries, where each entry contains one item type |
 
-### Item Types
+### Item types
 
 | Item type | Purpose |
 |-----------|---------|
@@ -41,7 +45,7 @@ Use a menu to add icon links, actions, switches and dialog buttons to the toolba
 | `modal` | Icon that opens a dialog when clicked, such as a settings dialog or an editor. See [Modal Parameters](#modal-parameters) |
 | `action` | Button that runs an action when clicked. See [Actions](../Interactive/Actions.md) for the parameters, noting that a menu action is displayed as an icon, so `image` is the visible part of the item |
 
-### Menu Item Parameters (`menuitem`)
+### Menu item parameters (`menuitem`)
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -54,7 +58,7 @@ Use a menu to add icon links, actions, switches and dialog buttons to the toolba
 | `lamp` | object | No | None | Lamp displayed beside the caption or icon. See [Lamp](../Data/Lamp.md) |
 | `bind` | array | No | None | Not used by the web interface |
 
-### Submenu Parameters (`submenu`)
+### Submenu parameters (`submenu`)
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -65,7 +69,7 @@ Use a menu to add icon links, actions, switches and dialog buttons to the toolba
 | `location` | string | No | None | Zone of the side menu that holds the submenu, `top` or `bottom`. The values `right` and `left` are accepted, and the side menu does not use them |
 | `items` | array | Yes | None | Child entries, shown when the submenu is expanded |
 
-### Logo Parameters (`logo`)
+### Logo parameters (`logo`)
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -74,9 +78,10 @@ Use a menu to add icon links, actions, switches and dialog buttons to the toolba
 | `image` | string | Yes | None | Logo image or icon |
 | `navigate` | string | Yes | None | Navigation target when the logo is clicked |
 
-### Modal Parameters
+### Modal parameters
 
-A `modal` item opens a dialog window when it is clicked. The item takes the common parameters in the first table and exactly one dialog parameter from the second table.
+A `modal` item opens a dialog window when it is clicked.
+The item takes the common parameters in the first table and exactly one dialog parameter from the second table.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -93,9 +98,10 @@ A `modal` item opens a dialog window when it is clicked. The item takes the comm
 | `twoFactorAuthentication` | The Two-Factor Authentication dialog. Set the parameter to an empty object, `twoFactorAuthentication: {}` |
 | `aiChat` | The Profinity AI chat. Set the parameter to an empty object, `aiChat: {}` |
 
-#### Opening a Settings Dialog
+#### Opening a settings dialog
 
-A `settings` payload opens the settings dialog of a component, which loads the settings from the address in `urlSettings`. The payload chooses which footer buttons the dialog offers and what happens when the dialog closes.
+A `settings` payload opens the settings dialog of a component, which loads the settings from the address in `urlSettings`.
+The payload chooses which footer buttons the dialog offers and what happens when the dialog closes.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -113,7 +119,7 @@ A `settings` payload opens the settings dialog of a component, which loads the s
 | `id` | string | No | None | Not used by the web interface |
 | `showTabs` | boolean | No | None | Not used by the web interface. The dialog always shows its tabs |
 
-#### Opening an Editor Dialog
+#### Opening an editor dialog
 
 An `editor` payload opens a file in the code editor dialog.
 

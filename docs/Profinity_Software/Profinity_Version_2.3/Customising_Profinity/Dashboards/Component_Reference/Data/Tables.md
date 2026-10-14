@@ -1,20 +1,22 @@
 ---
-title: Tables Component
+title: Tables component
 description: "Data table display with heatmap visualisation, highlighting, and value threshold alerts for multi-dimensional data."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Tables
+# Tables component
 
-A table presents structured data in rows and columns, with heatmaps, highlighting and threshold alerts that help analyse the data.
+A table presents structured data in rows and columns, with heatmaps, highlighting, and threshold alerts that help analyse the data.
 
 <figure markdown>
-![Tables component displaying structured data in rows and columns with heatmap visualisation](../../images/tables.png)
+![A table of values in rows and columns with cells coloured as a heatmap](../../images/tables.png)
 <figcaption>Tables component displaying structured data in rows and columns with heatmap visualisation</figcaption>
 </figure>
 
-## When to Use
-
-Use a table for structured and multi-dimensional data, large sets of values and comparisons between values. Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md) when the shape of the data matters more than the exact values.
+Use a table for structured and multi-dimensional data, large sets of values and comparisons between values.
+Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md) when the shape of the data matters more than the exact values.
 
 ## Parameters
 
@@ -51,9 +53,9 @@ The web interface applies the settings to each numeric cell in this order:
 1. The display range (`minValueToDisplay` and `maxValueToDisplay`) is tested against the original value, and a cell outside the range is displayed empty.
 2. `conversionFactor`, `displayPositive` and `precision` are applied to the displayed text.
 
-The highlight, alert and heatmap colours are chosen from the original value.
+The highlight, alert, and heatmap colours are chosen from the original value.
 
-### Table Header Parameters
+### Table header parameters
 
 Each item in `tableHeaders` must contain a `header` object with:
 

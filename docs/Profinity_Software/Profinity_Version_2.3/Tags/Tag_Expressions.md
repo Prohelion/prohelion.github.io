@@ -1,17 +1,25 @@
 ---
-title: Tag Expressions
-description: "Expression language for collections, rules, and derived tags to filter and compute tag values."
+title: Tag expressions
+description: Look up the expression language that collections, rules, and derived tags use to select tags, compare values and compute derived values.
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Tag Expressions
 
-Collections, rules, and derived tags share one small expression language. Collections and rules write a **boolean** expression over a single parameter named `tag`. Derived tags write a **value formula** over the aliases they declare (`a`, `b`, …). The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
+Collections, rules, and derived tags share one small expression language.
+Collections and rules write a boolean expression over a single parameter named `tag`.
+Derived tags write a value formula over the aliases they declare (`a`, `b`, …).
+The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
 
-Expressions are typed in the [collections](./Collections.md), [rules](./Rules.md) and [derived tags](./Derived_Tags.md) editors, using either the guided builder or free text, and an invalid member fails validation when the file is saved, with a message that points at the correct spelling.
+Expressions are typed in the [collections](./Collections.md), [rules](./Rules.md), and [derived tags](./Derived_Tags.md) editors, using either the guided builder or free text.
+An invalid member fails validation when the file is saved, with a message that points at the correct spelling.
 
-## Picking Tags
+## Picking tags
 
-Path matching is available only on `tag`, so collections and rules can select tags by their position in the tree, whereas a derived alias has already chosen its tag and Profinity rejects path methods there. A leading `/` in the path given to `Is` or `MatchesPath` is ignored, so `/Vehicles/Car1` and `Vehicles/Car1` match the same tags.
+Path matching is available only on `tag`, so collections and rules can select tags by their position in the tree, whereas a derived alias has already chosen its tag and Profinity rejects path methods there.
+A leading `/` in the path given to `Is` or `MatchesPath` is ignored, so `/Vehicles/Car1` and `Vehicles/Car1` match the same tags.
 
 | Member | Meaning |
 |--------|---------|
@@ -19,7 +27,7 @@ Path matching is available only on `tag`, so collections and rules can select ta
 | `tag.MatchesPath("…")` | Path segments from the start, plus everything underneath |
 | `tag.MatchesName("…")` | Last path segment only |
 
-### Worked Examples
+### Worked examples
 
 One exact tag:
 
@@ -57,11 +65,12 @@ Leaf name contains (case-insensitive):
 tag.MatchesName("*Current*")
 ```
 
-`tag.MatchesPath("Elmar Solar MPPT")` already includes everything beneath that component, so a trailing `*` is not needed. A trailing `*` lets the last segment continue, so `Elmar Solar MPPT*` also matches a neighbouring component whose name starts with the same text.
+`tag.MatchesPath("Elmar Solar MPPT")` already includes everything beneath that component, so a trailing `*` is not needed.
+A trailing `*` lets the last segment continue, so `Elmar Solar MPPT*` also matches a neighbouring component whose name starts with the same text.
 
 ## Wildcards
 
-One `*` dialect for path segments and leaf names:
+Path segments and leaf names use one `*` wildcard dialect:
 
 | Pattern | Matches |
 |---------|---------|
@@ -73,9 +82,10 @@ One `*` dialect for path segments and leaf names:
 
 An interior `*` such as `Out*Current` fails validation, because wildcards may only sit at the start or end of a pattern token.
 
-## Values and Quality
+## Values and quality
 
-Each member suits one kind of comparison, and `Value` converts to a number itself, so a reading needs no conversion helper. `Value` is empty when the tag quality is Bad or Unavailable, so a comparison such as `tag.Value > 5` is false rather than an error for such a tag, and `Text` is empty for a numeric tag.
+Each member suits one kind of comparison, and `Value` converts to a number itself, so a reading needs no conversion helper.
+`Value` is empty when the tag quality is Bad or Unavailable, so a comparison such as `tag.Value > 5` is false rather than an error for such a tag, and `Text` is empty for a numeric tag.
 
 | Member | Use for |
 |--------|---------|
@@ -109,9 +119,10 @@ tag.Meta.Text("unit") == "A"
 tag.Meta.Number("limits/min") <= 100
 ```
 
-## Derived Formulas
+## Derived formulas
 
-Aliases expose only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality`, `IsStale`). Path methods and the wrong parameter name (`tag.…`) are rejected.
+Aliases expose only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality`, `IsStale`).
+Path methods and the wrong parameter name (`tag.…`) are rejected.
 
 ```text
 a.Value * 1.60934
@@ -122,9 +133,14 @@ Math.Round((a.Value ?? 0) * 100, 2)
 a.Value != null ? Math.Abs(a.Value ?? 0) : null
 ```
 
-Static members of `Math` are available in formulas. A tag's `Value` can be empty, because a tag has no value until it has produced one, and `Math` functions need a number, so give them one with the `??` operator, as in `Math.Abs(a.Value ?? 0)`. `??` uses the right-hand number when the tag has no value, so the result is `0` in that case. To get no value instead, test first, as in `a.Value != null ? Math.Abs(a.Value ?? 0) : null`. A formula that passes `a.Value` straight to a `Math` function, such as `Math.Abs(a.Value)`, is rejected when the derived tag is saved, with the message "No applicable method 'Abs' exists in type 'Math'"; add `?? 0` to fix it. The same applies to `tag.Value` in collection and rule expressions.
+Static members of `Math` are available in formulas.
+A tag's `Value` can be empty, because a tag has no value until it has produced one, and `Math` functions need a number, so give them one with the `??` operator, as in `Math.Abs(a.Value ?? 0)`.
+`??` uses the right-hand number when the tag has no value, so the result is `0` in that case.
+To get no value instead, test first, as in `a.Value != null ? Math.Abs(a.Value ?? 0) : null`.
+A formula that passes `a.Value` straight to a `Math` function, such as `Math.Abs(a.Value)`, is rejected when the derived tag is saved, with the message "No applicable method 'Abs' exists in type 'Math'"; add `?? 0` to fix it.
+The same applies to `tag.Value` in collection and rule expressions.
 
-## Guided Builder
+## Guided builder
 
 | Facet | Emits |
 |-------|-------|
@@ -137,7 +153,7 @@ Static members of `Math` are available in formulas. A tag's `Value` can be empty
 
 Use **Free text** when the builder cannot express the predicate (complex `&&` / `||`, unusual meta keys, or derived formulas).
 
-## Unsupported Spellings
+## Unsupported spellings
 
 These spellings fail validation in Profinity 2.3. Rewrite them as shown:
 
@@ -150,11 +166,4 @@ These spellings fail validation in Profinity 2.3. Rewrite them as shown:
 | `tag.Meta.Field(…)` | `tag.Meta.Text(…)` or `tag.Meta.Number(…)` |
 | `tag.SampleAgeSeconds` / `SecondsSinceUpdate` | `tag.IsStale` |
 
-## Related Documentation
-
-- [Collections](./Collections.md)
-- [Alerts Log](./Alerts.md)
-- [Rules](./Rules.md) and [Actions](./Actions.md)
-- [Derived tags](./Derived_Tags.md)
-- [Tag linking](Tag_Linking.md)
-- [Tag layer](index.md)
+For the places these expressions are used, refer to [Collections](./Collections.md), [Alerts Log](./Alerts.md), [Rules](./Rules.md), [Actions](./Actions.md), [Derived tags](./Derived_Tags.md) and [Tag linking](Tag_Linking.md), or return to the [Tag layer](index.md) overview.

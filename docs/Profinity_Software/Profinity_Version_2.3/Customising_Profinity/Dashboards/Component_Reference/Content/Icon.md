@@ -1,20 +1,22 @@
 ---
-title: Icon Component
+title: Icon component
 description: "Display an icon from the Carbon icon set or the profile images directory."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Icon
+# Icon component
 
 An icon is a single graphic that displays an icon from the [Carbon icon library](https://carbondesignsystem.com/elements/icons/library/), an icon filename, or an image from the `/Profile/Images` directory.
 
 <figure markdown>
-![Icon component displaying an icon from the Profile Images directory](../../images/icon.png)
+![A single icon on a dashboard, loaded from the profile images directory](../../images/icon.png)
 <figcaption>Icon component displaying an icon from the Profile Images directory</figcaption>
 </figure>
 
-## When to Use
-
-Use an icon to display a graphic, a status indicator or another visual element. Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the `image` parameter of the component itself when an icon is needed inside another component.
+Use an icon to display a graphic, a status indicator, or another visual element.
+Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the `image` parameter of the component itself when an icon is needed inside another component.
 
 ## Parameters
 
@@ -31,7 +33,7 @@ Use an icon to display a graphic, a status indicator or another visual element. 
 
 ## Example
 
-### Basic Example
+A basic icon from an icon filename:
 
 ``` yaml
 dashboard:
@@ -43,7 +45,7 @@ dashboard:
               recess: false
 ```
 
-### Carbon Icon Example
+A Carbon icon by name:
 
 ``` yaml
 dashboard:
@@ -53,8 +55,6 @@ dashboard:
           - icon:
               image: BatteryCharging
 ```
-
-### Profile Image Example
 
 An image that is not a known icon is loaded from the `/Profile/Images` directory:
 
@@ -66,8 +66,6 @@ dashboard:
           - icon:
               image: custom-logo.png
 ```
-
-### Recessed Icon Example
 
 Recessed icons appear inset in a larger frame:
 

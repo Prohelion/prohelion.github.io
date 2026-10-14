@@ -1,20 +1,25 @@
 ---
-title: Panels Component
-description: "Grid layout of multiple panel containers for organising complex information into separate sections."
+title: Panels component
+description: "Reference for the Panels dashboard component: a grid of panel containers, with its parameters, height options and an example."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Panels
 
-A panels component is a grid that lays out several [panel](Panel.md) containers, where each panel holds its own content and data visualisations. The panels sit side by side and wrap onto the next line when the row has no room left.
+A panels component is a grid that lays out several [panel](Panel.md) containers, where each panel holds its own content and data visualisations.
+The panels sit side by side and wrap onto the next line when the row has no room left.
 
 <figure markdown>
 ![Panels component showing a grid layout of multiple panel containers](../../images/panels.png)
 <figcaption>Panels component showing a grid layout of multiple panel containers</figcaption>
 </figure>
 
-## When to Use
+## When to use
 
-Use panels to divide a section of a dashboard into several titled areas that each show a different data view. Use a [Row](Row.md) or a [Group](Group.md) when the components need no titles or panel frames.
+Use panels to divide a section of a dashboard into several titled areas that each show a different data view.
+Use a [Row](Row.md) or a [Group](Group.md) when the components need no titles or panel frames.
 
 ## Parameters
 

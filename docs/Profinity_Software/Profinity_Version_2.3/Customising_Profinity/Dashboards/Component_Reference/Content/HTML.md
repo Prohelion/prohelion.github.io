@@ -1,20 +1,23 @@
 ---
-title: HTML Component
+title: HTML component
 description: "Embed custom HTML content with references to profile assets for rich text formatting and custom layouts, or show a map that follows a position."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# HTML
+# HTML component
 
-An HTML component displays custom HTML, including images from `/Profile/Images`, or instead shows an OpenStreetMap view that follows a Global Positioning System (GPS) position. The component sanitises the HTML before it is displayed, so scripts and form controls are removed.
+An HTML component displays custom HTML, including images from `/Profile/Images`, or instead shows an OpenStreetMap view that follows a Global Positioning System (GPS) position.
+The component sanitises the HTML before it is displayed, so scripts and form controls are removed.
 
 <figure markdown>
-![HTML component displaying custom HTML content with rich text formatting](../../images/html.png)
+![A dashboard panel showing formatted text and an image produced by an HTML component](../../images/html.png)
 <figcaption>HTML component displaying custom HTML content with rich text formatting</figcaption>
 </figure>
 
-## When to Use
-
-Use an HTML component for custom content, rich text formatting, embedded images, documentation snippets and a live map of a GPS position. Use [Readouts](../Data/Readouts.md), [Tables](../Data/Tables.md) and similar components for structured data, and [Actions](../Interactive/Actions.md) and [Toggles](../Interactive/Toggles.md) for interactive elements.
+Use an HTML component for custom content, rich text formatting, embedded images, documentation snippets, and a live map of a GPS position.
+Use [Readouts](../Data/Readouts.md), [Tables](../Data/Tables.md), and similar components for structured data, and [Actions](../Interactive/Actions.md) and [Toggles](../Interactive/Toggles.md) for interactive elements.
 
 ## Parameters
 
@@ -22,26 +25,32 @@ Use an HTML component for custom content, rich text formatting, embedded images,
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the content container |
-| `content` | string | Yes | None | HTML snippet to display. See [Allowed HTML](#allowed-html) for the tags and attributes that survive sanitising. The content is not displayed when `map` is set with both position sources |
-| `map` | object | No | None | Switches the component to a map view that follows a GPS position. See [Map Parameters](#map-parameters) |
+| `content` | string | Yes | None | HTML snippet to display. Refer to [Allowed HTML](#allowed-html) for the tags and attributes that survive sanitising. The content is not displayed when `map` is set with both position sources |
+| `map` | object | No | None | Switches the component to a map view that follows a GPS position. Refer to [Map parameters](#map-parameters) |
 
-### Allowed HTML
+### Allowed tags and attributes {#allowed-html}
 
 The web interface removes everything that is not on an allowed list before it displays `content`:
 
-- **Tags**: `p`, `div`, `span`, `img`, `a`, `h1` to `h6`, `ul`, `ol`, `li`, `table`, `thead`, `tbody`, `tr`, `th`, `td`, `strong`, `em`, `b`, `i`, `u`, `br`, `hr`, `blockquote`, `pre`, `code` and `iframe`
-- **Attributes**: `src`, `alt`, `href`, `class`, `style`, `title`, `width`, `height`, `colspan`, `rowspan`, `align`, `valign`, `target`, `rel`, `name`, `loading`, `referrerpolicy`, `sandbox`, `allow` and `allowfullscreen`
-- **Removed**: `script`, `link`, `embed`, `object`, `form`, `input`, `button`, every event handler attribute such as `onclick`, and every `data-` attribute
+- Tags: `p`, `div`, `span`, `img`, `a`, `h1` to `h6`, `ul`, `ol`, `li`, `table`, `thead`, `tbody`, `tr`, `th`, `td`, `strong`, `em`, `b`, `i`, `u`, `br`, `hr`, `blockquote`, `pre`, `code`, and `iframe`
+- Attributes: `src`, `alt`, `href`, `class`, `style`, `title`, `width`, `height`, `colspan`, `rowspan`, `align`, `valign`, `target`, `rel`, `name`, `loading`, `referrerpolicy`, `sandbox`, `allow`, and `allowfullscreen`
+- Removed: `script`, `link`, `embed`, `object`, `form`, `input`, `button`, every event handler attribute such as `onclick`, and every `data-` attribute
 
 A link whose address begins with a single `/` navigates inside the web interface, and any other link opens normally.
 
-### Referencing Profile Assets in HTML
+### Referencing profile assets in HTML
 
-Use `/Profile/Images/{filename}` in the `src` attribute of an `img` element to show an image from the profile. Add style rules to the `profile.css` file in the `/Profile/Styles` directory, which the web interface loads when the file is present, and apply them with the `class` attribute in the HTML. The `profile.css` file can load further stylesheets with CSS `@import`. Refer to a content file as `/Profile/Content/{filename}`.
+Use `/Profile/Images/{filename}` in the `src` attribute of an `img` element to show an image from the profile.
+Add style rules to the `profile.css` file in the `/Profile/Styles` directory, which the web interface loads when the file is present, and apply them with the `class` attribute in the HTML.
+The `profile.css` file can load further stylesheets with CSS `@import`.
+Refer to a content file as `/Profile/Content/{filename}`.
 
-### Map Parameters
+### Map parameters
 
-When both `latSource` and `lonSource` are set, the component shows an OpenStreetMap view centred on the position, with a marker, instead of `content`. The map is loaded from `openstreetmap.org`, so the browser that displays the dashboard needs internet access. The map is displayed as stale when a position source has no data. Set `content` to an empty string when `map` is used, because `content` is required.
+When both `latSource` and `lonSource` are set, the component shows an OpenStreetMap view centred on the position, with a marker, instead of `content`.
+The map is loaded from `openstreetmap.org`, so the browser that displays the dashboard needs internet access.
+The map is displayed as stale when a position source has no data.
+Set `content` to an empty string when `map` is used, because `content` is required.
 
 The three position sources are not relative paths, because Profinity expands relative `DBC/` and `Properties/` paths only for the `source` of a binding, so each position source names the component in full, as in the map example.
 
@@ -54,7 +63,7 @@ The three position sources are not relative paths, because Profinity expands rel
 
 ## Example
 
-### Custom Content Example
+The first example displays custom content with an image from the profile:
 
 ``` yaml
 dashboard:
@@ -71,7 +80,7 @@ dashboard:
                 </div>
 ```
 
-### Map Example
+The second example displays a map:
 
 ``` yaml
 dashboard:

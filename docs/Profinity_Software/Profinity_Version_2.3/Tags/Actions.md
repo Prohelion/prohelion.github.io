@@ -1,41 +1,68 @@
 ---
 title: Actions
-description: "Choose and configure the built-in, Email, Slack, Webhook, MQTT and Run On Alert script actions that run when a tag rule fires."
+description: "Choose and configure the built-in, Email, Slack, Webhook, MQTT, and Run On Alert script actions that run when a tag rule fires."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Rule Actions
+# Rule actions
 
-A tag rule watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it. Profinity 2.3 offers two built-in actions, the Email, Slack, Webhook and Message Queuing Telemetry Transport (MQTT) actions, and any [script](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode. Every action receives the list of tags that caused the rule to fire, which is named `TriggeredTags` in a script and `triggeringTags` in the Webhook and MQTT JSON message.
+A [tag rule](Rules.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
+Profinity 2.3 offers two built-in actions, the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions, and any [script](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
+Every action receives the list of tags that caused the rule to fire, which is named `TriggeredTags` in a script and `triggeringTags` in the Webhook and MQTT JSON message.
 
-!!! info "Licence Required"
-    Rules, the [Alerts Log](Alerts.md) and the built-in actions **Profinity Log** and **None** work on every edition. The Email, Slack, Webhook and MQTT actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions, and a script set to **Run On Alert** needs both **Tag Rule Actions** and **Scripting** (included in the **Desktop**, **Server** and **Enterprise** editions). Without **Tag Rule Actions** the rule still evaluates and the alert is still recorded, and only the licensed actions are skipped. See [Licensing](../Administration/Licensing.md) for what each edition includes.
+!!! info "Licence required"
+    Rules, the [Alerts Log](Alerts.md) and the built-in actions **Profinity Log** and **None** work on every edition.
+    The Email, Slack, Webhook, and MQTT actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
+    A script set to **Run On Alert** needs both **Tag Rule Actions** and **Scripting** (included in the **Desktop**, **Server** and **Enterprise** editions).
+    Without **Tag Rule Actions** the rule still evaluates and the alert is still recorded, and only the licensed actions are skipped.
+    Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
 
 <figure markdown>
 ![A rule firing sends its full JSON context to pluggable actions (log, Slack, PagerDuty or a script), with cooldown throttling and actions set once and inherited down the rule tree](../images/2.3-diagram-rule-actions.png)
 <figcaption>A rule firing and the actions it runs</figcaption>
 </figure>
 
-## Action Picker
+## Action picker
 
-When editing a rule in the visual editor, actions are chosen from the action picker, which lists:
+When you edit a rule in the visual editor, you choose actions from the action picker, which lists the following:
 
-- **Profinity Log**, which writes a message to the Profinity log at the action's `level` and otherwise the rule's level, and **None**, which records the alert in the Alerts Log only and rejects `message`, `level` and `tagId`. In YAML the two are written `ProfinityLog` and `None`.
-- Every Email, Slack, Webhook and MQTT action that has been added to the profile, listed by the name of its component.
+- **Profinity Log**, which writes a message to the Profinity log at the action's `level` and otherwise the rule's level.
+- **None**, which records the alert in the Alerts Log only and rejects `message`, `level` and `tagId`.
+- Every Email, Slack, Webhook, and MQTT action that has been added to the profile, listed by the name of its component.
 - Every **CSharp Script**, **Python Script** or **Lua Script** component whose mode is **Run On Alert**, as described in [Rule scripts](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
 
-### Making an Action Available
+In YAML the two built-in actions are written `ProfinityLog` and `None`.
 
-An Email, Slack, Webhook or MQTT action does not appear in the picker until it exists as a component. Add the component from the **Rule Actions** group when [adding a new component](../Getting_Started/Adding_New_Components.md), choosing **Email Rule Action**, **Slack Rule Action**, **Webhook Rule Action** or **MQTT Rule Action**, give it a name and fill in its settings. The component's name becomes the action id in the picker and in `rules.yaml`, so a component named `OpsSlack` is written `action: OpsSlack`, and renaming the component means updating the rules that use it. A rule can then select the action from the picker, and several components of the same type, for example one Slack action per channel, can exist side by side.
+### Making an action available
 
-## TriggeredTags
+An Email, Slack, Webhook, or MQTT action does not appear in the picker until it exists as a component.
+To add one:
 
-Every rule action receives the same firing context, which includes `TriggeredTags`, the list of tags in the rule's scope that are currently evaluating true. A script uses it to log, branch or pass values on, and the Webhook and MQTT actions send the same list as the `triggeringTags` array of their JSON message, described under [Webhook and MQTT Actions](#webhook-and-mqtt-actions). The script version of the context is described in [Rule scripts](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
+1. [Add a new component](../Getting_Started/Adding_New_Components.md) from the **Rule Actions** group.
+2. Choose **Email Rule Action**, **Slack Rule Action**, **Webhook Rule Action** or **MQTT Rule Action**.
+3. Give the component a name.
+4. Fill in its settings.
 
-## Message Placeholders
+A rule can then select the action from the picker.
+The component's name becomes the action id in the picker and in `rules.yaml`, so a component named `OpsSlack` is written `action: OpsSlack`, and renaming the component means updating the rules that use it.
+Several components of the same type, for example one Slack action per channel, can exist side by side.
 
-The message of an action and the template settings of the Email and Slack actions can include the following placeholders, which Profinity replaces when the action fires: `{RuleId}`, `{TagId}`, `{Transition}`, `{Value}`, `{TagValue}`, `{Quality}`, `{MetaType}`, `{RuleLevel}`, `{TriggeredTagCount}`, `{TriggeredTagIds}`, `{ThresholdLevel}` and `{ThresholdMessage}`. The `{Value}` and `{TagValue}` placeholders both give the value reported to the action, normally that of the tag that caused the transition, `{TriggeredTagIds}` is a comma-separated list, and `{ThresholdLevel}` and `{ThresholdMessage}` are filled only for threshold rules. Control characters in substituted values are removed so that a device value cannot split a notification across lines.
+## `TriggeredTags`
 
-## Email Action Settings
+Every rule action receives the same firing context, which includes `TriggeredTags`, the list of tags in the rule's scope that are currently evaluating true.
+A script uses it to log, branch, or pass values on, and the Webhook and MQTT actions send the same list as the `triggeringTags` array of their JSON message, described under [Webhook and MQTT actions](#webhook-and-mqtt-actions).
+The script version of the context is described in [Rule scripts](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
+
+## Message placeholders
+
+The message of an action and the template settings of the Email and Slack actions can include the following placeholders, which Profinity replaces when the action fires: `{RuleId}`, `{TagId}`, `{Transition}`, `{Value}`, `{TagValue}`, `{Quality}`, `{MetaType}`, `{RuleLevel}`, `{TriggeredTagCount}`, `{TriggeredTagIds}`, `{ThresholdLevel}` and `{ThresholdMessage}`.
+The `{Value}` and `{TagValue}` placeholders both give the value reported to the action, normally that of the tag that caused the transition.
+`{TriggeredTagIds}` is a comma-separated list, and `{ThresholdLevel}` and `{ThresholdMessage}` are filled only for threshold rules.
+Control characters in substituted values are removed so that a device value cannot split a notification across lines.
+
+## Email action settings
 
 The **Email Rule Action** sends a message over Simple Mail Transfer Protocol (SMTP) each time a rule transitions.
 
@@ -50,7 +77,7 @@ The **Email Rule Action** sends a message over Simple Mail Transfer Protocol (SM
 | **Subject template** | Optional subject line, which may use the [placeholders](#message-placeholders). A default subject is used when empty. |
 | **Message prefix** | Optional text placed before the alert message in the body, which may use the placeholders. |
 
-## Slack Action Settings
+## Slack action settings
 
 The **Slack Rule Action** posts a message to a Slack channel through an incoming webhook, and each Slack action can target a different workspace.
 
@@ -61,9 +88,11 @@ The **Slack Rule Action** posts a message to a Slack channel through an incoming
 | **Title template** | Optional message title, which may use the [placeholders](#message-placeholders). A default title is used when empty. |
 | **Message prefix** | Optional text placed before the alert message, which may use the placeholders. |
 
-## Webhook and MQTT Actions
+## Webhook and MQTT actions
 
-A rule can fire a **Webhook** action or an **MQTT** action when it transitions, sending a notification to a generic HTTP destination or an MQTT broker. Both send the same message, so a subscriber sees an identical structure whichever one a rule uses. The JSON property names are camelCase, `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`, and `triggeringTags` is the same list that a script receives as `TriggeredTags`:
+A rule can fire a **Webhook** action or an **MQTT** action when it transitions, sending a notification to a generic HTTP destination or an MQTT broker.
+Both send the same message, so a subscriber sees an identical structure whichever one a rule uses.
+The JSON property names are camelCase, `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`, and `triggeringTags` is the same list that a script receives as `TriggeredTags`:
 
 ```json
 {
@@ -83,9 +112,11 @@ A rule can fire a **Webhook** action or an **MQTT** action when it transitions, 
 | The receiver is an ordinary HTTP service, such as an internal API, an integration platform, or a chat or incident tool with a generic webhook intake. | MQTT broker infrastructure is already in place, for example alongside an [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md). |
 | There is no MQTT broker to publish to. | Several systems need to subscribe to the same rule notifications through one broker topic. |
 
-Each firing opens a connection, sends the message and closes the connection. An action that has not finished within 10 seconds is cancelled and an error naming the action, the rule and the tag is written to the Profinity log, and the other rules and actions keep running. When a Webhook destination or MQTT broker cannot be reached, the alert still appears in the Alerts Log and the failure appears only in the Profinity log.
+Each firing opens a connection, sends the message and closes the connection.
+An action that has not finished within 10 seconds is cancelled and an error naming the action, the rule and the tag is written to the Profinity log, and the other rules and actions keep running.
+When a Webhook destination or MQTT broker cannot be reached, the alert still appears in the Alerts Log and the failure appears only in the Profinity log.
 
-### Webhook Action Settings
+### Webhook action settings
 
 | Setting | Purpose |
 |---|---|
@@ -95,7 +126,7 @@ Each firing opens a connection, sends the message and closes the connection. An 
 | **API key header name** / **API key header value** | Shown when **Auth mode** is **API key header**. The header name and value sent on every request, for example `X-Api-Key`. |
 | **Basic auth username** / **Basic auth password** | Shown when **Auth mode** is **Basic auth**. |
 
-### MQTT Action Settings
+### MQTT action settings
 
 | Setting | Purpose |
 |---|---|
@@ -110,11 +141,4 @@ Each firing opens a connection, sends the message and closes the connection. An 
 
 Actions are attached to rules, so the permissions that apply are those on the [Rules](Rules.md#permissions) page.
 
-## Related Documentation
-
-- [Rules](./Rules.md)
-- [Alerts Log](./Alerts.md)
-- [Tag expressions](./Tag_Expressions.md)
-- [Collections](./Collections.md)
-- [Tag layer](index.md)
-- [Derived tags](./Derived_Tags.md)
+For the rest of the tag layer, refer to [Tag layer](index.md), [Tag expressions](Tag_Expressions.md), [Collections](Collections.md) and [Derived tags](Derived_Tags.md).

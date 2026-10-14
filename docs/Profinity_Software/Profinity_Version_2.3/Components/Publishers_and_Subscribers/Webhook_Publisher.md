@@ -1,27 +1,51 @@
 ---
 title: Webhook Publisher
-description: "Push profile tag collections to HTTP endpoints via POST with JSON payloads on interval or change."
+description: "Push profile tag collections to an HTTP or HTTPS endpoint with a POST and a JSON payload, on an interval or when a value changes."
+type: component
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Webhook Publisher
 
-The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections.md) to a configured HTTP or HTTPS address with an HTTP POST, either on a fixed interval or whenever a member tag's value changes, using the same trigger modes as the [MQTT Publisher](MQTT_Publisher.md). Use it when the consumer is an ordinary web service rather than an MQTT broker. It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a receiver that is listening now, whereas a [logger](../Loggers/File_Loggers.md) writes to a file or database for later retrieval.
+The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections.md) to an HTTP or HTTPS address with an HTTP POST, either on a fixed interval or whenever a member tag's value changes.
+It uses the same trigger modes as the [MQTT Publisher](MQTT_Publisher.md).
+Use it when the consumer is an ordinary web service rather than an MQTT broker.
 
-!!! info "Licence Required"
-    The Webhook Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
+It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a receiver that is listening now, whereas a [logger](../Loggers/File_Loggers.md) writes to a file or database for later retrieval.
 
-## Adding a Webhook Publisher
+<figure markdown>
+```mermaid
+flowchart LR
+    Tags --> Collections["Tag collections"] --> Publisher["Webhook Publisher"] --> Endpoint["HTTP endpoint"]
+```
+<figcaption>The Webhook Publisher sends tag collections to an HTTP or HTTPS endpoint with a POST, on an interval or when a value changes</figcaption>
+</figure>
 
-Add a **Webhook Publisher** component to your profile from the **Publishers & Subscribers** category, then configure its settings. The publisher does not start until at least one collection is selected and every selected collection exists in the profile.
+!!! info "Licence required"
+    The Webhook Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
-### Connection Settings
+## Quick start {#adding-a-webhook-publisher}
+
+These steps publish one collection to a web service with no authentication.
+
+1. Add a **Webhook Publisher** to your profile from the **Publishers & Subscribers** category.
+2. Enter the address of the receiver in **Destination URL**.
+3. Under **Collections**, add a collection and choose it by name, then save.
+
+The publisher does not start until at least one collection is selected and every selected collection exists in the profile.
+With **Auto Connect** on, which is the default, it starts when the profile loads.
+
+## Settings
+
+### Connection settings
 
 | Setting | Required | Purpose |
 |---|---|---|
 | **Destination URL** | Yes | The HTTP or HTTPS address the publisher POSTs to on each publish. The URL is stored encrypted and masked on screen, because webhook URLs often embed an access token. A save without it fails with "You must provide a webhook destination URL." |
-| **Authentication** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. See [Authentication](#authentication). Selecting a mode shows its credential fields, and each field is required for that mode. |
+| **Authentication** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. Refer to [Authentication](#authentication). Selecting a mode shows its credential fields, and each field is required for that mode. |
 
-### Logger Settings
+### Publishing settings {#logger-settings}
 
 | Setting | Default | Purpose |
 |---|---|---|
@@ -43,12 +67,14 @@ The Webhook Publisher adds the selected credential as a header on every request.
 
 Whichever mode you choose, the credential is stored encrypted and masked on screen.
 
-!!! warning "Destination Addresses Are Not Restricted"
+!!! warning "Destination addresses are not restricted"
     Anyone who can edit the profile can point a Webhook Publisher at any address the Profinity server can reach, including internal services. Restrict profile editing accordingly.
 
-## Payload Format
+## Payload format
 
-Each publish sends one POST containing a JSON array of the samples in that batch, never one POST per sample. Each entry has the same fields that `GET /api/v2/Tags/Sample/{path}` returns for a tag sample, limited to `fullTagId`, `utcTimestamp`, `quality` and `value`. The API's `reason`, `message` and `metadata` fields are not sent.
+Each publish sends one POST containing a JSON array of the samples in that batch, never one POST per sample.
+Each entry has the same fields that `GET /api/v2/Tags/Sample/{path}` returns for a tag sample, limited to `fullTagId`, `utcTimestamp`, `quality` and `value`.
+The API's `reason`, `message` and `metadata` fields are not sent.
 
 ```json
 [
@@ -61,23 +87,31 @@ Each publish sends one POST containing a JSON array of the samples in that batch
 ]
 ```
 
-Only samples with good quality, no more than 5 seconds old by default, and holding a finite number are included, so `quality` is always `"Good"`. A tag that is not updating, or whose value is not numeric, does not appear in the batch.
+Only samples with good quality, no more than 5 seconds old by default, and holding a finite number are included, so `quality` is always `"Good"`.
+A tag that is not updating, or whose value is not numeric, does not appear in the batch.
 
-## Delivery Health
+## Delivery health
 
-When the destination returns a status other than a success code, cannot be reached, or takes longer than 10 seconds to respond, the publisher makes up to three attempts in total, waiting 1 second before the second attempt and 2 seconds before the third. The attempt count, timeout and waits cannot be changed in Profinity 2.3. If all three attempts fail, the batch is not retried further and the publisher reports **Error** until a later publish succeeds.
+When the destination returns a status other than a success code, cannot be reached, or takes longer than 10 seconds to respond, the publisher makes up to three attempts in total, waiting 1 second before the second attempt and 2 seconds before the third.
+The attempt count, timeout and waits cannot be changed in Profinity 2.3.
+If all three attempts fail, the batch is not retried further and the publisher reports **Error** until a later publish succeeds.
 
-The publisher shows **On** while it is running, **Off** when it is stopped, and **Error** after a failed delivery. It also exposes two tags for a dashboard or rule:
+The publisher shows **On** while it is running, **Off** when it is stopped, and **Error** after a failed delivery.
+It also exposes two tags for a dashboard or rule:
 
 | Tag | Meaning |
 |---|---|
 | `LastDeliverySuccess` | `true` when the most recent delivery succeeded, and `false` otherwise. |
 | `LastDeliveryError` | Empty when healthy. After a failed delivery it reads "Webhook delivery failed - see log for details." |
 
-If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying message, then confirm that the **Destination URL** is correct, that the receiver accepts the selected **Authentication** (a 401 or 403 response points to a wrong credential), and that the receiver returns a success status. An HTTPS destination must present a certificate that the Profinity server trusts, because the Webhook Publisher has no option to skip certificate validation.
+If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying message, then confirm that:
 
-## Related Documentation
+- The **Destination URL** is correct.
+- The receiver accepts the selected **Authentication**. A 401 or 403 response points to a wrong credential.
+- The receiver returns a success status.
+- The receiver presents a certificate that the Profinity server trusts, for an HTTPS destination. The Webhook Publisher has no option to skip certificate validation.
 
-- [MQTT Publisher](MQTT_Publisher.md) and [MQTT Subscriber](MQTT_Subscriber.md), the other Publishers & Subscribers components.
-- [File and Tag Loggers](../Loggers/File_Loggers.md), for writing to a file or database.
-- [Rule Actions](../../Tags/Actions.md), where a rule can also send a one-off webhook or MQTT message. Rule actions need the **Tag Rule Actions** licensed feature.
+## Related pages
+
+Use the [MQTT Publisher](MQTT_Publisher.md) to publish to a broker, or the [MQTT Subscriber](MQTT_Subscriber.md) to bring external data in.
+A [rule action](../../Tags/Actions.md) can also send a one-off webhook or MQTT message, and needs the **Tag Rule Actions** licensed feature.

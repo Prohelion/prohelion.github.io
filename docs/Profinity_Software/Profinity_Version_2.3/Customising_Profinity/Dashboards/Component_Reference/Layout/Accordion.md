@@ -1,6 +1,9 @@
 ---
-title: Accordion Component
-description: "Collapsible sections for organising dashboard content that can be expanded and collapsed on demand."
+title: Accordion component
+description: "Reference for the Accordion dashboard component: its parameters, defaults, and examples for collapsible sections, binding, and nesting."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
 # Accordion
@@ -12,9 +15,10 @@ An accordion is a set of collapsible sections that the operator expands and coll
 <figcaption>Accordion component displaying collapsible sections for organising dashboard content</figcaption>
 </figure>
 
-## When to Use
+## When to use
 
-Use an accordion for detailed information that is not always needed, such as settings and secondary data. Use [Tabs](../Interactive/Tabs.md) when the operator switches between whole views, because a tab strip shows one view at a time.
+Use an accordion for detailed information that is not always needed, such as settings and secondary data.
+Use [Tabs](../Interactive/Tabs.md) when the operator switches between whole views, because a tab strip shows one view at a time.
 
 ## Parameters
 
@@ -32,7 +36,7 @@ A `row` does not accept `visible` or `bind`, so content inside an accordion is s
 
 ## Example
 
-### Basic Example
+### Basic example
 
 ``` yaml
 dashboard:
@@ -52,9 +56,9 @@ dashboard:
                           value: "1.4.2"
 ```
 
-### Data Binding for Visibility
+### Data binding for visibility
 
-Control accordion visibility based on system state or conditions:
+Control accordion visibility based on system state or conditions.
 
 ``` yaml
 dashboard:
@@ -76,9 +80,9 @@ dashboard:
                           value: "Enabled"
 ```
 
-### Nested Accordions
+### Nested accordions
 
-Accordions can be nested within other accordions for hierarchical organisation:
+Accordions can be nested within other accordions for hierarchical organisation.
 
 ``` yaml
 dashboard:
@@ -116,9 +120,9 @@ dashboard:
                                       value: "Required"
 ```
 
-### Conditional Content
+### Conditional content
 
-To show content inside an accordion only under certain conditions, place the visibility binding on a component inside the row, such as the readout in this example:
+To show content inside an accordion only under certain conditions, place the visibility binding on a component inside the row, such as the readout in this example.
 
 ``` yaml
 dashboard:
@@ -156,7 +160,7 @@ dashboard:
                               toType: boolean
 ```
 
-### Complete Example
+### Complete example
 
 ``` yaml
 dashboard:

@@ -1,20 +1,22 @@
 ---
-title: State Component
+title: State component
 description: "State machine visualisation component using Mermaid flowcharts to display system states and transitions."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# State
+# State component
 
 A state component displays the current state of a system as a [Mermaid flowchart](https://mermaid.js.org/syntax/flowchart.html), which shows the states, the transitions between them and the active state.
 
 <figure markdown>
-![State component showing state machine visualisation with Mermaid flowchart](../../images/state.png)
+![A state machine flowchart in which the active state is highlighted](../../images/state.png)
 <figcaption>State component showing state machine visualisation with Mermaid flowchart</figcaption>
 </figure>
 
-## When to Use
-
-Use a state component to show a state machine, a process flow or the status of a complex system as a diagram. Use a [Caption](Caption.md) or a [Lamp](Lamp.md) when only the name or the health of the current state needs to be shown.
+Use a state component to show a state machine, a process flow or the status of a complex system as a diagram.
+Use a [Caption](Caption.md) or a [Lamp](Lamp.md) when only the name or the health of the current state needs to be shown.
 
 ## Parameters
 

@@ -1,15 +1,19 @@
 ---
-title: Redirect Component
+title: Redirect component
 description: "Immediately navigates to another page or address when the dashboard displays the component."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Redirect
+# Redirect component
 
-A redirect navigates to another location as soon as the dashboard displays the component. The component draws nothing, so it is used in a dashboard that exists only to send the user elsewhere.
+A redirect navigates to another location as soon as the dashboard displays the component.
+The component draws nothing, so it is used in a dashboard that exists only to send the user elsewhere.
 
-## When to Use
-
-Use a redirect in a dashboard that forwards the user to another page or to an external address. Do not use a redirect to provide a link that the user clicks, because the redirect cannot wait for a click. Use an [Action](../Interactive/Actions.md) with `invoke: Navigate`, or an `a` element in an [HTML](HTML.md) component, for a link.
+Use a redirect in a dashboard that forwards the user to another page or to an external address.
+Do not use a redirect to provide a link that the user clicks, because the redirect cannot wait for a click.
+Use an [Action](../Interactive/Actions.md) with `invoke: Navigate`, or an `a` element in an [HTML](HTML.md) component, for a link.
 
 ## Parameters
 

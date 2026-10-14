@@ -1,25 +1,28 @@
 ---
-title: Charts Component
+title: Charts component
 description: "Data visualisation component supporting line, bar, radar, pie, doughnut, bubble, scatter, and polar area charts."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
 ---
 
-# Charts
+# Charts component
 
-A chart is a graphical representation of bound or static data that shows patterns and changes over time. Profinity supports eight [chart types](#chart-types), and the line and bar charts are shown below.
+A chart is a graphical representation of bound or static data that shows patterns and changes over time.
+Profinity supports eight [chart types](#chart-types), and the figures show a line chart and a bar chart.
 
 <figure markdown>
-![Line chart component displaying data trends over time with connected data points](../../images/charts_line.png)
+![A line chart with several series of data points connected by lines to show trends over time](../../images/charts_line.png)
 <figcaption>Line chart component displaying data trends over time with connected data points</figcaption>
 </figure>
 
 <figure markdown>
-![Bar chart component displaying data comparison using rectangular bars](../../images/charts_bar.png)
+![A bar chart with rectangular bars that compare values across categories](../../images/charts_bar.png)
 <figcaption>Bar chart component displaying data comparison using rectangular bars</figcaption>
 </figure>
 
-## When to Use
-
-Use a chart for data trends, historical analysis, performance monitoring and time series data. Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Tables.md) when the exact values matter more than the shape of the data.
+Use a chart for data trends, historical analysis, performance monitoring and time series data.
+Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Tables.md) when the exact values matter more than the shape of the data.
 
 ## Parameters
 
@@ -27,7 +30,7 @@ Use a chart for data trends, historical analysis, performance monitoring and tim
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Optional identifier of the chart. The value is not displayed |
 | `class` | string | No | None | Not used by the web interface |
-| `type` | string | Yes | None | Chart type, one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. See [Chart Types](#chart-types) for details |
+| `type` | string | Yes | None | Chart type, one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. Refer to [Chart types](#chart-types) for details |
 | `value` | object or array | No | None | Static chart data, given as `labels` and `datasets` for most chart types or as the datasets of a `bubble`, `scatter` or `radar` chart, or a starting shape for a chart whose live series come from `bind` |
 | `legend` | boolean | No | Depends on chart type | Whether to show the legend. The default is `true` for `pie`, `doughnut` and `polarArea` charts, and a line chart with more than one series also shows its legend |
 | `refreshInterval` | number | No | None | Automatic refresh interval in milliseconds. The web interface honours values of `1000` and above, and a chart with a refresh interval polls for its data instead of using the live data feed |
@@ -39,7 +42,7 @@ Use a chart for data trends, historical analysis, performance monitoring and tim
 | `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | Tag and time-series bindings that supply the chart data. Use the `value` target |
 
-### Chart Binding Options
+### Chart binding options
 
 A chart binding accepts the following properties in addition to the common binding properties that the [Data Binding](../../Data_Binding.md) page describes:
 
@@ -54,7 +57,7 @@ A chart binding accepts the following properties in addition to the common bindi
 
 A chart bound with `store: logged` also takes the `aggregationWindow` and `aggregationFunction` properties, which the [Data Binding](../../Data_Binding.md) page describes with the other binding properties.
 
-## Chart Types
+## Chart types
 
 | Chart type | Use |
 |------------|-----|
@@ -64,12 +67,12 @@ A chart bound with `store: logged` also takes the `aggregationWindow` and `aggre
 | `doughnut` | A circular chart with a hole in the centre |
 | `pie` | Proportional slices of a circle |
 | `polarArea` | Sectors of a circle |
-| `bubble` | Three dimensions of data: x, y and size |
+| `bubble` | Three dimensions of data: x, y, and size |
 | `scatter` | Data points across two axes |
 
 ## Example
 
-### Data Binding Example
+A bar chart that takes its data from a binding:
 
 ``` yaml
 dashboard:
@@ -84,7 +87,7 @@ dashboard:
                   source: /Prohelion BMU/Properties/PackData/CellTempsSummaryGraph
 ```
 
-### Static Chart Example
+A line chart with static data:
 
 ``` yaml
 dashboard:
@@ -103,7 +106,7 @@ dashboard:
                     data: [28, 48, 40, 19]
 ```
 
-### Time Series Example
+A line chart that shows the last five minutes of a time series:
 
 ``` yaml
 dashboard:
@@ -122,7 +125,7 @@ dashboard:
                   timeRangeStop: "0m"
 ```
 
-### Refresh Interval Example
+The same time series chart with a refresh interval of 5000 milliseconds:
 
 ``` yaml
 dashboard:
