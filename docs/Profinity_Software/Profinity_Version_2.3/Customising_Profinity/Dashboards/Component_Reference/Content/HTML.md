@@ -12,7 +12,7 @@ An HTML component displays custom HTML, including images from `/Profile/Images`,
 The component sanitises the HTML before it is displayed, so scripts and form controls are removed.
 
 <figure markdown>
-![A dashboard panel showing formatted text and an image produced by an HTML component](../../images/html.png)
+![A blue callout box headed "Example Profile" with a short description and a link to the example CAN log.](../../images/html.png)
 <figcaption>HTML component displaying custom HTML content with rich text formatting</figcaption>
 </figure>
 

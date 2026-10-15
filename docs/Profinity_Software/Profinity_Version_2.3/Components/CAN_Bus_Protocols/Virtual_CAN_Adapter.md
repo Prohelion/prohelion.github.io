@@ -35,7 +35,7 @@ To relay traffic, add a Virtual Adapter to the Profile after the adapter for the
 | **Network Adapter** | The network interface on which the Virtual Bridge runs. | The first available multicast interface |
 | **Bus Number** | The bus number of the bridge. Profinity limits it to 0 to 13 for `V1` or `All`, because the version 1 protocol allows only a 4-bit bus number. | 13 |
 | **UDP TTL** | The time to live of the UDP packets that Profinity transmits, from 1 to 1024. | 128 |
-| **Auto Connect** | Enables the adapter automatically when Profinity starts. | On |
+| **Auto Connect** | Enables the adapter automatically when the profile loads. | On |
 
 The Virtual CAN Bridge runs inside Profinity, so the operating system of that machine sets its IP address.
 The CAN Bridge Config tools and Profinity cannot change the address remotely, and Profinity can only select the network interface.

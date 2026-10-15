@@ -6,8 +6,7 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Group
-
+# Group component
 A group is a container that keeps related components together, side by side or from top to bottom, inside a row or a panel.
 Groups create visual and logical groupings that keep a dashboard organised and easier to read.
 

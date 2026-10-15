@@ -6,12 +6,11 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Panel
-
+# Panel component
 A panel is a titled container within a [panels](Panels.md) grid that holds related content and data visualisations.
 
 <figure markdown>
-![Panel component displaying a titled container with organised content](../../images/panel.png)
+![A panel headed NODE VOLTAGES (V) containing a bar chart of 15 bars, three of them lower than the rest.](../../images/panel.png)
 <figcaption>Panel component displaying a titled container with organised content</figcaption>
 </figure>
 

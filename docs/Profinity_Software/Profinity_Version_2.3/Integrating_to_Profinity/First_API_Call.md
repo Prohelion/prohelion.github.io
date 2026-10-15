@@ -14,9 +14,9 @@ At the end you have a token and have sent one authenticated request with `curl`.
 ## What you need
 
 - A running Profinity instance. The APIs are running whenever Profinity is running. The examples use `localhost:18080`.
-- The username and password of the Profinity user that the API calls run as. The user should be a dedicated account that holds only the permissions the client needs.
+- The username and password of the Profinity user that the API calls run as. The user should be a dedicated account that holds only the permissions the client needs, and for this tutorial it needs the **View tags** permission.
   User accounts are created in **Users & Groups**, which is shown only when the licence includes the Profinity Server feature, as described in [Managing users](../Administration/Users_and_Access/Manage_Users.md).
-- The full path of a tag.
+- The full path of a tag. The Tag Explorer shows tag paths, and `GET /api/v2/Tags` lists them (add `?flat=true` for a flat list).
 
 ## Get a token
 
@@ -58,6 +58,8 @@ curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sampl
 ```
 
 Replace `<token>` with the token and `{fullTagPath}` with the full path of the tag.
+The response includes the `fullTagId`, `utcTimestamp`, `quality`, and `value` of the sample.
+The call returns 404 unless the tag's quality is Good or Stale, and the tag must be visible to the user.
 
 For the 401 and 403 responses and for renewing a token that is still valid, refer to [Profinity REST APIs](APIs/index.md#profinity-api-security).
 

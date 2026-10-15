@@ -29,7 +29,7 @@ AI Skills runs in your own AI tool, outside Profinity, while [AI Chat](./AI_Chat
 Each skill is self-contained.
 Before it generates anything, it queries your instance's live schema (`GET /api/v2/UI/schema` for dashboards, and the matching live definitions for rules, collections, and derived tags), so it never relies on a schema remembered from a previous run.
 It grounds generation in Profinity's own example content rather than invented output.
-For skills that modify your instance (dashboards, rules, and collections), the skill shows you the payload and asks for approval before any change goes live, while the read-only skills (script, plugin, and app) generate code and stop.
+For skills that modify your instance (dashboards, rules, collections, and derived tags), the skill shows you the payload and asks for approval before any change goes live, while the read-only skills (script, plugin, and app) generate code and stop.
 
 ## What AI Skills needs to work
 

@@ -9,6 +9,11 @@ last_reviewed: 2026-10-14
 # Script-driven derived tags
 
 A computation that does not fit one expression, such as multiple steps, state carried between runs, or publishing several tags from one computation, is written as a script instead of an expression-based [derived tag](./Derived_Tags.md).
+
+!!! info "Licence required"
+    Script-driven derived tags need the **Scripting** licensed feature, included from the Desktop edition upward, and scripting enabled in [Application Config](../Administration/System_Configuration/Application_Config.md).
+    Expression-based derived tags work on every edition.
+
 To set one up:
 
 1. Add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one.

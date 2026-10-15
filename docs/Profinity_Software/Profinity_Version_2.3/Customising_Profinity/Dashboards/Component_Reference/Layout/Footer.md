@@ -6,8 +6,7 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Footer
-
+# Footer component
 The footer is the bar at the bottom of a dashboard.
 The web interface displays the bar and can show and hide it from a [data binding](../../Data_Binding.md), but it does not display the content of the `menu` parameter.
 

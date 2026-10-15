@@ -75,7 +75,7 @@ A manually added adapter asks for the following:
 
 The adapter settings are:
 
-- **Auto Connect**: enable to connect the adapter when Profinity starts.
+- **Auto Connect**: enable to connect the adapter when the profile loads.
 - **Allow Loopback Traffic**: enable where needed, which applies to Tritium adapters in UDP mode only.
 - The bit rate, where the adapter has one: the **PCAN BaudRate** and **Candapter BaudRate** settings default to 500 kbit/s and must match the network. A CAN to Ethernet bridge holds its bit rate (default 500 kbit/s) in the bridge firmware settings, as described in [CAN Bridge Configuration](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md).
 

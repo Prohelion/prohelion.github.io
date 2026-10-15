@@ -39,7 +39,7 @@ A new installation creates the `admin` account with this requirement already set
 The default `admin` credentials are listed in the [Security guide](../../../Installation/Security.md).
 
 <figure markdown>
-![Forced password change dialog shown after sign-in, asking for a new password before the user can continue](../../../images/2.3-forced-password-change-dialog.png)
+![Change Password dialog with Current password, New password and Confirm new password fields, a note that passwords need at least 8 characters, and Cancel and Update Password buttons (Update Password is disabled).](../../../images/2.3-forced-password-change-dialog.png)
 <figcaption>Password Change Required Before Continuing</figcaption>
 </figure>
 

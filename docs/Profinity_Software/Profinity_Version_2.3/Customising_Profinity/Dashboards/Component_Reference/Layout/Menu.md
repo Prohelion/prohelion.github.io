@@ -6,8 +6,7 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Menu
-
+# Menu component
 A menu is a list of items that the [titlebar](Titlebar.md) and the side menu display, where each entry is an object that contains exactly one item type: `menuitem`, `submenu`, `logo`, `toggle`, `modal` or `action`.
 
 ## When to use

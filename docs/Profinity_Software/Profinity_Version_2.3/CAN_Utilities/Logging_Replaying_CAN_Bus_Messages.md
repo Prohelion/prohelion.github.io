@@ -1,5 +1,5 @@
 ---
-title: Log / Replay CAN
+title: Log / replay CAN bus messages
 description: "Log CAN bus messages to files or databases, and replay recorded CAN logs with the CAN Data Log Replayer."
 type: task
 owner: Documentation

@@ -14,7 +14,7 @@ Every dashboard is stored as a YAML file, and the **YAML** tab of the editor giv
 This guide explains the YAML structure, how to configure components, and how to implement data bindings.
 
 <figure markdown>
-![Dashboard visual editor showing the canvas and the component tree](../../images/2.3-dashboard-visual-editor.png)
+![The dashboard visual editor, with the dashboard tree on the left and the inspector on the right.](../../images/2.3-dashboard-visual-editor.png)
 <figcaption>Dashboard visual editor</figcaption>
 </figure>
 

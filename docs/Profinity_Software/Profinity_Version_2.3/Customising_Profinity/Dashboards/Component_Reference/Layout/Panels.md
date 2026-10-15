@@ -6,13 +6,12 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Panels
-
+# Panels component
 A panels component is a grid that lays out several [panel](Panel.md) containers, where each panel holds its own content and data visualisations.
 The panels sit side by side and wrap onto the next line when the row has no room left.
 
 <figure markdown>
-![Panels component showing a grid layout of multiple panel containers](../../images/panels.png)
+![Two panels side by side, CELL TEMPERATURE (°C) and NODE VOLTAGES (V), each holding a bar chart.](../../images/panels.png)
 <figcaption>Panels component showing a grid layout of multiple panel containers</figcaption>
 </figure>
 

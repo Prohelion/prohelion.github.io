@@ -16,7 +16,7 @@ Built-in components such as the [Elmar Solar MPPT](../MPPT/index.md) and the [Wa
 A Custom Component is the same idea for a third-party CAN device, or for a device whose live values a script publishes as tags.
 
 !!! info "Licence required"
-    Custom Components are included in every edition.
+    Custom Components need the **Custom Plugins** licensed feature, which is included from the Desktop edition upward.
     The script a Custom Component runs, set under **Scripts**, needs the **Scripting** licensed feature, which is included from the Desktop edition upward, so a profile without it can use the DBC, dashboard, and rules files but not the script.
     The [Profinity SDK](../../Developing_with_Profinity/SDK.md) used to pack a component is a separate add-on.
     Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.

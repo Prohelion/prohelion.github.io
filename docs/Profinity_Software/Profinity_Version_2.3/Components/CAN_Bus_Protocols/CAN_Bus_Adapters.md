@@ -36,7 +36,7 @@ If an adapter is visible on the network but is not yet in the current [Profile](
 An adapter that is missing from the list has configuration issues that need [manual configuration](#adapter-manual-configuration), or is not discoverable.
 
 <figure markdown>
-![The ADD COMPONENT window with the Discovered category listing adapters that Auto Discovery found](../../images/add_adapter_autodiscovery.png)
+![The Available Components screen with a Discovered Components section containing one entry, a Peak Systems CANFD Adapter, above the Adapters list.](../../images/add_adapter_autodiscovery.png)
 <figcaption>Add an Adapter via AutoDiscovery</figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ Profinity then prompts for the following information about the device, and the *
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | **Name** | The name of the component. Must be unique. | The adapter name |
-| **Auto Connect** | Enables the device automatically when Profinity starts. | On |
+| **Auto Connect** | Enables the device automatically when the profile loads. | On |
 | **Allow Loopback Traffic** | Echoes traffic back to the system itself, so the bridge receives the traffic that it sent. Only the Tritium adapters support this option, and only when the **Network Protocol** is UDP. | Off |
 
 The remaining parameters depend on the type of adapter.

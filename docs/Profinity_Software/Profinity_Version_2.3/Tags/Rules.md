@@ -1,5 +1,5 @@
 ---
-title: Rules
+title: Tag rules
 description: "Write tag rules in rules.yaml or the visual editor, set alert levels and thresholds, and attach actions that run when a rule fires."
 type: reference
 owner: Documentation
@@ -23,7 +23,7 @@ Select **RULES & ACTIONS** under **TAG UTILITIES** in the side menu, which needs
 The editor lists the profile's rules first and then each component's rules, and shows every rule with its level, scope, thresholds, and actions.
 
 <figure markdown>
-![Rules visual editor with an expanded rule showing threshold and dwell fields](../images/2.3-rules-visual-editor.png)
+![The Editing Rules dialog with a rule set list, groups of rules such as Cell limits, and an Inspector showing the selected rule set's scope prefix, collection and enabled setting.](../images/2.3-rules-visual-editor.png)
 <figcaption>Rules visual editor with an expanded rule</figcaption>
 </figure>
 

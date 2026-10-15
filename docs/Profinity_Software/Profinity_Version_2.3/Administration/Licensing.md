@@ -34,7 +34,7 @@ In the table, **Yes** means the feature is included, **No** means it is not incl
 | CAN utilities: [send and receive](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md), [logging and replay](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md), and [DBC files](../CAN_Utilities/CAN_Bus_DBC.md) | Yes | Yes | Yes | Yes |
 | Loggers: [file and SFTP loggers](../Components/Loggers/File_Loggers.md), and the [InfluxDB (v1) and Prometheus loggers](../Components/Loggers/InfluxDB_Prometheus_Logger.md) | Yes | Yes | Yes | Yes |
 | [Scripting](../Developing_with_Profinity/Scripting/index.md) in [C#, Lua and Python](../Developing_with_Profinity/Scripting/Supported_Languages/index.md) | No | Yes | Yes | Yes |
-| [Custom components](../Components/Custom_Components/index.md) | Yes | Yes | Yes | Yes |
+| [Custom components](../Components/Custom_Components/index.md) | No | Yes | Yes | Yes |
 | Custom plugins: [custom plugins](../Developing_with_Profinity/Plugins/index.md) and [dynamic-link library (DLL) plugins](Components_and_Plugins.md) | No | Yes | Yes | Yes |
 | Historians: [InfluxDB v2](../Components/Historians/InfluxDB_Historians.md), [InfluxDB v3](../Components/Historians/InfluxDB_Historians.md) and [TAG SQL](../Components/Historians/TAG_SQL_Historian.md) | No | Yes | Yes | Yes |
 | [Themes and branding](../Customising_Profinity/Theming/index.md) | No | Yes | Yes | Yes |

@@ -77,12 +77,14 @@ For the full procedure, refer to [How to Log Data to the Cloud (InfluxDB)](../..
 ## If data does not arrive
 
 The [Profinity System Logs](../../Getting_Started/Profinity_Log.md) name the cause.
+When the component cannot connect, it logs one error for the outage, in the form `<component name>: could not connect (<reason>). Retrying every <n> s.`
+The reason tells you what to check:
 
-| Log message | Meaning |
+| Reason in the log | Meaning |
 |---|---|
-| `Credential validation failed` (likely invalid token) | The token is wrong or lacks access. |
-| `Health check failed` | The server did not answer the health endpoint. Turn **InfluxDB Health Check** off for InfluxDB Cloud. |
-| `Failed to start the InfluxDB logger` | The connection failed for another reason. Check the **Influx Server URL** first. |
+| `credential validation failed (likely an invalid token)` | The token is wrong or lacks access. |
+| `the health check failed (InfluxDB Cloud has none; switch Health Check off in the settings)` | The server did not answer the health endpoint. Turn **InfluxDB Health Check** off for InfluxDB Cloud. |
+| Any other text | The connection failed for another reason, and the text is the underlying error. Check the **Influx Server URL** first. |
 
 For the steps to set up data logging, refer to [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md).
 InfluxDB v1 servers use the **InfluxDB v1 Logger**, which is described in [InfluxDB and Prometheus Logging](../Loggers/InfluxDB_Prometheus_Logger.md).

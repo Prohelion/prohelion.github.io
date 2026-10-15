@@ -31,7 +31,7 @@ When **Sign-in method** is **Sso**, the **SSO** group holds the values taken fro
 | **Display name** | The text on the login button, which reads **Sign in with** followed by this name, for example `Corporate SSO`. Up to 128 characters. |
 | **Authority URL (IdP issuer)** | The issuer URL from the identity provider's metadata, which is required and must be an absolute `http` or `https` URL. This is the issuer, not the address of the provider's login page. |
 | **Client ID** | The application (client) identifier, which is required, from the identity provider's app registration. |
-| **Client secret** | The confidential client secret from the app registration, which can be left empty only when the identity provider allows public clients without a secret. |
+| **Client secret** | The confidential client secret from the app registration, which can be left empty only when the identity provider allows public clients without a secret. If the identity provider requires a secret and the field is empty, sign-in fails on the login page with "SSO login failed: TokenExchangeFailed". |
 | **Redirect URIs (ACS URL)** | A comma-separated allow list of Profinity callback addresses, which should include the address registered in the identity provider. |
 | **End session endpoint (IdP logout URL)** | The identity provider's logout URL, used to end the identity provider session when the user signs out. When empty, Profinity discovers it from the authority metadata. |
 | **Post-logout redirect URI (SP return URL)** | The Profinity address the identity provider returns the user to after logout. When empty, the user returns to the login page. |

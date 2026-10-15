@@ -59,7 +59,7 @@ To hide a lamp, place it in an accordion that has a `visible` binding.
 ## Change colour or label
 
 Binding a lamp `color` or a `label` changes how a component looks with a data value, for example a lamp that changes colour when a status flag is set, or a text label such as "Online" or "Offline" in place of a number.
-The `classes` target of an action or toggle applies CSS classes according to the system mode in the same way.
+The `classes` target of an action or toggle applies the bound string value as a CSS class name in the same way.
 
 The following lamp is green while the `LimitBusCurrent` flag is `0` and amber while it is `1`.
 The `partition` list alternates a label and a threshold, so a value below `1` takes the first colour and a value of `1` or more takes the second.

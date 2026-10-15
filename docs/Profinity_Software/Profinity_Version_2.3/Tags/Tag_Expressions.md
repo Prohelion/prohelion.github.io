@@ -6,8 +6,7 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Tag Expressions
-
+# Tag expressions
 Collections, rules, and derived tags share one small expression language.
 Collections and rules write a boolean expression over a single parameter named `tag`.
 Derived tags write a value formula over the aliases they declare (`a`, `b`, …).

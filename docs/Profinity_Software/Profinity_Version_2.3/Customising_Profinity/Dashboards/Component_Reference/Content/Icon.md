@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 An icon is a single graphic that displays an icon from the [Carbon icon library](https://carbondesignsystem.com/elements/icons/library/), an icon filename, or an image from the `/Profile/Images` directory.
 
 <figure markdown>
-![A single icon on a dashboard, loaded from the profile images directory](../../images/icon.png)
+![A small grey car icon with a signal-bars symbol above its roof.](../../images/icon.png)
 <figcaption>Icon component displaying an icon from the Profile Images directory</figcaption>
 </figure>
 

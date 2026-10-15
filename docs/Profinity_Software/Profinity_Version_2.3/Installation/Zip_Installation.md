@@ -179,7 +179,7 @@ Choose one as described in the [Security guide](./Security.md#default-credential
 After you sign in, the Profinity homepage appears.
 
 <figure markdown>
-![The Profinity homepage](../images/homepage.png)
+![The Profinity welcome page, headed "Welcome to Profinity Version 2.3", with Documentation, Add Component and Help shortcuts.](../images/homepage.png)
 <figcaption>Profinity homepage</figcaption>
 </figure>
 

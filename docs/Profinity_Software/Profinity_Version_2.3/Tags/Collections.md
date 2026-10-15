@@ -1,5 +1,5 @@
 ---
-title: Collections
+title: Tag collections
 description: "Group tags for filtering, dashboards, and rules using the visual editor and membership expressions."
 type: reference
 owner: Documentation
@@ -22,7 +22,7 @@ Select **COLLECTIONS** under **TAG UTILITIES** in the side menu, which opens the
 The entry appears for users who hold the **View tags** and **View tag collections** permissions while a profile is loaded, and saving needs the **Modify tag collections** permission.
 
 <figure markdown>
-![Collections visual editor with member list](../images/2.3-collections-visual-editor.png)
+![The Editing Collections dialog in Design view, with a collection named "Tag has a value greater than 0" selected and an Inspector showing its expression builder.](../images/2.3-collections-visual-editor.png)
 <figcaption>Collections visual editor</figcaption>
 </figure>
 
@@ -36,6 +36,7 @@ A collection selects tags with a [membership expression](#membership-expression)
 
 Give each collection a display name, which you can change at any time.
 Rules refer to a collection by its identifier, which stays the same when you rename it, so rules keep working after a rename.
+Do not change an `id` in the YAML, because Profinity treats a changed `id` as a different collection and rules that use the old `id` stop resolving.
 
 The **Scope prefix**, shown under **Binding**, limits a collection to the tags beneath a path in the tag tree.
 A scope on a collection is added to the scope of its group, so a group scoped to `Vehicles/Car1` and a collection scoped to `Battery` together cover `Vehicles/Car1/Battery`.

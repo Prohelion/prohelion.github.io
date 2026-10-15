@@ -6,12 +6,11 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Titlebar
-
+# Titlebar component
 The titlebar is the header bar of a dashboard, with a status lamp and a toolbar of menu items that provide dashboard identification, status information, navigation, component-specific actions and settings dialogs.
 
 <figure markdown>
-![Dashboard titlebar component showing a status lamp and a menu toolbar](../../images/titlebar.png)
+![A dark titlebar with a green status lamp and the title Prohelion BMU, and three icon buttons at the right.](../../images/titlebar.png)
 <figcaption>Dashboard titlebar component showing a status lamp and a menu toolbar</figcaption>
 </figure>
 

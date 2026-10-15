@@ -6,8 +6,7 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Pill
-
+# Pill component
 A pill is a compact status display that shows several related values, arranged in groups, beside a central icon, which suits component status and key metrics.
 
 <figure markdown>

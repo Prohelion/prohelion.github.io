@@ -6,12 +6,11 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Toggles
-
+# Toggles component
 A toggle is an on/off switch that runs an action each time it is clicked, while [data binding](../../Data_Binding.md) shows whether the feature is currently on or off.
 
 <figure markdown>
-![Toggles component displaying switch controls for enabling or disabling features](../../images/toggles.png)
+![A single toggle switch set to ON, with green text on a dark background.](../../images/toggles.png)
 <figcaption>Toggles component displaying switch controls for enabling or disabling features</figcaption>
 </figure>
 

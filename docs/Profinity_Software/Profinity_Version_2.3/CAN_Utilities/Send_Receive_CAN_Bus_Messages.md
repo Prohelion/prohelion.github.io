@@ -1,5 +1,5 @@
 ---
-title: Send / Receive CAN
+title: Send / receive CAN bus messages
 description: "Monitor CAN bus traffic, send a CAN packet on demand, and schedule packets to send at a fixed interval."
 type: reference
 owner: Documentation

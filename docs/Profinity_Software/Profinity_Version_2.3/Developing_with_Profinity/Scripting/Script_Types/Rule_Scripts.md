@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Rule scripts
 
 !!! info "Licence required"
-    A script set to **Run On Alert** needs the **Scripting** licensed feature, included in the **Desktop**, **Server**, and **Enterprise** editions. An unlicensed instance cannot add or run scripts. Refer to [Licensing](../../../Administration/Licensing.md).
+    A script set to **Run On Alert** needs both the **Scripting** and **Tag Rule Actions** licensed features, so the **Server** or **Enterprise** edition. A Desktop licence can add the script, but a rule does not run it. An unlicensed instance cannot add or run scripts. Refer to [Licensing](../../../Administration/Licensing.md).
 
 A rule script is a script component with **Script Mode** set to **Run On Alert**.
 There is no separate rule script component to add, and the rule passes its firing context directly as a parameter to the method the script implements.

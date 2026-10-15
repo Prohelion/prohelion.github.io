@@ -34,7 +34,7 @@ Phones reach the server only when remote web access is available, which needs th
 | **Heartbeat interval (seconds)** | The time between broadcasts, from 1 to 60 seconds, 3 by default |
 
 <figure markdown>
-![Server Discovery settings in System Configuration, showing the server name, heartbeat switch, UDP port and interval](../images/2.3-config-server-discovery.png)
+![The Discovery tab of the Admin settings dialog, showing a Server Discovery section with a ticked Send Profinity Heartbeat box, a Profinity Server Name field, a Heartbeat UDP Port field and a Heartbeat Interval in seconds.](../images/2.3-config-server-discovery.png)
 <figcaption>Server Discovery heartbeat settings</figcaption>
 </figure>
 

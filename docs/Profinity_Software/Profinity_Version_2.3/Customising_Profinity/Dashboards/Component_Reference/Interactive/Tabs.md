@@ -6,8 +6,7 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Tabs
-
+# Tabs component
 Tabs organise information into separate views that the operator switches between, where the header of each tab carries a status lamp and a caption.
 
 <figure markdown>

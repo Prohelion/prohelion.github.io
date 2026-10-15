@@ -16,7 +16,7 @@ On a D1000 Gen2 the BMS hardware handles charging, so refer to the [D1000 Gen2 d
 Profinity supports three charger types, a [Prohelion BMS](../Battery_Management_Systems/index.md) in the same Profile supplies the pack data, and a user needs the **Control charging** permission to see the charging controls (refer to [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md)).
 
 <figure markdown>
-![A Siglent programmable power supply on a bench](../../images/SiglentCharger.png)
+![Close-up of a two-channel power supply display: CH1 set to 32.00 V with 31.99 V and 0.00 A output, and CH2 set to 12.00 V with 12.00 V and 0.42 A output, both switched on.](../../images/SiglentCharger.png)
 <figcaption>Siglent Charger</figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ The Profile must also contain a Prohelion BMS, and that BMS must have **Control 
 Once the charger is added it appears under **Chargers & Power Supplies** in the main menu with its own dashboard.
 
 <figure markdown>
-![The Add Component screen with a charger selected](../../images/add_charger.png)
+![The Available Components screen filtered to Chargers & Power Supplies, listing Elcon Charger, Siglent Power Supply and TDK Power Supply.](../../images/add_charger.png)
 <figcaption>Add a Charger</figcaption>
 </figure>
 

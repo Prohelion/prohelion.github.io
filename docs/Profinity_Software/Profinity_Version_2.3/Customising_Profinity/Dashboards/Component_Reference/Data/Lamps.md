@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 Lamps are a grid of status indicators that use colour and on or off state to communicate system status at a glance.
 
 <figure markdown>
-![A grid of lamps in columns, each lamp lit in a colour that shows its status](../../images/lamps.png)
+![A four-column grid of 13 labelled lamps, such as CELL OVER VOLTAGE and CONTACTOR STUCK, with only CMU POWER lit green.](../../images/lamps.png)
 <figcaption>Lamps component displaying a grid of status indicators with colour-coded states</figcaption>
 </figure>
 

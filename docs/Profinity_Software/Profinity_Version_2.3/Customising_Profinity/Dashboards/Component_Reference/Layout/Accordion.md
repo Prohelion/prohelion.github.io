@@ -6,12 +6,11 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Accordion
-
+# Accordion component
 An accordion is a set of collapsible sections that the operator expands and collapses as needed, which keeps a dashboard uncluttered.
 
 <figure markdown>
-![Accordion component displaying collapsible sections for organising dashboard content](../../images/accordion.png)
+![A dark accordion header reading MORE DETAILS with a downward chevron beneath it.](../../images/accordion.png)
 <figcaption>Accordion component displaying collapsible sections for organising dashboard content</figcaption>
 </figure>
 

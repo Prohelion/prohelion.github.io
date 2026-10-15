@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 Readouts display numerical or text values with units and precision, and they are the primary way to show sensor data, measurements, and other numerical information from the system.
 
 <figure markdown>
-![A row of readouts, each with a caption, a numerical or text value, and a unit](../../images/readouts.png)
+![Two rows of three readouts, each a label with a boxed number, such as BEMF VQ 43.652 and CURRENT IQ 20.150.](../../images/readouts.png)
 <figcaption>Readouts component showing numerical and text value displays</figcaption>
 </figure>
 

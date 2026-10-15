@@ -11,7 +11,8 @@ last_reviewed: 2026-10-14
 Profinity 2.3 applies theme and branding settings from a `theme.yaml` file in the `themes` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and the web client shows the colours, logos, and application title from that file in place of the defaults.
 
 !!! warning "Themes need a commercial licence"
-    Themes and branding are included in the Desktop licence and above, which carry white-label rights, such as the rights held by an original equipment manufacturer (OEM) that ships Profinity under its own brand.
+    Themes and branding are included in the Desktop licence and above.
+    Contact Prohelion about white-label rights before you ship Profinity under your own brand, for example as an original equipment manufacturer (OEM).
     An unlicensed instance keeps its `theme.yaml` file but shows the default Profinity appearance.
     Contact Prohelion about licensing before you apply a custom theme.
 

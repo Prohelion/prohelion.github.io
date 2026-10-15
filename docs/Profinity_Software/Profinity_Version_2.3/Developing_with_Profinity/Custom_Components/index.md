@@ -19,7 +19,7 @@ The click path to add one is [How to Create a Custom Component](../../How_To_Gui
 How this type compares with a dynamic-link library (DLL) plugin is covered on [Component Types](Component_Types.md).
 
 <figure markdown>
-![Custom Component settings showing script and actions fields](../../images/2.3-custom-component-settings.png)
+![The Custom Component dialog on its Settings tab, with Name and Tag Tree Path fields, a Rebase DBC tick box, and tabs for Pack Files, Scripts and Security.](../../images/2.3-custom-component-settings.png)
 <figcaption>Custom Component settings with pack files and scripts</figcaption>
 </figure>
 

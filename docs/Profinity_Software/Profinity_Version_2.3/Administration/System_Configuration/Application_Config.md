@@ -23,6 +23,6 @@ The Application Config tab of [System Configuration](index.md) holds packet rete
 |`Enable Scripting`                  | Scripting is off by default and must be selected for the instance to run scripts, which is a security decision because scripts run code on the host. The field is available only when the licence includes the **Scripting** feature (**Desktop**, **Server**, and **Enterprise**). An unlicensed instance does not include scripting. |
 
 <figure markdown>
-![Profinity System Configuration](../../images/app_configuration.png)
+![The Application Config tab of the System Configuration dialog, with update server and check interval fields, packet and tag history limits, and an Enable Scripting checkbox that is ticked.](../../images/app_configuration.png)
 <figcaption>Profinity System Configuration</figcaption>
 </figure>

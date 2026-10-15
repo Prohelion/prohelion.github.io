@@ -18,16 +18,12 @@ This page describes the **OPC UA Client** first and the **OPC UA Server** second
 
 <figure markdown>
 ```mermaid
-flowchart LR
-    subgraph Remote["Other systems"]
-        Source["Remote OPC UA server"]
-        Consumer["Third-party OPC UA client"]
-    end
+flowchart TB
+    Source["Remote OPC UA server"] --> Client
     subgraph Profinity
         Client["OPC UA Client"] --> Tags --> Server["OPC UA Server"]
     end
-    Source --> Client
-    Server --> Consumer
+    Server --> Consumer["Third-party OPC UA client"]
 ```
 <figcaption>The OPC UA Client polls nodes from a remote OPC UA server into Profinity tags, and the OPC UA Server exposes the tag tree to third-party OPC UA clients as a read-only address space</figcaption>
 </figure>

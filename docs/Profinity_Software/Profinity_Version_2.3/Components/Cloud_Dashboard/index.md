@@ -52,7 +52,7 @@ Add it from **ADD COMPONENT** (refer to [Add a Component to a Profile](../../How
 | **Prohelion Device ID** | None | The device ID in Prohelion Cloud. Required. |
 | **Update Interval (Seconds)** | 60 | Seconds between samples sent to Prohelion Cloud, from 10 to 86400. |
 | **Collections** | None | The tag collections to send. At least one is required, because the component does not start until a collection is selected. |
-| **Logging mode** | Snapshot | **Snapshot** sends every collection member at each interval, **On Change** sends only values that have changed, and **Everything** sends every sample, including unchanged ones. Refer to [Logging Modes](../Loggers/InfluxDB_Prometheus_Logger.md#logging-modes). |
+| **Logging mode** | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
 | **Auto Connect** | On | Starts sending when the Profile loads. |
 
 The component connects out from the Profinity server to Prohelion Cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.

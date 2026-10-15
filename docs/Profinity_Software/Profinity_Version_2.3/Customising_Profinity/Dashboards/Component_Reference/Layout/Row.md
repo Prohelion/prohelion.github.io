@@ -6,12 +6,11 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Row
-
+# Row component
 A row is a layout container that holds several components and arranges them vertically or horizontally, which makes rows the fundamental building blocks of dashboard layout.
 
 <figure markdown>
-![Row layout container organising multiple components in a dashboard](../../images/row.png)
+![A row holding the Battery Events lamp grid on the left and the Battery State flowchart on the right.](../../images/row.png)
 <figcaption>Row layout container organising multiple components in a dashboard</figcaption>
 </figure>
 

@@ -12,7 +12,7 @@ A chart is a graphical representation of bound or static data that shows pattern
 Profinity supports eight [chart types](#chart-types), and the figures show a line chart and a bar chart.
 
 <figure markdown>
-![A line chart with several series of data points connected by lines to show trends over time](../../images/charts_line.png)
+![A line chart of one series over about fourteen minutes, flat near zero, spiking to about 3,000 at 16:09, then varying between 500 and 2,000.](../../images/charts_line.png)
 <figcaption>Line chart component displaying data trends over time with connected data points</figcaption>
 </figure>
 

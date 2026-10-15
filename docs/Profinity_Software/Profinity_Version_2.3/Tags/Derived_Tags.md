@@ -27,7 +27,7 @@ The file the editor works on is named by the **Derived tags YAML file (Optional)
 Derived tags are organised into groups in a tree on the left of the editor, and selecting a group or derived tag opens its settings in an inspector on the right.
 
 <figure markdown>
-![Derived Tags editor showing a group and a derived tag with its expression](../images/2.3-derived-tags-editor.png)
+![The Derived Tags editor with one derived tag, Total Array Power, showing its mount path, three dependencies and the expression a.Value + b.Value + c.Value.](../images/2.3-derived-tags-editor.png)
 <figcaption>Derived Tags editor</figcaption>
 </figure>
 
@@ -51,7 +51,7 @@ An expression can be up to 4096 characters long.
 `Vehicles/Car1/SpeedKmh` is now a real tag that shows up in Tag Explorer and in the rules engine, and history is available for it without further configuration.
 
 <figure markdown>
-![Derived tag inspector showing dependencies and expression with a live preview value](../images/2.3-derived-tag-expression-inspector.png)
+![The inspector for the derived tag Total Array Power, listing three dependencies aliased a, b and c, and the expression a.Value + b.Value + c.Value with a green validity tick.](../images/2.3-derived-tag-expression-inspector.png)
 <figcaption>Derived tag inspector with live preview</figcaption>
 </figure>
 

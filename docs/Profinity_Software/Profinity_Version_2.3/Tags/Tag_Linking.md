@@ -1,5 +1,5 @@
 ---
-title: Tag linking
+title: Tag linking from Tag Explorer
 description: Create collections, rules, and dashboard bindings from tags you select in the Tag Explorer context menu, without copying the selection into the editors by hand.
 type: reference
 owner: Documentation

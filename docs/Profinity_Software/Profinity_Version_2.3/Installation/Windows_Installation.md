@@ -24,7 +24,7 @@ Profinity opens its homepage in the desktop window.
 To stop Profinity, shut down the application.
 
 <figure markdown>
-![The Profinity homepage in the desktop application window](../images/homepage.png)
+![The Profinity welcome page, headed "Welcome to Profinity Version 2.3", with Documentation, Add Component and Help shortcuts.](../images/homepage.png)
 <figcaption>Profinity homepage</figcaption>
 </figure>
 

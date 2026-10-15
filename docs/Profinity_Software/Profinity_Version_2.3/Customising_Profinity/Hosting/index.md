@@ -36,6 +36,9 @@ When a certificate comes from the Windows Certificate Store, **Windows Cert Stor
 | **Redirect all Http traffic to Https** | Forces all HTTP traffic to the HTTPS interface. |
 | **Enable Swagger on API** | Publishes the Swagger interface on this server. This setting is on the Extensions Web tab. |
 
+These settings are on the Extensions Web tab.
+The Web tab has its own copy of the same settings for the Profinity web interface, with default ports 18080 and 18443.
+
 Saving the configuration with **Redirect all Http traffic to Https** enabled while HTTPS is disabled is rejected with the message "You can only redirect traffic if Https is enabled".
 Turn off **Enable Swagger on API** in a production environment that does not need it.
 

@@ -6,8 +6,7 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Model
-
+# Model component
 A model component is an interactive three-dimensional view that loads one or more 3D model files from the `/Profile/Models` directory, lets the operator orbit and zoom the view, and overlays regions, icons, buttons, data values, points, and annotation lines at positions in the space of the model. The component is the three-dimensional counterpart of the [Image](Image.md) component, and uses the same overlay structure.
 The action invocation, layer, icon source, display type and annotation line parameters are shared with the [Image](Image.md) component and are described on [Overlay elements](Overlay_Elements.md).
 

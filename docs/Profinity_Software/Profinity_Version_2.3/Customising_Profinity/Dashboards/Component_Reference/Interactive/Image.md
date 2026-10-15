@@ -6,12 +6,11 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Image
-
+# Image component
 An interactive image is a base image from the `/Profile/Images` directory with overlay elements positioned on it, such as clickable regions, icons, buttons, live data values, points, and annotation lines.
 
 <figure markdown>
-![Interactive image component showing clickable regions, icons, data values, and annotation lines](../../images/image.png)
+![A solar car photo overlaid with a green Battery State of Charge bar, three solar-panel icons on leader lines and four outlined regions.](../../images/image.png)
 <figcaption>Interactive image component showing clickable regions, icons, data values, and annotation lines</figcaption>
 </figure>
 

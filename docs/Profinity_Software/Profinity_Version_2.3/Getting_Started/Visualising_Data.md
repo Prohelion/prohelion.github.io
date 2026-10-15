@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 Each configured component has a [dashboard](../Customising_Profinity/Dashboards/index.md), opened by selecting the component in the sidebar, that shows the data for that component type.
 
 <figure markdown>
-![A WaveSculptor component dashboard showing live data widgets](../images/wavesculptor.png)
+![A WaveSculptor22 dashboard with a summary strip of bus voltage, power, temperatures and speed, two line charts for bus power and velocity, and status lights for controller limits and errors.](../images/wavesculptor.png)
 <figcaption>Example of a dashboard visualising data</figcaption>
 </figure>
 

@@ -39,7 +39,7 @@ The response streams in as it is generated, rather than appearing all at once.
 Web search, when the administrator has enabled it, is available only with the Claude, OpenAI, and OpenRouter providers (refer to [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md)).
 
 <figure markdown>
-![Profinity AI chat window mid-conversation, showing a question and a response that is streaming in](../images/2.3-ai-chat-conversation.png)
+![The Profinity AI chat panel over a battery dashboard, with the question "What is wrong with this system" and a reply listing three active solar MPPT warnings and what they mean.](../images/2.3-ai-chat-conversation.png)
 <figcaption>A conversation in progress</figcaption>
 </figure>
 

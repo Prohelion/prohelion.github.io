@@ -98,6 +98,7 @@ Each profile directory has four folders: `images`, `models`, `styles` and `conte
 | Folder | Holds | Served from |
 |---|---|---|
 | `images` | Images such as icons, device diagrams, logos, and status indicators | `/Profile/Images/{filename}` |
+| `models` | 3D model files used by a `model` component, such as `.glb`, `.gltf`, `.stl` and `.obj` | `/Profile/Models/{filename}` |
 | `styles` | Custom CSS stylesheets for colour schemes and layout overrides | `/Profile/Styles/{filename}` |
 | `content` | General files such as HTML templates and Markdown files | `/Profile/Content/{filename}` |
 

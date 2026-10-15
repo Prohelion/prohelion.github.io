@@ -24,7 +24,7 @@ A component name that matches an existing dashboard file in the profile is rejec
 Dashboards are written in YAML and can be edited in the [Visual Editor](../../Customising_Profinity/Dashboards/Visual_Editor.md), with the same layout, data, and interactive components available as on any other dashboard.
 
 <figure markdown>
-![Dashboard visual editor showing the canvas and the component tree](../../images/2.3-dashboard-visual-editor.png)
+![Dashboard editor in Design mode, with an outline tree of rows, groups, panels and a chart on the left and an Inspector on the right showing Id, Description, CSS class, Width and Direction fields.](../../images/2.3-dashboard-visual-editor.png)
 <figcaption>Dashboard visual editor</figcaption>
 </figure>
 

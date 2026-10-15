@@ -1,5 +1,5 @@
 ---
-title: Actions
+title: Rule actions
 description: "Choose and configure the built-in, Email, Slack, Webhook, MQTT, and Run On Alert script actions that run when a tag rule fires."
 type: reference
 owner: Documentation
@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Rule actions
 
 A [tag rule](Rules.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
-Profinity 2.3 offers two built-in actions, the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions, and any [script](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
+Profinity 2.3 has two built-in actions, **Profinity Log** and **None**. It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
 Every action receives the list of tags that caused the rule to fire, which is named `TriggeredTags` in a script and `triggeringTags` in the Webhook and MQTT JSON message.
 
 !!! info "Licence required"
@@ -20,8 +20,14 @@ Every action receives the list of tags that caused the rule to fire, which is na
     Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
 
 <figure markdown>
-![A rule firing sends its full JSON context to pluggable actions (log, Slack, PagerDuty or a script), with cooldown throttling and actions set once and inherited down the rule tree](../images/2.3-diagram-rule-actions.png)
-<figcaption>A rule firing and the actions it runs</figcaption>
+```mermaid
+flowchart LR
+    Rule["Rule fires"] --> Context["Context: the tags that caused it"]
+    Context --> Log["Profinity Log"]
+    Context --> Msg["Email, Slack, Webhook, or MQTT"]
+    Context --> Script["Run On Alert script"]
+```
+<figcaption>A rule firing passes the triggering tags to each action attached to it</figcaption>
 </figure>
 
 ## Action picker

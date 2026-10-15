@@ -38,11 +38,7 @@ flowchart LR
 The **Logging mode** setting determines what Profinity sends to the database on each interval, and it applies to the InfluxDB v1 Logger, the [InfluxDB v2 Historian](../Historians/InfluxDB_Historians.md), the [InfluxDB v3 Historian](../Historians/InfluxDB_Historians.md) and the other collection-based loggers.
 Nothing is logged until at least one tag collection is selected in **Collections**.
 
-- **Snapshot**, the default, sends the current value of every member of the selected collections on each interval.
-- **On Change** sends every change recorded for those members during the interval.
-- **Everything** sends every sample that arrives, including unchanged values.
-
-**Everything** gives the most detailed recording and the largest volume of data, so choose the mode by the resolution of measurement required.
+There are three modes, **Snapshot** (the default), **On Change** and **Everything**, and [Logging modes](../Logging_Modes.md) defines each one.
 
 ## InfluxDB
 
@@ -68,7 +64,7 @@ Enter the **InfluxDB Database**, add at least one tag collection under **Collect
 | **InfluxDB Health Check** | On | Performs a health check on the connection at regular intervals. Turn it off for InfluxDB Cloud. |
 | **Collections** | None | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
 | **Logging Interval (Sec)** | 10 | The interval, in seconds, at which log data is sent, with a minimum of 1. |
-| **Logging mode** | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](#logging-modes). |
+| **Logging mode** | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On | Starts the logger when the profile is loaded. |
 
 When these settings are correct, data flows into InfluxDB v1.

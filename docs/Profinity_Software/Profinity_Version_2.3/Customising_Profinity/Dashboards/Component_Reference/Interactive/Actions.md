@@ -6,12 +6,11 @@ owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Actions
-
+# Actions component
 An action is a clickable button or icon that runs an action on a component, runs a system action, navigates to another location, or sends an HTTP request.
 
 <figure markdown>
-![Actions component showing interactive buttons for system controls and navigation](../../images/actions.png)
+![A dark toolbar with an ON switch on the left and three icon buttons beside it.](../../images/actions.png)
 <figcaption>Actions component showing interactive buttons for system controls and navigation</figcaption>
 </figure>
 

@@ -27,7 +27,7 @@ Treat the token like a password, store it in a secrets manager, and give the acc
 On an account that already has a token, **View Token** also appears and displays the current token again.
 
 <figure markdown>
-![The Service Account toggle and the token dialog, with the token redacted](../../images/2.3-service-account-token-dialog.png)
+![The Service Account Token dialog over the User Actions tab, with the token text hidden and a Close button](../../images/2.3-service-account-token-dialog.png)
 <figcaption>Service account token dialog</figcaption>
 </figure>
 

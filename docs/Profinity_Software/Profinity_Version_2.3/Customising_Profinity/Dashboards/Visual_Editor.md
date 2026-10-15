@@ -33,7 +33,7 @@ Dashboards created before Profinity 2.3 keep working unchanged, and one opens in
 | **Dashboard tree** | Shows every element of the dashboard, nested as it is in the dashboard. Use the **Search dashboard** box to find an element by name or type. |
 | **Inspector** | Shows the properties of the selected element. With nothing selected it shows the **Show header**, **Show actions** and **Show footer** switches for the dashboard. **Show header** adds the title bar, **Show actions** adds the action buttons to it, and **Show footer** adds the footer, except on a dashboard that contains an accordion. With the header off and the actions on, the title bar is transparent and shows only the actions. |
 | **Schema validation issues** | Lists anything that does not match the dashboard schema. |
-| **Footer buttons** | **NEW FROM TEMPLATE** replaces the dashboard with the template after a confirmation prompt, **RELOAD** loads the saved dashboard again and discards the changes made since it was saved, and **SAVE** stores the dashboard. When an existing dashboard is edited and deletion is offered, a red **DELETE** button also appears. It asks for confirmation, then removes the dashboard file, clears it from the profile settings and returns to the home page. |
+| **Footer buttons** | **NEW FROM TEMPLATE** replaces the dashboard with the template after a confirmation prompt, **RELOAD** loads the saved dashboard again and discards the changes made since it was saved, and **SAVE** stores the dashboard. When an existing profile dashboard (the home dashboard) is edited, a red **DELETE** button also appears, and component dashboards do not offer it. It asks for confirmation, then removes the dashboard file, clears it from the profile settings and returns to the home page. |
 
 ## Build a dashboard
 
@@ -67,7 +67,7 @@ A single-value element such as a readout or lamp binds one tag, and a chart bind
 [Data Binding](./Data_Binding.md) describes how a binding names a tag and the modes it supports.
 
 <figure markdown>
-![Binding section of the inspector for a selected dashboard widget](../../images/2.3-dashboard-bind-inspector.png)
+![The visual editor with a lamp selected in the tree, and the inspector showing its Label, Color, Enabled and Value fields above a Binding section.](../../images/2.3-dashboard-bind-inspector.png)
 <figcaption>Binding section of the inspector</figcaption>
 </figure>
 

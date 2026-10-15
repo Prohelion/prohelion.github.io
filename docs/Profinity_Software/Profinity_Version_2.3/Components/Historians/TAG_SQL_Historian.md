@@ -55,7 +55,7 @@ The following tables describe every setting.
 | Setting | Purpose |
 |---|---|
 | **Collections** | The tag collections whose tags are recorded. |
-| **Logging mode** | **Snapshot** writes the current values on each interval, **On Change** writes value changes, and **Everything** writes every sample. Defaults to Snapshot. Refer to [Logging Modes](../Loggers/InfluxDB_Prometheus_Logger.md#logging-modes). |
+| **Logging mode** | Chooses between **Snapshot**, **On Change** and **Everything**. Defaults to Snapshot. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
 | **DBC Notification Mode** | Shown only for **On Change**. **Value Change Only** records a signal from a DBC (CAN database) file when its value changes, and **Every Decoded Physical Sample** records every decoded sample. **Everything** always records every decoded sample. |
 | **Update Interval (Seconds)** | The interval that controls snapshot timing, or how often changes and samples are flushed to the database. Defaults to 10, and accepts 10 to 86400. |
 | **Designated tag historian reader** | Makes this historian the store that long-range tag and history queries are read from. Enable it on one component in the profile only. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
