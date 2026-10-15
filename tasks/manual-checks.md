@@ -29,8 +29,8 @@ Status: nothing approved yet. Last updated 2026-10-15.
 
 ## 1. Look at the rendered pages
 
-### 1.1 Mermaid diagrams (16)
-Drawn from the page text and checked against it by a reviewer, never against the product. Check each renders, reads clearly at normal width, and shows only true relationships.
+### 1.1 Mermaid diagrams (23)
+Drawn from the page text and checked against it by a reviewer, never against the product. Checked automatically on 2026-10-15: all 23 render with valid Mermaid syntax, and I looked at every one rendered at the 900px content width (all legible, widest is the MQTT Publisher at 1,080 px, so its text is slightly smaller). Not checked: whether each relationship is true of the product, and how they look in the site theme. The list below was written for the first 16; the seven added in wave 5 are the OPC UA Client and Server, CAN file and SFTP loggers, TAG file and SFTP loggers, InfluxDB v1 logger, Prometheus logger, Data Binding, AI Skills and Mobile pages, and the Actions page was redrawn.
 
 - [ ] [MQTT Publisher](../docs/Profinity_Software/Profinity_Version_2.3/Components/Publishers_and_Subscribers/MQTT_Publisher.md)
 - [ ] [MQTT Subscriber](../docs/Profinity_Software/Profinity_Version_2.3/Components/Publishers_and_Subscribers/MQTT_Subscriber.md)
