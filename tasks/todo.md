@@ -133,3 +133,5 @@ Run 2026-10-15. 9 Sonnet writers, 9 independent reviewers, fixers for the groups
 - 16 Mermaid diagrams (all added in wave 1; wave 2 added none) are unchecked by a person.
 - The 2.3 root index.md.
 - CI lint job.
+
+- Manual checks and approvals the user will do at the end: tasks/manual-checks.md (every item starts unticked).
