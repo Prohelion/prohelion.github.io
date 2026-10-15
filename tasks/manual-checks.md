@@ -198,3 +198,16 @@ Status: written and independently reviewed, not yet approved by you. Detailed re
 ### 5.3 Consolidation (not done, awaiting your approval)
 Measured result: only 25 sentences of 70 characters or more still repeat word for word across the whole site. Most are legitimate sibling templates, procedural steps or warnings that belong where the reader acts. Proposal in consolidation-proposal.md.
 - [ ] Approve or reject the consolidation proposal.
+
+## 6. Added in wave 5 (structure revamp)
+
+Reports: [wave5/](wave5/) (W1 to W10 writers, review/RV1 to RV4 reviewers). Nothing was verified against the running product.
+
+- [ ] Skim the new page set in the navigation: Loggers (5 pages), OPC UA (3), Tags (9 new), Installation (Docker 3, Linux and macOS 2, services 4, environment variables 2), Administration (Licensing split, plugins split), AI Skills (3), Mobile (3), Dashboards (5 new), MCP Tool_Reference.
+- [ ] Diagrams to look at: OPC UA Client and Server, the four logger pages, Data Binding, AI Skills overview, Mobile overview.
+- [ ] Thin pages to decide on: Mobile troubleshooting (about 175 words), Motor_Controller landing page (about 60 words).
+- [ ] Not split on purpose (each result would be thin): SFTP loggers, Sparkplug behaviour, Tag_Relay troubleshooting, CAN_Bus_DBC, firmware flashing, known issues. Say if you want any of them split anyway.
+- [ ] Questions in the writer reports (about 45 in total). Themes: SFTP expanded two ways, the interval label `[ms]` versus `(ms)`, whether a blank interval is valid, renaming `Release_Notes/2.3.1.md`, whether the "tag paths are placeholders" note stays on the motor controller examples, where `Tag_Tree_Path` and `OEM_White_Label` should live.
+- [ ] `ServiceScripts.md` still has a broken Example intro sentence and a "four methods" versus five code samples mismatch.
+
+Verified automatically: 0 lint errors or warnings on 229 pages, 0 broken links or anchors in the built site, no inline code value, bold term, number or non-diagram code block lost from the old pages, and 391 new sentences reviewed by four independent reviewers (6 changes made, listed in the review reports).
