@@ -78,3 +78,9 @@ test('a list number alone on its line is an error', () => {
   const { findings } = structureFindings(text);
   assert.ok(findings.some((f) => f.rule === 'EmptyListItem'), JSON.stringify(findings));
 });
+
+test('a title that differs from the H1 is reported', () => {
+  const text = '---\ntitle: Group component\ndescription: "A description that is long enough to pass the seventy character minimum comfortably."\n---\n\n# Group\n';
+  const { findings } = structureFindings(text);
+  assert.ok(findings.some((f) => f.rule === 'Title' && /H1 is 'Group'/.test(f.message)), JSON.stringify(findings));
+});

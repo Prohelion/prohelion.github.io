@@ -104,6 +104,14 @@ function structureFindings(text) {
     }
   }
 
+  // The H1 must match the title, so the navigation label, the browser tab and the page agree.
+  if (data && data.title) {
+    const firstH1 = lines.map((l) => l.match(/^#\s+(.*?)\s*(?:\{#[^}]+\})?\s*$/)).find(Boolean);
+    if (firstH1 && String(data.title).trim() !== firstH1[1].trim()) {
+      add('Title', 'warning', 1, `The title is '${String(data.title).trim()}' but the H1 is '${firstH1[1].trim()}'. Make them match (style guide 2.9).`);
+    }
+  }
+
   // Headings
   const headings = [];
   lines.forEach((line, i) => {
