@@ -25,7 +25,7 @@ Choose a destination in the table, add the component, then follow the section fo
 | A file on the local file system | **[CAN File Logger](../Components/Loggers/File_Loggers.md)** (native CAN bus messages), **[TAG File Logger](../Components/Loggers/File_Loggers.md)** (tag values) | Loggers | No licensed feature |
 | A file on an SFTP server | **CAN SFTP Logger**, **TAG SFTP Logger** | Loggers | No licensed feature |
 | InfluxDB v1 | **[InfluxDB v1 Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)** | Loggers | No licensed feature |
-| InfluxDB v2 or v3 | **[InfluxDB v2 Historian](../Components/Historians/InfluxDB_v2_Historian.md)**, **[InfluxDB v3 Historian](../Components/Historians/InfluxDB_v3_Historian.md)** | Historians | Historians |
+| InfluxDB v2 or v3 | **[InfluxDB v2 Historian](../Components/Historians/InfluxDB_Historians.md)**, **[InfluxDB v3 Historian](../Components/Historians/InfluxDB_Historians.md)** | Historians | Historians |
 | Prometheus | **[Prometheus Logger](../Components/Loggers/InfluxDB_Prometheus_Logger.md)** | Loggers | No licensed feature |
 | An MQTT broker | **[MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** | Publishers & Subscribers | Data Relay |
 | An HTTP(S) URL | **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** | Publishers & Subscribers | Data Relay |

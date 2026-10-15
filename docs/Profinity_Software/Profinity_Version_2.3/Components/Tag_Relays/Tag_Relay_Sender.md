@@ -25,7 +25,7 @@ The position of each tag in the exported tree is its [tag tree path](../../Tags/
 Add a **Tag Relay Sender** to your profile from the **Tag Relays** category, choose the protocol, and select the collections to export.
 Only the member tags of the selected collections are sent, so create the collections first, as described in [Collections](../../Tags/Collections.md).
 The sender does not start until at least one collection is selected and every selected collection exists in the profile.
-[Tag Relays](index.md) describes how to set up a first relay end to end.
+[Set up a tag relay](Set_Up_a_Tag_Relay.md) describes how to set up a first relay end to end.
 
 ## Settings
 

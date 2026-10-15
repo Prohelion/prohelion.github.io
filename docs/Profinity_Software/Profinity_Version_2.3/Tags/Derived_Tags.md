@@ -3,7 +3,7 @@ title: Derived tags
 description: "Virtual tags computed automatically from expressions or scripts that behave like real tags, with a worked example and a guide to choosing between them."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Derived tags
@@ -70,16 +70,7 @@ When one expression is not enough, for example because the computation has sever
 | You want automatic history with no extra setup | You need a timed or on-demand trigger rather than pure tag-change reactivity |
 | | You want to populate several tags from one computation |
 
-## Rule state publishing
-
-A rule can publish its own current state to a tag.
-Set **Publish state tag path** in the **Rule State** group of a rule in the Rules editor, and Profinity mirrors the rule's state to that tag path whenever it changes: a boolean rule publishes `true` or `false`, and a threshold rule publishes the zero-based index of its active step, or `-1` when no step is active.
-The tag is read-only, so only the rule can write to it.
-When the rules load, the tag takes the state the rule last had, which Profinity restores from the alert log, or `false` (`-1` for a threshold rule) when the rule has no history, and it then changes whenever the rule changes state.
-
-A rule has a single state tag even when its scope matches many tags, so every matching tag writes to the same state tag and the value shown is that of whichever matching tag changed state most recently, not a summary of all of them.
-Where the state of each tag matters, define one rule per tag, each with its own **Publish state tag path**, and do not give two rules the same path, because Profinity does not load the rules when two of them share a path, and the error names both rules.
-Refer to [Rules](./Rules.md) and [Actions](./Actions.md) for the rules that publish state and the actions they run.
+A rule can publish its own current state to a tag, as described under [Rule state publishing](./Rules.md#rule-state-publishing).
 
 ## Permissions
 

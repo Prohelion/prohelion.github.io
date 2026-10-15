@@ -16,7 +16,7 @@ In the [visual editor](../Visual_Editor.md) you add these components with **Add*
 
 Each component page opens with a sentence that defines the component, then says when to choose the component and when to choose another, lists its parameters, and gives an example.
 Where a page has further guidance, it adds a section after the example.
-Pages for components with overlay elements, such as [Image](Interactive/Image.md) and [Model](Interactive/Model.md), add a section for each overlay type between the parameters and the example.
+Pages for components with overlay elements, such as [Image](Interactive/Image.md) and [Model](Interactive/Model.md), cover what differs between the two, and the overlay tables they share are on [Overlay elements](Interactive/Overlay_Elements.md).
 
 The **Parameters** tables list every parameter that Profinity accepts on a component, with its type, whether it is required, its default value and a description that includes the allowed values.
 A parameter that the web interface ignores is marked **Not used by the web interface** and can be omitted.

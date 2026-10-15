@@ -3,7 +3,7 @@ title: Historians
 description: "Choose a historian to store tag history in InfluxDB v2, InfluxDB v3 or a SQL database, and set which one answers long-range history queries."
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Historians
@@ -19,17 +19,20 @@ A **historian** is a logging component that writes the history of your [tags](..
 Profinity provides three historians, and each selects the tags it records through [collections](../../Tags/Collections.md), in the same way as a logger.
 Historians require the **Historians** licensed feature, included in the **Desktop**, **Server** and **Enterprise** editions, and [Licensing](../../Administration/Licensing.md) shows whether it is available on your instance.
 
-| Historian | Stores data in | Documentation |
-|---|---|---|
-| InfluxDB v2 Historian | An InfluxDB v2 server, using a bucket and organisation. | [InfluxDB v2 Historian](InfluxDB_v2_Historian.md) |
-| InfluxDB v3 Historian | An InfluxDB v3 server, using a database. | [InfluxDB v3 Historian](InfluxDB_v3_Historian.md) |
-| TAG SQL Historian | A SQL database: SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL, or Oracle. | [TAG SQL Historian](TAG_SQL_Historian.md) |
+All three allow the history to be read back through the APIs, and all three have the **Designated tag historian reader** setting described under [Designating the historian that is read from](#designating-the-historian-that-is-read-from).
+
+| Historian | Stores data in | Settings that identify the store | Interval setting | Documentation |
+|---|---|---|---|---|
+| InfluxDB v2 Historian | An InfluxDB v2 server, using a bucket and organisation. | **InfluxDB Bucket**, **InfluxDB Organisation** and **InfluxDB Token**, all required | **Logging Interval (Sec)**, default 10, minimum 1 | [InfluxDB historians](InfluxDB_Historians.md) |
+| InfluxDB v3 Historian | An InfluxDB v3 server, using a database. | **InfluxDB Database** and **InfluxDB Token**, both required | **Logging Interval (Sec)**, default 10, minimum 1 | [InfluxDB historians](InfluxDB_Historians.md) |
+| TAG SQL Historian | A SQL database: SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL, or Oracle. | **Database Provider**, which defaults to SQLite, and a required **Connection String** | **Update Interval (Seconds)**, default 10, from 10 to 86400 | [TAG SQL Historian](TAG_SQL_Historian.md) |
 
 ## Which InfluxDB component do I need
 
 Check which InfluxDB version your server runs before adding a component, because InfluxDB v1, v2 and v3 are incompatible and a component only connects to the version it was built for.
-An InfluxDB v2 server organises data into buckets that belong to an organisation, so it needs the [InfluxDB v2 Historian](InfluxDB_v2_Historian.md), which asks for a bucket, an organisation and a token.
-An InfluxDB v3 server stores data in a single database, so it needs the [InfluxDB v3 Historian](InfluxDB_v3_Historian.md), which asks for a database and a token.
+An InfluxDB v2 server organises data into buckets that belong to an organisation, so it needs the **InfluxDB v2 Historian**, which asks for a bucket, an organisation and a token.
+An InfluxDB v3 server stores data in a single database, so it needs the **InfluxDB v3 Historian**, which asks for a database and a token.
+Both are documented in [InfluxDB historians](InfluxDB_Historians.md).
 An InfluxDB v1 server needs the **InfluxDB v1 Logger**, which is a logger rather than a historian and is documented under [InfluxDB and Prometheus logging](../Loggers/InfluxDB_Prometheus_Logger.md).
 
 ## Designating the historian that is read from

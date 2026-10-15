@@ -3,7 +3,7 @@ title: Actions
 description: "Choose and configure the built-in, Email, Slack, Webhook, MQTT, and Run On Alert script actions that run when a tag rule fires."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Rule actions
@@ -48,6 +48,22 @@ To add one:
 A rule can then select the action from the picker.
 The component's name becomes the action id in the picker and in `rules.yaml`, so a component named `OpsSlack` is written `action: OpsSlack`, and renaming the component means updating the rules that use it.
 Several components of the same type, for example one Slack action per channel, can exist side by side.
+
+## Actions inherited down the rule tree
+
+Actions written on the file or on a group are parent actions, and each one needs a `triggerLevel`.
+A parent action runs for every rule beneath it whose alert level is at or above the `triggerLevel`, taking the level from the rule or, for a threshold rule, from the step that fired.
+In the [complete rules.yaml example](Rules.md#a-complete-rulesyaml-example), a Warning on `pack_temperature` runs only **Profinity Log**, an Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
+Actions written on a rule or on a threshold step are local, take no `triggerLevel` and always run when that rule or step fires.
+
+The `clearActions` lists work the same way when the alert clears.
+Each side can be switched off for one rule with `disableActions` and `disableClearActions`, which list an inherited action as the id of its parent, a slash and its name, as in `profile/ProfinityLog`.
+For a rules file that belongs to a component, the parent id is the component name instead of `profile`, and for a group it is the group `id`.
+Each parent can list a given action name only once, and a rule with `thresholds` cannot also have rule-level `actions` or `clearActions`, so its actions go on the steps.
+
+An action entry may be a bare name or an object with `action` and optionally `message` and `level`, where `message` replaces the text sent for this rule and `level` sets the level that **Profinity Log** writes at.
+The `tagId` and `value` fields substitute a different tag path and value for those reported to the action.
+An action that is not found, or is not an action component, is reported as `references unknown component` when the rules file loads, and the rule file is not loaded until the name is corrected.
 
 ## `TriggeredTags`
 

@@ -3,7 +3,7 @@ title: Rules
 description: "Write tag rules in rules.yaml or the visual editor, set alert levels and thresholds, and attach actions that run when a rule fires."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Tag rules
@@ -28,14 +28,49 @@ The editor lists the profile's rules first and then each component's rules, and 
 </figure>
 
 The editor writes the same `rules.yaml` document that can be edited directly, and it exposes the settings that control how a rule is evaluated: **Rule level** and **Rule type** for each rule, **Dwell seconds**, **Throttle minutes** and the **More information links**, and the **Evaluation tick (seconds)** on the rules source.
+The valid alert levels, their aliases and the default are described under [Alert levels](Alerts.md#alert-levels).
 Each rule also has a `description` that the Alerts Log shows to the operator, and a condition written in the [tag expression](./Tag_Expressions.md) language, for example `tag.Value > 4.2` to trip with `tag.Value < 4.0` to clear, or `tag.IsStale` for a sensor that has stopped reporting.
+
+Setting **Publish state tag path** on a rule, in its **Rule State** group, mirrors the rule's current state to a read-only tag, as described under [Rule state publishing](#rule-state-publishing).
+
+## Rule state publishing
+
+A rule can publish its own current state to a tag.
+Set **Publish state tag path** in the **Rule State** group of a rule in the Rules editor, and Profinity mirrors the rule's state to that tag path whenever it changes: a boolean rule publishes `true` or `false`, and a threshold rule publishes the zero-based index of its active step, or `-1` when no step is active.
+The tag is read-only, so only the rule can write to it.
+When the rules load, the tag takes the state the rule last had, which Profinity restores from the alert log, or `false` (`-1` for a threshold rule) when the rule has no history, and it then changes whenever the rule changes state.
+
+A rule has a single state tag even when its scope matches many tags, so every matching tag writes to the same state tag and the value shown is that of whichever matching tag changed state most recently, not a summary of all of them.
+Where the state of each tag matters, define one rule per tag, each with its own **Publish state tag path**, and do not give two rules the same path, because Profinity does not load the rules when two of them share a path, and the error names both rules.
+Refer to [Actions](./Actions.md) for the actions a rule runs.
+
+## Rule evaluation: dwell and deadband
+
+<figure markdown>
+![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../images/2.3-diagram-rules.png)
+<figcaption>Dwell, deadband and severity levels on a rule</figcaption>
+</figure>
+
+Rules support **dwell**, where the condition must hold for a duration set with `dwellSeconds` or `dwellMinutes`, and **deadband**, where the alert clears at a different point from where it tripped, set on a threshold step with `clearValue` or `clearExpression` and on a boolean rule with `clearExpression`.
+Both are configured in the rules visual editor or in `rules.yaml`, and a complete example of each is shown under [A complete rules.yaml example](#a-complete-rulesyaml-example).
 
 The **Evaluation tick (seconds)** setting, `evaluationTickSeconds` in YAML, takes a whole number from 1 to 3600.
 Rules evaluate whenever a tag in their scope changes, and the tick adds a periodic extra pass, which is the only way a `tag.IsStale` rule can fire for a tag that has stopped changing.
 When several rules files set a tick, the smallest value applies to the whole profile, so a low value in one file changes the evaluation cadence of every file.
 A rule that tests for stale or missing data needs the tick to be set in at least one loaded rules file.
 
-Setting **Publish state tag path** on a rule, in its **Rule State** group, mirrors the rule's current state to a read-only tag, as described in [Rule state publishing](./Derived_Tags.md#rule-state-publishing).
+Conditions use the same `tag` expression language as collections, so a numeric trip and clear pair is written as follows:
+
+```text
+tag.Value > 4.2
+tag.Value < 4.0
+```
+
+A no-data or stale sensor condition is written as follows:
+
+```text
+tag.IsStale
+```
 
 ## A complete rules.yaml example
 
@@ -132,32 +167,7 @@ The `description` is the text the operator reads in the detail dialog of the [Al
 The `moreInformation` list adds links, each with a `description` label and an `https://` `url`, which the dialog lists under **DOCUMENTATION**, and `relatedTags` stores tag paths that help diagnose the alert with the rule.
 Beyond the example, a rule, group or file takes `enabled: false` to switch everything beneath it off.
 
-## Actions inherited down the rule tree
-
-Actions written on the file or on a group are parent actions, and each one needs a `triggerLevel`.
-A parent action runs for every rule beneath it whose alert level is at or above the `triggerLevel`, taking the level from the rule or, for a threshold rule, from the step that fired.
-In the example above, a Warning on `pack_temperature` runs only **Profinity Log**, an Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
-Actions written on a rule or on a threshold step are local, take no `triggerLevel` and always run when that rule or step fires.
-
-The `clearActions` lists work the same way when the alert clears.
-Each side can be switched off for one rule with `disableActions` and `disableClearActions`, which list an inherited action as the id of its parent, a slash and its name, as in `profile/ProfinityLog`.
-For a rules file that belongs to a component, the parent id is the component name instead of `profile`, and for a group it is the group `id`.
-Each parent can list a given action name only once, and a rule with `thresholds` cannot also have rule-level `actions` or `clearActions`, so its actions go on the steps.
-
-An action entry may be a bare name or an object with `action` and optionally `message` and `level`, where `message` replaces the text sent for this rule and `level` sets the level that **Profinity Log** writes at.
-The `tagId` and `value` fields substitute a different tag path and value for those reported to the action.
-An action that is not found, or is not an action component, is reported as `references unknown component` when the rules file loads, and the rule file is not loaded until the name is corrected.
-
-## Alert level
-
-Set `level` on a rule, or on each threshold step, to classify alert severity, and the Alerts Log and the alert indicators combine the active rule state with that level.
-
-The valid levels, from least to most severe, are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`.
-Level names are not case-sensitive, `Information` is accepted as `Info` and `Warn` as `Warning`, and a rule with no level is treated as `Info`.
-An unrecognised level on a rule, threshold step or `triggerLevel` stops the rules file loading and names the rule that holds it, so correct the spelling and save again.
-The same names are used as the `triggerLevel` of an action configured on a parent rule file or group.
-
-A script receives the level as the string `RuleLevel`, and the Webhook and MQTT JSON message does not include the level.
+Actions written on the file or on a group are inherited by the rules beneath them, as described under [Actions inherited down the rule tree](Actions.md#actions-inherited-down-the-rule-tree), so in the example a Warning on `pack_temperature` runs only **Profinity Log**, an Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
 
 ## Permissions
 

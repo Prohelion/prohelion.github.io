@@ -21,6 +21,7 @@ Use the [HTML](../Content/HTML.md) component with an `img` element for a simple 
 The base image carries seven kinds of overlay element.
 Regions are clickable rectangles that navigate to another page or run an action. Icons and buttons are positioned graphics and controls that can run an action. Data values display live system data. Points anchor annotation lines. Annotation lines connect elements and may bend at waypoints called elbows. Layers are named groups of overlay elements that the operator shows and hides.
 Icons can be an emoji, a Scalable Vector Graphics (SVG) path or an image file, and every overlay element is positioned relative to the base image.
+The action invocation, layer, icon source, display type and annotation line parameters are shared with the [Model](Model.md) component and are described on [Overlay elements](Overlay_Elements.md).
 
 ## Parameters
 
@@ -30,13 +31,13 @@ Icons can be an emoji, a Scalable Vector Graphics (SVG) path or an image file, a
 | `class` | string | No | None | CSS class added to the image container |
 | `label` | string | No | None | Not used by the web interface |
 | `image` | string | Yes | None | Filename of the base image in `/Profile/Images`, given directly with no `value` wrapper |
-| `layers` | array | No | None | Named layers for visibility toggles. Refer to [Layers](#layers) |
+| `layers` | array | No | None | Named layers for visibility toggles. Refer to [Layers](Overlay_Elements.md#layers) |
 | `regions` | array | No | None | Clickable regions. Refer to [Regions](#regions) |
 | `icons` | array | No | None | Icons on the image. Refer to [Icons](#icons) |
 | `buttons` | array | No | None | Buttons on the image. Refer to [Buttons](#buttons) |
 | `dataValues` | array | No | None | Data overlays. Refer to [Data values](#data-values) |
 | `points` | array | No | None | Anchor points for annotation lines. Refer to [Points](#points) |
-| `annotationLines` | array | No | None | Lines connecting elements. Refer to [Annotation lines](#annotation-lines) |
+| `annotationLines` | array | No | None | Lines connecting elements. Refer to [Annotation lines](Overlay_Elements.md#image-annotation-lines) |
 | `bind` | array | No | None | [Data binding](../../Data_Binding.md) whose value replaces the overlay data of the image, using the same structure as the parameters above |
 | `enabled` | boolean | No | `true` | Not used by the web interface |
 | `unit` | string | No | None | Not used by the web interface. Set `unit` on each data value instead |
@@ -53,21 +54,6 @@ image:
 
 Regions, icons, buttons, data values, points and elbows are all positioned relative to this base image.
 
-## Action invocation
-
-The `action` of a region, icon, or button is an action invocation, which is the same object that a [Toggle](Toggles.md) uses. The [Actions](Actions.md#invoke-types) page describes the invoke types.
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `invoke` | string | No | `Component` | How a click is carried out, one of `Component`, `System`, `Endpoint` or `Navigate` |
-| `actionId` | string | Conditional | None | Name of the action to run. Required when `invoke` is `Component` or `System` |
-| `target` | string | Conditional | None | Location to navigate to. Required when `invoke` is `Navigate` |
-| `endpointAction` | object | Conditional | None | Details of the HTTP request. Required when `invoke` is `Endpoint` |
-| `value` | string | No | None | Payload posted with a `Component` or `System` request |
-| `confirmMessage` | string | No | None | Not used by overlays. Only the `confirmMessage` of an `endpointAction` is honoured |
-| `trackProgress` | boolean | No | None | Not used by overlays |
-| `restartingOnSuccess` | boolean | No | None | Not used by overlays |
-
 ## Regions
 
 Regions are clickable rectangular areas on the image. Regions can navigate to other pages or run actions.
@@ -80,7 +66,7 @@ Regions are clickable rectangular areas on the image. Regions can navigate to ot
 | `width` | number | No | None | Width of the region as a percentage of the image width |
 | `height` | number | No | None | Height of the region as a percentage of the image height |
 | `coordinates` | string | No | None | Older form of the rectangle, written as `xywh=x,y,width,height`, that Profinity still reads when `x`, `y`, `width` and `height` are not all set. Use `x`, `y`, `width` and `height` instead. The four values are percentages written as plain numbers, without a `%` or `px` suffix |
-| `action` | object | Yes | None | Action invocation run when the region is clicked. Refer to [Action invocation](#action-invocation) |
+| `action` | object | Yes | None | Action invocation run when the region is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
 | `label` | string | No | None | Tooltip text displayed on hover |
 | `visibleBorder` | boolean | No | `true` | Whether to show the border of the region |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the region |
@@ -125,11 +111,11 @@ Icons are positioned elements that can display an emoji, an SVG path or an image
 | `id` | string | Yes | None | Unique identifier for the icon |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
-| `icon` | string | Yes | None | Icon source: an image filename (ending in `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg` or `.webp`) from `/Profile/Images`, an emoji character, SVG path data that starts with `M`, or an `<svg>` element whose first path is used. Any other text is displayed as text |
+| `icon` | string | Yes | None | Icon source. Refer to [Icon source forms](Overlay_Elements.md#icon-source-forms) |
 | `size` | number | No | `24` | Icon size in pixels |
 | `color` | string | No | None | Icon colour, applied to SVG paths and text icons |
 | `label` | string | No | None | Tooltip text displayed on hover |
-| `action` | object | No | None | Action invocation run when the icon is clicked. Refer to [Action invocation](#action-invocation) |
+| `action` | object | No | None | Action invocation run when the icon is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the icon |
 
 An emoji icon:
@@ -182,7 +168,7 @@ Buttons are dashboard-style buttons positioned on the image, which run an action
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
 | `label` | string | No | None | Caption of the button |
-| `action` | object | No | None | Action invocation run when the button is clicked. Refer to [Action invocation](#action-invocation) |
+| `action` | object | No | None | Action invocation run when the button is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the button |
 
 A button that runs an action:
@@ -208,7 +194,7 @@ Data values display real-time data from the Profinity system. They support three
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
 | `label` | string | No | The `id` | Label displayed above the value. The label can be bound with the `label` target |
-| `bind` | array | Yes | None | Data binding that supplies the live value. Refer to [Display types](#display-types) for the targets |
+| `bind` | array | Yes | None | Data binding that supplies the live value. Refer to [Display types](Overlay_Elements.md#display-types) for the targets |
 | `displayType` | string | No | `text` | How the value is displayed, one of `text`, `graph` (bar chart) or `status` (lamp) |
 | `maxValue` | number | No | None | Maximum of the bar chart scale. A `graph` data value needs a `maxValue` greater than `0` to draw the bar |
 | `lampColor` | string | No | `grey` | Colour of the lamp before a bound colour arrives, when `displayType` is `status`. The values are those of the lamp [colour names](../Data/Lamp.md#colour-names) |
@@ -218,57 +204,7 @@ Data values display real-time data from the Profinity system. They support three
 | `enabled` | boolean | No | `true` | Whether the status lamp is enabled. The parameter applies only when `displayType` is `status` |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the data value |
 
-### Display types
-
-A text display shows the formatted value:
-
-```yaml
-dataValues:
-  - id: "temperature"
-    x: 30
-    y: 40
-    label: "Temperature"
-    bind:
-      - target: value
-        source: 'DBC/Temperature/Value'
-    displayType: "text"
-    unit: "°C"
-    precision: 1
-```
-
-A graph display shows a bar chart:
-
-```yaml
-dataValues:
-  - id: "battery-soc"
-    x: 70
-    y: 40
-    label: "SOC"
-    bind:
-      - target: value
-        source: 'DBC/StateOfCharge/SOCPercent'
-    displayType: "graph"
-    maxValue: 100
-    unit: "%"
-    precision: 1
-```
-
-A status display shows a lamp.
-A status data value is always lit. The bound value supplies the colour of the lamp as a string such as `green`, `amber` or `red`, so bind the `color` target, as this example does. A binding with the `value` target is also applied as the lamp colour, and `lampColor` is the colour shown until the bound colour arrives:
-
-```yaml
-dataValues:
-  - id: "system-status"
-    x: 50
-    y: 60
-    label: "Status"
-    bind:
-      - target: color
-        source: 'Properties/StatusColourText'
-        toType: string
-    displayType: "status"
-    lampColor: "grey"
-```
+Refer to [Display types](Overlay_Elements.md#display-types) for an example of each display type.
 
 ## Points
 
@@ -302,63 +238,6 @@ points:
     x: 30
     y: 40
     size: 0
-```
-
-## Annotation lines
-
-Annotation lines connect elements (icons, data values, regions, or points) with optional waypoints (elbows) for routing. Lines are drawn automatically between connected elements.
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the annotation line |
-| `fromId` | string | Yes | None | Identifier of the element that the line starts from |
-| `toId` | string | Yes | None | Identifier of the element that the line ends at |
-| `elbows` | array | No | None | Bend points between the two elements. Each elbow has an `x` and a `y`, both required, as percentages of the image from `0` to `100` |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the line |
-
-A direct line:
-
-```yaml
-annotationLines:
-  - id: "direct-connection"
-    fromId: "status-icon"
-    toId: "voltage-display"
-```
-
-A line with waypoints:
-
-```yaml
-annotationLines:
-  - id: "routed-connection"
-    fromId: "sensor-icon"
-    toId: "sensor-data"
-    elbows:
-      - x: 50
-        y: 30
-      - x: 70
-        y: 50
-```
-
-## Layers
-
-Layers let the operator show and hide groups of overlay elements. The component displays a button for each layer, and an overlay element joins a layer through its `layer` parameter.
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Layer identifier that the `layer` parameter of an overlay element refers to |
-| `label` | string | No | The `id`, with underscores shown as spaces | Caption of the layer button |
-| `defaultVisible` | boolean | No | `true` | Whether the layer is visible when the dashboard loads |
-
-Two layers, one hidden when the dashboard loads:
-
-```yaml
-layers:
-  - id: "Hotspots"
-    label: "Hotspots"
-    defaultVisible: true
-  - id: "Data"
-    label: "Data values"
-    defaultVisible: false
 ```
 
 ## Example

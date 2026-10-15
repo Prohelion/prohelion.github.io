@@ -3,7 +3,7 @@ title: Alerts Log
 description: "View, acknowledge, and silence rule-generated alerts in the Alerts Log, with active and history tabs and live alert indicators."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Alerts Log
@@ -45,8 +45,15 @@ Tables show 25, 50, 75 or 100 rows per page, and 25 by default.
 
 ## Alert levels
 
-Every rule and threshold step carries a `level`, and the six permitted values in ascending severity are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`.
-The valid names, their aliases and the defaults are described under [Alert level](./Rules.md#alert-level), and the level filter on the Active and History queries is not case-sensitive.
+Set `level` on a rule, or on each threshold step, to classify alert severity, and the Alerts Log and the alert indicators combine the active rule state with that level.
+
+The valid levels, from least to most severe, are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`.
+Level names are not case-sensitive, `Information` is accepted as `Info` and `Warn` as `Warning`, and a rule with no level is treated as `Info`.
+An unrecognised level on a rule, threshold step or `triggerLevel` stops the rules file loading and names the rule that holds it, so correct the spelling and save again.
+The same names are used as the `triggerLevel` of an action configured on a parent rule file or group.
+
+A script receives the level as the string `RuleLevel`, and the Webhook and MQTT JSON message does not include the level.
+The level filter on the Active and History queries is not case-sensitive.
 
 ## Live indicators
 
@@ -72,32 +79,6 @@ Acknowledging and silencing both need the **View alerts** permission, and both a
 
 The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab, and an acknowledged alert shows an **Unacknowledge alert** button in place of Acknowledge.
 
-## Rule evaluation: dwell and deadband
-
-<figure markdown>
-![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../images/2.3-diagram-rules.png)
-<figcaption>Dwell, deadband and severity levels on a rule</figcaption>
-</figure>
-
-Rules support **dwell**, where the condition must hold for a duration set with `dwellSeconds` or `dwellMinutes`, and **deadband**, where the alert clears at a different point from where it tripped, set on a threshold step with `clearValue` or `clearExpression` and on a boolean rule with `clearExpression`.
-Both are configured in the rules visual editor or in `rules.yaml`, and a complete example of each is shown under [A complete rules.yaml example](./Rules.md#a-complete-rulesyaml-example).
-
-Rules evaluate whenever a tag in their scope changes.
-The `evaluationTickSeconds` setting adds a periodic extra pass, takes a whole number from 1 to 3600, and is required for a rule that detects stale data with `tag.IsStale`, because a stale tag does not change.
-When several rules files set it, the smallest value applies to the whole profile.
-
-Conditions use the same `tag` expression language as collections, so a numeric trip and clear pair is written as follows:
-
-```text
-tag.Value > 4.2
-tag.Value < 4.0
-```
-
-A no-data or stale sensor condition is written as follows:
-
-```text
-tag.IsStale
-```
-
+How a rule is evaluated, including dwell, deadband, and the evaluation tick, is described under [Rule evaluation: dwell and deadband](./Rules.md#rule-evaluation-dwell-and-deadband).
 The expression language is described in [Tag expressions](./Tag_Expressions.md), and the actions a rule runs are described in [Rules](./Rules.md) and [Actions](./Actions.md).
-For the rest of the tag layer, refer to [Tag layer](index.md), [Collections](./Collections.md) and [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
+For the rest of the tag layer, refer to [Tag layer](index.md), [Collections](./Collections.md), and [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).

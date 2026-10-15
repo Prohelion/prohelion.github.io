@@ -1,56 +1,66 @@
 ---
-title: InfluxDB v3 Historian
-description: "Record tag history to an InfluxDB v3 server and read it back through the APIs, including setup, settings, and the log messages that explain a failed connection."
+title: InfluxDB historians
+description: "Record tag history to an InfluxDB v2 or v3 server and read it back through the APIs, with setup, settings, and log messages that explain a failed connection."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
-# InfluxDB v3 Historian
+# InfluxDB historians
 
-The **InfluxDB v3 Historian** writes the values of the tags in the [collections](../../Tags/Collections.md) you select to an InfluxDB v3 server, and allows that history to be read back out through the APIs.
-It sits in the **Historians** category.
+The **InfluxDB v2 Historian** and the **InfluxDB v3 Historian** write the values of the tags in the [collections](../../Tags/Collections.md) you select to an InfluxDB server, and allow that history to be read back out through the APIs.
+They sit in the **Historians** category.
 Each recorded value belongs to a [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Tag_Tree_Path.md).
 
-Use this component if your InfluxDB server stores data in a single database.
-It authenticates with a token.
+Use the **InfluxDB v2 Historian** if your InfluxDB server stores data in buckets that belong to an organisation.
+Use the **InfluxDB v3 Historian** if your InfluxDB server stores data in a single database.
+Both authenticate with a token.
 InfluxDB Cloud is supported as well as a server you host: enter the Cloud URL and a token in the same way.
 
 <figure markdown>
 ```mermaid
 flowchart LR
     subgraph Profinity["Profinity"]
-        Tags --> Collections["Tag collections"] --> Historian["InfluxDB v3 Historian"]
+        Tags --> Collections["Tag collections"] --> Historian["InfluxDB historian"]
     end
-    subgraph Server["InfluxDB v3 server"]
-        Store["InfluxDB v3"]
+    subgraph Server["InfluxDB server"]
+        Store["InfluxDB"]
     end
     Historian --> Store
 ```
-<figcaption>The InfluxDB v3 Historian writes the tags in the selected collections to the InfluxDB v3 server, and the APIs read the history back</figcaption>
+<figcaption>An InfluxDB historian writes the tags in the selected collections to the InfluxDB server, and the APIs read the history back</figcaption>
 </figure>
 
 !!! info "Licence required"
-    The InfluxDB v3 Historian requires the **Historians** licensed feature. Refer to [Licensing](../../Administration/Licensing.md) for the editions that include it.
+    The InfluxDB v2 Historian and the InfluxDB v3 Historian require the **Historians** licensed feature. Refer to [Licensing](../../Administration/Licensing.md) for the editions that include them.
 
-Use the component only with an InfluxDB v3 server.
+Use the InfluxDB v2 Historian only with an InfluxDB v2 server, and the InfluxDB v3 Historian only with an InfluxDB v3 server.
 The component type must match the InfluxDB version, and a mismatch causes connection failures.
-The [InfluxDB v2 Historian](InfluxDB_v2_Historian.md) is documented separately, and [Historians](index.md#which-influxdb-component-do-i-need) explains how to choose.
+[Historians](index.md#which-influxdb-component-do-i-need) explains how to choose.
 
-## Adding an InfluxDB v3 Historian
+## Adding an InfluxDB historian
 
-To start recording, install InfluxDB v3 and confirm that it is running, then:
+To start recording, install InfluxDB v2 or v3 and confirm that it is running, then:
 
-1. Add an **InfluxDB v3 Historian** to your profile from the **Historians** category.
-2. Enter **InfluxDB Database** and **InfluxDB Token**.
+1. Add an **InfluxDB v2 Historian** or an **InfluxDB v3 Historian** to your profile from the **Historians** category.
+2. For the v2 historian, enter **InfluxDB Bucket**, **InfluxDB Organisation** and **InfluxDB Token**. For the v3 historian, enter **InfluxDB Database** and **InfluxDB Token**.
 3. Under **Collections**, add at least one tag collection. The component does not start until one is configured.
 4. In **Influx Server URL**, enter the endpoint URL that InfluxDB is running on, or keep the default `http://localhost:8086/`.
 
 Settings cannot be saved while a required field is empty.
 
+These settings identify where the data is stored, and differ between the two historians.
+
+| Setting | Applies to | Default | Purpose |
+|---|---|---|---|
+| **InfluxDB Bucket** | InfluxDB v2 Historian | None | The InfluxDB bucket that the data is stored in. Required. |
+| **InfluxDB Organisation** | InfluxDB v2 Historian | None | The InfluxDB organisation that owns the bucket. Required. |
+| **InfluxDB Database** | InfluxDB v3 Historian | None | The InfluxDB v3 database that the data is stored in. Required. |
+
+These settings are the same on both historians.
+
 | Setting | Default | Purpose |
 |---|---|---|
-| **InfluxDB Database** | None | The InfluxDB v3 database that the data is stored in. Required. |
 | **InfluxDB Token** | None | The security token of the InfluxDB user that Profinity connects as. Required, and stored encrypted. |
 | **Influx Server URL** | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
 | **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |

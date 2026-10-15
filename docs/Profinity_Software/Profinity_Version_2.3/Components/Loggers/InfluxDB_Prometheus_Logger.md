@@ -35,7 +35,7 @@ flowchart LR
 
 ## Logging modes
 
-The **Logging mode** setting determines what Profinity sends to the database on each interval, and it applies to the InfluxDB v1 Logger, the [InfluxDB v2 Historian](../Historians/InfluxDB_v2_Historian.md), the [InfluxDB v3 Historian](../Historians/InfluxDB_v3_Historian.md) and the other collection-based loggers.
+The **Logging mode** setting determines what Profinity sends to the database on each interval, and it applies to the InfluxDB v1 Logger, the [InfluxDB v2 Historian](../Historians/InfluxDB_Historians.md), the [InfluxDB v3 Historian](../Historians/InfluxDB_Historians.md) and the other collection-based loggers.
 Nothing is logged until at least one tag collection is selected in **Collections**.
 
 - **Snapshot**, the default, sends the current value of every member of the selected collections on each interval.

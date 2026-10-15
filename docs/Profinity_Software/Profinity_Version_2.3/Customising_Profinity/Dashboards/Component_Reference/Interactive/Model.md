@@ -9,6 +9,7 @@ last_reviewed: 2026-10-14
 # Model
 
 A model component is an interactive three-dimensional view that loads one or more 3D model files from the `/Profile/Models` directory, lets the operator orbit and zoom the view, and overlays regions, icons, buttons, data values, points, and annotation lines at positions in the space of the model. The component is the three-dimensional counterpart of the [Image](Image.md) component, and uses the same overlay structure.
+The action invocation, layer, icon source, display type and annotation line parameters are shared with the [Image](Image.md) component and are described on [Overlay elements](Overlay_Elements.md).
 
 Use a model component for vehicle, battery pack and machine views in which components are located in three dimensions, and for interactive models with live data labels.
 Use the [Image](Image.md) component for a flat diagram.
@@ -29,13 +30,13 @@ Model files are stored in the `/Profile/Models` directory and are referenced by 
 | `cameraPosition` | array of number | No | `[5, 5, 5]` | Initial camera position as `[x, y, z]` |
 | `cameraTarget` | array of number | No | `[0, 0, 0]` | Point that the camera looks at and orbits around, as `[x, y, z]` |
 | `fov` | number | No | `50` | Vertical field of view of the camera in degrees |
-| `layers` | array | No | None | Named layers for visibility toggles. The layer parameters are the same as those of an [Image](Image.md#layers) |
+| `layers` | array | No | None | Named layers for visibility toggles. The layer parameters are described in [Layers](Overlay_Elements.md#layers) |
 | `regions` | array | No | None | Clickable spheres. Refer to [Region parameters](#region-parameters) |
 | `icons` | array | No | None | Icons anchored in model space. Refer to [Icon parameters](#icon-parameters) |
 | `buttons` | array | No | None | Buttons anchored in model space. Refer to [Button parameters](#button-parameters) |
 | `dataValues` | array | No | None | Live data overlays. Refer to [Data value parameters](#data-value-parameters) |
 | `points` | array | No | None | Anchor points for annotation lines. Refer to [Point parameters](#point-parameters) |
-| `annotationLines` | array | No | None | Lines between overlay elements. Refer to [Annotation line parameters](#annotation-line-parameters) |
+| `annotationLines` | array | No | None | Lines between overlay elements. Refer to [Model annotation lines](Overlay_Elements.md#model-annotation-lines) |
 | `bind` | array | No | None | [Data binding](../../Data_Binding.md) whose value replaces the overlay data of the model, using the same structure as the parameters above |
 | `enabled` | boolean | No | `true` | Not used by the web interface |
 | `unit` | string | No | None | Not used by the web interface. Set `unit` on each data value instead |
@@ -56,7 +57,7 @@ Each item in `models` has:
 
 ### Action invocation
 
-The `action` of a region, icon, or button is an action invocation. The parameters are the same as those described for an [Image](Image.md#action-invocation) component, and the [Actions](Actions.md#invoke-types) page describes the invoke types.
+The `action` of a region, icon, or button is an action invocation. The parameters are described in [Action invocation](Overlay_Elements.md#action-invocation), and the [Actions](Actions.md#invoke-types) page describes the invoke types.
 
 ### Region parameters
 
@@ -82,7 +83,7 @@ A region is a clickable sphere in model space.
 | `x` | number | Yes | None | Position along the X axis of the model |
 | `y` | number | Yes | None | Position along the Y axis of the model |
 | `z` | number | Yes | None | Position along the Z axis of the model |
-| `icon` | string | Yes | None | Icon source: an image filename, an emoji character, SVG path data, or an `<svg>` element. The [Image](Image.md#icons) page describes the accepted forms |
+| `icon` | string | Yes | None | Icon source: an image filename, an emoji character, SVG path data, or an `<svg>` element. The [Overlay elements](Overlay_Elements.md#icon-source-forms) page describes the accepted forms |
 | `size` | number | No | `24` | Icon size in pixels |
 | `color` | string | No | None | Icon colour, applied to SVG paths and text icons |
 | `label` | string | No | None | Accessible alternative text for the icon. The web interface does not show the label as a tooltip |
@@ -120,7 +121,7 @@ A region is a clickable sphere in model space.
 | `enabled` | boolean | No | `true` | Whether the status lamp is enabled |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the data value |
 
-The display types behave as they do on an [Image](Image.md#display-types) component, including the rule that a `status` data value takes its colour from the bound value.
+The display types behave as described in [Display types](Overlay_Elements.md#display-types), including the rule that a `status` data value takes its colour from the bound value.
 
 ### Point parameters
 
@@ -133,16 +134,6 @@ The display types behave as they do on an [Image](Image.md#display-types) compon
 | `size` | number | No | `0.05` | Radius of the point sphere in model units |
 | `color` | string | No | `grey` | Colour of the point |
 | `layer` | string | No | None | Identifier of the layer that controls the visibility of the point |
-
-### Annotation line parameters
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the annotation line |
-| `fromId` | string | Yes | None | Identifier of the overlay element that the line starts from |
-| `toId` | string | Yes | None | Identifier of the overlay element that the line ends at |
-| `elbows` | array | No | None | Bend points between the two elements, in model space. Each elbow has `x` and `y`, both required, and an optional `z`. Elbows are not percentages |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the line |
 
 ## Example
 

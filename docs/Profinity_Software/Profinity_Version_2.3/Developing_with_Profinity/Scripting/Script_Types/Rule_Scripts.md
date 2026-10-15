@@ -41,7 +41,7 @@ rules:
 When the rule fires, Profinity calls the script's alert method once, passing the firing context as a parameter.
 This is the same context every other rule action receives (refer to [Actions](../../../Tags/Actions.md)): the rule id, name and level, the edge that fired, the triggering tag, and `TriggeredTags`, which holds every tag in the rule's scope that is currently true.
 The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage` and `TriggeredTags`, with the same names in C#, Python and Lua.
-`RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert level](../../../Tags/Rules.md#alert-level)).
+`RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert levels](../../../Tags/Alerts.md#alert-levels)).
 `Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`.
 Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
 

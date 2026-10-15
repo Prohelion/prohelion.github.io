@@ -44,6 +44,9 @@ Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 
 ### Invoke types
 
+The regions, icons, and buttons of an [Image](Image.md) or [Model](Model.md) component, and a [Toggle](Toggles.md), use the same invoke types through an action invocation object.
+Refer to [Action invocation](Overlay_Elements.md#action-invocation) for its parameters.
+
 | Invoke | Behaviour |
 |--------|-----------|
 | `Component` | Runs the action named by `actionId` on the component that owns the dashboard, and posts `value` with the request. This is the default |

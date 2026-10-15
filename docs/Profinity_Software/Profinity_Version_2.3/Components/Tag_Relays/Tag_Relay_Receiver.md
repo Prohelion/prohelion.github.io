@@ -24,7 +24,7 @@ The [Tag Relay](../../Tags/Tag_Relay.md) page covers the concept, collision rule
 ## Quick start {#adding-a-tag-relay-receiver}
 
 Add a **Tag Relay Receiver** to your profile from the **Tag Relays** category, choose the protocol and set a **Receiver tag path prefix**.
-[Tag Relays](index.md) describes how to set up a first relay end to end.
+[Set up a tag relay](Set_Up_a_Tag_Relay.md) describes how to set up a first relay end to end.
 
 ## Settings
 
