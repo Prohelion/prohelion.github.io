@@ -160,8 +160,10 @@ Writing the same value again does not call the method for sources that report a 
 If the method is still running when another change arrives, **Trigger Overlap** decides what happens.
 It is the same setting used by Run On Alert and Run On Receipt of CAN Message:
 
-- **Drop** (default): discard the new change while the current one is still running.
-- **Queue**: hold a bounded backlog, up to **Queue Depth** (1 to 100), and run it once the current call completes.
+| Trigger Overlap | Effect |
+|-----------------|--------|
+| **Drop** (default) | Discards the new change while the current one is still running. |
+| **Queue** | Holds a bounded backlog, up to **Queue Depth** (1 to 100), and runs it once the current call completes. |
 
 Keep the method fast.
 A slow script under **Queue** builds a backlog, and under **Drop** silently misses changes.

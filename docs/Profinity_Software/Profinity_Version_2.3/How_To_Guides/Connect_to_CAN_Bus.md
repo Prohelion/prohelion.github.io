@@ -70,7 +70,7 @@ A manually added adapter asks for the following:
 
 1. Click the adapter in the sidebar, open **Change Settings** (top right of the adapter dashboard), and save the adapter settings.
 2. Click **Connect** on the adapter dashboard, and wait for the adapter to connect.
-3. Check that the status indicator turns green, as defined in the colour table in [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md). An adapter that is connected but sees no traffic shows yellow, and a red indicator means a connection error, so check the [logs](../Getting_Started/Profinity_Log.md).
+3. Check that the status indicator turns green, as defined in the colour table in [Adding Components to Your Profile](Add_Component_to_Profile.md). An adapter that is connected but sees no traffic shows yellow, and a red indicator means a connection error, so check the [logs](../Administration/Logs_Config.md).
 4. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN** (a user who holds only the **View CAN data** permission sees **RECEIVED CAN** instead), and confirm that messages appear in the CAN Activity panel. [How to Send and Receive CAN Bus Messages](./Send_Receive_CAN_Bus.md) describes the panel.
 
 The adapter settings are:

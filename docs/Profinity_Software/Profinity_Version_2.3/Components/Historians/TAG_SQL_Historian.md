@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 The **TAG SQL Historian** writes the values of the tags in the [collections](../../Tags/Collections.md) you select to a table in a SQL database, and allows that history to be read back out through the APIs.
 It sits in the **Historians** category.
-Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](../Loggers/InfluxDB_Prometheus_Logger.md).
+Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](../Loggers/InfluxDB_v1_Logger.md).
 Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Tag_Tree_Path.md).
 
 <figure markdown>
@@ -76,7 +76,7 @@ When **Auto Create Table** is enabled the historian creates a table with the fol
 | `Reason` | Why the sample was recorded. |
 | `Message` | An optional message. |
 
-The columns follow the same field set as the tag change file logger described in [File and tag loggers](../Loggers/File_Loggers.md), so history written by either can be interpreted in the same way.
+The columns follow the same field set as the tag change file logger described in [Tag file and SFTP loggers](../Loggers/Tag_File_and_SFTP_Loggers.md), so history written by either can be interpreted in the same way.
 If you create the table yourself, disable **Auto Create Table** and make sure the account in the connection string can insert into and read from it.
 
 ## Example connection strings
@@ -99,7 +99,7 @@ With **Auto Create Table** on, it also needs permission to create the table, and
 
 Settings cannot be saved without a connection string (`You must provide a connection string for the database.`) or with an invalid table name (`Table name must use letters, digits, and underscore only, and cannot start with a digit.`).
 
-If the settings save but no rows arrive, the [Profinity System Logs](../../Getting_Started/Profinity_Log.md) show one of two messages:
+If the settings save but no rows arrive, the Profinity system logs (refer to [Logs](../../Administration/Logs_Config.md)) show one of two messages:
 
 - The component name followed by `could not connect` and the reason, for a connection that failed. The historian shows **Error** and retries every 5 seconds until the database is reachable.
 - `Failed to write to the` followed by the component name, for a failed write.

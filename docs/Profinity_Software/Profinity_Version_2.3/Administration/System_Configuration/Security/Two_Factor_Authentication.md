@@ -43,12 +43,7 @@ Repeated incorrect codes are rate limited, so a user who keeps entering wrong co
 
 If a code is rejected although it was typed correctly, the usual cause is the clock on the phone, because authenticator codes depend on the device time being correct.
 If the phone is lost and the recovery codes are not available, an administrator resets the user's authenticator from the **User Actions** tab, as described in [MFA Account Management](../../Users_and_Access/MFA_Account_Management.md), and the user enrols again at the next sign-in.
-
-## Managing your own authenticator
-
-While **Enforce two-factor for local users** is on, a signed-in local user can open the **Two-Factor Authentication** pill on the **ADMIN** page to see the enrolment status and the number of recovery codes remaining, to reset the authenticator, or to regenerate the recovery codes.
-The pill is shown only on sites that enforce two-factor authentication, so a user cannot enrol voluntarily on a site that does not.
-Refer to [MFA Account Management](../../Users_and_Access/MFA_Account_Management.md).
+While **Enforce two-factor for local users** is on, a signed-in local user manages their own authenticator from the **Two-Factor Authentication** pill on the **ADMIN** page, as described in [MFA Account Management](../../Users_and_Access/MFA_Account_Management.md#self-service-management).
 
 ## Security-key sign-in
 

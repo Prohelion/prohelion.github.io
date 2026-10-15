@@ -37,6 +37,7 @@ exceptions:
   - DBC
   - YAML
   - JSON
+  - HTML
   - API
   - APIs
   - REST

@@ -12,7 +12,7 @@ last_reviewed: 2026-10-14
 With a DBC file, CAN data can be understood more clearly and broken down into Signals and Messages, the fundamental building blocks of a DBC file.
 For the moment, Profinity provides a DBC Viewer that takes a DBC file and shows the CAN bus traffic travelling through the Profinity system as Messages and Signals.
 
-Many of the components supported by Profinity, such as the [Elmar Solar MPPT](../Components/MPPT/index.md) and the [WaveSculptor](../Components/Motor_Controller/index.md), have DBC support built in and show their Messages and Signals without a separate DBC file.
+Many of the components supported by Profinity, such as the [Elmar Solar MPPT](../Components/MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Components/Motor_Controller/index.md), have DBC support built in and show their Messages and Signals without a separate DBC file.
 The DBC files that describe Prohelion devices are published with the hardware documentation, for example the [WaveSculptor22 DBC file](../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md) and the [EV Driver Controls DBC file](../../../Solar_Car_Racing/EV_Driver_Controller/Communications_Protocol/DBC.md).
 Either can be supplied to a Custom Component as a third-party DBC file.
 
@@ -27,7 +27,7 @@ A component that has DBC support also has a **Messages and Signals** item in its
 <figcaption>CAN DBC Viewer</figcaption>
 </figure>
 
-To use the DBC Viewer with a third-party DBC file, [add a Custom Component](../Getting_Started/Adding_New_Components.md) to your [Profile](../Getting_Started/Profiles.md) and provide the file in its **Upload DBC File (Optional)** setting.
+To use the DBC Viewer with a third-party DBC file, [add a Custom Component](../How_To_Guides/Add_Component_to_Profile.md) to your [Profile](../Getting_Started/Profiles.md) and provide the file in its **Upload DBC File (Optional)** setting.
 Once the file has parsed, the component appears in your profile with the **Messages and Signals** menu item.
 Refer to [How to Create a Custom Component](../How_To_Guides/Create_Custom_Component.md) for the full steps.
 

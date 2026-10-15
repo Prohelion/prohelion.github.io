@@ -37,7 +37,7 @@ For a first script use a run script, whose type is set by the **Script Mode** of
 The main types are [Run scripts](../Developing_with_Profinity/Scripting/Script_Types/RunScripts.md), which run on demand or on a schedule (time interval or cron), [Receive scripts](../Developing_with_Profinity/Scripting/Script_Types/ReceiveScripts.md), which run when selected CAN messages are received, and [Service scripts](../Developing_with_Profinity/Scripting/Script_Types/ServiceScripts.md), which are long-running background services with lifecycle control.
 Tag Change and Alert modes also exist, and [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md) describes them.
 
-1. Select **ADD COMPONENT**. Refer to [Adding Components to Your Profile](../Getting_Started/Adding_New_Components.md).
+1. Select **ADD COMPONENT**. Refer to [Adding Components to Your Profile](Add_Component_to_Profile.md).
 2. Select the **CSharp Script**, **Python Script** or **Lua Script** component. This opens the script component settings and the script editor together.
 3. Set the component name, and add a description if wanted.
 4. Set **Script Mode** to **Run On Demand**, which runs the script manually from the UI. **Run On Time Interval** runs it at a fixed interval, for example every few minutes, and **Run On CRON Schedule** runs it on a [Quartz](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) cron expression.

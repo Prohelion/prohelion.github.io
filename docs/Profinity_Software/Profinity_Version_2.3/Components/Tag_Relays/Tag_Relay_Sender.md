@@ -69,7 +69,7 @@ The total number of messages sent increases only when a snapshot is delivered.
 ## Troubleshooting
 
 If the sender shows **Error**, it is running but cannot reach its broker, so it retries every second and the log records the reason once.
-If the sender does not start at all, check the [Logs](../../Getting_Started/Profinity_Log.md).
+If the sender does not start at all, check the [Logs](../../Administration/Logs_Config.md).
 The sender refuses to start, and logs the reason, when no collection is selected, when a selected collection does not exist, when the HTTPS protocol is missing the **Remote base URL** or **Bearer token**, or when the MQTT protocol is missing the **MQTT broker URL** or **MQTT snapshot topic**.
 
 If the sender shows **On** but the total number of messages sent stays at zero, the log holds a warning for each failed snapshot.

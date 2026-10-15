@@ -14,7 +14,10 @@ An operator controls a service from the script component's menu with **Start Ser
 
 ## Settings
 
-A service also starts by itself when **Auto Start Script** is on, and **Maximum Run Time (seconds)** cancels a run that takes too long.
+| Setting | Description |
+|---------|-------------|
+| **Auto Start Script** | When on, the service starts by itself. |
+| **Maximum Run Time (seconds)** | Cancels a run that takes too long. |
 
 <figure markdown>
 ![The script editor for a Python Service script, showing the Python service template with the on_start and on_stop functions](../../../images/python_service_script.png)

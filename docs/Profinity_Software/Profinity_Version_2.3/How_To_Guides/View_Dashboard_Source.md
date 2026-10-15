@@ -19,7 +19,7 @@ Before you start, you need:
 
 ## Open a component dashboard's source
 
-1. Select the [component](../Components/Custom_Components/index.md) in the sidebar.
+1. Select the [component](../Components/Custom_Components/Using_a_Custom_Component.md) in the sidebar.
 2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar. This opens the dashboard editor in **DESIGN** mode.
 3. Select the **YAML** tab to see the complete dashboard configuration.
 

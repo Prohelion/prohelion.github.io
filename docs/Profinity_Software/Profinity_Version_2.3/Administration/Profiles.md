@@ -46,9 +46,9 @@ A temporary profile created for this purpose can be deleted afterwards.
 
 ## Creating a new profile
 
-To create a profile, open the **Profile** pill, select **+ ADD PROFILE**, enter a unique profile name and an optional description, and then build the system configuration by adding components.
+The steps to create a profile, from **+ ADD PROFILE** to adding components, are in [How to create a new profile](../How_To_Guides/Create_New_Profile.md).
 
-To import a profile pack prepared on another instance of Profinity instead, select **UPLOAD PROFILE PACK** and choose the ZIP file.
+To import a profile pack prepared on another instance of Profinity instead, open the **Profile** pill, select **UPLOAD PROFILE PACK** and choose the ZIP file.
 The profile is imported with all of its associated configuration.
 
 !!! note "Profile packs with scripts need the Scripting feature"
@@ -61,18 +61,8 @@ These appear as unresolved roles that never grant access, as described in [Compo
 ## Setting Kiosk Mode in a profile
 
 [Kiosk Mode](./Kiosk_Mode.md) signs a display in automatically for a profile, bypassing the login page, which suits kiosk displays, monitoring stations and automated systems.
-To enable it:
-
-1. Open the **Profile** pill and select the profile, which does not need to be active.
-2. Open the profile's settings and switch on **Kiosk Mode**.
-3. Choose a **Kiosk Mode User** from the list of enabled users.
-4. Select **Save**.
-
-Kiosk Mode applies only while the profile is active, and normal login is required when a profile without it becomes active.
-
-!!! warning "Anyone at the kiosk inherits its user's permissions"
-    Profinity does not restrict which enabled user can be selected, including administrators, so choose a user with only the permissions the display needs.
-    Requirements, security practice and troubleshooting are in [Kiosk Mode](./Kiosk_Mode.md).
+The profile does not need to be active when you change its settings, and the steps are in [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
+Anyone at a kiosk inherits the permissions of its Kiosk Mode User, so choose a user with only the permissions the display needs, as described in [Kiosk Mode](./Kiosk_Mode.md#choosing-the-kiosk-user).
 
 ## Downloading profile packs
 

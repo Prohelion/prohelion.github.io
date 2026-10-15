@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 The **MQTT Publisher** sends the current values of one or more profile [tag collections](../../Tags/Collections.md) to a Message Queuing Telemetry Transport (MQTT) broker, either on a fixed interval or whenever a member tag's value changes.
 Any system subscribed to the broker receives the data as it is published.
 
-It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a subscriber that is listening now, whereas a [logger](../Loggers/File_Loggers.md) writes to a file or database for later retrieval.
+It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a subscriber that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.
 To bring data from an external MQTT or Sparkplug source into Profinity instead, use the [MQTT Subscriber](MQTT_Subscriber.md).
 
 <figure markdown>
@@ -110,7 +110,7 @@ A broker that is down when the publisher starts, or that goes away later, leaves
 A rejected login is treated the same way, so fixing the credentials needs no restart either.
 The log records the reason once for each outage.
 
-If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying message, then confirm that:
+If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message, then confirm that:
 
 - The **Server URL** scheme and port match the broker.
 - The **Username** and **Password** are accepted.

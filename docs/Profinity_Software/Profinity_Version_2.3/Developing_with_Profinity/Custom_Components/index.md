@@ -14,7 +14,7 @@ New in Profinity 2.3: a Custom Component can include scripts, actions, and setti
 Adding the component in a profile and uploading those files is enough to run it, and packing is a separate step used only when the same component is to be installed somewhere else.
 A pack needs four of the files: `component_metadata.yaml`, `settings_map.yaml`, `firmware_map.yaml` and `actions.yaml`.
 
-Day-to-day behaviour in a profile, including the Messages and Signals viewer, is covered under [Using a Custom Component](../../Components/Custom_Components/index.md).
+Day-to-day behaviour in a profile, including the Messages and Signals viewer, is covered under [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md).
 The click path to add one is [How to Create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
 How this type compares with a dynamic-link library (DLL) plugin is covered on [Component Types](Component_Types.md).
 

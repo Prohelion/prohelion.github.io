@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Historians
 
-A **historian** is a logging component that writes the history of your [tags](../../Tags/index.md) to a database and, unlike a [logger](../Loggers/File_Loggers.md), also allows that history to be read back out again through the APIs.
+A **historian** is a logging component that writes the history of your [tags](../../Tags/index.md) to a database and, unlike a [logger](../Loggers/index.md), also allows that history to be read back out again through the APIs.
 [Dashboards](../../Customising_Profinity/Dashboards/index.md), trend charts and integrations that ask for long-range tag history are answered from the historian, so a profile that needs more than the recent in-memory values needs one.
 
 <figure markdown>
@@ -21,11 +21,14 @@ Historians require the **Historians** licensed feature, included in the **Deskto
 
 All three allow the history to be read back through the APIs, and all three have the **Designated tag historian reader** setting described under [Designating the historian that is read from](#designating-the-historian-that-is-read-from).
 
-| Historian | Stores data in | Settings that identify the store | Interval setting | Documentation |
-|---|---|---|---|---|
-| InfluxDB v2 Historian | An InfluxDB v2 server, using a bucket and organisation. | **InfluxDB Bucket**, **InfluxDB Organisation** and **InfluxDB Token**, all required | **Logging Interval (Sec)**, default 10, minimum 1 | [InfluxDB historians](InfluxDB_Historians.md) |
-| InfluxDB v3 Historian | An InfluxDB v3 server, using a database. | **InfluxDB Database** and **InfluxDB Token**, both required | **Logging Interval (Sec)**, default 10, minimum 1 | [InfluxDB historians](InfluxDB_Historians.md) |
-| TAG SQL Historian | A SQL database: SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL, or Oracle. | **Database Provider**, which defaults to SQLite, and a required **Connection String** | **Update Interval (Seconds)**, default 10, from 10 to 86400 | [TAG SQL Historian](TAG_SQL_Historian.md) |
+| Component | Direction | Stores data in | Selects data by | Licence | Interval setting |
+|---|---|---|---|---|---|
+| [InfluxDB v2 Historian](InfluxDB_Historians.md) | Out, and read back through the APIs | An InfluxDB v2 server, using a bucket and organisation | Collections | **Historians** feature | **Logging Interval (Sec)**, default 10, minimum 1 |
+| [InfluxDB v3 Historian](InfluxDB_Historians.md) | Out, and read back through the APIs | An InfluxDB v3 server, using a database | Collections | **Historians** feature | **Logging Interval (Sec)**, default 10, minimum 1 |
+| [TAG SQL Historian](TAG_SQL_Historian.md) | Out, and read back through the APIs | A SQL database: SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL, or Oracle | Collections | **Historians** feature | **Update Interval (Seconds)**, default 10, from 10 to 86400 |
+
+The InfluxDB v2 Historian needs **InfluxDB Bucket**, **InfluxDB Organisation** and **InfluxDB Token**, all required, and the InfluxDB v3 Historian needs **InfluxDB Database** and **InfluxDB Token**, both required.
+The TAG SQL Historian needs a **Database Provider**, which defaults to SQLite, and a required **Connection String**.
 
 ## Which InfluxDB component do I need
 
@@ -33,7 +36,7 @@ Check which InfluxDB version your server runs before adding a component, because
 An InfluxDB v2 server organises data into buckets that belong to an organisation, so it needs the **InfluxDB v2 Historian**, which asks for a bucket, an organisation and a token.
 An InfluxDB v3 server stores data in a single database, so it needs the **InfluxDB v3 Historian**, which asks for a database and a token.
 Both are documented in [InfluxDB historians](InfluxDB_Historians.md).
-An InfluxDB v1 server needs the **InfluxDB v1 Logger**, which is a logger rather than a historian and is documented under [InfluxDB and Prometheus logging](../Loggers/InfluxDB_Prometheus_Logger.md).
+An InfluxDB v1 server needs the **InfluxDB v1 Logger**, which is a logger rather than a historian and is documented under [InfluxDB v1 Logger](../Loggers/InfluxDB_v1_Logger.md).
 
 ## Designating the historian that is read from
 

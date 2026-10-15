@@ -3,7 +3,7 @@ title: Tag layer
 description: Find the page for browsing tags, grouping them into collections, alerting on them, logging, replaying, and relaying them between Profinity instances.
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Tag layer
@@ -19,16 +19,22 @@ The collections and derived tags editors also need a loaded profile, and saving 
 <figcaption>A tag combines an address, value, quality flag and metadata</figcaption>
 </figure>
 
-- [Tag linking](Tag_Linking.md): the Tag Explorer context menu flows that create collections, rules, and dashboard bindings from selected tags.
+- [Create collections, rules, and dashboard bindings from tags](Create_Collections_Rules_and_Bindings_from_Tags.md): use the Tag Explorer context menu to start a collection, a rule, or a dashboard binding from selected tags.
 - [Collections](Collections.md): group tags with a membership expression. Open **COLLECTIONS** under **TAG UTILITIES**, which opens an editor window and requires **View tag collections**.
+- [Create a collection](Create_a_Collection.md): build a restricted collection of cell voltages in the collections editor.
 - [Rules](Rules.md): evaluate tags and raise alerts. Open **RULES & ACTIONS** under **TAG UTILITIES**, which opens an editor window and requires **View tag rules**.
+- [Complete rules.yaml example](Rules_YAML_Example.md): read a full rules file with every setting explained.
 - [Actions](Actions.md): choose what a rule does when it fires.
+- [Email and Slack rule actions](Email_and_Slack_Rule_Actions.md) and [Webhook and MQTT rule actions](Webhook_and_MQTT_Rule_Actions.md): settings for each notification action.
 - [Alerts Log](Alerts.md): review, acknowledge, and silence alerts. Open **ALL ALERTS** in the side menu, which requires **View alerts**.
 - [Derived tags](Derived_Tags.md): compute a tag from other tags. Open **DERIVED TAGS** under **TAG UTILITIES**, which opens an editor window and requires **View tag collections**.
+- [Create a derived tag](Create_a_Derived_Tag.md): convert speed from mph to km/h with an expression.
 - [Script-driven derived tags](Script_Driven_Derived_Tags.md): publish a derived tag from a script.
 - [Tag expressions](Tag_Expressions.md): the expression language shared by collections, rules, and derived tags.
-- [Tag tree path](Tag_Tree_Path.md): mount a component inside a folder of the tag tree.
-- [Log / replay tags](Logging_Replaying_Tags.md): record tag values to a file with the TAG File Logger, and play a recording back onto your live tags from **TAG LOG REPLAY** under **TAG UTILITIES**, which requires **Replay tag changes**.
+- [Tag tree paths and dashboard binds](Tag_Tree_Path.md): how nesting a component in a folder of the tag tree affects scopes and binds.
+- [Nest a component in the tag tree](Nest_a_Component_in_the_Tag_Tree.md): mount a component inside a folder of the tag tree.
+- [Log tags to a file](Log_Tags_to_a_File.md): record tag values to a file with the TAG File Logger.
+- [Replay a tag log](Replay_a_Tag_Log.md): play a recording back onto your live tags from **TAG LOG REPLAY** under **TAG UTILITIES**, which requires **Replay tag changes**.
 - [Tag relay](./Tag_Relay.md): share live tags between Profinity instances. One instance publishes periodic snapshots of selected collections, and another ingests them as remote, read-only tags under that site's own prefix.
 
 Integrations can work with tags, tag collections, tag rules and alerts through the Representational State Transfer (REST) [API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2`.

@@ -1,4 +1,7 @@
 nav:
     - index.md
-    - File_Loggers.md
-    - InfluxDB_Prometheus_Logger.md
+    - CAN_File_and_SFTP_Loggers.md
+    - Tag_File_and_SFTP_Loggers.md
+    - File_Logger_Rotation_Archive_and_SFTP.md
+    - InfluxDB_v1_Logger.md
+    - Prometheus_Logger.md

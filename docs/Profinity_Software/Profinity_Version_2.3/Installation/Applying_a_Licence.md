@@ -38,7 +38,7 @@ For Docker, Linux services, and scripted deployments, copy the file into the art
 3. Restart Profinity if the licence adds features, or if the **License** page still shows the previous state.
 
 The licence must belong to the installation's own fingerprint, in the same way as one uploaded from the page.
-To read the fingerprint without the web interface, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Administration/Licensing.md#the-machine-fingerprint).
+To read the fingerprint without the web interface, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Administration/Trial_Desktop_Use_and_Fingerprint.md#the-machine-fingerprint).
 
 ## Check that the licence has taken effect
 

@@ -102,4 +102,4 @@ Historical data is retrieved in three steps, and the first two use `POST /api/v2
 Two further routes return the latest value of one item.
 `GET /api/v2/DBC/{component}/{message}/{signal}` returns the latest local value of a single DBC signal and needs the `DBCView` permission (**View DBC definitions**), and `GET /api/v2/Tags/Sample/{fullTagPath}` returns the latest sample of a tag.
 
-For more information on configuring InfluxDB, refer to [InfluxDB and Prometheus Logging](../../Components/Loggers/InfluxDB_Prometheus_Logger.md).
+For more information on configuring InfluxDB, refer to [InfluxDB and Prometheus Logging](../../Components/Loggers/index.md).

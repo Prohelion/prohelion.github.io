@@ -3,7 +3,7 @@ title: Tag expressions
 description: Look up the expression language that collections, rules, and derived tags use to select tags, compare values and compute derived values.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Tag expressions
@@ -165,4 +165,4 @@ These spellings fail validation in Profinity 2.3. Rewrite them as shown:
 | `tag.Meta.Field(…)` | `tag.Meta.Text(…)` or `tag.Meta.Number(…)` |
 | `tag.SampleAgeSeconds` / `SecondsSinceUpdate` | `tag.IsStale` |
 
-For the places these expressions are used, refer to [Collections](./Collections.md), [Alerts Log](./Alerts.md), [Rules](./Rules.md), [Actions](./Actions.md), [Derived tags](./Derived_Tags.md) and [Tag linking](Tag_Linking.md), or return to the [Tag layer](index.md) overview.
+For the places these expressions are used, refer to [Collections](./Collections.md), [Alerts Log](./Alerts.md), [Rules](./Rules.md), [Actions](./Actions.md), [Derived tags](./Derived_Tags.md) and [Create collections, rules, and dashboard bindings from tags](Create_Collections_Rules_and_Bindings_from_Tags.md), or return to the [Tag layer](index.md) overview.

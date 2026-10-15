@@ -43,7 +43,7 @@ Profinity requests the `openid`, `profile` and `email` scopes, so the app regist
 Profinity builds the callback address from the address the user used to reach the sign-in page, so a site served over HTTPS (refer to [Profinity Web](../Profinity_Web.md)) registers an `https` address.
 
 !!! warning "Saving restarts Profinity"
-    Saving the **Security** tab restarts Profinity and interrupts active sessions, so plan the cutover to **Sso** for a maintenance window.
+    Saving the **Security** tab restarts Profinity and interrupts active sessions, as described in [System Configuration](../index.md), so plan the cutover to **Sso** for a maintenance window.
     Profinity does not save **Sso** as the sign-in method while **Authority URL (IdP issuer)** is empty, and rejects the save with the message "SSO must be enabled with a valid authority URL when sign-in method is SSO."
 
 ## What users see at sign-in

@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 Configure Profinity to log CAN bus data to InfluxDB for cloud-based data analytics and visualisation.
 The steps use InfluxDB Cloud and the InfluxDB v2 Historian, the typical cloud setup.
-The InfluxDB v1 Logger, which is available in every edition, and the InfluxDB v3 Historian take different connection settings, which are listed in [InfluxDB and Prometheus Logging](../Components/Loggers/InfluxDB_Prometheus_Logger.md).
+The InfluxDB v1 Logger, which is available in every edition, and the InfluxDB v3 Historian take different connection settings, which are listed in [InfluxDB and Prometheus Logging](../Components/Loggers/index.md).
 
 Before you start, you need:
 
@@ -19,7 +19,7 @@ Before you start, you need:
 - An InfluxDB instance (cloud or self-hosted), with its version known, because InfluxDB V1, V2 and V3 are separate, incompatible products and Profinity provides a separate component for each.
 - An InfluxDB bucket (V2) or database (V1 and V3) created and accessible.
 - Network access to your InfluxDB server.
-- The **Modify components** permission (refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows [loggers](../Components/Loggers/File_Loggers.md) and [historians](../Components/Historians/index.md) to be added.
+- The **Modify components** permission (refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which allows [loggers](../Components/Loggers/index.md) and [historians](../Components/Historians/index.md) to be added.
 
 ## Set up InfluxDB
 
@@ -78,7 +78,7 @@ The historian starts when the profile is loaded if **Auto Connect** is on, which
      |> range(start: -1h)
      |> filter(fn: (r) => r["_measurement"] == "Your_Profile_Name")
    ```
-4. If no data arrives, check the [Profinity logs](../Getting_Started/Profinity_Log.md) for connection errors.
+4. If no data arrives, check the [Profinity logs](../Administration/Logs_Config.md) for connection errors.
 
 ## Data structure in InfluxDB
 

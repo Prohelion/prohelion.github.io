@@ -3,7 +3,7 @@ title: Prohelion Cloud Dashboard
 description: "Send Profinity tag values to the Prohelion Cloud platform with the Prohelion Cloud Dashboard component, including settings, licensing, and network requirements."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Prohelion Cloud Dashboard

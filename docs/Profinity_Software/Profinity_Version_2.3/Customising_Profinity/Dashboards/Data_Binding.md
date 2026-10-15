@@ -1,7 +1,7 @@
 ---
 title: Data binding
-description: "Bind dashboard components to tags by path, and set the binding mode, scaling, type conversion and text mapping that control what each component shows."
-type: reference
+description: "Learn how a dashboard binding names a tag by path, which tags a dashboard can use, and the instant, time series and logged binding modes."
+type: concept
 owner: Documentation
 last_reviewed: 2026-10-14
 ---
@@ -11,7 +11,16 @@ last_reviewed: 2026-10-14
 Data binding connects a dashboard component to a **tag**.
 A tag is a named value in Profinity, such as a CAN signal, a component property or a derived value, and you can browse every tag in the Tag Explorer.
 When the tag changes, the component updates, so a dashboard shows live information without any code to fetch it.
-This page covers how a binding names a tag, which tags a dashboard can use, the three binding modes, and the settings that transform or map a value.
+This page covers how a binding names a tag, which tags a dashboard can use, and the binding modes.
+Refer to [Binding Settings and Targets](./Binding_Settings_Reference.md) for the settings of a binding, and to [Transform and Map Values](./Transform_and_Map_Values.md) for scaling, type conversion and text mapping.
+
+<figure markdown>
+```mermaid
+flowchart LR
+    Tag --> Binding --> Component
+```
+<figcaption>A binding connects a tag to a dashboard component, and the component updates when the tag changes</figcaption>
+</figure>
 
 A binding can show the latest value of a tag, plot its recent history, or read its values back from the data log.
 The tag is the same in each case, and only the binding settings differ.
@@ -128,211 +137,5 @@ Logged data requires data logging to be configured and enabled for the profile, 
 The `aggregationWindow` groups the data into intervals of the given length (for example `10s` or `1m`), and the `aggregationFunction` decides which value represents each interval.
 Logged bindings suit historical analysis over periods longer than the live window.
 
-## Data binding syntax
-
-A component holds its bindings in a `bind` array of binding objects, and the binding settings can transform the value, convert its type, and map it to text.
-A `bind` list can hold several bindings, one for each property that the data drives, as described in [Binding targets](#binding-targets).
-
-```yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "DSP Temperature"
-                    unit: "°C"
-                    bind:
-                      - target: "value"
-                        source: "DBC/DspBoardTempMeasurement/DspBoardTemp"
-```
-
-### Binding parameters
-
-The schema requires only `source`, which is the tag path of the tag to bind (for example `DBC/BusMeasurement/BusVoltage` or `Properties/StatusColourText`).
-The `target` is optional in the schema, but it names the property that the value updates, so set it on every binding that is meant to change what a component shows.
-All other parameters are optional:
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `target` | string | The component property to update (for example `value`, `label`, `enabled`, `visible`, `color`). Refer to [Binding targets](#binding-targets) |
-| `toType` | string | Data type conversion (`number`, `string`, `boolean` or `string\|number`) |
-| `gain` | number | Multiplicative scaling factor, applied before `offset` |
-| `offset` | number | Additive offset, applied after `gain` |
-| `invert` | boolean | Flips a boolean or `0`/`1` value |
-| `mapToText` | object | Text mapping configuration. Refer to [Text mapping](#text-mapping) |
-| `store` | string | `local` (the default) for live values, or `logged` for values read from the data log |
-| `timeRangeStart` | string | Start of the time window for a logged or time series binding, relative to now (for example `-10m`). When `timeRangeStop` is set and this is omitted, the window starts 10 minutes before the stop time |
-| `timeRangeStop` | string | End of the time window, where `0m` is now |
-| `aggregationWindow` | string | Length of each aggregation interval for logged data (for example `1m`) |
-| `aggregationFunction` | string | How each interval is reduced for logged data: `max` (the default), `mean`, `min`, `last`, `first`, `sum`, or `count` |
-| `seriesMode` | string | `instant` (the default), `timeSeries`, or `timeSeriesDelta`. A chart plots a series of samples when this is `timeSeries` or `timeSeriesDelta`, and a chart bound with `store: logged` reads its history from the data log |
-| `stackScale` | boolean | Chart only: gives this series its own Y axis |
-| `seriesType` | string | Chart only: `line`, `bar`, or `scatter`, overriding the chart type for this series |
-
-### Binding targets
-
-Each component accepts a fixed set of `target` values, and a binding with any other target is ignored.
-The most common targets are as follows:
-
-| Component | Targets |
-|-----------|---------|
-| Readout | `value`, `label`, `unit`, `enabled`, `visible` |
-| Pill value | `value`, `label`, `unit` |
-| Lamp | `value`, `enabled`, `color`, `label` |
-| Tab | `enabled`, `visible` |
-| Accordion, Footer | `visible` |
-| Action, Toggle | `enabled`, `classes` |
-| Chart, Table | `value` |
-
-[Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled`, and `color` are used.
-
-### Type conversion
-
-Use `toType` to convert data types.
-Each component already applies the conversion that suits each of its targets (for example, a lamp `enabled` target is always read as a boolean), so `toType` is optional for most bindings and is shown in these examples for clarity:
-
-```yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "DSP Temperature"
-                    unit: "°C"
-                    bind:
-                      - target: "value"
-                        source: "DBC/DspBoardTempMeasurement/DspBoardTemp"
-                        toType: "number"
-          - lamps:
-              items:
-                - lampgroup:
-                    items:
-                      - lamp:
-                          color: "amber"
-                          value: 1
-                          label: "Bus Current Limit"
-                          bind:
-                            - target: "enabled"
-                              source: "DBC/Status/LimitBusCurrent"
-                              toType: "boolean"
-```
-
-### Scaling and offset
-
-Apply mathematical transformations with `gain` and `offset`:
-
-```yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "Battery Voltage"
-                    unit: "V"
-                    bind:
-                      - target: "value"
-                        source: "Properties/PackData/BatteryMilliVolts"
-                        gain: 0.001
-                        offset: 0
-```
-
-The readout in the next example shows a raw value that is a temperature in tenths of a kelvin.
-The `gain` of `0.1` converts the raw value to kelvin first, and the `offset` of `-273.15` is then added to give degrees Celsius, so a raw value of `2981.5` shows as `25.0` with the `precision` of 1.
-The tag `DBC/Example/RawTemperature` is a placeholder for a tag of your own.
-
-```yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "Temperature"
-                    value: 0
-                    unit: "°C"
-                    precision: 1
-                    bind:
-                      - target: "value"
-                        source: "DBC/Example/RawTemperature"
-                        gain: 0.1
-                        offset: -273.15
-                        toType: "number"
-```
-
-To invert a boolean or numerical value, set `invert: true`:
-
-```yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - lamps:
-              items:
-                - lampgroup:
-                    items:
-                      - lamp:
-                          color: "green"
-                          value: 1
-                          label: "Configuration Read OK"
-                          bind:
-                            - target: "enabled"
-                              source: "DBC/Status/ErrorConfigRead"
-                              invert: true
-```
-
-### Text mapping
-
-Map values to display text using boolean or partition-based mapping.
-A boolean mapping gives one text for a true value and another for a false value:
-
-```yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "Status"
-                    bind:
-                      - target: "label"
-                        source: "DBC/Status/ErrorConfigRead"
-                        toType: "boolean"
-                        mapToText:
-                          trueValue: "Fault"
-                          falseValue: "OK"
-```
-
-A partition-based mapping gives a text for each range of a number:
-
-```yaml
-dashboard:
-  items:
-    - row:
-        items:
-          - readouts:
-              items:
-                - readout:
-                    label: "Temperature Status"
-                    bind:
-                      - target: "label"
-                        source: "DBC/DspBoardTempMeasurement/DspBoardTemp"
-                        toType: "number"
-                        mapToText:
-                          partition: ["Cold", 0, "Normal", 25, "Hot"]
-                          bias: "right"
-```
-
-The partition array defines ranges in the form `[label1, threshold1, label2, threshold2, label3]`, so that a value below `threshold1` takes `label1`, a value from `threshold1` up to `threshold2` takes `label2`, and any higher value takes `label3`.
-The `bias` is required, and it is either `left` or `right`: with `left` a value equal to a threshold takes the label before that threshold, and with `right` it takes the label after it.
-The text that results can drive a `label` target, or a lamp `color` target when the labels are colour names.
-
-[Tags](../../Tags/index.md) covers the Tag Explorer, [Derived Tags](../../Tags/Derived_Tags.md) and [Tag Linking](../../Tags/Tag_Linking.md), which adds tags to a dashboard from the Tag Explorer.
-[Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled` and `color` bindings change the look of a component, [Component Reference](./Component_Reference/index.md) lists the targets of each component, and [Examples](./Examples.md) and the annotated [Full Example](./Full_Example.md) show complete dashboards.
+[Tags](../../Tags/index.md) covers the Tag Explorer, [Derived Tags](../../Tags/Derived_Tags.md) and [Create collections, rules, and bindings from tags](../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.
+[Binding Settings and Targets](./Binding_Settings_Reference.md) lists every binding setting, [Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled` and `color` bindings change the look of a component, and [Examples](./Examples.md) and the annotated [Full Example](./Full_Example.md) show complete dashboards.

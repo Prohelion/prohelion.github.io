@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Quick start guide
 
 This guide takes you from a fresh installation to a running system in six steps: installing Profinity, applying a licence if one has been issued, loading the example [profile](Profiles.md), replaying example CAN logs, editing your first dashboard, and looking at the rules and alerts.
-To install Profinity on Linux or macOS instead, refer to [Install Profinity on Linux and macOS](../Installation/Zip_Installation.md), and for Docker deployments, refer to [Install Profinity with Docker](../Installation/Docker_Installation.md).
+To install Profinity on Linux or macOS instead, refer to [Install Profinity on Linux and macOS](../Installation/Linux_and_macOS_Installation.md), and for Docker deployments, refer to [Install Profinity with Docker](../Installation/Docker_Installation.md).
 
 ## Step 1: Install Profinity on Windows
 
@@ -142,9 +142,8 @@ For more detail, refer to:
 
 From here, the following pages cover the usual next tasks:
 
-- [Adding Components to Your Profile](./Adding_New_Components.md) adds further components.
-- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md) builds your own dashboard.
-- [Visualising Data](./Visualising_Data.md) shows data from your components.
+- [How to add a component to your profile](../How_To_Guides/Add_Component_to_Profile.md) adds further components.
+- [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md) builds your own dashboard.
 - [Log / Replay CAN bus Messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) sets up CAN bus logging.
 - [Create a user](./Create_User.md) creates additional users, which needs the Profinity Server feature.
 - [Tags](../Tags/index.md) creates rules and alerts for your system.

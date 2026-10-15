@@ -48,6 +48,6 @@ Messages from `actions.yaml` that name a menu entry, such as an unsupported `kin
 
 ## When to use the tool
 
-Use the tool when the same Custom Component is installed on more than one system, for example from a continuous integration (CI) pipeline that produces versioned bundles for field engineers, so that an administrator uploads one `.nupkg` in [Components & Plugins](../../Administration/Components_and_Plugins.md) instead of copying files into each profile by hand.
+Use the tool when the same Custom Component is installed on more than one system, for example from a continuous integration (CI) pipeline that produces versioned bundles for field engineers, so that an administrator uploads one `.nupkg` in [Components & Plugins](../../Administration/Install_and_Manage_Plugins.md) instead of copying files into each profile by hand.
 A DLL plugin is packed as described on [DLL Plugins](../Plugins/index.md), and a dashboard-only component can be copied through profile administration without a pack step.
 [Component Types](./Component_Types.md) compares Custom Components with DLL plugins.

@@ -72,7 +72,7 @@ A single-value element such as a readout or lamp binds one tag, and a chart bind
 </figure>
 
 Building can also start from tags: choosing tags to link to a dashboard opens the **Add component for selected tag(s)** window, which offers only the element types that suit the chosen tags.
-Refer to [Tag Linking](../../Tags/Tag_Linking.md).
+Refer to [Tag Linking](../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md).
 Dashboard widgets show live **alert indicators** when bound tags have active rule alerts, as described in [Alerts Log](../../Tags/Alerts.md).
 
 ## Validate and save
@@ -93,4 +93,4 @@ Use the visual editor first, and switch to **YAML** in these cases:
 
 Switching tabs keeps the changes made.
 Switching to **DESIGN** needs valid YAML, and if the YAML cannot be parsed the editor shows an error and stays on the **YAML** tab.
-Refer to the [Profinity dashboard development guide](./index.md) for the YAML structure, and to [Troubleshooting](./Troubleshooting.md) for the validation messages.
+Refer to the [Profinity dashboard development guide](./index.md) for the YAML structure, and to [Dashboard Schema Validation Errors](./Schema_Validation_Errors.md) for the validation messages.

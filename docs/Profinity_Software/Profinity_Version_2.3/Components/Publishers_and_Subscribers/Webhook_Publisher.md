@@ -12,7 +12,7 @@ The **Webhook Publisher** pushes the current values of one or more profile [tag 
 It uses the same trigger modes as the [MQTT Publisher](MQTT_Publisher.md).
 Use it when the consumer is an ordinary web service rather than an MQTT broker.
 
-It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a receiver that is listening now, whereas a [logger](../Loggers/File_Loggers.md) writes to a file or database for later retrieval.
+It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a receiver that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.
 
 <figure markdown>
 ```mermaid
@@ -104,7 +104,7 @@ It also exposes two tags for a dashboard or rule:
 | `LastDeliverySuccess` | `true` when the most recent delivery succeeded, and `false` otherwise. |
 | `LastDeliveryError` | Empty when healthy. After a failed delivery it reads "Webhook delivery failed - see log for details." |
 
-If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying message, then confirm that:
+If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message, then confirm that:
 
 - The **Destination URL** is correct.
 - The receiver accepts the selected **Authentication**. A 401 or 403 response points to a wrong credential.

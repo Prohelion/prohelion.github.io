@@ -19,7 +19,7 @@ Prohelion recommends a clean installation of V2, removing V1 before you install 
 1. Back up the V1 profiles, configuration files, DBC files, and any custom scripts or data.
    Write down the component settings and addresses, and any custom V1 settings you want to replicate in V2.
 2. Uninstall V1 with the standard uninstallation procedure, and remove the files in the V1 profile directory.
-3. Install V2 as a new installation, not as an upgrade of V1, for your platform: [Windows](./Windows_Installation.md), [Linux and macOS](./Zip_Installation.md), or [Docker](./Docker_Installation.md).
+3. Install V2 as a new installation, not as an upgrade of V1, for your platform: [Windows](./Windows_Installation.md), [Linux and macOS](./Linux_and_macOS_Installation.md), or [Docker](./Docker_Installation.md).
    Confirm that V2 is running.
 4. Recreate the configuration: create new profiles, add components in the V2 interface, import or recreate the DBC files, and set the system settings for your environment.
 5. Check that every component is detected and configured correctly, and test the critical functions before you put the system into production.

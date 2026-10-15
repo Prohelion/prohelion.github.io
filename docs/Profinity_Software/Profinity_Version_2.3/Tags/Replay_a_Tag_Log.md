@@ -1,38 +1,23 @@
 ---
-title: Log / replay tags
-description: Record tag values to a file with the TAG File Logger, then replay the recording onto your live tags with playback controls and looping.
+title: Replay a tag log
+description: Play a recorded tag log back onto your live tags with TAG LOG REPLAY, using the pause, stop, and loop controls, and learn what replay does to your tags.
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
-# Log / replay tags
-
-Profinity can record the values of your tags to a file and replay that recording later, so a tag-driven [collection](Collections.md), [rule](Rules.md), [alert](Alerts.md), or [dashboard](../Customising_Profinity/Dashboards/index.md) behaves as it did when the data was captured.
-This is the tag-layer equivalent of [logging and replaying CAN bus messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md), and it works with any tag, including those decoded from CAN.
-
-## Logging tags
-
-Tags are recorded by the **TAG File Logger**, or by the **TAG SFTP Logger** when the files should be sent to a remote server over Secure File Transfer Protocol (SFTP).
-Add the logger to your [Profile](../Getting_Started/Profiles.md) as a component, select the tag collections to record in `Collections`, and start it.
-Only the tags that belong to the selected collections are written, and only samples of Good quality.
-
-Choose the **File Format** with replay in mind.
-Both `CSV` (comma-separated values, `.txt`) and `JSON Lines` (`.jsonl`) can be replayed.
-For the full list of settings, including the `Logging mode`, rotation and archive options, refer to [File and Tag Loggers](../Components/Loggers/File_Loggers.md), and for the step-by-step setup refer to [Configure Data Logging](../How_To_Guides/Configure_Data_Logging.md).
-
-Replay needs a file logger: only a log file written by a TAG File Logger or TAG SFTP Logger can be replayed. InfluxDB and Prometheus data cannot.
-
-## Replaying a tag log
+# Replay a tag log
 
 The tag log replayer applies the recorded values back onto your live tags, using the timing recorded in the file, so the replay runs at the pace of the original recording.
+Replay needs a file logger: only a log file written by a TAG File Logger or TAG SFTP Logger can be replayed. InfluxDB and Prometheus data cannot.
+To record a log, refer to [Log tags to a file](Log_Tags_to_a_File.md).
 
 Open **TAG LOG REPLAY** from the side menu.
 It requires the **Replay tag changes** permission, which also turns on **View tags**.
 Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for permissions.
 
 !!! warning "Replay overwrites live values"
-    Replayed values are applied to the same tags that live devices write to. Disconnect or stop the live source first, or the live and replayed values will compete.
+    Replayed values are applied to the same tags that live devices write to. Disconnect or stop the live source first, or the live and replayed values compete.
 
 Before you start, check two conditions on the log file.
 The file must have a `.txt`, `.csv` or `.jsonl` extension, otherwise the upload is refused with "Your file must have an extension of .txt, .csv or .jsonl".
@@ -46,7 +31,7 @@ To replay a log:
 While a replay plays, the position slider moves to a different point in the log, and the pause control suspends the replay so that it can be resumed later.
 **Stop** ends the replay, **Loop** replays the log continuously, and the trashcan icon deletes the log.
 
-### What replay does to your tags
+## What replay does to your tags
 
 Each recorded value is written to the tag with the matching tag path, as if a new value had just arrived, so anything that reacts to tag changes, such as rules, alerts, derived tags and dashboards, reacts to the replay.
 A line is skipped, and the replayer status reports the reason, if its tag does not exist in the loaded profile, if its value cannot be read, or if its `Recv time` is invalid.

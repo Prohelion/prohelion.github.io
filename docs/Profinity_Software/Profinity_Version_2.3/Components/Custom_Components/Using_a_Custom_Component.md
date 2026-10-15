@@ -3,7 +3,7 @@ title: Using a Custom Component
 description: "Add a device Profinity does not already ship by placing a Custom Component in a profile, with an optional DBC file, dashboard, and scripts."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Using a Custom Component
@@ -12,7 +12,7 @@ A Custom Component is the built-in profile component for a device that Profinity
 As of Profinity 2.3 it can carry an optional DBC (CAN database) file, a [dashboard](../../Customising_Profinity/Dashboards/index.md), a rules file, a long-running [script](../../Developing_with_Profinity/Scripting/index.md), operator actions, and settings and firmware maps.
 Once it is in a profile it is monitored, graphed, and logged the same way as a Prohelion device.
 
-Built-in components such as the [Elmar Solar MPPT](../MPPT/index.md) and the [WaveSculptor](../Motor_Controller/index.md) already include their own DBC support, so Messages and Signals is available on those components without a separate file.
+Built-in components such as the [Elmar Solar MPPT](../MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Motor_Controller/WaveSculptor.md) already include their own DBC support, so Messages and Signals is available on those components without a separate file.
 A Custom Component is the same idea for a third-party CAN device, or for a device whose live values a script publishes as tags.
 
 !!! info "Licence required"

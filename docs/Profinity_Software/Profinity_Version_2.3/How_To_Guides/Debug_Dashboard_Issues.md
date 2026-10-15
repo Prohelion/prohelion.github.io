@@ -75,7 +75,7 @@ Refer to [How to Style Your Dashboard](./Style_Dashboard.md).
 
 ## When the cause is still unclear
 
-The Profinity [logs](../Getting_Started/Profinity_Log.md) record dashboard errors, including data binding errors and missing component or tag errors.
+The Profinity [logs](../Administration/Logs_Config.md) record dashboard errors, including data binding errors and missing component or tag errors.
 Open **ADMIN**, then **Logs**, and read the entries from the time the dashboard was opened.
 
 Comparing the dashboard with a working one also locates the difference quickly.

@@ -8,9 +8,8 @@ last_reviewed: 2026-10-14
 
 # Logging
 
-!!! warning "Saving restarts Profinity"
-    Saving changes on any System Configuration tab restarts Profinity.
-    Refer to [System Configuration](index.md) for what to expect.
+Saving changes on any System Configuration tab restarts Profinity.
+Refer to [System Configuration](index.md) for what to expect.
 
 The Logging tab of [System Configuration](index.md) holds the log level, the log rollover size and the number of retained logs.
 

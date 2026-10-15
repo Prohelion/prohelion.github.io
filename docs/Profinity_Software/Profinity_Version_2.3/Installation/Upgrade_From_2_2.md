@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Upgrade from Profinity 2.2
 
 Upgrade a production system in the order below.
-Profinity 2.3 changes where data is stored, how security is configured, which features need a licence, and how the REST API reports errors, so read the [breaking changes](../Release_Notes/2.3.1.md#breaking-changes) first.
+Profinity 2.3 changes where data is stored, how security is configured, which features need a licence, and how the REST API reports errors, so read the [breaking changes](../Release_Notes/Breaking_Changes_2_3.md) first.
 
 Before you start, take the backup in step 1, and test the upgrade on a non-production instance if you can.
 
@@ -31,9 +31,9 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
 7. Open each custom dashboard in the dashboard editor and confirm it loads without schema errors.
 8. Unlock the firmware of each Gen2 and Rinstrum component once, and enter its passcode again, because 2.3 does not keep passcodes in the profile.
 9. Run every integration that calls `/api/v2` against a test instance, because error responses changed.
-   Refer to [REST API errors](../Release_Notes/2.3.1.md#rest-api-errors).
+   Refer to [REST API errors](../Release_Notes/Breaking_Changes_2_3.md#rest-api-errors).
 10. Open each BACnet component and set **Device instance** to the instance of its device, because Profinity now checks it.
-    Refer to [BACnet device instance](../Release_Notes/2.3.1.md#bacnet-device-instance).
+    Refer to [BACnet device instance](../Release_Notes/Breaking_Changes_2_3.md#bacnet-device-instance).
 
 To return to 2.2, reinstall 2.2 and restore the backup you took in step 1.
 

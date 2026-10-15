@@ -1,9 +1,9 @@
 ---
 title: Kiosk Mode
 description: "Set up automatic sign-in for kiosk displays and unattended monitoring stations, bypassing the login page for a specific profile."
-type: task
+type: concept
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Kiosk Mode
@@ -18,18 +18,11 @@ It is set per [profile](Profiles.md) and applies whenever that profile is the ac
 
 ## Enabling Kiosk Mode
 
-The Kiosk Mode User must be an enabled user, as described in [Choosing the kiosk user](#choosing-the-kiosk-user).
-
-1. Select **ADMIN** in the side menu and open the **Profile** pill.
-2. Select or create the profile, and open its settings.
-3. Enable **Kiosk Mode**.
-4. Select a **Kiosk Mode User** from the dropdown, which lists the enabled users.
-5. Save the profile settings.
+Kiosk Mode is set per profile, by enabling **Kiosk Mode** in the profile settings and selecting a **Kiosk Mode User**, who must be an enabled user, as described in [Choosing the kiosk user](#choosing-the-kiosk-user).
+The steps, together with the browser and operating system setup that opens Profinity full screen on the display, are in [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
 
 Profinity rejects the save if Kiosk Mode is enabled without a Kiosk Mode User, or if the selected user no longer exists or has been disabled.
 Kiosk Mode only applies to the active profile, so a display signs in automatically when a profile with Kiosk Mode enabled is active, and normal login is required when a profile without Kiosk Mode becomes active.
-
-For the browser and operating system setup that opens Profinity full screen on the display, refer to [How to Set Up Profinity as a Kiosk Application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
 
 ## What the display does
 

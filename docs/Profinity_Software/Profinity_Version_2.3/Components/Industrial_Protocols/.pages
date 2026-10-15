@@ -3,5 +3,7 @@ nav:
   - BACnet.md
   - EtherNet_IP.md
   - Modbus.md
-  - OPC_UA.md
+  - OPC_UA_Client.md
+  - OPC_UA_Server.md
+  - OPC_UA_Certificates.md
   - S7.md

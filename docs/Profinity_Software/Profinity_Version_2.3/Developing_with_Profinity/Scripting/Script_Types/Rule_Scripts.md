@@ -110,8 +110,10 @@ The component's menu in this mode is **Edit Script** only.
 If the alert method is still running when the rule fires again, **Trigger Overlap** decides what happens.
 It is the same setting that **Run On Tag Change** and **Run On Receipt of CAN Message** use:
 
-- **Drop** (the default): discards the new firing while the current one is still running.
-- **Queue**: holds a bounded backlog, up to **Queue Depth** (1 to 100, default 8), and runs it once the current firing completes.
+| Trigger Overlap | Effect |
+|-----------------|--------|
+| **Drop** (default) | Discards the new firing while the current one is still running. |
+| **Queue** | Holds a bounded backlog, up to **Queue Depth** (1 to 100, default 8), and runs it once the current firing completes. |
 
 The alert method should stay fast, because a slow script under **Queue** builds a backlog and under **Drop** silently misses firings.
 

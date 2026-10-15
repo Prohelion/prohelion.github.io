@@ -36,9 +36,8 @@ An administrator manages their own authenticator with the **Two-Factor Authentic
 
 ## Administrator reset of a password
 
-**Reset Password**, also on the **User Actions** tab of the other user's settings dialog, sets **Require password change on next login** and signs out the user's active sessions, so the user chooses a new password at the next sign-in and no temporary password has to be shared.
+**Reset Password**, also on the **User Actions** tab of the other user's settings dialog, requires the user to choose a new password at the next sign-in and signs out the user's active sessions, as described in [Password Policy](../System_Configuration/Security/Password_Policy.md#forced-password-change).
 Like **Reset MFA**, it is hidden on the administrator's own account, and it is shown only when the site **Sign-in method** is **Local**.
-The effect on the user is described in [Password Policy](../System_Configuration/Security/Password_Policy.md#forced-password-change).
 
 ## Related documentation
 

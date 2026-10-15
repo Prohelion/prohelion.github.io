@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # DLL Plugins
 
 Profinity 2.3 supports external dynamic-link library (DLL) plugins: assemblies compiled by the author and packaged as a `.nupkg` or zip file.
-Administrators install them through **Components & Plugins**, and installing, enabling, and removing them is covered on [Components & Plugins](../../Administration/Components_and_Plugins.md) in Administration.
+Administrators install them through **Components & Plugins**, and installing, enabling, and removing them is covered on [Components & Plugins](../../Administration/Install_and_Manage_Plugins.md) in Administration.
 DLL plugins are separate from Custom Component packs, which are zip or `.nupkg` bundles of YAML and scripts built with `profinity-component-pack` and covered on [Component Pack CLI](../Custom_Components/Component_Pack_CLI.md).
 [Component Types](../Custom_Components/Component_Types.md) compares the two.
 

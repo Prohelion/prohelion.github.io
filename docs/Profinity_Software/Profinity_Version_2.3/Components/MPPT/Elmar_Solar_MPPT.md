@@ -3,7 +3,7 @@ title: Elmar Solar MPPT
 description: "Monitor an Elmar Solar maximum power point tracker in Profinity: add it to a profile, then read its input and output voltage, power graphs and status events."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Elmar Solar MPPT
@@ -60,4 +60,4 @@ The datasheets of each product are linked from the Solar Charge Controllers by E
 
 The right-hand side depicts a simplified flowchart of the MPPT state, which is either Standby or On according to the `Mode` signal of the `Status` message, and the grey box marks the current state.
 Expanding the **MORE DETAILS** banner shows the input, output, and power readings, the MOSFET, controller, and power connector temperatures, and the auxiliary 12 V and 3 V supply and battery-side output voltages.
-The state of a connected battery is described in the [BMU section](../Battery_Management_Systems/index.md).
+The state of a connected battery is described in the [BMU section](../Battery_Management_Systems/Prohelion_BMU.md).

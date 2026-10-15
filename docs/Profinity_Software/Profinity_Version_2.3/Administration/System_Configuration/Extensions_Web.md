@@ -8,9 +8,8 @@ last_reviewed: 2026-10-14
 
 # Extensions Web
 
-!!! warning "Saving restarts Profinity"
-    Saving changes on any System Configuration tab restarts Profinity.
-    Refer to [System Configuration](index.md) for what to expect.
+Saving changes on any System Configuration tab restarts Profinity.
+Refer to [System Configuration](index.md) for what to expect.
 
 Profinity can run a second, separate web server that serves custom applications and provides access to the same APIs that Profinity itself uses for all functionality.
 This second server is configured through the Extensions Web tab, is disabled by default, and requires a licence that includes the Profinity Server feature (Server or Enterprise).

@@ -26,7 +26,7 @@ After that the component is a switch that you turn on with **Connect** (or **Sta
 
 A component starts even when what it connects to is not available.
 It does not stop at start with an error.
-It shows **Error**, writes the reason to the [Logs](../Getting_Started/Profinity_Log.md) once, and keeps trying.
+It shows **Error**, writes the reason to the [Logs](../Administration/Logs_Config.md) once, and keeps trying.
 When the broker, device, server, or database appears, the component connects by itself and the status changes to **On**.
 
 This includes a login that is rejected.
@@ -42,7 +42,7 @@ When the connection returns, the log records that it reconnected.
 
 A component can be connected and still fail to read a value, write a point or send a message.
 Profinity reports that once for each outage.
-The first failure is written to the [Logs](../Getting_Started/Profinity_Log.md) as a warning that names what failed and why.
+The first failure is written to the [Logs](../Administration/Logs_Config.md) as a warning that names what failed and why.
 Later failures during the same outage are logged at debug level only, and the first success afterwards is logged at information level as the component working again.
 The first success is the first poll in which every point reads correctly.
 A long outage does not fill the log, and a new outage warns again.
@@ -73,11 +73,11 @@ A stopped component never reconnects by itself.
 | --- | --- |
 | **Off** | The component is stopped, or is making its first connection attempt. |
 | **On** | The connection is up. |
-| **Error** | The component is running but cannot reach what it connects to. Check the [Logs](../Getting_Started/Profinity_Log.md) for the reason. |
+| **Error** | The component is running but cannot reach what it connects to. Check the [Logs](../Administration/Logs_Config.md) for the reason. |
 
 The CAN bus adapters are the exception to these status values.
 A CAN bus adapter connects and retries in the same way, but its status describes the bus, not the connection attempt.
 While the adapter is not connected it shows **Off**, and once connected it shows the state of the traffic on the bus.
-Check the [Logs](../Getting_Started/Profinity_Log.md) for the reason an adapter is not connecting.
+Check the [Logs](../Administration/Logs_Config.md) for the reason an adapter is not connecting.
 
 To see how the protocol components use these settings, refer to [Industrial protocols](Industrial_Protocols/index.md).

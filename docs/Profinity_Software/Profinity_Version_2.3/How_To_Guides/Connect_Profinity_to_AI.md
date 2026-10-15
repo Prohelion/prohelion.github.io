@@ -109,7 +109,7 @@ Example questions to ask once the connection works:
 ### The connection fails
 
 If the AI tool reports that the connection failed, the MCP server is disabled, Profinity has not finished restarting, the web server port is not reachable from the AI tool, or the endpoint path is wrong.
-Confirm that **Enable MCP Server** is on, that Profinity has restarted, and that the URL ends in `/api/v2/Ai/Mcp`, and check the Profinity [logs](../Getting_Started/Profinity_Log.md) for MCP connection issues.
+Confirm that **Enable MCP Server** is on, that Profinity has restarted, and that the URL ends in `/api/v2/Ai/Mcp`, and check the Profinity [logs](../Administration/Logs_Config.md) for MCP connection issues.
 If the web server runs on another machine, make sure its port is allowed through the firewall.
 
 ### Enable MCP Server is unavailable

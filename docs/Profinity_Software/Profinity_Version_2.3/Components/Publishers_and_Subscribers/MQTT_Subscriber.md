@@ -119,7 +119,7 @@ It stays in **Error** until the broker is back, and the log records the reason o
 The MQTT Subscriber shows **On** while it is connected to the broker, **Error** while it is running but not connected, and **Off** when it is stopped.
 While it is in **Error**, it retries as described under [Reconnection](#reconnection).
 
-If the status shows **Error**, check the [Logs](../../Getting_Started/Profinity_Log.md) for the underlying message, then confirm that the **Server URL** scheme and **Broker port** match the broker, and that the **Username** and **Password** are accepted.
+If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message, then confirm that the **Server URL** scheme and **Broker port** match the broker, and that the **Username** and **Password** are accepted.
 If the component stays **Off**, confirm that **Server URL**, **Topic filter**, **Host ID** and **Tag path prefix** are all set, because the subscriber does not start without them.
 If the component is **On** but no tags appear, check that the **Topic filter** covers the group you expect.
 

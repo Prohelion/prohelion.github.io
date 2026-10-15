@@ -12,7 +12,7 @@ Add a device Profinity does not already ship by creating a Custom Component in t
 The [DBC file](../CAN_Utilities/CAN_Bus_DBC.md) and the dashboard are both optional.
 
 A DBC file is what the Messages and Signals viewer and CAN-signal dashboard [bindings](../Customising_Profinity/Dashboards/Data_Binding.md) read, and when no dashboard is uploaded Profinity writes a starter dashboard named after the component, which is then built out in the [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md).
-The files that can be attached are described in [Authoring a Custom Component](../Developing_with_Profinity/Custom_Components/index.md), and the finished component is described in [Custom Components in a profile](../Components/Custom_Components/index.md).
+The files that can be attached are described in [Authoring a Custom Component](../Developing_with_Profinity/Custom_Components/index.md), and the finished component is described in [Custom Components in a profile](../Components/Custom_Components/Using_a_Custom_Component.md).
 
 ## Prerequisites
 

@@ -31,7 +31,7 @@ To make a first authenticated call, follow [Make your first API call](./First_AP
 Profinity includes an [MCP server](./MCP_Server/index.md), which lets AI assistants (such as [AI Chat](../Profinity_AI/AI_Chat.md)) and other MCP-aware tools query system data and metadata.
 The server exposes ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`.
 An MCP client can use it to answer questions about live tags and alerts, to pull history into an analysis tool, or to feed a monitoring or reporting system, all with the permissions of the account it authenticates as.
-Refer to [MCP Server](./MCP_Server/index.md) for the full list of tools, authentication requirements and usage examples.
+Refer to [MCP Server](./MCP_Server/index.md) for how to connect and authenticate, and to the [MCP tool reference](./MCP_Server/Tool_Reference.md) for the full list of tools.
 
 ## Other ways to move data
 

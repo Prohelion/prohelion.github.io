@@ -62,6 +62,6 @@ To revert to the default home page:
 !!! warning "Removing the dashboard deletes its file"
     Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting, so the file cannot be recovered from Profinity afterwards.
     Download or copy the dashboard YAML before saving the profile if it is needed again.
-    If the file cannot be deleted, for example because of a file permission problem, the dashboard file setting is not cleared and the error is written to the [log](../Getting_Started/Profinity_Log.md).
+    If the file cannot be deleted, for example because of a file permission problem, the dashboard file setting is not cleared and the error is written to the [log](../Administration/Logs_Config.md).
 
 For more on dashboards, refer to the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md).

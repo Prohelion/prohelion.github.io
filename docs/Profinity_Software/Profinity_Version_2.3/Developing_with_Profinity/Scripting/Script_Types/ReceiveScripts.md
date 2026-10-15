@@ -68,7 +68,10 @@ Receive scripts run synchronously for each matching CAN packet, which on a busy 
 The `Receive` or `receive` handler should stay short and avoid blocking calls such as `time.sleep` in Python, `Thread.Sleep` in C#, long calculations, locks, and slow input or output, because a slow handler delays other work.
 
 The **Trigger Overlap** setting decides what happens to a packet that arrives while the handler is still running.
-**Drop** (the default) discards the packet.
-**Queue** keeps a short backlog of up to **Queue Depth** packets (a default of 8, from 1 to 100) and runs them afterwards, which is the setting the shipped receive templates recommend.
+
+| Trigger Overlap | Effect |
+|-----------------|--------|
+| **Drop** (default) | Discards the packet. |
+| **Queue** | Keeps a short backlog of up to **Queue Depth** packets (a default of 8, from 1 to 100) and runs them afterwards. This is the setting the shipped receive templates recommend. |
 
 Heavier processing belongs in a [Service Script](ServiceScripts.md), with the handler passing a small amount of data to a queue.

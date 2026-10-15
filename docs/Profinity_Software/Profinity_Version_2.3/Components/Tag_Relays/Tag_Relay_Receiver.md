@@ -67,7 +67,7 @@ The status reflects whether the receiver is running and not whether the broker c
 
 ## Troubleshooting
 
-If no tags appear, check the [Logs](../../Getting_Started/Profinity_Log.md) first.
+If no tags appear, check the [Logs](../../Administration/Logs_Config.md) first.
 A receiver set to MQTT that has no **MQTT broker URL** or **MQTT subscribe topic** does not start and logs the reason.
 A receiver that shows **On** but receives nothing usually has a broker connection problem, which the log reports as a disconnection or failed reconnect (the receiver keeps retrying), or a **MQTT subscribe topic** that differs from the sender's **MQTT snapshot topic**.
 

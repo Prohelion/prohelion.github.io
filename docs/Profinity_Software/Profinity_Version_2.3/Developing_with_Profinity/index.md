@@ -17,7 +17,7 @@ A script runs inside Profinity, a Custom Component brings in a device that Profi
 </figure>
 
 - [Scripting](./Scripting/index.md) automates tasks and creates custom operations in C#, Python or Lua. A script can react to a tag, a CAN message, a rule or a schedule, run continuously as a service, and write results back to tags.
-- [Custom Components](./Custom_Components/index.md) covers authoring a component that brings a device Profinity does not already ship into a profile, using an optional [DBC (CAN database)](../CAN_Utilities/CAN_Bus_DBC.md) file, a dashboard, scripts, actions, and settings maps. Using one in a profile is covered on [Using a Custom Component](../Components/Custom_Components/index.md) under Components.
+- [Custom Components](./Custom_Components/index.md) covers authoring a component that brings a device Profinity does not already ship into a profile, using an optional [DBC (CAN database)](../CAN_Utilities/CAN_Bus_DBC.md) file, a dashboard, scripts, actions, and settings maps. Using one in a profile is covered on [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md) under Components.
 - [Component Types](./Custom_Components/Component_Types.md) compares Custom Components and DLL plugins, and when to use each.
 - [Component Pack CLI](./Custom_Components/Component_Pack_CLI.md) covers the `profinity-component-pack` tool for validating, packing, and installing Custom Component bundles.
 - [DLL Plugins](./Plugins/index.md) covers dynamic-link library (DLL) plugins, which add compiled components to Profinity and are managed in **Components & Plugins**.

@@ -5,9 +5,12 @@ nav:
     - Profiles.md
     - Profile_Dashboard.md
     - Menu_Layout.md
-    - Components_and_Plugins.md
+    - Install_and_Manage_Plugins.md
+    - Choose_Available_Components.md
     - Kiosk_Mode.md
     - Logs_Config.md
     - Feedback.md
     - System_Info.md
     - Licensing.md
+    - License_Page.md
+    - Trial_Desktop_Use_and_Fingerprint.md

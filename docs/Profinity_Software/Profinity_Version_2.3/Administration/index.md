@@ -3,7 +3,7 @@ title: Administering Profinity
 description: "Administer a running Profinity: system settings, users, and roles, profiles, licensing, logs, and the plugins and component types engineers can use."
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Administering Profinity
@@ -16,9 +16,12 @@ Most of these pages need a permission that engineers and operators do not have b
 - [Profiles](Profiles.md): create and manage profiles, with support for kiosk mode and custom dashboards.
 - [Profile dashboard](Profile_Dashboard.md): build a custom home page dashboard for a profile.
 - [Menu layout](Menu_Layout.md): arrange the components and groups in the side menu.
-- [Components and plugins](Components_and_Plugins.md): install plugins, and choose which component types engineers can add.
-- [Kiosk mode](Kiosk_Mode.md): sign in automatically on kiosk displays and unattended monitoring stations.
+- [Install and manage plugins](Install_and_Manage_Plugins.md): upload, enable, disable, and delete plugins.
+- [Choose available components](Choose_Available_Components.md): choose which component types engineers can add to a profile.
+- [Kiosk Mode](Kiosk_Mode.md): sign in automatically on kiosk displays and unattended monitoring stations.
 - [Logs](Logs_Config.md): set logging levels, log file rollover, and retention.
 - [System information](System_Info.md): the Profinity version, licence summary, and software credits.
-- [Licensing](Licensing.md): offline signed licence files, feature entitlements, and trial licences.
+- [Licensing](Licensing.md): which features each edition includes, and how the licence limits what is available.
+- [License page](License_Page.md): read the licence state, fingerprint, and licensed features of an instance.
+- [Trial licence, Desktop use and machine fingerprint](Trial_Desktop_Use_and_Fingerprint.md): how the 14-day local trial, Desktop free use, and the fingerprint work.
 - [Feedback](Feedback.md): share suggestions and report issues from within Profinity.

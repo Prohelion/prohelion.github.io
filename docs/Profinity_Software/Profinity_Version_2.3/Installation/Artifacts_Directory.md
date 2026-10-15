@@ -77,4 +77,4 @@ Stop Profinity before you copy or restore the folders, restore by replacing thos
 - Linux reports a permission error: the account that runs Profinity does not own the artefacts directory. Give it ownership with `chown` on the artefacts tree, because `/var/lib` needs root to create the folder, which is then handed to the service user.
 - Two instances share one configuration: give each its own `PROFINITY_HOME` and its own HTTP and HTTPS ports.
 
-The Linux service layout and launcher are described in [Running Profinity as a service](./Running_As_Service.md), and Docker volume mounts in [Install Profinity with Docker](./Docker_Installation.md).
+The Linux service layout and launcher are described in [Run Profinity as a Linux service](./Run_as_a_Linux_Service.md), and Docker volume mounts in [Install Profinity with Docker](./Docker_Installation.md).

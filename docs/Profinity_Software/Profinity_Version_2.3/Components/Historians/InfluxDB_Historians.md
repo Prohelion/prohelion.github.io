@@ -67,7 +67,7 @@ These settings are the same on both historians.
 | **InfluxDB Health Check** | On | Checks the health of the InfluxDB server when the component connects. Turn it off for InfluxDB Cloud. |
 | **Collections** | None | The tag collections whose tags are recorded. At least one collection must be configured before the component starts. |
 | **Logging Interval (Sec)** | 10 | The interval, in seconds, at which data is sent. The minimum is 1. |
-| **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging Modes](../Loggers/InfluxDB_Prometheus_Logger.md#logging-modes). |
+| **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Allow Retrieval** | On | Allows data to be retrieved through this historian using the APIs. |
 | **Designated tag historian reader** | Off | Makes this historian the store that long-range tag and history queries are read from. Enable it on one component in the profile only, and it takes effect only while **Allow Retrieval** is on. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
 
@@ -76,7 +76,7 @@ For the full procedure, refer to [How to Log Data to the Cloud (InfluxDB)](../..
 
 ## If data does not arrive
 
-The [Profinity System Logs](../../Getting_Started/Profinity_Log.md) name the cause.
+The Profinity system logs name the cause, and [Logs](../../Administration/Logs_Config.md) describes where to read them.
 When the component cannot connect, it logs one error for the outage, in the form `<component name>: could not connect (<reason>). Retrying every <n> s.`
 The reason tells you what to check:
 
@@ -87,4 +87,4 @@ The reason tells you what to check:
 | Any other text | The connection failed for another reason, and the text is the underlying error. Check the **Influx Server URL** first. |
 
 For the steps to set up data logging, refer to [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md).
-InfluxDB v1 servers use the **InfluxDB v1 Logger**, which is described in [InfluxDB and Prometheus Logging](../Loggers/InfluxDB_Prometheus_Logger.md).
+InfluxDB v1 servers use the **InfluxDB v1 Logger**, which is described in [InfluxDB v1 Logger](../Loggers/InfluxDB_v1_Logger.md).

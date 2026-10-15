@@ -89,14 +89,14 @@ Add `aggregationWindow` and `aggregationFunction` to aggregate the data into int
 
 ### How do I convert data types or scale values?
 
-Use `toType` to convert a type, and `gain` and `offset` to scale a value, as described under [Type Conversion](./Data_Binding.md#type-conversion) and [Scaling and Offset](./Data_Binding.md#scaling-and-offset).
+Use `toType` to convert a type, and `gain` and `offset` to scale a value, as described under [Type Conversion](./Transform_and_Map_Values.md#type-conversion) and [Scaling and Offset](./Transform_and_Map_Values.md#scaling-and-offset).
 
 ## Troubleshooting questions
 
 ### Why does my dashboard not load?
 
 The dashboard YAML does not match the schema.
-Open it in the visual editor, read the entries under **Schema validation issues**, and refer to [Troubleshooting](./Troubleshooting.md) for each error message and its fix.
+Open it in the visual editor, read the entries under **Schema validation issues**, and refer to [Dashboard Schema Validation Errors](./Schema_Validation_Errors.md) for each error message and its fix.
 
 ### Why is my data not updating or my chart blank?
 
@@ -111,11 +111,11 @@ Refer to [Image Does Not Appear](./Troubleshooting.md#image-does-not-appear).
 
 ### How do I create an interactive image?
 
-Use the `image` component with regions, icons, and data values, as in the [image example](./Examples.md#image-component-example) and the [Image](./Component_Reference/Interactive/Image.md) reference.
+Use the `image` component with regions, icons, and data values, as in the [image example](./Component_Examples.md#image-component-example) and the [Image](./Component_Reference/Interactive/Image.md) reference.
 
 ### How do I use the `html` component?
 
-Use the `html` component, as in the [HTML example](./Examples.md#html-component-example), and note the elements that the HTML sanitiser removes, which are listed in [Profile Directories](./Profile_Directories.md#profilecontent).
+Use the `html` component, as in the [HTML example](./Component_Examples.md#html-component-example), and note the elements that the HTML sanitiser removes, which are listed in [Profile Directories](./Profile_Directories.md#profilecontent).
 
 ### How do I organise a large dashboard, improve performance or make it reusable?
 

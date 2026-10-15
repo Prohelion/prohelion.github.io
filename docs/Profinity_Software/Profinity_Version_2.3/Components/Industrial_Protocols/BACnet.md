@@ -28,7 +28,7 @@ flowchart LR
     The BACnet plugin is not part of the standard installation, and it requires the **Industrial Protocols** licensed component group.
     Refer to [Industrial Protocols](index.md) for how to obtain, install, and licence it.
 
-Add a BACnet Device to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [Adding Components to Your Profile](../../Getting_Started/Adding_New_Components.md).
+Add a BACnet Device to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [Adding Components to Your Profile](../../How_To_Guides/Add_Component_to_Profile.md).
 Add one component for each BACnet device you want to read.
 The settings below can be changed later from the component's **Change Settings** menu action.
 
@@ -73,13 +73,13 @@ The component dashboard shows the connection **STATUS**, whether the device is *
 Use the **Connect / Disconnect** menu action to start or stop polling manually.
 Viewing the dashboard requires the **Security administration** permission, described under [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
 
-Polled values behave like any other tag, so they can be shown on a [dashboard](../Dashboard/index.md), logged, watched by a rule, or read by a script.
+Polled values behave like any other tag, so they can be shown on a [dashboard](../Dashboard/Dashboard_Component.md), logged, watched by a rule, or read by a script.
 
 ## If a point shows bad quality
 
 If a point cannot be read, its tag is marked as bad quality.
 The usual causes are a wrong **Remote host**, an **Object type** or **Instance** that the device does not have, and a device that does not answer within the **Request timeout (ms)**.
-Check these before reading the [Log](../../Getting_Started/Profinity_Log.md).
+Check these before reading the [Log](../../Administration/Logs_Config.md).
 The Log records the first failed read of an outage as a warning, repeat failures in the same outage at debug level, and the first success afterwards at information level, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
 The first success is the first poll in which every point reads correctly.
 

@@ -1,16 +1,16 @@
 ---
 title: Install Profinity with Docker
-description: "Install and run Profinity in Docker containers with Docker Compose or the one-line installer, update the image, and prepare for production."
+description: "Install and run Profinity in a Docker container with Docker Compose, sign in, expose CAN devices, and prepare the installation for production."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Install Profinity with Docker
 
 Run Profinity in a Docker container on most devices that can run Docker, including macOS and Linux machines and single-board computers such as the Raspberry Pi and BeagleBone Black.
 Prohelion publishes the Profinity image for `linux/amd64`, `linux/arm64`, and `linux/arm/v7`, and Docker pulls the variant that matches the host processor.
-For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md), and for Linux and macOS without Docker, refer to [Install Profinity on Linux and macOS](./Zip_Installation.md).
+For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md), and for Linux and macOS without Docker, refer to [Install Profinity on Linux and macOS](./Linux_and_macOS_Installation.md).
 
 A container binds all network interfaces, so other machines can reach it.
 Opening the web interface from another machine, and creating user accounts and roles, need the **Profinity Server** licensed feature, which the Server and Enterprise editions include.
@@ -19,7 +19,8 @@ To upgrade a 2.2 container, read [Upgrade from Profinity 2.2](./Upgrade_From_2_2
 
 You need Docker on the target device, on an x86-64, 64-bit ARM, or 32-bit ARM (ARMv7) processor, and Docker Compose, which Docker Desktop includes and which is available as a plugin on Linux.
 You also need a suitable CAN adapter for the target device.
-To install with a single script instead of a compose file, refer to [Install with the one-line installer](#install-with-the-one-line-installer).
+To install with a single script instead of a compose file, refer to [Install Profinity with the Docker one-line installer](./Docker_One_Line_Installer.md).
+To move an existing installation to a newer image, refer to [Update the Profinity Docker image](./Update_Docker_Image.md).
 
 ## Install with Docker Compose
 
@@ -111,71 +112,6 @@ After you sign in, the Profinity homepage appears.
 <figcaption>Profinity homepage</figcaption>
 </figure>
 
-## Update the image
-
-Docker does not update a running container, so the `latest` tag only moves when you pull a newer image.
-To move to a newer Profinity image, run these commands in the directory that holds the compose file:
-
-```bash
-docker compose pull
-docker compose up -d
-```
-
-Configuration and profiles are kept as long as `PROFINITY_HOME` names the container path of your mounted volume.
-
-To update automatically, add Watchtower, a community tool that replaces a container whenever a newer image appears, to the compose file:
-
-```yaml
-services:
-  profinity:
-    image: prohelion/profinity:latest
-    restart: always
-    ports:
-      - 18080:18080
-      - 18443:18443
-      - 4876:4876
-    environment:
-      - PROFINITY_HOME=/app/Prohelion
-    volumes:
-      - $HOME/Prohelion:/app/Prohelion:rw
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
-
-  watchtower:
-    image: containrrr/watchtower
-    restart: always
-    command: --label-enable --cleanup --interval 86400
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-```
-
-The `label` limits updates to the Profinity container, `--cleanup` removes old images, and `--interval 86400` checks once a day.
-Refer to the [Watchtower documentation](https://containrrr.dev/watchtower/) for the other options.
-An unattended update discards any data that is not in a host-mounted volume, so check that `PROFINITY_HOME` matches the mount before you enable it.
-
-## Install with the one-line installer
-
-Prohelion provides three helper scripts for Docker hosts.
-`install-docker.sh` creates `~/profinity-docker`, or the folder named by `--dir`, writes a compose file, pulls the image, and starts Profinity.
-The `--image` option, or the `PROFINITY_DOCKER_IMAGE` variable, selects a different image than the default `prohelion/profinity:latest`.
-Afterwards, `~/profinity-docker/profinity.sh` runs `docker compose up -d` and waits for the HTTP port to answer, and `~/profinity-docker/update.sh` runs `docker compose pull` and `docker compose up -d`.
-
-1. Download the installer from the Profinity release on GitHub, with its checksum.
-   `install-docker.sh` writes `profinity.sh` and `update.sh` itself, so it is the only file you need.
-
-    ```bash
-    curl -fsSL -o install-docker.sh https://github.com/Prohelion/Profinity/releases/latest/download/install-docker.sh
-    curl -fsSL -o install-docker.sh.sha256 https://github.com/Prohelion/Profinity/releases/latest/download/install-docker.sh.sha256
-    ```
-
-2. Verify the checksum and run the installer:
-
-    ```bash
-    sha256sum -c install-docker.sh.sha256 && bash install-docker.sh --dir ~/profinity-docker
-    ```
-
-    On macOS, use `shasum -a 256 -c install-docker.sh.sha256` in place of `sha256sum -c`.
-
 ## Expose devices to the container
 
 Docker does not expose all devices to containers.
@@ -192,4 +128,4 @@ Refer to the [Docker Compose documentation](https://docs.docker.com/compose/) fo
 ## Run Profinity in production
 
 For production environments, and deployments that run many Profinity instances, configure Profinity with environment variables so that one compose file can serve every instance.
-The compose files, `.env` files, and environment-specific deployment examples are in [Environment variables](./Environment_Variables.md#docker).
+The compose files, `.env` files, and environment-specific deployment examples are in [Set environment variables](./Set_Environment_Variables.md#docker).

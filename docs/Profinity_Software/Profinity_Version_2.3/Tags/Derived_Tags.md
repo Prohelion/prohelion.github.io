@@ -34,26 +34,11 @@ Derived tags are organised into groups in a tree on the left of the editor, and 
 ## Expression-based derived tags
 
 An expression-based derived tag names one or more **dependencies**, which are short aliases mapped to source tag paths, and a formula that combines them, and it recomputes the moment any dependency changes.
+To create one, refer to [Create a derived tag](Create_a_Derived_Tag.md).
 Groups exist only for organisation, and a group can set a **mount path**: a derived tag with a relative mount path mounts underneath its group's mount path, a derived tag that gives its own absolute path mounts there instead, and a nested group's mount path narrows further under its parent's.
-
-### Worked example
-
-A derived tag that converts a vehicle's speed from mph to km/h, grouped under that vehicle:
-
-1. Create a group called **Vehicle unit conversions** with the mount path `Vehicles/Car1`.
-2. Inside it, create a derived tag with the mount path `SpeedKmh`. Because the path is relative, it mounts beneath the group's mount path.
-3. Add a dependency with the alias `a` that points at the tag `Vehicles/Car1/SpeedMph`.
-4. Set the expression to `a.Value * 1.60934`.
 
 Each alias exposes only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality` and `IsStale`), and path methods such as `MatchesPath` belong in collections and rules, as described in [Tag expressions](./Tag_Expressions.md).
 An expression can be up to 4096 characters long.
-
-`Vehicles/Car1/SpeedKmh` is now a real tag that shows up in Tag Explorer and in the rules engine, and history is available for it without further configuration.
-
-<figure markdown>
-![The inspector for the derived tag Total Array Power, listing three dependencies aliased a, b and c, and the expression a.Value + b.Value + c.Value with a green validity tick.](../images/2.3-derived-tag-expression-inspector.png)
-<figcaption>Derived tag inspector with live preview</figcaption>
-</figure>
 
 ### Deleting a derived tag that others depend on
 

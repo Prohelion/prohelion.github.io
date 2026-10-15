@@ -1,9 +1,9 @@
 ---
 title: Profinity dashboard development guide
-description: "Find the pages for building data-driven Profinity dashboards in the visual editor, binding them to tags, and working with the dashboard YAML format."
+description: "View a component's dashboard, and find the pages for building dashboards in the visual editor, binding them to tags, and working with the YAML format."
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # Profinity dashboard development guide
@@ -30,6 +30,19 @@ This guide explains the YAML structure, how to configure components, and how to 
 Dashboards written in YAML before Profinity 2.3 keep working and open in the visual editor.
 To build a first dashboard step by step, refer to [How to Create a Custom Dashboard](../../How_To_Guides/Create_Custom_Dashboard.md).
 
+## View data on a dashboard
+
+Each configured component has a dashboard, opened by selecting the component in the sidebar, that shows the data for that component type.
+
+<figure markdown>
+![A WaveSculptor22 dashboard with a summary strip of bus voltage, power, temperatures and speed, two line charts for bus power and velocity, and status lights for controller limits and errors.](../../images/wavesculptor.png)
+<figcaption>Example of a dashboard visualising data</figcaption>
+</figure>
+
+A dashboard stays empty until data arrives.
+[How to Connect to CAN Bus](../../How_To_Guides/Connect_to_CAN_Bus.md) brings in live data from a CAN bus adapter, and [How to Replay CAN Bus Logs](../../How_To_Guides/Replay_CAN_Logs.md) supplies recorded data when no hardware is connected.
+The [Tag Explorer](../../Tags/index.md), opened from **TAG UTILITIES** in the side menu, shows the tags and their current values.
+
 ## Prerequisites
 
 Editing a dashboard needs the **Modify dashboards** permission, which an administrator grants in a role as described in [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
@@ -39,7 +52,7 @@ A Custom Component that publishes Controller Area Network (CAN) tags also needs 
 
 ## Where dashboards are used
 
-A dashboard can be the page of a [Custom Component](../../Developing_with_Profinity/Custom_Components/index.md), the home page of a profile, or the content of a standalone [Dashboard Component](../../Components/Dashboard/index.md).
+A dashboard can be the page of a [Custom Component](../../Developing_with_Profinity/Custom_Components/index.md), the home page of a profile, or the content of a standalone [Dashboard Component](../../Components/Dashboard/Dashboard_Component.md).
 The editor, data binding and component reference in this guide apply to all three.
 
 ### Custom Components {#custom-components}
@@ -61,7 +74,7 @@ To create one:
 
 ### Dashboard Component {#dashboard-component}
 
-The [Dashboard Component](../../Components/Dashboard/index.md) is a built-in component that renders a YAML-only dashboard with no DBC file, so it binds to existing tags, such as tags published by other components.
+The [Dashboard Component](../../Components/Dashboard/Dashboard_Component.md) is a built-in component that renders a YAML-only dashboard with no DBC file, so it binds to existing tags, such as tags published by other components.
 The Tag Explorer shows the path of each tag to bind, and [Binding Source Paths](./Data_Binding.md#binding-source-paths) describes the path forms.
 
 ## The starter template

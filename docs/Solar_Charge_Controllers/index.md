@@ -45,6 +45,6 @@ description: "Datasheets and user guides for the Elmar range of solar MPPT charg
 
     Our MPPT and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../Profinity_Software/Profinity_Version_2.3/Components/MPPT/index.md)
+    [:octicons-arrow-right-24: Supporting Software](../Profinity_Software/Profinity_Version_2.3/Components/MPPT/Elmar_Solar_MPPT.md)
 
 </div>

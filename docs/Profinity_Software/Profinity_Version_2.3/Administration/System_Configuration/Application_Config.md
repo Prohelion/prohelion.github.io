@@ -10,9 +10,8 @@ last_reviewed: 2026-10-14
 
 The Application Config tab of [System Configuration](index.md) holds packet retention, update checks, the recent tag history window and scripting.
 
-!!! warning "Saving restarts Profinity"
-    Saving changes on any System Configuration tab restarts Profinity.
-    Refer to [System Configuration](index.md) for what to expect.
+Saving changes on any System Configuration tab restarts Profinity.
+Refer to [System Configuration](index.md) for what to expect.
 
 | Parameter                          | Description |
 |------------------------------------|--|

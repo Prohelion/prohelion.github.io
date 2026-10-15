@@ -21,7 +21,7 @@ Profinity 2.3 applies theme and branding settings from a `theme.yaml` file in th
 The theme is a file-based setting, so there is no administration screen for it.
 Edit `themes/theme.yaml` on the Profinity host, and put logos and icons in the `assets` sub-folder.
 Profinity applies the file when it starts and again whenever the file changes.
-A missing file leaves the built-in defaults in place, and a file with errors is reported in the [Profinity log](../../Getting_Started/Profinity_Log.md) and also falls back to the defaults.
+A missing file leaves the built-in defaults in place, and a file with errors is reported in the [Profinity log](../../Administration/Logs_Config.md) and also falls back to the defaults.
 The file holds a `version` plus three optional groups.
 
 | Group | Keys | What they set |
@@ -61,5 +61,5 @@ assets:
   favicon: acme-favicon.ico
 ```
 
-An OEM build can combine custom themes with hidden catalogue entries, as described in [Components and Plugins](../../Administration/Components_and_Plugins.md), and the settings that control the rest of the system are in [System Configuration](../../Administration/System_Configuration/index.md).
+An OEM build can combine custom themes with hidden catalogue entries, as described in [Components and Plugins](../../Administration/Install_and_Manage_Plugins.md), and the settings that control the rest of the system are in [System Configuration](../../Administration/System_Configuration/index.md).
 Integrators can read the theme through the [API](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#themes).

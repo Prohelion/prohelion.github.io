@@ -22,7 +22,7 @@ You need Profinity V2 installed and running, and the **Modify profiles** permiss
 To import a Profile Pack from another Profinity instance instead, use **Upload Profile Pack**.
 Each profile keeps its own components, so a component added to one profile does not appear in another, and **ACTIVATE** on any row switches to that profile.
 
-With the new profile active, add [components](../Getting_Started/Adding_New_Components.md) to it as described in [How to add a component to your profile](./Add_Component_to_Profile.md), and configure their settings.
+With the new profile active, add [components](Add_Component_to_Profile.md) to it as described in [How to add a component to your profile](./Add_Component_to_Profile.md), and configure their settings.
 A profile can also have its own home dashboard, which [How to Create a Profile Dashboard](./Create_Profile_Dashboard.md) describes.
 Changes to the profile, such as components added to it, are saved with the profile.
 
