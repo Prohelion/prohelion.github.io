@@ -4,6 +4,29 @@ You said you would do the manual checks at the end and approve each item. Tick a
 
 Status: nothing approved yet. Last updated 2026-10-15.
 
+## 0. Security and privacy (do these first)
+
+- [ ] **Revoke or rotate the service account token.** A full token was visible in `images/2.3-service-account-token-dialog.png`. The image is now redacted, but the original is still in git history on the pushed `origin/feature/Profinity_2_3`. Rotation is the only real fix; rewriting history is optional.
+- [ ] `system_logs.png` shows a local user path. Retake or crop it.
+- [ ] `system_info.png` shows version 2.3.1.0 next to a "Current release 2.2.5" history, and names individual developers. Retake or crop it.
+- [ ] Three Python script screenshots have captions that mention elements the image does not show. Retake the images or trim the captions.
+
+## 0a. Engineering findings (not documented as intended behaviour)
+
+- [ ] InfluxDB v2 and v3 historians run a `/health` check about every 30 seconds that ignores the **Health Check** setting. This may be a bug for InfluxDB Cloud users.
+- [ ] The V2 bridge bus number is really limited to 0 to 32767, although the validation message says 65535.
+- [ ] In the boolean rule path, an alert that clears during a silence does not run its clear actions, and the stale silence stays until its time passes.
+- [ ] Collection `id` immutability is a UI convention only. The engine accepts a hand-edited `id` as a new collection.
+
+## 0b. Verified automatically (no action needed unless you disagree)
+
+- Lint: all 187 pages, 0 errors and 0 warnings. Mkdocs build: no warnings. Crawl of the built site: 0 broken links and 0 broken anchors.
+- All 16 Mermaid diagrams have valid syntax. Image alt text: 120 images checked by vision agents, 39 weak alts rewritten.
+- Facts checked against the code (branch `bugfix/2.3-bugfix-2`) and fixed in the docs where wrong: Auto Connect timing, InfluxDB log messages, Hosting ports, conditional styling `classes`, the Visual Editor DELETE button, uploaded plugins needing Custom Plugins, the SSO client secret error, the profile `models` folder, the first API call permission and response, the Actions built-ins and PagerDuty, silence expiry, script-driven derived tags needing Scripting, Run On Alert scripts needing Server, Custom Components needing Desktop, Theming white-label wording, Collections `id`, AI skills and derived tags.
+- Confirmed with no change: the MCP server needs the AI feature and its ten tools are read-only, stateless transport, the seven AI skill names, `version: "2.3"` in Collections.
+- Still not provable from the repo: the five MCP protocol revisions (they come from the bundled SDK 2.2.0).
+- Items in sections 2 and 3 that match the list above can be ticked without further checking.
+
 ## 1. Look at the rendered pages
 
 ### 1.1 Mermaid diagrams (16)
