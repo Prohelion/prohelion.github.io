@@ -1,4 +1,6 @@
 nav:
+    - Connections_and_Reconnecting.md
+    - Logging_Modes.md
     - CAN_Bus_Protocols
     - Industrial_Protocols
     - Battery_Management_Systems

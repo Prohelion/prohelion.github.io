@@ -37,6 +37,17 @@ Each plugin has its own page describing its settings and point map, and each pag
 | [OPC UA](OPC_UA.md) | Client that polls values in, and a read-only server that exposes Profinity's tag tree out | Enterprise and supervisory control and data acquisition (SCADA) system integration |
 | [S7](S7.md) | S7comm client that polls values into Profinity tags | Siemens PLCs such as S7-300, S7-400, S7-1200 and S7-1500 |
 
+Every protocol component has **Auto Connect** off by default.
+The components, what they connect to, and how a point map row identifies a value are:
+
+| Plugin | Component | Connects to | A point map row identifies a value by |
+|---|---|---|---|
+| BACnet | **BACnet Device** | One BACnet device, over BACnet/IP only and not BACnet MS/TP | **Object type** and **Instance** |
+| EtherNet/IP | **EtherNet/IP PLC** | One PLC | **PLC tag** |
+| Modbus | **Modbus Device** | One Modbus slave, over TCP or over a serial line using RTU framing | **Table** and **Address** |
+| OPC UA | **OPC UA Client** and **OPC UA Server** | The client connects to a remote OPC UA server, and the server listens for OPC UA clients | Client: **NodeId**. Server: not applicable, because it exposes the readable scalar tags in the profile's tag tree |
+| S7 | **S7 PLC** | One PLC | **Area** and **Offset**, and **DB number** when the area is `DataBlock` |
+
 For a Siemens S7-1200 or S7-1500, the S7 plugin reads absolute addresses, and the OPC UA client reads symbolic tags by name from the PLC's own OPC UA server.
 
 Once polled, a value from any of these protocols behaves the same as a tag from a CAN device.

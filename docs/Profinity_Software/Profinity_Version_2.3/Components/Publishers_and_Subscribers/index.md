@@ -18,6 +18,15 @@ A subscriber brings data from an external source into the profile tag tree as or
 | [Webhook Publisher](Webhook_Publisher.md) | Out of Profinity | An HTTP or HTTPS address, with an HTTP POST and a JSON payload | The consumer is an ordinary web service rather than a broker. |
 | [MQTT Subscriber](MQTT_Subscriber.md) | Into Profinity | A Sparkplug B namespace on an MQTT broker | The data comes from an external edge node, gateway, or industrial IoT platform. |
 
+All three components have **Auto Connect** on by default.
+The data format and the retry behaviour differ.
+
+| Component | Data format | Retries |
+|---|---|---|
+| MQTT Publisher | JSON, a flat object of tag key to numeric value, or Sparkplug B | Keeps trying to connect every 5 seconds |
+| Webhook Publisher | A JSON array of samples, in one POST for each publish | When the destination returns a status other than a success code, cannot be reached, or takes longer than 10 seconds to respond, makes up to three attempts in total, and if all three fail the batch is not retried further |
+| MQTT Subscriber | Sparkplug B metrics, scalar types only, written as read-only tags | Keeps trying to connect every 5 seconds |
+
 All three components require the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions.
 Without it the components are unavailable.
 Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.

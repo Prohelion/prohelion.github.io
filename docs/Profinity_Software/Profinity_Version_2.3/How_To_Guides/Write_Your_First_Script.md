@@ -1,15 +1,15 @@
 ---
 title: How to write your first script
-description: "Enable scripting, add a script component, and run a first C# or Python script, then try DBC, CAN, and state examples."
+description: "Enable scripting, add a script component, and run a first C# or Python script, then find its output in the log."
 type: tutorial
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-15
 ---
 
 # How to write your first script
 
 Create your first Profinity script to automate tasks and interact with your CAN bus system.
-This guide adds a script component, writes a run script that prints a message, runs it and finds the output, and then shows three more advanced examples.
+This guide adds a script component, writes a run script that prints a message, runs it and finds the output.
 
 Before you start, you need:
 
@@ -86,113 +86,7 @@ With **Log Script Output** enabled, the output appears in the Profinity log (sel
 Compile errors and script errors are always written to the log, whether or not **Log Script Output** is on, so review the error message, fix the script, and run it again.
 A script with a time interval or cron schedule runs according to the schedule that was set.
 
-## More advanced examples
-
-The following examples use the Example Profile, so load it and replay `example_log.csv` as described in the [Quick Start Guide](../Getting_Started/Quick_Start.md) to give them data.
-Use names from your own DBC and profile in other profiles: **Component**, **Message** and **Signal** are case-sensitive, and a name that does not exist raises an error.
-Confirm the names in the DBC viewer in Profinity. Refer to [DBC](../Developing_with_Profinity/Scripting/Script_Operations/DBC.md).
-
-### Reading a DBC signal value
-
-=== "C#"
-
-    ```csharp
-    using System;
-
-    try
-    {
-        var signal = Profinity.DBC.GetDbcSignal("Prohelion BMU", "PackStateOfCharge", "SOCPercent");
-        double currentValue = signal.Value;
-        string ts = DateTime.Now.ToString("HH:mm:ss");
-        if (double.IsNaN(currentValue))
-        {
-            Profinity.Console.WriteLine($"{ts} - No valid value for SOCPercent yet");
-        }
-        else
-        {
-            Profinity.Console.WriteLine($"{ts} - State of charge: {currentValue} {signal.Unit}");
-        }
-    }
-    catch (Exception ex)
-    {
-        Profinity.Console.WriteLine("DBC read failed: " + ex.Message);
-    }
-    ```
-
-=== "Python"
-
-    ```python
-    import math
-    import sys
-    from datetime import datetime
-
-    try:
-        signal = Profinity.DBC.GetDbcSignal("Prohelion BMU", "PackStateOfCharge", "SOCPercent")
-        current_value = signal.Value
-        ts = datetime.now().strftime("%H:%M:%S")
-        if math.isnan(current_value):
-            print(f"{ts} - No valid value for SOCPercent yet")
-        else:
-            print(f"{ts} - State of charge: {current_value} {signal.Unit}")
-    except Exception as ex:
-        print(f"DBC read failed: {ex}", file=sys.stderr)
-    ```
-
-Prefixing log lines with a timestamp, from `DateTime.Now` in C# or `datetime.now()` in Python, helps when correlating script output with bus or application events.
-
-### Sending a CAN message
-
-Payload data can be built from a byte array (in C#) or set as typed properties on `CanBusPacket` (for example `Int32Pos0` and `Int32Pos1`) when the layout matches your frames.
-The `CanBusPacket` type is available to C# scripts without an extra `using` statement, and Python scripts import it from `Profinity.Sdk.Models.CANBus`.
-A sent message goes onto the connected CAN bus, so use IDs that are safe for the devices on that bus.
-
-=== "C#"
-
-    ```csharp
-    // Method 1: Byte array
-    var packetBytes = new CanBusPacket(0x123, new byte[] { 0x01, 0x02, 0x03, 0x04 });
-    Profinity.CAN.Send(packetBytes);
-
-    // Method 2: Property-based (common when filling structured data)
-    var packetProps = new CanBusPacket(0x100)
-    {
-        Int32Pos0 = 100,
-        Int32Pos1 = 200
-    };
-    Profinity.CAN.Send(packetProps);
-    ```
-
-=== "Python"
-
-    ```python
-    from Profinity.Sdk.Models.CANBus import CanBusPacket
-
-    # Property-based (common when filling structured data)
-    packet_props = CanBusPacket(0x100)
-    packet_props.Int32Pos0 = 100
-    packet_props.Int32Pos1 = 200
-    Profinity.CAN.Send(packet_props)
-    ```
-
-### Persisting script state
-
-=== "C#"
-
-    ```csharp
-    int runCount = Profinity.State.Get("runCount") is int previousCount ? previousCount : 0;
-    runCount++;
-    Profinity.State.Set("runCount", runCount);
-    Profinity.Console.WriteLine($"This script has completed {runCount} time(s).");
-    ```
-
-=== "Python"
-
-    ```python
-    run_count = Profinity.State.Get("runCount")
-    run_count = (run_count + 1) if run_count is not None else 1
-    Profinity.State.Set("runCount", run_count)
-    print(f"This script has completed {run_count} time(s).")
-    ```
+For more examples, refer to [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md).
 
 ## Troubleshooting
 
@@ -204,14 +98,15 @@ Confirm that scripting is enabled in System Configuration and that the script co
 ### The DBC signal is null or missing
 
 A signal that returns nothing or raises an error has a component, message, or signal name that does not match the DBC, because the names are case-sensitive.
-Check the names against the DBC viewer.
+Check the names against the DBC viewer. The [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md) page shows a script that reads a DBC signal.
 
 ### A syntax error appears
 
-Fix compile errors (C#) or IronPython and Python 3 syntax errors (Python) before running, and add one API (DBC, CAN bus or state) at a time so that a fault is easy to find.
+Fix compile errors (C#) or IronPython and Python 3 syntax errors (Python) before running, and add one API (DBC, CAN bus or state) at a time so that a fault is easy to find. The [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md) page shows each API in turn.
 
 ## Next steps
 
+- [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md): reading a DBC signal, sending a CAN message, and persisting script state.
 - [Scripting Overview](../Developing_with_Profinity/Scripting/index.md): security, enabling scripting, and next steps.
 - [Supported Languages](../Developing_with_Profinity/Scripting/Supported_Languages/index.md): C#, Python and Lua.
 - [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md): run, receive, service, interval, cron, tag change and alert modes.

@@ -24,6 +24,7 @@ They expose both real-time and historical data, so Profinity can be connected to
 
 [Swagger](https://swagger.io/) documents the available APIs and how to call them, and the OpenAPI document that tools can import is at `/swagger/v2/swagger.json`.
 The [Endpoint Reference](./APIs/Endpoint_Reference.md) lists the routes that complement the screens described elsewhere in the documentation.
+To make a first authenticated call, follow [Make your first API call](./First_API_Call.md).
 
 ## MCP server
 
