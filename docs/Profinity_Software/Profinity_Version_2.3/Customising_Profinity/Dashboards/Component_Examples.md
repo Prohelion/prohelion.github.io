@@ -9,8 +9,9 @@ last_reviewed: 2026-10-15
 # Dashboard component examples
 
 These examples show the HTML, Image, and Table components, and every YAML block validates against the dashboard schema.
-Tag paths such as `DBC/Voltage/Value` and image names such as `StatusIcon.svg` are placeholders.
-Replace them with tags from the [Tag Explorer](../../Tags/index.md) and with files in the `images` directory of the profile, or the readouts stay blank and the images do not appear.
+The examples assume a Prohelion D1000 Gen2 BMS component that is named `D1000 Gen2 BMS` in the Profile.
+The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../Tags/index.md).
+Image names such as `StatusIcon.svg` are placeholders, so replace them with files in the `images` directory of the profile, or the images do not appear.
 
 ## HTML component example
 
@@ -73,7 +74,7 @@ dashboard:
                     displayType: "text"
                     bind:
                       - target: value
-                        source: DBC/Voltage/Value
+                        source: /D1000 Gen2 BMS/DBC/BMSVoltageData/BatteryVoltage
                     unit: "V"
                     precision: 2
 ```

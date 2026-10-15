@@ -39,6 +39,8 @@ The following connection values can also be set.
 | **Update Interval (Seconds)** | 10 | The interval, in seconds, between samples, from 10 to 86400. |
 | **Auto Connect** | On | Starts the logger automatically when the profile is loaded. |
 
+A tag that is not Good quality is reported as NaN.
+
 Once the Prometheus Logger is active, Prometheus can call Profinity on this URL to receive data.
 With all settings left at their defaults, for example, the data is served at:
 

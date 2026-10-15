@@ -75,6 +75,7 @@ If the `profinity` service is active, `update.sh` stops it before it applies the
 ## Where Profinity stores its data
 
 On Linux, Profinity 2.3 stores writable data under `/var/lib/prohelion/profinity` by default, not `~/.local/share`, and there is no per-user fallback.
+On macOS the default is `~/Library/Application Support/Prohelion/Profinity`, so the `chown` advice does not apply.
 The bootstrap installer creates this directory.
 With an extracted archive, create it and set its ownership before the first start, or set `PROFINITY_HOME` to a writable path.
 Refer to [Artefacts directory](./Artifacts_Directory.md).
@@ -108,4 +109,4 @@ To stop it as a service on Linux, run `sudo systemctl stop profinity`, as descri
 
 ## Troubleshooting
 
-- Profinity fails to start with a permission error on `/var/lib/prohelion`: the account that runs Profinity does not own the directory, so run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write.
+- On Linux, Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration: the account that runs Profinity does not own the directory, so run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write.

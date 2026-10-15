@@ -16,7 +16,8 @@ Open the derived tags editor first, as described in [Derived tags](Derived_Tags.
 3. Add a dependency with the alias `a` that points at the tag `Vehicles/Car1/SpeedMph`.
 4. Set the expression to `a.Value * 1.60934`.
 
-`Vehicles/Car1/SpeedKmh` is now a real tag that shows up in Tag Explorer and in the rules engine, and history is available for it without further configuration.
+When you save, the editor shows "Derived tags saved", and a failed save shows "Save failed:" followed by the validation error.
+`Vehicles/Car1/SpeedKmh` is now a real tag that shows up in Tag Explorer at its mount path and in the rules engine, and history is available for it without further configuration.
 
 <figure markdown>
 ![The inspector for the derived tag Total Array Power, listing three dependencies aliased a, b and c, and the expression a.Value + b.Value + c.Value with a green validity tick.](../images/2.3-derived-tag-expression-inspector.png)

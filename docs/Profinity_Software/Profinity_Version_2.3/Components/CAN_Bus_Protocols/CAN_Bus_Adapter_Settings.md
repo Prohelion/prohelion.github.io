@@ -44,7 +44,8 @@ The forwarding settings are described in [CAN-TCP Bridging](../../../../Solar_Ca
 The **Tritium Protocol Version** must match the bridge, because firmware V1 and V2 speak different protocols and V2 widens the bus identifier from 4 bits to 16 bits (refer to [CAN-UDP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md) and [Fundamentals](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Fundamentals.md)).
 Auto Discovery detects the version and sets it correctly, and refreshing the firmware of a V1 bridge updates it to V2.
 Version 1 bridges support bus numbers 0 to 15, and Profinity accepts 0 to 13 for V1.
-Version 2 bridges use a 16-bit bus number.
+Version 2 bridges use a 16-bit bus number, and Profinity accepts 0 to 32767.
+A profile can hold only one Tritium or Virtual adapter for each bus number.
 
 Two bridges that share a bus number on one Ethernet network relay traffic between their CAN buses, so use this deliberately to join two CAN buses into one virtual bus (refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md)).
 Give every other bridge a unique bus number, otherwise a message sent to one bridge is received by both.

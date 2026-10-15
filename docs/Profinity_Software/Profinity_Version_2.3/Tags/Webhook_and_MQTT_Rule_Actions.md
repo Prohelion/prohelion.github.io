@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 A rule can fire a **Webhook** action or an **MQTT** action when it transitions, sending a notification to a generic HTTP destination or an MQTT broker.
 Both send the same message, so a subscriber sees an identical structure whichever one a rule uses.
-The JSON property names are camelCase, `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`, and `triggeringTags` is the same list that a script receives as `TriggeredTags`:
+The JSON property names are camelCase, `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`, and `triggeringTags` holds the same tags that a script receives as `TriggeredTags`, but each row carries `tagId`, `value` and `quality` only:
 
 ```json
 {

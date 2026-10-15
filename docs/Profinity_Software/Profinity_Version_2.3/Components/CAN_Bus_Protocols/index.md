@@ -12,7 +12,7 @@ An adapter connects Profinity to a CAN bus, so the components on that bus can se
 
 - [CAN bus adapters](CAN_Bus_Adapters.md): choose between the Prohelion and Tritium CAN to Ethernet bridges, Peak USB, SocketCAN, SocketCANd, and the Ewert Energy CANdapter, and add one with Auto Discovery.
 - [CAN bus adapter settings](CAN_Bus_Adapter_Settings.md): look up the parameters and defaults of each adapter.
-- [CAN bus adapter troubleshooting](CAN_Bus_Adapter_Troubleshooting.md): fix a yellow or red status, a bridge that is not found, or a bit rate mismatch.
+- [CAN bus adapter troubleshooting](CAN_Bus_Adapter_Troubleshooting.md): fix an amber or red status, a bridge that is not found, or a bit rate mismatch.
 - [Virtual CAN adapter](Virtual_CAN_Adapter.md): relay traffic between CAN devices and bridge protocols.
 
 For the steps to connect a CAN bus, refer to [How to Connect to CAN Bus](../../How_To_Guides/Connect_to_CAN_Bus.md).

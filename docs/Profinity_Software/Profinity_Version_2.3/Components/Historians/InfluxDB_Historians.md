@@ -68,16 +68,18 @@ These settings are the same on both historians.
 | **Collections** | None | The tag collections whose tags are recorded. At least one collection must be configured before the component starts. |
 | **Logging Interval (Sec)** | 10 | The interval, in seconds, at which data is sent. The minimum is 1. |
 | **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
+| **Auto Connect** | On | Starts the historian when the profile is loaded. When off, start it with **Start Logger**. |
 | **Allow Retrieval** | On | Allows data to be retrieved through this historian using the APIs. |
 | **Designated tag historian reader** | Off | Makes this historian the store that long-range tag and history queries are read from. Enable it on one component in the profile only, and it takes effect only while **Allow Retrieval** is on. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
 
+Only samples with Good quality are written, and a tag whose quality is Bad, Stale, or Unavailable is skipped until it is Good again.
 InfluxDB Cloud does not support the InfluxDB Health Check API, so turn off **InfluxDB Health Check** when InfluxDB Cloud stores your data.
 For the full procedure, refer to [How to Log Data to the Cloud (InfluxDB)](../../How_To_Guides/Log_Data_to_Cloud_Influx.md).
 
 ## If data does not arrive
 
 The Profinity system logs name the cause, and [Logs](../../Administration/Logs_Config.md) describes where to read them.
-When the component cannot connect, it logs one error for the outage, in the form `<component name>: could not connect (<reason>). Retrying every <n> s.`
+When the component cannot connect, it logs one error for the outage, in the form `<component name>: could not connect (<reason>). Retrying every 5 s.`
 The reason tells you what to check:
 
 | Reason in the log | Meaning |

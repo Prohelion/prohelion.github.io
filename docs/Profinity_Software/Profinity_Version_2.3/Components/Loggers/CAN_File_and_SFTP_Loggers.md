@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # CAN file and SFTP loggers
 
-The **CAN File Logger** and the **CAN SFTP Logger** record native CAN bus messages to a file, which the CAN File Logger stores on the local file system of the machine running Profinity and the CAN SFTP Logger transmits to a remote Secure File Transfer Protocol (SFTP) server.
+The **CAN File Logger** and the **CAN SFTP Logger** record native CAN bus messages to a file, which the CAN File Logger stores on the local file system of the machine running Profinity and the CAN SFTP Logger transmits to a remote SSH File Transfer Protocol (SFTP) server.
 Each is added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers** and is included in every edition.
 Profinity can also [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) from a CAN bus network.
 
@@ -23,6 +23,7 @@ flowchart LR
 
 Both loggers have **Auto Connect**, which is on by default, so a logger begins logging when the Profile loads and needs no further action.
 They record the bus, so they do not use tag collections.
+Both loggers also have **Update Interval (Seconds)**, which defaults to 10 and accepts values from 10 to 86400, and sets the seconds between background updates.
 Their **File Format** setting chooses the layout of the text file, which always uses a `.txt` extension.
 **Prohelion**, the default, writes a line for every packet with a Sent or Received column, and **Tritium** writes the same fields without that column.
 

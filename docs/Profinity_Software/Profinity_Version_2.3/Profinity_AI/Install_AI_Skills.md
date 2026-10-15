@@ -25,6 +25,7 @@ npx skills add ./profinity-ai-skills
 ```
 
 On Windows, extract the zip with File Explorer or with `Expand-Archive profinity-ai-skills.zip -DestinationPath profinity-ai-skills` in PowerShell, then run the same `npx skills add` command.
+To see which skills the pack contains before installing, run `npx skills add ./profinity-ai-skills --list`.
 
 After installation, the skills are available in your AI tool, and each skill's `SKILL.md` file gives step-by-step instructions, with API reference notes, examples, and schemas beside it in the skill's folder.
 

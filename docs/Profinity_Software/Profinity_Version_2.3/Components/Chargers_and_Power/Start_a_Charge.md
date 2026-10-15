@@ -12,7 +12,7 @@ Start a charge from the dashboard of a charger component that is in the same Pro
 
 Open the charger from **Chargers & Power Supplies**.
 The dashboard shows the **Charger Status** lamps (**CHARGER STATUS**, **TEMPERATURE**, **COMMUNICATIONS**, **AC SUPPLY** and **DC OUTPUT**), the **Charge Current (Amps)** chart and, for a user with the **Control charging** permission, the **Charger / Power Supply Controller** panel.
-With **Auto Connect** off on a TDK or Siglent supply, the charger must be connected first, and the status message above the controls changes to show that the charger is ready once it is.
+With **Auto Connect** off on a TDK or Siglent supply, the charger must be connected first, and the message above the controls shows **Ready** with the text "Charger is ready. You can start charging." once it is.
 
 The controls run left to right.
 The battery selector chooses which Prohelion BMS to charge when the Profile has more than one.
@@ -31,6 +31,7 @@ The following steps start a charge.
 2. Set the maximum charge current, at or below the cell manufacturer's charge limit.
 3. Set **Charge To** to the state of charge at which charging should stop.
 4. Press **START**.
+5. Check that the charge has started. The button changes to **STOP**, the message above the controls shows **Charging Status** with the charging current and voltage (for example "Charging at 5.0A • 280.4V • On"), the **DC OUTPUT** lamp is green, and the **Charge Current (Amps)** chart rises above zero. If the message stays on **Ready** or **START** returns, refer to [Charging troubleshooting](Charging_Troubleshooting.md).
 
 Pressing **START** engages the pack itself, so there is no separate step to close the contactors.
 Profinity sets the charger to the estimated pack voltage, checks that the charger is ready for precharge, engages the pack through the BMS and then starts the charge.

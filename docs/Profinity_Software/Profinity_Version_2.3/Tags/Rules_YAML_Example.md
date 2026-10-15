@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 The [rules visual editor](Rules.md#rules-visual-editor) writes rules to a file, shown here in full so that every setting is in one place, and the file can also be edited directly.
 It has one rules source with a file-level scope, actions inherited by every rule beneath it, a group with its own action, a threshold rule and a boolean rule that uses a collection.
-It assumes a collection with the id `CellVoltages`, as created in [Create a collection](Create_a_Collection.md), and two actions named `OpsSlack` and `OpsEmail` that were added as described under [Making an action available](Actions.md#making-an-action-available).
+It assumes a collection with the id `Collection1`, which is the id the editor generated for the collection created in [Create a collection](Create_a_Collection.md), and two actions named `OpsSlack` and `OpsEmail` that were added as described under [Making an action available](Actions.md#making-an-action-available).
 
 ```yaml
 version: "2.3"
@@ -72,7 +72,7 @@ rules:
         level: Error
         description: A cell voltage is above 4.2 V.
         scope:
-          collection: CellVoltages
+          collection: Collection1
         expression: tag.Value > 4.2
         clearExpression: tag.Value < 4.1
         throttleMinutes: 5

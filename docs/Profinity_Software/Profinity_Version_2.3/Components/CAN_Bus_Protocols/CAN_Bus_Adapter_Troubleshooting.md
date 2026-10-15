@@ -1,6 +1,6 @@
 ---
 title: CAN bus adapter troubleshooting
-description: "Fix a CAN bus adapter that shows a yellow or red status, a CAN to Ethernet bridge that Auto Discovery does not find, or a bit rate mismatch on the bus."
+description: "Fix a CAN bus adapter that shows an amber or red status, a CAN to Ethernet bridge that Auto Discovery does not find, or a bit rate mismatch on the bus."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -19,11 +19,11 @@ Green is the state of a working adapter.
 | Colour | Meaning |
 | ------ | ------- |
 | Green | Good: the adapter is connected and data is arriving. |
-| Yellow | Warning: the adapter is connected but no data is arriving. |
+| Amber | Warning: the adapter is connected but no data is arriving. |
 | Red | Error: the [Profinity System Logs](../../Administration/Logs_Config.md) have the details. |
 | Grey | Not applicable: the adapter is not connected. |
 
-If the indicator is yellow, check that the bit rate matches the bus, that the bus is terminated and that another device is transmitting.
+If the indicator is amber, check that the bit rate matches the bus, that the bus is terminated and that another device is transmitting.
 If it is red, read the Profinity System Logs, then check the Peak driver, the IP address and port of a TCP bridge or the interface name of a SocketCAN adapter.
 
 ## If a CAN to Ethernet bridge is not found

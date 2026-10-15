@@ -70,7 +70,7 @@ A manually added adapter asks for the following:
 
 1. Click the adapter in the sidebar, open **Change Settings** (top right of the adapter dashboard), and save the adapter settings.
 2. Click **Connect** on the adapter dashboard, and wait for the adapter to connect.
-3. Check that the status indicator turns green, as defined in the colour table in [Adding Components to Your Profile](Add_Component_to_Profile.md). An adapter that is connected but sees no traffic shows yellow, and a red indicator means a connection error, so check the [logs](../Administration/Logs_Config.md).
+3. Check that the status indicator turns green, as defined in the colour table in [Adding Components to Your Profile](Add_Component_to_Profile.md). An adapter that is connected but sees no traffic shows amber, and a red indicator means a connection error, so check the [logs](../Administration/Logs_Config.md).
 4. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN** (a user who holds only the **View CAN data** permission sees **RECEIVED CAN** instead), and confirm that messages appear in the CAN Activity panel. [How to Send and Receive CAN Bus Messages](./Send_Receive_CAN_Bus.md) describes the panel.
 
 The adapter settings are:
@@ -90,7 +90,7 @@ For a bridge over WiFi, check that the router passes broadcast UDP, and for a br
 
 ### No data arrives
 
-An adapter that is green or yellow with an empty CAN Activity panel usually has a bit rate that does not match the network, a loose or broken connection, or devices on the bus that are not powered.
+An adapter that is green or amber with an empty CAN Activity panel usually has a bit rate that does not match the network, a loose or broken connection, or devices on the bus that are not powered.
 Confirm that the bit rate matches every device on the bus, check the physical CAN bus connections, make sure the devices are powered, and look at the adapter status for errors.
 
 ### The connection fails

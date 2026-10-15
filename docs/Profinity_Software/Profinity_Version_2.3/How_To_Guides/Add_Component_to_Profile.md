@@ -33,7 +33,7 @@ The filter options are on the left-hand side of the page, and the **COMPONENT TY
 
 To add a component:
 
-1. Select **+ ADD COMPONENT** in the sidebar or on the homepage. A page opens that lists every component type that can be added, including hardware devices, data loggers and custom scripts. Some CAN bus adapters in Profinity can be auto-discovered, and a discovered adapter that is available in your configuration is shown at the top of the screen.
+1. Select **ADD COMPONENT** on the homepage or at the bottom of the sidebar. The homepage tile is not shown when the home screen has Add Component turned off. A page opens that lists every component type that can be added, including hardware devices, data loggers and custom scripts. Some CAN bus adapters in Profinity can be auto-discovered, and a discovered adapter that is available in your configuration is shown at the top of the screen.
 2. Select the type to add. Profinity prompts for a **Component Name**, which must be unique in the profile, a **CAN ID** or address where the device needs one, the setting that starts the component automatically, and any settings specific to that component type. The properties required differ for each component.
 3. Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed. The component's icon appears in the sidebar.
 
@@ -64,15 +64,17 @@ If the profile already has a component with the same name as the one being added
 
 Each component has a coloured indicator on its icon that displays the operational status of the device.
 
-| Colour   | Meaning                                                                          |
-|----------|----------------------------------------------------------------------------------|
-| Green    | The device is available, sending valid data and is in a valid state              |
-| Yellow   | The device is available, but is either not sending data or is in a warning state |
-| Red      | The device is in an error state                                                  |
-| Grey     | The device is not available, not connected or not visible on the network         |
+| Colour | Status | Meaning |
+|---|---|---|
+| Green | On | The device is available, sending valid data and is in a valid state |
+| Amber | Warning | The device is available, but is either not sending data or is in a warning state |
+| Red | Error | The device is in an error state |
+| Grey | Idle | The device is idle |
+| Outlined, no fill | Off | The device can be contacted but is switched off |
+| Empty (white) | N/A | The device is not available or cannot be contacted |
 
 A red indicator means an error state, so check the [logs](../Administration/Logs_Config.md).
-A component that stays red or grey after it is added usually has an adapter that is not connected or a CAN bus that is not delivering data.
+A component that stays red, or shows an outlined or empty lamp, after it is added usually has an adapter that is not connected or a CAN bus that is not delivering data.
 The [troubleshooting section of How to Connect to CAN Bus](./Connect_to_CAN_Bus.md#troubleshooting) covers the usual causes and fixes.
 
 ## Connect the component
@@ -90,7 +92,7 @@ To connect the component:
 If a component is no longer required, you can remove it:
 
 1. Open the component settings, which is the three bar icon at the top right of the component dashboard.
-2. Select delete.
+2. Select **DELETE COMPONENT** at the bottom of the settings dialog, then confirm in the Delete component dialog. If rules use the component as an action, those actions are removed from the affected rules.
 
 <figure markdown>
 ![A component dashboard with the three bar settings icon at the top right](../images/wavesculptor.png)

@@ -9,8 +9,9 @@ last_reviewed: 2026-10-15
 # Motor controller and battery examples
 
 These blocks build a motor controller dashboard and a battery monitoring dashboard, and every YAML block validates against the dashboard schema.
-Tag paths such as `DBC/StateOfCharge/SOCPercent` and image names such as `BatteryIcon.svg` are placeholders.
-Replace them with tags from the [Tag Explorer](../../Tags/index.md) and with files in the `images` directory of the profile, or the readouts stay blank and the images do not appear.
+The motor controller examples assume a WaveSculptor22 component that is named `WS22` in the Profile, and the battery examples assume a Prohelion BMU (D1000 Gen1) named `Prohelion BMU` and a Prohelion D1000 Gen2 BMS named `D1000 Gen2 BMS`.
+The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../Tags/index.md).
+Image names such as `BatteryIcon.svg` are placeholders, so replace them with files in the `images` directory of the profile, or the images do not appear.
 
 ## Building a motor controller dashboard
 
@@ -62,7 +63,7 @@ dashboard:
                     precision: 1
                     bind:
                       - target: value
-                        source: DBC/BusMeasurement/BusVoltage
+                        source: /WS22/DBC/BusMeasurement/BusVoltage
 ```
 
 ### Status indicators
@@ -103,7 +104,7 @@ dashboard:
               legend: false
               bind:
                 - target: value
-                  source: DBC/BusMeasurement/BusCurrent
+                  source: /WS22/DBC/BusMeasurement/BusCurrent
                   seriesMode: timeSeries
                   timeRangeStart: "-5m"
                   timeRangeStop: "0m"
@@ -161,7 +162,7 @@ dashboard:
                           unit: "%"
                           bind:
                             - target: value
-                              source: DBC/StateOfCharge/SOCPercent
+                              source: /Prohelion BMU/DBC/PackStateOfCharge/SOCPercent
                               gain: 100
 ```
 
@@ -184,7 +185,7 @@ dashboard:
                     displayType: "text"
                     bind:
                       - target: value
-                        source: DBC/CellVoltages/Cell1
+                        source: /D1000 Gen2 BMS/DBC/Node01CellVoltages1/Node01Cell01
                     unit: "V"
                     precision: 3
               regions:

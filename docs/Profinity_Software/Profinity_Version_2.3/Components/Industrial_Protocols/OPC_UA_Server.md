@@ -46,6 +46,8 @@ The server publishes the readable scalar values in the profile's tag tree.
 Each tag appears as a node with the NodeId `ns=2;s=` followed by the tag's full tag ID, which is the tag's [tag tree path](../../Tags/Tag_Tree_Path.md).
 Clients cannot write to the address space, so the server cannot be used to change values in Profinity.
 The server accepts anonymous connections without message security only.
+The address space is built once when the server starts, from the tags that are readable at that moment, so tags added to the profile after the server starts do not appear until the server is restarted.
+A tag with no sample or a null value reads as `BadNoData` to the client.
 
 ## Listening address
 
@@ -59,5 +61,6 @@ A **Bind URL** with a host of `0.0.0.0` or `localhost` is treated in the same wa
 
 ## Dashboard
 
-The component has a dashboard showing its **STATUS**, the number of messages **RECEIVED** and **SENT**, and whether it is **LISTENING**.
+The component has a dashboard showing its **STATUS**, whether it is **LISTENING**, and **RECEIVED** and **SENT** counters that do not count client requests.
+To check that the server works, look for the status **Listening** and **LISTENING** true, then connect a client to the **Bind URL**, browse **Objects > Profinity** (the `Profinity` folder, NodeId `ns=2;s=Profinity`), and read a tag at `ns=2;s=` followed by its full tag ID.
 Viewing the dashboard requires the **Security administration** permission, described under [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).

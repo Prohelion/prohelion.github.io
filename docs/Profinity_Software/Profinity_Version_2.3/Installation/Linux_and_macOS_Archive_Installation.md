@@ -97,4 +97,4 @@ On Linux, create the artefacts directory and set its ownership before the first 
 
 - `./profinity.sh` reports `Permission denied`: the archive tool did not keep the executable bit, so run `chmod +x profinity.sh` and start it again.
 - On the macOS and portable archive, a host without internet access cannot download the .NET runtime on first start: install the ASP.NET Core 10 runtime from Microsoft before you start Profinity, and run `./profinity.sh --check-only` to confirm.
-- Profinity fails to start with a permission error on `/var/lib/prohelion`: refer to [Troubleshooting](./Linux_and_macOS_Installation.md#troubleshooting).
+- On Linux, Profinity cannot write to `/var/lib/prohelion`: refer to [Troubleshooting](./Linux_and_macOS_Installation.md#troubleshooting).

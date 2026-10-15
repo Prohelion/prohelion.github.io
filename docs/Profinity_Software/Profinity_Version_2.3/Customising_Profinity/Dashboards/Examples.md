@@ -12,8 +12,8 @@ This page shows Profinity dashboards from simple component displays to complete 
 Readers new to dashboards should begin with the progressive examples, which build from a Hello World dashboard to charts, and the complete motor controller dashboard is listed and analysed in [Full Example](./Full_Example.md).
 Building blocks for motor controller and battery dashboards are in [Motor Controller and Battery Examples](./Motor_Controller_and_Battery_Examples.md), and examples of the HTML, Image, and Table components are in [Dashboard Component Examples](./Component_Examples.md).
 
-Tag paths such as `DBC/Temperature/Value` are placeholders.
-Replace them with tags from the [Tag Explorer](../../Tags/index.md) or the readouts stay blank.
+The examples assume a Prohelion D1000 Gen2 BMS component that is named `D1000 Gen2 BMS` in the Profile.
+The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../Tags/index.md).
 The `version` stamp is optional in the schema, so the Hello World template includes `version: "2.3"` and the other examples omit it.
 
 ## Progressive examples
@@ -85,20 +85,20 @@ dashboard:
                     precision: 1
                     bind:
                       - target: value
-                        source: DBC/Temperature/Value
+                        source: /D1000 Gen2 BMS/DBC/SensorData1/Temperature1
                 - readout:
                     label: "Pressure"
                     value: 0
-                    unit: "hPa"
+                    unit: "kPa"
                     precision: 2
                     bind:
                       - target: value
-                        source: DBC/Pressure/Value
+                        source: /D1000 Gen2 BMS/DBC/SensorData1/Pressure
 ```
 
 ### Example 3: Add status lamps
 
-A lamp bound to `enabled` lights while the `Online` flag is set, beside a bound readout:
+A lamp bound to `enabled` lights while the `BMSStateENABLED` flag is set, beside a bound readout:
 
 ``` yaml
 dashboard:
@@ -111,12 +111,12 @@ dashboard:
                     items:
                       - lamp:
                           color: green
-                          label: "Online"
+                          label: "Enabled"
                           value: 1
                           enabled: true
                           bind:
                             - target: enabled
-                              source: DBC/Status/Online
+                              source: /D1000 Gen2 BMS/DBC/BMSInfo/BMSStateENABLED
                               toType: boolean
           - readouts:
               items:
@@ -127,7 +127,7 @@ dashboard:
                     precision: 1
                     bind:
                       - target: value
-                        source: DBC/Temperature/Value
+                        source: /D1000 Gen2 BMS/DBC/SensorData1/Temperature1
 ```
 
 ### Example 4: Add charts
@@ -149,7 +149,7 @@ dashboard:
                           legend: false
                           bind:
                             - target: value
-                              source: DBC/Temperature/Value
+                              source: /D1000 Gen2 BMS/DBC/SensorData1/Temperature1
                               seriesMode: timeSeries
                               timeRangeStart: "-5m"
                               timeRangeStop: "0m"

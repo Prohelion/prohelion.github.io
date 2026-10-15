@@ -16,7 +16,7 @@ Rotation, archive, and SFTP settings that the file loggers share are on [File lo
 | Component | Direction | Where the data goes | Selects data by | Auto Connect default | Licence |
 |---|---|---|---|---|---|
 | [CAN File Logger](CAN_File_and_SFTP_Loggers.md) | Out | The local file system of the machine running Profinity, as native CAN bus messages | The CAN bus, not tag collections | On | Included in every edition |
-| [CAN SFTP Logger](CAN_File_and_SFTP_Loggers.md) | Out | A remote Secure File Transfer Protocol (SFTP) server, as native CAN bus messages | The CAN bus, not tag collections | On | Included in every edition |
+| [CAN SFTP Logger](CAN_File_and_SFTP_Loggers.md) | Out | A remote SSH File Transfer Protocol (SFTP) server, as native CAN bus messages | The CAN bus, not tag collections | On | Included in every edition |
 | [TAG File Logger](Tag_File_and_SFTP_Loggers.md) | Out | The local file system of the machine running Profinity, as comma-separated values (CSV) or JSON Lines | Tag collections | On | Included in every edition |
 | [TAG SFTP Logger](Tag_File_and_SFTP_Loggers.md) | Out | A remote SFTP server, as CSV or JSON Lines | Tag collections | On | Included in every edition |
 | [InfluxDB v1 Logger](InfluxDB_v1_Logger.md) | Out | An InfluxDB v1 server, which Profinity sends the data to | Tag collections | On | Included in every edition |

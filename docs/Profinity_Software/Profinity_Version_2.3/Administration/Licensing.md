@@ -1,6 +1,6 @@
 ---
 title: Licensing
-description: "Find which features each Profinity edition includes and how a licence, the Custom.yaml file and site configuration combine to decide what is available."
+description: "Find which features each Profinity edition includes and how a licence, the custom.yaml file and site configuration combine to decide what is available."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -13,7 +13,8 @@ There is no activation service and no online licence check: Profinity is designe
 To apply a licence file, refer to [Apply a licence](../Installation/Applying_a_Licence.md), and to read the licence state of an instance, refer to [License page](License_Page.md).
 
 A licence sets the commercial **ceiling** for the instance.
-The final set of available features and components is the combination of the licence, the OEM customisation file (`Custom.yaml`), and the site configuration (`config.yaml`); a feature is only available when all three allow it (refer to [Themes and Branding](../Customising_Profinity/Theming/index.md)).
+The set of available components is the combination of the licence, the OEM customisation file (`custom.yaml`), and the site configuration (`config.yaml`), and a component is only available when all three allow it (refer to [Choose available components](Choose_Available_Components.md)).
+A licensed feature is controlled by the licence alone, apart from scripting, which `config.yaml` can also switch off.
 Config-level toggles can narrow what the licence permits, but never grant more than the licence allows.
 
 ## What each edition includes

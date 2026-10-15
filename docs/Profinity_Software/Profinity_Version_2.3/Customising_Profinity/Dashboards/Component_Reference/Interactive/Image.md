@@ -241,7 +241,8 @@ points:
 
 ## Example
 
-The following example combines every overlay type on one image:
+The following example combines every overlay type on one image.
+Tag paths such as `DBC/Voltage/Value` are placeholders, so replace them with tags from your own component.
 
 ```yaml
 dashboard:
@@ -309,7 +310,7 @@ dashboard:
                   label: "SOC"
                   bind:
                     - target: value
-                      source: 'DBC/StateOfCharge/SOCPercent'
+                      source: 'DBC/PackStateOfCharge/SOCPercent'
                   displayType: "graph"
                   maxValue: 100
                   unit: "%"

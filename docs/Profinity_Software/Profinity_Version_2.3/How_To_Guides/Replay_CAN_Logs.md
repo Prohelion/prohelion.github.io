@@ -42,7 +42,9 @@ The upload is also refused if a log with the same name already exists, so delete
 
 ## Control the replay
 
-While a replay plays, the position slider moves to a different point in the log, and you can use it to move the replay to any position in the log.
+While a replay plays, the position slider moves to a different point in the log.
+You can drag the slider at any time, including during playback.
+Releasing the handle during playback jumps to that point and continues playing, and while the replay is paused or stopped it sets the position that **Play** resumes from.
 **Pause** suspends the replay so that it can be resumed later, and **Play** resumes it.
 **Stop** ends the replay, and **Loop** replays the log continuously.
 The trashcan icon deletes a log file from the list, which is separate from controlling a replay.

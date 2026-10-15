@@ -25,10 +25,16 @@ The change takes effect as soon as you select the button, and the engine does no
 Enabling one component type inside a disabled group enables the group and leaves the other types in it disabled, so you can bring back a single device without exposing the rest of its family.
 The components of a disabled plugin do not appear in the catalogue at all, so enable the plugin again first, as described in [Install and manage plugins](Install_and_Manage_Plugins.md#disable-or-remove-a-plugin).
 
+## Why a component can be unavailable
+
+A component type is available only when the licence, the `custom.yaml` file and the site configuration (`config.yaml`) all allow it.
+Profinity checks the licence first, then `custom.yaml`, then `config.yaml`.
+
 ## Rows that cannot be enabled
 
 A row with no action button is locked, and the **Status** column says why.
 **Not licensed** means your licence does not cover the component.
 Refer to [Licensing](Licensing.md).
-**Disabled (Custom.yaml)** means the supplier of your Profinity build hid the component, and it cannot be enabled from this screen.
+**Disabled (Custom.yaml)** means the supplier of your Profinity build hid the component through the `custom.yaml` file in the `config` folder, which Profinity only reads, so it cannot be enabled from this screen.
+A component disabled in the site configuration shows **Disabled**, **Disabled (group)** or **Disabled (component)** instead.
 If an attempt to change a row fails, a message explains the reason.

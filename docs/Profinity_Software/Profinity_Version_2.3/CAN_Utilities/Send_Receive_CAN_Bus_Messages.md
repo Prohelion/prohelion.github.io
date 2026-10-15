@@ -55,7 +55,10 @@ From this tool you can set the CAN ID and endian, as well as the values for eith
 When you change one of these values the raw data updates to reflect that, and when you change the raw data the values update to reflect that change.
 
 Setting an interval causes Profinity to send your CAN packet at your chosen loop rate, so setting **Interval [ms]** to 100 sends the packet every 100 ms.
-The interval must be a whole number from 0 to 4,294,967,295 milliseconds, and the editor shows "Value must be a valid integer" or the range message beside the field when it is not.
+The interval must be a whole number from 1 to 4,294,967,295 milliseconds, or blank (or 0, which is the same) to send the packet once only.
+When **Interval [ms]** is blank or 0, the primary button reads **SEND** and sends the packet once.
+When it is above 0, the button reads **START**, and the schedule must be saved first.
+The editor shows "Value must be an integer greater or equal to zero" or "Value must not exceed 4,294,967,295 milliseconds (maximum for uint)" beside the field when the value is not valid.
 
 For step-by-step guidance, refer to [How to send and receive CAN bus messages](../How_To_Guides/Send_Receive_CAN_Bus.md) and [How to Connect to CAN Bus](../How_To_Guides/Connect_to_CAN_Bus.md).
 To play back recorded messages, refer to [Log / replay CAN bus messages](Logging_Replaying_CAN_Bus_Messages.md).

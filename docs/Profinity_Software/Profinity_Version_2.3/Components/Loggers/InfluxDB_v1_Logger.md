@@ -57,6 +57,8 @@ Enter the **InfluxDB Database**, add at least one tag collection under **Collect
 The **Logging mode** setting applies to this logger, the InfluxDB v2 Historian, the InfluxDB v3 Historian and the other collection-based loggers, and nothing is logged until at least one tag collection is selected in **Collections**.
 [Logging modes](../Logging_Modes.md) defines the three modes, **Snapshot** (the default), **On Change** and **Everything**.
 
+Only samples with Good quality are written, and a tag whose quality is Bad, Stale, or Unavailable is skipped until it is Good again.
+
 InfluxDB Cloud does not support the InfluxDB Health Check API, and **InfluxDB Health Check** is on by default, so set it to off when InfluxDB Cloud is used to store the data.
 
 ## If data does not arrive

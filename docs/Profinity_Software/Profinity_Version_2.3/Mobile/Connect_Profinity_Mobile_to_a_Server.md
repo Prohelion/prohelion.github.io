@@ -40,7 +40,7 @@ Each entry in the app's discovery list shows the server name, the active profile
 
 1. Connect the phone to the same Wi-Fi network as the Profinity server.
 2. Open Profinity Mobile. The discovery list shows the servers that are broadcasting a heartbeat.
-3. Select your server and connect. The app uses HTTPS when the server has it configured.
+3. Select your server and connect. The app uses HTTPS when the server has it configured. The app opens the server's web sign-in page inside the app, where you sign in with your Profinity user name and password, or with your single sign-on and two-factor prompt. If the active profile has Kiosk Mode enabled, the page signs in automatically as the kiosk user.
 
 To return to the server list, swipe from the left edge of the screen on iOS, or use the system back action on Android, which first steps back through the pages you opened in the app.
 A certificate warning that you accepted for a server stays accepted when you go back.

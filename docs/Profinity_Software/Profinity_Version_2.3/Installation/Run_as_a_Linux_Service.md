@@ -85,5 +85,5 @@ Run `sudo systemctl status profinity.service`.
 
 If the service does not start, read the log with `journalctl -u profinity.service`.
 
-- A permission error on `/var/lib/prohelion` means the service user does not own the artefacts directory. Run `sudo chown -R profinity:profinity /var/lib/prohelion`.
+- If Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration, the service user does not own the artefacts directory. Run `sudo chown -R profinity:profinity /var/lib/prohelion`.
 - A "file not found" error means the path to `profinity.sh` in the unit does not match where Profinity is installed. Correct the path in the service configuration and start the service again.

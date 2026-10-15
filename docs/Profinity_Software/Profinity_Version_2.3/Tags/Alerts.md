@@ -52,7 +52,8 @@ Level names are not case-sensitive, `Information` is accepted as `Info` and `War
 An unrecognised level on a rule, threshold step or `triggerLevel` stops the rules file loading and names the rule that holds it, so correct the spelling and save again.
 The same names are used as the `triggerLevel` of an action configured on a parent rule file or group.
 
-A script receives the level as the string `RuleLevel`, and the Webhook and MQTT JSON message does not include the level.
+A script receives the level as the string `RuleLevel`.
+The Webhook and MQTT JSON message has no level field, so add `{RuleLevel}` to the rule message if a receiver needs it.
 The level filter on the Active and History queries is not case-sensitive.
 
 ## Live indicators

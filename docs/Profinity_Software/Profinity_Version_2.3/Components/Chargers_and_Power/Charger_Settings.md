@@ -15,11 +15,11 @@ Each charger type starts with its own default limits, and **Supply Voltage Limit
 
 | Setting | TDK | Siglent | Elcon | Notes |
 |---|---|---|---|---|
-| **Charger Voltage Limit** | 300 V | 32 V | 198 V | Maximum voltage the charger can output, between 1 and 1000. |
-| **Charger Current Limit** | 10 A | 3.2 A | 46 A | Maximum current the charger can output, between 1 and 1000. |
-| **Charger Power Limit** | 3000 W | 102 W | 6600 W | Maximum power the charger can output, between 1 and 1000000. If unsure, use maximum voltage multiplied by maximum current, or less. |
-| **Supply Voltage Limit** | 240 V | 240 V | 240 V | Maximum voltage the wall socket supplies, between 1 and 1000. |
-| **Supply Current Limit** | 10 A | 10 A | 10 A | Maximum current the wall socket supplies, between 1 and 1000. |
+| **Charger Voltage Limit** | 300 V | 32 V | 198 V | Maximum voltage, in volts, that the charger can output, from 1 to 1000. |
+| **Charger Current Limit** | 10 A | 3.2 A | 46 A | Maximum current, in amps, that the charger can output, from 1 to 1000. |
+| **Charger Power Limit** | 3000 W | 102 W | 6600 W | Maximum power, in watts, that the charger can output, from 1 to 1000000. If unsure, use maximum voltage multiplied by maximum current, or less. |
+| **Supply Voltage Limit** | 240 V | 240 V | 240 V | Maximum voltage, in volts, that the wall socket supplies, from 1 to 1000. |
+| **Supply Current Limit** | 10 A | 10 A | 10 A | Maximum current, in amps, that the wall socket supplies, from 1 to 1000. |
 
 The TDK and Siglent supplies are reached over the network and share these communication settings.
 

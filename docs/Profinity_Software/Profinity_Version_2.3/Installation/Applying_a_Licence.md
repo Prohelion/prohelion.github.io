@@ -55,8 +55,8 @@ Removing licensed features restarts Profinity automatically.
 
 | What the page or message shows | Likely cause | What to do |
 |--------------------------------|--------------|------------|
-| The upload is rejected | The file's signature, expiry, or fingerprint did not pass validation | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that it has not expired |
-| `WrongInstance` | The file was issued for a different machine | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it |
+| The upload is rejected | The file's signature, expiry, or fingerprint did not pass validation. A file issued for a different machine is rejected with the message "License is not valid for this instance." and is not saved | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that it has not expired |
+| `WrongInstance` as the **State** after a `license.yaml` is copied into the `license` folder | The file was issued for a different machine | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it |
 | `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way |
 
 A rejected upload never replaces a working licence, so it is safe to retry.

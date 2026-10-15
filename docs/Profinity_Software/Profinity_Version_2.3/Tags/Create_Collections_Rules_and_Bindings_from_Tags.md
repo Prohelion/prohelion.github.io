@@ -40,7 +40,8 @@ Selecting **Create collection from tag(s)…** opens a submenu for the primary f
 Selecting **Create rule from tag(s)…** opens an insert-location picker and then the rules visual editor with a draft rule.
 **Rules on this Tag** lists the rules that reference the selection and opens the rules editor on the chosen rule source.
 **Rules impacted by this tag** lists the rules affected by the selection and opens the rules editor with that rule selected.
-Both show a disabled **No matching rules** entry when nothing matches.
+Both list each matching rule as the rule source followed by a colon and the rule name, and show a disabled **No matching rules** entry when nothing matches, so they are the check in Tag Explorer that a rule is attached to a tag.
+These actions open the editor with a draft, and nothing is created until you save it in the editor.
 
 Rules can also be started from two other places.
 Right-clicking a dashboard element that is bound to tags offers **Create rule from this element…**, and right-clicking a collection in the collections editor offers **Create rule from collection…**.

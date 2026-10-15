@@ -20,7 +20,7 @@ To nest a component:
 The path must not include the component's own name, which Profinity appends automatically.
 The default value of `/` mounts the component at the root.
 
-A component named `Charger` with a **Tag tree path** of `Vehicles/Car1` mounts at `Vehicles/Car1/Charger`.
+A component named `Charger` with a **Tag tree path** of `Vehicles/Car1` mounts at `Vehicles/Car1/Charger`, and its tags appear in Tag Explorer under that folder.
 Every mount point must be unique.
 If two components would resolve to the same or an overlapping location, or to a location published by a [Tag Relay](Tag_Relay.md) receiver, Profinity rejects the change and reports which paths overlap, with a message in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.`
 Change the **Tag tree path** or the name of one of the two components until the paths no longer overlap.

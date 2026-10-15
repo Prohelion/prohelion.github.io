@@ -76,6 +76,7 @@ Any other text is displayed as text.
 ## Display types
 
 The examples on this page use the Image position form, with percentage `x` and `y`. On a [Model](Model.md), every data value position also takes `z`, in model space.
+Tag paths such as `DBC/Temperature/Value` are placeholders, so replace them with tags from your own component.
 
 A text display shows the formatted value:
 
@@ -103,7 +104,7 @@ dataValues:
     label: "SOC"
     bind:
       - target: value
-        source: 'DBC/StateOfCharge/SOCPercent'
+        source: 'DBC/PackStateOfCharge/SOCPercent'
     displayType: "graph"
     maxValue: 100
     unit: "%"

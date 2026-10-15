@@ -32,9 +32,10 @@ The `on_stop()` function or `OnStop()` method is called both when the service is
 
 ## Example
 
-Each example implements all four lifecycle methods, although only the start method is required, and a `Run()` or `run()` that loops until `Profinity.ScriptCancelled` is set.
+Each example implements the start, stop, pause, and continue methods, although only the start method is required, and a `Run()` or `run()` that loops until `Profinity.ScriptCancelled` is set.
+In C#, extend `ProfinityBaseService`, which makes only `OnStart` mandatory, because a class that extends `ProfinityScript` and implements `IProfinityServiceScript` directly must implement all five methods.
 The loop sleeps between iterations with `time.sleep` (Python), `Thread.Sleep` (C#) or `sleep` (Lua), and the Python version declares `global` for the shared run counter.
-Profinity's built-in Python, C# and Lua service templates with both single-step and loop-style `run` patterns.
+These match Profinity's built-in Python, C# and Lua service templates, which show both single-step and loop-style `run` patterns.
 
 === "C#"
 

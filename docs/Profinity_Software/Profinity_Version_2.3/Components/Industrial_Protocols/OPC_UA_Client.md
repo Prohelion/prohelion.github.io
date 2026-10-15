@@ -69,9 +69,12 @@ Viewing the dashboard requires the **Security administration** permission, descr
 
 Values polled by the client behave like any other tag, so they can be shown on a [dashboard](../Dashboard/Dashboard_Component.md), logged, watched by a rule, or read by a script.
 
+To check that the client works, look for the status **Connected**, **CONNECTED** true, and tags under the component's `Points` tags with Good quality and a changing value.
+
 ## If a point shows bad quality
 
-If a node cannot be read, its tag is marked as bad quality.
+Each point's tag is created as soon as its row exists and shows **Unavailable** quality until the first poll reads it.
+After that a successful read gives Good quality, and a node that cannot be read is marked as Bad quality.
 The usual causes are a **NodeId** that the server does not have, an **Endpoint URL** that does not start with `opc.tcp://` or cannot be reached, and a server certificate in the `rejected` folder, so check these before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 The Log records the first failed read of an outage as a warning, repeat failures in the same outage at debug level, and the first success afterwards at information level, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
 The first success is the first poll in which every point reads correctly.

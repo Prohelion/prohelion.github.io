@@ -22,7 +22,10 @@ The CAN SFTP Logger and the TAG SFTP Logger send each completed log file to the 
 | **Remote server password** | None | The password for that account. Required, and stored encrypted. |
 | **Remote Directory** | None | The directory the files are uploaded to, relative to the home directory of the user on the server, so it must not start with `/`. For example, enter `home/sftp/upload` and not `/home/sftp/upload`. Required. |
 
-If a transfer fails, Profinity writes "Failed to transfer archived TAG log via SFTP" to the Profinity system logs (refer to [Logs](../../Administration/Logs_Config.md)) for the TAG SFTP Logger, so check the host, port, credentials, and remote directory there.
+If a transfer fails, Profinity writes an error to the Profinity system logs (refer to [Logs](../../Administration/Logs_Config.md)).
+The CAN SFTP Logger writes "Failed to transfer archived file via SFTP" and the TAG SFTP Logger writes "Failed to transfer archived TAG log via SFTP", each followed by the file name and the reason.
+A connection or login failure also logs "Failed to connect to the SFTP server to test the connection" and "Failed to transfer the file <name> to the SFTP server".
+Check the host, port, credentials, and remote directory.
 
 ## Archive, compression, and rotation
 
