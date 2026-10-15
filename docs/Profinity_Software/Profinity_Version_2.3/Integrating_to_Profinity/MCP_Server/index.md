@@ -34,15 +34,14 @@ Turning on **Enable Profinity AI** also enables the MCP server, since the assist
 
 ## Transport
 
-The MCP server uses the Streamable HTTP transport and is stateless, so it holds no session state between requests and issues no `Mcp-Session-Id`.
-It accepts the protocol revisions `2024-11-05`, `2025-03-26`, `2025-06-18`, `2025-11-25` and `2026-07-28`, and an MCP client library negotiates the revision automatically.
-The endpoint is available at:
+An MCP client connects to the endpoint at:
 
 ```text
 /api/v2/Ai/Mcp
 ```
 
 resolved against the Profinity web server's host, port and protocol.
+An AI tool needs only this address and an `Authorization` header, and [Connect Profinity to AI](../../How_To_Guides/Connect_Profinity_to_AI.md) describes how to set one up.
 
 ## Available tools
 
@@ -231,103 +230,6 @@ An external MCP client that runs for a long time should use a [service account](
 | 429 with `Too many MCP requests. Please try again later.` | The per-user rate limit on MCP requests was exceeded | Reduce the request rate and retry later |
 
 A tool that returns fewer results than expected, rather than an error, reflects the caller's **View tags** or **View alerts** permission.
-
-## Example client calls
-
-Most MCP clients, including the official MCP SDKs, perform the protocol handshake automatically, so only the endpoint URL and the `Authorization` header need to be supplied.
-A client that speaks the protocol directly must send an `initialize` request first, follow it with the `notifications/initialized` notification, and then call tools with `tools/call`, using JavaScript Object Notation Remote Procedure Call (JSON-RPC) 2.0 messages that carry `jsonrpc` and `id` fields.
-The Streamable HTTP transport requires an `Accept` header that lists both `application/json` and `text/event-stream`, and the server may answer a POST with either a JSON body or a single server-sent event, so a direct client must handle both.
-
-The following Python example is an advanced, hand-written client that performs that handshake and calls three of the tools.
-It negotiates the `2025-11-25` revision, one of the revisions listed under [Transport](#transport).
-A client that uses an MCP library needs only the endpoint URL and the `Authorization` header, and [Connect Profinity to AI](../../How_To_Guides/Connect_Profinity_to_AI.md) describes how to set one up.
-
-```python
-import json
-import requests
-
-PROFINITY_MCP_URL = "https://your-profinity-host/api/v2/Ai/Mcp"
-TOKEN = "YOUR_JWT_TOKEN_HERE"
-PROTOCOL_VERSION = "2025-11-25"
-
-headers = {
-    "Authorization": f"Bearer {TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json, text/event-stream",
-}
-
-next_id = 0
-
-
-def read_message(response):
-    """Return the JSON-RPC message from a JSON or server-sent event response."""
-    response.raise_for_status()
-    if response.headers.get("Content-Type", "").startswith("text/event-stream"):
-        for line in response.text.splitlines():
-            if line.startswith("data:"):
-                return json.loads(line[len("data:"):].strip())
-        raise RuntimeError("No data event in response")
-    return response.json()
-
-
-def call(method, params=None):
-    """Send a JSON-RPC request and return its result."""
-    global next_id
-    next_id += 1
-    payload = {"jsonrpc": "2.0", "id": next_id, "method": method, "params": params or {}}
-    message = read_message(requests.post(PROFINITY_MCP_URL, headers=headers, json=payload))
-    if "error" in message:
-        raise RuntimeError(message["error"])
-    return message["result"]
-
-
-def call_tool(name, arguments):
-    """Call a tool and decode the text content it returns, raising if the tool reports an error."""
-    result = call("tools/call", {"name": name, "arguments": arguments})
-    if result.get("isError"):
-        raise RuntimeError(result["content"])
-    return [json.loads(item["text"]) for item in result["content"] if item["type"] == "text"]
-
-
-# Handshake: initialize, then confirm with the initialized notification.
-init = call(
-    "initialize",
-    {
-        "protocolVersion": PROTOCOL_VERSION,
-        "capabilities": {},
-        "clientInfo": {"name": "example-client", "version": "1.0"},
-    },
-)
-headers["MCP-Protocol-Version"] = init["protocolVersion"]
-requests.post(
-    PROFINITY_MCP_URL,
-    headers=headers,
-    json={"jsonrpc": "2.0", "method": "notifications/initialized"},
-).raise_for_status()
-
-# Discover available components
-components = call_tool("get_all_components", {})
-
-# Read the current value of a specific tag
-sample = call_tool(
-    "get_tag_sample_by_canonical_id",
-    {"fullTagId": "MyBMS/DBC/MessageName/SignalName"},
-)
-
-# Read the last hour of a tag as a time series
-series = call_tool(
-    "get_tag_series",
-    {
-        "fullTagId": "MyBMS/DBC/MessageName/SignalName",
-        "start": "-1h",
-        "stop": "0m",
-        "aggregationWindow": "1m",
-        "aggregationFunction": "mean",
-    },
-)
-```
-
-The `2026-07-28` revision changes the handshake, so a client that must use that revision should rely on an MCP client library rather than hand-written JSON-RPC.
 
 ## Related documentation
 

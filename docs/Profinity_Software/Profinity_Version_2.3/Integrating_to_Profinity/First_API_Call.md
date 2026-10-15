@@ -33,6 +33,10 @@ At the end you have a token and have sent one authenticated request with `curl`.
     An application that calls Profinity across a network should use HTTPS, because calling this API over HTTP can expose the password to network scanning.
     Custom applications running on the Profinity server can use the `localhost` address, which does not carry this risk.
 
+    !!! warning "Keep passwords out of scripts"
+        Do not put a real password in a script, in shell history, or in a file under version control.
+        For an application that runs unattended, use a [service account](../Administration/Users_and_Access/Service_Accounts.md) instead.
+
 2. Read the `token` field in the response.
    If the username and password are valid, Profinity responds to a non-browser client with a JSON body like this (the `permissions` list is abbreviated):
 

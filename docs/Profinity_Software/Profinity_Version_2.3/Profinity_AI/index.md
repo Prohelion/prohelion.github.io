@@ -33,6 +33,9 @@ Live data, rules, alerts, and history reach the assistant through the [MCP Serve
 Profinity AI cannot change tags, alerts, or configuration through it.
 Profinity AI sees only what the signed-in user could already see in Profinity, so tags and alerts you do not have permission to view are left out of its answers.
 
+An administrator can also switch on web search for the Claude, OpenAI, and OpenRouter providers, which lets the assistant look beyond the documentation.
+Questions and tool results are sent to the configured AI provider, so refer to [AI Chat](./AI_Chat.md) before you discuss sensitive data.
+
 ## From context to diagnosis
 
 With that context in one place, Profinity AI gathers context from the whole Profile, correlates signals across devices, matches alerts to the relevant documentation, compares current readings against history and trends, and proposes a likely root cause and next steps with the evidence it used.
