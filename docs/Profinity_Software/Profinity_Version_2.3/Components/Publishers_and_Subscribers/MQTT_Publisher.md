@@ -91,8 +91,8 @@ Each key is the tag path with every character other than a letter or digit repla
 }
 ```
 
-A sample is included only when it has good quality, is no more than 5 seconds old by default, and holds a finite number.
-A tag that is not updating, or whose value is not numeric, therefore does not appear in the payload.
+A sample is included only when it has good quality and holds a finite number.
+The payload has no place for quality, so a tag that is stale, lost or not numeric does not appear in it.
 
 **Sparkplug B** follows the [Sparkplug](https://sparkplug.eclipse.org/) topic and payload convention.
 The publisher sends a birth message (`NBIRTH`) on connect, data messages (`NDATA`) on each publish, and a death message (`NDEATH`) that the broker delivers if the connection drops unexpectedly.

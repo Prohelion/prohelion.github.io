@@ -91,9 +91,9 @@ Each member suits one kind of comparison, and `Value` converts to a number itsel
 | `Value` | Numeric compares (`tag.Value > 5`) |
 | `Text` | String identity (`tag.Text == "RUN"`) |
 | `Bool` | Boolean flags (`tag.Bool == true`) |
-| `HasValue` | Quality is Good or Stale |
+| `HasValue` | Quality is Good or Stale, so a tag that has timed out still has a value. For a value that is current, use `tag.HasValue && !tag.IsStale` |
 | `Quality` | `"Good"`, `"Stale"`, `"Bad"`, `"Unavailable"` |
-| `IsStale` | Quality is Stale, which is how to detect missing data |
+| `IsStale` | Quality is Stale: the tag has a last value but its data has stopped arriving, for example a CAN signal that timed out. A tag that has never had a value is not stale, so for "no data" use `!tag.HasValue \|\| tag.IsStale` |
 
 Examples:
 

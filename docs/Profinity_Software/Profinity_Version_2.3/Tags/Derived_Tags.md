@@ -40,6 +40,13 @@ Groups exist only for organisation, and a group can set a **mount path**: a deri
 Each alias exposes only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality` and `IsStale`), and path methods such as `MatchesPath` belong in collections and rules, as described in [Tag expressions](./Tag_Expressions.md).
 An expression can be up to 4096 characters long.
 
+### Quality of a derived tag
+
+A derived tag is only as trustworthy as its inputs, so by default its quality is the worst of its dependencies' qualities, from best to worst Good, Stale, Unavailable and Bad.
+A derived tag built on a stale input is therefore stale (it still computes from the input's last value), and one built on an input with no value is unavailable.
+To handle missing inputs yourself, for example with `a.HasValue`, set `inputQuality: ignore` on the derived tag in the YAML; it then evaluates whatever the input quality, and is Good when the expression succeeds.
+The default is `inputQuality: propagate`.
+
 ### Deleting a derived tag that others depend on
 
 If another derived tag lists the tag being deleted under its dependencies, the editor names those derived tags and asks for confirmation before the delete goes through.

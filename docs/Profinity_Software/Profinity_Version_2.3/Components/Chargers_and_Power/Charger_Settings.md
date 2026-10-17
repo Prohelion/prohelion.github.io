@@ -40,7 +40,7 @@ The Elcon charger has no connection step, because it communicates over CAN, and 
 |---|---|---|
 | **Elcon Command CAN Bus Id** | `0x1806E5F4` | CAN address Profinity sends commands to. |
 | **Elcon Status CAN Bus Id** | `0x18FF50E5` | CAN address Profinity receives status messages from. |
-| **Milliseconds Valid** | 5000 | Time in milliseconds the CAN traffic from the charger stays valid before Profinity treats the connection as lost, between 0 and 60000. |
+| **Milliseconds Valid** | 5000 | Time in milliseconds the CAN traffic from the charger stays valid before Profinity treats the connection as lost, between 1 and 60000. |
 
 ## Current and voltage limits
 

@@ -30,7 +30,7 @@ Profinity requests the settings below when the WaveSculptor is added, and the **
 | Parameter | Description |
 |---|---|
 | **Name** | The name of the component. Must be unique. |
-| **Milliseconds Valid** | The timeout of the device, which defaults to 5000. If no traffic is received from the device within this time, Profinity treats the connection as lost. |
+| **Milliseconds Valid** | The timeout of the device, which defaults to 5000. Enter -1 if the device should never time out. If no traffic is received from the device within this time, Profinity treats the connection as lost. |
 | **Base Address** | The CAN base address of the WaveSculptor, which defaults to `0x400` and must match the address programmed into the controller. Every WaveSculptor on the same CAN bus requires a different base address, as described in [CAN Bus and Low Voltage](../../../../Motor_Controllers/WaveSculptor22/User_Manual/CAN_Bus_And_Low_Voltage.md). |
 
 If the dashboard shows no data, check that the CAN adapter status is green, that the **Base Address** matches the address programmed into the controller, and that the adapter and the WaveSculptor use the same CAN bit rate (500 kbit/s by default).

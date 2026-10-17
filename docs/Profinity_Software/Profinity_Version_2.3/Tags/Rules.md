@@ -66,10 +66,10 @@ tag.Value > 4.2
 tag.Value < 4.0
 ```
 
-A no-data or stale sensor condition is written as follows:
+A no-data or stale sensor condition is written as follows, where a tag that has never had a value is caught by `!tag.HasValue`:
 
 ```text
-tag.IsStale
+!tag.HasValue || tag.IsStale
 ```
 
 ## Permissions

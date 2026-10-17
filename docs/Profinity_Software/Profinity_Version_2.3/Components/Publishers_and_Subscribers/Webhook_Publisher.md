@@ -87,8 +87,7 @@ The API's `reason`, `message` and `metadata` fields are not sent.
 ]
 ```
 
-Only samples with good quality, no more than 5 seconds old by default, and holding a finite number are included, so `quality` is always `"Good"`.
-A tag that is not updating, or whose value is not numeric, does not appear in the batch.
+Each entry reports the quality the tag had when the sample was taken. A Stale entry carries its last `value`, and an entry for a tag that is Unavailable or Bad has `quality` and no `value`. Only tags that hold a finite number are included.
 
 ## Delivery health
 

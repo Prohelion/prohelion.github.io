@@ -61,6 +61,9 @@ tag.Meta.Type == "dbc.signal" && tag.HasValue
 tag.Value > 0
 ```
 
+`tag.HasValue` is true for a stale tag as well as a good one. To keep only tags with a current value, use `tag.HasValue && !tag.IsStale`.
+A logger or publisher re-checks which tags match its collection once per interval, so a filter on staleness is approximate by up to one interval.
+
 The full expression vocabulary, covering path matching, values, metadata and wildcards, is described in [Tag expressions](./Tag_Expressions.md).
 For the rest of the tag layer, refer to [Tag layer](index.md), [Alerts Log](./Alerts.md) and [Derived tags](./Derived_Tags.md).
 Integrators can use the [Endpoint reference](../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags).

@@ -20,7 +20,7 @@ Three settings decide which packets reach the script.
 |---------|---------|
 | **Base Address** | The base CAN address of the device, entered in hexadecimal. |
 | **Address Range** | The range of packet addresses the device sends, entered in hexadecimal. |
-| **Milliseconds Valid** | How long traffic from the device counts as valid before the connection is assumed lost. The default is 5000 and the range is 0 to 60000. |
+| **Milliseconds Valid** | How long traffic from the device counts as valid before the connection is assumed lost. The default is 5000 and the range is -1 to 60000, where -1 means traffic never expires. |
 
 <figure markdown>
 ![The script editor for a Python Run On Receipt script, showing the Python receive template with its comments and the receive function](../../../images/python_run_on_receipt_script.png)

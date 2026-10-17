@@ -62,7 +62,7 @@ A packet is created from its CAN ID and then filled using the typed data propert
 ## Accessing latest received packets
 
 Profinity maintains a cache of the latest received CAN packets, from which a script can read the most recent packet or query packets by CAN ID.
-`Profinity.CAN.LatestValidPacketReceivedByID()` returns the latest packet for a CAN ID only while it is still valid (a packet is expired once it is older than the script's **Milliseconds Valid** setting, which defaults to 5000 and accepts 0 to 60000, where 0 means packets never expire).
+`Profinity.CAN.LatestValidPacketReceivedByID()` returns the latest packet for a CAN ID only while it is still valid (a packet is expired once it is older than the script's **Milliseconds Valid** setting, which defaults to 5000 and accepts -1 to 60000, where -1 means packets never expire and 0 means no packet is ever valid; a script saved earlier with 0 now sees no valid packets until it is changed to -1 or a window).
 The method returns null (`None` in Python, `nil` in Lua) when no valid packet exists.
 **Milliseconds Valid** is shown only in Run On Receipt of CAN Message mode.
 

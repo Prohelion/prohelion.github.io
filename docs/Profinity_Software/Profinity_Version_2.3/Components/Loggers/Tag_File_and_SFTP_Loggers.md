@@ -30,7 +30,7 @@ The TAG SFTP Logger needs the remote server settings described in [File logger r
 
 ## Settings
 
-Both loggers log the values of the tags in the collections selected in **Collections**, and only samples of Good quality are written.
+Both loggers log the values of the tags in the collections selected in **Collections**, and every sample is written with its quality: a Stale tag keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value.
 A logger with no collection selected does not start, and its status stays off, so a collection has to exist and be selected before the logger can be started.
 
 | Setting | Purpose |
@@ -38,7 +38,6 @@ A logger with no collection selected does not start, and its status stays off, s
 | **Collections** | The tag collections whose member values are logged. At least one collection must be configured before the logger starts. |
 | **Update Interval (Seconds)** | The interval, in seconds, between writes. The default is 10, and the value must be between 10 and 86400. With **Snapshot** this is how often the current value of each member is written, and with **On Change** or **Everything** it is how often pending changes or samples are flushed. |
 | **Logging mode** | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. The default is **Snapshot**. |
-| **DBC Notification Mode** | Shown only when **Logging mode** is **On Change**. **Value Change Only** writes a signal from a DBC (CAN database) file when its decoded value changes, and **Every Decoded Physical Sample** writes a line for every decoded sample of that signal, including repeats. **Everything** always uses **Every Decoded Physical Sample**. Tags that are not DBC signal leaves always follow value-change behaviour. |
 | **File Format** | **CSV** writes one row per sample, with the header `Recv time,TagId,ValueType,Value,UtcTimestamp,Quality,Reason,Message`, and the file uses a `.txt` extension. **JSON Lines** writes one JSON object per line, and the file uses a `.jsonl` extension. The default is **CSV**. In the CSV header, `Recv time` is the local time the line was written and `UtcTimestamp` is the timestamp carried by the tag sample, so the two can differ. |
 
 [Logging modes](../Logging_Modes.md) describes how the modes behave across all collection-based components.

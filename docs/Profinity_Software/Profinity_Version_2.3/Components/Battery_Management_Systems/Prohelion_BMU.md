@@ -43,7 +43,7 @@ The **Change Settings** button at the top-right of the BMU dashboard changes the
 |----------------------|-----------------------------------------------------------------------------------------------------|---------|
 | **Name** | The name of the component. Must be unique. | The model name |
 | **Control Pack** | Enables software control of the BMS from Profinity (engagement and disengagement of the pack), for the BMS units that support it. A D1000 Gen2 charges through the Profinity **Charge** screen once **Control Pack** is on. | Off |
-| **Milliseconds Valid** | The timeout of the device, from 0 to 60000. If no traffic is received from the device within this time, Profinity treats the connection as lost. | 5000 |
+| **Milliseconds Valid** | The timeout of the device, from 1 to 60000. If no traffic is received from the device within this time, Profinity treats the connection as lost. | 5000 |
 | **Base Address** | The CAN address of the BMU, as described in the protocol documentation of each model. | `0x600`, or `0x100` for the C20 Gen1 |
 | **Firmware Configuration Key** | The D1000 Gen2, M48 Gen2 and C48 Gen2 only. Unlocks the administration-only firmware parameters for the current sign-in session (refer to [Unlock administration firmware parameters](Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters)). | No active session |
 

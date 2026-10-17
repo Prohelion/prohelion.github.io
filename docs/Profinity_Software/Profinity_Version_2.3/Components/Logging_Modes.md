@@ -43,12 +43,6 @@ The **Tag Relay Sender** lists a **Snapshot interval (seconds)** setting and no 
 It sends a full snapshot of the selected collections at a fixed interval, as described on [Tag Relay Sender](Tag_Relays/Tag_Relay_Sender.md).
 The [How to configure data logging](../How_To_Guides/Configure_Data_Logging.md) guide shows where to set the mode in the loggers and publishers it covers.
 
-## DBC notification mode
-
-When **Logging mode** is **On Change**, the **TAG File Logger**, the **TAG SFTP Logger** and the **TAG SQL Historian** show a **DBC Notification Mode** setting, with the choices **Value Change Only** and **Every Decoded Physical Sample**.
-**Everything** always records every decoded sample.
-Refer to [File and tag loggers](Loggers/index.md) and [TAG SQL Historian](Historians/TAG_SQL_Historian.md) for the full wording.
-
 ## Which components differ
 
 The pages agree on the three modes and on **Snapshot** as the default.
@@ -68,4 +62,3 @@ They differ in the interval setting, as follows.
 | | [MQTT Publisher](Publishers_and_Subscribers/MQTT_Publisher.md), [Webhook Publisher](Publishers_and_Subscribers/Webhook_Publisher.md) | Publishes only when a member's value has changed since the last publish |
 | | [Prohelion Cloud Dashboard](Cloud_Dashboard/Prohelion_Cloud_Dashboard.md) | Sends only values that have changed |
 | | [File and tag loggers](Loggers/index.md), [TAG SQL Historian](Historians/TAG_SQL_Historian.md) | Writes value changes |
-| **DBC Notification Mode** | [File and tag loggers](Loggers/index.md), [TAG SQL Historian](Historians/TAG_SQL_Historian.md) | Shown when **Logging mode** is **On Change** |

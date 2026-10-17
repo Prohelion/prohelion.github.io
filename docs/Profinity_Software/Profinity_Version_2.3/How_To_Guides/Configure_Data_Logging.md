@@ -54,7 +54,6 @@ The **CAN SFTP Logger** and the **TAG SFTP Logger** transmit the files to a serv
 3. For the **TAG File Logger** and **TAG SFTP Logger**, also set:
     1. The **Logging mode** (`On Change`, `Snapshot` or `Everything`).
     2. The **File Format** (`CSV` or `JSON Lines`).
-    3. When **Logging mode** is `On Change`, the **DBC Notification Mode** (`Value Change Only` or `Every Decoded Physical Sample`).
 4. Set **Rotate By** to **No Rotation**, **Time** or **File Size**, which determines when the current log file is closed and a new one created. Then set **Rotation Interval (Sec)** for time-based rotation or **Rotate MB** for size-based rotation.
 5. File loggers can generate large files. To manage them:
     1. Enable **Archive the Logs** to move rotated log files into an `archive` folder beneath the log folder. The **CAN SFTP Logger** and the **TAG SFTP Logger** always archive, so they do not show this setting.

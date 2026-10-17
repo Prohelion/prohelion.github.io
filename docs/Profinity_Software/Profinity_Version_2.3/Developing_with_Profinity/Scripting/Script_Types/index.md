@@ -47,7 +47,7 @@ The schedule, receive, and tag change settings appear only for the mode that use
 | **Time Interval** and **Time Interval Unit** | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
 | **Cron Schedule** | Run On CRON Schedule | The Quartz cron expression that decides when the script runs |
 | **Maximum Run Time (seconds)** | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
-| **Base Address**, **Address Range** and **Milliseconds Valid** | Run On Receipt of CAN Message | The CAN addresses the script receives, in hexadecimal, and how long traffic from the device counts as valid. **Milliseconds Valid** defaults to 5000 and accepts 0 to 60000 |
+| **Base Address**, **Address Range** and **Milliseconds Valid** | Run On Receipt of CAN Message | The CAN addresses the script receives, in hexadecimal, and how long traffic from the device counts as valid. **Milliseconds Valid** defaults to 5000 and accepts -1 to 60000, where -1 means traffic never expires |
 | **Tag Paths** and **Collections** | Run On Tag Change | The tags and tag collections that trigger the script |
 
 ## Keeping scripts healthy

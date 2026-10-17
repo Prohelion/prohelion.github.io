@@ -20,7 +20,7 @@ Profinity prompts for the following information about the device, and the **Chan
 | Parameter | Description | Default |
 |---|---|---|
 | **Name** | The name of the component. Must be unique. | The component name |
-| **Milliseconds Valid** | The timeout of the device, from 0 to 60000. If the network receives no traffic from this device within this many milliseconds, Profinity treats the connection as lost. | 5000 |
+| **Milliseconds Valid** | The timeout of the device, from 1 to 60000, or -1 if the device should never time out. If the network receives no traffic from this device within this many milliseconds, Profinity treats the connection as lost. | 5000 |
 | **Base Address** | The CAN address of the MPPT, as described in the Elmar MPPT DBC. | `0x300` |
 
 Once the MPPT is added to the Profile, the Elmar Solar MPPT dashboard is available in the sidebar.

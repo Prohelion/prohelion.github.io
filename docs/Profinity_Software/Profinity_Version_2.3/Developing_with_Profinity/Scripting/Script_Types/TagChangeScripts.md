@@ -153,7 +153,8 @@ It returns the last value the script wrote.
     Run On Demand and scheduled runs do not call `OnTagChange` or `on_tag_change`.
     Only a change to a watched tag does, so test by changing the tag.
 
-Writing the same value again does not call the method for sources that report a change only when the stored sample differs.
+The method runs when a watched tag's value changes.
+Writing the same value again does not call it, and neither does a change of quality alone, such as a tag going stale while it keeps its last value.
 
 ### Trigger overlap
 

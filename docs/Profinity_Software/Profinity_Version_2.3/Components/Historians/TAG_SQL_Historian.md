@@ -56,14 +56,13 @@ The following tables describe every setting.
 |---|---|
 | **Collections** | The tag collections whose tags are recorded. |
 | **Logging mode** | Chooses between **Snapshot**, **On Change** and **Everything**. Defaults to Snapshot. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **DBC Notification Mode** | Shown only for **On Change**. **Value Change Only** records a signal from a DBC (CAN database) file when its value changes, and **Every Decoded Physical Sample** records every decoded sample. **Everything** always records every decoded sample. |
 | **Auto Connect** | On by default. Starts the historian when the profile is loaded. When off, start it with **Start Logger**. |
 | **Update Interval (Seconds)** | The interval that controls snapshot timing, or how often changes and samples are flushed to the database. Defaults to 10, and accepts 10 to 86400. |
 | **Designated tag historian reader** | Makes this historian the store that long-range tag and history queries are read from. Enable it on one component in the profile only. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
 
 ## Table layout
 
-Only samples with Good quality are written, and a tag whose quality is Bad, Stale, or Unavailable is skipped until it is Good again.
+Every sample is written with its quality. A Stale sample keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value, so the table shows the gap.
 
 When **Auto Create Table** is enabled the historian creates a table with the following columns, and the names are the same on every provider.
 
@@ -75,7 +74,7 @@ When **Auto Create Table** is enabled the historian creates a table with the fol
 | `ValueType` | The data type of the value. |
 | `Value` | The recorded value. |
 | `UtcTimestamp` | The UTC timestamp of the sample. |
-| `Quality` | The data quality of the sample, which is always Good because other qualities are not written. |
+| `Quality` | The data quality of the sample: Good, Stale, Unavailable or Bad. |
 | `Reason` | Why the sample was recorded. |
 | `Message` | An optional message. |
 

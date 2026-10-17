@@ -72,7 +72,7 @@ These settings are the same on both historians.
 | **Allow Retrieval** | On | Allows data to be retrieved through this historian using the APIs. |
 | **Designated tag historian reader** | Off | Makes this historian the store that long-range tag and history queries are read from. Enable it on one component in the profile only, and it takes effect only while **Allow Retrieval** is on. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
 
-Only samples with Good quality are written, and a tag whose quality is Bad, Stale, or Unavailable is skipped until it is Good again.
+Every sample is written with its quality in a `quality` field. A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale. A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`, so a chart can show the gap instead of an invented reading. Only tags that hold a number are written, and a query for readings should ask for the `value` field.
 InfluxDB Cloud does not support the InfluxDB Health Check API, so turn off **InfluxDB Health Check** when InfluxDB Cloud stores your data.
 For the full procedure, refer to [How to Log Data to the Cloud (InfluxDB)](../../How_To_Guides/Log_Data_to_Cloud_Influx.md).
 

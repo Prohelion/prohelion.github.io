@@ -48,6 +48,12 @@ The controller supplies only these members:
 - `PointName`, `Points`, `PollIntervalMilliseconds`, `ReconnectDelayMilliseconds`, `DeviceName` and `TransportIsConnected`, which read the matching values from the settings.
 
 It may also override `VerifyDevice`, which runs when the connection opens and again after a failed read, to confirm the device is the one configured, and `IsPollable`, to skip a point that cannot be read.
+The base class also tells the tag layer about every new sample, and a component that publishes points should pass this on by implementing `IMappedPointTagNotifier`: forward the controller's `PointUpdated` event and return its `PointValidity`.
+A component that does not implement it is read on demand and its point tags publish nothing, so they cannot be logged on change or used by alerts as they change.
+With it, each point's tag publishes its samples, becomes Stale (keeping its last value) when the connection closes, and becomes Stale when nothing refreshes it within `PointValidity`, which by default is three poll intervals and at least five seconds.
+A write that succeeds updates the point at once.
+`MappedTagPoint.UtcTimestamp` is the time the value was last read, not a time supplied by the device, and freshness is measured from it.
+When a device says a value is only the last usable one, as an OPC UA status of Uncertain does, return a `PointReading` with quality `Stale` from `ReadPoint` instead of a plain value, and the point keeps the value but is not shown as current.
 A plugin built against an earlier SDK keeps its own copy of this logic until it is rebuilt.
 
 ## Build and package a plugin
