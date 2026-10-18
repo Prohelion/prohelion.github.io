@@ -14,6 +14,8 @@ A service serves the web interface to other machines, and opening it from anothe
 
 On macOS, Profinity is installed with the same [bootstrap installer](../Linux_and_macOS_Installation.md#install-with-the-bootstrap-installer) as Linux, into `/opt/profinity` by default, and `launchd` runs it as a service in the role systemd fills on Linux.
 
+The plist and commands below are an example only. Prohelion does not ship a launchd plist for the Profinity engine, so check the labels, paths and options against your own installation before you load the service.
+
 1. Create a plist file:
 
     ```bash

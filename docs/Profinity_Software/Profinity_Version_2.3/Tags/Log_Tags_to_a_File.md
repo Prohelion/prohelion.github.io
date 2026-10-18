@@ -16,7 +16,7 @@ To record tags:
 
 1. Add the logger to your [Profile](../Getting_Started/Profiles.md) as a component.
 2. In `Collections`, select the tag collections to record.
-3. Start the logger. With **Auto Connect** on (the default), the logger starts when the profile loads or the component is added. Otherwise, run **Start Logger** on the logger component, and **Stop Logger** to stop it.
+3. Start the logger. With **Auto Connect** on (the default), the logger starts when the profile loads or the component is added. Otherwise, use the **Start Logger / Stop Logger** toggle in the logger component's actions to start it.
 
 Only the tags that belong to the selected collections are written, and only samples of Good quality.
 A TAG File Logger needs at least one collection selected before it will start, and saving its settings restarts a running logger but does not start a stopped one.
