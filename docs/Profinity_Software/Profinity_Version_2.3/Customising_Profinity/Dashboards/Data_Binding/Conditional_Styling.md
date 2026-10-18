@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Conditional styling
 
 Conditional styling lets a dashboard component change its appearance, visibility, and behaviour with the current value of a tag, so that a dashboard follows the state of the system and gives users immediate visual feedback without any user action.
-It uses [data binding](./Data_Binding.md): the same `bind` list as every other dashboard component, where the `target` of a binding names the component property that the data drives and a value mapping turns a number or boolean into a colour name or label.
+It uses [data binding](./index.md): the same `bind` list as every other dashboard component, where the `target` of a binding names the component property that the data drives and a value mapping turns a number or boolean into a colour name or label.
 
 Each component accepts only a fixed set of targets, and a binding with a target that the component does not support is ignored.
 
@@ -21,7 +21,7 @@ Each component accepts only a fixed set of targets, and a binding with a target 
 | `label` | Replaces the label text | Readout, Lamp, Pill value |
 | `classes` | Adds CSS class names to the component | Action, Toggle |
 
-The Readout, Lamp, Tab, Accordion, Footer, and Action definitions in the [Component Reference](./Component_Reference/index.md) and the dashboard schema list the targets for each component.
+The Readout, Lamp, Tab, Accordion, Footer, and Action definitions in the [Component Reference](../Component_Reference/index.md) and the dashboard schema list the targets for each component.
 
 ## Show or hide a component
 
@@ -139,4 +139,4 @@ dashboard:
                                 bias: right
 ```
 
-[Data Binding](./Data_Binding.md) describes the binding settings used here, [Component Reference](./Component_Reference/index.md) lists the targets of each component, and [Examples](./Examples.md) and the annotated [Full Example](./Full_Example.md) show conditional styling in complete dashboards.
+[Data Binding](./index.md) describes the binding settings used here, [Component Reference](../Component_Reference/index.md) lists the targets of each component, and [Examples](../Examples/index.md) and the annotated [Full Example](../Examples/Full_Example.md) show conditional styling in complete dashboards.

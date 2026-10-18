@@ -19,7 +19,7 @@ The click path to add one is [How to Create a Custom Component](../../How_To_Gui
 How this type compares with a dynamic-link library (DLL) plugin is covered on [Component Types](Component_Types.md).
 
 <figure markdown>
-![The Custom Component dialog on its Settings tab, with Name and Tag Tree Path fields, a Rebase DBC tick box, and tabs for Pack Files, Scripts and Security.](../../images/2.3-custom-component-settings.png)
+![The Custom Component dialog on its Settings tab, with Name and Tag Tree Path fields, a Rebase DBC tick box, and tabs for Pack Files, Scripts and Security.](../../images/custom-component-settings.png)
 <figcaption>Custom Component settings with pack files and scripts</figcaption>
 </figure>
 
@@ -67,7 +67,7 @@ A binding that reads a value the main script published uses a tag path.
 A relative path, with no leading slash, is resolved against the component's own place in the tag tree, so it follows the component if **Tag tree path** changes.
 An absolute path begins with `/` and is a literal reference to some other place in the tree.
 A dashboard should use a relative path in place of the `{COMPONENT_NAME}` placeholder.
-Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding.md) and [Tag tree path](../../Tags/Tag_Tree_Path.md).
+Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) and [Tag tree path](../../Tags/Tag_Tree_Path.md).
 
 ## Rules
 

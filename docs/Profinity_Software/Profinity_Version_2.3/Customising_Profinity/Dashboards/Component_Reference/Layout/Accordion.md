@@ -28,7 +28,7 @@ Use [Tabs](../Interactive/Tabs.md) when the operator switches between whole view
 | `label` | string | Yes | None | Caption of the button that expands and collapses the section |
 | `defaultExpanded` | boolean | No | `false` | Whether the accordion starts expanded when the dashboard loads. The accordion remains collapsible by the user either way, and an accordion that omits the parameter starts collapsed |
 | `visible` | boolean | No | `true` | When `false`, or when bound to `false`, the whole accordion is hidden |
-| `bind` | array | No | None | [Data binding](../../Data_Binding.md). The `visible` target shows and hides the accordion |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `visible` target shows and hides the accordion |
 | `items` | array | Yes | None | Accordion sections, where each item must be an object that contains a `row` |
 
 A `row` does not accept `visible` or `bind`, so content inside an accordion is shown and hidden by binding `visible` on the accordion itself or on a component inside the row.

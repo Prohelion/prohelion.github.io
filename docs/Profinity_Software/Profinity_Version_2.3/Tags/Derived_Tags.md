@@ -27,7 +27,7 @@ The file the editor works on is named by the **Derived tags YAML file (Optional)
 Derived tags are organised into groups in a tree on the left of the editor, and selecting a group or derived tag opens its settings in an inspector on the right.
 
 <figure markdown>
-![The Derived Tags editor with one derived tag, Total Array Power, showing its mount path, three dependencies and the expression a.Value + b.Value + c.Value.](../images/2.3-derived-tags-editor.png)
+![The Derived Tags editor with one derived tag, Total Array Power, showing its mount path, three dependencies and the expression a.Value + b.Value + c.Value.](../images/derived-tags-editor.png)
 <figcaption>Derived Tags editor</figcaption>
 </figure>
 

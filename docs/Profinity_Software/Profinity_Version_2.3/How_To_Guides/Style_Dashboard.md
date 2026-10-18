@@ -20,7 +20,7 @@ Before you start, you need:
 
 The [artefacts directory](../Installation/Artifacts_Directory.md) is `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS and `/var/lib/prohelion/profinity` on Linux.
 On Docker it is the path inside the container named by `PROFINITY_HOME`, so on Docker the file must be created in the mounted volume that holds that directory.
-The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only its URL path (refer to [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md)).
+The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only its URL path (refer to [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md)).
 
 ## Create the stylesheet
 
@@ -76,4 +76,4 @@ Save the dashboard, close the editor and reload the page, because the web interf
 If a class has no effect, the stylesheet is not named `profile.css` or is not imported from it, or the class name in the dashboard differs from the CSS in spelling or case, or the class is on an element that does not use it, such as a `readout` item.
 Correct the file or the dashboard and reload the page.
 
-For more, refer to [Conditional Styling](../Customising_Profinity/Dashboards/Conditional_Styling.md), which styles elements from data values.
+For more, refer to [Conditional Styling](../Customising_Profinity/Dashboards/Data_Binding/Conditional_Styling.md), which styles elements from data values.

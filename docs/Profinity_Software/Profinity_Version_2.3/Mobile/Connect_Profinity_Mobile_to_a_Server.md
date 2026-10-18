@@ -28,7 +28,7 @@ Heartbeats are sent only while the web server is running and the machine has at 
 | **Heartbeat interval (seconds)** | The time between broadcasts, from 1 to 60 seconds, 3 by default |
 
 <figure markdown>
-![The Discovery tab of the Admin settings dialog, showing a Server Discovery section with a ticked Send Profinity Heartbeat box, a Profinity Server Name field, a Heartbeat UDP Port field and a Heartbeat Interval in seconds.](../images/2.3-config-server-discovery.png)
+![The Discovery tab of the Admin settings dialog, showing a Server Discovery section with a ticked Send Profinity Heartbeat box, a Profinity Server Name field, a Heartbeat UDP Port field and a Heartbeat Interval in seconds.](../images/config-server-discovery.png)
 <figcaption>Server Discovery heartbeat settings</figcaption>
 </figure>
 

@@ -19,7 +19,7 @@ The pill is shown to a user with the **Modify profiles** permission while a prof
 A [profile](./Profiles.md) uses the layout as soon as it is saved, so no setting needs to be switched on.
 
 <figure markdown>
-![Menu Layout editor showing the menu structure tree and the inspector for a group](../images/2.3-profile-menu-layout-editor.png)
+![Menu Layout editor showing the menu structure tree and the inspector for a group](../images/profile-menu-layout-editor.png)
 <figcaption>Menu Layout Editor Showing a Group Selected</figcaption>
 </figure>
 
@@ -36,7 +36,7 @@ Groups take their icon from the component type unless one is set.
 Selecting a component shows its name.
 
 <figure markdown>
-![Menu Layout editor with the Prohelion 12v component being dragged to a new position in the menu structure](../images/2.3-component-menu-placement.png)
+![Menu Layout editor with the Prohelion 12v component being dragged to a new position in the menu structure](../images/component-menu-placement.png)
 <figcaption>Dragging a Component Into Another Group</figcaption>
 </figure>
 

@@ -25,7 +25,7 @@ Setting **Mode** back to **All** removes the restriction.
 The **Security** tab is shown only to a user with **Security administration**, and any other user, including one with **Modify components**, does not see the tab at all.
 
 <figure markdown>
-![The Security tab of a component settings dialog, with the Mode dropdown and the Allowed roles list](../../images/2.3-component-security-tab.png)
+![The Security tab of a component settings dialog, with the Mode dropdown and the Allowed roles list](../../images/component-security-tab.png)
 <figcaption>Security tab on a component settings dialog</figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ To restrict a collection, open the **Collections** editor, select the collection
 The panel is the same for the built-in **(All Tags)** collection and for every custom collection, and changes save with the rest of the collection's settings.
 
 <figure markdown>
-![The Security panel in the Collections editor inspector, with the Mode dropdown and the Allowed roles list](../../images/2.3-collection-security-panel.png)
+![The Security panel in the Collections editor inspector, with the Mode dropdown and the Allowed roles list](../../images/collection-security-panel.png)
 <figcaption>Security panel on a collection in the Collections editor</figcaption>
 </figure>
 

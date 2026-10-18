@@ -16,7 +16,7 @@ Profinity scripting automates tasks, processes CAN messages and creates custom o
     Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
 <figure markdown>
-![Rule actions respond to alerts (Webhook, Slack, MQTT, Email), scripts in Python, Lua, or C# read and write tags like any other component, and Tag Relay links Profinity instances together over HTTPS or MQTT](../../images/2.3-diagram-automation.png)
+![Rule actions respond to alerts (Webhook, Slack, MQTT, Email), scripts in Python, Lua, or C# read and write tags like any other component, and Tag Relay links Profinity instances together over HTTPS or MQTT](../../images/diagram-automation.png)
 <figcaption>Rule actions, scripts, and Tag Relay, all built in</figcaption>
 </figure>
 
@@ -36,7 +36,7 @@ To enable Profinity Scripting, open [Application Config](../../Administration/Sy
 ## Script types
 
 Profinity has five script types, which between them cover seven values of the **Script Mode** setting: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service.
-[Run Scripts](./Script_Types/RunScripts.md) cover manual and scheduled operations (the Run On Demand, Run On Time Interval and Run On CRON Schedule modes), [Receive Scripts](./Script_Types/ReceiveScripts.md) handle incoming CAN messages, [Service Scripts](./Script_Types/ServiceScripts.md) run continuously, [Tag Change Scripts](./Script_Types/TagChangeScripts.md) react when a watched tag changes, and [Rule Scripts](./Script_Types/Rule_Scripts.md) handle a rule firing.
+[Run Scripts](./Script_Types/Run_Scripts.md) cover manual and scheduled operations (the Run On Demand, Run On Time Interval and Run On CRON Schedule modes), [Receive Scripts](./Script_Types/Receive_Scripts.md) handle incoming CAN messages, [Service Scripts](./Script_Types/Service_Scripts.md) run continuously, [Tag Change Scripts](./Script_Types/Tag_Change_Scripts.md) react when a watched tag changes, and [Rule Scripts](./Script_Types/Rule_Scripts.md) handle a rule firing.
 The [Script Types](./Script_Types/index.md) page describes each mode and when to use it.
 
 New in Profinity 2.3: a script set to **Run On Alert** mode can be named as a rule action and receives the firing context, including `TriggeredTags`.

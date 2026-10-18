@@ -21,7 +21,7 @@ To create one from selected tags:
 4. Complete the configuration in the visual editor and save it.
 
 <figure markdown>
-![Tag Explorer context menu open on a leaf tag, listing the actions for creating collections and rules and adding the tag to a dashboard](../images/2.3-tag-explorer-context-menu.png)
+![Tag Explorer context menu open on a leaf tag, listing the actions for creating collections and rules and adding the tag to a dashboard](../images/tag-explorer-context-menu.png)
 <figcaption>Tag Explorer context menu</figcaption>
 </figure>
 

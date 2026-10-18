@@ -16,7 +16,7 @@ Prohelion supplies them on request, so [contact Prohelion](https://www.prohelion
 Install each one like any other [DLL plugin](../../Administration/Install_and_Manage_Plugins.md), and then add its components from the **Industrial Protocols** group, as described in [Adding Components to Your Profile](../../How_To_Guides/Add_Component_to_Profile.md).
 
 <figure markdown>
-![The BACnet, EtherNet/IP, Modbus, OPC UA and S7 protocol plugins each poll values into Profinity tags, and the OPC UA server exposes Profinity's tag tree to third-party clients](../../images/2.3-diagram-protocol-plugins.png)
+![The BACnet, EtherNet/IP, Modbus, OPC UA and S7 protocol plugins each poll values into Profinity tags, and the OPC UA server exposes Profinity's tag tree to third-party clients](../../images/diagram-protocol-plugins.png)
 <figcaption>Protocol plugins and Profinity tags</figcaption>
 </figure>
 

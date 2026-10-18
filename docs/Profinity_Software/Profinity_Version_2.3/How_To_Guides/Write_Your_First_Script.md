@@ -34,7 +34,7 @@ Before you start, you need:
 
 A script is a component in your profile, and the language is set by which script component you add.
 For a first script use a run script, whose type is set by the **Script Mode** of the script component.
-The main types are [Run scripts](../Developing_with_Profinity/Scripting/Script_Types/RunScripts.md), which run on demand or on a schedule (time interval or cron), [Receive scripts](../Developing_with_Profinity/Scripting/Script_Types/ReceiveScripts.md), which run when selected CAN messages are received, and [Service scripts](../Developing_with_Profinity/Scripting/Script_Types/ServiceScripts.md), which are long-running background services with lifecycle control.
+The main types are [Run scripts](../Developing_with_Profinity/Scripting/Script_Types/Run_Scripts.md), which run on demand or on a schedule (time interval or cron), [Receive scripts](../Developing_with_Profinity/Scripting/Script_Types/Receive_Scripts.md), which run when selected CAN messages are received, and [Service scripts](../Developing_with_Profinity/Scripting/Script_Types/Service_Scripts.md), which are long-running background services with lifecycle control.
 Tag Change and Alert modes also exist, and [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md) describes them.
 
 1. Select **ADD COMPONENT**. Refer to [Adding Components to Your Profile](Add_Component_to_Profile.md).
@@ -45,7 +45,7 @@ Tag Change and Alert modes also exist, and [Script Types](../Developing_with_Pro
 
 ## Write the script
 
-Use the same patterns as in [Run Scripts](../Developing_with_Profinity/Scripting/Script_Types/RunScripts.md).
+Use the same patterns as in [Run Scripts](../Developing_with_Profinity/Scripting/Script_Types/Run_Scripts.md).
 C# implements `IProfinityRunnableScript` with a `Run()` method, and Python defines functions and calls them from the top level, with no `import profinity` because the `Profinity` host object is provided.
 In C#, use `Profinity.Console.WriteLine` for output, and in Python use `print()`. Refer to [Console](../Developing_with_Profinity/Scripting/Script_Operations/Console.md).
 

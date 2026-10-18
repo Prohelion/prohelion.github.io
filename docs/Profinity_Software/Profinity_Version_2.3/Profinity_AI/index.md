@@ -16,7 +16,7 @@ Without it the feature is unavailable.
 Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
 
 <figure markdown>
-![Profinity AI gathers context from the whole Profile (devices, alerts, documentation and history), correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/2.3-diagram-ai-diagnostics.png)
+![Profinity AI gathers context from the whole Profile (devices, alerts, documentation and history), correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/diagram-ai-diagnostics.png)
 <figcaption>Context in, cross-system diagnosis out</figcaption>
 </figure>
 

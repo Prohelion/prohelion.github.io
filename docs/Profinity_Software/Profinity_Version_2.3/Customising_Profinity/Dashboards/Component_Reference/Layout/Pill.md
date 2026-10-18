@@ -63,7 +63,7 @@ Each item in the pill group's `items` must contain a `value` object, which is a 
 | `openHyperLinkInNewWindow` | boolean | No | `false` | When `true` and `hyperlink` is set, the link opens in a new browser tab. The parameter has no effect without `hyperlink` |
 | `enabled` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed normally |
 | `visible` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed |
-| `bind` | array | No | None | [Data binding](../../Data_Binding.md) for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
 
 ## Example
 

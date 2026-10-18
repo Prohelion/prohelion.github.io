@@ -44,7 +44,7 @@ Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Ta
 
 ### Chart binding options
 
-A chart binding accepts the following properties in addition to the common binding properties that the [Data Binding](../../Data_Binding.md) page describes:
+A chart binding accepts the following properties in addition to the common binding properties that the [Data Binding](../../Data_Binding/index.md) page describes:
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
@@ -55,7 +55,7 @@ A chart binding accepts the following properties in addition to the common bindi
 | `timeRangeStart` | string | `-10m` | Start of the time range for the series, as a relative time before now such as `-5m`. Set `timeRangeStart` and `timeRangeStop` together on a `timeSeries` binding that needs a particular history. The Visual Editor sets `-10m` and `0m` when a series mode is chosen |
 | `timeRangeStop` | string | None | End of the time range for the series, where `0m` is now |
 
-A chart bound with `store: logged` also takes the `aggregationWindow` and `aggregationFunction` properties, which the [Data Binding](../../Data_Binding.md) page describes with the other binding properties.
+A chart bound with `store: logged` also takes the `aggregationWindow` and `aggregationFunction` properties, which the [Data Binding](../../Data_Binding/index.md) page describes with the other binding properties.
 
 ## Chart types
 

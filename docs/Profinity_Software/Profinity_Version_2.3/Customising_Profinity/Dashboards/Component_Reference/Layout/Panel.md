@@ -26,7 +26,7 @@ Use a [Group](Group.md) when the components need no title or panel frame.
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | Style variant of the panel body. `sunken` is the only variant that Profinity defines, and it suits charts and state diagrams. The variant applies to the panel body and not to the whole panel |
 | `title` | string | Yes | None | Title text in the panel header, at the top of the panel |
-| `menu` | object | No | None | When present, the panel header shows a static menu icon. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions, or dialogs. See [Menu](Menu.md) |
+| `menu` | object | No | None | When present, the panel header shows a static menu icon. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions, or dialogs. |
 | `width` | string | No | None | Width in CSS format, for example `100px`, `50%` or `auto`, applied to the panel |
 | `height` | string | No | None | Height in CSS format, for example `100px`, `50vh` or `auto`, applied to the body area of the panel |
 | `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows to fit its content and never shrinks below this value, and the value never stretches the panel to fill space |

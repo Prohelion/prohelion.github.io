@@ -46,19 +46,24 @@ app:
   title: Acme Monitor
 
 colors:
-  navBackground: "#111827"
+  navBackground: "#0F5257"
   navForeground: "#FFFFFF"
-  primary: "#0F6CBD"
-  secondary: "#5B6770"
-  success: "#1E8E3E"
-  warning: "#F29900"
-  error: "#D93025"
+  primary: "#E07A3F"
+  secondary: "#4F6D7A"
+  success: "#4CAF7A"
+  warning: "#E9B44C"
+  error: "#D1495B"
 
 assets:
   logo: acme-logo.svg
   loginLogo: acme-login.svg
   favicon: acme-favicon.ico
 ```
+
+<figure markdown>
+![A WaveSculptor22 dashboard with the example theme applied: the side menu, titlebar and More Details bar in the theme's teal, and the theme's logo at the top of the side menu](../../images/themed-ui.png)
+<figcaption>A dashboard with the example theme applied</figcaption>
+</figure>
 
 An OEM build can combine custom themes with hidden catalogue entries, as described in [Components and Plugins](../../Administration/Install_and_Manage_Plugins.md), and the settings that control the rest of the system are in [System Configuration](../../Administration/System_Configuration/index.md).
 Integrators can read the theme through the [API](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#themes).

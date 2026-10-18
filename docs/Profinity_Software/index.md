@@ -72,7 +72,7 @@ The worlds most modern CAN bus management solution, featuring
     - Native AI Capabilities
 
     <figure markdown>
-    ![Profinity 2.3 visual dashboard editor](Profinity_Version_2.3/images/2.3-dashboard-visual-editor.png)
+    ![Profinity 2.3 visual dashboard editor](Profinity_Version_2.3/images/dashboard-visual-editor.png)
     <figcaption>The new visual dashboard editor in Profinity 2.3</figcaption>
     </figure>
 

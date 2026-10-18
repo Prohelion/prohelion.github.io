@@ -35,7 +35,7 @@ Each item in `items` must contain a `tab` object with:
 | `class` | string | No | None | Not used by the web interface |
 | `enabled` | boolean | No | `true` | When `false`, the tab header is displayed in the disabled style. The state can be bound with the `enabled` target |
 | `visible` | boolean | No | `true` | When `false`, the tab header is hidden. The state can be bound with the `visible` target, and a tab whose bound data is unavailable is hidden |
-| `bind` | array | No | None | [Data binding](../../Data_Binding.md) for the tab. The `enabled` and `visible` targets are handled |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) for the tab. The `enabled` and `visible` targets are handled |
 | `header` | array | Yes | None | Content of the tab label in the tab strip. Each item must be an object that contains a `lamp`, which is displayed as the status lamp and caption of the tab. Refer to [Lamp](../Data/Lamp.md) |
 | `items` | array | Yes | None | Content shown when the tab is active. Each item must be an object that contains a [`panels`](../Layout/Panels.md) grid |
 

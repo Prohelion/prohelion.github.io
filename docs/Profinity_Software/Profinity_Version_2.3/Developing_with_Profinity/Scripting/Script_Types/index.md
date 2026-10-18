@@ -21,12 +21,12 @@ This page explains the differences between the modes and when to use each one.
 
 | Script type | Mode | Use it for |
 |-------------|------|------------|
-| [Run Script](./RunScripts.md) | Run On Demand | Short jobs that need little state, such as one-time operations, testing, and troubleshooting. The operator starts the script. |
-| [Run Script](./RunScripts.md) | Run On Time Interval | Work that starts at a fixed interval, for example every 5 minutes or every hour. |
-| [Run Script](./RunScripts.md) | Run On CRON Schedule | Time-of-day, weekly, and monthly work. The script starts from a Quartz cron expression. |
-| [Receive Script](./ReceiveScripts.md) | Run On Receipt of CAN Message | Answering a packet with a reply message. The script runs each time a matching CAN packet arrives. |
-| [Service Script](./ServiceScripts.md) | Run as Service | Continuous monitoring and other work that runs for a long time. The script implements a full lifecycle (start, stop, pause, and continue). |
-| [Tag Change Script](./TagChangeScripts.md) | Run On Tag Change | Computed tags, reacting to another component's output and chained automation without polling. The script runs each time a watched tag changes. |
+| [Run Script](./Run_Scripts.md) | Run On Demand | Short jobs that need little state, such as one-time operations, testing, and troubleshooting. The operator starts the script. |
+| [Run Script](./Run_Scripts.md) | Run On Time Interval | Work that starts at a fixed interval, for example every 5 minutes or every hour. |
+| [Run Script](./Run_Scripts.md) | Run On CRON Schedule | Time-of-day, weekly, and monthly work. The script starts from a Quartz cron expression. |
+| [Receive Script](./Receive_Scripts.md) | Run On Receipt of CAN Message | Answering a packet with a reply message. The script runs each time a matching CAN packet arrives. |
+| [Service Script](./Service_Scripts.md) | Run as Service | Continuous monitoring and other work that runs for a long time. The script implements a full lifecycle (start, stop, pause, and continue). |
+| [Tag Change Script](./Tag_Change_Scripts.md) | Run On Tag Change | Computed tags, reacting to another component's output and chained automation without polling. The script runs each time a watched tag changes. |
 | [Rule Script](./Rule_Scripts.md) | Run On Alert | Notifications and side effects beyond the built-in rule actions. The script runs when a rule names it as an action. |
 
 A Run Script is not the right choice for continuous monitoring or real-time responses, and a Service Script is not the right choice for one-off or manual tasks.

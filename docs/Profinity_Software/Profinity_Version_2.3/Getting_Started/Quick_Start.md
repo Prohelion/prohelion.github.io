@@ -101,7 +101,7 @@ For more detailed information on creating and editing dashboards, refer to:
 
 - [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md), the full guide to dashboard development
 - [Core Elements](../Customising_Profinity/Dashboards/Core_Elements.md), which covers dashboard structure
-- [Data Binding](../Customising_Profinity/Dashboards/Data_Binding.md), which connects data to your dashboard
+- [Data Binding](../Customising_Profinity/Dashboards/Data_Binding/index.md), which connects data to your dashboard
 - [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md), which lists the available dashboard components
 
 ## Step 6: Look at the rules and alerts

@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 A dashboard is a vertical list of full-width elements, and each element at the top level is a titlebar, a row, an accordion or a footer.
 Anything else, such as a group, a panel or a readout, sits inside one of these.
-This page describes the four top-level elements, the `items` property that nests elements, and the layout direction of rows, and the complete [Full Example](./Full_Example.md) shows them all in one dashboard.
+This page describes the four top-level elements, the `items` property that nests elements, and the layout direction of rows, and the complete [Full Example](./Examples/Full_Example.md) shows them all in one dashboard.
 
 ## The four top-level elements
 
@@ -84,7 +84,7 @@ Dashboard
 ```
 
 Images, stylesheets and HTML templates for a dashboard are stored in the profile directories, which are named `images`, `styles` and `content` on disk and served from `/Profile/Images`, `/Profile/Styles` and `/Profile/Content`.
-Refer to [Profile Directories](./Profile_Directories.md).
+Refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md).
 
 ## Layout directions
 
@@ -108,5 +108,5 @@ dashboard:
                     value: 1013
 ```
 
-The complete motor controller dashboard for a Prohelion WaveSculptor22, which uses rows, groups, panels, an accordion and a tab, is listed and analysed in [Full Example](./Full_Example.md).
-[Data Binding](./Data_Binding.md) shows how components take their values from tags, and [Component Reference](./Component_Reference/index.md) describes every component.
+The complete motor controller dashboard for a Prohelion WaveSculptor22, which uses rows, groups, panels, an accordion and a tab, is listed and analysed in [Full Example](./Examples/Full_Example.md).
+[Data Binding](./Data_Binding/index.md) shows how components take their values from tags, and [Component Reference](./Component_Reference/index.md) describes every component.

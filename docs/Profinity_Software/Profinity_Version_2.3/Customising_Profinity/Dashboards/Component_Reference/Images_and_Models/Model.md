@@ -1,12 +1,12 @@
 ---
-title: Model component
+title: 3D model component
 description: "Show a 3D model that operators orbit and zoom, with clickable regions, icons, buttons, live data values and annotation lines in model space."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Model component
+# 3D model component
 A model component is an interactive three-dimensional view that loads one or more 3D model files from the `/Profile/Models` directory, lets the operator orbit and zoom the view, and overlays regions, icons, buttons, data values, points, and annotation lines at positions in the space of the model. The component is the three-dimensional counterpart of the [Image](Image.md) component, and uses the same overlay structure.
 The action invocation, layer, icon source, display type and annotation line parameters are shared with the [Image](Image.md) component and are described on [Overlay elements](Overlay_Elements.md).
 
@@ -35,8 +35,8 @@ Model files are stored in the `/Profile/Models` directory and are referenced by 
 | `buttons` | array | No | None | Buttons anchored in model space. Refer to [Button parameters](#button-parameters) |
 | `dataValues` | array | No | None | Live data overlays. Refer to [Data value parameters](#data-value-parameters) |
 | `points` | array | No | None | Anchor points for annotation lines. Refer to [Point parameters](#point-parameters) |
-| `annotationLines` | array | No | None | Lines between overlay elements. Refer to [Model annotation lines](Overlay_Elements.md#model-annotation-lines) |
-| `bind` | array | No | None | [Data binding](../../Data_Binding.md) whose value replaces the overlay data of the model, using the same structure as the parameters above |
+| `annotationLines` | array | No | None | Lines between overlay elements. Refer to [Model annotation lines](Overlay_Elements.md#3d-model-annotation-lines) |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) whose value replaces the overlay data of the model, using the same structure as the parameters above |
 | `enabled` | boolean | No | `true` | Not used by the web interface |
 | `unit` | string | No | None | Not used by the web interface. Set `unit` on each data value instead |
 | `precision` | number | No | None | Not used by the web interface. Set `precision` on each data value instead |
@@ -56,7 +56,7 @@ Each item in `models` has:
 
 ### Action invocation
 
-The `action` of a region, icon, or button is an action invocation. The parameters are described in [Action invocation](Overlay_Elements.md#action-invocation), and the [Actions](Actions.md#invoke-types) page describes the invoke types.
+The `action` of a region, icon, or button is an action invocation. The parameters are described in [Action invocation](Overlay_Elements.md#action-invocation), and the [Actions](../Interactive/Actions.md#invoke-types) page describes the invoke types.
 
 ### Region parameters
 

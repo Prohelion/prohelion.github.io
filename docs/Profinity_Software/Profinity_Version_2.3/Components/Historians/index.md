@@ -12,7 +12,7 @@ A **historian** is a logging component that writes the history of your [tags](..
 [Dashboards](../../Customising_Profinity/Dashboards/index.md), trend charts and integrations that ask for long-range tag history are answered from the historian, so a profile that needs more than the recent in-memory values needs one.
 
 <figure markdown>
-![Data out of Profinity: historians, publishers and subscribers, loggers and Prohelion Cloud](../../images/2.3-diagram-data-out.png)
+![Data out of Profinity: historians, publishers and subscribers, loggers and Prohelion Cloud](../../images/diagram-data-out.png)
 <figcaption>Data out of Profinity. Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back, publishers and subscribers (MQTT, Webhook) stream it in both directions, loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out, and a Prohelion Cloud dashboard gives hosted monitoring.</figcaption>
 </figure>
 

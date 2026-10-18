@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 These blocks build a motor controller dashboard and a battery monitoring dashboard, and every YAML block validates against the dashboard schema.
 The motor controller examples assume a WaveSculptor22 component that is named `WS22` in the Profile, and the battery examples assume a Prohelion BMU (D1000 Gen1) named `Prohelion BMU` and a Prohelion D1000 Gen2 BMS named `D1000 Gen2 BMS`.
-The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../Tags/index.md).
+The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../../Tags/index.md).
 Image names such as `BatteryIcon.svg` are placeholders, so replace them with files in the `images` directory of the profile, or the images do not appear.
 
 ## Building a motor controller dashboard
@@ -168,7 +168,7 @@ dashboard:
 
 ### Interactive image
 
-An interactive [Image](./Component_Reference/Interactive/Image.md) of the battery layout, with a cell voltage value and a clickable region:
+An interactive [Image](../Component_Reference/Images_and_Models/Image.md) of the battery layout, with a cell voltage value and a clickable region:
 
 ``` yaml
 dashboard:
@@ -200,4 +200,4 @@ dashboard:
                     label: "Cell 1"
 ```
 
-[Examples](./Examples.md) builds a dashboard from a Hello World template, and [Full Example](./Full_Example.md) analyses the finished motor controller dashboard.
+[Examples](./index.md) builds a dashboard from a Hello World template, and [Full Example](./Full_Example.md) analyses the finished motor controller dashboard.

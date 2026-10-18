@@ -183,7 +183,7 @@ dashboard:
 An icon or image that does not display is not being found.
 The web interface looks for the name first among the images built into Profinity and then in the `/Profile/Images` directory, so check that the file exists there, that the filename matches exactly including its case, that the property holds the filename alone and not a full path, and that the extension is one of `.svg`, `.png`, `.jpg`, `.jpeg` or `.webp`.
 A profile image with the same name as a built-in image is never used, so rename it.
-Refer to [Profile Directories](./Profile_Directories.md#profileimages).
+Refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#profileimages).
 
 ### Pill values do not group
 
@@ -192,7 +192,7 @@ Each `pillgroup` must contain an `items` array, and each item must be wrapped in
 ### Lamps do not light or change colour
 
 An `enabled` binding must return `0` or `1` (or `false` or `true`), and a lamp that is greyed out has `enabled` set to false.
-A lamp bound to `color` takes the colour name that the binding returns (refer to [Conditional Styling](./Conditional_Styling.md)), and the `value` property of the lamp must be set, typically to 1.
+A lamp bound to `color` takes the colour name that the binding returns (refer to [Conditional Styling](./Data_Binding/Conditional_Styling.md)), and the `value` property of the lamp must be set, typically to 1.
 
 ### Table shows no data or no highlighting
 
@@ -218,5 +218,5 @@ Images and stylesheets in HTML use the full paths `/Profile/Images/{filename}` a
 
 ## Getting more help
 
-Review the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements, use the validation in the visual editor to catch errors early, and compare the dashboard with [Examples](./Examples.md), the annotated [Full Example](./Full_Example.md) and the [Component Reference](./Component_Reference/index.md).
+Review the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements, use the validation in the visual editor to catch errors early, and compare the dashboard with [Examples](./Examples/index.md), the annotated [Full Example](./Examples/Full_Example.md) and the [Component Reference](./Component_Reference/index.md).
 If the problem persists, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) and include the YAML configuration, any error messages, and the expected and actual behaviour.

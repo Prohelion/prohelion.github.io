@@ -14,7 +14,7 @@ Once relayed tags are mounted they behave like any other tag, so they can be bro
 The [Tag Relay](../../Tags/Tag_Relay.md) page covers the concept, collision rules and limitations.
 
 <figure markdown>
-![Diagram of Tag Relay. Site instances each run a Tag Relay Sender that publishes live tags over HTTPS with a JSON Web Token (JWT) or over MQTT. A central instance runs a Tag Relay Receiver that shows the tags of each site under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/2.3-diagram-tag-relay.png)
+![Diagram of Tag Relay. Site instances each run a Tag Relay Sender that publishes live tags over HTTPS with a JSON Web Token (JWT) or over MQTT. A central instance runs a Tag Relay Receiver that shows the tags of each site under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/diagram-tag-relay.png)
 <figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
 </figure>
 

@@ -12,7 +12,7 @@ last_reviewed: 2026-10-15
 You build and manage them in the visual editor, and [Create a collection](Create_a_Collection.md) walks through an example.
 
 <figure markdown>
-![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../images/2.3-diagram-collections.png)
+![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../images/diagram-collections.png)
 <figcaption>A collection matching tags in the tree by membership expression and scope</figcaption>
 </figure>
 
@@ -22,7 +22,7 @@ Select **COLLECTIONS** under **TAG UTILITIES** in the side menu, which opens the
 The entry appears for users who hold the **View tags** and **View tag collections** permissions while a profile is loaded, and saving needs the **Modify tag collections** permission.
 
 <figure markdown>
-![The Editing Collections dialog in Design view, with a collection named "Tag has a value greater than 0" selected and an Inspector showing its expression builder.](../images/2.3-collections-visual-editor.png)
+![The Editing Collections dialog in Design view, with a collection named "Tag has a value greater than 0" selected and an Inspector showing its expression builder.](../images/collections-visual-editor.png)
 <figcaption>Collections visual editor</figcaption>
 </figure>
 

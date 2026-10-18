@@ -26,7 +26,7 @@ Tags, Rules, and Actions can then describe both the active system state and the 
 Some features need a licensed edition, and [Licensing](Administration/Licensing.md) lists what each edition includes.
 
 <figure markdown>
-![A layered platform: Dashboards, Rules, Alerts, Collections, and Derived Tags apply on top of one Tags data model; plugins, scripting, APIs, and the Model Context Protocol (MCP) extend it; Security protects it; the Profinity Engine runs it, on any operating system or container](images/2.3-diagram-architecture.png)
+![A layered platform: Dashboards, Rules, Alerts, Collections, and Derived Tags apply on top of one Tags data model; plugins, scripting, APIs, and the Model Context Protocol (MCP) extend it; Security protects it; the Profinity Engine runs it, on any operating system or container](images/diagram-architecture.png)
 <figcaption>The Profinity 2.3 platform from devices to dashboards</figcaption>
 </figure>
 

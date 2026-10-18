@@ -41,7 +41,7 @@ Each item in `items` must contain a `readout` object with:
 | `width` | integer | No | `1` | Number of columns that the readout spans, from `1` to `4`. A value greater than `1` displays the readout as a wide readout |
 | `enabled` | boolean | No | `true` | When `false`, the readout is displayed in the disabled style and remains visible. The state can be bound with the `enabled` target |
 | `visible` | boolean | No | `true` | When `false`, the readout is hidden. The state can be bound with the `visible` target |
-| `bind` | array | No | None | [Data binding](../../Data_Binding.md). The `value`, `label`, `unit`, `enabled` and `visible` targets are handled |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `value`, `label`, `unit`, `enabled` and `visible` targets are handled |
 | `action` | string | No | None | Underlines the caption. Clicking the readout does not run an action |
 | `param` | string | No | None | Not used by the web interface |
 

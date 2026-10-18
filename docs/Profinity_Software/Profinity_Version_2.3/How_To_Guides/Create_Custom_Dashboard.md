@@ -42,7 +42,7 @@ As an alternative, select the **YAML** tab and replace the static label with a d
 ```
 
 A source that starts with `DBC/` is relative to the component that owns the dashboard, so replace `Temperature` and `Value` with the message and signal names from your DBC file.
-Refer to [Data Binding](../Customising_Profinity/Dashboards/Data_Binding.md#binding-source-paths).
+Refer to [Data Binding](../Customising_Profinity/Dashboards/Data_Binding/index.md#binding-source-paths).
 
 ## Add more components
 
@@ -81,4 +81,4 @@ As an alternative, add additional readouts in the **YAML** tab:
 - [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md): the full reference for dashboards
 - [Core Elements](../Customising_Profinity/Dashboards/Core_Elements.md): more complex layouts
 - [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md): available components
-- [Examples](../Customising_Profinity/Dashboards/Examples.md): complete dashboard examples
+- [Examples](../Customising_Profinity/Dashboards/Examples/index.md): complete dashboard examples

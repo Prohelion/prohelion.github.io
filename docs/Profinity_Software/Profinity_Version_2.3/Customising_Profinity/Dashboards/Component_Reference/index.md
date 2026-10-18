@@ -16,12 +16,12 @@ In the [visual editor](../Visual_Editor.md) you add these components with **Add*
 
 Each component page opens with a sentence that defines the component, then says when to choose the component and when to choose another, lists its parameters, and gives an example.
 Where a page has further guidance, it adds a section after the example.
-Pages for components with overlay elements, such as [Image](Interactive/Image.md) and [Model](Interactive/Model.md), cover what differs between the two, and the overlay tables they share are on [Overlay elements](Interactive/Overlay_Elements.md).
+Pages for components with overlay elements, such as [Image](Images_and_Models/Image.md) and [3D model](Images_and_Models/Model.md), cover what differs between the two, and the overlay tables they share are on [Overlay elements](Images_and_Models/Overlay_Elements.md).
 
 The **Parameters** tables list every parameter that Profinity accepts on a component, with its type, whether it is required, its default value and a description that includes the allowed values.
 A parameter that the web interface ignores is marked **Not used by the web interface** and can be omitted.
 Dashboards that contain a parameter a page does not list are rejected when they are saved.
-The `bind` parameter takes an array of binding objects on every component that lists it, and the [Data Binding](../Data_Binding.md) page describes the binding properties and the targets that each component handles.
+The `bind` parameter takes an array of binding objects on every component that lists it, and the [Data Binding](../Data_Binding/index.md) page describes the binding properties and the targets that each component handles.
 
 ## Component categories
 
@@ -37,7 +37,6 @@ The `bind` parameter takes an array of binding objects on every component that l
 | [Accordion](Layout/Accordion.md) | Collapsible content sections |
 | [Titlebar](Layout/Titlebar.md) | Dashboard header with a status lamp and menu toolbar |
 | [Footer](Layout/Footer.md) | Dashboard footer bar |
-| [Menu](Layout/Menu.md) | Menu structure used by the titlebar and side menu, with menu items, submenus, logos, toggles, dialogs, and actions |
 
 ### Data components
 
@@ -50,7 +49,6 @@ The `bind` parameter takes an array of binding objects on every component that l
 | [State](Data/State.md) | State machine diagram |
 | [Tables](Data/Tables.md) | Tabular data display |
 | [Caption](Data/Caption.md) | Bound text caption |
-| [Log](Data/Log.md) | Scrolling engine and script log |
 
 ### Content components
 
@@ -67,8 +65,14 @@ The `bind` parameter takes an array of binding objects on every component that l
 | [Tabs](Interactive/Tabs.md) | Tabbed views |
 | [Actions](Interactive/Actions.md) | Buttons and icons that run actions |
 | [Toggles](Interactive/Toggles.md) | On/off switches |
-| [Image](Interactive/Image.md) | Image with regions, icons, buttons, and data values |
-| [Model](Interactive/Model.md) | 3D model with regions, icons, buttons, and data values |
+
+### Image and model components
+
+| Component | Description |
+|-----------|-------------|
+| [Image](Images_and_Models/Image.md) | Image with regions, icons, buttons, and data values |
+| [3D model](Images_and_Models/Model.md) | 3D model with regions, icons, buttons, and data values |
+| [Overlay elements](Images_and_Models/Overlay_Elements.md) | Action invocation, layers, icon sources, display types and annotation lines shared by both |
 
 ## Nesting rules
 
@@ -78,4 +82,4 @@ A [Tab](Interactive/Tabs.md) holds `panels` entries in its `items`, and an [Acco
 
 ## Next steps
 
-Read [Data Binding](../Data_Binding.md) to connect components to data, [Core Elements](../Core_Elements.md) for the structure of a dashboard, [Conditional Styling](../Conditional_Styling.md) for dynamic visual effects, and [Examples](../Examples.md) for complete dashboards.
+Read [Data Binding](../Data_Binding/index.md) to connect components to data, [Core Elements](../Core_Elements.md) for the structure of a dashboard, [Conditional Styling](../Data_Binding/Conditional_Styling.md) for dynamic visual effects, and [Examples](../Examples/index.md) for complete dashboards.

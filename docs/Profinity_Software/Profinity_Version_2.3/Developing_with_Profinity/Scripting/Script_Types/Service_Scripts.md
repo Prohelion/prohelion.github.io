@@ -21,7 +21,7 @@ An operator controls a service from the script component's menu with **Start Ser
 
 <figure markdown>
 ![The script editor for a Python Service script, showing the Python service template with the on_start and on_stop functions](../../../images/python_service_script.png)
-<figcaption>Service Script Editor and Lifecycle Configuration</figcaption>
+<figcaption>Service Script Editor</figcaption>
 </figure>
 
 ## Which lifecycle methods are required

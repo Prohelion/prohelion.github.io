@@ -22,7 +22,7 @@ Dashboards created before Profinity 2.3 keep working unchanged, and one opens in
 3. Optional: select **YAML** to edit the YAML source directly, and **DESIGN** to come back.
 
 <figure markdown>
-![Dashboard visual editor showing the dashboard tree, the inspector and the footer buttons](../../images/2.3-dashboard-visual-editor.png)
+![Dashboard visual editor showing the dashboard tree, the inspector and the footer buttons](../../images/dashboard-visual-editor.png)
 <figcaption>Dashboard visual editor</figcaption>
 </figure>
 
@@ -64,10 +64,10 @@ A single-value element such as a readout or lamp binds one tag, and a chart bind
 3. Choose the tag from the tag tree, which is the same tree as the Tag Explorer.
 4. Set the optional transform and default value.
 
-[Data Binding](./Data_Binding.md) describes how a binding names a tag and the modes it supports.
+[Data Binding](./Data_Binding/index.md) describes how a binding names a tag and the modes it supports.
 
 <figure markdown>
-![The visual editor with a lamp selected in the tree, and the inspector showing its Label, Color, Enabled and Value fields above a Binding section.](../../images/2.3-dashboard-bind-inspector.png)
+![The visual editor with a lamp selected in the tree, and the inspector showing its Label, Color, Enabled and Value fields above a Binding section.](../../images/dashboard-bind-inspector.png)
 <figcaption>Binding section of the inspector</figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ Closing the editor with unsaved changes asks for confirmation before the changes
 Use the visual editor first, and switch to **YAML** in these cases:
 
 - To edit a property that the inspector marks as "use the YAML tab".
-- To copy a dashboard or paste in one from the [Examples](./Examples.md).
+- To copy a dashboard or paste in one from the [Examples](./Examples/index.md).
 - To review a whole dashboard at once or make the same change in many places.
 - To repair a dashboard that the visual editor cannot open.
 

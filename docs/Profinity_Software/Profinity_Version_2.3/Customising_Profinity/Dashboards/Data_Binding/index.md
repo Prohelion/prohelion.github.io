@@ -12,7 +12,7 @@ Data binding connects a dashboard component to a **tag**.
 A tag is a named value in Profinity, such as a CAN signal, a component property or a derived value, and you can browse every tag in the Tag Explorer.
 When the tag changes, the component updates, so a dashboard shows live information without any code to fetch it.
 This page covers how a binding names a tag, which tags a dashboard can use, and the binding modes.
-Refer to [Binding Settings and Targets](./Binding_Settings_Reference.md) for the settings of a binding, and to [Transform and Map Values](./Transform_and_Map_Values.md) for scaling, type conversion and text mapping.
+Refer to the [binding settings reference](./Binding_Settings_Reference.md) for the settings of a binding, and to [Transform and Map Values](./Transform_and_Map_Values.md) for scaling, type conversion and text mapping.
 
 <figure markdown>
 ```mermaid
@@ -30,8 +30,8 @@ Whatever the origin of the value, Profinity presents it as a tag with an address
 
 A binding names a tag by its **tag path**, which is a list of names separated by `/`, in the same tree that the Tag Explorer displays.
 To bind a component, open the Tag Explorer, find the tag, and copy its path into the `source` of the binding.
-The visual editor does this for you, because its **Binding** section lets you choose the tag from the tree, as described in [Dashboard Visual Editor](./Visual_Editor.md).
-Refer to [Tags](../../Tags/index.md) for how Profinity builds and maintains the tag tree.
+The visual editor does this for you, because its **Binding** section lets you choose the tag from the tree, as described in [Dashboard Visual Editor](../Visual_Editor.md).
+Refer to [Tags](../../../Tags/index.md) for how Profinity builds and maintains the tag tree.
 
 ### Binding source paths
 
@@ -48,7 +48,7 @@ A relative path makes a dashboard reusable, because the dashboard does not conta
 A component dashboard needs a leading `/` to bind to a tag in a different component.
 
 A dashboard that has no owning component, such as a profile home dashboard, names the component in full, either with a leading `/`, which is the form the visual editor writes, or without it, as in `Prohelion BMU/Properties/StatusColourText` in the example profile that ships with Profinity.
-If a component is mounted at a nested location in the tag tree, an absolute path includes that location, as described in [Tag Tree Path](../../Tags/Tag_Tree_Path.md).
+If a component is mounted at a nested location in the tag tree, an absolute path includes that location, as described in [Tag Tree Path](../../../Tags/Tag_Tree_Path.md).
 
 !!! note "Dashboards from earlier versions"
     Dashboards written before Profinity 2.3 may use dots instead of slashes, as in `{COMPONENT_NAME}.BusMeasurement.BusVoltage` and `{COMPONENT_NAME}.[Property].Status`, the `{COMPONENT_NAME}` placeholder for the owning component, or the `[TimeSeries]` prefix on a source, as in `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent`.
@@ -75,7 +75,7 @@ Property tags suit component status, calculated values and data structures that 
 - `Properties/BusPower` is the bus power, in watts, that the WaveSculptor22 component calculates as the product of the `BusVoltage` and `BusCurrent` signals. The WaveSculptor22 does not transmit it as a signal.
 - `Properties/PackData/BatteryMilliVolts` is the battery voltage data of a Prohelion Battery Management Unit (BMU) component, where nested names are separated by `/`.
 
-A [derived tag](../../Tags/Derived_Tags.md) is a tag whose value Profinity computes from an expression or a script, and a dashboard binds to it exactly as it binds to any other tag.
+A [derived tag](../../../Tags/Derived_Tags.md) is a tag whose value Profinity computes from an expression or a script, and a dashboard binds to it exactly as it binds to any other tag.
 Use a derived tag when a dashboard needs a value that no device reports, such as a calculated power or a combined status, so that the calculation lives in one place instead of in every dashboard.
 Derived tags suit calculated values that several dashboards, rules, or the API also use.
 
@@ -133,9 +133,9 @@ dashboard:
                   aggregationFunction: mean
 ```
 
-Logged data requires data logging to be configured and enabled for the profile, as described in [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md), and a logged binding returns no data while logging is not available.
+Logged data requires data logging to be configured and enabled for the profile, as described in [How to Configure Data Logging](../../../How_To_Guides/Configure_Data_Logging.md), and a logged binding returns no data while logging is not available.
 The `aggregationWindow` groups the data into intervals of the given length (for example `10s` or `1m`), and the `aggregationFunction` decides which value represents each interval.
 Logged bindings suit historical analysis over periods longer than the live window.
 
-[Tags](../../Tags/index.md) covers the Tag Explorer, [Derived Tags](../../Tags/Derived_Tags.md) and [Create collections, rules, and bindings from tags](../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.
-[Binding Settings and Targets](./Binding_Settings_Reference.md) lists every binding setting, [Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled` and `color` bindings change the look of a component, and [Examples](./Examples.md) and the annotated [Full Example](./Full_Example.md) show complete dashboards.
+[Tags](../../../Tags/index.md) covers the Tag Explorer, [Derived Tags](../../../Tags/Derived_Tags.md) and [Create collections, rules, and bindings from tags](../../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.
+[Binding Settings Reference](./Binding_Settings_Reference.md) lists every binding setting, [Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled` and `color` bindings change the look of a component, and [Examples](../Examples/index.md) and the annotated [Full Example](../Examples/Full_Example.md) show complete dashboards.

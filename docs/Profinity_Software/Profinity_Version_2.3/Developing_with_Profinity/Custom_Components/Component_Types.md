@@ -17,7 +17,7 @@ A dynamic-link library (DLL) plugin suits a component that needs compiled code, 
 A Custom Component is the first choice, and a DLL plugin is for the cases where files and scripts are not enough.
 
 <figure markdown>
-![Package a device's comms protocol, tags, rules, and dashboards as one plugin, shippable as Python and YAML or compiled, then install it so it behaves like a native device: build, package, install, reuse across every site](../../images/2.3-diagram-build-your-own-plugin.png)
+![Package a device's comms protocol, tags, rules, and dashboards as one plugin, shippable as Python and YAML or compiled, then install it so it behaves like a native device: build, package, install, reuse across every site](../../images/diagram-build-your-own-plugin.png)
 <figcaption>Packaging a device as a plugin</figcaption>
 </figure>
 

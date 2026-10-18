@@ -23,7 +23,7 @@ Select **RULES & ACTIONS** under **TAG UTILITIES** in the side menu, which needs
 The editor lists the profile's rules first and then each component's rules, and shows every rule with its level, scope, thresholds, and actions.
 
 <figure markdown>
-![The Editing Rules dialog with a rule set list, groups of rules such as Cell limits, and an Inspector showing the selected rule set's scope prefix, collection and enabled setting.](../images/2.3-rules-visual-editor.png)
+![The Editing Rules dialog with a rule set list, groups of rules such as Cell limits, and an Inspector showing the selected rule set's scope prefix, collection and enabled setting.](../images/rules-visual-editor.png)
 <figcaption>Rules visual editor with an expanded rule</figcaption>
 </figure>
 
@@ -47,7 +47,7 @@ Refer to [Actions](./Actions.md) for the actions a rule runs.
 ## Rule evaluation: dwell and deadband
 
 <figure markdown>
-![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../images/2.3-diagram-rules.png)
+![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../images/diagram-rules.png)
 <figcaption>Dwell, deadband and severity levels on a rule</figcaption>
 </figure>
 

@@ -39,7 +39,7 @@ A new installation creates the `admin` account with this requirement already set
 The default `admin` credentials are listed in the [Security guide](../../../Installation/Security.md).
 
 <figure markdown>
-![Change Password dialog with Current password, New password and Confirm new password fields, a note that passwords need at least 8 characters, and Cancel and Update Password buttons (Update Password is disabled).](../../../images/2.3-forced-password-change-dialog.png)
+![Change Password dialog with Current password, New password and Confirm new password fields, a note that passwords need at least 8 characters, and Cancel and Update Password buttons (Update Password is disabled).](../../../images/forced-password-change-dialog.png)
 <figcaption>Password Change Required Before Continuing</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ A local user changes their own password by selecting **ADMIN** in the side menu,
 The user enters the current password, chooses and confirms a new one, and selects **Update Password**, and the site policy is enforced when the new password is saved.
 
 <figure markdown>
-![Change Password dialog with current, new and confirm new password fields](../../../images/2.3-change-password.png)
+![Change Password dialog with current, new and confirm new password fields](../../../images/change-password.png)
 <figcaption>Changing Your Own Password</figcaption>
 </figure>
 

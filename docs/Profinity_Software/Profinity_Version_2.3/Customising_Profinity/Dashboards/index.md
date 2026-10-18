@@ -14,17 +14,17 @@ Every dashboard is stored as a YAML file, and the **YAML** tab of the editor giv
 This guide explains the YAML structure, how to configure components, and how to implement data bindings.
 
 <figure markdown>
-![The dashboard visual editor, with the dashboard tree on the left and the inspector on the right.](../../images/2.3-dashboard-visual-editor.png)
+![The dashboard visual editor, with the dashboard tree on the left and the inspector on the right.](../../images/dashboard-visual-editor.png)
 <figcaption>Dashboard visual editor</figcaption>
 </figure>
 
 - [Dashboard Visual Editor](./Visual_Editor.md) is the main way to build dashboards, with YAML as the fallback.
 - [Core Elements](./Core_Elements.md) explains the structure of a dashboard.
-- [Data Binding](./Data_Binding.md) describes how to bind tags to components.
+- [Data Binding](./Data_Binding/index.md) describes how to bind tags to components.
 - [Component Reference](./Component_Reference/index.md) describes each component you can include.
-- [Conditional Styling](./Conditional_Styling.md) shows how to hide and show elements or change colour based on data.
-- [Profile Directories](./Profile_Directories.md) explains where images, stylesheets, and content files go.
-- [Examples](./Examples.md) holds progressive and component-specific examples, and [Full Example](./Full_Example.md) analyses a complete motor controller dashboard.
+- [Conditional Styling](./Data_Binding/Conditional_Styling.md) shows how to hide and show elements or change colour based on data.
+- [Store dashboard files in a profile](./Store_Dashboard_Files.md) explains where images, stylesheets, and content files go.
+- [Examples](./Examples/index.md) holds progressive and component-specific examples, and [Full Example](./Examples/Full_Example.md) analyses a complete motor controller dashboard.
 - [Troubleshooting](./Troubleshooting.md) and the [FAQ](./FAQ.md) cover validation errors, binding problems and common questions.
 
 Dashboards written in YAML before Profinity 2.3 keep working and open in the visual editor.
@@ -75,18 +75,18 @@ To create one:
 ### Dashboard Component {#dashboard-component}
 
 The [Dashboard Component](../../Components/Dashboard/Dashboard_Component.md) is a built-in component that renders a YAML-only dashboard with no DBC file, so it binds to existing tags, such as tags published by other components.
-The Tag Explorer shows the path of each tag to bind, and [Binding Source Paths](./Data_Binding.md#binding-source-paths) describes the path forms.
+The Tag Explorer shows the path of each tag to bind, and [Binding Source Paths](./Data_Binding/index.md#binding-source-paths) describes the path forms.
 
 ## The starter template
 
 A component that has no dashboard of its own starts from the Hello World template, which is a vertical row holding a styled group with one pill.
 The pill has an icon and two values, one labelled `CUSTOM DASHBOARD` and one that points to the Profinity documentation.
 In the visual editor the **NEW FROM TEMPLATE** button replaces the dashboard with this template at any time, after a confirmation prompt, and a component can supply its own template that loads instead.
-The YAML of the template is listed as [Example 0](./Examples.md#example-0-hello-world-template), and the progressive examples that follow it add bindings, lamps, and charts one at a time.
+The YAML of the template is listed as [Example 0](./Examples/index.md#example-0-hello-world-template), and the progressive examples that follow it add bindings, lamps, and charts one at a time.
 
 In the visual editor the template appears as a tree of rows, groups, pills, and values, and you add a binding by selecting a value and using the **Binding** section of the inspector.
 The **YAML** tab shows the same dashboard as text, which is the format the rest of this guide describes.
-A source such as `DBC/YourMessage/YourSignal` in a binding is the tag of a CAN signal of the component that owns the dashboard, as described in [Data Binding](./Data_Binding.md#binding-source-paths).
+A source such as `DBC/YourMessage/YourSignal` in a binding is the tag of a CAN signal of the component that owns the dashboard, as described in [Data Binding](./Data_Binding/index.md#binding-source-paths).
 Replace the message and signal names with those from the DBC file, or copy the path of the tag from the Tag Explorer.
 
 ## Schema validation

@@ -12,7 +12,7 @@ Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indi
 Operators with the **View alerts** permission can view and acknowledge alerts and silence their actions, and an alert's text, level, and links come from the [rule](./Rules.md) that raised it.
 
 <figure markdown>
-![A diagram of the All alerts page with Active and History tabs, a side menu where warnings roll up the tree, an audit trail, and a detail panel with what to do, documentation, related tags, and Acknowledge and Silence buttons.](../images/2.3-diagram-alerts.png)
+![A diagram of the All alerts page with Active and History tabs, a side menu where warnings roll up the tree, an audit trail, and a detail panel with what to do, documentation, related tags, and Acknowledge and Silence buttons.](../images/diagram-alerts.png)
 <figcaption>Alerts Log with Active and History tabs and the alert detail panel</figcaption>
 </figure>
 
@@ -21,7 +21,7 @@ Operators with the **View alerts** permission can view and acknowledge alerts an
 Select **ALL ALERTS** in the side menu to open the Alerts Log, which shows the page heading **ALERTS**.
 
 <figure markdown>
-![The Tag Explorer in tree view, with warning triangles beside the root and several components, and a Tag Details panel on the right.](../images/2.3-side-menu-all-alerts.png)
+![The Tag Explorer in tree view, with warning triangles beside the root and several components, and a Tag Details panel on the right.](../images/side-menu-all-alerts.png)
 <figcaption>ALL ALERTS in the side menu</figcaption>
 </figure>
 
@@ -34,12 +34,12 @@ Both tabs can be filtered by level, the **Active** tab can also be filtered by a
 Tables show 25, 50, 75 or 100 rows per page, and 25 by default.
 
 <figure markdown>
-![The Alerts page, Active tab, listing three Warning-level "Local MPPT limit" alerts for Elmar Solar MPPT components, each with acknowledge, silence and info buttons.](../images/2.3-alerts-active-tab.png)
+![The Alerts page, Active tab, listing three Warning-level "Local MPPT limit" alerts for Elmar Solar MPPT components, each with acknowledge, silence and info buttons.](../images/alerts-active-tab.png)
 <figcaption>Active alerts table</figcaption>
 </figure>
 
 <figure markdown>
-![The Alerts page, History tab, with a date range filter and a table of Warning alerts marked Active or Cleared, shown as page 1 of 21.](../images/2.3-alerts-history-tab.png)
+![The Alerts page, History tab, with a date range filter and a table of Warning alerts marked Active or Cleared, shown as page 1 of 21.](../images/alerts-history-tab.png)
 <figcaption>Alert history</figcaption>
 </figure>
 
@@ -63,12 +63,12 @@ Hovering over an indicator shows a summary of the alert, and selecting it opens 
 Stale data quality in Tag Explorer has its own icon, distinct from the alert triangle, so when both appear they indicate different conditions.
 
 <figure markdown>
-![A WaveSculptor 22 dashboard whose header shows a yellow warning triangle, with a tooltip reading "Motor current limit: Output current is being limited by the motor current control loop".](../images/2.3-dashboard-alert-indicator.png)
+![A WaveSculptor 22 dashboard whose header shows a yellow warning triangle, with a tooltip reading "Motor current limit: Output current is being limited by the motor current control loop".](../images/dashboard-alert-indicator.png)
 <figcaption>Dashboard alert indicator on a bound widget</figcaption>
 </figure>
 
 <figure markdown>
-![The Tag Explorer tree with the root selected and warning triangles beside the root and the Elmar Solar MPPT and WaveSculptor 22 components.](../images/2.3-tag-explorer-alert-indicator.png)
+![The Tag Explorer tree with the root selected and warning triangles beside the root and the Elmar Solar MPPT and WaveSculptor 22 components.](../images/tag-explorer-alert-indicator.png)
 <figcaption>Rule alert on a tag in Tag Explorer</figcaption>
 </figure>
 

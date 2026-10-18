@@ -12,7 +12,7 @@ Connected equipment feeds into Profinity, which hosts web apps and scripts on to
 Profinity exposes that platform through [REST APIs](./APIs/index.md) to business systems and applications, and through the [Model Context Protocol (MCP)](./MCP_Server/index.md) to AI agents.
 
 <figure markdown>
-![Connected equipment feeds into Profinity, which exposes its platform through APIs to business systems and through MCP to AI agents](../images/2.3-diagram-extensibility.png)
+![Connected equipment feeds into Profinity, which exposes its platform through APIs to business systems and through MCP to AI agents](../images/diagram-extensibility.png)
 <figcaption>Profinity as the Hub of a Solution</figcaption>
 </figure>
 

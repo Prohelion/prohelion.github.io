@@ -14,6 +14,11 @@ The same lamp definition is used inside [Lamps](Lamps.md) groups, in the header 
 Use a lamp for a single status indicator beside other components, and for titlebar and tab header status.
 Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.md) when the value itself must be read.
 
+<figure markdown>
+![A single green lamp with the label CMU POWER](../../images/lamp.png)
+<figcaption>A lamp that is on, showing its colour and its label</figcaption>
+</figure>
+
 ## Parameters
 
 | Parameter | Type | Required | Default | Description |
@@ -25,7 +30,7 @@ Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.m
 | `label` | string | No | None | Caption shown beside the lamp. Each `[-]` sequence in the caption becomes a soft hyphen, so that long words can break at that point. The caption can be bound with the `label` target |
 | `enabled` | boolean | No | `true` | When `false`, the lamp is displayed in the disabled style and the caption is dimmed. Bind the `enabled` target to drive the state from data |
 | `visible` | boolean | No | `true` | Not used by the web interface |
-| `bind` | array | No | None | [Data binding](../../Data_Binding.md). The `value`, `enabled`, `color` and `label` targets are handled. A binding with no `target` binds `value` |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `value`, `enabled`, `color` and `label` targets are handled. A binding with no `target` binds `value` |
 
 ### Colour names
 

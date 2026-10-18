@@ -17,7 +17,7 @@ The titlebar is the header bar of a dashboard, with a status lamp and a toolbar 
 ## When to use
 
 Use the titlebar for dashboard identification, a status indicator, navigation links, component-specific actions and settings dialogs.
-The `menu` of a titlebar can hold every [menu item type](Menu.md#item-types), including the `modal` item that opens a dialog.
+The `menu` of a titlebar can hold a `modal` item that opens a dialog.
 
 ## Parameters
 
@@ -26,7 +26,7 @@ The `menu` of a titlebar can hold every [menu item type](Menu.md#item-types), in
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the titlebar element |
 | `lamp` | object | No | None | Status lamp shown in the left group of the titlebar. See [Lamp](../Data/Lamp.md) |
-| `menu` | object | No | None | Menu whose items are shown as icons in the toolbar at the right of the titlebar. See [Menu](Menu.md) |
+| `menu` | object | No | None | Menu whose items are shown as icons in the toolbar at the right of the titlebar. |
 | `showTitlebar` | boolean | No | `true` | When `false`, the titlebar background, the hamburger menu button and the lamp are hidden, and the toolbar remains visible on a transparent background |
 | `showActions` | boolean | No | `true` | When `false`, the toolbar of menu items is hidden |
 
@@ -43,7 +43,7 @@ The titlebar displays every item of its `menu` as an icon, without the item capt
 | `menuitem` | Icon link that navigates to the `navigate` target when clicked. A `lamp` on the item is displayed beside the icon |
 | `action` | Icon button that runs the action when clicked |
 | `toggle` | Switch that runs the action when clicked |
-| `modal` | Icon that opens a dialog when clicked: a settings dialog, an editor, the Change Password dialog, the Two-Factor Authentication dialog or the Profinity AI chat. See [Modal Parameters](Menu.md#modal-parameters) |
+| `modal` | Icon that opens a dialog when clicked: a settings dialog, an editor, the Change Password dialog, the Two-Factor Authentication dialog or the Profinity AI chat. |
 | `logo` | Displayed in the same way as a `menuitem`, as an icon link to the `navigate` target |
 | `submenu` | Icon that expands its child `items` inline in the toolbar when clicked. The `location` parameter is not used |
 

@@ -45,4 +45,4 @@ With the option enabled:
 Reading the YAML shows how components are organised, how data bindings are configured, how layout elements nest and how styling is applied.
 Copying a simple dashboard first and adding complexity in small, tested changes keeps a faulty change easy to find.
 
-For more, refer to the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md), the dashboard [Examples](../Customising_Profinity/Dashboards/Examples.md) and the [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md).
+For more, refer to the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md), the dashboard [Examples](../Customising_Profinity/Dashboards/Examples/index.md) and the [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md).

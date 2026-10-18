@@ -25,7 +25,7 @@ The page shows:
 - **Licensed component groups**: the same status for licensed component groups, such as protocol or hardware-integration bundles.
 
 <figure markdown>
-![The License page showing licence state, edition, expiry date, fingerprint, and the tables of licensed features and component groups](../images/2.3-license-status-entitlements.png)
+![The License page showing licence state, edition, expiry date, fingerprint, and the tables of licensed features and component groups](../images/license-status-entitlements.png)
 <figcaption>The License page under ADMIN, showing status, entitlements and fingerprint</figcaption>
 </figure>
 

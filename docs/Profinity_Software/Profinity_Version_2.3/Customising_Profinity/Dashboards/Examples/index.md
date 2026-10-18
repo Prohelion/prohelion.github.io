@@ -13,7 +13,7 @@ Readers new to dashboards should begin with the progressive examples, which buil
 Building blocks for motor controller and battery dashboards are in [Motor Controller and Battery Examples](./Motor_Controller_and_Battery_Examples.md), and examples of the HTML, Image, and Table components are in [Dashboard Component Examples](./Component_Examples.md).
 
 The examples assume a Prohelion D1000 Gen2 BMS component that is named `D1000 Gen2 BMS` in the Profile.
-The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../Tags/index.md).
+The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../../Tags/index.md).
 The `version` stamp is optional in the schema, so the Hello World template includes `version: "2.3"` and the other examples omit it.
 
 ## Progressive examples
@@ -157,4 +157,4 @@ dashboard:
 
 ## Where next
 
-[Full Example](./Full_Example.md) analyses the complete motor controller dashboard, [Data Binding](./Data_Binding.md) describes the binding settings used here, [Dashboard Schema Validation Errors](./Schema_Validation_Errors.md) lists validation messages and their fixes, and [Troubleshooting](./Troubleshooting.md) covers binding problems.
+[Full Example](./Full_Example.md) analyses the complete motor controller dashboard, [Data Binding](../Data_Binding/index.md) describes the binding settings used here, [Dashboard Schema Validation Errors](../Schema_Validation_Errors.md) lists validation messages and their fixes, and [Troubleshooting](../Troubleshooting.md) covers binding problems.

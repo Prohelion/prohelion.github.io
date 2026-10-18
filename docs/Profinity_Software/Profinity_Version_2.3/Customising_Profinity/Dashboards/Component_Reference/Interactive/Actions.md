@@ -39,19 +39,19 @@ Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 | `openHyperLinkInNewWindow` | boolean | No | None | Not used by the web interface |
 | `enabled` | boolean | No | `true` | Whether the button can be clicked. The state can be bound with the `enabled` target |
 | `visible` | boolean | No | `true` | Not used by the web interface. Use a binding on the component that contains the action to control visibility |
-| `bind` | array | No | None | [Data binding](../../Data_Binding.md). The `enabled`, `tooltip` and `classes` targets are handled |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `enabled`, `tooltip` and `classes` targets are handled |
 
 ### Invoke types
 
-The regions, icons, and buttons of an [Image](Image.md) or [Model](Model.md) component, and a [Toggle](Toggles.md), use the same invoke types through an action invocation object.
-Refer to [Action invocation](Overlay_Elements.md#action-invocation) for its parameters.
+The regions, icons, and buttons of an [Image](../Images_and_Models/Image.md) or [3D model](../Images_and_Models/Model.md) component, and a [Toggle](Toggles.md), use the same invoke types through an action invocation object.
+Refer to [Action invocation](../Images_and_Models/Overlay_Elements.md#action-invocation) for its parameters.
 
 | Invoke | Behaviour |
 |--------|-----------|
 | `Component` | Runs the action named by `actionId` on the component that owns the dashboard, and posts `value` with the request. This is the default |
 | `System` | Runs the system-level action named by `actionId` on the Profinity engine. The available system actions are `UPDATE PROFINITY`, `INSTALL PROFINITY` and `RESTART PROFINITY` |
 | `Navigate` | Navigates the web interface to `target`, without a request to the server |
-| `Endpoint` | Describes an HTTP request in `endpointAction`. The browser sends the request, on an action button or on a region, icon, or button of an [Image](Image.md) or [Model](Model.md) component |
+| `Endpoint` | Describes an HTTP request in `endpointAction`. The browser sends the request, on an action button or on a region, icon, or button of an [Image](../Images_and_Models/Image.md) or [3D model](../Images_and_Models/Model.md) component |
 
 ### Endpoint action parameters
 
@@ -66,7 +66,7 @@ Refer to [Action invocation](Overlay_Elements.md#action-invocation) for its para
 | `confirmMessage` | string | No | None | Message of a confirmation dialog shown before the request is sent |
 | `successKinds` | array of string | No | None | What the interface does after the request succeeds, using the values `Toast`, `ReloadSettings`, `ShowServiceAccountTokenDialog` and `RefreshOnClose` |
 
-Endpoint actions run from the browser. The browser sends the HTTP request itself, with the signed-in user's credentials, so an action button with `invoke: Endpoint` works the same way as an `Endpoint` on a region, icon, or button of an [Image](Image.md) or [Model](Model.md) component.
+Endpoint actions run from the browser. The browser sends the HTTP request itself, with the signed-in user's credentials, so an action button with `invoke: Endpoint` works the same way as an `Endpoint` on a region, icon, or button of an [Image](../Images_and_Models/Image.md) or [3D model](../Images_and_Models/Model.md) component.
 The engine's action service does not run `Endpoint` or `Navigate` invocations, and answers one that reaches it with "Endpoint and Navigate invokes are not executed by this API."
 If the request fails, the browser shows an error message with the reason.
 

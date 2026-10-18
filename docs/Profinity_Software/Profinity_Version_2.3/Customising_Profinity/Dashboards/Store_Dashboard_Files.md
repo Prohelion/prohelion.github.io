@@ -1,17 +1,17 @@
 ---
-title: Profile directories
+title: Store dashboard files in a profile
 description: "Find where to store dashboard images, 3D models, stylesheets, and content files in a profile, how YAML refers to them, and what the other directories hold."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# Profile directories
+# Store dashboard files in a profile
 
 Profinity provides profile-specific directories for the images, 3D models, stylesheets, and content files that dashboard YAML references.
 This page describes each directory, how dashboard YAML refers to the files in it, and the other directories in a profile.
 
-Profinity serves files from four directories in the profile: `/Profile/Images` for images used in dashboards such as icons and interactive images, `/Profile/Models` for 3D model files used by the [Model](./Component_Reference/Interactive/Model.md) component, `/Profile/Styles` for custom CSS stylesheets, and `/Profile/Content` for general content files such as HTML snippets and templates.
+Profinity serves files from four directories in the profile: `/Profile/Images` for images used in dashboards such as icons and interactive images, `/Profile/Models` for 3D model files used by the [3D model](./Component_Reference/Images_and_Models/Model.md) component, `/Profile/Styles` for custom CSS stylesheets, and `/Profile/Content` for general content files such as HTML snippets and templates.
 Component properties in dashboard YAML refer to these files by filename only, while HTML component content uses the full path, as described in [File references in dashboard YAML](#file-references-in-dashboard-yaml).
 
 ## Directory structure
@@ -104,7 +104,7 @@ html:
 
 ## /Profile/Models
 
-The `/Profile/Models` directory holds the 3D model files, in `.glb`, `.gltf`, `.stl` or `.obj` format, that the [Model](./Component_Reference/Interactive/Model.md) component displays.
+The `/Profile/Models` directory holds the 3D model files, in `.glb`, `.gltf`, `.stl` or `.obj` format, that the [3D model](./Component_Reference/Images_and_Models/Model.md) component displays.
 The component references a model by its filename relative to the directory, including any subfolder, for example `engine.glb`.
 A model that uses external texture files needs them stored beside it with the same folder structure, or the textures do not load.
 
@@ -114,7 +114,7 @@ model:
     - model: engine.glb
 ```
 
-The [Model](./Component_Reference/Interactive/Model.md) page lists the full set of parameters, overlays and a complete example.
+The [3D model](./Component_Reference/Images_and_Models/Model.md) page lists the full set of parameters, overlays and a complete example.
 
 ## /Profile/Styles
 

@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 The CAN bus operations let a script work with Controller Area Network (CAN) traffic: send CAN packets, read the latest received packets, and look packets up by CAN ID.
 They are reached through two script variables.
 `Profinity.CAN` is the script's own CAN client, which suits waiting for and buffering the packets one script cares about, and `Profinity.CANBus` is the shared cache of the latest packet for every CAN ID that the Profinity engine has seen.
-For real-time packet reception, [Receive Scripts](../Script_Types/ReceiveScripts.md) run automatically when matching CAN packets are received.
+For real-time packet reception, [Receive Scripts](../Script_Types/Receive_Scripts.md) run automatically when matching CAN packets are received.
 
 ## Sending CAN packets
 
@@ -120,7 +120,7 @@ The method returns null (`None` in Python, `nil` in Lua) when no valid packet ex
 
 ## Receiving CAN packets in real-time
 
-For real-time CAN packet reception, use [Receive Scripts](../Script_Types/ReceiveScripts.md).
+For real-time CAN packet reception, use [Receive Scripts](../Script_Types/Receive_Scripts.md).
 Receive scripts automatically execute when matching CAN packets are received, which suits real-time monitoring and processing.
 
 === "C#"

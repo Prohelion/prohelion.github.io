@@ -34,7 +34,7 @@ A Quartz expression has six or seven fields that start with seconds, which diffe
 
 <figure markdown>
 ![The script editor for a Python Run Script, showing the Python run template with the RunMe function](../../../images/python_run_script.png)
-<figcaption>Run Script Editor and Scheduling Options</figcaption>
+<figcaption>Run Script Editor</figcaption>
 </figure>
 
 ## Example

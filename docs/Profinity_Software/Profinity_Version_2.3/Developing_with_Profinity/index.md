@@ -12,7 +12,7 @@ When configuration is not enough, Profinity can be extended with code.
 A script runs inside Profinity, a Custom Component brings in a device that Profinity does not ship with, a compiled plugin adds a new component type, and the Profinity SDK develops and packages all three.
 
 <figure markdown>
-![Components and plugins bring data in, and historians, loggers, publishers and rule actions take it out, all through the same tag tree](../images/2.3-diagram-components-overview.png)
+![Components and plugins bring data in, and historians, loggers, publishers and rule actions take it out, all through the same tag tree](../images/diagram-components-overview.png)
 <figcaption>Core components, plugins, and the data flowing in and out of the tag tree</figcaption>
 </figure>
 

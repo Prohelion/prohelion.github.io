@@ -15,7 +15,7 @@ Tag relay requires the **Data Relay** licensed feature on both the sending and r
 Tag relay has no field-level filtering: a sender exports every tag that belongs to its selected collections, so create a collection that contains only the tags a receiver should see.
 
 <figure markdown>
-![At each site, a local Tags to Collections to Rules to Actions and Alerts pipeline runs on its own; Tag Relay lifts that up to a central fleet instance with its own fleet-wide collections, rules, and alerts spanning every site](../images/2.3-diagram-fleet-overview.png)
+![At each site, a local Tags to Collections to Rules to Actions and Alerts pipeline runs on its own; Tag Relay lifts that up to a central fleet instance with its own fleet-wide collections, rules, and alerts spanning every site](../images/diagram-fleet-overview.png)
 <figcaption>Each site runs its own tag pipeline, and relay adds a shared view at the central instance</figcaption>
 </figure>
 
@@ -26,7 +26,7 @@ Refer to that page's own note for the reverse comparison.
 ## How it works
 
 <figure markdown>
-![Site instances run a Tag Relay Sender publishing live tags over HTTPS with a JSON Web Token (JWT) or over MQTT; a central instance runs a Tag Relay Receiver, showing each site's tags under its own prefix, for example SiteA/System1/Battery/PackVoltage](../images/2.3-diagram-tag-relay.png)
+![Site instances run a Tag Relay Sender publishing live tags over HTTPS with a JSON Web Token (JWT) or over MQTT; a central instance runs a Tag Relay Receiver, showing each site's tags under its own prefix, for example SiteA/System1/Battery/PackVoltage](../images/diagram-tag-relay.png)
 <figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
 </figure>
 

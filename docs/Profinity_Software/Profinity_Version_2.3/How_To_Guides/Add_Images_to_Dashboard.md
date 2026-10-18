@@ -23,7 +23,7 @@ The artefacts directory is:
 
 To place the file:
 
-1. Open the `images` folder of the profile directory. If the folder does not exist, create it, using the lowercase name, because Linux and Docker file systems are case-sensitive and Profinity serves only the lowercase folder (refer to [Profile Directories](../Customising_Profinity/Dashboards/Profile_Directories.md)).
+1. Open the `images` folder of the profile directory. If the folder does not exist, create it, using the lowercase name, because Linux and Docker file systems are case-sensitive and Profinity serves only the lowercase folder (refer to [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md)).
 2. Copy the image file into the folder.
 
 ```text
@@ -53,7 +53,7 @@ html:
     <img src="/Profile/Images/custom-banner.jpg" alt="Banner" />
 ```
 
-In an [Image](../Customising_Profinity/Dashboards/Component_Reference/Interactive/Image.md) component, which shows an interactive image, set `value.image` to the filename only:
+In an [Image](../Customising_Profinity/Dashboards/Component_Reference/Images_and_Models/Image.md) component, which shows an interactive image, set `value.image` to the filename only:
 
 ```yaml
 image:

@@ -2,15 +2,9 @@ nav:
     - index.md
     - Core_Elements.md
     - Visual_Editor.md
-    - Data_Binding.md
-    - Binding_Settings_Reference.md
-    - Transform_and_Map_Values.md
-    - Conditional_Styling.md
-    - Profile_Directories.md
-    - Examples.md
-    - Motor_Controller_and_Battery_Examples.md
-    - Component_Examples.md
-    - Full_Example.md
+    - Data_Binding
+    - Store_Dashboard_Files.md
+    - Examples
     - Troubleshooting.md
     - Schema_Validation_Errors.md
     - FAQ.md

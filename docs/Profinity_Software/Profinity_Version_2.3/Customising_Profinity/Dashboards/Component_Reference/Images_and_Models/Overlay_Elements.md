@@ -1,6 +1,6 @@
 ---
 title: Overlay elements
-description: "Reference for the action invocation, layers, icon sources, display types and annotation lines that the Image and Model components share."
+description: "Reference for the action invocation, layers, icon sources, display types and annotation lines that the Image and 3D model components share."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -8,15 +8,15 @@ last_reviewed: 2026-10-15
 
 # Overlay elements
 
-Overlay elements are the regions, icons, buttons, data values, points, annotation lines and layers that the [Image](Image.md) and [Model](Model.md) components position on a base image or in a model.
+Overlay elements are the regions, icons, buttons, data values, points, annotation lines and layers that the [Image](Image.md) and [3D model](Model.md) components position on a base image or in a model.
 This page holds the parameters and rules that the two components share.
-The parameters that differ between the two components stay on the [Image](Image.md) and [Model](Model.md) pages.
+The parameters that differ between the two components stay on the [Image](Image.md) and [3D model](Model.md) pages.
 
 ## Action invocation
 
-The `action` of a region, icon, or button is an action invocation, which is the same object that a [Toggle](Toggles.md) uses.
-The [Actions](Actions.md#invoke-types) page describes the invoke types.
-The parameters are the same for an [Image](Image.md) component and a [Model](Model.md) component.
+The `action` of a region, icon, or button is an action invocation, which is the same object that a [Toggle](../Interactive/Toggles.md) uses.
+The [Actions](../Interactive/Actions.md#invoke-types) page describes the invoke types.
+The parameters are the same for an [Image](Image.md) component and a [3D model](Model.md) component.
 
 ### Region, icon, and button actions
 
@@ -33,14 +33,14 @@ The parameters are the same for an [Image](Image.md) component and a [Model](Mod
 
 ### Toggle action invocation
 
-The `action` object of a [Toggle](Toggles.md) is an action invocation, which is the same object that the regions, icons, and buttons of an [Image](Image.md) or [Model](Model.md) component use for their `action`.
+The `action` object of a [Toggle](../Interactive/Toggles.md) is an action invocation, which is the same object that the regions, icons, and buttons of an [Image](Image.md) or [3D model](Model.md) component use for their `action`.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `invoke` | string | No | `Component` | How a click is carried out, one of `Component`, `System`, `Endpoint` or `Navigate`. The [Actions](Actions.md#invoke-types) page describes each type |
+| `invoke` | string | No | `Component` | How a click is carried out, one of `Component`, `System`, `Endpoint` or `Navigate`. The [Actions](../Interactive/Actions.md#invoke-types) page describes each type |
 | `actionId` | string | Conditional | None | Name of the action to run. Required when `invoke` is `Component` or `System` |
 | `target` | string | Conditional | None | Location to navigate to. Required when `invoke` is `Navigate` |
-| `endpointAction` | object | Conditional | None | Details of the HTTP request. Required when `invoke` is `Endpoint`. The [Actions](Actions.md#endpoint-action-parameters) page describes the parameters |
+| `endpointAction` | object | Conditional | None | Details of the HTTP request. Required when `invoke` is `Endpoint`. The [Actions](../Interactive/Actions.md#endpoint-action-parameters) page describes the parameters |
 | `value` | string | No | None | Not used by toggles. Set `value` on the toggle itself to post a payload |
 | `confirmMessage` | string | No | None | Message of a confirmation dialog shown before the action runs |
 | `trackProgress` | boolean | No | None | Polls the progress of the action after a `Component` or `System` request |
@@ -75,7 +75,7 @@ Any other text is displayed as text.
 
 ## Display types
 
-The examples on this page use the Image position form, with percentage `x` and `y`. On a [Model](Model.md), every data value position also takes `z`, in model space.
+The examples on this page use the Image position form, with percentage `x` and `y`. On a [3D model](Model.md), every data value position also takes `z`, in model space.
 Tag paths such as `DBC/Temperature/Value` are placeholders, so replace them with tags from your own component.
 
 A text display shows the formatted value:
@@ -167,7 +167,7 @@ annotationLines:
         y: 50
 ```
 
-### Model annotation lines
+### 3D model annotation lines
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|

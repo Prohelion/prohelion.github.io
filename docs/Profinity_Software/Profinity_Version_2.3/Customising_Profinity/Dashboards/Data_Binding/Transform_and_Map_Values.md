@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 Binding settings can transform the value, convert its type, and map it to text.
 This page covers type conversion with `toType`, scaling with `gain` and `offset`, inversion with `invert`, and text mapping with `mapToText`.
-Refer to [Binding Settings and Targets](./Binding_Settings_Reference.md) for the full list of binding settings.
+Refer to the [binding settings reference](./Binding_Settings_Reference.md) for the full list of binding settings.
 
 ## Type conversion
 
@@ -159,4 +159,4 @@ The `bias` is required, and it is either `left` or `right`: with `left` a value 
 The text that results can drive a `label` target, or a lamp `color` target when the labels are colour names.
 
 
-[Conditional Styling](./Conditional_Styling.md) uses text mapping to drive lamp colours and labels, and [Examples](./Examples.md) holds complete dashboards.
+[Conditional Styling](./Conditional_Styling.md) uses text mapping to drive lamp colours and labels, and [Examples](../Examples/index.md) holds complete dashboards.

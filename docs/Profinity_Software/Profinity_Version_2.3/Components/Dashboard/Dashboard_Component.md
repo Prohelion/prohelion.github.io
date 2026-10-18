@@ -24,12 +24,12 @@ A component name that matches an existing dashboard file in the profile is rejec
 Dashboards are written in YAML and can be edited in the [Visual Editor](../../Customising_Profinity/Dashboards/Visual_Editor.md), with the same layout, data, and interactive components available as on any other dashboard.
 
 <figure markdown>
-![Dashboard editor in Design mode, with an outline tree of rows, groups, panels and a chart on the left and an Inspector on the right showing Id, Description, CSS class, Width and Direction fields.](../../images/2.3-dashboard-visual-editor.png)
+![Dashboard editor in Design mode, with an outline tree of rows, groups, panels and a chart on the left and an Inspector on the right showing Id, Description, CSS class, Width and Direction fields.](../../images/dashboard-visual-editor.png)
 <figcaption>Dashboard visual editor</figcaption>
 </figure>
 
 A relative tag path in a Dashboard Component starts at the Dashboard Component itself, which has no DBC, so a path such as `DBC/BusMeasurement/BusVoltage` finds no tag there.
 Bind to the tags of another component with an absolute path that starts with `/`, such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
 
-Refer to [Data Binding](../../Customising_Profinity/Dashboards/Data_Binding.md) to connect the dashboard to tags and the [Component Reference](../../Customising_Profinity/Dashboards/Component_Reference/index.md) for each element.
+Refer to [Data Binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) to connect the dashboard to tags and the [Component Reference](../../Customising_Profinity/Dashboards/Component_Reference/index.md) for each element.
 Worked guides are [How to Create a Custom Dashboard](../../How_To_Guides/Create_Custom_Dashboard.md) and [How to Create a Profile Dashboard](../../How_To_Guides/Create_Profile_Dashboard.md).

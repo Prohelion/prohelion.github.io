@@ -29,7 +29,7 @@ The usual causes are a missing colon, wrong indentation, an invalid property nam
 ## A readout shows no data
 
 A readout that stays empty has a binding that does not match a tag, a component that is not running, or no data arriving.
-Start with the [binding](../Customising_Profinity/Dashboards/Data_Binding.md), because it is the most common cause:
+Start with the [binding](../Customising_Profinity/Dashboards/Data_Binding/index.md), because it is the most common cause:
 
 ```yaml
 bind:

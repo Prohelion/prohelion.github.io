@@ -10,12 +10,12 @@ last_reviewed: 2026-10-15
 
 These examples show the HTML, Image, and Table components, and every YAML block validates against the dashboard schema.
 The examples assume a Prohelion D1000 Gen2 BMS component that is named `D1000 Gen2 BMS` in the Profile.
-The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../Tags/index.md).
+The component name in each tag path is the name given to the component in the Profile, so change it to match your own component, and find the tags in the [Tag Explorer](../../../Tags/index.md).
 Image names such as `StatusIcon.svg` are placeholders, so replace them with files in the `images` directory of the profile, or the images do not appear.
 
 ## HTML component example
 
-An [HTML](./Component_Reference/Content/HTML.md) component shows custom HTML content with references to profile assets:
+An [HTML](../Component_Reference/Content/HTML.md) component shows custom HTML content with references to profile assets:
 
 ``` yaml
 dashboard:
@@ -83,7 +83,7 @@ The `x`, `y`, `width` and `height` values are percentages of the image size, and
 
 ## Table component example
 
-A [Table](./Component_Reference/Data/Tables.md) with a heat map and highlighting, showing the first two cell voltages of each battery node:
+A [Table](../Component_Reference/Data/Tables.md) with a heat map and highlighting, showing the first two cell voltages of each battery node:
 
 ``` yaml
 dashboard:
@@ -115,4 +115,4 @@ dashboard:
 
 The bound tag supplies one row for each battery node, and each cell value is in millivolts. The `heatmap` setting colours cells on a green to yellow scale between the minimum and maximum, `highlightAtOrBelow` highlights cells at or below 2500 mV, and `alertAtOrBelow` applies alert colouring to low values at or below 2000 mV.
 
-[Component Reference](./Component_Reference/index.md) describes every parameter of each component, and [Examples](./Examples.md) builds a dashboard step by step.
+[Component Reference](../Component_Reference/index.md) describes every parameter of each component, and [Examples](./index.md) builds a dashboard step by step.

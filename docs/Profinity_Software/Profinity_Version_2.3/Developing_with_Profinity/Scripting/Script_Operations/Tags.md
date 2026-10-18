@@ -38,7 +38,7 @@ If the component is mounted in a folder using a [Tag tree path](../../../Tags/Ta
     Resolving relative paths under the host component is for convenience.
     It is not a sandbox or an authorisation check, and a script can reach any tag in the tree, so treat scripts as trusted code that runs inside the Profinity engine.
 
-Tag ids passed to a [Tag Change script](../Script_Types/TagChangeScripts.md) are full tag ids.
+Tag ids passed to a [Tag Change script](../Script_Types/Tag_Change_Scripts.md) are full tag ids.
 To use one with `Profinity.Tags`, add a leading `/`, for example `Profinity.Tags.GetSample("/" + tagId)`, and to compare one, match on the end of the id, as the examples there do.
 
 A script can read the current sample for a tag, including its quality and timestamp, publish a value to a tag (creating the tag path if it does not exist), clear a value or mark a tag stale, attach catalogue metadata to a tag, and browse the tag catalogue.
@@ -164,7 +164,7 @@ Other types are rejected.
     ```
 
 !!! warning "A script can trigger itself"
-    A script that writes a tag it is also watching in a [Tag Change script](../Script_Types/TagChangeScripts.md) can trigger itself, so it should watch the source tag and publish to a different tag.
+    A script that writes a tag it is also watching in a [Tag Change script](../Script_Types/Tag_Change_Scripts.md) can trigger itself, so it should watch the source tag and publish to a different tag.
 
 ## Creating tags and adding metadata
 

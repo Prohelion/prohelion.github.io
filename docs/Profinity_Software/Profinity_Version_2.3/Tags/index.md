@@ -15,7 +15,7 @@ The **TAG UTILITIES** group in the side menu appears for users with the **View t
 The collections and derived tags editors also need a loaded profile, and saving needs **Modify tag collections** for collections and derived tags, or **Modify tag rules** for rules.
 
 <figure markdown>
-![Many source types, such as a Controller Area Network (CAN) DBC signal, a device property, a register or a firmware field, all become one tag with an address, value, quality flag and metadata, readable as an instantaneous value or as time-series history](../images/2.3-diagram-tags.png)
+![Many source types, such as a Controller Area Network (CAN) DBC signal, a device property, a register or a firmware field, all become one tag with an address, value, quality flag and metadata, readable as an instantaneous value or as time-series history](../images/diagram-tags.png)
 <figcaption>A tag combines an address, value, quality flag and metadata</figcaption>
 </figure>
 

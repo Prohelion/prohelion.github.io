@@ -20,7 +20,7 @@ When you save, the editor shows "Derived tags saved", and a failed save shows "S
 `Vehicles/Car1/SpeedKmh` is now a real tag that shows up in Tag Explorer at its mount path and in the rules engine, and history is available for it without further configuration.
 
 <figure markdown>
-![The inspector for the derived tag Total Array Power, listing three dependencies aliased a, b and c, and the expression a.Value + b.Value + c.Value with a green validity tick.](../images/2.3-derived-tag-expression-inspector.png)
+![The inspector for the derived tag Total Array Power, listing three dependencies aliased a, b and c, and the expression a.Value + b.Value + c.Value with a green validity tick.](../images/derived-tag-expression-inspector.png)
 <figcaption>Derived tag inspector with live preview</figcaption>
 </figure>
 

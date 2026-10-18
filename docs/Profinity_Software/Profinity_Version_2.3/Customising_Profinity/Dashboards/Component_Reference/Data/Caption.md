@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # Caption component
 
-A caption is a line of text that displays a static string or a string from a [data binding](../../Data_Binding.md), such as a status message or a mapped text value.
+A caption is a line of text that displays a static string or a string from a [data binding](../../Data_Binding/index.md), such as a status message or a mapped text value.
 
 Use a caption for status messages, mapped text such as `Online` and `Offline`, and short headings that depend on data.
 Use [Readouts](Readouts.md) for a measurement with a unit and precision, and [HTML](../Content/HTML.md) for formatted content.
@@ -46,4 +46,4 @@ dashboard:
 ```
 
 The `mapToText` binding property converts the boolean value into the text that the caption displays.
-The [Data Binding](../../Data_Binding.md) page describes the property.
+The [Data Binding](../../Data_Binding/index.md) page describes the property.

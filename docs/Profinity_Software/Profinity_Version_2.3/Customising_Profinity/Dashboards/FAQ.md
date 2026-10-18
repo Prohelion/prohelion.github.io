@@ -27,7 +27,7 @@ A DBC file is only needed when the dashboard binds CAN signals.
 ### Where do I put my dashboard YAML file?
 
 The visual editor creates and saves the dashboard file for you, and its **YAML** tab shows the contents.
-The file is stored in the `dashboards` directory of the profile, or in the folder of the component, as listed in [Profile Directories](./Profile_Directories.md#other-profile-directories).
+The file is stored in the `dashboards` directory of the profile, or in the folder of the component, as listed in [Store dashboard files in a profile](./Store_Dashboard_Files.md#other-profile-directories).
 
 ### Can I use existing dashboards as templates?
 
@@ -37,25 +37,25 @@ Select **Edit Dashboard** on any existing dashboard to see its YAML, which needs
 ### Where do I put images, styles, and content files?
 
 Images go in the `/Profile/Images` directory and are referenced by filename only, custom CSS goes in a file named `profile.css` in `/Profile/Styles`, which the web interface loads when the file is present, and HTML snippets go in `/Profile/Content`.
-For more detail, refer to [Profile Directories](./Profile_Directories.md).
+For more detail, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md).
 
 ## Component and layout questions
 
 ### How do I display a simple value?
 
-Use a `readout` component, as in the first of the [Examples](./Examples.md#example-1-simple-readout-with-formatting).
+Use a `readout` component, as in the first of the [Examples](./Examples/index.md#example-1-simple-readout-with-formatting).
 
 ### How do I show multiple related values?
 
-Use a `pill` component, which groups values beside an icon, as in the [Hello World template](./Examples.md#example-0-hello-world-template).
+Use a `pill` component, which groups values beside an icon, as in the [Hello World template](./Examples/index.md#example-0-hello-world-template).
 
 ### How do I create a chart?
 
-Use a `chart` component whose binding sets `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window, as in [Time Series](./Data_Binding.md#time-series) and the [chart example](./Examples.md#example-4-add-charts).
+Use a `chart` component whose binding sets `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window, as in [Time Series](./Data_Binding/index.md#time-series) and the [chart example](./Examples/index.md#example-4-add-charts).
 
 ### How do I show status indicators?
 
-Use a `lamps` component, and bind its `enabled` or `color` target to a tag, as in [Conditional Styling](./Conditional_Styling.md).
+Use a `lamps` component, and bind its `enabled` or `color` target to a tag, as in [Conditional Styling](./Data_Binding/Conditional_Styling.md).
 
 ### How do I organise components into sections?
 
@@ -68,28 +68,28 @@ Set `direction: horizontal` on a `row` or `group`, as shown in [Layout Direction
 ### How do I show or hide sections conditionally?
 
 Bind the `visible` target of a readout, tab, accordion, or footer, or use an `accordion` for sections that users open themselves.
-Refer to [Show or Hide a Component](./Conditional_Styling.md#show-or-hide-a-component).
+Refer to [Show or Hide a Component](./Data_Binding/Conditional_Styling.md#show-or-hide-a-component).
 
 ## Data binding questions
 
 ### How do I show a value on a dashboard?
 
 Bind the component to a tag.
-Find the tag in the Tag Explorer and put its path in the `source` of the binding, where the tag for a CAN signal has the form `DBC/MessageName/SignalName`, as described in [Data Binding](./Data_Binding.md).
+Find the tag in the Tag Explorer and put its path in the `source` of the binding, where the tag for a CAN signal has the form `DBC/MessageName/SignalName`, as described in [Data Binding](./Data_Binding/index.md).
 
 ### How does a binding refer to the component that owns the dashboard?
 
 A source without a leading `/`, such as `DBC/...` or `Properties/...`, is relative to the component that owns the dashboard, so the same dashboard works for any component that has the same tags, and a source that starts with `/` names a tag in another component.
-Refer to [Binding Source Paths](./Data_Binding.md#binding-source-paths).
+Refer to [Binding Source Paths](./Data_Binding/index.md#binding-source-paths).
 
 ### How do I access logged or historical data?
 
-Set `store: logged` with a time range on the binding, which needs data logging to be enabled, as described in [Logged Data](./Data_Binding.md#logged-data).
+Set `store: logged` with a time range on the binding, which needs data logging to be enabled, as described in [Logged Data](./Data_Binding/index.md#logged-data).
 Add `aggregationWindow` and `aggregationFunction` to aggregate the data into intervals.
 
 ### How do I convert data types or scale values?
 
-Use `toType` to convert a type, and `gain` and `offset` to scale a value, as described under [Type Conversion](./Transform_and_Map_Values.md#type-conversion) and [Scaling and Offset](./Transform_and_Map_Values.md#scaling-and-offset).
+Use `toType` to convert a type, and `gain` and `offset` to scale a value, as described under [Type Conversion](./Data_Binding/Transform_and_Map_Values.md#type-conversion) and [Scaling and Offset](./Data_Binding/Transform_and_Map_Values.md#scaling-and-offset).
 
 ## Troubleshooting questions
 
@@ -111,11 +111,11 @@ Refer to [Image Does Not Appear](./Troubleshooting.md#image-does-not-appear).
 
 ### How do I create an interactive image?
 
-Use the `image` component with regions, icons, and data values, as in the [image example](./Component_Examples.md#image-component-example) and the [Image](./Component_Reference/Interactive/Image.md) reference.
+Use the `image` component with regions, icons, and data values, as in the [image example](./Examples/Component_Examples.md#image-component-example) and the [Image](./Component_Reference/Images_and_Models/Image.md) reference.
 
 ### How do I use the `html` component?
 
-Use the `html` component, as in the [HTML example](./Component_Examples.md#html-component-example), and note the elements that the HTML sanitiser removes, which are listed in [Profile Directories](./Profile_Directories.md#profilecontent).
+Use the `html` component, as in the [HTML example](./Examples/Component_Examples.md#html-component-example), and note the elements that the HTML sanitiser removes, which are listed in [Store dashboard files in a profile](./Store_Dashboard_Files.md#profilecontent).
 
 ### How do I organise a large dashboard, improve performance or make it reusable?
 
@@ -125,5 +125,5 @@ Use relative tag paths so that one dashboard fits every component with the same 
 
 ## Further help
 
-The [Component Reference](./Component_Reference/index.md) describes each component, [Examples](./Examples.md) and [Full Example](./Full_Example.md) hold working dashboards, and [Troubleshooting](./Troubleshooting.md) covers common problems.
+The [Component Reference](./Component_Reference/index.md) describes each component, [Examples](./Examples/index.md) and [Full Example](./Examples/Full_Example.md) hold working dashboards, and [Troubleshooting](./Troubleshooting.md) covers common problems.
 For anything else, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/).

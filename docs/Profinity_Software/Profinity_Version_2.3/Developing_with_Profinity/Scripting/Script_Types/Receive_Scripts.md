@@ -24,7 +24,7 @@ Three settings decide which packets reach the script.
 
 <figure markdown>
 ![The script editor for a Python Run On Receipt script, showing the Python receive template with its comments and the receive function](../../../images/python_run_on_receipt_script.png)
-<figcaption>Receive Script Editor and CAN Packet Trigger Configuration</figcaption>
+<figcaption>Receive Script Editor</figcaption>
 </figure>
 
 ## Example
@@ -74,4 +74,4 @@ The **Trigger Overlap** setting decides what happens to a packet that arrives wh
 | **Drop** (default) | Discards the packet. |
 | **Queue** | Keeps a short backlog of up to **Queue Depth** packets (a default of 8, from 1 to 100) and runs them afterwards. This is the setting the shipped receive templates recommend. |
 
-Heavier processing belongs in a [Service Script](ServiceScripts.md), with the handler passing a small amount of data to a queue.
+Heavier processing belongs in a [Service Script](./Service_Scripts.md), with the handler passing a small amount of data to a queue.
