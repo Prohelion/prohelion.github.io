@@ -68,7 +68,7 @@ dashboard:
 
 ### Status indicators
 
-A lamp that lights with the `Online` flag:
+A lamp that lights while the WaveSculptor22 is limiting bus current:
 
 ``` yaml
 dashboard:
@@ -81,12 +81,12 @@ dashboard:
                     items:
                       - lamp:
                           color: green
-                          label: "Online"
+                          label: "Bus current limit"
                           value: 1
                           enabled: true
                           bind:
                             - target: enabled
-                              source: DBC/Status/Online
+                              source: DBC/Status/LimitBusCurrent
                               toType: boolean
 ```
 
@@ -130,7 +130,7 @@ dashboard:
                                 items:
                                   - lamp:
                                       color: green
-                                      label: "Online"
+                                      label: "Bus current limit"
                                       value: 1
                                       enabled: true
 ```

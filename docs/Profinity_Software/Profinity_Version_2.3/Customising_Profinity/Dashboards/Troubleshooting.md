@@ -78,10 +78,10 @@ dashboard:
                       - lamp:
                           color: "green"
                           value: 1
-                          label: "Status"
+                          label: "Bus current limit"
                           bind:
                             - target: enabled
-                              source: DBC/Status/Online
+                              source: DBC/Status/LimitBusCurrent
                               toType: boolean
 ```
 

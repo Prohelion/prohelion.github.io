@@ -83,7 +83,7 @@ The `x`, `y`, `width` and `height` values are percentages of the image size, and
 
 ## Table component example
 
-A [Table](./Component_Reference/Data/Tables.md) with a heat map and highlighting:
+A [Table](./Component_Reference/Data/Tables.md) with a heat map and highlighting, showing the first two cell voltages of each battery node:
 
 ``` yaml
 dashboard:
@@ -94,24 +94,25 @@ dashboard:
               tableHeaders:
                 - header:
                     accessorKey: name
-                    value: "Cell Name"
+                    value: "Node"
                 - header:
-                    accessorKey: voltage
-                    value: "Voltage (V)"
+                    accessorKey: cell1mV
+                    value: "Cell 1 mV"
                 - header:
-                    accessorKey: temperature
-                    value: "Temperature (°C)"
+                    accessorKey: cell2mV
+                    value: "Cell 2 mV"
+              minValueToDisplay: 0
               heatmap: true
               highlightMin: true
               highlightMax: true
-              highlightAtOrBelow: 2.5
-              alertAtOrBelow: 2.0
-              precision: 3
+              highlightAtOrBelow: 2500
+              alertAtOrBelow: 2000
+              precision: 0
               bind:
                 - target: value
-                  source: DBC/CellData/Values
+                  source: Properties/PackData/Nodes/Values
 ```
 
-The `heatmap` setting colours cells on a green to yellow scale between the minimum and maximum, `highlightAtOrBelow` highlights cells at or below 2.5, and `alertAtOrBelow` applies alert colouring to low values at or below 2.0.
+The bound tag supplies one row for each battery node, and each cell value is in millivolts. The `heatmap` setting colours cells on a green to yellow scale between the minimum and maximum, `highlightAtOrBelow` highlights cells at or below 2500 mV, and `alertAtOrBelow` applies alert colouring to low values at or below 2000 mV.
 
 [Component Reference](./Component_Reference/index.md) describes every parameter of each component, and [Examples](./Examples.md) builds a dashboard step by step.
