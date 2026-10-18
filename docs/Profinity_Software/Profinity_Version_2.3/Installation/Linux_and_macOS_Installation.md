@@ -43,7 +43,7 @@ The host needs internet access, or a local archive as described under [Installer
 
     On macOS, use `shasum -a 256 -c install.sh.sha256` in place of `sha256sum -c`.
 
-3. Start Profinity with `/opt/profinity/profinity.sh` to test the configuration, or start it as a service as described in [Run Profinity as a service](./Running_As_Service.md).
+3. Start Profinity with `/opt/profinity/profinity.sh` to test the configuration, or start it as a service as described in [Run Profinity as a service](./Run_as_a_Service/index.md).
 
 The installer can also be piped straight into the shell with `curl -fsSL https://github.com/Prohelion/Profinity/releases/latest/download/install.sh | sudo bash`.
 That trusts the network transport only and cannot verify the checksum, so avoid it on production hosts.
@@ -105,7 +105,7 @@ After you sign in, the Profinity homepage appears.
 </figure>
 
 To stop Profinity in a terminal, press `Ctrl-C` in that window.
-To stop it as a service on Linux, run `sudo systemctl stop profinity`, as described in [Run Profinity as a Linux service](./Run_as_a_Linux_Service.md).
+To stop it as a service on Linux, run `sudo systemctl stop profinity`, as described in [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
 
 ## Troubleshooting
 

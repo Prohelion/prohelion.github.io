@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Connections and reconnecting
 
 Every component that holds a connection behaves the same way when it starts, when the other end is missing, and when a connection is lost.
-This covers the MQTT Publisher and Subscriber, the Tag Relay sender and receiver, the SQL and InfluxDB historians and loggers, the Prometheus logger, the chargers, the CAN bus adapters, the OPC UA server and client, and the Modbus, BACnet, S7, EtherNet/IP and Rinstrum components.
+This covers the MQTT Publisher and Subscriber, the Tag Relay sender and receiver, the SQL and InfluxDB historians and loggers, the Prometheus logger, the chargers, the CAN bus adapters, the OPC UA server and client, and the Modbus, BACnet, S7, and EtherNet/IP components.
 A CAN bus adapter reports its status differently, as described under [Status](#status).
 
 ## Turning connections on and off {#the-auto-connect-switch}
@@ -58,7 +58,6 @@ Profinity retries every 5 seconds unless the component has its own setting.
 | --- | --- |
 | Chargers | **Reconnect Interval** setting (default 5000 ms), when **Auto Reconnect** is on |
 | Modbus, BACnet, S7, EtherNet/IP, OPC UA client | **Reconnect delay (ms)** setting |
-| Rinstrum | **Reconnect Interval** setting (default 5000 ms) |
 | Tag Relay sender | 1 second |
 | All others | 5 seconds |
 

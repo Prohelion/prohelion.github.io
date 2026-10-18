@@ -14,7 +14,7 @@ The [Kiosk Mode](../Administration/Kiosk_Mode.md) page is the full reference, in
 
 Before you start, you need:
 
-- Profinity 2.3 installed as a service or in Docker with automatic start enabled, and running, because the browser fails to connect if Profinity is not already running (refer to [Running as a Service](../Installation/Running_As_Service.md)).
+- Profinity 2.3 installed as a service or in Docker with automatic start enabled, and running, because the browser fails to connect if Profinity is not already running (refer to [Running as a Service](../Installation/Run_as_a_Service/index.md)).
 - Administrator access to the system.
 - A [profile](../Getting_Started/Profiles.md) configured and ready to display, and the **Modify profiles** permission to change its settings. [Profiles](../Administration/Profiles.md) describes the profile settings, including Kiosk Mode.
 - An enabled [user](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, holding only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs (refer to [Choosing the Kiosk User](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user)).
@@ -111,7 +111,7 @@ A chart that polls for data at a fixed interval is set in the dashboard, as desc
 
 A browser that does not open after a restart usually starts before Profinity or before the display is ready.
 Check the startup order and service dependencies so that the browser starts after Profinity.
-To run Profinity as a service, refer to [Running as a Service](../Installation/Running_As_Service.md).
+To run Profinity as a service, refer to [Running as a Service](../Installation/Run_as_a_Service/index.md).
 
 ### The login page is shown
 

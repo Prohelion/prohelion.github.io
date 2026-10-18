@@ -29,7 +29,7 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
 6. Open **ADMIN > Logs** and read the messages from first start.
    On Linux, the migration messages name each file that moved.
 7. Open each custom dashboard in the dashboard editor and confirm it loads without schema errors.
-8. Unlock the firmware of each Gen2 and Rinstrum component once, and enter its passcode again, because 2.3 does not keep passcodes in the profile.
+8. Unlock the firmware of each Gen2 battery management system once, and enter its passcode again, because 2.3 does not keep passcodes in the profile.
 9. Run every integration that calls `/api/v2` against a test instance, because error responses changed.
    Refer to [REST API errors](../Release_Notes/Breaking_Changes_2_3.md#rest-api-errors).
 10. Open each BACnet component and set **Device instance** to the instance of its device, because Profinity now checks it.

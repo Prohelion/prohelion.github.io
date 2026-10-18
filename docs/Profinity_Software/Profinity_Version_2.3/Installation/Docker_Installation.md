@@ -128,4 +128,4 @@ Refer to the [Docker Compose documentation](https://docs.docker.com/compose/) fo
 ## Run Profinity in production
 
 For production environments, and deployments that run many Profinity instances, configure Profinity with environment variables so that one compose file can serve every instance.
-The compose files, `.env` files, and environment-specific deployment examples are in [Set environment variables](./Set_Environment_Variables.md#docker).
+The compose files, `.env` files, and environment-specific deployment examples are in [Environment variables](./Environment_Variables.md#docker).

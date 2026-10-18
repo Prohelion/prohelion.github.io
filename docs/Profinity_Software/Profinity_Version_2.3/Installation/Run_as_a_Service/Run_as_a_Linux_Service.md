@@ -9,11 +9,11 @@ last_reviewed: 2026-10-15
 # Run Profinity as a Linux service
 
 Run Profinity as a systemd service on Linux to start it automatically on boot and restart it if it fails.
-Install Profinity first, as described in [Install Profinity on Linux and macOS](./Linux_and_macOS_Installation.md).
-A service serves the web interface to other machines, and opening it from another machine needs the **Profinity Server** licensed feature, as described in [Run Profinity as a service](./Running_As_Service.md).
+Install Profinity first, as described in [Install Profinity on Linux and macOS](../Linux_and_macOS_Installation.md).
+A service serves the web interface to other machines, and opening it from another machine needs the **Profinity Server** licensed feature, as described in [Run Profinity as a service](./index.md).
 
 On Linux, Profinity runs as a systemd service through the `profinity.sh` launcher in the install root, `/opt/profinity` by default.
-The [bootstrap installer](./Linux_and_macOS_Installation.md#install-with-the-bootstrap-installer) creates the `profinity` service user and the unit file.
+The [bootstrap installer](../Linux_and_macOS_Installation.md#install-with-the-bootstrap-installer) creates the `profinity` service user and the unit file.
 These steps cover systemd, which the installer supports, and on a distribution without systemd you follow that distribution's documentation for running a daemon.
 
 `profinity.sh` supports two ways to start Profinity, selected by the `-s` (`--service`) flag.
@@ -44,7 +44,7 @@ WantedBy=multi-user.target
 ```
 
 Adjust `WorkingDirectory` and `ExecStart` if you installed with a different `--install-dir`.
-If you installed with `--no-systemd` or from an archive, create the file yourself, and create the `profinity` user and the [artefacts directory](./Artifacts_Directory.md) first:
+If you installed with `--no-systemd` or from an archive, create the file yourself, and create the `profinity` user and the [artefacts directory](../Artifacts_Directory.md) first:
 
 ```bash
 sudo mkdir -p /var/lib/prohelion/profinity
@@ -74,8 +74,8 @@ A typical service layout is:
 | `/opt/profinity` | Install root: `profinity.sh`, `update.sh`, `VERSION`, `edition.json` |
 | `/opt/profinity/app` | Profinity binaries, self-contained or portable |
 
-To update an installed copy, refer to [Update Profinity](./Linux_and_macOS_Installation.md#update-profinity).
-Set environment variables for a service as `Environment=` lines in the `[Service]` section of the unit, because a service does not read `~/.bashrc`, as described in [Set environment variables](./Set_Environment_Variables.md#linux-and-macos).
+To update an installed copy, refer to [Update Profinity](../Linux_and_macOS_Installation.md#update-profinity).
+Set environment variables for a service as `Environment=` lines in the `[Service]` section of the unit, because a service does not read `~/.bashrc`, as described in [Environment variables](../Environment_Variables.md#linux-and-macos).
 
 ## Check that the service is running
 

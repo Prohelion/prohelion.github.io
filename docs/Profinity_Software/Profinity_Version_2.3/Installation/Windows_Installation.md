@@ -60,4 +60,4 @@ Refer to [Licensing](../Administration/Licensing.md) for what each edition inclu
 ## Next steps
 
 With a Server licence applied, sign in as `admin`, change the password, and create your own accounts with [Create a user](../Getting_Started/Create_User.md).
-Then work through the [Quick start guide](../Getting_Started/Quick_Start.md), review the [Security guide](./Security.md), and run Profinity in the background with [Run Profinity as a Windows service](./Run_as_a_Windows_Service.md).
+Then work through the [Quick start guide](../Getting_Started/Quick_Start.md), review the [Security guide](./Security.md), and run Profinity in the background with [Run Profinity as a Windows service](./Run_as_a_Service/Run_as_a_Windows_Service.md).

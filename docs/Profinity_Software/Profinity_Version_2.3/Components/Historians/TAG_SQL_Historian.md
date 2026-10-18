@@ -124,7 +124,8 @@ If the settings save but no rows arrive, the Profinity system logs (refer to [Lo
 
 Check the connection string, that the database is reachable from the Profinity server and that the account can write to the table.
 
-!!! warning "Moving a component starts a new history"
-    History is recorded under the tag's path, so moving a component changes its tag paths and the history recorded under the old paths is not carried across. Queries for the new path return a new series with no earlier points. Refer to [Tag Tree Path](../../Tags/Tag_Tree_Path.md).
+!!! warning "Moving a component starts a new history in this historian"
+    This historian records history under the tag's path, so moving a component changes its tag paths and the history recorded under the old paths is not carried across. Queries for the new path return a new series with no earlier points.
+    The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message and signal instead, so their history carries on after a move. Refer to [Change the path on a deployed component](../../Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
 
 For the steps to set up data logging, refer to [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md).

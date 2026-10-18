@@ -10,10 +10,6 @@ nav:
     - Update_Docker_Image.md
     - Migration.md
     - Artifacts_Directory.md
-    - Running_As_Service.md
-    - Run_as_a_Linux_Service.md
-    - Run_as_a_macOS_Service.md
-    - Run_as_a_Windows_Service.md
-    - Set_Environment_Variables.md
+    - Run_as_a_Service
     - Environment_Variables.md
     - Security.md

@@ -9,10 +9,10 @@ last_reviewed: 2026-10-15
 # Run Profinity as a macOS service
 
 Run Profinity as a launchd service on macOS to start it automatically on boot and restart it if it fails.
-Install Profinity first, as described in [Install Profinity on Linux and macOS](./Linux_and_macOS_Installation.md).
-A service serves the web interface to other machines, and opening it from another machine needs the **Profinity Server** licensed feature, as described in [Run Profinity as a service](./Running_As_Service.md).
+Install Profinity first, as described in [Install Profinity on Linux and macOS](../Linux_and_macOS_Installation.md).
+A service serves the web interface to other machines, and opening it from another machine needs the **Profinity Server** licensed feature, as described in [Run Profinity as a service](./index.md).
 
-On macOS, Profinity is installed with the same [bootstrap installer](./Linux_and_macOS_Installation.md#install-with-the-bootstrap-installer) as Linux, into `/opt/profinity` by default, and `launchd` runs it as a service in the role systemd fills on Linux.
+On macOS, Profinity is installed with the same [bootstrap installer](../Linux_and_macOS_Installation.md#install-with-the-bootstrap-installer) as Linux, into `/opt/profinity` by default, and `launchd` runs it as a service in the role systemd fills on Linux.
 
 1. Create a plist file:
 
@@ -59,6 +59,6 @@ It does not use `-s` (`--service`), which selects service-mode host integration 
 Always start Profinity through `profinity.sh`, because it also bootstraps the .NET runtime for the portable macOS build when needed.
 
 To check that the service is running, run `sudo launchctl list | grep com.profinity.service`, which lists the service when it is loaded.
-If the service does not start, read the `profinity_<date>.log` file in the `logs` folder of the artefacts directory (refer to [Artefacts directory](./Artifacts_Directory.md)).
+If the service does not start, read the `profinity_<date>.log` file in the `logs` folder of the artefacts directory (refer to [Artefacts directory](../Artifacts_Directory.md)).
 Launchd discards console output unless you add `StandardOutPath` and `StandardErrorPath` keys to the plist.
 A "file not found" error means the path to `profinity.sh` in the plist does not match where Profinity is installed, so correct the path in the service configuration and start the service again.

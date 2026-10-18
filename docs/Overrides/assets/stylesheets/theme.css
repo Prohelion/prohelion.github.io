@@ -41,6 +41,11 @@
     --md-mermaid-label-fg-color: var(--md-primary-fg-color);
 }
 
+/* Material loads Mermaid after the page paints, so the raw diagram source shows until it renders. Hide the unrendered block (it is replaced by a div once drawn) but keep its space so the page does not jump. */
+.md-typeset pre.mermaid {
+    visibility: hidden;
+}
+
 .md-typeset .mermaid .flowchart-link {
     stroke-width: 2px;
 }

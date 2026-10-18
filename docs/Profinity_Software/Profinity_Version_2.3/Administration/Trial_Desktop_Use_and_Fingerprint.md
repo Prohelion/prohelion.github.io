@@ -37,6 +37,7 @@ A Desktop installation does not need a licence for personal use, and does not is
 It keeps the unlicensed entitlement set indefinitely and shows a notice on the Home screen explaining the non-commercial-use restriction and directing commercial users to contact Prohelion to purchase a Desktop licence.
 If a trial or commercial `license.yaml` is installed on a Desktop host manually, Profinity validates and applies it in the same way as on a server host.
 A Desktop host that holds a Server licence also accepts connections from other machines and creates the default `admin` account, as a server host does; the built-in desktop sign-in used by the application window still works from the same computer only.
+Do not put a reverse proxy on the same computer in front of a Desktop host, because requests that come through it look as if they came from the computer itself. Profinity refuses the desktop sign-in on a request that carries forwarding headers, but the safe set-up is to run Profinity as a server host behind the proxy instead.
 
 ## The machine fingerprint
 

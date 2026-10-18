@@ -13,7 +13,7 @@ To install on a Linux server or embedded device, or on any host where Profinity 
 Profinity does not need Prohelion hardware to run.
 
 An archive installation needs no installer.
-To have Profinity start on boot, configure the extracted files as a service by following [Run Profinity as a service](./Running_As_Service.md).
+To have Profinity start on boot, configure the extracted files as a service by following [Run Profinity as a service](./Run_as_a_Service/index.md).
 
 A separate archive is published for each supported host architecture.
 Select the archive that matches the host operating system and CPU architecture.
