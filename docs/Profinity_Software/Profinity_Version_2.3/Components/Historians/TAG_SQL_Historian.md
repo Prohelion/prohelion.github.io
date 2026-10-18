@@ -78,6 +78,22 @@ When **Auto Create Table** is enabled the historian creates a table with the fol
 | `Reason` | Why the sample was recorded. |
 | `Message` | An optional message. |
 
+For example, a motor speed tag is stored as this row:
+
+| Column | Example |
+|---|---|
+| `Id` | `1` |
+| `RecvTime` | `2026-10-18T09:15:02.1234567+10:00` |
+| `TagId` | `Inverter/DBC/Status/Speed` |
+| `ValueType` | `Double` |
+| `Value` | `23.4` |
+| `UtcTimestamp` | `2026-10-18T09:15:02.0000000Z` |
+| `Quality` | `Good` |
+| `Reason` | `ok` |
+| `Message` | empty |
+
+A row for a tag that is Unavailable or Bad has the same layout with an empty `ValueType` and `Value`, and its `Quality` says why there is no reading.
+
 The columns follow the same field set as the tag change file logger described in [Tag file and SFTP loggers](../Loggers/Tag_File_and_SFTP_Loggers.md), so history written by either can be interpreted in the same way.
 If you create the table yourself, disable **Auto Create Table** and make sure the account in the connection string can insert into and read from it.
 

@@ -42,6 +42,23 @@ A logger with no collection selected does not start, and its status stays off, s
 
 [Logging modes](../Logging_Modes.md) describes how the modes behave across all collection-based components.
 
+## What a logged line looks like
+
+Each sample is one line. For example, a motor speed tag is written like this in CSV:
+
+```text
+Recv time,TagId,ValueType,Value,UtcTimestamp,Quality,Reason,Message
+2026-10-18T09:15:02.1234567+10:00,Inverter/DBC/Status/Speed,Double,23.4,2026-10-18T09:15:02.0000000Z,Good,ok,
+```
+
+and like this in JSON Lines, where the `t` field is the time the line was written:
+
+```json
+{"t":"2026-10-18T09:15:02.1234567+10:00","tagId":"Inverter/DBC/Status/Speed","valueType":"Double","value":23.4,"utcTimestamp":"2026-10-18T09:15:02.0000000Z","quality":"Good","reason":"ok","message":null}
+```
+
+A Stale sample keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value, so the file shows the gap.
+
 ## Download the logged files
 
 Once a log file has been created, select the link on the Logger Dashboard to download it from Profinity.

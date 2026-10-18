@@ -50,6 +50,22 @@ http://localhost:7065/metrics
 
 Configuring Prometheus to receive and display this data is covered in the Prometheus documentation.
 
+## What Prometheus receives
+
+Each tag in the selected collections is served as one gauge. The name is the profile, component, message and signal joined with underscores, and the labels identify the tag.
+For example, a motor speed signal on a component called `Inverter` is served like this:
+
+```text
+# HELP MyProfile_Inverter_Status_Speed Inverter/DBC/Status/Speed
+# TYPE MyProfile_Inverter_Status_Speed gauge
+MyProfile_Inverter_Status_Speed{profile="MyProfile",component="Inverter",transmitter="",message="Status",signal="Speed",full_tag_id="Inverter_DBC_Status_Speed"} 23.4
+```
+
+The `message` and `signal` labels come from the tag itself. A CAN signal uses its message and signal names from its DBC file, a component property uses the message `_Property_`, and any other tag uses the message `_TagPath_` with its place inside its component as the signal.
+Characters other than letters and digits in names and labels are replaced with underscores, which is why the `full_tag_id` label shows underscores where the tag's path has slashes.
+The value is the latest reading, or `NaN` when the tag is not Good quality.
+
+
 ## If Prometheus shows no data
 
 If the logger cannot open its Prometheus endpoint (for example the port is in use), it shows **Error**, writes the reason to the Profinity system logs (refer to [Logs](../../Administration/Logs_Config.md)) once, and retries every 5 seconds until the problem clears.

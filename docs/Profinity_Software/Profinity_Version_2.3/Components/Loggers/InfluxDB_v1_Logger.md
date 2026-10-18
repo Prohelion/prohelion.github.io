@@ -59,6 +59,30 @@ The **Logging mode** setting applies to this logger, the InfluxDB v2 Historian, 
 
 Every sample is written with its quality in a `quality` field. A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale. A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`, so a chart can show the gap instead of an invented reading. Only tags that hold a number are written, and a query for readings should ask for the `value` field.
 
+## What is stored
+
+Each sample is stored as one point in a measurement named after the profile. For example, a motor speed signal on a component called `Inverter` is stored like this:
+
+| Part | Example | Meaning |
+|---|---|---|
+| Tag `component` | `Inverter` | The component that owns the tag. |
+| Tag `message` | `Status` | The CAN message the signal belongs to. |
+| Tag `signal` | `Speed` | The signal name. |
+| Tag `full_tag_id` | `Inverter/DBC/Status/Speed` | The tag's path when the sample was written. |
+| Field `value` | `23.4` | The reading. |
+| Field `quality` | `Good` | The quality of the reading. |
+
+In InfluxDB line protocol, that point is:
+
+```text
+MyProfile,profile=MyProfile,component=Inverter,message=Status,signal=Speed,full_tag_id=Inverter/DBC/Status/Speed value=23.4,quality="Good" 1792315200000000000
+```
+
+The `component`, `message` and `signal` tags identify the tag in the history.
+A CAN signal is stored under its component, message and signal names from its DBC file, and a component property is stored with the `message` `_Property_` and its dotted name as the `signal`, for example `Settings_Name`.
+Any other tag is stored with the `message` `_TagPath_`, and its place inside its component, joined with underscores, as the `signal`.
+Characters other than letters and digits in these names are replaced with underscores.
+
 InfluxDB Cloud does not support the InfluxDB Health Check API, and **InfluxDB Health Check** is on by default, so set it to off when InfluxDB Cloud is used to store the data.
 
 ## If data does not arrive
