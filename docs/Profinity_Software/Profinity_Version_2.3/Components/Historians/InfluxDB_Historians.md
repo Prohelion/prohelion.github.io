@@ -66,7 +66,7 @@ These settings are the same on both historians.
 | **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
 | **InfluxDB Health Check** | On | Checks the health of the InfluxDB server when the component connects. Turn it off for InfluxDB Cloud. |
 | **Collections** | None | The tag collections whose tags are recorded. At least one collection must be configured before the component starts. |
-| **Logging Interval (Sec)** | 10 | The interval, in seconds, at which data is sent. The minimum is 1. |
+| **Update Interval (Seconds)** | 10 | The interval, in seconds, at which data is sent. From 1 to 86400. |
 | **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On | Starts the historian when the profile is loaded. When off, start it with **Start Logger**. |
 | **Allow Retrieval** | On | Allows data to be retrieved through this historian using the APIs. |

@@ -58,7 +58,7 @@ influx auth create --org my-org --all-access
 
 ## Configure the logging interval and mode
 
-1. Set the **Logging Interval (Sec)**, for example 1 to 5 seconds. A shorter interval gives more granular data but uses more bandwidth, and a longer interval uses less bandwidth but gives coarser data.
+1. Set the **Update Interval (Seconds)**, for example 1 to 5 seconds. A shorter interval gives more granular data but uses more bandwidth, and a longer interval uses less bandwidth but gives coarser data.
 2. Set the **Logging mode** to `Snapshot` to send the current value of every tag on each interval, `On Change` to send the changes recorded during the interval, or `Everything` to send every sample that arrives, including unchanged values.
 3. In **Collections**, add a row for each [tag collection](../Tags/Collections.md) to log and select the collection in that row. The historian starts only when at least one collection is configured, and it logs only the tags that belong to the selected collections.
 

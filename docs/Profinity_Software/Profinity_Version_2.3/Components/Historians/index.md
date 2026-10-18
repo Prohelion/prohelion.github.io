@@ -23,9 +23,9 @@ All three allow the history to be read back through the APIs, and all three have
 
 | Component | Direction | Stores data in | Selects data by | Licence | Interval setting |
 |---|---|---|---|---|---|
-| [InfluxDB v2 Historian](InfluxDB_Historians.md) | Out, and read back through the APIs | An InfluxDB v2 server, using a bucket and organisation | Collections | **Historians** feature | **Logging Interval (Sec)**, default 10, minimum 1 |
-| [InfluxDB v3 Historian](InfluxDB_Historians.md) | Out, and read back through the APIs | An InfluxDB v3 server, using a database | Collections | **Historians** feature | **Logging Interval (Sec)**, default 10, minimum 1 |
-| [TAG SQL Historian](TAG_SQL_Historian.md) | Out, and read back through the APIs | A SQL database: SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL, or Oracle | Collections | **Historians** feature | **Update Interval (Seconds)**, default 10, from 10 to 86400 |
+| [InfluxDB v2 Historian](InfluxDB_Historians.md) | Out, and read back through the APIs | An InfluxDB v2 server, using a bucket and organisation | Collections | **Historians** feature | **Update Interval (Seconds)**, default 10, from 1 to 86400 |
+| [InfluxDB v3 Historian](InfluxDB_Historians.md) | Out, and read back through the APIs | An InfluxDB v3 server, using a database | Collections | **Historians** feature | **Update Interval (Seconds)**, default 10, from 1 to 86400 |
+| [TAG SQL Historian](TAG_SQL_Historian.md) | Out, and read back through the APIs | A SQL database: SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL, or Oracle | Collections | **Historians** feature | **Update Interval (Seconds)**, default 10, from 1 to 86400 |
 
 The InfluxDB v2 Historian needs **InfluxDB Bucket**, **InfluxDB Organisation** and **InfluxDB Token**, all required, and the InfluxDB v3 Historian needs **InfluxDB Database** and **InfluxDB Token**, both required.
 The TAG SQL Historian needs a **Database Provider**, which defaults to SQLite, and a required **Connection String**.

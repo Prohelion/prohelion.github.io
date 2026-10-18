@@ -69,7 +69,7 @@ The **CAN SFTP Logger** and the **TAG SFTP Logger** transmit the files to a serv
     1. **Influx Server URL**: the endpoint InfluxDB is running on.
     2. **InfluxDB Database** for V1, **InfluxDB Bucket** and **InfluxDB Organisation** for V2, or **InfluxDB Database** for V3.
     3. **InfluxDB Username** and **InfluxDB Password** for V1, or **InfluxDB Token** for V2 and V3.
-3. Set the **Logging Interval (Sec)** and the **Logging mode** (`Snapshot`, `On Change` or `Everything`).
+3. Set the **Update Interval (Seconds)** and the **Logging mode** (`Snapshot`, `On Change` or `Everything`).
 4. In **Collections**, add a row for each tag collection to log and select the collection in that row. The logger starts only when at least one collection is configured and logs only the tags that belong to the selected collections.
 5. Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed.
 

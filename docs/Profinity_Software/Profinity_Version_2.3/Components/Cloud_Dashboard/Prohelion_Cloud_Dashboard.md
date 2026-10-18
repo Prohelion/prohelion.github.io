@@ -50,7 +50,7 @@ Add it from **ADD COMPONENT** (refer to [Add a Component to a Profile](../../How
 | **Name** | Prohelion Cloud Dashboard | The name shown in the Profile. |
 | **Prohelion Access Token** | None | The access token for the device. Required, and stored encrypted. |
 | **Prohelion Device ID** | None | The device ID in Prohelion Cloud. Required. |
-| **Update Interval (Seconds)** | 60 | Seconds between samples sent to Prohelion Cloud, from 10 to 86400. |
+| **Update Interval (Seconds)** | 60 | Seconds between samples sent to Prohelion Cloud, from 1 to 86400. |
 | **Collections** | None | The tag collections to send. At least one is required, because the component does not start until a collection is selected. |
 | **Logging mode** | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
 | **Auto Connect** | On | Starts sending when the Profile loads. |

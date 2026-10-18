@@ -50,7 +50,7 @@ Enter the **InfluxDB Database**, add at least one tag collection under **Collect
 | **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
 | **InfluxDB Health Check** | On | Performs a health check on the connection at regular intervals. Turn it off for InfluxDB Cloud. |
 | **Collections** | None | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
-| **Logging Interval (Sec)** | 10 | The interval, in seconds, at which log data is sent, with a minimum of 1. |
+| **Update Interval (Seconds)** | 10 | The interval, in seconds, at which log data is sent, from 1 to 86400. |
 | **Logging mode** | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On | Starts the logger when the profile is loaded. |
 

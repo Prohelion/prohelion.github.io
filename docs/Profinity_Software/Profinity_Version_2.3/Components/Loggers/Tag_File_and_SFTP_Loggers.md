@@ -36,7 +36,7 @@ A logger with no collection selected does not start, and its status stays off, s
 | Setting | Purpose |
 |---|---|
 | **Collections** | The tag collections whose member values are logged. At least one collection must be configured before the logger starts. |
-| **Update Interval (Seconds)** | The interval, in seconds, between writes. The default is 10, and the value must be between 10 and 86400. With **Snapshot** this is how often the current value of each member is written, and with **On Change** or **Everything** it is how often pending changes or samples are flushed. |
+| **Update Interval (Seconds)** | The interval, in seconds, between writes. The default is 10, and the value must be between 1 and 86400. With **Snapshot** this is how often the current value of each member is written, and with **On Change** or **Everything** it is how often pending changes or samples are flushed. |
 | **Logging mode** | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. The default is **Snapshot**. |
 | **File Format** | **CSV** writes one row per sample, with the header `Recv time,TagId,ValueType,Value,UtcTimestamp,Quality,Reason,Message`, and the file uses a `.txt` extension. **JSON Lines** writes one JSON object per line, and the file uses a `.jsonl` extension. The default is **CSV**. In the CSV header, `Recv time` is the local time the line was written and `UtcTimestamp` is the timestamp carried by the tag sample, so the two can differ. |
 

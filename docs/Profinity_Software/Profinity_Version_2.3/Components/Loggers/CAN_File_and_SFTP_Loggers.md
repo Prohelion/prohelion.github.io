@@ -23,7 +23,7 @@ flowchart LR
 
 Both loggers have **Auto Connect**, which is on by default, so a logger begins logging when the Profile loads and needs no further action.
 They record the bus, so they do not use tag collections.
-Both loggers also have **Update Interval (Seconds)**, which defaults to 10 and accepts values from 10 to 86400, and sets the seconds between background updates.
+Both loggers also have **Update Interval (Seconds)**, which defaults to 10 and accepts values from 1 to 86400, and sets the seconds between background updates.
 Their **File Format** setting chooses the layout of the text file, which always uses a `.txt` extension.
 **Prohelion**, the default, writes a line for every packet with a Sent or Received column, and **Tritium** writes the same fields without that column.
 

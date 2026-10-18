@@ -57,7 +57,7 @@ The following tables describe every setting.
 | **Collections** | The tag collections whose tags are recorded. |
 | **Logging mode** | Chooses between **Snapshot**, **On Change** and **Everything**. Defaults to Snapshot. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
 | **Auto Connect** | On by default. Starts the historian when the profile is loaded. When off, start it with **Start Logger**. |
-| **Update Interval (Seconds)** | The interval that controls snapshot timing, or how often changes and samples are flushed to the database. Defaults to 10, and accepts 10 to 86400. |
+| **Update Interval (Seconds)** | The interval that controls snapshot timing, or how often changes and samples are flushed to the database. Defaults to 10, and accepts 1 to 86400. |
 | **Designated tag historian reader** | Makes this historian the store that long-range tag and history queries are read from. Enable it on one component in the profile only. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
 
 ## Table layout

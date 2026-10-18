@@ -78,7 +78,7 @@ Shown only when **Payload** is **Sparkplug B**:
 | **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
 | **Auto Connect** | On | Starts the publisher automatically when the profile is loaded. |
 | **Logging mode** | **Snapshot** | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode publishes. |
-| **Update Interval (Seconds)** | 10 | From 10 to 86400 seconds. In **Snapshot** mode this is how often a full publish runs, and in **On Change** and **Everything** modes it is how often accumulated changes are sent. |
+| **Update Interval (Seconds)** | 10 | From 1 to 86400 seconds. In **Snapshot** mode this is how often a full publish runs, and in **On Change** and **Everything** modes it is how often accumulated changes are sent. |
 
 ## Payload formats
 
