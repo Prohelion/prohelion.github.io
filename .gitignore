@@ -7,3 +7,6 @@ site/
 .DS_Store
 node_modules/
 .claude/settings.local.json
+
+# Local working documents (not committed)
+tasks/
