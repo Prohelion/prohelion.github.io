@@ -1,6 +1,6 @@
 ---
 title: Logging modes
-description: "What the Snapshot, On Change and Everything logging modes send, how the update interval applies in each, and which components differ in defaults and ranges."
+description: "What the Snapshot, On Change and Everything logging modes send, how the update interval applies in each, and where the default interval differs."
 type: concept
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -14,7 +14,7 @@ There are three modes: **Snapshot**, **On Change** and **Everything**.
 ## The three modes
 
 - **Snapshot** sends or writes the current value of every collection member on each interval, whether or not the value changed.
-- **On Change** sends or writes only values that have changed, except as described under [DBC notification mode](#dbc-notification-mode).
+- **On Change** sends or writes only values that have changed.
 - **Everything** sends or writes every sample that arrives, including unchanged values.
 
 **Snapshot** is the default on every component page that states a default.
