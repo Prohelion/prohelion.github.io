@@ -63,7 +63,7 @@ Each row becomes one tag.
 
 ## Dashboard
 
-The component has a dashboard showing its **STATUS**, the number of messages **RECEIVED** and **SENT**, and whether it is **CONNECTED** to the server.
+The component has a dashboard showing its **STATUS**, the number of values read (**RECEIVED**) and values written (**SENT**), and whether it is **CONNECTED** to the server.
 The client has a **Connect / Disconnect** menu action.
 Viewing the dashboard requires the **Security administration** permission, described under [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
 

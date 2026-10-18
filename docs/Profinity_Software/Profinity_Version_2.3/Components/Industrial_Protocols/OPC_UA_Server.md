@@ -61,6 +61,6 @@ A **Bind URL** with a host of `0.0.0.0` or `localhost` is treated in the same wa
 
 ## Dashboard
 
-The component has a dashboard showing its **STATUS**, whether it is **LISTENING**, and **RECEIVED** and **SENT** counters that do not count client requests.
+The component has a dashboard showing its **STATUS**, whether it is **LISTENING**, and the number of client requests **RECEIVED** and responses **SENT** since the server last started listening.
 To check that the server works, look for the status **Listening** and **LISTENING** true, then connect a client to the **Bind URL**, browse **Objects > Profinity** (the `Profinity` folder, NodeId `ns=2;s=Profinity`), and read a tag at `ns=2;s=` followed by its full tag ID.
 Viewing the dashboard requires the **Security administration** permission, described under [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).

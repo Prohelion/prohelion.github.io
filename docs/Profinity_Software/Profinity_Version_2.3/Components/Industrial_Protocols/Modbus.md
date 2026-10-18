@@ -90,7 +90,7 @@ Only the `HoldingRegister` and `Coil` tables can be written.
 
 ## Dashboard
 
-The component dashboard shows the connection **STATUS** (Connected or Disconnected), whether the device is **CONNECTED**, and the number of messages **RECEIVED** and **SENT**.
+The component dashboard shows the connection **STATUS** (Connected or Disconnected), whether the device is **CONNECTED**, and the number of values read (**RECEIVED**) and values written (**SENT**).
 Use the **Connect / Disconnect** menu action to start or stop polling manually.
 Viewing the dashboard requires the **Security administration** permission, described under [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
 
