@@ -15,7 +15,7 @@ Each language supports the same [script types](../Script_Types/index.md) (Run, R
 <!-- Logo sources (page note, not rendered).
      C#: https://github.com/dotnet/brand/tree/main/logo/language-icons (csharp-128.png)
      Python: https://www.python.org/community/logos/
-     Lua: https://www.lua.org/images/ (lua-logo.gif), copyright 1998 Lua.org, graphic design by Alexandre Nakonechnyj -->
+     Lua: https://www.lua.org/images/ (lua-logo.gif) -->
 
 | Language | Typing and style | Main limits |
 |----------|------------------|-------------|

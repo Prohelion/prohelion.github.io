@@ -79,6 +79,7 @@ Acknowledging and silencing both need the **View alerts** permission, and both a
 **Silence** suppresses the actions of the rule for that alert, so no Email, Slack, Webhook, MQTT, script, or log action runs, while the alert stays active and visible with a silence badge.
 Silence lasts one hour, and a silence expired entry then appears in the history.
 Actions that would have run during the hour are skipped, not queued or replayed, so actions run again only the next time the rule fires or clears.
+The silence lasts the full hour even if the alert clears first, so clear actions that fall inside the hour are skipped as well, and a new occurrence of the same alert inside the hour is still silenced.
 
 The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab, and an acknowledged alert shows an **Unacknowledge alert** button in place of Acknowledge.
 

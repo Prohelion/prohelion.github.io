@@ -64,7 +64,7 @@ These settings are the same on both historians.
 | **InfluxDB Token** | None | The security token of the InfluxDB user that Profinity connects as. Required, and stored encrypted. |
 | **Influx Server URL** | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
 | **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
-| **InfluxDB Health Check** | On | Checks the health of the InfluxDB server when the component connects. Turn it off for InfluxDB Cloud. |
+| **InfluxDB Health Check** | On | Checks the health of the InfluxDB server when the component connects and again about every 30 seconds while it runs. Turn it off for InfluxDB Cloud. |
 | **Collections** | None | The tag collections whose tags are recorded. At least one collection must be configured before the component starts. |
 | **Update Interval (Seconds)** | 10 | The interval, in seconds, at which data is sent. From 1 to 86400. |
 | **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
