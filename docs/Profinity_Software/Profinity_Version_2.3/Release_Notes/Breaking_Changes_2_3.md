@@ -69,7 +69,7 @@ The `{COMPONENT_NAME}` placeholder in dashboards still loads and is saved as a r
 
 ## Firmware passcodes
 
-Gen2 battery management systems and Rinstrum scales no longer keep the firmware configuration key or setup passcodes in the profile.
+Gen2 battery management systems no longer keep the firmware configuration key or setup passcodes in the profile.
 Users enter them in the component's settings dialog, and Profinity holds them only for that sign-in session, so anything that relied on a stored passcode must be unlocked again after each sign-in.
 
 ## BACnet device instance
