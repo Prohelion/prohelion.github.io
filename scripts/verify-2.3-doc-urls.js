@@ -20,7 +20,7 @@ const https = require('https');
 const repoRoot = path.resolve(__dirname, '..');
 const docsDir = path.join(repoRoot, 'docs');
 const siteDir = path.join(repoRoot, 'site');
-const checklistPath = path.join(docsDir, 'internal', '2.3-review-checklist.md');
+const checklistPath = path.join(__dirname, '..', 'tasks', 'internal', '2.3-review-checklist.md');
 const baseUrl = (process.env.DOCS_BASE_URL || 'http://127.0.0.1:8000').replace(/\/$/, '');
 const updateChecklist = process.argv.includes('--update-checklist');
 
@@ -138,7 +138,7 @@ function writeChecklist(results) {
     'cd scripts && npm run verify-2.3-urls -- --update-checklist',
     '```',
     '',
-    `**This checklist:** ${baseUrl}/internal/2.3-review-checklist.html`,
+    `**This checklist:** tasks/internal/2.3-review-checklist.md`,
     '',
   ];
 
@@ -168,7 +168,7 @@ function writeChecklist(results) {
     '',
     '---',
     '',
-    `[← Writer brief](${baseUrl}/internal/2.3-writer-brief.html)`,
+    `[← Writer brief](2.3-writer-brief.md)`,
     ''
   );
 
