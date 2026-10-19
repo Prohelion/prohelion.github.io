@@ -3,7 +3,7 @@ title: Themes and branding
 description: "Apply your own colours, logos, and application title to the Profinity web client with a theme.yaml file in the themes folder."
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-19
 ---
 
 # Themes and branding
@@ -26,12 +26,19 @@ The file holds a `version` plus three optional groups.
 | Group | Keys | What they set |
 |-------|------|---------------|
 | `app` | `title` | The application title shown by the web client. |
-| `colors` | `navBackground`, `navForeground`, `primary`, `secondary`, `success`, `warning`, `error` | The navigation colours, and the colours that charts and status displays draw from. |
+| `colors` | `navBackground`, `navForeground`, `primary`, `secondary`, `success`, `warning`, `error` | Navigation fill and foreground, the accent, the secondary colour, and the success, warning, and error colours used by status and charts. |
 | `assets` | `logo`, `loginLogo`, `favicon` | The main logo, the logo on the sign-in page, and the browser tab icon. |
 
 Each asset is a single file name that must exist in `themes/assets` with one of the extensions `.svg`, `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, or `.ico`.
 Colours are hex values, and the three-digit form such as `"#abc"` is expanded to `"#AABBCC"`.
 A value that is not a valid colour is reported in the log and the theme falls back to the defaults.
+A key you leave out keeps that built-in colour.
+`navForeground` colours the text and the icons on navigation surfaces, including the title bar and dialog bars that use the navigation colour.
+`primary` colours accent controls such as focus rings, links, and selection.
+`success`, `warning`, and `error` colour the status lamps, badges, and chart series that already use those colours.
+The lighter wash, the brighter fill, the darker text colour, and the text drawn on a solid status fill are calculated from the colour you set.
+They are not keys in `theme.yaml`.
+Information banners stay the built-in blue.
 
 ## Example `theme.yaml`
 
