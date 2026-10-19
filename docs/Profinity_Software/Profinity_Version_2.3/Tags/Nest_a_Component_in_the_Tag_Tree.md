@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Nest a component in the tag tree
 
 By default each component mounts at the root of the tag tree under its own name, and the **Tag tree path** setting gives it a parent folder so that its tags nest under that location instead.
-To see what nesting does to scopes, dashboard binds, and Historian data, refer to [Tag tree paths and dashboard binds](Tag_Tree_Path.md).
+To see what nesting does to scopes and dashboard binds, refer to [Tag tree paths and dashboard binds](Tag_Tree_Path.md).
 
 To nest a component:
 
@@ -28,7 +28,7 @@ Change the **Tag tree path** or the name of one of the two components until the 
 ## Change the path on a deployed component
 
 !!! warning "Moving a component breaks absolute binds in other dashboards"
-    Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and [Historian](../Components/Historians/index.md) data recorded under the old path is not carried across.
+    Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and history recorded by the [TAG SQL Historian](../Components/Historians/TAG_SQL_Historian.md) under the old path is not carried across.
 
 Changing a deployed component's **Tag tree path**, or renaming it, automatically updates the [Alerts](Alerts.md) and [Collections](Collections.md) that refer to it, along with the profile home dashboard's `source:` bindings.
 Only paths that refer to the moved component are updated, and an unrelated branch with the same name is left alone.
@@ -36,7 +36,9 @@ The same updates appear in `rules.yaml` and `collections.yaml` for anyone who ed
 
 Absolute binds inside other components' dashboards are not updated, because they are literal paths to the old location.
 This includes binds that use the `[TimeSeries]` and `[TimeSeries_Delta]` source prefixes as well as those that begin with a slash.
-Historian data recorded under the old path is not migrated, so a trend spanning the move shows a break at that point.
+History recorded by the TAG SQL Historian under the old path is not migrated, so a trend from it spanning the move shows a break at that point.
+The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message and signal, not by its path, so moving a component does not start a new series in them.
+Renaming a component does, in every historian and logger, because the component name is part of how history is identified.
 Relative binds inside the moved component's own dashboard are unaffected.
 
 Before relocating a component that other dashboards reference by absolute path, search those dashboards for its old path and update any matching `source:` values by hand.

@@ -1,6 +1,6 @@
 ---
 title: Tag tree paths and dashboard binds
-description: Learn how the Tag tree path setting nests a component in the tag tree, and how nesting affects scopes, dashboard binds, and Historian data.
+description: Learn how the Tag tree path setting nests a component in the tag tree, and how nesting affects scopes and dashboard binds.
 type: concept
 owner: Documentation
 last_reviewed: 2026-10-15
