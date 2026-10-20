@@ -1,6 +1,6 @@
 ---
 title: Environment variables
-description: "Set Profinity configuration and profile values from environment variables on Windows, Linux, macOS, or Docker, with the ${VARIABLE_NAME} placeholder syntax and the variables Profinity reads."
+description: "Set Profinity configuration and profile values from environment variables with the ${VARIABLE_NAME} placeholder, and see the variables Profinity reads."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-15

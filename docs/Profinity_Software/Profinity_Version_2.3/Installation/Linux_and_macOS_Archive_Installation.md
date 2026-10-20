@@ -1,12 +1,12 @@
 ---
-title: Install Profinity from an archive on Linux and macOS
+title: Install Profinity from an archive
 description: "Install Profinity on Linux or macOS from a downloaded archive without an installer, choose the archive for your processor, and start it with profinity.sh."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-15
 ---
 
-# Install Profinity from an archive on Linux and macOS
+# Install Profinity from an archive
 
 Install Profinity from a downloaded archive when you are trying it, running it interactively, or installing without root or systemd.
 To install on a Linux server or embedded device, or on any host where Profinity should start on boot, use the [bootstrap installer](./Linux_and_macOS_Installation.md#install-with-the-bootstrap-installer) instead.

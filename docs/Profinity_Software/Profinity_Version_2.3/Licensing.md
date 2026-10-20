@@ -1,6 +1,6 @@
 ---
 title: Licensing
-description: "Find which features each Profinity edition includes, how the licence, custom.yaml and site configuration combine, and how the 14-day local trial, Desktop free use and the machine fingerprint work."
+description: "Find which features each Profinity edition includes, how licence and site settings combine, and how the 14-day trial and machine fingerprint work."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-20
