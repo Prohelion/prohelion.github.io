@@ -41,6 +41,9 @@ copyright: >
 
 plugins:
   - search
+  # Downloads Google Fonts, analytics and Mermaid at build time and serves them
+  # from the site, so pages don't stall waiting on external hosts when offline.
+  - privacy
   - awesome-pages
   - offline
   # - with-pdf

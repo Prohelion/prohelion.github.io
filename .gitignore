@@ -2,6 +2,7 @@ _site/*
 .jekyll-cache/*
 .sass-cache/*
 site/
+.cache/
 
 # Local and tool files. This repo does not rely on any global ignore file.
 .DS_Store
