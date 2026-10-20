@@ -1,0 +1,6 @@
+extends: existence
+message: "Check '%s'. Write in the present tense and avoid promises about the future (style guide 2.4)."
+level: suggestion
+ignorecase: true
+tokens:
+  - will

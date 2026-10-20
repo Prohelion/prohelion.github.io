@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "WaveSculptor Motor Interface Type 7 specifications for sin/cos resolver position sensors and dual NTC thermistor temperature sensing with shielding requirements."
 ---
 
 # WaveSculptor Motor Interface Type 7: Resolver and Thermistor

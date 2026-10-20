@@ -1,5 +1,6 @@
 ---
 title: CAN-TCP Bridging
+description: "Technical reference for configuring and using TCP/IP connections for reliable point-to-point CAN packet bridging."
 ---
 
 # CAN-TCP Bridging

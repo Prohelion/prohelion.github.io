@@ -1,0 +1,19 @@
+extends: existence
+message: "Remove the marketing or filler wording '%s' (style guide 2.6)."
+level: error
+ignorecase: true
+tokens:
+  - powerful
+  - seamless
+  - seamlessly
+  - cutting-edge
+  - industry-leading
+  - comprehensive suite
+  - robust
+  - leverage
+  - delve
+  - "let's dive in"
+  - "in today's"
+  - "it's worth noting"
+  - "it is worth noting"
+  - in conclusion

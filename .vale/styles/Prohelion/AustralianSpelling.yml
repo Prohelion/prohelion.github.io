@@ -1,0 +1,18 @@
+extends: substitution
+message: "Use Australian spelling: '%s' instead of '%s' (style guide 2.5)."
+level: warning
+ignorecase: true
+swap:
+  color: colour
+  colors: colours
+  behavior: behaviour
+  behaviors: behaviours
+  organization: organisation
+  organizations: organisations
+  organize: organise
+  customize: customise
+  customization: customisation
+  initialize: initialise
+  enrollment: enrolment
+  artifact: artefact
+  artifacts: artefacts

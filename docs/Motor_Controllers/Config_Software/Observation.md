@@ -1,5 +1,6 @@
 ---
 title: Observation
+description: "Main observation screen displaying WaveSculptor status, measurements, error conditions, limiting setpoints, and real-time CAN bus traffic monitoring."
 ---
 
 # Observation

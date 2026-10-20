@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS M48 Gen1
+description: "Prohelion BMS M48 Gen1 Battery Management System for 48V battery packs up to 22 cells with integrated precharge, charge, and discharge control with cell balancing."
 ---
 
 # Prohelion BMS M48 Gen1 

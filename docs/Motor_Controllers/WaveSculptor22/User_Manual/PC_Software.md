@@ -1,11 +1,12 @@
 ---
 title: PC Software
+description: "WaveSculptor22 PC software configuration via Profinity with CAN-Ethernet bridge installation and network testing procedures."
 ---
 
 # PC Software
 
 !!! info "WaveSculptor Software is now bundled in Prohelion Profinity"
-    To download the PC Software to configure your WaveSculptor, download Profinity and configure a [WaveSculptor](../../../Profinity_Software/Profinity_Version_2.2/Components/Motor_Controller/index.md) in your Profile.
+    To download the PC Software to configure your WaveSculptor, download Profinity and configure a [WaveSculptor](../../../Profinity_Software/Profinity_Version_2.3/Components/Motor_Controller/index.md) in your Profile.
 
 Refer to the [Software Download](https://www.prohelion.com/software/) section on the Prohelion Website for the Configuration & Setup software tool download, while you can download the Configuration Tools separately, we recommend Prohelion Profinity, which integrates the tools as well as a number of other useful utilities.
 

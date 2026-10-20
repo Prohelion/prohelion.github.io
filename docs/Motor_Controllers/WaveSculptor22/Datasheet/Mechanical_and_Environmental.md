@@ -1,5 +1,6 @@
 ---
 title: Mechanical and Environmental
+description: "WaveSculptor22 mechanical dimensions, mass, environmental protection rating (IP42), and M6 fastening specifications."
 ---
 
 # Mechanical and Environmental

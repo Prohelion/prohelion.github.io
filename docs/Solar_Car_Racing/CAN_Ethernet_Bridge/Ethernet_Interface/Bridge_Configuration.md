@@ -1,5 +1,6 @@
 ---
 title: Bridge Configuration
+description: "Protocol specification for configuring CAN bitrate and bus number on the bridge via TCP Ethernet connection."
 ---
 
 # Bridge Configuration

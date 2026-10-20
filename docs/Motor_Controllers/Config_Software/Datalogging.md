@@ -1,5 +1,6 @@
 ---
 title: Datalogging
+description: "Configure WaveSculptor data logging with adjustable update rates (200ms, 1s, 10s) to record telemetry and drive commands in comma-delimited text files."
 ---
 
 # Datalogging
@@ -9,4 +10,4 @@ A system for logging data is provided under Log on the main menu. It has three o
 The format of the log file is a comma delimited text file with one header row and six decimal points of accuracy on each measurement. All of the telemetry data received and drive commands sent are logged in the file. Refer to the [Users Manual](../WaveSculptor22/User_Manual/index.md) for information on decoding the limiter and error bit fields (displayed in Hex)
 
 !!! info "More Advanced Data Logging Is Available In Profinity"
-    If you require more advanced data logging then [Profinity Logging](../../Profinity_Software/Profinity_Version_2.2/CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) is the solution to use.
+    If you require more advanced data logging then [Profinity Logging](../../Profinity_Software/Profinity_Version_2.3/CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) is the solution to use.

@@ -1,0 +1,10 @@
+nav:
+    - index.md
+    - Selecting_Tags
+    - Collections
+    - Derived_Tags
+    - Rules
+    - Alerts.md
+    - Tag_Relay.md
+    - Tag_Logs
+    - Create_Collections_Rules_and_Bindings_from_Tags.md

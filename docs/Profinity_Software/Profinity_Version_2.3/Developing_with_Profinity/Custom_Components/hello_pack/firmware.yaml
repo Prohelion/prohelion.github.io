@@ -1,0 +1,3 @@
+version: "2.3"
+loadScript: scripts/load_firmware.py
+saveScript: scripts/save_firmware.py

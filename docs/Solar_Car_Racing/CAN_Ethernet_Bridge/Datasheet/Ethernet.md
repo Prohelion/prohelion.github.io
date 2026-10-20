@@ -1,5 +1,6 @@
 ---
 title: Ethernet
+description: "RJ-45 Ethernet interface specifications for the CAN-Ethernet bridge covering 10/100 Mbps operation and IP configuration modes."
 ---
 
 # Ethernet

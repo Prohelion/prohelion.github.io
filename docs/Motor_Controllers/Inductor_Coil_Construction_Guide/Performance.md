@@ -1,5 +1,6 @@
 ---
 title: Performance
+description: "Measured inductance performance of constructed 50µH solarcar inductors across varying current levels, showing gradual inductance decay with current."
 ---
 
 # Performance

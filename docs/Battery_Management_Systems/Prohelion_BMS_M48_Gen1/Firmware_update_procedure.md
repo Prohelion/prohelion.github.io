@@ -1,5 +1,6 @@
 ---
 title: Firmware Update Procedure
+description: "Firmware update procedure for the Prohelion 48V Battery Management System, including setup steps and flashing process using PEAK-CAN USB adapter and Profinity software."
 ---
 
 # Firmware Update Procedure

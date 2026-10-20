@@ -1,5 +1,6 @@
 ---
 title: Prohelion WaveSculptor Motor Controllers
+description: "Complete documentation for Prohelion WaveSculptor motor controllers, motor sense interfaces, inductor coils, and configuration software for electric vehicle motor management."
 ---
 
 # WaveSculptor 22
@@ -117,7 +118,7 @@ title: Prohelion WaveSculptor Motor Controllers
 
     Our WaveSculptor22 and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Management Software](../Profinity_Software/Profinity_Version_2.2/Components/Motor_Controller/index.md)
+    [:octicons-arrow-right-24: Management Software](../Profinity_Software/Profinity_Version_2.3/Components/Motor_Controller/index.md)
 
 
 </div>

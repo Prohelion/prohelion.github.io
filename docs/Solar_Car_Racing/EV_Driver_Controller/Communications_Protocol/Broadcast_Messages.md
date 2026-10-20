@@ -1,5 +1,6 @@
 ---
 title: Broadcast Messages
+description: "CAN message format specifications for broadcast identification and drive command messages from EV driver controls."
 ---
 
 # Broadcast Messages

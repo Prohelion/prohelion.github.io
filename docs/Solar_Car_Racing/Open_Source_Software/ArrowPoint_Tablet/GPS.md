@@ -1,5 +1,6 @@
 ---
 title: GPS
+description: "Work-in-progress GPS tracking feature displaying real-time vehicle latitude and longitude coordinates."
 ---
 
 The GPS tracking function is still a work in progress at this point, but we intend in the longer term for this to be used for lap tracking or position information (for example distance to next stop).

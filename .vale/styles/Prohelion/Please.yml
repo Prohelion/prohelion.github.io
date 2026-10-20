@@ -1,0 +1,6 @@
+extends: existence
+message: "Do not use 'please' in documentation (style guide 2.5)."
+level: error
+ignorecase: true
+tokens:
+  - please

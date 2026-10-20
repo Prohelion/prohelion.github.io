@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2 - Battery Junction Unit
+description: "Battery Junction Unit support for the Prohelion BMS D1000 Gen2, including Isabellenhuette IVT-S high precision current measurement and multi-voltage monitoring."
 ---
 
 This section provides information on the Prohelion D1000 Gen2 Battery Junction Unit (BJU). 

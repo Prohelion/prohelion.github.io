@@ -1,5 +1,6 @@
 ---
 title: Control and Telemetrey Interface
+description: "WaveSculptor200 CAN bus control and telemetry interface specifications, including power supply requirements, data rates, and isolation ratings."
 ---
 
 # Control and Telemetry Interface

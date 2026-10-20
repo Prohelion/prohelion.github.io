@@ -1,0 +1,10 @@
+nav:
+    - index.md
+    - Core_Elements.md
+    - Visual_Editor.md
+    - Data_Binding
+    - Store_Dashboard_Files.md
+    - Motor_Controller_Dashboard_Example.md
+    - Troubleshooting.md
+    - FAQ.md
+    - Component_Reference

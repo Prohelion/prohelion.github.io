@@ -1,5 +1,6 @@
 ---
 title: High Power Connections
+description: "WaveSculptor200 high-power DC and motor phase connections, cable specifications, precharge, and HV isolation requirements."
 ---
 
 # High Power Connections

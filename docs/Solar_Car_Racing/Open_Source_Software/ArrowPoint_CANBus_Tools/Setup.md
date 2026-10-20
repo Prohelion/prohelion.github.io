@@ -1,5 +1,6 @@
 ---
 title: Setup
+description: "Installation and usage instructions for the ArrowPoint CAN Bus diagnostic tool for logging and replaying traffic."
 ---
 ## Installation
 Installation of the ArrowPoint-CAN Bus tools can be achieved simply by running the ArrowPointDiagnosticTool.exe in the following directory: 

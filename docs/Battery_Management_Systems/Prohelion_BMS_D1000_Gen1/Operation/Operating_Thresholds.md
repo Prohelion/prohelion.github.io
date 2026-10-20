@@ -1,5 +1,6 @@
 ---
 title: Operating Thresholds
+description: "Configurable operating thresholds for the Prohelion BMS D1000 Gen1, including over/under voltage, balance voltage, temperature limits, and SOC control points."
 ---
 
 # Operating Thresholds

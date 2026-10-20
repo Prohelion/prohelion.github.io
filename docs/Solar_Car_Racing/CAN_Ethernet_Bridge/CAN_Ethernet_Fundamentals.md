@@ -1,5 +1,6 @@
 ---
 title: CAN & Ethernet Fundamentals
+description: "Fundamental concepts of CAN Bus and Ethernet protocols, covering UDP vs TCP communication models for network integration."
 ---
 
 Unsurprisingly the fundamental purpose of the Can to Ethernet bridge is to connect CAN Bus networks to Ethernet based networks and support bi-directional communications.

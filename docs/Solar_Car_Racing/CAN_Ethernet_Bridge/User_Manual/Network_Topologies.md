@@ -1,5 +1,6 @@
 ---
 title: Network Topologies
+description: "Network topology designs for CAN-Ethernet bridge deployments including single, multiple bus, and multi-bridge configurations."
 ---
 
 # Network Topologies

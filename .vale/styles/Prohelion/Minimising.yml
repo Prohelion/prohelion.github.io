@@ -1,0 +1,11 @@
+extends: existence
+message: "Remove '%s'. A step that is not simple for the reader should not be called simple (style guide 2.4)."
+level: error
+ignorecase: true
+tokens:
+  - simply
+  - easily
+  - straightforward
+  - merely
+  - obviously
+  - '\bjust (?:click|select|add|set|run|enter|type|copy|paste|use|open|press|choose|edit|save|create|restart)\b'

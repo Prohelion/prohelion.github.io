@@ -1,0 +1,12 @@
+version: "2.3"
+sections:
+  - id: general
+    displayName: General
+    categories:
+      - id: notes
+        displayName: Notes
+        fields:
+          notes:
+            name: Notes
+            type: STRING
+            default: First Custom Component

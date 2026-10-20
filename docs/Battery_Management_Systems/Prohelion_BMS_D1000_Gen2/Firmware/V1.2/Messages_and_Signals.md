@@ -1,5 +1,6 @@
 ---
 title: ProhelionBmsD1000Gen2 - DBC Messages and Signals
+description: "CAN bus message and signal definitions for Prohelion BMS D1000 Gen2 V1.2 firmware, including heartbeat, state, current, voltage, and node telemetry messages."
 ---
 <!--- Auto-generated markdown documentation from device CAN database (dbc) -->
 
@@ -25,14 +26,14 @@ This section provides information on the CAN bus messages and signals used in th
 | **0x60d**  | [Node Info](#nodeinfo)                        |
 | **0x60e**  | [Node Cell Info](#nodecellinfo)               |
 | **0x60f**  | [Node Temp Info](#nodetempinfo)               |
-| **0x610**  | [Node𝑛Voltage Info](#node𝑛voltageinfo)      |
-| **0x611**  | [Node𝑛Cell Voltages 1](#node𝑛cellvoltages1) |
-| **0x612**  | [Node𝑛Cell Voltages 2](#node𝑛cellvoltages2) |
-| **0x613**  | [Node𝑛Cell Voltages 3](#node𝑛cellvoltages3) |
-| **0x614**  | [Node𝑛Cell Voltages 4](#node𝑛cellvoltages4) |
-| **0x615**  | [Node𝑛Cell Temps](#node𝑛celltemps)          |
-| **0x616**  | [Node𝑛Stats](#node𝑛stats)                   |
-| **0x617**  | [Node𝑛Diagnostics](#node𝑛diagnostics)       |
+| **0x610**  | [Node𝑛Voltage Info](#nodenvoltageinfo)      |
+| **0x611**  | [Node𝑛Cell Voltages 1](#nodencellvoltages1) |
+| **0x612**  | [Node𝑛Cell Voltages 2](#nodencellvoltages2) |
+| **0x613**  | [Node𝑛Cell Voltages 3](#nodencellvoltages3) |
+| **0x614**  | [Node𝑛Cell Voltages 4](#nodencellvoltages4) |
+| **0x615**  | [Node𝑛Cell Temps](#nodencelltemps)          |
+| **0x616**  | [Node𝑛Stats](#nodenstats)                   |
+| **0x617**  | [Node𝑛Diagnostics](#nodendiagnostics)       |
 | **0x6ef**  | [HVILInfo](#hvilinfo)                         |
 | **0x6f0**  | [Contactor Info](#contactorinfo)              |
 | **0x6f1**  | [Device Watchdog Info](#devicewatchdoginfo)   |

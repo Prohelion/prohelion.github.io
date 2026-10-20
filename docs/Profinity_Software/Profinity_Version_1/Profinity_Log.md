@@ -1,5 +1,6 @@
 ---
 title: Profinity Log
+description: "Documentation for Profinity V1's built-in logging mechanism, including log level configuration and debugging information."
 ---
 
 # Profinity Log

@@ -1,5 +1,6 @@
 ---
 title: Open Source Software
+description: "Overview of open-source ArrowPoint tools for solar racing including telemetry, Android app and CAN utilities."
 ---
 
 Prohelion has Open Sourced some of it's tools developed during racing to help provide a platform for learning and development.  For our commercially supported software systems, please see [Profinity](../../Profinity_Software/index.md).

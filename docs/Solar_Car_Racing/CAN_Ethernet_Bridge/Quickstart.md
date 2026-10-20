@@ -1,5 +1,6 @@
 ---
 title: Quickstart
+description: "Quick start guide for getting CAN-Ethernet bridge up and running with basic setup and connection options."
 ---
   
 There is a lot of information in this article, if you just want to get started quickly then here is the place to start. 

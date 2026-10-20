@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2 - Configuration Parameters
+description: "Configuration parameters reference for Prohelion BMS D1000 Gen2 V1.2 firmware, including device identification, CAN settings, and operating parameters."
 ---
 <!--- Auto-generated markdown documentation from config_map.yaml -->
 

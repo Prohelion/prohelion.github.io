@@ -1,0 +1,12 @@
+version: "2.3"
+name: Hello
+description: First Custom Component tutorial
+author: Prohelion
+pluginVersion: 1.0.0
+requiredSdkVersion: ">=1.0.0"
+componentGroup: Custom
+componentType: CustomComponent
+allowMultiple: true
+mainScript: scripts/hello.py
+dbcFile: hello.dbc
+dashboardFile: hello.yaml

@@ -2,6 +2,7 @@
 title: Solar Charge Controllers by Elmar
 hide:
     - navigation
+description: "Datasheets and user guides for the Elmar range of solar MPPT charge controllers distributed by Prohelion: 3A MPPT, Race MPPT, and Best MPPT."
 ---
 
 <div class="grid cards" markdown>
@@ -44,6 +45,6 @@ hide:
 
     Our MPPT and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../Profinity_Software/Profinity_Version_2.2/Components/MPPT/index.md)
+    [:octicons-arrow-right-24: Supporting Software](../Profinity_Software/Profinity_Version_2.3/Components/MPPT/Elmar_Solar_MPPT.md)
 
 </div>

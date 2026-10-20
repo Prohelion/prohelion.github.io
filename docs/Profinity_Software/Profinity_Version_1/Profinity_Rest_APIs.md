@@ -1,5 +1,6 @@
 ---
 title: Rest APIs & Hosting
+description: "Guide to enabling REST APIs, Swagger, and custom web hosting in Profinity V1, including HTTPS and production configuration."
 ---
 
 # Rest APIs, Swagger and Hosting

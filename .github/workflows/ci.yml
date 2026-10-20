@@ -32,4 +32,14 @@ jobs:
       - run: pip install mkdocs-redirects
       - run: pip install symspellpy
       - run: pip install codespell
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: scripts/package-lock.json
+      - name: Generate llms-full.txt
+        working-directory: scripts
+        run: |
+          npm ci
+          npm run generate-llms
       - run: mkdocs gh-deploy --force

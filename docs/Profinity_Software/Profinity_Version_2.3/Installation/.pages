@@ -1,0 +1,15 @@
+nav:
+    - index.md
+    - Windows_Installation.md
+    - Linux_and_macOS_Installation.md
+    - Linux_and_macOS_Archive_Installation.md
+    - Docker_Installation.md
+    - Docker_One_Line_Installer.md
+    - Applying_a_Licence.md
+    - Upgrade_From_2_2.md
+    - Update_Docker_Image.md
+    - Migration.md
+    - Artifacts_Directory.md
+    - Run_as_a_Service
+    - Environment_Variables.md
+    - Security.md

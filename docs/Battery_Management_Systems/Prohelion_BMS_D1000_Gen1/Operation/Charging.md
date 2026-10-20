@@ -1,12 +1,13 @@
 ---
 title: Charging
+description: "Charger control strategy for the Prohelion BMS D1000 Gen1, including PID-based current control, balancing logic, and constant current/constant voltage charging phases."
 ---
 
 # Charger Control
 
 To charge and balance the pack correctly the BMS must be able to control the charging current in a continuous manner.  Therefore, a charger that is able to be controlled remotely is required.  Battery management systems and chargers that use on/off control will result in slow and/or poor balancing of cells.   
 
-Charging the pack requires an external component, either a charge control loop controlled by software such as [Profinity](../../../Profinity_Software/Profinity_Version_2.2/Components/Chargers_and_Power/index.md) or via a control loop implemented in third party charge control units or in your code.
+Charging the pack requires an external component, either a charge control loop controlled by software such as [Profinity](../../../Profinity_Software/Profinity_Version_2.3/Components/Chargers_and_Power/index.md) or via a control loop implemented in third party charge control units or in your code.
 
 ## High Level Charging Logic
 

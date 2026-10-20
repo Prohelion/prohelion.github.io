@@ -1,5 +1,6 @@
 ---
 title: Control
+description: "Basic driver controls interface for testing WaveSculptor motor controllers with adjustable setpoint sliders for motor current, velocity, and bus current."
 ---
 
 # Control

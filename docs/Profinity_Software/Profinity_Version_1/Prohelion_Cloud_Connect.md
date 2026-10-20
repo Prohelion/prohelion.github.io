@@ -1,5 +1,6 @@
 ---
 title: Prohelion Cloud Connect
+description: "Documentation for secure CAN Bus data sharing via Prohelion Cloud Connect in Profinity V1, including CANpressor compression."
 ---
 
 # Prohelion Cloud Connect

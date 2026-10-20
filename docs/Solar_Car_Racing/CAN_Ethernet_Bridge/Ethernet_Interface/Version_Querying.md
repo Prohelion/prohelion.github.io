@@ -1,5 +1,6 @@
 ---
 title: Version Querying
+description: "Protocol for querying hardware and firmware version information from the CAN-Ethernet bridge via TCP."
 ---
 
 # Version Querying

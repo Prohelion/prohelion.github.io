@@ -1,5 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen2 - DBC Messages and Signals
+description: "CAN bus message and signal definitions for Prohelion BMS D1000 Gen2 V1.1 firmware, including heartbeat, state, current, voltage, and auxiliary data messages."
 ---
 
 This section provides information on the CAN bus messages and signals used in the Prohelion BMS D1000 Gen2. Each message is identified by its unique ID, and the structure, including signals, is described.

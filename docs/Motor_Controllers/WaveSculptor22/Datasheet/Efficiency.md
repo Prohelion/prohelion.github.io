@@ -1,5 +1,6 @@
 ---
 title: Efficiency
+description: "WaveSculptor22 efficiency map and power loss analysis for 160V DC bus operation at various motor torque and speed points."
 ---
 
 # Efficiency

@@ -1,5 +1,6 @@
 ---
 title: Driver Controls
+description: "WaveSculptor200 driver controls installation and testing procedures for interfacing pedals, switches, and vehicle gauges."
 ---
 
 # Driver Controls

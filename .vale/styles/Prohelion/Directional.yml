@@ -1,0 +1,7 @@
+extends: existence
+message: "Name the element instead of pointing to where it sits ('%s')."
+level: warning
+ignorecase: true
+tokens:
+  - '\b(?:the|this) (?:section|page|table|image|diagram|panel|example|list|code) (?:above|below)\b'
+  - '\b(?:described|shown|listed|mentioned|explained|see|refer to) (?:above|below)\b'

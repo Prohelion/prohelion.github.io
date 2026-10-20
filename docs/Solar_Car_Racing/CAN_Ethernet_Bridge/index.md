@@ -1,5 +1,6 @@
 ---
 title: CAN Bus to Ethernet Bridge
+description: "Product overview and navigation hub for CAN-Ethernet bridge documentation including manuals, datasheets, and interface specs."
 ---
 
 <div class="grid cards" markdown>
@@ -34,6 +35,6 @@ title: CAN Bus to Ethernet Bridge
 
     Our battery and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../../Profinity_Software/Profinity_Version_2.2/Components/Adaptors/CAN_Bus_Adapters.md)
+    [:octicons-arrow-right-24: Supporting Software](../../Profinity_Software/Profinity_Version_2.3/Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md)
 
 </div>

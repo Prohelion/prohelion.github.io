@@ -1,5 +1,14 @@
 site_name: Prohelion Documentation
 site_url: https://docs.prohelion.com
+site_description: >-
+  Official technical documentation for Prohelion's Profinity CAN bus management
+  software, Battery Management Systems, Motor Controllers, Solar Charge
+  Controllers, and Solar Car Racing electronics.
+
+# Team-only working pages (writer brief, review checklist, to-do). Excluded so they
+# never reach the built site, the sitemap or the search index.
+exclude_docs: |
+  internal/
 
 extra_css:
   - assets/stylesheets/theme.css
@@ -32,6 +41,9 @@ copyright: >
 
 plugins:
   - search
+  # Downloads Google Fonts, analytics and Mermaid at build time and serves them
+  # from the site, so pages don't stall waiting on external hosts when offline.
+  - privacy
   - awesome-pages
   - offline
   # - with-pdf

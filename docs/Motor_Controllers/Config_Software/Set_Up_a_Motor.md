@@ -1,5 +1,6 @@
 ---
 title: Set Up a Motor 
+description: "Step-by-step procedures for configuring BLDC, IPM, and induction motors with WaveSculptor, including tuning and validation for each motor type."
 ---
 
 # Set Up a Motor

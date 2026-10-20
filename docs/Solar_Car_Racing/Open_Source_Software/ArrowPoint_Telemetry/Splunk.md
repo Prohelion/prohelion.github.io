@@ -1,5 +1,6 @@
 ---
 title: Splunk
+description: "Integration with Splunk for complex telemetry data analysis and reporting with commercial licensing options."
 ---
 
 If enabled in the Configuration the Telemetry system will send data to splunk for reporting and management. From here you can undertake complex data analysis using tools like the Long Term Analysis tool, which allows you to view any data points across any time range

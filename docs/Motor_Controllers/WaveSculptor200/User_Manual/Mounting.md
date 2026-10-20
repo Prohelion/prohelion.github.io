@@ -1,5 +1,6 @@
 ---
 title: Mounting
+description: "WaveSculptor200 mounting location selection, orientation requirements, environmental sealing, and mechanical installation procedures."
 ---
 
 # Mounting

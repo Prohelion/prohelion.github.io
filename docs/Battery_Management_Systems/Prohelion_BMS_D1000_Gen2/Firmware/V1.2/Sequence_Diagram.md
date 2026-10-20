@@ -1,3 +1,7 @@
+---
+description: "BMS D1000 Gen2 state machine sequence diagrams for V1.2 firmware, illustrating Idle, Enable, Charge, Safe, and error handling sequences."
+---
+
 # BMS D1000 Gen2 State Sequence Diagram
 
 ## Idle Sequence

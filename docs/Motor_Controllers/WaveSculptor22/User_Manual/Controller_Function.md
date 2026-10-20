@@ -1,5 +1,6 @@
 ---
 title: Controller Function
+description: "WaveSculptor22 four-quadrant motor drive operation including torque, motor current, regenerative braking, and power conversion principles."
 ---
 
 # Controller Function

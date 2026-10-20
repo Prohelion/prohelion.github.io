@@ -1,5 +1,6 @@
 ---
 title: Fleet Messaging
+description: "Private messaging system for fleets enabling message sending between telemetry and ArrowPoint tablet apps."
 ---
 
 Under the Fleet Management menu item in the Telemetry system you will find a Fleet Message Management box.  From here you can chose to send private messages via the Wifi network to other vehicles in the fleet.

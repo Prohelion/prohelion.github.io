@@ -1,5 +1,6 @@
 ---
 title: Telemetry Viewing Software
+description: "Telemetry viewing software for the Prohelion BMS D1000 Gen1 in Profinity, displaying BMU and CMU data, status indicators, and real-time cell voltage monitoring."
 ---
 
 # Telemetry Viewing Software
@@ -7,7 +8,7 @@ title: Telemetry Viewing Software
 The Prohelion Battery Management System should be monitored using [Prohelion Profinity](../../../Profinity_Software/index.md).
 
 <figure markdown>
-![BMS Viewing Software](../../../Profinity_Software/Profinity_Version_2.2/images/prohelion_bmu.png)
+![BMS Viewing Software](../../../Profinity_Software/Profinity_Version_2.3/images/prohelion_bmu.png)
 <figcaption>BMS Viewing Software</figcaption>
 </figure>
 

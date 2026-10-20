@@ -1,6 +1,6 @@
 ---
 title: Prohelion BMS D1000 Gen1
-
+description: "Prohelion BMS D1000 Gen1 Battery Management System interface and installation guide for monitoring and controlling electric vehicle battery packs."
 ---
 
 # Prohelion BMS D1000 Gen1

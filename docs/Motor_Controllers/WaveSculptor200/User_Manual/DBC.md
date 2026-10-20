@@ -1,5 +1,6 @@
 ---
 title: DBC File
+description: "WaveSculptor200 CAN database (DBC) format file for decoding CAN packets and telemetry messages in third-party tools."
 ---
 
 # Prohelion WaveSculptor 200 DBC File

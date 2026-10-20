@@ -1,0 +1,14 @@
+nav:
+    - index.md
+    - System_Configuration
+    - Users_and_Access
+    - Profiles.md
+    - Profile_Dashboard.md
+    - Menu_Layout.md
+    - Install_and_Manage_Plugins.md
+    - Choose_Available_Components.md
+    - Kiosk_Mode.md
+    - Logs_Config.md
+    - Feedback.md
+    - System_Info.md
+    - License_Manager.md

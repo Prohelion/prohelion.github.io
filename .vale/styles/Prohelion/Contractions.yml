@@ -1,0 +1,29 @@
+extends: existence
+message: "Do not use the contraction '%s' in commercial product documentation (style guide 2.6)."
+level: error
+ignorecase: true
+tokens:
+  - don't
+  - doesn't
+  - didn't
+  - isn't
+  - aren't
+  - wasn't
+  - weren't
+  - can't
+  - won't
+  - couldn't
+  - shouldn't
+  - wouldn't
+  - haven't
+  - hasn't
+  - it's
+  - that's
+  - there's
+  - here's
+  - you're
+  - you'll
+  - you've
+  - we're
+  - they're
+  - let's

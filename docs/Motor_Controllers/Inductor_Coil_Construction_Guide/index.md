@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "Guide to constructing 50µH 100A inductors for Prohelion WaveSculptor motor controllers using toroid cores, litz wire, and transformer varnish protection."
 ---
 
 # 50µH Solarcar Inductors Construction Guide

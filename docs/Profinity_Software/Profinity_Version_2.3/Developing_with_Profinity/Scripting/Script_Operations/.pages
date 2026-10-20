@@ -1,0 +1,9 @@
+nav:
+  - index.md
+  - Console.md
+  - State.md
+  - Tags.md
+  - CANBus.md
+  - DBC.md
+  - Settings.md
+  - Action.md

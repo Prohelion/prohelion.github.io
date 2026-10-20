@@ -1,5 +1,6 @@
 ---
 title: Cell Management Unit
+description: "Overview of the Prohelion BMS D1000 Gen1 Cell Management Unit including installation, dimensions, isolation design, voltage ratings, and CAN bus connectivity."
 ---
 
 # Cell Management Unit 

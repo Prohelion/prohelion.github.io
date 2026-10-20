@@ -1,5 +1,6 @@
 ---
 title: Warnings
+description: "Safety warnings and best practices for the Prohelion BMS D1000 Gen2 installation, including electrical hazards, fusing requirements, and system design considerations."
 ---
 
 # Warnings

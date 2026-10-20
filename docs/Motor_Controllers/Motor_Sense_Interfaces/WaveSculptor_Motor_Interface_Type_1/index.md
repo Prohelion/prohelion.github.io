@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: "WaveSculptor Motor Interface Type 1 specifications for hall effect position sensors and NTC thermistor temperature sensing with 12V or 5V pull-up options."
 ---
 
 # WaveSculptor Motor Interface Type 1: Halls and Thermistor

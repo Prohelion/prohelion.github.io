@@ -1,5 +1,6 @@
 ---
 title: DC Bus
+description: "WaveSculptor22 DC bus power specifications with 165V maximum voltage and 122A current ratings for regenerative braking and drive."
 ---
 
 # DC Bus

@@ -1,5 +1,6 @@
 ---
 title: Environmental
+description: "WaveSculptor200 environmental protection ratings, waterproofing requirements, and mounting position specifications."
 ---
 
 # Environmental

@@ -1,0 +1,76 @@
+---
+title: Profinity AI settings
+description: "Set the provider, model, API key, web search and timeout for the instance-wide Profinity AI assistant, and see what data leaves the instance."
+type: reference
+owner: Documentation
+last_reviewed: 2026-10-14
+---
+
+# Profinity AI settings
+
+Profinity AI is an instance-wide chat assistant, configured once by an administrator and then made available to any permitted user from the side menu.
+A single configuration applies to the whole instance.
+Profinity 2.3 does not support per-user API keys or per-user provider selection.
+
+!!! info "Licence required"
+    Profinity AI requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions.
+    Without it the feature is unavailable.
+    Refer to [Licensing](../../Licensing.md) for what each edition includes.
+
+Once enabled, the assistant can query live data from this Profinity instance through the built-in Model Context Protocol (MCP) server, search docs.prohelion.com for how-to and reference material, and, if the administrator enables it, search the web.
+Requests are answered by an external AI provider (Claude, OpenAI, or OpenRouter) or by a local, self-hosted model.
+
+## Enable Profinity AI
+
+Select **ADMIN** in the side menu, then **System Configuration**, find the **Profinity AI** category, and set the fields in this table.
+
+| Field | Description |
+|-------|-------------|
+| **Enable Profinity AI** | Turns the feature on for the instance. Enabling it also turns on the MCP server, since Profinity AI depends on it. |
+| **Provider** | **Claude**, **OpenAI**, **OpenRouter**, or **Local / self-hosted**. |
+| **Base URL** | Absolute `http(s)` URL of a local or self-hosted OpenAI-compatible endpoint, for example Ollama. Shown and required only when Provider is **Local**. |
+| **Model** | The model identifier to send to the provider. |
+| **API Key** | The provider's API key, stored encrypted and masked in the UI. Not shown or required when Provider is **Local**. |
+| **Enable web search** | Lets the assistant search the web as part of answering a question. Available for **Claude**, **OpenAI**, and **OpenRouter**; not available for **Local**. |
+| **Reasoning** | **Low**, **Medium** (default), or **High**. Higher settings can produce better answers at the cost of a longer response time. |
+| **Response timeout (seconds)** | 30 to 3600, default 300. Local and reasoning-heavy models often need several minutes to respond. |
+| **Enable MCP Server** | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically. It can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. Refer to [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md). |
+
+Profinity rejects a save that leaves the configuration in an inconsistent state, according to these rules:
+
+- The response timeout must fall within 30 to 3600 seconds.
+- A model must be set before Profinity AI can be enabled.
+- Every provider except **Local** requires an API key.
+- **Local** requires a well-formed absolute `http(s)` base URL in place of an API key.
+- The MCP server must stay enabled while Profinity AI is enabled.
+
+Profinity treats a configuration that passes these checks as ready to use.
+It does not make a live test call to the provider when the configuration is saved, so a valid-looking configuration with, for example, a revoked API key is not flagged until a user sends a chat message, and the chat then returns an error.
+When chat fails or times out, check the **API Key**, **Model** and **Base URL**, and raise **Response timeout (seconds)** for slow models.
+
+## Data handling and security
+
+!!! warning "Prompts and data leave the instance boundary"
+    Sending a message through Profinity AI sends the conversation, and any Profinity data the assistant retrieves through MCP to answer it, to the configured provider outside this instance.
+    If web search is enabled, search queries are also sent to the provider's web-search capability, and documentation queries are sent to docs.prohelion.com.
+    Review this data flow against your organisation's security requirements before enabling Profinity AI for a regulated or air-gapped deployment.
+
+The API key is stored encrypted and is never sent to the browser.
+
+Live-data access through MCP is scoped to the permissions of the user asking the question, using a short-lived token minted for that user.
+Profinity AI cannot see data the asking user could not otherwise see through the API.
+
+## Permissions
+
+A user needs the **Profinity AI** permission to see and use the **Profinity AI** menu item.
+This permission also turns on the **MCP integration** permission, since the assistant needs it to query live data on the user's behalf.
+The **Profinity AI** permission is included in the default Administrators role and in the Desktop role, and can be added to or removed from any role like any other permission, as described in [Roles and Permissions](../Users_and_Access/Roles_and_Permissions.md).
+
+Changing the Profinity AI configuration itself requires the **System administration** permission.
+External MCP clients also need the **AI** licensed feature, because the MCP server is part of it.
+
+## Related documentation
+
+- [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md): the live-data connection Profinity AI uses, and how to connect an external MCP client.
+- [AI Chat](../../Profinity_AI/AI_Chat.md): the operator-facing guide to using the chat window.
+- [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#profinity-ai): the chat route, for integrators.
