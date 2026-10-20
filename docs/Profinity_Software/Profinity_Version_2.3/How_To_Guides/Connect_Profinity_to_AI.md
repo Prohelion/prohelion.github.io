@@ -1,15 +1,20 @@
 ---
-title: How to connect Profinity to AI
+title: How to connect Profinity to AI tools like Claude or ChatGPT
 description: "Connect an AI tool or MCP client to Profinity by enabling the MCP server, creating a service account token, and adding the server to the tool."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
-# How to connect Profinity to AI
+# How to connect Profinity to AI tools like Claude or ChatGPT
 
 Connect Profinity to AI tools and large language models (LLMs) using the Model Context Protocol (MCP) server integration.
 Three stages make the connection: enabling the MCP server, creating a service account token, and adding the server to the AI tool.
+
+!!! tip "Profinity also has built-in AI"
+    Profinity includes its own AI assistant, [AI Chat](../Profinity_AI/AI_Chat.md), which answers questions about your live components, tags, and alerts without any external AI tool.
+    To use it, an administrator only needs to enter an API key (token) from Claude, OpenAI, or OpenRouter, or the address of a local model, in [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md).
+    Connect an external AI tool when you want to use Profinity data from that tool instead.
 
 ## Prerequisites
 
@@ -104,6 +109,12 @@ Example questions to ask once the connection works:
 - "Which alerts have been raised in the last hour?"
 - "Plot the motor controller temperature over the last 24 hours"
 
+## Build Profinity content with AI Skills
+
+The MCP server lets an AI tool read data from Profinity, while [AI Skills](../Profinity_AI/AI_Skills.md) lets an AI coding assistant such as Claude Code, Cursor, Codex, or ChatGPT build Profinity dashboards, rules, collections, scripts, plugins, derived tags, and example apps.
+AI Skills reads live data through the MCP server and the live schema through the Profinity REST API, and asks for approval before it saves any change to your instance.
+To add the skills to your AI tool, refer to [Install AI Skills](../Profinity_AI/Install_AI_Skills.md).
+
 ## Troubleshooting
 
 ### The connection fails
@@ -130,5 +141,7 @@ Check that the token was copied completely and that the user's role includes **M
 ## Related pages
 
 - [AI Chat](../Profinity_AI/AI_Chat.md): the built-in chat assistant, which uses the same MCP server
+- [AI Skills](../Profinity_AI/AI_Skills.md): skills that let an AI coding assistant build Profinity dashboards, rules, and scripts
+- [Install AI Skills](../Profinity_AI/Install_AI_Skills.md): add the skills to your AI tool
 - [Scripting](../Developing_with_Profinity/Scripting/index.md): Profinity scripting
 - [APIs](../Integrating_to_Profinity/APIs/index.md): REST API documentation

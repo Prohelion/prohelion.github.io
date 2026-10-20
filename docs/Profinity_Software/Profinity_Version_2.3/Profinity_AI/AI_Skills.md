@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # AI Skills
 
-AI Skills is a pack of seven skills for AI coding assistants such as Claude Code, Cursor, Codex, and ChatGPT that help you build Profinity [dashboards](../Customising_Profinity/Dashboards/index.md), rules, [collections](../Tags/Collections/index.md), [scripts](../Developing_with_Profinity/Scripting/index.md), [plugins](../Developing_with_Profinity/Plugins/index.md), [derived tags](../Tags/Derived_Tags/index.md), and example apps.
+AI Skills is a pack of seven skills for AI coding assistants such as Claude Code, Cursor, Codex, and ChatGPT that help you build Profinity [dashboards](../Customising_Profinity/Dashboards/index.md), [rules](../Tags/Rules/index.md), [collections](../Tags/Collections/index.md), [scripts](../Developing_with_Profinity/Scripting/index.md), [plugins](../Developing_with_Profinity/SDK/Developing_Plugins.md), [derived tags](../Tags/Derived_Tags/index.md), and example apps.
 Every skill works from the live schema and API of your own Profinity instance and from curated examples drawn from Profinity's shipped content, so what it generates matches the conventions of your instance.
 AI Skills runs in your own AI tool, outside Profinity, while [AI Chat](./AI_Chat.md) is the assistant built into the product that answers questions about a running instance.
 To install the skills, refer to [Install AI Skills](./Install_AI_Skills.md).
@@ -18,6 +18,7 @@ For the list of skills, their requirements, and the tools they support, refer to
 
 Each skill is self-contained.
 Before it generates anything, it queries your instance's live schema (`GET /api/v2/UI/schema` for dashboards, and the matching live definitions for rules, collections, and derived tags), so it never relies on a schema remembered from a previous run.
+It also uses your instance's [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md) for live data such as tags and alerts, and the REST API for the schema and for saving configuration, because the MCP Server does not serve dashboard, rule, collection, or derived tag documents.
 It grounds generation in Profinity's own example content rather than invented output.
 For skills that modify your instance (dashboards, rules, collections, and derived tags), the skill shows you the payload and asks for approval before any change goes live, while the read-only skills (script, plugin, and app) generate code and stop.
 
@@ -29,10 +30,12 @@ flowchart LR
     end
     subgraph Instance["Profinity instance"]
         API["REST API"]
+        MCP["MCP Server"]
     end
     Skills --> API
+    Skills --> MCP
 ```
-<figcaption>A skill in your AI tool reads the live schema from the REST API of your Profinity instance, and for skills that modify the instance it sends the generated configuration back after you approve</figcaption>
+<figcaption>A skill in your AI tool reads live data from the MCP Server and the live schema from the REST API of your Profinity instance, and for skills that modify the instance it sends the generated configuration back through the REST API after you approve</figcaption>
 </figure>
 
 ## Use AI Skills instead of AI Chat
@@ -50,11 +53,11 @@ It sees only what your sign-in is permitted to see, and your messages go to whic
 AI Skills also helps people who build on Profinity, because each skill reads the schema and API of your instance and generates what your Profinity version accepts.
 Use the skill that matches what you are building:
 
-- A dashboard or component dashboard: Dashboard Builder.
-- Alert rules, tag collections, or derived tags: Tag Rules, Tag Collections, Derived Tags.
-- An in-profile script, with simulation before you deploy: Script.
-- A custom component plugin, packed for installation: Plugin.
-- An application or integration against the REST API: App.
+- A [dashboard](../Customising_Profinity/Dashboards/index.md) or [component dashboard](../Developing_with_Profinity/Custom_Components/index.md): Dashboard Builder.
+- [Alert rules](../Tags/Rules/index.md), [tag collections](../Tags/Collections/index.md), or [derived tags](../Tags/Derived_Tags/index.md): Tag Rules, Tag Collections, Derived Tags.
+- An in-profile [script](../Developing_with_Profinity/Scripting/index.md), with simulation before you deploy: Script.
+- A custom component [plugin](../Developing_with_Profinity/SDK/Developing_Plugins.md), packed for installation with the [Component Pack CLI](../Developing_with_Profinity/Custom_Components/Component_Pack_CLI.md): Plugin.
+- An application or integration against the [REST API](../Integrating_to_Profinity/APIs/index.md): App.
 
 The Script and Plugin skills work beside the Profinity developer kit (`Profinity.Sdk`, `profinity-script`, and `profinity-component-pack`), which Prohelion supplies on request.
 Refer to [Developing with Profinity](../Developing_with_Profinity/index.md) for the underlying SDK and plugin documentation.
