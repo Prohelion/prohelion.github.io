@@ -41,6 +41,9 @@ jobs:
           npm ci
           npm run generate-llms
       - run: mkdocs build
+      # MkDocs writes sitemap.xml.gz alongside sitemap.xml; GitHub Pages / Fastly
+      # can mishandle that pair and return 500 for some sitemap fetches.
+      - run: rm -f site/sitemap.xml.gz
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site
