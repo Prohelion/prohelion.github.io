@@ -55,6 +55,6 @@ The [Supported Operations](./Script_Operations/index.md) page describes each in 
 
 ## Next steps
 
-Writing and testing a script on a developer machine, before it is copied into a profile, is covered on the [Profinity SDK](../SDK/index.md) page.
+Writing and testing a script on a developer machine, before it is copied into a profile, is covered on [Test a script outside Profinity](../SDK/Test_a_Script.md).
 [Supported Languages](./Supported_Languages/index.md) helps with choosing a language, [Script Types](./Script_Types/index.md) with choosing a script style, and [Supported Operations](./Script_Operations/index.md) lists what a script can do.
 A first script is built in [How to Write Your First Script](../../How_To_Guides/Write_Your_First_Script.md).

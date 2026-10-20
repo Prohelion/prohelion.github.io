@@ -37,4 +37,5 @@ Refer to [Custom Components](../Custom_Components/index.md) and [Component Pack 
 The script framework runs automation inside a profile, in C#, Python, or Lua.
 A script can react to a tag, a CAN message, a rule, or a schedule, run as a service, and write results back to tags.
 The kit includes the tool that creates a script from a template and runs it against a simulated Profinity, before the finished script is copied into a profile.
-Refer to [Scripting](../Scripting/index.md).
+Refer to [Test a script outside Profinity](./Test_a_Script.md).
+What a script can do inside a profile is on [Scripting](../Scripting/index.md).

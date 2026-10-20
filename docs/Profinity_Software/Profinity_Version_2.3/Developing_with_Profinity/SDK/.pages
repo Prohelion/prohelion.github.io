@@ -3,3 +3,4 @@ nav:
     - index.md
     - Developing_Plugins.md
     - Component_Pack_CLI.md
+    - Test_a_Script.md

@@ -49,6 +49,7 @@ const PAGES = [
   { section: 'Dashboards (D19, D29)', id: 'D19', title: 'Dashboard development guide (updated)', md: 'Profinity_Software/Profinity_Version_2.3/Customising_Profinity/Dashboards/index.md' },
   { section: 'Components and plugins (D05, D12, D13, D18, D28)', id: 'D12', title: 'Component types', md: 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Component_Types.md' },
   { section: 'Components and plugins (D05, D12, D13, D18, D28)', id: 'D28', title: 'Component Pack CLI', md: 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/SDK/Component_Pack_CLI.md' },
+  { section: 'Components and plugins (D05, D12, D13, D18, D28)', id: 'D37', title: 'Test a script outside Profinity', md: 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/SDK/Test_a_Script.md' },
   { section: 'Components and plugins (D05, D12, D13, D18, D28)', id: 'D05', title: 'Component catalog disable', md: 'Profinity_Software/Profinity_Version_2.3/Administration/Install_and_Manage_Plugins.md' },
   { section: 'Components and plugins (D05, D12, D13, D18, D28)', id: 'D13', title: 'DLL plugins (Plugin Manager)', md: 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/SDK/Developing_Plugins.md' },
   { section: 'Components and plugins (D05, D12, D13, D18, D28)', id: 'D12', title: 'Custom Components index (updated links)', md: 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md' },
