@@ -49,10 +49,8 @@ A Custom Component script is a file named on the component.
 
 `Profinity.Action` is set only for an entry under `actions`.
 Which values each script reads or writes is on [Component and firmware settings](../Script_Operations/Settings.md).
-The map layout is on [Settings and firmware maps](../../Custom_Components/Settings_and_Firmware_Maps.md), and `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).
+The settings map layout is on [Settings](../../Custom_Components/Settings.md), the firmware map layout is on [Firmware maps](../../Custom_Components/Firmware_Maps.md), and `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).
 The action object is on [Action context](../Script_Operations/Action.md).
-
-New in Profinity 2.3.
 
 ## Script settings
 

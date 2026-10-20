@@ -24,7 +24,7 @@ This guide explains the YAML structure, how to configure components, and how to 
 - [Component Reference](./Component_Reference/index.md) describes each component you can include.
 - [Conditional Styling](./Data_Binding/Conditional_Styling.md) shows how to hide and show elements or change colour based on data.
 - [Store dashboard files in a profile](./Store_Dashboard_Files.md) explains where images, stylesheets, and content files go.
-- [Motor Controller Dashboard Example](./Motor_Controller_Dashboard_Example.md) analyses a complete dashboard for a WaveSculptor22 motor controller.
+- [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md) analyses a complete dashboard for a WaveSculptor22 motor controller, and includes a download of that YAML.
 - [Troubleshooting](./Troubleshooting.md) and the [FAQ](./FAQ.md) cover validation errors, binding problems and common questions.
 
 Dashboards written in YAML before Profinity 2.3 keep working and open in the visual editor.

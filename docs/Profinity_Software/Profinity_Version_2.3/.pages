@@ -7,12 +7,12 @@ nav:
     - Licensing.md
     - Components
     - Tags
-    - CAN_Utilities
-    - Customising_Profinity
-    - Mobile
     - Profinity_AI
     - Administration
-    - Integrating_to_Profinity
+    - CAN_Utilities
+    - Customising_Profinity
     - Developing_with_Profinity
+    - Integrating_to_Profinity
+    - Mobile
     - How_To_Guides
     - Release_Notes

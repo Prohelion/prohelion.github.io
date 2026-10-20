@@ -24,7 +24,7 @@ Start with the [Quick Start Guide](../Getting_Started/Quick_Start.md) if Profini
 ## Add components and connect devices
 
 - [How to Add a Component to Your Profile](./Add_Component_to_Profile.md): configures a component and adds it to the active profile.
-- [How to Create a Custom Component](./Create_Custom_Component.md): adds a new CAN bus device from a DBC file.
+- [How to create a Custom Component](./Create_Custom_Component.md): adds a Custom Component to the profile and attaches optional files.
 - [How to Connect to CAN Bus](./Connect_to_CAN_Bus.md): connects Profinity to a CAN bus network.
 - [How to send and receive CAN bus messages](./Send_Receive_CAN_Bus.md): views CAN traffic, and sends a CAN packet once or on a schedule.
 - [How to replay CAN bus logs](./Replay_CAN_Logs.md): replays recorded CAN bus messages from a log file for testing without live CAN hardware.
@@ -43,6 +43,7 @@ Start with the [Quick Start Guide](../Getting_Started/Quick_Start.md) if Profini
 ## Extend Profinity
 
 - [How to Connect Profinity to AI](./Connect_Profinity_to_AI.md): connects an AI tool to the Model Context Protocol (MCP) server.
+- [Make your first Custom Component](../Developing_with_Profinity/Custom_Components/First_Custom_Component.md): adds a Custom Component with a DBC file, dashboard, main script, menu actions, and firmware.
 - [How to write your first script](./Write_Your_First_Script.md): enables scripting, adds a script component, and runs a first script. [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md) shows a DBC signal, a CAN message, and script state.
 
 ## Tags, rules, and plugins

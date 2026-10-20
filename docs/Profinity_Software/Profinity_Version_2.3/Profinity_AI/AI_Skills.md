@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # AI Skills
 
-AI Skills is a pack of seven skills for AI coding assistants such as Claude Code, Cursor, Codex, and ChatGPT that help you build Profinity [dashboards](../Customising_Profinity/Dashboards/index.md), [rules](../Tags/Rules/index.md), [collections](../Tags/Collections/index.md), [scripts](../Developing_with_Profinity/Scripting/index.md), [plugins](../Developing_with_Profinity/SDK/Developing_Plugins.md), [derived tags](../Tags/Derived_Tags/index.md), and example apps.
+AI Skills is a pack of seven skills for AI coding assistants such as [Claude Code](https://claude.com/product/claude-code), [Cursor](https://cursor.com), [Codex](https://openai.com/codex), and [ChatGPT](https://chatgpt.com) that help you build Profinity [dashboards](../Customising_Profinity/Dashboards/index.md), [rules](../Tags/Rules/index.md), [collections](../Tags/Collections/index.md), [scripts](../Developing_with_Profinity/Scripting/index.md), [plugins](../Developing_with_Profinity/SDK/Developing_Plugins.md), [derived tags](../Tags/Derived_Tags/index.md), and example apps.
 Every skill works from the live schema and API of your own Profinity instance and from curated examples drawn from Profinity's shipped content, so what it generates matches the conventions of your instance.
 AI Skills runs in your own AI tool, outside Profinity, while [AI Chat](./AI_Chat.md) is the assistant built into the product that answers questions about a running instance.
 To install the skills, refer to [Install AI Skills](./Install_AI_Skills.md).

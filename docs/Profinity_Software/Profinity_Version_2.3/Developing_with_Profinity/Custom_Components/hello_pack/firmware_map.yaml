@@ -1,0 +1,16 @@
+version: "2.3"
+sections:
+  - id: limits
+    displayName: Limits
+    categories:
+      - id: output
+        displayName: Output
+        fields:
+          outputLimit:
+            name: Output Limit
+            type: UINT16
+            default: 100
+            units: "%"
+            min: 0
+            max: 100
+            index: 0x10

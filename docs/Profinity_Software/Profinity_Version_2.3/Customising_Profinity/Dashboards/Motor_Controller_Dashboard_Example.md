@@ -10,6 +10,10 @@ last_reviewed: 2026-10-20
 
 This page lists a complete motor controller dashboard for a Prohelion WaveSculptor22 motor controller, explains its five sections, and shows how to adapt it to another system.
 The dashboard monitors electrical, thermal, and performance values in real time.
+
+[Download the example dashboard :material-download:](example_dashboard.zip){ .md-button }
+
+Upload `dashboard.yaml` on a WaveSculptor22 or WaveSculptor200 component.
 Every message and signal name in the YAML is taken from the [WaveSculptor22 DBC file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md), which the [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes.
 It uses rows, groups, panels, an accordion and a tab, and has no titlebar or footer, so [Core Elements](./Core_Elements.md) describes those top-level elements.
 Each component used here has a smaller example of its own in the [Component Reference](./Component_Reference/index.md).
@@ -65,6 +69,7 @@ Keeping the full set of measurements in an accordion leaves the main dashboard w
 The following YAML is the whole dashboard, and the sections above refer to its parts in order.
 
 ``` yaml
+version: "2.3"
 dashboard:
   items:
     - row:

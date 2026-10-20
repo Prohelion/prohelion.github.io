@@ -56,5 +56,5 @@ On a dashboard belonging to that `Charger` component, the relative bind `DBC/BMS
 
 Dashboards that use the `{COMPONENT_NAME}` placeholder, documented in [Data Binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md), keep working, and Profinity replaces the placeholder with an explicit relative or absolute path the next time the dashboard is saved.
 
-For the component types that carry this setting, refer to [Component types](../../Developing_with_Profinity/Custom_Components/Component_Types.md), and for the dashboards that bind to these paths, refer to [Dashboards](../../Customising_Profinity/Dashboards/index.md).
+For the component types that carry this setting, refer to [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md), and for the dashboards that bind to these paths, refer to [Dashboards](../../Customising_Profinity/Dashboards/index.md).
 The [Tag layer](../index.md) page lists the rest of the tag pages.

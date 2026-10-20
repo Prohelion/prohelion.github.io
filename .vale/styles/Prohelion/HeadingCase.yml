@@ -74,6 +74,7 @@ exceptions:
   - Peak
   - Elmar
   - PCAN
+  - FD
   - Webhook
   - Webhooks
   - Kiosk Mode

@@ -14,11 +14,20 @@ At the end you have a token and have sent one authenticated request with `curl`.
 ## What you need
 
 - A running Profinity instance. The APIs are running whenever Profinity is running. The examples use `localhost:18080`.
-- The username and password of the Profinity user that the API calls run as. The user should be a dedicated account that holds only the permissions the client needs, and for this tutorial it needs the **View tags** permission.
-  User accounts are created in **Users & Groups**, which is shown only when the licence includes the Profinity Server feature, as described in [Managing users](../Administration/Users_and_Access/Manage_Users.md).
+- A way for the API calls to authenticate, which is one of:
+    - A [service account](../Administration/Users_and_Access/Service_Accounts.md) token, generated on the account's **User Actions** tab in **Users & Groups**.
+    - The username and password of the Profinity user that the API calls run as.
+
+    Either way, the account should be dedicated to the client, hold only the permissions the client needs, and for this tutorial it needs the **View tags** permission.
+    Accounts are created in **Users & Groups**, which is shown only when the licence includes the Profinity Server feature, as described in [Managing users](../Administration/Users_and_Access/Manage_Users.md).
 - The full path of a tag. The Tag Explorer shows tag paths, and `GET /api/v2/Tags` lists them (add `?flat=true` for a flat list).
 
 ## Get a token
+
+A service account token is used as it is, so with one you can skip to [Call an endpoint with the token](#call-an-endpoint-with-the-token).
+A service account token never expires and has no refresh token, so the client sends the same token on every request until an administrator generates a new one, changes the account's roles, or disables the account.
+
+Otherwise, exchange a username and password for a token:
 
 1. Send a POST request to `http://localhost:18080/api/v2/Users/Authenticate`, with the username and password of the Profinity user that the API calls run as in the JSON body.
    For example:
@@ -54,7 +63,7 @@ At the end you have a token and have sent one authenticated request with `curl`.
 
 ## Call an endpoint with the token
 
-Pass the contents of the `token` field in each request as a Bearer token.
+Pass the service account token, or the contents of the `token` field, in each request as a Bearer token.
 From a command line, this request returns the latest sample of a tag:
 
 ```bash

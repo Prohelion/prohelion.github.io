@@ -14,7 +14,7 @@ Installing, enabling, and removing a plugin is covered on [Components & Plugins]
 
 A plugin is separate from a Custom Component, which is a bundle of files and scripts and needs no compiling.
 A plugin is the choice when the component needs compiled code.
-[Component Types](../Custom_Components/Component_Types.md) compares the two.
+[Custom Components](../Custom_Components/index.md) compares the two.
 
 ## What the framework provides
 

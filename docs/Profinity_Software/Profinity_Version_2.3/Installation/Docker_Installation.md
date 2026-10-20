@@ -10,15 +10,16 @@ last_reviewed: 2026-10-15
 
 Run Profinity in a Docker container on most devices that can run Docker, including macOS and Linux machines and single-board computers such as the Raspberry Pi and BeagleBone Black.
 Prohelion publishes the Profinity image for `linux/amd64`, `linux/arm64`, and `linux/arm/v7`, and Docker pulls the variant that matches the host processor.
-For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md), and for Linux and macOS without Docker, refer to [Install Profinity on Linux and macOS](./Linux_and_macOS_Installation.md).
 
 A container binds all network interfaces, so other machines can reach it.
 Opening the web interface from another machine, and creating user accounts and roles, need the **Profinity Server** licensed feature, which the Server and Enterprise editions include.
-A new installation that is not a Desktop host starts a one-time 14-day local trial with the Server features and then drops to the unlicensed feature set, so apply a licence file under **ADMIN > License** before the trial ends, as described in [Apply a licence](./Applying_a_Licence.md).
+
+A new installation in docker starts a one-time 14-day local trial with the Server features and then drops to the unlicensed feature set, so apply a licence file under **ADMIN > License** before the trial ends, as described in [Apply a licence](./Applying_a_Licence.md).
 To upgrade a 2.2 container, read [Upgrade from Profinity 2.2](./Upgrade_From_2_2.md) first.
 
 You need Docker on the target device, on an x86-64, 64-bit ARM, or 32-bit ARM (ARMv7) processor, and Docker Compose, which Docker Desktop includes and which is available as a plugin on Linux.
 You also need a suitable CAN adapter for the target device.
+
 To install with a single script instead of a compose file, refer to [Install Profinity with the Docker one-line installer](./Docker_One_Line_Installer.md).
 To move an existing installation to a newer image, refer to [Update the Profinity Docker image](./Update_Docker_Image.md).
 

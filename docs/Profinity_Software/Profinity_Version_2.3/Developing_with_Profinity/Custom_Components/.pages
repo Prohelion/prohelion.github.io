@@ -1,10 +1,12 @@
 nav:
     - index.md
+    - First_Custom_Component.md
     - Files.md
     - DBC_Dashboard_and_Rules.md
+    - Settings.md
     - Main_Script.md
     - Menu_Actions.md
-    - Settings_and_Firmware_Maps.md
-    - Firmware_Actions.md
-    - Packing.md
-    - Component_Types.md
+    - Firmware:
+        - Firmware maps: Firmware_Maps.md
+        - Firmware actions: Firmware_Actions.md
+    - Component_Metadata.md

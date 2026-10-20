@@ -96,7 +96,7 @@ Use `toType` to convert a type, and `gain` and `offset` to scale a value, as des
 ### Why does my dashboard not load?
 
 The dashboard YAML does not match the schema.
-Open it in the visual editor, read the entries under **Schema validation issues**, and refer to [Dashboard Schema Validation Errors](./Schema_Validation_Errors.md) for each error message and its fix.
+Open it in the visual editor and read the entries under **Schema validation issues**.
 
 ### Why is my data not updating or my chart blank?
 

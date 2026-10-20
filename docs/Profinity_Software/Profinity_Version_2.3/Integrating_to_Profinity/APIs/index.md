@@ -38,11 +38,21 @@ The [Endpoint Reference](Endpoint_Reference.md) lists the routes for alerts, col
 
 ## Profinity API security
 
-Profinity APIs require a Bearer token, so testing them from the Swagger GUI means generating a token first and then providing it to Swagger.
-To generate the token, execute a call against the `/api/v2/Users/Authenticate` API in the Swagger GUI and apply the returned token with the **Authorize** button in the top right of the Swagger page.
+Profinity APIs require a Bearer token, which is either a service account token or a token returned by signing in with a username and password.
+Either way, the account should be dedicated to the client and hold only the permissions the client needs.
 
-To get a security token from any other client, send a POST request to `http://localhost:18080/api/v2/Users/Authenticate`, with the username and password of the Profinity user that the API calls run as in the JSON body.
-The user should be a dedicated account that holds only the permissions the client needs, and a client that runs for a long time should use a [service account](../../Administration/Users_and_Access/Service_Accounts.md).
+### Using a service account token
+
+A [service account](../../Administration/Users_and_Access/Service_Accounts.md) token is generated on the account's **User Actions** tab in **Users & Groups**, and it is already a Bearer token.
+A client that has one skips the `/api/v2/Users/Authenticate` call and passes the token directly in each request, and in Swagger the token is pasted straight into the **Authorize** dialog.
+The token never expires and has no refresh token, so it suits a client that runs for a long time or unattended.
+It stays valid until an administrator generates a new one, changes the account's roles, or disables the account.
+
+### Signing in with a username and password
+
+To test the APIs from the Swagger GUI without a service account token, execute a call against the `/api/v2/Users/Authenticate` API in the Swagger GUI and apply the returned token with the **Authorize** button in the top right of the Swagger page.
+
+To get a token from any other client, send a POST request to `http://localhost:18080/api/v2/Users/Authenticate`, with the username and password of the Profinity user that the API calls run as in the JSON body.
 For example:
 
 ```json
@@ -77,9 +87,13 @@ A browser client receives the same session as cookies and a body without the tok
 A user who must complete two-factor authentication or change a password first receives a `preAuthToken` with `requiresTwoFactor` or `requiresPasswordChange` set instead of a `token`, which is completed through `/api/v2/Users/Authenticate/TwoFactor` or `/api/v2/Users/Current/ChangePassword`.
 A token that is still valid can be renewed with `GET /api/v2/Users/Refresh`.
 
-The contents of the `token` field must be passed in each subsequent request as a Bearer token, and the documentation of the client-side tool calling Profinity describes how to do this for that tool.
+### Passing the token
+
+The service account token, or the contents of the `token` field, must be passed in each request as a Bearer token, and the documentation of the client-side tool calling Profinity describes how to do this for that tool.
 From a command line, `curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sample/{fullTagPath}` returns the latest sample of a tag.
-A call with a missing or expired token is answered with 401, and a call from a user that lacks the permission the route needs is answered with 403, so a client that starts receiving 401 should sign in again or renew the token with `GET /api/v2/Users/Refresh`.
+A call with a missing or expired token is answered with 401, and a call from a user that lacks the permission the route needs is answered with 403.
+A client that signed in with a username and password and starts receiving 401 should sign in again or renew the token with `GET /api/v2/Users/Refresh`.
+A client that uses a service account token and starts receiving 401 needs the current token from an administrator, because the old token stops working when a new one is generated or the account's roles change.
 
 In Swagger the token is applied by clicking the **Authorize** button in the top right of the screen and pasting in the generated token:
 

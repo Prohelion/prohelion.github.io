@@ -99,8 +99,6 @@ Profinity offers a site sign-in method (Local or SSO), two-factor authentication
 Two-factor authentication needs the Server edition, and SSO and SCIM need the Enterprise edition.
 Refer to [SSO and Sign-In](../Administration/System_Configuration/Security/SSO_and_Sign_In.md), [Two-Factor Authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication.md), [SCIM and SIEM](../Administration/System_Configuration/Security/SCIM_and_SIEM.md), and [Service Accounts](../Administration/Users_and_Access/Service_Accounts.md).
 
-New in Profinity 2.3.
-
 ### Security roles
 
 Profinity uses 27 granular permissions grouped into roles, and users receive assigned roles.
@@ -109,8 +107,6 @@ Assign users only the permissions their work needs, give monitoring accounts rea
 Review accounts and role assignments periodically.
 The **Send CAN messages** permission lets a user inject CAN frames onto the bus, so assign it only to trusted operators.
 Refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for the full catalogue and the built-in Administrators role, and [Managing Users](../Administration/Users_and_Access/Manage_Users.md) for user management.
-
-New in Profinity 2.3.
 
 ## Kiosk Mode security
 

@@ -25,7 +25,7 @@ The filter options are on the left-hand side of the page, and the **COMPONENT TY
 
 - **Adapters**, including the [CAN Bus Adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), which are also shown at the top of the screen when discovered
 - **Battery Management Systems**, **Chargers & Power Supplies**, **Motor Controllers** and **MPPTs** for devices such as a Battery Management Unit (BMU), a motor controller or a Maximum Power Point Tracker (MPPT)
-- **[Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md)** for a device that Profinity does not already ship
+- **[Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md)** to create a new component
 - **[Loggers](../Components/Loggers/index.md)** (CAN File, TAG File, InfluxDB v1 and Prometheus)
 - **[Historians](../Components/Historians/index.md)** (InfluxDB v2, InfluxDB v3 and TAG SQL)
 - **[Publishers & Subscribers](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** (Message Queuing Telemetry Transport (MQTT) and Webhook)

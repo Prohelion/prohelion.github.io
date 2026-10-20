@@ -206,7 +206,7 @@ Readers arrive from a search engine or an AI assistant, often on a single page, 
 - **Explicit types and limits.** For settings, API fields and parameters, state the type, allowed values, default and unit, because an assistant cannot infer them.
 - **Complete examples.** Examples are copyable as they stand (see section 4).
 - **Alt text and captions.** Describe what an image shows in text. A diagram that carries meaning is also explained in the surrounding prose.
-- **Stable URLs.** Do not rename or move a page without a redirect, and record the redirect in `mkdocs.yml`.
+- **Stable URLs.** Do not rename or move a published page without a redirect, and record the redirect in `mkdocs.yml`. Profinity 2.3 is not released: rename or delete the page and update in-tree links; do not add 2.3 redirects.
 - **Prune.** Delete placeholder pages and outdated procedures, and merge duplicates. Less content retrieves better than more.
 
 ## 3. Content elements

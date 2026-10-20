@@ -1,19 +1,16 @@
 ---
 title: Using a Custom Component
-description: "Add a device Profinity does not already ship by placing a Custom Component in a profile, with an optional DBC file, dashboard, and scripts."
+description: "Use a Custom Component in a profile, with an optional DBC file, dashboard, and scripts."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-20
 ---
 
 # Using a Custom Component
 
-A Custom Component is the built-in profile component for a device that Profinity does not already ship a type for.
-As of Profinity 2.3 it can carry an optional DBC (CAN database) file, a [dashboard](../../Customising_Profinity/Dashboards/index.md), a rules file, a long-running [script](../../Developing_with_Profinity/Scripting/index.md), operator actions, and settings and firmware maps.
-Once it is in a profile it is monitored, graphed, and logged the same way as a Prohelion device.
-
-Built-in components such as the [Elmar Solar MPPT](../MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Motor_Controller/WaveSculptor.md) already include their own DBC support, so Messages and Signals is available on those components without a separate file.
-A Custom Component is the same idea for a third-party CAN device, or for a device whose live values a script publishes as tags.
+A Custom Component allows a developer to create a new component for Profinity, and as of Profinity 2.3 it can carry an optional DBC (CAN database) file, a [dashboard](../../Customising_Profinity/Dashboards/index.md), a rules file, a long-running [script](../../Developing_with_Profinity/Scripting/index.md), operator actions, and settings and firmware maps.
+Once it is in a profile it is monitored, graphed, and logged the same way as a built-in component.
+Built-in components such as the [Elmar Solar MPPT](../MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Motor_Controller/WaveSculptor.md) already include their own DBC support, so Messages and Signals is available on those components without a separate file, and a Custom Component can do the same for a third-party CAN device, or for a component whose live values a script publishes as tags.
 
 !!! info "Licence required"
     Custom Components need the **Custom Plugins** licensed feature, which is included from the Desktop edition upward.
@@ -21,8 +18,9 @@ A Custom Component is the same idea for a third-party CAN device, or for a devic
     The [Profinity SDK](../../Developing_with_Profinity/SDK/index.md) used to pack a component is a separate add-on.
     Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
-The steps to add one are in [How to Create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
-The files that make one up, and how to pack it for another installation, are in the [Custom Components authoring guide](../../Developing_with_Profinity/Custom_Components/index.md), and [Component Types](../../Developing_with_Profinity/Custom_Components/Component_Types.md) compares a Custom Component with a Dashboard Component and a dynamic-link library (DLL) plugin.
+To make a first Custom Component, follow [Make your first Custom Component](../../Developing_with_Profinity/Custom_Components/First_Custom_Component.md).
+To attach optional files afterwards, refer to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
+The files that make one up, and how to pack it for another installation, are in [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md), which also compares a Custom Component with a Dashboard Component and a dynamic-link library (DLL) plugin.
 
 ## What appears in the profile
 
@@ -39,16 +37,18 @@ A component installed from a content pack hides **Pack files** and **Scripts**, 
 A Custom Component can have a DBC file, a dashboard, or both.
 Each is optional, uploaded under **Pack files**, and the two can be used on the same component.
 
-- **DBC file.** With a DBC file the component gets **Messages and Signals** and **Edit DBC File** in its menu, so its CAN traffic can be read as named messages and signals. If the file fails to parse, the component stays in the profile and Messages and Signals is left out until the file is fixed. Refer to [CAN Bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md), and to [How to Create a Custom Component](../../How_To_Guides/Create_Custom_Component.md) for the **Rebase DBC** setting that shifts message identifiers to a different base address.
-- **Dashboard.** The dashboard is the component's page in the profile. With none uploaded, Profinity creates a template dashboard named after the component, and the dashboard editor on the component opens that file so it can be edited into the finished dashboard. Refer to the [Dashboard Development Guide](../../Customising_Profinity/Dashboards/index.md) and [How to Create a Custom Dashboard](../../How_To_Guides/Create_Custom_Dashboard.md).
+- **DBC file.** With a DBC file the component gets **Messages and Signals** and **Edit DBC File** in its menu, so its CAN traffic can be read as named messages and signals. If the file fails to parse, the component stays in the profile and Messages and Signals is left out until the file is fixed. Refer to [CAN bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md), and to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md) for the **Rebase DBC** setting that shifts message identifiers to a different base address.
+- **Dashboard.** The dashboard is the component's page in the profile. With none uploaded, Profinity creates a template dashboard named after the component, and the dashboard editor on the component opens that file so it can be edited into the finished dashboard. Refer to the [Profinity dashboard development guide](../../Customising_Profinity/Dashboards/index.md) and [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md).
 
 Live values that a script publishes are tags, and a dashboard binds those tags whether or not a DBC file is present.
 
-## Distributing as a plugin {#distributing-a-custom-component-as-a-plugin}
+## Packing for other installations {#distributing-a-custom-component-as-a-plugin}
 
-As of Profinity 2.3, a Custom Component that works in one profile can be turned into a plugin and distributed to other installations, with no rebuild of the component.
-The software development kit (SDK) from the [Profinity SDK](../../Developing_with_Profinity/SDK/index.md) page includes `profinity-component-pack`, which validates the component's files and packs them as a `.zip` or a `.nupkg`.
+As of Profinity 2.3, a Custom Component that works in one profile can be packed and installed on other systems, with no rebuild of the component.
+The [Profinity SDK](../../Developing_with_Profinity/SDK/index.md) includes `profinity-component-pack`, which validates the component's files and packs them as a `.zip` or a `.nupkg`.
 An administrator then uploads the package by opening **ADMIN** and then **Components & Plugins**, and the component appears in **ADD COMPONENT** under the name the author gave it.
 
 The pack is a bundle of the component's own files (DBC, dashboard, scripts, and maps), not a compiled DLL plugin.
-Packing and installing are covered in [Packing a Custom Component](../../Developing_with_Profinity/Custom_Components/Packing.md) and [Component Pack CLI](../../Developing_with_Profinity/SDK/Component_Pack_CLI.md), and the kit is available from Prohelion.
+The catalogue name is set in `component_metadata.yaml`.
+Refer to [Component metadata](../../Developing_with_Profinity/Custom_Components/Component_Metadata.md).
+Packing and installing are covered in [Component Pack CLI](../../Developing_with_Profinity/SDK/Component_Pack_CLI.md), and the kit is available from Prohelion.

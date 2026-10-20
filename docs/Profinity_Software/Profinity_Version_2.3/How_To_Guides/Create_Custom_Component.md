@@ -1,6 +1,6 @@
 ---
 title: How to create a Custom Component
-description: "Add a Custom Component for a device Profinity does not ship, then attach an optional dashboard, main script, actions, or DBC file."
+description: "Create a new Custom Component in the active profile, then attach an optional dashboard, main script, actions, or DBC file."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-20
@@ -8,9 +8,10 @@ last_reviewed: 2026-10-20
 
 # How to create a Custom Component
 
-You can add a device Profinity does not already support by creating a Custom Component in the active profile.
+For a first Custom Component, follow [Make your first Custom Component](../Developing_with_Profinity/Custom_Components/First_Custom_Component.md).
+You can create a new component in the active profile by adding a Custom Component.
 A Custom Component needs only a name, and every file attached to it is optional.
-When no dashboard is uploaded, Profinity writes a starter dashboard named after the component, which is then built out in the [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md).
+When no dashboard is uploaded, Profinity writes a starter dashboard named after the component, which is then built out in the [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md).
 The files that can be attached are described in [Custom Components](../Developing_with_Profinity/Custom_Components/index.md), and the finished component is described in [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md).
 
 ## Add the component

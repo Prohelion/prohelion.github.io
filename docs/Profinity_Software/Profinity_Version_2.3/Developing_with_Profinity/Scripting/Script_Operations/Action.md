@@ -19,8 +19,6 @@ The load script and the save script (`loadScript` and `saveScript`) do not recei
 On a menu button, a scheduled run, a service, a tag change, a CAN receive, and a rule script, `Profinity.Action` is null (`None` in Python, `nil` in Lua).
 A script checks for null before it reads the object.
 
-New in Profinity 2.3.
-
 ## Properties
 
 | Property | Meaning |

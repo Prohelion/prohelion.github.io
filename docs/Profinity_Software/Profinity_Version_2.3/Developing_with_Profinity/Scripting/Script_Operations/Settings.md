@@ -13,15 +13,15 @@ A script on a [Custom Component](../../Custom_Components/index.md) reads and wri
 `Profinity.FirmwareSettings` uses the field identifiers in `firmware_map.yaml`.
 `firmware.yaml` names the scripts that load and save firmware.
 
-The layout of `settings_map.yaml` and `firmware_map.yaml` is on [Settings and firmware maps](../../Custom_Components/Settings_and_Firmware_Maps.md).
+The layout of `settings_map.yaml` is on [Settings](../../Custom_Components/Settings.md).
+The layout of `firmware_map.yaml` is on [Firmware maps](../../Custom_Components/Firmware_Maps.md).
 `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).
 A firmware action script also receives [Action context](./Action.md).
-
-New in Profinity 2.3.
 
 ## Which script reads which values
 
 Each Custom Component script uses one or both objects.
+
 | Script | Values |
 |--------|--------|
 | Main script | `ComponentSettings` |
@@ -76,7 +76,9 @@ A `STRING` field in the map is `StringValue`, a `BOOL` field is `BooleanValue`, 
 
 ## Saved values
 
-`GetValue` returns the value last saved for that field, and a `LIST` field returns the key of the selected entry.
+`GetValue` returns the value last saved for that field.
+For a `LIST` field, that value is the text shown for the row the operator chose.
+Refer to [Settings](../../Custom_Components/Settings.md).
 Convert a numeric field before using it as an integer: in Python, `int(str(value))` accepts both a number and text.
 `SetValue` stores the value the script passes.
 
@@ -93,6 +95,7 @@ Setting `RebaseAddress` to a value that is not a number fails.
 
 `profinity-script sim` runs the script on a simulated component.
 List the field identifiers under `componentFields` and `firmwareFields` in `sim.yaml` so `SetValue` can save them, and `GetValue` returns a value only after one has been saved.
+The rest of that file is on [Test a script outside Profinity](../../SDK/Test_a_Script.md).
 Without those entries, `SetValue` reports an unknown field.
 
 ## Example
@@ -150,5 +153,5 @@ A save script reads `nmeaGgaRate` with `GetValue` instead of writing it.
     print("Firmware load wrote nmeaGgaRate")
     ```
 
-The map layout is on [Settings and firmware maps](../../Custom_Components/Settings_and_Firmware_Maps.md), and `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).
+The settings map layout is on [Settings](../../Custom_Components/Settings.md), the firmware map layout is on [Firmware maps](../../Custom_Components/Firmware_Maps.md), and `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).
 How to choose a script shape is on [Script types](../Script_Types/index.md).

@@ -1,14 +1,14 @@
 ---
 title: CAN bus adapter troubleshooting
-description: "Fix a CAN bus adapter that shows an amber or red status, a CAN to Ethernet bridge that Auto Discovery does not find, or a bit rate mismatch on the bus."
+description: "Fix a CAN bus adapter with an amber or red status, a missing Peak driver, a CAN to Ethernet bridge Auto Discovery does not find, or a bit rate mismatch."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-20
 ---
 
 # CAN bus adapter troubleshooting
 
-This page covers the adapter status indicator, a CAN to Ethernet bridge that Auto Discovery does not find, and the bit rate that every device on a CAN bus must share.
+This page covers the adapter status indicator, a Peak adapter that needs its driver, a CAN to Ethernet bridge that Auto Discovery does not find, and the bit rate that every device on a CAN bus must share.
 The adapters are listed on [CAN bus adapters](CAN_Bus_Adapters.md).
 
 ## Adapter status
@@ -25,6 +25,15 @@ Green is the state of a working adapter.
 
 If the indicator is amber, check that the bit rate matches the bus, that the bus is terminated and that another device is transmitting.
 If it is red, read the Profinity System Logs, then check the Peak driver, the IP address and port of a TCP bridge or the interface name of a SocketCAN adapter.
+
+## If a Peak adapter is not found
+
+The Peak CAN to USB Adapter needs the Peak driver installed on the machine that runs Profinity, as set out in [CAN bus adapters](CAN_Bus_Adapters.md).
+Without the driver, the adapter does not appear in the **Discovered** category, and an adapter already in the Profile shows a red status with the message "The Peak driver is not installed. Install the latest Peak drivers from the Peak website, then restart Profinity."
+
+Install the latest driver from the [Peak System website](https://www.peak-system.com/), confirm with the Peak tools that the adapter works, then restart Profinity.
+Peak updates its driver often, and an out-of-date driver also stops the adapter connecting, so update the driver if the adapter is plugged in and still shows red.
+On Linux, a Peak adapter appears as a SocketCAN interface instead, so use the SocketCAN adapter and no Peak driver is needed.
 
 ## If a CAN to Ethernet bridge is not found
 

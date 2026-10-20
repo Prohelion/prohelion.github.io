@@ -1,0 +1,394 @@
+version: "2.3"
+dashboard:
+  items:
+    - row:
+        direction: vertical
+        items:
+          - group:
+              class: statscontainer
+              items:
+                - pill:
+                    icon:
+                      image: nav_motorcontrollers_active.svg
+                      recess: false
+                      value: 0
+                    items:
+                      - pillgroup:
+                          items:
+                            - value:
+                                label: BUS VOLTAGE
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/BusMeasurement/BusVoltage
+                            - value:
+                                label: BUS CURRENT
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/BusMeasurement/BusCurrent
+                      - pillgroup:
+                          items:
+                            - value:
+                                label: DSP TEMP
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/DspBoardTempMeasurement/DspBoardTemp
+                            - value:
+                                label: MOTOR TEMP
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/HeatsinkMotorTempMeasurement/MotorTemp
+                            - value:
+                                label: HEATSINK TEMP
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/HeatsinkMotorTempMeasurement/HeatsinkTemp
+                      - pillgroup:
+                          items:
+                            - value:
+                                label: RPM
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/VelocityMeasurement/MotorVelocity
+                            - value:
+                                label: MPS
+                                enabled: true
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
+          - row:
+              direction: vertical
+              class: trunkpadded
+              items:
+                - panels:
+                    items:
+                      - panel:
+                          title: BUS POWER (W)
+                          items:
+                            - chart:
+                                type: line
+                                legend: false
+                                bind:
+                                  - target: value
+                                    source: Properties/BusPower
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
+                      - panel:
+                          title: VELOCITY (M/S)
+                          items:
+                            - chart:
+                                type: line
+                                legend: false
+                                bind:
+                                  - target: value
+                                    source: DBC/VelocityMeasurement/VehicleVelocity
+                                    seriesMode: timeSeries
+                                    timeRangeStart: "-5m"
+                                    timeRangeStop: "0m"
+                      - panel:
+                          title: CONTROLLER LIMITS
+                          items:
+                            - lamps:
+                                items:
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: OUTPUT VOLTAGE PWM
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitOutputVoltagePWM
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: MOTOR CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitMotorCurrent
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: VELOCITY
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitVelocity
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: BUS CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitBusCurrent
+                                                toType: boolean
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: BUS VOLTAGE UPPER
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitBusVoltageUpper
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: BUS VOLTAGE LOWER
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitBusVoltageLower
+                                                toType: boolean
+                                        - lamp:
+                                            color: amber
+                                            value: 1
+                                            label: IPM OR MOTOR TEMP
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/LimitIpmOrMotorTemp
+                                                toType: boolean
+                      - panel:
+                          title: CONTROLLER ERRORS
+                          items:
+                            - lamps:
+                                items:
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: HARDWARE OVER CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorHardwareOverCurrent
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: SOFTWARE OVER CURRENT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorSoftwareOverCurrent
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: DC BUS OVER VOLTAGE
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorDcBusOverVoltage
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: WATCHDOG RESET
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorWatchdogCausedLastReset
+                                                toType: boolean
+                                  - lampgroup:
+                                      items:
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: CONFIG READ
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorConfigRead
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: 15v UNDER VOLTAGE
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/Error15vRailUnderVoltage
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: DESATURATION FAULT
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorDesaturationFault
+                                                toType: boolean
+                                        - lamp:
+                                            color: red
+                                            value: 1
+                                            label: MOTOR OVERSPEED
+                                            enabled: false
+                                            bind:
+                                              - target: enabled
+                                                source: DBC/Status/ErrorMotorOverSpeed
+                                                toType: boolean
+    - accordion:
+        label: MORE DETAILS
+        items:
+          - row:
+              direction: vertical
+              items:
+                - tabs:
+                    items:
+                      - tab:
+                          enabled: true
+                          header:
+                            - lamp:
+                                color: disabled
+                                value: 1
+                                label: INFO
+                          items:
+                            - panels:
+                                items:
+                                  - panel:
+                                      title: Low Voltage
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: 15v RAIL
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/VoltageRail15VMeasurement/Supply15V
+                                              - readout:
+                                                  label: 1.9v RAIL
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply1V9
+                                              - readout:
+                                                  label: 3.3v RAIL
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/VoltageRail3V31V9Measurement/Supply3V3
+                                  - panel:
+                                      title: Phase Currents
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: PHASE CURRENT B
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentB
+                                              - readout:
+                                                  label: PHASE CURRENT C
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/PhaseCurrentMeasurement/PhaseCurrentC
+                                  - panel:
+                                      title: Motor Vectors
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: BEMF Vd
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFd
+                                              - readout:
+                                                  label: BEMF Vq
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/BackEMFMeasurementPrediction/BEMFq
+                                              - readout:
+                                                  label: MOTOR VOLTAGE Vd
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vd
+                                              - readout:
+                                                  label: MOTOR VOLTAGE Vq
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorVoltageVectorMeasurement/Vq
+                                              - readout:
+                                                  label: MOTOR CURRENT Id
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorCurrentVectorMeasurement/Id
+                                              - readout:
+                                                  label: MOTOR CURRENT Iq
+                                                  precision: 3
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/MotorCurrentVectorMeasurement/Iq
+                                  - panel:
+                                      title: Speed & Distance
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: SLIP SPEED
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/SlipSpeedMeasurement/SlipSpeed
+                                              - readout:
+                                                  label: ODOMETER
+                                                  precision: 1
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/OdometerBusAhMeasurement/Odometer
+                                  - panel:
+                                      title: Other
+                                      items:
+                                        - readouts:
+                                            items:
+                                              - readout:
+                                                  label: PART ID
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/IDInfo/TritiumID
+                                              - readout:
+                                                  label: SERIAL NUMBER
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/IDInfo/SerialNumber
+                                              - readout:
+                                                  label: TX ERROR COUNT
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/Status/TxErrorCount
+                                              - readout:
+                                                  label: RX ERROR COUNT
+                                                  bind:
+                                                    - target: value
+                                                      source: DBC/Status/RxErrorCount

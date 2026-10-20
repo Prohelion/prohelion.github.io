@@ -8,8 +8,10 @@ last_reviewed: 2026-10-15
 
 # Dashboard Component
 
-A Dashboard Component is a built-in profile component that renders a dashboard defined entirely in YAML and does not use a DBC (CAN database) file.
-Use it for human-machine interface (HMI) style screens that bind only to [tags](../../Tags/index.md) that already exist, without defining CAN messages.
+A Dashboard Component is a built-in profile component that renders a dashboard defined entirely in YAML and can be edited using the visual dashboard editor.
+
+Use it for human-machine interface (HMI) style screens that bind only to [tags](../../Tags/index.md) that already exist.
+
 It is included in every edition, and it differs from a [Custom Component](../Custom_Components/Using_a_Custom_Component.md) in that it has no DBC, script, or pack files, so there is nothing to upload except the dashboard itself.
 
 ## Add the component {#add-a-dashboard-component}

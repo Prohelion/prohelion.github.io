@@ -1,47 +1,76 @@
 ---
 title: How to create a custom dashboard
-description: "Build a dashboard for a Custom Component in the Visual Editor, bind tags to show live component data, and use the YAML tab as an alternative."
+description: "Build a dashboard for a Dashboard Component or a Custom Component in the Visual Editor, bind tags to show live data, and use the YAML tab as an alternative."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # How to create a custom dashboard
 
-Create your first custom dashboard for a Custom Component using the Visual Editor.
+Create your first custom dashboard using the Visual Editor.
 No YAML knowledge is needed for the visual steps, and each step also shows its YAML equivalent.
+
+A custom dashboard can belong to either of two component types:
+
+- A [Dashboard Component](../Components/Dashboard/Dashboard_Component.md) has no DBC file, so it shows tags that other components already publish, such as a battery management system (BMS), a motor controller, or an industrial protocol client.
+- A [Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md) has its own DBC file, so it shows the signals that the DBC file decodes from the CAN bus.
+
+Both start from the same template dashboard and use the same editor, so the steps on this page apply to either type.
+Only the tag paths differ, as described in [Add your first data binding](#add-your-first-data-binding).
 
 ## Prerequisites
 
-- A Custom Component created in Profinity (refer to [How to create a Custom Component](./Create_Custom_Component.md))
-- A DBC file attached to that component, because a signal has a tag to bind only when a DBC file is attached
+- One of the following components in your profile:
+    - A Dashboard Component (refer to [Add a Dashboard Component](../Components/Dashboard/Dashboard_Component.md#add-a-dashboard-component)), plus at least one other component that publishes the tags to show
+    - A Custom Component (refer to [How to create a Custom Component](./Create_Custom_Component.md)) with a DBC file attached, because a signal has a tag to bind only when a DBC file is attached
 - The **Modify dashboards** permission, which allows dashboards to be edited
 
-To practise without a device, load the Example Profile and replay `example_log.csv`, as described in the [Quick Start Guide](../Getting_Started/Quick_Start.md), and bind to a tag such as `Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
+To practise without a device, load the Example Profile and replay `example_log.csv`, as described in the [Quick Start Guide](../Getting_Started/Quick_Start.md).
+Add a Dashboard Component and bind to a tag such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
 
 ## Open the dashboard editor
 
-1. Navigate to your **Custom Component** in the sidebar.
+1. Navigate to your **Dashboard Component** or **Custom Component** in the sidebar.
 2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar. The editor opens in **DESIGN** mode, the Visual Editor, with a "CUSTOM DASHBOARD" starter dashboard.
 
 ## Add your first data binding
 
 1. In the dashboard tree, select the **value** element labelled **CUSTOM DASHBOARD**.
 2. In the **Inspector**, change the label to `TEMPERATURE`.
-3. In the **Binding** section, add a binding for the `value` property and choose the tag for the temperature signal from the component's DBC file.
+3. In the **Binding** section, add a binding for the `value` property and choose the tag for the temperature.
 
-As an alternative, select the **YAML** tab and replace the static label with a data binding:
+As an alternative, select the **YAML** tab and replace the static label with a data binding.
+The source path depends on the component type that owns the dashboard.
 
-```yaml
-- value:
-    label: TEMPERATURE
-    precision: 1
-    bind:
-      - target: value
-        source: DBC/Temperature/Value
-```
+=== "Dashboard Component"
 
-A source that starts with `DBC/` is relative to the component that owns the dashboard, so replace `Temperature` and `Value` with the message and signal names from your DBC file.
+    ```yaml
+    - value:
+        label: TEMPERATURE
+        precision: 1
+        bind:
+          - target: value
+            source: /My Device/DBC/Temperature/Value
+    ```
+
+    A Dashboard Component has no DBC, so a relative path finds no tag.
+    Start the source with `/` and the name of the component that publishes the tag, and replace `My Device`, `Temperature`, and `Value` with the component, message, and signal names in your profile.
+
+=== "Custom Component"
+
+    ```yaml
+    - value:
+        label: TEMPERATURE
+        precision: 1
+        bind:
+          - target: value
+            source: DBC/Temperature/Value
+    ```
+
+    A source that starts with `DBC/` is relative to the Custom Component that owns the dashboard, so replace `Temperature` and `Value` with the message and signal names from its DBC file.
+    To show a tag from another component, use an absolute path that starts with `/`.
+
 Refer to [Data Binding](../Customising_Profinity/Dashboards/Data_Binding/index.md#binding-source-paths).
 
 ## Add more components
@@ -50,7 +79,8 @@ Refer to [Data Binding](../Customising_Profinity/Dashboards/Data_Binding/index.m
 2. Select **Add**, and choose **Value (in pill)** in the **Add component** window.
 3. Set its label to `PRESSURE` in the **Inspector** and bind it to the pressure tag in the **Binding** section.
 
-As an alternative, add additional readouts in the **YAML** tab:
+As an alternative, add additional readouts in the **YAML** tab.
+This example uses the relative paths of a Custom Component; in a Dashboard Component, start each source with `/` and the component name, as in the previous section.
 
 ```yaml
 - pillgroup:

@@ -93,4 +93,4 @@ Use the visual editor first, and switch to **YAML** in these cases:
 
 Switching tabs keeps the changes made.
 Switching to **DESIGN** needs valid YAML, and if the YAML cannot be parsed the editor shows an error and stays on the **YAML** tab.
-Refer to the [Profinity dashboard development guide](./index.md) for the YAML structure, and to [Dashboard Schema Validation Errors](./Schema_Validation_Errors.md) for the validation messages.
+Refer to the [Profinity dashboard development guide](./index.md) for the YAML structure.

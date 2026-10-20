@@ -21,7 +21,7 @@ Many of the other new 2.3 features use this Tags capability to enable richer dat
 
 Tags, Rules, and Actions can then describe both the active system state and the context of that state to [Profinity AI](Profinity_AI/AI_Chat.md) and to external AI tools that connect through the [MCP server](Integrating_to_Profinity/MCP_Server/index.md), so that they can help identify and address issues.
 
-[Plugins](Developing_with_Profinity/Plugins/index.md) add third-party or in-house components to Profinity in the same way as Prohelion components, and [scripts](Developing_with_Profinity/Scripting/index.md) automate tasks, so Profinity can be extended for additional components or white-labelled solutions.
+[Plugins](Developing_with_Profinity/SDK/Developing_Plugins.md) add third-party or in-house components to Profinity in the same way as Prohelion components, and [scripts](Developing_with_Profinity/Scripting/index.md) automate tasks, so Profinity can be extended for additional components or white-labelled solutions.
 
 Some features need a licensed edition, and [Licensing](Licensing.md) lists what each edition includes.
 
