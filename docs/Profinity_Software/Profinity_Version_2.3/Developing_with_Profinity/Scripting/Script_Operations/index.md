@@ -1,9 +1,9 @@
 ---
 title: Supported operations
-description: "Look up what a script can do through the Profinity object: CAN bus, DBC, state, tags, console output and component settings."
+description: "Look up what a script can do through the Profinity object: CAN bus, DBC, state, tags, console output, component settings and the firmware action context."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Supported operations
@@ -15,6 +15,8 @@ The following operations are available to every script, regardless of the langua
 - State management: Profinity provides two state stores. `State` keeps data for a single script between its runs, and `GlobalState` shares data across multiple scripts. Refer to [State](./State.md) for examples and usage.
 - Tags: scripts can read tag values, publish values to tags, and attach metadata to the tags they publish. Refer to [Tags](./Tags.md) for examples and usage.
 - Console output: scripts in all three languages can write information and error messages to the Profinity log. Refer to [Console](./Console.md) for examples and usage.
+
+A script started by a firmware action also receives an action context: the action name, any uploaded file, the invoker, and progress reporting. Refer to [Action context](./Action.md).
 
 ## Component and firmware settings
 

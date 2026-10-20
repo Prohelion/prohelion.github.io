@@ -3,7 +3,7 @@ title: Profinity Scripting
 description: "Automate Profinity with C#, Python, and Lua scripts: enable scripting, pick a script type and language, and find the built-in operations."
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Profinity Scripting
@@ -52,6 +52,7 @@ Refer to [Supported Languages](./Supported_Languages/index.md) for the compariso
 
 Profinity provides five built-in operations to every script through the `Profinity` object: [CAN Bus](./Script_Operations/CANBus.md) for CAN communication, [DBC](./Script_Operations/DBC.md) for Message and Signal handling, [State](./Script_Operations/State.md) for data that survives between runs, [Console](./Script_Operations/Console.md) for output and logging, and [Tags](./Script_Operations/Tags.md) for reading and writing tag values.
 Scripts that belong to a Custom Component can also read the component and firmware settings.
+A script that a Custom Component runs from a firmware action also receives an [action context](./Script_Operations/Action.md), with the action name, any uploaded file, and progress reporting.
 The [Supported Operations](./Script_Operations/index.md) page describes each in more detail.
 
 ## Next steps

@@ -3,7 +3,7 @@ title: Custom Components
 description: "Author a Custom Component from DBC, dashboard, script, action, and map files, and optionally pack it for another Profinity installation."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Custom Components
@@ -164,6 +164,9 @@ Packing that folder is described below.
 `loadScript` and `saveScript` are the load and save operations, and `actions` lists any further firmware operations, each with an `id`, a display name, and a `script`.
 An action can require the operator to upload a file first by setting `uploadFileType` and `uploadFileExtension`.
 Until this file is set, the **Scripts** tab points back at **Pack files** and **Firmware**.
+The script named by an `actions` entry reads `Profinity.Action` for the action name, the uploaded file, and the user who started it, and reports progress with `ReportProgress`.
+The load and save scripts do not receive `Profinity.Action`.
+Refer to [Action context](../Scripting/Script_Operations/Action.md).
 
 ```yaml
 version: "2.3"
