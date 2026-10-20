@@ -194,6 +194,16 @@ plugins:
         'Profinity_Software/Profinity_Version_2/Release_Notes/2.2.5.md': 'Profinity_Software/Profinity_Version_2.2/Release_Notes/2.2.5.md'
         'Profinity_Software/Profinity_Version_2/Release_Notes/index.md': 'Profinity_Software/Profinity_Version_2.2/Release_Notes/index.md'
         'Profinity_Software/Profinity_Version_2/index.md': 'Profinity_Software/Profinity_Version_2.2/index.md'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Component_Pack_CLI.md': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/SDK/Component_Pack_CLI.md'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#files': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Files.md'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#dbc-file': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/DBC_Dashboard_and_Rules.md#dbc-file'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#dashboard': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/DBC_Dashboard_and_Rules.md#dashboard'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#rules': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/DBC_Dashboard_and_Rules.md#rules'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#main-script': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Main_Script.md'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#menu-actions-in-actionsyaml': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Menu_Actions.md'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#settings-and-firmware-maps': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Settings_and_Firmware_Maps.md'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#firmware-actions-in-firmwareyaml': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Firmware_Actions.md'
+        'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/index.md#packing': 'Profinity_Software/Profinity_Version_2.3/Developing_with_Profinity/Custom_Components/Packing.md'
 
 markdown_extensions:    
   - pymdownx.superfences

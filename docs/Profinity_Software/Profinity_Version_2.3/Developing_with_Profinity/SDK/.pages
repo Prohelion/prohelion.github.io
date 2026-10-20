@@ -2,3 +2,4 @@ title: Profinity SDK
 nav:
     - index.md
     - Developing_Plugins.md
+    - Component_Pack_CLI.md

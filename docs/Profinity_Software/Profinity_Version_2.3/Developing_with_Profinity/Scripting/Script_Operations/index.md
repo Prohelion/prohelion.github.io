@@ -20,31 +20,13 @@ A script started by a firmware action also receives an action context: the actio
 
 ## Component and firmware settings
 
-A script that belongs to a [Custom Component](../../Custom_Components/index.md) reads the component's saved settings through `Profinity.ComponentSettings`, and its firmware settings through `Profinity.FirmwareSettings`.
-Both are keyed by the field identifiers defined in `settings_map.yaml` and `firmware_map.yaml`, so a serial port or baud rate entered on the component reaches the script without a code change.
-Each object has these methods:
-
-| Method | What it does |
-|--------|--------------|
-| `GetValue(fieldId)` | Returns the saved value of the field |
-| `TryGetValue(fieldId, out value)` | Returns whether the field exists, and its value when it does |
-| `SetValue(fieldId, value)` | Saves a new value for the field |
-| `TrySetValue(fieldId, value, out errorMessage)` | Saves a new value and reports an error message instead of failing |
-| `GetMetadata(fieldId)` | Returns the field's definition from the map file |
-| `GetAllMetadata()` | Returns the definitions of every field |
-
-The shipped G-STAR IV sample component reads its serial settings in Python in this way:
-
-```python
-port = Profinity.ComponentSettings.GetValue("comPort")
-baud_value = Profinity.ComponentSettings.GetValue("baudRate")
-```
-
-A script that is not hosted by a component cannot use either object, and a script run from `profinity-script sim` has no host component, so these calls fail there with a message that names the missing host component.
+A script on a [Custom Component](../../Custom_Components/index.md) reads `settings_map.yaml` with `Profinity.ComponentSettings` and `firmware_map.yaml` with `Profinity.FirmwareSettings`.
+`firmware.yaml` names the scripts that load and save those firmware values.
+Refer to [Component and firmware settings](./Settings.md) for the methods, which script reads or writes each value, and an example.
 
 ## Where to go next
 
-Each operation has its own page, listed above.
-The [Profinity SDK](../../SDK.md) page describes how to write and test a script offline, and Profinity offers a starting template for each script type when you create a script.
+Each operation has its own page.
+The [Profinity SDK](../../SDK/index.md) page describes how to write and test a script offline, and Profinity offers a starting template for each script type when you create a script.
 The [Profinity repository on GitHub](https://github.com/Prohelion/Profinity/tree/master/Example%20Scripts) also holds further C# and Python examples.
 The language references are on [Supported Languages](../Supported_Languages/index.md).

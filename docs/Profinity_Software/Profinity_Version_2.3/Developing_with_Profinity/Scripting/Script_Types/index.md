@@ -1,9 +1,9 @@
 ---
 title: Script types
-description: "Choose between the seven Profinity script modes and look up the settings that every script component shares."
+description: "Choose between the seven Profinity script modes, including the shape a Custom Component script uses."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Script types
@@ -11,6 +11,7 @@ last_reviewed: 2026-10-14
 Profinity supports seven script modes, each with its own trigger and execution context: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service.
 The **Script Mode** setting selects the mode.
 This page explains the differences between the modes and when to use each one.
+A [Custom Component](../../Custom_Components/index.md) main script is a service script, and a firmware load, save, or action script runs once.
 
 <figure markdown>
 ![The Script Mode drop-down in the script component settings, listing Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service](../../../images/script_run_modes.png)
@@ -31,6 +32,27 @@ This page explains the differences between the modes and when to use each one.
 
 A Run Script is not the right choice for continuous monitoring or real-time responses, and a Service Script is not the right choice for one-off or manual tasks.
 A Receive, Tag Change or Rule Script handler should return quickly, because a new event that arrives while it is still running is handled according to **Trigger Overlap**.
+
+## Custom Component scripts
+
+A Custom Component script is a file named on the component.
+**Script Mode** applies to a script component.
+
+| Script | Runs as |
+|--------|---------|
+| Main script | [Service scripts](./Service_Scripts.md), started by **Auto Start Main Script** or **Connect / Disconnect** |
+| `toggle` in `actions.yaml` | Service script |
+| `button` in `actions.yaml` | Once, when the operator chooses the menu item |
+| `loadScript` in `firmware.yaml` | Once, when firmware is loaded |
+| `saveScript` in `firmware.yaml` | Once, when firmware is saved |
+| An entry under `actions` in `firmware.yaml` | Once, with an action context |
+
+`Profinity.Action` is set only for an entry under `actions`.
+Which values each script reads or writes is on [Component and firmware settings](../Script_Operations/Settings.md).
+The map layout is on [Settings and firmware maps](../../Custom_Components/Settings_and_Firmware_Maps.md), and `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).
+The action object is on [Action context](../Script_Operations/Action.md).
+
+New in Profinity 2.3.
 
 ## Script settings
 

@@ -3,13 +3,16 @@ title: Run scripts
 description: "Run a script on demand, at a fixed interval or on a Quartz cron schedule, and learn how a Run script reports success or failure."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Run scripts
 
 Run scripts are the general-purpose script type: they run when an operator starts them or on a schedule, which suits data collection, testing, and system configuration.
 A Run script can use the CAN bus, DBC, State, Console, and Tags operations, can write to the console, and can stop early when it checks `Profinity.ScriptCancelled`.
+
+A [Custom Component](../../Custom_Components/index.md) firmware load script, firmware save script, menu button and firmware action also run once.
+Refer to [Custom Component scripts](./index.md#custom-component-scripts).
 
 ## Settings
 

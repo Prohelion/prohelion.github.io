@@ -30,9 +30,9 @@ A Custom Component is the first choice, and a DLL plugin is for the cases where 
 | Packaging | Optional `profinity-component-pack` `.zip` or `.nupkg` | A `.nupkg` or zip uploaded in **Components & Plugins** |
 | Install path | Profile component folder | `{Artifacts}/plugins/{id}/` |
 
-A Custom Component is built from a DBC, a dashboard, rules, `actions.yaml`, a main script, `settings_map.yaml`, `firmware_map.yaml`, `firmware.yaml` and, in a pack, `component_metadata.yaml`, all of which are documented in [Custom Components](index.md).
+The files are listed on [Custom Component files](Files.md).
 For the dashboard, refer to the [Dashboard visual editor](../../Customising_Profinity/Dashboards/Visual_Editor.md).
-Packing is optional and uses the [Component Pack CLI](./Component_Pack_CLI.md), which is part of the [Profinity SDK](../SDK.md) kit.
+Packing is optional and uses the [Component Pack CLI](../SDK/Component_Pack_CLI.md), which is part of the [Profinity SDK](../SDK/index.md) kit.
 
-A DLL plugin is a C# assembly packed as a `.nupkg` or zip and installed through **Components & Plugins** (refer to [DLL Plugins](../Plugins/index.md)).
+A DLL plugin is a C# assembly packed as a `.nupkg` or zip and installed through **Components & Plugins** (refer to [Developing Plugins](../SDK/Developing_Plugins.md)).
 Plugins register new component types at runtime.

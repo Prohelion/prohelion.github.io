@@ -3,7 +3,7 @@ title: Service scripts
 description: "Run continuous, long-running work with a start, stop, pause, and continue lifecycle, and learn which methods a service script must implement."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Service scripts
@@ -11,6 +11,9 @@ last_reviewed: 2026-10-14
 Service scripts are designed for continuous, long-running operations that keep state and respond to system events.
 They have a full lifecycle of start, stop, pause, and continue, which suits monitoring, continuous data logging and other work that must run reliably for extended periods.
 An operator controls a service from the script component's menu with **Start Service**, **Pause Service**, **Continue Service** and **Stop Service**, and the component shows its status as Running, Paused, or Stopped.
+
+A [Custom Component](../../Custom_Components/index.md) main script is a service script.
+**Auto Start Main Script**, or **Connect / Disconnect**, starts and stops it, and the script reads `settings_map.yaml` through [Component and firmware settings](../Script_Operations/Settings.md).
 
 ## Settings
 

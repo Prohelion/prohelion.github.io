@@ -12,7 +12,9 @@ last_reviewed: 2026-10-20
 The object carries the action name, any file the operator uploaded, the user who started the action, and a way for the script to report progress.
 When the script returns, Profinity clears `Profinity.Action`.
 
-A firmware action is an entry under `actions` in [`firmware.yaml`](../../Custom_Components/index.md#firmware-actions-in-firmwareyaml).
+A firmware action is an entry under `actions` in `firmware.yaml`.
+Refer to [Firmware actions](../../Custom_Components/Firmware_Actions.md).
+
 The load script and the save script (`loadScript` and `saveScript`) do not receive this object.
 On a menu button, a scheduled run, a service, a tag change, a CAN receive, and a rule script, `Profinity.Action` is null (`None` in Python, `nil` in Lua).
 A script checks for null before it reads the object.

@@ -51,12 +51,12 @@ Refer to [Supported Languages](./Supported_Languages/index.md) for the compariso
 ## Operations
 
 Profinity provides five built-in operations to every script through the `Profinity` object: [CAN Bus](./Script_Operations/CANBus.md) for CAN communication, [DBC](./Script_Operations/DBC.md) for Message and Signal handling, [State](./Script_Operations/State.md) for data that survives between runs, [Console](./Script_Operations/Console.md) for output and logging, and [Tags](./Script_Operations/Tags.md) for reading and writing tag values.
-Scripts that belong to a Custom Component can also read the component and firmware settings.
+Scripts that belong to a [Custom Component](../Custom_Components/index.md) can also read and write [Component and firmware settings](./Script_Operations/Settings.md).
 A script that a Custom Component runs from a firmware action also receives an [action context](./Script_Operations/Action.md), with the action name, any uploaded file, and progress reporting.
 The [Supported Operations](./Script_Operations/index.md) page describes each in more detail.
 
 ## Next steps
 
-Writing and testing a script on a developer machine, before it is copied into a profile, is covered on the [Profinity SDK](../SDK.md) page.
+Writing and testing a script on a developer machine, before it is copied into a profile, is covered on the [Profinity SDK](../SDK/index.md) page.
 [Supported Languages](./Supported_Languages/index.md) helps with choosing a language, [Script Types](./Script_Types/index.md) with choosing a script style, and [Supported Operations](./Script_Operations/index.md) lists what a script can do.
 A first script is built in [How to Write Your First Script](../../How_To_Guides/Write_Your_First_Script.md).

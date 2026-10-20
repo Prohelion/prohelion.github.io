@@ -3,13 +3,13 @@ title: Component Pack CLI
 description: "Validate, pack, and install Custom Component bundles with profinity-component-pack, with every command, flag, and validation rule."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Component Pack CLI
 
-The `profinity-component-pack` command-line tool ships as part of the [Profinity SDK](../SDK.md) developer kit, not with the engine install itself.
-It validates, packs, and installs [Custom Components](index.md) file bundles (YAML, scripts, and maps), and it does not handle DLL plugins, which are installed through **Components & Plugins** (refer to [DLL Plugins](../Plugins/index.md)).
+The `profinity-component-pack` command-line tool ships as part of the [Profinity SDK](index.md) developer kit, not with the engine install itself.
+It validates, packs, and installs [Custom Components](../Custom_Components/index.md) file bundles (YAML, scripts, and maps), and it does not handle DLL plugins, which are installed through **Components & Plugins** (refer to [Developing Plugins](Developing_Plugins.md)).
 The tool runs from the kit's `profinity-component-pack` subfolder.
 
 ## Commands
@@ -44,10 +44,10 @@ The first positional argument can replace `--component-dir` (or `--package` for 
 
 `validate` and `pack` require `component_metadata.yaml`, `settings_map.yaml`, `firmware_map.yaml` and `actions.yaml` in the component folder, and report `Missing required file:` followed by the name when one is absent.
 The `name` in `component_metadata.yaml` must be usable as a folder name (`Component name is not a valid folder name` otherwise), and a `.nupkg` also needs a valid semantic `pluginVersion` and a non-empty `author`.
-Messages from `actions.yaml` that name a menu entry, such as an unsupported `kind` or `icon`, are described on [Custom Components](index.md#menu-actions-in-actionsyaml).
+Messages from `actions.yaml` that name a menu entry, such as an unsupported `kind` or `icon`, are described on [Menu actions](../Custom_Components/Menu_Actions.md).
 
 ## When to use the tool
 
 Use the tool when the same Custom Component is installed on more than one system, for example from a continuous integration (CI) pipeline that produces versioned bundles for field engineers, so that an administrator uploads one `.nupkg` in [Components & Plugins](../../Administration/Install_and_Manage_Plugins.md) instead of copying files into each profile by hand.
-A DLL plugin is packed as described on [DLL Plugins](../Plugins/index.md), and a dashboard-only component can be copied through profile administration without a pack step.
-[Component Types](./Component_Types.md) compares Custom Components with DLL plugins.
+A DLL plugin is packed as described on [Developing Plugins](Developing_Plugins.md), and a dashboard-only component can be copied through profile administration without a pack step.
+[Component Types](../Custom_Components/Component_Types.md) compares Custom Components with DLL plugins.

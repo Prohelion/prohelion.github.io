@@ -18,7 +18,7 @@ A Custom Component is the same idea for a third-party CAN device, or for a devic
 !!! info "Licence required"
     Custom Components need the **Custom Plugins** licensed feature, which is included from the Desktop edition upward.
     The script a Custom Component runs, set under **Scripts**, needs the **Scripting** licensed feature, which is included from the Desktop edition upward, so a profile without it can use the DBC, dashboard, and rules files but not the script.
-    The [Profinity SDK](../../Developing_with_Profinity/SDK.md) used to pack a component is a separate add-on.
+    The [Profinity SDK](../../Developing_with_Profinity/SDK/index.md) used to pack a component is a separate add-on.
     Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 The steps to add one are in [How to Create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
@@ -47,8 +47,8 @@ Live values that a script publishes are tags, and a dashboard binds those tags w
 ## Distributing as a plugin {#distributing-a-custom-component-as-a-plugin}
 
 As of Profinity 2.3, a Custom Component that works in one profile can be turned into a plugin and distributed to other installations, with no rebuild of the component.
-The software development kit (SDK) from the [Profinity SDK](../../Developing_with_Profinity/SDK.md) page includes `profinity-component-pack`, which validates the component's files and packs them as a `.zip` or a `.nupkg`.
+The software development kit (SDK) from the [Profinity SDK](../../Developing_with_Profinity/SDK/index.md) page includes `profinity-component-pack`, which validates the component's files and packs them as a `.zip` or a `.nupkg`.
 An administrator then uploads the package by opening **ADMIN** and then **Components & Plugins**, and the component appears in **ADD COMPONENT** under the name the author gave it.
 
 The pack is a bundle of the component's own files (DBC, dashboard, scripts, and maps), not a compiled DLL plugin.
-Packing and installing are covered in the [authoring guide](../../Developing_with_Profinity/Custom_Components/index.md#packing) and [Component Pack CLI](../../Developing_with_Profinity/Custom_Components/Component_Pack_CLI.md), and the kit is available from Prohelion.
+Packing and installing are covered in [Packing a Custom Component](../../Developing_with_Profinity/Custom_Components/Packing.md) and [Component Pack CLI](../../Developing_with_Profinity/SDK/Component_Pack_CLI.md), and the kit is available from Prohelion.

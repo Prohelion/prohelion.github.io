@@ -1,4 +1,10 @@
 nav:
     - index.md
+    - Files.md
+    - DBC_Dashboard_and_Rules.md
+    - Main_Script.md
+    - Menu_Actions.md
+    - Settings_and_Firmware_Maps.md
+    - Firmware_Actions.md
+    - Packing.md
     - Component_Types.md
-    - Component_Pack_CLI.md
