@@ -9,7 +9,6 @@ last_reviewed: 2026-10-15
 # Troubleshooting guide
 
 This page explains how to diagnose and fix problems with data that does not update or display, performance, and individual components.
-For schema validation errors by their message, refer to [Dashboard Schema Validation Errors](./Schema_Validation_Errors.md).
 
 ## Data binding issues
 
@@ -196,7 +195,7 @@ A lamp bound to `color` takes the colour name that the binding returns (refer to
 
 ### Table shows no data or no highlighting
 
-Check that `tableHeaders` has the structure shown under [the `headersInfo` error](./Schema_Validation_Errors.md#error-must-not-have-additional-properties-for-headersinfo-table-component), that each `accessorKey` matches a data property name, and that the data array is bound.
+Check that `tableHeaders` has the structure shown under [Table header parameters](./Component_Reference/Data/Tables.md#table-header-parameters), that each `accessorKey` matches a data property name, and that the data array is bound.
 Highlighting needs numeric data values and threshold properties such as `highlightAtOrBelow` or `highlightAtOrAbove`.
 
 ### Chart type is not supported or a time series chart does not update
@@ -214,7 +213,9 @@ A data value that does not display needs a correct `bind`, a suitable `displayTy
 
 The HTML must be valid and properly escaped in YAML, and multi-line content uses a literal block (`|` or `>`).
 The HTML sanitiser removes the `script`, `embed`, `object`, `form`, `input` and `button` elements, so content that depends on them does not appear.
-Images and stylesheets in HTML use the full paths `/Profile/Images/{filename}` and `/Profile/Styles/{filename}`, and the files must exist in those directories.
+Images in HTML use the full path `/Profile/Images/{filename}`, and the file must exist in that directory.
+A stylesheet cannot be linked from the HTML, because the sanitiser removes a `link` element.
+Style rules go in `profile.css` in `/Profile/Styles`, which the web interface loads when the file is present, as described in [Store dashboard files in a profile](./Store_Dashboard_Files.md).
 
 ## Getting more help
 

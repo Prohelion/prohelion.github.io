@@ -19,7 +19,7 @@ Routes under `/api/v2/Alerts` return and manage the alerts shown in the [Alerts 
 | Method | Route | Body |
 |--------|-------|------|
 | GET | `/api/v2/Alerts/Active` | None. Optional query values `componentId`, `tagPrefix`, `unacknowledgedOnly` and `level`. |
-| GET | `/api/v2/Alerts/History` | None. |
+| GET | `/api/v2/Alerts/History` | None. Optional query values `componentId`, `tagPrefix`, `pageIndex`, `pageSize`, `level`, `fromUtc`, and `toUtc`. |
 | POST | `/api/v2/Alerts/Ack` | `{ "ruleId": "...", "tagId": "..." }` |
 | POST | `/api/v2/Alerts/Unack` | `{ "ruleId": "...", "tagId": "..." }` |
 | POST | `/api/v2/Alerts/Silence` | `{ "ruleId": "...", "tagId": "...", "durationMinutes": 60 }` |

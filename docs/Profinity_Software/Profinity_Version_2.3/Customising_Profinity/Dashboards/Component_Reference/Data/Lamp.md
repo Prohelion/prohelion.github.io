@@ -9,7 +9,8 @@ last_reviewed: 2026-10-14
 # Lamp component
 
 A lamp is a single status indicator, a coloured dot with an optional caption that communicates system status through its colour and its on or off state.
-The same lamp definition is used inside [Lamps](Lamps.md) groups, in the header of a [Tab](../Interactive/Tabs.md), in the [Titlebar](../Layout/Titlebar.md) and on a menu item, and a lamp can also be placed directly in a row, group, or panel.
+The same lamp definition is used inside [Lamps](Lamps.md) groups, in the header of a [Tab](../Interactive/Tabs.md), in the [Titlebar](../Layout/Titlebar.md) and on a menu item, and a lamp can also be placed directly in a row or a group.
+A panel accepts a [Lamps](Lamps.md) grid, not a single lamp.
 
 Use a lamp for a single status indicator beside other components, and for titlebar and tab header status.
 Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.md) when the value itself must be read.

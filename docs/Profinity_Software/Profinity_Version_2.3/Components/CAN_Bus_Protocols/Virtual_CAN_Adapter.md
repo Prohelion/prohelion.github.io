@@ -41,7 +41,11 @@ The Virtual CAN Bridge runs inside Profinity, so the operating system of that ma
 The CAN Bridge Config tools and Profinity cannot change the address remotely, and Profinity can only select the network interface.
 
 !!! warning "Two bridges with the same bus number relay data between each other"
-    Two bridges with the same bus number on one network relay data from one bridge to the other. This joins two separate CAN bus networks into one virtual bus over Ethernet. Two bridges on the same CAN bus that are also on the same Ethernet network form a cyclic network, in which every message is resent indefinitely until the CAN bus is overloaded. Give each bridge a unique bus number unless you are joining two buses deliberately. Refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md) and the [bus number guidance](CAN_Bus_Adapter_Settings.md#tritium-can-to-ethernet-bridge) for the physical bridge.
+    Two bridges with the same bus number on one network relay data from one bridge to the other.
+    This joins two separate CAN bus networks into one virtual bus over Ethernet.
+    Two bridges on the same CAN bus that are also on the same Ethernet network form a cyclic network, in which every message is resent indefinitely until the CAN bus is overloaded.
+    Give each bridge a unique bus number unless you are joining two buses deliberately.
+    Refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md) and the [bus number guidance](CAN_Bus_Adapter_Settings.md#tritium-can-to-ethernet-bridge) for the physical bridge.
 
 If a client cannot connect, check that the **Network Adapter** is the interface the client can reach and that the client speaks a protocol version covered by the **Bridge Protocol Version**.
 

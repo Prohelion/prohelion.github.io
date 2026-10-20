@@ -37,7 +37,7 @@ The same updates appear in `rules.yaml` and `collections.yaml` for anyone who ed
 Absolute binds inside other components' dashboards are not updated, because they are literal paths to the old location.
 This includes binds that use the `[TimeSeries]` and `[TimeSeries_Delta]` source prefixes as well as those that begin with a slash.
 History recorded by the TAG SQL Historian under the old path is not migrated, so a trend from it spanning the move shows a break at that point.
-The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message and signal, not by its path, so moving a component does not start a new series in them.
+The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message, and signal, not by its path, so moving a component does not start a new series in them.
 Renaming a component does, in every historian and logger, because the component name is part of how history is identified.
 Relative binds inside the moved component's own dashboard are unaffected.
 

@@ -27,4 +27,4 @@ The settings are grouped into tabs, and each tab has its own page, listed in the
 | Web| The main HTTP and HTTPS web server and its certificates| [Profinity Web](Profinity_Web.md) |
 | Extensions Web| A second web server for custom applications and the API| [Extensions Web](Extensions_Web.md) |
 | Tags| Limits for the in-memory tag history buffer| [Tags](Tags.md) |
-| Security| Sign-in, passwords, sessions and lockout, two-factor, single sign-on (SSO), System for Cross-domain Identity Management (SCIM) and Security Information and Event Management (SIEM)| [Security](Security/index.md) |
+| Security| Sign-in, passwords, sessions, and lockout, two-factor, single sign-on (SSO), System for Cross-domain Identity Management (SCIM), and Security Information and Event Management (SIEM)| [Security](Security/index.md) |

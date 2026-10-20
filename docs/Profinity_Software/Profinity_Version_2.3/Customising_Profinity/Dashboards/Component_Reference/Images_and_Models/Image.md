@@ -18,7 +18,12 @@ Use an interactive image for device diagrams, system layouts, interactive schema
 Use the [HTML](../Content/HTML.md) component with an `img` element for a simple static image, the [Charts](../Data/Charts.md) component for charts, and the [3D model](Model.md) component for a three-dimensional view.
 
 The base image carries seven kinds of overlay element.
-Regions are clickable rectangles that navigate to another page or run an action. Icons and buttons are positioned graphics and controls that can run an action. Data values display live system data. Points anchor annotation lines. Annotation lines connect elements and may bend at waypoints called elbows. Layers are named groups of overlay elements that the operator shows and hides.
+Regions are clickable rectangles that navigate to another page or run an action.
+Icons and buttons are positioned graphics and controls that can run an action.
+Data values display live system data.
+Points anchor annotation lines.
+Annotation lines connect elements and may bend at waypoints called elbows.
+Layers are named groups of overlay elements that the operator shows and hides.
 Icons can be an emoji, a Scalable Vector Graphics (SVG) path or an image file, and every overlay element is positioned relative to the base image.
 The action invocation, layer, icon source, display type and annotation line parameters are shared with the [3D model](Model.md) component and are described on [Overlay elements](Overlay_Elements.md).
 

@@ -22,7 +22,7 @@ The default **Administrators** role holds every permission, including **MCP inte
 Hand-edited `security.yaml` files, such as those kept in source control, need the new keys.
 On disk the keys are camelCase: `securityGroups` becomes `roles`, a user's `securityGroups` becomes `assignedRoles`, a group's `securityRoles` becomes the role's `permissions`, and `Version` becomes `version: "2.3"`.
 Check that `roles` and `assignedRoles` are present before you start Profinity, and review role assignments afterwards.
-See [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
+Refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
 ## Settings in config.yaml
 
@@ -33,13 +33,13 @@ Saving System Configuration restarts Profinity.
 ## Site sign-in method
 
 The per-user sign-in mode and the per-role two-factor setting are replaced by one site policy: an administrator chooses Local or SSO, and on a Local site can require two-factor authentication for every local user.
-SSO users sign in through the identity provider and link their account under **External identity links** in user settings.
+SSO users sign in through the identity provider and link their account under **External identities (SSO)** in user settings.
 A site cannot mix Local and SSO sign-in.
-See [SSO and Sign-In](../Administration/System_Configuration/Security/SSO_and_Sign_In.md).
+Refer to [SSO and Sign-In](../Administration/System_Configuration/Security/SSO_and_Sign_In.md).
 
 ## Licensing
 
-Features that were available without limit in 2.2 now depend on the edition (see [Editions and licensing](2.3.1.md#editions-and-licensing)).
+Features that were available without limit in 2.2 now depend on the edition (refer to [Editions and licensing](2.3.1.md#editions-and-licensing)).
 A 2.2 installation without a licence file loses remote web access, users and roles, two-factor authentication, Profinity AI, scripting, the InfluxDB v2, InfluxDB v3 and TAG SQL historians, themes, and the Email, Slack, Webhook, and MQTT rule actions and rule scripts that run on alert.
 Upload a licence before you upgrade a production system that relies on any of them.
 
@@ -51,14 +51,14 @@ The users and roles endpoints return a fixed set of fields rather than the whole
 Integrations that read a `success` flag or a `message` field from the response body must read the status code and the problem body instead.
 SCIM keeps its own RFC 7644 error format, and the MCP tools are unchanged.
 The older data endpoints are no longer available under `/api/v2`, so integrations that call them must move to the tag, collection, rule, and alert endpoints.
-See [REST APIs](../Integrating_to_Profinity/APIs/index.md).
+Refer to [REST APIs](../Integrating_to_Profinity/APIs/index.md).
 
 ## Data locations
 
 Linux moves from `~/.local/share/Prohelion/Profinity` to `/var/lib/prohelion/profinity`.
 Windows stays at `%LOCALAPPDATA%\Prohelion\Profinity` and macOS stays at `~/Library/Application Support/Prohelion/Profinity`, and on those platforms Profinity also moves data from `~/Documents/Prohelion/Profinity`, `~/Prohelion/Profinity` and the opposite-casing folder under the application-data location.
 Update backups, automation, and Docker volume mounts that refer to the old Linux path.
-See [Artefacts Directory](../Installation/Artifacts_Directory.md).
+Refer to [Artefacts Directory](../Installation/Artifacts_Directory.md).
 
 ## YAML documents
 
@@ -78,7 +78,7 @@ Users enter them in the component's settings dialog, and Profinity holds them on
 The BACnet component now reads the Device object of the device at its **Remote host** and compares the instance with **Device instance**, and it does not connect to, or read any point of, a device that reports a different number: the component shows **Error** with the reason and retries.
 A BACnet component that left **Device instance** at its default of `0` stops reading points until the setting is changed to the real instance of the device.
 The allowed range is now `0` to `4194302`.
-See [BACnet](../Components/Industrial_Protocols/BACnet.md).
+Refer to [BACnet](../Components/Industrial_Protocols/BACnet.md).
 
 ## Auto Connect replaces Auto Start
 
@@ -94,7 +94,7 @@ It starts, shows **Error**, and retries every 5 seconds, or at its own reconnect
 A component that used to show **Off** after a failed start now shows **Error**, and anything that relied on a start failure to detect a missing device should watch the status instead.
 The MQTT and Tag Relay subscribers retry at a steady interval instead of backing off to 60 seconds.
 For plugin authors, `ManagedConnection` in `Profinity.Sdk` replaces the need for a plugin to keep its own reconnect scheduler, and `PolledDeviceController<TPoint>` in `Profinity.Sdk.Components` provides the whole connect, poll, sample, and write lifecycle for a device that is read by polling, so a protocol plugin supplies only how to open its transport and read and write one point.
-See [Connections and Reconnecting](../Components/Connections_and_Reconnecting.md).
+Refer to [Connections and Reconnecting](../Components/Connections_and_Reconnecting.md).
 
 ## Default series window is now ten minutes
 

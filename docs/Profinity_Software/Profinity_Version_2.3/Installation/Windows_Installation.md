@@ -30,6 +30,10 @@ To stop Profinity, shut down the application.
 
 ## Open Profinity in a web browser
 
+!!! info "Web access needs a Server licence"
+    The sign-in page opens on an unlicensed or Desktop installation, and signing in from the web needs a username and password.
+    User accounts need a Server licence, so the page opens and sign-in fails until that licence is applied.
+
 With Profinity running, open the URL set in the Profinity Web panel of [System configuration](../Administration/System_Configuration/Profinity_Web.md), which you reach from **ADMIN** in the side menu.
 The default URL is `http://localhost:18080`, and the browser opens the Profinity sign-in page.
 

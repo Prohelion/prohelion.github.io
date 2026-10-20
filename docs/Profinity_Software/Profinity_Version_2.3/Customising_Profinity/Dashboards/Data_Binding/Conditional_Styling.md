@@ -17,11 +17,12 @@ Each component accepts only a fixed set of targets, and a binding with a target 
 |--------|--------|------------|
 | `visible` | Hides the component when the value is false (`0` or `false`). Not supported on lamps, rows, groups, or panels. | Readout, Tab, Accordion, Footer |
 | `enabled` | Greys the component out when the value is false, but keeps it on screen | Readout, Lamp, Tab, Action, Toggle |
-| `color` | Sets the lamp colour (`red`, `green`, `amber`, `grey`, `on`, `off`, `disabled`, `unknown`) | Lamp |
+| `color` | Sets the colour. A lamp accepts `red`, `green`, `amber`, `grey`, `on`, `off`, `disabled`, or `unknown`. A caption accepts `red`, `green`, `amber`, or `grey` | Lamp, Caption |
 | `label` | Replaces the label text | Readout, Lamp, Pill value |
 | `classes` | Adds CSS class names to the component | Action, Toggle |
+| `tooltip` | Sets the tooltip text | Action |
 
-The Readout, Lamp, Tab, Accordion, Footer, and Action definitions in the [Component Reference](../Component_Reference/index.md) and the dashboard schema list the targets for each component.
+The Readout, Lamp, Caption, Tab, Accordion, Footer, and Action definitions in the [Component Reference](../Component_Reference/index.md) and the dashboard schema list the targets for each component.
 
 ## Show or hide a component
 

@@ -18,8 +18,8 @@ To record tags:
 2. In `Collections`, select the tag collections to record.
 3. Start the logger. With **Auto Connect** on (the default), the logger starts when the profile loads or the component is added. Otherwise, use the **Start Logger / Stop Logger** toggle in the logger component's actions to start it.
 
-Only the tags that belong to the selected collections are written, and only samples of Good quality.
-A TAG File Logger needs at least one collection selected before it will start, and saving its settings restarts a running logger but does not start a stopped one.
+Only the tags that belong to the selected collections are written, at every quality, including Stale, Unavailable, and Bad.
+A TAG File Logger needs at least one collection selected before it starts, and saving its settings restarts a running logger but does not start a stopped one.
 
 Choose the **File Format** with replay in mind.
 Both `CSV` (comma-separated values, `.txt`) and `JSON Lines` (`.jsonl`) can be replayed.

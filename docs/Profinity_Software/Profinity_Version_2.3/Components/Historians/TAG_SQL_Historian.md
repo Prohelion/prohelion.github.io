@@ -74,7 +74,7 @@ When **Auto Create Table** is enabled the historian creates a table with the fol
 | `ValueType` | The data type of the value. |
 | `Value` | The recorded value. |
 | `UtcTimestamp` | The UTC timestamp of the sample. |
-| `Quality` | The data quality of the sample: Good, Stale, Unavailable or Bad. |
+| `Quality` | The data quality of the sample: Good, Stale, Unavailable, or Bad. |
 | `Reason` | Why the sample was recorded. |
 | `Message` | An optional message. |
 
@@ -126,6 +126,6 @@ Check the connection string, that the database is reachable from the Profinity s
 
 !!! warning "Moving a component starts a new history in this historian"
     This historian records history under the tag's path, so moving a component changes its tag paths and the history recorded under the old paths is not carried across. Queries for the new path return a new series with no earlier points.
-    The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message and signal instead, so their history carries on after a move. Refer to [Change the path on a deployed component](../../Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
+    The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message, and signal instead, so their history carries on after a move. Refer to [Change the path on a deployed component](../../Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
 
 For the steps to set up data logging, refer to [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md).

@@ -16,9 +16,6 @@ For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md),
 | [Bootstrap installer](#install-with-the-bootstrap-installer) (`install.sh`) | You install on a Linux server or embedded device, or any host where Profinity should start on boot | Selects the right archive for the host, installs into `/opt/profinity`, creates the `profinity` service user, and on Linux with systemd creates the `profinity.service` unit |
 | [Archive installation](./Linux_and_macOS_Archive_Installation.md) | You are trying Profinity, running it interactively, or installing without root or systemd | Files extracted into a folder of your choice, and started by hand with `./profinity.sh` |
 
-Profinity does not need Prohelion hardware to run.
-To upgrade a 2.2 installation, read [Upgrade from Profinity 2.2](./Upgrade_From_2_2.md) first.
-
 ## Install with the bootstrap installer
 
 The installer downloads the release archive that matches the host operating system and CPU architecture, verifies it, and unpacks it into an install root, `/opt/profinity` by default.
@@ -75,16 +72,15 @@ If the `profinity` service is active, `update.sh` stops it before it applies the
 ## Where Profinity stores its data
 
 On Linux, Profinity 2.3 stores writable data under `/var/lib/prohelion/profinity` by default, not `~/.local/share`, and there is no per-user fallback.
-On macOS the default is `~/Library/Application Support/Prohelion/Profinity`, so the `chown` advice does not apply.
+On macOS the default is `~/Library/Application Support/Prohelion/Profinity`.
+
 The bootstrap installer creates this directory.
-With an extracted archive, create it and set its ownership before the first start, or set `PROFINITY_HOME` to a writable path.
-Refer to [Artefacts directory](./Artifacts_Directory.md).
+For more information, refer to [Artefacts directory](./Artifacts_Directory.md).
 
 ## Open the web interface
 
-Open the address that the `Now listening on` line of the log reports, or the `HttpAddress` and `HttpPort` values in `config.yaml`.
+Open the address that the `Now listening on` line of the log reports, or the `httpAddress` and `httpPort` values in `config.yaml`.
 By default Profinity listens on all network interfaces (`0.0.0.0`) on port `18080`, so you reach it at `http://localhost:18080` on the local machine, or at `http://[host name or IP address]:18080` from another machine.
-The sample log above came from an instance bound to the loopback address `127.0.0.1`, which only the local machine can reach.
 Opening the web interface from another machine needs a Server licence, as described in [Apply a licence](./Applying_a_Licence.md).
 
 The browser opens the Profinity sign-in page.

@@ -20,7 +20,7 @@ Profinity supports the following adapters.
 | Ewert Energy CANdapter | USB (COM port) |
 | Native [SocketCAN](https://docs.kernel.org/networking/can.html) | The local operating system, on Docker and Linux installs only |
 
-Native SocketCAN is available when Profinity runs in [Docker](../../Installation/Docker_Installation.md) or on a Unix [zip installation](../../Installation/Linux_and_macOS_Installation.md), and is not available on Windows.
+Native SocketCAN is available when Profinity runs in [Docker](../../Installation/Docker_Installation.md) or on a Linux host, including a [Linux archive install](../../Installation/Linux_and_macOS_Archive_Installation.md), and is not available on Windows or macOS.
 SocketCAN is a Linux kernel feature.
 A Peak or CANdapter adapter that you plug into a Linux host also appears there as a SocketCAN interface, so on Linux use the SocketCAN adapter, or the SocketCANd adapter from another machine, instead of the Peak or CANdapter adapter.
 

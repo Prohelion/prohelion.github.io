@@ -43,7 +43,7 @@ Start with the [Quick Start Guide](../Getting_Started/Quick_Start.md) if Profini
 ## Extend Profinity
 
 - [How to Connect Profinity to AI](./Connect_Profinity_to_AI.md): connects an AI tool to the Model Context Protocol (MCP) server.
-- [How to write your first script](./Write_Your_First_Script.md): enables scripting, adds a script component, runs a first script, and shows DBC, CAN, and state examples.
+- [How to write your first script](./Write_Your_First_Script.md): enables scripting, adds a script component, and runs a first script. [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md) shows a DBC signal, a CAN message, and script state.
 
 ## Tags, rules, and plugins
 
@@ -53,7 +53,7 @@ These Profinity 2.3 features have no separate guide, and the reference pages des
 - [Derived Tags](../Tags/Derived_Tags/index.md): calculates a new tag from existing tags with an expression.
 - [Rules](../Tags/Rules/index.md) and [Actions](../Tags/Rules/Actions/index.md): runs an action when a rule raises an alert.
 - [AI Skills](../Profinity_AI/AI_Skills.md): generates dashboards, rules, and scripts with an AI tool.
-- [DLL Plugins](../Developing_with_Profinity/Plugins/index.md): extends Profinity with a plugin.
+- [Developing Plugins](../Developing_with_Profinity/SDK/Developing_Plugins.md): extends Profinity with a plugin.
 
 ## More help
 

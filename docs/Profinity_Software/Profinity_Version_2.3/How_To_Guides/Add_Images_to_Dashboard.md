@@ -53,12 +53,11 @@ html:
     <img src="/Profile/Images/custom-banner.jpg" alt="Banner" />
 ```
 
-In an [Image](../Customising_Profinity/Dashboards/Component_Reference/Images_and_Models/Image.md) component, which shows an interactive image, set `value.image` to the filename only:
+In an [Image](../Customising_Profinity/Dashboards/Component_Reference/Images_and_Models/Image.md) component, which shows an interactive image, set `image` to the filename only:
 
 ```yaml
 image:
-  value:
-    image: device-diagram.png  # Use filename only
+  image: device-diagram.png  # Use filename only
 ```
 
 ## Check the image

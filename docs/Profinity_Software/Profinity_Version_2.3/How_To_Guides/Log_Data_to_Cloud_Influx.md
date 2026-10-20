@@ -38,7 +38,7 @@ To use a self-hosted InfluxDB:
 3. Create a bucket and generate an API token, for example:
 
 ```bash
-influx create bucket my-profinity-data
+influx bucket create --name my-profinity-data
 influx auth create --org my-org --all-access
 ```
 

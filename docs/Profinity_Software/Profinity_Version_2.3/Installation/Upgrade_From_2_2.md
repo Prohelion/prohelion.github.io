@@ -18,7 +18,7 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
    On a 2.2 system the artefacts directory is `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS, and `~/.local/share/Prohelion/Profinity` on Linux.
 2. Install Profinity 2.3 and start it once.
    The first start moves data from older locations into the 2.3 artefacts directory, renames `Config`, `Profiles`, and `Logs` to lowercase, and rewrites `security.yaml` and `profile.yaml` in the 2.3 camelCase format when it loads them.
-   It rewrites `config.yaml` the next time it is saved.
+   It rewrites `config.yaml` on that first load when the file still has legacy Pascal keys or an older version stamp.
    Profinity does not move data when `PROFINITY_HOME` is set, so copy anything you need into that location yourself.
 3. Open **ADMIN > License** and confirm the state and the edition.
    A 2.2 installation upgraded without a licence file is unlicensed once any trial ends, and remote web access, user and role administration, two-factor authentication, Profinity AI, and the Email, Slack, Webhook, and MQTT rule actions stop being available until you upload a licence.

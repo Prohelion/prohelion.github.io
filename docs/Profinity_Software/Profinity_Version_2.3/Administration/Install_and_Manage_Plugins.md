@@ -12,12 +12,13 @@ Use the **INSTALLED PLUGINS** half of **Components & Plugins** to install plugin
 A **plugin** adds compiled components to Profinity, such as support for a device or protocol that does not ship in the box.
 The other half of the screen, **COMPONENT CATALOGUE**, hides or shows individual component types, as described in [Choose available components](Choose_Available_Components.md).
 
-Opening the screen requires the **View plugins** permission.
+Opening the screen requires the **View plugins** permission and a licence that includes the **Custom Plugins** feature.
+An unlicensed instance does not show the **Components & Plugins** pill.
 Uploading, enabling, disabling, deleting, or changing the catalogue requires **Modify plugins**, without which the tables are shown without action buttons.
 Refer to [Roles and Permissions](Users_and_Access/Roles_and_Permissions.md) for the permissions.
 
 Plugins are different from **Custom Components**, which are bundles of YAML and scripts.
-To build a plugin yourself, refer to [dynamic-link library (DLL) plugins](../Developing_with_Profinity/Plugins/index.md) in Developing with Profinity.
+To build a plugin yourself, refer to [Developing Plugins](../Developing_with_Profinity/SDK/Developing_Plugins.md) in the Profinity SDK.
 
 ## Install a plugin
 
