@@ -17,7 +17,7 @@ Every action receives the list of tags that caused the rule to fire, which is na
     The Email, Slack, Webhook, and MQTT actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
     A script set to **Run On Alert** needs both **Tag Rule Actions** and **Scripting** (included in the **Desktop**, **Server** and **Enterprise** editions).
     Without **Tag Rule Actions** the rule still evaluates and the alert is still recorded, and only the licensed actions are skipped.
-    Refer to [Licensing](../../../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../../Licensing.md) for what each edition includes.
 
 <figure markdown>
 ```mermaid

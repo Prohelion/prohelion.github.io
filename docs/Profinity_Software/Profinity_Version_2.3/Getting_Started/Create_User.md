@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 Create a user account for each person who signs in to Profinity, and give it the roles that match their job.
 You need the **Security administration** permission and the **Profinity Server** licensed feature, which the **Server** and **Enterprise** editions include.
 Without the feature there are no user accounts or roles: a Desktop installation runs as a single built-in admin user, and **Users & Groups** shows that user and group administration requires a Server licence.
-[Licensing](../Administration/Licensing.md) lists what each edition includes.
+[Licensing](../Licensing.md) lists what each edition includes.
 
 1. In the side menu, select **ADMIN**, then **Users & Groups**.
 2. Select **+ Add user**.

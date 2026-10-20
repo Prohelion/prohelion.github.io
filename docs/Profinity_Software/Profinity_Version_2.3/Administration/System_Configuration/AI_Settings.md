@@ -15,7 +15,7 @@ Profinity 2.3 does not support per-user API keys or per-user provider selection.
 !!! info "Licence required"
     Profinity AI requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions.
     Without it the feature is unavailable.
-    Refer to [Licensing](../Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 Once enabled, the assistant can query live data from this Profinity instance through the built-in Model Context Protocol (MCP) server, search docs.prohelion.com for how-to and reference material, and, if the administrator enables it, search the web.
 Requests are answered by an external AI provider (Claude, OpenAI, or OpenRouter) or by a local, self-hosted model.

@@ -28,7 +28,7 @@ The data format and the retry behaviour differ.
 
 All three components require the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions.
 Without it the components are unavailable.
-Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## Choosing between a publisher, a logger and a Tag Relay
 

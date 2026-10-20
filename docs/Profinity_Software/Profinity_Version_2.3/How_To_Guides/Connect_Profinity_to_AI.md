@@ -14,7 +14,7 @@ Three stages make the connection: enabling the MCP server, creating a service ac
 ## Prerequisites
 
 - Profinity 2.3 installed and running
-- A licence that includes the **AI** feature, which the MCP server needs, and the **Profinity Server** feature, which **Users & Groups** needs for the service account. Both are included in the **Server** and **Enterprise** editions. On other editions the **Enable MCP Server** setting is unavailable. Refer to [Licensing](../Administration/Licensing.md)
+- A licence that includes the **AI** feature, which the MCP server needs, and the **Profinity Server** feature, which **Users & Groups** needs for the service account. Both are included in the **Server** and **Enterprise** editions. On other editions the **Enable MCP Server** setting is unavailable. Refer to [Licensing](../Licensing.md)
 - Administrator access to the Profinity [AI Settings](../Administration/System_Configuration/AI_Settings.md) and to user management
 - An AI tool or LLM client that supports MCP over Streamable HTTP with a custom `Authorization` header, because the Profinity [MCP server](../Integrating_to_Profinity/MCP_Server/index.md) authenticates every request with a JSON Web Token (JWT) bearer token
 - Familiarity with how your AI tool adds an MCP server
@@ -115,7 +115,7 @@ If the web server runs on another machine, make sure its port is allowed through
 ### Enable MCP Server is unavailable
 
 The **Enable MCP Server** setting needs the **AI** licensed feature, so on an edition without it the setting cannot be used.
-Refer to [Licensing](../Administration/Licensing.md).
+Refer to [Licensing](../Licensing.md).
 
 ### No data is returned
 

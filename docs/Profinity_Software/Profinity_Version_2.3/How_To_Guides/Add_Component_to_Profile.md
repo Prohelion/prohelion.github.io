@@ -11,7 +11,7 @@ last_reviewed: 2026-10-15
 Add a component to the active [profile](../Getting_Started/Profiles.md) from the sidebar or homepage to monitor a CAN bus device, then check its status and connect it.
 You need Profinity V2 installed and running, a loaded profile, and the **Modify components** permission, which allows components to be added ([Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
 Some component types also need a licence that includes the feature behind them, because a component type that is not licensed shows as unavailable, such as a historian.
-[Licensing](../Administration/Licensing.md) lists which features each edition includes.
+[Licensing](../Licensing.md) lists which features each edition includes.
 
 Add a protocol adapter first.
 A protocol adapter allows Profinity to receive data from external systems, and without incoming data Profinity is limited in what it is able to show and do.

@@ -75,6 +75,6 @@ my_plugin.zip
 ```
 
 Uploading a plugin needs the **Modify plugins** permission, described in [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md), and the **Custom Plugins** feature, which is available from the Desktop edition upwards and not when unlicensed.
-Refer to [Licensing](../../Administration/Licensing.md).
+Refer to [Licensing](../../Licensing.md).
 
 For the built-in industrial protocol components, refer to [Industrial protocols](../../Components/Industrial_Protocols/index.md), which covers BACnet, EtherNet/IP, Modbus, OPC UA and S7.

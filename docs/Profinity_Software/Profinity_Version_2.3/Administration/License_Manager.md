@@ -1,12 +1,12 @@
 ---
-title: License page
+title: License manager
 description: "Read the licence state, type, edition, expiry, fingerprint, and licensed features of a Profinity instance on the License page under ADMIN."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-15
 ---
 
-# License page
+# License manager
 
 The **License** page under **ADMIN** shows the licence state of an instance, its fingerprint, and which features and component groups are licensed and available.
 Select **ADMIN** in the side menu, then **License**.
@@ -37,4 +37,4 @@ For example, the BACnet, EtherNet/IP, Modbus, OPC UA and S7 [industrial protocol
 Without the matching entitlement the components show as unavailable, even when the plugin is installed.
 
 To change the licence, refer to [Apply a licence](../Installation/Applying_a_Licence.md).
-For what each edition includes, refer to [Licensing](Licensing.md), and for the trial and the fingerprint, refer to [Trial licence, Desktop use and machine fingerprint](Trial_Desktop_Use_and_Fingerprint.md).
+For what each edition includes, the 14-day local trial, and the machine fingerprint, refer to [Licensing](../Licensing.md).

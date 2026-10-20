@@ -31,7 +31,7 @@ The certificate options are shared with the Extensions Web tab and are described
 
 Without a **Profinity Server** licence, including on a Desktop host, the IP address settings are not shown on this tab, and Profinity forces both the HTTP and the HTTPS address to `127.0.0.1` even if Config.yaml holds another value, so the web interface can be reached only from the same computer.
 Entering `0.0.0.0` does not change this, and the log records "Remote web access requires a Server license."
-The full rule is in the remote web access warning on [Licensing](../Licensing.md).
+The full rule is in the remote web access warning on [Licensing](../../Licensing.md).
 
 ## Troubleshooting
 

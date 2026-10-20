@@ -23,7 +23,7 @@ Install each one like any other [DLL plugin](../../Administration/Install_and_Ma
 !!! info "Licence required"
     The protocol plugins also require the **Industrial Protocols** licensed component group, an add-on to your Desktop, Server, or Enterprise edition.
     Installing a plugin does not make its components available without it.
-    Refer to [Licensing](../../Administration/Licensing.md) to check your instance, where the group is listed as **Industrial Protocols** under **Licensed component groups**.
+    Refer to [Licensing](../../Licensing.md) to check your instance, where the group is listed as **Industrial Protocols** under **Licensed component groups**.
 
 ## Available protocol plugins
 

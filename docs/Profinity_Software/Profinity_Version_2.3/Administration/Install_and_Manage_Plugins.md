@@ -26,7 +26,7 @@ Plugins that ship with Profinity are listed alongside the ones you install.
 
 1. Select **ADMIN** in the side menu and open the **Components & Plugins** pill.
 2. In the **UPLOAD PLUGIN (.ZIP OR .NUPKG)** panel, upload the package.
-3. Enable the plugin once it is listed. Enabling a plugin that you uploaded also needs the **Custom Plugins** licensed feature, available from the Desktop edition upwards and not when unlicensed (refer to [Licensing](Licensing.md)).
+3. Enable the plugin once it is listed. Enabling a plugin that you uploaded also needs the **Custom Plugins** licensed feature, available from the Desktop edition upwards and not when unlicensed (refer to [Licensing](../Licensing.md)).
 
 The plugin id is taken from the package file name without its extension, so `my_plugin.zip` installs as `my_plugin`.
 It may contain only letters, digits, hyphens, and underscores.

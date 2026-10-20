@@ -23,7 +23,7 @@ Tags, Rules, and Actions can then describe both the active system state and the 
 
 [Plugins](Developing_with_Profinity/Plugins/index.md) add third-party or in-house components to Profinity in the same way as Prohelion components, and [scripts](Developing_with_Profinity/Scripting/index.md) automate tasks, so Profinity can be extended for additional components or white-labelled solutions.
 
-Some features need a licensed edition, and [Licensing](Administration/Licensing.md) lists what each edition includes.
+Some features need a licensed edition, and [Licensing](Licensing.md) lists what each edition includes.
 
 <figure markdown>
 ![A layered platform: Dashboards, Rules, Alerts, Collections, and Derived Tags apply on top of one Tags data model; plugins, scripting, APIs, and the Model Context Protocol (MCP) extend it; Security protects it; the Profinity Engine runs it, on any operating system or container](images/diagram-architecture.png)

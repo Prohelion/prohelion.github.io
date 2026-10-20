@@ -33,7 +33,7 @@ When Prohelion has issued a commercial or evaluation licence, apply it now:
 
 The **License** pill needs the **Security administration** permission.
 For Docker, Linux services, installations with no network access, and what to do when a licence is rejected, refer to [Applying a Licence](../Installation/Applying_a_Licence.md).
-For what each edition includes, refer to [Licensing](../Administration/Licensing.md).
+For what each edition includes, refer to [Licensing](../Licensing.md).
 
 ## Step 3: Load the example profile
 

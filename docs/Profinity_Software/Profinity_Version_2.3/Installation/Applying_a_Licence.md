@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Apply a licence
 
 A new Profinity installation runs without a licence file.
-An unlicensed Desktop installation is limited to personal, non-commercial use, and other installations start a one-time 14-day local trial with the Server features, as described in [Licensing](../Administration/Licensing.md).
+An unlicensed Desktop installation is limited to personal, non-commercial use, and other installations start a one-time 14-day local trial with the Server features, as described in [Licensing](../Licensing.md).
 A commercial or evaluation licence from Prohelion removes those limits, and you apply it after installation in the same way on every platform.
 
 You need three things:
@@ -38,7 +38,7 @@ For Docker, Linux services, and scripted deployments, copy the file into the art
 3. Restart Profinity if the licence adds features, or if the **License** page still shows the previous state.
 
 The licence must belong to the installation's own fingerprint, in the same way as one uploaded from the page.
-To read the fingerprint without the web interface, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Administration/Trial_Desktop_Use_and_Fingerprint.md#the-machine-fingerprint).
+To read the fingerprint without the web interface, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Licensing.md#the-machine-fingerprint).
 
 ## Check that the licence has taken effect
 
@@ -60,4 +60,4 @@ Removing licensed features restarts Profinity automatically.
 | `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way |
 
 A rejected upload never replaces a working licence, so it is safe to retry.
-For editions, features, and the 14-day local trial, refer to [Licensing](../Administration/Licensing.md).
+For editions, features, and the 14-day local trial, refer to [Licensing](../Licensing.md).

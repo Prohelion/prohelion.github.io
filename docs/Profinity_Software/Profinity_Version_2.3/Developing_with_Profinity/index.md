@@ -26,7 +26,7 @@ A script runs inside Profinity, a Custom Component brings in a device that Profi
 New in Profinity 2.3: a Custom Component can include scripts, actions, and settings maps.
 
 Scripting requires a **Desktop**, **Server** or **Enterprise** licence, and an unlicensed instance cannot add or run scripts.
-Refer to [Licensing](../Administration/Licensing.md).
+Refer to [Licensing](../Licensing.md).
 
 ## Choosing between a script, a Custom Component and a plugin
 

@@ -15,7 +15,7 @@ The [Rule actions](Actions/index.md) page covers the actions that a rule can run
 !!! info "Licence required"
     Rules and the Alerts Log work on every edition.
     Without the **Tag Rule Actions** licensed feature a rule still evaluates and the alert is still recorded, and only the Email, Slack, Webhook, MQTT, and script actions are skipped.
-    Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## Rules visual editor
 

@@ -22,7 +22,7 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
    Profinity does not move data when `PROFINITY_HOME` is set, so copy anything you need into that location yourself.
 3. Open **ADMIN > License** and confirm the state and the edition.
    A 2.2 installation upgraded without a licence file is unlicensed once any trial ends, and remote web access, user and role administration, two-factor authentication, Profinity AI, and the Email, Slack, Webhook, and MQTT rule actions stop being available until you upload a licence.
-   Refer to [Apply a licence](./Applying_a_Licence.md) and [Licensing](../Administration/Licensing.md).
+   Refer to [Apply a licence](./Applying_a_Licence.md) and [Licensing](../Licensing.md).
 4. Sign in as an administrator, open **ADMIN > Users & Groups**, and check the **Roles** tab and each user's assigned roles.
    Change the default `admin` password if you have not already. A default `admin` account that Profinity creates must change its password at first sign-in.
 5. Open **ADMIN > System Configuration** and confirm the **Sign-in method**, the password policy, and the SSO, SCIM, and SIEM settings.

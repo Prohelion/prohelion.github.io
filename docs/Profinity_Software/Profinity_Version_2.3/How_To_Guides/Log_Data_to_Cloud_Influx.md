@@ -15,7 +15,7 @@ The InfluxDB v1 Logger, which is available in every edition, and the InfluxDB v3
 Before you start, you need:
 
 - Profinity 2.3 installed and running.
-- A licence that includes the **Historians** feature, which the InfluxDB v2 Historian needs (Desktop, Server, and Enterprise editions, not an unlicensed instance). Refer to [Licensing](../Administration/Licensing.md).
+- A licence that includes the **Historians** feature, which the InfluxDB v2 Historian needs (Desktop, Server, and Enterprise editions, not an unlicensed instance). Refer to [Licensing](../Licensing.md).
 - An InfluxDB instance (cloud or self-hosted), with its version known, because InfluxDB V1, V2 and V3 are separate, incompatible products and Profinity provides a separate component for each.
 - An InfluxDB bucket (V2) or database (V1 and V3) created and accessible.
 - Network access to your InfluxDB server.

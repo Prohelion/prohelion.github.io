@@ -32,7 +32,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The InfluxDB v2 Historian and the InfluxDB v3 Historian require the **Historians** licensed feature. Refer to [Licensing](../../Administration/Licensing.md) for the editions that include them.
+    The InfluxDB v2 Historian and the InfluxDB v3 Historian require the **Historians** licensed feature. Refer to [Licensing](../../Licensing.md) for the editions that include them.
 
 Use the InfluxDB v2 Historian only with an InfluxDB v2 server, and the InfluxDB v3 Historian only with an InfluxDB v3 server.
 The component type must match the InfluxDB version, and a mismatch causes connection failures.

@@ -12,7 +12,7 @@ Every person who signs in to Profinity through the Web or the API has a user acc
 A role is a named set of permissions such as viewing tags, sending CAN messages, or editing profiles, so setting up a new person means creating the account and choosing the role that matches their job, and nothing more.
 The roles themselves, and the permissions inside them, are described in [Roles and permissions](./Roles_and_Permissions.md).
 
-All of this is done from **Users & Groups**, which requires the **Security administration** permission and is shown only when the licence includes the Profinity Server feature, as described in [Licensing](../Licensing.md).
+All of this is done from **Users & Groups**, which requires the **Security administration** permission and is shown only when the licence includes the Profinity Server feature, as described in [Licensing](../../Licensing.md).
 A Windows Desktop installation without a Server licence does not use user accounts, because it signs in automatically with a built-in administrator account that can do everything.
 User accounts and roles exist on a Desktop host only when a Server licence is applied, and they are needed only when Profinity is used through the Web or the API.
 

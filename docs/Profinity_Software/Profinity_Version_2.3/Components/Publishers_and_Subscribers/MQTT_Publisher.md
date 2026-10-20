@@ -32,7 +32,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The MQTT Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    The MQTT Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. See [Licensing](../../Licensing.md) for what each edition includes.
 
 ## Quick start
 

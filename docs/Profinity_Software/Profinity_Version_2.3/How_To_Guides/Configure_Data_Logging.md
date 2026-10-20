@@ -16,7 +16,7 @@ Choose a destination in the table, add the component, then follow the section fo
 - An active profile with components configured
 - Access to the destination: a file system or an SSH File Transfer Protocol (SFTP) server, InfluxDB, Prometheus, an MQTT broker, or a webhook receiver
 - The **Modify components** permission, which allows loggers and publishers to be added
-- The licensed feature for the destination, which is **Historians** for the InfluxDB v2 and v3 Historians (Desktop, Server, and Enterprise editions) and **Data Relay** for the MQTT Publisher and Webhook Publisher (Server and Enterprise editions). The file and SFTP loggers, the InfluxDB v1 Logger and the Prometheus Logger are available in every edition. Refer to [Licensing](../Administration/Licensing.md)
+- The licensed feature for the destination, which is **Historians** for the InfluxDB v2 and v3 Historians (Desktop, Server, and Enterprise editions) and **Data Relay** for the MQTT Publisher and Webhook Publisher (Server and Enterprise editions). The file and SFTP loggers, the InfluxDB v1 Logger and the Prometheus Logger are available in every edition. Refer to [Licensing](../Licensing.md)
 
 ## Choose a destination
 

@@ -13,7 +13,7 @@ It can answer questions about the live state of this Profinity instance, look up
 
 AI Chat requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions.
 Without it the feature is unavailable.
-Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
+Refer to [Licensing](../Licensing.md) for what each edition includes.
 
 !!! info "Your messages may leave this instance"
     Profinity AI is answered by an external AI provider unless your administrator has configured a local, self-hosted model. Ask your administrator which provider is configured before discussing sensitive data with the assistant.

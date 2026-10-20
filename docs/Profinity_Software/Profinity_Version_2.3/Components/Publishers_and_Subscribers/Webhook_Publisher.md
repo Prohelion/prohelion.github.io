@@ -23,7 +23,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The Webhook Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    The Webhook Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## Quick start {#adding-a-webhook-publisher}
 

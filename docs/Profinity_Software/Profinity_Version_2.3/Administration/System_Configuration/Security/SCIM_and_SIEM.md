@@ -16,7 +16,7 @@ Both are set on the **Security** tab of [System Configuration](../index.md), whi
 !!! note "Licence required"
     SCIM provisioning requires the **Enterprise Security** licensed feature, included in the **Enterprise** edition only.
     Without it, **Enable SCIM user provisioning** does not take effect.
-    Refer to [Licensing](../../Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../../Licensing.md) for what each edition includes.
 
 The **SCIM Provisioning** group appears only when **Sign-in method** is **Sso**, because provisioned users sign in through the identity provider configured in [SSO and sign-in method](./SSO_and_Sign_In.md).
 To enable provisioning, switch on **Enable SCIM user provisioning**, enter a **SCIM bearer token**, and optionally enter **Default assigned roles**, then save.

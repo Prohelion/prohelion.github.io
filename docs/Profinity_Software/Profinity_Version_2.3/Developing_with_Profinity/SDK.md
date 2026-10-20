@@ -14,7 +14,7 @@ The kit bundles the `Profinity.Sdk` library with the two command-line tools that
 
 !!! info "Licence required"
     The Profinity SDK is an add-on to the Desktop, Server, or Enterprise edition, supplied by Prohelion on request.
-    Refer to [Licensing](../Administration/Licensing.md).
+    Refer to [Licensing](../Licensing.md).
 
 ## What is in the kit
 

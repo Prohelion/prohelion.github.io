@@ -58,6 +58,24 @@
     transform-box: fill-box;
 }
 
+/* Edition comparison icons (Licensing page). Colours keep at least 3:1 contrast against the page background. */
+.md-typeset .edition-icon svg {
+    height: 1.25em;
+    width: 1.25em;
+}
+
+.md-typeset .edition-icon--yes {
+    color: #2e7d32;
+}
+
+.md-typeset .edition-icon--no {
+    color: #757575;
+}
+
+.md-typeset .edition-icon--addon {
+    color: #1565c0;
+}
+
 /* Material shrink-wraps a figure to its content, which collapses a Mermaid diagram to a fraction of the column and shrinks its text. Let a figure that holds a diagram use the full column. */
 .md-typeset figure:has(.mermaid) {
     width: 100%;

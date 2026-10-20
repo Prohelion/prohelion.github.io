@@ -13,7 +13,7 @@ It comes in two parts: [AI Chat](./AI_Chat.md), an assistant built into Profinit
 
 AI Chat and the built-in Model Context Protocol (MCP) server require the **AI** licensed feature, included in the **Server** and **Enterprise** editions.
 Without it the feature is unavailable.
-Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
+Refer to [Licensing](../Licensing.md) for what each edition includes.
 
 <figure markdown>
 ![Profinity AI gathers context from the whole Profile (devices, alerts, documentation and history), correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/diagram-ai-diagnostics.png)

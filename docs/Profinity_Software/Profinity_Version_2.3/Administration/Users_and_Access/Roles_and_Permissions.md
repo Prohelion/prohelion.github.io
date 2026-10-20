@@ -13,7 +13,7 @@ A role is a named list of things that people holding it are allowed to do, such 
 A person who holds two roles can do everything either role allows, and there is no way to give a single user an extra permission without a role, so to find out who can do something only the roles need to be checked.
 
 This page shows how to create a role, give it to a person, and work out why someone cannot see something they expect to.
-Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md), which requires the **Security administration** permission and a licence that includes the Profinity Server feature, as described in [Licensing](../Licensing.md).
+Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md), which requires the **Security administration** permission and a licence that includes the Profinity Server feature, as described in [Licensing](../../Licensing.md).
 A Windows Desktop installation without a Server licence does not use roles, because it signs in automatically with a built-in administrator account that can do everything.
 Roles exist on a Desktop host only when a Server licence is applied, and the rest of this page applies when Profinity is used through the Web or the API.
 

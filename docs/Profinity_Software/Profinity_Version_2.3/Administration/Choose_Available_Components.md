@@ -34,7 +34,7 @@ Profinity checks the licence first, then `custom.yaml`, then `config.yaml`.
 
 A row with no action button is locked, and the **Status** column says why.
 **Not licensed** means your licence does not cover the component.
-Refer to [Licensing](Licensing.md).
+Refer to [Licensing](../Licensing.md).
 **Disabled (Custom.yaml)** means the supplier of your Profinity build hid the component through the `custom.yaml` file in the `config` folder, which Profinity only reads, so it cannot be enabled from this screen.
 A component disabled in the site configuration shows **Disabled**, **Disabled (group)** or **Disabled (component)** instead.
 If an attempt to change a row fails, a message explains the reason.

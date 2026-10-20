@@ -15,7 +15,7 @@ An MCP client can use it to answer questions about live tags and alerts, to pull
 !!! info "Licence required"
     The MCP server requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions.
     Without it the feature is unavailable.
-    Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## About MCP
 

@@ -19,7 +19,7 @@ A Custom Component is the same idea for a third-party CAN device, or for a devic
     Custom Components need the **Custom Plugins** licensed feature, which is included from the Desktop edition upward.
     The script a Custom Component runs, set under **Scripts**, needs the **Scripting** licensed feature, which is included from the Desktop edition upward, so a profile without it can use the DBC, dashboard, and rules files but not the script.
     The [Profinity SDK](../../Developing_with_Profinity/SDK.md) used to pack a component is a separate add-on.
-    Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 The steps to add one are in [How to Create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
 The files that make one up, and how to pack it for another installation, are in the [Custom Components authoring guide](../../Developing_with_Profinity/Custom_Components/index.md), and [Component Types](../../Developing_with_Profinity/Custom_Components/Component_Types.md) compares a Custom Component with a Dashboard Component and a dynamic-link library (DLL) plugin.

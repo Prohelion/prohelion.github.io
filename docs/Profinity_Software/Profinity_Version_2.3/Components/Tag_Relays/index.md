@@ -35,7 +35,7 @@ If the other end is a third-party Sparkplug B source, use the [MQTT Subscriber](
 Both components are added to a profile from the **Tag Relays** category.
 
 !!! info "Licence required"
-    Both components require the **Data Relay** licensed feature on the instance they run on, included in the **Server** and **Enterprise** editions. Refer to [Licensing](../../Administration/Licensing.md) to check whether it is available.
+    Both components require the **Data Relay** licensed feature on the instance they run on, included in the **Server** and **Enterprise** editions. Refer to [Licensing](../../Licensing.md) to check whether it is available.
 
 To set up a first relay, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md).
 The [Tag Relay](../../Tags/Tag_Relay.md) page covers the concept, collision rules and known limitations.

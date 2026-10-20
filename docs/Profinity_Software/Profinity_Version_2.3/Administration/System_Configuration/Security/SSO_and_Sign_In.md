@@ -20,7 +20,7 @@ With **Sso** selected, the **SSO** and **SCIM Provisioning** groups appear.
 !!! note "Licence required"
     Choosing **Sso** as the **Sign-in method** requires the **Enterprise Security** licensed feature, included in the **Enterprise** edition only.
     Without it Profinity keeps **Local** sign-in and the **Sso** choice does not take effect.
-    Refer to [Licensing](../../Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../../Licensing.md) for what each edition includes.
 
 ## Configuring the identity provider
 

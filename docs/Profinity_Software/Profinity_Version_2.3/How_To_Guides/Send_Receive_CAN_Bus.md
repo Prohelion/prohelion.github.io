@@ -29,7 +29,7 @@ On a Server or Enterprise installation:
 4. Change the roles if needed and select **Save**.
 
 Changing a user's roles revokes their active sessions, so the user must sign in again for the change to take effect.
-A Desktop installation runs as a built-in user that holds every permission, so it needs no change (refer to [Licensing](../Administration/Licensing.md)).
+A Desktop installation runs as a built-in user that holds every permission, so it needs no change (refer to [Licensing](../Licensing.md)).
 
 ## Receive CAN messages
 

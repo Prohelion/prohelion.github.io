@@ -45,7 +45,7 @@ A service account is given roles in the same way as an interactive user, and the
 | Tag and query automation | **View tags**, plus any other view permission the integration reads |
 | MCP access | **MCP integration**, which the default **Administrators** role includes and which any other role must be given explicitly |
 
-MCP access also needs the **AI** licensed feature, included in the **Server** and **Enterprise** editions, as described in [Licensing](../Licensing.md).
+MCP access also needs the **AI** licensed feature, included in the **Server** and **Enterprise** editions, as described in [Licensing](../../Licensing.md).
 
 ## Using the token
 

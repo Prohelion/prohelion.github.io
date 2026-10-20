@@ -31,7 +31,7 @@ flowchart LR
 !!! info "Licence required"
     The Prohelion Cloud Dashboard component requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions.
     Without it the component is unavailable.
-    Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## Get access to Prohelion Cloud
 

@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 This page holds worked script examples that read a DBC signal, send a CAN message and persist script state.
 To add a script component and run a first script, refer to [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
-Scripting needs a **Desktop**, **Server**, or **Enterprise** licence. Refer to [Licensing](../../Administration/Licensing.md).
+Scripting needs a **Desktop**, **Server**, or **Enterprise** licence. Refer to [Licensing](../../Licensing.md).
 
 !!! warning "Scripts run with application permissions"
     A script runs inside Profinity with the same operating system permissions as the application, so review any script before running it.

@@ -17,7 +17,7 @@ A **historian** is a logging component that writes the history of your [tags](..
 </figure>
 
 Profinity provides three historians, and each selects the tags it records through [collections](../../Tags/Collections/index.md), in the same way as a logger.
-Historians require the **Historians** licensed feature, included in the **Desktop**, **Server** and **Enterprise** editions, and [Licensing](../../Administration/Licensing.md) shows whether it is available on your instance.
+Historians require the **Historians** licensed feature, included in the **Desktop**, **Server** and **Enterprise** editions, and [Licensing](../../Licensing.md) shows whether it is available on your instance.
 
 All three allow the history to be read back through the APIs, and all three have the **Designated tag historian reader** setting described under [Designating the historian that is read from](#designating-the-historian-that-is-read-from).
 

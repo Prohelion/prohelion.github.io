@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 Tag relay shares live tag data between two Profinity instances.
 One instance runs as a sender, publishing periodic snapshots of the [tag collections](Collections/index.md) it is set to export, and another runs as a receiver, ingesting those snapshots as remote, read-only tags under a prefix that identifies where they came from.
 It supports a fleet or head-office view spanning multiple sites, vehicles, or installations.
-Tag relay requires the **Data Relay** licensed feature on both the sending and receiving instance, and [Licensing](../Administration/Licensing.md) shows whether it is licensed and available on a given instance.
+Tag relay requires the **Data Relay** licensed feature on both the sending and receiving instance, and [Licensing](../Licensing.md) shows whether it is licensed and available on a given instance.
 Tag relay has no field-level filtering: a sender exports every tag that belongs to its selected collections, so create a collection that contains only the tags a receiver should see.
 
 <figure markdown>

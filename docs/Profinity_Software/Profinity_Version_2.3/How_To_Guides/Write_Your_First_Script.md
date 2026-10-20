@@ -14,7 +14,7 @@ This guide adds a script component, writes a run script that prints a message, r
 Before you start, you need:
 
 - Profinity 2.3 installed and running.
-- A **Desktop**, **Server**, or **Enterprise** licence. An unlicensed instance cannot add or run scripts. Refer to [Licensing](../Administration/Licensing.md).
+- A **Desktop**, **Server**, or **Enterprise** licence. An unlicensed instance cannot add or run scripts. Refer to [Licensing](../Licensing.md).
 - An active [profile](../Getting_Started/Profiles.md) with components configured.
 - Basic understanding of C# or Python. Profinity scripting uses [IronPython](https://ironpython.net/) for Python, which limits the Python syntax available, and also supports Lua. Refer to [Supported Languages](../Developing_with_Profinity/Scripting/Supported_Languages/index.md).
 - [Scripting](../Developing_with_Profinity/Scripting/index.md) enabled in Profinity configuration, as in the first step below.

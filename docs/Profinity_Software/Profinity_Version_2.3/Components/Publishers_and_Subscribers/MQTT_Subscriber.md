@@ -26,7 +26,7 @@ The MQTT Subscriber is for an external Sparkplug B source, such as a third-party
 To share tags between two Profinity instances, use [Tag Relay](../Tag_Relays/index.md), which has its own snapshot format and does not use Sparkplug.
 
 !!! info "Licence required"
-    The MQTT Subscriber requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    The MQTT Subscriber requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## Quick start {#adding-an-mqtt-subscriber}
 

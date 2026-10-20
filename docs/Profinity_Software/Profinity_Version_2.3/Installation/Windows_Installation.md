@@ -55,7 +55,7 @@ User accounts and roles need the Server licensed feature, which the Server and E
 Without it, **Users & Groups** is unavailable and Profinity runs as a single built-in administrator.
 A Desktop host does not start the 14-day local trial, so apply a Server licence file under **ADMIN > License**, as described in [Apply a licence](./Applying_a_Licence.md), and restart Profinity so the new address takes effect.
 With a Server licence active, Profinity creates the default `admin` account, which must change its password at first sign-in.
-Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
+Refer to [Licensing](../Licensing.md) for what each edition includes.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The TAG SQL Historian requires the **Historians** licensed feature. Refer to [Licensing](../../Administration/Licensing.md) for the editions that include it.
+    The TAG SQL Historian requires the **Historians** licensed feature. Refer to [Licensing](../../Licensing.md) for the editions that include it.
 
 ## Adding the historian {#adding-a-tag-sql-historian}
 

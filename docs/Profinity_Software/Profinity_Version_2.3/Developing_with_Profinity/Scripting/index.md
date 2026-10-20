@@ -13,7 +13,7 @@ Profinity scripting automates tasks, processes CAN messages and creates custom o
 !!! info "Licence required"
     Scripting requires the **Scripting** licensed feature, included in the **Desktop**, **Server**, and **Enterprise** editions.
     An unlicensed instance cannot add or run scripts.
-    Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 <figure markdown>
 ![Rule actions respond to alerts (Webhook, Slack, MQTT, Email), scripts in Python, Lua, or C# read and write tags like any other component, and Tag Relay links Profinity instances together over HTTPS or MQTT](../../images/diagram-automation.png)

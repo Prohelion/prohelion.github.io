@@ -39,7 +39,7 @@ If an administrator disables Kiosk Mode, changes the Kiosk Mode User or switches
 
 The kiosk user must exist and must be enabled, and Profinity does not restrict which roles that user holds.
 The permissions of the selected user are therefore the only control over what an unattended display can do, so create a dedicated account for the purpose, such as `kiosk-display`, rather than reusing a person's account, which also makes kiosk access easy to identify in the system logs.
-A dedicated user is created in **Users & Groups**, which needs the Profinity Server feature, as described in [Licensing](Licensing.md).
+A dedicated user is created in **Users & Groups**, which needs the Profinity Server feature, as described in [Licensing](../Licensing.md).
 
 Assign the dedicated account a read-only role built from view permissions only, as described in [Roles and Permissions](./Users_and_Access/Roles_and_Permissions.md#which-roles-to-create).
 Never select an administrator or a user holding a high-risk permission such as **Send CAN messages**, because anyone at the display would inherit it.

@@ -18,7 +18,7 @@ Before you start, you need:
 - Administrator access to the system.
 - A [profile](../Getting_Started/Profiles.md) configured and ready to display, and the **Modify profiles** permission to change its settings. [Profiles](../Administration/Profiles.md) describes the profile settings, including Kiosk Mode.
 - An enabled [user](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, holding only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs (refer to [Choosing the Kiosk User](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user)).
-- A licence that includes the Profinity Server feature, to create that user. Kiosk Mode is available in every edition, but the kiosk user must be a user account, and user accounts are created in **Users & Groups**, which needs the **Profinity Server** feature (**Server** and **Enterprise** editions). Without it there are no user accounts, so a Desktop installation has no user to select (refer to [Licensing](../Administration/Licensing.md)).
+- A licence that includes the Profinity Server feature, to create that user. Kiosk Mode is available in every edition, but the kiosk user must be a user account, and user accounts are created in **Users & Groups**, which needs the **Profinity Server** feature (**Server** and **Enterprise** editions). Without it there are no user accounts, so a Desktop installation has no user to select (refer to [Licensing](../Licensing.md)).
 
 ## Configure Kiosk Mode in Profinity
 

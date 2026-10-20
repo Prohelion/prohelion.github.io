@@ -53,7 +53,7 @@ The profile is imported with all of its associated configuration.
 
 !!! note "Profile packs with scripts need the Scripting feature"
     Profinity rejects an uploaded profile pack that contains script content when the licence does not include the **Scripting** feature, and shows the message "Profile pack contains script content, which requires Scripting on the license."
-    Refer to [Licensing](Licensing.md).
+    Refer to [Licensing](../Licensing.md).
 
 A profile pack built on another site can carry component and collection security grants that name roles which do not exist on this site.
 These appear as unresolved roles that never grant access, as described in [Component and Collection Security](Users_and_Access/Component_And_Collection_Security.md#unresolved-roles-after-a-profile-import).

@@ -21,7 +21,5 @@ Most of these pages need a permission that engineers and operators do not have b
 - [Kiosk Mode](Kiosk_Mode.md): sign in automatically on kiosk displays and unattended monitoring stations.
 - [Logs](Logs_Config.md): set logging levels, log file rollover, and retention.
 - [System information](System_Info.md): the Profinity version, licence summary, and software credits.
-- [Licensing](Licensing.md): which features each edition includes, and how the licence limits what is available.
-- [License page](License_Page.md): read the licence state, fingerprint, and licensed features of an instance.
-- [Trial licence, Desktop use and machine fingerprint](Trial_Desktop_Use_and_Fingerprint.md): how the 14-day local trial, Desktop free use, and the fingerprint work.
+- [License manager](License_Manager.md): read the licence state, fingerprint, and licensed features of an instance.
 - [Feedback](Feedback.md): share suggestions and report issues from within Profinity.

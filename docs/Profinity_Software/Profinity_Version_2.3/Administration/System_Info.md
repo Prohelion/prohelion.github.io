@@ -16,7 +16,7 @@ To see which version of Profinity you are running, select **ADMIN** in the side 
 </figure>
 
 The page lists the version, the authors and the active memory in use, followed by a **New Release Available** banner when a newer Profinity release has been detected.
-The **System Diagnostics** section shows the **License Status** (refer to [Licensing](Licensing.md)), the operating system and the system uptime.
+The **System Diagnostics** section shows the **License Status** (refer to [Licensing](../Licensing.md)), the operating system and the system uptime.
 The **Release History** section lists the current release and earlier versions, with the software credits.
 
 ## Restarting Profinity
