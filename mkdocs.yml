@@ -193,7 +193,9 @@ plugins:
         'Profinity_Software/Profinity_Version_2/Installation/Zip_Installation.md': 'Profinity_Software/Profinity_Version_2.2/Installation/Zip_Installation.md'
         'Profinity_Software/Profinity_Version_2/Release_Notes/2.2.5.md': 'Profinity_Software/Profinity_Version_2.2/Release_Notes/2.2.5.md'
         'Profinity_Software/Profinity_Version_2/Release_Notes/index.md': 'Profinity_Software/Profinity_Version_2.2/Release_Notes/index.md'
-        'Profinity_Software/Profinity_Version_2/index.md': 'Profinity_Software/Profinity_Version_2.2/index.md'
+        # Generic Version_2 index tracks the current release; deep Version_2 pages stay on 2.2
+        # because the 2.3 information architecture diverged and same-path redirects would 404.
+        'Profinity_Software/Profinity_Version_2/index.md': 'Profinity_Software/Profinity_Version_2.3/index.md'
         # Pre-August-2025 paths: /Profinity/ → /Profinity_Software/ (and Version1/Version2 → Version_1/Version_2.2)
         'Profinity/index.md': 'Profinity_Software/index.md'
         'Profinity/Profinity_Version1/Adding_New_Items.md': 'Profinity_Software/Profinity_Version_1/Adding_New_Items.md'
@@ -256,7 +258,7 @@ plugins:
         'Profinity/Profinity_Version2/Installation/Running_As_Service.md': 'Profinity_Software/Profinity_Version_2.2/Installation/Running_As_Service.md'
         'Profinity/Profinity_Version2/Installation/Windows_Installation.md': 'Profinity_Software/Profinity_Version_2.2/Installation/Windows_Installation.md'
         'Profinity/Profinity_Version2/Installation/Zip_Installation.md': 'Profinity_Software/Profinity_Version_2.2/Installation/Zip_Installation.md'
-        'Profinity/Profinity_Version2/index.md': 'Profinity_Software/Profinity_Version_2.2/index.md'
+        'Profinity/Profinity_Version2/index.md': 'Profinity_Software/Profinity_Version_2.3/index.md'
 
 markdown_extensions:    
   - pymdownx.superfences
