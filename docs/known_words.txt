@@ -244,6 +244,7 @@ socketcand
 fullscreen
 minify
 uninstallation
+installable
 nginx
 traefik
 backend
