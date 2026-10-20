@@ -32,7 +32,7 @@ A relative path that has several segments, such as `Battery/Voltage` or `positio
 A relative path that already starts with the host component's name is used as it is, so `Inverter/SpeedKmh` and `SpeedKmh` are the same tag.
 
 Use a relative path for a script's own component, which keeps the script working if the component is renamed or copied, and a leading `/` to read or write tags that belong to other components.
-If the component is mounted in a folder using a [Tag tree path](../../../Tags/Tag_Tree_Path.md), a relative path still starts at the component, and a path with a leading `/` starts at the root of the whole tree, so it includes that folder.
+If the component is mounted in a folder using a [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md), a relative path still starts at the component, and a path with a leading `/` starts at the root of the whole tree, so it includes that folder.
 
 !!! note "Paths are not a security boundary"
     Resolving relative paths under the host component is for convenience.
@@ -213,4 +213,4 @@ Pass `true` to include each leaf tag's current sample, which is more expensive o
 | `GetCatalog([includeLeafSamples])` | Returns the tag tree as nested JSON. |
 | `GetFlatCatalog([includeLeafSamples])` | Returns the tag tree as a flat JSON array. |
 
-For related pages, refer to [Derived tags](../../../Tags/Derived_Tags.md) and [State](./State.md).
+For related pages, refer to [Derived tags](../../../Tags/Derived_Tags/index.md) and [State](./State.md).

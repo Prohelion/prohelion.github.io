@@ -40,7 +40,7 @@ Profinity has five script types, which between them cover seven values of the **
 The [Script Types](./Script_Types/index.md) page describes each mode and when to use it.
 
 New in Profinity 2.3: a script set to **Run On Alert** mode can be named as a rule action and receives the firing context, including `TriggeredTags`.
-Refer to [Rule Scripts](./Script_Types/Rule_Scripts.md) and [Actions](../../Tags/Actions.md).
+Refer to [Rule Scripts](./Script_Types/Rule_Scripts.md) and [Actions](../../Tags/Rules/Actions/index.md).
 
 ## Supported languages
 

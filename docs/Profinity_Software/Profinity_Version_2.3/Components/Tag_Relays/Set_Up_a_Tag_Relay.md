@@ -11,7 +11,7 @@ last_reviewed: 2026-10-15
 This page sets up a first Tag Relay, so that tags on a sending Profinity instance appear on a receiving instance.
 Both components require the **Data Relay** licensed feature on the instance they run on, and the HTTPS protocol needs a user with the **Receive external tags** permission on the receiving instance.
 
-1. On the sending instance, create a tag collection that holds the tags to share, as described in [Collections](../../Tags/Collections.md).
+1. On the sending instance, create a tag collection that holds the tags to share, as described in [Collections](../../Tags/Collections/index.md).
 2. On the receiving instance, add a **Tag Relay Receiver**, choose the protocol and set a unique **Receiver tag path prefix**.
 3. For HTTPS, create a user on the receiving instance with the **Receive external tags** permission, and note a JSON Web Token (JWT) for that user.
 4. On the sending instance, add a **Tag Relay Sender**, choose the same protocol, select the collection, and enter the receiver's address (HTTPS) or the broker and snapshot topic (MQTT).

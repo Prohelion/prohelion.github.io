@@ -8,9 +8,9 @@ last_reviewed: 2026-10-14
 
 # Tag Relay Sender
 
-The **Tag Relay Sender** exports the [tags](../../Tags/index.md) that belong to the [collections](../../Tags/Collections.md) you select and sends them, as a full snapshot at a fixed interval, to a remote Profinity instance running a [Tag Relay Receiver](Tag_Relay_Receiver.md).
+The **Tag Relay Sender** exports the [tags](../../Tags/index.md) that belong to the [collections](../../Tags/Collections/index.md) you select and sends them, as a full snapshot at a fixed interval, to a remote Profinity instance running a [Tag Relay Receiver](Tag_Relay_Receiver.md).
 It sits in the **Tag Relays** category.
-The position of each tag in the exported tree is its [tag tree path](../../Tags/Tag_Tree_Path.md), and the [Tag Relay](../../Tags/Tag_Relay.md) page covers the concept of sender and receiver roles.
+The position of each tag in the exported tree is its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md), and the [Tag Relay](../../Tags/Tag_Relay.md) page covers the concept of sender and receiver roles.
 
 <figure markdown>
 ![Diagram of Tag Relay. Site instances each run a Tag Relay Sender that publishes live tags over HTTPS with a JSON Web Token (JWT) or over MQTT. A central instance runs a Tag Relay Receiver that shows the tags of each site under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/diagram-tag-relay.png)
@@ -23,7 +23,7 @@ The position of each tag in the exported tree is its [tag tree path](../../Tags/
 ## Quick start {#adding-a-tag-relay-sender}
 
 Add a **Tag Relay Sender** to your profile from the **Tag Relays** category, choose the protocol, and select the collections to export.
-Only the member tags of the selected collections are sent, so create the collections first, as described in [Collections](../../Tags/Collections.md).
+Only the member tags of the selected collections are sent, so create the collections first, as described in [Collections](../../Tags/Collections/index.md).
 The sender does not start until at least one collection is selected and every selected collection exists in the profile.
 [Set up a tag relay](Set_Up_a_Tag_Relay.md) describes how to set up a first relay end to end.
 

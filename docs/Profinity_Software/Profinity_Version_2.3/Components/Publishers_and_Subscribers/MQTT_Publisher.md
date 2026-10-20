@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # MQTT Publisher
 
-The **MQTT Publisher** sends the current values of one or more profile [tag collections](../../Tags/Collections.md) to a Message Queuing Telemetry Transport (MQTT) broker, either on a fixed interval or whenever a member tag's value changes.
+The **MQTT Publisher** sends the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to a Message Queuing Telemetry Transport (MQTT) broker, either on a fixed interval or whenever a member tag's value changes.
 Any system subscribed to the broker receives the data as it is published.
 
 It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a subscriber that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.
@@ -119,5 +119,5 @@ If the status shows **Error**, check the [Logs](../../Administration/Logs_Config
 
 Changed in Profinity 2.3: the component was renamed from **MQTT Logger**, and existing MQTT Logger configurations keep working unchanged.
 
-[Rule actions](../../Tags/Actions.md) can also send a one-off MQTT message or webhook, and need the **Tag Rule Actions** licensed feature.
+[Rule actions](../../Tags/Rules/Actions/index.md) can also send a one-off MQTT message or webhook, and need the **Tag Rule Actions** licensed feature.
 For a plain HTTP receiver, use the [Webhook Publisher](Webhook_Publisher.md).

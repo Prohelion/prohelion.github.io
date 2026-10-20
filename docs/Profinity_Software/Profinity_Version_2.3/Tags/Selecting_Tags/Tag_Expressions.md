@@ -12,7 +12,7 @@ Collections and rules write a boolean expression over a single parameter named `
 Derived tags write a value formula over the aliases they declare (`a`, `b`, …).
 The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
 
-Expressions are typed in the [collections](./Collections.md), [rules](./Rules.md), and [derived tags](./Derived_Tags.md) editors, using either the guided builder or free text.
+Expressions are typed in the [collections](../Collections/index.md), [rules](../Rules/index.md), and [derived tags](../Derived_Tags/index.md) editors, using either the guided builder or free text.
 An invalid member fails validation when the file is saved, with a message that points at the correct spelling.
 
 ## Picking tags
@@ -106,7 +106,7 @@ tag.IsStale
 tag.MatchesPath("Elmar Solar MPPT") && tag.IsStale
 ```
 
-Sample age in seconds is not part of the language, so use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rules](./Rules.md) and [Actions](./Actions.md).
+Sample age in seconds is not part of the language, so use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rules](../Rules/index.md) and [Actions](../Rules/Actions/index.md).
 
 ## Metadata
 
@@ -165,4 +165,4 @@ These spellings fail validation in Profinity 2.3. Rewrite them as shown:
 | `tag.Meta.Field(…)` | `tag.Meta.Text(…)` or `tag.Meta.Number(…)` |
 | `tag.SampleAgeSeconds` / `SecondsSinceUpdate` | `tag.IsStale` |
 
-For the places these expressions are used, refer to [Collections](./Collections.md), [Alerts Log](./Alerts.md), [Rules](./Rules.md), [Actions](./Actions.md), [Derived tags](./Derived_Tags.md) and [Create collections, rules, and dashboard bindings from tags](Create_Collections_Rules_and_Bindings_from_Tags.md), or return to the [Tag layer](index.md) overview.
+For the places these expressions are used, refer to [Collections](../Collections/index.md), [Alerts Log](../Alerts.md), [Rules](../Rules/index.md), [Actions](../Rules/Actions/index.md), [Derived tags](../Derived_Tags/index.md) and [Create collections, rules, and dashboard bindings from tags](../Create_Collections_Rules_and_Bindings_from_Tags.md), or return to the [Tag layer](../index.md) overview.

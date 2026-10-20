@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Derived tags
 
 A **derived tag**, also called a virtual tag, is a value that Profinity computes automatically and that then behaves exactly like a real tag to every consumer.
-[Dashboards](../Customising_Profinity/Dashboards/index.md), the [historian](../Components/Historians/index.md), [rules](./Rules.md), and the API all see the same quality and timestamp envelope and can subscribe to it the same way, so the computation is configured once and Profinity keeps it current.
+[Dashboards](../../Customising_Profinity/Dashboards/index.md), the [historian](../../Components/Historians/index.md), [rules](../Rules/index.md), and the API all see the same quality and timestamp envelope and can subscribe to it the same way, so the computation is configured once and Profinity keeps it current.
 Profinity 2.3 computes a derived tag's value either from an expression, which recomputes whenever a source tag changes and needs no scripting, or from a script, which suits a computation that needs more than a single expression, and the table under [Expression vs script](#expression-vs-script) shows which one fits a given case.
 
 <figure markdown>
@@ -27,7 +27,7 @@ The file the editor works on is named by the **Derived tags YAML file (Optional)
 Derived tags are organised into groups in a tree on the left of the editor, and selecting a group or derived tag opens its settings in an inspector on the right.
 
 <figure markdown>
-![The Derived Tags editor with one derived tag, Total Array Power, showing its mount path, three dependencies and the expression a.Value + b.Value + c.Value.](../images/derived-tags-editor.png)
+![The Derived Tags editor with one derived tag, Total Array Power, showing its mount path, three dependencies and the expression a.Value + b.Value + c.Value.](../../images/derived-tags-editor.png)
 <figcaption>Derived Tags editor</figcaption>
 </figure>
 
@@ -37,7 +37,7 @@ An expression-based derived tag names one or more **dependencies**, which are sh
 To create one, refer to [Create a derived tag](Create_a_Derived_Tag.md).
 Groups exist only for organisation, and a group can set a **mount path**: a derived tag with a relative mount path mounts underneath its group's mount path, a derived tag that gives its own absolute path mounts there instead, and a nested group's mount path narrows further under its parent's.
 
-Each alias exposes only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality` and `IsStale`), and path methods such as `MatchesPath` belong in collections and rules, as described in [Tag expressions](./Tag_Expressions.md).
+Each alias exposes only the reading members (`Value`, `Text`, `Bool`, `HasValue`, `Quality` and `IsStale`), and path methods such as `MatchesPath` belong in collections and rules, as described in [Tag expressions](../Selecting_Tags/Tag_Expressions.md).
 An expression can be up to 4096 characters long.
 
 ### Quality of a derived tag
@@ -54,7 +54,7 @@ Rule expressions are not checked.
 
 ## Expression vs script
 
-When one expression is not enough, for example because the computation has several steps, carries state between runs or publishes several tags, write it as a script instead, as described in [Script-Driven Derived Tags](./Script_Driven_Derived_Tags.md).
+When one expression is not enough, for example because the computation has several steps, carries state between runs or publishes several tags, write it as a script instead, as described in [Create a derived tag with a script](Create_a_Derived_Tag_with_a_Script.md).
 
 | Use an **expression** when... | Use a **script** when... |
 |---|---|
@@ -62,12 +62,12 @@ When one expression is not enough, for example because the computation has sever
 | You want automatic history with no extra setup | You need a timed or on-demand trigger rather than pure tag-change reactivity |
 | | You want to populate several tags from one computation |
 
-A rule can publish its own current state to a tag, as described under [Rule state publishing](./Rules.md#rule-state-publishing).
+A rule can publish its own current state to a tag, as described under [Rule state publishing](../Rules/index.md#rule-state-publishing).
 
 ## Permissions
 
 The derived tags editor uses the same permission pair as collections: reading needs **View tag collections** and saving needs **Modify tag collections**.
-Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for how permissions are granted.
-Integrators can also use the [API](../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags).
+Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how permissions are granted.
+Integrators can also use the [API](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags).
 
-For the rest of the tag layer, refer to [Tag layer](index.md), [Collections](./Collections.md), and [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md).
+For the rest of the tag layer, refer to [Tag layer](../index.md), [Collections](../Collections/index.md), and [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).

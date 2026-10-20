@@ -54,7 +54,7 @@ The components, what they connect to, and how a point map row identifies a value
 For a Siemens S7-1200 or S7-1500, the S7 plugin reads absolute addresses, and the OPC UA client reads symbolic tags by name from the PLC's own OPC UA server.
 
 Once polled, a value from any of these protocols behaves the same as a tag from a CAN device.
-It can be shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md) that you build, included in a [collection](../../Tags/Collections.md), watched by a rule, or read by a [script](../../Developing_with_Profinity/Scripting/index.md).
+It can be shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md) that you build, included in a [collection](../../Tags/Collections/index.md), watched by a rule, or read by a [script](../../Developing_with_Profinity/Scripting/index.md).
 The dashboard each component shows for itself is described on its own page, and viewing it needs the **Security administration** permission, which is set under [Roles and Permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
 The polling components of all five plugins connect, retry, and log failures in the way described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
 

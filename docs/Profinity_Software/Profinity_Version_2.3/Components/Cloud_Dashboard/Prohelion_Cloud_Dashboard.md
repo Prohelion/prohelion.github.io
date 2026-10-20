@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Prohelion Cloud Dashboard
 
-The Prohelion Cloud Dashboard component publishes the values of selected [tag collections](../../Tags/Collections.md) from a Profile to a device in Prohelion Cloud at a fixed interval, where they can be viewed on cloud-hosted dashboards.
+The Prohelion Cloud Dashboard component publishes the values of selected [tag collections](../../Tags/Collections/index.md) from a Profile to a device in Prohelion Cloud at a fixed interval, where they can be viewed on cloud-hosted dashboards.
 Prohelion Cloud is an Internet of Things (IoT) platform that stores the data reported by field devices and lets an organisation monitor and manage those devices and assets remotely.
 
 [Rules](../../Tags/index.md), [Dashboards](../../Customising_Profinity/Dashboards/index.md), and [Tag Relays](../Tag_Relays/index.md) cover many of the functions that Prohelion Cloud provides, so new deployments are usually better served by those features.

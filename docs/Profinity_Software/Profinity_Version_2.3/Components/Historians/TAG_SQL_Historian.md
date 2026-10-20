@@ -8,10 +8,10 @@ last_reviewed: 2026-10-14
 
 # TAG SQL Historian
 
-The **TAG SQL Historian** writes the values of the tags in the [collections](../../Tags/Collections.md) you select to a table in a SQL database, and allows that history to be read back out through the APIs.
+The **TAG SQL Historian** writes the values of the tags in the [collections](../../Tags/Collections/index.md) you select to a table in a SQL database, and allows that history to be read back out through the APIs.
 It sits in the **Historians** category.
 Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](../Loggers/InfluxDB_v1_Logger.md).
-Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Tag_Tree_Path.md).
+Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 <figure markdown>
 ```mermaid
@@ -126,6 +126,6 @@ Check the connection string, that the database is reachable from the Profinity s
 
 !!! warning "Moving a component starts a new history in this historian"
     This historian records history under the tag's path, so moving a component changes its tag paths and the history recorded under the old paths is not carried across. Queries for the new path return a new series with no earlier points.
-    The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message and signal instead, so their history carries on after a move. Refer to [Change the path on a deployed component](../../Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
+    The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message and signal instead, so their history carries on after a move. Refer to [Change the path on a deployed component](../../Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
 
 For the steps to set up data logging, refer to [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md).

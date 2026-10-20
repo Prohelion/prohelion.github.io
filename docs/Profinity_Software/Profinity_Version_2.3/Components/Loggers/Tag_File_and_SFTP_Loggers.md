@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Tag file and SFTP loggers
 
-The **TAG File Logger** and the **TAG SFTP Logger** write the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to a file as comma-separated values (CSV) or JSON Lines.
+The **TAG File Logger** and the **TAG SFTP Logger** write the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections/index.md) to a file as comma-separated values (CSV) or JSON Lines.
 The TAG File Logger writes the file to the local file system of the machine running Profinity, and the TAG SFTP Logger transmits it to a remote SSH File Transfer Protocol (SFTP) server.
 Each is added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers** and is included in every edition.
 A logger only writes data out for later retrieval, so history that Profinity must read back belongs in a [historian](../Historians/index.md).

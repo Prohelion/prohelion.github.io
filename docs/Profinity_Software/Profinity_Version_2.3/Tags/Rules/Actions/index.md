@@ -8,16 +8,16 @@ last_reviewed: 2026-10-15
 
 # Rule actions
 
-A [tag rule](Rules.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
-Profinity 2.3 has two built-in actions, **Profinity Log** and **None**. It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
+A [tag rule](../index.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
+Profinity 2.3 has two built-in actions, **Profinity Log** and **None**. It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
 Every action receives the list of tags that caused the rule to fire, which is named `TriggeredTags` in a script and `triggeringTags` in the Webhook and MQTT JSON message.
 
 !!! info "Licence required"
-    Rules, the [Alerts Log](Alerts.md) and the built-in actions **Profinity Log** and **None** work on every edition.
+    Rules, the [Alerts Log](../../Alerts.md) and the built-in actions **Profinity Log** and **None** work on every edition.
     The Email, Slack, Webhook, and MQTT actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
     A script set to **Run On Alert** needs both **Tag Rule Actions** and **Scripting** (included in the **Desktop**, **Server** and **Enterprise** editions).
     Without **Tag Rule Actions** the rule still evaluates and the alert is still recorded, and only the licensed actions are skipped.
-    Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../../Administration/Licensing.md) for what each edition includes.
 
 <figure markdown>
 ```mermaid
@@ -37,7 +37,7 @@ When you edit a rule in the visual editor, you choose actions from the action pi
 - **Profinity Log**, which writes a message to the Profinity log at the action's `level` and otherwise the rule's level.
 - **None**, which records the alert in the Alerts Log only and rejects `message`, `level` and `tagId`.
 - Every Email, Slack, Webhook, and MQTT action that has been added to the profile, listed by the name of its component.
-- Every **CSharp Script**, **Python Script** or **Lua Script** component whose mode is **Run On Alert**, as described in [Rule scripts](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
+- Every **CSharp Script**, **Python Script** or **Lua Script** component whose mode is **Run On Alert**, as described in [Rule scripts](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
 
 In YAML the two built-in actions are written `ProfinityLog` and `None`.
 
@@ -46,7 +46,7 @@ In YAML the two built-in actions are written `ProfinityLog` and `None`.
 An Email, Slack, Webhook, or MQTT action does not appear in the picker until it exists as a component.
 To add one:
 
-1. [Add a new component](../How_To_Guides/Add_Component_to_Profile.md) from the **Rule Actions** group.
+1. [Add a new component](../../../How_To_Guides/Add_Component_to_Profile.md) from the **Rule Actions** group.
 2. Choose **Email Rule Action**, **Slack Rule Action**, **Webhook Rule Action** or **MQTT Rule Action**.
 3. Give the component a name.
 4. Fill in its settings.
@@ -60,7 +60,7 @@ The settings of each action are described in [Email and Slack rule actions](Emai
 
 Actions written on the file or on a group are parent actions, and each one needs a `triggerLevel`.
 A parent action runs for every rule beneath it whose alert level is at or above the `triggerLevel`, taking the level from the rule or, for a threshold rule, from the step that fired.
-In the [complete rules.yaml example](Rules_YAML_Example.md), a Warning on `pack_temperature` runs only **Profinity Log**, an Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
+In the [complete rules.yaml example](../Rules_YAML_Example.md), a Warning on `pack_temperature` runs only **Profinity Log**, an Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
 Actions written on a rule or on a threshold step are local, take no `triggerLevel` and always run when that rule or step fires.
 
 The `clearActions` lists work the same way when the alert clears.
@@ -76,7 +76,7 @@ An action that is not found, or is not an action component, is reported as `refe
 
 Every rule action receives the same firing context, which includes `TriggeredTags`, the list of tags in the rule's scope that are currently evaluating true.
 A script uses it to log, branch, or pass values on, and the Webhook and MQTT actions send the same list as the `triggeringTags` array of their JSON message, described in [Webhook and MQTT rule actions](Webhook_and_MQTT_Rule_Actions.md).
-The script version of the context is described in [Rule scripts](../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
+The script version of the context is described in [Rule scripts](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
 
 ## Message placeholders
 
@@ -87,6 +87,6 @@ Control characters in substituted values are removed so that a device value cann
 
 ## Permissions
 
-Actions are attached to rules, so the permissions that apply are those on the [Rules](Rules.md#permissions) page.
+Actions are attached to rules, so the permissions that apply are those on the [Tag rules](../index.md#permissions) page.
 
-For the rest of the tag layer, refer to [Tag layer](index.md), [Tag expressions](Tag_Expressions.md), [Collections](Collections.md), and [Derived tags](Derived_Tags.md).
+For the rest of the tag layer, refer to [Tag layer](../../index.md), [Tag expressions](../../Selecting_Tags/Tag_Expressions.md), [Collections](../../Collections/index.md), and [Derived tags](../../Derived_Tags/index.md).

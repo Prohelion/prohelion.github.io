@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # InfluxDB v1 Logger
 
-The **InfluxDB v1 Logger** sends the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to an InfluxDB v1 server.
+The **InfluxDB v1 Logger** sends the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections/index.md) to an InfluxDB v1 server.
 A logger only writes data out.
 The InfluxDB v2 and v3 components are [historians](../Historians/index.md), which also let the data be read back, and they are documented in the Historians section.
 

@@ -188,7 +188,7 @@ Profinity also serves the `/Profile/CANLogs` and `/Profile/TagLogs` paths for lo
 | `dashboards` | Dashboard YAML for the profile and its components | [Dashboards](./index.md) |
 | `components` | One subfolder for each component, holding that component's `rules.yaml` and dashboard files | [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md) |
 | `rules` | Alert rules | [Alerts](../../Tags/Alerts.md) |
-| `collections` | Tag collections | [Collections](../../Tags/Collections.md) |
+| `collections` | Tag collections | [Collections](../../Tags/Collections/index.md) |
 | `scripts` | Scripts that run in the profile | [Scripting](../../Developing_with_Profinity/Scripting/index.md) |
 | `firmware` | Firmware files and firmware settings | Not applicable to dashboards |
 | `dbc` | DBC files that describe CAN messages | Not applicable to dashboards |

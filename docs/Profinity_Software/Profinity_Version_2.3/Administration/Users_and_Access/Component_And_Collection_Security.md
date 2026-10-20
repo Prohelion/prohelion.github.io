@@ -99,5 +99,5 @@ The Collections editor lists every collection, including restricted ones, to any
 ## Related documentation
 
 - [Tag Layer](../../Tags/index.md), the tag tree that component security prunes
-- [Collections](../../Tags/Collections.md), which covers creating and editing tag collections, including the built-in (All Tags) collection
+- [Collections](../../Tags/Collections/index.md), which covers creating and editing tag collections, including the built-in (All Tags) collection
 - [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#component-and-collection-security), the routes for integrators

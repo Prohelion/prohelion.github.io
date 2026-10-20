@@ -14,7 +14,7 @@ To record a log, refer to [Log tags to a file](Log_Tags_to_a_File.md).
 
 Open **TAG LOG REPLAY** from the side menu.
 It requires the **Replay tag changes** permission, which also turns on **View tags**.
-Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for permissions.
+Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for permissions.
 
 !!! warning "Replay overwrites live values"
     Replayed values are applied to the same tags that live devices write to. Disconnect or stop the live source first, or the live and replayed values compete.
@@ -25,7 +25,7 @@ If a log with the same name is already there, the upload is refused with "A repl
 
 To replay a log:
 
-1. If the log is not listed, add it to the replayer. A log recorded on this instance is written to `tag_logs/`, but the replayer lists only the `tag_logs/replay/` folder, so copy the recorded file there or add it with the **Upload Tag Change Log files** control, which also suits a log recorded on another Profinity instance. Uploaded logs are placed in `tag_logs/replay/` automatically. Refer to the [artefacts directory](../Installation/Artifacts_Directory.md) for where this folder sits on each platform.
+1. If the log is not listed, add it to the replayer. A log recorded on this instance is written to `tag_logs/`, but the replayer lists only the `tag_logs/replay/` folder, so copy the recorded file there or add it with the **Upload Tag Change Log files** control, which also suits a log recorded on another Profinity instance. Uploaded logs are placed in `tag_logs/replay/` automatically. Refer to the [artefacts directory](../../Installation/Artifacts_Directory.md) for where this folder sits on each platform.
 2. Select the log in the list and click the play button. A replay starts only when no other tag replay is running.
 
 While a replay plays, the position slider moves to a different point in the log, and the pause control suspends the replay so that it can be resumed later.

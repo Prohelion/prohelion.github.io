@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Logging modes {#logging-modes}
 
-The **Logging mode** setting decides what a component sends or writes for the members of its selected [tag collections](../Tags/Collections.md) on each interval.
+The **Logging mode** setting decides what a component sends or writes for the members of its selected [tag collections](../Tags/Collections/index.md) on each interval.
 There are three modes: **Snapshot**, **On Change** and **Everything**.
 
 ## The three modes

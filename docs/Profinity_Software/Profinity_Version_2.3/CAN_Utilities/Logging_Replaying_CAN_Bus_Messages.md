@@ -20,7 +20,7 @@ There are two kinds of logger in Profinity: loggers that log to file ([CAN File 
 All loggers are configured in the same way, by adding the logger to the Profile as a component.
 
 The file loggers include the CAN File Logger and the CAN SFTP Logger, which record native CAN bus messages, with the SSH File Transfer Protocol (SFTP) logger sending the files to a remote server.
-The TAG File Logger and the TAG SFTP Logger instead record the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections.md).
+The TAG File Logger and the TAG SFTP Logger instead record the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections/index.md).
 
 Publishing CAN-derived tag data to a Message Queuing Telemetry Transport (MQTT) broker or a webhook is handled by the [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md) and the [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md), which are added from the **Publishers & Subscribers** category in the same way.
 
@@ -32,5 +32,5 @@ Only a file log of CAN messages recorded by a File or SFTP logger can be replaye
 Replayed messages are processed as if they had been received from the bus, so they mix with any live traffic.
 Refer to [How to replay CAN bus logs](../How_To_Guides/Replay_CAN_Logs.md) for the procedure, the **Replay CAN logs** permission, the replay controls and the warning about live traffic.
 
-To log tag values instead, refer to [Log tags to a file](../Tags/Log_Tags_to_a_File.md).
+To log tag values instead, refer to [Log tags to a file](../Tags/Tag_Logs/Log_Tags_to_a_File.md).
 To send packets to the bus, refer to [Send / receive CAN bus messages](Send_Receive_CAN_Bus_Messages.md).

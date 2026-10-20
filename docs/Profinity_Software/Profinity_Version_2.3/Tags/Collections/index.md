@@ -8,11 +8,11 @@ last_reviewed: 2026-10-15
 
 # Tag collections
 
-**Collections** group tags for filtering, [dashboards](../Customising_Profinity/Dashboards/index.md), and [rules](./Rules.md).
+**Collections** group tags for filtering, [dashboards](../../Customising_Profinity/Dashboards/index.md), and [rules](../Rules/index.md).
 You build and manage them in the visual editor, and [Create a collection](Create_a_Collection.md) walks through an example.
 
 <figure markdown>
-![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../images/diagram-collections.png)
+![A collection defined by a membership expression and scope automatically matches tags in the tree, stays current as new matching tags appear, and is reused by dashboards, rules, and reports](../../images/diagram-collections.png)
 <figcaption>A collection matching tags in the tree by membership expression and scope</figcaption>
 </figure>
 
@@ -22,7 +22,7 @@ Select **COLLECTIONS** under **TAG UTILITIES** in the side menu, which opens the
 The entry appears for users who hold the **View tags** and **View tag collections** permissions while a profile is loaded, and saving needs the **Modify tag collections** permission.
 
 <figure markdown>
-![The Editing Collections dialog in Design view, with a collection named "Tag has a value greater than 0" selected and an Inspector showing its expression builder.](../images/collections-visual-editor.png)
+![The Editing Collections dialog in Design view, with a collection named "Tag has a value greater than 0" selected and an Inspector showing its expression builder.](../../images/collections-visual-editor.png)
 <figcaption>Collections visual editor</figcaption>
 </figure>
 
@@ -64,6 +64,6 @@ tag.Value > 0
 `tag.HasValue` is true for a stale tag as well as a good one. To keep only tags with a current value, use `tag.HasValue && !tag.IsStale`.
 A logger or publisher re-checks which tags match its collection once per interval, so a filter on staleness is approximate by up to one interval.
 
-The full expression vocabulary, covering path matching, values, metadata and wildcards, is described in [Tag expressions](./Tag_Expressions.md).
-For the rest of the tag layer, refer to [Tag layer](index.md), [Alerts Log](./Alerts.md) and [Derived tags](./Derived_Tags.md).
-Integrators can use the [Endpoint reference](../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags).
+The full expression vocabulary, covering path matching, values, metadata and wildcards, is described in [Tag expressions](../Selecting_Tags/Tag_Expressions.md).
+For the rest of the tag layer, refer to [Tag layer](../index.md), [Alerts Log](../Alerts.md) and [Derived tags](../Derived_Tags/index.md).
+Integrators can use the [Endpoint reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags).

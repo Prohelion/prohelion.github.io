@@ -120,7 +120,7 @@ To find what would make a rule fire, note the condition it uses, then find the t
 
 The **RULES & ACTIONS** entry needs the **View tag rules** permission, and saving changes needs **Modify tag rules**.
 A signed-in `admin` user holds both.
-Actions that send an email, Slack message, webhook, or MQTT message need the Tag Rule Actions feature, as described in [Rule Actions](../Tags/Actions.md).
+Actions that send an email, Slack message, webhook, or MQTT message need the Tag Rule Actions feature, as described in [Rule Actions](../Tags/Rules/Actions/index.md).
 
 To view the alerts:
 
@@ -134,8 +134,8 @@ The web client refreshes these every four seconds, so they appear and clear as t
 For more detail, refer to:
 
 - [Alerts Log](../Tags/Alerts.md), which covers alert levels, indicators, acknowledging, and silencing
-- [Rule Actions](../Tags/Actions.md), which covers what happens when a rule fires
-- [Tag Expressions](../Tags/Tag_Expressions.md), which covers writing rule conditions
+- [Rule Actions](../Tags/Rules/Actions/index.md), which covers what happens when a rule fires
+- [Tag Expressions](../Tags/Selecting_Tags/Tag_Expressions.md), which covers writing rule conditions
 - [Tags](../Tags/index.md), which explains how tags, collections, rules, and alerts fit together
 
 ## Next steps

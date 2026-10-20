@@ -17,7 +17,7 @@ In Profinity 2.3 this data storage model moves to a new, source-independent data
 Many of the other new 2.3 features use this Tags capability to enable richer data visualisation, transmission, storage, and analysis.
 
 [Tags](Tags/index.md) give data from any protocol a common data model, for both real-time and historical values.
-[Rules](Tags/Rules.md) evaluate tag values and raise an [alert](Tags/Alerts.md) when a value goes out of range, for example when a battery pack temperature exceeds a limit, and [Actions](Tags/Actions.md) respond when a rule fires, for example by writing an entry to the Profinity log.
+[Rules](Tags/Rules/index.md) evaluate tag values and raise an [alert](Tags/Alerts.md) when a value goes out of range, for example when a battery pack temperature exceeds a limit, and [Actions](Tags/Rules/Actions/index.md) respond when a rule fires, for example by writing an entry to the Profinity log.
 
 Tags, Rules, and Actions can then describe both the active system state and the context of that state to [Profinity AI](Profinity_AI/AI_Chat.md) and to external AI tools that connect through the [MCP server](Integrating_to_Profinity/MCP_Server/index.md), so that they can help identify and address issues.
 

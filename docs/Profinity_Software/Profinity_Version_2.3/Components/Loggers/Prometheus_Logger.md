@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Prometheus Logger
 
-The **Prometheus Logger** serves the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections.md) to [Prometheus](https://prometheus.io).
+The **Prometheus Logger** serves the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections/index.md) to [Prometheus](https://prometheus.io).
 A logger only writes data out.
 
 <figure markdown>

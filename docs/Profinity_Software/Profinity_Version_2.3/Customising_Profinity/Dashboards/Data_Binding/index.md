@@ -48,7 +48,7 @@ A relative path makes a dashboard reusable, because the dashboard does not conta
 A component dashboard needs a leading `/` to bind to a tag in a different component.
 
 A dashboard that has no owning component, such as a profile home dashboard, names the component in full, either with a leading `/`, which is the form the visual editor writes, or without it, as in `Prohelion BMU/Properties/StatusColourText` in the example profile that ships with Profinity.
-If a component is mounted at a nested location in the tag tree, an absolute path includes that location, as described in [Tag Tree Path](../../../Tags/Tag_Tree_Path.md).
+If a component is mounted at a nested location in the tag tree, an absolute path includes that location, as described in [Tag Tree Path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 !!! note "Dashboards from earlier versions"
     Dashboards written before Profinity 2.3 may use dots instead of slashes, as in `{COMPONENT_NAME}.BusMeasurement.BusVoltage` and `{COMPONENT_NAME}.[Property].Status`, the `{COMPONENT_NAME}` placeholder for the owning component, or the `[TimeSeries]` prefix on a source, as in `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent`.
@@ -75,7 +75,7 @@ Property tags suit component status, calculated values and data structures that 
 - `Properties/BusPower` is the bus power, in watts, that the WaveSculptor22 component calculates as the product of the `BusVoltage` and `BusCurrent` signals. The WaveSculptor22 does not transmit it as a signal.
 - `Properties/PackData/BatteryMilliVolts` is the battery voltage data of a Prohelion Battery Management Unit (BMU) component, where nested names are separated by `/`.
 
-A [derived tag](../../../Tags/Derived_Tags.md) is a tag whose value Profinity computes from an expression or a script, and a dashboard binds to it exactly as it binds to any other tag.
+A [derived tag](../../../Tags/Derived_Tags/index.md) is a tag whose value Profinity computes from an expression or a script, and a dashboard binds to it exactly as it binds to any other tag.
 Use a derived tag when a dashboard needs a value that no device reports, such as a calculated power or a combined status, so that the calculation lives in one place instead of in every dashboard.
 Derived tags suit calculated values that several dashboards, rules, or the API also use.
 
@@ -137,5 +137,5 @@ Logged data requires data logging to be configured and enabled for the profile, 
 The `aggregationWindow` groups the data into intervals of the given length (for example `10s` or `1m`), and the `aggregationFunction` decides which value represents each interval.
 Logged bindings suit historical analysis over periods longer than the live window.
 
-[Tags](../../../Tags/index.md) covers the Tag Explorer, [Derived Tags](../../../Tags/Derived_Tags.md) and [Create collections, rules, and bindings from tags](../../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.
+[Tags](../../../Tags/index.md) covers the Tag Explorer, [Derived Tags](../../../Tags/Derived_Tags/index.md) and [Create collections, rules, and bindings from tags](../../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.
 [Binding Settings Reference](./Binding_Settings_Reference.md) lists every binding setting, [Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled` and `color` bindings change the look of a component, and [Examples](../Examples/index.md) and the annotated [Full Example](../Examples/Full_Example.md) show complete dashboards.

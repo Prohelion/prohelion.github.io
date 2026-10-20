@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Tag relay
 
 Tag relay shares live tag data between two Profinity instances.
-One instance runs as a sender, publishing periodic snapshots of the [tag collections](./Collections.md) it is set to export, and another runs as a receiver, ingesting those snapshots as remote, read-only tags under a prefix that identifies where they came from.
+One instance runs as a sender, publishing periodic snapshots of the [tag collections](Collections/index.md) it is set to export, and another runs as a receiver, ingesting those snapshots as remote, read-only tags under a prefix that identifies where they came from.
 It supports a fleet or head-office view spanning multiple sites, vehicles, or installations.
 Tag relay requires the **Data Relay** licensed feature on both the sending and receiving instance, and [Licensing](../Administration/Licensing.md) shows whether it is licensed and available on a given instance.
 Tag relay has no field-level filtering: a sender exports every tag that belongs to its selected collections, so create a collection that contains only the tags a receiver should see.
@@ -36,14 +36,14 @@ A [Tag Relay Receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md) component
 A sender is reached over HTTPS with a JSON Web Token (JWT) or over MQTT, and the choice is made per sender.
 
 Relayed tags on the receiver are read-only, so the receiving instance cannot write back to a site through relay.
-Local tags, [collections](./Collections.md), [rules](./Rules.md), and [alerts](./Alerts.md) on the receiver can reference relayed tags the same way they reference any other tag.
+Local tags, [collections](Collections/index.md), [rules](Rules/index.md), and [alerts](./Alerts.md) on the receiver can reference relayed tags the same way they reference any other tag.
 
 ## Collision rules
 
 The receiver checks a whole snapshot against its live tag tree before it changes anything, and a single collision rejects the entire snapshot so that nothing is partially applied.
 A snapshot is rejected whole, with no tags created or updated, when any item in it meets one of these conditions:
 
-- The path is already occupied by a tag that did not come from relay, such as a local device tag, a script register or a [derived tag](./Derived_Tags.md).
+- The path is already occupied by a tag that did not come from relay, such as a local device tag, a script register or a [derived tag](Derived_Tags/index.md).
 - A tag that came from relay already exists as a leaf where the snapshot needs a branch, or as a branch where the snapshot needs a leaf.
 - The snapshot itself asks for both a branch and a leaf at the same path.
 

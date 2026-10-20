@@ -23,7 +23,7 @@ Then add a **CSharp Script**, **Python Script** or **Lua Script** component, set
 | Setting | Description |
 |---------|-------------|
 | **Tag Paths** | Explicit full tag paths to watch. |
-| **Collections** | Tag [Collections](../../../Tags/Collections.md) to watch. Members are resolved from the collections file. |
+| **Collections** | Tag [Collections](../../../Tags/Collections/index.md) to watch. Members are resolved from the collections file. |
 
 The script watches the union of the two lists, and at least one tag path or collection is required.
 
@@ -86,7 +86,7 @@ Without the `/`, the id would be treated as relative to the script's host compon
 
 A common use is computing one tag from another.
 This example, which follows the `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` templates built into Profinity, converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values).
-Refer to [Derived tags](../../../Tags/Derived_Tags.md) for when to choose this over an expression-based derived tag.
+Refer to [Derived tags](../../../Tags/Derived_Tags/index.md) for when to choose this over an expression-based derived tag.
 
 === "C#"
 

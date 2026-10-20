@@ -31,8 +31,8 @@ The `Unack` route is the same revert that the **Unacknowledge alert** button use
 
 | Method | Route | Purpose |
 |--------|-------|---------|
-| GET, PUT | `/api/v2/Tags/Collections` | Reads or saves the [collections](../../Tags/Collections.md) document, with JSON request and response bodies. Reading needs **View tag collections** and saving needs **Modify tag collections**. |
-| GET, PUT | `/api/v2/Tags/DerivedTags` | Reads or saves the [derived tags](../../Tags/Derived_Tags.md) document, with the same permissions as collections. |
+| GET, PUT | `/api/v2/Tags/Collections` | Reads or saves the [collections](../../Tags/Collections/index.md) document, with JSON request and response bodies. Reading needs **View tag collections** and saving needs **Modify tag collections**. |
+| GET, PUT | `/api/v2/Tags/DerivedTags` | Reads or saves the [derived tags](../../Tags/Derived_Tags/index.md) document, with the same permissions as collections. |
 
 ## Profinity AI
 

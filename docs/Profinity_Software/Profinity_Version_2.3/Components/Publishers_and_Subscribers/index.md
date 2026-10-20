@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # Publishers and Subscribers
 The **Publishers & Subscribers** category holds the components that move tag values between Profinity and other systems while both ends are running.
-A publisher pushes the current values of one or more profile [tag collections](../../Tags/Collections.md) to a receiver that is listening now.
+A publisher pushes the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to a receiver that is listening now.
 A subscriber brings data from an external source into the profile tag tree as ordinary read-only tags, which can then be shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged, used in a rule or read by a script.
 
 | Component | Direction | Connects to | Use it when |

@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Create collections, rules, and dashboard bindings from tags
 
-The Tag Explorer context menu creates [collections](./Collections.md), [rules](./Rules.md), and [dashboard](../Customising_Profinity/Dashboards/index.md) bindings from selected tags, so the selection does not need to be copied into the visual editors by hand.
+The Tag Explorer context menu creates [collections](Collections/index.md), [rules](Rules/index.md), and [dashboard](../Customising_Profinity/Dashboards/index.md) bindings from selected tags, so the selection does not need to be copied into the visual editors by hand.
 Tag Explorer itself requires the **View tags** permission.
 Each context menu action then checks its own permission, and an action whose permission is missing is shown disabled, while the whole menu is hidden from a user who holds none of these permissions.
 The permission for each action is listed under [Menu actions](#menu-actions).
@@ -53,8 +53,8 @@ A selection of leaf tags becomes a set of `tag.Is("…")` matches.
 A single selected branch becomes a scope prefix with the expression `tag.HasValue`.
 Several selected branches become `tag.MatchesPath("…")` matches joined with `||` and combined with `tag.HasValue`.
 For collections, a primary filter other than **Branch** replaces this with an expression built from the selected tags' metadata type, unit, value, or quality.
-Refer to [Tag expressions](Tag_Expressions.md) for the syntax.
+Refer to [Tag expressions](Selecting_Tags/Tag_Expressions.md) for the syntax.
 
-For the next step, refer to [Collections](Collections.md), [Rules](Rules.md), and [Actions](Actions.md), the [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md), or the [Tag layer](index.md) overview.
+For the next step, refer to [Collections](Collections/index.md), [Rules](Rules/index.md), and [Actions](Rules/Actions/index.md), the [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md), or the [Tag layer](index.md) overview.
 
 New in Profinity 2.3: the Tag Explorer context menu.

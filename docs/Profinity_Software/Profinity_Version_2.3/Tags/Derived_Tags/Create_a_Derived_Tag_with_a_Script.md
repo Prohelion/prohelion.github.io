@@ -1,28 +1,28 @@
 ---
-title: Script-driven derived tags
+title: Create a derived tag with a script
 description: "Compute derived tags with a script when one expression is not enough, including multi-step logic, state, and several output tags."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
-# Script-driven derived tags
+# Create a derived tag with a script
 
-A computation that does not fit one expression, such as multiple steps, state carried between runs, or publishing several tags from one computation, is written as a script instead of an expression-based [derived tag](./Derived_Tags.md).
+A computation that does not fit one expression, such as multiple steps, state carried between runs, or publishing several tags from one computation, is written as a script instead of an expression-based [derived tag](index.md).
 
 !!! info "Licence required"
-    Script-driven derived tags need the **Scripting** licensed feature, included from the Desktop edition upward, and scripting enabled in [Application Config](../Administration/System_Configuration/Application_Config.md).
+    A derived tag computed by a script needs the **Scripting** licensed feature, included from the Desktop edition upward, and scripting enabled in [Application Config](../../Administration/System_Configuration/Application_Config.md).
     Expression-based derived tags work on every edition.
 
 To set one up:
 
 1. Add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one.
 2. Set its mode to **Run On Tag Change**.
-3. Select the source tags in its **Collections** setting, as described in [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md).
+3. Select the source tags in its **Collections** setting, as described in [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).
 4. In the script, publish the computed result with `Profinity.Tags.SetValue(...)`.
 
 Tag paths passed to `Profinity.Tags` are relative to the script's own host component, so a script is naturally suited to computing a derived value from, and publishing back to, tags on the same component.
-A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on other components (refer to [Tags in scripts](../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths)).
+A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on other components (refer to [Tags in scripts](../../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths)).
 
 === "C#"
 
@@ -90,5 +90,5 @@ Reading the published tag returns the last value the script published, and a rea
 If nothing has triggered the script yet, the tag has no value rather than a freshly computed one.
 
 Other trigger modes are available too, namely **Run On Time Interval**, **Run On CRON Schedule** and **Run as Service**, for a computation that is not purely reactive to a tag change.
-Refer to [Script Types](../Developing_with_Profinity/Scripting/Script_Types/index.md) for each mode.
-For the expression-based alternative, refer to [Derived tags](./Derived_Tags.md) and [Tag expressions](./Tag_Expressions.md).
+Refer to [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md) for each mode.
+For the expression-based alternative, refer to [Create a derived tag](Create_a_Derived_Tag.md) and [Tag expressions](../Selecting_Tags/Tag_Expressions.md).

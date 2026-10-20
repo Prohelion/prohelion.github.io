@@ -27,7 +27,7 @@ The JSON property names are camelCase, `transition` is one of `EnteredTrue`, `En
 
 | Use the **Webhook** action when... | Use the **MQTT** action when... |
 |---|---|
-| The receiver is an ordinary HTTP service, such as an internal API, an integration platform, or a chat or incident tool with a generic webhook intake. | MQTT broker infrastructure is already in place, for example alongside an [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md). |
+| The receiver is an ordinary HTTP service, such as an internal API, an integration platform, or a chat or incident tool with a generic webhook intake. | MQTT broker infrastructure is already in place, for example alongside an [MQTT Publisher](../../../Components/Publishers_and_Subscribers/MQTT_Publisher.md). |
 | There is no MQTT broker to publish to. | Several systems need to subscribe to the same rule notifications through one broker topic. |
 
 Each firing opens a connection, sends the message and closes the connection.
@@ -39,7 +39,7 @@ When a Webhook destination or MQTT broker cannot be reached, the alert still app
 | Setting | Purpose |
 |---|---|
 | **Destination URL** | The HTTP or HTTPS endpoint the action posts to when the rule transitions. It may embed a token, for example `https://host/hooks/<secret>`, and is stored encrypted. |
-| **Auth mode** | **None**, **Bearer token**, **API key header** or **Basic auth**, the same four modes as the [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md). |
+| **Auth mode** | **None**, **Bearer token**, **API key header** or **Basic auth**, the same four modes as the [Webhook Publisher](../../../Components/Publishers_and_Subscribers/Webhook_Publisher.md). |
 | **Bearer token** | Shown when **Auth mode** is **Bearer token**, and sent as `Authorization: Bearer <token>`. Saving without it reports "You must provide a bearer token when auth mode is Bearer token.", and the other modes report a matching message for their missing fields. |
 | **API key header name** / **API key header value** | Shown when **Auth mode** is **API key header**. The header name and value sent on every request, for example `X-Api-Key`. |
 | **Basic auth username** / **Basic auth password** | Shown when **Auth mode** is **Basic auth**. |
@@ -56,5 +56,5 @@ When a Webhook destination or MQTT broker cannot be reached, the alert still app
 | **Quality of service** | **At most once**, **At least once** (default) or **Exactly once**, the Quality of Service (QoS) level used for the publish. |
 
 Both actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
-To add one to a profile so that a rule can select it, refer to [Making an action available](Actions.md#making-an-action-available).
+To add one to a profile so that a rule can select it, refer to [Making an action available](index.md#making-an-action-available).
 For the Email and Slack actions, refer to [Email and Slack rule actions](Email_and_Slack_Rule_Actions.md).

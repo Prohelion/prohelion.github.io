@@ -8,9 +8,9 @@ last_reviewed: 2026-10-15
 
 # InfluxDB historians
 
-The **InfluxDB v2 Historian** and the **InfluxDB v3 Historian** write the values of the tags in the [collections](../../Tags/Collections.md) you select to an InfluxDB server, and allow that history to be read back out through the APIs.
+The **InfluxDB v2 Historian** and the **InfluxDB v3 Historian** write the values of the tags in the [collections](../../Tags/Collections/index.md) you select to an InfluxDB server, and allow that history to be read back out through the APIs.
 They sit in the **Historians** category.
-Each recorded value belongs to a [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Tag_Tree_Path.md).
+Each recorded value belongs to a [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 Use the **InfluxDB v2 Historian** if your InfluxDB server stores data in buckets that belong to an organisation.
 Use the **InfluxDB v3 Historian** if your InfluxDB server stores data in a single database.

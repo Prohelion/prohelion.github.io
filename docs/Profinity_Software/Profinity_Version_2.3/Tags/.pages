@@ -1,20 +1,10 @@
 nav:
     - index.md
-    - Tag_Tree_Path.md
-    - Nest_a_Component_in_the_Tag_Tree.md
-    - Create_Collections_Rules_and_Bindings_from_Tags.md
-    - Tag_Expressions.md
-    - Collections.md
-    - Create_a_Collection.md
-    - Derived_Tags.md
-    - Create_a_Derived_Tag.md
-    - Script_Driven_Derived_Tags.md
-    - Rules.md
-    - Rules_YAML_Example.md
-    - Actions.md
-    - Email_and_Slack_Rule_Actions.md
-    - Webhook_and_MQTT_Rule_Actions.md
+    - Selecting_Tags
+    - Collections
+    - Derived_Tags
+    - Rules
     - Alerts.md
     - Tag_Relay.md
-    - Log_Tags_to_a_File.md
-    - Replay_a_Tag_Log.md
+    - Tag_Logs
+    - Create_Collections_Rules_and_Bindings_from_Tags.md

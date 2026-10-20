@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # Webhook Publisher
 
-The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections.md) to an HTTP or HTTPS address with an HTTP POST, either on a fixed interval or whenever a member tag's value changes.
+The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to an HTTP or HTTPS address with an HTTP POST, either on a fixed interval or whenever a member tag's value changes.
 It uses the same trigger modes as the [MQTT Publisher](MQTT_Publisher.md).
 Use it when the consumer is an ordinary web service rather than an MQTT broker.
 
@@ -113,4 +113,4 @@ If the status shows **Error**, check the [Logs](../../Administration/Logs_Config
 ## Related pages
 
 Use the [MQTT Publisher](MQTT_Publisher.md) to publish to a broker, or the [MQTT Subscriber](MQTT_Subscriber.md) to bring external data in.
-A [rule action](../../Tags/Actions.md) can also send a one-off webhook or MQTT message, and needs the **Tag Rule Actions** licensed feature.
+A [rule action](../../Tags/Rules/Actions/index.md) can also send a one-off webhook or MQTT message, and needs the **Tag Rule Actions** licensed feature.

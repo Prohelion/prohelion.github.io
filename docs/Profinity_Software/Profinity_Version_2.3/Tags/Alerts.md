@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Alerts Log
 
 Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indicators across the UI, and through the [API](../Integrating_to_Profinity/APIs/Endpoint_Reference.md#alerts).
-Operators with the **View alerts** permission can view and acknowledge alerts and silence their actions, and an alert's text, level, and links come from the [rule](./Rules.md) that raised it.
+Operators with the **View alerts** permission can view and acknowledge alerts and silence their actions, and an alert's text, level, and links come from the [rule](Rules/index.md) that raised it.
 
 <figure markdown>
 ![A diagram of the All alerts page with Active and History tabs, a side menu where warnings roll up the tree, an audit trail, and a detail panel with what to do, documentation, related tags, and Acknowledge and Silence buttons.](../images/diagram-alerts.png)
@@ -83,6 +83,6 @@ The silence lasts the full hour even if the alert clears first, so clear actions
 
 The **Acknowledge alert** button and the **Silence alert for 1 hour** button sit in the actions column of the **Active** tab, and an acknowledged alert shows an **Unacknowledge alert** button in place of Acknowledge.
 
-How a rule is evaluated, including dwell, deadband, and the evaluation tick, is described under [Rule evaluation: dwell and deadband](./Rules.md#rule-evaluation-dwell-and-deadband).
-The expression language is described in [Tag expressions](./Tag_Expressions.md), and the actions a rule runs are described in [Rules](./Rules.md) and [Actions](./Actions.md).
-For the rest of the tag layer, refer to [Tag layer](index.md), [Collections](./Collections.md), and [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
+How a rule is evaluated, including dwell, deadband, and the evaluation tick, is described under [Rule evaluation: dwell and deadband](Rules/index.md#rule-evaluation-dwell-and-deadband).
+The expression language is described in [Tag expressions](Selecting_Tags/Tag_Expressions.md), and the actions a rule runs are described in [Rules](Rules/index.md) and [Actions](Rules/Actions/index.md).
+For the rest of the tag layer, refer to [Tag layer](index.md), [Collections](Collections/index.md), and [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).

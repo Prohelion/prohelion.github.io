@@ -21,13 +21,13 @@ Dashboards, alerts, and rules on the central instance work on the relayed tags a
 
 | Component | Runs on | Role | Default protocol | Auto Connect |
 |---|---|---|---|---|
-| [Tag Relay Sender](Tag_Relay_Sender.md) | The site instance that owns the tags | Exports a snapshot of the tags in selected [collections](../../Tags/Collections.md) at a fixed interval, over HTTPS or MQTT. | HTTPS | On by default |
+| [Tag Relay Sender](Tag_Relay_Sender.md) | The site instance that owns the tags | Exports a snapshot of the tags in selected [collections](../../Tags/Collections/index.md) at a fixed interval, over HTTPS or MQTT. | HTTPS | On by default |
 | [Tag Relay Receiver](Tag_Relay_Receiver.md) | The central instance | Mounts the incoming tags as read-only tags under a prefix that identifies the sending site. | MQTT | On by default, with the MQTT protocol |
 
 A receiving instance can ingest many senders, because each tag is mounted beneath the receiver's own prefix followed by the sender's prefix.
 A sender with the prefix `Vehicle12` relayed to a receiver with the prefix `Fleet` appears at `Fleet/Vehicle12/...`, so give each sender a distinct **Sender tag path prefix**.
 Relayed tags are read-only on the receiver, although local collections, rules, alerts, dashboards, and scripts on the receiver can use them in the same way as any other tag.
-The [Tag tree path](../../Tags/Tag_Tree_Path.md) page describes how paths are built.
+The [Tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md) page describes how paths are built.
 
 Tag Relay works between Profinity instances only and uses its own snapshot format, so it does not use Sparkplug.
 If the other end is a third-party Sparkplug B source, use the [MQTT Subscriber](../Publishers_and_Subscribers/MQTT_Subscriber.md) instead.

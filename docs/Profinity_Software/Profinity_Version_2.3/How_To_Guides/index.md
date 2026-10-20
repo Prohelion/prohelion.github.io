@@ -49,9 +49,9 @@ Start with the [Quick Start Guide](../Getting_Started/Quick_Start.md) if Profini
 
 These Profinity 2.3 features have no separate guide, and the reference pages describe them in full.
 
-- [Tag Collections](../Tags/Collections.md): groups tags for logging and publishing.
-- [Derived Tags](../Tags/Derived_Tags.md): calculates a new tag from existing tags with an expression.
-- [Rules](../Tags/Rules.md) and [Actions](../Tags/Actions.md): runs an action when a rule raises an alert.
+- [Tag Collections](../Tags/Collections/index.md): groups tags for logging and publishing.
+- [Derived Tags](../Tags/Derived_Tags/index.md): calculates a new tag from existing tags with an expression.
+- [Rules](../Tags/Rules/index.md) and [Actions](../Tags/Rules/Actions/index.md): runs an action when a rule raises an alert.
 - [AI Skills](../Profinity_AI/AI_Skills.md): generates dashboards, rules, and scripts with an AI tool.
 - [DLL Plugins](../Developing_with_Profinity/Plugins/index.md): extends Profinity with a plugin.
 

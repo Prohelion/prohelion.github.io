@@ -29,7 +29,7 @@ The Tag Explorer shows the same structure for a full profile.
 In the example below, each component appears as a branch under the root of the tree, and the tags within it are grouped into folders such as `DBC`, so a component with a **Tag tree path** set would appear in the same way inside its parent folders instead of at the root.
 
 <figure markdown>
-![Tag Explorer tree showing each component as a branch under the root, with its tags grouped in folders such as DBC](../images/tag-explorer-tree.png)
+![Tag Explorer tree showing each component as a branch under the root, with its tags grouped in folders such as DBC](../../images/tag-explorer-tree.png)
 <figcaption>Full Tag Explorer example with components mounted at the root, the default</figcaption>
 </figure>
 
@@ -54,9 +54,9 @@ Once a component is nested, the form of a `source:` value in a dashboard `bind:`
 
 On a dashboard belonging to that `Charger` component, the relative bind `DBC/BMSInfo/Flag` resolves to `Vehicles/Car1/Charger/DBC/BMSInfo/Flag`.
 
-Dashboards that use the `{COMPONENT_NAME}` placeholder, documented in [Data Binding](../Customising_Profinity/Dashboards/Data_Binding/index.md), keep working, and Profinity replaces the placeholder with an explicit relative or absolute path the next time the dashboard is saved.
+Dashboards that use the `{COMPONENT_NAME}` placeholder, documented in [Data Binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md), keep working, and Profinity replaces the placeholder with an explicit relative or absolute path the next time the dashboard is saved.
 
-For the component types that carry this setting, refer to [Component types](../Developing_with_Profinity/Custom_Components/Component_Types.md), and for the dashboards that bind to these paths, refer to [Dashboards](../Customising_Profinity/Dashboards/index.md).
-The [Tag layer](index.md) page lists the rest of the tag pages.
+For the component types that carry this setting, refer to [Component types](../../Developing_with_Profinity/Custom_Components/Component_Types.md), and for the dashboards that bind to these paths, refer to [Dashboards](../../Customising_Profinity/Dashboards/index.md).
+The [Tag layer](../index.md) page lists the rest of the tag pages.
 
 New in Profinity 2.3: the **Tag tree path** setting.

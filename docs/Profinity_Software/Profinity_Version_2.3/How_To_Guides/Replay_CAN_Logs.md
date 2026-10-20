@@ -54,6 +54,6 @@ The trashcan icon deletes a log file from the list, which is separate from contr
 Only a CAN message log recorded by a File or SFTP logger can be replayed, so an uploaded file of another kind does not play.
 If the **CAN LOG REPLAY** entry is missing from the side menu, the signed-in user lacks the **Replay CAN logs** permission.
 If the replay runs but the dashboards stay empty, no component in the active profile listens to the replayed CAN IDs, so load the profile that the log was recorded against.
-Recorded tag values are replayed separately with **TAG LOG REPLAY**, described in [Replay a tag log](../Tags/Replay_a_Tag_Log.md).
+Recorded tag values are replayed separately with **TAG LOG REPLAY**, described in [Replay a tag log](../Tags/Tag_Logs/Replay_a_Tag_Log.md).
 
 To check a Custom Component against its DBC file with recorded messages, refer to [How to Create a Custom Component](./Create_Custom_Component.md).

@@ -39,4 +39,4 @@ A DLL plugin suits a component that needs compiled code, and is chosen only when
 
 To call Profinity from another system rather than run code inside it, refer to [Integrating to Profinity](../Integrating_to_Profinity/index.md).
 For dashboards, theming, and hosting, refer to [Customising Profinity](../Customising_Profinity/index.md).
-Rule actions that run scripts are covered in [Actions](../Tags/Actions.md).
+Rule actions that run scripts are covered in [Actions](../Tags/Rules/Actions/index.md).

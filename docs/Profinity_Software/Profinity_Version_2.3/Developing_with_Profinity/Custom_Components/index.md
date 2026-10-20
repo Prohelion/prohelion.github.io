@@ -67,7 +67,7 @@ A binding that reads a value the main script published uses a tag path.
 A relative path, with no leading slash, is resolved against the component's own place in the tag tree, so it follows the component if **Tag tree path** changes.
 An absolute path begins with `/` and is a literal reference to some other place in the tree.
 A dashboard should use a relative path in place of the `{COMPONENT_NAME}` placeholder.
-Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) and [Tag tree path](../../Tags/Tag_Tree_Path.md).
+Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) and [Tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 ## Rules
 

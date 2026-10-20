@@ -30,7 +30,7 @@ Choose a destination in the table, add the component, then follow the section fo
 | An MQTT broker | **[MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** | Publishers & Subscribers | Data Relay |
 | An HTTP(S) URL | **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** | Publishers & Subscribers | Data Relay |
 
-The TAG loggers log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections.md).
+The TAG loggers log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections/index.md).
 The Loggers and Historians write to a queryable store for later, disconnected retrieval, and the Historians can additionally be read back through the APIs.
 The MQTT Publisher and Webhook Publisher push to a receiver that is listening at that moment.
 InfluxDB V1, V2 and V3 are separate, incompatible products, so the component must match the installed InfluxDB version.

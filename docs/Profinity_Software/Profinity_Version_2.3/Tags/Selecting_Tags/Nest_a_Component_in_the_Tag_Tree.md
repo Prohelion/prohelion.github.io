@@ -22,15 +22,15 @@ The default value of `/` mounts the component at the root.
 
 A component named `Charger` with a **Tag tree path** of `Vehicles/Car1` mounts at `Vehicles/Car1/Charger`, and its tags appear in Tag Explorer under that folder.
 Every mount point must be unique.
-If two components would resolve to the same or an overlapping location, or to a location published by a [Tag Relay](Tag_Relay.md) receiver, Profinity rejects the change and reports which paths overlap, with a message in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.`
+If two components would resolve to the same or an overlapping location, or to a location published by a [Tag Relay](../Tag_Relay.md) receiver, Profinity rejects the change and reports which paths overlap, with a message in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.`
 Change the **Tag tree path** or the name of one of the two components until the paths no longer overlap.
 
 ## Change the path on a deployed component
 
 !!! warning "Moving a component breaks absolute binds in other dashboards"
-    Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and history recorded by the [TAG SQL Historian](../Components/Historians/TAG_SQL_Historian.md) under the old path is not carried across.
+    Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and history recorded by the [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) under the old path is not carried across.
 
-Changing a deployed component's **Tag tree path**, or renaming it, automatically updates the [Alerts](Alerts.md) and [Collections](Collections.md) that refer to it, along with the profile home dashboard's `source:` bindings.
+Changing a deployed component's **Tag tree path**, or renaming it, automatically updates the [Alerts](../Alerts.md) and [Collections](../Collections/index.md) that refer to it, along with the profile home dashboard's `source:` bindings.
 Only paths that refer to the moved component are updated, and an unrelated branch with the same name is left alone.
 The same updates appear in `rules.yaml` and `collections.yaml` for anyone who edits those files directly.
 

@@ -8,14 +8,14 @@ last_reviewed: 2026-10-15
 
 # Tag rules
 
-A tag rule watches the tags in its scope and, when its condition changes, records an alert in the [Alerts Log](Alerts.md) and runs the actions attached to it.
-This page covers writing rules, and [Complete rules.yaml example](Rules_YAML_Example.md) shows a full `rules.yaml` with every setting in one place.
-The [Actions](Actions.md) page covers the actions that a rule can run, such as Email, Slack, Webhook, and MQTT.
+A tag rule watches the tags in its scope and, when its condition changes, records an alert in the [Alerts Log](../Alerts.md) and runs the actions attached to it.
+This page covers writing rules, [Create a rule](Create_a_Rule.md) walks through an example, and [Complete rules.yaml example](Rules_YAML_Example.md) shows a full `rules.yaml` with every setting in one place.
+The [Rule actions](Actions/index.md) page covers the actions that a rule can run, such as Email, Slack, Webhook, and MQTT.
 
 !!! info "Licence required"
     Rules and the Alerts Log work on every edition.
     Without the **Tag Rule Actions** licensed feature a rule still evaluates and the alert is still recorded, and only the Email, Slack, Webhook, MQTT, and script actions are skipped.
-    Refer to [Licensing](../Administration/Licensing.md) for what each edition includes.
+    Refer to [Licensing](../../Administration/Licensing.md) for what each edition includes.
 
 ## Rules visual editor
 
@@ -23,13 +23,13 @@ Select **RULES & ACTIONS** under **TAG UTILITIES** in the side menu, which needs
 The editor lists the profile's rules first and then each component's rules, and shows every rule with its level, scope, thresholds, and actions.
 
 <figure markdown>
-![The Editing Rules dialog with a rule set list, groups of rules such as Cell limits, and an Inspector showing the selected rule set's scope prefix, collection and enabled setting.](../images/rules-visual-editor.png)
+![The Editing Rules dialog with a rule set list, groups of rules such as Cell limits, and an Inspector showing the selected rule set's scope prefix, collection and enabled setting.](../../images/rules-visual-editor.png)
 <figcaption>Rules visual editor with an expanded rule</figcaption>
 </figure>
 
 The editor writes the same `rules.yaml` document that can be edited directly, and it exposes the settings that control how a rule is evaluated: **Rule level** and **Rule type** for each rule, **Dwell seconds**, **Throttle minutes** and the **More information links**, and the **Evaluation tick (seconds)** on the rules source.
-The valid alert levels, their aliases and the default are described under [Alert levels](Alerts.md#alert-levels).
-Each rule also has a `description` that the Alerts Log shows to the operator, and a condition written in the [tag expression](./Tag_Expressions.md) language, for example `tag.Value > 4.2` to trip with `tag.Value < 4.0` to clear, or `tag.IsStale` for a sensor that has stopped reporting.
+The valid alert levels, their aliases and the default are described under [Alert levels](../Alerts.md#alert-levels).
+Each rule also has a `description` that the Alerts Log shows to the operator, and a condition written in the [tag expression](../Selecting_Tags/Tag_Expressions.md) language, for example `tag.Value > 4.2` to trip with `tag.Value < 4.0` to clear, or `tag.IsStale` for a sensor that has stopped reporting.
 
 Setting **Publish state tag path** on a rule, in its **Rule State** group, mirrors the rule's current state to a read-only tag, as described under [Rule state publishing](#rule-state-publishing).
 
@@ -42,12 +42,12 @@ When the rules load, the tag takes the state the rule last had, which Profinity 
 
 A rule has a single state tag even when its scope matches many tags, so every matching tag writes to the same state tag and the value shown is that of whichever matching tag changed state most recently, not a summary of all of them.
 Where the state of each tag matters, define one rule per tag, each with its own **Publish state tag path**, and do not give two rules the same path, because Profinity does not load the rules when two of them share a path, and the error names both rules.
-Refer to [Actions](./Actions.md) for the actions a rule runs.
+Refer to [Rule actions](Actions/index.md) for the actions a rule runs.
 
 ## Rule evaluation: dwell and deadband
 
 <figure markdown>
-![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../images/diagram-rules.png)
+![A rule evaluated continuously over time, with dwell and deadband shown against a rising value, severity tiers from Warning through Fatal, and the same rule fanning out to raise one alert per tag in a collection](../../images/diagram-rules.png)
 <figcaption>Dwell, deadband and severity levels on a rule</figcaption>
 </figure>
 
@@ -80,4 +80,4 @@ A no-data or stale sensor condition is written as follows, where a tag that has 
 | Edit rules | **Modify tag rules** |
 | View alerts | **View alerts** |
 
-For the rest of the tag layer, refer to [Tag expressions](./Tag_Expressions.md), [Collections](./Collections.md), [Derived tags](./Derived_Tags.md) and [Tag layer](index.md).
+For the rest of the tag layer, refer to [Tag expressions](../Selecting_Tags/Tag_Expressions.md), [Collections](../Collections/index.md), [Derived tags](../Derived_Tags/index.md) and [Tag layer](../index.md).

@@ -57,7 +57,7 @@ The subscriber does not start unless **Server URL**, **Topic filter**, **Host ID
 
 | Setting | Required | Purpose |
 |---|---|---|
-| **Tag path prefix** | Yes | The profile subtree that subscribed metrics are written under, for example `External/Ignition`. The subscriber owns this subtree, so no other component or script should create tags beneath it. Refer to [Tag tree path](../../Tags/Tag_Tree_Path.md) for the path rules. |
+| **Tag path prefix** | Yes | The profile subtree that subscribed metrics are written under, for example `External/Ignition`. The subscriber owns this subtree, so no other component or script should create tags beneath it. Refer to [Tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md) for the path rules. |
 
 ## Where tags appear
 
@@ -78,7 +78,7 @@ A metric name that contains `/` adds further segments beneath the device.
 To react to an incoming value, use a **Run On Tag Change** script watching the tag, which reads the new sample the same way it would for any other tag change and is not given the raw MQTT payload.
 Refer to [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md) for the script types.
 
-If an incoming metric's path is already occupied by something that is not one of this subscriber's own tags, such as an existing device tag, a Tag Relay mirror, a script register or a [derived tag](../../Tags/Derived_Tags.md), that one metric is skipped and a warning is written to the log.
+If an incoming metric's path is already occupied by something that is not one of this subscriber's own tags, such as an existing device tag, a Tag Relay mirror, a script register or a [derived tag](../../Tags/Derived_Tags/index.md), that one metric is skipped and a warning is written to the log.
 The rest of the message is still applied.
 
 ## Sparkplug behaviour

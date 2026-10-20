@@ -8,9 +8,9 @@ last_reviewed: 2026-10-15
 
 # Complete rules.yaml example
 
-The [rules visual editor](Rules.md#rules-visual-editor) writes rules to a file, shown here in full so that every setting is in one place, and the file can also be edited directly.
+The [rules visual editor](index.md#rules-visual-editor) writes rules to a file, shown here in full so that every setting is in one place, and the file can also be edited directly.
 It has one rules source with a file-level scope, actions inherited by every rule beneath it, a group with its own action, a threshold rule and a boolean rule that uses a collection.
-It assumes a collection with the id `Collection1`, which is the id the editor generated for the collection created in [Create a collection](Create_a_Collection.md), and two actions named `OpsSlack` and `OpsEmail` that were added as described under [Making an action available](Actions.md#making-an-action-available).
+It assumes a collection with the id `Collection1`, which is the id the editor generated for the collection created in [Create a collection](../Collections/Create_a_Collection.md), and two actions named `OpsSlack` and `OpsEmail` that were added as described under [Making an action available](Actions/index.md#making-an-action-available).
 
 ```yaml
 version: "2.3"
@@ -97,10 +97,10 @@ A threshold rule still needs a rule-level `expression`, and `tag.HasValue` is th
 The `dwellSeconds` value (or `dwellMinutes`, never both) makes the condition hold continuously before the first step activates, and the `throttleMinutes` value stops the actions of one rule on one tag from running again within that number of minutes, on both the trip and the clear.
 The `cell_over_voltage` rule is a boolean rule, which has a single `level`, a `clearExpression` that clears the alert even while the main `expression` is still true, and its own `actions` and `clearActions`.
 
-The `description` is the text the operator reads in the detail dialog of the [Alerts Log](Alerts.md) and supports Markdown.
+The `description` is the text the operator reads in the detail dialog of the [Alerts Log](../Alerts.md) and supports Markdown.
 The `moreInformation` list adds links, each with a `description` label and an `https://` `url`, which the dialog lists under **DOCUMENTATION**, and `relatedTags` stores tag paths that help diagnose the alert with the rule.
 Beyond the example, a rule, group or file takes `enabled: false` to switch everything beneath it off.
 
-Actions written on the file or on a group are inherited by the rules beneath them, as described under [Actions inherited down the rule tree](Actions.md#actions-inherited-down-the-rule-tree), so in the example a Warning on `pack_temperature` runs only **Profinity Log**, an Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
+Actions written on the file or on a group are inherited by the rules beneath them, as described under [Actions inherited down the rule tree](Actions/index.md#actions-inherited-down-the-rule-tree), so in the example a Warning on `pack_temperature` runs only **Profinity Log**, an Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
 
-For the editor, evaluation settings and permissions, refer to [Tag rules](Rules.md).
+For the editor, evaluation settings and permissions, refer to [Tag rules](index.md).

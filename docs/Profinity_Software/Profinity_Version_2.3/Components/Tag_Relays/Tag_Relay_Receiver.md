@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 The **Tag Relay Receiver** ingests the snapshots published by one or more [Tag Relay Senders](Tag_Relay_Sender.md) and mounts the incoming [tags](../../Tags/index.md) in the local tag tree as read-only tags beneath a prefix that identifies where they came from.
 It sits in the **Tag Relays** category.
-Once relayed tags are mounted they behave like any other tag, so they can be browsed in Tag Explorer, placed in [collections](../../Tags/Collections.md), shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged, and used in rules and scripts.
+Once relayed tags are mounted they behave like any other tag, so they can be browsed in Tag Explorer, placed in [collections](../../Tags/Collections/index.md), shown on a [dashboard](../../Customising_Profinity/Dashboards/index.md), logged, and used in rules and scripts.
 The [Tag Relay](../../Tags/Tag_Relay.md) page covers the concept, collision rules and limitations.
 
 <figure markdown>
@@ -33,7 +33,7 @@ Add a **Tag Relay Receiver** to your profile from the **Tag Relays** category, c
 | Setting | Purpose |
 |---|---|
 | **Protocol** | **MQTT** subscribes to a broker topic and applies each snapshot it receives. **HTTPS** uses the local relay API on this instance, so this component makes no outbound connection. Defaults to MQTT. |
-| **Receiver tag path prefix** | Required. The profile subtree that every ingest batch is applied under, so it must be unique to this receiver. A prefix supplied by the sender is appended beneath it, so a receiver prefix of `Fleet` and a sender prefix of `Vehicle12` give tags at `Fleet/Vehicle12/...`. Refer to [Tag tree path](../../Tags/Tag_Tree_Path.md). |
+| **Receiver tag path prefix** | Required. The profile subtree that every ingest batch is applied under, so it must be unique to this receiver. A prefix supplied by the sender is appended beneath it, so a receiver prefix of `Fleet` and a sender prefix of `Vehicle12` give tags at `Fleet/Vehicle12/...`. Refer to [Tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md). |
 
 ### MQTT settings
 
