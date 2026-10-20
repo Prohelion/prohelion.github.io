@@ -1,0 +1,8 @@
+mkdocs-material
+# 0.5.x Selectolax wrap drops every <img> from <figure>, leaving empty captions.
+mkdocs-glightbox==0.4.0
+mkdocs-awesome-pages-plugin
+mkdocs-spellcheck
+mkdocs-redirects
+symspellpy
+codespell

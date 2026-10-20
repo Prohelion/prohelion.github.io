@@ -25,13 +25,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
-      - run: pip install mkdocs-glightbox
-      - run: pip install mkdocs-awesome-pages-plugin
-      - run: pip install mkdocs-spellcheck
-      - run: pip install mkdocs-redirects
-      - run: pip install symspellpy
-      - run: pip install codespell
+      - run: pip install -r requirements.txt
       - uses: actions/setup-node@v4
         with:
           node-version: 22
