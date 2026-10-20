@@ -1,0 +1,18 @@
+version: "2.3"
+
+app:
+  title: Acme Monitor
+
+colors:
+  navBackground: "#0F5257"
+  navForeground: "#FFFFFF"
+  primary: "#E07A3F"
+  secondary: "#4F6D7A"
+  success: "#4CAF7A"
+  warning: "#E9B44C"
+  error: "#D1495B"
+
+assets:
+  logo: acme-logo.svg
+  loginLogo: acme-login.svg
+  favicon: acme-favicon.svg

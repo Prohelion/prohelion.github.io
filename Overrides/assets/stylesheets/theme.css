@@ -1,0 +1,82 @@
+:root  > * {
+    --md-primary-fg-color: #0b0b0b;
+    --md-primary-bg-color: #ffffff;
+    --md-secondary-bg-color: #1f1f1f;
+    --md-primary-text-color: #ffffff;
+    --md-secondary-text-color: #ec2027;
+    
+    --md-footer-bg-color: #0b0b0b;
+}
+
+/* Early Adopter announcement banner (v2.3 pages): brand red, high contrast, distinct from the black header */
+.md-banner {
+    --pve-banner-bg: color-mix(in srgb, var(--md-secondary-text-color) 85%, black);
+    background-color: var(--pve-banner-bg);
+}
+
+.md-banner .md-banner__inner {
+    color: #ffffff;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    padding: 0.7rem 0.8rem;
+}
+
+.md-banner .md-banner__inner strong,
+.md-banner .md-banner__inner a {
+    color: #ffffff;
+    white-space: normal;
+}
+
+.md-banner .md-banner__inner a {
+    text-decoration: underline;
+}
+
+/* Mermaid diagrams are monochrome: white nodes with black text and outline, and black arrows */
+:root > * {
+    --md-mermaid-node-bg-color: var(--md-primary-bg-color);
+    --md-mermaid-node-fg-color: var(--md-primary-fg-color);
+    --md-mermaid-edge-color: var(--md-primary-fg-color);
+    --md-mermaid-label-bg-color: var(--md-primary-bg-color);
+    --md-mermaid-label-fg-color: var(--md-primary-fg-color);
+}
+
+/* Material loads Mermaid after the page paints, so the raw diagram source shows until it renders. Hide the unrendered block (it is replaced by a div once drawn) but keep its space so the page does not jump. */
+.md-typeset pre.mermaid {
+    visibility: hidden;
+}
+
+.md-typeset .mermaid .flowchart-link {
+    stroke-width: 2px;
+}
+
+.md-typeset .mermaid marker path {
+    fill: var(--md-primary-fg-color);
+    stroke: var(--md-primary-fg-color);
+    transform: scale(1.5);
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* Edition comparison icons (Licensing page). Colours keep at least 3:1 contrast against the page background. */
+.md-typeset .edition-icon svg {
+    height: 1.25em;
+    width: 1.25em;
+}
+
+.md-typeset .edition-icon--yes {
+    color: #2e7d32;
+}
+
+.md-typeset .edition-icon--no {
+    color: #757575;
+}
+
+.md-typeset .edition-icon--addon {
+    color: #1565c0;
+}
+
+/* Material shrink-wraps a figure to its content, which collapses a Mermaid diagram to a fraction of the column and shrinks its text. Let a figure that holds a diagram use the full column. */
+.md-typeset figure:has(.mermaid) {
+    width: 100%;
+}

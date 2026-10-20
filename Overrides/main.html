@@ -1,0 +1,58 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "base.html" %}
+{% block extrahead %}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/custom.00c04c01.min.css' | url }}">
+  {% set page_description = (page.meta.description if page and page.meta and page.meta.description else config.site_description) %}
+  {% set page_title = (page.title if page and page.title else config.site_name) %}
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description }}">
+  {% if page and page.canonical_url %}
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_description }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Prohelion",
+        "url": "https://prohelion.com",
+        "logo": "{{ config.site_url }}assets/images/Prohelion_Logo_32.png"
+      },
+      {
+        "@type": "WebSite",
+        "name": "{{ config.site_name }}",
+        "url": "{{ config.site_url }}"
+      }
+    ]
+  }
+  </script>
+{% endblock %}
+{% block announce -%}
+  {%- if page and page.file and 'Profinity_Software/Profinity_Version_2.3/' in page.file.src_uri -%}
+  <strong>Profinity v2.3 General Availability Release is coming soon.</strong>
+  Documentation is being published now for Early Adopters, contact Prohelion at <a href="mailto:contact@prohelion.com">contact@prohelion.com</a> to get access to the Early Adopter release, or download Profinity v2.2 for the current General Availability release.
+  {%- endif -%}
+{%- endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/custom.129bd6ad.min.js' | url }}"></script>
+  <script>
+    // Customize logo link to point to prohelion.com
+    document.addEventListener('DOMContentLoaded', function() {
+      const logoLink = document.querySelector('.md-header__button.md-logo');
+      if (logoLink) {
+        logoLink.href = 'https://prohelion.com';
+        logoLink.target = '_blank';
+        logoLink.rel = 'noopener noreferrer';
+      }
+    });
+  </script>
+{% endblock %}

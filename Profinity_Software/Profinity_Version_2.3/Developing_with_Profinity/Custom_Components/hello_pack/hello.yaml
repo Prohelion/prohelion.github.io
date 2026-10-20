@@ -1,0 +1,27 @@
+version: "2.3"
+dashboard:
+    items:
+        - row:
+            direction: vertical
+            items:
+            - group:
+                class: statscontainer
+                items:
+                    - pill:
+                        icon:
+                            image: IbmWatsonKnowledgeStudio
+                        items:
+                        - pillgroup:
+                            items:
+                            - value:
+                                label: COUNT
+                                precision: 0
+                                bind:
+                                  - target: value
+                                    source: count
+                            - value:
+                                label: TEMPERATURE
+                                precision: 1
+                                bind:
+                                  - target: value
+                                    source: DBC/Temperature/Value
