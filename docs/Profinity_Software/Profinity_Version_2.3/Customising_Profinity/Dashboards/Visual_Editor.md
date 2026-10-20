@@ -87,7 +87,7 @@ Closing the editor with unsaved changes asks for confirmation before the changes
 Use the visual editor first, and switch to **YAML** in these cases:
 
 - To edit a property that the inspector marks as "use the YAML tab".
-- To copy a dashboard or paste in one from the [Examples](./Examples/index.md).
+- To copy a dashboard or paste in an example from the [Component Reference](./Component_Reference/index.md) or the [Motor Controller Dashboard Example](./Motor_Controller_Dashboard_Example.md).
 - To review a whole dashboard at once or make the same change in many places.
 - To repair a dashboard that the visual editor cannot open.
 

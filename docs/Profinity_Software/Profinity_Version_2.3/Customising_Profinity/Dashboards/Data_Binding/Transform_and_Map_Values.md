@@ -159,4 +159,4 @@ The `bias` is required, and it is either `left` or `right`: with `left` a value 
 The text that results can drive a `label` target, or a lamp `color` target when the labels are colour names.
 
 
-[Conditional Styling](./Conditional_Styling.md) uses text mapping to drive lamp colours and labels, and [Examples](../Examples/index.md) holds complete dashboards.
+[Conditional Styling](./Conditional_Styling.md) uses text mapping to drive lamp colours and labels, and the [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) shows a complete dashboard.

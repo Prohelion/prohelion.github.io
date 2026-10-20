@@ -81,4 +81,4 @@ As an alternative, add additional readouts in the **YAML** tab:
 - [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md): the full reference for dashboards
 - [Core Elements](../Customising_Profinity/Dashboards/Core_Elements.md): more complex layouts
 - [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md): available components
-- [Examples](../Customising_Profinity/Dashboards/Examples/index.md): complete dashboard examples
+- [Motor Controller Dashboard Example](../Customising_Profinity/Dashboards/Motor_Controller_Dashboard_Example.md): a complete dashboard, section by section

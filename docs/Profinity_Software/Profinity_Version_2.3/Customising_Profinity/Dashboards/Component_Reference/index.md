@@ -82,4 +82,4 @@ A [Tab](Interactive/Tabs.md) holds `panels` entries in its `items`, and an [Acco
 
 ## Next steps
 
-Read [Data Binding](../Data_Binding/index.md) to connect components to data, [Core Elements](../Core_Elements.md) for the structure of a dashboard, [Conditional Styling](../Data_Binding/Conditional_Styling.md) for dynamic visual effects, and [Examples](../Examples/index.md) for complete dashboards.
+Read [Data Binding](../Data_Binding/index.md) to connect components to data, [Core Elements](../Core_Elements.md) for the structure of a dashboard, [Conditional Styling](../Data_Binding/Conditional_Styling.md) for dynamic visual effects, and the [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) for a complete dashboard.

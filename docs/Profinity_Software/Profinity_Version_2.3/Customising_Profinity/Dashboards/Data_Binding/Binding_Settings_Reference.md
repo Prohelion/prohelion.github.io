@@ -68,4 +68,4 @@ These settings decide whether the binding reads the latest value, recent history
 | `stackScale` | boolean | Gives this series its own Y axis |
 | `seriesType` | string | `line`, `bar`, or `scatter`, overriding the chart type for this series |
 
-[Component Reference](../Component_Reference/index.md) describes the chart and the other components, and [Dashboard examples](../Examples/index.md) shows complete dashboards.
+[Component Reference](../Component_Reference/index.md) describes the chart and the other components, and the [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) shows a complete dashboard.

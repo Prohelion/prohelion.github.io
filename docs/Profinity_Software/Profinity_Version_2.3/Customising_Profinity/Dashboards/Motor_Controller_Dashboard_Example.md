@@ -1,22 +1,22 @@
 ---
-title: Full example
+title: Motor controller dashboard example
 description: "Study a complete WaveSculptor22 motor controller dashboard, section by section, with its tags and YAML, and adapt it to another controller."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
-# Full example
+# Motor controller dashboard example
 
 This page lists a complete motor controller dashboard for a Prohelion WaveSculptor22 motor controller, explains its five sections, and shows how to adapt it to another system.
 The dashboard monitors electrical, thermal, and performance values in real time.
-Every message and signal name in the YAML is taken from the [WaveSculptor22 DBC file](../../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md), which the [CAN protocol appendix](../../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes.
-It uses rows, groups, panels, an accordion and a tab, and has no titlebar or footer, so [Core Elements](../Core_Elements.md) describes those top-level elements.
-The smaller progressive examples are on the [Examples](./index.md) page.
+Every message and signal name in the YAML is taken from the [WaveSculptor22 DBC file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md), which the [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes.
+It uses rows, groups, panels, an accordion and a tab, and has no titlebar or footer, so [Core Elements](./Core_Elements.md) describes those top-level elements.
+Each component used here has a smaller example of its own in the [Component Reference](./Component_Reference/index.md).
 
 <figure markdown>
-![The WaveSculptor22 dashboard with a status pill, two line charts, the controller limit and error lamps, and an open More Details section](../images/full_example.png)
-<figcaption>The full example as it appears for a WaveSculptor22 component. The titlebar across the top is the component's own and is not part of the dashboard YAML.</figcaption>
+![The WaveSculptor22 dashboard with a status pill, two line charts, the controller limit and error lamps, and an open More Details section](./images/full_example.png)
+<figcaption>The example dashboard as it appears for a WaveSculptor22 component. The titlebar across the top is the component's own and is not part of the dashboard YAML.</figcaption>
 </figure>
 
 ## Tags used
@@ -53,7 +53,7 @@ The controller errors panel shows red lamps for the over current, over voltage, 
 Each lamp lights only while its error is active.
 The `WATCHDOG RESET` lamp is a warning more than a fault, because the controller continues to operate and the flag stays set until the next reset or power cycle.
 
-The `CONFIG READ` lamp indicates that default values replaced the stored configuration values (refer to the [Observation](../../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual).
+The `CONFIG READ` lamp indicates that default values replaced the stored configuration values (refer to the [Observation](../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual).
 
 ### Detailed information section
 
@@ -462,13 +462,13 @@ dashboard:
 
 ## Adapting the dashboard
 
-The bindings in this dashboard follow three patterns that [Data Binding](../Data_Binding/index.md) describes in full: a readout bound to a `DBC/` tag for the latest value, a chart bound with `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window for recent history, and a lamp bound to `enabled` with `toType: boolean` for a status flag.
+The bindings in this dashboard follow three patterns that [Data Binding](./Data_Binding/index.md) describes in full: a readout bound to a `DBC/` tag for the latest value, a chart bound with `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window for recent history, and a lamp bound to `enabled` with `toType: boolean` for a status flag.
 The `DBC/` paths are relative to the component that owns the dashboard, so the dashboard works for any component that publishes the same tags, such as a second WaveSculptor22 controller.
-The `Properties/` tags depend on the component, and the Tag Explorer lists them under it (refer to [Tags](../../../Tags/index.md)).
+The `Properties/` tags depend on the component, and the Tag Explorer lists them under it (refer to [Tags](../../Tags/index.md)).
 
 To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can copy from the Tag Explorer, and adjust the measurements, layout, precision and labels to suit.
 
 The WaveSculptor200 sends the same CAN messages and signals as the WaveSculptor22, so the tags in this dashboard apply to both controllers.
 
-To add sections, copy a panel and bind it to other tags for more charts, add lamps for further limit or error flags, add readouts for system-specific parameters, or add [actions](../Component_Reference/Interactive/Actions.md) and [toggles](../Component_Reference/Interactive/Toggles.md) for control.
-The [Visual Editor](../Visual_Editor.md) is the quickest way to make these changes, and [Examples](./index.md) holds smaller dashboards to build from.
+To add sections, copy a panel and bind it to other tags for more charts, add lamps for further limit or error flags, add readouts for system-specific parameters, or add [actions](./Component_Reference/Interactive/Actions.md) and [toggles](./Component_Reference/Interactive/Toggles.md) for control.
+The [Visual Editor](./Visual_Editor.md) is the quickest way to make these changes.

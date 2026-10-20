@@ -24,7 +24,7 @@ This guide explains the YAML structure, how to configure components, and how to 
 - [Component Reference](./Component_Reference/index.md) describes each component you can include.
 - [Conditional Styling](./Data_Binding/Conditional_Styling.md) shows how to hide and show elements or change colour based on data.
 - [Store dashboard files in a profile](./Store_Dashboard_Files.md) explains where images, stylesheets, and content files go.
-- [Examples](./Examples/index.md) holds progressive and component-specific examples, and [Full Example](./Examples/Full_Example.md) analyses a complete motor controller dashboard.
+- [Motor Controller Dashboard Example](./Motor_Controller_Dashboard_Example.md) analyses a complete dashboard for a WaveSculptor22 motor controller.
 - [Troubleshooting](./Troubleshooting.md) and the [FAQ](./FAQ.md) cover validation errors, binding problems and common questions.
 
 Dashboards written in YAML before Profinity 2.3 keep working and open in the visual editor.
@@ -82,7 +82,29 @@ The Tag Explorer shows the path of each tag to bind, and [Binding Source Paths](
 A component that has no dashboard of its own starts from the Hello World template, which is a vertical row holding a styled group with one pill.
 The pill has an icon and two values, one labelled `CUSTOM DASHBOARD` and one that points to the Profinity documentation.
 In the visual editor the **NEW FROM TEMPLATE** button replaces the dashboard with this template at any time, after a confirmation prompt, and a component can supply its own template that loads instead.
-The YAML of the template is listed as [Example 0](./Examples/index.md#example-0-hello-world-template), and the progressive examples that follow it add bindings, lamps, and charts one at a time.
+The YAML of the template is:
+
+``` yaml
+version: "2.3"
+dashboard:
+    items:
+        - row:
+            direction: vertical
+            items:
+            - group:
+                class: statscontainer
+                items:
+                    - pill:
+                        icon:
+                            image: IbmWatsonKnowledgeStudio
+                        items:
+                        - pillgroup:
+                            items:
+                            - value:
+                                label: CUSTOM DASHBOARD
+                            - value:
+                                label: For more information on how to configure dashboard files, see the Profinity documentation at https://docs.prohelion.com
+```
 
 In the visual editor the template appears as a tree of rows, groups, pills, and values, and you add a binding by selecting a value and using the **Binding** section of the inspector.
 The **YAML** tab shows the same dashboard as text, which is the format the rest of this guide describes.

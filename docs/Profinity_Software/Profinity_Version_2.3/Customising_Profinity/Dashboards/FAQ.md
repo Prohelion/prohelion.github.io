@@ -43,15 +43,15 @@ For more detail, refer to [Store dashboard files in a profile](./Store_Dashboard
 
 ### How do I display a simple value?
 
-Use a `readout` component, as in the first of the [Examples](./Examples/index.md#example-1-simple-readout-with-formatting).
+Use a `readout` component, as in the [Readouts](./Component_Reference/Data/Readouts.md#example) reference example.
 
 ### How do I show multiple related values?
 
-Use a `pill` component, which groups values beside an icon, as in the [Hello World template](./Examples/index.md#example-0-hello-world-template).
+Use a `pill` component, which groups values beside an icon, as in the [starter template](./index.md#the-starter-template) and the [Pill](./Component_Reference/Layout/Pill.md#example) reference example.
 
 ### How do I create a chart?
 
-Use a `chart` component whose binding sets `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window, as in [Time Series](./Data_Binding/index.md#time-series) and the [chart example](./Examples/index.md#example-4-add-charts).
+Use a `chart` component whose binding sets `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window, as in [Time Series](./Data_Binding/index.md#time-series) and the [Charts](./Component_Reference/Data/Charts.md#example) reference example.
 
 ### How do I show status indicators?
 
@@ -111,11 +111,11 @@ Refer to [Image Does Not Appear](./Troubleshooting.md#image-does-not-appear).
 
 ### How do I create an interactive image?
 
-Use the `image` component with regions, icons, and data values, as in the [image example](./Examples/Component_Examples.md#image-component-example) and the [Image](./Component_Reference/Images_and_Models/Image.md) reference.
+Use the `image` component with regions, icons, and data values, as in the [Image](./Component_Reference/Images_and_Models/Image.md#example) reference example.
 
 ### How do I use the `html` component?
 
-Use the `html` component, as in the [HTML example](./Examples/Component_Examples.md#html-component-example), and note the elements that the HTML sanitiser removes, which are listed in [Store dashboard files in a profile](./Store_Dashboard_Files.md#profilecontent).
+Use the `html` component, as in the [HTML](./Component_Reference/Content/HTML.md#example) reference example, and note the elements that the HTML sanitiser removes, which are listed in [Store dashboard files in a profile](./Store_Dashboard_Files.md#profilecontent).
 
 ### How do I organise a large dashboard, improve performance or make it reusable?
 
@@ -125,5 +125,5 @@ Use relative tag paths so that one dashboard fits every component with the same 
 
 ## Further help
 
-The [Component Reference](./Component_Reference/index.md) describes each component, [Examples](./Examples/index.md) and [Full Example](./Examples/Full_Example.md) hold working dashboards, and [Troubleshooting](./Troubleshooting.md) covers common problems.
+The [Component Reference](./Component_Reference/index.md) describes each component, the [Motor Controller Dashboard Example](./Motor_Controller_Dashboard_Example.md) holds a working dashboard, and [Troubleshooting](./Troubleshooting.md) covers common problems.
 For anything else, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/).

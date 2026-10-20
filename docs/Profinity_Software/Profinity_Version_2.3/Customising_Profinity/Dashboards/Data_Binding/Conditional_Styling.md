@@ -139,4 +139,4 @@ dashboard:
                                 bias: right
 ```
 
-[Data Binding](./index.md) describes the binding settings used here, [Component Reference](../Component_Reference/index.md) lists the targets of each component, and [Examples](../Examples/index.md) and the annotated [Full Example](../Examples/Full_Example.md) show conditional styling in complete dashboards.
+[Data Binding](./index.md) describes the binding settings used here, [Component Reference](../Component_Reference/index.md) lists the targets of each component, and the annotated [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) shows bound lamps in a complete dashboard.

@@ -218,5 +218,5 @@ Images and stylesheets in HTML use the full paths `/Profile/Images/{filename}` a
 
 ## Getting more help
 
-Review the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements, use the validation in the visual editor to catch errors early, and compare the dashboard with [Examples](./Examples/index.md), the annotated [Full Example](./Examples/Full_Example.md) and the [Component Reference](./Component_Reference/index.md).
+Review the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements, use the validation in the visual editor to catch errors early, and compare the dashboard with the annotated [Motor Controller Dashboard Example](./Motor_Controller_Dashboard_Example.md) and the examples in the [Component Reference](./Component_Reference/index.md).
 If the problem persists, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) and include the YAML configuration, any error messages, and the expected and actual behaviour.

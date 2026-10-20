@@ -4,8 +4,7 @@ nav:
     - Visual_Editor.md
     - Data_Binding
     - Store_Dashboard_Files.md
-    - Examples
+    - Motor_Controller_Dashboard_Example.md
     - Troubleshooting.md
-    - Schema_Validation_Errors.md
     - FAQ.md
     - Component_Reference

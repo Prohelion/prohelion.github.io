@@ -50,4 +50,4 @@ Only one control loop limits the motor torque at any one time, so a single limit
 Each limit and error is described in more detail on the [Observation](../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual.
 The **MORE DETAILS** banner reveals the internal controller state, which is useful for debugging and not needed for general use.
 The state includes the low-voltage rails, phase currents, direct-quadrature (D-Q) reference frame vectors, slip speed, odometer, serial number and CAN error counts.
-Signals that the default dashboard does not display, such as the motor hall sequence error, can be bound to a lamp in a [custom dashboard](../../Customising_Profinity/Dashboards/Examples/Full_Example.md).
+Signals that the default dashboard does not display, such as the motor hall sequence error, can be bound to a lamp in a [custom dashboard](../../Customising_Profinity/Dashboards/Motor_Controller_Dashboard_Example.md).

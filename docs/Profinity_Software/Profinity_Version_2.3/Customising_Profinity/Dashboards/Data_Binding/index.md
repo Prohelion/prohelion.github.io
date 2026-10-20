@@ -138,4 +138,4 @@ The `aggregationWindow` groups the data into intervals of the given length (for 
 Logged bindings suit historical analysis over periods longer than the live window.
 
 [Tags](../../../Tags/index.md) covers the Tag Explorer, [Derived Tags](../../../Tags/Derived_Tags/index.md) and [Create collections, rules, and bindings from tags](../../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.
-[Binding Settings Reference](./Binding_Settings_Reference.md) lists every binding setting, [Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled` and `color` bindings change the look of a component, and [Examples](../Examples/index.md) and the annotated [Full Example](../Examples/Full_Example.md) show complete dashboards.
+[Binding Settings Reference](./Binding_Settings_Reference.md) lists every binding setting, [Conditional Styling](./Conditional_Styling.md) shows how `visible`, `enabled` and `color` bindings change the look of a component, and the annotated [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) shows a complete dashboard.

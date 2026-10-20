@@ -93,3 +93,31 @@ dashboard:
                 - target: value
                   source: /Prohelion BMU/Properties/PackData/Nodes/Values
 ```
+
+The same table can flag low cells instead of only the lowest and highest. Here `highlightAtOrBelow` highlights cells at or below 2500 mV, `alertAtOrBelow` colours cells at or below 2000 mV as an alert, and `precision: 0` shows whole millivolts:
+
+``` yaml
+dashboard:
+  items:
+    - row:
+        items:
+          - table:
+              tableHeaders:
+                - header:
+                    accessorKey: name
+                    value: Node Number
+                - header:
+                    accessorKey: cell1mV
+                    value: Cell 1 mV
+                - header:
+                    accessorKey: cell2mV
+                    value: Cell 2 mV
+              minValueToDisplay: 0
+              heatmap: true
+              highlightAtOrBelow: 2500
+              alertAtOrBelow: 2000
+              precision: 0
+              bind:
+                - target: value
+                  source: /Prohelion BMU/Properties/PackData/Nodes/Values
+```
