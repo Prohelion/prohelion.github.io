@@ -56,7 +56,7 @@ Use the skill that matches what you are building:
 - A [dashboard](../Customising_Profinity/Dashboards/index.md) or [component dashboard](../Developing_with_Profinity/Custom_Components/index.md): Dashboard Builder.
 - [Alert rules](../Tags/Rules/index.md), [tag collections](../Tags/Collections/index.md), or [derived tags](../Tags/Derived_Tags/index.md): Tag Rules, Tag Collections, Derived Tags.
 - An in-profile [script](../Developing_with_Profinity/Scripting/index.md), with simulation before you deploy: Script.
-- A custom component [plugin](../Developing_with_Profinity/SDK/Developing_Plugins.md), packed for installation with the [Component Pack CLI](../Developing_with_Profinity/Custom_Components/Component_Pack_CLI.md): Plugin.
+- A custom component [plugin](../Developing_with_Profinity/SDK/Developing_Plugins.md), packed for installation with the [Component Pack CLI](../Developing_with_Profinity/SDK/Component_Pack_CLI.md): Plugin.
 - An application or integration against the [REST API](../Integrating_to_Profinity/APIs/index.md): App.
 
 The Script and Plugin skills work beside the Profinity developer kit (`Profinity.Sdk`, `profinity-script`, and `profinity-component-pack`), which Prohelion supplies on request.

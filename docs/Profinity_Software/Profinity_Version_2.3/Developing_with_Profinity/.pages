@@ -2,5 +2,4 @@ nav:
     - index.md
     - Scripting
     - Custom_Components
-    - Plugins
-    - SDK.md
+    - SDK

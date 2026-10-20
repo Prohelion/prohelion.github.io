@@ -1,9 +1,9 @@
 ---
 title: Developing with Profinity
-description: "Choose between scripting, Custom Components, DLL plugins, and the Profinity SDK to extend Profinity with code."
+description: "Choose between scripting, Custom Components, and the Profinity SDK, including developing plugins, to extend Profinity with code."
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-20
 ---
 
 # Developing with Profinity
@@ -19,9 +19,9 @@ A script runs inside Profinity, a Custom Component brings in a device that Profi
 - [Scripting](./Scripting/index.md) automates tasks and creates custom operations in C#, Python or Lua. A script can react to a tag, a CAN message, a rule or a schedule, run continuously as a service, and write results back to tags.
 - [Custom Components](./Custom_Components/index.md) covers authoring a component that brings a device Profinity does not already ship into a profile, using an optional [DBC (CAN database)](../CAN_Utilities/CAN_Bus_DBC.md) file, a dashboard, scripts, actions, and settings maps. Using one in a profile is covered on [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md) under Components.
 - [Component Types](./Custom_Components/Component_Types.md) compares Custom Components and DLL plugins, and when to use each.
-- [Component Pack CLI](./Custom_Components/Component_Pack_CLI.md) covers the `profinity-component-pack` tool for validating, packing, and installing Custom Component bundles.
-- [DLL Plugins](./Plugins/index.md) covers dynamic-link library (DLL) plugins, which add compiled components to Profinity and are managed in **Components & Plugins**.
-- [Profinity SDK](./SDK.md) covers the developer kit that Prohelion distributes on request, which Profinity plugins, Custom Component packs and offline scripts all draw on, rather than three separate downloads.
+- [Profinity SDK](./SDK/index.md) covers the developer kit Prohelion provides to approved developers, with frameworks for plugins, Custom Components, and scripts.
+    - [Developing Plugins](./SDK/Developing_Plugins.md) covers a compiled plugin, built on the same framework as Prohelion's own components. An administrator installs it in **Components & Plugins**.
+    - [Component Pack CLI](./SDK/Component_Pack_CLI.md) covers the `profinity-component-pack` tool for validating, packing, and installing Custom Component bundles.
 
 New in Profinity 2.3: a Custom Component can include scripts, actions, and settings maps.
 
