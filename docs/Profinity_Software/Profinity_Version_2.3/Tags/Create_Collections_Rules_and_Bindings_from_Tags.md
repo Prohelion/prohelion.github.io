@@ -56,5 +56,3 @@ For collections, a primary filter other than **Branch** replaces this with an ex
 Refer to [Tag expressions](Selecting_Tags/Tag_Expressions.md) for the syntax.
 
 For the next step, refer to [Collections](Collections/index.md), [Rules](Rules/index.md), and [Actions](Rules/Actions/index.md), the [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md), or the [Tag layer](index.md) overview.
-
-New in Profinity 2.3: the Tag Explorer context menu.

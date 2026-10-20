@@ -23,8 +23,6 @@ A script runs inside Profinity, a Custom Component brings in a device that Profi
     - [Developing Plugins](./SDK/Developing_Plugins.md) covers a compiled plugin, built on the same framework as Prohelion's own components. An administrator installs it in **Components & Plugins**.
     - [Component Pack CLI](./SDK/Component_Pack_CLI.md) covers the `profinity-component-pack` tool for validating, packing, and installing Custom Component bundles.
 
-New in Profinity 2.3: a Custom Component can include scripts, actions, and settings maps.
-
 Scripting requires a **Desktop**, **Server** or **Enterprise** licence, and an unlicensed instance cannot add or run scripts.
 Refer to [Licensing](../Licensing.md).
 

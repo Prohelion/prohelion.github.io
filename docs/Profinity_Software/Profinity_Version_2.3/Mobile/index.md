@@ -40,5 +40,3 @@ The **Password** mode is the standard Profinity web sign-in page, which the app 
 The app can save the username and password in the phone's secure storage.
 The **Kiosk** mode logs in automatically with a configured kiosk user (refer to [Kiosk Mode](../Administration/Kiosk_Mode.md)).
 The app has no mode switch, because Kiosk Mode is a setting of the server, and the web sign-in page signs in automatically when the active profile has it enabled.
-
-New in Profinity 2.3: UDP heartbeat discovery. Refer to the [Release notes 2.3](../Release_Notes/2.3.1.md).

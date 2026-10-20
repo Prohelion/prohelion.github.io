@@ -38,8 +38,6 @@ To enable Profinity Scripting, open [Application Config](../../Administration/Sy
 Profinity has five script types, which between them cover seven values of the **Script Mode** setting: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service.
 [Run Scripts](./Script_Types/Run_Scripts.md) cover manual and scheduled operations (the Run On Demand, Run On Time Interval and Run On CRON Schedule modes), [Receive Scripts](./Script_Types/Receive_Scripts.md) handle incoming CAN messages, [Service Scripts](./Script_Types/Service_Scripts.md) run continuously, [Tag Change Scripts](./Script_Types/Tag_Change_Scripts.md) react when a watched tag changes, and [Rule Scripts](./Script_Types/Rule_Scripts.md) handle a rule firing.
 The [Script Types](./Script_Types/index.md) page describes each mode and when to use it.
-
-New in Profinity 2.3: a script set to **Run On Alert** mode can be named as a rule action and receives the firing context, including `TriggeredTags`.
 Refer to [Rule Scripts](./Script_Types/Rule_Scripts.md) and [Actions](../../Tags/Rules/Actions/index.md).
 
 ## Supported languages

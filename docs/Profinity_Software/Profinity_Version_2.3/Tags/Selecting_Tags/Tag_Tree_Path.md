@@ -58,5 +58,3 @@ Dashboards that use the `{COMPONENT_NAME}` placeholder, documented in [Data Bind
 
 For the component types that carry this setting, refer to [Component types](../../Developing_with_Profinity/Custom_Components/Component_Types.md), and for the dashboards that bind to these paths, refer to [Dashboards](../../Customising_Profinity/Dashboards/index.md).
 The [Tag layer](../index.md) page lists the rest of the tag pages.
-
-New in Profinity 2.3: the **Tag tree path** setting.
