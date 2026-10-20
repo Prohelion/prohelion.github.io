@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+{% block content %}
+  <div class="pve-404">
+    <h1>We couldn't find that page</h1>
+    <p>The page may have moved, been renamed, or the link may be out of date. The quickest way to find what you need is to search the documentation.</p>
+
+    <form class="pve-404__search" role="search" data-pve-404-search>
+      <label class="pve-404__label" for="pve-404-query">Search the documentation</label>
+      <div class="pve-404__row">
+        <input id="pve-404-query" class="pve-404__input" type="search" name="query" placeholder="Search, for example “WaveSculptor” or “CAN bus”" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+        <button type="submit" class="md-button md-button--primary">Search</button>
+      </div>
+    </form>
+
+    <h2>Or browse by product</h2>
+    <ul class="pve-404__links">
+      <li><a href="{{ 'Profinity_Software/' | url }}">Profinity Software</a></li>
+      <li><a href="{{ 'Battery_Management_Systems/' | url }}">Battery Management Systems</a></li>
+      <li><a href="{{ 'Motor_Controllers/' | url }}">Motor Controllers</a></li>
+      <li><a href="{{ 'Solar_Charge_Controllers/' | url }}">Solar Charge Controllers</a></li>
+      <li><a href="{{ 'Solar_Car_Racing/' | url }}">Solar Car Racing</a></li>
+      <li><a href="{{ '' | url }}">Documentation home</a></li>
+    </ul>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.querySelector('[data-pve-404-search]');
+      if (!form) { return; }
+      var input = form.querySelector('input');
+
+      // Hand the query to the site's own search so results, suggestions and highlighting behave as they do everywhere else.
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var toggle = document.getElementById('__search');
+        var headerInput = document.querySelector('[data-md-component="search-query"]');
+        if (!toggle || !headerInput) { return; }
+        if (!toggle.checked) { toggle.click(); }
+        headerInput.value = input.value;
+        headerInput.focus();
+        headerInput.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    })();
+  </script>
+{% endblock %}

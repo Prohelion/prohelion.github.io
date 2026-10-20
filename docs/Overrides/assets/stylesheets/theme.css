@@ -154,3 +154,49 @@
 .md-typeset .cc-diagram marker path {
     fill: #0b0b0b;
 }
+
+/* 404 page: lead with search, then product links */
+.pve-404 {
+    max-width: 36rem;
+}
+
+.pve-404__label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.pve-404__row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pve-404__input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.55rem 0.75rem;
+    font: inherit;
+    color: var(--md-default-fg-color);
+    background: var(--md-default-bg-color);
+    border: 0.05rem solid var(--md-default-fg-color--light);
+    border-radius: 0.1rem;
+}
+
+.pve-404__input:focus {
+    outline: 0.15rem solid var(--md-secondary-text-color);
+    outline-offset: 0.05rem;
+}
+
+.pve-404__row .md-button {
+    margin: 0;
+}
+
+.pve-404__links {
+    columns: 2;
+}
+
+@media screen and (max-width: 30em) {
+    .pve-404__links {
+        columns: 1;
+    }
+}
