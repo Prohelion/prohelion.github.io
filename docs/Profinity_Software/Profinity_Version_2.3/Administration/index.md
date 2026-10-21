@@ -9,17 +9,20 @@ last_reviewed: 2026-10-15
 # Administering Profinity
 
 The **ADMIN** area of Profinity holds the settings that apply to the whole installation.
-Most of these pages need a permission that engineers and operators do not have by default, so give it only to the people who manage the installation.
+Most of these pages need a permission that engineers and other users do not have by default.
+Give it only to the people who manage the installation.
 
-- [System configuration](System_Configuration/index.md): every tab of the System Configuration page.
+- [System Configuration](System_Configuration/index.md): every tab of the **System Configuration** page.
 - [Users and access](Users_and_Access/index.md): user accounts, roles, service accounts, multi-factor authentication, and security restrictions.
-- [Profiles](Profiles.md): create and manage profiles, with support for kiosk mode and custom dashboards.
-- [Profile dashboard](Profile_Dashboard.md): build a custom home page dashboard for a profile.
-- [Menu layout](Menu_Layout.md): arrange the components and groups in the side menu.
+- [Profiles](Profiles.md): understand profile packs, the Example Profile, and the features a profile supports.
+- [Manage profiles](Manage_Profiles.md): activate, rename, import, and download profiles.
+- [Profile folders](Profile_Folders.md): find where profile files are stored and what each folder holds.
+- [Profile Dashboard](Profile_Dashboard.md): build a custom home page dashboard for a profile.
+- [Menu Layout](Menu_Layout.md): arrange the components and groups in the side menu.
 - [Install and manage plugins](Install_and_Manage_Plugins.md): upload, enable, disable, and delete plugins.
 - [Choose available components](Choose_Available_Components.md): choose which component types engineers can add to a profile.
 - [Kiosk Mode](Kiosk_Mode.md): sign in automatically on kiosk displays and unattended monitoring stations.
 - [Logs](Logs_Config.md): set logging levels, log file rollover, and retention.
-- [System information](System_Info.md): the Profinity version, licence summary, and software credits.
+- [System Information](System_Info.md): the Profinity version, licence summary, and software credits.
 - [License manager](License_Manager.md): read the licence state, fingerprint, and licensed features of an instance.
 - [Feedback](Feedback.md): share suggestions and report issues from within Profinity.

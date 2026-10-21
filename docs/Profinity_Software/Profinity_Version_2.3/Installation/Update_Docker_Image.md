@@ -28,7 +28,9 @@ Configuration and profiles are kept as long as `PROFINITY_HOME` names the contai
 
 ## Update automatically with Watchtower
 
-To update automatically, add Watchtower, a community tool that replaces a container whenever a newer image appears, to the compose file:
+To update automatically, add Watchtower to the compose file.
+Watchtower is a community tool that replaces a container whenever a newer image appears.
+This file adds it:
 
 ```yaml
 services:
@@ -54,7 +56,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-The `label` limits updates to the Profinity container, `--cleanup` removes old images, and `--interval 86400` checks once a day.
+In this compose file, the `label` limits updates to the Profinity container, `--cleanup` removes old images, and `--interval 86400` checks once a day.
 Refer to the [Watchtower documentation](https://containrrr.dev/watchtower/) for the other options.
 An unattended update discards any data that is not in a host-mounted volume, so check that `PROFINITY_HOME` matches the mount before you enable it.
 

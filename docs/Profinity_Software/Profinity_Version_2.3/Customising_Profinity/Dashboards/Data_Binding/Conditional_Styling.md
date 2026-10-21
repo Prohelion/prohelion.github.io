@@ -8,8 +8,10 @@ last_reviewed: 2026-10-14
 
 # Conditional styling
 
-Conditional styling lets a dashboard component change its appearance, visibility, and behaviour with the current value of a tag, so that a dashboard follows the state of the system and gives users immediate visual feedback without any user action.
-It uses [data binding](./index.md): the same `bind` list as every other dashboard component, where the `target` of a binding names the component property that the data drives and a value mapping turns a number or boolean into a colour name or label.
+Conditional styling lets a dashboard component change its appearance, visibility, and behaviour with the current value of a tag.
+The dashboard then follows the state of the system and gives users immediate visual feedback.
+It uses [data binding](./index.md) and the same `bind` list as every other dashboard component.
+The `target` of a binding names the component property that the data drives, and a value mapping turns a number or boolean into a colour name or label.
 
 Each component accepts only a fixed set of targets, and a binding with a target that the component does not support is ignored.
 
@@ -22,15 +24,22 @@ Each component accepts only a fixed set of targets, and a binding with a target 
 | `classes` | Adds CSS class names to the component | Action, Toggle |
 | `tooltip` | Sets the tooltip text | Action |
 
-The Readout, Lamp, Caption, Tab, Accordion, Footer, and Action definitions in the [Component Reference](../Component_Reference/index.md) and the dashboard schema list the targets for each component.
+The Readout, Lamp, Caption, Tab, Accordion, Footer, and Action definitions in the [Component reference](../Component_Reference/index.md) and the dashboard schema list the targets for each component.
 
 ## Show or hide a component
 
 Binding the `visible` target shows or hides a component with a data value.
-This suits a detail readout that matters only while a limit is active, a tab or accordion that is hidden when its data is not available, or advanced readouts that appear once a condition is met.
-The `visible` target removes the component from view, whereas the `enabled` target leaves it on screen in a greyed state, so that users can see that the item exists while a component is offline.
+This suits these cases:
 
-The following readout always shows the bus current, and it appears only while the controller reports that the bus current limit is active, because the `visible` binding follows the `DBC/Status/LimitBusCurrent` tag.
+- A detail readout that matters only while a limit is active.
+- A tab or accordion that is hidden when its data is not available.
+- Advanced readouts that appear once a condition is met.
+
+The `visible` target removes the component from view.
+The `enabled` target leaves it on screen in a greyed state, so that users can see that the item exists while a component is offline.
+
+The following readout always shows the bus current, and it appears only while the controller reports that the bus current limit is active.
+The `visible` binding follows the `DBC/Status/LimitBusCurrent` tag.
 When the tag value is `0` the readout is hidden, and when it is `1` the readout is shown.
 
 ``` yaml
@@ -54,16 +63,19 @@ dashboard:
 ```
 
 A `visible` binding only changes the display when it receives a value.
-If the tag stops updating, a readout, accordion or footer keeps its last visibility state, so a readout that should have disappeared stays on screen, whereas a tab is hidden because the tab treats a missing value as false.
+If the tag stops updating, a readout, accordion or footer keeps its last visibility state, so a readout that should have disappeared stays on screen.
+A tab is hidden instead, because the tab treats a missing value as false.
 To hide a lamp, place it in an accordion that has a `visible` binding.
 
 ## Change colour or label
 
-Binding a lamp `color` or a `label` changes how a component looks with a data value, for example a lamp that changes colour when a status flag is set, or a text label such as "Online" or "Offline" in place of a number.
+Binding a lamp `color` or a `label` changes how a component looks with a data value.
+For example, a lamp changes colour when a status flag is set, or a text label such as "Online" or "Offline" replaces a number.
 The `classes` target of an action or toggle applies the bound string value as a CSS class name in the same way.
 
 The following lamp is green while the `LimitBusCurrent` flag is `0` and amber while it is `1`.
-The `partition` list alternates a label and a threshold, so a value below `1` takes the first colour and a value of `1` or more takes the second.
+The `partition` list alternates a label and a threshold.
+A value below `1` takes the first colour, and a value of `1` or more takes the second.
 
 ``` yaml
 dashboard:
@@ -88,7 +100,8 @@ dashboard:
 
 A partition with more thresholds styles a value by range, which suits status indicators and alerts.
 The following lamp is green below 60, amber from 60 up to (but not including) 80, and red from 80 upward.
-With `bias: right`, a value equal to a threshold takes the label after that threshold, and with `bias: left` it takes the label before it.
+With `bias: right`, a value equal to a threshold takes the label after that threshold.
+With `bias: left`, it takes the label before it.
 
 ``` yaml
 dashboard:
@@ -140,4 +153,6 @@ dashboard:
                                 bias: right
 ```
 
-[Data Binding](./index.md) describes the binding settings used here, [Component Reference](../Component_Reference/index.md) lists the targets of each component, and the annotated [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) shows bound lamps in a complete dashboard.
+[Data binding](./index.md) describes the binding settings used here.
+The [Component reference](../Component_Reference/index.md) lists the targets of each component.
+The annotated [Motor controller dashboard example](../Motor_Controller_Dashboard_Example.md) shows bound lamps in a complete dashboard.

@@ -18,14 +18,19 @@ Before you start, you need:
 - Basic CSS knowledge.
 - Access to the `styles` folder of the [profile](../Getting_Started/Profiles.md) directory, which is `<artefacts directory>/profiles/<profile name>/styles`.
 
-The [artefacts directory](../Installation/Artifacts_Directory.md) is `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS and `/var/lib/prohelion/profinity` on Linux.
-On Docker it is the path inside the container named by `PROFINITY_HOME`, so on Docker the file must be created in the mounted volume that holds that directory.
+The [artefacts directory](../Installation/Artifacts_Directory.md) is:
+
+- `%LOCALAPPDATA%\Prohelion\Profinity` on Windows
+- `~/Library/Application Support/Prohelion/Profinity` on macOS
+- `/var/lib/prohelion/profinity` on Linux
+- On Docker, the path inside the container named by `PROFINITY_HOME`, which is in a mounted volume, so create the file in that volume
+
 The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only its URL path (refer to [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md)).
 
 ## Create the stylesheet
 
 1. Create the `styles` folder in the profile directory if it does not exist.
-2. Create a file named `profile.css` in it and add the rules for your dashboard:
+2. Create a file named `profile.css` in the `styles` folder, and add the rules for your dashboard:
 
     ```css
     .custom-panel {
@@ -44,9 +49,11 @@ The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only
 
 ## Split the styles across files
 
-A large set of styles can be kept in further files in the same folder, for example `custom-dashboard.css`, which `profile.css` loads with a CSS `@import` rule.
-The web interface loads only `profile.css`, and the HTML sanitiser removes `link` elements from the `content` of an [HTML](../Customising_Profinity/Dashboards/Component_Reference/Content/HTML.md) component.
-A stylesheet therefore cannot be linked from the dashboard and must be imported from `profile.css`:
+You can keep a large set of styles in further files in the same folder, for example `custom-dashboard.css`.
+`profile.css` loads them with a CSS `@import` rule.
+The web interface loads only `profile.css`.
+The HTML sanitiser, which cleans HTML content before Profinity displays it, removes `link` elements from the `content` of an [HTML component](../Customising_Profinity/Dashboards/Component_Reference/Content/HTML.md).
+A dashboard therefore cannot link a stylesheet, so import it from `profile.css`:
 
 ```css
 /* /Profile/Styles/profile.css */
@@ -56,8 +63,9 @@ A stylesheet therefore cannot be linked from the dashboard and must be imported 
 ## Apply the classes
 
 Use the `class` property on a `group` or `readouts` element in a dashboard.
-A `class` on an individual `readout` item is not used by the web interface, so the class that styles the readouts goes on the `readouts` element that holds them (refer to [Readouts](../Customising_Profinity/Dashboards/Component_Reference/Data/Readouts.md)).
-Other [components](../Customising_Profinity/Dashboards/Component_Reference/index.md) list which of them accept `class`.
+The web interface does not use a `class` on an individual `readout` item.
+Put the class that styles the readouts on the `readouts` element that holds them (refer to [Readouts component](../Customising_Profinity/Dashboards/Component_Reference/Data/Readouts.md)).
+The [Component reference](../Customising_Profinity/Dashboards/Component_Reference/index.md) lists which other components accept `class`.
 
 ```yaml
 - group:
@@ -72,8 +80,15 @@ Other [components](../Customising_Profinity/Dashboards/Component_Reference/index
 
 ## Check the styling
 
-Save the dashboard, close the editor and reload the page, because the web interface loads `profile.css` when the page opens.
-If a class has no effect, the stylesheet is not named `profile.css` or is not imported from it, or the class name in the dashboard differs from the CSS in spelling or case, or the class is on an element that does not use it, such as a `readout` item.
-Correct the file or the dashboard and reload the page.
+Save the dashboard, close the editor, and reload the page.
+The web interface loads `profile.css` when the page opens.
 
-For more, refer to [Conditional Styling](../Customising_Profinity/Dashboards/Data_Binding/Conditional_Styling.md), which styles elements from data values.
+If a class has no effect, check these causes:
+
+- The stylesheet is not named `profile.css`, or `profile.css` does not import it.
+- The class name in the dashboard differs from the CSS in spelling or case.
+- The class is on an element that does not use it, such as a `readout` item.
+
+Correct the file or the dashboard, and reload the page.
+
+For more, refer to [Conditional styling](../Customising_Profinity/Dashboards/Data_Binding/Conditional_Styling.md), which styles elements from data values.

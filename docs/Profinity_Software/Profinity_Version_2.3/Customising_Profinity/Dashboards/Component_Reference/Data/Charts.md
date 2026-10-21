@@ -29,33 +29,33 @@ Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Ta
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Optional identifier of the chart. The value is not displayed |
-| `class` | string | No | None | Not used by the web interface |
 | `type` | string | Yes | None | Chart type, one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. Refer to [Chart types](#chart-types) for details |
-| `value` | object or array | No | None | Static chart data, given as `labels` and `datasets` for most chart types or as the datasets of a `bubble`, `scatter` or `radar` chart, or a starting shape for a chart whose live series come from `bind` |
+| `value` | object or array | No | None | Static chart data, or a starting shape for a chart whose live series come from `bind` |
 | `legend` | boolean | No | Depends on chart type | Whether to show the legend. The default is `true` for `pie`, `doughnut` and `polarArea` charts, and a line chart with more than one series also shows its legend |
-| `refreshInterval` | number | No | None | Automatic refresh interval in milliseconds. The web interface honours values of `1000` and above, and a chart with a refresh interval polls for its data instead of using the live data feed |
-| `showControls` | boolean | No | None | Not used by the web interface |
+| `refreshInterval` | number | No | None | Automatic refresh interval in milliseconds. The web interface honours values of `1000` and above |
 | `min` | number | No | None | Fixed lower bound of the value axis. The bound is calculated from the data when omitted |
 | `max` | number | No | None | Fixed upper bound of the value axis. The bound is calculated from the data when omitted |
 | `label` | string | No | None | Title displayed above the chart |
-| `enabled` | boolean | No | `true` | Not used by the web interface |
-| `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | Tag and time-series bindings that supply the chart data. Use the `value` target |
+
+The web interface accepts but ignores `class`, `showControls`, `enabled`, and `visible`.
+
+Most chart types take static data as `labels` and `datasets`, and a `bubble`, `scatter` or `radar` chart takes datasets only.
+A chart with a `refreshInterval` polls for its data instead of using the live data feed.
 
 ### Chart binding options
 
-A chart binding accepts the following properties in addition to the common binding properties that the [Data Binding](../../Data_Binding/index.md) page describes:
+A chart binding accepts two chart-only properties, in addition to the common binding properties that the [Binding settings reference](../../Data_Binding/Binding_Settings_Reference.md) describes:
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `seriesMode` | string | `instant` | How the bound samples are presented: `instant` for the live value, `timeSeries` for an absolute series of recent samples, or `timeSeriesDelta` for the differences between successive samples |
 | `seriesType` | string | Chart type | Overrides the chart `type` for one series with `line`, `bar` or `scatter` |
 | `stackScale` | boolean | `false` | When `true`, the series gets its own value axis in a stack of axes |
-| `store` | string | `local` | `local` for recent samples held in memory or `logged` for samples read from the logged history |
-| `timeRangeStart` | string | `-10m` | Start of the time range for the series, as a relative time before now such as `-5m`. Set `timeRangeStart` and `timeRangeStop` together on a `timeSeries` binding that needs a particular history. The Visual Editor sets `-10m` and `0m` when a series mode is chosen |
-| `timeRangeStop` | string | None | End of the time range for the series, where `0m` is now |
 
-A chart bound with `store: logged` also takes the `aggregationWindow` and `aggregationFunction` properties, which the [Data Binding](../../Data_Binding/index.md) page describes with the other binding properties.
+The same reference describes `seriesMode`, `store`, `timeRangeStart`, `timeRangeStop`, `aggregationWindow` and `aggregationFunction`.
+A `seriesMode` of `timeSeriesDelta` plots the differences between successive samples.
+Set `timeRangeStart` and `timeRangeStop` together on a `timeSeries` binding that needs a particular history.
+The Visual Editor sets `-10m` and `0m` when you choose a series mode.
 
 ## Chart types
 

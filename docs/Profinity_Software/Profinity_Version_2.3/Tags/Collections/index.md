@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Tag collections
 
-**Collections** group tags for filtering, [dashboards](../../Customising_Profinity/Dashboards/index.md), and [rules](../Rules/index.md).
+*Collections* group tags for filtering, [dashboards](../../Customising_Profinity/Dashboards/index.md), and [rules](../Rules/index.md).
 You build and manage them in the visual editor, and [Create a collection](Create_a_Collection.md) walks through an example.
 
 <figure markdown>
@@ -18,8 +18,10 @@ You build and manage them in the visual editor, and [Create a collection](Create
 
 ## Open the collections editor
 
-Select **COLLECTIONS** under **TAG UTILITIES** in the side menu, which opens the collections editor as a window over the current page.
-The entry appears for users who hold the **View tags** and **View tag collections** permissions while a profile is loaded, and saving needs the **Modify tag collections** permission.
+Select **COLLECTIONS** under **TAG UTILITIES** in the side menu.
+The collections editor opens as a window over the current page.
+The entry appears for users who hold the **View tags** and **View tag collections** permissions while a profile is loaded.
+Saving needs the **Modify tag collections** permission.
 
 <figure markdown>
 ![The Editing Collections dialog in Design view, with a collection named "Tag has a value greater than 0" selected and an Inspector showing its expression builder.](../../images/collections-visual-editor.png)
@@ -28,7 +30,7 @@ The entry appears for users who hold the **View tags** and **View tag collection
 
 ## Groups and collections
 
-The editor shows your collections as a tree on one side and the settings of the selected item on the other.
+The editor shows your collections as a tree, with the settings of the selected item beside it.
 A group organises collections into a hierarchy and passes its scope down to every collection inside it.
 A collection selects tags with a [membership expression](#membership-expression).
 
@@ -36,10 +38,12 @@ A collection selects tags with a [membership expression](#membership-expression)
 
 Give each collection a display name, which you can change at any time.
 Rules refer to a collection by its identifier, which stays the same when you rename it, so rules keep working after a rename.
-Do not change an `id` in the YAML, because Profinity treats a changed `id` as a different collection and rules that use the old `id` stop resolving.
+Do not change an `id` in the YAML.
+Profinity treats a changed `id` as a different collection, and rules that use the old `id` stop resolving.
 
 The **Scope prefix**, shown under **Binding**, limits a collection to the tags beneath a path in the tag tree.
-A scope on a collection is added to the scope of its group, so a group scoped to `Vehicles/Car1` and a collection scoped to `Battery` together cover `Vehicles/Car1/Battery`.
+A scope on a collection is added to the scope of its group.
+For example, a group scoped to `Vehicles/Car1` and a collection scoped to `Battery` together cover `Vehicles/Car1/Battery`.
 To ignore the group's scope, start the collection's scope with `/`.
 
 ### Saving and security
@@ -51,7 +55,8 @@ The built-in **(All Tags)** collection is read-only.
 ## Membership expression
 
 Each collection filters candidate tags with a boolean expression over `tag`.
-The guided builder emits the published spellings, and free text uses the same language.
+The guided builder, a form that assembles the expression for you, emits the published spellings.
+Free text uses the same language.
 
 Examples:
 
@@ -61,9 +66,10 @@ tag.Meta.Type == "dbc.signal" && tag.HasValue
 tag.Value > 0
 ```
 
-`tag.HasValue` is true for a stale tag as well as a good one. To keep only tags with a current value, use `tag.HasValue && !tag.IsStale`.
+`tag.HasValue` is true for a stale tag as well as a good one.
+To keep only tags with a current value, use `tag.HasValue && !tag.IsStale`.
 A logger or publisher re-checks which tags match its collection once per interval, so a filter on staleness is approximate by up to one interval.
 
-The full expression vocabulary, covering path matching, values, metadata and wildcards, is described in [Tag expressions](../Selecting_Tags/Tag_Expressions.md).
-For the rest of the tag layer, refer to [Tag layer](../index.md), [Alerts Log](../Alerts.md) and [Derived tags](../Derived_Tags/index.md).
+[Tag expressions](../Selecting_Tags/Tag_Expressions.md) describes the full expression vocabulary, covering path matching, values, metadata, and wildcards.
+For the rest of the tag layer, refer to [Tag layer](../index.md), [Alerts Log](../Alerts.md), and [Derived tags](../Derived_Tags/index.md).
 Integrators can use the [Endpoint reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#collections-and-derived-tags).

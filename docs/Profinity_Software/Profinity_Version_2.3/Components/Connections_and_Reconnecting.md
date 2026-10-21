@@ -9,18 +9,37 @@ last_reviewed: 2026-10-14
 # Connections and reconnecting
 
 Every component that holds a connection behaves the same way when it starts, when the other end is missing, and when a connection is lost.
-This covers the MQTT Publisher and Subscriber, the Tag Relay sender and receiver, the SQL and InfluxDB historians and loggers, the Prometheus logger, the chargers, the CAN bus adapters, the OPC UA server and client, and the Modbus, BACnet, S7, and EtherNet/IP components.
+This covers these components:
+
+- The Message Queuing Telemetry Transport (MQTT) Publisher and Subscriber.
+- The Tag Relay sender and receiver.
+- The SQL and InfluxDB historians and loggers, and the Prometheus logger.
+- The chargers.
+- The CAN bus adapters.
+- The Open Platform Communications Unified Architecture (OPC UA) server and client.
+- The Modbus, BACnet, S7, and EtherNet/IP components.
+
 A CAN bus adapter reports its status differently, as described under [Status](#status).
 
 ## Turning connections on and off {#the-auto-connect-switch}
 
-Every one of these components has the same **Auto Connect** setting.
-It decides only whether the connection is made when the profile loads.
+Every one of these components except the Elcon charger has the same **Auto Connect** setting.
+The Elcon charger has no **Auto Connect** setting, because it communicates over CAN and has no connection step.
+**Auto Connect** decides only whether the connection is made when the profile loads.
 After that the component is a switch that you turn on with **Connect** (or **Start**) and off with **Disconnect** (or **Stop**).
 
 - With **Auto Connect** on, the component connects when the profile loads.
 - With **Auto Connect** off, the component stays **Off** and makes no connection attempt until you switch it on.
 - Switched on, the component keeps trying until it is connected. Switched off, it stops trying and stays off, and loading or changing the profile does not switch it back on.
+
+The default depends on the kind of component:
+
+| Component | **Auto Connect** default |
+| --- | --- |
+| CAN bus adapters, loggers, historians, the MQTT Subscriber, and the Tag Relay sender and receiver | On |
+| TDK and Siglent power supplies, and the Modbus, BACnet, S7, EtherNet/IP, and OPC UA components | Off |
+
+For a component that defaults to off, turn **Auto Connect** on in its settings if it should connect whenever the profile loads.
 
 ## Starting when the other end is not there
 
@@ -70,13 +89,17 @@ A stopped component never reconnects by itself.
 
 | Status | Meaning |
 | --- | --- |
-| **Off** | The component is stopped, or is making its first connection attempt. |
+| **Off** | The component is stopped, or has just been switched on and is making its first connection attempt. |
 | **On** | The connection is up. |
 | **Error** | The component is running but cannot reach what it connects to. Check the [Logs](../Administration/Logs_Config.md) for the reason. |
 
+A logger or historian shows **On** as soon as it is started, and changes to **Error** if it cannot reach its server.
 The CAN bus adapters are the exception to these status values.
 A CAN bus adapter connects and retries in the same way, but its status describes the bus, not the connection attempt.
-While the adapter is not connected it shows **Off**, and once connected it shows the state of the traffic on the bus.
+While the adapter is not connected it shows **Off**.
+Once connected, it shows **On** while packets arrive, and a warning (amber) when no packets, or no data packets, have arrived for more than 5 seconds.
+The Peak adapter differs in two ways.
+It shows **Error** when a connection it was asked to make fails or is lost, or when the channel reports a fault, and it shows **On** on a quiet bus, because silence is not a fault.
 Check the [Logs](../Administration/Logs_Config.md) for the reason an adapter is not connecting.
 
 To see how the protocol components use these settings, refer to [Industrial protocols](Industrial_Protocols/index.md).

@@ -3,6 +3,8 @@ nav:
     - System_Configuration
     - Users_and_Access
     - Profiles.md
+    - Manage_Profiles.md
+    - Profile_Folders.md
     - Profile_Dashboard.md
     - Menu_Layout.md
     - Install_and_Manage_Plugins.md

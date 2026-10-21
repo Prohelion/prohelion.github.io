@@ -14,11 +14,13 @@ The Profinity Mobile source package includes the build guide (`BUILD.md`) and th
 
 - Node.js 22.11 or later and npm for every build.
 - macOS with Xcode 16 or later and CocoaPods for iOS.
-- Android Studio with SDK platform API 26 or later and JDK 17 for Android.
+- Android Studio with SDK platform API 26 or later and Java Development Kit (JDK) 17 for Android.
 
 ## Branding configuration
 
-OEM partners rebrand the app by editing the build-time file `app.config.yaml`, which Prohelion supplies with the Profinity Mobile source code and the branding assets, and then building signed iOS and Android binaries.
+OEM partners rebrand the app by editing the build-time file `app.config.yaml`.
+Prohelion supplies this file with the Profinity Mobile source code and the branding assets.
+The partner then builds signed iOS and Android binaries.
 The file holds these fields:
 
 | Field | Description |
@@ -36,15 +38,17 @@ The file holds these fields:
 | `discovery.staleTimeoutMs` | Time in milliseconds after which a server that has not been seen is removed from the discovery list |
 
 The iOS bundle identifier and the Android application identifier are set in the native projects, and each OEM sets them to its own namespace.
-The `npm run configure` command regenerates the application configuration from `app.config.yaml`, and `npm run setup` and `npm run validate` run it automatically.
+The `npm run configure` command regenerates the application configuration from `app.config.yaml`.
+The `npm run setup` and `npm run validate` commands run it automatically.
 The app build regenerates the launcher icons from the `appIcon` artwork.
 
-## What end users and operators get
+## What end users get
 
 End users install the OEM-branded app from the OEM's own store listing, or the OEM installs it on the phones of its service technicians.
-Server discovery and login behaviour are the same as in [standard Profinity Mobile](index.md).
+Server discovery and login behaviour are the same as in [Profinity Mobile](index.md).
 The app only finds servers whose **Heartbeat UDP port** matches `discovery.profinityHeartbeatPort`.
-A server that uses HTTPS with a self-signed certificate shows the user a certificate prompt on first connection, so install a trusted certificate on the server where the app is deployed to staff.
-Sign-in through SSO (single sign-on) needs a Profinity site set to the **Sso** sign-in method.
+A server that uses HTTPS with a self-signed certificate shows the user a certificate prompt on first connection.
+Install a trusted certificate on the server where you deploy the app to staff.
+Sign-in through single sign-on (SSO) needs a Profinity site set to the **Sso** sign-in method.
 
-Refer to the [Release notes 2.3](../Release_Notes/2.3.1.md) for what changed in this release.
+Refer to the [Profinity 2.3 release notes](../Release_Notes/2.3.1.md) for what changed in this release.

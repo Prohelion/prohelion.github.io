@@ -8,15 +8,17 @@ last_reviewed: 2026-10-20
 
 # Motor controller dashboard example
 
-This page lists a complete motor controller dashboard for a Prohelion WaveSculptor22 motor controller, explains its five sections, and shows how to adapt it to another system.
+This page lists a complete dashboard for a Prohelion WaveSculptor22 motor controller, explains its five sections, and shows how to adapt it to another system.
 The dashboard monitors electrical, thermal, and performance values in real time.
 
 [Download the example dashboard :material-download:](example_dashboard.zip){ .md-button }
 
 Upload `dashboard.yaml` on a WaveSculptor22 or WaveSculptor200 component.
-Every message and signal name in the YAML is taken from the [WaveSculptor22 DBC file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md), which the [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes.
-It uses rows, groups, panels, an accordion and a tab, and has no titlebar or footer, so [Core Elements](./Core_Elements.md) describes those top-level elements.
-Each component used here has a smaller example of its own in the [Component Reference](./Component_Reference/index.md).
+Every message and signal name in the YAML is taken from the [WaveSculptor22 CAN database (DBC) file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md).
+The [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes the same messages.
+The dashboard uses rows, groups, panels, an accordion and a tab, and has no titlebar or footer.
+For those top-level elements, refer to [Core elements](./Core_Elements.md).
+Each component used here has a smaller example of its own in the [Component reference](./Component_Reference/index.md).
 
 <figure markdown>
 ![The WaveSculptor22 dashboard with a status pill, two line charts, the controller limit and error lamps, and an open More Details section](./images/full_example.png)
@@ -26,18 +28,39 @@ Each component used here has a smaller example of its own in the [Component Refe
 ## Tags used
 
 The dashboard binds to tags of a Prohelion WaveSculptor22 motor controller component.
-The `DBC/` tags come from the signals in the controller's DBC file, and `Properties/` tags are calculated by the component, as listed in the Tag Explorer under the component.
-It binds `BusVoltage` (V) and `BusCurrent` (A) from the `BusMeasurement` message, which the WaveSculptor broadcasts every 200 ms, the temperatures `DspBoardTemp`, `MotorTemp` and `HeatsinkTemp` in °C, broadcast every second, `MotorVelocity` in rpm and `VehicleVelocity` in m/s (the `MPS` readout), the seven limit flags and eight of the nine error flags of the `Status` message, which is broadcast every 200 ms (the `ErrorBadMotorPositionHallSeq` flag is not bound), and a set of detailed measurements.
-The detailed measurements are the phase B and C currents (root mean square (RMS), in A), the 15 V, 1.9 V and 3.3 V rails, the motor voltage, motor current and back electromotive force (back-EMF) vectors, slip speed (Hz, valid for induction motors only), odometer (m), the device identifier, the serial number, and the CAN transmit and receive error counts.
+The `DBC/` tags come from the signals in the controller's DBC file, and the component calculates the `Properties/` tags.
+The Tag Explorer lists both under the component.
+
+The dashboard binds these tags:
+
+- `BusVoltage` (V) and `BusCurrent` (A) from the `BusMeasurement` message, which the WaveSculptor broadcasts every 200 ms.
+- The temperatures `DspBoardTemp`, `MotorTemp` and `HeatsinkTemp` in °C, broadcast every second.
+- `MotorVelocity` in rpm and `VehicleVelocity` in m/s, which the `MPS` readout shows.
+- The seven limit flags and eight of the nine error flags of the `Status` message, which is broadcast every 200 ms. The `ErrorBadMotorPositionHallSeq` flag is not bound.
+- A set of detailed measurements.
+
+The detailed measurements are:
+
+- The phase B and C currents (root mean square (RMS), in A).
+- The 15 V, 1.9 V and 3.3 V rails.
+- The motor voltage, motor current and back electromotive force (back-EMF) vectors.
+- Slip speed (Hz, valid for induction motors only) and odometer (m).
+- The device identifier and the serial number.
+- The CAN transmit and receive error counts.
 
 ## Section-by-section analysis
 
-The dashboard has five sections: a status pill in the first row, four panels in the second row (two charts, the controller limits and the controller errors), and an accordion at the top level.
+The dashboard has five sections.
+The first row holds a status pill.
+The second row holds four panels: two charts, the controller limits, and the controller errors.
+The last section is an accordion at the top level.
 
 ### Status pill section
 
-The dashboard begins with a pill that carries a motor controller icon, so the component is recognisable at a glance, and it organises bus voltage, bus current, the three temperatures and the velocities into grouped readouts.
-Profinity updates the readouts from the CAN bus data, the precision of each readout is set to suit its measurement, and each binding names a tag, where the `DBC/` tags correspond to CAN message signals.
+The dashboard begins with a pill that carries a motor controller icon, so the component is recognisable at a glance.
+The pill groups the bus voltage, bus current, three temperatures and velocities into readouts.
+Profinity updates the readouts from the CAN bus data, and the precision of each readout suits its measurement.
+Each binding names a tag, and the `DBC/` tags correspond to CAN message signals.
 
 ### Performance charts section
 
@@ -53,20 +76,25 @@ Each lamp binds a boolean flag of the `Status` message, so it lights when the li
 
 ### Error monitoring section
 
-The controller errors panel shows red lamps for the over current, over voltage, watchdog, configuration, 15 V rail, desaturation, and motor over speed errors, and does not monitor the bad motor position hall sequence error.
+The controller errors panel shows red lamps for the over current, over voltage, watchdog, configuration, 15 V rail, desaturation, and motor over speed errors.
+It does not monitor the bad motor position hall sequence error.
 Each lamp lights only while its error is active.
 The `WATCHDOG RESET` lamp is a warning more than a fault, because the controller continues to operate and the flag stays set until the next reset or power cycle.
 
-The `CONFIG READ` lamp indicates that default values replaced the stored configuration values (refer to the [Observation](../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual).
+The `CONFIG READ` lamp indicates that default values replaced the stored configuration values.
+For more information, refer to the [Observation](../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual.
 
 ### Detailed information section
 
-The last section is the `MORE DETAILS` accordion, which holds a tab labelled `INFO` with panels for low voltage, phase currents, motor vectors, speed and distance, and other data such as the identifier, serial number and CAN error counts.
-Keeping the full set of measurements in an accordion leaves the main dashboard with the key metrics, and a user opens the accordion only when the detail is needed.
+The last section is the `MORE DETAILS` accordion, which holds a tab labelled `INFO` with panels for low voltage, phase currents, motor vectors, speed and distance, and other data.
+The other data includes the identifier, serial number, and CAN error counts.
+Keeping the full set of measurements in an accordion leaves the main dashboard with the key metrics.
+A user opens the accordion only when the detail is needed.
 
 ## Complete dashboard example
 
-The following YAML is the whole dashboard, and the sections above refer to its parts in order.
+The following YAML is the whole dashboard.
+Its parts follow the order of the sections in the section-by-section analysis.
 
 ``` yaml
 version: "2.3"
@@ -467,13 +495,26 @@ dashboard:
 
 ## Adapting the dashboard
 
-The bindings in this dashboard follow three patterns that [Data Binding](./Data_Binding/index.md) describes in full: a readout bound to a `DBC/` tag for the latest value, a chart bound with `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window for recent history, and a lamp bound to `enabled` with `toType: boolean` for a status flag.
-The `DBC/` paths are relative to the component that owns the dashboard, so the dashboard works for any component that publishes the same tags, such as a second WaveSculptor22 controller.
-The `Properties/` tags depend on the component, and the Tag Explorer lists them under it (refer to [Tags](../../Tags/index.md)).
+The bindings in this dashboard follow three patterns, which [Data binding](./Data_Binding/index.md) describes in full:
 
-To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can copy from the Tag Explorer, and adjust the measurements, layout, precision and labels to suit.
+- A readout bound to a `DBC/` tag shows the latest value.
+- A chart bound with `seriesMode: timeSeries` and a `timeRangeStart` and `timeRangeStop` window shows recent history.
+- A lamp bound to `enabled` with `toType: boolean` shows a status flag.
+
+The `DBC/` paths are relative to the component that owns the dashboard, so the dashboard works for any component that publishes the same tags, such as a second WaveSculptor22 controller.
+The `Properties/` tags depend on the component, and the Tag Explorer lists them under it.
+For the Tag Explorer, refer to [Tag layer](../../Tags/index.md).
+
+To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can copy from the Tag Explorer.
+Then adjust the measurements, layout, precision, and labels to suit.
 
 The WaveSculptor200 sends the same CAN messages and signals as the WaveSculptor22, so the tags in this dashboard apply to both controllers.
 
-To add sections, copy a panel and bind it to other tags for more charts, add lamps for further limit or error flags, add readouts for system-specific parameters, or add [actions](./Component_Reference/Interactive/Actions.md) and [toggles](./Component_Reference/Interactive/Toggles.md) for control.
-The [Visual Editor](./Visual_Editor.md) is the quickest way to make these changes.
+To add sections:
+
+- Copy a panel and bind it to other tags for more charts.
+- Add lamps for further limit or error flags.
+- Add readouts for system-specific parameters.
+- Add [actions](./Component_Reference/Interactive/Actions.md) and [toggles](./Component_Reference/Interactive/Toggles.md) for control.
+
+The [Dashboard visual editor](./Visual_Editor.md) is the quickest way to make these changes.

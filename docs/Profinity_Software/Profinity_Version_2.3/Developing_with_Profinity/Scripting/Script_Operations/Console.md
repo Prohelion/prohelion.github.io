@@ -9,7 +9,9 @@ last_reviewed: 2026-10-14
 # Console
 
 Console output is available in every script and writes to two streams.
-Standard output reaches the Profinity log at the `Info` level only when the script's **Log Script Output** setting is on, and the setting is off by default, so a script whose `print()` output does not appear in the log needs that setting switched on.
+Standard output reaches the Profinity log at the `Info` level only when the script's **Log Script Output** setting is on.
+The setting is off by default.
+If the `print()` output of a script does not appear in the log, switch the setting on.
 Error output and script exceptions always reach the Profinity log at the `Error` level, whatever the setting.
 
 Each language writes to the console in its own way.
@@ -19,7 +21,7 @@ In Lua, `print(...)` writes standard output and the `stderr(...)` global writes 
 
 ## Example usage
 
-The examples below show standard output and error stream usage in each language.
+The examples in this section show standard output and error stream usage in each language.
 
 === "C#"
 

@@ -14,17 +14,16 @@ An action is a clickable button or icon that runs an action on a component, runs
 <figcaption>Actions component showing interactive buttons for system controls and navigation</figcaption>
 </figure>
 
-Use an action for system controls, navigation buttons, data refresh and other commands that the operator starts with a click.
+Use an action for system controls, navigation buttons, data refresh and other commands that the user starts with a click.
 Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 
 ## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS classes applied to the button or icon |
-| `label` | string | No | None | Caption of the button, also used as the title of the confirmation dialog and as the caption of the progress bar. In `auto` mode the label decides the display, so an action with a label is displayed as a button and an action without a label is displayed as an icon |
-| `image` | string | No | None | Icon name, for example `Renew` or `Settings`, shown on `icon` and `button` actions. An icon filename such as `nav_battery_active.svg` is also accepted, and a name that matches no known icon is loaded as an image file from the `/Profile/Images` directory. Refer to [Icon](../Content/Icon.md) for how to find icon names |
+| `label` | string | No | None | Caption of the button, also used as the title of the confirmation dialog and as the caption of the progress bar |
+| `image` | string | No | None | Icon name, for example `Renew` or `Settings`, shown on `icon` and `button` actions. An icon filename such as `nav_battery_active.svg` is also accepted. Refer to [Icon component](../Content/Icon.md) for how to find icon names |
 | `imageAlt` | string | No | None | Accessible label for the icon |
 | `mode` | string | Yes | None | Display mode, one of `icon`, `button` or `auto`. `auto` displays a button when `label` is set and an icon otherwise |
 | `invoke` | string | No | `Component` | How a click is carried out, one of `Component`, `System`, `Endpoint` or `Navigate`. Refer to [Invoke types](#invoke-types) |
@@ -33,13 +32,17 @@ Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 | `endpointAction` | object | Conditional | None | Details of the HTTP request. Required when `invoke` is `Endpoint`. Refer to [Endpoint action parameters](#endpoint-action-parameters) |
 | `value` | object | No | None | Payload posted with the action request |
 | `trackProgress` | boolean | No | `false` | Shows a progress bar and polls the progress of the action while it runs |
-| `confirmMessage` | string | No | None | Message of a confirmation dialog that the operator must accept before the action runs |
+| `confirmMessage` | string | No | None | Message of a confirmation dialog that the user must accept before the action runs |
 | `restartingOnSuccess` | boolean | No | `false` | After the action succeeds, shows a wait dialog and polls until the Profinity engine is running again. Use the parameter for actions that restart the engine |
-| `hyperlink` | string | No | None | Not used by the web interface. Use `invoke: Navigate` with `target` to navigate |
-| `openHyperLinkInNewWindow` | boolean | No | None | Not used by the web interface |
 | `enabled` | boolean | No | `true` | Whether the button can be clicked. The state can be bound with the `enabled` target |
-| `visible` | boolean | No | `true` | Not used by the web interface. Use a binding on the component that contains the action to control visibility |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `enabled`, `tooltip` and `classes` targets are handled |
+
+The web interface accepts but ignores `id`, `hyperlink`, `openHyperLinkInNewWindow`, and `visible`.
+To navigate, use `invoke: Navigate` with `target`.
+To control the visibility of an action, use a binding on the component that contains the action.
+
+In `auto` mode the label decides the display, so an action with a label is displayed as a button and an action without a label is displayed as an icon.
+An `image` value that matches no known icon is loaded as an image file from the `/Profile/Images` directory.
 
 ### Invoke types
 
@@ -66,8 +69,10 @@ Refer to [Action invocation](../Images_and_Models/Overlay_Elements.md#action-inv
 | `confirmMessage` | string | No | None | Message of a confirmation dialog shown before the request is sent |
 | `successKinds` | array of string | No | None | What the interface does after the request succeeds, using the values `Toast`, `ReloadSettings`, `ShowServiceAccountTokenDialog` and `RefreshOnClose` |
 
-Endpoint actions run from the browser. The browser sends the HTTP request itself, with the signed-in user's credentials, so an action button with `invoke: Endpoint` works the same way as an `Endpoint` on a region, icon, or button of an [Image](../Images_and_Models/Image.md) or [3D model](../Images_and_Models/Model.md) component.
-The engine's action service does not run `Endpoint` or `Navigate` invocations, and answers one that reaches it with "Endpoint and Navigate invokes are not executed by this API."
+Endpoint actions run from the browser.
+The browser sends the HTTP request itself, with the signed-in user's credentials.
+An action button with `invoke: Endpoint` therefore works the same way as an `Endpoint` on a region, icon, or button of an [Image](../Images_and_Models/Image.md) or [3D model](../Images_and_Models/Model.md) component.
+The Actions API does not run `Endpoint` or `Navigate` invocations, and answers one that reaches it with "Endpoint and Navigate invokes are not executed by this API."
 If the request fails, the browser shows an error message with the reason.
 
 ## Examples
@@ -151,4 +156,8 @@ dashboard:
 
 ## Action names
 
-A `Component` action runs one of the actions that the component named by the dashboard offers, and the Actions API lists those names at `/api/v2/Actions/{componentId}`. A `System` action runs one of `UPDATE PROFINITY`, `INSTALL PROFINITY` or `RESTART PROFINITY`, and a `System` action with any other name is rejected with the message "No system action of that id was found". A user who lacks the permission that an action requires is refused when the action is clicked.
+A `Component` action runs one of the actions that the component named by the dashboard offers.
+The Actions API lists those names at `/api/v2/Actions/{componentId}`.
+A `System` action runs one of `UPDATE PROFINITY`, `INSTALL PROFINITY` or `RESTART PROFINITY`.
+A `System` action with any other name is rejected with the message "No system action of that id was found".
+A user who lacks the permission that an action requires is refused when the action is clicked.

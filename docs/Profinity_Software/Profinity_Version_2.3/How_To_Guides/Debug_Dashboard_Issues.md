@@ -8,9 +8,15 @@ last_reviewed: 2026-10-14
 
 # How to debug dashboard issues
 
-A dashboard problem usually shows itself in one of four ways: the dashboard does not load, a readout shows no data, an image is missing, or a style has no effect.
-Each is covered below with its usual cause and fix.
-This guide needs access to the [dashboard editor](../Customising_Profinity/Dashboards/Visual_Editor.md) and a dashboard that shows the problem.
+A dashboard problem usually shows itself in one of four ways:
+
+- The dashboard does not load.
+- A readout shows no data.
+- An image is missing.
+- A style has no effect.
+
+This guide gives the usual cause and fix for each.
+You need access to the [dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md) and a dashboard that shows the problem.
 
 ## The dashboard does not load
 
@@ -22,14 +28,16 @@ A dashboard whose saved layout no longer matches the schema shows the message "T
 
 Otherwise, open **Edit Dashboard** from the title bar to repair the file.
 
-In the dashboard editor, read the **Schema validation issues** list, which names each problem, and correct each entry.
-The usual causes are a missing colon, wrong indentation, an invalid property name, or a required property that is absent.
-**SAVE** is blocked while any entry remains, so save once the list is empty, then close the editor, because the dashboard behind it shows the result.
+In the dashboard visual editor, read the **Schema validation issues** list, which names each problem, and correct each entry.
+The usual causes are a missing colon, wrong indentation, an invalid property name, or an absent required property.
+The editor blocks **SAVE** while any entry remains.
+Save once the list is empty, then close the editor to see the result on the dashboard.
 
 ## A readout shows no data
 
 A readout that stays empty has a binding that does not match a tag, a component that is not running, or no data arriving.
-Start with the [binding](../Customising_Profinity/Dashboards/Data_Binding/index.md), because it is the most common cause:
+Start with the [binding](../Customising_Profinity/Dashboards/Data_Binding/index.md), because it is the most common cause.
+A binding looks like this:
 
 ```yaml
 bind:
@@ -37,12 +45,14 @@ bind:
     source: DBC/Message/Signal
 ```
 
-Find the tag in the Tag Explorer and compare its path with the `source` character for character, for example `Prohelion BMU/DBC/PackStateOfCharge/SOCPercent` in the Example Profile.
-Confirm that the component name in the path is correct and that the tag has a current value and a good quality flag.
+Find the tag in the Tag Explorer and compare its path with the `source`, character for character.
+In the Example Profile, a path is `Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
+Confirm that the component name in the path is correct, and that the tag has a current value and a good quality flag.
 If the tag is correct, check the component's status indicator in the sidebar.
-A green indicator means the component is active, and anything else means it is not receiving CAN data, in which case the fault is the CAN bus connection and [How to Connect to CAN Bus](./Connect_to_CAN_Bus.md) applies.
+A green indicator means the component is active.
+Any other colour means the component is not receiving CAN data, so the fault is the CAN bus connection, and [How to connect to CAN bus](./Connect_to_CAN_Bus.md) applies.
 
-To separate a binding fault from a data fault, replace the binding temporarily with a static value:
+To separate a binding fault from a data fault, temporarily replace the binding with a static value:
 
 ```yaml
 - readouts:
@@ -52,26 +62,34 @@ To separate a binding fault from a data fault, replace the binding temporarily w
           value: 42.5
 ```
 
-A readout that shows 42.5 displays correctly, so the fault is in the binding or the data.
-Adding the binding back one element at a time shows which element fails.
+If the readout shows 42.5, the readout displays correctly, so the fault is in the binding or the data.
+Add the binding back one element at a time to find the element that fails.
 
 ## An image does not appear
 
-An image that does not appear is missing from the profile's `images` folder, has a filename that differs from the one in the dashboard, or is in a format Profinity does not support.
-File names are case-sensitive, so `Logo.png` and `logo.png` are different files, and an image in an HTML component needs its full path:
+An image that does not appear has one of these causes:
+
+- It is missing from the profile's `images` folder.
+- Its filename differs from the one in the dashboard.
+- It is in a format Profinity does not support.
+
+File names are case-sensitive, so `Logo.png` and `logo.png` are different files.
+An image in an HTML component needs its full path:
 
 ```html
 <img src="/Profile/Images/logo.png" />
 ```
 
-[How to Add Images to Your Dashboard](./Add_Images_to_Dashboard.md) gives the location of the folder and lists the supported formats.
+[How to add images to your dashboard](./Add_Images_to_Dashboard.md) gives the location of the folder and lists the supported formats.
 
 ## A style has no effect
 
 A style that does not apply is usually a stylesheet that is not loaded, or a class name that differs from the CSS.
-The web interface loads only `profile.css` from the profile's `styles` folder, and any other stylesheet must be imported from it, because Profinity removes a `link` element from an HTML component.
-The class named in the dashboard must also match the one in the CSS exactly, and a `class` on a `readout` item has no effect, so it goes on the `readouts` element.
-Refer to [How to Style Your Dashboard](./Style_Dashboard.md).
+The web interface loads only `profile.css` from the profile's `styles` folder.
+Import any other stylesheet from `profile.css`, because Profinity removes a `link` element from an HTML component.
+The class named in the dashboard must also match the one in the CSS exactly.
+A `class` on a `readout` item has no effect, so put it on the `readouts` element.
+Refer to [How to style your dashboard](./Style_Dashboard.md).
 
 ## When the cause is still unclear
 
@@ -79,6 +97,8 @@ The Profinity [logs](../Administration/Logs_Config.md) record dashboard errors, 
 Open **ADMIN**, then **Logs**, and read the entries from the time the dashboard was opened.
 
 Comparing the dashboard with a working one also locates the difference quickly.
-Open the working dashboard's source as described in [How to View Dashboard Source](./View_Dashboard_Source.md), compare its structure and formatting with the faulty one, and copy the working pattern.
+Open the working dashboard's source as [How to view dashboard source](./View_Dashboard_Source.md) describes.
+Compare its structure and formatting with the faulty dashboard, and copy the working pattern.
 
-For more, refer to the [Troubleshooting Guide](../Customising_Profinity/Dashboards/Troubleshooting.md), the [Dashboard FAQ](../Customising_Profinity/Dashboards/FAQ.md) and the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md), which has schema validation information.
+For more, refer to the [Troubleshooting guide](../Customising_Profinity/Dashboards/Troubleshooting.md) and the [Frequently asked questions](../Customising_Profinity/Dashboards/FAQ.md).
+The [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md) has schema validation information.

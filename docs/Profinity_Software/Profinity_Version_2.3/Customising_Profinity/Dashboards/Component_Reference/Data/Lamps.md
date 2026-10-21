@@ -22,9 +22,10 @@ Use a single [Lamp](Lamp.md) for one indicator beside other components, and [Rea
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the `lamp-grid` element |
 | `items` | array | Yes | None | Array of lamp groups. Each group is displayed as one column |
+
+The web interface accepts but ignores `id`.
 
 ### Lamp group parameters
 
@@ -32,12 +33,13 @@ Each item in `items` must contain a `lampgroup` object with:
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Not used by the web interface |
 | `items` | array | Yes | None | Array of lamps. The column width scales automatically with the number of lamps |
 
+The web interface accepts but ignores `id` and `class`.
+
 Each item in the lamp group's `items` must contain a `lamp` object.
-The [Lamp](Lamp.md) page describes the lamp parameters, the colour names and the [display rules](Lamp.md#display-rules) that a lamp follows, including why a lamp driven by an `enabled` binding also needs `value: 1`.
+The [Lamp component](Lamp.md) page describes the lamp parameters, the colour names and the [display rules](Lamp.md#display-rules) that a lamp follows.
+The display rules explain why a lamp driven by an `enabled` binding also needs `value: 1`.
 
 ## Example
 

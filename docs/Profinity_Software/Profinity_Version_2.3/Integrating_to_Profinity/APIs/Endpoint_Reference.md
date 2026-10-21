@@ -9,7 +9,8 @@ last_reviewed: 2026-10-14
 # Endpoint Reference
 
 This page lists REST API routes that complement the screens described elsewhere in the documentation.
-The Swagger page on your Profinity instance lists every route and the parameters it accepts, and [Profinity REST APIs](index.md) explains how to authenticate.
+The Swagger page, the interactive API page on your Profinity instance, lists every route and the parameters it accepts.
+Refer to [Authenticate to the Profinity REST API](API_Authentication.md) for how to authenticate.
 Each route needs the same permission as the matching screen.
 
 ## Alerts
@@ -24,7 +25,8 @@ Routes under `/api/v2/Alerts` return and manage the alerts shown in the [Alerts 
 | POST | `/api/v2/Alerts/Unack` | `{ "ruleId": "...", "tagId": "..." }` |
 | POST | `/api/v2/Alerts/Silence` | `{ "ruleId": "...", "tagId": "...", "durationMinutes": 60 }` |
 
-Through the API a silence can last from 1 to 1440 minutes (24 hours), and a request outside that range is refused with "durationMinutes must be between 1 and 1440."
+Through the API a silence can last from 1 to 1440 minutes (24 hours).
+A request outside that range is refused with "durationMinutes must be between 1 and 1440."
 The `Unack` route is the same revert that the **Unacknowledge alert** button uses.
 
 ## Collections and derived tags
@@ -42,9 +44,11 @@ The `Unack` route is the same revert that the **Unacknowledge alert** button use
 
 ## Component and collection security
 
-The routes below work on the active profile only, and there is no route to edit security for a profile that is not currently loaded.
-A GET response includes an `unresolvedRoles` list alongside `mode` and `allowedRoles`, and a PUT accepts only `mode` and `allowedRoles`.
-Refer to [Component and Collection Security](../../Administration/Users_and_Access/Component_And_Collection_Security.md) for the policy itself.
+The component and collection security routes work on the active profile only.
+There is no route to edit security for a profile that is not currently loaded.
+A GET response includes an `unresolvedRoles` list alongside `mode` and `allowedRoles`.
+A PUT accepts only `mode` and `allowedRoles`.
+Refer to [Component and collection security](../../Administration/Users_and_Access/Component_And_Collection_Security.md) for the policy itself.
 
 | Method | Route | Permission | Purpose |
 |--------|-------|------------|---------|
@@ -53,7 +57,8 @@ Refer to [Component and Collection Security](../../Administration/Users_and_Acce
 
 ## Account resets
 
-These routes need the **Security administration** permission, and match **Reset MFA** and **Reset Password** in [Managing Users](../../Administration/Users_and_Access/Manage_Users.md).
+These routes need the **Security administration** permission.
+They match the **Reset MFA** (multi-factor authentication) and **Reset Password** actions in [Managing users](../../Administration/Users_and_Access/Manage_Users.md).
 
 | Method | Route | Purpose |
 |--------|-------|---------|
@@ -64,11 +69,18 @@ These routes need the **Security administration** permission, and match **Reset 
 
 | Method | Route | Purpose |
 |--------|-------|---------|
-| POST | `/api/v2/Relay/snapshot` | Receives a snapshot from a [Tag Relay Sender](../../Components/Tag_Relays/Tag_Relay_Sender.md) that uses HTTPS. The caller needs a JSON Web Token (JWT) for a user with the **Receive external tags** permission (or Admin), the request body can be up to 5 MB, and an instance accepts relay posts for only one [Tag Relay Receiver](../../Components/Tag_Relays/Tag_Relay_Receiver.md) set to HTTPS. |
+| POST | `/api/v2/Relay/snapshot` | Receives a snapshot from a [Tag Relay Sender](../../Components/Tag_Relays/Tag_Relay_Sender.md) that uses HTTPS. Rules for this route follow the table. |
+
+The rules for the snapshot route are:
+
+- The caller needs a JSON Web Token (JWT) for a user with the **Receive external tags** permission, or for an Admin.
+- The request body can be up to 5 MB.
+- An instance accepts relay posts for only one [Tag Relay Receiver](../../Components/Tag_Relays/Tag_Relay_Receiver.md) set to HTTPS.
 
 ## Themes
 
 The theme is read-only through the API.
-`GET /api/v2/Themes` is anonymous, so the sign-in page can use it before a user has authenticated, and returns `appTitle`, `hasCustomTheme` and a `logos` object with `main`, `login` and `favicon` URLs.
+`GET /api/v2/Themes` is anonymous, so the sign-in page can use it before a user has authenticated.
+It returns `appTitle`, `hasCustomTheme` and a `logos` object with `main`, `login` and `favicon` URLs.
 The generated stylesheet is served from `/Themes/theme.css`, and each asset from `/Themes/Assets/{file}`.
-Changes are made by editing the theme file, as described in [Themes and Branding](../../Customising_Profinity/Theming/index.md).
+Changes are made by editing the theme file, as described in [Themes and branding](../../Customising_Profinity/Theming/index.md).

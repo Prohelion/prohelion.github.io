@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # CAN bus adapters
 
 An adapter connects Profinity to a Controller Area Network (CAN) bus.
-Profinity supports the following adapters.
+Profinity supports the adapters in the following table.
 
 | Adapter | Connection |
 |---------|------------|
@@ -22,26 +22,28 @@ Profinity supports the following adapters.
 
 Native SocketCAN is available when Profinity runs in [Docker](../../Installation/Docker_Installation.md) or on a Linux host, including a [Linux archive install](../../Installation/Linux_and_macOS_Archive_Installation.md), and is not available on Windows or macOS.
 SocketCAN is a Linux kernel feature.
-A Peak or CANdapter adapter that you plug into a Linux host also appears there as a SocketCAN interface, so on Linux use the SocketCAN adapter, or the SocketCANd adapter from another machine, instead of the Peak or CANdapter adapter.
+A Peak or CANdapter adapter that you plug into a Linux host also appears there as a SocketCAN interface.
+On Linux, use the SocketCAN adapter, or the SocketCANd adapter from another machine, instead of the Peak or CANdapter adapter.
 
 Install the Peak driver before starting Profinity, because the Peak CAN to USB Adapter needs it.
 Use the supplied Peak tools to confirm the adapter works, then add the adapter with Auto Discovery as normal.
 
-Adapters are added in one of two ways, through Auto Discovery or manually.
+Add an adapter with Auto Discovery or manually.
 The parameters that manual configuration asks for are in [CAN bus adapter settings](CAN_Bus_Adapter_Settings.md).
 
 ## Adapter auto discovery
 
 Auto Discovery finds the supported CAN bus adapters that are visible to Profinity.
-If an adapter is visible on the network but is not yet in the current [Profile](../../Getting_Started/Profiles.md), a **Discovered** category appears in the **ADD COMPONENT** window and lists every adapter that Profinity can currently see.
+If an adapter is visible on the network but is not yet in the current [Profile](../../Getting_Started/Profiles.md), a **Discovered** category appears in the **ADD COMPONENT** window.
+The category lists every adapter that Profinity can currently see.
 An adapter that is missing from the list has configuration issues that need [manual configuration](CAN_Bus_Adapter_Settings.md#adapter-manual-configuration), or is not discoverable.
 
 <figure markdown>
-![The Available Components screen with a Discovered Components section containing one entry, a Peak Systems CANFD Adapter, above the Adapters list.](../../images/add_adapter_autodiscovery.png)
+![The Available Components screen with a Discovered Components section containing one entry, a Peak Systems CANFD Adapter, and the Adapters list.](../../images/add_adapter_autodiscovery.png)
 <figcaption>Add an Adapter via AutoDiscovery</figcaption>
 </figure>
 
 If a CAN to Ethernet bridge does not appear in the **Discovered** category, refer to [If a CAN to Ethernet bridge is not found](CAN_Bus_Adapter_Troubleshooting.md#if-a-can-to-ethernet-bridge-is-not-found).
 For the adapter status colours and the bit rate that every CAN device must share, refer to [CAN bus adapter troubleshooting](CAN_Bus_Adapter_Troubleshooting.md).
 
-For the steps to connect a CAN bus, refer to [How to Connect to CAN Bus](../../How_To_Guides/Connect_to_CAN_Bus.md).
+For the steps to connect a CAN bus, refer to [How to connect to CAN bus](../../How_To_Guides/Connect_to_CAN_Bus.md).

@@ -7,6 +7,7 @@ last_reviewed: 2026-10-14
 ---
 
 # Image component
+
 An interactive image is a base image from the `/Profile/Images` directory with overlay elements positioned on it, such as clickable regions, icons, buttons, live data values, points, and annotation lines.
 
 <figure markdown>
@@ -17,22 +18,26 @@ An interactive image is a base image from the `/Profile/Images` directory with o
 Use an interactive image for device diagrams, system layouts, interactive schematics and visual data overlays.
 Use the [HTML](../Content/HTML.md) component with an `img` element for a simple static image, the [Charts](../Data/Charts.md) component for charts, and the [3D model](Model.md) component for a three-dimensional view.
 
-The base image carries seven kinds of overlay element.
-Regions are clickable rectangles that navigate to another page or run an action.
-Icons and buttons are positioned graphics and controls that can run an action.
-Data values display live system data.
-Points anchor annotation lines.
-Annotation lines connect elements and may bend at waypoints called elbows.
-Layers are named groups of overlay elements that the operator shows and hides.
-Icons can be an emoji, a Scalable Vector Graphics (SVG) path or an image file, and every overlay element is positioned relative to the base image.
-The action invocation, layer, icon source, display type and annotation line parameters are shared with the [3D model](Model.md) component and are described on [Overlay elements](Overlay_Elements.md).
+The base image carries seven kinds of overlay element:
+
+- Regions are clickable rectangles that navigate to another page or run an action.
+- Icons and buttons are positioned graphics and controls that can run an action.
+- Data values display live system data.
+- Points anchor annotation lines.
+- Annotation lines connect elements and may bend at waypoints called elbows.
+- Layers are named groups of overlay elements that the user shows and hides.
+
+Icons can be an emoji, a Scalable Vector Graphics (SVG) path or an image file.
+Every overlay element is positioned relative to the base image.
+The action invocation, layer, icon source, display type and annotation line parameters are shared with the [3D model](Model.md) component.
+They are described on [Overlay elements](Overlay_Elements.md).
 
 ## Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Set as the `id` attribute of the image container |
-| `class` | string | No | None | CSS class added to the image container |
+| `class` | string | No | None | Cascading Style Sheets (CSS) class added to the image container |
 | `label` | string | No | None | Not used by the web interface |
 | `image` | string | Yes | None | Filename of the base image in `/Profile/Images`, given directly with no `value` wrapper |
 | `layers` | array | No | None | Named layers for visibility toggles. Refer to [Layers](Overlay_Elements.md#layers) |
@@ -49,7 +54,9 @@ The action invocation, layer, icon source, display type and annotation line para
 
 ## Base image
 
-The base image is the foundation of an interactive image component. The image file must be stored in the profile's `/Profile/Images` directory (refer to [Image storage](#image-storage)) and is referenced by filename only.
+The base image is the foundation of an interactive image component.
+Store the image file in the profile's `/Profile/Images` directory (refer to [Image storage](#image-storage)).
+Refer to it by filename only.
 
 ```yaml
 image:
@@ -60,20 +67,21 @@ Regions, icons, buttons, data values, points and elbows are all positioned relat
 
 ## Regions
 
-Regions are clickable rectangular areas on the image. Regions can navigate to other pages or run actions.
+Regions are clickable rectangular areas on the image.
+Regions can navigate to other pages or run actions.
+A region also takes the [Region parameters](Overlay_Elements.md#region-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the region |
 | `x` | number | No | None | Left edge of the region as a percentage of the image width, from `0` to `100` |
 | `y` | number | No | None | Top edge of the region as a percentage of the image height, from `0` to `100` |
 | `width` | number | No | None | Width of the region as a percentage of the image width |
 | `height` | number | No | None | Height of the region as a percentage of the image height |
-| `coordinates` | string | No | None | Older form of the rectangle, written as `xywh=x,y,width,height`, that Profinity still reads when `x`, `y`, `width` and `height` are not all set. Use `x`, `y`, `width` and `height` instead. The four values are percentages written as plain numbers, without a `%` or `px` suffix |
-| `action` | object | Yes | None | Action invocation run when the region is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
-| `label` | string | No | None | Tooltip text displayed on hover |
+| `coordinates` | string | No | None | Older form of the rectangle, written as `xywh=x,y,width,height`. Use `x`, `y`, `width` and `height` instead. Refer to the note after this table |
 | `visibleBorder` | boolean | No | `true` | Whether to show the border of the region |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the region |
+
+Profinity still reads `coordinates` when `x`, `y`, `width` and `height` are not all set.
+Write the four values of `coordinates` as percentages in plain numbers, without a `%` or `px` suffix.
 
 A region that navigates to another page:
 
@@ -108,19 +116,15 @@ regions:
 
 ## Icons
 
-Icons are positioned elements that can display an emoji, an SVG path or an image file. Icons can run an action when clicked and display a tooltip on hover.
+Icons are positioned elements that can display an emoji, an SVG path or an image file.
+Icons can run an action when clicked and display a tooltip on hover.
+An icon also takes the [Icon parameters](Overlay_Elements.md#icon-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the icon |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
-| `icon` | string | Yes | None | Icon source. Refer to [Icon source forms](Overlay_Elements.md#icon-source-forms) |
-| `size` | number | No | `24` | Icon size in pixels |
-| `color` | string | No | None | Icon colour, applied to SVG paths and text icons |
 | `label` | string | No | None | Tooltip text displayed on hover |
-| `action` | object | No | None | Action invocation run when the icon is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the icon |
 
 An emoji icon:
 
@@ -164,16 +168,14 @@ icons:
 
 ## Buttons
 
-Buttons are dashboard-style buttons positioned on the image, which run an action when clicked.
+Buttons are dashboard-style buttons positioned on the image.
+They run an action when clicked.
+A button also takes the [Button parameters](Overlay_Elements.md#button-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the button |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
-| `label` | string | No | None | Caption of the button |
-| `action` | object | No | None | Action invocation run when the button is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the button |
 
 A button that runs an action:
 
@@ -190,38 +192,30 @@ buttons:
 
 ## Data values
 
-Data values display real-time data from the Profinity system. They support three display types (text, graph as a bar chart, and status as a lamp) and can bind to any tag.
+Data values display real-time data from the Profinity system.
+A data value also takes the [Data value parameters](Overlay_Elements.md#data-value-parameters) that the 3D model shares, including `bind` and `displayType`.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the data value |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
 | `label` | string | No | The `id` | Label displayed above the value. The label can be bound with the `label` target |
-| `bind` | array | Yes | None | Data binding that supplies the live value. Refer to [Display types](Overlay_Elements.md#display-types) for the targets |
-| `displayType` | string | No | `text` | How the value is displayed, one of `text`, `graph` (bar chart) or `status` (lamp) |
 | `maxValue` | number | No | None | Maximum of the bar chart scale. A `graph` data value needs a `maxValue` greater than `0` to draw the bar |
-| `lampColor` | string | No | `grey` | Colour of the lamp before a bound colour arrives, when `displayType` is `status`. The values are those of the lamp [colour names](../Data/Lamp.md#colour-names) |
 | `value` | number or string | No | None | Static value shown when the data value is not bound |
-| `unit` | string | No | None | Unit appended to the formatted value |
-| `precision` | number | No | None | Number of decimal places for the displayed value |
-| `enabled` | boolean | No | `true` | Whether the status lamp is enabled. The parameter applies only when `displayType` is `status` |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the data value |
 
 Refer to [Display types](Overlay_Elements.md#display-types) for an example of each display type.
 
 ## Points
 
-Points are anchor points for annotation lines. They can be displayed as visual markers or used as connection points for annotation lines.
+Points are anchor points for annotation lines.
+They can be displayed as visual markers or used as connection points for annotation lines.
+A point also takes the [Point parameters](Overlay_Elements.md#point-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the point |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
 | `size` | number | No | `8` | Diameter of the dot in pixels. A value of `0` hides the dot while the point remains available as an anchor |
-| `color` | string | No | `grey` | Colour of the dot |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the point |
 
 A visible point:
 
@@ -246,7 +240,7 @@ points:
 
 ## Example
 
-The following example combines every overlay type on one image.
+This example combines every overlay type on one image.
 Tag paths such as `DBC/Voltage/Value` are placeholders, so replace them with tags from your own component.
 
 ```yaml
@@ -349,36 +343,36 @@ dashboard:
 
 ## Coordinates
 
-Every position on an interactive image is a percentage of the displayed image, where `0` is the left edge or top edge and `100` is the right edge or bottom edge. The rule applies to the `x` and `y` of regions, icons, buttons, data values and points, to the `width` and `height` of regions, and to the elbows of annotation lines, so the overlays stay aligned when the image is scaled. The `size` of an icon and of a point is the only measurement in pixels.
+Every position on an interactive image is a percentage of the displayed image.
+The value `0` is the left edge or top edge, and `100` is the right edge or bottom edge.
+The percentage rule applies to these properties:
 
-Write each position as a plain number such as `50` or `12.5`, without a `%` or `px` suffix. A string such as `"50%"` or `"120px"` is not a number, and a region whose `x`, `y`, `width` and `height` are not all numbers is not drawn from those properties.
+- The `x` and `y` of regions, icons, buttons, data values and points.
+- The `width` and `height` of regions.
+- The elbows of annotation lines.
+
+Because positions are percentages, the overlays stay aligned when the image is scaled.
+The `size` of an icon and of a point is the only measurement in pixels.
+
+Write each position as a plain number such as `50` or `12.5`, without a `%` or `px` suffix.
+A string such as `"50%"` or `"120px"` is not a number.
+A region whose `x`, `y`, `width` and `height` are not all numbers is not drawn from those properties.
 
 A value above `100` places the element outside the image, so keep every position between `0` and `100`.
 
-```yaml
-icons:
-  - id: "centered-icon"
-    x: 50  # 50% of image width
-    y: 50  # 50% of image height
-    icon: "⚡"
-```
-
 ## Image storage
 
-Image files, both base images and icon files, are stored in the profile's `/Profile/Images` directory and referenced by filename only, never by full path.
+Store image files, both base images and icon files, in the profile's `/Profile/Images` directory.
+Refer to them by filename only, never by full path.
 
-```text
-/Profile/Images/
-  ├── device-diagram.png
-  ├── battery-system.png
-  ├── solar-panel.svg
-  └── custom-icon.png
-```
-
-Images are served from the `/Profile/Images/{filename}` URL path, and the dashboard YAML refers to them by filename only, as the [Base image](#base-image) section shows.
+The [Base image](#base-image) section shows how the dashboard YAML refers to an image.
 
 ## Working with overlays
 
-Regions and icons display their `label` as a tooltip on hover, a button displays its `label` as its caption, and a data value displays no tooltip because it shows its data directly.
+Regions and icons display their `label` as a tooltip on hover.
+A button displays its `label` as its caption.
+A data value displays no tooltip because it shows its data directly.
 
-Give every region, icon, button, data value and point an `id` that is unique within the image, because annotation lines refer to elements by `id`. Give regions and icons a `label` so that the tooltip says what the element does, and give a status data value a `label` as well, because the colour of a lamp alone does not state the status.
+Give every element an `id` that is unique within the image, as described in [Shared element parameters](Overlay_Elements.md#shared-element-parameters).
+Give regions and icons a `label` so that the tooltip says what the element does.
+Give a status data value a `label` as well, because the colour of a lamp alone does not state the status.

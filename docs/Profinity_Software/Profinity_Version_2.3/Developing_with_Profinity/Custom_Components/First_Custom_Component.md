@@ -13,10 +13,16 @@ This tutorial adds a [Custom Component](../../Components/Custom_Components/Using
 [Download the Hello component pack :material-download:](hello.zip){ .md-button }
 
 Unzip the pack, then attach the files in the steps that follow.
-The pack includes a DBC file so this path can bind a CAN signal.
+The pack includes a CAN database (DBC) file so this path can bind a CAN signal.
 It also includes firmware files so the component can show an Output Limit field.
 A Custom Component does not need a DBC file or firmware files.
-At the end the component publishes a `count` tag, lists a Temperature message, shows those values on its page, has **Connect / Disconnect** in the menu, and shows an **Output Limit** firmware field.
+At the end, the component:
+
+- Publishes a `count` tag.
+- Lists a Temperature message.
+- Shows those values on its page.
+- Has **Connect / Disconnect** in the menu.
+- Shows an **Output Limit** firmware field.
 The path takes about 20 minutes.
 
 ## What you need
@@ -221,7 +227,7 @@ A Custom Component does not need them.
     ```
 
 4. Copy the `scripts` folder into the Hello folder under `components` in the active profile.
-   The profile sits in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
+   The profile sits in the `profiles` folder of the [Artefacts directory](../../Installation/Artifacts_Directory.md).
 
 5. Create a file named `firmware.yaml` that contains this YAML:
 

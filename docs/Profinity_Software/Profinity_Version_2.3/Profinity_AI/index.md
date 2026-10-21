@@ -16,7 +16,7 @@ Without it the feature is unavailable.
 Refer to [Licensing](../Licensing.md) for what each edition includes.
 
 <figure markdown>
-![Profinity AI gathers context from the whole Profile (devices, alerts, documentation and history), correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/diagram-ai-diagnostics.png)
+![Profinity AI gathers context from the whole profile (devices, alerts, documentation and history), correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/diagram-ai-diagnostics.png)
 <figcaption>Context in, cross-system diagnosis out</figcaption>
 </figure>
 
@@ -24,7 +24,7 @@ Refer to [Licensing](../Licensing.md) for what each edition includes.
 
 Profinity AI is connected to your running system and draws on four kinds of context:
 
-- Live data: every component in the [Profile](../Administration/Profiles.md) and its tags, with current values and data quality.
+- Live data: every component in the [profile](../Administration/Profiles.md) and its tags, with current values and data quality.
 - Rules and alerts: the alert rules you have defined, the alerts that are active, and the alert history.
 - History and trends: long-term values from the historian, not just the latest reading.
 - Documentation: manuals, procedures, and how-to material from docs.prohelion.com.
@@ -38,15 +38,23 @@ Questions and tool results are sent to the configured AI provider, so refer to [
 
 ## From context to diagnosis
 
-With that context in one place, Profinity AI gathers context from the whole Profile, correlates signals across devices, matches alerts to the relevant documentation, compares current readings against history and trends, and proposes a likely root cause and next steps with the evidence it used.
+With that context in one place, Profinity AI can do these things:
+
+- Gather context from the whole profile.
+- Correlate signals across devices.
+- Match alerts to the relevant documentation.
+- Compare current readings against history and trends.
+- Propose a likely root cause and next steps, with the evidence it used.
+
 A question such as "Why is Cell 12 overheating?" can therefore be answered from the alert, the neighbouring cells, the cooling system, and the service manual together.
 
 ## Choose how to use it
 
 - [AI Chat](./AI_Chat.md) runs inside Profinity, from the side menu. Use it to ask questions about this instance: system health, alert investigation, and how-to questions.
-- [AI Skills](./AI_Skills.md) runs in your own AI tool (Claude Code, Cursor, Codex, ChatGPT), outside Profinity. Use it to build dashboards, rules, collections, scripts, plugins, derived tags, and example apps from your live schema, and to develop with Profinity.
+- [AI Skills](./AI_Skills.md) runs in your own AI tool (Claude Code, Cursor, Codex, ChatGPT), outside Profinity. Use it to build dashboards, rules, collections, scripts, plugins, derived tags, and example apps from your live schema.
 
-AI Chat answers questions and AI Skills helps you build things, and power users can pair AI Skills with the MCP Server to use their own AI tool instead of AI Chat.
+AI Chat answers questions, and AI Skills helps you build things.
+You can also pair AI Skills with the MCP Server to use your own AI tool instead of AI Chat.
 Users need the **Profinity AI** permission to open AI Chat, and the built-in **Administrators** role has it by default.
-[Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists the **Profinity AI** and **MCP integration** permissions.
+[Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists the **Profinity AI** and **MCP integration** permissions.
 For administrator configuration, permissions, and data-handling notes, refer to [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md).

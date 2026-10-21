@@ -8,11 +8,16 @@ last_reviewed: 2026-10-20
 
 # Tag layer
 
-The tag layer is Profinity's catalogue of live and configured tag values, and it is the foundation for Tag Explorer, [collections](Collections/index.md), [rules](Rules/index.md), and [alerts](./Alerts.md), which are new in Profinity 2.3.
-Open **TAG EXPLORER** from the side menu, which requires the **View tags** permission, to browse the tag tree, switch to table views where available, and inspect the data quality indicator on each tag.
+The tag layer is Profinity's catalogue of live and configured tag values.
+It is the foundation for Tag Explorer, [collections](Collections/index.md), [rules](Rules/index.md), and [alerts](./Alerts.md), which are new in Profinity 2.3.
+
+Open **TAG EXPLORER** from the side menu to browse the tag tree, switch to table views where available, and inspect the data quality indicator on each tag.
+This needs the **View tags** permission.
 Stale quality has its own icon, separate from the rule alert triangle.
-The **TAG UTILITIES** group in the side menu appears for users with the **View tags** permission.
-The collections and derived tags editors also need a loaded profile, and saving needs **Modify tag collections** for collections and derived tags, or **Modify tag rules** for rules.
+The **TAG UTILITIES** group in the side menu also appears for users with the **View tags** permission.
+
+The collections and derived tags editors need a loaded profile.
+Saving needs **Modify tag collections** for collections and derived tags, and **Modify tag rules** for rules.
 
 <figure markdown>
 ![Many source types, such as a Controller Area Network (CAN) DBC signal, a device property, a register or a firmware field, all become one tag with an address, value, quality flag and metadata, readable as an instantaneous value or as time-series history](../images/diagram-tags.png)
@@ -30,26 +35,26 @@ To start a collection, a rule, or a dashboard binding from tags selected in Tag 
 
 ## Tag collections
 
-- [Tag collections](Collections/index.md): group tags with a membership expression. Open **COLLECTIONS** under **TAG UTILITIES**, which opens an editor window and requires **View tag collections**.
+- [Tag collections](Collections/index.md): group tags with a membership expression. Open **COLLECTIONS** under **TAG UTILITIES** to open an editor window, which requires **View tag collections**.
 - [Create a collection](Collections/Create_a_Collection.md): build a restricted collection of cell voltages in the collections editor.
 
 ## Derived tags
 
-- [Derived tags](Derived_Tags/index.md): compute a tag from other tags. Open **DERIVED TAGS** under **TAG UTILITIES**, which opens an editor window and requires **View tag collections**.
+- [Derived tags](Derived_Tags/index.md): compute a tag from other tags. Open **DERIVED TAGS** under **TAG UTILITIES** to open an editor window, which requires **View tag collections**.
 - [Create a derived tag](Derived_Tags/Create_a_Derived_Tag.md): convert speed from mph to km/h with an expression.
 - [Create a derived tag with a script](Derived_Tags/Create_a_Derived_Tag_with_a_Script.md): publish a derived tag from a script.
 
 ## Tag rules
 
-- [Tag rules](Rules/index.md): evaluate tags and raise alerts. Open **RULES & ACTIONS** under **TAG UTILITIES**, which opens an editor window and requires **View tag rules**.
-- [Create a rule](Rules/Create_a_Rule.md): raise an alert when a battery pack temperature goes above a limit.
+- [Tag rules](Rules/index.md): evaluate tags and raise alerts. Open **RULES & ACTIONS** under **TAG UTILITIES** to open an editor window, which requires **View tag rules**.
+- [Create a rule](Rules/Create_a_Rule.md): raise an alert when the maximum cell temperature of a battery goes above a limit.
 - [Complete rules.yaml example](Rules/Rules_YAML_Example.md): read a full rules file with every setting explained.
 
 ## Rule actions
 
 - [Rule actions](Rules/Actions/index.md): choose what a rule does when it fires.
 - [Email and Slack rule actions](Rules/Actions/Email_and_Slack_Rule_Actions.md): settings for the Email and Slack notification actions.
-- [Webhook and MQTT rule actions](Rules/Actions/Webhook_and_MQTT_Rule_Actions.md): settings for the Webhook and MQTT notification actions.
+- [Webhook and MQTT rule actions](Rules/Actions/Webhook_and_MQTT_Rule_Actions.md): settings for the Webhook and Message Queuing Telemetry Transport (MQTT) notification actions.
 
 ## Tag logs
 
@@ -60,9 +65,9 @@ To start a collection, a rule, or a dashboard binding from tags selected in Tag 
 ## Alerts and relay
 
 - [Alerts Log](Alerts.md): review, acknowledge, and silence alerts. Open **ALL ALERTS** in the side menu, which requires **View alerts**.
-- [Tag relay](./Tag_Relay.md): share live tags between Profinity instances. One instance publishes periodic snapshots of selected collections, and another ingests them as remote, read-only tags under that site's own prefix.
+- [Tag relay](./Tag_Relay.md): share live tags between Profinity instances. One instance publishes periodic snapshots of selected collections, and another ingests them as read-only tags under that site's own prefix.
 
-Integrations can work with tags, tag collections, tag rules and alerts through the Representational State Transfer (REST) [API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2`.
-The Swagger page on your Profinity instance lists every endpoint and the parameters it accepts.
+Integrations can work with tags, tag collections, tag rules, and alerts through the Representational State Transfer (REST) [API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2`.
+The Swagger page, the interactive API page on your Profinity instance, lists every endpoint and the parameters it accepts.
 The older data endpoint is not part of `/api/v2`, so use the tag endpoints for new integrations.
 All endpoints require the appropriate permissions, which are listed in [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).

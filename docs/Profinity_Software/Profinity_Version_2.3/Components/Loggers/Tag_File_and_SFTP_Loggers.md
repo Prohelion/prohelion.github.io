@@ -9,7 +9,8 @@ last_reviewed: 2026-10-15
 # Tag file and SFTP loggers
 
 The **TAG File Logger** and the **TAG SFTP Logger** write the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections/index.md) to a file as comma-separated values (CSV) or JSON Lines.
-The TAG File Logger writes the file to the local file system of the machine running Profinity, and the TAG SFTP Logger transmits it to a remote SSH File Transfer Protocol (SFTP) server.
+The TAG File Logger writes the file to the local file system of the machine running Profinity.
+The TAG SFTP Logger transmits it to a remote Secure Shell (SSH) File Transfer Protocol (SFTP) server.
 Each is added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers** and is included in every edition.
 A logger only writes data out for later retrieval, so history that Profinity must read back belongs in a [historian](../Historians/index.md).
 
@@ -22,7 +23,9 @@ flowchart LR
 <figcaption>The TAG File Logger writes the values in tag collections to log files on the local file system, and the TAG SFTP Logger transmits them to an SFTP server</figcaption>
 </figure>
 
-Both loggers have **Auto Connect**, which is on by default, so a logger begins logging when the Profile loads and needs no further action.
+Both loggers have **Auto Connect**, which is on by default, so a logger begins logging when the Profile loads.
+Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how it behaves.
+
 The TAG File Logger has no destination setting.
 It creates its files under the Profinity tag log directory (`tag_logs/`), in a folder named after the Profile and the component.
 Refer to the [artefacts directory](../../Installation/Artifacts_Directory.md) for where that directory sits on each platform.
@@ -30,21 +33,30 @@ The TAG SFTP Logger needs the remote server settings described in [File logger r
 
 ## Settings
 
-Both loggers log the values of the tags in the collections selected in **Collections**, and every sample is written with its quality: a Stale tag keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value.
-A logger with no collection selected does not start, and its status stays off, so a collection has to exist and be selected before the logger can be started.
+Both loggers log the values of the tags in the collections selected in **Collections**.
+Every sample is written with its quality.
+A Stale tag keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value.
+A logger with no collection selected does not start and its status stays **Off**, so create and select a collection first.
 
 | Setting | Purpose |
 |---|---|
 | **Collections** | The tag collections whose member values are logged. At least one collection must be configured before the logger starts. |
-| **Update Interval (Seconds)** | The interval, in seconds, between writes. The default is 10, and the value must be between 1 and 86400. With **Snapshot** this is how often the current value of each member is written, and with **On Change** or **Everything** it is how often pending changes or samples are flushed. |
-| **Logging mode** | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. The default is **Snapshot**. |
-| **File Format** | **CSV** writes one row per sample, with the header `Recv time,TagId,ValueType,Value,UtcTimestamp,Quality,Reason,Message`, and the file uses a `.txt` extension. **JSON Lines** writes one JSON object per line, and the file uses a `.jsonl` extension. The default is **CSV**. In the CSV header, `Recv time` is the local time the line was written and `UtcTimestamp` is the timestamp carried by the tag sample, so the two can differ. |
+| **Update Interval (Seconds)** | The seconds between writes. The default is 10, and the value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Logging mode** | **Snapshot**, **On Change** or **Everything**. The default is **Snapshot**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
+| **File Format** | **CSV** or **JSON Lines**. The default is **CSV**. Refer to [File formats](#file-formats). |
 
-[Logging modes](../Logging_Modes.md) describes how the modes behave across all collection-based components.
+### File formats {#file-formats}
+
+- **CSV** writes one row per sample, with the header `Recv time,TagId,ValueType,Value,UtcTimestamp,Quality,Reason,Message`. The file uses a `.txt` extension.
+- **JSON Lines** writes one JSON object per line. The file uses a `.jsonl` extension.
+
+`Recv time` is the local time the line was written.
+`UtcTimestamp` is the timestamp carried by the tag sample, so the two can differ.
 
 ## What a logged line looks like
 
-Each sample is one line. For example, a motor speed tag is written like this in CSV:
+Each sample is one line.
+For example, a motor speed tag is written like this in CSV:
 
 ```text
 Recv time,TagId,ValueType,Value,UtcTimestamp,Quality,Reason,Message
@@ -57,11 +69,11 @@ and like this in JSON Lines, where the `t` field is the time the line was writte
 {"t":"2026-10-18T09:15:02.1234567+10:00","tagId":"Inverter/DBC/Status/Speed","valueType":"Double","value":23.4,"utcTimestamp":"2026-10-18T09:15:02.0000000Z","quality":"Good","reason":"ok","message":null}
 ```
 
-A Stale sample keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value, so the file shows the gap.
+A tag that is Unavailable or Bad is written with its quality and an empty value, so the file shows the gap.
 
 ## Download the logged files
 
 Once a log file has been created, select the link on the Logger Dashboard to download it from Profinity.
 A TAG File Logger shows this link as **TAG LOGS REPOSITORY**.
 
-To take the same data further, refer to [How to log data to the cloud (InfluxDB)](../../How_To_Guides/Log_Data_to_Cloud_Influx.md) and [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+To take the same data further, refer to [How to log data to files and SFTP servers](../../How_To_Guides/Log_Data_to_Files.md), or [How to log data to the cloud (InfluxDB)](../../How_To_Guides/Log_Data_to_Cloud_Influx.md).

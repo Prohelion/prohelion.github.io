@@ -9,7 +9,8 @@ last_reviewed: 2026-10-14
 # Receive scripts
 
 Receive scripts handle incoming CAN (Controller Area Network) messages in real time.
-A script in Run On Receipt of CAN Message mode runs automatically when a matching CAN packet is received, and gets the packet as an argument, which suits CAN bus monitoring, protocol implementation and any case where an immediate response to a CAN message is needed.
+A script in Run On Receipt of CAN Message mode runs automatically when a matching CAN packet is received, and gets the packet as an argument.
+This suits CAN bus monitoring, protocol implementation, and any case where an immediate response to a CAN message is needed.
 The script implements a `Receive` method (C#) or a `receive` function (Python and Lua).
 
 ## Settings
@@ -20,7 +21,10 @@ Three settings decide which packets reach the script.
 |---------|---------|
 | **Base Address** | The base CAN address of the device, entered in hexadecimal. |
 | **Address Range** | The range of packet addresses the device sends, entered in hexadecimal. |
-| **Milliseconds Valid** | How long traffic from the device counts as valid before the connection is assumed lost. The default is 5000 and the range is -1 to 60000, where -1 means traffic never expires. |
+| **Milliseconds Valid** | How long traffic from the device counts as valid before the connection is assumed lost. The default is 5000. |
+
+**Milliseconds Valid** accepts -1 to 60000.
+A value of -1 means traffic never expires.
 
 <figure markdown>
 ![The script editor for a Python Run On Receipt script, showing the Python receive template with its comments and the receive function](../../../images/python_run_on_receipt_script.png)
@@ -65,13 +69,16 @@ It implements the `Receive` handler, reads the CAN ID of the incoming packet in 
 ## Behaviour
 
 Receive scripts run synchronously for each matching CAN packet, which on a busy bus can mean many invocations per second.
-The `Receive` or `receive` handler should stay short and avoid blocking calls such as `time.sleep` in Python, `Thread.Sleep` in C#, long calculations, locks, and slow input or output, because a slow handler delays other work.
+The `Receive` or `receive` handler should stay short, because a slow handler delays other work.
+Avoid blocking calls such as `time.sleep` in Python and `Thread.Sleep` in C#, and avoid long calculations, locks, and slow input or output.
 
 The **Trigger Overlap** setting decides what happens to a packet that arrives while the handler is still running.
 
 | Trigger Overlap | Effect |
 |-----------------|--------|
 | **Drop** (default) | Discards the packet. |
-| **Queue** | Keeps a short backlog of up to **Queue Depth** packets (a default of 8, from 1 to 100) and runs them afterwards. This is the setting the shipped receive templates recommend. |
+| **Queue** | Keeps a short backlog of up to **Queue Depth** packets and runs them afterwards. The shipped receive templates recommend this setting. |
 
-Heavier processing belongs in a [Service Script](./Service_Scripts.md), with the handler passing a small amount of data to a queue.
+**Queue Depth** sets how many packets may wait, from 1 to 100, with a default of 8.
+
+Heavier processing belongs in a [Service scripts](./Service_Scripts.md), with the handler passing a small amount of data to a queue.

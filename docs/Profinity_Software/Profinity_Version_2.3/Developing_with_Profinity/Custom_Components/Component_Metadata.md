@@ -26,7 +26,7 @@ The [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the [Profinity SDK](..
 | `componentGroup` | Catalogue group. The sample uses `Custom` |
 | `allowMultiple` | `true` lets a profile hold more than one instance |
 | `mainScript` | Path of the main script, relative to the component folder |
-| `dbcFile` | DBC file name |
+| `dbcFile` | CAN database (DBC) file name |
 | `dashboardFile` | Dashboard file name |
 | `rebaseDbc` | Same as **Rebase DBC** on the component |
 | `rebaseAddress` | Same as **Rebase Address** on the component |

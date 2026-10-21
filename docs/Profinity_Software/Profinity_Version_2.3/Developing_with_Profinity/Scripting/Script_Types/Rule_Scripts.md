@@ -9,7 +9,10 @@ last_reviewed: 2026-10-14
 # Rule scripts
 
 !!! info "Licence required"
-    A script set to **Run On Alert** needs both the **Scripting** and **Tag Rule Actions** licensed features, so the **Server** or **Enterprise** edition. A Desktop licence can add the script, but a rule does not run it. An unlicensed instance cannot add or run scripts. Refer to [Licensing](../../../Licensing.md).
+    A script set to **Run On Alert** needs both the **Scripting** and **Tag Rule Actions** licensed features, so the **Server** or **Enterprise** edition.
+    A Desktop licence can add the script, but a rule does not run it.
+    An unlicensed instance cannot add or run scripts.
+    Refer to [Licensing](../../../Licensing.md).
 
 A rule script is a script component with **Script Mode** set to **Run On Alert**.
 There is no separate rule script component to add, and the rule passes its firing context directly as a parameter to the method the script implements.
@@ -17,8 +20,10 @@ There is no separate rule script component to add, and the rule passes its firin
 ## Settings
 
 Enable scripting in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first, because every script trigger requires it.
-Then add a **CSharp Script**, **Python Script** or **Lua Script** component (or use an existing one), set **Script Mode** to **Run On Alert**, and name that component in the `actions` list of a rule, in the same way any other rule action is referenced by component name.
-The rule below calls a script component named `PackTempScript` when the pack temperature passes 45:
+Then add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one.
+Set **Script Mode** to **Run On Alert**.
+Name that component in the `actions` list of a rule, in the same way any other rule action is referenced by component name.
+The example rule calls a script component named `PackTempScript` when the pack temperature passes 45:
 
 ```yaml
 version: "2.3"
@@ -39,7 +44,14 @@ rules:
 ## The alert context
 
 When the rule fires, Profinity calls the script's alert method once, passing the firing context as a parameter.
-This is the same context every other rule action receives (refer to [Actions](../../../Tags/Rules/Actions/index.md)): the rule id, name and level, the edge that fired, the triggering tag, and `TriggeredTags`, which holds every tag in the rule's scope that is currently true.
+This is the same context every other rule action receives.
+Refer to [Rule actions](../../../Tags/Rules/Actions/index.md).
+The context holds:
+
+- The rule ID, name, and level.
+- The edge that fired.
+- The triggering tag.
+- `TriggeredTags`, which holds every tag in the rule's scope that is currently true.
 The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage` and `TriggeredTags`, with the same names in C#, Python and Lua.
 `RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert levels](../../../Tags/Alerts.md#alert-levels)).
 `Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`.
@@ -118,4 +130,4 @@ It is the same setting that **Run On Tag Change** and **Run On Receipt of CAN Me
 The alert method should stay fast, because a slow script under **Queue** builds a backlog and under **Drop** silently misses firings.
 
 For the other script modes, refer to [Script types](./index.md).
-For the scripting overview and a worked first script, refer to [Profinity Scripting](../index.md) and [How to Write Your First Script](../../../How_To_Guides/Write_Your_First_Script.md).
+For the scripting overview and a worked first script, refer to [Profinity Scripting](../index.md) and [How to write your first script](../../../How_To_Guides/Write_Your_First_Script.md).

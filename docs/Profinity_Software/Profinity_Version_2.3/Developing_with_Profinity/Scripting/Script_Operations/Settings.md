@@ -33,7 +33,8 @@ Each Custom Component script uses one or both objects.
 
 When each script runs is on [Script types](../Script_Types/index.md#custom-component-scripts).
 
-A load script opens the device with the values in `ComponentSettings`, such as a COM port and a baud rate, then calls `FirmwareSettings.SetValue` once for each field it read from the device.
+A load script opens the device with the values in `ComponentSettings`, such as a COM port and a baud rate.
+It then calls `FirmwareSettings.SetValue` once for each field it read from the device.
 Those values are what the firmware page shows after a successful load.
 A save script reads the same fields with `FirmwareSettings.GetValue` and sends them to the device.
 `Profinity.Action` is set only for an entry under `actions`.
@@ -83,7 +84,7 @@ Convert a numeric field before using it as an integer: in Python, `int(str(value
 `SetValue` stores the value the script passes.
 
 `ComponentSettings` also reads the component's own settings by property name.
-`DBCFilename` is the uploaded DBC file, and `RebaseAddress` is the rebase address.
+`DBCFilename` is the uploaded CAN database (DBC) file, and `RebaseAddress` is the rebase address.
 Setting `RebaseAddress` to a value that is not a number fails.
 
 | Failure | Message |
@@ -95,7 +96,7 @@ Setting `RebaseAddress` to a value that is not a number fails.
 
 `profinity-script sim` runs the script on a simulated component.
 List the field identifiers under `componentFields` and `firmwareFields` in `sim.yaml` so `SetValue` can save them, and `GetValue` returns a value only after one has been saved.
-The rest of that file is on [Test a script outside Profinity](../../SDK/Test_a_Script.md).
+The rest of that file is on [profinity-script reference](../../SDK/Profinity_Script_Reference.md).
 Without those entries, `SetValue` reports an unknown field.
 
 ## Example

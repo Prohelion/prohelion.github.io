@@ -8,11 +8,18 @@ last_reviewed: 2026-10-20
 
 # Custom Components {#custom-components-and-dll-plugins}
 
-Profinity provides four ways to create a custom component, from a simple dashboard through to a compiled C# plugin: a [Dashboard Component](../../Components/Dashboard/Dashboard_Component.md) bound only to tags that already exist, a Custom Component built from files and scripts in a profile, that same Custom Component packed so another installation can add it by name, and a full [plugin](../SDK/Developing_Plugins.md) written in C#, compiled against the [Profinity SDK](../SDK/index.md) and installed through **Components & Plugins**.
+Profinity provides four ways to create a custom component, from a simple dashboard through to a compiled C# plugin:
+
+- A [Dashboard Component](../../Components/Dashboard/Dashboard_Component.md) bound only to tags that already exist.
+- A Custom Component built from files and scripts in a profile.
+- That same Custom Component packed, so another installation can add it by name.
+- A full [plugin](../SDK/Developing_Plugins.md) written in C#, compiled against the [Profinity SDK](../SDK/index.md), and installed through **Components & Plugins**.
+
 Once any of them is in a profile, it is monitored, graphed, logged, and used by rules and scripts in the same way as a built-in component.
 
 A Dashboard Component is enough when the page only needs existing tags.
-A Custom Component is enough when the behaviour can be described with files, and a packed Custom Component is that same component made installable on another system.
+A Custom Component is enough when files can describe the behaviour.
+A packed Custom Component is that same component made installable on another system.
 A dynamic-link library (DLL) plugin is used when files and scripts are not enough.
 
 <figure markdown>
@@ -29,14 +36,14 @@ flowchart LR
 |--|---------------------|------------------|-------------------------|-----------|
 | Built from | Dashboard YAML | Files and scripts in a profile | The same files, plus `component_metadata.yaml` | An assembly compiled by the author |
 | Typical use | A screen of existing tags | A new component in one profile | The same component on other installations | When files and scripts are not enough |
-| DBC, scripts, and maps | None | Optional | Optional | As the assembly implements them |
+| CAN database (DBC), scripts, and maps | None | Optional | Optional | As the assembly implements them |
 
 To make a first Custom Component, follow [Make your first Custom Component](First_Custom_Component.md).
-This section is the reference for a Custom Component: the files that make one up, including `component_metadata.yaml` which names a pack.
-Packing that folder is done with the [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the SDK.
+This section is the reference for a Custom Component: the files that make one up, including `component_metadata.yaml`, which names a pack.
+To pack that folder, use the [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the SDK.
 Refer to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md) to attach optional files, and to [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md) for the component once it is there.
 For the dashboard itself, refer to the [Dashboard visual editor](../../Customising_Profinity/Dashboards/Visual_Editor.md).
-A DLL plugin is covered on [Developing Plugins](../SDK/Developing_Plugins.md).
+For a DLL plugin, refer to [Developing Plugins](../SDK/Developing_Plugins.md).
 
 The DBC file and the dashboard sit in the component, and the Component Engine under it manages them.
 Component metadata names the DBC file, the dashboard, and the main script for a pack.

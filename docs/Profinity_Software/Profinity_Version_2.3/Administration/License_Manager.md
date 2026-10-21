@@ -21,7 +21,8 @@ The page shows:
 - **Customer**: the customer name or ID recorded on the licence.
 - **Expires**: the expiry date and, where applicable, the number of days remaining.
 - **Fingerprint**: the unique identifier for this installation, with a button to copy it.
-- **Licensed features**: a table of every product feature, whether it is licensed, whether it is currently available (licensed **and** not blocked by configuration), and, if unavailable, what is blocking it.
+- **Licensed features**: a table of every product feature.
+  It shows whether the feature is licensed, whether it is currently available (licensed **and** not blocked by configuration), and, if unavailable, what is blocking it.
 - **Licensed component groups**: the same status for licensed component groups, such as protocol or hardware-integration bundles.
 
 <figure markdown>
@@ -30,10 +31,12 @@ The page shows:
 </figure>
 
 A feature can be licensed but still unavailable, for example when it has been turned off in site configuration.
-The **Licensed** column always reflects the licence file; the **Available** column reflects the actual runtime state and names the layer responsible when it is blocked.
+The **Licensed** column always reflects the licence file.
+The **Available** column reflects the actual runtime state and names what blocks the feature when it is unavailable.
 
 Component groups are licensed separately from product features.
-For example, the BACnet, EtherNet/IP, Modbus, OPC UA and S7 [industrial protocol plugins](../Components/Industrial_Protocols/index.md) all require the **Industrial Protocols** component group, whereas [Tag Relays](../Components/Tag_Relays/index.md) require the **Data Relay** feature.
+For example, the BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7 [industrial protocol plugins](../Components/Industrial_Protocols/index.md) all need the **Industrial Protocols** component group.
+[Tag Relays](../Components/Tag_Relays/index.md) need the **Data Relay** feature.
 Without the matching entitlement the components show as unavailable, even when the plugin is installed.
 
 To change the licence, refer to [Apply a licence](../Installation/Applying_a_Licence.md).

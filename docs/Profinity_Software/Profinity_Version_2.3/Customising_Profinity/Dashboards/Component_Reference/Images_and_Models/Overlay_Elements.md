@@ -1,6 +1,6 @@
 ---
 title: Overlay elements
-description: "Reference for the action invocation, layers, icon sources, display types and annotation lines that the Image and 3D model components share."
+description: "Reference for the element parameters, action invocation, layers, icon sources, display types and annotation lines that Image and 3D model share."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -46,9 +46,76 @@ The `action` object of a [Toggle](../Interactive/Toggles.md) is an action invoca
 | `trackProgress` | boolean | No | None | Polls the progress of the action after a `Component` or `System` request |
 | `restartingOnSuccess` | boolean | No | None | Shows a wait dialog after the action succeeds and polls until the engine is running again |
 
+## Shared element parameters
+
+Each overlay element has the parameters in this section on both components.
+The position parameters and the other parameters that differ are on the [Image](Image.md) and [3D model](Model.md) pages.
+
+Give every region, icon, button, data value and point an `id` that is unique within the component, because annotation lines refer to elements by `id`.
+
+### Region parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | Yes | None | Unique identifier for the region |
+| `action` | object | Yes | None | Action invocation run when the region is clicked. Refer to [Action invocation](#action-invocation) |
+| `label` | string | No | None | Tooltip text displayed on hover |
+| `layer` | string | No | None | Identifier of the layer that controls the visibility of the region |
+
+### Icon parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | Yes | None | Unique identifier for the icon |
+| `icon` | string | Yes | None | Icon source. Refer to [Icon source forms](#icon-source-forms) |
+| `size` | number | No | `24` | Icon size in pixels |
+| `color` | string | No | None | Icon colour, applied to SVG paths and text icons |
+| `action` | object | No | None | Action invocation run when the icon is clicked. Refer to [Action invocation](#action-invocation) |
+| `layer` | string | No | None | Identifier of the layer that controls the visibility of the icon |
+
+### Button parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | Yes | None | Unique identifier for the button |
+| `label` | string | No | None | Caption of the button |
+| `action` | object | No | None | Action invocation run when the button is clicked. Refer to [Action invocation](#action-invocation) |
+| `layer` | string | No | None | Identifier of the layer that controls the visibility of the button |
+
+### Data value parameters
+
+Data values display real-time data from the Profinity system.
+They can bind to any tag.
+They support three display types: text, graph (a bar chart) and status (a lamp).
+Refer to [Display types](#display-types) for an example of each.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | Yes | None | Unique identifier for the data value, also used by annotation lines to refer to it |
+| `bind` | array | Yes | None | Data binding that supplies the live value. Refer to [Display types](#display-types) for the targets |
+| `displayType` | string | No | `text` | How the value is displayed, one of `text`, `graph` (bar chart) or `status` (lamp) |
+| `lampColor` | string | No | `grey` | Colour of the lamp before a bound colour arrives, when `displayType` is `status`. The values are those of the lamp [colour names](../Data/Lamp.md#colour-names) |
+| `unit` | string | No | None | Unit appended to the formatted value |
+| `precision` | number | No | None | Number of decimal places for the displayed value |
+| `enabled` | boolean | No | `true` | Whether the status lamp is enabled. The parameter applies only when `displayType` is `status` |
+| `layer` | string | No | None | Identifier of the layer that controls the visibility of the data value |
+
+### Point parameters
+
+Points are anchor points for annotation lines.
+They can be displayed as visual markers or used as connection points for annotation lines.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | Yes | None | Unique identifier for the point |
+| `color` | string | No | `grey` | Colour of the dot on an [Image](Image.md), or of the point on a [3D model](Model.md) |
+| `layer` | string | No | None | Identifier of the layer that controls the visibility of the point |
+
 ## Layers
 
-Layers let the operator show and hide groups of overlay elements. The component displays a button for each layer, and an overlay element joins a layer through its `layer` parameter.
+Layers let the user show and hide groups of overlay elements.
+The component displays a button for each layer.
+An overlay element joins a layer through its `layer` parameter.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -70,12 +137,20 @@ layers:
 
 ## Icon source forms
 
-The `icon` parameter of an icon is the icon source: an image filename (ending in `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg` or `.webp`) from `/Profile/Images`, an emoji character, SVG path data that starts with `M`, or an `<svg>` element whose first path is used.
+The `icon` parameter of an icon is the icon source.
+It takes one of these forms:
+
+- An image filename from `/Profile/Images`, ending in `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg` or `.webp`.
+- An emoji character.
+- Scalable Vector Graphics (SVG) path data that starts with `M`.
+- An `<svg>` element, whose first path is used.
+
 Any other text is displayed as text.
 
 ## Display types
 
-The examples on this page use the Image position form, with percentage `x` and `y`. On a [3D model](Model.md), every data value position also takes `z`, in model space.
+The examples on this page use the Image position form, with percentage `x` and `y`.
+On a [3D model](Model.md), every data value position also takes `z`, in model space.
 Tag paths such as `DBC/Temperature/Value` are placeholders, so replace them with tags from your own component.
 
 A text display shows the formatted value:
@@ -112,7 +187,10 @@ dataValues:
 ```
 
 A status display shows a lamp.
-A status data value is always lit. The bound value supplies the colour of the lamp as a string such as `green`, `amber` or `red`, so bind the `color` target, as this example does. A binding with the `value` target is also applied as the lamp colour, and `lampColor` is the colour shown until the bound colour arrives:
+A status data value is always lit.
+The bound value supplies the colour of the lamp as a string such as `green`, `amber` or `red`, so bind the `color` target, as this example does.
+A binding with the `value` target is also applied as the lamp colour.
+The `lampColor` parameter is the colour shown until the bound colour arrives:
 
 ```yaml
 dataValues:
@@ -130,7 +208,8 @@ dataValues:
 
 ## Annotation lines
 
-Annotation lines connect elements (icons, data values, regions, or points) with optional waypoints (elbows) for routing.
+Annotation lines connect icons, data values, regions, or points.
+Optional waypoints, called elbows, route the line.
 
 ### Image annotation lines
 

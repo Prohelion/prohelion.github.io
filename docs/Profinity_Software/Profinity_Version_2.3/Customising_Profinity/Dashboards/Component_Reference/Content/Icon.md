@@ -22,14 +22,14 @@ Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | Not normally needed. The value is used only when `image` does not resolve to an icon, and it is not a general styling class |
-| `label` | string | No | None | Not used by the web interface |
-| `image` | string | Yes | None | Icon name such as `BatteryCharging`, an icon filename such as `nav_motorcontrollers_active.svg`, or the filename of an image in the `/Profile/Images` directory. A name that matches no known icon is loaded as an image file, so a misspelt icon name does not show the icon |
+| `image` | string | Yes | None | Icon name such as `BatteryCharging`, an icon filename such as `nav_motorcontrollers_active.svg`, or the filename of an image in the `/Profile/Images` directory |
 | `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed (inset) frame at a larger size |
-| `enabled` | boolean | No | `true` | Not used by the web interface |
-| `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | Data binding. Only the `value` target is handled, and the value is limited to the range `0` to `1`. The value has no visible effect on an icon that is drawn from `image` |
+
+The web interface accepts but ignores `id`, `label`, `enabled`, and `visible`.
+
+A name that matches no known icon is loaded as an image file, so a misspelt icon name does not show the icon.
 
 ## Example
 

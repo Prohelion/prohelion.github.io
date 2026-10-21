@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Profinity Mobile
 
 Profinity Mobile is a companion app for iOS and Android that connects to a Profinity engine over HTTPS and shows the web interface inside the app.
-UDP (User Datagram Protocol) heartbeat discovery lets phones on the same local area network (LAN) find servers without typing URLs.
+User Datagram Protocol (UDP) heartbeat discovery lets phones on the same local area network (LAN) find servers without typing URLs.
 
 <figure markdown>
 ```mermaid
@@ -32,11 +32,15 @@ If no servers appear, refer to [Troubleshoot Profinity Mobile](Troubleshoot_Prof
 
 Prohelion does not publish the app in the public app stores.
 Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) to receive the installation files.
-Prohelion supplies the app as source code, and the organisation that distributes it builds and signs its own iOS and Android binaries, as described in [OEM White-Label Mobile Builds](OEM_White_Label.md).
+Prohelion supplies the app as source code.
+The organisation that distributes it builds and signs its own iOS and Android binaries, as described in [OEM white-label mobile builds](OEM_White_Label.md).
 
 ## Login modes
 
-The **Password** mode is the standard Profinity web sign-in page, which the app opens inside the app and which follows the site's Local or SSO (single sign-on) sign-in method and shows the two-factor prompt when the site requires it.
+The **Password** mode is the standard Profinity web sign-in page, which the app opens inside the app.
+It follows the site's Local or single sign-on (SSO) sign-in method, and it shows the two-factor prompt when the site requires it.
 The app can save the username and password in the phone's secure storage.
+
 The **Kiosk** mode logs in automatically with a configured kiosk user (refer to [Kiosk Mode](../Administration/Kiosk_Mode.md)).
-The app has no mode switch, because Kiosk Mode is a setting of the server, and the web sign-in page signs in automatically when the active profile has it enabled.
+The app has no mode switch, because Kiosk Mode is a setting of the server.
+The web sign-in page signs in automatically when the active profile has Kiosk Mode enabled.

@@ -8,16 +8,21 @@ last_reviewed: 2026-10-15
 
 # Troubleshooting guide
 
-This page explains how to diagnose and fix problems with data that does not update or display, performance, and individual components.
+This page explains how to diagnose and fix dashboard problems with data that does not update or display, performance, and individual components.
 
 ## Data binding issues
 
 ### Data not updating
 
 Components that show static values, or do not update when the data changes, usually have a `source` that does not match a tag.
-Open the tag in the Tag Explorer and check that the path in the binding matches it exactly, including a leading `/` for a tag of another component, and that the tag exists and shows a current value with a good quality flag.
-For a `DBC/` tag, check that the DBC file defines the signal and that the component is connected and sending data.
-If the tag shows a value but the component does not, check that `toType`, when it is set, matches the type that the tag publishes, because a number treated as a string displays but does not drive a lamp or a chart.
+Check the following in the Tag Explorer:
+
+- The path in the binding matches the tag path exactly, including a leading `/` for a tag of another component.
+- The tag exists and shows a current value with a good quality flag.
+
+For a `DBC/` tag, check that the CAN database (DBC) file defines the signal and that the component is connected and sending data.
+If the tag shows a value but the component does not, check that `toType`, when it is set, matches the type that the tag publishes.
+A number treated as a string displays, but it does not drive a lamp or a chart.
 
 ``` yaml
 # Verify the source path matches the tag path in the Tag Explorer
@@ -37,9 +42,11 @@ dashboard:
 
 ### Binding to logged data not working
 
-A logged binding that returns no data usually means that data logging is not configured and enabled for the profile (refer to [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md)), or that the time range is invalid.
+A logged binding that returns no data usually means that data logging is not configured and enabled for the profile, or that the time range is invalid.
+For data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
 Set `timeRangeStart` in the past (for example `-10m`) and `timeRangeStop` after it, where `0m` means now.
-An invalid time range or aggregation window makes the binding return no data, so start with a simple binding such as the following and add the aggregation back once it returns data.
+An invalid time range or aggregation window makes the binding return no data.
+Start with the simple binding in this example, and add the aggregation back once it returns data.
 
 ``` yaml
 # Start with a simple logged data binding
@@ -103,7 +110,8 @@ dashboard:
 ### Charts not rendering
 
 A chart that appears blank shows only the latest value unless its binding sets `seriesMode: timeSeries`, so add the series settings first.
-Then check in the Tag Explorer that the tag has a current value, and for logged data that the time range is valid.
+Then check in the Tag Explorer that the tag has a current value.
+For logged data, check that the time range is valid.
 A chart that is given static data in its `value` property, rather than a binding, needs that data to have `labels` and `datasets`.
 
 ``` yaml
@@ -140,7 +148,8 @@ dashboard:
 ## Performance
 
 A dashboard that loads slowly or becomes unresponsive usually holds many components or charts with very frequent updates.
-Place unused sections in an accordion or tabs, and set `refreshInterval` (in milliseconds, minimum 1000) on a chart to poll it at a fixed interval instead of updating it live.
+Place unused sections in an accordion or tabs.
+Set `refreshInterval` (in milliseconds, minimum 1000) on a chart to poll it at a fixed interval instead of updating it live.
 
 ``` yaml
 # Poll the chart every second instead of updating it live
@@ -180,9 +189,9 @@ dashboard:
 ### Image does not appear
 
 An icon or image that does not display is not being found.
-The web interface looks for the name first among the images built into Profinity and then in the `/Profile/Images` directory, so check that the file exists there, that the filename matches exactly including its case, that the property holds the filename alone and not a full path, and that the extension is one of `.svg`, `.png`, `.jpg`, `.jpeg` or `.webp`.
+Check that the file exists in the `images` folder of the profile, that the filename matches exactly, including its case, and that the property holds the filename alone and not a full path.
 A profile image with the same name as a built-in image is never used, so rename it.
-Refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#profileimages).
+For the accepted file types and the lookup order, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#images).
 
 ### Pill values do not group
 
@@ -191,11 +200,17 @@ Each `pillgroup` must contain an `items` array, and each item must be wrapped in
 ### Lamps do not light or change colour
 
 An `enabled` binding must return `0` or `1` (or `false` or `true`), and a lamp that is greyed out has `enabled` set to false.
-A lamp bound to `color` takes the colour name that the binding returns (refer to [Conditional Styling](./Data_Binding/Conditional_Styling.md)), and the `value` property of the lamp must be set, typically to 1.
+A lamp bound to `color` takes the colour name that the binding returns, as described in [Conditional styling](./Data_Binding/Conditional_Styling.md).
+The `value` property of the lamp must be set, typically to 1.
 
 ### Table shows no data or no highlighting
 
-Check that `tableHeaders` has the structure shown under [Table header parameters](./Component_Reference/Data/Tables.md#table-header-parameters), that each `accessorKey` matches a data property name, and that the data array is bound.
+Check the following:
+
+- `tableHeaders` has the structure shown under [Table header parameters](./Component_Reference/Data/Tables.md#table-header-parameters).
+- Each `accessorKey` matches a data property name.
+- The data array is bound.
+
 Highlighting needs numeric data values and threshold properties such as `highlightAtOrBelow` or `highlightAtOrAbove`.
 
 ### Chart type is not supported or a time series chart does not update
@@ -205,7 +220,8 @@ A time series chart needs `seriesMode: timeSeries` in its binding, or `store: lo
 
 ### Image regions are not clickable or data values are missing
 
-A region needs `x`, `y`, `width` and `height` values, which are percentages of the image size, and an `action` that is an object with an `invoke` value of `Navigate`, `Component`, `System` or `Endpoint`.
+A region needs `x`, `y`, `width` and `height` values, which are percentages of the image size.
+It also needs an `action` that is an object with an `invoke` value of `Navigate`, `Component`, `System` or `Endpoint`.
 The `action` needs a `target` when `invoke` is `Navigate`, or an `actionId` when `invoke` is `Component` or `System`.
 A data value that does not display needs a correct `bind`, a suitable `displayType`, and `maxValue` for the `graph` display type.
 
@@ -213,11 +229,16 @@ A data value that does not display needs a correct `bind`, a suitable `displayTy
 
 The HTML must be valid and properly escaped in YAML, and multi-line content uses a literal block (`|` or `>`).
 The HTML sanitiser removes the `script`, `embed`, `object`, `form`, `input` and `button` elements, so content that depends on them does not appear.
-Images in HTML use the full path `/Profile/Images/{filename}`, and the file must exist in that directory.
+Images in HTML use the full URL path, and the file must exist in the `images` folder of the profile.
 A stylesheet cannot be linked from the HTML, because the sanitiser removes a `link` element.
-Style rules go in `profile.css` in `/Profile/Styles`, which the web interface loads when the file is present, as described in [Store dashboard files in a profile](./Store_Dashboard_Files.md).
+Style rules go in `profile.css` in the `styles` folder, as described in [Store dashboard files in a profile](./Store_Dashboard_Files.md#styles).
 
 ## Getting more help
 
-Review the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements, use the validation in the visual editor to catch errors early, and compare the dashboard with the annotated [Motor Controller Dashboard Example](./Motor_Controller_Dashboard_Example.md) and the examples in the [Component Reference](./Component_Reference/index.md).
+To find a problem early:
+
+- Read the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements.
+- Use the validation in the visual editor.
+- Compare the dashboard with the annotated [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md) and the examples in the [Component reference](./Component_Reference/index.md).
+
 If the problem persists, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) and include the YAML configuration, any error messages, and the expected and actual behaviour.

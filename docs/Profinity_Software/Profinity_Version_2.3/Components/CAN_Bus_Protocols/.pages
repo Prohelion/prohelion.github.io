@@ -4,3 +4,4 @@ nav:
     - CAN_Bus_Adapter_Settings.md
     - CAN_Bus_Adapter_Troubleshooting.md
     - Virtual_CAN_Adapter.md
+    - Virtual_CAN_Adapter_Protocols.md

@@ -20,7 +20,7 @@ The **Email Rule Action** sends a message over Simple Mail Transfer Protocol (SM
 |---|---|
 | **SMTP host** | The mail server host name. Required, and defaults to `localhost`. |
 | **SMTP port** | The mail server port, from 1 to 65535. Defaults to 587. |
-| **Use SSL** | Enables TLS for the SMTP connection. Enabled by default. |
+| **Use SSL** | Enables Transport Layer Security (TLS) for the SMTP connection. Enabled by default. |
 | **Username** / **Password** | Optional SMTP credentials. The password is stored encrypted. |
 | **From address** | The sender address. Required, and defaults to `alerts@localhost`. |
 | **To addresses** | One or more recipient addresses separated by commas or semicolons. Required. |
@@ -29,7 +29,8 @@ The **Email Rule Action** sends a message over Simple Mail Transfer Protocol (SM
 
 ## Slack action settings
 
-The **Slack Rule Action** posts a message to a Slack channel through an incoming webhook, and each Slack action can target a different workspace.
+The **Slack Rule Action** posts a message to a Slack channel through an incoming webhook.
+Each Slack action can target a different workspace.
 
 | Setting | Purpose |
 |---|---|
@@ -38,4 +39,4 @@ The **Slack Rule Action** posts a message to a Slack channel through an incoming
 | **Title template** | Optional message title, which may use the [placeholders](index.md#message-placeholders). A default title is used when empty. |
 | **Message prefix** | Optional text placed before the alert message, which may use the placeholders. |
 
-For the Webhook and MQTT actions, refer to [Webhook and MQTT rule actions](Webhook_and_MQTT_Rule_Actions.md).
+For the Webhook and Message Queuing Telemetry Transport (MQTT) actions, refer to [Webhook and MQTT rule actions](Webhook_and_MQTT_Rule_Actions.md).

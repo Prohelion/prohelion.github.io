@@ -22,3 +22,5 @@ The Tags tab sets the limits on that buffer, so that it cannot grow without boun
 |`Point TTL (Minutes)`               | Samples older than this are pruned (default 60). |
 |`Max Dynamically Tracked Tags`      | The most tags tracked on demand, such as by a dashboard that has just opened (default 200). When it is exceeded the least recently used are dropped. |
 |`Dynamic Track Inactivity TTL (Minutes)` | A dynamically tracked tag that nobody has used for this long is removed (default 45). |
+
+TTL stands for time to live.

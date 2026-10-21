@@ -15,15 +15,17 @@ Choose the installation method that matches your platform, then complete the set
 - [Install Profinity on Windows](Windows_Installation.md): the Setup Wizard installer, for the desktop application or browser access.
 - [Install Profinity on Linux and macOS](Linux_and_macOS_Installation.md): the bootstrap installer, with update, data location, and sign-in.
 - [Install Profinity from an archive on Linux and macOS](Linux_and_macOS_Archive_Installation.md): a downloaded archive, started with the `profinity.sh` script.
-- [Install Profinity with Docker](Docker_Installation.md): run Profinity in containers with Docker Compose, expose CAN devices, and prepare for production.
+- [Install Profinity with Docker](Docker_Installation.md): install and start Profinity in a container with Docker Compose, sign in, and expose CAN devices.
 - [Install Profinity with the Docker one-line installer](Docker_One_Line_Installer.md): install in Docker with a single script.
 
 ## After you install
 
-- [Apply a licence](Applying_a_Licence.md): apply a licence file and check that it has taken effect.
+- [Apply a licence](Applying_a_Licence.md): apply a licence file, check that it has taken effect, and see who can sign in on each installation type.
 - [Upgrade from Profinity 2.2](Upgrade_From_2_2.md): back up, install 2.3, and check the licence, roles, dashboards, and integrations in order.
+- [Docker ports and data directory](Docker_Ports_and_Data_Directory.md): the ports the container publishes and the artefacts directory it uses.
+- [Troubleshoot Profinity in Docker](Troubleshoot_Docker_Installation.md): fix lost configuration, permission errors, and missing adapters in a container.
 - [Update the Profinity Docker image](Update_Docker_Image.md): move a Docker installation to a newer image, by hand or with Watchtower.
-- [Environment variables](Environment_Variables.md): set configuration and profile values from the environment on each platform, with the placeholder syntax and the variables Profinity reads.
+- [Environment variables](Environment_Variables.md): set configuration and profile values from the environment, and read the list of variables Profinity reads.
 - [Artefacts directory](Artifacts_Directory.md): where Profinity keeps configuration, profiles, plugins, and logs.
 - [Run Profinity as a service](./Run_as_a_Service/index.md): start automatically on Linux, macOS, or Windows, with a page for each system.
 - [Security guide](Security.md): the controls to put in place for a production deployment.

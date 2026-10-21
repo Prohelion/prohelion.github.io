@@ -17,12 +17,18 @@ Profinity 2.3 does not support per-user API keys or per-user provider selection.
     Without it the feature is unavailable.
     Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
-Once enabled, the assistant can query live data from this Profinity instance through the built-in Model Context Protocol (MCP) server, search docs.prohelion.com for how-to and reference material, and, if the administrator enables it, search the web.
-Requests are answered by an external AI provider (Claude, OpenAI, or OpenRouter) or by a local, self-hosted model.
+Once enabled, the assistant can do three things:
+
+- Query live data from this Profinity instance through the built-in Model Context Protocol (MCP) server.
+- Search docs.prohelion.com for how-to and reference material.
+- Search the web, if the administrator enables it.
+
+An external AI provider (Claude, OpenAI, or OpenRouter) or a local, self-hosted model answers the requests.
 
 ## Enable Profinity AI
 
-Select **ADMIN** in the side menu, then **System Configuration**, find the **Profinity AI** category, and set the fields in this table.
+Select **ADMIN** in the side menu, then **System Configuration**.
+Find the **Profinity AI** category and set the fields in the following table.
 
 | Field | Description |
 |-------|-------------|
@@ -45,8 +51,10 @@ Profinity rejects a save that leaves the configuration in an inconsistent state,
 - The MCP server must stay enabled while Profinity AI is enabled.
 
 Profinity treats a configuration that passes these checks as ready to use.
-It does not make a live test call to the provider when the configuration is saved, so a valid-looking configuration with, for example, a revoked API key is not flagged until a user sends a chat message, and the chat then returns an error.
-When chat fails or times out, check the **API Key**, **Model** and **Base URL**, and raise **Response timeout (seconds)** for slow models.
+It does not make a live test call to the provider when you save the configuration.
+A valid-looking configuration with, for example, a revoked API key is not flagged until a user sends a chat message, and the chat then returns an error.
+When chat fails or times out, check the **API Key**, **Model**, and **Base URL**.
+Raise **Response timeout (seconds)** for slow models.
 
 ## Data handling and security
 
@@ -64,7 +72,8 @@ Profinity AI cannot see data the asking user could not otherwise see through the
 
 A user needs the **Profinity AI** permission to see and use the **Profinity AI** menu item.
 This permission also turns on the **MCP integration** permission, since the assistant needs it to query live data on the user's behalf.
-The **Profinity AI** permission is included in the default Administrators role and in the Desktop role, and can be added to or removed from any role like any other permission, as described in [Roles and Permissions](../Users_and_Access/Roles_and_Permissions.md).
+The **Profinity AI** permission is included in the default Administrators role and in the Desktop role.
+You can add it to or remove it from any role like any other permission, as described in [Roles and permissions](../Users_and_Access/Roles_and_Permissions.md).
 
 Changing the Profinity AI configuration itself requires the **System administration** permission.
 External MCP clients also need the **AI** licensed feature, because the MCP server is part of it.
@@ -72,5 +81,5 @@ External MCP clients also need the **AI** licensed feature, because the MCP serv
 ## Related documentation
 
 - [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md): the live-data connection Profinity AI uses, and how to connect an external MCP client.
-- [AI Chat](../../Profinity_AI/AI_Chat.md): the operator-facing guide to using the chat window.
+- [AI Chat](../../Profinity_AI/AI_Chat.md): the guide to using the chat window.
 - [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#profinity-ai): the chat route, for integrators.

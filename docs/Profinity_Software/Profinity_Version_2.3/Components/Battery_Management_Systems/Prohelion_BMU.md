@@ -8,8 +8,9 @@ last_reviewed: 2026-10-15
 
 # Prohelion BMU
 
-Profinity monitors and manages every Prohelion Battery Management System (BMS) through the BMU dashboard, which appears as a tab in the sidebar once a Battery Management Unit (BMU) is added to the [Profile](../../Getting_Started/Profiles.md).
-The model and generation selected when the BMS is added must match the hardware.
+Profinity monitors and manages every Prohelion Battery Management System (BMS) through the BMU dashboard.
+The dashboard appears as a tab in the sidebar once a Battery Management Unit (BMU) is added to the [Profile](../../Getting_Started/Profiles.md).
+The model and generation that you select when you add the BMS must match the hardware.
 
 <figure markdown>
 ```mermaid
@@ -28,26 +29,35 @@ flowchart LR
 | C48 Gen2 | The 48 V 100 A 16S BMS. | `0x600` |
 | C20 Gen1 | The 20 V Generation 1 BMS. | `0x100` |
 
-The settings below, and the BMU data, firmware configuration and firmware flashing described on the linked pages, apply to every model in the table, except where a section names a specific model.
+The settings in the BMU management section apply to every model in the table, except where a row names a specific model.
+The BMU data, firmware configuration and firmware flashing on the linked pages also apply to every model, except where a section names a specific model.
 
-The BMU organises its CMUs (also referred to as Nodes) in every model, so only the BMU is added to the Profile, and doing so provides control of and data from the entire BMS.
-Larger and split packs, such as those used in racing, can have two or more BMUs, in which case one BMU is added for each unit with a different base CAN address.
+In every model the BMU organises its CMUs, which are also called Nodes.
+Add only the BMU to the Profile, which gives control of and data from the entire BMS.
+Larger and split packs, such as those used in racing, can have two or more BMUs.
+Add one BMU for each unit, each with a different base CAN address.
 The hardware is described in the [Prohelion BMS documentation](../../../../Battery_Management_Systems/index.md).
 
 ## BMU management
 
-When a Prohelion BMU is added to the Profile, Profinity prompts for the following information about the device.
+When you add a Prohelion BMU to the Profile, Profinity prompts for the information in the following table.
 The **Change Settings** button at the top-right of the BMU dashboard changes these details later.
 
 | Parameter | Description | Default |
 |----------------------|-----------------------------------------------------------------------------------------------------|---------|
 | **Name** | The name of the component. Must be unique. | The model name |
-| **Control Pack** | Enables software control of the BMS from Profinity (engagement and disengagement of the pack), for the BMS units that support it. A D1000 Gen2 charges through the Profinity **Charge** screen once **Control Pack** is on. | Off |
+| **Control Pack** | Enables software control of the BMS from Profinity (engaging and disengaging the pack), for the BMS units that support it. | Off |
 | **Milliseconds Valid** | The timeout of the device, from 1 to 60000. If no traffic is received from the device within this time, Profinity treats the connection as lost. | 5000 |
 | **Base Address** | The CAN address of the BMU, as described in the protocol documentation of each model. | `0x600`, or `0x100` for the C20 Gen1 |
-| **Firmware Configuration Key** | The D1000 Gen2, M48 Gen2 and C48 Gen2 only. Unlocks the administration-only firmware parameters for the current sign-in session (refer to [Unlock administration firmware parameters](Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters)). | No active session |
+| **Firmware Configuration Key** | D1000 Gen2, M48 Gen2 and C48 Gen2 only. Unlocks the Admin firmware parameters for the current sign-in session. Refer to [Unlock administration firmware parameters](Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters). | No active session |
 
-The CAN address of each model is described in the [D1000 Gen1 Communications Protocol](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Communications_Protocol/index.md), the [D1000 Gen2 Messages and Signals](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Messages_and_Signals.md) and the [M48 Gen1 CAN Communication](../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/CAN_Communication.md) pages.
+A D1000 Gen2 charges through the Profinity **Charge** screen once **Control Pack** is on.
+
+The CAN address of each model is described on these pages:
+
+- [D1000 Gen1 Communications Protocol](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Communications_Protocol/index.md)
+- [D1000 Gen2 Messages and Signals](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/Firmware/V1.2/Messages_and_Signals.md)
+- [M48 Gen1 CAN Communication](../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/CAN_Communication.md)
 
 The [BMU dashboard](BMU_Dashboard.md) describes the BMU data and the node telemetry.
 To change the firmware settings, unlock the Admin parameters or flash the firmware, refer to [Update BMU configuration and firmware](Update_BMU_Configuration_and_Firmware.md).

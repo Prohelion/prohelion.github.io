@@ -8,20 +8,33 @@ last_reviewed: 2026-10-14
 
 # Component reference
 
-This reference describes the dashboard components available in Profinity, in four categories: layout components that structure a dashboard, data components that display and visualise data from the Controller Area Network (CAN) bus and system properties, content components that show fixed content or direct the user elsewhere, and interactive components that provide interaction and control.
+This reference describes the dashboard components available in Profinity.
+The components fall into four categories:
+
+- Layout components structure a dashboard.
+- Data components display and visualise data from the Controller Area Network (CAN) bus and from system properties.
+- Content components show fixed content or direct the user elsewhere.
+- Interactive components provide interaction and control.
+
+A fifth group, image and model components, is listed at the end of the component tables.
 
 ## How to use this reference
 
-In the [visual editor](../Visual_Editor.md) you add these components with **Add** and set the parameters below in the **Inspector**. The YAML examples on each page show the same component as it appears in the editor's **YAML** tab.
+In the [Dashboard visual editor](../Visual_Editor.md), you add these components with **Add** and set their parameters in the **Inspector**.
+The YAML examples on each page show the same component as it appears in the editor's **YAML** tab.
 
-Each component page opens with a sentence that defines the component, then says when to choose the component and when to choose another, lists its parameters, and gives an example.
+Each component page opens with a sentence that defines the component.
+The page then says when to choose the component and when to choose another, lists its parameters, and gives an example.
 Where a page has further guidance, it adds a section after the example.
-Pages for components with overlay elements, such as [Image](Images_and_Models/Image.md) and [3D model](Images_and_Models/Model.md), cover what differs between the two, and the overlay tables they share are on [Overlay elements](Images_and_Models/Overlay_Elements.md).
+The [Image](Images_and_Models/Image.md) and [3D model](Images_and_Models/Model.md) pages cover what differs between the two.
+The overlay tables that they share are on [Overlay elements](Images_and_Models/Overlay_Elements.md).
 
-The **Parameters** tables list every parameter that Profinity accepts on a component, with its type, whether it is required, its default value and a description that includes the allowed values.
-A parameter that the web interface ignores is marked **Not used by the web interface** and can be omitted.
-Dashboards that contain a parameter a page does not list are rejected when they are saved.
-The `bind` parameter takes an array of binding objects on every component that lists it, and the [Data Binding](../Data_Binding/index.md) page describes the binding properties and the targets that each component handles.
+The **Parameters** tables list every parameter that Profinity accepts on a component.
+Each entry gives the type, whether the parameter is required, the default value and a description that includes the allowed values.
+A parameter that the web interface accepts but ignores is named in a sentence under the table, and can be omitted.
+A dashboard that contains a parameter the page does not list at all is rejected when it is saved.
+The `bind` parameter takes an array of binding objects on every component that lists it.
+The [Data binding](../Data_Binding/index.md) page describes the binding properties and the targets that each component handles.
 
 ## Component categories
 
@@ -72,7 +85,7 @@ The `bind` parameter takes an array of binding objects on every component that l
 |-----------|-------------|
 | [Image](Images_and_Models/Image.md) | Image with regions, icons, buttons, and data values |
 | [3D model](Images_and_Models/Model.md) | 3D model with regions, icons, buttons, and data values |
-| [Overlay elements](Images_and_Models/Overlay_Elements.md) | Action invocation, layers, icon sources, display types and annotation lines shared by both |
+| [Overlay elements](Images_and_Models/Overlay_Elements.md) | Element parameters, action invocation, layers, icon sources, display types and annotation lines shared by both |
 
 ## Nesting rules
 
@@ -82,4 +95,7 @@ A [Tab](Interactive/Tabs.md) holds `panels` entries in its `items`, and an [Acco
 
 ## Next steps
 
-Read [Data Binding](../Data_Binding/index.md) to connect components to data, [Core Elements](../Core_Elements.md) for the structure of a dashboard, [Conditional Styling](../Data_Binding/Conditional_Styling.md) for dynamic visual effects, and the [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) for a complete dashboard.
+- [Data binding](../Data_Binding/index.md): connect components to data.
+- [Core elements](../Core_Elements.md): the structure of a dashboard.
+- [Conditional styling](../Data_Binding/Conditional_Styling.md): dynamic visual effects.
+- [Motor controller dashboard example](../Motor_Controller_Dashboard_Example.md): a complete dashboard.

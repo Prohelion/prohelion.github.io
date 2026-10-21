@@ -13,14 +13,15 @@ These are the parameters that Profinity asks for when a [CAN bus adapter](CAN_Bu
 ## Adapter manual configuration
 
 An adapter is added to a Profile in the same way as any other component, as described in [Add a component to a profile](../../How_To_Guides/Add_Component_to_Profile.md).
-Profinity prompts for the parameters below when the adapter is added, and the **Change Settings** button on the adapter dashboard changes them later.
+Profinity prompts for the parameters on this page when the adapter is added.
+The **Change Settings** button on the adapter dashboard changes them later.
 
-Every adapter has the following parameters.
+Every adapter has the parameters in the following table.
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | **Name** | The name of the component. Must be unique. | The adapter name |
-| **Auto Connect** | Connects to the adapter automatically when the profile loads. | On |
+| **Auto Connect** | Connects to the adapter when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). | On |
 
 The remaining parameters depend on the type of adapter.
 
@@ -45,7 +46,9 @@ The forwarding range is described in [CAN-TCP Bridging](../../../../Solar_Car_Ra
 
 Auto Discovery sets the **Tritium Protocol Version** to match the bridge firmware.
 A profile can hold only one Tritium or Virtual adapter for each bus number.
-Two bridges that share a bus number on one Ethernet network join their CAN buses into one virtual bus, so give every bridge a unique bus number unless you are joining two buses deliberately (refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md)).
+Two bridges that share a bus number on one Ethernet network join their CAN buses into one virtual bus.
+Give every bridge a unique bus number unless you are joining two buses deliberately.
+Refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md).
 
 The bridge holds the CAN bit rate (default 500 kbit/s), so this adapter has no bit rate parameter.
 The bit rate, static IP address, and bus number of the bridge itself are set in the bridge firmware, as described in [CAN Bridge Configuration](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md).
@@ -69,15 +72,15 @@ The **Peak Systems CAN Adapter** connects to a Peak CAN to USB adapter through t
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|
-| **PCAN Channel ID** | The channel of the adapter: USB 01 to USB 16, LAN 01 to LAN 16, or PCI 01 to PCI 16. Auto Discovery fills it in. | USB 01 |
+| **PCAN Channel ID** | The channel of the adapter: USB 01 to USB 16, LAN 01 to LAN 16, or PCI 01 to PCI 16, where PCI is Peripheral Component Interconnect. Auto Discovery fills it in. | USB 01 |
 | **PCAN BaudRate** | 5K, 10K, 20K, 33K, 47K, 50K, 83K, 95K, 100K, 125K, 250K, 500K, 800K, or 1M Baud. | 500K Baud |
 
-On Linux, the adapter appears as a SocketCAN interface, so use the [SocketCAN adapter](CAN_Bus_Adapters.md) instead.
+On Linux, a Peak adapter appears as a SocketCAN interface, so use the SocketCAN adapter instead (refer to [CAN bus adapters](CAN_Bus_Adapters.md)).
 
 ### Peak CAN FD adapter
 
 The **Peak Systems CANFD Adapter** connects to a Peak adapter that supports CAN with Flexible Data-rate (CAN FD).
-It has the same **PCAN Channel ID** as the Peak CAN adapter, and the following bit rate parameters.
+It has the same **PCAN Channel ID** as the Peak CAN adapter, and the bit rate parameters in the following table.
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|
@@ -96,6 +99,7 @@ The **Ewert CANdapter** adapter connects to an Ewert Energy CANdapter over its U
 
 ### Native SocketCAN
 
+SocketCAN is the CAN interface of the Linux kernel.
 The **SocketCAN Adapter** connects to a SocketCAN interface on the machine running Profinity, and is available on Docker and Linux installations only.
 
 | Parameter | Description | Default |
@@ -104,4 +108,4 @@ The **SocketCAN Adapter** connects to a SocketCAN interface on the machine runni
 
 The operating system sets the bit rate of the interface, not Profinity.
 
-For the status colours of an adapter and the bit rate that every device on the bus must share, refer to [CAN bus adapter troubleshooting](CAN_Bus_Adapter_Troubleshooting.md).
+For the adapter status colours and the bit rate that every device on the bus must share, refer to [CAN bus adapter troubleshooting](CAN_Bus_Adapter_Troubleshooting.md).

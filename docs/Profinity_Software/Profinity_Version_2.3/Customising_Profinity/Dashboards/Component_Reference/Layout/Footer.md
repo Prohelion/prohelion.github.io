@@ -25,11 +25,10 @@ Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) c
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Not used by the web interface |
 | `visible` | boolean | No | `true` | When `false`, or when bound to `false`, the footer is hidden |
-| `menu` | object | No | None | Not used by the web interface. The footer is displayed without the menu content |
 | `bind` | array | No | None | Data binding. The `visible` target shows and hides the footer |
+
+The web interface accepts but ignores `id`, `class`, and `menu`.
 
 A footer that has a `menu` appears as an empty bar, because the web interface does not display menu items in the footer.
 

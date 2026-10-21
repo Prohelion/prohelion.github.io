@@ -10,12 +10,14 @@ last_reviewed: 2026-10-15
 
 Binding settings can transform the value, convert its type, and map it to text.
 This page covers type conversion with `toType`, scaling with `gain` and `offset`, inversion with `invert`, and text mapping with `mapToText`.
-Refer to the [binding settings reference](./Binding_Settings_Reference.md) for the full list of binding settings.
+For the full list of binding settings, refer to the [Binding settings reference](./Binding_Settings_Reference.md).
 
 ## Type conversion
 
 Use `toType` to convert data types.
-Each component already applies the conversion that suits each of its targets (for example, a lamp `enabled` target is always read as a boolean), so `toType` is optional for most bindings and is shown in these examples for clarity:
+Each component already applies the conversion that suits each of its targets.
+For example, a lamp `enabled` target is always read as a boolean.
+The `toType` setting is therefore optional for most bindings, and these examples show it for clarity:
 
 ```yaml
 dashboard:
@@ -67,7 +69,8 @@ dashboard:
 ```
 
 The readout in the next example shows a raw value that is a temperature in tenths of a kelvin.
-The `gain` of `0.1` converts the raw value to kelvin first, and the `offset` of `-273.15` is then added to give degrees Celsius, so a raw value of `2981.5` shows as `25.0` with the `precision` of 1.
+The `gain` of `0.1` converts the raw value to kelvin first.
+The `offset` of `-273.15` is then added to give degrees Celsius, so a raw value of `2981.5` shows as `25.0` with the `precision` of 1.
 The tag `DBC/Example/RawTemperature` is a placeholder for a tag of your own.
 
 ```yaml
@@ -154,9 +157,13 @@ dashboard:
                           bias: "right"
 ```
 
-The partition array defines ranges in the form `[label1, threshold1, label2, threshold2, label3]`, so that a value below `threshold1` takes `label1`, a value from `threshold1` up to `threshold2` takes `label2`, and any higher value takes `label3`.
-The `bias` is required, and it is either `left` or `right`: with `left` a value equal to a threshold takes the label before that threshold, and with `right` it takes the label after it.
+The partition array defines ranges in the form `[label1, threshold1, label2, threshold2, label3]`.
+A value below `threshold1` takes `label1`, a value from `threshold1` up to `threshold2` takes `label2`, and any higher value takes `label3`.
+The `bias` is required, and it is either `left` or `right`.
+With `left`, a value equal to a threshold takes the label before that threshold.
+With `right`, it takes the label after it.
 The text that results can drive a `label` target, or a lamp `color` target when the labels are colour names.
 
 
-[Conditional Styling](./Conditional_Styling.md) uses text mapping to drive lamp colours and labels, and the [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) shows a complete dashboard.
+[Conditional styling](./Conditional_Styling.md) uses text mapping to drive lamp colours and labels.
+The [Motor controller dashboard example](../Motor_Controller_Dashboard_Example.md) shows a complete dashboard.

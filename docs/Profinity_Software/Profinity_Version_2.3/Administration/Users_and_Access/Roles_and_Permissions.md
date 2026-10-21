@@ -9,13 +9,16 @@ last_reviewed: 2026-10-14
 # Roles and permissions
 
 Profinity decides what each person can see and do through **roles**.
-A role is a named list of things that people holding it are allowed to do, such as viewing tags, sending CAN messages, or editing profiles, and each user is given one or more roles when the account is set up.
-A person who holds two roles can do everything either role allows, and there is no way to give a single user an extra permission without a role, so to find out who can do something only the roles need to be checked.
+A role is a named list of things that people holding it are allowed to do, such as viewing tags, sending CAN messages, or editing profiles.
+Each user is given one or more roles when the account is set up.
+A person who holds two roles can do everything either role allows.
+You cannot give a single user an extra permission without a role, so to find out who can do something, check only the roles.
 
 This page shows how to create a role, give it to a person, and work out why someone cannot see something they expect to.
-Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md), which requires the **Security administration** permission and a licence that includes the Profinity Server feature, as described in [Licensing](../../Licensing.md).
-A Windows Desktop installation without a Server licence does not use roles, because it signs in automatically with a built-in administrator account that can do everything.
-Roles exist on a Desktop host only when a Server licence is applied, and the rest of this page applies when Profinity is used through the Web or the API.
+Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md).
+You need the **Security administration** permission and a Server licence.
+A Windows desktop installation without a Server licence does not use roles.
+Refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) for what each installation signs in with.
 
 ## Create a role
 
@@ -48,10 +51,13 @@ A new user is given roles in the same way while the account is being created, as
 
 ## Which roles to create
 
-Profinity comes with one role, **Administrators**, which allows everything and is given to the default `admin` account on a new installation.
-Because it includes managing users and changing the system configuration, keep it for setting up a site and for emergencies, and give everyone else a narrower role of your own.
+Profinity comes with one role, **Administrators**, which allows everything and is given to the default `admin` account.
+The default `admin` account exists only on some installations; refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in).
+Not every installation has that account, as [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) explains.
+Because it includes managing users and changing the system configuration, keep it for setting up a site and for emergencies.
+Give everyone else a narrower role of your own.
 
-Most sites need only a handful of roles, and the ones below are a good place to start.
+Most sites need only a handful of roles, and the roles in the following table are a good place to start.
 They are suggestions to build yourself, and none of them exists until you create it.
 
 | Role | For people who | Switch on |
@@ -62,15 +68,17 @@ They are suggestions to build yourself, and none of them exists until you create
 | **User manager** | Look after accounts | **Security administration** only |
 | **Site administrator** | Look after the installation | **System administration** only |
 
-Keeping the last two to a single permission means someone who looks after accounts and also runs the system holds two roles, instead of one role that is much wider than either job needs.
+Keeping **User manager** and **Site administrator** to a single permission each means someone who looks after accounts and also runs the system holds two roles.
+The alternative is one role that is much wider than either job needs.
 
 Give each person the smallest role that lets them do their job and widen it when a real need appears.
-A person who loses access they relied on notices straight away, whereas a person who has quietly held too much access may never be noticed.
+A person who loses access they relied on notices straight away.
+A person who has quietly held too much access may never be noticed.
 
 ## What each permission allows
 
-The tables follow the headings in the role editor, using the names shown there.
-A note in the right-hand column means that switching the permission on also switches on the one named.
+The permission tables follow the headings in the role editor and use the names shown there.
+A note in the **What it allows** column means that switching the permission on also switches on the one named.
 
 ### Administration
 
@@ -98,7 +106,7 @@ A note in the right-hand column means that switching the permission on also swit
 | **View CAN data** | Seeing received CAN traffic |
 | **Send CAN messages** | Sending CAN messages from Profinity. Also turns on **View CAN data** |
 | **Replay CAN logs** | Uploading and replaying CAN log files, and the **CAN LOG REPLAY** menu entry. Also turns on **View CAN data** |
-| **View DBC definitions** | Seeing DBC message and signal definitions. Also turns on **View tags** |
+| **View DBC definitions** | Seeing CAN database (DBC) message and signal definitions. Also turns on **View tags** |
 
 !!! warning "Send CAN messages is high-risk"
     A person who can send CAN messages can place frames directly onto the bus, which on a vehicle or battery system can command real hardware.
@@ -140,8 +148,9 @@ A note in the right-hand column means that switching the permission on also swit
 
 ## When a person cannot see something
 
-A missing menu entry or admin page means the person's roles lack the matching permission, unless the licence does not include the feature or the item is restricted to certain roles.
-Open the person in **Users & Groups**, note their **Assigned roles**, and check those roles for the permission below.
+A missing menu entry or admin page means the person's roles lack the matching permission.
+The exceptions are a licence that does not include the feature and an item that is restricted to certain roles.
+Open the person in **Users & Groups**, note their **Assigned roles**, and check those roles for the permission in the following table.
 
 | The person cannot see | The role needs |
 |-----------------------|----------------|
@@ -155,7 +164,8 @@ Open the person in **Users & Groups**, note their **Assigned roles**, and check 
 | **CAN LOG REPLAY** or **TAG LOG REPLAY** | **Replay CAN logs** or **Replay tag changes** |
 | **Profinity AI** | **Profinity AI** |
 
-If the permission is present and the person still cannot see a particular component or tag collection, that item is restricted to certain roles, so check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security.md).
+If the permission is present and the person still cannot see a particular component or tag collection, that item is restricted to certain roles.
+Check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security.md).
 
 There is no single administrator permission.
 Someone who needs broad access is given the **Administrators** role, or a role with the specific permissions they need.

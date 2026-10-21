@@ -4,3 +4,5 @@ nav:
     - Tag_Tree_Path.md
     - Nest_a_Component_in_the_Tag_Tree.md
     - Tag_Expressions.md
+    - Build_an_Expression.md
+    - Unsupported_Expression_Spellings.md

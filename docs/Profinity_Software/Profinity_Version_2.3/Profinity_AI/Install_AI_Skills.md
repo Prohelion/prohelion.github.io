@@ -24,10 +24,13 @@ unzip profinity-ai-skills.zip -d profinity-ai-skills
 npx skills add ./profinity-ai-skills
 ```
 
-On Windows, extract the zip with File Explorer or with `Expand-Archive profinity-ai-skills.zip -DestinationPath profinity-ai-skills` in PowerShell, then run the same `npx skills add` command.
+On Windows, extract the zip with File Explorer, or with `Expand-Archive profinity-ai-skills.zip -DestinationPath profinity-ai-skills` in PowerShell.
+Then run the same `npx skills add` command.
 To see which skills the pack contains before installing, run `npx skills add ./profinity-ai-skills --list`.
 
-After installation, the skills are available in your AI tool, and each skill's `SKILL.md` file gives step-by-step instructions, with API reference notes, examples, and schemas beside it in the skill's folder.
+After installation, the skills are available in your AI tool.
+Each skill's `SKILL.md` file gives step-by-step instructions.
+API reference notes, examples, and schemas sit beside it in the skill's folder.
 
 ## Set up a ChatGPT Custom GPT
 
