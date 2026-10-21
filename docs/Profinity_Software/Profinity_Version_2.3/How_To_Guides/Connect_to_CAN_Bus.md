@@ -3,7 +3,7 @@ title: How to connect to CAN bus
 description: "Connect Profinity to a CAN bus network with a Peak USB, SocketCAN, Ewert Energy CANdapter, or Prohelion or Tritium CAN to Ethernet bridge adapter."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-21
 ---
 
 # How to connect to CAN bus
@@ -84,9 +84,13 @@ A manually added adapter asks for these settings:
 2. Open **Change Settings** at the top right of the adapter dashboard, and save the adapter settings.
 3. Select **Connect** on the adapter dashboard, and wait for the adapter to connect.
 4. Check that the status indicator turns green, as the colour table in [How to add a component to your profile](Add_Component_to_Profile.md) defines.
-   An adapter that is connected but receives no packets for more than 5 seconds shows amber, except a Peak adapter, which stays green on a quiet bus.
-   An adapter that is not connected shows **Off**, and a Peak adapter shows red when its connection fails.
-   In either case, check the [logs](../Administration/Logs_Config.md).
+   Every CAN adapter uses the same indicator.
+   An adapter that is connected but has not received a CAN frame, or has been quiet for more than 5 seconds, shows amber.
+   A Tritium bridge heartbeat counts as a frame, so heartbeats alone keep the indicator green.
+   An adapter that is stopped, or still making its first connection attempt, shows **Off**.
+   An adapter whose connection fails or drops shows red and keeps trying.
+   Choosing **Disconnect** shows **Off**.
+   When the indicator is amber or red, check the [logs](../Administration/Logs_Config.md).
 5. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN**, and confirm that messages appear in the CAN Activity panel.
    A user who holds only the **View CAN data** permission sees **RECEIVED CAN** instead.
    [How to send and receive CAN bus messages](./Send_Receive_CAN_Bus.md) describes the panel.
@@ -129,7 +133,7 @@ Look at the adapter status for errors.
 
 ### The connection fails
 
-An adapter that stays **Off**, or a Peak adapter that turns red, after **Connect** means another application holds the adapter, or the bridge refuses the connection.
+An adapter that stays **Off** during the first attempt, or turns red after **Connect**, means another application holds the adapter, or the bridge refuses the connection.
 Check the adapter logs in Profinity, and confirm that no other application is using the adapter.
 For a bridge in TCP mode, also confirm that no other client holds the single TCP connection that a bridge accepts.
 A bridge that was connected and disconnected rapidly rejects TCP connections for a short time.

@@ -3,7 +3,7 @@ title: Connections and reconnecting
 description: How components that connect to a broker, device, server, or database start, show a problem, and recover, with retry timing and the Off, On, and Error status.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-21
 ---
 
 # Connections and reconnecting
@@ -19,7 +19,7 @@ This covers these components:
 - The Open Platform Communications Unified Architecture (OPC UA) server and client.
 - The Modbus, BACnet, S7, and EtherNet/IP components.
 
-A CAN bus adapter reports its status differently, as described under [Status](#status).
+A CAN bus adapter adds a warning when the bus is quiet, as described under [Status](#status).
 
 ## Turning connections on and off {#the-auto-connect-switch}
 
@@ -94,12 +94,14 @@ A stopped component never reconnects by itself.
 | **Error** | The component is running but cannot reach what it connects to. Check the [Logs](../Administration/Logs_Config.md) for the reason. |
 
 A logger or historian shows **On** as soon as it is started, and changes to **Error** if it cannot reach its server.
-The CAN bus adapters are the exception to these status values.
-A CAN bus adapter connects and retries in the same way, but its status describes the bus, not the connection attempt.
-While the adapter is not connected it shows **Off**.
-Once connected, it shows **On** while packets arrive, and a warning (amber) when no packets, or no data packets, have arrived for more than 5 seconds.
-The Peak adapter differs in two ways.
-It shows **Error** when a connection it was asked to make fails or is lost, or when the channel reports a fault, and it shows **On** on a quiet bus, because silence is not a fault.
+A CAN bus adapter connects and retries in the same way, and adds a warning for a quiet bus.
+While it is stopped, or still making its first connection attempt, it shows **Off**.
+When a connection it was asked to make fails or is lost, it shows **Error** and keeps retrying.
+Once connected, it shows **On** while CAN frames are arriving.
+A Tritium bridge heartbeat is a CAN frame, so a bridge that is only sending heartbeats stays **On**.
+A connected adapter that has never seen a frame, or whose last frame is more than 5 seconds old, shows a warning (amber).
+Exactly 5 seconds since the last frame stays **On**.
+Choosing **Disconnect** shows **Off**, and the adapter does not retry until you connect it again.
 Check the [Logs](../Administration/Logs_Config.md) for the reason an adapter is not connecting.
 
 To see how the protocol components use these settings, refer to [Industrial protocols](Industrial_Protocols/index.md).
