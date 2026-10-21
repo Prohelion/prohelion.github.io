@@ -104,7 +104,8 @@ A visible collection is empty, not missing, when every tag it would return belon
 ## Fail-closed behaviour
 
 !!! warning "A misconfigured restriction denies access, it does not grant it"
-    Setting **Mode** to **Restricted** with an empty **Allowed roles** list, or with only role names that no longer exist on this site, hides the resource from every user except those with **Security administration** or **Modify profiles**.
+    Setting **Mode** to **Restricted** with an empty **Allowed roles** list hides the resource from every user except those with **Security administration** or **Modify profiles**.
+    The same happens when the list holds only role names that no longer exist on this site.
     It does not fall back to **Mode** **All**.
 
     This applies in two situations in particular.
@@ -113,7 +114,8 @@ A visible collection is empty, not missing, when every tag it would return belon
     The unresolved names never match a user, even though the resource is still marked **Restricted**.
     Refer to [Unresolved roles after a profile import](#unresolved-roles-after-a-profile-import).
 
-If a user cannot see a component, action, tag branch, or collection that they should have access to, check the **Security** tab or panel for an empty or fully unresolved **Allowed roles** list before looking for a permissions problem elsewhere.
+If a user cannot see a component, action, tag branch, or collection that they should have access to, check the **Security** tab or panel.
+Look for an empty or fully unresolved **Allowed roles** list before you look for a permissions problem elsewhere.
 
 ## Unresolved roles after a profile import
 

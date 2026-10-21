@@ -23,10 +23,11 @@ Use [Readouts](../Data/Readouts.md), [Tables](../Data/Tables.md), and similar co
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the content container |
 | `content` | string | Yes | None | HTML snippet to display. Refer to [Allowed HTML](#allowed-html) for the tags and attributes that survive sanitising |
 | `map` | object | No | None | Switches the component to a map view that follows a GPS position. Refer to [Map parameters](#map-parameters) |
+
+The web interface accepts but ignores `id`.
 
 The content is not displayed when `map` is set with both position sources.
 

@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Derived tags
 
 A **derived tag**, also called a virtual tag, is a value that Profinity computes automatically and that then behaves exactly like a real tag to every consumer.
-[Dashboards](../../Customising_Profinity/Dashboards/index.md), the [historian](../../Components/Historians/index.md), [rules](../Rules/index.md), and the API all see the same quality and timestamp and can subscribe to it the same way.
+[Dashboards](../../Customising_Profinity/Dashboards/index.md), the [historian](../../Components/Historians/index.md), [rules](../Rules/index.md), and the API all use the same quality and timestamp and can subscribe to it the same way.
 You configure the computation once, and Profinity keeps it current.
 
 Profinity 2.3 computes a derived tag's value in one of two ways:

@@ -200,4 +200,4 @@ Besides the variables that your own files reference, Profinity and its install s
 | `PROFINITY_FILES_BASE` | `install.sh`, `update.sh` | Overrides the file server that releases are downloaded from |
 | `PROFINITY_DOCKER_IMAGE` | `install-docker.sh` | Sets the Docker image that the one-line Docker installer uses |
 
-The [Profiles](../Administration/Profiles.md) page covers the profile format, and [System configuration](../Administration/System_Configuration/index.md) covers the other settings in `config.yaml`.
+The [Profile folders](../Administration/Profile_Folders.md) page covers the files a profile holds, and [System configuration](../Administration/System_Configuration/index.md) covers the other settings in `config.yaml`.

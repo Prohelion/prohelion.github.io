@@ -8,7 +8,8 @@ last_reviewed: 2026-10-15
 
 # Choose available components
 
-The **COMPONENT CATALOGUE** half of **Components & Plugins** lists every component type that is available and lets you choose which ones engineers see when they add a component to a [profile](Profiles.md).
+The **COMPONENT CATALOGUE** half of **Components & Plugins** lists every component type that is available.
+It also lets you choose which types engineers see when they add a component to a [profile](Profiles.md).
 Opening the screen needs the **View plugins** permission.
 Changing the catalogue needs **Modify plugins**.
 Refer to [Install and manage plugins](Install_and_Manage_Plugins.md).

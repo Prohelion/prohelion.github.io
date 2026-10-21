@@ -132,4 +132,5 @@ That happens when no packet has been received for the message yet, or when the l
 
 `GetDbcSignal` throws an `ArgumentException` if any of the parameters do not match the profile or the DBC file.
 When the component is the one that does not match, the message is `Component not found:` followed by the name.
-The `Value` property converts the raw CAN data to the physical value using the signal's factor and offset, and returns `NaN` when the device is not valid or no current packet is available.
+The `Value` property converts the raw CAN data to the physical value using the signal's factor and offset.
+It returns `NaN` when the device is not valid or no current packet is available.

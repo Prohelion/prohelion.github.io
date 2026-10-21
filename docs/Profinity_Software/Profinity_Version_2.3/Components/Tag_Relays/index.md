@@ -10,7 +10,8 @@ last_reviewed: 2026-10-14
 
 Tag Relays let one Profinity instance show live tags from other instances, so a head office can watch many sites from one place.
 They send tags over HTTPS or Message Queuing Telemetry Transport (MQTT).
-Each site, vehicle, or installation runs a **[Tag Relay Sender](Tag_Relay_Sender.md)**, which publishes the tags you choose, and a central instance runs a **[Tag Relay Receiver](Tag_Relay_Receiver.md)**, which shows them alongside its own.
+Each site, vehicle, or installation runs a **[Tag Relay Sender](Tag_Relay_Sender.md)**, which publishes the tags you choose.
+A central instance runs a **[Tag Relay Receiver](Tag_Relay_Receiver.md)**, which shows them alongside its own.
 Dashboards, alerts, and rules on the central instance work on the relayed tags as they do on local ones.
 
 <figure markdown>

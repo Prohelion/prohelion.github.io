@@ -14,7 +14,7 @@ The Profinity Mobile source package includes the build guide (`BUILD.md`) and th
 
 - Node.js 22.11 or later and npm for every build.
 - macOS with Xcode 16 or later and CocoaPods for iOS.
-- Android Studio with SDK platform API 26 or later and JDK 17 for Android.
+- Android Studio with SDK platform API 26 or later and Java Development Kit (JDK) 17 for Android.
 
 ## Branding configuration
 

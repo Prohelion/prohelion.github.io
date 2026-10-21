@@ -24,11 +24,12 @@ Use [Readouts](../Data/Readouts.md) when the values need no icon or grouping.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the pill element |
 | `title` | string | No | None | Heading at the top of the pill, before the icon and groups |
 | `icon` | object | No | None | Icon shown at the left of the pill. When omitted, the icon area is left empty |
 | `items` | array | Yes | None | Array of pill groups, laid out horizontally in order |
+
+The web interface accepts but ignores `id`.
 
 ### Icon parameters
 
@@ -45,9 +46,9 @@ Each item in the pill's `items` must contain a `pillgroup` object with:
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Not used by the web interface |
 | `items` | array | Yes | None | Array of value items |
+
+The web interface accepts but ignores `id` and `class`.
 
 ### Pill item parameters
 
@@ -62,9 +63,9 @@ Each item in the pill group's `items` must contain a `value` object, which is a 
 | `dotColor` | string | No | None | Shows a status dot beside the value. Use `success`, `warning` or `error` for the dashboard theme colours, or any CSS colour value |
 | `hyperlink` | string | No | None | When set, the value is displayed as a link. A path that starts with `Profile/` resolves against the Profinity server |
 | `openHyperLinkInNewWindow` | boolean | No | `false` | When `true` and `hyperlink` is set, the link opens in a new browser tab. The parameter has no effect without `hyperlink` |
-| `enabled` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed normally |
-| `visible` | boolean | No | `true` | Not used by the web interface, because pill items are always displayed |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
+
+The web interface accepts but ignores `enabled` and `visible`, because pill items are always displayed normally.
 
 The status dot is not shown when `hyperlink` is set.
 Give the item a `label` as well as a `dotColor`, because colour alone does not state the status.

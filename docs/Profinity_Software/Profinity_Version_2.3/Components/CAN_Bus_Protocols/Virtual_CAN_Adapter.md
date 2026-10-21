@@ -33,7 +33,7 @@ To relay traffic, add a Virtual Adapter to the Profile after the adapter for the
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | **Network Protocol** | `TCP` or `UDP`. UDP is always available, even when TCP is running. | `TCP` |
-| **Bridge Protocol Version** | `V1`, `V2` or `All`. | `All` |
+| **Bridge Protocol Version** | `V1`, `V2` or `All`. `All` speaks both protocols. | `All` |
 | **Network Adapter** | The network interface on which the Virtual Bridge runs. | The first available multicast interface |
 | **Bus Number** | The bus number of the bridge. Profinity limits it to 0 to 13 for `V1` or `All`, because the version 1 protocol allows only a 4-bit bus number. | 13 |
 | **UDP TTL** | The time to live of the UDP packets that Profinity transmits, from 1 to 1024. | 128 |
@@ -56,47 +56,7 @@ If a client cannot connect, check these things:
 - The **Network Adapter** is the interface that the client can reach.
 - The client speaks a protocol version covered by the **Bridge Protocol Version**.
 
-## Multi-protocol support
-
-Tritium and Prohelion CAN to Ethernet bridges have two major firmware releases, V1 and V2.
-The two releases speak different protocols.
-They also differ in the width of the bus identifier: 4 bits for V1 and 16 bits for V2, as set out in [CAN-UDP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md).
-Refreshing the firmware of a V1 bridge updates it to V2, but many bridges remain on V1 firmware.
-
-Tritium software tools shipped in either a V1 or a V2 variant.
-A V1 tool cannot talk to a V2 bridge.
-The [Fundamentals](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Fundamentals.md) page recommends using the tools that match the bridge version.
-
-The Virtual Bridge resolves this by speaking both protocols at once (the `All` option).
-It presents itself as two bridges, one V1 and one V2.
-A tool then finds the bridge version that it can speak to.
-
-<figure markdown>
-![Multi-protocol support: V1 and V2 tools connect to one Virtual Bridge](../../images/MultipleProtocol.png)
-<figcaption>Multi-Protocol Support</figcaption>
-</figure>
-
-The Virtual Bridge also lets a physical V1 bridge talk to tools designed for the V2 protocol.
-In this scenario, the Virtual Adapter sits in front of a Tritium V1 bridge and routes its traffic.
-The bridge can then communicate with tools that support the V2 protocol.
-
-<figure markdown>
-![V1 and V2 protocol support: a Tritium V1 bridge behind the Virtual Adapter, which routes to tools using the V2 protocol](../../images/v1v2Protocol.png)
-<figcaption>V1 and V2 Protocol Support</figcaption>
-</figure>
-
-## Multi-client support {#multi-client-tcp-support}
-
-The physical bridge handles a single TCP connection at a time, so a second TCP connection fails.
-UDP is the alternative for several clients.
-The Virtual Bridge handles multiple clients at once.
-It can therefore act as a TCP CAN bridge server, where many clients connect over TCP and keep the connection open to receive CAN data.
-This suits real-time CAN monitoring in remote locations.
-
-<figure markdown>
-![Multi-client support: several clients connect over TCP to one Virtual Adapter](../../images/MultipleVirtualAdapter.png)
-<figcaption>Multi-Client Support</figcaption>
-</figure>
+For how the Virtual Bridge speaks both the V1 and V2 bridge protocols and serves several clients at once, refer to [Virtual CAN adapter protocol and client support](Virtual_CAN_Adapter_Protocols.md).
 
 For the physical adapters that the Virtual Adapter relays to, refer to [CAN bus adapters](CAN_Bus_Adapters.md).
 For the bridge that the Virtual Adapter imitates, refer to the [CAN to Ethernet bridge documentation](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/index.md).

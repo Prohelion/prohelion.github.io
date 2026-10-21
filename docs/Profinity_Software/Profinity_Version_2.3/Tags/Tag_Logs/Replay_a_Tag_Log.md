@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Replay a tag log
 
 The tag log replayer applies recorded values back onto your live tags, using the timing recorded in the file, so the replay runs at the pace of the original recording.
-Only a log file written by a TAG File Logger or TAG SFTP Logger can be replayed.
+Only a log file written by a TAG File Logger or TAG SFTP Logger (Secure Shell File Transfer Protocol) can be replayed.
 InfluxDB and Prometheus data cannot.
 To record a log, refer to [Log tags to a file](Log_Tags_to_a_File.md).
 
@@ -28,7 +28,11 @@ Before you start, check two conditions on the log file:
 
 To replay a log:
 
-1. If the log is not listed, add it to the replayer. A log recorded on this instance is written to `tag_logs/`, but the replayer lists only the `tag_logs/replay/` folder. Copy the recorded file there, or add it with the **Upload Tag Change Log files** control, which also suits a log recorded on another Profinity instance. Uploaded logs are placed in `tag_logs/replay/` automatically. Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where this folder sits on each platform.
+1. If the log is not listed, add it to the replayer. A log recorded on this instance is written to a `tag_logs/<profile name>/<logger name>/` folder.
+   The replayer lists only the `tag_logs/replay/` folder.
+   Copy the recorded file there, or add it with the **Upload Tag Change Log files** control, which also suits a log recorded on another Profinity instance.
+   Uploaded logs are placed in `tag_logs/replay/` automatically.
+   Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where this folder sits on each platform.
 2. Select the log in the list and click the play button. A replay starts only when no other tag replay is running.
 
 While a replay plays, the position slider shows the current point in the log.

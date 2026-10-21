@@ -15,7 +15,10 @@ For how to record a log, refer to [Log / replay CAN bus messages](../CAN_Utiliti
 Before you start, you need:
 
 - Profinity V2 installed and running.
-- A recorded CAN bus log file, which comes from the CAN File Logger or the CAN SFTP Logger (refer to [CAN file and SFTP loggers](../Components/Loggers/CAN_File_and_SFTP_Loggers.md)), or the `example_log.csv` supplied with Profinity. SFTP is the SSH File Transfer Protocol. Logs from InfluxDB or Prometheus cannot be replayed, so use a File or SFTP logger to record logs for later replay.
+- A recorded CAN bus log file.
+  It comes from the CAN File Logger or the CAN SFTP Logger (refer to [CAN file and SFTP loggers](../Components/Loggers/CAN_File_and_SFTP_Loggers.md)), or it is the `example_log.csv` supplied with Profinity.
+  SFTP is the Secure Shell (SSH) File Transfer Protocol.
+  Logs from InfluxDB or Prometheus cannot be replayed, so use a File or SFTP logger to record logs for later replay.
 - The **Replay CAN logs** permission (refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which provides the **CAN LOG REPLAY** side-menu entry and also turns on **View CAN data**.
 - A profile whose components match the recording. Only components whose CAN addresses match the logged messages receive data. `example_log.csv` carries the CAN traffic of the Example Profile's components, so load the Example Profile first (refer to the [Quick start guide](../Getting_Started/Quick_Start.md)).
 - Optional for testing: a [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected.

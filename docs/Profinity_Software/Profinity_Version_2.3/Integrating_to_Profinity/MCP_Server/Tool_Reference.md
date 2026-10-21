@@ -58,7 +58,8 @@ Returns: `{items, count, limit, truncated}`.
 ## `get_tag_catalog`
 
 Returns the tag catalogue for the active profile, nested by segment or as a paginated flat list.
-Call `get_all_components` first, then scope with `componentId` or `tagPrefix`, because an unscoped nested catalogue above roughly 200,000 characters is refused.
+Call `get_all_components` first, then scope with `componentId` or `tagPrefix`.
+An unscoped nested catalogue of more than roughly 200,000 characters is refused.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -104,7 +105,7 @@ Blank and duplicate IDs are skipped, and IDs the caller cannot view are omitted.
 
 ## `get_tag_series`
 
-Returns current or historical values for a single canonical tag ID, using the same range and aggregation rules as `POST /api/v2/TagQuerySet` (refer to [Accessing historical data via APIs](../APIs/index.md#accessing-historical-data-via-apis)).
+Returns current or historical values for a single canonical tag ID, using the same range and aggregation rules as `POST /api/v2/TagQuerySet` (refer to [Read real-time and historical tag data](../APIs/Read_Tag_Data.md)).
 Omit `start` and `stop` for the current value.
 
 | Parameter | Type | Required | Default | Description |
@@ -138,7 +139,8 @@ Batch-reads time series for up to 20 canonical tag IDs sharing one time range an
 | `aggregationFunction` | string | No | `max` | `max`, `min`, `mean`, `sum`, `count`, `last`, or `first` |
 
 Returns: an array with one entry per visible requested ID, in request order, each shaped like the `get_tag_series` result.
-An ID that is a container or is not a valid tag returns an entry with an empty `dataPoints` list and a `reason` of `notReadable` or `notFound` instead of an error.
+An ID that is a container or is not a valid tag does not return an error.
+It returns an entry with an empty `dataPoints` list and a `reason` of `notReadable` or `notFound`.
 IDs the caller cannot view are omitted.
 
 ## `get_alert_rules`

@@ -36,7 +36,7 @@ flowchart LR
 |--|---------------------|------------------|-------------------------|-----------|
 | Built from | Dashboard YAML | Files and scripts in a profile | The same files, plus `component_metadata.yaml` | An assembly compiled by the author |
 | Typical use | A screen of existing tags | A new component in one profile | The same component on other installations | When files and scripts are not enough |
-| DBC, scripts, and maps | None | Optional | Optional | As the assembly implements them |
+| CAN database (DBC), scripts, and maps | None | Optional | Optional | As the assembly implements them |
 
 To make a first Custom Component, follow [Make your first Custom Component](First_Custom_Component.md).
 This section is the reference for a Custom Component: the files that make one up, including `component_metadata.yaml`, which names a pack.

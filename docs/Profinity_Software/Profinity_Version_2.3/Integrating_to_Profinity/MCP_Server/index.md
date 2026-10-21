@@ -75,7 +75,7 @@ A user with access to Profinity AI therefore does not need **MCP integration** g
 To authenticate directly against the MCP server:
 
 1. Create a user account with the required permissions, or use an existing one.
-2. Generate a JWT for the user by signing in through `POST /api/v2/Users/Authenticate`, as described under [Profinity API security](../APIs/index.md#profinity-api-security).
+2. Generate a JWT for the user by signing in through `POST /api/v2/Users/Authenticate`, as described under [Authenticate to the Profinity REST API](../APIs/API_Authentication.md).
    A personal token expires after the **Security Token Expiration (minutes)** setting in **Application Config**.
    A service account token does not expire.
 3. Include the token in the `Authorization` header of every request:

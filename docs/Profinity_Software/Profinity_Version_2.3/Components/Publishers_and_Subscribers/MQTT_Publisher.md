@@ -8,7 +8,8 @@ last_reviewed: 2026-10-14
 
 # MQTT Publisher
 
-The **MQTT Publisher** sends the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to a Message Queuing Telemetry Transport (MQTT) broker, either on a fixed interval or whenever a member tag's value changes.
+The **MQTT Publisher** sends the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to a Message Queuing Telemetry Transport (MQTT) broker.
+It publishes either on a fixed interval or whenever a member tag's value changes.
 Any system subscribed to the broker receives the data as it is published.
 
 A publisher pushes to a subscriber that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.

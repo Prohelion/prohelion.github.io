@@ -13,7 +13,8 @@ Derived tags write a value formula over the aliases they declare (`a`, `b`, …)
 The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
 
 You enter expressions in the [collections](../Collections/index.md), [rules](../Rules/index.md), and [derived tags](../Derived_Tags/index.md) editors.
-Use either the guided builder, which assembles an expression from a form, or free text.
+Use either the guided builder, a form that assembles an expression for you, or free text.
+Refer to [Build an expression with the guided builder](Build_an_Expression.md) for the builder.
 An invalid member fails validation when the file is saved, with a message that points at the correct spelling.
 
 ## Picking tags
@@ -118,7 +119,7 @@ tag.MatchesPath("Elmar Solar MPPT") && tag.IsStale
 ```
 
 Sample age in seconds is not part of the language.
-Use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Tag rules](../Rules/index.md).
+Use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rule settings](../Rules/Rule_Settings.md#evaluation-tick).
 
 ## Metadata
 
@@ -155,35 +156,28 @@ The message is "No applicable method 'Abs' exists in type 'Math'".
 Add `?? 0` to fix it.
 The same applies to `tag.Value` in collection and rule expressions.
 
-## Guided builder
+## Guided builder facets
 
-The guided builder offers these facets, each of which writes the expression shown:
+The guided builder writes one condition for each row, and joins the rows with `&&` or `||`.
+Each facet writes the expression shown:
 
 | Facet | Emits |
 |-------|-------|
-| Path | `tag.MatchesPath("…")` |
-| Name | `tag.MatchesName("…")` |
-| Numeric | `tag.Value` compared to a number |
+| Path prefix | `tag.MatchesPath("…*")` |
+| Numeric value | `tag.Value` compared to a number |
+| Text value | `tag.Text` compared to a string |
 | Has value | `tag.HasValue` / `!tag.HasValue` |
-| Quality / stale | `tag.Quality` / `tag.IsStale` |
-| Meta type / text | `tag.Meta.Type` / `tag.Meta.Text("…")` |
+| Quality | `tag.Quality == "…"` |
+| Is stale | `tag.IsStale` / `!tag.IsStale` |
+| Meta type | `tag.Meta.Type == "…"` |
+| Meta field | `tag.Meta.Text("…") == "…"` |
 
-Use **Free text** when the builder cannot express the condition.
-Examples are a complex `&&` / `||` combination, unusual meta keys, or derived formulas.
+The builder has no facet for `tag.MatchesName`, `tag.Is`, or `tag.Meta.Number`.
+Write those, a complex `&&` / `||` combination, and derived formulas as free text in the **Expression** field.
+To use the builder, refer to [Build an expression with the guided builder](Build_an_Expression.md).
 
-## Unsupported spellings
-
-These spellings fail validation in Profinity 2.3.
-Rewrite them as shown:
-
-| Do not use | Use instead |
-|------------|-------------|
-| `tag.MatchesPathPrefix(…)` | `tag.MatchesPath(…)` |
-| `tag.FullTagId` / `.Contains(…)` | `tag.Is(…)` or `tag.MatchesName("*…*")` |
-| `tag.IsValueValid` | `tag.HasValue` |
-| `Convert.…(tag.…)` | `tag.Value` / `tag.Text` / `tag.Bool` |
-| `tag.Meta.Field(…)` | `tag.Meta.Text(…)` or `tag.Meta.Number(…)` |
-| `tag.SampleAgeSeconds` / `SecondsSinceUpdate` | `tag.IsStale` |
+Some spellings fail validation in Profinity 2.3.
+[Unsupported expression spellings](Unsupported_Expression_Spellings.md) lists each one with its replacement.
 
 For the places these expressions are used, refer to [Tag collections](../Collections/index.md), [Alerts Log](../Alerts.md), [Tag rules](../Rules/index.md), [Rule actions](../Rules/Actions/index.md), [Derived tags](../Derived_Tags/index.md), and [Create collections, rules, and dashboard bindings from tags](../Create_Collections_Rules_and_Bindings_from_Tags.md).
 To return to the overview, refer to [Tag layer](../index.md).

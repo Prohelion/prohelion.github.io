@@ -29,5 +29,5 @@ With the new profile active, add components to it and configure their settings, 
 Profinity saves changes to the profile, such as components added to it, with the profile.
 A profile can also have its own home dashboard, which [How to create a profile dashboard](./Create_Profile_Dashboard.md) describes.
 
-[Profiles](../Administration/Profiles.md) is the full profile reference, including renaming, Profile Packs, and Kiosk Mode.
+[Manage profiles](../Administration/Manage_Profiles.md) covers activating, renaming, importing, and downloading profiles.
 [Profile Dashboard](../Administration/Profile_Dashboard.md) covers profile dashboard configuration.

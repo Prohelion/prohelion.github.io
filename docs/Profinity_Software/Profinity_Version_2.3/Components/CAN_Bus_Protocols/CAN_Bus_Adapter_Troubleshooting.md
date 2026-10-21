@@ -8,7 +8,12 @@ last_reviewed: 2026-10-20
 
 # CAN bus adapter troubleshooting
 
-This page covers the adapter status indicator, a Peak adapter that needs its driver, a CAN to Ethernet bridge that Auto Discovery does not find, and the bit rate that every device on a CAN bus must share.
+This page covers:
+
+- The adapter status indicator.
+- A Peak adapter that needs its driver.
+- A CAN to Ethernet bridge that Auto Discovery does not find.
+- The bit rate that every device on a CAN bus must share.
 The adapters are listed on [CAN bus adapters](CAN_Bus_Adapters.md).
 
 ## Adapter status
@@ -38,7 +43,8 @@ If the indicator is red, read the Profinity System Logs, then check these things
 ## If a Peak adapter is not found
 
 The Peak CAN to USB Adapter needs the Peak driver installed on the machine that runs Profinity, as set out in [CAN bus adapters](CAN_Bus_Adapters.md).
-Without the driver, the adapter does not appear in the **Discovered** category, and an adapter already in the Profile shows a red status with the message "The Peak driver is not installed. Install the latest Peak drivers from the Peak website, then restart Profinity."
+Without the driver, the adapter does not appear in the **Discovered** category.
+An adapter already in the Profile shows a red status with the message "The Peak driver is not installed. Install the latest Peak drivers from the Peak website, then restart Profinity."
 
 Install the latest driver from the [Peak System website](https://www.peak-system.com/), confirm with the Peak tools that the adapter works, then restart Profinity.
 An out-of-date driver also stops the adapter connecting, and Peak updates its driver often.

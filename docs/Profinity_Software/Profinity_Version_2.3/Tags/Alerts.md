@@ -110,6 +110,6 @@ It does not clear the alert.
 - The silence lasts the full hour even if the alert clears first, so clear actions inside the hour are skipped as well.
 - A new occurrence of the same alert inside the hour is still silenced.
 
-How a rule is evaluated, including dwell, deadband, and the evaluation tick, is described under [Rule evaluation: dwell and deadband](Rules/index.md#rule-evaluation-dwell-and-deadband).
+How a rule is evaluated, including dwell, deadband, and the evaluation tick, is described under [Rule settings](Rules/Rule_Settings.md#dwell-and-deadband).
 The expression language is described in [Tag expressions](Selecting_Tags/Tag_Expressions.md), and the actions a rule runs are described in [Tag rules](Rules/index.md) and [Rule actions](Rules/Actions/index.md).
 For the rest of the tag layer, refer to [Tag layer](index.md), [Tag collections](Collections/index.md), and [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).

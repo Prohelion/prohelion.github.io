@@ -28,13 +28,15 @@ To install them, refer to [Install AI Skills](./Install_AI_Skills.md).
 AI Skills needs no licence of its own.
 It uses the Representational State Transfer (REST) API of Profinity (refer to [Profinity REST APIs](../Integrating_to_Profinity/APIs/index.md)), which every edition includes.
 Your sign-in applies, so the same credentials and permissions apply as for any other API call.
-A skill that saves a dashboard, rule, or collection needs the matching permission for the signed-in user, such as **Modify dashboards**, **Modify tag rules**, or **Modify tag collections** (refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
+A skill that saves a dashboard, rule, or collection needs the matching permission for the signed-in user.
+Examples are **Modify dashboards**, **Modify tag rules**, and **Modify tag collections** (refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
 
 Some skills can also read from the Model Context Protocol (MCP) server of your instance, for extra schema discovery (refer to [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md)).
 This access is read-only, and it never pushes changes.
 It needs the **AI** licensed feature, which the **Server** and **Enterprise** editions include ([Licensing](../Licensing.md) lists what each edition includes).
 If the MCP server is unavailable, the skill falls back to the REST API alone.
-If the REST API is not available when you ask a skill to generate something, the skill says so and stops, rather than guessing an endpoint or using a remembered schema.
+If the REST API is not available when you ask a skill to generate something, the skill says so and stops.
+It does not guess an endpoint or use a remembered schema.
 
 ## Supported AI tools
 

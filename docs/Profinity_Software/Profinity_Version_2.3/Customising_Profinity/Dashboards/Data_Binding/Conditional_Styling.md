@@ -29,11 +29,17 @@ The Readout, Lamp, Caption, Tab, Accordion, Footer, and Action definitions in th
 ## Show or hide a component
 
 Binding the `visible` target shows or hides a component with a data value.
-This suits a detail readout that matters only while a limit is active, a tab or accordion that is hidden when its data is not available, or advanced readouts that appear once a condition is met.
+This suits these cases:
+
+- A detail readout that matters only while a limit is active.
+- A tab or accordion that is hidden when its data is not available.
+- Advanced readouts that appear once a condition is met.
+
 The `visible` target removes the component from view.
 The `enabled` target leaves it on screen in a greyed state, so that users can see that the item exists while a component is offline.
 
-The following readout always shows the bus current, and it appears only while the controller reports that the bus current limit is active, because the `visible` binding follows the `DBC/Status/LimitBusCurrent` tag.
+The following readout always shows the bus current, and it appears only while the controller reports that the bus current limit is active.
+The `visible` binding follows the `DBC/Status/LimitBusCurrent` tag.
 When the tag value is `0` the readout is hidden, and when it is `1` the readout is shown.
 
 ``` yaml

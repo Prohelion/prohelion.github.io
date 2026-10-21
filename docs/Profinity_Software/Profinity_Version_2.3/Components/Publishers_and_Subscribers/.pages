@@ -4,3 +4,4 @@ nav:
     - MQTT_Publisher.md
     - Webhook_Publisher.md
     - MQTT_Subscriber.md
+    - MQTT_Subscriber_Sparkplug_Behaviour.md

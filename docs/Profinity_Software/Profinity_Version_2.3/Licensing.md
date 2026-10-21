@@ -23,7 +23,11 @@ Configuration toggles can narrow what the licence permits, but never grant more.
 
 Not every feature described in this documentation is available on every instance.
 The features ticked in every column are available in every edition, including an unlicensed instance, and a licence adds the rest.
-In the table, :material-check-circle:{ .edition-icon .edition-icon--yes aria-hidden="true" } means the feature is included, :material-close-circle-outline:{ .edition-icon .edition-icon--no aria-hidden="true" } means it is not included, and :material-plus-circle:{ .edition-icon .edition-icon--addon aria-hidden="true" } **Add-on** means it is licensed separately.
+In the tables in this section:
+
+- :material-check-circle:{ .edition-icon .edition-icon--yes aria-hidden="true" } means the feature is included.
+- :material-close-circle-outline:{ .edition-icon .edition-icon--no aria-hidden="true" } means it is not included.
+- :material-plus-circle:{ .edition-icon .edition-icon--addon aria-hidden="true" } **Add-on** means it is licensed separately.
 
 ### Features by edition
 
@@ -64,7 +68,8 @@ The remaining rows differ by edition:
   Unlicensed Desktop use is limited to personal, non-commercial purposes, as described in [Desktop free-use policy](#desktop-free-use-policy).
 - Without Profinity Server there are no user accounts or roles, and **Users & Groups** is not shown.
   A Desktop installation runs as a single built-in admin user.
-- Kiosk Mode is included in every edition, but it signs a display in as an enabled Profinity user, and a dedicated kiosk user is created in **Users & Groups**, which needs Profinity Server.
+- Kiosk Mode is included in every edition.
+  It signs a display in as an enabled Profinity user, and a dedicated kiosk user is created in **Users & Groups**, which needs Profinity Server.
   Refer to [Kiosk Mode](Administration/Kiosk_Mode.md).
 - Themes and branding are not included for an unlicensed instance.
   The instance keeps its `theme.yaml` file but shows the default Profinity appearance until a Desktop or higher licence is installed.
@@ -117,11 +122,13 @@ Features and components outside the unlicensed set become unavailable until you 
 An unlicensed Desktop installation is provided for personal, non-commercial use only and must not be used for commercial purposes.
 Commercial use requires a purchased Desktop licence from Prohelion.
 A Desktop installation does not need a licence for personal use, and does not issue or consume the automatic local trial described in [The 14-day local trial](#the-14-day-local-trial).
-It keeps the unlicensed entitlement set indefinitely and shows a notice on the Home screen explaining the non-commercial-use restriction and directing commercial users to contact Prohelion to purchase a Desktop licence.
+It keeps the unlicensed entitlement set indefinitely.
+It also shows a notice on the Home screen that explains the non-commercial-use restriction and directs commercial users to contact Prohelion to purchase a Desktop licence.
 If a trial or commercial `license.yaml` is installed on a Desktop host manually, Profinity validates and applies it in the same way as on a server host.
 A Desktop host that holds a Server licence also accepts connections from other machines and creates the default `admin` account, as a server host does.
 The built-in desktop sign-in used by the application window still works from the same computer only.
-Do not put a reverse proxy on the same computer in front of a Desktop host, because requests that come through it look as if they came from the computer itself.
+Do not put a reverse proxy on the same computer in front of a Desktop host.
+Requests that come through the proxy look as if they came from the computer itself.
 Profinity refuses the desktop sign-in on a request that carries forwarding headers.
 The safe set-up is to run Profinity as a server host behind the proxy instead.
 
@@ -131,10 +138,12 @@ The fingerprint is a value computed from the installation itself, unique to that
 It has two purposes:
 
 - It ties a signed `license.yaml` to one specific installation, so a licence file cannot be copied to another machine and reused.
-- It is the only piece of information an administrator needs to send to Prohelion to request a licence or evaluation, which keeps the process usable for edge machines with no internet access.
+- It is the only piece of information an administrator needs to send to Prohelion to request a licence or evaluation.
+  This keeps the process usable for edge machines with no internet access.
 
 A licence is signed for one machine's fingerprint.
-A licence issued for one instance does not apply to another, and Profinity rejects an upload of a licence issued for a different machine, reporting the state `WrongInstance` if such a file is placed directly in the licence folder.
+A licence issued for one instance does not apply to another.
+Profinity rejects an upload of a licence issued for a different machine, and reports the state `WrongInstance` if such a file is placed directly in the licence folder.
 The fingerprint is shown on the [License manager](Administration/License_Manager.md), with a button to copy it.
 
 ## Related documentation

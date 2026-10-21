@@ -92,6 +92,7 @@ Over HTTPS the warning carries the response code from the receiver:
 - 409 means the receiver rejected the batch because of a [collision](../../Tags/Tag_Relay.md#collision-rules) with a tag that relay does not own.
 - 400 means the receiver rejected the request, which includes a request body over 5 MB.
 
-If the sender delivers but nothing appears on the receiver, confirm that the receiver uses the same protocol and, for MQTT, subscribes to the same topic as the **MQTT snapshot topic**.
+If the sender delivers but nothing appears on the receiver, confirm that the receiver uses the same protocol.
+For MQTT, also confirm that the receiver subscribes to the same topic as the **MQTT snapshot topic**.
 
 To grant the **Receive external tags** permission that the HTTPS receiver needs, refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).

@@ -32,7 +32,7 @@ If Prohelion has issued you a licence, refer to [Apply a licence](../Installatio
 
 ## Step 2: Load the example profile
 
-Profinity includes an **Example Profile** that holds pre-configured components, a dashboard, styling and images.
+Profinity includes an **Example Profile** that holds pre-configured components, a dashboard, styling, and images.
 To make it the active [profile](Profiles.md):
 
 1. Select **ADMIN** in the side menu.
@@ -59,7 +59,7 @@ Profinity includes an example log, `example_log.csv`, that replays recorded traf
 
 The dashboards of the Example Profile components now show moving data.
 Open **Prohelion BMU** in the side menu to check.
-The playback controls pause, resume and move to a new position in the log.
+The playback controls pause, resume, and move to a new position in the log.
 For the full set of controls, refer to [Log / replay CAN bus messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md).
 
 ## Step 4: Edit your first dashboard
@@ -96,7 +96,7 @@ The **Active** tab lists alerts that are firing now, and the **History** tab lis
 Select an alert to **Acknowledge** it, or to **Silence** it for a set number of minutes.
 
 The signed-in Windows desktop user can view and change rules.
-Actions that send an email, Slack message, webhook or MQTT message need the Tag Rule Actions licensed feature, as described in [Rule actions](../Tags/Rules/Actions/index.md).
+Actions that send an email, Slack message, webhook, or Message Queuing Telemetry Transport (MQTT) message need the Tag Rule Actions licensed feature, as described in [Rule actions](../Tags/Rules/Actions/index.md).
 
 ## Next steps
 
@@ -108,5 +108,5 @@ Choose the next job:
 - To write your own rule conditions, refer to [Tag expressions](../Tags/Selecting_Tags/Tag_Expressions.md) and the [Alerts Log](../Tags/Alerts.md).
 - To give other people access, refer to [Create a user](./Create_User.md), which needs a Server licence.
 
-If something does not work as described, refer to the [Troubleshooting guide](../Customising_Profinity/Dashboards/Troubleshooting.md) or the [Frequently asked questions](../Customising_Profinity/Dashboards/FAQ.md).
+If a dashboard does not work as described, refer to the dashboard [Troubleshooting guide](../Customising_Profinity/Dashboards/Troubleshooting.md) or the dashboard [Frequently asked questions](../Customising_Profinity/Dashboards/FAQ.md).
 To contact Prohelion, use the **Feedback** pill on the **ADMIN** page.

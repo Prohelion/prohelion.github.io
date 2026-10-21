@@ -61,7 +61,7 @@ A Custom Component dashboard is that component's page in the profile.
 Profinity writes a starter dashboard named after the component when none is uploaded, and the visual editor replaces it.
 A DBC file is optional, and is only required when the component needs to publish CAN signals as tags.
 To add the component, refer to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
-For the files around the dashboard, such as scripts, actions and maps, refer to [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md).
+For the files around the dashboard, such as scripts, actions, and maps, refer to [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md).
 
 ### Profile dashboards {#profile-dashboards}
 
@@ -124,4 +124,5 @@ The YAML tab provides syntax highlighting and auto-complete.
 ## Viewing dashboard source
 
 Every dashboard in Profinity is built with this dashboard system, so the YAML of an existing dashboard is a useful starting point alongside the examples in this guide.
-Users with the **Modify dashboards** permission can open it with the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar, as described in [How to view dashboard source](../../How_To_Guides/View_Dashboard_Source.md).
+Users with the **Modify dashboards** permission can open it with the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar.
+Refer to [How to view dashboard source](../../How_To_Guides/View_Dashboard_Source.md) for the steps.

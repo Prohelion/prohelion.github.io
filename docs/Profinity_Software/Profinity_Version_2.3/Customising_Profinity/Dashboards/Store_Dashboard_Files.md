@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 Profinity provides four folders in a profile for the images, 3D models, stylesheets, and content files that dashboard YAML references.
 This page describes each folder and how dashboard YAML refers to the files in it.
 
-- `images` holds icons, logos and other images used in dashboards.
+- `images` holds icons, logos, and other images used in dashboards.
 - `models` holds 3D model files for the [3D model](./Component_Reference/Images_and_Models/Model.md) component.
 - `styles` holds custom CSS stylesheets.
 - `content` holds general content files such as HTML snippets and templates.
@@ -21,7 +21,7 @@ Component properties in dashboard YAML refer to these files by filename only, wh
 ## Folder structure
 
 The folders sit in the profile folder, which is `profiles/<profile name>` in the [artefacts directory](../../Installation/Artifacts_Directory.md).
-For the other folders in a profile, refer to [Profiles](../../Administration/Profiles.md).
+For the other folders in a profile, refer to [Profile folders](../../Administration/Profile_Folders.md).
 
 ```text
 <profile>/
@@ -52,9 +52,9 @@ Dashboard YAML uses the URL path only inside HTML component content.
 
 ## Images
 
-The `images` folder holds icons, base images for interactive images, logos, system diagrams and background images for HTML components.
+The `images` folder holds icons, base images for interactive images, logos, system diagrams, and background images for HTML components.
 Component properties refer to them by filename only.
-SVG suits icons and logos because it scales to any size.
+Scalable Vector Graphics (SVG) suits icons and logos because it scales to any size.
 
 The image library of the profile lists and uploads files with the extensions `.svg`, `.png`, `.jpg`, `.jpeg` and `.webp`.
 An uploaded image can be up to 2 MB.

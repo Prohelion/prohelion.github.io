@@ -110,6 +110,6 @@ Control characters in substituted values are removed so that a device value cann
 
 ## Permissions
 
-Actions are attached to rules, so the permissions that apply are those on the [Tag rules](../index.md#permissions) page.
+Actions are attached to rules, so the permissions that apply are those on the [Rule settings](../Rule_Settings.md#permissions) page.
 
 For the rest of the tag layer, refer to [Tag layer](../../index.md), [Tag expressions](../../Selecting_Tags/Tag_Expressions.md), [Tag collections](../../Collections/index.md), and [Derived tags](../../Derived_Tags/index.md).

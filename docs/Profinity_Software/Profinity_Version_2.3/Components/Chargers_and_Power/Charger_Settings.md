@@ -49,7 +49,7 @@ It asks for the settings in the following table instead.
 
 !!! warning "Set the supply and charge limits before charging"
     The charger and supply limits in the Profile are the maximums Profinity works to.
-    A **Supply Current Limit** above what the wall circuit is rated for can overload that circuit.
+    A **Supply Current Limit** higher than the rating of the wall circuit can overload that circuit.
     Profinity does not know the cell specification beyond what the Battery Management Unit (BMU) reports.
     Keep the charge current at or below the cell manufacturer's recommended charge current to avoid damaging the battery.
 

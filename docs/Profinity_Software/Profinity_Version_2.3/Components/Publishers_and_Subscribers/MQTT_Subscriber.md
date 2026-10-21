@@ -97,32 +97,8 @@ The rest of the message is still applied.
 
 ## Sparkplug behaviour
 
-### Messages applied and ignored
-
-The subscriber applies data from both node-level and device-level publishers.
-It never writes command or state messages to a tag, even under the default `spBv1.0/#` filter.
-
-### Host state
-
-While connected, the subscriber announces itself to the broker as online under its **Host ID**.
-It is marked offline when the subscriber stops or the connection drops unexpectedly.
-The offline state stays on the broker, so a Sparkplug-aware consumer can see the last known state.
-
-### Sequence gaps and metric death {#sequence-gaps-and-rebirth}
-
-When a message arrives out of sequence, the subscriber asks the edge node to republish its data.
-It does not apply the out-of-sequence values as current values.
-
-When a metric dies, or a later announcement from the edge node omits a metric that was known before, the tag is kept and its quality is set to **Stale**.
-History and dashboard bindings against that tag path keep working and show the value as no longer live.
-Refer to [Tags](../../Tags/index.md) for how data quality is shown.
-
-### Data types and malformed payloads {#data-types}
-
-The subscriber supports scalar metric types only: boolean, string, the integer widths, float, double, and DateTime.
-It skips dataset, template, bytes, and property-set values.
-It also skips a metric whose name is not yet known, because the edge node has not announced it.
-A payload that cannot be decoded is logged and dropped, and the subscriber stays connected.
+The subscriber applies metrics from node-level and device-level publishers, and skips command and state messages and metric types that it does not support.
+[MQTT Subscriber Sparkplug behaviour](MQTT_Subscriber_Sparkplug_Behaviour.md) lists the messages and metric types it applies, how it announces itself as a host, and what it does after a sequence gap or a metric death.
 
 ## Reconnection
 

@@ -2,5 +2,6 @@ title: Tag rules
 nav:
     - index.md
     - Create_a_Rule.md
+    - Rule_Settings.md
     - Rules_YAML_Example.md
     - Actions

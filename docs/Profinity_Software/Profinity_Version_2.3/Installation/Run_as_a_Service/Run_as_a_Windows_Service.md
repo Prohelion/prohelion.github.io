@@ -24,13 +24,13 @@ On 64-bit Windows it is `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\
 
 1. Search for cmd, right-click it, and select **Run as administrator**.
 2. Run the install command.
-   To install under a user account, give the account name:
+    To install under a user account, give the account name:
 
     ```bat
     ProfinityService.cmd install [Username to install under]
     ```
 
-   To install under LocalSystem, run it without a name:
+    To install under LocalSystem, run it without a name:
 
     ```bat
     ProfinityService.cmd install
@@ -49,7 +49,8 @@ Expect the engine to restart when you apply the licence.
 For the accounts that can sign in, refer to [Who can sign in, by installation type](../Applying_a_Licence.md#who-can-sign-in).
 
 Starting a second instance with the same configuration on the same machine causes a port conflict on the API or web content ports.
-To serve content and develop on the same machine at the same time, install Profinity under a separate user account, and change the port in the config file for one of the instances.
+To serve content and develop on the same machine at the same time, install Profinity under a separate user account.
+Then change the port in the config file for one of the instances.
 
 To remove the service, run this command as an administrator:
 

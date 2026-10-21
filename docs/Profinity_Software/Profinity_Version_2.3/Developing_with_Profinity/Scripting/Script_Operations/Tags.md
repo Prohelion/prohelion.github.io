@@ -38,7 +38,8 @@ A path with a leading `/` starts at the root of the whole tree, so it includes t
 
 !!! note "Paths are not a security boundary"
     Resolving relative paths under the host component is for convenience.
-    It is not a sandbox or an authorisation check, and a script can reach any tag in the tree, so treat scripts as trusted code that runs inside the Profinity engine.
+    It is not a sandbox or an authorisation check.
+    A script can reach any tag in the tree, so treat scripts as trusted code that runs inside the Profinity engine.
 
 Tag ids passed to a [Tag Change script](../Script_Types/Tag_Change_Scripts.md) are full tag ids.
 To use one with `Profinity.Tags`, add a leading `/`, for example `Profinity.Tags.GetSample("/" + tagId)`.
@@ -173,7 +174,8 @@ Other types are rejected.
     ```
 
 !!! warning "A script can trigger itself"
-    A script that writes a tag it is also watching in a [Tag Change script](../Script_Types/Tag_Change_Scripts.md) can trigger itself, so it should watch the source tag and publish to a different tag.
+    A script that writes a tag it is also watching in a [Tag Change script](../Script_Types/Tag_Change_Scripts.md) can trigger itself.
+    Watch the source tag and publish to a different tag.
 
 ## Creating tags and adding metadata
 

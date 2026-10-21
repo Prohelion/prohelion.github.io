@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Script examples
 
-This page holds worked script examples that read a DBC signal, send a CAN message and persist script state.
+This page holds worked script examples that read a CAN database (DBC) signal, send a CAN message and persist script state.
 To add a script component and run a first script, refer to [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
 Scripting needs a **Desktop**, **Server**, or **Enterprise** licence.
 Refer to [Licensing](../../Licensing.md).

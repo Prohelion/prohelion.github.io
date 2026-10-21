@@ -3,4 +3,5 @@ nav:
     - SSO_and_Sign_In.md
     - Password_Policy.md
     - Two_Factor_Authentication.md
+    - Two_Factor_Sign_In.md
     - SCIM_and_SIEM.md

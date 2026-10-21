@@ -78,7 +78,8 @@ The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `L
 !!! warning "One call per tag"
     The `sample` argument is only the tag that changed.
     Reading any other tag returns its live value at that moment, not the value published together with this change.
-    A frame, a payload or several tags written as one update are already separate changes before the method runs, so sibling tags are not guaranteed to be consistent with each other.
+    A frame, a payload, or several tags written as one update are already separate changes before the method runs.
+    Sibling tags are therefore not guaranteed to be consistent with each other.
 
 To read the tag that fired, including its quality and timestamp, pass its tag ID back to [`Profinity.Tags`](../Script_Operations/Tags.md) with a leading `/`, which is the root of the tag tree.
 In C# and Python, write `Profinity.Tags.GetSample("/" + tagId)`.

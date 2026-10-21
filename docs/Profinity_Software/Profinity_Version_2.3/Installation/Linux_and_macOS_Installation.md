@@ -106,4 +106,6 @@ To stop it as a service on Linux, run `sudo systemctl stop profinity`, as descri
 
 ## Troubleshooting
 
-- On Linux, Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration: the account that runs Profinity does not own the directory, so run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write.
+- On Linux, Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration.
+  The account that runs Profinity does not own the directory.
+  Run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write.

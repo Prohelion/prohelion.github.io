@@ -6,6 +6,10 @@ nav:
     - Send_Receive_CAN_Bus.md
     - Replay_CAN_Logs.md
     - Configure_Data_Logging.md
+    - Log_Data_to_Files.md
+    - Log_Data_to_InfluxDB.md
+    - Log_Data_to_Prometheus.md
+    - Publish_Data_to_MQTT_or_Webhook.md
     - Log_Data_to_Cloud_Influx.md
     - Create_Custom_Dashboard.md
     - Create_Profile_Dashboard.md

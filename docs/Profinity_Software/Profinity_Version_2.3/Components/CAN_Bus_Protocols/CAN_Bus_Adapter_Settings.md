@@ -72,7 +72,7 @@ The **Peak Systems CAN Adapter** connects to a Peak CAN to USB adapter through t
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|
-| **PCAN Channel ID** | The channel of the adapter: USB 01 to USB 16, LAN 01 to LAN 16, or PCI 01 to PCI 16. Auto Discovery fills it in. | USB 01 |
+| **PCAN Channel ID** | The channel of the adapter: USB 01 to USB 16, LAN 01 to LAN 16, or PCI 01 to PCI 16, where PCI is Peripheral Component Interconnect. Auto Discovery fills it in. | USB 01 |
 | **PCAN BaudRate** | 5K, 10K, 20K, 33K, 47K, 50K, 83K, 95K, 100K, 125K, 250K, 500K, 800K, or 1M Baud. | 500K Baud |
 
 On Linux, a Peak adapter appears as a SocketCAN interface, so use the SocketCAN adapter instead (refer to [CAN bus adapters](CAN_Bus_Adapters.md)).

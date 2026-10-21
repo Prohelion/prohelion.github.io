@@ -19,9 +19,9 @@ Use an [Action](../Interactive/Actions.md) with `invoke: Navigate`, or an `a` el
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Not used by the web interface |
 | `url` | string | Yes | None | Location to navigate to. A path that starts with a single `/` is opened inside the web interface, and any other address replaces the current page in the browser |
+
+The web interface accepts but ignores `id` and `class`.
 
 ## Example
 

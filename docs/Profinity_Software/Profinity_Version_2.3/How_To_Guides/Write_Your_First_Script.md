@@ -34,25 +34,15 @@ Before you start, you need:
 ## Add a script component and set its mode
 
 A script is a component in your profile, and the language is set by which script component you add.
-For a first script, use a run script.
-The **Script Mode** of the script component sets the script type.
-The main types are:
-
-- [Run scripts](../Developing_with_Profinity/Scripting/Script_Types/Run_Scripts.md), which run on demand or on a schedule (time interval or cron).
-- [Receive scripts](../Developing_with_Profinity/Scripting/Script_Types/Receive_Scripts.md), which run when selected CAN messages are received.
-- [Service scripts](../Developing_with_Profinity/Scripting/Script_Types/Service_Scripts.md), which are long-running background services with lifecycle control.
-
-Tag Change and Alert modes also exist, and [Script types](../Developing_with_Profinity/Scripting/Script_Types/index.md) describes them.
+This guide uses a run script, which starts on demand from the UI.
+[Script types](../Developing_with_Profinity/Scripting/Script_Types/index.md) describes the other modes and the settings each one adds, and [Run scripts](../Developing_with_Profinity/Scripting/Script_Types/Run_Scripts.md) covers the time interval and cron schedule modes.
 
 1. Select **ADD COMPONENT** (refer to [How to add a component to your profile](Add_Component_to_Profile.md)).
 2. Select the **CSharp Script**, **Python Script**, or **Lua Script** component.
    The script component settings and the script editor open together.
 3. Set the component name, and add a description if wanted.
-4. Set **Script Mode** to **Run On Demand**, which runs the script manually from the UI.
-   **Run On Time Interval** runs it at a fixed interval, for example every few minutes.
-   **Run On CRON Schedule** runs it on a [Quartz](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) cron expression.
-5. Optional: enable **Auto Start Script** to start the script automatically when Profinity starts.
-6. Optional: enable **Log Script Output**, which is off by default, so that the script's output appears in the Profinity log.
+4. Set **Script Mode** to **Run On Demand**.
+5. Enable **Log Script Output**, which is off by default, so that the script's output appears in the Profinity log.
 
 ## Write the script
 
@@ -102,7 +92,6 @@ To open the log, select **ADMIN**, then **Logs**.
 The entry reads `Script <script file name>: This is my first Profinity script.`, followed by a line for `Profinity.Message`.
 Profinity always writes compile errors and script errors to the log, whether or not **Log Script Output** is on.
 Review the error message, fix the script, and run it again.
-A script with a time interval or cron schedule runs according to the schedule you set.
 
 For more examples, refer to [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md).
 

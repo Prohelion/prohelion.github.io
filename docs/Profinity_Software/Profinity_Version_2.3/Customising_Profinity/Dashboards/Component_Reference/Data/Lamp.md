@@ -32,14 +32,13 @@ Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.m
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Not used by the web interface |
 | `color` | string | Yes | None | Colour of the lit lamp, one of `red`, `green`, `amber`, `grey`, `on`, `off`, `disabled` or `unknown`. The colour can be bound with the `color` target. Refer to [Colour names](#colour-names) |
 | `value` | number | No | `0` | On or off state. `0` shows the lamp as off (grey) and any other number lights the lamp in its colour. Bind the `value` target to drive the state from data |
 | `label` | string | No | None | Caption shown beside the lamp. The caption can be bound with the `label` target |
 | `enabled` | boolean | No | `true` | When `false`, the lamp is displayed in the disabled style and the caption is dimmed. Bind the `enabled` target to drive the state from data |
-| `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `value`, `enabled`, `color` and `label` targets are handled. A binding with no `target` binds `value` |
+
+The web interface accepts but ignores `id`, `class`, and `visible`.
 
 A boolean binding is converted to `1` or `0`.
 Each `[-]` sequence in a `label` becomes a soft hyphen, so that long words can break at that point.
@@ -96,5 +95,6 @@ dashboard:
 ## Display rules
 
 A lamp is displayed in grey when it has no data, when `enabled` is `false` or when its value is `0`, whatever its `color`.
-A lamp that has a `color` and no `value` therefore stays grey, so a lamp that is driven by an `enabled` binding or by a `color` binding must also have `value: 1`.
+A lamp that has a `color` and no `value` therefore stays grey.
+A lamp that is driven by an `enabled` binding or by a `color` binding must also have `value: 1`.
 When a bound source has no data, the lamp is displayed in the disabled style.

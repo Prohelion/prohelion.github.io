@@ -8,7 +8,8 @@ last_reviewed: 2026-10-15
 
 # Log tags to a file
 
-Profinity can record the values of your tags to a file and replay that recording later, so a tag-driven [collection](../Collections/index.md), [rule](../Rules/index.md), [alert](../Alerts.md), or [dashboard](../../Customising_Profinity/Dashboards/index.md) behaves as it did when the data was captured.
+Profinity can record the values of your tags to a file.
+It can replay that recording later, so a tag-driven [collection](../Collections/index.md), [rule](../Rules/index.md), [alert](../Alerts.md), or [dashboard](../../Customising_Profinity/Dashboards/index.md) behaves as it did when the data was captured.
 This is the tag-layer equivalent of [Log / replay CAN bus messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md), and it works with any tag, including those decoded from CAN.
 
 Tags are recorded by the **TAG File Logger**, or by the **TAG SFTP Logger** when the files should be sent to a remote server over Secure Shell (SSH) File Transfer Protocol (SFTP).
@@ -25,6 +26,7 @@ Saving its settings restarts a running logger but does not start a stopped one.
 Choose the **File Format** with replay in mind.
 Both `CSV` (comma-separated values, `.txt`) and `JSON Lines` (`.jsonl`) can be replayed.
 For the full list of settings, including the `Logging mode`, rotation, and archive options, refer to [Tag file and SFTP loggers](../../Components/Loggers/Tag_File_and_SFTP_Loggers.md).
-For the step-by-step setup, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
-To check it worked, look in `tag_logs/` on the instance for a new log file, which holds rows for the tags in your collections.
+For the step-by-step setup, refer to [How to log data to files and SFTP servers](../../How_To_Guides/Log_Data_to_Files.md).
+To check it worked, look in the `tag_logs/<profile name>/<logger name>/` folder on the instance for a new log file, which holds rows for the tags in your collections.
+Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where `tag_logs/` sits on each platform.
 To play a recording back, refer to [Replay a tag log](Replay_a_Tag_Log.md).

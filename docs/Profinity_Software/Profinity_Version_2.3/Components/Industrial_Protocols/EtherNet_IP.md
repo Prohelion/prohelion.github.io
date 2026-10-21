@@ -53,7 +53,8 @@ Profinity passes the **CIP path** to the PLC library as you enter it:
 - The default `1,0` is the backplane (`1`) and slot `0`. For a CPU in slot 2 of the same chassis, enter `1,2`.
 - Leave it empty to send no path.
 - For a CPU reached through a bridge module, enter the route as pairs of port and address, one pair for each hop, as the PLC library expects.
-- A PLC-5, SLC or MicroLogix controller on EtherNet/IP needs no path. The PLC library ignores a path for these controllers unless it is a route through a Data Highway Plus (DH+) bridge, so the default `1,0` does no harm and you can clear it.
+- A PLC-5, SLC or MicroLogix controller on EtherNet/IP needs no path. The PLC library ignores a path for these controllers unless it is a route through a Data Highway Plus (DH+) bridge.
+  The default `1,0` therefore does no harm, and you can clear it.
 - Micro800 controllers ignore this setting even when it is filled in.
 
 Profinity keeps trying to connect when the PLC is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).

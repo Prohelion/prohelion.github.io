@@ -18,7 +18,7 @@ Each file on a [Custom Component](index.md) is optional while the component live
 The settings for an authored component are arranged on four tabs: **Settings**, **Pack files**, **Scripts**, and **Security**.
 
 - **Pack files** groups the uploads into **Device**, **Presentation**, **Behaviour**, **Maps**, and **Firmware**.
-- **DBC Settings** holds **Rebase DBC** and **Rebase Address**.
+- **DBC Settings** holds the CAN database (DBC) options **Rebase DBC** and **Rebase Address**.
 - **Scripts** holds **Main Script (Optional)** and **Auto Start Main Script**.
 
 `component_metadata.yaml` is not an upload.

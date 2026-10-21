@@ -14,7 +14,9 @@ Give it only to the people who manage the installation.
 
 - [System Configuration](System_Configuration/index.md): every tab of the **System Configuration** page.
 - [Users and access](Users_and_Access/index.md): user accounts, roles, service accounts, multi-factor authentication, and security restrictions.
-- [Profiles](Profiles.md): create and manage profiles, with support for Kiosk Mode and custom dashboards.
+- [Profiles](Profiles.md): understand profile packs, the Example Profile, and the features a profile supports.
+- [Manage profiles](Manage_Profiles.md): activate, rename, import, and download profiles.
+- [Profile folders](Profile_Folders.md): find where profile files are stored and what each folder holds.
 - [Profile Dashboard](Profile_Dashboard.md): build a custom home page dashboard for a profile.
 - [Menu Layout](Menu_Layout.md): arrange the components and groups in the side menu.
 - [Install and manage plugins](Install_and_Manage_Plugins.md): upload, enable, disable, and delete plugins.

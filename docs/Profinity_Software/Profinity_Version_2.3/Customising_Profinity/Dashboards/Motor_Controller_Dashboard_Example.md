@@ -50,7 +50,10 @@ The detailed measurements are:
 
 ## Section-by-section analysis
 
-The dashboard has five sections: a status pill in the first row, four panels in the second row (two charts, the controller limits and the controller errors), and an accordion at the top level.
+The dashboard has five sections.
+The first row holds a status pill.
+The second row holds four panels: two charts, the controller limits, and the controller errors.
+The last section is an accordion at the top level.
 
 ### Status pill section
 
@@ -83,7 +86,8 @@ For more information, refer to the [Observation](../../../../Motor_Controllers/C
 
 ### Detailed information section
 
-The last section is the `MORE DETAILS` accordion, which holds a tab labelled `INFO` with panels for low voltage, phase currents, motor vectors, speed and distance, and other data such as the identifier, serial number and CAN error counts.
+The last section is the `MORE DETAILS` accordion, which holds a tab labelled `INFO` with panels for low voltage, phase currents, motor vectors, speed and distance, and other data.
+The other data includes the identifier, serial number, and CAN error counts.
 Keeping the full set of measurements in an accordion leaves the main dashboard with the key metrics.
 A user opens the accordion only when the detail is needed.
 
@@ -501,7 +505,8 @@ The `DBC/` paths are relative to the component that owns the dashboard, so the d
 The `Properties/` tags depend on the component, and the Tag Explorer lists them under it.
 For the Tag Explorer, refer to [Tag layer](../../Tags/index.md).
 
-To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can copy from the Tag Explorer, and adjust the measurements, layout, precision and labels to suit.
+To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can copy from the Tag Explorer.
+Then adjust the measurements, layout, precision, and labels to suit.
 
 The WaveSculptor200 sends the same CAN messages and signals as the WaveSculptor22, so the tags in this dashboard apply to both controllers.
 

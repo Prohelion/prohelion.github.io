@@ -96,7 +96,7 @@ Setting `RebaseAddress` to a value that is not a number fails.
 
 `profinity-script sim` runs the script on a simulated component.
 List the field identifiers under `componentFields` and `firmwareFields` in `sim.yaml` so `SetValue` can save them, and `GetValue` returns a value only after one has been saved.
-The rest of that file is on [Test a script outside Profinity](../../SDK/Test_a_Script.md).
+The rest of that file is on [profinity-script reference](../../SDK/Profinity_Script_Reference.md).
 Without those entries, `SetValue` reports an unknown field.
 
 ## Example

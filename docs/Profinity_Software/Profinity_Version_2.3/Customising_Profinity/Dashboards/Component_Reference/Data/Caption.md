@@ -17,14 +17,12 @@ Use [Readouts](Readouts.md) for a measurement with a unit and precision, and [HT
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | Extra CSS class names added to the caption |
 | `color` | string | No | None | Status colour of the text: `red`, `green`, `amber` or `grey`, the same colours as a [Lamp](Lamp.md). Can be bound with the `color` target |
 | `value` | string | No | None | Static text shown when no `value` binding supplies the text. When no data is available, the caption shows `--` and is displayed as stale |
-| `label` | string | No | None | Not used by the web interface |
-| `enabled` | boolean | No | `true` | Not used by the web interface |
-| `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | Data binding. The `value` target supplies the text, which is displayed as a string, and the `color` target supplies the colour |
+
+The web interface accepts but ignores `id`, `label`, `enabled`, and `visible`.
 
 A `color` value other than the four listed is ignored, and the text keeps its normal colour.
 

@@ -12,7 +12,8 @@ Profinity can monitor Controller Area Network (CAN) bus traffic on your network.
 It can also transmit messages back on to the CAN network, using the **SEND & RECEIVED CAN** window that this page describes.
 The [CAN Data Log Replayer](Logging_Replaying_CAN_Bus_Messages.md#can-data-log-replayer) is a separate tool that plays recorded messages into Profinity, and it never transmits them on to the bus.
 
-Before you send or receive any CAN packets, check that the current user holds the associated permission: **View CAN data** to receive and **Send CAN messages** to send, which includes **View CAN data**.
+Before you send or receive any CAN packets, check that the current user holds the associated permission.
+Receiving needs **View CAN data**, and sending needs **Send CAN messages**, which includes **View CAN data**.
 The replayer requires **Replay CAN logs**.
 A user with only **View CAN data** sees the menu item as **RECEIVED CAN** instead of **SEND & RECEIVED CAN**.
 Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).

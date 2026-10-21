@@ -69,7 +69,8 @@ To send a packet:
 
 1. Select the **+** icon in the Scheduled CAN Packets list at the bottom of the screen.
    The packet editor opens.
-   To start from a received packet instead, double-click it or select it in the CAN Activity panel, then select the **Open in Schedule Editor** **+** icon at the top of the page.
+   To start from a received packet instead, double-click it or select it in the CAN Activity panel.
+   Then select the **Open in Schedule Editor** **+** icon at the top of the page.
 2. Enter the **CAN ID** (hex or decimal).
 3. Select the **Endian** byte order, which is little endian by default.
    The [schedule editor reference](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md#schedule-editor) explains why little endian is the default.

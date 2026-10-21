@@ -19,7 +19,7 @@ At the end you have a token and have sent one authenticated request with `curl`.
 
 For a long-running or unattended client, use a [service account](../Administration/Users_and_Access/Service_Accounts.md) token instead.
 A service account token is already a Bearer token, so you can skip to [Call an endpoint with the token](#call-an-endpoint-with-the-token).
-For two-factor authentication and password changes at sign-in, refer to [Profinity REST APIs](APIs/index.md#signing-in-with-a-username-and-password).
+For two-factor authentication and password changes at sign-in, refer to [Authenticate to the Profinity REST API](APIs/API_Authentication.md#sign-in-with-a-username-and-password).
 
 ## Get a token
 
@@ -78,13 +78,13 @@ The response is a JSON object like this (the values are examples):
 
 The `fullTagId` field is the path you requested, `utcTimestamp` is when the sample was taken, and `quality` and `value` give its state and reading.
 The call returns 404 unless the tag's quality is Good or Stale, and the tag must be visible to the user.
-If you see the sample, the call worked.
-For the 401 and 403 responses and for renewing a token that is still valid, refer to [Profinity REST APIs](APIs/index.md#passing-the-token).
+If the sample appears, the call worked.
+For the 401 and 403 responses and for renewing a token that is still valid, refer to [Authenticate to the Profinity REST API](APIs/API_Authentication.md#pass-the-token-in-requests).
 
 ## Next steps
 
 - Open the Swagger page, the interactive API page on your Profinity instance, by adding `/swagger` to the URL that Profinity is running on.
   It lists every route and the parameters it accepts.
-  To try routes there, apply a token with the **Authorize** button, as described in [Profinity REST APIs](APIs/index.md#passing-the-token).
-- Refer to [Profinity REST APIs](APIs/index.md#accessing-historical-data-via-apis) for historical data and the OpenAPI document.
+  To try routes there, apply a token with the **Authorize** button, as described in [Authenticate to the Profinity REST API](APIs/API_Authentication.md#pass-the-token-in-requests).
+- Refer to [Read real-time and historical tag data](APIs/Read_Tag_Data.md) for historical data, and [Profinity REST APIs](APIs/index.md) for the OpenAPI document.
 - Refer to the [Endpoint Reference](APIs/Endpoint_Reference.md) for the routes that complement the screens described elsewhere in the documentation.

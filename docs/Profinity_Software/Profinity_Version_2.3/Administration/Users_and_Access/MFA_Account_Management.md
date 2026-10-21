@@ -18,7 +18,8 @@ Users who sign in through single sign-on (SSO) manage MFA and credentials in the
 
 ## Self-service management
 
-When the site **Sign-in method** is **Local** and **Enforce two-factor for local users** is on, a signed-in user sees a **Two-Factor Authentication** pill in the **Account** group of the **ADMIN** page, next to **Change My Password**.
+When the site **Sign-in method** is **Local** and **Enforce two-factor for local users** is on, a signed-in user sees a **Two-Factor Authentication** pill.
+The pill is in the **Account** group of the **ADMIN** page, next to **Change My Password**.
 The pill is not shown in a kiosk session.
 It appears only while two-factor authentication is enforced, so a user cannot enrol voluntarily on a site that does not enforce it.
 To open it, select **ADMIN** in the side menu and then the pill.
@@ -27,7 +28,7 @@ The dialog states whether two-factor authentication is enabled and how many reco
 It offers **Reset authenticator** and **Regenerate recovery codes**.
 **Reset authenticator** asks for a code from the current authenticator app before it issues a new one.
 A user who has lost the app cannot use it, and asks an administrator for a reset instead.
-Where the site allows security keys, the dialog also holds the panel for registering one, as described in [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md#security-key-sign-in).
+Where the site allows security keys, the dialog also holds the panel for registering one, as described in [Sign in with two-factor authentication](../System_Configuration/Security/Two_Factor_Sign_In.md#register-a-security-key).
 
 ## Administrator reset of MFA
 

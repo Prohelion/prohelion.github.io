@@ -18,7 +18,7 @@ As of Profinity 2.3, a Custom Component can carry these optional parts:
 - Menu actions.
 - Settings and firmware maps.
 
-Once it is in a profile, Profinity monitors, graphs and logs it the same way as a built-in component.
+Once it is in a profile, Profinity monitors, graphs, and logs it the same way as a built-in component.
 Built-in components such as the [Elmar Solar MPPT](../MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Motor_Controller/WaveSculptor.md) include their own DBC support, so Messages and Signals is available on them without a separate file.
 A Custom Component can do the same for a third-party CAN device, or for a component whose live values a script publishes as tags.
 
@@ -31,7 +31,7 @@ A Custom Component can do the same for a third-party CAN device, or for a compon
 
 To make a first Custom Component, follow [Make your first Custom Component](../../Developing_with_Profinity/Custom_Components/First_Custom_Component.md).
 To attach optional files afterwards, refer to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
-[Custom Components](../../Developing_with_Profinity/Custom_Components/index.md) describes the files that make one up and how to pack it for another installation.
+[Custom Components](../../Developing_with_Profinity/Custom_Components/index.md) describes the files that make one up.
 It also compares a Custom Component with a Dashboard Component and a dynamic-link library (DLL) plugin.
 
 ## What appears in the profile
@@ -56,15 +56,4 @@ Each is optional and uploaded under **Pack files**.
 
 Live values that a script publishes are tags, and a dashboard binds those tags whether or not a DBC file is present.
 
-## Packing for other installations {#distributing-a-custom-component-as-a-plugin}
-
-As of Profinity 2.3, a Custom Component that works in one profile can be packed and installed on other systems, with no rebuild of the component.
-The [Profinity SDK](../../Developing_with_Profinity/SDK/index.md) includes `profinity-component-pack`, which validates the component's files and packs them as a `.zip` or a `.nupkg`.
-An administrator then uploads the package by opening **ADMIN** and then **Components & Plugins**.
-The component appears in **ADD COMPONENT** under the name the author gave it.
-
-The pack is a bundle of the component's own files (DBC, dashboard, scripts, and maps), not a compiled DLL plugin.
-The catalogue name is set in `component_metadata.yaml`.
-Refer to [Component metadata](../../Developing_with_Profinity/Custom_Components/Component_Metadata.md).
-Packing and installing are covered in [Component Pack CLI](../../Developing_with_Profinity/SDK/Component_Pack_CLI.md).
-The Profinity SDK is available from Prohelion.
+To install the component on other systems, refer to [Pack a Custom Component for other installations](Pack_a_Custom_Component.md).

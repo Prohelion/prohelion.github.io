@@ -69,7 +69,10 @@ Disable Kiosk Mode on any profile that no longer needs it.
 
 ## Troubleshooting
 
-- If the login page is shown instead of signing in, confirm that the profile is the active profile, that Kiosk Mode is enabled on it, and that a valid, enabled user is selected as the Kiosk Mode User.
+- If the login page is shown instead of signing in, confirm all of the following:
+  - The profile is the active profile.
+  - Kiosk Mode is enabled on the profile.
+  - A valid, enabled user is selected as the Kiosk Mode User.
   If the display was signed out on purpose, select **Return to kiosk**.
 - If the display shows the wrong profile, make the intended profile active, because Kiosk Mode signs in to the active profile only.
 - If the display was signed out unexpectedly, Kiosk Mode was disabled, the Kiosk Mode User was changed, or a different profile was made active.

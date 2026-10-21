@@ -52,6 +52,7 @@ A new user is given roles in the same way while the account is being created, as
 ## Which roles to create
 
 Profinity comes with one role, **Administrators**, which allows everything and is given to the default `admin` account.
+The default `admin` account exists only on some installations; refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in).
 Not every installation has that account, as [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) explains.
 Because it includes managing users and changing the system configuration, keep it for setting up a site and for emergencies.
 Give everyone else a narrower role of your own.
@@ -147,7 +148,8 @@ A note in the **What it allows** column means that switching the permission on a
 
 ## When a person cannot see something
 
-A missing menu entry or admin page means the person's roles lack the matching permission, unless the licence does not include the feature or the item is restricted to certain roles.
+A missing menu entry or admin page means the person's roles lack the matching permission.
+The exceptions are a licence that does not include the feature and an item that is restricted to certain roles.
 Open the person in **Users & Groups**, note their **Assigned roles**, and check those roles for the permission in the following table.
 
 | The person cannot see | The role needs |
@@ -162,7 +164,8 @@ Open the person in **Users & Groups**, note their **Assigned roles**, and check 
 | **CAN LOG REPLAY** or **TAG LOG REPLAY** | **Replay CAN logs** or **Replay tag changes** |
 | **Profinity AI** | **Profinity AI** |
 
-If the permission is present and the person still cannot see a particular component or tag collection, that item is restricted to certain roles, so check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security.md).
+If the permission is present and the person still cannot see a particular component or tag collection, that item is restricted to certain roles.
+Check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security.md).
 
 There is no single administrator permission.
 Someone who needs broad access is given the **Administrators** role, or a role with the specific permissions they need.

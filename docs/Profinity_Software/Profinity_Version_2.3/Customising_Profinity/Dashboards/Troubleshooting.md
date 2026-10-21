@@ -189,7 +189,7 @@ dashboard:
 ### Image does not appear
 
 An icon or image that does not display is not being found.
-Check that the file exists in the `images` folder of the profile, that the filename matches exactly including its case, and that the property holds the filename alone and not a full path.
+Check that the file exists in the `images` folder of the profile, that the filename matches exactly, including its case, and that the property holds the filename alone and not a full path.
 A profile image with the same name as a built-in image is never used, so rename it.
 For the accepted file types and the lookup order, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#images).
 

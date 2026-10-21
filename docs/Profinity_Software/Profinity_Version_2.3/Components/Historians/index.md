@@ -17,7 +17,7 @@ A profile that needs more than the recent in-memory values needs one.
 ![Data out of Profinity: historians, publishers and subscribers, loggers and Prohelion Cloud](../../images/diagram-data-out.png)
 <figcaption>Data out of Profinity. Historians (InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back.
 Publishers and subscribers (Message Queuing Telemetry Transport, or MQTT, and Webhook) stream it in both directions.
-Loggers (file, SFTP, InfluxDB v1, Prometheus) stream it out, and a Prohelion Cloud dashboard gives hosted monitoring.</figcaption>
+Loggers (file, Secure Shell File Transfer Protocol (SFTP), InfluxDB v1, Prometheus) stream it out, and a Prohelion Cloud dashboard gives hosted monitoring.</figcaption>
 </figure>
 
 Profinity provides three historians, and each selects the tags it records through [collections](../../Tags/Collections/index.md), in the same way as a logger.

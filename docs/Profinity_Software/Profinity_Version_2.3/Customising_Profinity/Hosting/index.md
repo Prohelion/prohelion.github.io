@@ -12,7 +12,8 @@ Profinity includes an integrated web server that hosts a custom application buil
 The same server publishes the APIs and the Swagger interface, which is the interactive API page on your Profinity instance.
 Frameworks such as [ReactJS](https://react.dev/) and [Angular](https://angular.io) work, as do traditional HTML and JavaScript.
 
-The Extensions Web server needs a licence that includes the Profinity Server feature.
+The Extensions Web server needs the Profinity Server licensed feature, which the Server and Enterprise editions include.
+Refer to [Licensing](../../Licensing.md) for what each edition includes.
 It is disabled by default, so enable it in **System Configuration** first, as described in [Extensions Web](../../Administration/System_Configuration/Extensions_Web.md).
 Then place the application in the `webroot` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md):
 

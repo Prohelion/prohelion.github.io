@@ -8,7 +8,9 @@ last_reviewed: 2026-10-20
 
 # Main script
 
-A [Custom Component](index.md) needs a main script when live values come from the script rather than from a CAN database (DBC) file, or when the script publishes extra tags beside the DBC signals.
+A [Custom Component](index.md) needs a main script in two cases.
+The first is when live values come from the script rather than from a CAN database (DBC) file.
+The second is when the script publishes extra tags beside the DBC signals.
 **Main Script** is a [service script](../Scripting/Script_Types/Service_Scripts.md) in C#, Python, or Lua, and it keeps running until **Disconnect** or until the component shuts down.
 **Auto Start Main Script** starts it when the profile loads.
 With auto start left off, the user starts and stops it from **Connect / Disconnect**, which is a `mainScriptToggle` entry in `actions.yaml`.

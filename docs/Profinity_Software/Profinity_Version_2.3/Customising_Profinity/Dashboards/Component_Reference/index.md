@@ -31,8 +31,8 @@ The overlay tables that they share are on [Overlay elements](Images_and_Models/O
 
 The **Parameters** tables list every parameter that Profinity accepts on a component.
 Each entry gives the type, whether the parameter is required, the default value and a description that includes the allowed values.
-A parameter that the web interface ignores is marked **Not used by the web interface** and can be omitted.
-A dashboard that contains a parameter the page does not list is rejected when it is saved.
+A parameter that the web interface accepts but ignores is named in a sentence under the table, and can be omitted.
+A dashboard that contains a parameter the page does not list at all is rejected when it is saved.
 The `bind` parameter takes an array of binding objects on every component that lists it.
 The [Data binding](../Data_Binding/index.md) page describes the binding properties and the targets that each component handles.
 
@@ -85,7 +85,7 @@ The [Data binding](../Data_Binding/index.md) page describes the binding properti
 |-----------|-------------|
 | [Image](Images_and_Models/Image.md) | Image with regions, icons, buttons, and data values |
 | [3D model](Images_and_Models/Model.md) | 3D model with regions, icons, buttons, and data values |
-| [Overlay elements](Images_and_Models/Overlay_Elements.md) | Action invocation, layers, icon sources, display types and annotation lines shared by both |
+| [Overlay elements](Images_and_Models/Overlay_Elements.md) | Element parameters, action invocation, layers, icon sources, display types and annotation lines shared by both |
 
 ## Nesting rules
 

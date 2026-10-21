@@ -22,9 +22,6 @@ Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Not used by the web interface |
-| `label` | string | No | None | Not used by the web interface |
 | `tableHeaders` | array | Yes | None | Column definitions for tables whose data is an array of row objects. The headers are not used when the bound data is a time series |
 | `value` | array | No | None | Not used for display. The value only marks the table as stale until data arrives, and the rows come from `bind` at run time |
 | `selectColumns` | boolean | No | `false` | Lets the user show and hide individual columns |
@@ -44,9 +41,9 @@ Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md
 | `precision` | number | No | None | Number of decimal places for numeric cells |
 | `rowNames` | array of string | No | None | Custom name for each row when the bound data is a time series. A row without a name uses the label of its series |
 | `columnNames` | array of string | No | None | Custom heading for each value column when the bound data is a time series. A column without a name is numbered from `1` |
-| `enabled` | boolean | No | `true` | Not used by the web interface |
-| `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) that supplies the table data from tags, either as an array of row objects or as a series. Use the `value` target |
+
+The web interface accepts but ignores `id`, `class`, `label`, `enabled`, and `visible`.
 
 The web interface applies the settings to each numeric cell in this order:
 

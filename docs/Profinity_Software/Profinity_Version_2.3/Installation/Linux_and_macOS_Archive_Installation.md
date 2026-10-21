@@ -90,12 +90,14 @@ INFO: Profinity Services Starting
 INFO: Now listening on: http://127.0.0.1:18080
 ```
 
-The address in the last line is `127.0.0.1` when the installation has no Server licence or trial, because Profinity then listens on the local machine only, and `0.0.0.0` (all network interfaces) otherwise.
+The address in the last line is `127.0.0.1` when the installation has no Server licence or trial, because Profinity then listens on the local machine only.
+Otherwise the address is `0.0.0.0` (all network interfaces).
 To open the web interface and sign in, refer to [Open the web interface](./Linux_and_macOS_Installation.md#open-the-web-interface).
 On Linux, create the artefacts directory and set its ownership before the first start, or set `PROFINITY_HOME` to a writable path, as described in [Where Profinity stores its data](./Linux_and_macOS_Installation.md#where-profinity-stores-its-data).
 
 ## Troubleshooting
 
 - `./profinity.sh` reports `Permission denied`: the archive tool did not keep the executable bit, so run `chmod +x profinity.sh` and start it again.
-- On the macOS and portable archive, a host without internet access cannot download the .NET runtime on first start: install the ASP.NET Core 10 runtime from Microsoft before you start Profinity, and run `./profinity.sh --check-only` to confirm.
+- On the macOS and portable archive, a host without internet access cannot download the .NET runtime on first start.
+  Install the ASP.NET Core 10 runtime from Microsoft before you start Profinity, and run `./profinity.sh --check-only` to confirm.
 - On Linux, Profinity cannot write to `/var/lib/prohelion`: refer to [Troubleshooting](./Linux_and_macOS_Installation.md#troubleshooting).

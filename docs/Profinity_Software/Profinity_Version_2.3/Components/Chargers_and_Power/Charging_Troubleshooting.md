@@ -8,7 +8,8 @@ last_reviewed: 2026-10-15
 
 # Charging troubleshooting
 
-Charging needs both the charger and the Battery Management System (BMS) to work as expected, so first confirm that every device in the Profile shows the green circle in the Profile window.
+Charging needs both the charger and the Battery Management System (BMS) to work as expected.
+First confirm that every device in the Profile shows the green circle in the Profile window.
 Fix a grey or red device before you run a charge.
 The **Charger / Power Supply Controller** panel then reports most problems in a message.
 

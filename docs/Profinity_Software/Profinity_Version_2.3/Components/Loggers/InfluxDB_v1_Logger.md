@@ -59,7 +59,8 @@ Nothing is logged until you select at least one tag collection.
 
 Every sample is written with its quality in a `quality` field.
 A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale.
-A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`, so a chart can show the gap instead of an invented reading.
+A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`.
+A chart can then show the gap instead of an invented reading.
 Only tags that hold a number are written, and a query for readings should ask for the `value` field.
 
 Each sample is stored as one point in a measurement named after the profile.
@@ -89,5 +90,5 @@ When the settings are correct, data flows into InfluxDB v1.
 If it does not, check the Profinity system logs, as described in [Logs](../../Administration/Logs_Config.md).
 If the logger cannot reach InfluxDB, it shows **Error**, writes the reason to the logs once, and retries every 5 seconds until the problem clears.
 
-For the steps to set up logging and to send data to InfluxDB Cloud, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+For the steps to set up logging and to send data to InfluxDB Cloud, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
 For InfluxDB Cloud, refer to [How to log data to the cloud (InfluxDB)](../../How_To_Guides/Log_Data_to_Cloud_Influx.md).

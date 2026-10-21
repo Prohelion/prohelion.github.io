@@ -16,7 +16,7 @@ The web client shows the colours, logos, and application title from that file in
 Unzip the file into the `themes` folder of the artefacts directory.
 
 !!! warning "Themes need a licence, and distributing a themed Profinity needs an agreement"
-    Themes and branding are included in the Desktop licence and above.
+    Themes and branding are included in the Desktop, Server, and Enterprise editions.
     An unlicensed instance keeps its `theme.yaml` file but shows the default Profinity appearance.
     You can change the theme for your own use with a licensed instance.
     To distribute a themed Profinity, you need a licence agreement with Prohelion, so contact Prohelion before you ship.

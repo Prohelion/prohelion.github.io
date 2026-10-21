@@ -12,7 +12,7 @@ Run Profinity as a service to start it automatically on boot and restart it if i
 Install Profinity first, using the page for your platform: [Install Profinity on Windows](../Windows_Installation.md), [Install Profinity on Linux and macOS](../Linux_and_macOS_Installation.md), or [Install Profinity with Docker](../Docker_Installation.md).
 In Docker, configure Docker to start the container on boot instead.
 
-As of Profinity V2, Profinity runs in server mode on Docker, macOS, and Linux (x86-64 and 64-bit ARM, plus 32-bit ARM on Linux).
+As of Profinity V2, Profinity runs in server mode on Docker, macOS, and Linux (x86-64 and 64-bit Advanced RISC Machine (ARM), plus 32-bit ARM on Linux).
 On Windows the service runs the desktop application, and becomes a server when a Server licence is applied.
 In server mode the user interface is available only through a browser.
 Representational State Transfer (REST) APIs serve it, and those APIs are also available to [custom applications](../../Customising_Profinity/Hosting/index.md) hosted on the Profinity Server.

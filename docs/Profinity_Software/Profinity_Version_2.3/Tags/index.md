@@ -47,14 +47,14 @@ To start a collection, a rule, or a dashboard binding from tags selected in Tag 
 ## Tag rules
 
 - [Tag rules](Rules/index.md): evaluate tags and raise alerts. Open **RULES & ACTIONS** under **TAG UTILITIES** to open an editor window, which requires **View tag rules**.
-- [Create a rule](Rules/Create_a_Rule.md): raise an alert when a battery pack temperature goes above a limit.
+- [Create a rule](Rules/Create_a_Rule.md): raise an alert when the maximum cell temperature of a battery goes above a limit.
 - [Complete rules.yaml example](Rules/Rules_YAML_Example.md): read a full rules file with every setting explained.
 
 ## Rule actions
 
 - [Rule actions](Rules/Actions/index.md): choose what a rule does when it fires.
 - [Email and Slack rule actions](Rules/Actions/Email_and_Slack_Rule_Actions.md): settings for the Email and Slack notification actions.
-- [Webhook and MQTT rule actions](Rules/Actions/Webhook_and_MQTT_Rule_Actions.md): settings for the Webhook and MQTT notification actions.
+- [Webhook and MQTT rule actions](Rules/Actions/Webhook_and_MQTT_Rule_Actions.md): settings for the Webhook and Message Queuing Telemetry Transport (MQTT) notification actions.
 
 ## Tag logs
 

@@ -83,7 +83,9 @@ For the scripting pages, refer to [Profinity Scripting](../Developing_with_Profi
 ### Default credentials
 
 !!! danger "Change default credentials immediately"
-    Fresh installations of Profinity Server on Linux, macOS, and Docker include a default administrator account:
+    Which installations include a default administrator account depends on the installation type and licence.
+    Refer to [Who can sign in, by installation type](Applying_a_Licence.md#who-can-sign-in) for the full list.
+    On Linux, macOS, and Docker, and on Windows once a Server licence is applied, the default account uses these credentials:
 
     - Username: `admin`
     - Password: `password`

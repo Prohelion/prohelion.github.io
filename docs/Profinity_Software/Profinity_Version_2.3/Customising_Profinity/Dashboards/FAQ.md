@@ -85,7 +85,8 @@ Refer to [Show or hide a component](./Data_Binding/Conditional_Styling.md#show-o
 ### How do I show a value on a dashboard?
 
 Bind the component to a tag.
-Find the tag in the Tag Explorer and put its path in the `source` of the binding, where the tag for a CAN signal has the form `DBC/MessageName/SignalName`, as described in [Data binding](./Data_Binding/index.md).
+Find the tag in the Tag Explorer and put its path in the `source` of the binding.
+The tag for a CAN signal has the form `DBC/MessageName/SignalName`, as described in [Data binding](./Data_Binding/index.md).
 
 ### How does a binding refer to the component that owns the dashboard?
 

@@ -9,7 +9,14 @@ last_reviewed: 2026-10-14
 # Upgrade from Profinity 2.2
 
 Upgrade a production system by following the numbered steps in order.
-Profinity 2.3 changes where data is stored, how security is configured, which features need a licence, and how the Representational State Transfer (REST) API reports errors, so read the [breaking changes](../Release_Notes/Breaking_Changes_2_3.md) first.
+Profinity 2.3 changes:
+
+- Where data is stored.
+- How security is configured.
+- Which features need a licence.
+- How the Representational State Transfer (REST) API reports errors.
+
+Read the [breaking changes](../Release_Notes/Breaking_Changes_2_3.md) first.
 
 Before you start, take the backup in step 1, and test the upgrade on a non-production instance if you can.
 
@@ -36,7 +43,10 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
 4. Sign in as an administrator, open **ADMIN > Users & Groups**, and check the **Roles** tab and each user's assigned roles.
    Change the default `admin` password if you have not already.
    A default `admin` account that Profinity creates must change its password at first sign-in.
-5. Open **ADMIN > System Configuration** and confirm the **Sign-in method**, the password policy, and the settings for single sign-on (SSO), System for Cross-domain Identity Management (SCIM), and Security Information and Event Management (SIEM).
+5. Open **ADMIN > System Configuration** and confirm these settings:
+   - The **Sign-in method**.
+   - The password policy.
+   - The settings for single sign-on (SSO), System for Cross-domain Identity Management (SCIM), and Security Information and Event Management (SIEM).
 6. Open **ADMIN > Logs** and read the messages from first start.
    On Linux, the migration messages name each file that moved.
 7. Open each custom dashboard in the dashboard editor and confirm it loads without schema errors.
@@ -56,5 +66,6 @@ To return to 2.2, reinstall 2.2 and restore the backup you took in step 1.
 On Linux, 2.3 moves data from `~/.local/share/Prohelion/Profinity`, the 2.2 location, to `/var/lib/prohelion/profinity` the first time it starts.
 A Docker container follows the same rule unless `PROFINITY_HOME` is set, and the Docker compose file Prohelion publishes sets it to the container path that holds your mounted data.
 
-For a Docker upgrade, set `PROFINITY_HOME` to the container path of your existing mount, keep that mount, and copy any legacy `Config` and `Profiles` folders into it before you start the 2.3 image.
+For a Docker upgrade, set `PROFINITY_HOME` to the container path of your existing mount and keep that mount.
+Copy any legacy `Config` and `Profiles` folders into it before you start the 2.3 image.
 Refer to [Install Profinity with Docker](./Docker_Installation.md).

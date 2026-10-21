@@ -25,4 +25,5 @@ To trust a certificate explicitly, rather than trusting all, place it in `truste
 Profinity places refused certificates in `rejected`.
 A connection that fails on a certificate leaves the refused certificate there, and you can move it into `trusted` once you have confirmed it.
 
-The **Trust all server certificates** setting of the OPC UA Client and the **Trust all client certificates** setting of the OPC UA Server skip certificate validation instead, and are described on the [OPC UA Client](OPC_UA_Client.md) and [OPC UA Server](OPC_UA_Server.md) pages.
+The **Trust all server certificates** setting of the OPC UA Client and the **Trust all client certificates** setting of the OPC UA Server skip certificate validation instead.
+They are described on the [OPC UA Client](OPC_UA_Client.md) and [OPC UA Server](OPC_UA_Server.md) pages.

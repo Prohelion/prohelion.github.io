@@ -39,4 +39,4 @@ Each Slack action can target a different workspace.
 | **Title template** | Optional message title, which may use the [placeholders](index.md#message-placeholders). A default title is used when empty. |
 | **Message prefix** | Optional text placed before the alert message, which may use the placeholders. |
 
-For the Webhook and MQTT actions, refer to [Webhook and MQTT rule actions](Webhook_and_MQTT_Rule_Actions.md).
+For the Webhook and Message Queuing Telemetry Transport (MQTT) actions, refer to [Webhook and MQTT rule actions](Webhook_and_MQTT_Rule_Actions.md).

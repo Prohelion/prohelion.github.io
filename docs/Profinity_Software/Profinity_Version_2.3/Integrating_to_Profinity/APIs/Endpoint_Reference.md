@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 This page lists REST API routes that complement the screens described elsewhere in the documentation.
 The Swagger page, the interactive API page on your Profinity instance, lists every route and the parameters it accepts.
-Refer to [Profinity REST APIs](index.md) for how to authenticate.
+Refer to [Authenticate to the Profinity REST API](API_Authentication.md) for how to authenticate.
 Each route needs the same permission as the matching screen.
 
 ## Alerts

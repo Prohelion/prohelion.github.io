@@ -13,7 +13,8 @@ Each plugin brings data in as ordinary Profinity tags, and the Open Platform Com
 
 The plugins are not included in the standard Profinity installation.
 Prohelion supplies them on request, so [contact Prohelion](https://www.prohelion.com/contact-us/) to arrange access to the protocols you need.
-Install each one like any other dynamic-link library (DLL) [plugin](../../Administration/Install_and_Manage_Plugins.md), and then add its components from the **Industrial Protocols** group, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
+Install each one like any other dynamic-link library (DLL) [plugin](../../Administration/Install_and_Manage_Plugins.md).
+Then add its components from the **Industrial Protocols** group, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 
 <figure markdown>
 ![The BACnet, EtherNet/IP, Modbus, OPC UA and S7 protocol plugins each poll values into Profinity tags, and the OPC UA server exposes Profinity's tag tree to third-party clients](../../images/diagram-protocol-plugins.png)
@@ -34,7 +35,7 @@ The OPC UA plugin has one page for each component, and [OPC UA certificates](OPC
 |---|---|---|
 | [BACnet](BACnet.md) | Building Automation and Control Networks (BACnet) over IP client that polls values into Profinity tags | Building automation and heating, ventilation, and air conditioning (HVAC) systems |
 | [EtherNet/IP](EtherNet_IP.md) | Common Industrial Protocol (CIP) tag client that polls values into Profinity tags | Rockwell programmable logic controllers (PLCs) such as ControlLogix, CompactLogix, Micro800, PLC-5 and SLC |
-| [Modbus](Modbus.md) | TCP and RTU master that polls values into Profinity tags | Industrial devices and distributed input/output (I/O) |
+| [Modbus](Modbus.md) | TCP and Remote Terminal Unit (RTU) master that polls values into Profinity tags | Industrial devices and distributed input/output (I/O) |
 | [OPC UA Client](OPC_UA_Client.md) | Client that polls values from a remote OPC UA server into Profinity tags | Enterprise and supervisory control and data acquisition (SCADA) system integration |
 | [OPC UA Server](OPC_UA_Server.md) | Read-only server that exposes Profinity's tag tree to third-party OPC UA clients | Enterprise and SCADA system integration |
 | [S7](S7.md) | S7comm (Siemens S7 communication) client that polls values into Profinity tags | Siemens PLCs such as S7-300, S7-400, S7-1200 and S7-1500 |
@@ -44,7 +45,7 @@ The components, what they connect to, and how a point map row identifies a value
 
 | Plugin | Component | Connects to | A point map row identifies a value by |
 |---|---|---|---|
-| BACnet | **BACnet Device** | One BACnet device, over BACnet/IP only and not BACnet MS/TP | **Object type** and **Instance** |
+| BACnet | **BACnet Device** | One BACnet device, over BACnet/IP only and not BACnet Master-Slave/Token-Passing (MS/TP) | **Object type** and **Instance** |
 | EtherNet/IP | **EtherNet/IP PLC** | One PLC | **PLC tag** |
 | Modbus | **Modbus Device** | One Modbus slave, over TCP or over a serial line using RTU framing | **Table** and **Address** |
 | OPC UA | **OPC UA Client** | A remote OPC UA server | **NodeId** |

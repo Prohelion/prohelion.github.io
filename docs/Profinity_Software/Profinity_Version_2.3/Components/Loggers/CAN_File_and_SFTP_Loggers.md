@@ -47,4 +47,4 @@ A CAN File Logger shows this link as **FILE LOGS REPOSITORY**.
 <figcaption>Download Log File</figcaption>
 </figure>
 
-To take the same data further, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+To take the same data further, refer to [How to log data to files and SFTP servers](../../How_To_Guides/Log_Data_to_Files.md).

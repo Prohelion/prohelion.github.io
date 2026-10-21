@@ -13,7 +13,8 @@ No YAML knowledge is needed for the visual steps, and each step also shows its Y
 
 A custom dashboard can belong to either of two component types:
 
-- A [Dashboard Component](../Components/Dashboard/Dashboard_Component.md) has no DBC file, so it shows tags that other components already publish, such as a battery management system (BMS), a motor controller, or an industrial protocol client.
+- A [Dashboard Component](../Components/Dashboard/Dashboard_Component.md) has no DBC file, so it shows tags that other components already publish.
+  Examples are a battery management system (BMS), a motor controller, or an industrial protocol client.
 - A [Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md) has its own DBC file, so it shows the signals that the DBC file decodes from the CAN bus.
 
 Both start from the same template dashboard and use the same editor, so the steps on this page apply to either type.
@@ -56,7 +57,8 @@ The source path depends on the component type that owns the dashboard.
     ```
 
     A Dashboard Component has no DBC, so a relative path finds no tag.
-    Start the source with `/` and the name of the component that publishes the tag, and replace `My Device`, `Temperature`, and `Value` with the component, message, and signal names in your profile.
+    Start the source with `/` and the name of the component that publishes the tag.
+    Replace `My Device`, `Temperature`, and `Value` with the component, message, and signal names in your profile.
 
 === "Custom Component"
 
@@ -69,7 +71,8 @@ The source path depends on the component type that owns the dashboard.
             source: DBC/Temperature/Value
     ```
 
-    A source that starts with `DBC/` is relative to the Custom Component that owns the dashboard, so replace `Temperature` and `Value` with the message and signal names from its DBC file.
+    A source that starts with `DBC/` is relative to the Custom Component that owns the dashboard.
+    Replace `Temperature` and `Value` with the message and signal names from its DBC file.
     To show a tag from another component, use an absolute path that starts with `/`.
 
 [Data binding](../Customising_Profinity/Dashboards/Data_Binding/index.md#binding-source-paths) describes the source paths in full.

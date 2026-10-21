@@ -8,10 +8,16 @@ last_reviewed: 2026-10-15
 
 # Start a charge
 
-Start a charge from the dashboard of a charger component that is in the same Profile as a Prohelion Battery Management System (BMS) with **Control Pack** switched on (refer to [Charger components](Charger_Components.md)).
+Start a charge from the dashboard of a charger component.
+The charger must be in the same Profile as a Prohelion Battery Management System (BMS) with **Control Pack** switched on (refer to [Charger components](Charger_Components.md)).
 
 Open the charger from **Chargers & Power Supplies**.
-The dashboard shows the **Charger Status** lamps (**CHARGER STATUS**, **TEMPERATURE**, **COMMUNICATIONS**, **AC SUPPLY** and **DC OUTPUT**), the **Charge Current (Amps)** chart and, for a user with the **Control charging** permission, the **Charger / Power Supply Controller** panel.
+The dashboard shows:
+
+- The **Charger Status** lamps (**CHARGER STATUS**, **TEMPERATURE**, **COMMUNICATIONS**, **AC SUPPLY**, and **DC OUTPUT**).
+- The **Charge Current (Amps)** chart.
+- The **Charger / Power Supply Controller** panel, for a user with the **Control charging** permission.
+
 With **Auto Connect** off on a TDK or Siglent supply, connect the charger first (refer to [Connections and reconnecting](../Connections_and_Reconnecting.md)).
 Once it is connected, the message in the **Charger / Power Supply Controller** panel shows **Ready** with the text "Charger is ready. You can start charging."
 
@@ -51,8 +57,8 @@ If any stage fails, Profinity stops the charge and disengages the pack.
 Selecting **STOP** stops the charger and disengages the pack.
 
 !!! warning "Set the supply and charge limits before charging"
-    A **Supply Current Limit** above what the wall circuit is rated for can overload that circuit.
-    A charge current above the cell manufacturer's recommended charge current can damage the battery.
+    A **Supply Current Limit** higher than the rating of the wall circuit can overload that circuit.
+    A charge current higher than the cell manufacturer's recommended charge current can damage the battery.
     Set the limits described in [Charger settings](Charger_Settings.md) before a first charge.
 
 If a charge does not start, refer to [Charging troubleshooting](Charging_Troubleshooting.md).

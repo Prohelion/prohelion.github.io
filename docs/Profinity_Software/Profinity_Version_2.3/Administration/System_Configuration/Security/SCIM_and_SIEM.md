@@ -91,7 +91,8 @@ Raising **Minimum log level** reduces the volume sent, which matters when the le
 ## Event format
 
 Each event is one line of text.
-It starts with `SECURITY|` and the event name, followed by `name=value` fields separated by `|`, in this order when they apply: `username`, `actor`, `target`, `ip`, `authMode`, `reason`, `from`, `to`, `backup`, and then one `change.<field>` entry for each changed field.
+It starts with `SECURITY|` and the event name, followed by `name=value` fields separated by `|`.
+The fields appear in this order when they apply: `username`, `actor`, `target`, `ip`, `authMode`, `reason`, `from`, `to`, and `backup`, then one `change.<field>` entry for each changed field.
 Profinity replaces a `|`, carriage return, or line feed inside a value with `_`.
 It never writes passwords or tokens.
 For example, a failed local sign-in looks like this:

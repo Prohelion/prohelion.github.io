@@ -17,7 +17,8 @@ The HTTPS protocol also needs a user with the **Receive external tags** permissi
 2. On the receiving instance, add a **Tag Relay Receiver** and choose the protocol.
 3. Set a unique **Receiver tag path prefix**.
 4. If you use MQTT, enter the **MQTT broker URL** and the **MQTT subscribe topic**.
-5. If you use HTTPS, create a user on the receiving instance with the **Receive external tags** permission, and note a JSON Web Token (JWT) for that user.
+5. If you use HTTPS, create a user on the receiving instance with the **Receive external tags** permission.
+   Note a JSON Web Token (JWT) for that user.
 6. On the sending instance, add a **Tag Relay Sender** and choose the same protocol.
 7. In **Collections**, select the collection from step 1.
 8. If you use HTTPS, enter the receiver's address in **Remote base URL** and the token in **Bearer token**.

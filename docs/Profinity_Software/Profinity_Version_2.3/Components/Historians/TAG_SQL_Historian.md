@@ -41,7 +41,8 @@ To start recording, add the component and point it at a database.
 4. Save the settings.
 
 With **Auto Create Table** on, the historian creates the table when it starts.
-Once it connects, its status shows **On** and rows appear in the table after the first **Update Interval (Seconds)**.
+Once it is running and has connected, its status shows **On**, and rows appear in the table after the first **Update Interval (Seconds)**.
+If it cannot reach the database or a write fails, its status shows **Error** until a write succeeds.
 
 The following tables describe every setting.
 
@@ -51,7 +52,7 @@ The following tables describe every setting.
 |---|---|
 | **Database Provider** | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. Defaults to SQLite. |
 | **Connection String** | The connection string for the chosen database provider, in that provider's own format. Required, and stored encrypted at rest. |
-| **Table Name** | The table the historian writes rows to. Use letters, digits and underscores only, and do not start with a digit. Defaults to `TagChangeLog`. |
+| **Table Name** | The table the historian writes rows to. Use letters, digits, and underscores only, and do not start with a digit. Defaults to `TagChangeLog`. |
 | **Auto Create Table** | Creates the table when the historian starts, if it does not already exist. Enabled by default. |
 
 ### Logger settings

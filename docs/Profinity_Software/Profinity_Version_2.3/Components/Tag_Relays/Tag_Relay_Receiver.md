@@ -71,6 +71,21 @@ The component shows **On** while it is receiving and **Off** when it is stopped.
 Its dashboard shows its status and the total number of messages received.
 The status shows whether the receiver is running, not whether the broker connection is established.
 
+## Broker connection messages in the log
+
+A receiver set to MQTT connects to the broker in the background, and starting never fails because the broker is down.
+When the broker cannot be reached, the log records the problem like this:
+
+- The first failed connection attempt of an outage is written at error level, with the reason and the retry interval of 5 seconds.
+- Later failed attempts during the same outage are written at debug level only.
+- A broker that disconnects a running receiver is written as a warning each time it happens.
+- When the connection returns, the log records that the Tag Relay subscriber reconnected.
+
+When the broker drops a running receiver, the relayed tags keep their last value and are marked **Stale** until the sender's next snapshot arrives.
+
+A snapshot that cannot be applied is not collapsed in the same way.
+Each snapshot that is not valid JSON, has the wrong format, or conflicts with an existing tag is written to the log as a warning.
+
 ## Troubleshooting
 
 If no tags appear, check the [Logs](../../Administration/Logs_Config.md) first.
@@ -78,11 +93,13 @@ A receiver set to MQTT that has no **MQTT broker URL** or **MQTT subscribe topic
 
 A receiver that shows **On** but receives nothing has one of two problems:
 
-- A broker connection problem. The log reports a disconnection or failed reconnect, and the receiver keeps retrying every 5 seconds.
+- A broker connection problem. The receiver keeps retrying every 5 seconds, and the log records it as described under [Broker connection messages in the log](#broker-connection-messages-in-the-log).
 - An **MQTT subscribe topic** that differs from the sender's **MQTT snapshot topic**.
 
-If snapshots arrive but the tags do not update, a path in the batch is already used by a tag that relay does not own, and the whole batch is rejected.
+If snapshots arrive but the tags do not update, a path in the batch may already be used by a tag that relay does not own.
+The receiver then rejects the whole batch.
 The log of an MQTT receiver then shows an ingest conflict warning, and a sender using HTTPS receives a 409 response.
+The receiver writes this warning for every rejected snapshot, so it repeats for as long as the conflict lasts.
 Change the **Receiver tag path prefix** or the sender's **Sender tag path prefix** so that the relayed tags mount in an empty subtree.
 
 Over HTTPS, a 401 or 403 response at the sender means the token is missing, invalid, or belongs to a user without the **Receive external tags** permission.

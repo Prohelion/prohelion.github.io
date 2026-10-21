@@ -19,7 +19,7 @@ A protocol adapter allows Profinity to receive data from external systems.
 Without incoming data, Profinity can show and do very little.
 For CAN bus networks, [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) describes the supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges.
 [How to connect to CAN bus](./Connect_to_CAN_Bus.md) gives the steps.
-For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, OPC UA, and S7, described in [Industrial protocols](../Components/Industrial_Protocols/index.md).
+For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7, described in [Industrial protocols](../Components/Industrial_Protocols/index.md).
 
 ## Add the component
 
@@ -27,7 +27,10 @@ The **ADD COMPONENT** page groups the component types by category.
 The filter options are on the left-hand side of the page, and the **COMPONENT TYPES** filter limits the list to one category:
 
 - **Adapters**, including the [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), which are also shown at the top of the screen when discovered
-- **Battery Management Systems**, **Chargers & Power Supplies**, **Motor Controllers** and **MPPTs** for devices such as a Battery Management Unit (BMU), a motor controller or a Maximum Power Point Tracker (MPPT)
+- **Battery Management Systems**, **Chargers & Power Supplies**, **Motor Controllers**, and **MPPTs**, for devices such as:
+    - A Battery Management Unit (BMU).
+    - A motor controller.
+    - A Maximum Power Point Tracker (MPPT).
 - **[Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md)** to create a new component
 - **[Loggers](../Components/Loggers/index.md)** (CAN File, TAG File, InfluxDB v1, and Prometheus)
 - **[Historians](../Components/Historians/index.md)** (InfluxDB v2, InfluxDB v3, and TAG SQL)

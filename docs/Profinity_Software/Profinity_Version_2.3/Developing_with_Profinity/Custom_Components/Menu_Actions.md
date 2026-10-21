@@ -55,4 +55,4 @@ The message names the entry, for example `Menu action 'zero' has unsupported kin
 Refer to [Component Pack CLI](../SDK/Component_Pack_CLI.md).
 
 A tag rule can also run an action when a condition fires, which is not this file.
-Refer to [DBC, dashboard, and rules](DBC_Dashboard_and_Rules.md#rules).
+Refer to [CAN database (DBC), dashboard, and rules](DBC_Dashboard_and_Rules.md#rules).

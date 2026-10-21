@@ -9,7 +9,9 @@ last_reviewed: 2026-10-14
 # Tag relay
 
 Tag relay shares live tag data between two Profinity instances.
-One instance runs as a sender, publishing periodic snapshots of the [tag collections](Collections/index.md) it is set to export, and another runs as a receiver, ingesting those snapshots as remote, read-only tags under a prefix that identifies where they came from.
+One instance runs as a sender and publishes periodic snapshots of the [tag collections](Collections/index.md) it is set to export.
+Another instance runs as a receiver and ingests those snapshots as remote, read-only tags.
+The tags sit under a prefix that identifies where they came from.
 It supports a fleet or head-office view spanning multiple sites, vehicles, or installations.
 Tag relay requires the **Data Relay** licensed feature on both the sending and receiving instance.
 [Licensing](../Licensing.md) shows whether it is licensed and available on a given instance.
@@ -23,7 +25,7 @@ A sender exports every tag that belongs to its selected collections, so create a
 </figure>
 
 Tag relay works only between Profinity instances, and it does not use Sparkplug, a Message Queuing Telemetry Transport (MQTT) payload format for industrial data.
-If the other end is a third-party Sparkplug B source, such as an edge gateway or a third-party SCADA platform, use the [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber.md) instead.
+If the other end is a third-party Sparkplug B source, such as an edge gateway or a third-party Supervisory Control and Data Acquisition (SCADA) platform, use the [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber.md) instead.
 Refer to that page for the reverse comparison.
 
 ## How it works

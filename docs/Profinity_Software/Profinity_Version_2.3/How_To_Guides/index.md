@@ -31,7 +31,11 @@ Start with the [Quick start guide](../Getting_Started/Quick_Start.md) if Profini
 
 ## Log and publish data
 
-- [How to configure data logging](./Configure_Data_Logging.md): log or publish data to files, InfluxDB, Prometheus, Message Queuing Telemetry Transport (MQTT), or a webhook.
+- [How to configure data logging](./Configure_Data_Logging.md): choose a destination, add the logger or publisher, start it, and check that data is flowing.
+- [How to log data to files and SFTP servers](./Log_Data_to_Files.md): write CAN bus messages or tag values to log files locally or on an SFTP server.
+- [How to log data to InfluxDB](./Log_Data_to_InfluxDB.md): connect an InfluxDB v1 Logger, v2 Historian or v3 Historian.
+- [How to serve data to Prometheus](./Log_Data_to_Prometheus.md): let a Prometheus server collect tag values from Profinity.
+- [How to publish data to MQTT or a webhook](./Publish_Data_to_MQTT_or_Webhook.md): push tag collections to an MQTT broker or an HTTP(S) endpoint.
 - [How to log data to the cloud (InfluxDB)](./Log_Data_to_Cloud_Influx.md): log tag values to InfluxDB Cloud or a self-hosted InfluxDB, and see the data Profinity writes.
 
 ## Configure and deploy

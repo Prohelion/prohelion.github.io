@@ -22,15 +22,17 @@ You need three things:
 ## Who can sign in, by installation type {#who-can-sign-in}
 
 What you can sign in with depends on the type of installation and its licence.
-This table is the one place that sets it out, and the installation pages link to it.
 
 | Installation | Licence | Sign-in | Other machines can open the web interface |
 |--------------|---------|---------|------|
 | Windows desktop application | None, or a Desktop licence | The built-in desktop user signs in automatically, with no password and no `admin` account | No |
-| Windows desktop application | Server licence | The desktop window still signs in automatically, and Profinity also creates the default `admin` account, which must change its password at first sign-in | Yes, after a restart |
-| Linux, macOS or Docker | None, during the 14-day local trial | `admin` with the password `password`, which must be changed at first sign-in | Yes |
-| Linux, macOS or Docker | Server licence | `admin` with the password `password` on a new installation, which must be changed at first sign-in | Yes |
+| Windows desktop application | Server licence | The desktop window still signs in automatically, and Profinity also creates the default `admin` account with the password `password`, which must be changed at first sign-in | Yes, after a restart |
+| Windows service | None | `admin` with the password `password`, which must be changed at first sign-in | No, because Profinity listens on the local machine only |
+| Windows service | Server licence | `admin` with the password `password`, which must be changed at first sign-in | Yes, after a restart |
+| Linux, macOS, or Docker | None, during the 14-day local trial | `admin` with the password `password`, which must be changed at first sign-in | Yes |
+| Linux, macOS, or Docker | Server licence | `admin` with the password `password` on a new installation, which must be changed at first sign-in | Yes |
 
+When the 14-day trial ends, the `admin` account stays, and Profinity listens on the local machine only until a Server licence is applied.
 User accounts and roles need the Server licensed feature, which the Server and Enterprise editions and the 14-day trial include.
 Refer to [Licensing](../Licensing.md) for the trial and for what each edition includes.
 
@@ -46,7 +48,8 @@ Refer to [Licensing](../Licensing.md) for the trial and for what each edition in
 
 Profinity checks the file's signature, its expiry, and that its fingerprint matches this installation before it applies the file.
 If any check fails, the upload is rejected and the existing licence, if there is one, stays in effect.
-The fingerprint and the returned file can travel by any route, such as email from another computer, a USB drive, or a secure file copy, so the machine that runs Profinity does not need internet access.
+The fingerprint and the returned file can travel by any route, such as email from another computer, a USB drive, or a secure file copy.
+The machine that runs Profinity does not need internet access.
 
 ## Apply a licence without the web interface
 

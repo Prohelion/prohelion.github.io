@@ -12,7 +12,8 @@ The following operations are available to every script, regardless of the langua
 
 - CAN bus communication: scripts can send CAN packets and read the latest received packets.
   Refer to [CAN Bus](./CANBus.md) for examples and usage.
-- CAN database (DBC) message and signal information: scripts can read signal values from the loaded DBC files by component, message, and signal name, with the raw CAN data converted to physical values.
+- CAN database (DBC) message and signal information: scripts read signal values from the loaded DBC files by component, message, and signal name.
+  Profinity converts the raw CAN data to physical values.
   Refer to [DBC](./DBC.md) for examples and usage.
 - State management: Profinity provides two state stores. `State` keeps data for a single script between its runs, and `GlobalState` shares data across multiple scripts.
   Refer to [State](./State.md) for examples and usage.

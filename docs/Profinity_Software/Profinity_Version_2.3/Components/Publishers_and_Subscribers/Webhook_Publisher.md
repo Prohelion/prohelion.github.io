@@ -8,7 +8,8 @@ last_reviewed: 2026-10-14
 
 # Webhook Publisher
 
-The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to an HTTP or HTTPS address with an HTTP POST, either on a fixed interval or whenever a member tag's value changes.
+The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to an HTTP or HTTPS address with an HTTP POST.
+It publishes either on a fixed interval or whenever a member tag's value changes.
 The **Logging mode** setting chooses between these, in the same way as on the [MQTT Publisher](MQTT_Publisher.md).
 Use it when the consumer is an ordinary web service rather than a Message Queuing Telemetry Transport (MQTT) broker.
 
@@ -36,6 +37,8 @@ These steps publish one collection to a web service with no authentication.
 
 The publisher does not start until at least one collection is selected and every selected collection exists in the profile.
 With **Auto Connect** on, which is the default, it starts when the profile loads, and its status shows **On**.
+The publisher does not test the receiver when it starts, so **On** shows only that it is running.
+The status changes to **Error** if a delivery fails.
 To check that it works, look for the POST at your receiver.
 
 ## Settings

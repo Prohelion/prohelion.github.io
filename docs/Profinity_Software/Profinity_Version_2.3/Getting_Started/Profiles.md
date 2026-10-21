@@ -30,4 +30,4 @@ The profile list shows every profile, and each row can be viewed, edited, or del
 <figcaption>The Profinity profile list (ADMIN, then Profile), where the active profile is marked ACTIVE</figcaption>
 </figure>
 
-[Profiles](../Administration/Profiles.md) in the Administration section covers creating and managing profiles in full.
+[Manage profiles](../Administration/Manage_Profiles.md) in the Administration section covers activating, renaming, importing, and downloading profiles.

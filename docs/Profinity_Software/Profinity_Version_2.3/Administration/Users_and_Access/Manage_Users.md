@@ -8,7 +8,8 @@ last_reviewed: 2026-10-14
 
 # Managing users
 
-Every person who signs in to Profinity through the Web or the API has a user account, and what that person can see and do is decided by the **roles** assigned to the account.
+Every person who signs in to Profinity through the Web or the API has a user account.
+The **roles** assigned to the account decide what that person can see and do.
 A role is a named set of permissions such as viewing tags, sending CAN messages, or editing profiles.
 Setting up a new person means creating the account and choosing the role that matches their job.
 [Roles and permissions](./Roles_and_Permissions.md) describes the roles and the permissions inside them.
@@ -76,7 +77,8 @@ To stop a person signing in without deleting their account:
 2. Switch off **Is the user currently enabled**.
 3. Save.
 
-To end sessions that are already open, use **Reset Password** on the **User Actions** tab for a local user, which signs out the user's active sessions, or change the user's **Assigned roles**, which has the same effect.
+To end sessions that are already open, use **Reset Password** on the **User Actions** tab for a local user, which signs out the user's active sessions.
+Changing the user's **Assigned roles** has the same effect.
 
 ## Password and sign-in rules
 

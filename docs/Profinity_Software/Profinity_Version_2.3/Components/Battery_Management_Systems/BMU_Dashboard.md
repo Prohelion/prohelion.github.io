@@ -62,7 +62,11 @@ The table of models links the reference pages for each model.
 
 The **Node Telemetry** table lists the connected CMUs and the voltage of each cell they monitor.
 The columns depend on the BMS model.
-For a D1000 Gen1 they are the CMU serial number (**Node Number**), the CMU board and external cell temperatures (**PCB C** and **Cell C**) and the voltage of each cell in millivolts (**Cell 1 - 8 mV**).
+For a D1000 Gen1 they are:
+
+- The CMU serial number (**Node Number**).
+- The CMU board and external cell temperatures (**PCB C** and **Cell C**).
+- The voltage of each cell in millivolts (**Cell 1 - 8 mV**).
 A negative voltage is a trust error, where the two redundant measurement channels disagree.
 The value `-32768` indicates a cell position that the BMU has not configured as present, as described in [Transmitted CAN Packets](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Communications_Protocol/Transmitted_CAN_Packets.md).
 

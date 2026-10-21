@@ -1,6 +1,6 @@
 ---
 title: Install Profinity with Docker
-description: "Install and run Profinity in a Docker container with Docker Compose, sign in, expose CAN devices, and prepare the installation for production."
+description: "Install and start Profinity in a Docker container with Docker Compose, sign in, and give the container access to the host's CAN interfaces."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -59,32 +59,10 @@ To move an existing installation to a newer image, refer to [Update the Profinit
 In the second address, replace `<your-ip-address>` with the address of the machine that runs Docker.
 The sign-in page opens, as described under [Sign in](#sign-in).
 
-The compose file publishes three ports:
-
-| Port | Purpose |
-|------|---------|
-| `18080` | HTTP web interface |
-| `18443` | HTTPS web interface |
-| `4876` | Tritium CAN to Ethernet bridge, which uses this port for both UDP and TCP and cannot change it |
-
-Docker publishes a port as TCP unless the mapping ends in `/udp`, so add `- 4876:4876/udp` when a Tritium adapter is reached through the published ports.
-On Linux hosts, use host networking (`network_mode: host`) where multicast adapter discovery or [Profinity Mobile](../Mobile/index.md) server discovery is required, because UDP broadcasts do not leave a Docker bridge network.
-
-The artefacts directory inside the container is whatever `PROFINITY_HOME` names.
-With the volume in this compose file, the configuration is in `/app/Prohelion/config`, the profiles in `/app/Prohelion/profiles`, and the logs in `/app/Prohelion/logs`, which appear on the host under `$HOME/Prohelion`.
-The one-line installer uses `PROFINITY_HOME=/var/lib/prohelion/profinity` mounted from a local `data` directory, which is also the default artefacts path on Linux.
-Either path is valid, provided that the environment variable and the mount destination match.
-
-!!! warning "Set PROFINITY_HOME to your mount path"
-    If `PROFINITY_HOME` does not name the container path of your mounted volume, Profinity writes its configuration and profiles inside the container, and they are lost when the image is replaced.
-    Compose files written for 2.2 that mount `/root/Prohelion/Profinity/...` need their mounts moved to the new `PROFINITY_HOME` path.
-    Profinity skips the automatic migration from legacy operating system locations whenever `PROFINITY_HOME` is set.
-
-The sub-folders beneath the artefacts directory use lowercase names (`config`, `profiles`, `logs`).
-Linux file systems are case-sensitive, so mounts must target those names.
-Refer to [Artefacts directory](./Artifacts_Directory.md).
-
+The compose file publishes ports `18080`, `18443`, and `4876`, and sets `PROFINITY_HOME` to the path of the mounted volume.
+For what each port does, what the data directory holds and why `PROFINITY_HOME` must match the mount path, refer to [Docker ports and data directory](./Docker_Ports_and_Data_Directory.md).
 To check where Profinity stores its files, open a shell in the running container with `docker compose exec profinity bash`, and run `ls -la /app/Prohelion/`.
+The listing includes the `config`, `profiles`, and `logs` folders.
 
 ## Start and stop Profinity
 
@@ -129,15 +107,10 @@ To use the host's SocketCAN interfaces, run the container on the host network.
 On a Linux host, remove the `#` from the `network_mode: host` line in the `docker-compose.yml` file from the installation steps, then run `docker compose up -d` again.
 The container then sees the host's CAN interfaces, and components that use UDP broadcasting can be discovered.
 With host networking, Docker ignores the `ports` entries, because the container uses the host's ports directly.
-
-## Troubleshooting
-
-- The profile and configuration are back to their defaults after an image update: `PROFINITY_HOME` did not match the container-side mount path, so the data was written to the container and lost when it was replaced. Set the variable to the mount path and restore the files from your backup.
-- Profinity fails to start with a permission error on the mounted directory: the `app` user cannot write to it, so change the ownership or permissions of the host directory.
-- A Tritium adapter is not found: publish port `4876` for UDP as well as TCP, or use host networking.
-- The host's SocketCAN interfaces are not visible inside the container: expose them to Docker, as described under [Expose devices to the container](#expose-devices-to-the-container).
+Host networking is also what [Profinity Mobile](../Mobile/index.md) server discovery needs, because UDP broadcasts do not leave a Docker bridge network.
 
 ## Run Profinity in production
 
 For production environments, and deployments that run many Profinity instances, configure Profinity with environment variables so that one compose file can serve every instance.
 The compose files, `.env` files, and environment-specific deployment examples are in [Environment variables](./Environment_Variables.md#docker).
+If the installation does not behave as described here, refer to [Troubleshoot Profinity in Docker](./Troubleshoot_Docker_Installation.md).

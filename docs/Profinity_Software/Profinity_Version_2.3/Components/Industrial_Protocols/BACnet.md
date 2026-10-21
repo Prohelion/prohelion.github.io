@@ -104,6 +104,8 @@ Set **Device instance** to the number in the message, or correct the **Remote ho
 
 Profinity reads the Device object to check the instance.
 BACnet requires every device from protocol revision 4 (2004) onwards to answer this read.
-A device older than that, or one that does not allow its Device object to be read, answers with a BACnet error, and the component shows that error as the reason.
-A device that does not answer the read puts the component in **Error** in the same way, with a message that the device did not answer, and Profinity tries again every **Reconnect delay**.
+A device older than that, or one that does not allow its Device object to be read, answers with a BACnet error.
+The component shows that error as the reason.
+A device that does not answer the read puts the component in **Error** in the same way, with a message that the device did not answer.
+Profinity tries again every **Reconnect delay**.
 A device that is replaced on the same address after it was connected is caught at the next failed read, and the component then shows **Error** until the instance matches.

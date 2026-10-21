@@ -29,18 +29,16 @@ Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Ta
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Optional identifier of the chart. The value is not displayed |
-| `class` | string | No | None | Not used by the web interface |
 | `type` | string | Yes | None | Chart type, one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. Refer to [Chart types](#chart-types) for details |
 | `value` | object or array | No | None | Static chart data, or a starting shape for a chart whose live series come from `bind` |
 | `legend` | boolean | No | Depends on chart type | Whether to show the legend. The default is `true` for `pie`, `doughnut` and `polarArea` charts, and a line chart with more than one series also shows its legend |
 | `refreshInterval` | number | No | None | Automatic refresh interval in milliseconds. The web interface honours values of `1000` and above |
-| `showControls` | boolean | No | None | Not used by the web interface |
 | `min` | number | No | None | Fixed lower bound of the value axis. The bound is calculated from the data when omitted |
 | `max` | number | No | None | Fixed upper bound of the value axis. The bound is calculated from the data when omitted |
 | `label` | string | No | None | Title displayed above the chart |
-| `enabled` | boolean | No | `true` | Not used by the web interface |
-| `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | Tag and time-series bindings that supply the chart data. Use the `value` target |
+
+The web interface accepts but ignores `class`, `showControls`, `enabled`, and `visible`.
 
 Most chart types take static data as `labels` and `datasets`, and a `bubble`, `scatter` or `radar` chart takes datasets only.
 A chart with a `refreshInterval` polls for its data instead of using the live data feed.

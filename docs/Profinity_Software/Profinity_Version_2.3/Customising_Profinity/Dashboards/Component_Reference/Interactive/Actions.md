@@ -21,7 +21,6 @@ Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS classes applied to the button or icon |
 | `label` | string | No | None | Caption of the button, also used as the title of the confirmation dialog and as the caption of the progress bar |
 | `image` | string | No | None | Icon name, for example `Renew` or `Settings`, shown on `icon` and `button` actions. An icon filename such as `nav_battery_active.svg` is also accepted. Refer to [Icon component](../Content/Icon.md) for how to find icon names |
@@ -35,11 +34,12 @@ Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 | `trackProgress` | boolean | No | `false` | Shows a progress bar and polls the progress of the action while it runs |
 | `confirmMessage` | string | No | None | Message of a confirmation dialog that the user must accept before the action runs |
 | `restartingOnSuccess` | boolean | No | `false` | After the action succeeds, shows a wait dialog and polls until the Profinity engine is running again. Use the parameter for actions that restart the engine |
-| `hyperlink` | string | No | None | Not used by the web interface. Use `invoke: Navigate` with `target` to navigate |
-| `openHyperLinkInNewWindow` | boolean | No | None | Not used by the web interface |
 | `enabled` | boolean | No | `true` | Whether the button can be clicked. The state can be bound with the `enabled` target |
-| `visible` | boolean | No | `true` | Not used by the web interface. Use a binding on the component that contains the action to control visibility |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `enabled`, `tooltip` and `classes` targets are handled |
+
+The web interface accepts but ignores `id`, `hyperlink`, `openHyperLinkInNewWindow`, and `visible`.
+To navigate, use `invoke: Navigate` with `target`.
+To control the visibility of an action, use a binding on the component that contains the action.
 
 In `auto` mode the label decides the display, so an action with a label is displayed as a button and an action without a label is displayed as an icon.
 An `image` value that matches no known icon is loaded as an image file from the `/Profile/Images` directory.

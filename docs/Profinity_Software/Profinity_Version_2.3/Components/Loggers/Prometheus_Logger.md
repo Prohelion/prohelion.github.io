@@ -92,4 +92,4 @@ If Prometheus shows no data, check three things:
 - The scraper uses the same hostname, port and endpoint path as the logger.
 - At least one collection with tags is selected.
 
-For the steps to set up logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+For the steps to set up logging, refer to [How to serve data to Prometheus](../../How_To_Guides/Log_Data_to_Prometheus.md).

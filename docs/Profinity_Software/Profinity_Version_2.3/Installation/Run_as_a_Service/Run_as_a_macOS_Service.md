@@ -65,4 +65,5 @@ To check that the service is running, run `sudo launchctl list | grep com.profin
 The command lists the service when it is loaded.
 If the service does not start, read the `profinity_<date>.log` file in the `logs` folder of the artefacts directory (refer to [Artefacts directory](../Artifacts_Directory.md)).
 Launchd discards console output unless you add `StandardOutPath` and `StandardErrorPath` keys to the plist.
-A "file not found" error means the path to `profinity.sh` in the plist does not match where Profinity is installed, so correct the path in the service configuration and start the service again.
+A "file not found" error means the path to `profinity.sh` in the plist does not match where Profinity is installed.
+Correct the path in the service configuration and start the service again.

@@ -50,7 +50,7 @@ If the identity provider requires a secret and **Client secret** is empty, sign-
 
 The identity provider must accept the Profinity callback address, `https://<your-host>/api/v2/Auth/External/Callback`.
 Replace `<your-host>` with the address users type to reach Profinity.
-Register that address as a redirect URI in the identity provider, and enter the same address in **Redirect URIs (ACS URL)**.
+Register that address as a redirect uniform resource identifier (URI) in the identity provider, and enter the same address in **Redirect URIs (ACS URL)**.
 Some products call a redirect URI the Assertion Consumer Service (ACS) URL.
 The app registration must allow the `openid`, `profile` and `email` scopes, which Profinity requests.
 Profinity builds the callback address from the address the user used to reach the sign-in page.

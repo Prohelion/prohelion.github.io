@@ -8,7 +8,13 @@ last_reviewed: 2026-10-14
 
 # How to debug dashboard issues
 
-A dashboard problem usually shows itself in one of four ways: the dashboard does not load, a readout shows no data, an image is missing, or a style has no effect.
+A dashboard problem usually shows itself in one of four ways:
+
+- The dashboard does not load.
+- A readout shows no data.
+- An image is missing.
+- A style has no effect.
+
 This guide gives the usual cause and fix for each.
 You need access to the [dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md) and a dashboard that shows the problem.
 

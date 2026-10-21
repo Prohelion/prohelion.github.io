@@ -1,6 +1,6 @@
 ---
 title: Two-factor authentication
-description: "Require time-based one-time password (TOTP) two-factor authentication for local users, set recovery code and device trust policy, and allow security keys."
+description: "Look up the two-factor authentication policy settings, their defaults and ranges, the licence each needs, and the security-key sign-in setting."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-14
@@ -35,24 +35,6 @@ The group holds the settings in the following table.
 
 Saving the tab restarts Profinity and interrupts active sessions.
 
-## Enrolment and sign-in
-
-When two-factor authentication is required and a user has no authenticator, Profinity opens the two-factor setup screen after the user enters a valid password.
-The user scans the QR code with an authenticator app and verifies a one-time code to prove the app is working.
-When the policy requires it, the user then saves the recovery codes and confirms they are stored.
-
-On later sign-ins, Profinity asks for the authenticator code after the password is accepted, with a **6-Digit MFA Code** field and an alternative **Recovery Code** field.
-A user who selects **Remember this device** on a site that allows it skips this step on that browser until the remember duration ends.
-Repeated incorrect codes are rate limited, so a user who keeps entering wrong codes must wait before trying again.
-A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](./index.md#session-policy-and-login-lockout).
-
-If a code is rejected although it was typed correctly, the usual cause is the clock on the phone, because authenticator codes depend on the device time being correct.
-If the phone is lost and the recovery codes are not available, an administrator resets the user's authenticator from the **User Actions** tab.
-The user then enrols again at the next sign-in.
-Refer to [MFA account management](../../Users_and_Access/MFA_Account_Management.md) for the reset.
-
-While **Enforce two-factor for local users** is on, a signed-in local user manages their own authenticator from the **Two-Factor Authentication** pill on the **ADMIN** page, as described in [MFA account management](../../Users_and_Access/MFA_Account_Management.md#self-service-management).
-
 ## Security-key sign-in
 
 !!! note "Licence required"
@@ -66,19 +48,7 @@ The setting is off by default and does not require keys for all users.
 Users who do not register a key keep signing in with their password.
 
 Security keys need **Enforce two-factor for local users** switched on.
-Users register a key in the **SECURITY KEYS (WEBAUTHN)** panel of the **Two-Factor Authentication** dialog, and Profinity shows that dialog only while the enforcement setting is on.
-
-To register a key:
-
-1. Select **ADMIN** in the side menu, then the **Two-Factor Authentication** pill.
-2. In the **SECURITY KEYS (WEBAUTHN)** panel, select **Begin security key registration**.
-3. Follow the browser prompt.
-
-Profinity shows "Security key registered successfully."
-Registration needs a browser that supports WebAuthn and a page served over HTTPS or from localhost.
-If registration is cancelled or times out, Profinity shows "Security key registration was cancelled or timed out." and the user can select **Begin security key registration** again.
-
-When a site allows security keys and the browser supports them, the login page shows a **Sign in with security key** button under the password form.
+Users register a key and sign in with it as described in [Sign in with two-factor authentication](./Two_Factor_Sign_In.md).
 
 ## Related pages
 

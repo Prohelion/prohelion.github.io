@@ -32,7 +32,8 @@ Change the **Tag tree path** or the name of one of the two components until the 
 ## Change the path on a deployed component
 
 !!! warning "Moving a component breaks absolute binds in other dashboards"
-    Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and history recorded by the [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) under the old path is not carried across.
+    Absolute binds in other components' dashboards stop resolving when the component they reference is moved.
+    History recorded by the [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) under the old path is not carried across.
 
 Changing a deployed component's **Tag tree path**, or renaming it, automatically updates the [rules](../Rules/index.md) and [collections](../Collections/index.md) that refer to it, along with the home dashboard's `source:` bindings.
 Only paths that refer to the moved component are updated, and an unrelated branch with the same name is left alone.

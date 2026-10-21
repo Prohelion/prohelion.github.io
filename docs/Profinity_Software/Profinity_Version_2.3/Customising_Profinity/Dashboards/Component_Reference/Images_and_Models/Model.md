@@ -67,86 +67,65 @@ Each item in `models` has:
 | `model` | string | Yes | None | Filename of the model in the `/Profile/Models` directory (GLB, GLTF, STL, or OBJ). If the file is missing or cannot be loaded, the component shows "Error loading 3D model" instead |
 | `layer` | string | No | None | Identifier of a layer. The model is hidden when that layer is switched off |
 
-### Action invocation
-
-The `action` of a region, icon, or button is an action invocation.
-Refer to [Action invocation](Overlay_Elements.md#action-invocation) for its parameters, and to [Actions](../Interactive/Actions.md#invoke-types) for the invoke types.
-
 ### Region parameters
 
 A region is a clickable sphere in model space.
+A region also takes the [Region parameters](Overlay_Elements.md#region-parameters) that the image shares, including its `action`.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the region |
 | `x` | number | Yes | None | Position along the X axis of the model |
 | `y` | number | Yes | None | Position along the Y axis of the model |
 | `z` | number | Yes | None | Position along the Z axis of the model |
 | `radius` | number | Yes | None | Radius of the clickable sphere in model units, for example `0.3` |
-| `action` | object | Yes | None | Action invocation run when the region is clicked |
-| `label` | string | No | None | Tooltip text displayed on hover |
 | `visible` | boolean | No | `true` | When `false`, the sphere is not drawn and the clickable area remains |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the region |
 
 ### Icon parameters
 
+An icon also takes the [Icon parameters](Overlay_Elements.md#icon-parameters) that the image shares, including `icon` and `action`.
+
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the icon |
 | `x` | number | Yes | None | Position along the X axis of the model |
 | `y` | number | Yes | None | Position along the Y axis of the model |
 | `z` | number | Yes | None | Position along the Z axis of the model |
-| `icon` | string | Yes | None | Icon source: an image filename, an emoji character, Scalable Vector Graphics (SVG) path data, or an `<svg>` element. Refer to [Overlay elements](Overlay_Elements.md#icon-source-forms) for the accepted forms |
-| `size` | number | No | `24` | Icon size in pixels |
-| `color` | string | No | None | Icon colour, applied to SVG paths and text icons |
 | `label` | string | No | None | Accessible alternative text for the icon. The web interface does not show the label as a tooltip |
-| `action` | object | No | None | Action invocation run when the icon is clicked |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the icon |
 
 ### Button parameters
 
+A button also takes the [Button parameters](Overlay_Elements.md#button-parameters) that the image shares, including `label` and `action`.
+
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the button |
 | `x` | number | Yes | None | Position along the X axis of the model |
 | `y` | number | Yes | None | Position along the Y axis of the model |
 | `z` | number | Yes | None | Position along the Z axis of the model |
-| `label` | string | No | None | Caption of the button |
-| `action` | object | No | None | Action invocation run when the button is clicked |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the button |
 
 ### Data value parameters
 
+A data value also takes the [Data value parameters](Overlay_Elements.md#data-value-parameters) that the image shares, including `bind` and `displayType`.
+
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier, also used by annotation lines to refer to the data value |
 | `x` | number | Yes | None | Position along the X axis of the model |
 | `y` | number | Yes | None | Position along the Y axis of the model |
 | `z` | number | Yes | None | Position along the Z axis of the model |
-| `bind` | array | Yes | None | Data binding that supplies the live value |
-| `displayType` | string | No | `text` | How the value is displayed, one of `text`, `graph` (bar chart) or `status` (lamp) |
 | `label` | string | No | The `id` | Caption of the overlay |
 | `value` | number or string | No | None | Placeholder value shown before the bound value arrives |
 | `maxValue` | number | No | None | Maximum of the bar chart scale when `displayType` is `graph` |
-| `lampColor` | string | No | `grey` | Colour of the lamp before a bound colour arrives, when `displayType` is `status`. The values are those of the lamp [colour names](../Data/Lamp.md#colour-names) |
-| `unit` | string | No | None | Unit appended to the formatted value |
-| `precision` | number | No | None | Number of decimal places for the displayed value |
-| `enabled` | boolean | No | `true` | Whether the status lamp is enabled |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the data value |
 
 The display types behave as described in [Display types](Overlay_Elements.md#display-types), including the rule that a `status` data value takes its colour from the bound value.
 
 ### Point parameters
 
+A point also takes the [Point parameters](Overlay_Elements.md#point-parameters) that the image shares.
+
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the point |
 | `x` | number | Yes | None | Position along the X axis of the model |
 | `y` | number | Yes | None | Position along the Y axis of the model |
 | `z` | number | Yes | None | Position along the Z axis of the model |
 | `size` | number | No | `0.05` | Radius of the point sphere in model units |
-| `color` | string | No | `grey` | Colour of the point |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the point |
 
 ## Example
 

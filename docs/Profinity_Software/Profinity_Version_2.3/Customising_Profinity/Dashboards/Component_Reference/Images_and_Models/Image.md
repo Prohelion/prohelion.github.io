@@ -69,19 +69,16 @@ Regions, icons, buttons, data values, points and elbows are all positioned relat
 
 Regions are clickable rectangular areas on the image.
 Regions can navigate to other pages or run actions.
+A region also takes the [Region parameters](Overlay_Elements.md#region-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the region |
 | `x` | number | No | None | Left edge of the region as a percentage of the image width, from `0` to `100` |
 | `y` | number | No | None | Top edge of the region as a percentage of the image height, from `0` to `100` |
 | `width` | number | No | None | Width of the region as a percentage of the image width |
 | `height` | number | No | None | Height of the region as a percentage of the image height |
 | `coordinates` | string | No | None | Older form of the rectangle, written as `xywh=x,y,width,height`. Use `x`, `y`, `width` and `height` instead. Refer to the note after this table |
-| `action` | object | Yes | None | Action invocation run when the region is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
-| `label` | string | No | None | Tooltip text displayed on hover |
 | `visibleBorder` | boolean | No | `true` | Whether to show the border of the region |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the region |
 
 Profinity still reads `coordinates` when `x`, `y`, `width` and `height` are not all set.
 Write the four values of `coordinates` as percentages in plain numbers, without a `%` or `px` suffix.
@@ -121,18 +118,13 @@ regions:
 
 Icons are positioned elements that can display an emoji, an SVG path or an image file.
 Icons can run an action when clicked and display a tooltip on hover.
+An icon also takes the [Icon parameters](Overlay_Elements.md#icon-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the icon |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
-| `icon` | string | Yes | None | Icon source. Refer to [Icon source forms](Overlay_Elements.md#icon-source-forms) |
-| `size` | number | No | `24` | Icon size in pixels |
-| `color` | string | No | None | Icon colour, applied to SVG paths and text icons |
 | `label` | string | No | None | Tooltip text displayed on hover |
-| `action` | object | No | None | Action invocation run when the icon is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the icon |
 
 An emoji icon:
 
@@ -178,15 +170,12 @@ icons:
 
 Buttons are dashboard-style buttons positioned on the image.
 They run an action when clicked.
+A button also takes the [Button parameters](Overlay_Elements.md#button-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the button |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
-| `label` | string | No | None | Caption of the button |
-| `action` | object | No | None | Action invocation run when the button is clicked. Refer to [Action invocation](Overlay_Elements.md#action-invocation) |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the button |
 
 A button that runs an action:
 
@@ -204,24 +193,15 @@ buttons:
 ## Data values
 
 Data values display real-time data from the Profinity system.
-They can bind to any tag.
-They support three display types: text, graph (a bar chart) and status (a lamp).
+A data value also takes the [Data value parameters](Overlay_Elements.md#data-value-parameters) that the 3D model shares, including `bind` and `displayType`.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the data value |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
 | `label` | string | No | The `id` | Label displayed above the value. The label can be bound with the `label` target |
-| `bind` | array | Yes | None | Data binding that supplies the live value. Refer to [Display types](Overlay_Elements.md#display-types) for the targets |
-| `displayType` | string | No | `text` | How the value is displayed, one of `text`, `graph` (bar chart) or `status` (lamp) |
 | `maxValue` | number | No | None | Maximum of the bar chart scale. A `graph` data value needs a `maxValue` greater than `0` to draw the bar |
-| `lampColor` | string | No | `grey` | Colour of the lamp before a bound colour arrives, when `displayType` is `status`. The values are those of the lamp [colour names](../Data/Lamp.md#colour-names) |
 | `value` | number or string | No | None | Static value shown when the data value is not bound |
-| `unit` | string | No | None | Unit appended to the formatted value |
-| `precision` | number | No | None | Number of decimal places for the displayed value |
-| `enabled` | boolean | No | `true` | Whether the status lamp is enabled. The parameter applies only when `displayType` is `status` |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the data value |
 
 Refer to [Display types](Overlay_Elements.md#display-types) for an example of each display type.
 
@@ -229,15 +209,13 @@ Refer to [Display types](Overlay_Elements.md#display-types) for an example of ea
 
 Points are anchor points for annotation lines.
 They can be displayed as visual markers or used as connection points for annotation lines.
+A point also takes the [Point parameters](Overlay_Elements.md#point-parameters) that the 3D model shares.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | Yes | None | Unique identifier for the point |
 | `x` | number | Yes | None | Horizontal position as a percentage of the image width, from `0` to `100` |
 | `y` | number | Yes | None | Vertical position as a percentage of the image height, from `0` to `100` |
 | `size` | number | No | `8` | Diameter of the dot in pixels. A value of `0` hides the dot while the point remains available as an anchor |
-| `color` | string | No | `grey` | Colour of the dot |
-| `layer` | string | No | None | Identifier of the layer that controls the visibility of the point |
 
 A visible point:
 
@@ -395,6 +373,6 @@ Regions and icons display their `label` as a tooltip on hover.
 A button displays its `label` as its caption.
 A data value displays no tooltip because it shows its data directly.
 
-Give every region, icon, button, data value and point an `id` that is unique within the image, because annotation lines refer to elements by `id`.
+Give every element an `id` that is unique within the image, as described in [Shared element parameters](Overlay_Elements.md#shared-element-parameters).
 Give regions and icons a `label` so that the tooltip says what the element does.
 Give a status data value a `label` as well, because the colour of a lamp alone does not state the status.

@@ -23,7 +23,6 @@ Use [Tabs](../Interactive/Tabs.md) when the user switches between whole views, b
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the accordion element |
 | `label` | string | Yes | None | Caption of the button that expands and collapses the section |
 | `defaultExpanded` | boolean | No | `false` | Whether the accordion starts expanded when the dashboard loads. The user can collapse or expand it either way. An accordion that omits the parameter starts collapsed |
@@ -31,7 +30,10 @@ Use [Tabs](../Interactive/Tabs.md) when the user switches between whole views, b
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `visible` target shows and hides the accordion |
 | `items` | array | Yes | None | Accordion sections, where each item must be an object that contains a `row` |
 
-A `row` does not accept `visible` or `bind`, so content inside an accordion is shown and hidden by binding `visible` on the accordion itself or on a component inside the row.
+The web interface accepts but ignores `id`.
+
+A `row` does not accept `visible` or `bind`.
+To show and hide content inside an accordion, bind `visible` on the accordion itself or on a component inside the row.
 
 ## Example
 

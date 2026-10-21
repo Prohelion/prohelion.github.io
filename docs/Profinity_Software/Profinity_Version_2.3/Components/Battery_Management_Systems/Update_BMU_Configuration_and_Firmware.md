@@ -8,7 +8,8 @@ last_reviewed: 2026-10-15
 
 # Update BMU configuration and firmware
 
-Change the firmware configuration of a Prohelion Battery Management Unit (BMU), unlock its Admin parameters, or flash its firmware from the **Change Settings** button at the top-right of the BMU dashboard.
+Use the **Change Settings** button at the top-right of the BMU dashboard to manage a Prohelion Battery Management Unit (BMU).
+You can change its firmware configuration, unlock its Admin parameters, or flash its firmware.
 To add a BMU to a profile first, refer to [Prohelion BMU](Prohelion_BMU.md).
 
 ## Updating the BMU configuration

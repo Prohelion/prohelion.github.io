@@ -13,7 +13,8 @@ By default each component mounts at the root under its own name.
 The **Tag tree path** setting gives it a parent folder, so that its tags nest under that location instead.
 The setting is stored as `tagTreeParentPath` in the component's YAML.
 
-Nesting suits profiles that model physical or logical groupings, such as several subsystems of one vehicle, or several instances of one component type representing the bays, strings, or vehicles in a fleet.
+Nesting suits profiles that model physical or logical groupings.
+Examples are several subsystems of one vehicle, or several instances of one component type that represent the bays, strings, or vehicles in a fleet.
 The shared folder appears in the tag tree and in the Tag Explorer, so an integrator or user can navigate the tree the way the physical system is organised.
 
 The following sketch shows the effect of giving two components a **Tag tree path** of `Vehicles/Car1`:

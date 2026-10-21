@@ -10,7 +10,13 @@ last_reviewed: 2026-10-15
 
 The [rules visual editor](index.md#rules-visual-editor) writes rules to a file, and you can also edit the file directly.
 This page shows the file in full, so that every setting is in one place.
-The file has one rules source with a file-level scope, actions inherited by every rule beneath it, a group with its own action, a threshold rule, and a boolean rule that uses a collection.
+The file has:
+
+- One rules source with a file-level scope.
+- Actions inherited by every rule beneath it.
+- A group with its own action.
+- A threshold rule.
+- A boolean rule that uses a collection.
 
 The example assumes two things:
 
@@ -129,4 +135,4 @@ In the example, a Warning on `pack_temperature` runs only **Profinity Log**.
 An Error runs **Profinity Log** and `OpsSlack`.
 The Fatal step also runs `OpsEmail` from the group.
 
-For the editor, evaluation settings and permissions, refer to [Tag rules](index.md).
+For the editor, evaluation settings and permissions, refer to [Rule settings](Rule_Settings.md).

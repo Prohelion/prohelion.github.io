@@ -49,7 +49,8 @@ Install InfluxDB v2 or v3 and confirm that it is running, then:
 5. In **Influx Server URL**, enter the endpoint URL of your InfluxDB server, or keep the default `http://localhost:8086/`.
 
 Settings cannot be saved while a required field is empty.
-Once the historian connects, its status shows **On**, and your data appears in InfluxDB after the first **Update Interval (Seconds)**.
+Once the historian is running and has connected, its status shows **On**, and your data appears in InfluxDB after the first **Update Interval (Seconds)**.
+If it cannot reach InfluxDB, its status shows **Error** until the connection succeeds.
 
 The first three settings identify where the data is stored, and differ between the two historians.
 
@@ -78,7 +79,8 @@ The remaining settings are the same on both historians.
 
 Every sample is written with its quality in a `quality` field.
 A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale.
-A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`, so a chart can show the gap instead of an invented reading.
+A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`.
+A chart can then show the gap instead of an invented reading.
 Only tags that hold a number are written, and a query for readings should ask for the `value` field.
 
 Each sample is stored as one point in a measurement named after the profile.
@@ -116,5 +118,5 @@ The reason tells you what to check:
 | `the health check failed (InfluxDB Cloud has none; switch Health Check off in the settings)` | The server did not answer the health check. Turn **InfluxDB Health Check** off if you use InfluxDB Cloud. |
 | Any other text | The connection failed for another reason, and the text is the underlying error. Check the **Influx Server URL** first. |
 
-For the steps to set up data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+For the steps to set up data logging, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
 For an InfluxDB v1 server, refer to [InfluxDB v1 Logger](../Loggers/InfluxDB_v1_Logger.md).
