@@ -24,15 +24,30 @@ Use a [Group](Group.md) when the components need no title or panel frame.
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
-| `class` | string | No | None | Style variant of the panel body. `sunken` is the only variant that Profinity defines, and it suits charts and state diagrams. The variant applies to the panel body and not to the whole panel |
+| `class` | string | No | None | Style variant of the panel body. `sunken` is the only variant that Profinity defines |
 | `title` | string | Yes | None | Title text in the panel header, at the top of the panel |
-| `menu` | object | No | None | When present, the panel header shows a static menu icon. The icon is not interactive and the menu items are not displayed, so a panel menu does not provide navigation, actions, or dialogs. |
+| `menu` | object | No | None | When present, the panel header shows a static menu icon. The menu items are not displayed |
 | `width` | string | No | None | Width in CSS format, for example `100px`, `50%` or `auto`, applied to the panel |
 | `height` | string | No | None | Height in CSS format, for example `100px`, `50vh` or `auto`, applied to the body area of the panel |
-| `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows to fit its content and never shrinks below this value, and the value never stretches the panel to fill space |
-| `items` | array | Yes | None | Components displayed in the body of the panel: a [chart](../Data/Charts.md), [lamps](../Data/Lamps.md), [state](../Data/State.md) diagram, [group](Group.md), [readouts](../Data/Readouts.md), [table](../Data/Tables.md), [html](../Content/HTML.md), [redirect](../Content/Redirect.md), or [caption](../Data/Caption.md). Place any other component inside a `group` |
+| `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows with its content and never shrinks below this value. The value does not stretch the panel to fill space |
+| `items` | array | Yes | None | Components displayed in the body of the panel |
 
-A panel with a `menu` shows a static menu icon in its header, and clicking the icon does nothing.
+The `sunken` variant suits charts and state diagrams, and it applies to the panel body and not to the whole panel.
+A panel accepts these components in `items`:
+
+- [Chart](../Data/Charts.md)
+- [Lamps](../Data/Lamps.md)
+- [State](../Data/State.md) diagram
+- [Group](Group.md)
+- [Readouts](../Data/Readouts.md)
+- [Table](../Data/Tables.md)
+- [HTML](../Content/HTML.md)
+- [Redirect](../Content/Redirect.md)
+- [Caption](../Data/Caption.md)
+
+Place any other component inside a `group`.
+
+A panel with a `menu` shows a static menu icon in its header, and the icon is not interactive, so a panel menu does not provide navigation, actions or dialogs.
 Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) component for navigation and actions.
 
 ## Example

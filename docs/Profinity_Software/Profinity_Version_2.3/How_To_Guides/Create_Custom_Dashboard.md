@@ -8,7 +8,7 @@ last_reviewed: 2026-10-20
 
 # How to create a custom dashboard
 
-Create your first custom dashboard using the Visual Editor.
+Create your first custom dashboard in the dashboard visual editor.
 No YAML knowledge is needed for the visual steps, and each step also shows its YAML equivalent.
 
 A custom dashboard can belong to either of two component types:
@@ -23,16 +23,17 @@ Only the tag paths differ, as described in [Add your first data binding](#add-yo
 
 - One of the following components in your profile:
     - A Dashboard Component (refer to [Add a Dashboard Component](../Components/Dashboard/Dashboard_Component.md#add-a-dashboard-component)), plus at least one other component that publishes the tags to show
-    - A Custom Component (refer to [How to create a Custom Component](./Create_Custom_Component.md)) with a DBC file attached, because a signal has a tag to bind only when a DBC file is attached
+    - A Custom Component (refer to [How to create a Custom Component](./Create_Custom_Component.md)) with a CAN database (DBC) file attached, because a signal has a tag to bind only when a DBC file is attached
 - The **Modify dashboards** permission, which allows dashboards to be edited
 
-To practise without a device, load the Example Profile and replay `example_log.csv`, as described in the [Quick Start Guide](../Getting_Started/Quick_Start.md).
+To practise without a device, load the Example Profile and replay `example_log.csv`, as described in the [Quick start guide](../Getting_Started/Quick_Start.md).
 Add a Dashboard Component and bind to a tag such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
 
 ## Open the dashboard editor
 
-1. Navigate to your **Dashboard Component** or **Custom Component** in the sidebar.
-2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar. The editor opens in **DESIGN** mode, the Visual Editor, with a "CUSTOM DASHBOARD" starter dashboard.
+1. Select your **Dashboard Component** or **Custom Component** in the sidebar.
+2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar.
+   The editor opens in **DESIGN** mode, which is the visual editor, with a "CUSTOM DASHBOARD" starter dashboard.
 
 ## Add your first data binding
 
@@ -71,7 +72,7 @@ The source path depends on the component type that owns the dashboard.
     A source that starts with `DBC/` is relative to the Custom Component that owns the dashboard, so replace `Temperature` and `Value` with the message and signal names from its DBC file.
     To show a tag from another component, use an absolute path that starts with `/`.
 
-Refer to [Data Binding](../Customising_Profinity/Dashboards/Data_Binding/index.md#binding-source-paths).
+[Data binding](../Customising_Profinity/Dashboards/Data_Binding/index.md#binding-source-paths) describes the source paths in full.
 
 ## Add more components
 
@@ -80,7 +81,8 @@ Refer to [Data Binding](../Customising_Profinity/Dashboards/Data_Binding/index.m
 3. Set its label to `PRESSURE` in the **Inspector** and bind it to the pressure tag in the **Binding** section.
 
 As an alternative, add additional readouts in the **YAML** tab.
-This example uses the relative paths of a Custom Component; in a Dashboard Component, start each source with `/` and the component name, as in the previous section.
+This example uses the relative paths of a Custom Component.
+In a Dashboard Component, start each source with `/` and the component name, as in the previous section.
 
 ```yaml
 - pillgroup:
@@ -101,14 +103,16 @@ This example uses the relative paths of a Custom Component; in a Dashboard Compo
 
 ## Validate and save
 
-1. Fix anything listed under **Schema validation issues**. The editor checks the dashboard against the schema as you work, and **SAVE** is blocked while any entry remains.
+1. Fix anything listed under **Schema validation issues**.
+   The editor checks the dashboard against the schema as you work, and it blocks **SAVE** while any entry remains.
 2. Select **SAVE** when the list is empty.
-3. Close the editor to see the result on the dashboard behind it, because **DESIGN** is an outline and not a live preview.
+3. Close the editor to see the result on the dashboard.
+   **DESIGN** is an outline, not a live preview.
 
 ## Next steps
 
-- [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md): the editor in full
-- [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md): the full reference for dashboards
-- [Core Elements](../Customising_Profinity/Dashboards/Core_Elements.md): more complex layouts
-- [Component Reference](../Customising_Profinity/Dashboards/Component_Reference/index.md): available components
-- [Motor Controller Dashboard Example](../Customising_Profinity/Dashboards/Motor_Controller_Dashboard_Example.md): a complete dashboard, section by section
+- [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md): the editor in full
+- [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md): the full reference for dashboards
+- [Core elements](../Customising_Profinity/Dashboards/Core_Elements.md): more complex layouts
+- [Component reference](../Customising_Profinity/Dashboards/Component_Reference/index.md): available components
+- [Motor controller dashboard example](../Customising_Profinity/Dashboards/Motor_Controller_Dashboard_Example.md): a complete dashboard, section by section

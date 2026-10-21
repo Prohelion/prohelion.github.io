@@ -9,7 +9,8 @@ last_reviewed: 2026-10-14
 # Apply a licence
 
 A new Profinity installation runs without a licence file.
-An unlicensed Desktop installation is limited to personal, non-commercial use, and other installations start a one-time 14-day local trial with the Server features, as described in [Licensing](../Licensing.md).
+An unlicensed Desktop installation is limited to personal, non-commercial use.
+Other installations start a one-time 14-day local trial with the Server features, as described in [Licensing](../Licensing.md).
 A commercial or evaluation licence from Prohelion removes those limits, and you apply it after installation in the same way on every platform.
 
 You need three things:
@@ -18,12 +19,30 @@ You need three things:
 - The licence file, named `license.yaml`, which Prohelion signs for one installation and returns after receiving its fingerprint.
 - Access to the machine that runs Profinity, or to its artefacts directory, when the instance has no network access.
 
+## Who can sign in, by installation type {#who-can-sign-in}
+
+What you can sign in with depends on the type of installation and its licence.
+This table is the one place that sets it out, and the installation pages link to it.
+
+| Installation | Licence | Sign-in | Other machines can open the web interface |
+|--------------|---------|---------|------|
+| Windows desktop application | None, or a Desktop licence | The built-in desktop user signs in automatically, with no password and no `admin` account | No |
+| Windows desktop application | Server licence | The desktop window still signs in automatically, and Profinity also creates the default `admin` account, which must change its password at first sign-in | Yes, after a restart |
+| Linux, macOS or Docker | None, during the 14-day local trial | `admin` with the password `password`, which must be changed at first sign-in | Yes |
+| Linux, macOS or Docker | Server licence | `admin` with the password `password` on a new installation, which must be changed at first sign-in | Yes |
+
+User accounts and roles need the Server licensed feature, which the Server and Enterprise editions and the 14-day trial include.
+Refer to [Licensing](../Licensing.md) for the trial and for what each edition includes.
+
 ## Apply a licence from the License page
 
 1. Select **ADMIN** in the side menu, then **License**.
-2. Copy the **Fingerprint** with the copy button beside it, and send it to Prohelion through the usual sales or support channel. The fingerprint identifies this installation and is the only information Prohelion needs to issue a licence.
-3. When Prohelion returns the `license.yaml` file, return to the **License** page, select **Update license file**, and choose the file.
-4. Restart Profinity if the licence adds features, in particular a Server licence, because the address the web interface listens on is set when Profinity starts.
+2. Copy the **Fingerprint** with the copy button beside it.
+3. Send the fingerprint to Prohelion through the usual sales or support channel.
+   The fingerprint identifies this installation and is the only information Prohelion needs to issue a licence.
+4. When Prohelion returns the `license.yaml` file, return to the **License** page, select **Update license file**, and choose the file.
+5. Restart Profinity if the licence adds features, in particular a Server licence.
+   Profinity sets the address that the web interface listens on when it starts.
 
 Profinity checks the file's signature, its expiry, and that its fingerprint matches this installation before it applies the file.
 If any check fails, the upload is rejected and the existing licence, if there is one, stays in effect.
@@ -38,7 +57,7 @@ For Docker, Linux services, and scripted deployments, copy the file into the art
 3. Restart Profinity if the licence adds features, or if the **License** page still shows the previous state.
 
 The licence must belong to the installation's own fingerprint, in the same way as one uploaded from the page.
-To read the fingerprint without the web interface, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Licensing.md#the-machine-fingerprint).
+To read the fingerprint, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Licensing.md#the-machine-fingerprint).
 
 ## Check that the licence has taken effect
 
@@ -55,9 +74,10 @@ Removing licensed features restarts Profinity automatically.
 
 | What the page or message shows | Likely cause | What to do |
 |--------------------------------|--------------|------------|
-| The upload is rejected | The file's signature, expiry, or fingerprint did not pass validation. A file issued for a different machine is rejected with the message "License is not valid for this instance." and is not saved | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that it has not expired |
+| The upload is rejected | The file's signature, expiry, or fingerprint did not pass validation | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that it has not expired |
 | `WrongInstance` as the **State** after a `license.yaml` is copied into the `license` folder | The file was issued for a different machine | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it |
 | `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way |
 
+A file issued for a different machine is rejected with the message "License is not valid for this instance." and is not saved.
 A rejected upload never replaces a working licence, so it is safe to retry.
 For editions, features, and the 14-day local trial, refer to [Licensing](../Licensing.md).

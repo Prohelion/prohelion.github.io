@@ -19,12 +19,16 @@ The artefacts directory is:
 - `%LOCALAPPDATA%\Prohelion\Profinity` on Windows
 - `~/Library/Application Support/Prohelion/Profinity` on macOS
 - `/var/lib/prohelion/profinity` on Linux
-- On Docker, the path inside the container named by `PROFINITY_HOME`, so on Docker the image must be copied into the mounted volume that holds that directory
+- On Docker, the path inside the container named by `PROFINITY_HOME`, which is in a mounted volume, so copy the image into that volume
 
 To place the file:
 
-1. Open the `images` folder of the profile directory. If the folder does not exist, create it, using the lowercase name, because Linux and Docker file systems are case-sensitive and Profinity serves only the lowercase folder (refer to [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md)).
+1. Open the `images` folder of the profile directory.
+   If the folder does not exist, create it with the lowercase name `images`.
+   Linux and Docker file systems are case-sensitive, and Profinity serves only the lowercase folder (refer to [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md)).
 2. Copy the image file into the folder.
+
+The folder then looks like this:
 
 ```text
 <profile name>/
@@ -45,7 +49,7 @@ icon:
   image: device-icon.png  # Use filename only
 ```
 
-In an HTML component, reference the file by its full path, which uses the capitalised URL form `/Profile/Images`:
+In an HTML component, reference the file by its full path, which starts with `/Profile/Images`, with capital letters:
 
 ```yaml
 html:
@@ -63,7 +67,7 @@ image:
 ## Check the image
 
 Save the dashboard, and the image appears in it.
-If the image area stays empty, one of these causes applies:
+If the image area stays empty, check these causes:
 
 - The filename in the dashboard differs from the file in the `images` folder, because the match is case-sensitive.
 - The file format is not one of SVG, PNG, JPG, WEBP, or GIF.
@@ -77,4 +81,6 @@ Correct the name, convert the file or move it, and save again.
 - PNG suits images with transparency.
 - JPG suits photographs.
 - WEBP suits photographs and images with transparency at a smaller file size.
-- GIF suits animated images. A GIF copied into the `images` folder is served and displays in a dashboard, but the image library in the visual editor lists and uploads only SVG, PNG, JPG, and WEBP files, so place GIF files in the folder by hand.
+- GIF suits animated images.
+  A GIF in the `images` folder displays in a dashboard.
+  The image library in the visual editor lists and uploads only SVG, PNG, JPG, and WEBP files, so place GIF files in the folder by hand.

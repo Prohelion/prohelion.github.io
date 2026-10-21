@@ -23,7 +23,8 @@ Profinity scripting automates tasks, processes CAN messages and creates custom o
 ## Scripts run with the permissions of Profinity
 
 !!! warning "Profinity scripts execute with the same security permissions as Profinity itself"
-    Because Profinity Scripting runs inside the Profinity engine, any script executes with the same operating system security permissions as Profinity itself, so an administrator must review what each script does before it is enabled.
+    Profinity Scripting runs inside the Profinity engine, so any script executes with the same operating system security permissions as Profinity itself.
+    An administrator must review what each script does before it is enabled.
 
 To keep the Profinity environment secure, scripting is disabled until it is explicitly enabled.
 To enable Profinity Scripting, open [Application Config](../../Administration/System_Configuration/Application_Config.md) and turn on **Enable Scripting**.
@@ -35,10 +36,16 @@ To enable Profinity Scripting, open [Application Config](../../Administration/Sy
 
 ## Script types
 
-Profinity has five script types, which between them cover seven values of the **Script Mode** setting: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service.
-[Run Scripts](./Script_Types/Run_Scripts.md) cover manual and scheduled operations (the Run On Demand, Run On Time Interval and Run On CRON Schedule modes), [Receive Scripts](./Script_Types/Receive_Scripts.md) handle incoming CAN messages, [Service Scripts](./Script_Types/Service_Scripts.md) run continuously, [Tag Change Scripts](./Script_Types/Tag_Change_Scripts.md) react when a watched tag changes, and [Rule Scripts](./Script_Types/Rule_Scripts.md) handle a rule firing.
-The [Script Types](./Script_Types/index.md) page describes each mode and when to use it.
-Refer to [Rule Scripts](./Script_Types/Rule_Scripts.md) and [Actions](../../Tags/Rules/Actions/index.md).
+Profinity has five script types, which between them cover seven values of the **Script Mode** setting:
+
+- [Run scripts](./Script_Types/Run_Scripts.md) cover manual and scheduled operations, in the Run On Demand, Run On Time Interval, and Run On CRON Schedule modes.
+- [Receive scripts](./Script_Types/Receive_Scripts.md) handle incoming CAN messages, in the Run On Receipt of CAN Message mode.
+- [Service scripts](./Script_Types/Service_Scripts.md) run continuously, in the Run as Service mode.
+- [Tag change scripts](./Script_Types/Tag_Change_Scripts.md) react when a watched tag changes, in the Run On Tag Change mode.
+- [Rule scripts](./Script_Types/Rule_Scripts.md) handle a rule firing, in the Run On Alert mode.
+
+For each mode and when to use it, refer to [Script types](./Script_Types/index.md).
+For the rule actions that call a rule script, refer to [Rule actions](../../Tags/Rules/Actions/index.md).
 
 ## Supported languages
 
@@ -48,13 +55,22 @@ Refer to [Supported Languages](./Supported_Languages/index.md) for the compariso
 
 ## Operations
 
-Profinity provides five built-in operations to every script through the `Profinity` object: [CAN Bus](./Script_Operations/CANBus.md) for CAN communication, [DBC](./Script_Operations/DBC.md) for Message and Signal handling, [State](./Script_Operations/State.md) for data that survives between runs, [Console](./Script_Operations/Console.md) for output and logging, and [Tags](./Script_Operations/Tags.md) for reading and writing tag values.
+Profinity provides five built-in operations to every script through the `Profinity` object:
+
+- [CAN bus](./Script_Operations/CANBus.md) for CAN communication.
+- [DBC](./Script_Operations/DBC.md) for message and signal handling.
+- [State](./Script_Operations/State.md) for data that survives between runs.
+- [Console](./Script_Operations/Console.md) for output and logging.
+- [Tags](./Script_Operations/Tags.md) for reading and writing tag values.
+
 Scripts that belong to a [Custom Component](../Custom_Components/index.md) can also read and write [Component and firmware settings](./Script_Operations/Settings.md).
 A script that a Custom Component runs from a firmware action also receives an [action context](./Script_Operations/Action.md), with the action name, any uploaded file, and progress reporting.
-The [Supported Operations](./Script_Operations/index.md) page describes each in more detail.
+For more detail on each, refer to [Supported operations](./Script_Operations/index.md).
 
 ## Next steps
 
-Writing and testing a script on a developer machine, before it is copied into a profile, is covered on [Test a script outside Profinity](../SDK/Test_a_Script.md).
-[Supported Languages](./Supported_Languages/index.md) helps with choosing a language, [Script Types](./Script_Types/index.md) with choosing a script style, and [Supported Operations](./Script_Operations/index.md) lists what a script can do.
-A first script is built in [How to Write Your First Script](../../How_To_Guides/Write_Your_First_Script.md).
+To write and test a script on a developer machine before it is copied into a profile, refer to [Test a script outside Profinity](../SDK/Test_a_Script.md).
+To choose a language, refer to [Supported Languages](./Supported_Languages/index.md).
+To choose a script style, refer to [Script types](./Script_Types/index.md).
+For what a script can do, refer to [Supported operations](./Script_Operations/index.md).
+To build a first script, refer to [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).

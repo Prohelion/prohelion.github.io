@@ -37,7 +37,8 @@ Each item in `items` must contain a `lampgroup` object with:
 | `items` | array | Yes | None | Array of lamps. The column width scales automatically with the number of lamps |
 
 Each item in the lamp group's `items` must contain a `lamp` object.
-The [Lamp](Lamp.md) page describes the lamp parameters, the colour names and the [display rules](Lamp.md#display-rules) that a lamp follows, including why a lamp driven by an `enabled` binding also needs `value: 1`.
+The [Lamp component](Lamp.md) page describes the lamp parameters, the colour names and the [display rules](Lamp.md#display-rules) that a lamp follows.
+The display rules explain why a lamp driven by an `enabled` binding also needs `value: 1`.
 
 ## Example
 

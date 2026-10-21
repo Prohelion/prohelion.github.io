@@ -20,10 +20,10 @@ Choose the installation method that matches your platform, then complete the set
 
 ## After you install
 
-- [Apply a licence](Applying_a_Licence.md): apply a licence file and check that it has taken effect.
+- [Apply a licence](Applying_a_Licence.md): apply a licence file, check that it has taken effect, and see who can sign in on each installation type.
 - [Upgrade from Profinity 2.2](Upgrade_From_2_2.md): back up, install 2.3, and check the licence, roles, dashboards, and integrations in order.
 - [Update the Profinity Docker image](Update_Docker_Image.md): move a Docker installation to a newer image, by hand or with Watchtower.
-- [Environment variables](Environment_Variables.md): set configuration and profile values from the environment on each platform, with the placeholder syntax and the variables Profinity reads.
+- [Environment variables](Environment_Variables.md): set configuration and profile values from the environment, and see the variables Profinity reads.
 - [Artefacts directory](Artifacts_Directory.md): where Profinity keeps configuration, profiles, plugins, and logs.
 - [Run Profinity as a service](./Run_as_a_Service/index.md): start automatically on Linux, macOS, or Windows, with a page for each system.
 - [Security guide](Security.md): the controls to put in place for a production deployment.

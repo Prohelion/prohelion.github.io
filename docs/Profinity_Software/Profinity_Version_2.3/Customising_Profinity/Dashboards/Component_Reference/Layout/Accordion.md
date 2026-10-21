@@ -7,7 +7,7 @@ last_reviewed: 2026-10-14
 ---
 
 # Accordion component
-An accordion is a set of collapsible sections that the operator expands and collapses as needed, which keeps a dashboard uncluttered.
+An accordion is a set of collapsible sections that the user expands and collapses as needed, which keeps a dashboard uncluttered.
 
 <figure markdown>
 ![A dark accordion header reading MORE DETAILS with a downward chevron beneath it.](../../images/accordion.png)
@@ -17,7 +17,7 @@ An accordion is a set of collapsible sections that the operator expands and coll
 ## When to use
 
 Use an accordion for detailed information that is not always needed, such as settings and secondary data.
-Use [Tabs](../Interactive/Tabs.md) when the operator switches between whole views, because a tab strip shows one view at a time.
+Use [Tabs](../Interactive/Tabs.md) when the user switches between whole views, because a tab strip shows one view at a time.
 
 ## Parameters
 
@@ -26,7 +26,7 @@ Use [Tabs](../Interactive/Tabs.md) when the operator switches between whole view
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the accordion element |
 | `label` | string | Yes | None | Caption of the button that expands and collapses the section |
-| `defaultExpanded` | boolean | No | `false` | Whether the accordion starts expanded when the dashboard loads. The accordion remains collapsible by the user either way, and an accordion that omits the parameter starts collapsed |
+| `defaultExpanded` | boolean | No | `false` | Whether the accordion starts expanded when the dashboard loads. The user can collapse or expand it either way. An accordion that omits the parameter starts collapsed |
 | `visible` | boolean | No | `true` | When `false`, or when bound to `false`, the whole accordion is hidden |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `visible` target shows and hides the accordion |
 | `items` | array | Yes | None | Accordion sections, where each item must be an object that contains a `row` |

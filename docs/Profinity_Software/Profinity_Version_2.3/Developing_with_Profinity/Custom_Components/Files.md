@@ -15,9 +15,16 @@ Each file on a [Custom Component](index.md) is optional while the component live
 <figcaption>Custom Component settings with pack files and scripts</figcaption>
 </figure>
 
-Settings for an authored component are arranged as **Settings**, **Pack files**, **Scripts**, and **Security**, with **Pack files** grouping the uploads into **Device**, **Presentation**, **Behaviour**, **Maps**, and **Firmware**, **DBC Settings** holding **Rebase DBC** and **Rebase Address**, and **Scripts** holding **Main Script (Optional)** and **Auto Start Main Script**.
-`component_metadata.yaml` is not an upload, and it is written in the component folder when the component is packed.
-None of these files is required for the component to run in a profile, and if no dashboard is uploaded Profinity writes a starter dashboard named after the component.
+The settings for an authored component are arranged on four tabs: **Settings**, **Pack files**, **Scripts**, and **Security**.
+
+- **Pack files** groups the uploads into **Device**, **Presentation**, **Behaviour**, **Maps**, and **Firmware**.
+- **DBC Settings** holds **Rebase DBC** and **Rebase Address**.
+- **Scripts** holds **Main Script (Optional)** and **Auto Start Main Script**.
+
+`component_metadata.yaml` is not an upload.
+Profinity writes it in the component folder when the component is packed.
+None of these files is required for the component to run in a profile.
+If no dashboard is uploaded, Profinity writes a starter dashboard named after the component.
 
 | File | Upload field | Required to pack | Role |
 |------|--------------|------------------|------|
@@ -31,9 +38,11 @@ None of these files is required for the component to run in a profile, and if no
 | [`firmware.yaml`](Firmware_Actions.md) | **Firmware Actions YAML file (Optional)** | No | Scripts for load, save, and any further firmware actions |
 | [`component_metadata.yaml`](Component_Metadata.md) | Written in the component folder | Yes | Catalogue name, description, and which files the pack binds |
 
-Every Profinity YAML document in that set carries `version: "2.3"`, and a component can mix script languages because Profinity runs each script from its file extension: `.cs`, `.py`, or `.lua`.
-`profinity-component-pack validate` and `pack` stop with `Missing required file:` followed by the file name when any of the four pack files is absent, but the component still runs in a profile without those files.
+Every Profinity YAML document in that set carries `version: "2.3"`.
+A component can mix script languages, because Profinity runs each script from its file extension: `.cs`, `.py`, or `.lua`.
+`profinity-component-pack validate` and `pack` stop with `Missing required file:` followed by the file name when any of the four pack files is absent.
+The component still runs in a profile without those files.
 The keys are on [Component metadata](Component_Metadata.md), and the pack commands are on [Component Pack CLI](../SDK/Component_Pack_CLI.md).
 
-An instance added from a pack hides **Pack files** and **Scripts**, so the operator then edits **Name**, **Tag tree path**, menu placement, and the fields from `settings_map.yaml`.
+An instance added from a pack hides **Pack files** and **Scripts**, so the user then edits **Name**, **Tag tree path**, menu placement, and the fields from `settings_map.yaml`.
 Refer to [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md).

@@ -15,7 +15,7 @@ The [Profile Dashboard](../Administration/Profile_Dashboard.md) page is the full
 Before you start, you need:
 
 - An active [profile](../Getting_Started/Profiles.md) in Profinity.
-- The **Modify profiles** permission, which allows profile settings to be changed (refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
+- The **Modify profiles** permission, which allows profile settings to be changed (refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
 - The **Modify dashboards** permission, which allows dashboards to be edited.
 - Optional: an existing dashboard YAML file to upload, if you are not starting from the starter dashboard.
 
@@ -25,7 +25,8 @@ Before you start, you need:
 2. Select the **Profile** pill.
 3. Select the name of your profile in the list to open its settings.
 4. Enable the **Custom Home Dashboard** option.
-5. Leave the **Dashboard YAML file (Optional)** field empty and save the profile settings.
+5. Leave the **Dashboard YAML file (Optional)** field empty.
+6. Save the profile settings.
 
 Profinity creates a starter dashboard from the built-in template.
 
@@ -33,8 +34,10 @@ Profinity creates a starter dashboard from the built-in template.
 
 1. Go to the home page (select the home icon or refresh).
 2. Select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar.
-3. In **DESIGN** mode, add rows, groups, and widgets, set their properties and bind tags. Refer to [Dashboard Visual Editor](../Customising_Profinity/Dashboards/Visual_Editor.md) for the steps.
-4. Resolve anything listed under **Schema validation issues**, then select **SAVE**.
+3. In **DESIGN** mode, add rows, groups, and widgets, set their properties, and bind tags.
+   [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md) gives the steps.
+4. Resolve anything listed under **Schema validation issues**.
+5. Select **SAVE**.
 
 Close the editor to see the result, because **DESIGN** is an outline and not a live preview.
 The custom dashboard now replaces the default home page, and it stays in place whenever this profile is the active profile.
@@ -44,7 +47,8 @@ The custom dashboard now replaces the default home page, and it stays in place w
 You can upload a dashboard YAML file that already exists instead of building a new one, for example one written outside the editor or shared from another profile.
 
 1. Open the profile settings and enable the **Custom Home Dashboard** option.
-2. In the **Dashboard YAML file (Optional)** field, select your dashboard YAML file. It must have the `.yaml` extension.
+2. In the **Dashboard YAML file (Optional)** field, select your dashboard YAML file.
+   The file must have the `.yaml` extension.
 3. Save the profile settings.
 
 An uploaded dashboard opens in the visual editor like any other, so you can change it there.
@@ -60,8 +64,9 @@ To revert to the default home page:
 3. Save the profile settings.
 
 !!! warning "Removing the dashboard deletes its file"
-    Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting, so the file cannot be recovered from Profinity afterwards.
-    Download or copy the dashboard YAML before saving the profile if it is needed again.
-    If the file cannot be deleted, for example because of a file permission problem, the dashboard file setting is not cleared and the error is written to the [log](../Administration/Logs_Config.md).
+    Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting.
+    You cannot recover the file from Profinity afterwards, so download or copy the dashboard YAML first if you need it again.
+    If Profinity cannot delete the file, for example because of a file permission problem, it does not clear the dashboard file setting.
+    It writes the error to the [log](../Administration/Logs_Config.md).
 
-For more on dashboards, refer to the [Dashboard Development Guide](../Customising_Profinity/Dashboards/index.md).
+For more on dashboards, refer to the [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md).

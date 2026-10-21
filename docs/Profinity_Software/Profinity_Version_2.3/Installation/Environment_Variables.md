@@ -8,14 +8,21 @@ last_reviewed: 2026-10-15
 
 # Environment variables
 
-Profinity substitutes environment variables into its configuration file (`config.yaml`) and into [profile](../Administration/Profiles.md) files, so one set of files can serve development, staging, and production, keep sensitive values out of the files, and let you change a setting without editing a file.
+Profinity substitutes environment variables into its configuration file (`config.yaml`) and into [profile](../Administration/Profiles.md) files.
+This lets you:
+
+- Use one set of files for development, staging, and production.
+- Keep sensitive values out of the files.
+- Change a setting without editing a file.
+
 A variable has an effect only where a `${VARIABLE_NAME}` placeholder in one of those files references it.
 To set a variable on Windows, Linux, macOS, or Docker, refer to [Set a variable](#set-a-variable).
 
 ## Placeholder syntax
 
 A placeholder uses the form `${VARIABLE_NAME}`.
-Profinity also supports Docker-style default values with `${VARIABLE_NAME:-default}`, where it uses the value of the variable when it is set and non-empty, and the text after `:-` otherwise.
+Profinity also supports Docker-style default values with `${VARIABLE_NAME:-default}`.
+Profinity uses the value of the variable when it is set and non-empty, and the text after `:-` otherwise.
 
 ```yaml
 # Variable without a default: must be set
@@ -30,10 +37,14 @@ token: ${INFLUXDB_ADMIN_TOKEN:-}
 
 A name uses only letters, numbers and underscores, and must not start with a number.
 So `${PROFILE_NAME}`, `${BMU1_BASE_ADDRESS}` and `${_UNDERSCORE_VAR}` are valid, while `${VAR-WITH-DASH}`, `${VAR WITH SPACES}` and `${VAR.WITH.DOTS}` are not.
-Profinity looks the name up exactly as written, so `${Profile_Name}` and `${profile_name}` are different variables on Linux and macOS, where names are case-sensitive, and the same variable on Windows, where they are not.
+Profinity looks the name up exactly as written.
+On Linux and macOS, names are case-sensitive, so `${Profile_Name}` and `${profile_name}` are different variables.
+On Windows, names are not case-sensitive, so they are the same variable.
 
 !!! warning "A missing variable stops the file from loading"
-    A configuration or profile file that references an undefined or empty variable with no default fails to load, and Profinity writes the names of the undefined variables to the log. Define every variable that has no default before starting Profinity, or give it a default.
+    A configuration or profile file that references an undefined or empty variable with no default fails to load.
+    Profinity writes the names of the undefined variables to the log.
+    Define every variable that has no default before you start Profinity, or give it a default.
 
 ### In the configuration file
 
@@ -114,9 +125,11 @@ Restart the service, not only the application, so that it reads the new value.
 
 ### Linux and macOS
 
-In a shell, run `export PROFILE_NAME="Production Profile"` to set a variable for that session, or add the same line to a shell profile file such as `~/.bashrc`, `~/.profile` or `~/.zshrc` for an interactive run.
+In a shell, run `export PROFILE_NAME="Production Profile"` to set a variable for that session.
+For an interactive run, add the same line to a shell profile file such as `~/.bashrc`, `~/.profile` or `~/.zshrc`.
 A service does not read those files.
-For the Linux systemd service, add `Environment=` lines to the `[Service]` section of `/etc/systemd/system/profinity.service`, for example `Environment=PROFILE_NAME="Production Profile"`, then run `sudo systemctl daemon-reload` and restart the service.
+For the Linux systemd service, add `Environment=` lines to the `[Service]` section of `/etc/systemd/system/profinity.service`, for example `Environment=PROFILE_NAME="Production Profile"`.
+Then run `sudo systemctl daemon-reload` and restart the service.
 Refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
 
 ### Docker
@@ -146,7 +159,7 @@ services:
       - "${HTTPS_PORT:-18443}:${HTTPS_PORT:-18443}"
       - "4876:4876"
     environment:
-      # The artefacts directory inside the container, which must match the volume below
+      # The artefacts directory inside the container, which must match the volumes entries
       - PROFINITY_HOME=/app/Prohelion
 
       - HTTP_ADDRESS=${HTTP_ADDRESS:-0.0.0.0}
@@ -164,7 +177,8 @@ The Profinity image declares only ports 18080 and 18443, but Docker publishes an
 
 Keep the `config.yaml` and profile files that hold placeholders in the mounted volume folders that map to `/app/Prohelion/config` and `/app/Prohelion/profiles`.
 `PROFINITY_HOME` must match the container-side mount path, as described in [Install Profinity with Docker](./Docker_Installation.md#install-with-docker-compose).
-Docker Compose reads a `.env` file in the same folder as the compose file automatically, and to keep one file per environment, name it explicitly:
+Docker Compose reads a `.env` file in the same folder as the compose file automatically.
+To keep one file per environment, name the file explicitly:
 
 ```bash
 docker compose --env-file .env.production up

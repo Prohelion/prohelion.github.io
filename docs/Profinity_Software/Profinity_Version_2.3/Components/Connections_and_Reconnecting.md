@@ -22,6 +22,15 @@ After that the component is a switch that you turn on with **Connect** (or **Sta
 - With **Auto Connect** off, the component stays **Off** and makes no connection attempt until you switch it on.
 - Switched on, the component keeps trying until it is connected. Switched off, it stops trying and stays off, and loading or changing the profile does not switch it back on.
 
+The default depends on the kind of component:
+
+| Component | **Auto Connect** default |
+| --- | --- |
+| CAN bus adapters, loggers and historians, the MQTT Subscriber, and the Tag Relay sender and receiver | On |
+| TDK and Siglent power supplies, and the Modbus, BACnet, S7, EtherNet/IP, and OPC UA components | Off |
+
+For a component that defaults to off, turn **Auto Connect** on in its settings if it should connect whenever the profile loads.
+
 ## Starting when the other end is not there
 
 A component starts even when what it connects to is not available.
@@ -70,7 +79,7 @@ A stopped component never reconnects by itself.
 
 | Status | Meaning |
 | --- | --- |
-| **Off** | The component is stopped, or is making its first connection attempt. |
+| **Off** | The component is stopped, or has just been switched on and is making its first connection attempt. |
 | **On** | The connection is up. |
 | **Error** | The component is running but cannot reach what it connects to. Check the [Logs](../Administration/Logs_Config.md) for the reason. |
 

@@ -8,8 +8,16 @@ last_reviewed: 2026-10-14
 
 # Lamp component
 
-A lamp is a single status indicator, a coloured dot with an optional caption that communicates system status through its colour and its on or off state.
-The same lamp definition is used inside [Lamps](Lamps.md) groups, in the header of a [Tab](../Interactive/Tabs.md), in the [Titlebar](../Layout/Titlebar.md) and on a menu item, and a lamp can also be placed directly in a row or a group.
+A lamp is a single status indicator: a coloured dot with an optional caption.
+Its colour and its on or off state show the system status.
+The same lamp definition is used in these places:
+
+- Inside [Lamps](Lamps.md) groups.
+- In the header of a [Tab](../Interactive/Tabs.md).
+- In the [Titlebar](../Layout/Titlebar.md).
+- On a menu item.
+- Directly in a row or a group.
+
 A panel accepts a [Lamps](Lamps.md) grid, not a single lamp.
 
 Use a lamp for a single status indicator beside other components, and for titlebar and tab header status.
@@ -27,11 +35,14 @@ Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.m
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | Not used by the web interface |
 | `color` | string | Yes | None | Colour of the lit lamp, one of `red`, `green`, `amber`, `grey`, `on`, `off`, `disabled` or `unknown`. The colour can be bound with the `color` target. Refer to [Colour names](#colour-names) |
-| `value` | number | No | `0` | On or off state. `0` shows the lamp as off (grey) and any other number lights the lamp in its colour. A boolean binding is converted to `1` or `0`. Bind the `value` target to drive the state from data |
-| `label` | string | No | None | Caption shown beside the lamp. Each `[-]` sequence in the caption becomes a soft hyphen, so that long words can break at that point. The caption can be bound with the `label` target |
+| `value` | number | No | `0` | On or off state. `0` shows the lamp as off (grey) and any other number lights the lamp in its colour. Bind the `value` target to drive the state from data |
+| `label` | string | No | None | Caption shown beside the lamp. The caption can be bound with the `label` target |
 | `enabled` | boolean | No | `true` | When `false`, the lamp is displayed in the disabled style and the caption is dimmed. Bind the `enabled` target to drive the state from data |
 | `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `value`, `enabled`, `color` and `label` targets are handled. A binding with no `target` binds `value` |
+
+A boolean binding is converted to `1` or `0`.
+Each `[-]` sequence in a `label` becomes a soft hyphen, so that long words can break at that point.
 
 ### Colour names
 
@@ -43,7 +54,7 @@ Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.m
 | `grey` | Grey lamp |
 | `disabled` | Pale lamp in the disabled style |
 | `off` | Recessed lamp with an inset border, without a colour fill of its own |
-| `on` | Has no colour fill of its own, so the lamp shows no colour when it is lit |
+| `on` | No colour fill of its own, so the lamp shows no colour when it is lit |
 | `unknown` | The lamp indicator is not drawn and only the caption is shown |
 
 ## Example

@@ -7,7 +7,8 @@ last_reviewed: 2026-10-14
 ---
 
 # Tabs component
-Tabs organise information into separate views that the operator switches between, where the header of each tab carries a status lamp and a caption.
+Tabs organise information into separate views that the user switches between.
+The header of each tab carries a status lamp and a caption.
 
 <figure markdown>
 ![Tabs component displaying a tabbed interface with header lamps and body content](../../images/tabs.png)
@@ -23,7 +24,9 @@ Use an [Accordion](../Layout/Accordion.md) when sections should expand and colla
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the `tabs` element |
-| `items` | array | Yes | None | Array of objects that each contain a single `tab`, which together form the tab strip. A tabs component with one tab displays the tab as the active tab without a switching control |
+| `items` | array | Yes | None | Array of objects that each contain a single `tab`, which together form the tab strip |
+
+A tabs component with one tab displays the tab as the active tab without a switching control.
 
 ### Tab parameters
 
@@ -36,7 +39,7 @@ Each item in `items` must contain a `tab` object with:
 | `enabled` | boolean | No | `true` | When `false`, the tab header is displayed in the disabled style. The state can be bound with the `enabled` target |
 | `visible` | boolean | No | `true` | When `false`, the tab header is hidden. The state can be bound with the `visible` target, and a tab whose bound data is unavailable is hidden |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) for the tab. The `enabled` and `visible` targets are handled |
-| `header` | array | Yes | None | Content of the tab label in the tab strip. Each item must be an object that contains a `lamp`, which is displayed as the status lamp and caption of the tab. Refer to [Lamp](../Data/Lamp.md) |
+| `header` | array | Yes | None | Content of the tab label in the tab strip. Each item must be an object that contains a `lamp`, which is displayed as the status lamp and caption of the tab. Refer to [Lamp component](../Data/Lamp.md) |
 | `items` | array | Yes | None | Content shown when the tab is active. Each item must be an object that contains a [`panels`](../Layout/Panels.md) grid |
 
 ## Example
@@ -99,4 +102,4 @@ dashboard:
                                                 source: 'DBC/DspBoardTempMeasurement/DspBoardTemp'
 ```
 
-Each `tab` in `items` adds one header to the tab strip, so the example above displays the tabs **INFO** and **TEMPERATURES**.
+Each `tab` in `items` adds one header to the tab strip, so the example displays the tabs **INFO** and **TEMPERATURES**.

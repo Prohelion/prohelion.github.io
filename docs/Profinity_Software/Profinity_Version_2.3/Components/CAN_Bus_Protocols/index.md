@@ -15,4 +15,4 @@ An adapter connects Profinity to a CAN bus, so the components on that bus can se
 - [CAN bus adapter troubleshooting](CAN_Bus_Adapter_Troubleshooting.md): fix an amber or red status, a bridge that is not found, or a bit rate mismatch.
 - [Virtual CAN adapter](Virtual_CAN_Adapter.md): relay traffic between CAN devices and bridge protocols.
 
-For the steps to connect a CAN bus, refer to [How to Connect to CAN Bus](../../How_To_Guides/Connect_to_CAN_Bus.md).
+For the steps to connect a CAN bus, refer to [How to connect to CAN bus](../../How_To_Guides/Connect_to_CAN_Bus.md).

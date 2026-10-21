@@ -8,7 +8,9 @@ last_reviewed: 2026-10-20
 
 # Create a derived tag with a script
 
-A computation that does not fit one expression, such as multiple steps, state carried between runs, or publishing several tags from one computation, is written as a script instead of an expression-based [derived tag](index.md).
+This procedure computes a derived tag with a script, which suits a computation that does not fit one expression.
+Examples are a computation with multiple steps, state carried between runs, or several tags published from one computation.
+For a single expression, use an expression-based [derived tag](index.md) instead.
 
 !!! info "Licence required"
     A derived tag computed by a script needs the **Scripting** licensed feature, included from the Desktop edition upward, and scripting enabled in [Application Config](../../Administration/System_Configuration/Application_Config.md).
@@ -16,13 +18,11 @@ A computation that does not fit one expression, such as multiple steps, state ca
 
 To set one up:
 
-1. Add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one.
-2. Set its mode to **Run On Tag Change**.
-3. Select the source tags in its **Collections** setting, as described in [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).
-4. In the script, publish the computed result with `Profinity.Tags.SetValue(...)`.
-
-Tag paths passed to `Profinity.Tags` are relative to the script's own host component, so a script is naturally suited to computing a derived value from, and publishing back to, tags on the same component.
-A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on other components (refer to [Tags in scripts](../../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths)).
+1. Add a **CSharp Script**, **Python Script**, or **Lua Script** component, or use an existing one.
+2. Set its **Script Mode** to **Run On Tag Change**.
+3. Select the source tags in its **Collections** setting, as described in [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).
+4. In the component's actions, select **Edit Script**. The script editor opens with the starter template for the component's language.
+5. Replace the template with the example for your language, which publishes the computed result with `Profinity.Tags.SetValue(...)`.
 
 === "C#"
 
@@ -84,11 +84,16 @@ A path with a leading `/` starts at the root of the tag tree instead, which reac
     end
     ```
 
-Profinity offers a full starter template for each language when you create a script of that type.
-
+To check it worked, save the script, then change the source tag, `SpeedMph` in the example.
+Open Tag Explorer and confirm that the published tag, `SpeedKmh` in the example, shows the converted value.
 Reading the published tag returns the last value the script published, and a read never re-runs the script.
-If nothing has triggered the script yet, the tag has no value rather than a freshly computed one.
+If nothing has triggered the script yet, the tag has no value.
 
-Other trigger modes are available too, namely **Run On Time Interval**, **Run On CRON Schedule** and **Run as Service**, for a computation that is not purely reactive to a tag change.
-Refer to [Script Types](../../Developing_with_Profinity/Scripting/Script_Types/index.md) for each mode.
+Tag paths passed to `Profinity.Tags` are relative to the script's own host component.
+A script therefore suits computing a derived value from, and publishing back to, tags on the same component.
+A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on other components.
+Refer to [Tags in scripts](../../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths) for the path rules.
+
+A computation that is not purely reactive to a tag change can use another trigger mode: **Run On Time Interval**, **Run On CRON Schedule**, or **Run as Service**.
+Refer to [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md) for each mode.
 For the expression-based alternative, refer to [Create a derived tag](Create_a_Derived_Tag.md) and [Tag expressions](../Selecting_Tags/Tag_Expressions.md).

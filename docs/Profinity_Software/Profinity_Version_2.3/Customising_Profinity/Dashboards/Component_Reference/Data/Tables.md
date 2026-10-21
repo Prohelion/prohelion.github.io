@@ -27,7 +27,7 @@ Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md
 | `label` | string | No | None | Not used by the web interface |
 | `tableHeaders` | array | Yes | None | Column definitions for tables whose data is an array of row objects. The headers are not used when the bound data is a time series |
 | `value` | array | No | None | Not used for display. The value only marks the table as stale until data arrives, and the rows come from `bind` at run time |
-| `selectColumns` | boolean | No | `false` | Lets the operator show and hide individual columns |
+| `selectColumns` | boolean | No | `false` | Lets the user show and hide individual columns |
 | `minValueToDisplay` | number | No | None | Numeric cells below this value are displayed empty |
 | `maxValueToDisplay` | number | No | None | Numeric cells above this value are displayed empty |
 | `heatmap` | boolean | No | `false` | Colours cells on a scale from pale yellow to green between the lowest and highest values in the table |
@@ -66,7 +66,9 @@ Each item in `tableHeaders` must contain a `header` object with:
 
 ## Example
 
-The example follows the cell voltage table of the Prohelion BMU dashboard, in which each cell value is in millivolts and the value `-32768` marks a cell position that is not present, so `minValueToDisplay: 0` leaves those cells empty:
+The example follows the cell voltage table of the Prohelion Battery Management Unit (BMU) dashboard.
+Each cell value is in millivolts, and the value `-32768` marks a cell position that is not present.
+The setting `minValueToDisplay: 0` leaves those cells empty.
 
 ``` yaml
 dashboard:
@@ -94,7 +96,12 @@ dashboard:
                   source: /Prohelion BMU/Properties/PackData/Nodes/Values
 ```
 
-The same table can flag low cells instead of only the lowest and highest. Here `highlightAtOrBelow` highlights cells at or below 2500 mV, `alertAtOrBelow` colours cells at or below 2000 mV as an alert, and `precision: 0` shows whole millivolts:
+The same table can flag low cells instead of only the lowest and highest.
+In this example:
+
+- `highlightAtOrBelow` highlights cells at or below 2500 mV.
+- `alertAtOrBelow` colours cells at or below 2000 mV as an alert.
+- `precision: 0` shows whole millivolts.
 
 ``` yaml
 dashboard:

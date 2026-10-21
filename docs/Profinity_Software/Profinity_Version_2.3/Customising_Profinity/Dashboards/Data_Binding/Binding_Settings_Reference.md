@@ -8,7 +8,8 @@ last_reviewed: 2026-10-18
 
 # Binding settings reference
 
-A binding is an object in the `bind` list of a component, and a `bind` list can hold several bindings, one for each property that the data drives.
+A binding is an object in the `bind` list of a component.
+A `bind` list can hold several bindings, one for each property that the data drives.
 This page is a lookup table of every binding setting, and each group links to the page that explains it.
 
 ```yaml
@@ -29,12 +30,12 @@ dashboard:
 ## Source and target
 
 The schema requires only `source`, and every other setting is optional.
-The `target` is optional in the schema, but it names the property that the value updates, so set it on every binding that is meant to change what a component shows.
+The `target` names the property that the value updates, so set it on every binding that is meant to change what a component shows.
 
 | Setting | Type | Description |
 |---------|------|-------------|
 | `source` | string | The tag path of the tag to bind (for example `DBC/BusMeasurement/BusVoltage` or `Properties/StatusColourText`). Refer to [Binding source paths](./index.md#binding-source-paths) |
-| `target` | string | The component property to update (for example `value`, `label`, `enabled`, `visible`, `color`). Each component accepts a fixed set of targets, and a binding with any other target is ignored. Refer to [Conditional styling](./Conditional_Styling.md) for the targets and [Component Reference](../Component_Reference/index.md) for the targets of each component |
+| `target` | string | The component property to update (for example `value`, `label`, `enabled`, `visible`, `color`). A binding with a target that the component does not accept is ignored. Refer to [Conditional styling](./Conditional_Styling.md) |
 
 ## Transform
 
@@ -68,4 +69,5 @@ These settings decide whether the binding reads the latest value, recent history
 | `stackScale` | boolean | Gives this series its own Y axis |
 | `seriesType` | string | `line`, `bar`, or `scatter`, overriding the chart type for this series |
 
-[Component Reference](../Component_Reference/index.md) describes the chart and the other components, and the [Motor Controller Dashboard Example](../Motor_Controller_Dashboard_Example.md) shows a complete dashboard.
+The [Component reference](../Component_Reference/index.md) describes the chart, the targets of each component, and the other components.
+The [Motor controller dashboard example](../Motor_Controller_Dashboard_Example.md) shows a complete dashboard.

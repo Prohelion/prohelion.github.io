@@ -31,17 +31,26 @@ A leading `/` means the same as it does in dashboards and rules: the root of the
 A relative path that has several segments, such as `Battery/Voltage` or `position/latitude`, is still placed under the host component, so `Battery/Voltage` on `Inverter` is `Inverter/Battery/Voltage`.
 A relative path that already starts with the host component's name is used as it is, so `Inverter/SpeedKmh` and `SpeedKmh` are the same tag.
 
-Use a relative path for a script's own component, which keeps the script working if the component is renamed or copied, and a leading `/` to read or write tags that belong to other components.
-If the component is mounted in a folder using a [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md), a relative path still starts at the component, and a path with a leading `/` starts at the root of the whole tree, so it includes that folder.
+Use a relative path for a script's own component, which keeps the script working if the component is renamed or copied.
+Use a leading `/` to read or write tags that belong to other components.
+If the component is mounted in a folder using a [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md), a relative path still starts at the component.
+A path with a leading `/` starts at the root of the whole tree, so it includes that folder.
 
 !!! note "Paths are not a security boundary"
     Resolving relative paths under the host component is for convenience.
     It is not a sandbox or an authorisation check, and a script can reach any tag in the tree, so treat scripts as trusted code that runs inside the Profinity engine.
 
 Tag ids passed to a [Tag Change script](../Script_Types/Tag_Change_Scripts.md) are full tag ids.
-To use one with `Profinity.Tags`, add a leading `/`, for example `Profinity.Tags.GetSample("/" + tagId)`, and to compare one, match on the end of the id, as the examples there do.
+To use one with `Profinity.Tags`, add a leading `/`, for example `Profinity.Tags.GetSample("/" + tagId)`.
+To compare one, match on the end of the tag ID, as the examples there do.
 
-A script can read the current sample for a tag, including its quality and timestamp, publish a value to a tag (creating the tag path if it does not exist), clear a value or mark a tag stale, attach catalogue metadata to a tag, and browse the tag catalogue.
+A script can:
+
+- Read the current sample for a tag, including its quality and timestamp.
+- Publish a value to a tag, creating the tag path if it does not exist.
+- Clear a value or mark a tag stale.
+- Attach catalogue metadata to a tag.
+- Browse the tag catalogue.
 
 ## Reading tag values
 
@@ -55,7 +64,7 @@ A sample has these properties:
 |----------|-------------|
 | `Value` | The scalar reading, or null when unavailable. Enumeration values are returned as their name. |
 | `Quality` | `Good`, `Unavailable`, `Stale` or `Bad`. |
-| `UtcTimestamp` | The source timestamp in UTC. |
+| `UtcTimestamp` | The source timestamp in Coordinated Universal Time (UTC). |
 | `Reason` | A machine-readable reason for the quality. |
 | `Message` | Optional detail for errors and diagnostics. |
 

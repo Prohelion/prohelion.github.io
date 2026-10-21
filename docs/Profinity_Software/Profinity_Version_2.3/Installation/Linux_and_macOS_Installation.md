@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Install Profinity on Linux and macOS
 
 Install Profinity on Linux or macOS with the bootstrap installer, or from a downloaded archive.
-For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md), and for containers, refer to [Docker installation](./Docker_Installation.md).
+For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md), and for containers, refer to [Install Profinity with Docker](./Docker_Installation.md).
 
 | Method | Use when | Result |
 |--------|----------|--------|
@@ -64,7 +64,8 @@ sudo bash install.sh --channel <channel supplied by Prohelion>
 
 ### Update Profinity
 
-`update.sh`, installed alongside `profinity.sh` in the install root, fetches the matching release for the installed edition and swaps the application files in place.
+`update.sh`, installed alongside `profinity.sh` in the install root, fetches the matching release for the installed edition.
+It swaps the application files in place.
 It takes the same `--channel` and `--version` options as the installer, and does nothing if the installed version is already current.
 Pass `--force` to reinstall anyway.
 If the `profinity` service is active, `update.sh` stops it before it applies the update and restarts it afterwards.
@@ -80,8 +81,9 @@ For more information, refer to [Artefacts directory](./Artifacts_Directory.md).
 ## Open the web interface
 
 Open the address that the `Now listening on` line of the log reports, or the `httpAddress` and `httpPort` values in `config.yaml`.
-By default Profinity listens on all network interfaces (`0.0.0.0`) on port `18080`, so you reach it at `http://localhost:18080` on the local machine, or at `http://[host name or IP address]:18080` from another machine.
-Opening the web interface from another machine needs a Server licence, as described in [Apply a licence](./Applying_a_Licence.md).
+By default Profinity listens on all network interfaces (`0.0.0.0`) on port `18080`.
+You reach it at `http://localhost:18080` on the local machine, or at `http://<host-name-or-ip-address>:18080` from another machine, where `<host-name-or-ip-address>` is the name or address of the machine that runs Profinity.
+Other machines can open the web interface during the 14-day local trial and with a Server licence, as described in [Who can sign in, by installation type](./Applying_a_Licence.md#who-can-sign-in).
 
 The browser opens the Profinity sign-in page.
 
@@ -90,9 +92,8 @@ The browser opens the Profinity sign-in page.
 <figcaption>Profinity sign-in page</figcaption>
 </figure>
 
-A fresh installation has only the administrator user active.
-Sign in with the username `admin` and the password `password`, and Profinity asks for a new password at the first sign-in.
-Choose one as described in the [Security guide](./Security.md#default-credentials).
+On a fresh installation, sign in as `admin` with the password `password`, and choose a new password when Profinity asks for one at first sign-in.
+For the accounts on each installation type, refer to [Who can sign in, by installation type](./Applying_a_Licence.md#who-can-sign-in), and for how to choose the password, refer to the [Security guide](./Security.md#default-credentials).
 After you sign in, the Profinity homepage appears.
 
 <figure markdown>

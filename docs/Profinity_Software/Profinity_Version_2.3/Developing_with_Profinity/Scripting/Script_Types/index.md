@@ -8,8 +8,17 @@ last_reviewed: 2026-10-20
 
 # Script types
 
-Profinity supports seven script modes, each with its own trigger and execution context: Run On Demand, Run On Receipt of CAN Message, Run On Tag Change, Run On Alert, Run On Time Interval, Run On CRON Schedule and Run as Service.
-The **Script Mode** setting selects the mode.
+Profinity supports seven script modes, each with its own trigger and execution context.
+The **Script Mode** setting selects the mode:
+
+- Run On Demand
+- Run On Receipt of CAN Message
+- Run On Tag Change
+- Run On Alert
+- Run On Time Interval
+- Run On CRON Schedule
+- Run as Service
+
 This page explains the differences between the modes and when to use each one.
 A [Custom Component](../../Custom_Components/index.md) main script is a service script, and a firmware load, save, or action script runs once.
 
@@ -42,15 +51,17 @@ A Custom Component script is a file named on the component.
 |--------|---------|
 | Main script | [Service scripts](./Service_Scripts.md), started by **Auto Start Main Script** or **Connect / Disconnect** |
 | `toggle` in `actions.yaml` | Service script |
-| `button` in `actions.yaml` | Once, when the operator chooses the menu item |
+| `button` in `actions.yaml` | Once, when the user chooses the menu item |
 | `loadScript` in `firmware.yaml` | Once, when firmware is loaded |
 | `saveScript` in `firmware.yaml` | Once, when firmware is saved |
 | An entry under `actions` in `firmware.yaml` | Once, with an action context |
 
 `Profinity.Action` is set only for an entry under `actions`.
 Which values each script reads or writes is on [Component and firmware settings](../Script_Operations/Settings.md).
-The settings map layout is on [Settings](../../Custom_Components/Settings.md), the firmware map layout is on [Firmware maps](../../Custom_Components/Firmware_Maps.md), and `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).
-The action object is on [Action context](../Script_Operations/Action.md).
+For the settings map layout, refer to [Settings](../../Custom_Components/Settings.md).
+For the firmware map layout, refer to [Firmware maps](../../Custom_Components/Firmware_Maps.md).
+For `firmware.yaml`, refer to [Firmware actions](../../Custom_Components/Firmware_Actions.md).
+For the action object, refer to [Action context](../Script_Operations/Action.md).
 
 ## Script settings
 
@@ -67,8 +78,11 @@ The schedule, receive, and tag change settings appear only for the mode that use
 | **Time Interval** and **Time Interval Unit** | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
 | **Cron Schedule** | Run On CRON Schedule | The Quartz cron expression that decides when the script runs |
 | **Maximum Run Time (seconds)** | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
-| **Base Address**, **Address Range** and **Milliseconds Valid** | Run On Receipt of CAN Message | The CAN addresses the script receives, in hexadecimal, and how long traffic from the device counts as valid. **Milliseconds Valid** defaults to 5000 and accepts -1 to 60000, where -1 means traffic never expires |
+| **Base Address**, **Address Range** and **Milliseconds Valid** | Run On Receipt of CAN Message | The CAN addresses the script receives, in hexadecimal, and how long traffic from the device counts as valid |
 | **Tag Paths** and **Collections** | Run On Tag Change | The tags and tag collections that trigger the script |
+
+**Milliseconds Valid** defaults to 5000 and accepts -1 to 60000.
+A value of -1 means traffic never expires.
 
 ## Keeping scripts healthy
 
@@ -80,9 +94,12 @@ A script should be reviewed whenever Profinity performs badly while that script 
 
 Keep each script short, release anything it opens when the script stops, and set **Maximum Run Time (seconds)** on any script that could stall.
 A Tag Change, Receive, or Rule Script handler stops at **Maximum Run Time (seconds)** only when the script checks `Profinity.ScriptCancelled`, so a long handler should check it regularly.
-A script that fails should write the failure to the Profinity Logs, with **Log Script Output** switched on while the script is being developed, so that a failed scheduled run can be traced afterwards.
+A script that fails should write the failure to the Profinity Logs, so that a failed scheduled run can be traced afterwards.
+Switch **Log Script Output** on while the script is being developed.
 For event-driven scripts, use **Queue** with a small **Queue Depth** when no event may be lost and **Drop** when only the newest state matters.
 
 State follows the same rule.
-Use `State` for values that belong to one script, and use `GlobalState` only for values that several scripts share, and remove a value once nothing needs it.
+Use `State` for values that belong to one script.
+Use `GlobalState` only for values that several scripts share.
+Remove a value once nothing needs it.
 Refer to [State](../Script_Operations/State.md) for how each scope behaves.

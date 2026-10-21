@@ -1,6 +1,6 @@
 ---
 title: Store dashboard files in a profile
-description: "Find where to store dashboard images, 3D models, stylesheets, and content files in a profile, how YAML refers to them, and what the other directories hold."
+description: "Find where to store dashboard images, 3D models, stylesheets, and content files in a profile, and how dashboard YAML refers to them."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-14
@@ -8,15 +8,20 @@ last_reviewed: 2026-10-14
 
 # Store dashboard files in a profile
 
-Profinity provides profile-specific directories for the images, 3D models, stylesheets, and content files that dashboard YAML references.
-This page describes each directory, how dashboard YAML refers to the files in it, and the other directories in a profile.
+Profinity provides four folders in a profile for the images, 3D models, stylesheets, and content files that dashboard YAML references.
+This page describes each folder and how dashboard YAML refers to the files in it.
 
-Profinity serves files from four directories in the profile: `/Profile/Images` for images used in dashboards such as icons and interactive images, `/Profile/Models` for 3D model files used by the [3D model](./Component_Reference/Images_and_Models/Model.md) component, `/Profile/Styles` for custom CSS stylesheets, and `/Profile/Content` for general content files such as HTML snippets and templates.
+- `images` holds icons, logos and other images used in dashboards.
+- `models` holds 3D model files for the [3D model](./Component_Reference/Images_and_Models/Model.md) component.
+- `styles` holds custom CSS stylesheets.
+- `content` holds general content files such as HTML snippets and templates.
+
 Component properties in dashboard YAML refer to these files by filename only, while HTML component content uses the full path, as described in [File references in dashboard YAML](#file-references-in-dashboard-yaml).
 
-## Directory structure
+## Folder structure
 
-The asset directories sit in the profile folder, which is `profiles/<profile name>` in the [artefacts directory](../../Installation/Artifacts_Directory.md):
+The folders sit in the profile folder, which is `profiles/<profile name>` in the [artefacts directory](../../Installation/Artifacts_Directory.md).
+For the other folders in a profile, refer to [Profiles](../../Administration/Profiles.md).
 
 ```text
 <profile>/
@@ -38,19 +43,23 @@ The asset directories sit in the profile folder, which is `profiles/<profile nam
     └── footer-snippet.html
 ```
 
-Files are added by copying them into these folders on the Profinity host.
-Profinity creates the `images`, `models`, `styles` and `content` folders for a new profile.
-The Example Profile that ships with Profinity contains only `images`, `styles` and `dashboards`, so in that profile create the `models` or `content` folder beside them before adding files to either.
-Profinity stores the directories with lowercase names (`images`, `models`, `styles`, `content`) and serves them from the capitalised URL paths `/Profile/Images`, `/Profile/Models`, `/Profile/Styles` and `/Profile/Content`, which are the paths used throughout this page.
+Add files by copying them into these folders on the Profinity host.
+Profinity creates the four folders for a new profile.
+The Example Profile that ships with Profinity contains only `images` and `styles`, so in that profile create the `models` or `content` folder beside them before adding files to either.
 
-## /Profile/Images
+The folder names are lowercase, and Profinity serves each folder at a capitalised URL path: `/Profile/Images`, `/Profile/Models`, `/Profile/Styles` and `/Profile/Content`.
+Dashboard YAML uses the URL path only inside HTML component content.
 
-The `/Profile/Images` directory holds icons, base images for interactive images, logos, system diagrams and background images for HTML components, and component properties reference them by filename only.
+## Images
+
+The `images` folder holds icons, base images for interactive images, logos, system diagrams and background images for HTML components.
+Component properties refer to them by filename only.
 SVG suits icons and logos because it scales to any size.
 
-The image library of the profile lists and uploads files with the extensions `.svg`, `.png`, `.jpg`, `.jpeg` and `.webp`, and an uploaded image can be up to 2 MB.
-When a dashboard names an image, the web interface looks for it first among the images built into Profinity and only then in `/Profile/Images`, so a profile image with the same name as a built-in image, such as the `nav_*` navigation icons, is never used.
-Give profile images unique names.
+The image library of the profile lists and uploads files with the extensions `.svg`, `.png`, `.jpg`, `.jpeg` and `.webp`.
+An uploaded image can be up to 2 MB.
+When a dashboard names an image, the web interface looks for it first among the images built into Profinity and only then in the `images` folder.
+A profile image with the same name as a built-in image, such as the `nav_*` navigation icons, is never used, so give profile images unique names.
 
 An icon in a pill, an icon component and an interactive image refer to a file like this:
 
@@ -88,8 +97,9 @@ image:
 ```
 
 The background image is the `image` property of the `image` component, and it is a filename only.
-The `x`, `y`, `width`, and `height` of a region are percentages of the image size, and a region `action` is an object with an `invoke` value of `Navigate`, `Component`, `System`, or `Endpoint`.
-For a step-by-step procedure, refer to [How to Add Images to a Dashboard](../../How_To_Guides/Add_Images_to_Dashboard.md).
+The `x`, `y`, `width`, and `height` of a region are percentages of the image size.
+A region `action` is an object with an `invoke` value of `Navigate`, `Component`, `System`, or `Endpoint`.
+For a step-by-step procedure, refer to [How to add images to your dashboard](../../How_To_Guides/Add_Images_to_Dashboard.md).
 
 An HTML component uses the full path instead:
 
@@ -102,10 +112,10 @@ html:
     </div>
 ```
 
-## /Profile/Models
+## Models
 
-The `/Profile/Models` directory holds the 3D model files, in `.glb`, `.gltf`, `.stl` or `.obj` format, that the [3D model](./Component_Reference/Images_and_Models/Model.md) component displays.
-The component references a model by its filename relative to the directory, including any subfolder, for example `engine.glb`.
+The `models` folder holds the 3D model files, in `.glb`, `.gltf`, `.stl` or `.obj` format, that the [3D model](./Component_Reference/Images_and_Models/Model.md) component displays.
+The component references a model by its filename relative to the folder, including any subfolder, for example `engine.glb`.
 A model that uses external texture files needs them stored beside it with the same folder structure, or the textures do not load.
 
 ```yaml
@@ -114,28 +124,29 @@ model:
     - model: engine.glb
 ```
 
-The [3D model](./Component_Reference/Images_and_Models/Model.md) page lists the full set of parameters, overlays and a complete example.
+The [3D model](./Component_Reference/Images_and_Models/Model.md) page lists the parameters, overlays and a complete example.
 
-## /Profile/Styles
+## Styles
 
-The `/Profile/Styles` directory holds custom CSS stylesheets that the web interface applies to dashboard elements through the `class` parameter and the `class` attribute of HTML content.
-The web interface loads only the file named `profile.css` from the directory, and that file can load other stylesheets in the directory with the CSS `@import` rule.
+The `styles` folder holds custom CSS stylesheets.
+The web interface applies them to dashboard elements through the `class` parameter and the `class` attribute of HTML content.
+It loads only the file named `profile.css` from the folder, and that file can load other stylesheets in the folder with the CSS `@import` rule.
 The HTML sanitiser removes a `link` element from the `content` of an HTML component, so a stylesheet cannot be linked from the HTML.
 
 ```css
-/* /Profile/Styles/profile.css */
+/* styles/profile.css */
 @import url("custom-dashboard.css");
 @import url("theme-override.css");
 ```
 
-A dashboard then applies the rules with the `class` attribute, on an HTML component or on any component that takes a `class`:
+A dashboard applies the rules with the `class` attribute, on an HTML component or on any component that takes a `class`:
 
 ```yaml
 html:
   content: |
     <div class="custom-panel">
       <h2>Custom Styled Content</h2>
-      <p>This content uses custom CSS from /Profile/Styles</p>
+      <p>This content uses custom CSS from the styles folder</p>
     </div>
 ```
 
@@ -150,7 +161,7 @@ group:
               value: 25.5
 ```
 
-The rule for the group goes in `/Profile/Styles/custom-dashboard.css`, which `profile.css` imports:
+The rule for the group goes in `styles/custom-dashboard.css`, which `profile.css` imports:
 
 ```css
 .custom-info-box {
@@ -161,11 +172,12 @@ The rule for the group goes in `/Profile/Styles/custom-dashboard.css`, which `pr
 }
 ```
 
-## /Profile/Content
+## Content
 
-The `/Profile/Content` directory holds HTML snippets and templates that an HTML component shows.
-Files from this directory cannot be included directly in YAML, and the HTML sanitiser removes the `object`, `embed`, `script` and `form` elements.
-An HTML component therefore shows a content file in an `iframe` or links to it with an `a` element, and a Markdown file shown this way is not rendered as formatted text, because Profinity has no Markdown renderer for dashboards.
+The `content` folder holds HTML snippets and templates that an HTML component shows.
+Files from this folder cannot be included directly in YAML, and the HTML sanitiser removes the `object`, `embed`, `script` and `form` elements.
+An HTML component therefore shows a content file in an `iframe` or links to it with an `a` element.
+A Markdown file shown this way is not rendered as formatted text, because dashboards have no Markdown renderer.
 
 ```yaml
 html:
@@ -177,25 +189,10 @@ html:
     </div>
 ```
 
-## Other profile directories
-
-A profile holds further directories that are not served as dashboard assets.
-They are managed through the web interface and the API, and they are listed here so that the whole profile layout is in one place.
-Profinity also serves the `/Profile/CANLogs` and `/Profile/TagLogs` paths for logged data, which are access controlled and are not used by dashboards.
-
-| Directory | Contents | More information |
-|-----------|----------|------------------|
-| `dashboards` | Dashboard YAML for the profile and its components | [Dashboards](./index.md) |
-| `components` | One subfolder for each component, holding that component's `rules.yaml` and dashboard files | [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md) |
-| `rules` | Alert rules | [Alerts](../../Tags/Alerts.md) |
-| `collections` | Tag collections | [Collections](../../Tags/Collections/index.md) |
-| `scripts` | Scripts that run in the profile | [Scripting](../../Developing_with_Profinity/Scripting/index.md) |
-| `firmware` | Firmware files and firmware settings | Not applicable to dashboards |
-| `dbc` | DBC files that describe CAN messages | Not applicable to dashboards |
-
 ## File references in dashboard YAML
 
-A component property such as `image` takes the filename only, and Profinity resolves it by file type, so a name with an image extension is looked up as described under [/Profile/Images](#profileimages).
+A component property such as `image` takes the filename only, and Profinity resolves it by file type.
+A name with an image extension is looked up as described under [Images](#images).
 Use the filename alone in a component property:
 
 ```yaml
@@ -209,5 +206,5 @@ icon:
   image: /Profile/Images/custom-icon.svg
 ```
 
-Files referenced from within an HTML component, such as in `href` or `src` attributes, are not resolved this way and must use the full path, for example `/Profile/Content/filename.html`.
-Subfolders can organise a large number of files within a directory.
+Files referenced from within an HTML component, such as in `href` or `src` attributes, are not resolved this way and must use the full URL path, for example `/Profile/Content/filename.html`.
+Subfolders can organise a large number of files within a folder.

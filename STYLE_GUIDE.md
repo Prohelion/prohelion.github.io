@@ -397,11 +397,22 @@ When a sentence mentions a Profinity concept, component or feature that has its 
 - Review and update links regularly
 - Archive obsolete content appropriately
 
+### Accuracy: when you are not sure, check the code
+
+Never guess a default, a permission name, a limit, a UI label, a file location or a behaviour. When you are not sure of a fact, check the Profinity source code before you write it, and do not rely on another page, because pages can be out of date or disagree with each other.
+
+- Check the code first. Read the setting's definition for its default, the role and permission definitions for permission names, the controller for what an API route returns and which permissions it needs, and the component's settings class for the labels the user sees.
+- When a page and the code disagree, the code is right for what the product does today. Correct the page. If the behaviour itself looks wrong, such as inconsistent defaults across similar components, raise it with the engineering team, and document what the code does until it changes.
+- When two pages disagree, find out which is right from the code, fix both, and link to one page that owns the fact (see 2.4).
+- Where the code cannot answer, for example how a screen looks or what a customer does in practice, run the product, or ask the owner of the feature. If neither is possible, leave the sentence out or mark it for review. Do not fill the gap with a plausible guess.
+- Describe the result in user terms. The code tells you what is true, and the page does not mention class names, file paths or source references (see 2.8).
+- Say in the review note or pull request which facts you checked against the code, so a reviewer can see that the page was verified and not only edited.
+
 ### Quality checks
 - Verify all links work, and that the first mention of each concept that has its own page is linked (see Links and cross-references)
 - Check code examples are current
 - Ensure images are clear and relevant
-- Validate technical accuracy
+- Validate technical accuracy, and check any fact you are unsure of against the code (see Accuracy)
 - Confirm the page reads as a user guide: no source-code names, internal plan or ticket references, or design-history commentary (see 2.8)
 - Confirm the page has one type, follows that type's shape, and states its purpose in the first sentence (see Page types and templates)
 - Read the page aloud and remove structure it does not need (see 2.6a)
@@ -431,6 +442,7 @@ Use this list when drafting or reviewing a page, and when briefing an AI assista
 14. Set `type`, `owner` and `last_reviewed` in front matter (section 1).
 15. Give the page a 70 to 160 character `description`, answer first, topic-naming headings, and no page that needs another page to make sense (2.9).
 16. Use only the structure the page needs, and read the page aloud before it is published (2.6a).
+17. If you are not sure of a fact, check the code first, and never guess a default, permission, label or behaviour (section 10).
 
 ---
 

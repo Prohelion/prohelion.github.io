@@ -10,13 +10,19 @@ last_reviewed: 2026-10-20
 
 The following operations are available to every script, regardless of the language used, through the `Profinity` object.
 
-- CAN bus communication: scripts can send CAN packets and read the latest received packets. Refer to [CAN Bus](./CANBus.md) for examples and usage.
-- DBC message and signal information: scripts can read signal values from the loaded DBC files by component, message, and signal name, with the raw CAN data converted to physical values. Refer to [DBC](./DBC.md) for examples and usage.
-- State management: Profinity provides two state stores. `State` keeps data for a single script between its runs, and `GlobalState` shares data across multiple scripts. Refer to [State](./State.md) for examples and usage.
-- Tags: scripts can read tag values, publish values to tags, and attach metadata to the tags they publish. Refer to [Tags](./Tags.md) for examples and usage.
-- Console output: scripts in all three languages can write information and error messages to the Profinity log. Refer to [Console](./Console.md) for examples and usage.
+- CAN bus communication: scripts can send CAN packets and read the latest received packets.
+  Refer to [CAN Bus](./CANBus.md) for examples and usage.
+- CAN database (DBC) message and signal information: scripts can read signal values from the loaded DBC files by component, message, and signal name, with the raw CAN data converted to physical values.
+  Refer to [DBC](./DBC.md) for examples and usage.
+- State management: Profinity provides two state stores. `State` keeps data for a single script between its runs, and `GlobalState` shares data across multiple scripts.
+  Refer to [State](./State.md) for examples and usage.
+- Tags: scripts can read tag values, publish values to tags, and attach metadata to the tags they publish.
+  Refer to [Tags](./Tags.md) for examples and usage.
+- Console output: scripts in all three languages can write information and error messages to the Profinity log.
+  Refer to [Console](./Console.md) for examples and usage.
 
-A script started by a firmware action also receives an action context: the action name, any uploaded file, the invoker, and progress reporting. Refer to [Action context](./Action.md).
+A script started by a firmware action also receives an action context: the action name, any uploaded file, the invoker, and progress reporting.
+Refer to [Action context](./Action.md).
 
 ## Component and firmware settings
 

@@ -16,7 +16,12 @@ Choose a destination in the table, add the component, then follow the section fo
 - An active profile with components configured
 - Access to the destination: a file system or an SSH File Transfer Protocol (SFTP) server, InfluxDB, Prometheus, an MQTT broker, or a webhook receiver
 - The **Modify components** permission, which allows loggers and publishers to be added
-- The licensed feature for the destination, which is **Historians** for the InfluxDB v2 and v3 Historians (Desktop, Server, and Enterprise editions) and **Data Relay** for the MQTT Publisher and Webhook Publisher (Server and Enterprise editions). The file and SFTP loggers, the InfluxDB v1 Logger and the Prometheus Logger are available in every edition. Refer to [Licensing](../Licensing.md)
+- The licensed feature for the destination:
+    - **Historians** for the InfluxDB v2 and v3 Historians (Desktop, Server, and Enterprise editions).
+    - **Data Relay** for the MQTT Publisher and Webhook Publisher (Server and Enterprise editions).
+    - No licensed feature for the file and SFTP loggers, the InfluxDB v1 Logger, and the Prometheus Logger, which every edition includes.
+
+[Licensing](../Licensing.md) lists the features of each edition.
 
 ## Choose a destination
 
@@ -31,13 +36,14 @@ Choose a destination in the table, add the component, then follow the section fo
 | An HTTP(S) URL | **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** | Publishers & Subscribers | Data Relay |
 
 The TAG loggers log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections/index.md).
-The Loggers and Historians write to a queryable store for later, disconnected retrieval, and the Historians can additionally be read back through the APIs.
+The Loggers and Historians write to a queryable store, so you can retrieve the data later without a live connection.
+You can also read Historian data back through the APIs.
 The MQTT Publisher and Webhook Publisher push to a receiver that is listening at that moment.
-InfluxDB V1, V2 and V3 are separate, incompatible products, so the component must match the installed InfluxDB version.
+InfluxDB V1, V2, and V3 are separate, incompatible products, so the component must match the installed InfluxDB version.
 
 ## Add the component
 
-1. Select **ADD COMPONENT** in the side menu (or on the home page).
+1. Select **ADD COMPONENT** in the side menu or on the home page.
 2. Select the logger or publisher type from the table in Choose a destination.
 3. Enter its settings as described in the section for the destination.
 
@@ -45,22 +51,35 @@ A component whose licensed feature is missing shows as unavailable.
 
 ## Configure a file or SFTP logger
 
-The **CAN File Logger** writes native CAN bus messages to the local file system and needs no destination setting, because it creates its files under the Profinity CAN bus log directory (`can_bus_logs/`) in a folder named after the profile and the component.
-The **TAG File Logger** writes tag values the same way, under the Profinity tag log directory (`tag_logs/`).
+The **CAN File Logger** writes native CAN bus messages to the local file system.
+It needs no destination setting, because it creates its files in the `can_bus_logs/` directory, in a folder named after the profile and the component.
+The **TAG File Logger** writes tag values the same way, in the `tag_logs/` directory.
 The **CAN SFTP Logger** and the **TAG SFTP Logger** transmit the files to a server.
 
-1. For the **CAN SFTP Logger** and the **TAG SFTP Logger**, set **Remote Host**, **Remote Port**, **Remote server username**, **Remote server password** and **Remote Directory**. The remote directory is relative to the home directory of the user on the SFTP server, so it must not start with `/`.
+1. For the **CAN SFTP Logger** and the **TAG SFTP Logger**, set these fields:
+    - **Remote Host**
+    - **Remote Port**
+    - **Remote server username**
+    - **Remote server password**
+    - **Remote Directory**, which is relative to the home directory of the user on the SFTP server, so it must not start with `/`
 2. Set the **Update Interval (Seconds)**.
 3. For the **TAG File Logger** and **TAG SFTP Logger**, also set:
-    1. The **Logging mode** (`On Change`, `Snapshot` or `Everything`).
+    1. The **Logging mode** (`On Change`, `Snapshot`, or `Everything`).
     2. The **File Format** (`CSV` or `JSON Lines`).
-4. Set **Rotate By** to **No Rotation**, **Time** or **File Size**, which determines when the current log file is closed and a new one created. Then set **Rotation Interval (Sec)** for time-based rotation or **Rotate MB** for size-based rotation.
-5. File loggers can generate large files. To manage them:
+4. Set **Rotate By** to **No Rotation**, **Time**, or **File Size**.
+   This setting decides when Profinity closes the current log file and creates a new one.
+5. For time-based rotation, set **Rotation Interval (Sec)**.
+   For size-based rotation, set **Rotate MB**.
+6. File loggers can generate large files.
+   To manage them:
     1. Enable **Archive the Logs** to move rotated log files into an `archive` folder beneath the log folder. The **CAN SFTP Logger** and the **TAG SFTP Logger** always archive, so they do not show this setting.
     2. Optional: Enable **Compress Logs** to compress rotated logs.
     3. Enable **Limit Number of Archive Files** and set the **Archive File Limit** to the number of log files to retain.
-6. For the **TAG File Logger** and **TAG SFTP Logger**, select the tag collections to log in **Collections**. At least one collection must be configured before the logger starts, and only the tags in those collections are written. Adding a collection row works in the same way as for InfluxDB, which is described in the [InfluxDB section](#configure-an-influxdb-logger-or-historian).
-7. Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed.
+7. For the **TAG File Logger** and **TAG SFTP Logger**, select the tag collections to log in **Collections**.
+   At least one collection must be configured before the logger starts, and the logger writes only the tags in those collections.
+   Adding a collection row works in the same way as for InfluxDB, which the [InfluxDB section](#configure-an-influxdb-logger-or-historian) describes.
+8. Select **ADD COMPONENT** at the bottom of the dialog.
+   The button reads **SAVE** when you change the settings of an existing component.
 
 ## Configure an InfluxDB logger or historian
 
@@ -70,10 +89,12 @@ The **CAN SFTP Logger** and the **TAG SFTP Logger** transmit the files to a serv
     2. **InfluxDB Database** for V1, **InfluxDB Bucket** and **InfluxDB Organisation** for V2, or **InfluxDB Database** for V3.
     3. **InfluxDB Username** and **InfluxDB Password** for V1, or **InfluxDB Token** for V2 and V3.
 3. Set the **Update Interval (Seconds)** and the **Logging mode** (`Snapshot`, `On Change` or `Everything`).
-4. In **Collections**, add a row for each tag collection to log and select the collection in that row. The logger starts only when at least one collection is configured and logs only the tags that belong to the selected collections.
-5. Select **ADD COMPONENT** at the bottom of the dialog, which reads **SAVE** when the settings of an existing component are being changed.
+4. In **Collections**, add a row for each tag collection to log, and select the collection in that row.
+   The logger starts only when at least one collection is configured, and it logs only the tags in the selected collections.
+5. Select **ADD COMPONENT** at the bottom of the dialog.
+   The button reads **SAVE** when you change the settings of an existing component.
 
-[How to Log Data to the Cloud (InfluxDB)](./Log_Data_to_Cloud_Influx.md) works through the InfluxDB v2 Historian with InfluxDB Cloud.
+[How to log data to the cloud (InfluxDB)](./Log_Data_to_Cloud_Influx.md) works through the InfluxDB v2 Historian with InfluxDB Cloud.
 
 ## Configure a Prometheus logger
 
@@ -87,6 +108,7 @@ Prometheus collects data from Profinity rather than receiving it, so no destinat
 ## Configure an MQTT Publisher or Webhook Publisher
 
 Refer to [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md) and [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md) for the full setting reference, including the Sparkplug B settings.
+Sparkplug B is an MQTT payload format for industrial data.
 
 ### MQTT Publisher
 
@@ -111,8 +133,9 @@ Refer to [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publishe
 ## Start the logger or publisher
 
 Make sure the logger or publisher is added to the active profile.
-The **Auto Connect** setting, which is on by default, starts the component when the profile is loaded, so with it off the component does not start when the profile loads.
-Check the component's status in the component list.
+The **Auto Connect** setting starts the component when the profile loads, and [Connections and reconnecting](../Components/Connections_and_Reconnecting.md) describes its default.
+With **Auto Connect** off, start the component yourself.
+Then check the component's status in the component list.
 
 ## Check that data is flowing
 
@@ -125,21 +148,23 @@ Check the component's status in the component list.
 ### No data is logged
 
 A logger or publisher that writes nothing is usually not running, or has no tag collection to log.
-Check that the component is active and, for a TAG logger, InfluxDB, Prometheus, or a publisher, that at least one tag collection is selected, because those components start only when a collection is configured.
-Also check that the components that feed the tags are receiving data.
+Check that the component is active.
+For a TAG logger, InfluxDB, Prometheus, or a publisher, also check that at least one tag collection is selected, because those components start only when a collection is configured.
+Then check that the components that feed the tags are receiving data.
 
 ### A connection error appears
 
 A connection error means the destination cannot be reached or does not accept the credentials.
-Check the network connectivity to the destination and the credentials, and for InfluxDB confirm that the component type matches the installed InfluxDB version, because using the wrong component type results in connection failures.
+Check the network connection to the destination and the credentials.
+For InfluxDB, confirm that the component type matches the installed InfluxDB version, because the wrong component type causes connection failures.
 The [Profinity logs](../Administration/Logs_Config.md) record connection errors.
 
 ### Data is missing
 
 Gaps in logged data usually come from a logging interval that is too long for the data or from a component that stopped receiving data.
-Check the logging interval, because a shorter interval gives more granular data, and check that the component that supplies the data is receiving it.
+Check the logging interval, because a shorter interval gives more detailed data.
+Also check that the component that supplies the data is receiving it.
 
 ## Related pages
 
-- [File and Tag Loggers](../Components/Loggers/index.md): full file and tag logger configuration
-- [InfluxDB and Prometheus Logging](../Components/Loggers/index.md): InfluxDB and Prometheus logging setup
+- [Loggers](../Components/Loggers/index.md): file, tag, InfluxDB, and Prometheus logger settings

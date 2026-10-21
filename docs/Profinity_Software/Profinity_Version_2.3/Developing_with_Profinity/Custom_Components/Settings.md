@@ -8,10 +8,13 @@ last_reviewed: 2026-10-20
 
 # Settings
 
-`settings_map.yaml` adds extra fields to the settings dialog of a [Custom Component](index.md), with each *section* drawn as a tab, each *category* as a headed group on that tab, and each *field* as a control in that group.
+`settings_map.yaml` adds extra fields to the settings dialog of a [Custom Component](index.md).
+Each *section* is drawn as a tab, each *category* as a headed group on that tab, and each *field* as a control in that group.
 The upload field is **Settings Map YAML file (Optional)**.
 Refer to [Custom Component files](Files.md).
-The file must contain at least one field, and a map with no fields fails with `Settings map contains no field definitions.`, which `profinity-component-pack validate` reports as `Failed to parse settings_map.yaml:` followed by the same message.
+The file must contain at least one field.
+A map with no fields fails with `Settings map contains no field definitions.`
+The [Component Pack CLI](../SDK/Component_Pack_CLI.md) (`profinity-component-pack validate`) reports the same failure as `Failed to parse settings_map.yaml:` followed by that message.
 A script reads a saved value with `Profinity.ComponentSettings` and the field identifier, such as `comPort`.
 Refer to [Component and firmware settings](../Scripting/Script_Operations/Settings.md).
 Firmware fields use this same layout in `firmware_map.yaml`.
@@ -21,7 +24,7 @@ Refer to [Firmware maps](Firmware_Maps.md).
 
 The file starts with `version: "2.3"`, then a `sections` list.
 Sections, categories, and fields are drawn in the order they appear in the file.
-`displayName` is the heading the operator sees.
+`displayName` is the heading the user sees.
 The older key `label` is still accepted.
 
 This is a complete map for a serial device that can also publish on CAN.
@@ -92,11 +95,11 @@ When `name` is omitted, the identifier is used as the label.
 | `name` | Label on the control |
 | `description` | Help text shown with the field |
 | `type` | Which control is drawn. The type names are in the field types table |
-| `default` | Value shown until the operator saves another |
+| `default` | Value shown until the user saves another |
 | `values` | Choices for a `LIST` field. The text on the right is what the list shows, and that text is what is saved |
 | `required` | `true` means the field must have a value |
-| `readOnly` | `true` means the value is visible and the operator cannot change it |
-| `min`, `max` | Smallest and largest numbers the field accepts. Write them in the units the operator is typing |
+| `readOnly` | `true` means the value is visible and the user cannot change it |
+| `min`, `max` | Smallest and largest numbers the field accepts. Write them in the units the user types |
 | `units` | Unit printed beside a number |
 | `scale` | Multiplies the number shown on a firmware field. A save stores that on-screen number |
 | `index` | Firmware maps only. Device parameter address the load and save scripts use |
@@ -108,14 +111,14 @@ When `name` is omitted, the identifier is used as the label.
 For a `LIST` field, set `default` to one of the texts on the right.
 The baud rate in the example does this with `"9600"`.
 A script then reads that same text.
-When the two sides differ, for example `"1": NMEA`, the list shows `NMEA` and `GetValue` returns `NMEA` after the operator picks that row.
+When the two sides differ, for example `"1": NMEA`, the list shows `NMEA` and `GetValue` returns `NMEA` after the user picks that row.
 
 `units` is shown for `V`, `mV`, `A`, `Ah`, `W`, `Wh`, `Ms`, `Seconds`, `°C`, `kb/s`, `%`, `Ohms`, `Ohm`, `J`, `kPa`, `RH %`, and `Bitfield`.
 Any other text is ignored.
 
 `scale` applies to firmware fields.
 It multiplies the number the firmware page shows.
-`min` and `max` are checked against that number, so write them in the units the operator is typing.
+`min` and `max` are checked against that number, so write them in the units the user types.
 
 ```yaml
 balanceUp:
@@ -131,13 +134,13 @@ balanceUp:
 
 **Balance Up** opens as 4.1 V, because 4100 multiplied by 0.001 is 4.1.
 A value above 4.4 is rejected.
-`4100` is the stored default, and `4.4` is the largest number the operator can type.
+`4100` is the stored default, and `4.4` is the largest number the user can type.
 `index: 0x35` is the device parameter address, as described on [Firmware maps](Firmware_Maps.md).
 
 !!! warning "A save stores the number on screen"
     `scale` changes the number drawn on the firmware page.
     A save stores that on-screen number.
-    After the operator saves the example above, the stored value is 4.1, not 4100.
+    After a user saves the Balance Up example, the stored value is 4.1, not 4100.
 
 ## Field types
 

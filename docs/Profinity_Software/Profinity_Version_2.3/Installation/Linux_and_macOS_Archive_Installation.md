@@ -90,6 +90,7 @@ INFO: Profinity Services Starting
 INFO: Now listening on: http://127.0.0.1:18080
 ```
 
+The address in the last line is `127.0.0.1` when the installation has no Server licence or trial, because Profinity then listens on the local machine only, and `0.0.0.0` (all network interfaces) otherwise.
 To open the web interface and sign in, refer to [Open the web interface](./Linux_and_macOS_Installation.md#open-the-web-interface).
 On Linux, create the artefacts directory and set its ownership before the first start, or set `PROFINITY_HOME` to a writable path, as described in [Where Profinity stores its data](./Linux_and_macOS_Installation.md#where-profinity-stores-its-data).
 

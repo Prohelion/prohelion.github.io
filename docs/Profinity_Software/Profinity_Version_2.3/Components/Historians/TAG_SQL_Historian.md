@@ -8,9 +8,10 @@ last_reviewed: 2026-10-14
 
 # TAG SQL Historian
 
-The **TAG SQL Historian** writes the values of the tags in the [collections](../../Tags/Collections/index.md) you select to a table in a SQL database, and allows that history to be read back out through the APIs.
+The **TAG SQL Historian** writes the values of the tags in the [collections](../../Tags/Collections/index.md) you select to a table in a Structured Query Language (SQL) database.
+It also allows that history to be read back through the APIs.
 It sits in the **Historians** category.
-Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](../Loggers/InfluxDB_v1_Logger.md).
+Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](InfluxDB_Historians.md).
 Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 <figure markdown>
@@ -32,12 +33,15 @@ flowchart LR
 
 ## Adding the historian {#adding-a-tag-sql-historian}
 
-To start recording, add the component and point it at a database:
+To start recording, add the component and point it at a database.
 
 1. Add a **TAG SQL Historian** to your profile from the **Historians** category.
 2. Choose the **Database Provider** and enter its **Connection String**.
 3. Under **Collections**, add at least one tag collection. The component does not start until one is configured.
-4. Save the settings. With **Auto Create Table** on, the historian creates the table when it starts.
+4. Save the settings.
+
+With **Auto Create Table** on, the historian creates the table when it starts.
+Once it connects, its status shows **On** and rows appear in the table after the first **Update Interval (Seconds)**.
 
 The following tables describe every setting.
 
@@ -47,7 +51,7 @@ The following tables describe every setting.
 |---|---|
 | **Database Provider** | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. Defaults to SQLite. |
 | **Connection String** | The connection string for the chosen database provider, in that provider's own format. Required, and stored encrypted at rest. |
-| **Table Name** | The table the historian writes rows to, which may contain letters, digits, and underscores only and cannot start with a digit. Defaults to `TagChangeLog`. |
+| **Table Name** | The table the historian writes rows to. Use letters, digits and underscores only, and do not start with a digit. Defaults to `TagChangeLog`. |
 | **Auto Create Table** | Creates the table when the historian starts, if it does not already exist. Enabled by default. |
 
 ### Logger settings
@@ -55,16 +59,19 @@ The following tables describe every setting.
 | Setting | Purpose |
 |---|---|
 | **Collections** | The tag collections whose tags are recorded. |
-| **Logging mode** | Chooses between **Snapshot**, **On Change** and **Everything**. Defaults to Snapshot. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **Auto Connect** | On by default. Starts the historian when the profile is loaded. When off, start it with **Start Logger**. |
-| **Update Interval (Seconds)** | The interval that controls snapshot timing, or how often changes and samples are flushed to the database. Defaults to 10, and accepts 1 to 86400. |
-| **Designated tag historian reader** | Makes this historian the store that long-range tag and history queries are read from. Enable it on one component in the profile only. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
+| **Logging mode** | **Snapshot**, **On Change** or **Everything**. Defaults to **Snapshot**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
+| **Auto Connect** | On by default. Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Update Interval (Seconds)** | The seconds between writes to the database. Defaults to 10, and accepts 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Designated tag historian reader** | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
 
 ## Table layout
 
-Every sample is written with its quality. A Stale sample keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value, so the table shows the gap.
+Every sample is written with its quality.
+A Stale sample keeps its last value.
+A tag that is Unavailable or Bad is written with its quality and an empty value, so the table shows the gap.
 
-When **Auto Create Table** is enabled the historian creates a table with the following columns, and the names are the same on every provider.
+When **Auto Create Table** is enabled, the historian creates a table with these columns.
+The names are the same on every provider.
 
 | Column | Contents |
 |---|---|
@@ -73,7 +80,7 @@ When **Auto Create Table** is enabled the historian creates a table with the fol
 | `TagId` | The path of the tag. |
 | `ValueType` | The data type of the value. |
 | `Value` | The recorded value. |
-| `UtcTimestamp` | The UTC timestamp of the sample. |
+| `UtcTimestamp` | The Coordinated Universal Time (UTC) timestamp of the sample. |
 | `Quality` | The data quality of the sample: Good, Stale, Unavailable, or Bad. |
 | `Reason` | Why the sample was recorded. |
 | `Message` | An optional message. |
@@ -94,13 +101,13 @@ For example, a motor speed tag is stored as this row:
 
 A row for a tag that is Unavailable or Bad has the same layout with an empty `ValueType` and `Value`, and its `Quality` says why there is no reading.
 
-The columns follow the same field set as the tag change file logger described in [Tag file and SFTP loggers](../Loggers/Tag_File_and_SFTP_Loggers.md), so history written by either can be interpreted in the same way.
-If you create the table yourself, disable **Auto Create Table** and make sure the account in the connection string can insert into and read from it.
+The columns follow the same field set as the TAG File Logger, described in [Tag file and SFTP loggers](../Loggers/Tag_File_and_SFTP_Loggers.md), so you can interpret history written by either in the same way.
+If you create the table yourself, disable **Auto Create Table** and give the account in the connection string permission to insert into and read from it.
 
 ## Example connection strings
 
 The connection string uses the format of the chosen provider.
-The examples use placeholder names and passwords.
+Replace the host names, database names, account names and `<password>` in the examples with your own.
 
 | Provider | Example |
 |---|---|
@@ -115,17 +122,23 @@ With **Auto Create Table** on, it also needs permission to create the table, and
 
 ## If the historian does not start
 
-Settings cannot be saved without a connection string (`You must provide a connection string for the database.`) or with an invalid table name (`Table name must use letters, digits, and underscore only, and cannot start with a digit.`).
+Settings cannot be saved in two cases:
 
-If the settings save but no rows arrive, the Profinity system logs (refer to [Logs](../../Administration/Logs_Config.md)) show one of two messages:
+- Without a connection string, which shows `You must provide a connection string for the database.`
+- With an invalid table name, which shows `Table name must use letters, digits, and underscore only, and cannot start with a digit.`
+
+If the settings save but no rows arrive, the Profinity system logs show one of two messages.
+Refer to [Logs](../../Administration/Logs_Config.md) for where to read them.
 
 - The component name followed by `could not connect` and the reason, for a connection that failed. The historian shows **Error** and retries every 5 seconds until the database is reachable.
 - `Failed to write to the` followed by the component name, for a failed write.
 
-Check the connection string, that the database is reachable from the Profinity server and that the account can write to the table.
+Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table.
 
 !!! warning "Moving a component starts a new history in this historian"
-    This historian records history under the tag's path, so moving a component changes its tag paths and the history recorded under the old paths is not carried across. Queries for the new path return a new series with no earlier points.
-    The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message, and signal instead, so their history carries on after a move. Refer to [Change the path on a deployed component](../../Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
+    This historian records history under the tag's path, so moving a component changes its tag paths.
+    The history recorded under the old paths is not carried across, and queries for the new path return a new series with no earlier points.
+    The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message, and signal instead, so their history carries on after a move.
+    Refer to [Change the path on a deployed component](../../Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
 
-For the steps to set up data logging, refer to [How to Configure Data Logging](../../How_To_Guides/Configure_Data_Logging.md).
+For the steps to set up data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).

@@ -48,7 +48,9 @@ The `action` object of a [Toggle](../Interactive/Toggles.md) is an action invoca
 
 ## Layers
 
-Layers let the operator show and hide groups of overlay elements. The component displays a button for each layer, and an overlay element joins a layer through its `layer` parameter.
+Layers let the user show and hide groups of overlay elements.
+The component displays a button for each layer.
+An overlay element joins a layer through its `layer` parameter.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -70,12 +72,20 @@ layers:
 
 ## Icon source forms
 
-The `icon` parameter of an icon is the icon source: an image filename (ending in `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg` or `.webp`) from `/Profile/Images`, an emoji character, SVG path data that starts with `M`, or an `<svg>` element whose first path is used.
+The `icon` parameter of an icon is the icon source.
+It takes one of these forms:
+
+- An image filename from `/Profile/Images`, ending in `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg` or `.webp`.
+- An emoji character.
+- Scalable Vector Graphics (SVG) path data that starts with `M`.
+- An `<svg>` element, whose first path is used.
+
 Any other text is displayed as text.
 
 ## Display types
 
-The examples on this page use the Image position form, with percentage `x` and `y`. On a [3D model](Model.md), every data value position also takes `z`, in model space.
+The examples on this page use the Image position form, with percentage `x` and `y`.
+On a [3D model](Model.md), every data value position also takes `z`, in model space.
 Tag paths such as `DBC/Temperature/Value` are placeholders, so replace them with tags from your own component.
 
 A text display shows the formatted value:
@@ -112,7 +122,10 @@ dataValues:
 ```
 
 A status display shows a lamp.
-A status data value is always lit. The bound value supplies the colour of the lamp as a string such as `green`, `amber` or `red`, so bind the `color` target, as this example does. A binding with the `value` target is also applied as the lamp colour, and `lampColor` is the colour shown until the bound colour arrives:
+A status data value is always lit.
+The bound value supplies the colour of the lamp as a string such as `green`, `amber` or `red`, so bind the `color` target, as this example does.
+A binding with the `value` target is also applied as the lamp colour.
+The `lampColor` parameter is the colour shown until the bound colour arrives:
 
 ```yaml
 dataValues:
@@ -130,7 +143,8 @@ dataValues:
 
 ## Annotation lines
 
-Annotation lines connect elements (icons, data values, regions, or points) with optional waypoints (elbows) for routing.
+Annotation lines connect icons, data values, regions, or points.
+Optional waypoints, called elbows, route the line.
 
 ### Image annotation lines
 

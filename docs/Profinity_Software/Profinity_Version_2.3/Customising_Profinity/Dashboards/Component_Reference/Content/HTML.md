@@ -25,8 +25,10 @@ Use [Readouts](../Data/Readouts.md), [Tables](../Data/Tables.md), and similar co
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | CSS class added to the content container |
-| `content` | string | Yes | None | HTML snippet to display. Refer to [Allowed HTML](#allowed-html) for the tags and attributes that survive sanitising. The content is not displayed when `map` is set with both position sources |
+| `content` | string | Yes | None | HTML snippet to display. Refer to [Allowed HTML](#allowed-html) for the tags and attributes that survive sanitising |
 | `map` | object | No | None | Switches the component to a map view that follows a GPS position. Refer to [Map parameters](#map-parameters) |
+
+The content is not displayed when `map` is set with both position sources.
 
 ### Allowed tags and attributes {#allowed-html}
 
@@ -41,7 +43,9 @@ A link whose address begins with a single `/` navigates inside the web interface
 ### Referencing profile assets in HTML
 
 Use `/Profile/Images/{filename}` in the `src` attribute of an `img` element to show an image from the profile.
-Add style rules to the `profile.css` file in the `/Profile/Styles` directory, which the web interface loads when the file is present, and apply them with the `class` attribute in the HTML.
+Add style rules to the `profile.css` file in the `/Profile/Styles` directory.
+The web interface loads the file when it is present.
+Apply the rules with the `class` attribute in the HTML.
 The `profile.css` file can load further stylesheets with CSS `@import`.
 Refer to a content file as `/Profile/Content/{filename}`.
 
@@ -52,7 +56,8 @@ The map is loaded from `openstreetmap.org`, so the browser that displays the das
 The map is displayed as stale when a position source has no data.
 Set `content` to an empty string when `map` is used, because `content` is required.
 
-The three position sources are not relative paths, because Profinity expands relative `DBC/` and `Properties/` paths only for the `source` of a binding, so each position source names the component in full, as in the map example.
+Each position source is a full tag path that names the component, as in the map example.
+Profinity expands relative `DBC/` and `Properties/` paths only for the `source` of a binding, so a relative path does not work in a position source.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|

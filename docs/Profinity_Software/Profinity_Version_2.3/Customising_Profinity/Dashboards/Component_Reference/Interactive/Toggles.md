@@ -28,7 +28,10 @@ Use an [Action](Actions.md) for a one-way command such as a refresh.
 | `value` | object | No | None | Payload posted with the action request |
 | `enabled` | boolean | No | `true` | Whether the toggle can be clicked. The state can be bound with the `enabled` target |
 | `visible` | boolean | No | `true` | Not used by the web interface |
-| `bind` | array | No | None | Data binding. The `enabled`, `tooltip` and `classes` targets are handled. Bind the `classes` target to a boolean and map `true` to `on` and `false` to `off` to show the current state of the switch, because a toggle without that binding does not show whether the feature is on or off |
+| `bind` | array | No | None | Data binding. The `enabled`, `tooltip` and `classes` targets are handled |
+
+A toggle shows whether the feature is on or off only when its `classes` target is bound.
+Bind the `classes` target to a boolean, and map `true` to `on` and `false` to `off`.
 
 ## Example
 

@@ -19,12 +19,14 @@ Use [Readouts](Readouts.md) for a measurement with a unit and precision, and [HT
 |-----------|------|----------|---------|-------------|
 | `id` | string | No | None | Not used by the web interface |
 | `class` | string | No | None | Extra CSS class names added to the caption |
-| `color` | string | No | None | Status colour of the text: `red`, `green`, `amber` or `grey`, the same colours as a [Lamp](Lamp.md). Any other value is ignored and the text keeps its normal colour. Can be bound with the `color` target |
+| `color` | string | No | None | Status colour of the text: `red`, `green`, `amber` or `grey`, the same colours as a [Lamp](Lamp.md). Can be bound with the `color` target |
 | `value` | string | No | None | Static text shown when no `value` binding supplies the text. When no data is available, the caption shows `--` and is displayed as stale |
 | `label` | string | No | None | Not used by the web interface |
 | `enabled` | boolean | No | `true` | Not used by the web interface |
 | `visible` | boolean | No | `true` | Not used by the web interface |
 | `bind` | array | No | None | Data binding. The `value` target supplies the text, which is displayed as a string, and the `color` target supplies the colour |
+
+A `color` value other than the four listed is ignored, and the text keeps its normal colour.
 
 ## Example
 
@@ -51,4 +53,4 @@ dashboard:
 ```
 
 The `mapToText` binding property converts the boolean value into the text that the caption displays, and into the colour name that the `color` binding supplies.
-The [Data Binding](../../Data_Binding/index.md) page describes the property.
+The [Text mapping](../../Data_Binding/Transform_and_Map_Values.md#text-mapping) section describes the property.

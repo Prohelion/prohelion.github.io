@@ -9,9 +9,20 @@ last_reviewed: 2026-10-14
 # Component and collection security
 
 Component and collection security controls which users can **see** a profile component or a tag collection, independent of who can **modify** it.
-A user without the **Modify components** or **Modify tag collections** permission already cannot change a component or a collection, and this feature goes further by removing the resource from that user's view entirely, including the tag tree, the actions list, DBC, firmware, alerts, Model Context Protocol (MCP) results, and the tag collections picker.
+A user without the **Modify components** or **Modify tag collections** permission already cannot change a component or a collection.
+This feature goes further and removes the resource from that user's view entirely.
+The resource disappears from these places:
 
-A restricted component keeps running, so rules, scripts, loggers, CAN, and relay traffic for a hidden component are unaffected.
+- The tag tree
+- The actions list
+- CAN database (DBC) definitions
+- Firmware
+- Alerts
+- Model Context Protocol (MCP) results
+- The tag collections picker
+
+A restricted component keeps running.
+Rules, scripts, loggers, CAN, and relay traffic for a hidden component are unaffected.
 This is a visibility control for users and APIs, not component isolation.
 
 Only a user with the **Security administration** permission can see or change these settings.
@@ -20,9 +31,20 @@ Only a user with the **Security administration** permission can see or change th
 
 ## Restricting a component
 
-To restrict a component, open its settings dialog from the profile menu or the component list, select the **Security** tab, which sits beside **Settings** and **Firmware** (when present), set **Mode** to **Restricted**, add one or more roles to **Allowed roles**, and save the tab.
+To restrict a component:
+
+1. Open the component's settings dialog from the profile menu or the component list.
+2. Select the **Security** tab, which sits beside **Settings** and **Firmware** (when present).
+3. Set **Mode** to **Restricted**.
+4. Add one or more roles to **Allowed roles**.
+5. Save the tab.
+
+The component is now visible only to users who hold one of the allowed roles, plus the users described in [Who bypasses a restriction](#who-bypasses-a-restriction).
+To check, sign in as a user without an allowed role and confirm the component no longer appears.
 Setting **Mode** back to **All** removes the restriction.
-The **Security** tab is shown only to a user with **Security administration**, and any other user, including one with **Modify components**, does not see the tab at all.
+
+The **Security** tab is shown only to a user with **Security administration**.
+Any other user, including one with **Modify components**, does not see the tab at all.
 
 <figure markdown>
 ![The Security tab of a component settings dialog, with the Mode dropdown and the Allowed roles list](../../images/component-security-tab.png)
@@ -31,8 +53,16 @@ The **Security** tab is shown only to a user with **Security administration**, a
 
 ## Restricting a collection
 
-To restrict a collection, open the **Collections** editor, select the collection in the tree, open the **Security** panel in the inspector, set **Mode** to **Restricted**, and add one or more roles to **Allowed roles**.
-The panel is the same for the built-in **(All Tags)** collection and for every custom collection, and changes save with the rest of the collection's settings.
+To restrict a collection:
+
+1. Open the **Collections** editor.
+2. Select the collection in the tree.
+3. Open the **Security** panel in the inspector.
+4. Set **Mode** to **Restricted**.
+5. Add one or more roles to **Allowed roles**.
+
+The panel is the same for the built-in **(All Tags)** collection and for every custom collection.
+Changes save with the rest of the collection's settings.
 
 <figure markdown>
 ![The Security panel in the Collections editor inspector, with the Mode dropdown and the Allowed roles list](../../images/collection-security-panel.png)
@@ -45,8 +75,8 @@ Each component and each collection carries its own security policy, made up of t
 
 | Field | Description |
 |-------|-------------|
-| **Mode** | **All** (the default) makes the resource visible to every user with the underlying view permission, and **Restricted** makes it visible only to a user assigned one of the roles in **Allowed roles**. |
-| **Allowed roles** | The roles permitted to see the resource when **Mode** is **Restricted**. A user needs only one of the listed roles, not all of them, and the list is ignored when **Mode** is **All**. |
+| **Mode** | **All** (the default) shows the resource to every user with the underlying view permission. **Restricted** shows it only to users with one of the **Allowed roles**. |
+| **Allowed roles** | The roles permitted to see the resource when **Mode** is **Restricted**. A user needs only one of them. The list is ignored when **Mode** is **All**. |
 
 A component or collection with no security policy behaves as **Mode** **All**.
 
@@ -55,18 +85,21 @@ A component or collection with no security policy behaves as **Mode** **All**.
 Two groups always see a restricted component or collection, regardless of role assignment.
 A user with **Security administration** sees it, and so does a user with **Modify profiles**, so that engineers configuring a profile's layout are never locked out of their own work.
 
-A service account is treated the same as an interactive user, so it must be assigned one of the allowed roles to see a restricted resource, and the same visibility filter applies whether it calls the web interface's APIs or an MCP tool.
+A service account is treated the same as an interactive user, so it must be assigned one of the allowed roles to see a restricted resource.
+The same visibility filter applies whether it calls the web interface's APIs or an MCP tool.
 
 ## The built-in (All Tags) collection
 
-**(All Tags)** is a reserved collection that cannot be deleted or edited, but it has the same **Security** panel as any custom collection, and a user with **Security administration** can restrict it the same way.
-A custom collection cannot be created with the id `All`, because that id is reserved, and Profinity rejects the save with `400 Bad Request`.
+**(All Tags)** is a reserved collection that cannot be deleted or edited.
+It has the same **Security** panel as any custom collection, and a user with **Security administration** can restrict it the same way.
+A custom collection cannot be created with the ID `All`, because that ID is reserved, and Profinity rejects the save with `400 Bad Request`.
 
 When **(All Tags)** has no security policy it is visible to every user with **View tags**.
 When it is restricted, only users with one of the allowed roles, plus **Security administration** and **Modify profiles**, see it in the tag collections picker.
 
-Component security still applies underneath collection security, so **(All Tags)** returns every tag that a user's component security already permits, not every tag on the profile.
-A collection that is visible to a user can still contain no visible tags when every tag it would return belongs to a component that the user cannot see, in which case the collection is empty rather than missing.
+Component security still applies underneath collection security.
+**(All Tags)** returns every tag that a user's component security already permits, not every tag on the profile.
+A visible collection is empty, not missing, when every tag it would return belongs to a component that the user cannot see.
 
 ## Fail-closed behaviour
 
@@ -76,25 +109,33 @@ A collection that is visible to a user can still contain no visible tags when ev
 
     This applies in two situations in particular.
     The first is restricting a component or collection and saving before adding any role to the allow list.
-    The second is importing a profile pack whose grants reference a role name that does not exist on the destination site, as described in [Unresolved roles after a profile import](#unresolved-roles-after-a-profile-import), where the unresolved names never match a user even though the resource is still marked **Restricted**.
+    The second is importing a profile pack whose grants name a role that does not exist on the destination site.
+    The unresolved names never match a user, even though the resource is still marked **Restricted**.
+    Refer to [Unresolved roles after a profile import](#unresolved-roles-after-a-profile-import).
 
 If a user cannot see a component, action, tag branch, or collection that they should have access to, check the **Security** tab or panel for an empty or fully unresolved **Allowed roles** list before looking for a permissions problem elsewhere.
 
 ## Unresolved roles after a profile import
 
-Role and user definitions are site-specific, while security grants travel with the profile pack, so importing a profile pack built on a different site can reference a role name that does not exist locally.
-A user with **Security administration** sees these names as unresolved, read-only entries in the **Security** tab or panel, with helper text identifying the missing role name, and uploading a profile pack with unresolved grants also shows a summary warning.
-An unresolved role name never grants access, so a user with **Security administration** removes it or replaces it with a role that exists on the site.
+Role and user definitions are specific to a site, but security grants travel with the profile pack.
+A profile pack built on a different site can therefore name a role that does not exist locally.
+A user with **Security administration** sees these names as unresolved, read-only entries in the **Security** tab or panel, with helper text naming the missing role.
+Uploading a profile pack with unresolved grants also shows a summary warning.
+An unresolved role name never grants access, so remove it or replace it with a role that exists on the site.
 Profile packs are described in [Profiles](../Profiles.md).
 
 ## What stays unaffected
 
-A hidden component keeps running, and rule evaluation, the collection members that rules use, and the tree that relays send are not filtered by component or collection security, because the restrictions apply to what users and the API see.
-A direct API request for a hidden component, collection, or tag path returns `404 Not Found` and not `403 Forbidden`, so a caller cannot tell the difference between a resource that does not exist and one that is hidden from them.
+A hidden component keeps running.
+Rule evaluation, the collection members that rules use, and the tree that relays send are not filtered, because the restrictions apply only to what users and the API see.
+
+A direct API request for a hidden component, collection, or tag path returns `404 Not Found` and not `403 Forbidden`.
+A caller cannot tell a resource that does not exist from one that is hidden from them.
 List responses, the tag catalogue, tag queries including historian queries, alerts, and MCP tool results omit hidden items without an error.
 
 The CAN utilities and the script log are not filtered by component security.
-The Collections editor lists every collection, including restricted ones, to any user with **View tag collections**, and only the tag collections picker and the collection's members are filtered.
+The Collections editor lists every collection, including restricted ones, to any user with **View tag collections**.
+Only the tag collections picker and the collection's members are filtered.
 
 ## Related documentation
 

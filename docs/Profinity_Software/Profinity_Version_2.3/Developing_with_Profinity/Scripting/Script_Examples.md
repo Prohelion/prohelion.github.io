@@ -1,6 +1,6 @@
 ---
 title: Script examples
-description: "Worked C# and Python examples that read a DBC signal, send a CAN message, and keep a run count in script state, using the Example Profile."
+description: "Worked C# and Python examples that read a CAN database (DBC) signal, send a CAN message, and keep a run count in script state, using the Example Profile."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -10,15 +10,17 @@ last_reviewed: 2026-10-15
 
 This page holds worked script examples that read a DBC signal, send a CAN message and persist script state.
 To add a script component and run a first script, refer to [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
-Scripting needs a **Desktop**, **Server**, or **Enterprise** licence. Refer to [Licensing](../../Licensing.md).
+Scripting needs a **Desktop**, **Server**, or **Enterprise** licence.
+Refer to [Licensing](../../Licensing.md).
 
 !!! warning "Scripts run with application permissions"
     A script runs inside Profinity with the same operating system permissions as the application, so review any script before running it.
     Refer to the [Scripting overview](index.md) for the security context and behaviour.
 
-The following examples use the Example Profile, so load it and replay `example_log.csv` as described in the [Quick Start Guide](../../Getting_Started/Quick_Start.md) to give them data.
+The following examples use the Example Profile, so load it and replay `example_log.csv` as described in the [Quick start guide](../../Getting_Started/Quick_Start.md) to give them data.
 Use names from your own DBC and profile in other profiles: **Component**, **Message** and **Signal** are case-sensitive, and a name that does not exist raises an error.
-Confirm the names in the DBC viewer in Profinity. Refer to [DBC](Script_Operations/DBC.md).
+Confirm the names in the DBC viewer in Profinity.
+Refer to [DBC](Script_Operations/DBC.md).
 
 ## Reading a DBC signal value
 

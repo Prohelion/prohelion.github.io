@@ -9,10 +9,10 @@ last_reviewed: 2026-10-14
 # Webhook Publisher
 
 The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to an HTTP or HTTPS address with an HTTP POST, either on a fixed interval or whenever a member tag's value changes.
-It uses the same trigger modes as the [MQTT Publisher](MQTT_Publisher.md).
-Use it when the consumer is an ordinary web service rather than an MQTT broker.
+The **Logging mode** setting chooses between these, in the same way as on the [MQTT Publisher](MQTT_Publisher.md).
+Use it when the consumer is an ordinary web service rather than a Message Queuing Telemetry Transport (MQTT) broker.
 
-It sits in the **Publishers & Subscribers** category rather than **Loggers** because a publisher pushes to a receiver that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.
+A publisher pushes to a receiver that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.
 
 <figure markdown>
 ```mermaid
@@ -23,7 +23,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The Webhook Publisher requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions. Without it the feature is unavailable. Refer to [Licensing](../../Licensing.md) for what each edition includes.
+    The Webhook Publisher requires the **Data Relay** licensed feature. Refer to [Licensing](../../Licensing.md) for the editions that include it.
 
 ## Quick start {#adding-a-webhook-publisher}
 
@@ -31,10 +31,12 @@ These steps publish one collection to a web service with no authentication.
 
 1. Add a **Webhook Publisher** to your profile from the **Publishers & Subscribers** category.
 2. Enter the address of the receiver in **Destination URL**.
-3. Under **Collections**, add a collection and choose it by name, then save.
+3. Under **Collections**, add a collection and choose it by name.
+4. Save the settings.
 
 The publisher does not start until at least one collection is selected and every selected collection exists in the profile.
-With **Auto Connect** on, which is the default, it starts when the profile loads.
+With **Auto Connect** on, which is the default, it starts when the profile loads, and its status shows **On**.
+To check that it works, look for the POST at your receiver.
 
 ## Settings
 
@@ -42,21 +44,22 @@ With **Auto Connect** on, which is the default, it starts when the profile loads
 
 | Setting | Required | Purpose |
 |---|---|---|
-| **Destination URL** | Yes | The HTTP or HTTPS address the publisher POSTs to on each publish. The URL is stored encrypted and masked on screen, because webhook URLs often embed an access token. A save without it fails with "You must provide a webhook destination URL." |
-| **Authentication** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. Refer to [Authentication](#authentication). Selecting a mode shows its credential fields, and each field is required for that mode. |
+| **Destination URL** | Yes | The HTTP or HTTPS address the publisher POSTs to on each publish. It is stored encrypted and masked on screen, because webhook URLs often embed an access token. A save without it fails with "You must provide a webhook destination URL." |
+| **Authentication** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. Refer to [Authentication](#authentication). |
 
 ### Publishing settings {#logger-settings}
 
 | Setting | Default | Purpose |
 |---|---|---|
 | **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
-| **Logging mode** | **Snapshot** | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode publishes. |
-| **Update Interval (Seconds)** | 10 | From 1 to 86400 seconds. In **Snapshot** mode this is how often a full publish runs, and in **On Change** and **Everything** modes it is how often accumulated changes are sent. |
-| **Auto Connect** | On | Starts the publisher automatically when the profile is loaded. |
+| **Logging mode** | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode publishes. |
+| **Update Interval (Seconds)** | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Auto Connect** | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 ## Authentication
 
 The Webhook Publisher adds the selected credential as a header on every request.
+Selecting a mode shows its credential fields, and each field is required for that mode.
 
 | Mode | Fields | Behaviour |
 |---|---|---|
@@ -73,7 +76,7 @@ Whichever mode you choose, the credential is stored encrypted and masked on scre
 ## Payload format
 
 Each publish sends one POST containing a JSON array of the samples in that batch, never one POST per sample.
-Each entry has the same fields that `GET /api/v2/Tags/Sample/{path}` returns for a tag sample, limited to `fullTagId`, `utcTimestamp`, `quality` and `value`.
+Each entry has the `fullTagId`, `utcTimestamp`, `quality` and `value` fields that `GET /api/v2/Tags/Sample/{path}` returns for a tag sample.
 The API's `reason`, `message` and `metadata` fields are not sent.
 
 ```json
@@ -87,11 +90,19 @@ The API's `reason`, `message` and `metadata` fields are not sent.
 ]
 ```
 
-Each entry reports the quality the tag had when the sample was taken. A Stale entry carries its last `value`, and an entry for a tag that is Unavailable or Bad has `quality` and no `value`. Only tags that hold a finite number are included.
+Each entry reports the quality the tag had when the sample was taken.
+A Stale entry carries its last `value`, and an entry for a tag that is Unavailable or Bad has `quality` and no `value`.
+Only tags that hold a finite number are included.
 
 ## Delivery health
 
-When the destination returns a status other than a success code, cannot be reached, or takes longer than 10 seconds to respond, the publisher makes up to three attempts in total, waiting 1 second before the second attempt and 2 seconds before the third.
+The publisher makes up to three attempts in total when the destination does any of these:
+
+- Returns a status other than a success code.
+- Cannot be reached.
+- Takes longer than 10 seconds to respond.
+
+It waits 1 second before the second attempt and 2 seconds before the third.
 The attempt count, timeout and waits cannot be changed in Profinity 2.3.
 If all three attempts fail, the batch is not retried further and the publisher reports **Error** until a later publish succeeds.
 
@@ -103,12 +114,13 @@ It also exposes two tags for a dashboard or rule:
 | `LastDeliverySuccess` | `true` when the most recent delivery succeeded, and `false` otherwise. |
 | `LastDeliveryError` | Empty when healthy. After a failed delivery it reads "Webhook delivery failed - see log for details." |
 
-If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message, then confirm that:
+If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message.
+Then confirm that:
 
 - The **Destination URL** is correct.
 - The receiver accepts the selected **Authentication**. A 401 or 403 response points to a wrong credential.
 - The receiver returns a success status.
-- The receiver presents a certificate that the Profinity server trusts, for an HTTPS destination. The Webhook Publisher has no option to skip certificate validation.
+- For an HTTPS destination, the receiver presents a certificate that the Profinity server trusts. The Webhook Publisher has no option to skip certificate validation.
 
 ## Related pages
 

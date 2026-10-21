@@ -18,7 +18,8 @@ The script can read and write other tags with [Tags](../Script_Operations/Tags.m
 ## Settings {#choosing-what-to-watch}
 
 Enable scripting in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first, as every script type requires it.
-Then add a **CSharp Script**, **Python Script** or **Lua Script** component, set **Script Mode** to **Run On Tag Change**, and choose the tags to watch in the **Tag Change Settings** category:
+Then add a **CSharp Script**, **Python Script** or **Lua Script** component.
+Set **Script Mode** to **Run On Tag Change**, and choose the tags to watch in the **Tag Change Settings** category:
 
 | Setting | Description |
 |---------|-------------|
@@ -79,13 +80,16 @@ The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `L
     Reading any other tag returns its live value at that moment, not the value published together with this change.
     A frame, a payload or several tags written as one update are already separate changes before the method runs, so sibling tags are not guaranteed to be consistent with each other.
 
-To read the tag that fired, including its quality and timestamp, pass its id back to [`Profinity.Tags`](../Script_Operations/Tags.md) with a leading `/`, which is the root of the tag tree: `Profinity.Tags.GetSample("/" + tagId)` in C# and Python, or `Profinity.Tags:GetSample('/' .. tagId)` in Lua.
+To read the tag that fired, including its quality and timestamp, pass its tag ID back to [`Profinity.Tags`](../Script_Operations/Tags.md) with a leading `/`, which is the root of the tag tree.
+In C# and Python, write `Profinity.Tags.GetSample("/" + tagId)`.
+In Lua, write `Profinity.Tags:GetSample('/' .. tagId)`.
 Without the `/`, the id would be treated as relative to the script's host component.
 
 ## Publishing a computed tag
 
 A common use is computing one tag from another.
-This example, which follows the `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` templates built into Profinity, converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values).
+This example follows the `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` templates built into Profinity.
+It converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values).
 Refer to [Derived tags](../../../Tags/Derived_Tags/index.md) for when to choose this over an expression-based derived tag.
 
 === "C#"
@@ -172,4 +176,4 @@ Store previous values in [State](../Script_Operations/State.md) rather than reco
 If a run must be bounded, set **Maximum Run Time (seconds)**.
 The handler stops only when the script checks `Profinity.ScriptCancelled`.
 
-For the other script modes, refer to [Script types](./index.md), and for a worked first script, refer to [How to Write Your First Script](../../../How_To_Guides/Write_Your_First_Script.md).
+For the other script modes, refer to [Script types](./index.md), and for a worked first script, refer to [How to write your first script](../../../How_To_Guides/Write_Your_First_Script.md).

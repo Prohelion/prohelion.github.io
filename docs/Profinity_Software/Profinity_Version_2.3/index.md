@@ -17,11 +17,16 @@ In Profinity 2.3 this data storage model moves to a new, source-independent data
 Many of the other new 2.3 features use this Tags capability to enable richer data visualisation, transmission, storage, and analysis.
 
 [Tags](Tags/index.md) give data from any protocol a common data model, for both real-time and historical values.
-[Rules](Tags/Rules/index.md) evaluate tag values and raise an [alert](Tags/Alerts.md) when a value goes out of range, for example when a battery pack temperature exceeds a limit, and [Actions](Tags/Rules/Actions/index.md) respond when a rule fires, for example by writing an entry to the Profinity log.
+[Rules](Tags/Rules/index.md) evaluate tag values and raise an [alert](Tags/Alerts.md) when a value goes out of range, for example when a battery pack temperature exceeds a limit.
+[Actions](Tags/Rules/Actions/index.md) respond when a rule fires, for example by writing an entry to the Profinity log.
 
-Tags, Rules, and Actions can then describe both the active system state and the context of that state to [Profinity AI](Profinity_AI/AI_Chat.md) and to external AI tools that connect through the [MCP server](Integrating_to_Profinity/MCP_Server/index.md), so that they can help identify and address issues.
+Tags, Rules, and Actions can then describe both the active system state and the context of that state to [Profinity AI](Profinity_AI/AI_Chat.md).
+They can also describe it to external AI tools that connect through the [Model Context Protocol (MCP) server](Integrating_to_Profinity/MCP_Server/index.md).
+These tools can then help identify and address issues.
 
-[Plugins](Developing_with_Profinity/SDK/Developing_Plugins.md) add third-party or in-house components to Profinity in the same way as Prohelion components, and [scripts](Developing_with_Profinity/Scripting/index.md) automate tasks, so Profinity can be extended for additional components or white-labelled solutions.
+[Plugins](Developing_with_Profinity/SDK/Developing_Plugins.md) add third-party or in-house components to Profinity in the same way as Prohelion components.
+[Scripts](Developing_with_Profinity/Scripting/index.md) automate tasks.
+Together they extend Profinity for additional components or white-labelled solutions.
 
 Some features need a licensed edition, and [Licensing](Licensing.md) lists what each edition includes.
 
@@ -32,7 +37,7 @@ Some features need a licensed edition, and [Licensing](Licensing.md) lists what 
 
 ## Where to start
 
-To install Profinity, follow the [Windows](Installation/Windows_Installation.md), [Linux and macOS](Installation/Linux_and_macOS_Installation.md), or [Docker](Installation/Docker_Installation.md) installation guide.
+To install Profinity, refer to [Install Profinity on Windows](Installation/Windows_Installation.md), [Install Profinity on Linux and macOS](Installation/Linux_and_macOS_Installation.md), or [Install Profinity with Docker](Installation/Docker_Installation.md).
 Then follow the [Quick start guide](Getting_Started/Quick_Start.md) to load an example profile and edit a first dashboard.
 The [How to guides](How_To_Guides/index.md) cover common tasks, such as connecting a CAN bus adapter, building a dashboard, and logging data.
 
