@@ -32,7 +32,7 @@ The file holds a `version` plus three optional groups.
 
 | Group | Keys | What they set |
 |-------|------|---------------|
-| `app` | `title` | The application title shown by the web client. |
+| `app` | `title` | The application title shown by the web client. Set it to an empty value (`title: ""`) to show no title text, for example when your logo already includes the name. |
 | `colors` | `navBackground`, `navForeground`, `primary`, `secondary`, `success`, `warning`, `error` | Navigation fill and foreground, the accent, the secondary colour, and the success, warning, and error colours used by status and charts. |
 | `assets` | `logo`, `loginLogo`, `favicon` | The main logo, the logo on the sign-in page, and the browser tab icon. |
 
