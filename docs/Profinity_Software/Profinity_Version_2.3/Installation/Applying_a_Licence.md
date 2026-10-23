@@ -71,7 +71,7 @@ Open **ADMIN**, then **License**, and check these three things:
 - The **Licensed features** and **Licensed component groups** tables show the expected entries as licensed and available.
 
 If the page still shows the previous state after you copied the file into the folder, restart Profinity and check again.
-Removing licensed features restarts Profinity automatically.
+Removing licensed features restarts Profinity automatically, and so does applying a licence to a server installation that was in restricted mode.
 
 ## If the licence is rejected
 
@@ -79,7 +79,7 @@ Removing licensed features restarts Profinity automatically.
 |--------------------------------|--------------|------------|
 | The upload is rejected | The file's signature, expiry, or fingerprint did not pass validation | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that it has not expired |
 | `WrongInstance` as the **State** after a `license.yaml` is copied into the `license` folder | The file was issued for a different machine | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it |
-| `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way |
+| `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way. A server installation stays reachable in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired), so you can still sign in and upload it |
 
 A file issued for a different machine is rejected with the message "License is not valid for this instance." and is not saved.
 A rejected upload never replaces a working licence, so it is safe to retry.

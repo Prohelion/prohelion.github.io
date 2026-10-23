@@ -82,18 +82,17 @@ The remaining rows differ by edition:
   The [License manager](Administration/License_Manager.md) in the product is always the authority for your instance, because configuration can further narrow what a licence allows.
 
 !!! warning "Remote web access needs a Server licence"
-    Without a Server licence, including on a Desktop host, Profinity listens for web connections on `127.0.0.1` only.
+    A Desktop host without a Server licence listens for web connections on `127.0.0.1` only.
     The web interface and API can then be reached from the same computer and not from another one.
-    This applies to an unlicensed instance and to an instance whose 14-day local trial has expired.
-    When the web server starts, Profinity forces any HTTP or HTTPS address that is not a loopback address, such as `0.0.0.0`, to `127.0.0.1`.
-    It does this whatever is entered under [Profinity Web](Administration/System_Configuration/Profinity_Web.md), and even if `Config.yaml` holds another value.
-    It also records a message beginning "Remote web access requires a Server license" in the [Profinity log](Administration/Logs_Config.md).
+    Profinity does this whatever is entered under [Profinity Web](Administration/System_Configuration/Profinity_Web.md), and records a message beginning "Remote web access requires a Server license" in the [Profinity log](Administration/Logs_Config.md).
+    A server installation is different: it stays reachable on its configured address when its licence is missing, expired or not valid, so you can replace the licence from a browser.
+    Until you do, it runs in [restricted mode](#when-a-licence-is-missing-or-has-expired).
     If you cannot reach Profinity from another computer, check the licence on the **License** page before you change the address or the firewall.
 
 Opening the web interface from another machine, and creating user accounts and roles, need the **Profinity Server** licensed feature, which the Server and Enterprise editions include.
 Local access on the same machine needs no licence.
-A new installation that is not a Desktop host starts a one-time 14-day local trial with the Server features, and then drops to the unlicensed feature set.
-Remote access and user accounts stop working until you apply a licence file under **ADMIN > License**.
+A new installation that is not a Desktop host starts a one-time 14-day local trial with the Server features.
+When the trial ends, the installation runs in restricted mode until you apply a licence file under **ADMIN > License**.
 For who can sign in on each installation type, refer to [Who can sign in, by installation type](Installation/Applying_a_Licence.md#who-can-sign-in).
 Production use of Profinity Server on Windows, Docker, Linux, or macOS needs a licence from Prohelion; contact Prohelion through the [Prohelion contact page](https://www.prohelion.com/contact-us/).
 
@@ -112,10 +111,37 @@ The trial:
   A signed trial licence file reports `Trial` while more than 30 days remain.
 - Is not available on Desktop hosts, which have a separate free-use policy ([Desktop free-use policy](#desktop-free-use-policy)).
 
-When the trial ends, Profinity drops the instance to the unlicensed feature set that a Desktop installation uses.
-It shows an expiry notice on the Home screen that links to the **License** pill on the **ADMIN** page.
-Profinity does not stop, lock users out, or switch to a read-only mode, and the engine keeps running.
-Features and components outside the unlicensed set become unavailable until you upload a suitable commercial or extended evaluation licence.
+Before the trial ends, the Home screen shows an expiry notice that links to the **License** pill on the **ADMIN** page.
+When it ends, the installation runs in [restricted mode](#when-a-licence-is-missing-or-has-expired) until you upload a suitable commercial or extended evaluation licence.
+
+## When a licence is missing or has expired
+
+An expiry date is final.
+There is no grace period.
+Profinity checks the date while it runs, so an installation that is never restarted still notices when its licence expires.
+When the date passes, Profinity restarts itself once and starts with the state `Expired`.
+Scripting, AI, custom plugins and the [Extensions Web](Administration/System_Configuration/Extensions_Web.md) server are among the features that stop.
+
+In the 30 days before a licence expires (the last 7 days of a local trial), the Home screen shows a notice with the days remaining and a link to the **License** page.
+
+A server installation whose licence is missing, expired, not valid, issued for a different server or not supported by this release then runs in *restricted mode*:
+
+- It stays reachable on its configured address, so you can still replace the licence from a browser.
+- A banner on every page says why.
+- Users with the **Security administration** permission can sign in, open the **License** page to upload a new licence, read the **Logs**, and change their own password.
+  The side menu shows only **ADMIN** and **LOGOUT**.
+- Other users can sign in and see a message that the licence needs renewing, and nothing else.
+- Every other page and API request is refused until a Server licence is applied.
+
+Upload the new licence on the **License** page.
+Profinity restarts, the page waits for it to come back, and then it reloads with everything available again.
+
+!!! warning "Use HTTPS where you can"
+    Over plain HTTP, sign-in details are sent without encryption.
+    Restricted mode works over HTTP, so a server that can only be reached that way can still be renewed, but the **License** page warns you.
+
+A Desktop host does not run in restricted mode.
+It keeps the unlicensed feature set described in [Desktop free-use policy](#desktop-free-use-policy).
 
 ## Desktop free-use policy
 
