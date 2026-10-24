@@ -28,7 +28,8 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
    It renames `Config`, `Profiles`, and `Logs` to lowercase.
    It rewrites `security.yaml` and `profile.yaml` in the 2.3 camelCase format when it loads them.
    It rewrites `config.yaml` on that first load when the file still has legacy Pascal keys or an older version stamp.
-   Before it rewrites a file, it saves a copy beside it with `.bak.` and a timestamp added to the name, and keeps the three most recent copies.
+   Before it rewrites a file, it keeps the file it replaces beside it as `<file>.bak`.
+   Profinity 2.3 reads a profile only from `profile.yaml`, so refer to [Profile files](../Release_Notes/Breaking_Changes_2_3.md#profile-files) if a profile uses another file name.
    Profinity does not move data when `PROFINITY_HOME` is set, so copy anything you need into that location yourself.
 3. Open **ADMIN > License** and confirm the state and the edition.
    A 2.2 installation upgraded without a licence file is unlicensed once any trial ends.

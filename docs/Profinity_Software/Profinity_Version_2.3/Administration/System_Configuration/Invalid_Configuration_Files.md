@@ -1,6 +1,6 @@
 ---
 title: When a configuration file is invalid
-description: "What Profinity 2.3 does when a settings file, rule, collection, derived tag or menu layout is invalid, and how to recover."
+description: "What Profinity 2.3 does when a settings file, profile, rule, collection, derived tag or menu layout is invalid, and how to recover."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-25
@@ -18,6 +18,7 @@ For the other settings files it carries on with a default and tells you in the l
 |---|---|---|
 | `config.yaml` | Profinity does not start and shows a message that names the file and the reason. | Nothing. The file is left exactly as it is. |
 | `security.yaml` | Profinity does not start and shows a message that names the file and the reason. | Nothing. No keys or users are created or changed. |
+| `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile. The file is left exactly as it is. |
 | `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity does not save over the damaged file. |
 | `theme.yaml` | Profinity starts with the default theme. | Nothing. |
 | `custom.yaml` | The install is not offered a trial. | Nothing. |
@@ -53,6 +54,25 @@ Profinity writes one message to the log that names the problem, and the profile 
 The **Menu Layout** editor shows a notice that gives the reasons.
 Saving from the editor replaces the ignored layout.
 Refer to [Menu Layout](../Menu_Layout.md).
+
+## Profiles
+
+A profile is invalid when it has a key at its own level that Profinity does not define, such as a misspelt setting name, or when it cannot be read as YAML.
+Profinity checks the profile when it starts.
+If the profile is invalid, Profinity creates a new default profile and makes it the active profile, and the log names the profile and the reason.
+The invalid profile file is not changed, so nothing in it is lost.
+To go back to it, correct the key that the log names, then select the profile again in the **Profile** pill on the **ADMIN** page, as described in [Manage profiles](../Manage_Profiles.md).
+
+Settings inside a component are defined by the component, so Profinity does not check them this way.
+When Profinity saves the profile, it does not keep a setting that the component does not recognise.
+A profile is read from `profile.yaml` in the profile folder and from no other file name.
+
+## Alert state
+
+Profinity keeps the current state of each alert, including which alerts are acknowledged or silenced, in `active_alerts.yaml` in the profile's `events` folder.
+If that file is damaged or empty, Profinity discards it and rebuilds it from the daily alert files, `alerts_<date>.yaml`, which hold every alert event.
+Acknowledged and silenced alerts stay acknowledged and silenced, and the log records the rebuild.
+A daily file that cannot be read is left out of the rebuild.
 
 ## What counts as invalid
 

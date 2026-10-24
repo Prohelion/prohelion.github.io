@@ -43,6 +43,10 @@ A dashboard uploaded or edited by hand has three requirements:
 - It must pass the dashboard schema.
 - It must have the `.yaml` extension.
 
+Profinity checks an uploaded dashboard when you upload it.
+If the dashboard does not load, Profinity refuses the upload and reports the reason, and the dashboard you already have is left as it is.
+When a valid upload replaces a dashboard, Profinity keeps the file it replaced as `<file>.bak` in the same folder, for example `dashboard.yaml.bak`.
+
 Refer to the [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md).
 
 ## Removing a Profile Dashboard

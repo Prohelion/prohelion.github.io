@@ -1,9 +1,9 @@
 ---
 title: Profinity 2.3 breaking changes
-description: "Check what Profinity 2.3 changes for existing installations, integrations, and plugins: security files, licensing, REST API errors, data locations and defaults."
+description: "Check what Profinity 2.3 changes for existing installations, integrations, and plugins: security, profiles, licensing, REST API errors, and data locations."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-25
 ---
 
 # Profinity 2.3 breaking changes
@@ -91,9 +91,33 @@ Refer to [Artefacts Directory](../Installation/Artifacts_Directory.md).
 Profinity writes every YAML document it owns with camelCase keys, lowercase file and folder names, and `version: "2.3"`.
 Older PascalCase files still load.
 Profinity rewrites an older `security.yaml`, `profile.yaml` or `config.yaml` in the new format when it loads it, and rewrites other documents when it saves them, so only tooling that reads these files directly needs to change.
-Before it rewrites a file on load, Profinity saves a copy beside it with `.bak.` and a timestamp added to the name, such as `security.yaml.bak.20261024-101500123`, and keeps the three most recent copies.
+Before it rewrites a file on load, Profinity keeps the file it replaces beside it as `<file>.bak`, such as `security.yaml.bak`, and keeps one copy per file.
 If Profinity cannot save the copy, it leaves the file unchanged and writes an error to the log.
+Earlier builds could also leave `.history` folders, `.corrupt-` copies, and timestamped `.bak.` copies beside these files.
+Profinity no longer writes or reads them, leaves any that exist where they are, and leaves them out of exported and imported profile packs, so delete them when you no longer need them.
 Re-save collections and rules in the visual editors after the upgrade if you edit their YAML by hand.
+
+## Profile files
+
+Profinity 2.3 reads a profile only from `profile.yaml` in the profile's folder.
+Profinity 2.2 also accepted a profile file whose name ended in `.pprof`, `.yml`, or `.json`, and at start-up it turned a single profile file in the `profiles` folder into a profile folder.
+Profinity 2.3 does neither.
+Rename a `.pprof` or `.yml` profile file, which holds YAML, to `profile.yaml` in the profile's folder, and save a JSON profile's settings as YAML in `profile.yaml`.
+
+A key at the top level of a profile that Profinity does not define, such as a misspelt setting name, now stops the profile loading.
+In 2.2 it was ignored.
+When the active profile is invalid at start-up, Profinity creates a new default profile, makes it the active profile, and writes the reason to the log, and the invalid file is left unchanged.
+Correct the file, then select the profile again in the **Profile** pill on the **ADMIN** page.
+Settings inside a component are not checked this way, and Profinity does not keep a setting that the component does not recognise when it saves the profile.
+Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md#profiles).
+
+## Uploads and imports are checked
+
+Profinity now checks an uploaded dashboard when you upload it, and refuses one that would not load.
+When a valid upload replaces a dashboard, rules file, or collections file, Profinity keeps the replaced file as `<file>.bak`.
+It also refuses to import a profile pack whose `profile.yaml` is not valid, and removes anything it extracted, so you can correct the pack and upload it again.
+In 2.2 both were accepted, and the problem showed up later when the dashboard or profile loaded.
+Refer to [Profile Dashboard](../Administration/Profile_Dashboard.md) and [Manage profiles](../Administration/Manage_Profiles.md).
 
 ## Tag paths
 
