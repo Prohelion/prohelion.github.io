@@ -44,6 +44,13 @@ Because `.dp_keys/` lives inside the artefacts directory, it stays on a Docker v
 Earlier releases used capitalised names (`Config`, `Config.yaml`, `Profiles`, `Logs`), and the first start of 2.3 renames them to the lowercase forms.
 This documentation uses the lowercase names throughout.
 
+## Sample content on a new installation
+
+The first time Profinity starts on a new, empty artefacts directory, it adds an **Example Profile**, the example scripts in `example_scripts/`, and a starter web page in `webroot/`.
+It never replaces a file that already exists, and it does not add them again after the first start, so anything you delete stays deleted.
+Existing installations, including upgrades from 2.2, are not changed.
+The large CAN log used for the replay examples is not included in this step.
+
 ## Move the directory with PROFINITY_HOME
 
 Set the environment variable `PROFINITY_HOME` to the full path of the artefacts root to:
