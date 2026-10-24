@@ -49,7 +49,7 @@ This documentation uses the lowercase names throughout.
 The first time Profinity starts on a new, empty artefacts directory, it adds an **Example Profile**, the example scripts in `example_scripts/`, and a starter web page in `webroot/`.
 It never replaces a file that already exists, and it does not add them again after the first start, so anything you delete stays deleted.
 Existing installations, including upgrades from 2.2, are not changed.
-The large CAN log used for the replay examples is not included in this step.
+The example CAN log used for the replay examples is added too.
 
 ## Move the directory with PROFINITY_HOME
 
