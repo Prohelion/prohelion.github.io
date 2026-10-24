@@ -21,6 +21,8 @@ The settings are grouped into tabs, and each tab has its own page, listed in the
     If the engine has not returned to the running state within 60 seconds, Profinity reports that the restart is taking longer than expected.
     The [System Information](../System_Info.md) page shows the current engine state.
 
+If Profinity does not start because `config.yaml` or `security.yaml` is invalid, refer to [When a configuration file is invalid](Invalid_Configuration_Files.md).
+
 ## Tabs at a glance
 
 | Tab                | What it controls | Page |

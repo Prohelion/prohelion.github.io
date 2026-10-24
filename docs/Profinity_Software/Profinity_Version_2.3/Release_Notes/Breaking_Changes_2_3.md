@@ -25,6 +25,21 @@ Check that `roles` and `assignedRoles` are present before you start Profinity, a
 Passwords that 2.2 stored are converted to one-way hashes when the file first loads, and users sign in with the same password.
 Refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
+## Invalid settings files stop Profinity
+
+All installations are affected.
+In 2.2, a damaged `config.yaml` or `security.yaml` was copied aside and Profinity started with default settings, and in the case of `security.yaml` with a default administrator.
+In 2.3, Profinity does not start when `config.yaml` or `security.yaml` is empty, cannot be read as settings, has a key that Profinity does not define, or refers to an environment variable that is not set.
+It writes nothing, and the message names the file, the reason, and how to recover: fix the file, restore the safety copy `<file>.bak`, or delete the file to reset it.
+Keys that 2.2 wrote and 2.3 no longer uses are ignored, so a `config.yaml` that 2.2 wrote still starts.
+Hand-edited files and files that other tools generate need checking: run `Profinity --preflight-only` against the data folder before you upgrade a production system.
+A container that restarts automatically repeats the message until the file is fixed.
+Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
+
+Other files fall back to a default and say so in the log: `plugins.yaml` starts with no plugins and registers plugin folders as disabled, `theme.yaml` uses the default theme, and a damaged `custom.yaml` withholds the trial.
+Every save of these files now keeps one safety copy, `<file>.bak`, in place of the timestamped copies that an upgrade made in 2.3 development builds.
+Signing in no longer rewrites `security.yaml`: the last sign-in time is kept in `user_activity.yaml`.
+
 ## Settings in config.yaml
 
 Administrators who configured OIDC single sign-on, SCIM provisioning or SIEM export in `security.yaml` now set them in `config.yaml`, under **ADMIN > System Configuration** in the **Security** section.
