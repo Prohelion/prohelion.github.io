@@ -1,9 +1,9 @@
 ---
 title: When a configuration file is invalid
-description: "Find out what Profinity 2.3 does when config.yaml, security.yaml or another settings file is damaged, and how to recover, restore a safety copy or reset the file."
+description: "Find out what Profinity 2.3 does when config.yaml, security.yaml or another settings file is damaged, when a rule, collection or derived tag is invalid, or when a menu layout cannot be used, and how to recover."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-24
+last_reviewed: 2026-10-25
 ---
 
 # When a configuration file is invalid
@@ -24,6 +24,35 @@ For the other settings files it carries on with a default and tells you in the l
 
 A file that does not exist is not invalid.
 Profinity creates the default for `config.yaml`, `security.yaml` and `plugins.yaml`, and uses the default theme and no custom settings for the others.
+
+## Rules, collections and derived tags
+
+These documents hold many separate items, so Profinity checks each item on its own and does not stop.
+An item that is not valid is skipped, and every other item still works.
+A skipped rule does not run, and a skipped collection or derived tag is not offered.
+
+An item is skipped when it fails its own checks, refers to something that does not exist, or has a key that Profinity does not define, such as a misspelt setting name.
+In Profinity 2.2 an unknown key was ignored and the item still ran, so check these documents after an upgrade.
+
+Profinity writes one line to the log for each skipped item, with the name of the item and the reason.
+The rules, collections and derived tags editors show the same list.
+Each skipped item has a red **Invalid** marker, and the reason appears when you point at it.
+A key that is not inside any item appears in the banner above the list.
+The file itself is not changed when it loads.
+
+To fix a skipped item, open the editor, correct the item named in the marker, and select **SAVE**.
+Saving is refused until every item in the document is valid.
+
+If the whole file cannot be read, the editor tells you so and does not show an empty list that you might save over the top of it.
+
+## Menu layout
+
+If the saved menu layout is not valid, Profinity ignores the whole layout and shows every component in its default group.
+A layout is not valid when it has a mistake such as a misspelt key, the same component listed twice, or an icon in an unsupported form.
+Profinity writes one message to the log that names the problem, and the profile file is not changed.
+The **Menu Layout** editor shows a notice that gives the reasons.
+Saving from the editor replaces the ignored layout.
+Refer to [Menu Layout](../Menu_Layout.md).
 
 ## What counts as invalid
 
