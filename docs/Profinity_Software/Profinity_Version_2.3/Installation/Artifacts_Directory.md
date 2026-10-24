@@ -36,9 +36,11 @@ The subfolders use lowercase names on every platform because Linux file systems 
 | `can_bus_logs/` | CAN bus logs, with `replay/` and `archive/` beneath it |
 | `tag_logs/` | Tag logs |
 | `license/`, `certificates/`, `themes/`, `webroot/` | Licence file, generated and uploaded certificates, themes, and web content |
+| `.dp_keys/` | Hidden folder that Profinity manages for its own security keys; leave it alone, and you do not need to back it up |
 
 The Linux installer pre-creates only `config/`, `profiles/`, `plugins/`, and `logs/`.
 Profinity creates the other folders on demand.
+Because `.dp_keys/` lives inside the artefacts directory, it stays on a Docker volume when you replace the container.
 Earlier releases used capitalised names (`Config`, `Config.yaml`, `Profiles`, `Logs`), and the first start of 2.3 renames them to the lowercase forms.
 This documentation uses the lowercase names throughout.
 
