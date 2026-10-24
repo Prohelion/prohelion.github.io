@@ -28,6 +28,7 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
    It renames `Config`, `Profiles`, and `Logs` to lowercase.
    It rewrites `security.yaml` and `profile.yaml` in the 2.3 camelCase format when it loads them.
    It rewrites `config.yaml` on that first load when the file still has legacy Pascal keys or an older version stamp.
+   Before it rewrites a file, it saves a copy beside it with `.bak.` and a timestamp added to the name, and keeps the three most recent copies.
    Profinity does not move data when `PROFINITY_HOME` is set, so copy anything you need into that location yourself.
 3. Open **ADMIN > License** and confirm the state and the edition.
    A 2.2 installation upgraded without a licence file is unlicensed once any trial ends.
@@ -41,6 +42,7 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
 
     Refer to [Apply a licence](./Applying_a_Licence.md) and [Licensing](../Licensing.md).
 4. Sign in as an administrator, open **ADMIN > Users & Groups**, and check the **Roles** tab and each user's assigned roles.
+   Existing passwords keep working, because Profinity converts them to one-way hashes at first start.
    Change the default `admin` password if you have not already.
    A default `admin` account that Profinity creates must change its password at first sign-in.
 5. Open **ADMIN > System Configuration** and confirm these settings:
@@ -49,7 +51,13 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
    - The settings for single sign-on (SSO), System for Cross-domain Identity Management (SCIM), and Security Information and Event Management (SIEM).
 6. Open **ADMIN > Logs** and read the messages from first start.
    On Linux, the migration messages name each file that moved.
-7. Open each custom dashboard in the dashboard editor and confirm it loads without schema errors.
+7. Open each custom dashboard.
+   Profinity 2.3 does not convert dashboards written for 2.2.
+   A dashboard that no longer matches the current format shows **This dashboard no longer matches the schema**.
+   Select **Reset from Template** to replace it with the latest template, or open **Edit Dashboard** and repair the file.
+   Resetting removes any customisations, so save a copy of the dashboard first.
+   A user who cannot modify dashboards sees a message to contact an administrator instead.
+   Binds written in the dotted 2.2 form, such as `Component.Message.Signal`, return no data, so change them to [slash paths](../Tags/Selecting_Tags/Tag_Tree_Path.md).
 8. Unlock the firmware of each Gen2 battery management system once, and enter its passcode again, because 2.3 does not keep passcodes in the profile.
 9. Run every integration that calls `/api/v2` against a test instance, because error responses changed.
    Check that each integration reads the HTTP status code and the problem body, and not a `success` flag or a `message` field.

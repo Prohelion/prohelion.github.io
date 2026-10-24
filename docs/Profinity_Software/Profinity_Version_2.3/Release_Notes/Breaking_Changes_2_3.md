@@ -22,6 +22,7 @@ The default **Administrators** role holds every permission, including **MCP inte
 Hand-edited `security.yaml` files, such as those kept in source control, need the new keys.
 On disk the keys are camelCase: `securityGroups` becomes `roles`, a user's `securityGroups` becomes `assignedRoles`, a group's `securityRoles` becomes the role's `permissions`, and `Version` becomes `version: "2.3"`.
 Check that `roles` and `assignedRoles` are present before you start Profinity, and review role assignments afterwards.
+Passwords that 2.2 stored are converted to one-way hashes when the file first loads, and users sign in with the same password.
 Refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
 ## Settings in config.yaml
@@ -64,9 +65,19 @@ Refer to [Artefacts Directory](../Installation/Artifacts_Directory.md).
 
 Profinity writes every YAML document it owns with camelCase keys, lowercase file and folder names, and `version: "2.3"`.
 Older PascalCase files still load.
-Profinity rewrites an older `security.yaml`, `profile.yaml`, `config.yaml`, `theme.yaml` or `plugins.yaml` in the new format when it loads it, and rewrites other documents when it saves them, so only tooling that reads these files directly needs to change.
+Profinity rewrites an older `security.yaml`, `profile.yaml` or `config.yaml` in the new format when it loads it, and rewrites other documents when it saves them, so only tooling that reads these files directly needs to change.
+Before it rewrites a file on load, Profinity saves a copy beside it with `.bak.` and a timestamp added to the name, such as `security.yaml.bak.20261024-101500123`, and keeps the three most recent copies.
+If Profinity cannot save the copy, it leaves the file unchanged and writes an error to the log.
 Re-save collections and rules in the visual editors after the upgrade if you edit their YAML by hand.
-The `{COMPONENT_NAME}` placeholder in dashboards still loads and is saved as a relative or absolute tag path the next time the dashboard is saved.
+
+## Tag paths
+
+Tag addresses are slash paths, such as `Component/DBC/Message/Signal`.
+Profinity 2.3 no longer accepts the dotted form that 2.2 dashboards and scripts used, such as `Component.Message.Signal`, the `[TimeSeries].` prefix, or dotted patterns that contain `*`.
+The `{COMPONENT_NAME}` placeholder is also removed, so a bind that began with it must use a path relative to the component instead, such as `DBC/Message/Signal`.
+Dashboards, scripts, and integrations that pass these addresses must switch to the slash form.
+Profinity 2.3 does not convert dashboards written for 2.2, so check each one after the upgrade (refer to step 7 of [Upgrade from Profinity 2.2](../Installation/Upgrade_From_2_2.md)).
+Refer to [Tag tree paths and dashboard binds](../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 ## Firmware passcodes
 
