@@ -1,6 +1,6 @@
 ---
 title: When a configuration file is invalid
-description: "Find out what Profinity 2.3 does when config.yaml, security.yaml or another settings file is damaged, when a rule, collection or derived tag is invalid, or when a menu layout cannot be used, and how to recover."
+description: "What Profinity 2.3 does when a settings file, rule, collection, derived tag or menu layout is invalid, and how to recover."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-25
@@ -25,7 +25,7 @@ For the other settings files it carries on with a default and tells you in the l
 A file that does not exist is not invalid.
 Profinity creates the default for `config.yaml`, `security.yaml` and `plugins.yaml`, and uses the default theme and no custom settings for the others.
 
-## Rules, collections and derived tags
+## Rules, collections, and derived tags
 
 These documents hold many separate items, so Profinity checks each item on its own and does not stop.
 An item that is not valid is skipped, and every other item still works.
@@ -35,7 +35,7 @@ An item is skipped when it fails its own checks, refers to something that does n
 In Profinity 2.2 an unknown key was ignored and the item still ran, so check these documents after an upgrade.
 
 Profinity writes one line to the log for each skipped item, with the name of the item and the reason.
-The rules, collections and derived tags editors show the same list.
+The rules, collections, and derived tags editors show the same list.
 Each skipped item has a red **Invalid** marker, and the reason appears when you point at it.
 A key that is not inside any item appears in the banner above the list.
 The file itself is not changed when it loads.

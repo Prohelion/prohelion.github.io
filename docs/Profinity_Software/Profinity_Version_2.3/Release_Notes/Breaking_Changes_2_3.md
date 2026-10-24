@@ -40,14 +40,14 @@ Other files fall back to a default and say so in the log: `plugins.yaml` starts 
 Every save of these files now keeps one safety copy, `<file>.bak`, in place of the timestamped copies that an upgrade made in 2.3 development builds.
 Signing in no longer rewrites `security.yaml`: the last sign-in time is kept in `user_activity.yaml`.
 
-## Rules, collections and derived tags with an unknown key are skipped
+## Rules, collections, and derived tags with an unknown key are skipped
 
-All installations that use rules, collections or derived tags are affected.
-In 2.2, a key that Profinity did not define was ignored, and the rule, collection or derived tag still worked.
+All installations that use rules, collections, or derived tags are affected.
+In 2.2, a key that Profinity did not define was ignored, and the rule, collection, or derived tag still worked.
 In 2.3, an item with an unknown key, such as a misspelt setting name, is skipped, and every other item still works.
 A skipped rule does not run, and a skipped collection or derived tag is not offered.
 Profinity writes a line to the log for each skipped item, and the editors mark it with a red **Invalid** marker and the reason.
-Open the rules, collections and derived tags editors after the upgrade and correct anything that is marked.
+Open the rules, collections, and derived tags editors after the upgrade and correct anything that is marked.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
 
 ## Settings in config.yaml
