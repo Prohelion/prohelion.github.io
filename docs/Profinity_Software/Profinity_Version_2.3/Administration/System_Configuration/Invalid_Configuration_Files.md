@@ -62,6 +62,7 @@ Profinity checks the profile when it starts.
 If the profile is invalid, Profinity creates a new default profile and makes it the active profile, and the log names the profile and the reason.
 The invalid profile file is not changed, so nothing in it is lost.
 To go back to it, correct the key that the log names, then select the profile again in the **Profile** pill on the **ADMIN** page, as described in [Manage profiles](../Manage_Profiles.md).
+If the profile named in `config.yaml` does not exist, as on a new installation, Profinity also creates a default profile, and the log says that no profile of that name was found.
 
 Settings inside a component are defined by the component, so Profinity does not check them this way.
 When Profinity saves the profile, it does not keep a setting that the component does not recognise.
