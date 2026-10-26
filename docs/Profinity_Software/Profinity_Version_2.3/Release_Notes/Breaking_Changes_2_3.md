@@ -10,7 +10,7 @@ last_reviewed: 2026-10-25
 
 These changes in Profinity 2.3 can affect an installation, integration, or plugin that works on 2.2.
 Read them with [Upgrade from Profinity 2.2](../Installation/Upgrade_From_2_2.md) before you upgrade a production system, and refer to the [Profinity 2.3 release notes](2.3.1.md) for the new features and known issues.
-If you already run 2.3.1, read the [Profinity 2.3.2 release notes](2.3.2.md) for the changes in that patch.
+If you already run 2.3.1 or 2.3.2, read the [Profinity 2.3.2 release notes](2.3.2.md) and the [Profinity 2.3.3 release notes](2.3.3.md) for the changes in those patches.
 
 ## Security file format
 
