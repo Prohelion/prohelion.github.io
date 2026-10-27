@@ -3,7 +3,7 @@ title: Profinity AI settings
 description: "Set the provider, model, API key, web search and timeout for the instance-wide Profinity AI assistant, and see what data leaves the instance."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-27
 ---
 
 # Profinity AI settings
@@ -80,6 +80,6 @@ External MCP clients also need the **AI** licensed feature, because the MCP serv
 
 ## Related documentation
 
-- [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md): the live-data connection Profinity AI uses, and how to connect an external MCP client.
+- [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md): the live-data connection Profinity AI uses, and the guides for connecting Cursor, Claude Code, Codex, and ChatGPT.
 - [AI Chat](../../Profinity_AI/AI_Chat.md): the guide to using the chat window.
 - [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#profinity-ai): the chat route, for integrators.

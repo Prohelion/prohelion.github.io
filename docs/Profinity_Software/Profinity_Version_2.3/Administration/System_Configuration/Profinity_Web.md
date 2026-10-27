@@ -3,7 +3,7 @@ title: Profinity Web
 description: "Set the HTTP and HTTPS addresses and ports of the main Profinity web server, choose its certificates, and fix remote access problems."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-26
 ---
 
 # Profinity Web
@@ -60,6 +60,15 @@ Each server has its own copy of them.
 | **Cert File** | An alternative to the Windows Certificate Store: a certificate file, normally in `.pfx` or `.p12` format, for HTTPS. |
 | **Cert File Password** | When a certificate file is used, the password used to protect the certificate file. |
 | **Cert Key File** | The private key file (`.pem` or `.key`) when the certificate is in Privacy-Enhanced Mail (PEM) format. It is optional. When it is empty, Profinity looks for a file named `privkey.pem` in the same folder as the certificate. |
+
+When **Cert File** and the Windows certificate store fields are empty, Profinity creates a self-signed certificate the first time HTTPS starts.
+That certificate stays in place across restarts, and HTTPS stays enabled.
+It names `localhost`, the computer's host name, and the network addresses on the computer at the time it was created.
+Open the site with one of those names.
+A browser warns that the certificate is not from a trusted authority until you trust it, or until you choose your own certificate in the fields above.
+After the host name or an address changes, stop Profinity, delete `profinity_generated.pfx` from the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and start Profinity again.
+Profinity creates a new certificate for the names and addresses it finds then.
+Trust that certificate again in each browser that trusted the old one.
 
 To find the certificate store location and subject name on Windows:
 

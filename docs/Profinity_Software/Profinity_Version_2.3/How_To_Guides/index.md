@@ -3,7 +3,7 @@ title: How to guides
 description: "Find a Profinity 2.3 guide for building dashboards, adding components, connecting CAN bus, logging data, setting up a kiosk, connecting AI, and scripting."
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-27
 ---
 
 # How to guides
@@ -46,7 +46,7 @@ Start with the [Quick start guide](../Getting_Started/Quick_Start.md) if Profini
 
 ## Extend Profinity
 
-- [How to connect Profinity to AI tools like Claude or ChatGPT](./Connect_Profinity_to_AI.md): connect an AI tool to the Model Context Protocol (MCP) server.
+- [Connect an AI tool to Profinity](./Connect_Profinity_to_AI.md): choose Claude Code, Cursor, Codex, or ChatGPT and open its connection guide.
 - [Make your first Custom Component](../Developing_with_Profinity/Custom_Components/First_Custom_Component.md): add a Custom Component with a CAN database (DBC) file, dashboard, main script, menu actions, and firmware.
 - [How to write your first script](./Write_Your_First_Script.md): enable scripting, add a script component, and run a first script.
 - [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md): read a DBC signal, send a CAN message, and keep script state.

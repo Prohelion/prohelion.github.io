@@ -3,7 +3,7 @@ title: AI Skills reference
 description: Look up the seven AI Skills, the licence, permissions, and API access they need, and what each supported AI tool can do with them.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-27
 ---
 
 # AI Skills reference
@@ -38,23 +38,24 @@ If the MCP server is unavailable, the skill falls back to the REST API alone.
 If the REST API is not available when you ask a skill to generate something, the skill says so and stops.
 It does not guess an endpoint or use a remembered schema.
 
-## Supported AI tools
+## What each tool can do
 
-AI Skills ships in two forms.
+[AI Skills](./AI_Skills.md) supports four tools.
+The connection steps for each one start from [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md).
 
-| Form | Works with | How you use it |
-|------|-----------|----------------|
-| **Agent skills** (`SKILL.md` folders) | Claude Code, Cursor, Codex, and other agents that load `SKILL.md` skills | Install with `npx skills add`; the agent discovers the skills and runs them |
-| **ChatGPT Custom GPTs** | ChatGPT | Someone builds a Custom GPT once from the files in the pack, then others use it |
+| AI tool | Live MCP data | AI Skills form | Saves through the REST API | Runs local skill commands | Self-signed HTTPS |
+|---------|---------------|----------------|----------------------------|---------------------------|-------------------|
+| Claude Code | Yes. Streamable HTTP with a bearer token | Agent skills | Yes, after you approve the change | Yes | Trust the operating system certificate, or set `NODE_EXTRA_CA_CERTS` to the exported certificate |
+| Cursor | Yes. Streamable HTTP with a bearer token | Agent skills | Yes, after you approve the change | Yes | Trust the certificate in the operating system. Cursor has no setting that skips this check |
+| Codex | Yes. Streamable HTTP with a bearer token | Agent skills | Yes, after you approve the change | Yes | Trust the certificate in the operating system. Codex has no documented setting that skips this check |
+| ChatGPT | No. ChatGPT cannot reach a private Profinity MCP server, and Profinity MCP does not provide the OAuth sign-in that connector uses | Custom GPT | Yes, for the dashboard, rules, collections, derived tag, and app skills | No | No. ChatGPT needs a publicly trusted HTTPS address for the REST API |
 
-Agent skills give the full experience.
-When the tool can run commands, the script and plugin skills run `profinity-script` and `profinity-component-pack` themselves and read the output.
-The skills also reuse the MCP connection settings that Claude Code and Cursor already hold.
-Prohelion's setup guidance covers Claude Code, Cursor, Codex, and ChatGPT.
-Other tools that load `SKILL.md` skills can use the agent skills without written guidance.
+Agent skills give Claude Code, Cursor, and Codex the full pack.
+When the tool can run commands, the script and plugin skills run `profinity-script` and `profinity-component-pack` and read the output.
+Those three tools reuse the MCP connection from their own setup guides.
+Other tools that load `SKILL.md` skills can use the agent skills, and Prohelion's setup guides cover the four tools in this table.
 
-ChatGPT has more limits, because a Custom GPT has no shell and its connection is fixed when you build it.
-The dashboard, rules, collections, derived tag, and app GPTs can read and save through the REST API.
-The script and plugin GPTs cannot, so they give you the commands to run yourself.
+ChatGPT uses the Custom GPT package because a Custom GPT has no shell and its connection is fixed when you build it.
+The script and plugin GPTs give you the commands to run yourself.
 The dashboard GPT shows you the converted dashboard before it saves.
-To build a Custom GPT, refer to [Install AI Skills](./Install_AI_Skills.md#set-up-a-chatgpt-custom-gpt).
+To build one, refer to [Connect ChatGPT to Profinity](../Integrating_to_Profinity/MCP_Server/Connect_ChatGPT.md).

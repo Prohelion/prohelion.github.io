@@ -3,7 +3,7 @@ title: Integrating to Profinity
 description: "Connect other systems, applications, and AI assistants to Profinity using its REST APIs and MCP server."
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-27
 ---
 
 # Integrating to Profinity
@@ -31,11 +31,10 @@ To make a first authenticated call, follow [Make your first API call](./First_AP
 
 ## MCP server
 
-Profinity includes an [MCP server](./MCP_Server/index.md), which lets AI assistants (such as [AI Chat](../Profinity_AI/AI_Chat.md)) and other MCP-aware tools query system data and metadata.
-The server exposes ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`.
-An MCP client can use it to answer questions about live tags and alerts, to pull history into an analysis tool, or to feed a monitoring or reporting system.
-It works with the permissions of the account it authenticates as.
-Refer to [MCP Server](./MCP_Server/index.md) for how to connect and authenticate, and to the [MCP tool reference](./MCP_Server/Tool_Reference.md) for the full list of tools.
+Profinity includes an [MCP server](./MCP_Server/index.md), which lets [AI Chat](../Profinity_AI/AI_Chat.md) and external tools query system data and metadata.
+Claude Code, Cursor, and Codex use ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`.
+ChatGPT uses a Custom GPT and the REST API instead, because it cannot reach a private MCP server.
+Refer to [MCP Server](./MCP_Server/index.md) for the tool guides, and to the [MCP tool reference](./MCP_Server/Tool_Reference.md) for the tools.
 
 ## Other ways to move data
 

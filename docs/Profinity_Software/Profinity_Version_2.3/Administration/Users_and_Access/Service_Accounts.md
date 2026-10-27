@@ -3,7 +3,7 @@ title: Service accounts
 description: "Create service accounts with API tokens that never expire, for automation and external Model Context Protocol (MCP) client access."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-27
 ---
 
 # Service accounts
@@ -62,7 +62,7 @@ Authorization: Bearer <your-service-token>
 
 Replace `<your-service-token>` with the token from **Generate Token** or **View Token**.
 
-For MCP setup and testing, refer to [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md).
+For MCP setup and testing, refer to [Prepare Profinity for an MCP client](../../Integrating_to_Profinity/MCP_Server/Prepare_Profinity.md).
 
 ## Revoking access
 

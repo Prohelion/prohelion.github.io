@@ -3,13 +3,14 @@ title: MCP tool reference
 description: "Look up the parameters and return values of the ten read-only tools the Profinity MCP server provides for tags, tag history and alerts."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-27
 ---
 
 # MCP tool reference
 
 The Model Context Protocol (MCP) server provides ten read-only tools for tag discovery, tag values and history, and alert state.
-Refer to [MCP Server](index.md) for how to connect a client, authenticate, and troubleshoot a connection.
+Refer to [MCP Server](index.md) for what the server is, and to [Prepare Profinity for an MCP client](Prepare_Profinity.md) for the connection, the token, and the certificate.
+In the permission list returned at sign-in, **MCP integration**, **View tags**, and **View alerts** appear as `McpView`, `TagView`, and `AlertsView`.
 
 None of the tools acknowledge, unacknowledge, silence, or otherwise change alert or tag state.
 Make those changes with the REST Alerts API or the Profinity UI.

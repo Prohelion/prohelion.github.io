@@ -3,7 +3,7 @@ title: Install AI Skills
 description: Install the Profinity AI Skills pack into Claude Code, Cursor, or Codex with npx, or set up a ChatGPT Custom GPT from the same files.
 type: task
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-27
 ---
 
 # Install AI Skills
@@ -31,6 +31,7 @@ To see which skills the pack contains before installing, run `npx skills add ./p
 After installation, the skills are available in your AI tool.
 Each skill's `SKILL.md` file gives step-by-step instructions.
 API reference notes, examples, and schemas sit beside it in the skill's folder.
+Connect the tool to your instance with the guide for [Cursor](../Integrating_to_Profinity/MCP_Server/Connect_Cursor.md), [Claude Code](../Integrating_to_Profinity/MCP_Server/Connect_Claude_Code.md), [Codex](../Integrating_to_Profinity/MCP_Server/Connect_Codex.md), or [ChatGPT](../Integrating_to_Profinity/MCP_Server/Connect_ChatGPT.md).
 
 ## Set up a ChatGPT Custom GPT
 
@@ -41,4 +42,5 @@ Whoever builds the GPT does a short one-time setup from the files in the pack, a
 2. Upload the example files.
 3. Import the OpenAPI Actions file (the file that tells the GPT how to call the REST API) with your Profinity host in it.
 
-For what a Custom GPT can and cannot do, refer to [AI Skills reference](./AI_Skills_Reference.md#supported-ai-tools).
+For what a Custom GPT can and cannot do, refer to [AI Skills reference](./AI_Skills_Reference.md#what-each-tool-can-do).
+The host, certificate, and token steps are in [Connect ChatGPT to Profinity](../Integrating_to_Profinity/MCP_Server/Connect_ChatGPT.md).

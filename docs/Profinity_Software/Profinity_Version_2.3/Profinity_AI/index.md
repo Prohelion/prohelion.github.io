@@ -3,7 +3,7 @@ title: Profinity AI
 description: Learn how Profinity AI uses the context of your whole Profile, through AI Chat inside Profinity and AI Skills in your own AI tool, and choose between them.
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-27
 ---
 
 # Profinity AI
@@ -54,7 +54,8 @@ A question such as "Why is Cell 12 overheating?" can therefore be answered from 
 - [AI Skills](./AI_Skills.md) runs in your own AI tool (Claude Code, Cursor, Codex, ChatGPT), outside Profinity. Use it to build dashboards, rules, collections, scripts, plugins, derived tags, and example apps from your live schema.
 
 AI Chat answers questions, and AI Skills helps you build things.
-You can also pair AI Skills with the MCP Server to use your own AI tool instead of AI Chat.
+You can also pair AI Skills with the MCP server and use your own AI tool for the same questions.
+The guides are listed in [Connect an AI tool to Profinity](../How_To_Guides/Connect_Profinity_to_AI.md).
 Users need the **Profinity AI** permission to open AI Chat, and the built-in **Administrators** role has it by default.
 [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists the **Profinity AI** and **MCP integration** permissions.
 For administrator configuration, permissions, and data-handling notes, refer to [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md).

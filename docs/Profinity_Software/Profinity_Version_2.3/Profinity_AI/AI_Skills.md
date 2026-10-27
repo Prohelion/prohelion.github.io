@@ -3,7 +3,7 @@ title: AI Skills
 description: Learn how AI Skills lets Claude Code, Cursor, Codex, or ChatGPT build Profinity dashboards, rules, and scripts from your live instance, and when to use it.
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-27
 ---
 
 # AI Skills
@@ -60,8 +60,8 @@ This suits you if you want any of these:
 - Conversations that persist, because AI Chat keeps history only for the current browser tab.
 - Other work in the same session, such as files, code, and other systems.
 
-To do this, connect your tool to the [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md) with [How to connect Profinity to AI tools like Claude or ChatGPT](../How_To_Guides/Connect_Profinity_to_AI.md).
-The connection gives the tool the same read-only live data that AI Chat uses: tags and their history, alert rules, active alerts, and alert history.
+To do this, connect your tool from [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md).
+The connection gives Claude Code, Cursor, and Codex the same read-only live data that AI Chat uses: tags and their history, alert rules, active alerts, and alert history.
 Add AI Skills on top, and the same tool can also build and change things.
 It always shows you the payload before it saves.
 

@@ -414,6 +414,7 @@ misconfigured
 cutover
 ollama
 unacknowledging
+keychain
 # UI label 'Component catalog' and MCP tool get_tag_catalog
 catalog
 # Product term: the Profinity Artifacts directory (literal name, not the AU "artefact" prose spelling)
