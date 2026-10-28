@@ -16,7 +16,7 @@ You need a Windows desktop instance of Profinity and a CAN to Ethernet bridge, o
 
 !!! warning "WaveSculptor configuration tools run on Windows only"
     The WaveSculptor configuration and firmware tools (**Setup and Config**, wsConfig and **Update Firmware**) are available only on Windows, and only to the user of the Profinity desktop application.
-    A Docker, Linux, or macOS installation has no **Setup and Config** button, so the WaveSculptor must be connected to a Windows desktop instance for the duration of the update.
+    A Docker, Linux, or macOS installation has no **Setup and Config** button, so the WaveSculptor must be connected to a Windows desktop instance during the update.
 
 !!! warning "A CAN to Ethernet bridge is required"
     The configuration tools need a Prohelion or Tritium [CAN to Ethernet Bridge](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) on the same CAN bus as the WaveSculptor and the same local network as the PC.

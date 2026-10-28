@@ -43,7 +43,7 @@ A person who has quietly held too much access may never be noticed.
 ## Create the role
 
 1. Select **ADMIN** in the side menu, then **Users & Groups**, and open the **Roles** tab.
-2. Click **+ Add role**.
+2. Select **+ Add role**.
 3. Enter a **Role name**, and a **Description** that says who the role is for, since that description is what the next administrator relies on.
 4. Switch on each permission the role should include.
    The permissions are grouped under headings such as **Administration**, **Components**, **CAN & DBC**, and **Tags**, and each has a one-line explanation beside it.
@@ -58,7 +58,7 @@ The new role appears in the **Roles** tab.
 
 ## Give the role to a person
 
-1. Open the **Users** tab of **Users & Groups** and click the person's row.
+1. Open the **Users** tab of **Users & Groups** and select the person's row.
 2. Choose one or more roles under **Assigned roles**.
 3. Save.
 
@@ -71,5 +71,5 @@ The person's row now lists the role under **Assigned roles**.
 
 ## Change or delete a role
 
-To change a role later, open the **Roles** tab and click the role.
+To change a role later, open the **Roles** tab and select the role.
 A role that is still given to one or more users cannot be deleted, so remove it from those users first.

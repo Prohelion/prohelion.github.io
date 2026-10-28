@@ -117,7 +117,7 @@ When it ends, the installation runs in [restricted mode](#when-a-licence-is-miss
 ## When a licence is missing or has expired
 
 An expiry date is final.
-There is no grace period.
+Profinity allows no grace period.
 Profinity checks the date while it runs, so an installation that is never restarted still notices when its licence expires.
 When the date passes, Profinity restarts itself once and starts with the state `Expired`.
 Scripting, AI, custom plugins and the [Extensions Web](Administration/System_Configuration/Extensions_Web.md) server are among the features that stop.

@@ -75,7 +75,7 @@ DBC tags suit real-time data, sensor readings and status indicators that the DBC
 - `DBC/Status/LimitBusCurrent` is the tag for a limit flag signal (`LimitBusCurrent`, set when the bus current setpoint is limiting the motor torque) of a CAN message (`Status`).
 - `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent` is the tag for a signal of a named component.
 
-The `Properties/` branch holds the tags that a component calculates or holds in addition to its DBC signals.
+The `Properties/` branch holds the tags that a component calculates or holds beyond its DBC signals.
 Which tags exist depends on the component, so find them in the Tag Explorer.
 Property tags suit component status, calculated values and data structures that the component defines.
 

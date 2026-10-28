@@ -15,7 +15,7 @@ last_reviewed: 2026-10-28
     Refer to [Licensing](../../../Licensing.md).
 
 A rule script is a script component with **Script Mode** set to **Run On Alert**.
-There is no separate rule script component to add, and the rule passes its firing context directly as a parameter to the method the script implements.
+You do not add a separate rule script component, and the rule passes its firing context directly as a parameter to the method the script implements.
 
 ## Settings
 

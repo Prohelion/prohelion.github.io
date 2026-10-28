@@ -8,10 +8,10 @@ last_reviewed: 2026-10-28
 
 # Logging
 
+The Logging tab of [System Configuration](index.md) holds the log level, the log rollover size and the number of retained logs.
+
 Saving changes on any System Configuration tab restarts Profinity.
 Refer to [System Configuration](index.md) for what to expect.
-
-The Logging tab of [System Configuration](index.md) holds the log level, the log rollover size and the number of retained logs.
 
 | Option | Default | Range | Description |
 | ------ | ------- | ----- | ----------- |
@@ -35,7 +35,7 @@ The table lists the levels.
 | `Error`         | Used when the application encounters an error that prevents particular functionality from working, but other parts of the application may remain functional |
 | `Warn`          | Indicates something unexpected has happened, but the application continues to function               |
 | `Info`          | Standard log level containing informative messages indicating the actions of the application. For example, when changing states or connecting to the web API.         |
-| `Debug`         | Intermediate level of visibility that is helpful for debugging. Details some of the underlying application processes     |
+| `Debug`         | Intermediate level of visibility that is helpful for debugging. Details some underlying application processes     |
 | `Trace`         | Grants full visibility of underlying application execution. Only necessary when performing debugging |
 
 Once a log level is set, it remains in effect across restarts of Profinity.

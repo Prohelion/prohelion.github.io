@@ -41,7 +41,7 @@ The dialog for changing a password shows the minimum length as the user types.
 ## Forced password change
 
 A user with the **Security administration** permission can require another user to change their password at the next sign-in.
-There are two ways to do this:
+You can do this in two ways:
 
 - Enable **Require password change on next login** in the user's settings in **Users & Groups**.
 - Select **Reset Password** on the user's **User Actions** tab.

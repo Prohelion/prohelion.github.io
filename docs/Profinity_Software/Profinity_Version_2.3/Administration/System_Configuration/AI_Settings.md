@@ -8,12 +8,13 @@ last_reviewed: 2026-10-28
 
 # Profinity AI settings
 
-Saving changes on any System Configuration tab restarts Profinity.
-Refer to [System Configuration](index.md) for what to expect.
-
+The **AI** tab of [System Configuration](index.md) holds the settings for Profinity AI and for the Model Context Protocol (MCP) server.
 Profinity AI is an instance-wide chat assistant, configured once by an administrator and then made available to any permitted user from the side menu.
 A single configuration applies to the whole instance.
 Profinity 2.3 does not support per-user API keys or per-user provider selection.
+
+Saving changes on any System Configuration tab restarts Profinity.
+Refer to [System Configuration](index.md) for what to expect.
 
 !!! info "Licence required"
     Profinity AI requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions.

@@ -38,7 +38,7 @@ Profinity places uploaded logs in `tag_logs/replay/` automatically.
 
 To replay a log:
 
-1. Select the log in the list and click the play button. A replay starts only when no other tag replay is running.
+1. Select the log in the list and select the play button. A replay starts only when no other tag replay is running.
 2. Watch the position slider. It moves through the log while the replay plays.
 
 While a replay plays, the position slider shows the current point in the log.

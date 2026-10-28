@@ -85,12 +85,12 @@ Closing the editor with unsaved changes asks for confirmation before the changes
 Every dashboard in Profinity uses this dashboard system, so the YAML of an existing dashboard is a useful starting point alongside the examples in the [Component reference](./Component_Reference/index.md) and the [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md).
 
 1. Open the dashboard in the editor and select the **YAML** tab.
-2. Select all of the YAML and copy it.
+2. Select all the YAML and copy it.
 3. Open the editor on the new dashboard, a component, or a profile, and select its **YAML** tab.
 4. Paste the YAML.
 5. Change the pasted YAML to suit the new dashboard.
 6. Select **SAVE**.
 
 The new dashboard appears with the copied content.
-Copy a simple dashboard first and add complexity in small, tested changes, so that a faulty change is easy to find.
+Copy a simple dashboard first and add complexity in small, tested changes, so that you can find a faulty change quickly.
 For when the **YAML** tab is the better tool, refer to [YAML tab](./Visual_Editor.md#yaml-tab).

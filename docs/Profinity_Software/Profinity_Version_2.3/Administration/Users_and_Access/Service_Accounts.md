@@ -19,10 +19,10 @@ Treat the token like a password, store it in a secrets manager, and give the acc
 ## Creating a service account
 
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
-2. Select **Add user**, or click an existing automation user.
+2. Select **Add user**, or select an existing automation user.
 3. Switch on **Service Account**.
 4. Assign the roles the account needs under **Assigned roles**, and save.
-5. Click the user's row to open its settings dialog.
+5. Select the user's row to open its settings dialog.
 6. Select the **User Actions** tab.
 7. Select **Generate Token**. The bearer token appears in a dialog.
 

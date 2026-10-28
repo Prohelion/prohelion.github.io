@@ -45,7 +45,7 @@ A chart with a `refreshInterval` polls for its data instead of using the live da
 
 ### Chart binding options
 
-A chart binding accepts two chart-only properties, in addition to the common binding properties that the [Binding settings reference](../../Data_Binding/Binding_Settings_Reference.md) describes:
+A chart binding accepts two chart-only properties, as well as the common binding properties that the [Binding settings reference](../../Data_Binding/Binding_Settings_Reference.md) describes:
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|

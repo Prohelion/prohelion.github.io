@@ -8,14 +8,14 @@ last_reviewed: 2026-10-14
 
 # Extensions Web
 
-Saving changes on any System Configuration tab restarts Profinity.
-Refer to [System Configuration](index.md) for what to expect.
-
 Profinity can run a second, separate web server that serves custom applications and provides access to the same APIs that Profinity itself uses for all functionality.
 You configure this second server on the **Extensions Web** tab.
 It is disabled by default and needs a Server licence (Server or Enterprise edition).
 Without a Server licence, the **Extensions Web** tab is not shown and the second web server stays off.
 Profinity also forces any address configured for it to 127.0.0.1.
+
+Saving changes on any System Configuration tab restarts Profinity.
+Refer to [System Configuration](index.md) for what to expect.
 
 The Extensions Web server hosts custom [kiosk](../Kiosk_Mode.md) applications and custom web applications, such as an in-vehicle display, that call the Profinity API.
 

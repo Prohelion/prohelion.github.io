@@ -9,11 +9,11 @@ last_reviewed: 2026-10-15
 # Logging modes {#logging-modes}
 
 The **Logging mode** setting decides what a component sends or writes for the members of its selected [tag collections](../Tags/Collections/index.md) on each interval.
-There are three modes: **Snapshot**, **On Change** and **Everything**.
+Three modes are available: **Snapshot**, **On Change** and **Everything**.
 
 ## The three modes
 
-- **Snapshot** sends or writes the current value of every collection member on each interval, whether or not the value changed.
+- **Snapshot** sends or writes the current value of every collection member on each interval, regardless of whether the value changed.
 - **On Change** sends or writes only values that have changed.
 - **Everything** sends or writes every sample that arrives, including unchanged values.
 

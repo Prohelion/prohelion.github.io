@@ -110,7 +110,7 @@ Open the person in **Users & Groups**, note their **Assigned roles**, and check 
 If the permission is present and the person still cannot see a particular component or tag collection, that item is restricted to certain roles.
 Check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security.md).
 
-There is no single administrator permission.
+Profinity has no single administrator permission.
 Someone who needs broad access is given the **Administrators** role, or a role with the specific permissions they need.
 
 ## Related documentation

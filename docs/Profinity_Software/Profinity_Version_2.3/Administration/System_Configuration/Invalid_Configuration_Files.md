@@ -113,7 +113,7 @@ Resetting `config.yaml` returns every setting to its default.
 ## The safety copy
 
 Every time Profinity saves one of these files it keeps the version it replaced as `<file>.bak`, for example `config.yaml.bak`.
-There is one copy per file, and each save replaces it.
+Profinity keeps one copy per file, and each save replaces it.
 A file that is damaged is never copied over the safety copy, so the copy always holds the last file that worked.
 
 The safety copy can hold credentials that you have since removed, so Profinity creates it readable only by the account that runs Profinity.

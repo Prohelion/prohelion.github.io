@@ -118,7 +118,7 @@ Refer to [SSO and sign-in method](../Administration/System_Configuration/Securit
 ### Security roles
 
 Profinity uses 27 granular permissions grouped into roles, and users receive assigned roles.
-There are no security groups or per-user permission lists.
+Profinity has no security groups or per-user permission lists.
 Assign users only the permissions their work needs.
 Give monitoring accounts read-only roles for dashboards and the Tag Explorer, and use individual administrator accounts.
 Review accounts and role assignments periodically.

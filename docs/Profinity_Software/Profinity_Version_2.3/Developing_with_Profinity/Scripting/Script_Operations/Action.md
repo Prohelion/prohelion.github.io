@@ -8,7 +8,7 @@ last_reviewed: 2026-10-20
 
 # Action context
 
-`Profinity.Action` is set for the duration of a script that a Custom Component runs from a firmware action.
+`Profinity.Action` is set during a script that a Custom Component runs from a firmware action.
 The object carries the action name, any file the operator uploaded, the user who started the action, and a way for the script to report progress.
 When the script returns, Profinity clears `Profinity.Action`.
 

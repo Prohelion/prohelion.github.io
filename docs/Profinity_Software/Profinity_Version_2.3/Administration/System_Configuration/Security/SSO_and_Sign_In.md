@@ -80,7 +80,7 @@ Profinity matches an identity provider user to a Profinity account through an ex
 Each person needs an account before their first SSO sign-in.
 
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
-2. Click the user, or create the user as described in [Managing users](../../Users_and_Access/Manage_Users.md).
+2. Select the user, or create the user as described in [Managing users](../../Users_and_Access/Manage_Users.md).
 3. On the **User Actions** tab, in **External identities (SSO)**, add a link.
 4. Enter `default` as the **Provider ID**. This is the identifier Profinity gives its single identity provider.
 5. Enter the identity provider's unique identifier for the person (the OIDC `sub` claim) as the **Subject ID**.

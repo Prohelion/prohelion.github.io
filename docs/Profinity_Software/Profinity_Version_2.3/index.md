@@ -11,10 +11,9 @@ last_reviewed: 2026-10-15
 Profinity is a CAN bus and industrial data management platform that connects industrial equipment and vehicles to AI tools, cloud services, APIs, and big data analytics.
 It reads data from CAN bus adapters and industrial protocols, shows that data on dashboards, and passes it on to the systems that use it.
 
-Profinity 2.3 adds a range of new features to the core Profinity 2.2 release.
-The biggest change is a complete redesign of the way Profinity stores and represents data.
-In Profinity 2.3 this data storage model moves to a new, source-independent data storage system called Tags.
-Many of the other new 2.3 features use this Tags capability to enable richer data visualisation, transmission, storage, and analysis.
+Profinity 2.3 stores and represents all data as Tags, a source-independent data model.
+Most of its features build on Tags to provide richer data visualisation, transmission, storage, and analysis.
+For what changed since Profinity 2.2, refer to the [Release notes](Release_Notes/index.md).
 
 [Tags](Tags/index.md) give data from any protocol a common data model, for both real-time and historical values.
 [Rules](Tags/Rules/index.md) evaluate tag values and raise an [alert](Tags/Alerts.md) when a value goes out of range, for example when a battery pack temperature exceeds a limit.

@@ -98,7 +98,7 @@ Check the usual causes in this table before reading the [Log](../../Administrati
 
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.
 
-A **Device instance** that differs from the device at the **Remote host** puts the component in the **Error** status and marks every point as bad quality.
+A **Device instance** that differs from the device at the **Remote host** puts the component in the **Error** status, and its points show no valid readings until the instance matches.
 The component shows and logs a message of the form `The device at 192.168.1.20 reports Device instance 1234, but Device instance is set to 0`.
 Profinity tries again every **Reconnect delay**, so correcting the setting or the device connects it without a restart.
 Set **Device instance** to the number in the message, or correct the **Remote host** if the address now belongs to a different device.

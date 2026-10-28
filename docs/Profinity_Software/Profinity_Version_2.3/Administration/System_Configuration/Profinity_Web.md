@@ -8,25 +8,25 @@ last_reviewed: 2026-10-26
 
 # Profinity Web
 
-Saving changes on any System Configuration tab restarts Profinity.
-Refer to [System Configuration](index.md) for what to expect.
-
 The **Web** tab holds the parameters that control how Profinity offers its web server connections to users.
 Profinity supports HTTP and HTTPS connections, and custom HTTPS certificates.
+
+Saving changes on any System Configuration tab restarts Profinity.
+Refer to [System Configuration](index.md) for what to expect.
 
 <figure markdown>
 ![Web tab of System Configuration showing the HTTP and HTTPS address and port settings](../../images/profinity_web.png)
 <figcaption>Profinity Web Menu</figcaption>
 </figure>
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| **IP Address for Http** | All IP addresses (0.0.0.0) | The IP address Profinity runs on for HTTP. You can set localhost (127.0.0.1) or a specific IP address instead. Without a Server licence this setting is not shown and the address is always 127.0.0.1. |
-| **IP Port for Http** | 18080 | The port used for HTTP. Setting this below 1024 requires administrator permissions on the host. |
-| **Enable Https** | Enabled | Enable or disable the HTTPS server. |
-| **IP Address for Https** | All IP addresses (0.0.0.0) | Same as the HTTP address but for HTTPS, and hidden under the same licence restriction. |
-| **IP Port for Https** | 18443 | Same as the HTTP port but for HTTPS. |
-| **Redirect all Http traffic to Https** | Off | Forces the system to use HTTPS for all traffic. It can be enabled only when HTTPS is enabled. |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| **IP Address for Http** | IP address | All IP addresses (0.0.0.0) | The IP address Profinity runs on for HTTP. You can set localhost (127.0.0.1) or a specific IP address instead. Without a Server licence this setting is not shown and the address is always 127.0.0.1. |
+| **IP Port for Http** | Whole number | 18080 | The port used for HTTP. Setting this below 1024 requires administrator permissions on the host. |
+| **Enable Https** | On or off | Enabled | Enable or disable the HTTPS server. |
+| **IP Address for Https** | IP address | All IP addresses (0.0.0.0) | Same as the HTTP address but for HTTPS, and hidden under the same licence restriction. |
+| **IP Port for Https** | Whole number | 18443 | Same as the HTTP port but for HTTPS. |
+| **Redirect all Http traffic to Https** | On or off | Off | Forces the system to use HTTPS for all traffic. It can be enabled only when HTTPS is enabled. |
 
 The certificate options are shared with the **Extensions Web** tab and are described in [HTTPS certificates](#https-certificates).
 

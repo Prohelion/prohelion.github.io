@@ -45,7 +45,7 @@ The `Unack` route is the same revert that the **Unacknowledge alert** button use
 ## Component and collection security
 
 The component and collection security routes work on the active profile only.
-There is no route to edit security for a profile that is not currently loaded.
+The API has no route to edit security for a profile that is not currently loaded.
 A GET response includes an `unresolvedRoles` list alongside `mode` and `allowedRoles`.
 A PUT accepts only `mode` and `allowedRoles`.
 Refer to [Component and collection security](../../Administration/Users_and_Access/Component_And_Collection_Security.md) for the policy itself.

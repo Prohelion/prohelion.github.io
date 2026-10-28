@@ -23,6 +23,12 @@ This page explains how rules work.
 A rule has a scope that says which tags it watches, a condition, an alert level, and optional actions.
 Rules evaluate whenever a tag in their scope changes.
 
+A rule set is all the rules in one rules file, either the profile's rules file or a component's own rules file, and each rule set has its own on and off switch.
+A scope is a tag path prefix, a tag collection, or both, and a scope with neither covers every tag.
+A scope can be set for the whole file, for a group, and for a single rule, and each level inherits the scope of the level above unless it sets its own.
+Actions set for the file or a group are inherited by every rule beneath it and run when the alert level of the rule reaches the action's trigger level, and a rule can switch an inherited action off.
+A rule runs only when the file, its group, and the rule itself are all enabled.
+
 A threshold rule holds ordered steps, and one evaluation can cross more than one of them.
 Profinity then runs an action for each step it enters or leaves, in order, and starts the next action without waiting for a [rule script](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) to finish.
 Set **Trigger Overlap** to **Queue** on that script when the action for the step the value lands on must still run.

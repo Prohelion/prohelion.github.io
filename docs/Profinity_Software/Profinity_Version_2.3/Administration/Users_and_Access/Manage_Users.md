@@ -54,7 +54,7 @@ Examples are a viewer role for people who only watch the system and a role for p
 Because **Administrators** includes managing users and changing the system configuration, keep it for initial setup and emergencies.
 Named individuals use narrower roles the rest of the time.
 
-To change the access of an existing user, click the user's row in **Users & Groups** to open their settings dialog and edit **Assigned roles**.
+To change the access of an existing user, select the user's row in **Users & Groups** to open their settings dialog and edit **Assigned roles**.
 
 !!! warning "Changing roles signs people out"
     Changing a user's **Assigned roles** ends that user's active sessions, and they must sign in again.

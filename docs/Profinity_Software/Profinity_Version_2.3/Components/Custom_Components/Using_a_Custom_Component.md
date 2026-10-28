@@ -65,7 +65,7 @@ Each is optional and uploaded under **Pack files**.
 A DBC file adds **Messages and Signals** and **Edit DBC File** to the component menu, and the dashboard is the component's page.
 Refer to [DBC, dashboard, and rules](../../Developing_with_Profinity/Custom_Components/DBC_Dashboard_and_Rules.md) for both, and to [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md) to build the dashboard.
 
-Live values that a script publishes are tags, and a dashboard binds those tags whether or not a DBC file is present.
+Live values that a script publishes are tags, and a dashboard binds those tags regardless of whether a DBC file is present.
 
 ## Check the component
 

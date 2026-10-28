@@ -56,7 +56,7 @@ To import a profile pack prepared on another instance of Profinity:
 2. Select **UPLOAD PROFILE PACK**.
 3. Choose the ZIP file.
 
-Profinity imports the profile with all of its associated configuration, and it appears in the table of profiles.
+Profinity imports the profile with all its associated configuration, and it appears in the table of profiles.
 
 Profinity refuses a pack whose `profile.yaml` is not valid, for example one that has a setting name Profinity does not define or that cannot be read as YAML.
 It shows "Failed to unpack the Profile Pack. The file may be corrupted or invalid. Check the logs for more details." and imports nothing, and the log names the reason.

@@ -16,7 +16,7 @@ The incompatibilities are:
 - V1 and V2 system configurations cannot be used by the other version.
 - The API structure and endpoints have changed significantly.
 
-There is no downgrade path, so keep your V1 backups.
+Migration has no downgrade path, so keep your V1 backups.
 To upgrade from Profinity 2.2 to Profinity 2.3, refer to [Upgrade from Profinity 2.2](./Upgrade_From_2_2.md).
 
 Prohelion recommends a clean installation of V2, removing V1 before you install V2.

@@ -52,7 +52,7 @@ The previous kiosk session can no longer be used.
 The kiosk user must exist and must be enabled.
 Profinity does not restrict which roles that user holds, so the user's permissions are the only control over what an unattended display can do.
 Create a dedicated account for the purpose, such as `kiosk-display`, rather than reusing a person's account.
-A dedicated account also makes kiosk access easy to identify in the system logs.
+A dedicated account also makes kiosk access identifiable in the system logs.
 You create users in **Users & Groups**, which needs a Server licence, as described in [Licensing](../Licensing.md).
 
 Assign the dedicated account a read-only role built from view permissions only, as described in [Create a role](./Users_and_Access/Create_a_Role.md#which-roles-to-create).
@@ -68,7 +68,7 @@ Disable Kiosk Mode on any profile that no longer needs it.
 
 ## Troubleshooting
 
-- If the login page is shown instead of signing in, confirm all of the following:
+- If the login page is shown instead of signing in, confirm all the following:
   - The profile is the active profile.
   - Kiosk Mode is enabled on the profile.
   - A valid, enabled user is selected as the Kiosk Mode User.

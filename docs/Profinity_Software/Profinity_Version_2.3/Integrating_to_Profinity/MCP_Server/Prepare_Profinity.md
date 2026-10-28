@@ -8,9 +8,10 @@ last_reviewed: 2026-10-27
 
 # Prepare Profinity for an MCP client
 
-Prepare one Profinity instance so Claude Code, Cursor, or Codex can connect to its Model Context Protocol (MCP) server.
-Work through the pages in this order, then connect the tool.
-ChatGPT does not use this connection. Refer to [Connect ChatGPT to Profinity](Connect_ChatGPT.md).
+Claude Code, Cursor, and Codex read live data from Profinity through its Model Context Protocol (MCP) server.
+Before any of them can connect, the instance needs four things: the server switched on, a token for the tool to sign in with, an address the tool can reach, and, for an HTTPS address, a certificate that the computer trusts.
+The pages below set these up in order, once for each instance, and the last one checks that the server answers before you connect a tool.
+ChatGPT works differently and does not use this server, so it has its own guide: [Connect ChatGPT to Profinity](Connect_ChatGPT.md).
 
 1. [Enable the MCP server](Enable_MCP_Server.md): switch the server on, which restarts Profinity.
 2. [Create a service account token](Create_Service_Account_Token.md): make the bearer token the tool sends with every call.

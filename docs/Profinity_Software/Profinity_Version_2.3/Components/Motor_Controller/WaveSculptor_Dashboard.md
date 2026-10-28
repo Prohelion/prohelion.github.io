@@ -36,7 +36,7 @@ Only one control loop limits the motor torque at any one time, so a single limit
 
 | Limit indicator | Meaning |
 |---|---|
-| **OUTPUT VOLTAGE PWM** | There is not enough bus voltage to produce more current and more torque. |
+| **OUTPUT VOLTAGE PWM** | The bus voltage is too low to produce more current and more torque. |
 | **MOTOR CURRENT** | The motor current setpoint is being regulated. |
 | **VELOCITY** | The velocity setpoint has been reached. |
 | **BUS CURRENT** | The bus current setpoint is limiting any further increase in motor torque. |
