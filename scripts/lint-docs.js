@@ -228,6 +228,11 @@ function runVale(target) {
   if (probe.error) {
     return { error: 'vale was not found on the PATH. Install it with `brew install vale`, or use --no-vale.' };
   }
+  // The third-party packages in .vale.ini are not committed. Fetch them on a fresh checkout.
+  if (!fs.existsSync(path.join(repoRoot, '.vale', 'styles', 'Microsoft'))) {
+    const sync = spawnSync('vale', ['--config', path.join(repoRoot, '.vale.ini'), 'sync'], { encoding: 'utf8', cwd: repoRoot });
+    if (sync.status !== 0) return { error: `vale sync failed, so the style packages are missing:\n${sync.stdout}${sync.stderr}` };
+  }
   const result = spawnSync('vale', ['--config', path.join(repoRoot, '.vale.ini'), '--output=JSON', target], {
     encoding: 'utf8',
     cwd: repoRoot,

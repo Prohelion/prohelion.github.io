@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - main
+  pull_request:
 permissions:
   contents: read
   pages: write
@@ -12,7 +13,44 @@ concurrency:
   group: pages
   cancel-in-progress: false
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: scripts/package-lock.json
+      # Pin the same Vale version the team runs locally (vale --version).
+      - name: Install Vale
+        run: |
+          curl -sSfL https://github.com/errata-ai/vale/releases/download/v3.24.0/vale_3.24.0_Linux_64-bit.tar.gz | tar -xz vale
+          sudo mv vale /usr/local/bin/vale
+          vale --version
+      - name: Install script dependencies
+        working-directory: scripts
+        run: npm ci
+      - name: Test the linter
+        working-directory: scripts
+        run: npm run test-lint
+      # Fails the build on errors and warnings. Readability and style suggestions are only reported.
+      - name: Lint the 2.3 docs
+        working-directory: scripts
+        run: |
+          set -o pipefail
+          npm run lint-docs -- --details | tee ../lint-report.txt
+      - name: Upload the lint report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-report
+          path: lint-report.txt
   deploy:
+    needs: lint
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -40,7 +78,7 @@ jobs:
         run: |
           npm ci
           npm run generate-llms
-      - run: mkdocs build
+      - run: mkdocs build --strict
       # MkDocs writes sitemap.xml.gz alongside sitemap.xml; GitHub Pages / Fastly
       # can mishandle that pair and return 500 for some sitemap fetches.
       - run: rm -f site/sitemap.xml.gz

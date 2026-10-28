@@ -5,6 +5,7 @@ ignorecase: true
 tokens:
   - simply
   - easily
+  - '\beasy\b'
   - straightforward
   - merely
   - obviously

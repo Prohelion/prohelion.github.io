@@ -59,4 +59,6 @@ npm run test-lint                 # tests for the linter itself
 npm run generate-llms             # rebuild docs/llms-full.txt after changing page descriptions
 ```
 
+Only the `Prohelion` rules in `.vale/styles/` and the structure checks can fail the run. The Microsoft, write-good and alex packages and the Flesch-Kincaid measure in `.vale.ini` are suggestions that report passive voice, long sentences, weasel words and reading grade, so use them to decide which pages to edit. The packages are not committed: `npm run lint-docs` runs `vale sync` when they are missing. CI (`.github/workflows/ci.yml`) runs the same lint on every pull request and before each deploy, and attaches the full report to the run.
+
 Every page is reported, but only pages that declare a `type` in front matter (pages that have been refactored to the style guide) can fail the check. Add `type`, `owner` and `last_reviewed` to a page when you refactor it, and the check starts protecting it.

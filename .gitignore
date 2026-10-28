@@ -11,3 +11,10 @@ node_modules/
 
 # Local working documents (not committed)
 tasks/
+
+# Third-party Vale packages, restored by `vale sync`
+.vale/styles/Microsoft/
+.vale/styles/write-good/
+.vale/styles/alex/
+.vale/styles/Readability/
+.vale/styles/config/

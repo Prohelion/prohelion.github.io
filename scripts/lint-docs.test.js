@@ -84,3 +84,25 @@ test('a title that differs from the H1 is reported', () => {
   const { findings } = structureFindings(text);
   assert.ok(findings.some((f) => f.rule === 'Title' && /H1 is 'Group'/.test(f.message)), JSON.stringify(findings));
 });
+
+// Plan: ~/.claude/plans/logical-leaping-pearl.md. Prose rules are enforced on typed pages (style guide 2.4).
+// @business: calling a step "easy" is minimising, the same as "simple" or "easily"
+test('the word easy is reported as a minimising word', () => {
+  const fs = require('fs');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'lint-'));
+  const file = path.join(tmp, 'easy.md');
+  fs.writeFileSync(file, '---\ntitle: T\ndescription: "A description that is long enough to pass the seventy character minimum comfortably."\ntype: concept\nowner: Documentation\nlast_reviewed: 2026-10-14\n---\n\n# T\n\nThis makes the change easy to find.\n');
+  const result = run(file, '--details');
+  assert.match(result.stdout, /Minimising/, result.stdout);
+  assert.strictEqual(result.status, 1, result.stdout + result.stderr);
+});
+
+// @business: the third-party Vale packages are fetched when they are missing, so a fresh checkout lints
+test('packages that are not installed are synced before linting', () => {
+  const fs = require('fs');
+  const dir = path.join(__dirname, '..', '.vale', 'styles', 'Microsoft');
+  fs.rmSync(dir, { recursive: true, force: true });
+  const result = run(path.join(fixtures, 'good.md'));
+  assert.strictEqual(result.status, 0, result.stdout + result.stderr);
+  assert.ok(fs.existsSync(dir), 'Microsoft package was not restored');
+});
