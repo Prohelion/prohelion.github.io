@@ -3,7 +3,7 @@ title: Rule scripts
 description: "Run a script when a tag rule fires by setting Script Mode to Run On Alert, and read the alert context the rule passes to it."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Rule scripts
@@ -39,6 +39,11 @@ rules:
         expression: tag.Value > 45
         actions:
           - action: PackTempScript
+            parameters:
+              setpoint: 45
+              unit: C
+              source:
+                tag: Vehicles/Car1/Battery/PackTemperature
 ```
 
 ## The alert context
@@ -52,10 +57,14 @@ The context holds:
 - The edge that fired.
 - The triggering tag.
 - `TriggeredTags`, which holds every tag in the rule's scope that is currently true.
-The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage` and `TriggeredTags`, with the same names in C#, Python and Lua.
+- `Parameters`, the optional named inputs from the rule's action entry (refer to [Rule actions](../../../Tags/Rules/Actions/index.md)).
+The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage`, `TriggeredTags` and `Parameters`, with the same names in C#, Python and Lua.
 `RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert levels](../../../Tags/Alerts.md#alert-levels)).
 `Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`.
 Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
+`Parameters` is a dictionary keyed by the names written under `parameters` on the action entry.
+Literals arrive as their scalar values; a tag variable arrives as that tag's current value.
+Read an entry by name, for example `context.Parameters["setpoint"]` in C# and Python, or `context.Parameters['setpoint']` in Lua.
 
 ## Example
 
@@ -76,6 +85,10 @@ Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
             {
                 Profinity.Console.WriteLine("  " + row.TagId + " = " + row.Value + " (" + row.Quality + ")");
             }
+            if (context.Parameters.TryGetValue("setpoint", out object? setpoint))
+            {
+                Profinity.Console.WriteLine("Setpoint: " + setpoint);
+            }
         }
     }
     ```
@@ -89,6 +102,8 @@ Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
         print("Triggered tags: " + str(context.TriggeredTags.Count))
         for row in context.TriggeredTags:
             print("  " + str(row.TagId) + " = " + str(row.Value) + " (" + str(row.Quality) + ")")
+        if context.Parameters.ContainsKey('setpoint'):
+            print("Setpoint: " + str(context.Parameters['setpoint']))
     ```
 
 === "Lua"
@@ -101,6 +116,10 @@ Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
         for i = 0, context.TriggeredTags.Count - 1 do
             local row = context.TriggeredTags[i]
             print('  ' .. tostring(row.TagId) .. ' = ' .. tostring(row.Value) .. ' (' .. tostring(row.Quality) .. ')')
+        end
+        local setpoint = context.Parameters['setpoint']
+        if setpoint ~= nil then
+            print('Setpoint: ' .. tostring(setpoint))
         end
     end
     ```
@@ -119,15 +138,24 @@ The component's menu in this mode is **Edit Script** only.
 
 ### Trigger overlap
 
-If the alert method is still running when the rule fires again, **Trigger Overlap** decides what happens.
-It is the same setting that **Run On Tag Change** and **Run On Receipt of CAN Message** use:
+If the alert method is still running when the rule fires again, **Trigger Overlap** decides what happens, as described under [Script settings](./index.md#script-settings).
 
-| Trigger Overlap | Effect |
-|-----------------|--------|
-| **Drop** (default) | Discards the new firing while the current one is still running. |
-| **Queue** | Holds a bounded backlog, up to **Queue Depth** (1 to 100, default 8), and runs it once the current firing completes. |
+A threshold rule can start several of those firings in one evaluation.
+Moving up runs the actions of each step it enters, from the lower step to the higher one.
+Moving down runs the clear actions of each step it leaves, starting at the step it was on and stopping before the step it lands on.
+Profinity starts the next action without waiting for the script to finish.
+With **Drop**, a script that is still running discards that next action, and the rule does not try it again, because the step has already changed.
+The side effect then stays on a step the value has already left.
+Set **Trigger Overlap** to **Queue** when the script must carry out every step, including the step the value lands on.
+Actions beyond **Queue Depth** are still discarded.
+The same choice applies when one step names the script more than once, because those actions also start one after another.
 
-The alert method should stay fast, because a slow script under **Queue** builds a backlog and under **Drop** silently misses firings.
+For example, an indicator script with green, yellow, and red steps uses the clear action of each step to set the colour of the step below.
+A drop from red straight to green starts the yellow action and then the green action.
+**Drop** can leave the indicator yellow.
+**Queue** runs yellow and then green, so the indicator finishes on green.
+
+The alert method should stay fast, because a slow script under **Queue** builds a backlog and under **Drop** misses firings.
 
 For the other script modes, refer to [Script types](./index.md).
 For the scripting overview and a worked first script, refer to [Profinity Scripting](../index.md) and [How to write your first script](../../../How_To_Guides/Write_Your_First_Script.md).

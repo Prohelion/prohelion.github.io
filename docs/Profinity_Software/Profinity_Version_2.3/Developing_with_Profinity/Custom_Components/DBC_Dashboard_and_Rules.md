@@ -18,6 +18,7 @@ The device's CAN traffic can then be read as named messages and signals, and the
 The component runs with **Upload DBC File (Optional)** left empty.
 **Rebase DBC** and **Rebase Address** shift the loaded message identifiers onto the base address the device actually uses.
 **Edit DBC File** opens the DBC editor once a file is set, and a saved change is picked up automatically.
+If the file fails to parse, the component stays in the profile and **Messages and Signals** is left out until the file is fixed.
 The viewer is documented in [CAN bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md).
 
 ## Dashboard

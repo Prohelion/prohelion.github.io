@@ -17,10 +17,10 @@ The path matters when you upgrade from 2.2, deploy on Linux as a service, or mou
 |----------|------------------------|
 | Windows | `%LOCALAPPDATA%\Prohelion\Profinity` |
 | macOS | `~/Library/Application Support/Prohelion/Profinity` |
-| Linux (2.3 and later) | `/var/lib/prohelion/profinity` |
+| Linux | `/var/lib/prohelion/profinity` |
 
-On Linux, Profinity 2.2 stored data in `~/.local/share/Prohelion/Profinity`.
-From 2.3 the default is `/var/lib/prohelion/profinity`, and Profinity moves existing data there automatically on first start unless `PROFINITY_HOME` is set.
+On Linux, the default is `/var/lib/prohelion/profinity`.
+Profinity moves existing data there automatically on first start, including data from the 2.2 location `~/.local/share/Prohelion/Profinity`, unless `PROFINITY_HOME` is set.
 
 ## Layout
 
@@ -41,7 +41,7 @@ The subfolders use lowercase names on every platform because Linux file systems 
 The Linux installer pre-creates only `config/`, `profiles/`, `plugins/`, and `logs/`.
 Profinity creates the other folders on demand.
 Because `.dp_keys/` lives inside the artefacts directory, it stays on a Docker volume when you replace the container.
-Earlier releases used capitalised names (`Config`, `Config.yaml`, `Profiles`, `Logs`), and the first start of 2.3 renames them to the lowercase forms.
+Profinity renames the capitalised names that earlier releases used (`Config`, `Config.yaml`, `Profiles`, `Logs`) to the lowercase forms on first start.
 This documentation uses the lowercase names throughout.
 
 ## Sample content on a new installation

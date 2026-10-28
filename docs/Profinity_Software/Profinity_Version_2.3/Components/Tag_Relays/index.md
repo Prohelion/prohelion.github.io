@@ -1,45 +1,20 @@
 ---
 title: Tag Relays
 description: "Share live tags between Profinity instances with a Tag Relay Sender and a Tag Relay Receiver, over HTTPS or MQTT."
-type: concept
+type: index
 owner: Documentation
 last_reviewed: 2026-10-14
 ---
 
 # Tag Relays
 
-Tag Relays let one Profinity instance show live tags from other instances, so a head office can watch many sites from one place.
-They send tags over HTTPS or Message Queuing Telemetry Transport (MQTT).
-Each site, vehicle, or installation runs a **[Tag Relay Sender](Tag_Relay_Sender.md)**, which publishes the tags you choose.
-A central instance runs a **[Tag Relay Receiver](Tag_Relay_Receiver.md)**, which shows them alongside its own.
-Dashboards, alerts, and rules on the central instance work on the relayed tags as they do on local ones.
+The **Tag Relays** category contains the two components that share tags between Profinity instances, so a head office can watch many sites, vehicles, or installations from one central instance.
+Both require the **Data Relay** licensed feature on the instance they run on, as described in [Licensing](../../Licensing.md).
+For what a relay is, how tags are mounted, collision rules and known limitations, refer to the [Tag relay](../../Tags/Tag_Relay.md) concept page.
 
-<figure markdown>
-![Diagram of Tag Relay. Site instances each run a Tag Relay Sender that publishes live tags over HTTPS with a JSON Web Token (JWT) or over MQTT. A central instance runs a Tag Relay Receiver that shows the tags of each site under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/diagram-tag-relay.png)
-<figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
-</figure>
+- [Tag Relay Sender](Tag_Relay_Sender.md) runs on the site instance that owns the tags and sends a snapshot of the tags in selected [collections](../../Tags/Collections/index.md) at a fixed interval.
+- [Tag Relay Receiver](Tag_Relay_Receiver.md) runs on the central instance and mounts the incoming tags as read-only tags under a prefix that identifies the sending site.
+- [Set up a tag relay](Set_Up_a_Tag_Relay.md) connects a first sender and receiver over HTTPS or Message Queuing Telemetry Transport (MQTT).
 
-## How the components fit together
-
-| Component | Runs on | Role | Default protocol | Auto Connect |
-|---|---|---|---|---|
-| [Tag Relay Sender](Tag_Relay_Sender.md) | The site instance that owns the tags | Exports a snapshot of the tags in selected [collections](../../Tags/Collections/index.md) at a fixed interval, over HTTPS or MQTT. | HTTPS | On by default |
-| [Tag Relay Receiver](Tag_Relay_Receiver.md) | The central instance | Mounts the incoming tags as read-only tags under a prefix that identifies the sending site. | MQTT | On by default, with the MQTT protocol |
-
-A receiving instance can ingest many senders, because each tag is mounted beneath the receiver's own prefix followed by the sender's prefix.
-A sender with the prefix `Vehicle12` relayed to a receiver with the prefix `Fleet` appears at `Fleet/Vehicle12/...`, so give each sender a distinct **Sender tag path prefix**.
-Relayed tags are read-only on the receiver.
-Local collections, rules, alerts, dashboards, and scripts on the receiver can use them as they use any other tag.
-Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how **Auto Connect** behaves.
-The [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md) page describes how paths are built.
-
-Tag Relay works between Profinity instances only and uses its own snapshot format, so it does not use Sparkplug.
+Tag Relay works between Profinity instances only and does not use Sparkplug.
 If the other end is a third-party Sparkplug B source, use the [MQTT Subscriber](../Publishers_and_Subscribers/MQTT_Subscriber.md) instead.
-
-Both components are added to a profile from the **Tag Relays** category.
-
-!!! info "Licence required"
-    Both components require the **Data Relay** licensed feature on the instance they run on. Refer to [Licensing](../../Licensing.md) for the editions that include it.
-
-To set up a first relay, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md).
-The [Tag relay](../../Tags/Tag_Relay.md) page covers the concept, collision rules and known limitations.

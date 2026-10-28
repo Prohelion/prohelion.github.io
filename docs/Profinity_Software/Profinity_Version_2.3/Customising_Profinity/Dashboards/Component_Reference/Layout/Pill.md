@@ -11,8 +11,8 @@ A pill is a compact status display that shows several related values, arranged i
 It suits component status and key metrics.
 
 <figure markdown>
-![Pill component showing status display with icon and grouped readouts](../../images/pill.png)
-<figcaption>Pill component showing status display with icon and grouped readouts</figcaption>
+![A rounded bar with a battery icon, then Battery voltage, current and state of charge, minimum and maximum cell voltage, and minimum and maximum cell temperature readings.](../../images/pill.png)
+<figcaption>Pill with an icon and grouped readouts</figcaption>
 </figure>
 
 ## When to use
@@ -29,7 +29,7 @@ Use [Readouts](../Data/Readouts.md) when the values need no icon or grouping.
 | `icon` | object | No | None | Icon shown at the left of the pill. When omitted, the icon area is left empty |
 | `items` | array | Yes | None | Array of pill groups, laid out horizontally in order |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 ### Icon parameters
 
@@ -48,7 +48,7 @@ Each item in the pill's `items` must contain a `pillgroup` object with:
 |-----------|------|----------|---------|-------------|
 | `items` | array | Yes | None | Array of value items |
 
-The web interface accepts but ignores `id` and `class`.
+`id` and `class` are accepted but have no effect.
 
 ### Pill item parameters
 
@@ -65,7 +65,7 @@ Each item in the pill group's `items` must contain a `value` object, which is a 
 | `openHyperLinkInNewWindow` | boolean | No | `false` | When `true` and `hyperlink` is set, the link opens in a new browser tab. The parameter has no effect without `hyperlink` |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
 
-The web interface accepts but ignores `enabled` and `visible`, because pill items are always displayed normally.
+`enabled` and `visible` are accepted but have no effect, because pill items are always displayed normally.
 
 The status dot is not shown when `hyperlink` is set.
 Give the item a `label` as well as a `dotColor`, because colour alone does not state the status.

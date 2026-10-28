@@ -24,7 +24,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The OPC UA plugin requires the **Industrial Protocols** licensed component group, and [Industrial protocols](index.md) explains how to obtain, install, and licence it.
+    The OPC UA plugin requires the **Industrial Protocols** licensed component group, and [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md) explains how to obtain, install, and licence it.
 
 Add the client to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 You can change the settings in the Settings section later from the component's **Change Settings** menu action.
@@ -77,12 +77,12 @@ To check that the client works, look for the status **Connected**, **CONNECTED**
 
 Each point's tag is created as soon as its row exists and shows **Unavailable** quality until the first poll reads it.
 After that a successful read gives Good quality, and a node that cannot be read is marked as Bad quality.
-The usual causes are:
+Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 
-- A **NodeId** that the server does not have.
-- An **Endpoint URL** that does not start with `opc.tcp://` or cannot be reached.
-- A server certificate in the `rejected` folder.
+| Cause | Fix |
+|---|---|
+| The server does not have the **NodeId**. | Correct the point map row to a node that exists on the server. |
+| The **Endpoint URL** does not start with `opc.tcp://`, or cannot be reached. | Enter the server's address starting with `opc.tcp://`, and check that Profinity can reach it. |
+| The server certificate is in the `rejected` folder. | Move the certificate into `trusted` once you have confirmed it, as described in [OPC UA certificates](OPC_UA_Certificates.md). |
 
-Check these before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.
-To move a refused certificate into `trusted`, refer to [OPC UA certificates](OPC_UA_Certificates.md).

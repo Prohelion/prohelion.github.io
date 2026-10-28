@@ -35,8 +35,9 @@ flowchart LR
 !!! info "Licence required"
     The InfluxDB v2 Historian and the InfluxDB v3 Historian require the **Historians** licensed feature. Refer to [Licensing](../../Licensing.md) for the editions that include them.
 
-The component type must match the InfluxDB version of your server, and a mismatch causes connection failures.
-[Historians](index.md#which-influxdb-component-do-i-need) explains how to choose.
+Check which InfluxDB version your server runs before adding a component.
+InfluxDB v1, v2 and v3 are incompatible, and a component only connects to the version it was built for, so a mismatch causes connection failures.
+An InfluxDB v1 server needs the [InfluxDB v1 Logger](../Loggers/InfluxDB_v1_Logger.md), which is a logger rather than a historian.
 
 ## Adding an InfluxDB historian
 
@@ -73,7 +74,7 @@ The remaining settings are the same on both historians.
 | **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **Allow Retrieval** | On | Allows data to be retrieved through this historian using the APIs. |
-| **Designated tag historian reader** | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only, and only while **Allow Retrieval** is on. Refer to [Historians](index.md#designating-the-historian-that-is-read-from). |
+| **Designated tag historian reader** | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only, and only while **Allow Retrieval** is on. Refer to [Designated historian](Designated_Historian.md). |
 
 ## What is stored
 
@@ -104,7 +105,7 @@ MyProfile,profile=MyProfile,component=Inverter,message=Status,signal=Speed,full_
 The `component`, `message` and `signal` tags identify the tag in the history.
 Characters other than letters and digits in these names are replaced with underscores.
 
-For the full procedure to send data to InfluxDB Cloud, refer to [How to log data to the cloud (InfluxDB)](../../How_To_Guides/Log_Data_to_Cloud_Influx.md).
+For the full procedure to send data to InfluxDB Cloud, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
 
 ## If data does not arrive
 
@@ -118,5 +119,5 @@ The reason tells you what to check:
 | `the health check failed (InfluxDB Cloud has none; switch Health Check off in the settings)` | The server did not answer the health check. Turn **InfluxDB Health Check** off if you use InfluxDB Cloud. |
 | Any other text | The connection failed for another reason, and the text is the underlying error. Check the **Influx Server URL** first. |
 
-For the steps to set up data logging, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
+To add a historian and start it, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
 For an InfluxDB v1 server, refer to [InfluxDB v1 Logger](../Loggers/InfluxDB_v1_Logger.md).

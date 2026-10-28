@@ -3,3 +3,4 @@ nav:
     - index.md
     - InfluxDB_Historians.md
     - TAG_SQL_Historian.md
+    - Designated_Historian.md

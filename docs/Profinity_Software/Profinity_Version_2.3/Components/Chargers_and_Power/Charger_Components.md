@@ -19,6 +19,20 @@ A [Prohelion BMS](../Battery_Management_Systems/Prohelion_BMU.md) in the same Pr
 A user needs the **Control charging** permission to see the charging controls (refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md)).
 
 <figure markdown>
+```mermaid
+flowchart LR
+    subgraph Profile["Profile"]
+        BMS["Prohelion BMS"] --> Component["Charger component"]
+    end
+    subgraph Hardware["Charger"]
+        Charger["TDK, Siglent or Elcon"]
+    end
+    Component --> Charger
+```
+<figcaption>A Prohelion BMS in the Profile supplies the pack data, and the charger component controls the charger, over TCP for a TDK or Siglent supply and over CAN for an Elcon charger</figcaption>
+</figure>
+
+<figure markdown>
 ![Close-up of a two-channel power supply display: CH1 set to 32.00 V with 31.99 V and 0.00 A output, and CH2 set to 12.00 V with 12.00 V and 0.42 A output, both switched on.](../../images/SiglentCharger.png)
 <figcaption>Siglent Charger</figcaption>
 </figure>
@@ -42,7 +56,6 @@ Once the charger is added it appears under **Chargers & Power Supplies** in the 
 <figcaption>Add a Charger</figcaption>
 </figure>
 
-Every charger asks for its own limits and the limits of the supply that feeds it.
-[Charger settings](Charger_Settings.md) lists them.
+[Charger settings](Charger_Settings.md) lists the limits and communication settings that each charger asks for.
 To run a charge from the dashboard, refer to [Start a charge](Start_a_Charge.md).
 For the messages and faults that stop a charge, refer to [Charging troubleshooting](Charging_Troubleshooting.md).

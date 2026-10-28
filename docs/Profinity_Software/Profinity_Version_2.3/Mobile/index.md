@@ -8,21 +8,21 @@ last_reviewed: 2026-10-15
 
 # Profinity Mobile
 
-Profinity Mobile is a companion app for iOS and Android that connects to a Profinity engine over HTTPS and shows the web interface inside the app.
+Profinity Mobile is a companion app for iOS and Android that connects to a Profinity server over HTTPS and shows the web interface inside the app.
 User Datagram Protocol (UDP) heartbeat discovery lets phones on the same local area network (LAN) find servers without typing URLs.
 
 <figure markdown>
 ```mermaid
 flowchart LR
     subgraph Server["Profinity server"]
-        Engine["Profinity engine"]
+        Engine["Profinity"]
     end
     subgraph Phone["Phone"]
         List["Discovery list"] --> Interface["Web interface"]
     end
     Engine --> List
 ```
-<figcaption>The Profinity engine broadcasts a UDP heartbeat that fills the discovery list in Profinity Mobile, and the app then connects to the chosen server over HTTPS and shows its web interface</figcaption>
+<figcaption>Profinity broadcasts a UDP heartbeat that fills the discovery list in Profinity Mobile, and the app then connects to the chosen server over HTTPS and shows its web interface</figcaption>
 </figure>
 
 To set up discovery and connect a phone, refer to [Connect Profinity Mobile to a server](Connect_Profinity_Mobile_to_a_Server.md).

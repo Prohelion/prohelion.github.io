@@ -9,7 +9,9 @@ last_reviewed: 2026-10-15
 # Complete rules.yaml example
 
 The [rules visual editor](index.md#rules-visual-editor) writes rules to a file, and you can also edit the file directly.
-This page shows the file in full, so that every setting is in one place.
+The file is `rules.yaml` by default, in the `rules` folder of the profile directory, which is inside the [artefacts directory](../../Installation/Artifacts_Directory.md#default-locations), and Profinity reloads it when it changes.
+This page shows one file that uses most rule settings.
+It does not show `dwellMinutes`, a step-level `expression`, or rule state publishing, which [Rule settings](Rule_Settings.md) and the text below describe.
 The file has:
 
 - One rules source with a file-level scope.
@@ -115,24 +117,23 @@ Deadband and dwell control when each happens:
 
 - The `clearValue` on a step is its deadband, so the Warning step stays active until the value falls below 42. The `clearExpression` does the same job for a step that uses an `expression`.
 - The `dwellSeconds` value makes the condition hold continuously before the first step activates. Use `dwellMinutes` instead for minutes, but never set both.
-- The `throttleMinutes` value stops the actions of one rule on one tag from running again within that number of minutes. This applies to both the trip and the clear.
+- The `throttleMinutes` value holds back repeat actions, as described under [Throttle and more information links](Rule_Settings.md#throttle-and-more-information-links).
 
 A threshold rule still needs a rule-level `expression`, and `tag.HasValue` is the usual choice.
 It takes its level from each step, so it must not set a rule-level `level`, `actions`, or `clearActions`.
+When one evaluation crosses more than one step, those steps' actions run in order.
+A script named by the actions needs **Trigger Overlap** set to **Queue**, or the action for the step the value lands on is discarded.
+See [Trigger overlap](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md#trigger-overlap).
 
 The `cell_over_voltage` rule is a boolean rule.
 It has a single `level`, and its own `actions` and `clearActions`.
 Its `clearExpression` clears the alert even while the main `expression` is still true.
 
 The `description` is the text the user reads in the detail dialog of the [Alerts Log](../Alerts.md), and it supports Markdown.
-The `moreInformation` list adds links, each with a `description` label and an `https://` `url`.
-The dialog lists the links under **DOCUMENTATION**.
+The `moreInformation` list adds links, as described under [Throttle and more information links](Rule_Settings.md#throttle-and-more-information-links).
 The `relatedTags` list holds tag paths that help diagnose the alert.
 A rule, group, or file also takes `enabled: false` to switch everything beneath it off.
 
-Rules inherit actions written on the file or on a group, as described under [Actions inherited down the rule tree](Actions/index.md#actions-inherited-down-the-rule-tree).
-In the example, a Warning on `pack_temperature` runs only **Profinity Log**.
-An Error runs **Profinity Log** and `OpsSlack`.
-The Fatal step also runs `OpsEmail` from the group.
+For which actions each step in this example runs, refer to [Actions inherited down the rule tree](Actions/index.md#actions-inherited-down-the-rule-tree).
 
 For the editor, evaluation settings and permissions, refer to [Rule settings](Rule_Settings.md).

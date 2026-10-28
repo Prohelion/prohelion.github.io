@@ -20,12 +20,12 @@ Save the derived tags.
 The editor shows "Derived tags saved".
 A failed save shows "Save failed:" followed by the validation error.
 
-To check it worked, open Tag Explorer and find `Vehicles/Car1/SpeedKmh` at its mount path.
+To check it worked, open **Tag Explorer** and find `Vehicles/Car1/SpeedKmh` at its mount path.
 It is now a real tag that rules can use, and history is available for it without further configuration.
 
 <figure markdown>
 ![The inspector for the derived tag Total Array Power, listing three dependencies aliased a, b and c, and the expression a.Value + b.Value + c.Value with a green validity tick.](../../images/derived-tag-expression-inspector.png)
-<figcaption>Derived tag inspector with live preview</figcaption>
+<figcaption>Derived tag inspector with live preview, shown for a different example, Total Array Power, that adds three dependencies</figcaption>
 </figure>
 
 For the formula rules, refer to [Expression-based derived tags](index.md#expression-based-derived-tags).

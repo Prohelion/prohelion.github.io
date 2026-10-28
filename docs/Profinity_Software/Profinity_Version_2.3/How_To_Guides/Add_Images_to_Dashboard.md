@@ -13,13 +13,8 @@ You need access to the `images` folder of your [profile's](../Getting_Started/Pr
 
 ## Place the image file
 
-Each profile has its own directory, which is `profiles/<profile name>` inside the [artefacts directory](../Installation/Artifacts_Directory.md), so the images for a profile named `Example Profile` are in `<artefacts directory>/profiles/Example Profile/images`.
-The artefacts directory is:
-
-- `%LOCALAPPDATA%\Prohelion\Profinity` on Windows
-- `~/Library/Application Support/Prohelion/Profinity` on macOS
-- `/var/lib/prohelion/profinity` on Linux
-- On Docker, the path inside the container named by `PROFINITY_HOME`, which is in a mounted volume, so copy the image into that volume
+Each profile has its own directory, which is `profiles/<profile name>` inside the [artefacts directory](../Installation/Artifacts_Directory.md#default-locations), so the images for a profile named `Example Profile` are in `<artefacts directory>/profiles/Example Profile/images`.
+On Docker, copy the image into the mounted volume that holds the artefacts directory.
 
 To place the file:
 
@@ -84,3 +79,4 @@ Correct the name, convert the file or move it, and save again.
 - GIF suits animated images.
   A GIF in the `images` folder displays in a dashboard.
   The image library in the visual editor lists and uploads only SVG, PNG, JPG, and WEBP files, so place GIF files in the folder by hand.
+  [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md#images) describes the library and the size limit.

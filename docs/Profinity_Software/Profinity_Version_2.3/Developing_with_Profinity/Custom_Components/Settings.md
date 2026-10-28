@@ -25,7 +25,7 @@ Refer to [Firmware maps](Firmware_Maps.md).
 The file starts with `version: "2.3"`, then a `sections` list.
 Sections, categories, and fields are drawn in the order they appear in the file.
 `displayName` is the heading the user sees.
-The older key `label` is still accepted.
+`label` is also accepted in place of `displayName`.
 
 This is a complete map for a serial device that can also publish on CAN.
 
@@ -77,11 +77,11 @@ That file adds a **Communications** tab.
 | Key | On a section | On a category |
 |-----|--------------|---------------|
 | `id` | Identifier for the tab | Identifier for the group |
-| `displayName` | Tab name. `label` is still accepted | Group heading. `label` is still accepted |
+| `displayName` | Tab name. `label` is also accepted | Group heading. `label` is also accepted |
 | `categories` | The groups on the tab | |
 | `fields` | | The controls in the group |
 
-An older file that uses a flat `config` map instead of `sections` is still read.
+A file that uses a flat `config` map instead of `sections` is also read.
 Those fields are shown on a **Configuration Settings** tab, in a group named **Settings**.
 
 ## Fields
@@ -101,7 +101,7 @@ When `name` is omitted, the identifier is used as the label.
 | `readOnly` | `true` means the value is visible and the user cannot change it |
 | `min`, `max` | Smallest and largest numbers the field accepts. Write them in the units the user types |
 | `units` | Unit printed beside a number |
-| `scale` | Multiplies the number shown on a firmware field. A save stores that on-screen number |
+| `scale` | Multiplies the number shown on a firmware field. A save stores that on-screen number. Refer to [Firmware maps](Firmware_Maps.md#index-and-scale) |
 | `index` | Firmware maps only. Device parameter address the load and save scripts use |
 | `dependsOn` | The field is shown when every named field has the given value. The name is another field identifier in this file |
 | `gridSpanX` | How many columns the control spans. `2` draws it across two columns |
@@ -116,31 +116,7 @@ When the two sides differ, for example `"1": NMEA`, the list shows `NMEA` and `G
 `units` is shown for `V`, `mV`, `A`, `Ah`, `W`, `Wh`, `Ms`, `Seconds`, `°C`, `kb/s`, `%`, `Ohms`, `Ohm`, `J`, `kPa`, `RH %`, and `Bitfield`.
 Any other text is ignored.
 
-`scale` applies to firmware fields.
-It multiplies the number the firmware page shows.
-`min` and `max` are checked against that number, so write them in the units the user types.
-
-```yaml
-balanceUp:
-  name: Balance Up
-  type: UINT16
-  default: 4100
-  units: V
-  scale: 0.001
-  min: 0
-  max: 4.4
-  index: 0x35
-```
-
-**Balance Up** opens as 4.1 V, because 4100 multiplied by 0.001 is 4.1.
-A value above 4.4 is rejected.
-`4100` is the stored default, and `4.4` is the largest number the user can type.
-`index: 0x35` is the device parameter address, as described on [Firmware maps](Firmware_Maps.md).
-
-!!! warning "A save stores the number on screen"
-    `scale` changes the number drawn on the firmware page.
-    A save stores that on-screen number.
-    After a user saves the Balance Up example, the stored value is 4.1, not 4100.
+`scale`, `index`, and `min` and `max` on a firmware field, with a worked example and the rule that a save stores the number on screen, are on [Firmware maps](Firmware_Maps.md#index-and-scale).
 
 ## Field types
 

@@ -75,4 +75,4 @@ The examples in this section show standard output and error stream usage in each
     ```
 
 The standard output stream is for normal program output and the error stream is for error messages and warnings.
-Output is held in memory, so a script should limit how much it writes.
+Output is held in memory, so limit how much a script writes.

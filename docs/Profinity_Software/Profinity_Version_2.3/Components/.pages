@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Connections_and_Reconnecting.md
     - Logging_Modes.md
     - CAN_Bus_Protocols

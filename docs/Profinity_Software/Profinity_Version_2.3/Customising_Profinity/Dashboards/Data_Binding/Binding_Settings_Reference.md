@@ -3,7 +3,7 @@ title: Binding settings reference
 description: "Look up every setting a dashboard binding accepts, grouped by what it does, with its type, default, and the page that explains it."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-18
+last_reviewed: 2026-10-28
 ---
 
 # Binding settings reference
@@ -46,7 +46,7 @@ These settings change the value before the component shows it, and [Transform an
 | `toType` | string | Data type conversion (`number`, `string`, `boolean` or `string\|number`) |
 | `gain` | number | Multiplicative scaling factor, applied before `offset` |
 | `offset` | number | Additive offset, applied after `gain` |
-| `invert` | boolean | Flips a boolean or `0`/`1` value |
+| `invert` | boolean | Flips a boolean or `0`/`1` value. It has an effect only when `toType` is set |
 | `mapToText` | object | Text mapping configuration. Refer to [Text mapping](./Transform_and_Map_Values.md#text-mapping) |
 
 ## Mode

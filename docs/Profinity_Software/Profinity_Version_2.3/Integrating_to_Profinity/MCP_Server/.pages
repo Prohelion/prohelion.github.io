@@ -1,6 +1,12 @@
 nav:
     - index.md
     - Prepare_Profinity.md
+    - Enable_MCP_Server.md
+    - Create_Service_Account_Token.md
+    - Choose_Server_Address.md
+    - Trust_HTTPS_Certificate.md
+    - Check_Server.md
+    - Connection_Errors.md
     - Connect_Cursor.md
     - Connect_Claude_Code.md
     - Connect_Codex.md

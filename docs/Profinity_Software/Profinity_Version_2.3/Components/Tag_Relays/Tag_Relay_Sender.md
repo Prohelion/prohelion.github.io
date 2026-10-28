@@ -15,6 +15,20 @@ The position of each tag in the exported tree is its [tag tree path](../../Tags/
 The [Tag relay](../../Tags/Tag_Relay.md) page covers the concept of sender and receiver roles.
 
 <figure markdown>
+```mermaid
+flowchart LR
+    subgraph Sending["Sending instance"]
+        Collections["Tag collections"] --> Sender["Tag Relay Sender"]
+    end
+    subgraph Receiving["Receiving instance"]
+        Receiver["Tag Relay Receiver"] --> Tags["Read-only tags"]
+    end
+    Sender --> Receiver
+```
+<figcaption>The Tag Relay Sender in the sending instance sends a snapshot of its tag collections to the Tag Relay Receiver in the receiving instance, directly over HTTPS or through an MQTT broker, and the receiver mounts them as read-only tags</figcaption>
+</figure>
+
+<figure markdown>
 ![Diagram of Tag Relay. Site instances each run a Tag Relay Sender that publishes live tags over HTTPS with a JSON Web Token (JWT) or over MQTT. A central instance runs a Tag Relay Receiver that shows the tags of each site under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/diagram-tag-relay.png)
 <figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
 </figure>
@@ -24,10 +38,19 @@ The [Tag relay](../../Tags/Tag_Relay.md) page covers the concept of sender and r
 
 ## Quick start {#adding-a-tag-relay-sender}
 
-Add a **Tag Relay Sender** to your profile from the **Tag Relays** category, choose the protocol, and select the collections to export.
 Only the member tags of the selected collections are sent, so create the collections first, as described in [Collections](../../Tags/Collections/index.md).
-The sender does not start until at least one collection is selected and every selected collection exists in the profile.
 To set up a first relay end to end, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md).
+
+1. Add a **Tag Relay Sender** to your profile from the **Tag Relays** category.
+2. Set **Protocol** to **HTTPS** or **MQTT**.
+3. Under **Collections**, add each collection to export and choose it by name.
+4. Enter the settings for your protocol, from [HTTPS settings](#https-settings) or [MQTT settings](#mqtt-settings).
+5. Save the settings.
+   With **Auto Connect** on, which is the default, the sender starts when the profile loads and its status shows **On**.
+
+The sender does not start until at least one collection is selected and every selected collection exists in the profile.
+To check that it works, wait for one **Snapshot interval (seconds)** and confirm that the total number of messages sent on the component dashboard has increased.
+That total increases only when a snapshot is delivered.
 
 ## Settings
 
@@ -36,7 +59,7 @@ To set up a first relay end to end, refer to [Set up a tag relay](Set_Up_a_Tag_R
 | Setting | Purpose |
 |---|---|
 | **Protocol** | **HTTPS** posts the snapshot to the remote instance's relay API, and **MQTT** publishes it as a JSON payload on a broker. Defaults to HTTPS. |
-| **Sender tag path prefix** | Optional. Added as outer path segments on the exported tree, beneath the receiver's own **Receiver tag path prefix**. A sender prefix of `Vehicle12` relayed to a receiver prefix of `Fleet` appears at `Fleet/Vehicle12/...`. |
+| **Sender tag path prefix** | Optional. Added as outer path segments on the exported tree, beneath the receiver's own **Receiver tag path prefix**. For an example, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md). |
 | **Exclude relay-managed nodes** | Excludes tags that were received from another Tag Relay, so that mirrored data is not sent on again in a loop. Enabled by default. |
 | **Snapshot interval (seconds)** | How often a snapshot is sent, from 5 to 86400 seconds. Defaults to 60. Each snapshot carries every tag in the selected collections, so a short interval with a large collection produces a large payload. |
 | **Auto Connect** | Starts sending when the profile loads. Enabled by default. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
@@ -86,6 +109,7 @@ The sender refuses to start, and logs the reason, in any of these cases:
 
 If the sender shows **On** but the total number of messages sent stays at zero, its snapshots are failing, over either protocol.
 The log holds a warning for the first failed snapshot of an outage, and records later failures in the same outage at debug level only.
+Over HTTPS, a failure to reach the receiver at all, such as a name lookup, connection, or certificate failure, is logged as a warning each time a snapshot is attempted.
 Over HTTPS the warning carries the response code from the receiver:
 
 - 401 or 403 points to a missing or invalid token, or a user without the **Receive external tags** permission.

@@ -11,8 +11,8 @@ The footer is the bar at the bottom of a dashboard.
 The web interface displays the bar and can show and hide it from a [data binding](../../Data_Binding/index.md), but it does not display the content of the `menu` parameter.
 
 <figure markdown>
-![Dashboard footer bar](../../images/footer.png)
-<figcaption>Dashboard footer bar</figcaption>
+![A plain light grey bar with rounded lower corners, spanning the full width of the dashboard.](../../images/footer.png)
+<figcaption>Footer bar</figcaption>
 </figure>
 
 ## When to use
@@ -28,7 +28,7 @@ Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) c
 | `visible` | boolean | No | `true` | When `false`, or when bound to `false`, the footer is hidden |
 | `bind` | array | No | None | Data binding. The `visible` target shows and hides the footer |
 
-The web interface accepts but ignores `id`, `class`, and `menu`.
+`id`, `class`, and `menu` are accepted but have no effect.
 
 A footer that has a `menu` appears as an empty bar, because the web interface does not display menu items in the footer.
 

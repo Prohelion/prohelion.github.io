@@ -3,7 +3,7 @@ title: Tag expressions
 description: Look up the expression language that collections, rules, and derived tags use to select tags, compare values and compute derived values.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Tag expressions
@@ -70,7 +70,8 @@ tag.MatchesName("*Current*")
 
 `tag.MatchesPath("Elmar Solar MPPT")` already includes everything beneath that component, so a trailing `*` is not needed.
 A trailing `*` lets the last segment continue.
-For example, `Elmar Solar MPPT*` also matches a neighbouring component whose name starts with the same text.
+For example, `Elmar Solar MPPT*` also matches a neighbouring component whose name starts with the same text, and `/Pack1*` matches `/Pack10` as well as `/Pack1`.
+The **Path prefix** option of the guided builder adds this trailing `*` for you.
 
 ## Wildcards
 

@@ -3,12 +3,12 @@ title: Kiosk Mode
 description: "Set up automatic sign-in for kiosk displays and unattended monitoring stations, bypassing the login page for a specific profile."
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Kiosk Mode
 
-Kiosk Mode signs a display in automatically as a user you choose, so the login page is never shown.
+Kiosk Mode signs a display in automatically as a user you choose, so nobody at the display has to sign in.
 It suits kiosk displays, public terminals, and dedicated monitoring stations that stay signed in without anyone at the keyboard.
 You set it per [profile](Profiles.md), and it applies whenever that profile is the active profile.
 
@@ -55,12 +55,11 @@ Create a dedicated account for the purpose, such as `kiosk-display`, rather than
 A dedicated account also makes kiosk access easy to identify in the system logs.
 You create users in **Users & Groups**, which needs a Server licence, as described in [Licensing](../Licensing.md).
 
-Assign the dedicated account a read-only role built from view permissions only, as described in [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md#which-roles-to-create).
+Assign the dedicated account a read-only role built from view permissions only, as described in [Create a role](./Users_and_Access/Create_a_Role.md#which-roles-to-create).
 Never select an administrator or a user holding a high-risk permission such as **Send CAN messages**, because anyone at the display would inherit it.
-On a Windows desktop installation without a Server licence, the built-in administrator is the only user, so Kiosk Mode can technically use it.
-This is not recommended, because a kiosk user should be a low-power, read-only user.
+On a Windows desktop installation without a Server licence there are no user accounts to select, so Kiosk Mode needs a Server licence and a dedicated user first.
 
-A kiosk session expires after the **Access token lifetime (minutes)** set in [Session policy and login lockout](System_Configuration/Security/index.md#session-policy-and-login-lockout).
+A kiosk session expires after the **Access token lifetime (minutes)** set in [Session policy and login lockout](System_Configuration/Security/Session_Policy.md).
 The default is 120 minutes.
 A display that runs for months without attention can use a kiosk user marked as a service account, whose session never expires.
 Treat that account with the same care as any long-lived credential.

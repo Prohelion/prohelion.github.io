@@ -23,8 +23,7 @@ Depending on the system, a profile pack contains:
 - [Scripts](../Developing_with_Profinity/Scripting/index.md)
 - CAN logs
 
-A profile pack built on another site can carry component and collection security grants that name roles which do not exist on this site.
-These appear as unresolved roles that never grant access, as described in [Component and collection security](Users_and_Access/Component_And_Collection_Security.md#unresolved-roles-after-a-profile-import).
+A profile pack built on another site can carry security grants for roles that do not exist on this site, as described in [Component and collection security](Users_and_Access/Component_And_Collection_Security.md#unresolved-roles-after-a-profile-import).
 A pack that contains script content needs the **Scripting** feature on the licence, as described in [Licensing](../Licensing.md).
 
 ## Shipped example

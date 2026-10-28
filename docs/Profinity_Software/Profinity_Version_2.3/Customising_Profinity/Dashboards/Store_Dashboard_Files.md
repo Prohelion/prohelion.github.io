@@ -64,36 +64,48 @@ A profile image with the same name as a built-in image, such as the `nav_*` navi
 An icon in a pill, an icon component and an interactive image refer to a file like this:
 
 ```yaml
-pill:
-  icon:
-    image: battery-icon.svg
-    recess: false
+dashboard:
   items:
-    - pillgroup:
+    - row:
         items:
-          - value:
-              label: "Battery"
+          - pill:
+              icon:
+                image: battery-icon.svg
+                recess: false
+              items:
+                - pillgroup:
+                    items:
+                      - value:
+                          label: "Battery"
 ```
 
 ```yaml
-icon:
-  image: custom-icon.svg
-  label: "Motor Controller"
-  recess: false
+dashboard:
+  items:
+    - row:
+        items:
+          - icon:
+              image: custom-icon.svg
+              label: "Motor Controller"
+              recess: false
 ```
 
 ```yaml
-image:
-  image: device-diagram.png
-  regions:
-    - id: "battery-region"
-      x: 20
-      y: 25
-      width: 30
-      height: 20
-      action:
-        invoke: Navigate
-        target: "/component?componentId=Battery%20Pack"
+dashboard:
+  items:
+    - row:
+        items:
+          - image:
+              image: device-diagram.png
+              regions:
+                - id: "battery-region"
+                  x: 20
+                  y: 25
+                  width: 30
+                  height: 20
+                  action:
+                    invoke: Navigate
+                    target: "/component?componentId=Battery%20Pack"
 ```
 
 The background image is the `image` property of the `image` component, and it is a filename only.
@@ -104,12 +116,16 @@ For a step-by-step procedure, refer to [How to add images to your dashboard](../
 An HTML component uses the full path instead:
 
 ```yaml
-html:
-  content: |
-    <div class="info-box">
-      <img src="/Profile/Images/system-diagram.svg" alt="System Diagram" />
-      <p>System overview diagram</p>
-    </div>
+dashboard:
+  items:
+    - row:
+        items:
+          - html:
+              content: |
+                <div class="info-box">
+                  <img src="/Profile/Images/system-diagram.svg" alt="System Diagram" />
+                  <p>System overview diagram</p>
+                </div>
 ```
 
 ## Models
@@ -142,23 +158,31 @@ The HTML sanitiser removes a `link` element from the `content` of an HTML compon
 A dashboard applies the rules with the `class` attribute, on an HTML component or on any component that takes a `class`:
 
 ```yaml
-html:
-  content: |
-    <div class="custom-panel">
-      <h2>Custom Styled Content</h2>
-      <p>This content uses custom CSS from the styles folder</p>
-    </div>
+dashboard:
+  items:
+    - row:
+        items:
+          - html:
+              content: |
+                <div class="custom-panel">
+                  <h2>Custom Styled Content</h2>
+                  <p>This content uses custom CSS from the styles folder</p>
+                </div>
 ```
 
 ```yaml
-group:
-  class: "custom-info-box"
+dashboard:
   items:
-    - readouts:
+    - row:
         items:
-          - readout:
-              label: "Temperature"
-              value: 25.5
+          - group:
+              class: "custom-info-box"
+              items:
+                - readouts:
+                    items:
+                      - readout:
+                          label: "Temperature"
+                          value: 25.5
 ```
 
 The rule for the group goes in `styles/custom-dashboard.css`, which `profile.css` imports:
@@ -180,13 +204,17 @@ An HTML component therefore shows a content file in an `iframe` or links to it w
 A Markdown file shown this way is not rendered as formatted text, because dashboards have no Markdown renderer.
 
 ```yaml
-html:
-  content: |
-    <div class="dashboard-header">
-      <h1>Dashboard Title</h1>
-      <iframe src="/Profile/Content/header-template.html" width="100%" height="120"></iframe>
-      <a href="/Profile/Content/help-text.html" target="_blank">Open the help text</a>
-    </div>
+dashboard:
+  items:
+    - row:
+        items:
+          - html:
+              content: |
+                <div class="dashboard-header">
+                  <h1>Dashboard Title</h1>
+                  <iframe src="/Profile/Content/header-template.html" width="100%" height="120"></iframe>
+                  <a href="/Profile/Content/help-text.html" target="_blank">Open the help text</a>
+                </div>
 ```
 
 ## File references in dashboard YAML
@@ -196,8 +224,12 @@ A name with an image extension is looked up as described under [Images](#images)
 Use the filename alone in a component property:
 
 ```yaml
-icon:
-  image: custom-icon.svg   # Correct: the filename only
+dashboard:
+  items:
+    - row:
+        items:
+          - icon:
+              image: custom-icon.svg   # Correct: the filename only
 ```
 
 ```yaml

@@ -85,7 +85,7 @@ The remaining rows differ by edition:
     A Desktop host without a Server licence listens for web connections on `127.0.0.1` only.
     The web interface and API can then be reached from the same computer and not from another one.
     Profinity does this whatever is entered under [Profinity Web](Administration/System_Configuration/Profinity_Web.md), and records a message beginning "Remote web access requires a Server license" in the [Profinity log](Administration/Logs_Config.md).
-    A server installation is different: it stays reachable on its configured address when its licence is missing, expired or not valid, so you can replace the licence from a browser.
+    A server installation is different: it stays reachable on its configured address when its licence is missing, expired, or not valid, so you can replace the licence from a browser.
     Until you do, it runs in [restricted mode](#when-a-licence-is-missing-or-has-expired).
     If you cannot reach Profinity from another computer, check the licence on the **License** page before you change the address or the firewall.
 

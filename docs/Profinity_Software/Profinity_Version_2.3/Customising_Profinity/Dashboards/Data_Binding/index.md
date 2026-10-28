@@ -3,15 +3,16 @@ title: Data binding
 description: "Learn how a dashboard binding names a tag by path, which tags a dashboard can use, and the instant, time series and logged binding modes."
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Data binding
 
-Data binding connects a dashboard component to a **tag**.
+Data binding connects a dashboard component to a *tag*.
 A tag is a named value in Profinity, such as a CAN signal, a component property or a derived value.
 You can browse every tag in the Tag Explorer.
 When the tag changes, the component updates, so a dashboard shows live information without any code to fetch it.
+
 This page covers how a binding names a tag, which tags a dashboard can use, and the binding modes.
 For the settings of a binding, refer to the [Binding settings reference](./Binding_Settings_Reference.md).
 For scaling, type conversion and text mapping, refer to [Transform and map values](./Transform_and_Map_Values.md).
@@ -31,9 +32,9 @@ One binding therefore works the same way for all of them.
 
 ## Understanding tags
 
-A binding names a tag by its **tag path**, which is a list of names separated by `/`, in the same tree that the Tag Explorer displays.
+A binding names a tag by its *tag path*, which is a list of names separated by `/`, in the same tree that the Tag Explorer displays.
 To bind a component, open the Tag Explorer, find the tag, and copy its path into the `source` of the binding.
-The visual editor does this for you, because its **Binding** section lets you choose the tag from the tree, as described in [Dashboard visual editor](../Visual_Editor.md).
+The Visual Editor does this for you, because its **Binding** section lets you choose the tag from the tree, as described in [Visual Editor](../Build_a_Dashboard.md).
 For how Profinity builds and maintains the tag tree, refer to [Tag layer](../../../Tags/index.md).
 
 ### Binding source paths
@@ -42,8 +43,8 @@ The `source` of a binding is a tag path, and it takes one of two forms:
 
 | Form | Example | Meaning |
 |------|---------|---------|
-| **Relative** | `DBC/BusMeasurement/BusVoltage` | A tag of the component that owns the dashboard |
-| **Absolute** | `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent` | A tag of a named component, which can be a different component |
+| Relative | `DBC/BusMeasurement/BusVoltage` | A tag of the component that owns the dashboard |
+| Absolute | `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent` | A tag of a named component, which can be a different component |
 
 A path without a leading `/` is relative to the component that owns the dashboard.
 The common branches are `DBC/...` and `Properties/...`.
@@ -53,10 +54,10 @@ The component can be renamed, or the dashboard applied to another component with
 A component dashboard needs a leading `/` to bind to a tag in a different component.
 
 A dashboard that has no owning component, such as a home dashboard, names the component in full.
-The path can start with `/`, which is the form the visual editor writes, or without it, as in `Prohelion BMU/Properties/StatusColourText` in the Example Profile that ships with Profinity.
+The path can start with `/`, which is the form the Visual Editor writes, or without it, as in `Prohelion BMU/Properties/StatusColourText` in the Example Profile that ships with Profinity.
 If a component is mounted at a nested location in the tag tree, an absolute path includes that location, as described in [Tag tree paths and dashboard binds](../../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
-!!! note "Dashboards from earlier versions"
+!!! info "Dashboards from earlier versions"
     Dashboards written before Profinity 2.3 may use dots instead of slashes, as in `{COMPONENT_NAME}.BusMeasurement.BusVoltage`.
     They may also use the `{COMPONENT_NAME}` placeholder for the owning component, or the `[TimeSeries]` prefix on a source, as in `[TimeSeries].{COMPONENT_NAME}.BusMeasurement.BusCurrent`.
     These dashboards continue to work.
@@ -76,7 +77,7 @@ DBC tags suit real-time data, sensor readings and status indicators that the DBC
 
 The `Properties/` branch holds the tags that a component calculates or holds in addition to its DBC signals.
 Which tags exist depends on the component, so find them in the Tag Explorer.
-Property tags suit component status, calculated values and data structures that the component defines in code.
+Property tags suit component status, calculated values and data structures that the component defines.
 
 - `Properties/StatusColourText` is the status colour of the component.
 - `Properties/BusPower` is the bus power, in watts, that the WaveSculptor22 component calculates as the product of the `BusVoltage` and `BusCurrent` signals. The WaveSculptor22 does not transmit it as a signal.
@@ -97,7 +98,7 @@ Readouts, lamps, and most other components use it, and it is the setting to leav
 
 ### Time series
 
-A chart plots history when its binding sets `seriesMode`.
+A chart plots history when its binding sets `seriesMode`, or when it reads logged data with `store: logged`.
 The values of `seriesMode` are:
 
 - `timeSeries` plots the recent values of the tag over the window set by `timeRangeStart` and `timeRangeStop`.
@@ -120,7 +121,7 @@ dashboard:
 ```
 
 A series binding that sets `timeRangeStop` but omits `timeRangeStart` starts its window 10 minutes before the stop time.
-The visual editor sets the same length of history when it adds a series.
+The Visual Editor sets the same length of history when it adds a series.
 A binding that sets neither shows only the latest value.
 Set both `timeRangeStart` and `timeRangeStop` on a series binding to state the history that the chart shows.
 Time values use a relative form, where `-5m` is five minutes before now and `0m` is now.

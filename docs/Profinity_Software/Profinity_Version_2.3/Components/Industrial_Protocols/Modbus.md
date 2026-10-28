@@ -27,7 +27,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The Modbus plugin requires the **Industrial Protocols** licensed component group, and [Industrial protocols](index.md) explains how to obtain, install, and licence it.
+    The Modbus plugin requires the **Industrial Protocols** licensed component group, and [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md) explains how to obtain, install, and licence it.
 
 Add a Modbus Device to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 Add one component for each slave you want to read.
@@ -104,12 +104,13 @@ Polled values behave like any other tag, so they can be shown on a [dashboard](.
 ## If a point shows bad quality
 
 If a point cannot be read, its tag is marked as bad quality.
-The usual causes are:
+Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 
-- An address that is one higher or lower than the device manual states.
-- A **Unit ID** that differs from the slave.
-- Serial settings that differ from the slave.
-- A **Data type** that does not match the register.
+| Cause | Fix |
+|---|---|
+| The **Address** is one higher or lower than the device manual states. | Use the zero-based protocol address. Register `40001` in a one-based manual is address `0` of the holding registers. |
+| The **Unit ID** differs from the slave. | Set **Unit ID** to the slave's unit address. |
+| The serial settings differ from the slave. | Match **Baud Rate**, **Parity**, **Data Bits** and **Stop Bits** to those configured on the slave. |
+| The **Data type** does not match the register. | Choose the data type that matches the register. |
 
-Check these before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.

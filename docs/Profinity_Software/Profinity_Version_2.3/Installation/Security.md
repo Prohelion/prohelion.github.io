@@ -3,7 +3,7 @@ title: Security guide
 description: "Implement essential security controls for Profinity production deployments including HTTPS, user accounts, scripting, and kiosk mode."
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-28
 ---
 
 # Security guide
@@ -19,7 +19,7 @@ This guide covers the security controls that matter when deploying and operating
 Profinity V2 provides control over critical industrial, automotive, and energy systems.
 Securing it involves six areas.
 [HTTPS](#https-configuration) protects the network path, [Docker](#docker-security) settings isolate the container, and the [security files and keys](#protect-the-security-files-and-keys) hold the secrets.
-[Scripting](#scripting-security) controls what code runs with the engine's privileges, [user accounts](#user-account-security) limit who can do what, and [Kiosk Mode](#kiosk-mode-security) controls unattended displays.
+[Scripting](#scripting-security) controls what code runs with Profinity's privileges, [user accounts](#user-account-security) limit who can do what, and [Kiosk Mode](#kiosk-mode-security) controls unattended displays.
 The [checklist](#production-deployment-checklist) at the end summarises the steps for a production deployment.
 
 ## HTTPS configuration
@@ -60,7 +60,7 @@ Replacing the image then regenerates the keys and resets Profinity to the defaul
 
 ## Scripting security
 
-Profinity scripts execute with the same security permissions as the Profinity engine itself.
+Profinity scripts execute with the same security permissions as Profinity itself.
 A script can:
 
 - Access all system resources available to Profinity.
@@ -85,7 +85,7 @@ For the scripting pages, refer to [Profinity Scripting](../Developing_with_Profi
 !!! danger "Change default credentials immediately"
     Which installations include a default administrator account depends on the installation type and licence.
     Refer to [Who can sign in, by installation type](Applying_a_Licence.md#who-can-sign-in) for the full list.
-    On Linux, macOS, and Docker, and on Windows once a Server licence is applied, the default account uses these credentials:
+    On Linux, macOS, Docker, and the Windows service, and on the Windows desktop application once a Server licence is applied, the default account uses these credentials:
 
     - Username: `admin`
     - Password: `password`

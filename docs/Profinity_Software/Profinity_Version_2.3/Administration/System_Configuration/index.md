@@ -16,10 +16,10 @@ The settings are grouped into tabs, and each tab has its own page, listed in the
     Saving changes in **System Configuration** restarts Profinity and interrupts all active sessions.
     Enabling or disabling components on the [Choose available components](../Choose_Available_Components.md) page applies immediately without a restart.
 
-    After the save, Profinity shows a "Restarting, please wait..." message and checks the engine every two seconds.
-    It refreshes the settings automatically once the engine is running again, so you do not need to reload the page.
-    If the engine has not returned to the running state within 60 seconds, Profinity reports that the restart is taking longer than expected.
-    The [System Information](../System_Info.md) page shows the current engine state.
+    After the save, Profinity shows a "Restarting, please wait..." message and checks Profinity every two seconds.
+    It refreshes the settings automatically once Profinity is running again, so you do not need to reload the page.
+    If Profinity has not returned to the running state within 60 seconds, Profinity reports that the restart is taking longer than expected.
+    The [System Information](../System_Info.md) page shows the current Profinity state.
 
 If Profinity does not start because `config.yaml` or `security.yaml` is invalid, refer to [When a configuration file is invalid](Invalid_Configuration_Files.md).
 

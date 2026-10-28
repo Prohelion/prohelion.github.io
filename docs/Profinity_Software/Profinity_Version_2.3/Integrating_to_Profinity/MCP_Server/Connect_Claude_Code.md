@@ -10,7 +10,7 @@ last_reviewed: 2026-10-27
 
 Connect Claude Code on your computer to the Profinity Model Context Protocol (MCP) server so Claude Code can read live components, tags, and alerts.
 Finish [Prepare Profinity for an MCP client](Prepare_Profinity.md) first.
-You need the MCP address and the service account token from that page.
+You need the MCP address and the service account token from those pages.
 Install [AI Skills](../../Profinity_AI/Install_AI_Skills.md) when you also want Claude Code to build dashboards, rules, collections, scripts, plugins, derived tags, or example apps.
 
 On the same computer, with **Redirect all Http traffic to Https** off, use the HTTP address and skip the certificate steps.
@@ -31,19 +31,19 @@ claude mcp add --transport http --scope user profinity https://localhost:18443/a
 The command prints `Added ...` when the configuration is saved.
 It stores the token in your Claude Code configuration, and the shell keeps the command in its history.
 Use the service account token, and protect the computer where Claude Code runs.
-Run the command again only after removing the existing server. A second add with the same name reports that `profinity` already exists.
+To replace an existing server, remove it first with `claude mcp remove profinity --scope user`, then run the add command again. A second add with the same name reports that `profinity` already exists.
 
 ## Trust the certificate
 
 Skip this section when the address is HTTP on the same computer.
-For HTTPS, export the public certificate with the command in [Prepare Profinity for an MCP client](Prepare_Profinity.md#export-the-https-certificate).
+For HTTPS, export the public certificate with the command in [Trust the HTTPS certificate](Trust_HTTPS_Certificate.md).
 
 Claude Code trusts the operating system certificate store when it is the native install, or when an npm install is running on Node.js 22.15 or later.
 Trusting the exported certificate in the operating system is then enough.
 On an older Node.js, only Claude Code's built-in authorities and `NODE_EXTRA_CA_CERTS` are used.
 
 This command makes the current terminal trust the exported file.
-Use the path you wrote `profinity.pem` to:
+The path is where the export command wrote `profinity.pem`, which is your home directory unless you chose another folder:
 
 ```bash
 export NODE_EXTRA_CA_CERTS="$HOME/profinity.pem"
@@ -70,9 +70,8 @@ An empty list means the active profile has no components, or the service account
 Run `/mcp` and read the status beside `profinity`.
 
 - A certificate or handshake error means `NODE_EXTRA_CA_CERTS` is unset in the terminal that started Claude Code, or the address uses a name that is not on the certificate. Export the variable, or trust the certificate in the operating system, then start Claude Code from that terminal.
-- A 401 means the token in the header is incomplete or is no longer the current service account token. Add the server again with the current token.
-- A 403 means the account lacks **MCP integration**.
+- A 401 or 403 response is explained in [MCP connection errors](Connection_Errors.md). When the token is the cause, add the server again with the current token.
 - `profinity` is missing. The add command did not save, or Claude Code was started from another user account. Run `claude mcp get profinity`.
 
-The shared HTTP responses are in [Prepare Profinity for an MCP client](Prepare_Profinity.md#when-the-connection-fails).
+Other HTTP responses are in [MCP connection errors](Connection_Errors.md).
 When Claude Code can read the instance, continue with [AI Skills](../../Profinity_AI/AI_Skills.md).

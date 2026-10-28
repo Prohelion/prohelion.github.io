@@ -14,29 +14,25 @@ This page answers common questions about creating Profinity dashboards in a sent
 
 ### What is a Profinity dashboard?
 
-A Profinity dashboard is a user interface that you build in the [visual editor](./Visual_Editor.md) and that Profinity stores as a YAML file.
+A Profinity dashboard is a user interface that you build in the [Visual Editor](./Build_a_Dashboard.md) and that Profinity stores as a YAML file.
 Its components show tag values, such as CAN signals, component properties and logged data, and its actions and toggles control the system.
 
 ### How do I create a dashboard?
 
-Add a Custom Component to the profile, or open a component that already has a dashboard.
-Then select the pencil (**Edit Dashboard**) icon in the menu at the right of the dashboard title bar, which needs the **Modify dashboards** permission.
-The editor opens in **DESIGN** mode, where you add and arrange widgets and bind tags.
-**SAVE** updates the dashboard on the component.
+Add a Custom Component to the profile, or open a component that already has a dashboard, then open the Visual Editor.
+The steps are in [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md).
 A CAN database (DBC) file is only needed when the dashboard binds CAN signals.
-For adding the component, refer to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
-For the editor, refer to [Dashboard visual editor](./Visual_Editor.md).
+For adding the component, refer to [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md#add-a-custom-component).
 
 ### Where do I put my dashboard YAML file?
 
-The visual editor creates and saves the dashboard file for you, and its **YAML** tab shows the contents.
+The Visual Editor creates and saves the dashboard file for you, and its **YAML** tab shows the contents.
 The file is stored in the `dashboards` directory of the profile, or in the folder of the component, as described in [Profiles](../../Administration/Profiles.md).
 
 ### Can I use existing dashboards as templates?
 
 Yes.
-Select **Edit Dashboard** on any existing dashboard to see its YAML, which needs the **Modify dashboards** permission.
-Copy the YAML and modify the copy, as described in [How to view dashboard source](../../How_To_Guides/View_Dashboard_Source.md).
+Copy the YAML of any existing dashboard and modify the copy, as described in [Copy a dashboard as a template](./Build_a_Dashboard.md#copy-a-dashboard-as-a-template).
 
 ### Where do I put images, styles, and content files?
 
@@ -56,7 +52,7 @@ Use a `readout` component, as in the [Readouts](./Component_Reference/Data/Reado
 
 ### How do I show multiple related values?
 
-Use a `pill` component, which groups values beside an icon, as in the [starter template](./index.md#the-starter-template) and the [Pill](./Component_Reference/Layout/Pill.md#example) reference example.
+Use a `pill` component, which groups values beside an icon, as in the [starter template](./Where_Dashboards_Are_Used.md#starter-template) and the [Pill](./Component_Reference/Layout/Pill.md#example) reference example.
 
 ### How do I create a chart?
 
@@ -110,7 +106,7 @@ Use `toType` to convert a type, and `gain` and `offset` to scale a value, as des
 ### Why does my dashboard not load?
 
 The dashboard YAML does not match the schema.
-Open it in the visual editor and read the entries under **Schema validation issues**.
+Open it in the Visual Editor and read the entries under **Schema validation issues**.
 
 ### Why is my data not updating or my chart blank?
 

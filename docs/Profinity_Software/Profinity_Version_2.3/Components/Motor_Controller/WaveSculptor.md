@@ -29,7 +29,7 @@ The WaveSculptor200 [DBC file](../../../../Motor_Controllers/WaveSculptor200/Use
 Add the WaveSculptor22 component whichever controller you have.
 
 Profinity requests the settings in the following table when you add the WaveSculptor.
-The **Change Settings** button at the top-right of the dashboard changes them later.
+The **Change Settings** button on the dashboard changes them later.
 
 | Parameter | Description |
 |---|---|

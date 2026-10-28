@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Authenticate to the Profinity REST API
 
 Profinity APIs require a Bearer token, which is either a service account token or a token returned by signing in with a username and password.
-Either way, the account should be dedicated to the client and hold only the permissions the client needs.
+Either way, use an account that is dedicated to the client and holds only the permissions the client needs.
 For a guided first call, refer to [Make your first API call](../First_API_Call.md).
 
 ## Use a service account token
@@ -23,7 +23,7 @@ It stays valid until an administrator generates a new one, changes the account's
 ## Sign in with a username and password
 
 To test the APIs from the Swagger page without a service account token, execute a call against `/api/v2/Users/Authenticate` on that page.
-Then apply the returned token with the **Authorize** button at the top right of the Swagger page.
+Then apply the returned token with the **Authorize** button of the Swagger page.
 
 To get a token from any other client:
 
@@ -32,10 +32,12 @@ To get a token from any other client:
 
     ```json
     {
-      "username": "admin",
-      "password": "password"
+      "username": "<username>",
+      "password": "<password>"
     }
     ```
+
+    Replace `<username>` and `<password>` with the credentials of that user.
 
 2. Read the response.
    If the username and password are valid, Profinity responds to a non-browser client with a JSON body.
@@ -46,8 +48,8 @@ To get a token from any other client:
     {
         "token": "eyJhbGciOi...",
         "refreshToken": "...",
-        "username": "admin",
-        "id": "admin",
+        "username": "<username>",
+        "id": "<username>",
         "permissions": ["TagView", "..."]
     }
     ```
@@ -55,7 +57,7 @@ To get a token from any other client:
 !!! warning "Use HTTPS to protect passwords"
     Calling this API over an HTTP connection can expose the password to network scanning.
     Custom applications running on the Profinity server can use the `localhost` address, which does not carry this risk.
-    An application that calls Profinity across a network should use HTTPS for all API usage.
+    An application that calls Profinity across a network uses HTTPS for all API usage.
 
 <figure markdown>
 ![The Swagger POST /api/v2/Users/Authenticate call with a username and password in the request body and a 200 response that returns a token](../../images/swagger_authentication.png)
@@ -79,7 +81,7 @@ curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sampl
 
 Replace `<token>` with the token and `<full-tag-path>` with the full path of the tag.
 
-In Swagger, select the **Authorize** button at the top right of the screen and paste in the generated token:
+In Swagger, select the **Authorize** button and paste in the generated token:
 
 <figure markdown>
 ![The Swagger Available authorizations dialog with an empty Value field, an Authorize button and a Close button](../../images/swagger_authorize_button.png)
@@ -92,7 +94,7 @@ A request that returns data shows the token works.
 
 A call with a missing or expired token is answered with 401.
 A call from a user that lacks the permission the route needs is answered with 403.
-A client that signed in with a username and password and starts receiving 401 should sign in again or renew the token with `GET /api/v2/Users/Refresh`.
+When a client that signed in with a username and password starts receiving 401, it signs in again or renews the token with `GET /api/v2/Users/Refresh`.
 A client that uses a service account token and starts receiving 401 needs the current token from an administrator, because the old token stops working when a new one is generated or the account's roles change.
 
 To read tag data with the token, refer to [Read real-time and historical tag data](Read_Tag_Data.md).

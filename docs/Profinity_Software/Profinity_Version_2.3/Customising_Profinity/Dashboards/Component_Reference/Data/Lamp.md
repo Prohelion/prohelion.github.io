@@ -38,7 +38,7 @@ Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.m
 | `enabled` | boolean | No | `true` | When `false`, the lamp is displayed in the disabled style and the caption is dimmed. Bind the `enabled` target to drive the state from data |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `value`, `enabled`, `color` and `label` targets are handled. A binding with no `target` binds `value` |
 
-The web interface accepts but ignores `id`, `class`, and `visible`.
+`id`, `class`, and `visible` are accepted but have no effect.
 
 A boolean binding is converted to `1` or `0`.
 Each `[-]` sequence in a `label` becomes a soft hyphen, so that long words can break at that point.

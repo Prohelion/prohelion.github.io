@@ -40,10 +40,15 @@ The host needs internet access, or a local archive as described under [Installer
 
     On macOS, use `shasum -a 256 -c install.sh.sha256` in place of `sha256sum -c`.
 
-3. Start Profinity with `/opt/profinity/profinity.sh` to test the configuration, or start it as a service as described in [Run Profinity as a service](./Run_as_a_Service/index.md).
+3. On Linux, start Profinity as the service user with `sudo -u profinity /opt/profinity/profinity.sh` to test the configuration, because that user owns the data directory.
+   On macOS, run `/opt/profinity/profinity.sh`.
+   The log ends with a `Now listening on` line that gives the address to open, as in the sample output on [Install Profinity from an archive](./Linux_and_macOS_Archive_Installation.md).
+   To start Profinity as a service instead, refer to [Run Profinity as a service](./Run_as_a_Service/index.md).
 
 The installer can also be piped straight into the shell with `curl -fsSL https://github.com/Prohelion/Profinity/releases/latest/download/install.sh | sudo bash`.
-That trusts the network transport only and cannot verify the checksum, so avoid it on production hosts.
+
+!!! warning "Avoid this on production hosts"
+    That trusts the network transport only and cannot verify the checksum, so avoid it on production hosts.
 
 ### Installer options
 

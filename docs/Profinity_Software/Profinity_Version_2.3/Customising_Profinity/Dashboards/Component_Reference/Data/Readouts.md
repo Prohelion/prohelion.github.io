@@ -25,7 +25,7 @@ Use a [Chart](Charts.md) when the trend matters more than the latest value, and 
 | `class` | string | No | None | CSS class added to the `readouts` element |
 | `items` | array | Yes | None | Array of readout items. Each item is displayed as one readout |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 ### Readout parameters
 

@@ -10,10 +10,10 @@ last_reviewed: 2026-10-14
 
 Use the **Profile** pill on the **ADMIN** page to activate, rename, import, and download profiles.
 You need the **Modify profiles** permission, as described in [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md).
-To create a profile, refer to [How to create a new profile](../How_To_Guides/Create_New_Profile.md), which covers the steps from **+ ADD PROFILE** to adding components.
+To create a profile, refer to [How to create a new profile](../How_To_Guides/Create_New_Profile.md), which covers the steps from **Add profile** to adding components.
 
 <figure markdown>
-![Profinity Profiles page with an Add Profile button, an Upload Profile Pack area, and a table of profiles with Activate, download, and delete actions](../images/profiles_menu.png)
+![Profinity Profiles page with an Add profile button, an Upload Profile Pack area, and a table of profiles with Activate, download, and delete actions](../images/profiles_menu.png)
 <figcaption>Profinity Profiles Menu</figcaption>
 </figure>
 
@@ -46,7 +46,7 @@ To rename it:
 2. Select the name of the profile to rename, edit the name, and save.
 3. Optional: select **ACTIVATE** on the renamed profile again.
 
-You can delete a temporary profile created for this purpose afterwards.
+If you created a different profile only so that you could rename the active one, you can delete it afterwards.
 
 ## Import a profile pack
 

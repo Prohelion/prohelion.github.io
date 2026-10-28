@@ -45,7 +45,7 @@ The following table shows common patterns.
 
 | Use case | Suggested permissions |
 |----------|----------------------|
-| Read-only monitoring | A role holding view permissions only, as suggested in [Roles and permissions](Roles_and_Permissions.md#which-roles-to-create) |
+| Read-only monitoring | A role holding view permissions only, as suggested in [Create a role](Create_a_Role.md#which-roles-to-create) |
 | Tag and query automation | **View tags**, plus any other view permission the integration reads |
 | MCP access | **MCP integration**, which the default **Administrators** role includes and which any other role must be given explicitly |
 

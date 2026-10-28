@@ -1,9 +1,9 @@
 ---
 title: Roles and permissions
-description: "Control what each person can see and do in Profinity by creating roles, assigning them to users, and finding every permission."
+description: "Look up every Profinity permission, what it allows and which others it switches on, and find the permission a person is missing."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Roles and permissions
@@ -14,66 +14,9 @@ Each user is given one or more roles when the account is set up.
 A person who holds two roles can do everything either role allows.
 You cannot give a single user an extra permission without a role, so to find out who can do something, check only the roles.
 
-This page shows how to create a role, give it to a person, and work out why someone cannot see something they expect to.
-Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md).
-You need the **Security administration** permission and a Server licence.
-A Windows desktop installation without a Server licence does not use roles.
-Refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) for what each installation signs in with.
-
-## Create a role
-
-1. Select **ADMIN** in the side menu, then **Users & Groups**, and open the **Roles** tab.
-2. Click **+ Add role**.
-3. Enter a **Role name**, and a **Description** that says who the role is for, since that description is what the next administrator relies on.
-4. Switch on each permission the role should include.
-   The permissions are grouped under headings such as **Administration**, **Components**, **CAN & DBC**, and **Tags**, and each has a one-line explanation beside it.
-5. Save the role.
-
-Some permissions need another one to be useful, so Profinity switches the second one on for you and locks it while the first remains on.
-Turning on **Send CAN messages**, for example, also turns on **View CAN data**, because a person who can send messages needs to see the bus.
-To clear the locked permission, switch off the one that requires it.
-The permissions that work this way are marked in the [permission list](#what-each-permission-allows).
-
-To change a role later, open the **Roles** tab and click the role.
-A role that is still given to one or more users cannot be deleted, so remove it from those users first.
-
-## Give a role to a person
-
-1. Open the **Users** tab of **Users & Groups** and click the person's row.
-2. Choose one or more roles under **Assigned roles**.
-3. Save.
-
-A new user is given roles in the same way while the account is being created, as described in [Managing users](./Manage_Users.md#creating-a-new-user).
-
-!!! warning "The person is signed out"
-    Changing someone's **Assigned roles**, or changing what a role allows, signs out everyone affected, and they must sign in again.
-    Make the change when nobody is part-way through something that matters, such as a firmware update or a logging session.
-
-## Which roles to create
-
-Profinity comes with one role, **Administrators**, which allows everything and is given to the default `admin` account.
-The default `admin` account exists only on some installations; refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in).
-Not every installation has that account, as [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) explains.
-Because it includes managing users and changing the system configuration, keep it for setting up a site and for emergencies.
-Give everyone else a narrower role of your own.
-
-Most sites need only a handful of roles, and the roles in the following table are a good place to start.
-They are suggestions to build yourself, and none of them exists until you create it.
-
-| Role | For people who | Switch on |
-|------|----------------|-----------|
-| **Viewer** | Watch the system but never change it | **View CAN data**, **View DBC definitions**, **View tags**, **View tag rules**, **View tag collections**, **View alerts**, **View charging** |
-| **Operator** | Run a vehicle, bench, or pack each day | Everything in Viewer, plus **Allow component actions**, **Send CAN messages**, and **Control charging** |
-| **Engineer** | Set up and tune a system | Everything in Operator, plus **Modify profiles**, **Modify components**, **Modify dashboards**, **View firmware**, **Modify firmware**, **Allow firmware actions**, **Modify tag rules**, and **Modify tag collections** |
-| **User manager** | Look after accounts | **Security administration** only |
-| **Site administrator** | Look after the installation | **System administration** only |
-
-Keeping **User manager** and **Site administrator** to a single permission each means someone who looks after accounts and also runs the system holds two roles.
-The alternative is one role that is much wider than either job needs.
-
-Give each person the smallest role that lets them do their job and widen it when a real need appears.
-A person who loses access they relied on notices straight away.
-A person who has quietly held too much access may never be noticed.
+Refer to [Create a role](./Create_a_Role.md) to create a role, give it to a person, and choose which roles your site needs.
+This page lists every permission and helps you work out why someone cannot see something they expect to.
+You need the **Security administration** permission and a Server licence to manage roles.
 
 ## What each permission allows
 
@@ -172,6 +115,7 @@ Someone who needs broad access is given the **Administrators** role, or a role w
 
 ## Related documentation
 
+- [Create a role](./Create_a_Role.md)
 - [Managing users](./Manage_Users.md)
 - [Password policy](../System_Configuration/Security/Password_Policy.md)
 - [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md)

@@ -22,7 +22,7 @@ Before you start, you need:
 - Administrator access to the system.
 - A [profile](../Getting_Started/Profiles.md) configured and ready to display, and the **Modify profiles** permission to change its settings. [Profiles](../Administration/Profiles.md) describes the profile settings, including Kiosk Mode.
 - An enabled [user](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, holding only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs (refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user)).
-- A licence that includes the **Profinity Server** licensed feature, to create that user. Kiosk Mode is available in every edition, but the kiosk user must be a user account, and **Users & Groups** creates user accounts only with that feature. A Desktop installation has no user to select. [Licensing](../Licensing.md) lists the features of each edition.
+- A licence that includes the **Profinity Server** licensed feature, to create that user. Kiosk Mode is available in every edition, but the kiosk user must be a user account, and **Users & Groups** creates user accounts only with that feature. For a Windows desktop installation without a Server licence, refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user). [Licensing](../Licensing.md) lists the features of each edition.
 
 ## Configure Kiosk Mode in Profinity
 
@@ -33,7 +33,7 @@ It authenticates the browser automatically as the configured kiosk user, so no l
 2. Select or create the profile to display, and open its profile settings.
 3. Enable **Kiosk Mode**.
 4. Select a **Kiosk Mode User** from the dropdown.
-   The list shows all enabled users, so choose one with minimal permissions.
+   The list shows all enabled users, and anyone at the display acts as the user you choose, so choose a dedicated user with minimal permissions.
 5. Save the profile settings.
 6. Make this profile the active profile, because Kiosk Mode applies only to the active profile.
 
@@ -107,13 +107,7 @@ Lock the system down with the operating system's own facilities, for example Win
 Hide the taskbar and system tray, and configure the system to restart the browser when it exits.
 The Linux unit in this guide does this with `Restart=always`.
 
-!!! warning "Anyone at the display inherits the kiosk user's permissions"
-    Confirm that the kiosk user holds only the permissions the display needs, for example a read-only role built from view permissions only.
-    Anyone at the display inherits those permissions.
-
-A kiosk session expires under the normal token expiry policy.
-A display that runs for months without attention can use a kiosk user marked as a service account, as [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) describes.
-Set a chart that polls for data at a fixed interval in the dashboard, as described in [Charts component](../Customising_Profinity/Dashboards/Component_Reference/Data/Charts.md).
+A kiosk session expires under the normal token expiry policy, and [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) describes how a display that runs unattended for months avoids this.
 
 ## Test Kiosk Mode
 
@@ -130,15 +124,7 @@ A browser that does not open after a restart usually starts before Profinity or 
 Check the startup order and service dependencies so that the browser starts after Profinity.
 To run Profinity as a service, refer to [Run Profinity as a service](../Installation/Run_as_a_Service/index.md).
 
-### The login page is shown
-
-A login page that appears instead of the dashboard means Kiosk Mode is off for the active profile, or the kiosk user is missing or disabled.
-Verify that Kiosk Mode is enabled for the active profile, and that a valid kiosk user is selected.
-Refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#troubleshooting) for the other causes.
-
-### The wrong profile is shown
-
-Kiosk Mode shows the active profile only, so make the intended profile the active profile.
+If the login page is shown, or the display shows the wrong profile, refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#troubleshooting).
 
 ### The display or performance is poor
 

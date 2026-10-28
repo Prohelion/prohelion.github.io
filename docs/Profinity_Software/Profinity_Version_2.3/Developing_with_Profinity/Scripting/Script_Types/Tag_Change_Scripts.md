@@ -40,6 +40,7 @@ Profinity calls the method once for each tag that changes, passing:
 === "C#"
 
     ```csharp
+    using System;
     using Profinity.Sdk.Abstractions.Scripting;
     using Profinity.Sdk.Models.Tags;
 
@@ -84,7 +85,7 @@ The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `L
 To read the tag that fired, including its quality and timestamp, pass its tag ID back to [`Profinity.Tags`](../Script_Operations/Tags.md) with a leading `/`, which is the root of the tag tree.
 In C# and Python, write `Profinity.Tags.GetSample("/" + tagId)`.
 In Lua, write `Profinity.Tags:GetSample('/' .. tagId)`.
-Without the `/`, the id would be treated as relative to the script's host component.
+Without the `/`, the id is treated as relative to the script's host component.
 
 ## Publishing a computed tag
 
@@ -163,13 +164,7 @@ Writing the same value again does not call it, and neither does a change of qual
 
 ### Trigger overlap
 
-If the method is still running when another change arrives, **Trigger Overlap** decides what happens.
-It is the same setting used by Run On Alert and Run On Receipt of CAN Message:
-
-| Trigger Overlap | Effect |
-|-----------------|--------|
-| **Drop** (default) | Discards the new change while the current one is still running. |
-| **Queue** | Holds a bounded backlog, up to **Queue Depth** (1 to 100), and runs it once the current call completes. |
+If the method is still running when another change arrives, **Trigger Overlap** decides what happens, as described under [Script settings](./index.md#script-settings).
 
 Keep the method fast.
 A slow script under **Queue** builds a backlog, and under **Drop** silently misses changes.

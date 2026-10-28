@@ -14,10 +14,9 @@ The [Send / receive CAN bus messages](../CAN_Utilities/Send_Receive_CAN_Bus_Mess
 
 Before you start, you need:
 
-- Profinity V2 installed and running.
+- Profinity running, with an active [profile](../Getting_Started/Profiles.md) that has the adapter configured.
 - A [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected and active. To set one up, refer to [How to connect to CAN bus](./Connect_to_CAN_Bus.md).
 - A [role](../Administration/Users_and_Access/Roles_and_Permissions.md) that includes the **View CAN data** permission to receive and view CAN messages, and the **Send CAN messages** permission to send them.
-- An active [profile](../Getting_Started/Profiles.md) with the adapter configured.
 
 ## Check user permissions
 
@@ -36,25 +35,8 @@ A Desktop installation runs as a built-in user that holds every permission, so i
 
 Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN**.
 The CAN Activity window opens and shows all CAN messages currently on the network.
-A user who holds only **View CAN data** sees **RECEIVED CAN** instead, and cannot send.
-The CAN Activity panel shows these columns:
-
-| Column | Contents |
-|--------|----------|
-| **CAN ID** | The message identifier |
-| **Data** | The message data bytes |
-| **Direction** | Incoming or outgoing |
-| **Count** | The number of times the message was seen |
-| **Time** | The timestamp of the last message |
-
-Two toggle icons change the view, and both are on by default:
-
-- **Spaced data** breaks the data into individual hex bytes.
-- **Heatmap** highlights frequently changing bytes in warmer colours, and relatively constant bytes in cooler colours.
-
-Select a column header to sort by that column.
-Use the filters to show specific CAN IDs or data patterns.
 Select a message to see its details.
+The columns, the **Spaced data** and **Heatmap** toggles, and the sort and filter options are described in [Receive CAN packets](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md#receive-can-packets).
 
 ## Send a CAN packet
 

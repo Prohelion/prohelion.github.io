@@ -38,6 +38,7 @@ A collection selects tags with a [membership expression](#membership-expression)
 
 Give each collection a display name, which you can change at any time.
 Rules refer to a collection by its identifier, which stays the same when you rename it, so rules keep working after a rename.
+The YAML is `collections.yaml` by default, in the `collections` folder of the profile directory, which is inside the [artefacts directory](../../Installation/Artifacts_Directory.md#default-locations), and Profinity reloads it when it changes.
 Do not change an `id` in the YAML.
 Profinity treats a changed `id` as a different collection, and rules that use the old `id` stop resolving.
 

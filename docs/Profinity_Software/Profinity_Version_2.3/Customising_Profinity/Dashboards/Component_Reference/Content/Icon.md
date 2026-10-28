@@ -27,7 +27,7 @@ Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the
 | `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed (inset) frame at a larger size |
 | `bind` | array | No | None | Data binding. Only the `value` target is handled, and the value is limited to the range `0` to `1`. The value has no visible effect on an icon that is drawn from `image` |
 
-The web interface accepts but ignores `id`, `label`, `enabled`, and `visible`.
+`id`, `label`, `enabled`, and `visible` are accepted but have no effect.
 
 A name that matches no known icon is loaded as an image file, so a misspelt icon name does not show the icon.
 

@@ -8,8 +8,8 @@ last_reviewed: 2026-10-15
 
 # Create collections, rules, and dashboard bindings from tags
 
-The Tag Explorer context menu creates [collections](Collections/index.md), [rules](Rules/index.md), and [dashboard](../Customising_Profinity/Dashboards/index.md) bindings from selected tags, so you do not copy the selection into the visual editors by hand.
-Tag Explorer itself requires the **View tags** permission.
+The **Tag Explorer** context menu creates [collections](Collections/index.md), [rules](Rules/index.md), and [dashboard](../Customising_Profinity/Dashboards/index.md) bindings from selected tags, so you do not copy the selection into the visual editors by hand.
+**Tag Explorer** itself requires the **View tags** permission.
 Each context menu action then checks its own permission.
 An action whose permission is missing is shown disabled, and the whole menu is hidden from a user who holds none of these permissions.
 The permission for each action is listed under [Menu actions](#menu-actions).
@@ -45,7 +45,7 @@ The actions behave as follows:
 - **Rules impacted by this tag** lists the rules affected by the selection and opens the rules editor with that rule selected.
 
 The two rules lists show each matching rule as the rule source, a colon, and the rule name.
-They show a disabled **No matching rules** entry when nothing matches, so they are the check in Tag Explorer that a rule is attached to a tag.
+They show a disabled **No matching rules** entry when nothing matches, so they are the check in **Tag Explorer** that a rule is attached to a tag.
 The create actions open the editor with a draft, and nothing is created until you save it in the editor.
 
 You can also start rules from two other places.
@@ -61,4 +61,4 @@ Several selected branches become `tag.MatchesPath("…")` matches joined with `|
 For collections, a primary filter other than **Branch** replaces this with an expression built from the selected tags' metadata type, unit, value, or quality.
 Refer to [Tag expressions](Selecting_Tags/Tag_Expressions.md) for the syntax.
 
-For the next step, refer to [Tag collections](Collections/index.md), [Tag rules](Rules/index.md), [Rule actions](Rules/Actions/index.md), the [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md), or [Tag layer](index.md).
+For the next step, refer to [Tag collections](Collections/index.md), [Tag rules](Rules/index.md), [Rule actions](Rules/Actions/index.md), the [Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md), or [Tag layer](index.md).

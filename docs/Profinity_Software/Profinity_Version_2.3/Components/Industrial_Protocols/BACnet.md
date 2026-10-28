@@ -26,7 +26,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The BACnet plugin requires the **Industrial Protocols** licensed component group, and [Industrial protocols](index.md) explains how to obtain, install, and licence it.
+    The BACnet plugin requires the **Industrial Protocols** licensed component group, and [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md) explains how to obtain, install, and licence it.
 
 Add a BACnet Device to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 Add one component for each BACnet device you want to read.
@@ -88,13 +88,14 @@ Polled values behave like any other tag, so they can be shown on a [dashboard](.
 ## If a point shows bad quality
 
 If a point cannot be read, its tag is marked as bad quality.
-The usual causes are:
+Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md).
 
-- A wrong **Remote host**.
-- An **Object type** or **Instance** that the device does not have.
-- A device that does not answer within the **Request timeout (ms)**.
+| Cause | Fix |
+|---|---|
+| **Remote host** is wrong. | Set it to the IP address of the BACnet device. |
+| The device does not have the **Object type** or **Instance**. | Correct the point map row to an object that exists in the device. |
+| The device does not answer within the **Request timeout (ms)**. | Check that the device answers at the **Remote host**, or raise the **Request timeout (ms)**. |
 
-Check these before reading the [Log](../../Administration/Logs_Config.md).
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.
 
 A **Device instance** that differs from the device at the **Remote host** puts the component in the **Error** status and marks every point as bad quality.

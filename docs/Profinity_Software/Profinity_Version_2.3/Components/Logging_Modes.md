@@ -27,7 +27,6 @@ In **Snapshot** mode the interval is how often the current value of each member 
 In **On Change** and **Everything** modes the interval is how often the pending changes or samples are sent, or flushed to the file or database.
 The pages for the Message Queuing Telemetry Transport (MQTT) Publisher, the Webhook Publisher, the file and tag loggers, and the Structured Query Language (SQL) historian state this explicitly.
 The pages for InfluxDB and Prometheus logging and the InfluxDB historians say that the mode sets what is sent on each interval.
-[How to log data to the cloud (InfluxDB)](../How_To_Guides/Log_Data_to_Cloud_Influx.md) describes **On Change** as sending the changes recorded during the interval.
 The next section links each page.
 
 ## Components that offer logging modes

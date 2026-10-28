@@ -3,7 +3,7 @@ title: MQTT Publisher
 description: "Publish profile tag collections to MQTT brokers in JSON or Sparkplug B format on interval or change."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # MQTT Publisher
@@ -58,7 +58,7 @@ The data arrives in the form shown in [Payload formats](#payload-formats).
 
 | Setting | Required | Purpose |
 |---|---|---|
-| **Server URL** | Yes | The broker's connection URL, for example `mqtt://broker.example.com:1883`. The accepted schemes are `mqtt`, `mqtts`, `http` and `https`. |
+| **Server URL** | Yes | The broker's connection URL, for example `mqtt://broker.example.com:1883`. Use `mqtt` for a plain connection and `mqtts` for a connection that uses Transport Layer Security (TLS). |
 | **Trust all server certificates** | No | Disables Transport Layer Security (TLS) server certificate validation for this connection. Enable only when connecting to a trusted broker using a self-signed certificate. |
 | **Username** / **Password** | No | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
 | **Device ID** | Yes | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge Node ID** when that field is empty. |
@@ -85,7 +85,7 @@ These settings are shown only when **Payload** is **Sparkplug B**:
 |---|---|---|
 | **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
 | **Auto Connect** | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Logging mode** | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode publishes. |
+| **Logging mode** | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
 | **Update Interval (Seconds)** | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 
 ## Payload formats
@@ -109,7 +109,7 @@ Sparkplug B is available on the MQTT Publisher only, not on the [Webhook Publish
 
 ## Status and troubleshooting
 
-The MQTT Publisher shows **On** while it is running, **Off** when it is stopped, and **Error** when the connection to the broker fails or a publish fails.
+The MQTT Publisher shows **On** while it is running, **Off** when it is stopped, and **Error** when it is running but cannot reach the broker, which includes a failed publish.
 The status returns to **On** after the next successful publish.
 
 The publisher keeps trying to connect every 5 seconds.
@@ -119,12 +119,16 @@ A rejected login is treated the same way, so fixing the credentials needs no res
 The log records the reason once for each outage.
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for the full behaviour.
 
-If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message, then confirm that:
+Check the [Logs](../../Administration/Logs_Config.md) for the underlying message first.
 
-- The **Server URL** scheme and port match the broker.
-- The **Username** and **Password** are accepted.
-- No other client on the broker uses the same **Device ID**.
-- **Trust all server certificates** is on, if the broker has a self-signed certificate.
+| Symptom | Cause | Fix |
+|---|---|---|
+| The status stays **Off** after the profile loads. | No collection is selected, or a selected collection does not exist in the profile. | Select at least one existing collection under **Collections**. |
+| A save fails with "You must provide a destination topic." | **Payload** is **JSON** and **Destination Topic** is empty. | Enter a **Destination Topic**. |
+| The status shows **Error**. | The **Server URL** scheme or port does not match the broker. | Correct the scheme and port. |
+| The status shows **Error**. | The broker does not accept the **Username** and **Password**. | Correct the credentials. No restart is needed. |
+| The status shows **Error**. | Another client on the broker uses the same **Device ID**. | Enter a **Device ID** that no other client uses. |
+| The status shows **Error** on an `mqtts` connection. | The broker has a self-signed certificate. | Turn on **Trust all server certificates**. |
 
 To publish to a plain HTTP receiver, use the [Webhook Publisher](Webhook_Publisher.md).
 [Rule actions](../../Tags/Rules/Actions/index.md) can also send a one-off MQTT message or webhook, and need the **Tag Rule Actions** licensed feature.

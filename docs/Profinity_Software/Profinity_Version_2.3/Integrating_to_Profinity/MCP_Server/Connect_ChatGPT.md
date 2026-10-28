@@ -21,13 +21,8 @@ The Profinity address in the Custom GPT has to be a public HTTPS address with a 
 A service account token needs **Users & Groups**, which needs a Server licence.
 Refer to [Service accounts](../../Administration/Users_and_Access/Service_Accounts.md) and [HTTPS certificates](../../Administration/System_Configuration/Profinity_Web.md#https-certificates).
 
-## ChatGPT and the MCP server
-
-ChatGPT can add a custom MCP server only as a public HTTPS endpoint, or through an OpenAI Secure MCP Tunnel.
-The sign-in that OpenAI documents for that connector is OAuth.
+ChatGPT cannot use the Profinity MCP server, because it adds a custom MCP server only as a public HTTPS endpoint or through an OpenAI Secure MCP Tunnel, and signs in with OAuth.
 Profinity MCP authenticates with a bearer token and does not provide OAuth.
-That connector is not a supported way to reach the Profinity MCP server.
-Use the Custom GPT in this guide for ChatGPT.
 Use [Cursor](Connect_Cursor.md), [Claude Code](Connect_Claude_Code.md), or [Codex](Connect_Codex.md) when you need the MCP tools, including `get_all_components`.
 
 A Custom GPT also has no shell on your computer.
@@ -41,7 +36,7 @@ Get `profinity-ai-skills.zip` for your Profinity release from Prohelion, and cre
 The token needs the permissions for the data the GPT reads and for anything it saves.
 
 1. In ChatGPT, create a Custom GPT.
-2. Paste the instructions from the pack, upload the example files, and import the OpenAPI actions file with your public Profinity host in it. The file list and the order of those three actions are in [Install AI Skills](../../Profinity_AI/Install_AI_Skills.md#set-up-a-chatgpt-custom-gpt).
+2. Paste the instructions from the pack, upload the example files, and import the OpenAPI actions file with your public Profinity host in it. The file list and the order of those three actions are in [Install AI Skills](../../Profinity_AI/Install_AI_Skills.md#set-up-chatgpt).
 3. Set the action authentication to an API key of type Bearer, and paste the service account token. Do not choose OAuth. Profinity REST calls use `Authorization: Bearer` and the token.
 4. Save the Custom GPT.
 5. Start a new chat with that GPT and ask: "What components are in my active profile?"

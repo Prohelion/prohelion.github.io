@@ -3,7 +3,7 @@ title: Apply a licence
 description: "Apply a Profinity licence file after installation, from the License page or by copying it into the licence folder, and check that it has taken effect."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Apply a licence
@@ -27,12 +27,12 @@ What you can sign in with depends on the type of installation and its licence.
 |--------------|---------|---------|------|
 | Windows desktop application | None, or a Desktop licence | The built-in desktop user signs in automatically, with no password and no `admin` account | No |
 | Windows desktop application | Server licence | The desktop window still signs in automatically, and Profinity also creates the default `admin` account with the password `password`, which must be changed at first sign-in | Yes, after a restart |
-| Windows service | None | `admin` with the password `password`, which must be changed at first sign-in | No, because Profinity listens on the local machine only |
-| Windows service | Server licence | `admin` with the password `password`, which must be changed at first sign-in | Yes, after a restart |
-| Linux, macOS, or Docker | None, during the 14-day local trial | `admin` with the password `password`, which must be changed at first sign-in | Yes |
-| Linux, macOS, or Docker | Server licence | `admin` with the password `password` on a new installation, which must be changed at first sign-in | Yes |
+| Windows service, Linux, macOS, or Docker | None, during the 14-day local trial | `admin` with the password `password`, which must be changed at first sign-in | Yes |
+| Windows service, Linux, macOS, or Docker | None, after the trial ends | `admin`, with the password you set | Yes, in restricted mode |
+| Windows service, Linux, macOS, or Docker | Server licence | `admin` with the password `password` on a new installation, which must be changed at first sign-in | Yes |
 
-When the 14-day trial ends, the `admin` account stays, and Profinity listens on the local machine only until a Server licence is applied.
+When the 14-day trial ends, the `admin` account stays and Profinity stays reachable on the same address in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired).
+In restricted mode, a user with the **Security administration** permission can sign in to apply a licence, and nothing else works until they do.
 User accounts and roles need the Server licensed feature, which the Server and Enterprise editions and the 14-day trial include.
 Refer to [Licensing](../Licensing.md) for the trial and for what each edition includes.
 

@@ -43,7 +43,7 @@ Refer to [Main script](Main_Script.md) for the service behind `mainScriptToggle`
 | Field | Required | Meaning |
 |-------|----------|---------|
 | `id` | Yes | Unique name for the entry |
-| `displayName` | Yes | Label on the menu item. The older key `name` is still accepted |
+| `displayName` | Yes | Label on the menu item. `name` is also accepted in place of this key |
 | `kind` | Yes | `button`, `toggle`, or `mainScriptToggle` |
 | `script` | For `button` and `toggle` | A path relative to the component folder, such as `scripts/calibrate.cs`. A path that leaves the component folder is rejected |
 | `icon` | No | A [Carbon icon](https://carbondesignsystem.com/elements/icons/library/) name, such as `Play` or `BatteryCharging`. A Profinity name such as `Start` is still accepted. A file name such as `icons/logo.svg` is a custom icon. An omitted icon is shown as `Custom` |

@@ -32,16 +32,32 @@ Once the MPPT is added to the Profile, the Elmar Solar MPPT dashboard is availab
 The dashboard displays input and output voltage graphs, error status indicators and, under the **MORE DETAILS** banner, temperature readings.
 
 <figure markdown>
+```mermaid
+flowchart LR
+    subgraph Device["Elmar Solar MPPT"]
+        MPPT["CAN messages"]
+    end
+    subgraph Profile["Profile"]
+        Dashboard["MPPT dashboard"]
+        DBC["DBC view"]
+    end
+    MPPT --> Dashboard
+    MPPT --> DBC
+```
+<figcaption>The Elmar Solar MPPT sends CAN messages that the MPPT dashboard in the Profile decodes, and the same raw data is available in the DBC view</figcaption>
+</figure>
+
+<figure markdown>
 ![Elmar Solar MPPT dashboard showing the summary row, graphs, event indicators and state flowchart](../../images/elmar_mppt.png)
 <figcaption>Elmar Solar MPPT</figcaption>
 </figure>
 
 The raw CAN data from an Elmar Solar MPPT is also available in the [DBC view](../../CAN_Utilities/CAN_Bus_DBC.md).
-The **Messages and Signals** button in the top right corner of the dashboard opens it.
+The **Messages and Signals** button on the dashboard opens it.
 
 ## MPPT data
 
-The top row of the MPPT dashboard summarises the values in the following table, from left to right.
+The summary row of the MPPT dashboard shows the values in the following table.
 
 | Cell | Meaning |
 |---|---|

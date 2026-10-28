@@ -57,6 +57,6 @@ Use the tool when the same Custom Component is installed on more than one system
 An example is a continuous integration (CI) pipeline that produces versioned bundles for field engineers.
 An administrator then uploads one `.nupkg` in **Components & Plugins** instead of copying files into each profile by hand.
 Refer to [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md).
-A DLL plugin is packed as described on [Developing Plugins](Developing_Plugins.md).
+The tool does not pack DLL plugins. [Developing Plugins](Developing_Plugins.md) describes what a plugin is.
 A dashboard-only component can be copied through profile administration without a pack step.
 [Custom Components](../Custom_Components/index.md) compares Custom Components with Dashboard Components and DLL plugins.

@@ -29,7 +29,7 @@ Use a [Row](Row.md) or a [Group](Group.md) when the components need no titles or
 | `minHeight` | string | No | None | Minimum height in CSS format. The grid grows with its content and never shrinks below this value. The value does not stretch the grid to fill space |
 | `items` | array | Yes | None | Array of objects that each contain a single `panel`. The grid displays the panels in the order listed |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 ## Example
 

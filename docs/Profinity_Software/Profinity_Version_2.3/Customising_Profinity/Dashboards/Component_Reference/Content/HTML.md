@@ -27,7 +27,7 @@ Use [Readouts](../Data/Readouts.md), [Tables](../Data/Tables.md), and similar co
 | `content` | string | Yes | None | HTML snippet to display. Refer to [Allowed HTML](#allowed-html) for the tags and attributes that survive sanitising |
 | `map` | object | No | None | Switches the component to a map view that follows a GPS position. Refer to [Map parameters](#map-parameters) |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 The content is not displayed when `map` is set with both position sources.
 

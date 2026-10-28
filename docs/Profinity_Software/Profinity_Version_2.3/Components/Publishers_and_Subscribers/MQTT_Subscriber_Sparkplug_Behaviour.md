@@ -15,11 +15,25 @@ For the settings that control the subscription, and for the paths where the tags
 The subscriber applies data from both node-level and device-level publishers.
 It never writes command or state messages to a tag, even under the default `spBv1.0/#` filter.
 
+## Messages the subscriber applies
+
+| Message | What the subscriber does |
+|---|---|
+| `NBIRTH` | Starts the node session, which must begin at sequence 0, and makes the node's metrics known. Metrics from an earlier session that are missing from it become **Stale**. |
+| `NDATA` | Writes the metric values to their tags. |
+| `DBIRTH` | Makes the device's metrics known. Metrics of that device that are missing from it become **Stale**. |
+| `DDATA` | Writes the device's metric values to their tags. |
+| `NDEATH` | Marks every metric of that node **Stale** and ends the node session. |
+| `DDEATH` | Marks every metric of that device **Stale**. |
+
+The subscriber ignores `NCMD`, `DCMD` and `STATE` messages.
+A broker disconnect marks all subscriber tags **Stale**.
+
 ## Host state
 
 While connected, the subscriber announces itself to the broker as online under its **Host ID**.
-It is marked offline when the subscriber stops or the connection drops unexpectedly.
-The offline state stays on the broker, so a Sparkplug-aware consumer can see the last known state.
+It publishes an offline state when the subscriber stops.
+The state message is retained on the broker, so a Sparkplug-aware consumer can see the last known state.
 
 ## Sequence gaps and metric death {#sequence-gaps-and-rebirth}
 

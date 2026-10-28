@@ -56,9 +56,12 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
    Profinity 2.3 does not convert dashboards written for 2.2.
    A dashboard that no longer matches the current format shows **This dashboard no longer matches the schema**.
    Select **Reset from Template** to replace it with the latest template, or open **Edit Dashboard** and repair the file.
-   Resetting removes any customisations, so save a copy of the dashboard first.
-   A user who cannot modify dashboards sees a message to contact an administrator instead.
-   Binds written in the dotted 2.2 form, such as `Component.Message.Signal`, return no data, so change them to [slash paths](../Tags/Selecting_Tags/Tag_Tree_Path.md).
+
+    !!! warning "Reset removes customisations"
+        Resetting removes any customisations, so save a copy of the dashboard first.
+
+    A user who cannot modify dashboards sees a message to contact an administrator instead.
+    Binds written in the dotted 2.2 form, such as `Component.Message.Signal`, return no data, so change them to [slash paths](../Tags/Selecting_Tags/Tag_Tree_Path.md).
 8. Unlock the firmware of each Gen2 battery management system once, and enter its passcode again, because 2.3 does not keep passcodes in the profile.
 9. Run every integration that calls `/api/v2` against a test instance, because error responses changed.
    Check that each integration reads the HTTP status code and the problem body, and not a `success` flag or a `message` field.

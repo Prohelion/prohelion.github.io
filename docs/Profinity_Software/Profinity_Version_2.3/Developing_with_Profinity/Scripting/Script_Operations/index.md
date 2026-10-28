@@ -35,5 +35,4 @@ Refer to [Component and firmware settings](./Settings.md) for the methods, which
 
 Each operation has its own page.
 The [Profinity SDK](../../SDK/index.md) page describes how to write and test a script offline, and Profinity offers a starting template for each script type when you create a script.
-The [Profinity repository on GitHub](https://github.com/Prohelion/Profinity/tree/master/Example%20Scripts) also holds further C# and Python examples.
 The language references are on [Supported Languages](../Supported_Languages/index.md).

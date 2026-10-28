@@ -43,7 +43,7 @@ Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md
 | `columnNames` | array of string | No | None | Custom heading for each value column when the bound data is a time series. A column without a name is numbered from `1` |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) that supplies the table data from tags, either as an array of row objects or as a series. Use the `value` target |
 
-The web interface accepts but ignores `id`, `class`, `label`, `enabled`, and `visible`.
+`id`, `class`, `label`, `enabled`, and `visible` are accepted but have no effect.
 
 The web interface applies the settings to each numeric cell in this order:
 

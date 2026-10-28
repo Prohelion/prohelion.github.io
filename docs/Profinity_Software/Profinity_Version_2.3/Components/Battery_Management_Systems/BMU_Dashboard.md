@@ -18,7 +18,7 @@ It appears as a tab in the sidebar once a [Prohelion BMU](Prohelion_BMU.md) is a
 
 The top section of the dashboard shows data from the BMU.
 Select the **MORE DETAILS** banner to expand it and display telemetry from the Cell Management Units (CMUs).
-The controls at the top-right open the CAN signals and messages from the BMS in the [CAN database (DBC) viewer](../../CAN_Utilities/CAN_Bus_DBC.md).
+The controls for the CAN signals and messages on the dashboard open the CAN signals and messages from the BMS in the [CAN database (DBC) viewer](../../CAN_Utilities/CAN_Bus_DBC.md).
 
 ## BMU data
 
@@ -67,7 +67,7 @@ For a D1000 Gen1 they are:
 - The CMU serial number (**Node Number**).
 - The CMU board and external cell temperatures (**PCB C** and **Cell C**).
 - The voltage of each cell in millivolts (**Cell 1 - 8 mV**).
-A negative voltage is a trust error, where the two redundant measurement channels disagree.
+A negative voltage is a trust error, where the two redundant measurement channels disagree, and the table shows it without the minus sign.
 The value `-32768` indicates a cell position that the BMU has not configured as present, as described in [Transmitted CAN Packets](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Communications_Protocol/Transmitted_CAN_Packets.md).
 
 <figure markdown>
@@ -75,11 +75,17 @@ The value `-32768` indicates a cell position that the BMU has not configured as 
 <figcaption>Prohelion CMU</figcaption>
 </figure>
 
-The colour of each voltage reading shows additional information:
+The colour of each voltage reading shows additional information, and every cell shows its voltage in millivolts as text, except where the colour table says otherwise.
+Without a loaded firmware configuration, the balancing, zero state of charge, and critical thresholds are not applied.
 
-- A blue background marks a cell that is balancing.
-- Green and orange mark the highest and lowest voltage cells.
-- Yellow marks a trust error.
-- A pale-yellow background with no text marks a cell that is not present.
+| Colour | Meaning | Text in the cell |
+|---|---|---|
+| Gold | The highest voltage cell. | The voltage |
+| Light salmon | The lowest voltage cell. | The voltage |
+| Pale blue | The cell is balancing, at or above the cell balancing voltage in the firmware configuration. | The voltage |
+| Pale yellow | The cell is at or below the voltage that corresponds to zero state of charge, or is not present. | The voltage, or no text when the cell is not present |
+| Red | The voltage is at or beyond the critical under-voltage or over-voltage threshold. | The voltage |
+| Grey | The reading is outside the range the table displays. | No text |
+| Yellow-green gradient | A cell with none of the conditions above. | The voltage |
 
 To change the BMU configuration or flash its firmware, refer to [Update BMU configuration and firmware](Update_BMU_Configuration_and_Firmware.md).

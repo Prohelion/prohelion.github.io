@@ -8,7 +8,7 @@ last_reviewed: 2026-10-27
 
 # Integrating to Profinity
 
-Connected equipment feeds into Profinity, which hosts web apps and scripts on top of its core platform (Tags, Collections, Rules, Alerts) behind Security.
+Connected equipment feeds into Profinity, which hosts web apps and scripts on top of Tags, Collections, Rules, and Alerts, all protected by Security.
 Profinity exposes that platform through Representational State Transfer (REST) [APIs](./APIs/index.md) to business systems and applications.
 It exposes the platform to AI agents through the [Model Context Protocol (MCP)](./MCP_Server/index.md).
 

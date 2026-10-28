@@ -13,17 +13,11 @@ The web interface loads one stylesheet from the profile, `profile.css`, so a fir
 
 Before you start, you need:
 
-- Profinity V2 installed.
+- Profinity running.
 - A dashboard to style.
 - Basic CSS knowledge.
-- Access to the `styles` folder of the [profile](../Getting_Started/Profiles.md) directory, which is `<artefacts directory>/profiles/<profile name>/styles`.
-
-The [artefacts directory](../Installation/Artifacts_Directory.md) is:
-
-- `%LOCALAPPDATA%\Prohelion\Profinity` on Windows
-- `~/Library/Application Support/Prohelion/Profinity` on macOS
-- `/var/lib/prohelion/profinity` on Linux
-- On Docker, the path inside the container named by `PROFINITY_HOME`, which is in a mounted volume, so create the file in that volume
+- Access to the `styles` folder of the [profile](../Getting_Started/Profiles.md) directory, which is `<artefacts directory>/profiles/<profile name>/styles` inside the [artefacts directory](../Installation/Artifacts_Directory.md#default-locations).
+  On Docker, create the file in the mounted volume that holds the artefacts directory.
 
 The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only its URL path (refer to [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md)).
 

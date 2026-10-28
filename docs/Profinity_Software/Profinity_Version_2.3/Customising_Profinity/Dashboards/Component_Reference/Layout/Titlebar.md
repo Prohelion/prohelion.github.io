@@ -30,7 +30,7 @@ The `menu` of a titlebar can hold a `modal` item that opens a dialog.
 | `showTitlebar` | boolean | No | `true` | When `false`, the titlebar background, the hamburger menu button and the lamp are hidden, and the toolbar remains visible on a transparent background |
 | `showActions` | boolean | No | `true` | When `false`, the toolbar of menu items is hidden |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 When both `showTitlebar` and `showActions` are `false`, the titlebar is not displayed and takes no space.
 

@@ -26,7 +26,7 @@ On later sign-ins, Profinity asks for the authenticator code after it accepts th
 A user who selects **Remember this device** on a site that allows it skips this step on that browser until the remember duration ends.
 
 Repeated incorrect codes are rate limited, so a user who keeps entering wrong codes must wait before trying again.
-A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](./index.md#session-policy-and-login-lockout).
+A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](./Session_Policy.md).
 
 If a code is rejected although it was typed correctly, the usual cause is the clock on the phone, because authenticator codes depend on the device time being correct.
 If the phone is lost and the recovery codes are not available, an administrator resets the user's authenticator from the **User Actions** tab.

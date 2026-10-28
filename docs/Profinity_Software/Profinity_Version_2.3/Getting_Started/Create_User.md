@@ -18,7 +18,8 @@ A Desktop installation runs as a single built-in desktop user, and **Users & Gro
 2. Select **+ Add user**.
 3. Enter a username and an initial password for local sign-in.
 4. Under **Assigned roles**, choose one or more roles.
-    Only **Administrators** exists on a new installation, so create the other roles first, as described in [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
+    Only **Administrators** exists on a new installation.
+    To assign another role, create it first by following [Create a role](../Administration/Users_and_Access/Create_a_Role.md), then return to this step.
 5. Save the user.
 
 <figure markdown>
@@ -26,23 +27,16 @@ A Desktop installation runs as a single built-in desktop user, and **Users & Gro
 <figcaption>The Add user panel</figcaption>
 </figure>
 
-Profinity creates the account and its login details, and the new user can sign in with the username and initial password.
+To check that it worked, sign out and sign in as the new user with the initial password.
+The new user sees only the pages their roles allow.
 If you are not sure which roles to assign, read [Choose roles](#choose-roles) first.
 
 ## Choose roles
 
-A role is a named set of permissions, and a person can hold more than one.
 A user can only do what their roles allow, so give each person the smallest set of roles that lets them do their job.
-A good starting point is three roles:
-
-| Role | For people who | Typical access |
-|------|----------------|----------------|
-| **Viewer** | Watch the system but never change it | View data, tags, alerts, and dashboards |
-| **Operator** | Run a vehicle, bench, or pack each day | Everything a Viewer can do, plus running component actions and controlling charging |
-| **Engineer** | Set up and tune a system | Everything an Operator can do, plus changing profiles, components, dashboards, and firmware |
-
 The default **Administrators** role includes every permission, so assigning it gives that person the access of every other role.
 Keep it for the few people who manage the installation.
 
-[Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) explains how to create these roles and lists every permission.
+[Create a role](../Administration/Users_and_Access/Create_a_Role.md) suggests Viewer, Operator, and Engineer roles to start from and explains how to build them.
+[Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists every permission.
 [Managing users](../Administration/Users_and_Access/Manage_Users.md) covers password resets and service accounts.

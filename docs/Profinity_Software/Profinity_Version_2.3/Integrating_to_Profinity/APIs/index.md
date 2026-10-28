@@ -21,8 +21,8 @@ Areas that are still being developed, such as firmware, can change between relea
     Grant API access only to the users and applications that need it, and limit what each of them can do, so that nobody can accidentally damage the environment or equipment.
 
 The APIs are running whenever Profinity is running.
-The main Profinity host always publishes the API and Swagger.
-The **Enable Profinity API** and **Enable Swagger on API** settings apply only to the Profinity Web server for extensions (refer to [Extensions Web](../../Administration/System_Configuration/Extensions_Web.md)).
+Profinity always publishes the API and Swagger on its own web address.
+The **Enable Profinity API** and **Enable Swagger on API** settings apply only to the separate web address that serves extensions (refer to [Extensions Web](../../Administration/System_Configuration/Extensions_Web.md)).
 
 [Swagger](https://swagger.io) is the interactive API page on your Profinity instance.
 Open it by adding `/swagger` to the URL that Profinity is running on.

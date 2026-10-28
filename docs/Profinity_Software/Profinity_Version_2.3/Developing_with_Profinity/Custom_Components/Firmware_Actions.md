@@ -48,7 +48,7 @@ For the save script, the message names `firmware.saveScript` instead.
 ## Extra buttons
 
 Each entry under `actions` needs an `id`, a `displayName`, and a `script`, and `displayName: Update firmware` is shown as **UPDATE FIRMWARE**.
-The older key `name` is still accepted in place of `displayName`, and `icon` follows the same rules as a [menu action](Menu_Actions.md) icon.
+`name` is also accepted in place of `displayName`, and `icon` follows the same rules as a [menu action](Menu_Actions.md) icon.
 An action that does not ask for a file asks the user to confirm before it runs.
 The prompt reads: "This writes a firmware binary to the device and cannot be undone. Continue only if you intend to flash."
 
@@ -78,7 +78,6 @@ The usual firmware flash uses `Firmware` with `.bin`.
 Refer to [Component Pack CLI](../SDK/Component_Pack_CLI.md).
 
 The load script opens the device with values from `Profinity.ComponentSettings`, such as a COM port and a baud rate.
-It then writes each firmware field with `Profinity.FirmwareSettings`.
-The save script reads those fields and sends them to the device.
+How the load and save scripts use `Profinity.FirmwareSettings` is on [Firmware maps](Firmware_Maps.md#index-and-scale).
 Only an entry under `actions` receives `Profinity.Action`, including the uploaded file and progress.
 Refer to [Component and firmware settings](../Scripting/Script_Operations/Settings.md) and [Action context](../Scripting/Script_Operations/Action.md).

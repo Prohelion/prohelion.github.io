@@ -20,7 +20,7 @@ A fifth group, image and model components, is listed at the end of the component
 
 ## How to use this reference
 
-In the [Dashboard visual editor](../Visual_Editor.md), you add these components with **Add** and set their parameters in the **Inspector**.
+In the [Visual Editor](../Build_a_Dashboard.md), you add these components with **Add** and set their parameters in the **Inspector**.
 The YAML examples on each page show the same component as it appears in the editor's **YAML** tab.
 
 Each component page opens with a sentence that defines the component.
@@ -31,7 +31,7 @@ The overlay tables that they share are on [Overlay elements](Images_and_Models/O
 
 The **Parameters** tables list every parameter that Profinity accepts on a component.
 Each entry gives the type, whether the parameter is required, the default value and a description that includes the allowed values.
-A parameter that the web interface accepts but ignores is named in a sentence under the table, and can be omitted.
+A parameter that is accepted but has no effect is named in a sentence under the table, and can be omitted.
 A dashboard that contains a parameter the page does not list at all is rejected when it is saved.
 The `bind` parameter takes an array of binding objects on every component that lists it.
 The [Data binding](../Data_Binding/index.md) page describes the binding properties and the targets that each component handles.

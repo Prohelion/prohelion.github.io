@@ -3,10 +3,13 @@ title: Profinity AI settings
 description: "Set the provider, model, API key, web search and timeout for the instance-wide Profinity AI assistant, and see what data leaves the instance."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-27
+last_reviewed: 2026-10-28
 ---
 
 # Profinity AI settings
+
+Saving changes on any System Configuration tab restarts Profinity.
+Refer to [System Configuration](index.md) for what to expect.
 
 Profinity AI is an instance-wide chat assistant, configured once by an administrator and then made available to any permitted user from the side menu.
 A single configuration applies to the whole instance.
@@ -72,7 +75,7 @@ Profinity AI cannot see data the asking user could not otherwise see through the
 
 A user needs the **Profinity AI** permission to see and use the **Profinity AI** menu item.
 This permission also turns on the **MCP integration** permission, since the assistant needs it to query live data on the user's behalf.
-The **Profinity AI** permission is included in the default Administrators role and in the Desktop role.
+The **Profinity AI** permission is included in the default Administrators role.
 You can add it to or remove it from any role like any other permission, as described in [Roles and permissions](../Users_and_Access/Roles_and_Permissions.md).
 
 Changing the Profinity AI configuration itself requires the **System administration** permission.

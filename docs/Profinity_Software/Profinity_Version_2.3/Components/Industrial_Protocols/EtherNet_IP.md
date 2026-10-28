@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 The **EtherNet/IP PLC** component is a Common Industrial Protocol (CIP) tag client for Allen-Bradley (Rockwell) programmable logic controllers (PLCs).
 It connects to one PLC and polls the PLC tags you list in its point map.
 It publishes each one as a Profinity tag.
-It supports ControlLogix, CompactLogix, Micro800, PLC-5 and SLC controllers.
+It supports ControlLogix, CompactLogix, Micro800, PLC-5, and SLC controllers.
 
 <figure markdown>
 ```mermaid
@@ -26,7 +26,7 @@ flowchart LR
 </figure>
 
 !!! info "Licence required"
-    The EtherNet/IP plugin requires the **Industrial Protocols** licensed component group, and [Industrial protocols](index.md) explains how to obtain, install, and licence it.
+    The EtherNet/IP plugin requires the **Industrial Protocols** licensed component group, and [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md) explains how to obtain, install, and licence it.
 
 Add an EtherNet/IP PLC to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 Add one component for each PLC you want to read.
@@ -48,12 +48,12 @@ The component does not browse the PLC's CIP objects to discover tags for you.
 | **Reconnect delay (ms)** | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. The default is `2000`. |
 | **Auto Connect** | Connects to the PLC automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
-Profinity passes the **CIP path** to the PLC library as you enter it:
+Profinity sends the **CIP path** to the PLC as you enter it:
 
 - The default `1,0` is the backplane (`1`) and slot `0`. For a CPU in slot 2 of the same chassis, enter `1,2`.
 - Leave it empty to send no path.
-- For a CPU reached through a bridge module, enter the route as pairs of port and address, one pair for each hop, as the PLC library expects.
-- A PLC-5, SLC or MicroLogix controller on EtherNet/IP needs no path. The PLC library ignores a path for these controllers unless it is a route through a Data Highway Plus (DH+) bridge.
+- For a CPU reached through a bridge module, enter the route as pairs of port and address, one pair for each hop.
+- A PLC-5 or SLC controller on EtherNet/IP needs no path. These controllers ignore a path unless it is a route through a Data Highway Plus (DH+) bridge.
   The default `1,0` therefore does no harm, and you can clear it.
 - Micro800 controllers ignore this setting even when it is filled in.
 
@@ -99,12 +99,13 @@ Polled values behave like any other tag, so they can be shown on a [dashboard](.
 ## If a point shows bad quality
 
 If a point cannot be read, its tag is marked as bad quality.
-The usual causes are:
+Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 
-- A **PLC tag** name that does not exist in the PLC.
-- A **Data type** that does not match the PLC tag's type.
-- A **CIP path** that does not lead to the CPU.
-- A **PLC kind** that does not match the controller.
+| Cause | Fix |
+|---|---|
+| The **PLC tag** name does not exist in the PLC. | Enter the tag name as it appears in the PLC. |
+| The **Data type** does not match the PLC tag's type. | Choose the data type that matches the PLC tag's type. |
+| The **CIP path** does not lead to the CPU. | Enter the route to the CPU, as described under the settings table. |
+| The **PLC kind** does not match the controller. | Select the family of the controller. |
 
-Check these before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.

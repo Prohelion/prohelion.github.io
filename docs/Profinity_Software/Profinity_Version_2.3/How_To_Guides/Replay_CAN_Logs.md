@@ -8,20 +8,19 @@ last_reviewed: 2026-10-15
 
 # How to replay CAN bus logs
 
-Replay recorded CAN bus messages to test dashboards, rules, and custom components without live CAN bus data, or to debug a component configuration against a recording.
+Replay recorded CAN bus messages, with no CAN bus adapter needed, to test dashboards, rules, and custom components without live CAN bus data, or to debug a component configuration against a recording.
 The CAN Data Log Replayer replays log files that were recorded earlier in Profinity.
 For how to record a log, refer to [Log / replay CAN bus messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md).
 
 Before you start, you need:
 
-- Profinity V2 installed and running.
+- Profinity running.
 - A recorded CAN bus log file.
   It comes from the CAN File Logger or the CAN SFTP Logger (refer to [CAN file and SFTP loggers](../Components/Loggers/CAN_File_and_SFTP_Loggers.md)), or it is the `example_log.csv` supplied with Profinity.
   SFTP is the Secure Shell (SSH) File Transfer Protocol.
   Logs from InfluxDB or Prometheus cannot be replayed, so use a File or SFTP logger to record logs for later replay.
 - The **Replay CAN logs** permission (refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which provides the **CAN LOG REPLAY** side-menu entry and also turns on **View CAN data**.
 - A profile whose components match the recording. Only components whose CAN addresses match the logged messages receive data. `example_log.csv` carries the CAN traffic of the Example Profile's components, so load the Example Profile first (refer to the [Quick start guide](../Getting_Started/Quick_Start.md)).
-- Optional for testing: a [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected.
 
 ## Replay a log
 
@@ -71,4 +70,4 @@ If the replay runs but the dashboards stay empty, no component in the active pro
 Load the profile that the log was recorded against.
 Recorded tag values are replayed separately with **TAG LOG REPLAY**, described in [Replay a tag log](../Tags/Tag_Logs/Replay_a_Tag_Log.md).
 
-To check a Custom Component against its CAN database (DBC) file with recorded messages, refer to [How to create a Custom Component](./Create_Custom_Component.md).
+To check a Custom Component against its CAN database (DBC) file with recorded messages, refer to [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md#check-the-component).

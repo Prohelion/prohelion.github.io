@@ -34,8 +34,8 @@ A horizontal group arranges its components side by side.
 This example shows a horizontal group containing an icon and HTML content.
 
 <figure markdown>
-![Horizontal group component showing components arranged side by side](../../images/group_horizontal.png)
-<figcaption>Horizontal group component showing components arranged side by side</figcaption>
+![A battery icon on the left with the blue heading Battery Status and the line Current battery state of charge and voltage information beside it.](../../images/group_horizontal.png)
+<figcaption>Horizontal group</figcaption>
 </figure>
 
 ``` yaml
@@ -64,8 +64,8 @@ dashboard:
 A vertical group stacks its components from top to bottom.
 
 <figure markdown>
-![Vertical group component showing components arranged from top to bottom](../../images/group_vertical.png)
-<figcaption>Vertical group component showing components arranged from top to bottom</figcaption>
+![A battery icon at the top, with the blue heading Battery Status and the line Current battery state of charge and voltage information below it.](../../images/group_vertical.png)
+<figcaption>Vertical group</figcaption>
 </figure>
 
 ``` yaml

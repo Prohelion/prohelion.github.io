@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Email and Slack rule actions
 
 The Email and Slack actions send a notification each time a [tag rule](../index.md) transitions.
-Both need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
+Both need the **Tag Rule Actions** licensed feature, as described in [Rule actions](index.md).
 To add one to a profile so that a rule can select it, refer to [Making an action available](index.md#making-an-action-available).
 
 ## Email action settings

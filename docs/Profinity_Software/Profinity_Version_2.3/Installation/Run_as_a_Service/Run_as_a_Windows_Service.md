@@ -45,7 +45,7 @@ Restart the service so that it reads the new value.
 Without a Server licence the service serves its web interface to the local machine only, on `127.0.0.1`.
 With a Server licence applied under **ADMIN > License**, it uses the address set under [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md), so other machines can sign in.
 A service has no application window, so apply the licence file before you rely on remote access.
-Expect the engine to restart when you apply the licence.
+Expect Profinity to restart when you apply the licence.
 For the accounts that can sign in, refer to [Who can sign in, by installation type](../Applying_a_Licence.md#who-can-sign-in).
 
 Starting a second instance with the same configuration on the same machine causes a port conflict on the API or web content ports.
