@@ -33,12 +33,13 @@ An item that is not valid is skipped, and every other item still works.
 A skipped rule does not run, and a skipped collection or derived tag is not offered.
 
 An item is skipped when it fails its own checks, refers to something that does not exist, or has a key that Profinity does not define, such as a misspelt setting name.
-In Profinity 2.2 an unknown key was ignored and the item still ran, so check these documents after an upgrade.
+An item with an unknown key does not run, so check these documents after an upgrade from 2.2.
+Refer to the [breaking changes](../../Release_Notes/Breaking_Changes_2_3.md) for what changed.
 
 Profinity writes one line to the log for each skipped item, with the name of the item and the reason.
 The rules, collections, and derived tags editors show the same list.
 Each skipped item has a red **Invalid** marker, and the reason appears when you point at it.
-A key that is not inside any item appears in the banner above the list.
+A key that is not inside any item appears in a banner instead of on an item.
 The file itself is not changed when it loads.
 
 To fix a skipped item, open the editor, correct the item named in the marker, and select **SAVE**.
@@ -103,7 +104,7 @@ If the message says the file could not be read, check the file permissions for t
 
 !!! warning "Resetting security.yaml removes users and keys"
     Deleting `security.yaml` resets security.
-    All users, roles and keys are reset, and Profinity creates the default **admin** account, which must change its password at first sign-in.
+    All users, roles, and keys are reset, and Profinity creates the default **admin** account, which must change its password at first sign-in.
     Values that were encrypted under the old key, such as the AI key and two-factor secrets, become unreadable and must be entered again.
     Restore the safety copy first if you have one.
 
@@ -126,6 +127,5 @@ Check a configuration before an upgrade by running `Profinity --preflight-only`,
 
 ## Last sign-in times
 
-Profinity no longer rewrites `security.yaml` each time someone signs in.
-It records each user's last sign-in time in a small separate file, `user_activity.yaml`, beside `security.yaml`.
+Profinity records each user's last sign-in time in a small separate file, `user_activity.yaml`, beside `security.yaml`, so signing in does not rewrite `security.yaml`.
 If that file is damaged, Profinity ignores it and last sign-in times start again.

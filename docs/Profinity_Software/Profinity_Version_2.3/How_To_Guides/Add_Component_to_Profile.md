@@ -3,20 +3,20 @@ title: How to add a component to your profile
 description: "Add a CAN bus device, adapter, logger, or other component to the active Profinity profile, check its status colour, connect it, and remove it."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # How to add a component to your profile
 
 Add a component to the active [profile](../Getting_Started/Profiles.md) from the sidebar or homepage to monitor a CAN bus device, then check its status and connect it.
-You need Profinity V2 installed and running, a loaded profile, and the **Modify components** permission, which allows components to be added ([Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
+You need Profinity running, an active profile, and the **Modify components** permission, which allows components to be added ([Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
 Some component types also need a licensed feature, such as a historian.
 A component type that is not licensed shows as unavailable.
 [Licensing](../Licensing.md) lists which features each edition includes.
 
-Add a protocol adapter first.
-A protocol adapter allows Profinity to receive data from external systems.
-Without incoming data, Profinity can show and do very little.
+A component shows data only when data arrives.
+For live data, add a protocol adapter first, because an adapter lets Profinity receive data from external systems.
+To see data without any hardware, replay a CAN log as described in the [Quick start guide](../Getting_Started/Quick_Start.md#step-3-replay-the-example-can-log).
 For CAN bus networks, [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) describes the supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges.
 [How to connect to CAN bus](./Connect_to_CAN_Bus.md) gives the steps.
 For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7, described in [Industrial protocols](../Components/Industrial_Protocols/index.md).
@@ -24,7 +24,7 @@ For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, Ope
 ## Add the component
 
 The **ADD COMPONENT** page groups the component types by category.
-The filter options are on the left-hand side of the page, and the **COMPONENT TYPES** filter limits the list to one category:
+The **COMPONENT TYPES** filter limits the list to one category:
 
 - **Adapters**, including the [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), which are also shown at the top of the screen when discovered
 - **Battery Management Systems**, **Chargers & Power Supplies**, **Motor Controllers**, and **MPPTs**, for devices such as:
@@ -47,7 +47,7 @@ To add a component:
    Profinity prompts for these settings, and the settings that are specific to the component type differ for each component:
     - A **Component Name**, which must be unique in the profile.
     - A **CAN ID** or address, where the device needs one.
-    - The setting that starts the component automatically.
+    - The **Auto Connect** setting, which starts the component automatically (explained after these steps).
 3. Select **ADD COMPONENT** at the bottom of the dialog.
    The button reads **SAVE** when you change the settings of an existing component.
    The component's icon appears in the sidebar.
@@ -62,7 +62,7 @@ To add a component:
 <figcaption>Example of defining component properties</figcaption>
 </figure>
 
-The start setting is **Auto Connect** on every component that connects to a broker, device, server, or database.
+The start setting is **Auto Connect** on every component that connects to a broker, device, server, or database, and each component type has its own default, listed in [Connections and reconnecting](../Components/Connections_and_Reconnecting.md).
 With it on, the component connects when the profile loads.
 With it off, the component waits until you switch it on with its **Connect** or **Start** action, and it stays off until you do.
 
@@ -91,7 +91,7 @@ Each component has a coloured indicator on its icon that displays the operationa
 A red indicator means an error state, so check the [logs](../Administration/Logs_Config.md).
 A component that stays red, or shows an outlined or empty lamp, after you add it usually has an adapter that is not connected.
 The CAN bus may also not be delivering data.
-The troubleshooting section of [How to connect to CAN bus](./Connect_to_CAN_Bus.md#troubleshooting) covers the usual causes and fixes.
+[CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapter_Troubleshooting.md) covers the usual causes and fixes for an adapter.
 
 ## Connect the component
 
@@ -107,11 +107,11 @@ To connect the component:
 
 To remove a component that is no longer required:
 
-1. Open the component settings, which is the three bar icon at the top right of the component dashboard.
+1. Open the component settings, which is the three bar settings icon in the menu of the component dashboard.
 2. Select **DELETE COMPONENT** at the bottom of the settings dialog, then confirm in the Delete component dialog.
    If rules use the component as an action, Profinity removes those actions from the affected rules.
 
 <figure markdown>
-![A component dashboard with the three bar settings icon at the top right](../images/wavesculptor.png)
-<figcaption>A dashboard showing the three bar settings icon (top right)</figcaption>
+![A component dashboard with the three bar settings icon in its menu](../images/wavesculptor.png)
+<figcaption>A dashboard showing the three bar settings icon</figcaption>
 </figure>

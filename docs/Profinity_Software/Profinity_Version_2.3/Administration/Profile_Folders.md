@@ -3,7 +3,7 @@ title: Profile folders
 description: "Find where Profinity stores profile files and what the images, models, styles, and content folders of a profile directory hold."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Profile folders
@@ -12,7 +12,8 @@ Profinity stores profiles and their related files in the `profiles` folder of th
 You can edit a profile file directly in a text editor, but this is not recommended.
 Profinity reloads the file once the change is saved.
 
-Each profile directory has four folders: `images`, `models`, `styles` and `content`.
+A profile directory has four folders that serve files to dashboards: `images`, `models`, `styles` and `content`.
+Profinity creates the other folders, such as `dashboards`, `scripts` and `rules`, when the profile first needs them.
 
 | Folder | Holds |
 |---|---|

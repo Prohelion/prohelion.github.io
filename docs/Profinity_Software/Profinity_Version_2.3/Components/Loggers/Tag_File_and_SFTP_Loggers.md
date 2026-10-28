@@ -76,4 +76,4 @@ A tag that is Unavailable or Bad is written with its quality and an empty value,
 Once a log file has been created, select the link on the Logger Dashboard to download it from Profinity.
 A TAG File Logger shows this link as **TAG LOGS REPOSITORY**.
 
-To take the same data further, refer to [How to log data to files and SFTP servers](../../How_To_Guides/Log_Data_to_Files.md), or [How to log data to the cloud (InfluxDB)](../../How_To_Guides/Log_Data_to_Cloud_Influx.md).
+To record tags for a later replay, refer to [Log tags to a file](../../Tags/Tag_Logs/Log_Tags_to_a_File.md), and to send the same collections to a database, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).

@@ -84,16 +84,17 @@ To set one up:
     end
     ```
 
-To check it worked, save the script, then change the source tag, `SpeedMph` in the example.
-Open Tag Explorer and confirm that the published tag, `SpeedKmh` in the example, shows the converted value.
-Reading the published tag returns the last value the script published, and a read never re-runs the script.
-If nothing has triggered the script yet, the tag has no value.
-
 Tag paths passed to `Profinity.Tags` are relative to the script's own host component.
 A script therefore suits computing a derived value from, and publishing back to, tags on the same component.
 A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on other components.
 Refer to [Tags in scripts](../../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths) for the path rules.
 
+To check it worked, save the script, then change the source tag, `SpeedMph` in the example.
+Open **Tag Explorer** and confirm that the published tag, `SpeedKmh` in the example, shows the converted value.
+Reading the published tag returns the last value the script published, and a read never re-runs the script.
+If nothing has triggered the script yet, the tag has no value.
+
+Next, choose how the script is triggered.
 A computation that is not purely reactive to a tag change can use another trigger mode: **Run On Time Interval**, **Run On CRON Schedule**, or **Run as Service**.
 Refer to [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md) for each mode.
 For the expression-based alternative, refer to [Create a derived tag](Create_a_Derived_Tag.md) and [Tag expressions](../Selecting_Tags/Tag_Expressions.md).

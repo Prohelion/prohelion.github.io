@@ -166,7 +166,7 @@ These match Profinity's built-in Python, C# and Lua service templates, which sho
 
 ### Cooperative cancellation
 
-Long-running work in `Run()` or `run()` should observe `Profinity.ScriptCancelled`, so that loops exit and release resources promptly.
+Long-running work in `Run()` or `run()` observes `Profinity.ScriptCancelled`, so that loops exit and release resources promptly.
 `Profinity.ScriptCancelled` becomes `true` when the service is stopped or paused, or when Profinity is shutting down.
 A `run()` function with its own `while` loop tests `not Profinity.ScriptCancelled` (or `!Profinity.ScriptCancelled` in C#) in the loop condition, and may break out before slow steps.
 When the service is paused, cancellation is signalled so an inner loop can finish, and when the service continues Profinity calls `run()` again.

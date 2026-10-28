@@ -40,6 +40,7 @@ Some features need a licensed edition, and [Licensing](Licensing.md) lists what 
 To install Profinity, refer to [Install Profinity on Windows](Installation/Windows_Installation.md), [Install Profinity on Linux and macOS](Installation/Linux_and_macOS_Installation.md), or [Install Profinity with Docker](Installation/Docker_Installation.md).
 Then follow the [Quick start guide](Getting_Started/Quick_Start.md) to load an example profile and edit a first dashboard.
 The [How to guides](How_To_Guides/index.md) cover common tasks, such as connecting a CAN bus adapter, building a dashboard, and logging data.
+The [Glossary](Getting_Started/Glossary.md) defines the terms and acronyms used throughout.
 
 ## Release notes
 

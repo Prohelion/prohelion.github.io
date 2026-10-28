@@ -1,5 +1,7 @@
 nav:
   - index.md
+  - Install_an_Industrial_Protocol_Plugin.md
+  - Industrial_Protocol_Components.md
   - BACnet.md
   - EtherNet_IP.md
   - Modbus.md

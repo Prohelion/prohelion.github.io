@@ -3,7 +3,7 @@ title: CAN bus adapters
 description: "Choose a CAN bus adapter, such as a Prohelion or Tritium CAN to Ethernet bridge, a Peak USB adapter, or SocketCAN, and add it with Auto Discovery."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # CAN bus adapters
@@ -22,8 +22,9 @@ Profinity supports the adapters in the following table.
 
 Native SocketCAN is available when Profinity runs in [Docker](../../Installation/Docker_Installation.md) or on a Linux host, including a [Linux archive install](../../Installation/Linux_and_macOS_Archive_Installation.md), and is not available on Windows or macOS.
 SocketCAN is a Linux kernel feature.
-A Peak or CANdapter adapter that you plug into a Linux host also appears there as a SocketCAN interface.
-On Linux, use the SocketCAN adapter, or the SocketCANd adapter from another machine, instead of the Peak or CANdapter adapter.
+A Peak adapter that you plug into a Linux host also appears there as a SocketCAN interface.
+On Linux, use the SocketCAN adapter, or the SocketCANd adapter from another machine, instead of the Peak adapter.
+The Ewert CANdapter connects through its serial port on every platform.
 
 Install the Peak driver before starting Profinity, because the Peak CAN to USB Adapter needs it.
 Use the supplied Peak tools to confirm the adapter works, then add the adapter with Auto Discovery as normal.

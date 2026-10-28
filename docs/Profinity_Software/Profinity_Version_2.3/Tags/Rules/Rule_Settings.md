@@ -3,14 +3,14 @@ title: Rule settings
 description: Look up how a rule is evaluated, including dwell, deadband, and the evaluation tick, how a rule publishes its state to a tag, and the permissions rules need.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Rule settings
 
 This page lists the settings that control how a [tag rule](index.md) is evaluated and published, and the permissions that control who can view and edit rules.
 Each setting is available in the rules visual editor and in `rules.yaml`.
-[Complete rules.yaml example](Rules_YAML_Example.md) shows a complete example of each.
+[Complete rules.yaml example](Rules_YAML_Example.md) shows most of them in one file.
 
 ## Settings in the rules editor
 
@@ -28,10 +28,15 @@ Rules support two settings that stop an alert flickering on and off:
 - **Dwell**: the condition must hold for a set time before the alert trips. Set it with `dwellSeconds` or `dwellMinutes`, and use only one of them on a rule, because setting both is an error when the rules load.
 - **Deadband**: the alert clears at a different point from where it tripped. Set it with `clearValue` or `clearExpression` on a threshold step, and with `clearExpression` on a boolean rule.
 
+## Throttle and more information links
+
+- **Throttle minutes**, `throttleMinutes` in YAML, stops the actions of one rule on one tag from running again within that number of minutes. It applies to both the trip and the clear.
+- **More information links**, `moreInformation` in YAML, adds links to a rule. Each has a `description` label and an `https://` `url`, and the Alerts Log detail dialog lists them under **DOCUMENTATION**.
+
 ## Evaluation tick
 
 The **Evaluation tick (seconds)** setting, `evaluationTickSeconds` in YAML, takes a whole number from 1 to 3600.
-A value outside that range fails schema validation, and a value of 0 or below runs no periodic pass.
+A value outside that range fails schema validation.
 Rules evaluate whenever a tag in their scope changes.
 The tick adds a periodic extra pass.
 This is the only way a `tag.IsStale` rule can fire for a tag that has stopped changing.

@@ -30,7 +30,7 @@ Use [Tabs](../Interactive/Tabs.md) when the user switches between whole views, b
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `visible` target shows and hides the accordion |
 | `items` | array | Yes | None | Accordion sections, where each item must be an object that contains a `row` |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 A `row` does not accept `visible` or `bind`.
 To show and hide content inside an accordion, bind `visible` on the accordion itself or on a component inside the row.

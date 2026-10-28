@@ -16,6 +16,20 @@ You can browse them in Tag Explorer, place them in [collections](../../Tags/Coll
 The [Tag relay](../../Tags/Tag_Relay.md) page covers the concept, collision rules and limitations.
 
 <figure markdown>
+```mermaid
+flowchart LR
+    subgraph Sending["Sending instance"]
+        Collections["Tag collections"] --> Sender["Tag Relay Sender"]
+    end
+    subgraph Receiving["Receiving instance"]
+        Receiver["Tag Relay Receiver"] --> Tags["Read-only tags"]
+    end
+    Sender --> Receiver
+```
+<figcaption>The Tag Relay Sender in the sending instance sends a snapshot of its tag collections to the Tag Relay Receiver in the receiving instance, directly over HTTPS or through an MQTT broker, and the receiver mounts them as read-only tags</figcaption>
+</figure>
+
+<figure markdown>
 ![Diagram of Tag Relay. Site instances each run a Tag Relay Sender that publishes live tags over HTTPS with a JSON Web Token (JWT) or over MQTT. A central instance runs a Tag Relay Receiver that shows the tags of each site under its own prefix, for example SiteA/System1/Battery/PackVoltage](../../images/diagram-tag-relay.png)
 <figcaption>Sender and receiver roles, with per-site tag prefixes on the receiving instance</figcaption>
 </figure>
@@ -25,8 +39,20 @@ The [Tag relay](../../Tags/Tag_Relay.md) page covers the concept, collision rule
 
 ## Quick start {#adding-a-tag-relay-receiver}
 
-Add a **Tag Relay Receiver** to your profile from the **Tag Relays** category, choose the protocol and set a **Receiver tag path prefix**.
 To set up a first relay end to end, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md).
+
+1. Add a **Tag Relay Receiver** to your profile from the **Tag Relays** category.
+2. Set **Protocol** to **MQTT** or **HTTPS**.
+3. Set a **Receiver tag path prefix** that is not the tag path of a component, and does not contain or sit inside the tag path of a component or of another receiver's prefix.
+4. Enter the settings for your protocol.
+   For MQTT, enter the **MQTT broker URL** and **MQTT subscribe topic** from [MQTT settings](#mqtt-settings).
+   For HTTPS, follow [Receiving over HTTPS](#receiving-over-https).
+5. Save the settings.
+   If a prefix clashes, the save reports "Tag destination ... overlaps ... Choose a unique destination." and you choose a different prefix.
+   With the **MQTT** protocol and **Auto Connect** on, which is the default, the receiver connects when the profile loads and its status shows **On**.
+
+To check that it works, wait for a snapshot from the sender and open Tag Explorer.
+The relayed tags appear under the **Receiver tag path prefix**.
 
 ## Settings
 
@@ -35,7 +61,7 @@ To set up a first relay end to end, refer to [Set up a tag relay](Set_Up_a_Tag_R
 | Setting | Purpose |
 |---|---|
 | **Protocol** | **MQTT** subscribes to a broker topic and applies each snapshot it receives. **HTTPS** uses the relay API on this instance, so the component makes no outbound connection. Defaults to MQTT. |
-| **Receiver tag path prefix** | Required. The profile subtree that every ingest batch is applied under, so it must be unique to this receiver. The sender's prefix is appended beneath it, so a receiver prefix of `Fleet` and a sender prefix of `Vehicle12` give tags at `Fleet/Vehicle12/...`. Refer to [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md). |
+| **Receiver tag path prefix** | Required. The profile subtree that every ingest batch is applied under. It must not equal or overlap the tag path of any component or the prefix of another receiver in the profile. The sender's prefix is appended beneath it, as shown in [Set up a tag relay](Set_Up_a_Tag_Relay.md). Refer to [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md). |
 
 ### MQTT settings
 
@@ -68,6 +94,7 @@ To call the relay API directly, refer to the [Endpoint Reference](../../Integrat
 ## Monitoring the receiver
 
 The component shows **On** while it is receiving and **Off** when it is stopped.
+Saving the settings of a running receiver stops it, so check that it shows **On** afterwards and start it again if it shows **Off**.
 Its dashboard shows its status and the total number of messages received.
 The status shows whether the receiver is running, not whether the broker connection is established.
 

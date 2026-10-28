@@ -3,7 +3,7 @@ title: Install Profinity on Windows
 description: "Install Profinity on Windows with the Setup Wizard, open the web interface in a browser, and see what needs a Server licence."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Install Profinity on Windows
@@ -38,9 +38,8 @@ The default URL is `http://localhost:18080`, and the browser opens the Profinity
 <figcaption>Profinity sign-in page</figcaption>
 </figure>
 
-The desktop application window signs in without a password.
-Without a Server licence there is no account for the sign-in page, so the page opens and sign-in fails until you apply that licence.
-Use the desktop application window until then.
+The desktop application window signs in automatically, with no password.
+Without a Server licence the browser sign-in page has no account to sign in with, so use the desktop application window until you apply one.
 If the browser cannot reach the address, check that Profinity is running and that no other program is using port 18080.
 
 ## Remote access and user accounts
@@ -57,5 +56,8 @@ For the accounts that exist with and without a Server licence, refer to [Who can
 
 ## Next steps
 
-With a Server licence applied, open Profinity in a web browser, sign in as `admin`, change the password, and create your own accounts with [Create a user](../Getting_Started/Create_User.md).
-Then work through the [Quick start guide](../Getting_Started/Quick_Start.md), review the [Security guide](./Security.md), and run Profinity in the background with [Run Profinity as a Windows service](./Run_as_a_Service/Run_as_a_Windows_Service.md).
+Work through the [Quick start guide](../Getting_Started/Quick_Start.md) in the desktop window.
+No licence or browser sign-in is needed.
+
+To let other people sign in from a browser, apply a Server licence, restart Profinity, sign in as `admin`, change the password, and create accounts with [Create a user](../Getting_Started/Create_User.md).
+Review the [Security guide](./Security.md), and run Profinity in the background with [Run Profinity as a Windows service](./Run_as_a_Service/Run_as_a_Windows_Service.md).

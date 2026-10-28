@@ -3,7 +3,7 @@ title: Environment variables
 description: "Set Profinity configuration and profile values from environment variables with the ${VARIABLE_NAME} placeholder, and see the variables Profinity reads."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Environment variables
@@ -168,14 +168,14 @@ services:
       - ENABLE_SCRIPTING=${ENABLE_SCRIPTING:-false}
       - PROFILE_NAME=${PROFILE_NAME:-Docker Profile}
     volumes:
-      - ./profiles:/app/Prohelion/profiles
-      - ./config:/app/Prohelion/config
+      - ./Prohelion:/app/Prohelion
 ```
 
 With `HTTP_PORT=8080`, host port 8080 maps to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}`.
-The Profinity image declares only ports 18080 and 18443, but Docker publishes any port the container listens on.
+The Profinity image declares only ports 18080 and 18443, and Docker publishes only the ports listed under `ports`.
 
-Keep the `config.yaml` and profile files that hold placeholders in the mounted volume folders that map to `/app/Prohelion/config` and `/app/Prohelion/profiles`.
+Mount the whole `/app/Prohelion` directory, so that the licence, security keys, and logs survive when the container is replaced.
+Keep the `config.yaml` and profile files that hold placeholders in the `config` and `profiles` folders of the mounted directory.
 `PROFINITY_HOME` must match the container-side mount path, as described in [Install Profinity with Docker](./Docker_Installation.md#install-with-docker-compose).
 Docker Compose reads a `.env` file in the same folder as the compose file automatically.
 To keep one file per environment, name the file explicitly:

@@ -32,7 +32,7 @@ To enable provisioning:
 Profinity refuses to save in two cases:
 
 - The token is empty. It shows "SCIM bearer token is required when SCIM provisioning is enabled."
-- The SSO group has no **Authority URL (IdP issuer)**. It shows "SSO must be configured when SCIM provisioning is enabled."
+- The single sign-on (SSO) group has no **Authority URL (IdP issuer)**. It shows "SSO must be configured when SCIM provisioning is enabled."
 
 | Setting | Description |
 |---------|-------------|

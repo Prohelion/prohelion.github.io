@@ -3,7 +3,7 @@ title: Firmware maps
 description: "Look up firmware_map.yaml, the firmware fields on a Custom Component, which use the same layout as a settings map."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-28
 ---
 
 # Firmware maps
@@ -19,7 +19,7 @@ Refer to [Custom Component files](Files.md).
 The scripts that load and save the values are named in `firmware.yaml`.
 Refer to [Firmware actions](Firmware_Actions.md).
 
-An older file that uses a flat `config` map instead of `sections` is still read.
+A file that uses a flat `config` map instead of `sections` is also read.
 Those fields are shown on a **Firmware Settings** tab, in a group named **Firmware**.
 
 ## Index and scale
@@ -74,7 +74,7 @@ sections:
           shuntRatedAt:
             name: Current Shunt Rated @
             type: LIST
-            default: 2
+            default: 50mv
             values:
               "2": 50mv
               "4": 100mv
@@ -85,6 +85,7 @@ That file adds a **BMS Settings** tab.
 **Current Shunt** heads **Current Shunt Rating** and **Current Shunt Rated @**.
 **Balance Up** opens as 4.1 V, because 4100 multiplied by 0.001 is 4.1.
 A value above 4.4 is rejected.
+`4100` is the stored default, and `4.4` is the largest number the user can type.
 `index: 0x35` is the slot the load and save scripts send on the bus for **Balance Up**.
 **Current Shunt Rated @** has no `index`, so it is not a device parameter.
 It is a companion list that exists only in the UI.

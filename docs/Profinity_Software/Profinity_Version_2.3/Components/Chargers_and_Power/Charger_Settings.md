@@ -3,7 +3,7 @@ title: Charger settings
 description: "Look up the voltage, current, and power limits, network, and CAN settings of the TDK Power Supply, Siglent Power Supply and Elcon Charger components."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Charger settings
@@ -31,7 +31,7 @@ The TDK and Siglent supplies are reached over the network and share these commun
 | **Charger Port** | 5025 | TCP port the supply listens on, between 1 and 65535. |
 | **Comms Timeout** | 5000 | Time in milliseconds Profinity waits for the supply to answer. |
 | **Auto Connect** | Off | Connects to the supply when the Profile loads. Use the **Connect / Disconnect** toggle in the component's menu to connect it otherwise. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Auto Reconnect** | On | Keeps trying to connect in the background, when the supply is off at start and after it disconnects. With it off, Profinity makes one attempt and reports a failure. |
+| **Auto Reconnect** | On | Keeps trying to connect in the background when the supply is off at start. With it off, Profinity makes one connection attempt and reports a failure. |
 | **Reconnect Interval** | 5000 | Time in milliseconds between connection attempts, between 500 and 600000. Shown only when **Auto Reconnect** is on. |
 | **Charger ID** | 0 | TDK only. The ID the TDK supply is set to. |
 | **Channel ID** | 1 | Siglent only. The channel in use on a multi-channel supply. |

@@ -26,7 +26,7 @@ Use a [Caption](Caption.md) or a [Lamp](Lamp.md) when only the name or the healt
 | `value` | string | No | None | Identifier of the active state, which the diagram highlights. The identifier must match a node identifier in `model`, for example `IDLE` for the node `IDLE(Idle)` |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). Bind a tag to the `value` target to drive the highlighted state. Only the `value` target is handled |
 
-The web interface accepts but ignores `id`, `class`, `label`, `enabled`, and `visible`.
+`id`, `class`, `label`, `enabled`, and `visible` are accepted but have no effect.
 
 ## Example
 

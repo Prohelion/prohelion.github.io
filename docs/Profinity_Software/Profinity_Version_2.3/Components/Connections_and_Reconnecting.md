@@ -3,7 +3,7 @@ title: Connections and reconnecting
 description: How components that connect to a broker, device, server, or database start, show a problem, and recover, with retry timing and the Off, On, and Error status.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-21
+last_reviewed: 2026-10-28
 ---
 
 # Connections and reconnecting
@@ -46,6 +46,7 @@ For a component that defaults to off, turn **Auto Connect** on in its settings i
 A component starts even when what it connects to is not available.
 It does not stop at start with an error.
 It shows **Error**, writes the reason to the [Logs](../Administration/Logs_Config.md) once, and keeps trying.
+The TDK and Siglent power supplies have an **Auto Reconnect** setting, and with it off they make one attempt and report a failure.
 When the broker, device, server, or database appears, the component connects by itself and the status changes to **On**.
 
 This includes a login that is rejected.

@@ -16,13 +16,14 @@ The dashboard monitors electrical, thermal, and performance values in real time.
 Upload `dashboard.yaml` on a WaveSculptor22 or WaveSculptor200 component.
 Every message and signal name in the YAML is taken from the [WaveSculptor22 CAN database (DBC) file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md).
 The [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes the same messages.
-The dashboard uses rows, groups, panels, an accordion and a tab, and has no titlebar or footer.
+
+The dashboard uses rows, groups, panels, an accordion and a tab, and has no title bar or footer.
 For those top-level elements, refer to [Core elements](./Core_Elements.md).
 Each component used here has a smaller example of its own in the [Component reference](./Component_Reference/index.md).
 
 <figure markdown>
 ![The WaveSculptor22 dashboard with a status pill, two line charts, the controller limit and error lamps, and an open More Details section](./images/full_example.png)
-<figcaption>The example dashboard as it appears for a WaveSculptor22 component. The titlebar across the top is the component's own and is not part of the dashboard YAML.</figcaption>
+<figcaption>The example dashboard as it appears for a WaveSculptor22 component. The title bar across the top is the component's own and is not part of the dashboard YAML.</figcaption>
 </figure>
 
 ## Tags used
@@ -517,4 +518,4 @@ To add sections:
 - Add readouts for system-specific parameters.
 - Add [actions](./Component_Reference/Interactive/Actions.md) and [toggles](./Component_Reference/Interactive/Toggles.md) for control.
 
-The [Dashboard visual editor](./Visual_Editor.md) is the quickest way to make these changes.
+The [Visual Editor](./Build_a_Dashboard.md) is the quickest way to make these changes.

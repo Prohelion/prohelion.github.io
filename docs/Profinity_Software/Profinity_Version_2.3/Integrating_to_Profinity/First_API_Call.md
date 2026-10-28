@@ -33,7 +33,7 @@ For two-factor authentication and password changes at sign-in, refer to [Authent
     }
     ```
 
-    An application that calls Profinity across a network should use HTTPS, because calling this API over HTTP can expose the password to network scanning.
+    An application that calls Profinity across a network needs HTTPS, because calling this API over HTTP can expose the password to network scanning.
     Custom applications running on the Profinity server can use the `localhost` address, which does not carry this risk.
 
     !!! warning "Keep passwords out of scripts"

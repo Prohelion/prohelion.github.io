@@ -25,7 +25,7 @@ Profinity has two kinds of logger:
 You configure all loggers in the same way, by adding the logger to the profile as a component.
 
 The CAN File Logger and the CAN SFTP Logger record native CAN bus messages.
-The CAN SFTP Logger sends the files to a remote server over the SSH File Transfer Protocol (SFTP).
+The CAN SFTP Logger sends the files to a remote server over the Secure Shell (SSH) File Transfer Protocol (SFTP).
 The TAG File Logger and the TAG SFTP Logger instead record the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections/index.md).
 
 The [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md) and the [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md) publish CAN-derived tag data to a Message Queuing Telemetry Transport (MQTT) broker or a webhook.

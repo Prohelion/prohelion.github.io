@@ -3,7 +3,7 @@ title: Toggles component
 description: "Add an on/off switch that runs an action when clicked and shows whether a feature is on or off from bound data."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Toggles component
@@ -26,9 +26,9 @@ Use an [Action](Actions.md) for a one-way command such as a refresh.
 | `action` | object | Yes | None | Action invocation that is submitted when the toggle is clicked. Refer to [Toggle action invocation](../Images_and_Models/Overlay_Elements.md#toggle-action-invocation) |
 | `value` | object | No | None | Payload posted with the action request |
 | `enabled` | boolean | No | `true` | Whether the toggle can be clicked. The state can be bound with the `enabled` target |
-| `bind` | array | No | None | Data binding. The `enabled`, `tooltip` and `classes` targets are handled |
+| `bind` | array | No | None | Data binding. The `enabled` and `classes` targets are handled |
 
-The web interface accepts but ignores `id` and `visible`.
+`id` and `visible` are accepted but have no effect.
 
 A toggle shows whether the feature is on or off only when its `classes` target is bound.
 Bind the `classes` target to a boolean, and map `true` to `on` and `false` to `off`.

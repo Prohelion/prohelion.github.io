@@ -47,7 +47,7 @@ Refer to [Run scripts](../Script_Types/Run_Scripts.md).
 ## Methods
 
 `ComponentSettings` and `FirmwareSettings` have the same methods.
-Pass the field identifier from the map, such as `comPort` or `nmeaGgaRate`.
+Pass the field identifier from the map, such as `comPort` or `currentShuntRating`.
 `GetValue` also accepts the prefixed form returned in metadata, such as `SETTINGS.comPort`.
 C#, Python and Lua call the methods with a dot.
 
@@ -102,9 +102,9 @@ Without those entries, `SetValue` reports an unknown field.
 ## Example
 
 The example is a firmware load script.
-`comPort` is a field in `settings_map.yaml`, and `nmeaGgaRate` is a field in `firmware_map.yaml`, both from the G-STAR IV sample.
+`comPort` is a field in the `settings_map.yaml` example on [Settings](../../Custom_Components/Settings.md), and `currentShuntRating` is a field in the `firmware_map.yaml` example on [Firmware maps](../../Custom_Components/Firmware_Maps.md).
 A script uses the field identifiers from its own map files.
-A save script reads `nmeaGgaRate` with `GetValue` instead of writing it.
+A save script reads `currentShuntRating` with `GetValue` instead of writing it.
 
 === "C#"
 
@@ -122,8 +122,8 @@ A save script reads `nmeaGgaRate` with `GetValue` instead of writing it.
                 return false;
             }
 
-            Profinity.FirmwareSettings.SetValue("nmeaGgaRate", 1);
-            Profinity.Console.WriteLine("Firmware load wrote nmeaGgaRate");
+            Profinity.FirmwareSettings.SetValue("currentShuntRating", 500);
+            Profinity.Console.WriteLine("Firmware load wrote currentShuntRating");
             return true;
         }
     }
@@ -137,8 +137,8 @@ A save script reads `nmeaGgaRate` with `GetValue` instead of writing it.
         print("COM port is not set")
         raise SystemExit(1)
 
-    Profinity.FirmwareSettings.SetValue("nmeaGgaRate", 1)
-    print("Firmware load wrote nmeaGgaRate")
+    Profinity.FirmwareSettings.SetValue("currentShuntRating", 500)
+    print("Firmware load wrote currentShuntRating")
     ```
 
 === "Lua"
@@ -150,8 +150,8 @@ A save script reads `nmeaGgaRate` with `GetValue` instead of writing it.
         error("COM port is not set")
     end
 
-    Profinity.FirmwareSettings.SetValue("nmeaGgaRate", 1)
-    print("Firmware load wrote nmeaGgaRate")
+    Profinity.FirmwareSettings.SetValue("currentShuntRating", 500)
+    print("Firmware load wrote currentShuntRating")
     ```
 
 The settings map layout is on [Settings](../../Custom_Components/Settings.md), the firmware map layout is on [Firmware maps](../../Custom_Components/Firmware_Maps.md), and `firmware.yaml` is on [Firmware actions](../../Custom_Components/Firmware_Actions.md).

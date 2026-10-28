@@ -3,7 +3,7 @@ title: Overlay elements
 description: "Reference for the element parameters, action invocation, layers, icon sources, display types and annotation lines that Image and 3D model share."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Overlay elements
@@ -140,7 +140,7 @@ layers:
 The `icon` parameter of an icon is the icon source.
 It takes one of these forms:
 
-- An image filename from `/Profile/Images`, ending in `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg` or `.webp`.
+- An image filename from `/Profile/Images`, ending in `.png`, `.jpg`, `.jpeg`, `.svg` or `.webp`, which are the types the image library accepts.
 - An emoji character.
 - Scalable Vector Graphics (SVG) path data that starts with `M`.
 - An `<svg>` element, whose first path is used.

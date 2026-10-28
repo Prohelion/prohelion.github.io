@@ -15,7 +15,7 @@ The web client shows the colours, logos, and application title from that file in
 
 Unzip the file into the `themes` folder of the artefacts directory.
 
-!!! warning "Themes need a licence, and distributing a themed Profinity needs an agreement"
+!!! info "Themes need a licence, and distributing a themed Profinity needs an agreement"
     Themes and branding are included in the Desktop, Server, and Enterprise editions.
     An unlicensed instance keeps its `theme.yaml` file but shows the default Profinity appearance.
     You can change the theme for your own use with a licensed instance.
@@ -28,6 +28,7 @@ Edit `themes/theme.yaml` on the Profinity host, and put logos and icons in the `
 Profinity applies the file when it starts and again whenever the file changes.
 A missing file leaves the built-in defaults in place.
 A file with errors is reported in the [Logs](../../Administration/Logs_Config.md) and also falls back to the defaults.
+
 The file holds a `version` plus three optional groups.
 
 | Group | Keys | What they set |
@@ -42,6 +43,7 @@ The file must exist in `themes/assets` with one of the extensions `.svg`, `.png`
 Colours are hex values in the six-digit form such as `"#E07A3F"`.
 The three-digit form such as `"#abc"` is expanded to `"#AABBCC"`.
 The eight-digit form with transparency, such as `"#E07A3F80"`, is also accepted, but the lighter and darker shades that Profinity calculates from it are solid.
+
 A value that is not a valid colour is reported in the log and the theme falls back to the defaults.
 A key you leave out keeps that built-in colour.
 
@@ -52,9 +54,14 @@ Information banners stay the built-in blue.
 
 Profinity calculates the other shades it needs, such as lighter and darker variants and the text colour on a status colour, from the colours you set.
 They are not keys in `theme.yaml`.
+
 Profinity checks that the theme stays readable.
 It logs a warning in the Logs when text would fall below a contrast ratio of 4.5:1, the usual minimum for readable text.
-This happens when `navForeground` is too close to `navBackground`, or when a `primary`, `success`, `warning`, or `error` colour is too pale to read against white.
+This happens in two cases:
+
+- `navForeground` is too close to `navBackground`.
+- A `primary`, `success`, `warning`, or `error` colour is too pale to read against white.
+
 The theme is still applied, and choosing a darker or higher-contrast colour clears the warning.
 
 ## Example `theme.yaml`
@@ -85,7 +92,7 @@ assets:
 ```
 
 <figure markdown>
-![A WaveSculptor22 dashboard with the example theme applied: the side menu, titlebar, and More Details bar in the theme's teal, and the theme's logo at the top of the side menu](../../images/themed-ui.png)
+![A WaveSculptor22 dashboard with the example theme applied: the side menu, title bar, and More Details bar in the theme's teal, and the theme's logo at the top of the side menu](../../images/themed-ui.png)
 <figcaption>A dashboard with the example theme applied</figcaption>
 </figure>
 

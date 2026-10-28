@@ -1,6 +1,8 @@
 nav:
     - index.md
+    - Where_Dashboards_Are_Used.md
     - Core_Elements.md
+    - Build_a_Dashboard.md
     - Visual_Editor.md
     - Data_Binding
     - Store_Dashboard_Files.md

@@ -19,14 +19,14 @@ Profinity supports HTTP and HTTPS connections, and custom HTTPS certificates.
 <figcaption>Profinity Web Menu</figcaption>
 </figure>
 
-| Parameter | Description |
-|-----------|-------------|
-| **IP Address for Http** | The IP address Profinity runs on for HTTP. The default is all IP addresses (0.0.0.0). You can set localhost (127.0.0.1) or a specific IP address instead. Without a Server licence this setting is not shown and the address is always 127.0.0.1. |
-| **IP Port for Http** | The port used for HTTP (default is 18080). Setting this below 1024 requires administrator permissions on the host. |
-| **Enable Https** | Enable or disable the HTTPS server, which is enabled by default. |
-| **IP Address for Https** | Same as the HTTP address but for HTTPS, with the same default, and hidden under the same licence restriction. |
-| **IP Port for Https** | Same as the HTTP port but for HTTPS (default is 18443). |
-| **Redirect all Http traffic to Https** | Forces the system to use HTTPS for all traffic. It can be enabled only when HTTPS is enabled. |
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| **IP Address for Http** | All IP addresses (0.0.0.0) | The IP address Profinity runs on for HTTP. You can set localhost (127.0.0.1) or a specific IP address instead. Without a Server licence this setting is not shown and the address is always 127.0.0.1. |
+| **IP Port for Http** | 18080 | The port used for HTTP. Setting this below 1024 requires administrator permissions on the host. |
+| **Enable Https** | Enabled | Enable or disable the HTTPS server. |
+| **IP Address for Https** | All IP addresses (0.0.0.0) | Same as the HTTP address but for HTTPS, and hidden under the same licence restriction. |
+| **IP Port for Https** | 18443 | Same as the HTTP port but for HTTPS. |
+| **Redirect all Http traffic to Https** | Off | Forces the system to use HTTPS for all traffic. It can be enabled only when HTTPS is enabled. |
 
 The certificate options are shared with the **Extensions Web** tab and are described in [HTTPS certificates](#https-certificates).
 

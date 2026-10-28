@@ -1,6 +1,6 @@
 ---
 title: Connect Profinity Mobile to a server
-description: Turn on server discovery on the Profinity engine, then connect the Profinity Mobile app from a phone on the same Wi-Fi network.
+description: Turn on server discovery on the Profinity server, then connect the Profinity Mobile app from a phone on the same Wi-Fi network.
 type: task
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -8,11 +8,11 @@ last_reviewed: 2026-10-15
 
 # Connect Profinity Mobile to a server
 
-To connect Profinity Mobile to a server, check the discovery settings on the Profinity engine, then select the server from the app's discovery list.
+To connect Profinity Mobile to a server, check the discovery settings on the Profinity server, then select the server from the app's discovery list.
 You need the app installed on the phone (refer to [Profinity Mobile](index.md)).
 Phones reach the server only when other machines can open its web interface, which depends on the installation type and licence (refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in)).
 
-## Enable server discovery on the engine
+## Enable server discovery
 
 Phones find a server only while it broadcasts a heartbeat, so check these settings on the Profinity server first.
 The server sends heartbeats only while the web server is running and the machine has at least one network address other than loopback.

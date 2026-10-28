@@ -31,7 +31,7 @@ Use a [Group](Group.md) when the components need no title or panel frame.
 | `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows with its content and never shrinks below this value. The value does not stretch the panel to fill space |
 | `items` | array | Yes | None | Components displayed in the body of the panel |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 The `sunken` variant suits charts and state diagrams, and it applies to the panel body and not to the whole panel.
 A panel accepts these components in `items`:

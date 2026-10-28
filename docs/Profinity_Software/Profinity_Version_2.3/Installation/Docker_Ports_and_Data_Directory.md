@@ -31,7 +31,7 @@ Either path is valid, provided that the environment variable and the mount desti
 !!! warning "Set PROFINITY_HOME to your mount path"
     If `PROFINITY_HOME` does not name the container path of your mounted volume, Profinity writes its configuration and profiles inside the container, and they are lost when the image is replaced.
     Compose files written for 2.2 that mount `/root/Prohelion/Profinity/...` need their mounts moved to the new `PROFINITY_HOME` path.
-    Profinity skips the automatic migration from legacy operating system locations whenever `PROFINITY_HOME` is set.
+    Profinity does not migrate data from legacy locations when `PROFINITY_HOME` is set; refer to [Upgrade from Profinity 2.2](./Upgrade_From_2_2.md).
 
 The sub-folders beneath the artefacts directory use lowercase names (`config`, `profiles`, `logs`).
 Linux file systems are case-sensitive, so mounts must target those names.

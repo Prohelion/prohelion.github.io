@@ -3,7 +3,7 @@ title: CAN bus adapter troubleshooting
 description: "Fix a CAN bus adapter with an amber or red status, a missing Peak driver, a CAN to Ethernet bridge Auto Discovery does not find, or a bit rate mismatch."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-28
 ---
 
 # CAN bus adapter troubleshooting
@@ -14,19 +14,14 @@ This page covers:
 - A Peak adapter that needs its driver.
 - A CAN to Ethernet bridge that Auto Discovery does not find.
 - The bit rate that every device on a CAN bus must share.
+
 The adapters are listed on [CAN bus adapters](CAN_Bus_Adapters.md).
 
 ## Adapter status
 
 Once you add the adapter to the Profile, a coloured status indicator appears in the sidebar next to the device name.
-Green is the state of a working adapter.
-
-| Colour | Meaning |
-| ------ | ------- |
-| Green | Good: the adapter is connected and data is arriving. |
-| Amber | Warning: the adapter is connected but no data is arriving. |
-| Red | Error: the [Profinity System Logs](../../Administration/Logs_Config.md) have the details. |
-| Grey | Not applicable: the adapter is not connected. |
+Green is the state of a working adapter, and [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md#check-the-component-status) lists every colour.
+An adapter that is connected but has no data arriving shows amber, and one that is stopped, or still making its first connection attempt, is outlined with no fill.
 
 If the indicator is amber, check these things:
 

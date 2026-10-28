@@ -26,14 +26,20 @@ Before you start, check two conditions on the log file:
 - The file has a `.txt`, `.csv`, or `.jsonl` extension. Otherwise the upload is refused with "Your file must have an extension of .txt, .csv or .jsonl".
 - No log with the same name is already there. Otherwise the upload is refused with "A replay log with the name '…' already exists. Please delete the existing file first or upload a file with a different name." Delete the existing log or rename the new one.
 
+A log recorded on this instance is written to a `tag_logs/<profile name>/<logger name>/` folder, but the replayer lists only the `tag_logs/replay/` folder.
+Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where this folder sits on each platform.
+To add a log recorded on this instance, copy the file:
+
+1. Copy the recorded file from its `tag_logs/<profile name>/<logger name>/` folder into `tag_logs/replay/`.
+2. In **TAG LOG REPLAY**, check that the log is in the list.
+
+To add a log recorded on another Profinity instance, use the **Upload Tag Change Log files** control in **TAG LOG REPLAY** and choose the file.
+Profinity places uploaded logs in `tag_logs/replay/` automatically.
+
 To replay a log:
 
-1. If the log is not listed, add it to the replayer. A log recorded on this instance is written to a `tag_logs/<profile name>/<logger name>/` folder.
-   The replayer lists only the `tag_logs/replay/` folder.
-   Copy the recorded file there, or add it with the **Upload Tag Change Log files** control, which also suits a log recorded on another Profinity instance.
-   Uploaded logs are placed in `tag_logs/replay/` automatically.
-   Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where this folder sits on each platform.
-2. Select the log in the list and click the play button. A replay starts only when no other tag replay is running.
+1. Select the log in the list and click the play button. A replay starts only when no other tag replay is running.
+2. Watch the position slider. It moves through the log while the replay plays.
 
 While a replay plays, the position slider shows the current point in the log.
 The replay controls are:
@@ -52,5 +58,8 @@ The replayer skips a line, and its status reports the reason, in three cases:
 - The tag does not exist in the loaded profile.
 - The value cannot be read.
 - The `Recv time` is invalid.
+
 Replay a log against a profile that contains the same tags it was recorded from.
 When the replay stops, or reaches the end of the log, the replayed values stay in place as the last values applied, rather than reverting.
+To check a replay, open **Tag Explorer** and confirm that the replayed tags show the recorded values.
+To act on replayed data, refer to [Create a rule](../Rules/Create_a_Rule.md), which raises alerts from a replayed log.

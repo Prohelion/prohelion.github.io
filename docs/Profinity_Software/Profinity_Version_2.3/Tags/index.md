@@ -9,7 +9,7 @@ last_reviewed: 2026-10-20
 # Tag layer
 
 The tag layer is Profinity's catalogue of live and configured tag values.
-It is the foundation for Tag Explorer, [collections](Collections/index.md), [rules](Rules/index.md), and [alerts](./Alerts.md), which are new in Profinity 2.3.
+It is the foundation for **Tag Explorer**, [collections](Collections/index.md), [rules](Rules/index.md), and [alerts](./Alerts.md), which are new in Profinity 2.3.
 
 Open **TAG EXPLORER** from the side menu to browse the tag tree, switch to table views where available, and inspect the data quality indicator on each tag.
 This needs the **View tags** permission.
@@ -24,47 +24,38 @@ Saving needs **Modify tag collections** for collections and derived tags, and **
 <figcaption>A tag combines an address, value, quality flag and metadata</figcaption>
 </figure>
 
-To start a collection, a rule, or a dashboard binding from tags selected in Tag Explorer, refer to [Create collections, rules, and dashboard bindings from tags](Create_Collections_Rules_and_Bindings_from_Tags.md).
+To start a collection, a rule, or a dashboard binding from tags selected in **Tag Explorer**, refer to [Create collections, rules, and dashboard bindings from tags](Create_Collections_Rules_and_Bindings_from_Tags.md).
 
-## Selecting tags
+Each page in these groups covers one job.
+
+## Select, group, and derive tags
 
 - [Selecting tags](Selecting_Tags/index.md): how a tag's path in the tree and the expression language work together to pick tags.
 - [Tag tree paths and dashboard binds](Selecting_Tags/Tag_Tree_Path.md): how nesting a component in a folder of the tag tree affects scopes and binds.
 - [Nest a component in the tag tree](Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md): mount a component inside a folder of the tag tree.
 - [Tag expressions](Selecting_Tags/Tag_Expressions.md): the expression language shared by collections, rules, and derived tags.
-
-## Tag collections
-
 - [Tag collections](Collections/index.md): group tags with a membership expression. Open **COLLECTIONS** under **TAG UTILITIES** to open an editor window, which requires **View tag collections**.
 - [Create a collection](Collections/Create_a_Collection.md): build a restricted collection of cell voltages in the collections editor.
-
-## Derived tags
-
 - [Derived tags](Derived_Tags/index.md): compute a tag from other tags. Open **DERIVED TAGS** under **TAG UTILITIES** to open an editor window, which requires **View tag collections**.
 - [Create a derived tag](Derived_Tags/Create_a_Derived_Tag.md): convert speed from mph to km/h with an expression.
 - [Create a derived tag with a script](Derived_Tags/Create_a_Derived_Tag_with_a_Script.md): publish a derived tag from a script.
 
-## Tag rules
+## Rules and alerts
 
 - [Tag rules](Rules/index.md): evaluate tags and raise alerts. Open **RULES & ACTIONS** under **TAG UTILITIES** to open an editor window, which requires **View tag rules**.
 - [Create a rule](Rules/Create_a_Rule.md): raise an alert when the maximum cell temperature of a battery goes above a limit.
-- [Complete rules.yaml example](Rules/Rules_YAML_Example.md): read a full rules file with every setting explained.
-
-## Rule actions
-
+- [Rule settings](Rules/Rule_Settings.md): look up how a rule is evaluated, published, and permitted.
+- [Complete rules.yaml example](Rules/Rules_YAML_Example.md): read a full rules file with its main settings explained.
 - [Rule actions](Rules/Actions/index.md): choose what a rule does when it fires.
 - [Email and Slack rule actions](Rules/Actions/Email_and_Slack_Rule_Actions.md): settings for the Email and Slack notification actions.
 - [Webhook and MQTT rule actions](Rules/Actions/Webhook_and_MQTT_Rule_Actions.md): settings for the Webhook and Message Queuing Telemetry Transport (MQTT) notification actions.
+- [Alerts Log](Alerts.md): review, acknowledge, and silence alerts. Open **ALL ALERTS** in the side menu, which requires **View alerts**.
 
-## Tag logs
+## Logs and relay
 
 - [Tag logs](Tag_Logs/index.md): record tag values to a file and replay them onto live tags.
 - [Log tags to a file](Tag_Logs/Log_Tags_to_a_File.md): record tag values to a file with the TAG File Logger.
 - [Replay a tag log](Tag_Logs/Replay_a_Tag_Log.md): play a recording back onto your live tags from **TAG LOG REPLAY** under **TAG UTILITIES**, which requires **Replay tag changes**.
-
-## Alerts and relay
-
-- [Alerts Log](Alerts.md): review, acknowledge, and silence alerts. Open **ALL ALERTS** in the side menu, which requires **View alerts**.
 - [Tag relay](./Tag_Relay.md): share live tags between Profinity instances. One instance publishes periodic snapshots of selected collections, and another ingests them as read-only tags under that site's own prefix.
 
 Integrations can work with tags, tag collections, tag rules, and alerts through the Representational State Transfer (REST) [API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2`.

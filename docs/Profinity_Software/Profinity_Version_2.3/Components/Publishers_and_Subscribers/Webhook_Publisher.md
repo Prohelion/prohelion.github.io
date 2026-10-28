@@ -55,7 +55,7 @@ To check that it works, look for the POST at your receiver.
 | Setting | Default | Purpose |
 |---|---|---|
 | **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
-| **Logging mode** | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode publishes. |
+| **Logging mode** | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
 | **Update Interval (Seconds)** | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Auto Connect** | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
@@ -79,8 +79,8 @@ Whichever mode you choose, the credential is stored encrypted and masked on scre
 ## Payload format
 
 Each publish sends one POST containing a JSON array of the samples in that batch, never one POST per sample.
-Each entry has the `fullTagId`, `utcTimestamp`, `quality` and `value` fields that `GET /api/v2/Tags/Sample/{path}` returns for a tag sample.
-The API's `reason`, `message` and `metadata` fields are not sent.
+Each entry has the `fullTagId`, `utcTimestamp`, `quality` and `value` fields that [reading a tag sample through the API](../../Integrating_to_Profinity/APIs/Read_Tag_Data.md) returns.
+The `reason`, `message` and `metadata` fields of that response are not sent.
 
 ```json
 [
@@ -109,7 +109,7 @@ It waits 1 second before the second attempt and 2 seconds before the third.
 The attempt count, timeout and waits cannot be changed in Profinity 2.3.
 If all three attempts fail, the batch is not retried further and the publisher reports **Error** until a later publish succeeds.
 
-The publisher shows **On** while it is running, **Off** when it is stopped, and **Error** after a failed delivery.
+The publisher shows **On** while it is running, **Off** when it is stopped, and **Error** when it is running but a delivery fails.
 It also exposes two tags for a dashboard or rule:
 
 | Tag | Meaning |
@@ -117,13 +117,15 @@ It also exposes two tags for a dashboard or rule:
 | `LastDeliverySuccess` | `true` when the most recent delivery succeeded, and `false` otherwise. |
 | `LastDeliveryError` | Empty when healthy. After a failed delivery it reads "Webhook delivery failed - see log for details." |
 
-If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message.
-Then confirm that:
+Check the [Logs](../../Administration/Logs_Config.md) for the underlying message first.
 
-- The **Destination URL** is correct.
-- The receiver accepts the selected **Authentication**. A 401 or 403 response points to a wrong credential.
-- The receiver returns a success status.
-- For an HTTPS destination, the receiver presents a certificate that the Profinity server trusts. The Webhook Publisher has no option to skip certificate validation.
+| Symptom | Cause | Fix |
+|---|---|---|
+| The status stays **Off** after the profile loads. | No collection is selected, or a selected collection does not exist in the profile. | Select at least one existing collection under **Collections**. |
+| The status shows **Error**. | The **Destination URL** is not correct. | Correct the **Destination URL**. |
+| The status shows **Error** and the log shows a 401 or 403 response. | The receiver does not accept the selected **Authentication**. | Correct the credential for the selected mode. |
+| The status shows **Error**. | The receiver does not return a success status. | Make the receiver return a success status for the POST. |
+| The status shows **Error** for an HTTPS destination. | The receiver presents a certificate that the Profinity server does not trust. | Use a certificate that the Profinity server trusts. The Webhook Publisher has no option to skip certificate validation. |
 
 ## Related pages
 

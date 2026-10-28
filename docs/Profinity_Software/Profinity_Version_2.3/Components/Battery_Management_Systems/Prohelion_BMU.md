@@ -41,7 +41,7 @@ The hardware is described in the [Prohelion BMS documentation](../../../../Batte
 ## BMU management
 
 When you add a Prohelion BMU to the Profile, Profinity prompts for the information in the following table.
-The **Change Settings** button at the top-right of the BMU dashboard changes these details later.
+The **Change Settings** button on the BMU dashboard changes these details later.
 
 | Parameter | Description | Default |
 |----------------------|-----------------------------------------------------------------------------------------------------|---------|

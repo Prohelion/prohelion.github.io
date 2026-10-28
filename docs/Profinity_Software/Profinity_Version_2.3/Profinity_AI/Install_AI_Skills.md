@@ -23,7 +23,7 @@ Before you install for Claude Code, Cursor, or Codex, finish [Prepare Profinity 
 - [Connect Claude Code to Profinity](../Integrating_to_Profinity/MCP_Server/Connect_Claude_Code.md)
 - [Connect Codex to Profinity](../Integrating_to_Profinity/MCP_Server/Connect_Codex.md)
 
-Without that connection, the skills can still use the REST API for schema and saves when the instance is reachable, but they cannot read live tag and alert data through MCP.
+Without that connection, the skills can still use the REST API for schema and saves when the instance is reachable, but they cannot read live tag and alert data through Model Context Protocol (MCP).
 
 ## Install the agent skills
 

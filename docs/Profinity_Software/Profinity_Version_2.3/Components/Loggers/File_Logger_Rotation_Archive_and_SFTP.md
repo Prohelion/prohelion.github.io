@@ -28,7 +28,7 @@ For example, enter `home/sftp/upload` and not `/home/sftp/upload`.
 If a transfer fails, Profinity writes an error to the Profinity system logs.
 Refer to [Logs](../../Administration/Logs_Config.md) for where to read them.
 The CAN SFTP Logger writes "Failed to transfer archived file via SFTP" and the TAG SFTP Logger writes "Failed to transfer archived TAG log via SFTP", each followed by the file name and the reason.
-A connection or login failure also logs "Failed to connect to the SFTP server to test the connection" and "Failed to transfer the file <name> to the SFTP server".
+A connection or login failure also logs "Failed to connect to the SFTP server to test the connection" and "Failed to transfer the file `<name>` to the SFTP server".
 Check the host, port, credentials, and remote directory.
 
 ## Archive, compression, and rotation

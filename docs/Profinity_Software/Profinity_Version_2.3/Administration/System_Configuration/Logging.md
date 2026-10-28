@@ -3,7 +3,7 @@ title: Logging
 description: "Set the log level, log rollover size and number of retained logs on the System Configuration Logging tab."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-10-28
 ---
 
 # Logging
@@ -26,7 +26,7 @@ The default rollover size of 1 MB fills quickly on a busy instance, so raise **L
 <figcaption>Profinity Logs Configuration Menu</figcaption>
 </figure>
 
-Each logging level also includes every more severe level, so `Trace` records every message from `Debug` through `Fatal`.
+Each logging level also includes every more severe level, so `Trace` records every message from `Trace` through `Fatal`.
 The table lists the levels.
 
 | Logging Level   | Description                                                                                          |

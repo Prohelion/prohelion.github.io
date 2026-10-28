@@ -53,7 +53,7 @@ Installed plugins live in a `plugins/{pluginId}/` folder.
 The registry of installed plugins is `config/plugins.yaml`.
 Both are inside the [artefacts directory](../Installation/Artifacts_Directory.md), which gives the location for each operating system.
 Both names are lowercase, which matters on Linux where the file system is case-sensitive.
-Plugins that ship with Profinity are loaded from `plugins/core` under the engine install folder.
+Plugins that ship with Profinity are loaded from `plugins/core` under the Profinity install folder.
 
 For the industrial protocol components, refer to [Industrial protocols](../Components/Industrial_Protocols/index.md).
 It covers BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7.

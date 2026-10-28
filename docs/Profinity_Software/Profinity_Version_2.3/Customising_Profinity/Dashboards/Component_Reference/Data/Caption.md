@@ -22,7 +22,7 @@ Use [Readouts](Readouts.md) for a measurement with a unit and precision, and [HT
 | `value` | string | No | None | Static text shown when no `value` binding supplies the text. When no data is available, the caption shows `--` and is displayed as stale |
 | `bind` | array | No | None | Data binding. The `value` target supplies the text, which is displayed as a string, and the `color` target supplies the colour |
 
-The web interface accepts but ignores `id`, `label`, `enabled`, and `visible`.
+`id`, `label`, `enabled`, and `visible` are accepted but have no effect.
 
 A `color` value other than the four listed is ignored, and the text keeps its normal colour.
 

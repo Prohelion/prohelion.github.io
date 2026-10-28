@@ -3,7 +3,7 @@ title: Script types
 description: "Choose between the seven Profinity script modes, including the shape a Custom Component script uses."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-28
 ---
 
 # Script types
@@ -40,7 +40,8 @@ A [Custom Component](../../Custom_Components/index.md) main script is a service 
 | [Rule Script](./Rule_Scripts.md) | Run On Alert | Notifications and side effects beyond the built-in rule actions. The script runs when a rule names it as an action. |
 
 A Run Script is not the right choice for continuous monitoring or real-time responses, and a Service Script is not the right choice for one-off or manual tasks.
-A Receive, Tag Change or Rule Script handler should return quickly, because a new event that arrives while it is still running is handled according to **Trigger Overlap**.
+Keep a Receive, Tag Change or Rule Script handler short, because a new event that arrives while it is still running is handled according to **Trigger Overlap**.
+A threshold rule can start several of those events in one evaluation, so a rule script that must finish on the step the value lands on uses **Queue**, as described under [Trigger overlap](./Rule_Scripts.md#trigger-overlap).
 
 ## Custom Component scripts
 
@@ -71,7 +72,7 @@ The schedule, receive, and tag change settings appear only for the mode that use
 | Setting | Applies to | Meaning |
 |---------|------------|---------|
 | **Script Mode** | All | The mode the script runs in |
-| **Auto Start Script** | All | Starts the script when Profinity starts. Off by default |
+| **Auto Start Script** | All | Starts the script automatically when the component loads: it starts a service, receiver, or watcher, runs an On Demand script once, and arms a scheduled script. Off by default |
 | **Log Script Output** | All | Writes the script's console output to the script log. Off by default |
 | **Trigger Overlap** | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
 | **Queue Depth** | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
@@ -87,14 +88,14 @@ A value of -1 means traffic never expires.
 ## Keeping scripts healthy
 
 A script runs inside the Profinity engine, so a loop, lock, or open connection that is never released slows every other component.
-A script should be reviewed whenever Profinity performs badly while that script is running.
+Review a script whenever Profinity performs badly while that script is running.
 
 !!! info "Scripts run inside Profinity"
     Inefficient code, leaked memory or leaked resources run inside the Profinity engine and affect it directly.
 
 Keep each script short, release anything it opens when the script stops, and set **Maximum Run Time (seconds)** on any script that could stall.
-A Tag Change, Receive, or Rule Script handler stops at **Maximum Run Time (seconds)** only when the script checks `Profinity.ScriptCancelled`, so a long handler should check it regularly.
-A script that fails should write the failure to the Profinity Logs, so that a failed scheduled run can be traced afterwards.
+A Tag Change, Receive, or Rule Script handler stops at **Maximum Run Time (seconds)** only when the script checks `Profinity.ScriptCancelled`, so check it regularly in a long handler.
+Write a failure to the Profinity Logs, so that a failed scheduled run can be traced afterwards.
 Switch **Log Script Output** on while the script is being developed.
 For event-driven scripts, use **Queue** with a small **Queue Depth** when no event may be lost and **Drop** when only the newest state matters.
 
@@ -103,3 +104,4 @@ Use `State` for values that belong to one script.
 Use `GlobalState` only for values that several scripts share.
 Remove a value once nothing needs it.
 Refer to [State](../Script_Operations/State.md) for how each scope behaves.
+The handler rules for each type are on [Receive scripts](./Receive_Scripts.md), [Tag Change scripts](./Tag_Change_Scripts.md), and [Service scripts](./Service_Scripts.md).

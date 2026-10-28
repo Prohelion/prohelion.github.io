@@ -9,7 +9,7 @@ last_reviewed: 2026-10-20
 # Pack a Custom Component for other installations
 
 As of Profinity 2.3, a Custom Component that works in one profile can be packed and installed on other systems, with no rebuild of the component.
-The pack is a bundle of the component's own files (DBC, dashboard, scripts, and maps), not a compiled DLL plugin.
+The pack is a bundle of the component's own files (CAN database (DBC), dashboard, scripts, and maps), not a compiled DLL plugin.
 
 You need:
 

@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Getting started with Profinity
 
 These pages take a new Profinity 2.3 user from a first install to live data on a dashboard.
-Work through them in order, or go straight to the page you need.
+Start with the Quick start guide, then go to the page for your next job.
 
 - [Quick start guide](Quick_Start.md): install Profinity, load an example profile, replay a CAN log, edit your first dashboard, and look at rules and alerts.
 - [Create a user](Create_User.md): create a user, set an initial password, and assign roles. This needs a Server licence, so skip it until you need other people to sign in.

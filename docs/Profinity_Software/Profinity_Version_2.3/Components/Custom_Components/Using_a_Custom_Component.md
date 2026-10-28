@@ -30,9 +30,20 @@ A Custom Component can do the same for a third-party CAN device, or for a compon
     Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 To make a first Custom Component, follow [Make your first Custom Component](../../Developing_with_Profinity/Custom_Components/First_Custom_Component.md).
-To attach optional files afterwards, refer to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
 [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md) describes the files that make one up.
 It also compares a Custom Component with a Dashboard Component and a dynamic-link library (DLL) plugin.
+
+## Add a Custom Component
+
+A Custom Component needs only a name, and every file attached to it is optional.
+You need the **Modify components** permission.
+
+1. Select **ADD COMPONENT** in the side menu or on the home page.
+2. Select **Custom Component**.
+3. Enter a **Name** that is unique in the profile, and save.
+
+The component appears in the side menu and opens its starter dashboard.
+To attach files, open the component settings and use the **Pack files** and **Scripts** tabs, as described in [What appears in the profile](#what-appears-in-the-profile).
 
 ## What appears in the profile
 
@@ -40,8 +51,9 @@ After the component is saved it is listed in the side menu and opens onto its da
 Loggers, rules, and scripts bind to it the same way they bind to any other component.
 
 Component settings are arranged as **Settings**, **Pack files**, **Scripts**, and **Security**, with **Security** last.
-Upload the DBC, dashboard, rules file, actions file, settings map, firmware map, and firmware file under **Pack files**.
-Set the main script and **Auto Start Main Script** under **Scripts**.
+Upload the DBC, dashboard, rules file, actions file, settings map, firmware map, and firmware file under **Pack files**, and leave a field empty when that file is not needed.
+The format of each YAML file is in [Custom Component files](../../Developing_with_Profinity/Custom_Components/Files.md).
+Set the main script and **Auto Start Main Script** under **Scripts**, as described in [Main script](../../Developing_with_Profinity/Custom_Components/Main_Script.md).
 
 A component installed from a content pack hides **Pack files** and **Scripts**, because those files belong to the pack.
 It shows **Name**, **Tag tree path**, menu placement, and the fields declared in the pack's settings map.
@@ -50,10 +62,16 @@ It shows **Name**, **Tag tree path**, menu placement, and the fields declared in
 
 A Custom Component can have a DBC file, a dashboard, or both.
 Each is optional and uploaded under **Pack files**.
-
-- **DBC file.** With a DBC file the component gets **Messages and Signals** and **Edit DBC File** in its menu, so its CAN traffic can be read as named messages and signals. If the file fails to parse, the component stays in the profile and Messages and Signals is left out until the file is fixed. Refer to [CAN bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md). For the **Rebase DBC** setting that shifts message identifiers to a different base address, refer to [How to create a Custom Component](../../How_To_Guides/Create_Custom_Component.md).
-- **Dashboard.** The dashboard is the component's page in the profile. With none uploaded, Profinity creates a template dashboard named after the component. The dashboard editor on the component opens that file so you can edit it into the finished dashboard. Refer to the [Profinity dashboard development guide](../../Customising_Profinity/Dashboards/index.md) and [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md).
+A DBC file adds **Messages and Signals** and **Edit DBC File** to the component menu, and the dashboard is the component's page.
+Refer to [DBC, dashboard, and rules](../../Developing_with_Profinity/Custom_Components/DBC_Dashboard_and_Rules.md) for both, and to [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md) to build the dashboard.
 
 Live values that a script publishes are tags, and a dashboard binds those tags whether or not a DBC file is present.
+
+## Check the component
+
+1. Confirm the component is in the side menu and opens its dashboard.
+2. If you set a main script, connect it and confirm that the tags the script publishes update on the dashboard.
+3. If you attached a DBC file, open **Messages and Signals** and confirm that the expected messages arrive.
+   [How to replay CAN bus logs](../../How_To_Guides/Replay_CAN_Logs.md) shows how to supply recorded traffic while you check.
 
 To install the component on other systems, refer to [Pack a Custom Component for other installations](Pack_a_Custom_Component.md).

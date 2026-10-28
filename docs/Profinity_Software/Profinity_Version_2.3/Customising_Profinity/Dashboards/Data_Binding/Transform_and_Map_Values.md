@@ -3,7 +3,7 @@ title: Transform and map values
 description: "Convert a bound value to another type, scale it with gain and offset, invert it, or map it to display text, with complete dashboard YAML examples."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Transform and map values
@@ -93,7 +93,7 @@ dashboard:
                         toType: "number"
 ```
 
-To invert a boolean or numerical value, set `invert: true`:
+To invert a boolean or numerical value, set `toType` and `invert: true`, because `invert` has no effect without `toType`:
 
 ```yaml
 dashboard:

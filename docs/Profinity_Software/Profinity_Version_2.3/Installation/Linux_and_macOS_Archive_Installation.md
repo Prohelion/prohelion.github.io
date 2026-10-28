@@ -3,7 +3,7 @@ title: Install Profinity from an archive
 description: "Install Profinity on Linux or macOS from a downloaded archive without an installer, choose the archive for your processor, and start it with profinity.sh."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Install Profinity from an archive
@@ -90,8 +90,8 @@ INFO: Profinity Services Starting
 INFO: Now listening on: http://127.0.0.1:18080
 ```
 
-The address in the last line is `127.0.0.1` when the installation has no Server licence or trial, because Profinity then listens on the local machine only.
-Otherwise the address is `0.0.0.0` (all network interfaces).
+The address in the last line is the address Profinity listens on.
+The default is `0.0.0.0` (all network interfaces), and `127.0.0.1` means that only the local machine can connect.
 To open the web interface and sign in, refer to [Open the web interface](./Linux_and_macOS_Installation.md#open-the-web-interface).
 On Linux, create the artefacts directory and set its ownership before the first start, or set `PROFINITY_HOME` to a writable path, as described in [Where Profinity stores its data](./Linux_and_macOS_Installation.md#where-profinity-stores-its-data).
 

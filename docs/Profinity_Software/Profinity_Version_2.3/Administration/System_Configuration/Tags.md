@@ -14,13 +14,13 @@ Refer to [System Configuration](index.md) for what to expect.
 Profinity keeps a rolling in-memory history of recent tag values, which is used for dashboard charts and for the recent-history queries described under [Application Config](Application_Config.md).
 The Tags tab sets the limits on that buffer, so that it cannot grow without bound on a busy instance.
 
-| Parameter                          | Description |
-|------------------------------------|--|
-|`Max Points Per Tag`                | The most samples kept for a single tag (default 1500). When it is exceeded the oldest samples for that tag are removed. |
-|`Max Total Points (All Tags)`       | The most samples kept across all tags (default 100000). |
-|`Share eviction budget across tags` | When enabled (the default), the total limit is enforced by dropping the oldest samples across all tags, rather than per tag. |
-|`Point TTL (Minutes)`               | Samples older than this are pruned (default 60). |
-|`Max Dynamically Tracked Tags`      | The most tags tracked on demand, such as by a dashboard that has just opened (default 200). When it is exceeded the least recently used are dropped. |
-|`Dynamic Track Inactivity TTL (Minutes)` | A dynamically tracked tag that nobody has used for this long is removed (default 45). |
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `Max Points Per Tag` | 1500 | The most samples kept for a single tag. When it is exceeded the oldest samples for that tag are removed. |
+| `Max Total Points (All Tags)` | 100000 | The most samples kept across all tags. |
+| `Share eviction budget across tags` | Enabled | When enabled, the total limit is enforced by dropping the oldest samples across all tags, rather than per tag. |
+| `Point TTL (Minutes)` | 60 | Samples older than this are pruned. |
+| `Max Dynamically Tracked Tags` | 200 | The most tags tracked on demand, such as by a dashboard that has just opened. When it is exceeded the least recently used are dropped. |
+| `Dynamic Track Inactivity TTL (Minutes)` | 45 | A dynamically tracked tag that nobody has used for this long is removed. |
 
 TTL stands for time to live.

@@ -20,10 +20,8 @@ Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Pe
 
 !!! warning "A sent packet can command connected hardware"
     A packet sent from Profinity goes on to the live CAN bus, and every connected device acts on it.
-    A packet can start a motor controller, open a contactor, or change a device setting.
-    Check what is connected to the bus, and what the packet's CAN ID and data mean, before you send it.
-    Be especially careful with a scheduled packet, which keeps sending until you delete it.
-    Refer to [How to send and receive CAN bus messages](../How_To_Guides/Send_Receive_CAN_Bus.md#send-a-can-packet).
+    Check what is connected to the bus, and what the packet means, before you send it.
+    The full warning is in [How to send and receive CAN bus messages](../How_To_Guides/Send_Receive_CAN_Bus.md#send-a-can-packet).
 
 ## Receive CAN packets
 
@@ -34,6 +32,16 @@ The window shows all the CAN bus messages currently travelling across your netwo
 ![The Receive CAN Packets window with the CAN Activity table of messages travelling across the network](../images/receive_can_packets.png)
 <figcaption>Receive CAN Packets</figcaption>
 </figure>
+
+The **CAN Activity** table has these columns:
+
+| Column | Contents |
+|--------|----------|
+| **CAN ID** | The message identifier |
+| **Data** | The message data bytes |
+| **Direction** | Incoming or outgoing |
+| **Count** | The number of times the message was seen |
+| **Time** | The timestamp of the last message |
 
 Select the **CAN Activity** table headers to filter or sort the messages by CAN ID, direction, flags, and so on.
 Adapters that support them also show endian representation and local traffic filtering in the same header, as [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) describes.

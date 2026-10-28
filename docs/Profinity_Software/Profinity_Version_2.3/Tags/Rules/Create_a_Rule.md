@@ -30,12 +30,12 @@ Saving needs **Modify tag rules**, as listed under [Rule settings](Rule_Settings
 9. Optional: Set **Dwell seconds** to `10`. The temperature then has to stay above a limit for 10 seconds before the alert is raised.
 10. Select **SAVE**. The editor shows "Rules saved". A failed save shows "Save failed:" followed by the validation error.
 
-To check the rule, replay the example CAN log.
+To check the rule, [replay the example CAN log](../../Getting_Started/Quick_Start.md#step-3-replay-the-example-can-log).
 The maximum cell temperature in the log rises from about 32.6 °C to 35.6 °C over its 44 minutes.
 A Warning alert for **Max cell temperature** appears in the [Alerts Log](../Alerts.md) after about 4 minutes of replay, and the Fatal alert appears after about 36 minutes.
 To reach the Fatal alert sooner, move the playback to a later position in the log.
 An alert clears when the temperature falls below its clear value, which the example log does not do.
-[Complete rules.yaml example](Rules_YAML_Example.md) shows a full rules file with every setting.
+[Complete rules.yaml example](Rules_YAML_Example.md) shows a full rules file that uses most of the settings.
 
 A new rule records its alert and runs only the actions it inherits from its rule set and groups, until you attach actions to it.
 Refer to [Rule actions](Actions/index.md) for how to attach them.

@@ -38,7 +38,7 @@ Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Ta
 | `label` | string | No | None | Title displayed above the chart |
 | `bind` | array | No | None | Tag and time-series bindings that supply the chart data. Use the `value` target |
 
-The web interface accepts but ignores `class`, `showControls`, `enabled`, and `visible`.
+`class`, `showControls`, `enabled`, and `visible` are accepted but have no effect.
 
 Most chart types take static data as `labels` and `datasets`, and a `bubble`, `scatter` or `radar` chart takes datasets only.
 A chart with a `refreshInterval` polls for its data instead of using the live data feed.

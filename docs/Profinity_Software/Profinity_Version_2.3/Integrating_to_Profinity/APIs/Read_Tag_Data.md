@@ -15,7 +15,7 @@ Each request needs a Bearer token (refer to [Authenticate to the Profinity REST 
 ## Read historical data
 
 Historical data is retrieved in three steps.
-The first two use `POST /api/v2/TagQuerySet`, which requires the `TagView` permission (**View tags**).
+Step 2 uses `POST /api/v2/TagQuerySet`, which requires the `TagView` permission (**View tags**).
 For more information on configuring InfluxDB, refer to [InfluxDB and Prometheus Logging](../../Components/Loggers/index.md).
 
 1. Configure an InfluxDB database in the profile.
@@ -23,7 +23,7 @@ For more information on configuring InfluxDB, refer to [InfluxDB and Prometheus 
     - Each binding names a tag `source` and a `store` of `Local` or `Logged`.
     - For the `Logged` store, a binding also carries the `timeRangeStart` and `timeRangeStop` of the InfluxDB range.
     - A `Logged` binding can also carry `seriesMode`, `aggregationWindow` and `aggregationFunction` values.
-3. Send `GET /api/v2/TagQuerySet/Delta/{sourceSet}` to poll that set. It returns only the values that have changed since the previous poll.
+3. Send `GET /api/v2/TagQuerySet/Delta/{sourceSet}` to poll that set, replacing `{sourceSet}` with the `srcSetId` from the response in step 2. It returns only the values that have changed since the previous poll.
 
 A response that carries values for the requested time range shows the query worked.
 

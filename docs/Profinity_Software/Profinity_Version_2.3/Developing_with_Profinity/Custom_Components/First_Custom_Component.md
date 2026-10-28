@@ -12,10 +12,13 @@ This tutorial adds a [Custom Component](../../Components/Custom_Components/Using
 
 [Download the Hello component pack :material-download:](hello.zip){ .md-button }
 
-Unzip the pack, then attach the files in the steps that follow.
-The pack includes a CAN database (DBC) file so this path can bind a CAN signal.
-It also includes firmware files so the component can show an Output Limit field.
+The Hello pack already contains every file this tutorial uses: `hello.dbc`, `hello.yaml`, `actions.yaml`, `firmware_map.yaml`, `firmware.yaml`, `scripts/hello.py`, `scripts/load_firmware.py`, and `scripts/save_firmware.py`.
+It also holds `settings_map.yaml` and `component_metadata.yaml`, which the last step of this path uses to pack the folder.
+Unzip the pack, create the Hello component in Profinity, and attach the pack files to it in the steps that follow.
+The tutorial lists the content of each file so you can read it, and you do not write any of them.
+The pack includes a CAN database (DBC) file so this path can bind a CAN signal, and firmware files so the component can show an Output Limit field.
 A Custom Component does not need a DBC file or firmware files.
+
 At the end, the component:
 
 - Publishes a `count` tag.
@@ -23,6 +26,7 @@ At the end, the component:
 - Shows those values on its page.
 - Has **Connect / Disconnect** in the menu.
 - Shows an **Output Limit** firmware field.
+
 The path takes about 20 minutes.
 
 ## What you need
@@ -54,7 +58,7 @@ A [DBC file](../../CAN_Utilities/CAN_Bus_DBC.md) names the CAN messages the comp
 This example uses a DBC file.
 A Custom Component does not need one.
 
-1. Create a file named `hello.dbc` that contains this DBC:
+1. Open `hello.dbc` from the unzipped pack. It contains this DBC:
 
     ```text
     VERSION ""
@@ -71,7 +75,7 @@ A Custom Component does not need one.
 
     The file describes one message named `Temperature` with one signal named `Value`.
 
-2. On the **Hello** dashboard, select the three bar icon at the top right to open the settings.
+2. On the **Hello** dashboard, select the three bar settings icon in the dashboard menu to open the settings.
 3. Select the **Pack files** tab.
 4. Set **Upload DBC File (Optional)** to `hello.dbc`.
 5. Select **SAVE**.
@@ -82,7 +86,7 @@ The component menu includes **Messages and Signals** and **Edit DBC File**.
 
 A [main script](Main_Script.md) is a long-running service that publishes tags for the component.
 
-1. Create a file named `scripts/hello.py` that contains this Python:
+1. Open `scripts/hello.py` from the unzipped pack. It contains this Python:
 
     ```python
     import time
@@ -105,11 +109,13 @@ A [main script](Main_Script.md) is a long-running service that publishes tags fo
 
     The script publishes a tag named `count` under the component once a second.
 
-2. Open the settings from the three bar icon.
-3. Select the **Scripts** tab.
-4. Set **Main Script (Optional)** to `scripts/hello.py`.
-5. Turn on **Auto Start Main Script**.
-6. Select **SAVE**.
+2. Copy the `scripts` folder from the unzipped pack into the Hello folder under `components` in the active profile, so that `scripts/hello.py` resolves.
+   The profile sits in the `profiles` folder of the [Artefacts directory](../../Installation/Artifacts_Directory.md).
+3. Open the settings from the three bar icon.
+4. Select the **Scripts** tab.
+5. Set **Main Script (Optional)** to `scripts/hello.py`.
+6. Turn on **Auto Start Main Script**.
+7. Select **SAVE**.
 
 Profinity starts the main script because **Auto Start Main Script** is on.
 Select **TAG UTILITIES** in the side menu to open the [Tag Explorer](../../Tags/index.md), expand **Hello**, and find `count`.
@@ -120,7 +126,7 @@ The value increases once a second.
 The dashboard is the component's page.
 This file binds `count` from the main script and `DBC/Temperature/Value` from the DBC file.
 
-1. Create a file named `hello.yaml` that contains this dashboard:
+1. Open `hello.yaml` from the unzipped pack. It contains this dashboard:
 
     ```yaml
     version: "2.3"
@@ -165,7 +171,7 @@ The **Hello** page shows **COUNT** updating once a second.
 `actions.yaml` adds items to the component menu.
 This file adds **Connect / Disconnect** for the main script.
 
-1. Create a file named `actions.yaml` that contains this YAML:
+1. Open `actions.yaml` from the unzipped pack. It contains this YAML:
 
     ```yaml
     version: "2.3"
@@ -191,7 +197,7 @@ Refer to [Firmware actions](Firmware_Actions.md).
 This example uses a firmware map and firmware scripts.
 A Custom Component does not need them.
 
-1. Create a file named `firmware_map.yaml` that contains this YAML:
+1. Open `firmware_map.yaml` from the unzipped pack. It contains this YAML:
 
     ```yaml
     version: "2.3"
@@ -212,24 +218,23 @@ A Custom Component does not need them.
                 index: 0x10
     ```
 
-2. Create a file named `scripts/load_firmware.py` that contains this Python:
+2. Open `scripts/load_firmware.py` from the unzipped pack. It contains this Python:
 
     ```python
     Profinity.FirmwareSettings.SetValue("outputLimit", 80)
     print("Firmware settings loaded")
     ```
 
-3. Create a file named `scripts/save_firmware.py` that contains this Python:
+3. Open `scripts/save_firmware.py` from the unzipped pack. It contains this Python:
 
     ```python
     value = Profinity.FirmwareSettings.GetValue("outputLimit")
     print(value)
     ```
 
-4. Copy the `scripts` folder into the Hello folder under `components` in the active profile.
-   The profile sits in the `profiles` folder of the [Artefacts directory](../../Installation/Artifacts_Directory.md).
+4. Check that the `scripts` folder is in the Hello folder, which you copied in the main script step.
 
-5. Create a file named `firmware.yaml` that contains this YAML:
+5. Open `firmware.yaml` from the unzipped pack. It names the load and save scripts and contains this YAML:
 
     ```yaml
     version: "2.3"

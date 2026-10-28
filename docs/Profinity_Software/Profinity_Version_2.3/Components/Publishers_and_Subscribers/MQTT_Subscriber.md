@@ -111,12 +111,13 @@ Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for 
 The MQTT Subscriber shows **On** while it is connected to the broker, **Error** while it is running but not connected, and **Off** when it is stopped.
 While it is in **Error**, it retries as described under [Reconnection](#reconnection).
 
-If the status shows **Error**, check the [Logs](../../Administration/Logs_Config.md) for the underlying message.
-Then confirm that the **Server URL** scheme and **Broker port** match the broker, and that the broker accepts the **Username** and **Password**.
+Check the [Logs](../../Administration/Logs_Config.md) for the underlying message first.
 
-If the component stays **Off**, confirm that **Server URL**, **Topic filter**, **Host ID** and **Tag path prefix** are all set.
-The subscriber does not start without them.
-
-If the component is **On** but no tags appear, check that the **Topic filter** covers the group you expect.
+| Symptom | Cause | Fix |
+|---|---|---|
+| The status shows **Error**. | The **Server URL** scheme or **Broker port** does not match the broker. | Correct the scheme and port. |
+| The status shows **Error**. | The broker does not accept the **Username** and **Password**. | Correct the credentials. |
+| The status stays **Off**. | One of **Server URL**, **Topic filter**, **Host ID** or **Tag path prefix** is not set, so the subscriber does not start. | Set all four. |
+| The status shows **On** but no tags appear. | The **Topic filter** does not cover the group you expect. | Change the **Topic filter** to cover that group. |
 
 Use the [MQTT Publisher](MQTT_Publisher.md) or [Webhook Publisher](Webhook_Publisher.md) to send data out, and [Tag Relays](../Tag_Relays/index.md) to share tags between Profinity instances.

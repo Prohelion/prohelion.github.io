@@ -25,7 +25,7 @@ Use a single [Lamp](Lamp.md) for one indicator beside other components, and [Rea
 | `class` | string | No | None | CSS class added to the `lamp-grid` element |
 | `items` | array | Yes | None | Array of lamp groups. Each group is displayed as one column |
 
-The web interface accepts but ignores `id`.
+`id` is accepted but has no effect.
 
 ### Lamp group parameters
 
@@ -35,7 +35,7 @@ Each item in `items` must contain a `lampgroup` object with:
 |-----------|------|----------|---------|-------------|
 | `items` | array | Yes | None | Array of lamps. The column width scales automatically with the number of lamps |
 
-The web interface accepts but ignores `id` and `class`.
+`id` and `class` are accepted but have no effect.
 
 Each item in the lamp group's `items` must contain a `lamp` object.
 The [Lamp component](Lamp.md) page describes the lamp parameters, the colour names and the [display rules](Lamp.md#display-rules) that a lamp follows.

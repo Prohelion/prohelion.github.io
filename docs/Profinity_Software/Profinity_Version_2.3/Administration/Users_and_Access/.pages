@@ -1,7 +1,9 @@
 nav:
     - index.md
     - Manage_Users.md
+    - Create_a_Role.md
     - Roles_and_Permissions.md
     - Service_Accounts.md
     - MFA_Account_Management.md
     - Component_And_Collection_Security.md
+    - Restrict_a_Component_or_Collection.md

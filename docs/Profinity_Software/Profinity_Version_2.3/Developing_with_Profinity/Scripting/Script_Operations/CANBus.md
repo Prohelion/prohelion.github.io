@@ -256,5 +256,5 @@ The following example sends a packet and then checks for a response.
 
 Receive scripts are the better choice for real-time packet reception than polling `LatestCanBusPacketReceived`.
 The `LatestCanBusPacketsReceived` dictionary stores only the most recent packet for each CAN ID, so an older packet is overwritten by a newer one.
-A script should check for null, `None` or `nil` before it reads packet properties, because no packet may exist for a given CAN ID.
+Check for null, `None` or `nil` before reading packet properties, because no packet may exist for a given CAN ID.
 The `SendMessage()` return value is the number of interfaces the packet was sent on, which helps when debugging a multi-adapter configuration.

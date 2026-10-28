@@ -173,10 +173,10 @@ Lua uses the `Profinity.State:Get` and `Profinity.State:Set` calls from the Stor
 Each store has three methods: `Get(key)`, `Set(key, value)` and `Clear()`, which removes every value in the store.
 The individual calls are thread-safe, but a sequence of calls is not atomic.
 A read followed by a write can lose an update when two scripts run it at the same time on the same `GlobalState` key.
-The run counter in the More complete examples section is one case.
-Neither store survives a Profinity restart, and both keep their values in memory, so a script should store only the data it needs.
+A counter held in `GlobalState` is one case. The run counter in the More complete examples section uses `State`, which is not shared with other scripts.
+Neither store survives a Profinity restart, and both keep their values in memory, so store only the data a script needs.
 
-`Get` returns null for a key that has not been set, so every `Get` should be checked for null.
+`Get` returns null for a key that has not been set, so check every `Get` for null.
 Name each key for its purpose.
 Store one value type under each key.
 Prefix the keys written to `GlobalState` with the script name, so that two scripts do not overwrite each other.

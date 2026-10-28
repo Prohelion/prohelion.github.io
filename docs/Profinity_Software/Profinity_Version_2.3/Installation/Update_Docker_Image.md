@@ -58,5 +58,7 @@ services:
 
 In this compose file, the `label` limits updates to the Profinity container, `--cleanup` removes old images, and `--interval 86400` checks once a day.
 Refer to the [Watchtower documentation](https://containrrr.dev/watchtower/) for the other options.
-An unattended update discards any data that is not in a host-mounted volume, so check that `PROFINITY_HOME` matches the mount before you enable it.
+
+!!! warning "Unattended updates can discard data"
+    An unattended update discards any data that is not in a host-mounted volume, so check that `PROFINITY_HOME` matches the mount before you enable it.
 

@@ -3,7 +3,7 @@ title: Rule actions
 description: "Choose actions for a tag rule, add Email, Slack, Webhook, MQTT, and script actions, and see how actions are inherited and which message placeholders exist."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Rule actions
@@ -11,7 +11,7 @@ last_reviewed: 2026-10-15
 A [tag rule](../index.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
 Profinity 2.3 has two built-in actions, **Profinity Log** and **None**.
 It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
-Every action receives the list of tags that caused the rule to fire.
+Every action receives the list of tags in the rule's scope that are currently evaluating true.
 This list is named `TriggeredTags` in a script and `triggeringTags` in the Webhook and MQTT JSON message.
 
 !!! info "Licence required"
@@ -86,6 +86,25 @@ An action entry may be a bare name or an object with `action` and optionally `me
 - `level` sets the level that **Profinity Log** writes at.
 
 The `tagId` and `value` fields substitute a different tag path and value for those reported to the action.
+
+A **Run On Alert** script action may also carry optional `parameters`: a map of names to values that the script reads from the alert context.
+Each value is either a literal (`string`, `number`, or `boolean`) or a tag variable written as `tag: <path>`.
+When the rule fires, string literals expand the [message placeholders](#message-placeholders), and each tag variable becomes that tag's current value.
+A missing tag yields no value for that name; the script still runs.
+Parameter names are chosen by the script author.
+**Profinity Log**, **None**, Email, Slack, Webhook, and MQTT reject `parameters`.
+
+```yaml
+actions:
+  - action: PackTempScript
+    message: "Pack {TagId} is {Value}"
+    parameters:
+      setpoint: 45
+      unit: C
+      source:
+        tag: Vehicles/Car1/Battery/PackTemperature
+```
+
 An action that is not found, or is not an action component, is reported as `references unknown component` when the rules file loads.
 The rules file does not load until the name is corrected.
 

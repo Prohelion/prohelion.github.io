@@ -48,7 +48,7 @@ Give each person one role that matches their job, and add a second role only whe
 
 Profinity provides a single built-in role, **Administrators**, which holds every permission and is assigned to the default `admin` account.
 An administrator creates every other role from the **Roles** tab to suit the site.
-[Roles and permissions](./Roles_and_Permissions.md) explains how to build a role, lists every permission, and suggests starting points.
+[Create a role](./Create_a_Role.md) explains how to build a role and suggests starting points, and [Roles and permissions](./Roles_and_Permissions.md) lists every permission.
 Examples are a viewer role for people who only watch the system and a role for people who run it each day.
 
 Because **Administrators** includes managing users and changing the system configuration, keep it for initial setup and emergencies.
@@ -84,7 +84,7 @@ Changing the user's **Assigned roles** has the same effect.
 
 The [Password policy](../System_Configuration/Security/Password_Policy.md) sets password length, age, and complexity for the whole site.
 [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md) describes how the second sign-in step is enabled and what users see.
-How long a sign-in lasts and when repeated failures lock a user out are set in [Session policy and login lockout](../System_Configuration/Security/index.md#session-policy-and-login-lockout).
+How long a sign-in lasts and when repeated failures lock a user out are set in [Session policy and login lockout](../System_Configuration/Security/Session_Policy.md).
 
 ## After creating a user
 

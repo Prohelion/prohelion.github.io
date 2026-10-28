@@ -11,7 +11,7 @@ last_reviewed: 2026-10-27
 Connect the Codex command-line client or IDE extension on your computer to the Profinity Model Context Protocol (MCP) server.
 Codex can then read live components, tags, and alerts.
 Finish [Prepare Profinity for an MCP client](Prepare_Profinity.md) first.
-You need the MCP address and the service account token from that page.
+You need the MCP address and the service account token from those pages.
 Install [AI Skills](../../Profinity_AI/Install_AI_Skills.md) when you also want Codex to build dashboards, rules, collections, scripts, plugins, derived tags, or example apps.
 
 Profinity does not offer OAuth for this server.
@@ -42,7 +42,7 @@ The same variable has to be set before the IDE extension starts, because a windo
 ## Trust the certificate
 
 Skip this section when the address is HTTP on the same computer.
-For HTTPS, export the public certificate and trust it in the operating system, as described in [Prepare Profinity for an MCP client](Prepare_Profinity.md#export-the-https-certificate).
+For HTTPS, export the public certificate and trust it in the operating system, as described in [Trust the HTTPS certificate](Trust_HTTPS_Certificate.md).
 Codex has no documented setting that points one MCP server at a certificate file, and no setting that turns certificate checking off.
 Restart Codex after the operating system trusts the certificate.
 Use a host name that is on the certificate. `localhost` is on the certificate Profinity generates.
@@ -64,9 +64,8 @@ An empty list means the active profile has no components, or the service account
 
 - A certificate error means the operating system trust was not in place before Codex started, or the address is not a name on the certificate. Trust the exported certificate, then start Codex again. A certificate from a trusted authority avoids this step.
 - Codex asks to authenticate, or `/mcp` offers a login. The bearer variable is missing or empty, so Codex falls through towards OAuth. Set `PROFINITY_TOKEN` and restart Codex. Do not complete an OAuth login for this server.
-- A 401 means the variable is set to an old or incomplete token. Generate or copy the current service account token and restart Codex.
-- A 403 means the account lacks **MCP integration**.
+- A 401 or 403 response is explained in [MCP connection errors](Connection_Errors.md). When the variable holds an old or incomplete token, generate or copy the current service account token and restart Codex.
 - `profinity` is absent from `/mcp`. The table heading is not `[mcp_servers.profinity]`, or Codex was started with a different configuration file.
 
-The shared HTTP responses are in [Prepare Profinity for an MCP client](Prepare_Profinity.md#when-the-connection-fails).
+Other HTTP responses are in [MCP connection errors](Connection_Errors.md).
 When Codex can read the instance, continue with [AI Skills](../../Profinity_AI/AI_Skills.md).

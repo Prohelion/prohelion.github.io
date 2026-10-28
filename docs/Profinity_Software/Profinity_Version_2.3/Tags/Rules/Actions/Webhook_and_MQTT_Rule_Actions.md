@@ -15,6 +15,9 @@ Both actions send the same message, so a subscriber sees an identical structure 
 The message is JSON with these properties:
 
 - The property names are camelCase.
+- `ruleId` is the stable identifier of the rule, and `ruleName` is its name.
+- `triggerTagId` is the tag whose change caused this firing.
+- `message` is the alert message with its placeholders expanded, which is the text the Slack and Email actions send. It is empty when the rule has no message.
 - `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep`, or `ExitedStep`.
 - `triggeringTags` holds the same tags that a script receives as `TriggeredTags`, but each row carries `tagId`, `value`, and `quality` only.
 
@@ -69,6 +72,6 @@ The other modes report a matching message for their missing fields.
 | **Destination topic** | The topic the message is published to when the action fires. Required. |
 | **Quality of service** | **At most once**, **At least once** (default) or **Exactly once**, the Quality of Service (QoS) level used for the publish. |
 
-Both actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
+Both actions need the **Tag Rule Actions** licensed feature, as described in [Rule actions](index.md).
 To add one to a profile so that a rule can select it, refer to [Making an action available](index.md#making-an-action-available).
 For the Email and Slack actions, refer to [Email and Slack rule actions](Email_and_Slack_Rule_Actions.md).

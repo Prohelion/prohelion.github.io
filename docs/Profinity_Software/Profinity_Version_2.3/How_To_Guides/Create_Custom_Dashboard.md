@@ -9,7 +9,7 @@ last_reviewed: 2026-10-20
 # How to create a custom dashboard
 
 Create your first custom dashboard in the dashboard visual editor.
-No YAML knowledge is needed for the visual steps, and each step also shows its YAML equivalent.
+No YAML knowledge is needed.
 
 A custom dashboard can belong to either of two component types:
 
@@ -17,18 +17,17 @@ A custom dashboard can belong to either of two component types:
   Examples are a battery management system (BMS), a motor controller, or an industrial protocol client.
 - A [Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md) has its own DBC file, so it shows the signals that the DBC file decodes from the CAN bus.
 
-Both start from the same template dashboard and use the same editor, so the steps on this page apply to either type.
-Only the tag paths differ, as described in [Add your first data binding](#add-your-first-data-binding).
+Both start from the same template dashboard and use the same editor, so the steps on this page apply to either type, and only the tag paths differ.
 
 ## Prerequisites
 
 - One of the following components in your profile:
     - A Dashboard Component (refer to [Add a Dashboard Component](../Components/Dashboard/Dashboard_Component.md#add-a-dashboard-component)), plus at least one other component that publishes the tags to show
-    - A Custom Component (refer to [How to create a Custom Component](./Create_Custom_Component.md)) with a CAN database (DBC) file attached, because a signal has a tag to bind only when a DBC file is attached
+    - A Custom Component (refer to [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md#add-a-custom-component)) with a CAN database (DBC) file attached, because a signal has a tag to bind only when a DBC file is attached
 - The **Modify dashboards** permission, which allows dashboards to be edited
 
 To practise without a device, load the Example Profile and replay `example_log.csv`, as described in the [Quick start guide](../Getting_Started/Quick_Start.md).
-Add a Dashboard Component and bind to a tag such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
+Add a Dashboard Component and bind to a tag such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`, where `Prohelion BMU` is the name of the BMU component in the Example Profile.
 
 ## Open the dashboard editor
 
@@ -42,39 +41,8 @@ Add a Dashboard Component and bind to a tag such as `/Prohelion BMU/DBC/PackStat
 2. In the **Inspector**, change the label to `TEMPERATURE`.
 3. In the **Binding** section, add a binding for the `value` property and choose the tag for the temperature.
 
-As an alternative, select the **YAML** tab and replace the static label with a data binding.
-The source path depends on the component type that owns the dashboard.
-
-=== "Dashboard Component"
-
-    ```yaml
-    - value:
-        label: TEMPERATURE
-        precision: 1
-        bind:
-          - target: value
-            source: /My Device/DBC/Temperature/Value
-    ```
-
-    A Dashboard Component has no DBC, so a relative path finds no tag.
-    Start the source with `/` and the name of the component that publishes the tag.
-    Replace `My Device`, `Temperature`, and `Value` with the component, message, and signal names in your profile.
-
-=== "Custom Component"
-
-    ```yaml
-    - value:
-        label: TEMPERATURE
-        precision: 1
-        bind:
-          - target: value
-            source: DBC/Temperature/Value
-    ```
-
-    A source that starts with `DBC/` is relative to the Custom Component that owns the dashboard.
-    Replace `Temperature` and `Value` with the message and signal names from its DBC file.
-    To show a tag from another component, use an absolute path that starts with `/`.
-
+In a Custom Component, a source that starts with `DBC/` is relative to the component that owns the dashboard, such as `DBC/Temperature/Value`.
+In a Dashboard Component, which has no DBC file, start the source with `/` and the name of the component that publishes the tag, such as `/My Device/DBC/Temperature/Value`.
 [Data binding](../Customising_Profinity/Dashboards/Data_Binding/index.md#binding-source-paths) describes the source paths in full.
 
 ## Add more components
@@ -83,38 +51,19 @@ The source path depends on the component type that owns the dashboard.
 2. Select **Add**, and choose **Value (in pill)** in the **Add component** window.
 3. Set its label to `PRESSURE` in the **Inspector** and bind it to the pressure tag in the **Binding** section.
 
-As an alternative, add additional readouts in the **YAML** tab.
-This example uses the relative paths of a Custom Component.
-In a Dashboard Component, start each source with `/` and the component name, as in the previous section.
-
-```yaml
-- pillgroup:
-    items:
-      - value:
-          label: TEMPERATURE
-          precision: 1
-          bind:
-            - target: value
-              source: DBC/Temperature/Value
-      - value:
-          label: PRESSURE
-          precision: 2
-          bind:
-            - target: value
-              source: DBC/Pressure/Value
-```
+To see or edit the YAML for what you built, select the **YAML** tab, as [Visual Editor reference](../Customising_Profinity/Dashboards/Visual_Editor.md#yaml-tab) describes.
 
 ## Validate and save
 
-1. Fix anything listed under **Schema validation issues**.
-   The editor checks the dashboard against the schema as you work, and it blocks **SAVE** while any entry remains.
+1. Fix anything listed under **Schema validation issues**, because the editor blocks **SAVE** while any entry remains.
 2. Select **SAVE** when the list is empty.
-3. Close the editor to see the result on the dashboard.
-   **DESIGN** is an outline, not a live preview.
+3. Close the editor to see the result on the dashboard, because **DESIGN** is an outline and not a live preview.
+
+The dashboard now shows your two labelled values with live data.
 
 ## Next steps
 
-- [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md): the editor in full
+- [Build a dashboard in the Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md): the editor in full
 - [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md): the full reference for dashboards
 - [Core elements](../Customising_Profinity/Dashboards/Core_Elements.md): more complex layouts
 - [Component reference](../Customising_Profinity/Dashboards/Component_Reference/index.md): available components

@@ -70,6 +70,7 @@ A derived tag built on a stale input is therefore stale, and it still computes f
 A derived tag built on an input with no value is unavailable.
 
 To handle missing inputs yourself, for example with `a.HasValue`, set `inputQuality: ignore` on the derived tag in the YAML.
+The YAML is `derived_tags.yaml` by default, in the `derived_tags` folder of the profile directory, which is inside the [artefacts directory](../../Installation/Artifacts_Directory.md#default-locations).
 The tag then evaluates whatever the input quality, and is Good when the expression succeeds.
 The default is `inputQuality: propagate`.
 

@@ -37,7 +37,7 @@ Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 | `enabled` | boolean | No | `true` | Whether the button can be clicked. The state can be bound with the `enabled` target |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `enabled`, `tooltip` and `classes` targets are handled |
 
-The web interface accepts but ignores `id`, `hyperlink`, `openHyperLinkInNewWindow`, and `visible`.
+`id`, `hyperlink`, `openHyperLinkInNewWindow`, and `visible` are accepted but have no effect.
 To navigate, use `invoke: Navigate` with `target`.
 To control the visibility of an action, use a binding on the component that contains the action.
 
@@ -72,7 +72,6 @@ Refer to [Action invocation](../Images_and_Models/Overlay_Elements.md#action-inv
 Endpoint actions run from the browser.
 The browser sends the HTTP request itself, with the signed-in user's credentials.
 An action button with `invoke: Endpoint` therefore works the same way as an `Endpoint` on a region, icon, or button of an [Image](../Images_and_Models/Image.md) or [3D model](../Images_and_Models/Model.md) component.
-The Actions API does not run `Endpoint` or `Navigate` invocations, and answers one that reaches it with "Endpoint and Navigate invokes are not executed by this API."
 If the request fails, the browser shows an error message with the reason.
 
 ## Examples

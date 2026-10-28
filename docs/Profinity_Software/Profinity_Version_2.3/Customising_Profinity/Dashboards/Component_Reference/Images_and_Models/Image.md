@@ -18,14 +18,15 @@ An interactive image is a base image from the `/Profile/Images` directory with o
 Use an interactive image for device diagrams, system layouts, interactive schematics and visual data overlays.
 Use the [HTML](../Content/HTML.md) component with an `img` element for a simple static image, the [Charts](../Data/Charts.md) component for charts, and the [3D model](Model.md) component for a three-dimensional view.
 
-The base image carries seven kinds of overlay element:
+The base image carries six kinds of overlay element, plus layers that group them:
 
 - Regions are clickable rectangles that navigate to another page or run an action.
 - Icons and buttons are positioned graphics and controls that can run an action.
 - Data values display live system data.
 - Points anchor annotation lines.
 - Annotation lines connect elements and may bend at waypoints called elbows.
-- Layers are named groups of overlay elements that the user shows and hides.
+
+Layers are named groups of overlay elements that the user shows and hides.
 
 Icons can be an emoji, a Scalable Vector Graphics (SVG) path or an image file.
 Every overlay element is positioned relative to the base image.
@@ -59,8 +60,12 @@ Store the image file in the profile's `/Profile/Images` directory (refer to [Ima
 Refer to it by filename only.
 
 ```yaml
-image:
-  image: "device-diagram.png"
+dashboard:
+  items:
+    - row:
+        items:
+          - image:
+              image: "device-diagram.png"
 ```
 
 Regions, icons, buttons, data values, points and elbows are all positioned relative to this base image.
@@ -77,10 +82,10 @@ A region also takes the [Region parameters](Overlay_Elements.md#region-parameter
 | `y` | number | No | None | Top edge of the region as a percentage of the image height, from `0` to `100` |
 | `width` | number | No | None | Width of the region as a percentage of the image width |
 | `height` | number | No | None | Height of the region as a percentage of the image height |
-| `coordinates` | string | No | None | Older form of the rectangle, written as `xywh=x,y,width,height`. Use `x`, `y`, `width` and `height` instead. Refer to the note after this table |
+| `coordinates` | string | No | None | Alternative form of the rectangle, written as `xywh=x,y,width,height`. Use `x`, `y`, `width` and `height` instead. Refer to the note after this table |
 | `visibleBorder` | boolean | No | `true` | Whether to show the border of the region |
 
-Profinity still reads `coordinates` when `x`, `y`, `width` and `height` are not all set.
+`coordinates` is used when `x`, `y`, `width` and `height` are not all set.
 Write the four values of `coordinates` as percentages in plain numbers, without a `%` or `px` suffix.
 
 A region that navigates to another page:

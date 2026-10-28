@@ -27,7 +27,7 @@ To create a Profile Dashboard from the built-in template:
 2. Select the profile and open its settings.
 3. Switch on **Custom Home Dashboard** and leave **Dashboard YAML file (Optional)** empty.
 4. Save the profile settings. Profinity creates a starter dashboard from the built-in template.
-5. Select the pencil (**Edit Dashboard**) icon on the home page to edit the dashboard in the visual editor, as described in [Dashboard visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md).
+5. Select the pencil (**Edit Dashboard**) icon on the home page to edit the dashboard in the visual editor, as described in [Build a dashboard in the Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md).
 
 To use an existing dashboard YAML file instead, select it in **Dashboard YAML file (Optional)** in step 3.
 It opens in the visual editor like any other dashboard.

@@ -4,4 +4,5 @@ nav:
     - Password_Policy.md
     - Two_Factor_Authentication.md
     - Two_Factor_Sign_In.md
+    - Session_Policy.md
     - SCIM_and_SIEM.md

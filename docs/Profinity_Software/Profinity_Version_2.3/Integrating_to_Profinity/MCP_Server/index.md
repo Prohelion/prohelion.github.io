@@ -27,7 +27,7 @@ The [capability table](../../Profinity_AI/AI_Skills_Reference.md#what-each-tool-
 
 Prepare the instance once, then follow the guide for the tool you use.
 
-- [Prepare Profinity for an MCP client](Prepare_Profinity.md): turn the server on, create a service account token, and choose an address.
+- [Prepare Profinity for an MCP client](Prepare_Profinity.md): turn the server on, create a service account token, choose an address, and trust the HTTPS certificate.
 - [Connect Cursor to Profinity](Connect_Cursor.md)
 - [Connect Claude Code to Profinity](Connect_Claude_Code.md)
 - [Connect Codex to Profinity](Connect_Codex.md)

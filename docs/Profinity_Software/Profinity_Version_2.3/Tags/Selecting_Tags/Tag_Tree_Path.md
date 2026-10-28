@@ -15,7 +15,7 @@ The setting is stored as `tagTreeParentPath` in the component's YAML.
 
 Nesting suits profiles that model physical or logical groupings.
 Examples are several subsystems of one vehicle, or several instances of one component type that represent the bays, strings, or vehicles in a fleet.
-The shared folder appears in the tag tree and in the Tag Explorer, so an integrator or user can navigate the tree the way the physical system is organised.
+The shared folder appears in the tag tree and in the **Tag Explorer**, so an integrator or user can navigate the tree the way the physical system is organised.
 
 The following sketch shows the effect of giving two components a **Tag tree path** of `Vehicles/Car1`:
 
@@ -27,8 +27,8 @@ Inverter/                          Car1/
                                      Inverter/
 ```
 
-The Tag Explorer shows the same structure for a full profile.
-In the Tag Explorer example, each component appears as a branch under the root of the tree, and its tags are grouped into folders such as `DBC`.
+The **Tag Explorer** shows the same structure for a full profile.
+In the **Tag Explorer** example, each component appears as a branch under the root of the tree, and its tags are grouped into folders such as `DBC`.
 A component with a **Tag tree path** set appears in the same way, inside its parent folders instead of at the root.
 
 <figure markdown>

@@ -10,6 +10,18 @@ last_reviewed: 2026-10-15
 
 This page explains how to diagnose and fix dashboard problems with data that does not update or display, performance, and individual components.
 
+## Dashboard does not load
+
+A dashboard that fails to load, or that cannot be saved, has a validation error, because Profinity does not load an invalid dashboard.
+Open **Edit Dashboard** from the title bar, read the **Schema validation issues** list, which names each problem, and correct each entry.
+The usual causes are a missing colon, wrong indentation, an invalid property name, or an absent required property.
+The editor blocks **SAVE** while any entry remains, so save once the list is empty and close the editor to see the result.
+
+A dashboard whose saved layout no longer matches the schema shows the message "This dashboard no longer matches the schema", with the buttons **Reset from Template** and **View Logs**.
+
+!!! warning
+    **Reset from Template** replaces the dashboard with the latest template and loses every customisation, so use it only when the dashboard is not needed.
+
 ## Data binding issues
 
 ### Data not updating
@@ -23,6 +35,23 @@ Check the following in the Tag Explorer:
 For a `DBC/` tag, check that the CAN database (DBC) file defines the signal and that the component is connected and sending data.
 If the tag shows a value but the component does not, check that `toType`, when it is set, matches the type that the tag publishes.
 A number treated as a string displays, but it does not drive a lamp or a chart.
+
+To separate a binding fault from a data fault, temporarily replace the binding with a static value.
+If the readout shows it, the readout displays correctly and the fault is in the binding or the data.
+Add the binding back one element at a time to find the element that fails.
+
+``` yaml
+# Replace the binding with a static value to test the readout
+dashboard:
+  items:
+    - row:
+        items:
+          - readouts:
+              items:
+                - readout:
+                    label: "TEST"
+                    value: 42.5
+```
 
 ``` yaml
 # Verify the source path matches the tag path in the Tag Explorer
@@ -193,6 +222,13 @@ Check that the file exists in the `images` folder of the profile, that the filen
 A profile image with the same name as a built-in image is never used, so rename it.
 For the accepted file types and the lookup order, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#images).
 
+### Style has no effect
+
+The web interface loads only `profile.css` from the `styles` folder of the profile, so import any other stylesheet from `profile.css`.
+The class named in the dashboard must match the one in the CSS exactly.
+A `class` on a `readout` item has no effect, so put it on the `readouts` element.
+For where the file goes, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#styles).
+
 ### Pill values do not group
 
 Each `pillgroup` must contain an `items` array, and each item must be wrapped in a `value` object.
@@ -238,7 +274,7 @@ Style rules go in `profile.css` in the `styles` folder, as described in [Store d
 To find a problem early:
 
 - Read the dashboard schema through `GET /api/v2/UI/schema` for the exact property requirements.
-- Use the validation in the visual editor.
+- Use the validation in the Visual Editor.
 - Compare the dashboard with the annotated [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md) and the examples in the [Component reference](./Component_Reference/index.md).
 
 If the problem persists, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) and include the YAML configuration, any error messages, and the expected and actual behaviour.

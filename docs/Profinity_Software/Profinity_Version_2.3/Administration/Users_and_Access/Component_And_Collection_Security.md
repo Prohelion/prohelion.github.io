@@ -29,45 +29,7 @@ Only a user with the **Security administration** permission can see or change th
 **Modify components** and **Modify tag collections** control editing of the resource itself, but neither permission gives access to its **Security** tab or panel.
 [Roles and permissions](Roles_and_Permissions.md) explains how permissions and roles are assigned generally.
 
-## Restricting a component
-
-To restrict a component:
-
-1. Open the component's settings dialog from the profile menu or the component list.
-2. Select the **Security** tab, which sits beside **Settings** and **Firmware** (when present).
-3. Set **Mode** to **Restricted**.
-4. Add one or more roles to **Allowed roles**.
-5. Save the tab.
-
-The component is now visible only to users who hold one of the allowed roles, plus the users described in [Who bypasses a restriction](#who-bypasses-a-restriction).
-To check, sign in as a user without an allowed role and confirm the component no longer appears.
-Setting **Mode** back to **All** removes the restriction.
-
-The **Security** tab is shown only to a user with **Security administration**.
-Any other user, including one with **Modify components**, does not see the tab at all.
-
-<figure markdown>
-![The Security tab of a component settings dialog, with the Mode dropdown and the Allowed roles list](../../images/component-security-tab.png)
-<figcaption>Security tab on a component settings dialog</figcaption>
-</figure>
-
-## Restricting a collection
-
-To restrict a collection:
-
-1. Open the **Collections** editor.
-2. Select the collection in the tree.
-3. Open the **Security** panel in the inspector.
-4. Set **Mode** to **Restricted**.
-5. Add one or more roles to **Allowed roles**.
-
-The panel is the same for the built-in **(All Tags)** collection and for every custom collection.
-Changes save with the rest of the collection's settings.
-
-<figure markdown>
-![The Security panel in the Collections editor inspector, with the Mode dropdown and the Allowed roles list](../../images/collection-security-panel.png)
-<figcaption>Security panel on a collection in the Collections editor</figcaption>
-</figure>
+To restrict a component or a collection, follow [Restrict a component or collection](./Restrict_a_Component_or_Collection.md).
 
 ## Mode and allowed roles
 

@@ -3,7 +3,7 @@ title: Install Profinity with Docker
 description: "Install and start Profinity in a Docker container with Docker Compose, sign in, and give the container access to the host's CAN interfaces."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-28
 ---
 
 # Install Profinity with Docker
@@ -12,8 +12,9 @@ Run Profinity in a Docker container on most devices that can run Docker, includi
 Prohelion publishes the Profinity image for `linux/amd64`, `linux/arm64`, and `linux/arm/v7`, and Docker pulls the variant that matches the host processor.
 
 A container binds all network interfaces, so other machines can reach it.
-A new installation starts a one-time 14-day local trial with the Server features, and then drops to the unlicensed feature set.
-Apply a licence file under **ADMIN > License** before the trial ends, as described in [Apply a licence](./Applying_a_Licence.md).
+A new installation starts a one-time 14-day local trial with the Server features.
+When the trial ends, Profinity keeps answering on its published ports in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired), where only sign-in, the **License** page, and the logs work.
+Apply a licence file under **ADMIN > License**, as described in [Apply a licence](./Applying_a_Licence.md).
 For who can sign in, refer to [Who can sign in, by installation type](./Applying_a_Licence.md#who-can-sign-in).
 
 To upgrade a 2.2 container, read [Upgrade from Profinity 2.2](./Upgrade_From_2_2.md) first.
@@ -52,7 +53,13 @@ To move an existing installation to a newer image, refer to [Update the Profinit
             - $HOME/Prohelion:/app/Prohelion:rw
     ```
 
-3. Check that the host directory mounted at `PROFINITY_HOME` is writable by the `app` user, because the container runs as that non-root user.
+3. On Linux, create the data directory and give the container user ownership of it, because the container runs as the non-root `app` user (ID 1654) and Docker otherwise creates the directory owned by `root`:
+
+    ```bash
+    mkdir -p "$HOME/Prohelion"
+    sudo chown 1654:1654 "$HOME/Prohelion"
+    ```
+
 4. In the directory that holds the compose file, run `docker compose up -d`.
 5. Open `http://localhost:18080` on the local machine, or `http://<your-ip-address>:18080` from another machine.
 
