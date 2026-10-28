@@ -72,11 +72,15 @@ The level filter on the Active and History queries is not case-sensitive.
 
 ## Live indicators
 
-The web client polls active alerts every four seconds and shows three indicators:
+The web client polls active alerts every four seconds and shows a triangle for Warning and above:
 
-- A yellow alert triangle at the bottom right of any [dashboard](../Customising_Profinity/Dashboards/index.md) widget bound to an alerting tag.
-- An alert icon on tags in Tag Explorer that have an active alert.
-- A highlighted **ALL ALERTS** entry in the side menu while any alert is active.
+- An orange triangle marks Warning.
+- A red triangle marks Error or Fatal.
+- The triangle sits at the bottom right of a [dashboard](../Customising_Profinity/Dashboards/index.md) widget, beside a tag in Tag Explorer, on a side-menu item, and on an image or 3D hotspot.
+- Trace, Debug, Info, and an alert with no level do not show a triangle.
+  Those alerts still appear in the Alerts Log.
+- Where several alerts apply at once, the triangle follows the highest of those levels.
+- The side menu highlights **ALL ALERTS** while any alert is active.
 
 Hovering over an indicator shows a summary of the alert.
 Selecting it opens the Alerts Log when the user holds the **View alerts** permission.
