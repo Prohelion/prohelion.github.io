@@ -1,9 +1,9 @@
 ---
 title: Rule settings
-description: Look up how a rule is evaluated, including dwell, deadband, and the evaluation tick, how a rule publishes its state to a tag, and the permissions rules need.
+description: Look up how a rule is evaluated, including dwell, deadband, unreadable tags, and the evaluation tick, how a rule publishes its state to a tag, and the permissions rules need.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-10-29
 ---
 
 # Rule settings
@@ -18,6 +18,7 @@ The editor exposes these settings for evaluation:
 
 - **Rule level** and **Rule type** for each rule.
 - **Dwell seconds**, **Throttle minutes**, and the **More information links** for each rule.
+- **When the tag is unreadable** for each rule.
 - **Evaluation tick (seconds)** on the rules source.
 - **Publish state tag path** in the **Rule State** group of each rule.
 
@@ -32,6 +33,28 @@ Rules support two settings that stop an alert flickering on and off:
 
 - **Throttle minutes**, `throttleMinutes` in YAML, stops the actions of one rule on one tag from running again within that number of minutes. It applies to both the trip and the clear.
 - **More information links**, `moreInformation` in YAML, adds links to a rule. Each has a `description` label and an `https://` `url`, and the Alerts Log detail dialog lists them under **DOCUMENTATION**.
+
+## Unreadable tags
+
+A tag is unreadable when it has no value, for example while a device is offline.
+By default a rule holds its current state while its tag is unreadable.
+An alert that is active stays active, and an alert that is clear stays clear, until the tag can be read again.
+A short dropout therefore does not clear an alert, because a missing reading does not show that the condition has passed.
+
+A rule that alerts on a lost reading, such as `!tag.HasValue`, must be evaluated while the tag is unreadable, or it can never trip.
+Set **When the tag is unreadable** to **Evaluate the rule** for that rule, or set `onUnreadable: evaluate` in YAML:
+
+```yaml
+- rule:
+    id: temperature_sensor_lost
+    expression: "!tag.HasValue"
+    onUnreadable: evaluate
+```
+
+The setting takes `hold` (the default) or `evaluate`.
+Any other value skips that rule, and the other rules in the file still load.
+Add `onUnreadable: evaluate` to any rule from an earlier release whose expression reads `HasValue` or `Quality`, because those rules no longer run while the tag is unreadable unless you ask.
+After a rules file is saved or reloaded, a tag that was readable before the save is still treated as one that has dropped out.
 
 ## Evaluation tick
 
@@ -55,7 +78,8 @@ tag.Value < 4.0
 ```
 
 A no-data or stale sensor condition is written as follows.
-The term `!tag.HasValue` catches a tag that has never had a value:
+The term `!tag.HasValue` catches a tag that has never had a value.
+Set the rule to evaluate while the tag is unreadable, as described under [Unreadable tags](#unreadable-tags):
 
 ```text
 !tag.HasValue || tag.IsStale
