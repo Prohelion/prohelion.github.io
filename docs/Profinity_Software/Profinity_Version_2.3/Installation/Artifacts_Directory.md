@@ -97,4 +97,4 @@ Stop Profinity before you copy or restore the folders, restore by replacing thos
 - Two instances share one configuration: give each its own `PROFINITY_HOME` and its own HTTP and HTTPS ports.
 
 For the Linux service layout and launcher, refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
-For Docker volume mounts, refer to [Install Profinity with Docker](./Docker_Installation.md).
+For Docker volume mounts, refer to [Install Profinity with Docker](./Docker/index.md).

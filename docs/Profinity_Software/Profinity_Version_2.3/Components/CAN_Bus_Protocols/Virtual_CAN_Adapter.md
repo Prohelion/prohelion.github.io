@@ -24,7 +24,7 @@ Traffic is routed in both directions.
 A different CAN adapter, such as a SocketCAN or Peak USB adapter, connects Profinity to the CAN network.
 The Virtual Adapter has no setting that selects its partner adapter.
 It forwards traffic between itself and every other active CAN adapter in the Profile.
-Add the [Peak or SocketCAN adapter](CAN_Bus_Adapters.md) to the same Profile first.
+Add the [Peak or SocketCAN adapter](CAN_Bus_Adapters/index.md) to the same Profile first.
 
 ## Virtual adapter settings
 
@@ -49,7 +49,7 @@ Profinity can only select the network interface.
     Two bridges on the same CAN bus that are also on the same Ethernet network form a cyclic network.
     In a cyclic network, every message is resent indefinitely until the CAN bus is overloaded.
     Give each bridge a unique bus number unless you are joining two buses deliberately.
-    Refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md) and the [bus number guidance](CAN_Bus_Adapter_Settings.md#tritium-can-to-ethernet-bridge) for the physical bridge.
+    Refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md) and the [bus number guidance](CAN_Bus_Adapters/CAN_Bus_Adapter_Settings.md#tritium-can-to-ethernet-bridge) for the physical bridge.
 
 If a client cannot connect, check these things:
 
@@ -58,5 +58,5 @@ If a client cannot connect, check these things:
 
 For how the Virtual Bridge speaks both the V1 and V2 bridge protocols and serves several clients at once, refer to [Virtual CAN adapter protocol and client support](Virtual_CAN_Adapter_Protocols.md).
 
-For the physical adapters that the Virtual Adapter relays to, refer to [CAN bus adapters](CAN_Bus_Adapters.md).
+For the physical adapters that the Virtual Adapter relays to, refer to [CAN bus adapters](CAN_Bus_Adapters/index.md).
 For the bridge that the Virtual Adapter imitates, refer to the [CAN to Ethernet bridge documentation](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/index.md).

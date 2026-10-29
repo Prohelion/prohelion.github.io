@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Install Profinity on Linux and macOS
 
 Install Profinity on Linux or macOS with the bootstrap installer, or from a downloaded archive.
-For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md), and for containers, refer to [Install Profinity with Docker](./Docker_Installation.md).
+For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md), and for containers, refer to [Install Profinity with Docker](./Docker/index.md).
 
 | Method | Use when | Result |
 |--------|----------|--------|

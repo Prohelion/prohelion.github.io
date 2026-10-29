@@ -80,7 +80,7 @@ Profinity enforces the site policy when it saves the new password.
 
 ## Related pages
 
-- [Two-factor authentication](./Two_Factor_Authentication.md)
+- [Two-factor authentication](./Two_Factor_Authentication/index.md)
 - [MFA account management](../../Users_and_Access/MFA_Account_Management.md)
 - [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md)
 - [Managing users](../../Users_and_Access/Manage_Users.md)

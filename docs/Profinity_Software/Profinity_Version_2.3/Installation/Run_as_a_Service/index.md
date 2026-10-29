@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Run Profinity as a service
 
 Run Profinity as a service to start it automatically on boot and restart it if it fails, which suits production environments where uptime matters.
-Install Profinity first, using the page for your platform: [Install Profinity on Windows](../Windows_Installation.md), [Install Profinity on Linux and macOS](../Linux_and_macOS_Installation.md), or [Install Profinity with Docker](../Docker_Installation.md).
+Install Profinity first, using the page for your platform: [Install Profinity on Windows](../Windows_Installation.md), [Install Profinity on Linux and macOS](../Linux_and_macOS_Installation.md), or [Install Profinity with Docker](../Docker/index.md).
 In Docker, configure Docker to start the container on boot instead.
 
 As of Profinity V2, Profinity runs in server mode on Docker, macOS, and Linux (x86-64 and 64-bit Advanced RISC Machine (ARM), plus 32-bit ARM on Linux).

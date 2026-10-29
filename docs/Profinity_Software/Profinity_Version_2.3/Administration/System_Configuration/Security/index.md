@@ -16,8 +16,8 @@ Each group of settings has its own page, and the **Licensed feature** column in 
 |----------|------|------------------|
 | Sign-in method, local login and single sign-on (SSO) | [SSO and sign-in method](SSO_and_Sign_In.md) | **Enterprise Security** for **Sso** |
 | Password rules for local users | [Password policy](Password_Policy.md) | None |
-| Two-factor authentication and security-key sign-in | [Two-factor authentication](Two_Factor_Authentication.md) | **Two-Factor Authentication**; **Enterprise Security** for security keys |
-| Enrolling an authenticator, signing in with a code, and registering a security key | [Sign in with two-factor authentication](Two_Factor_Sign_In.md) | As for the settings above |
+| Two-factor authentication and security-key sign-in | [Two-factor authentication](Two_Factor_Authentication/index.md) | **Two-Factor Authentication**; **Enterprise Security** for security keys |
+| Enrolling an authenticator, signing in with a code, and registering a security key | [Sign in with two-factor authentication](Two_Factor_Authentication/Two_Factor_Sign_In.md) | As for the settings above |
 | System for Cross-domain Identity Management (SCIM) provisioning and Security Information and Event Management (SIEM) export | [SCIM and SIEM](SCIM_and_SIEM.md) | **Enterprise Security** for SCIM |
 | Session lifetime, idle timeout, concurrent sessions, and login lockout | [Session policy and login lockout](Session_Policy.md) | - |
 

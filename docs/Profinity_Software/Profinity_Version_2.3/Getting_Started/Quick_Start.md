@@ -15,7 +15,7 @@ You need the Profinity installer or image from Prohelion, on Windows, Linux, mac
 
 ## Step 1: Install Profinity and sign in
 
-1. Install Profinity, as described in [Install Profinity on Windows](../Installation/Windows_Installation.md), [Install Profinity on Linux and macOS](../Installation/Linux_and_macOS_Installation.md), or [Install Profinity with Docker](../Installation/Docker_Installation.md).
+1. Install Profinity, as described in [Install Profinity on Windows](../Installation/Windows_Installation.md), [Install Profinity on Linux and macOS](../Installation/Linux_and_macOS_Installation.md), or [Install Profinity with Docker](../Installation/Docker/index.md).
 2. On Windows, start Profinity from the Start menu.
    The Windows desktop application signs you in automatically, so you do not need a username or password.
 3. On Linux, macOS, and Docker, open `http://localhost:18080` in a browser and sign in as `admin` with the password `password`.

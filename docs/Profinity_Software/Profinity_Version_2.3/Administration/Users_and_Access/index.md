@@ -17,5 +17,5 @@ To create your first user, refer to [Create a user](../../Getting_Started/Create
 - [Roles and permissions](Roles_and_Permissions.md): see every permission and find the one a person is missing.
 - [Service accounts](Service_Accounts.md): create accounts with API tokens that never expire, for automation and Model Context Protocol (MCP) clients.
 - [MFA account management](MFA_Account_Management.md): reset a user's multi-factor authentication or password, and manage your own authenticator.
-- [Component and collection security](Component_And_Collection_Security.md): how restricting profile components and tag collections works.
-- [Restrict a component or collection](Restrict_a_Component_or_Collection.md): limit which roles can see a component or a tag collection.
+- [Component and collection security](Component_And_Collection_Security/index.md): how restricting profile components and tag collections works.
+- [Restrict a component or collection](Component_And_Collection_Security/Restrict_a_Component_or_Collection.md): limit which roles can see a component or a tag collection.

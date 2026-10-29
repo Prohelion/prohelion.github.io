@@ -3,14 +3,14 @@ title: Trust the HTTPS certificate
 description: "Export the certificate Profinity generates and trust it in macOS, Windows, or Linux so Cursor, Claude Code, and Codex accept an HTTPS MCP address."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-10-29
 ---
 
 # Trust the HTTPS certificate
 
 Export the public certificate that Profinity generates and trust it in the operating system, so an AI tool accepts an `https://` Model Context Protocol (MCP) address.
 Skip this page when you use the HTTP address on the same computer as Profinity.
-You need an [HTTPS address](Choose_Server_Address.md) and access to the computer that runs the AI tool.
+You need an [HTTPS address](Prepare_Profinity.md#choose-the-mcp-server-address) and access to the computer that runs the AI tool.
 
 When **Cert File** and the Windows certificate store fields are empty, Profinity creates its own certificate the first time HTTPS starts.
 The certificate file is `profinity_generated.pfx` in the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
@@ -68,7 +68,7 @@ Follow these steps on the computer that runs the AI tool:
         Another Linux distribution uses its own trusted-certificate command.
 
 Quit and reopen the AI tool after the operating system trusts the certificate.
-To confirm the trust, [check the server from the command line](Check_Server.md): a response without a certificate error shows it worked.
+To confirm the trust, [check that the server answers](Prepare_Profinity.md#check-the-server-answers): a response without a certificate error shows it worked.
 
 After the host name or a network address changes, stop Profinity, delete `profinity_generated.pfx`, and start Profinity again so it creates a certificate for the new names.
 Trust that new certificate again.

@@ -19,7 +19,7 @@ As of Profinity 2.3, a Custom Component can carry these optional parts:
 - Settings and firmware maps.
 
 Once it is in a profile, Profinity monitors, graphs, and logs it the same way as a built-in component.
-Built-in components such as the [Elmar Solar MPPT](../MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Motor_Controller/WaveSculptor.md) include their own DBC support, so Messages and Signals is available on them without a separate file.
+Built-in components such as the [Elmar Solar MPPT](../MPPT/Elmar_Solar_MPPT.md) and the [WaveSculptor](../Motor_Controller/WaveSculptor/index.md) include their own DBC support, so Messages and Signals is available on them without a separate file.
 A Custom Component can do the same for a third-party CAN device, or for a component whose live values a script publishes as tags.
 
 !!! info "Licence required"

@@ -15,7 +15,7 @@ The D1000 Gen1 Battery Management Unit (BMU) raises the charge current setpoint 
 On a D1000 Gen2 the BMS hardware handles charging, so refer to the [D1000 Gen2 documentation](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/index.md) for how charging is managed there.
 
 Profinity supports three charger types.
-A [Prohelion BMS](../Battery_Management_Systems/Prohelion_BMU.md) in the same Profile supplies the pack data.
+A [Prohelion BMS](../Battery_Management_Systems/Prohelion_BMU/index.md) in the same Profile supplies the pack data.
 A user needs the **Control charging** permission to see the charging controls (refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md)).
 
 <figure markdown>

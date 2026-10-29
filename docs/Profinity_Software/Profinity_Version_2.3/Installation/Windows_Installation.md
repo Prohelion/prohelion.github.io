@@ -9,10 +9,10 @@ last_reviewed: 2026-10-28
 # Install Profinity on Windows
 
 The Profinity Setup Wizard installs Profinity as a desktop application on Windows.
-For Linux and macOS, refer to [Install Profinity on Linux and macOS](./Linux_and_macOS_Installation.md), and for containers, refer to [Install Profinity with Docker](./Docker_Installation.md).
+For Linux and macOS, refer to [Install Profinity on Linux and macOS](./Linux_and_macOS_Installation.md), and for containers, refer to [Install Profinity with Docker](./Docker/index.md).
 
 The installer places Profinity in `C:\Program Files (x86)\Prohelion\Profinity`, and keeps configuration, profiles, and logs in the [artefacts directory](./Artifacts_Directory.md), which is `%LOCALAPPDATA%\Prohelion\Profinity` by default.
-To upgrade a 2.2 installation, read [Upgrade from Profinity 2.2](./Upgrade_From_2_2.md) first.
+To upgrade a 2.2 installation, read [Upgrade from Profinity 2.2](./Upgrading/Upgrade_From_2_2.md) first.
 
 ## Install Profinity
 

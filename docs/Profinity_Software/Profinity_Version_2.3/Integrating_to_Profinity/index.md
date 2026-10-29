@@ -41,7 +41,7 @@ Refer to [MCP Server](./MCP_Server/index.md) for the tool guides, and to the [MC
 APIs and MCP are for systems that call Profinity.
 Data can also be pushed out of or into a Profinity instance without a custom client.
 The [MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md) and [Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md) components send tag values to other systems.
-The [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber.md) component brings values in.
+The [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber/index.md) component brings values in.
 [Tag relay](../Tags/Tag_Relay.md) shares live tags between Profinity instances, and the receiving instance needs the **Receive external tags** permission.
 
 ## Scripting vs APIs

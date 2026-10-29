@@ -91,4 +91,4 @@ Expand the **MORE DETAILS** banner to see these readings:
 - MOSFET, controller, and power connector temperatures.
 - The auxiliary 12 V and 3 V supply and battery-side output voltages.
 
-The state of a connected battery is described on the [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU.md) page.
+The state of a connected battery is described on the [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU/index.md) page.

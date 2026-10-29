@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 Profinity can log and replay messages from your Controller Area Network (CAN) bus network, and can also log CAN bus data to timeseries databases such as InfluxDB and Prometheus.
 
-To log a set of CAN bus messages, first add a [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) to your [profile](../Getting_Started/Profiles.md), then connect to the adapter.
+To log a set of CAN bus messages, first add a [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) to your [profile](../Getting_Started/Profiles.md), then connect to the adapter.
 Refer to [How to connect to CAN bus](../How_To_Guides/Connect_to_CAN_Bus.md) for step-by-step guidance.
 Before logging, check that Profinity is receiving CAN bus messages in the **SEND & RECEIVED CAN** window (refer to [Send / receive CAN bus messages](Send_Receive_CAN_Bus_Messages.md#receive-can-packets)).
 Once CAN bus messages are coming in to Profinity, you are ready to log.

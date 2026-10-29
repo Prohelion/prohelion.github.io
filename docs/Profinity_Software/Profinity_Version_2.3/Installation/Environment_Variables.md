@@ -176,7 +176,7 @@ The Profinity image declares only ports 18080 and 18443, and Docker publishes on
 
 Mount the whole `/app/Prohelion` directory, so that the licence, security keys, and logs survive when the container is replaced.
 Keep the `config.yaml` and profile files that hold placeholders in the `config` and `profiles` folders of the mounted directory.
-`PROFINITY_HOME` must match the container-side mount path, as described in [Install Profinity with Docker](./Docker_Installation.md#install-with-docker-compose).
+`PROFINITY_HOME` must match the container-side mount path, as described in [Install Profinity with Docker](./Docker/index.md#install-with-docker-compose).
 Docker Compose reads a `.env` file in the same folder as the compose file automatically.
 To keep one file per environment, name the file explicitly:
 

@@ -25,7 +25,7 @@ A sender exports every tag that belongs to its selected collections, so create a
 </figure>
 
 Tag relay works only between Profinity instances, and it does not use Sparkplug, a Message Queuing Telemetry Transport (MQTT) payload format for industrial data.
-If the other end is a third-party Sparkplug B source, such as an edge gateway or a third-party Supervisory Control and Data Acquisition (SCADA) platform, use the [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber.md) instead.
+If the other end is a third-party Sparkplug B source, such as an edge gateway or a third-party Supervisory Control and Data Acquisition (SCADA) platform, use the [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber/index.md) instead.
 Refer to that page for the reverse comparison.
 
 ## How it works

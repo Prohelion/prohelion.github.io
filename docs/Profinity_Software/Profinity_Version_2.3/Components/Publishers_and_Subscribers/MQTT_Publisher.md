@@ -13,7 +13,7 @@ It publishes either on a fixed interval or whenever a member tag's value changes
 Any system subscribed to the broker receives the data as it is published.
 
 A publisher pushes to a subscriber that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.
-To bring data from an external source into Profinity instead, use the [MQTT Subscriber](MQTT_Subscriber.md).
+To bring data from an external source into Profinity instead, use the [MQTT Subscriber](MQTT_Subscriber/index.md).
 
 <figure markdown>
 ```mermaid

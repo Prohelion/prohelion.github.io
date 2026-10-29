@@ -83,7 +83,7 @@ Changing the user's **Assigned roles** has the same effect.
 ## Password and sign-in rules
 
 The [Password policy](../System_Configuration/Security/Password_Policy.md) sets password length, age, and complexity for the whole site.
-[Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md) describes how the second sign-in step is enabled and what users see.
+[Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication/index.md) describes how the second sign-in step is enabled and what users see.
 How long a sign-in lasts and when repeated failures lock a user out are set in [Session policy and login lockout](../System_Configuration/Security/Session_Policy.md).
 
 ## After creating a user

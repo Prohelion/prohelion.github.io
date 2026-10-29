@@ -11,7 +11,7 @@ last_reviewed: 2026-10-28
 Connect Profinity to a CAN bus network with a supported adapter, and check that messages arrive.
 You prepare and cable the adapter, add it to the profile, connect it, and look for traffic.
 
-You need a supported [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), the adapter's drivers where it needs them, a running Profinity with an active profile, and the **Modify components** permission ([Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
+You need a supported [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md), the adapter's drivers where it needs them, a running Profinity with an active profile, and the **Modify components** permission ([Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
 
 ## Prepare the adapter
 
@@ -54,20 +54,20 @@ The SocketCAN adapter is available on Linux and Docker installations only, and i
 1. Select **ADD COMPONENT** in the side menu.
    Profinity shows discovered adapters at the top of the screen.
 2. If the adapter is listed, select it to add it.
-   Otherwise, select the adapter type and enter its settings, which [CAN bus adapter settings](../Components/CAN_Bus_Protocols/CAN_Bus_Adapter_Settings.md) lists for each adapter.
+   Otherwise, select the adapter type and enter its settings, which [CAN bus adapter settings](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Settings.md) lists for each adapter.
 3. Select **ADD COMPONENT** at the bottom of the dialog.
 
 ## Connect the adapter and check for traffic
 
 1. Select the adapter in the sidebar.
 2. If **Auto Connect** is off, select **Connect** on the adapter dashboard, and wait for the adapter to connect.
-3. Check the status indicator, which [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapter_Troubleshooting.md#adapter-status) explains.
+3. Check the status indicator, which [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md#adapter-status) explains.
    Green means the adapter is connected and data is arriving.
 4. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN**, and confirm that messages appear in the CAN Activity panel.
    A user who holds only the **View CAN data** permission sees **RECEIVED CAN** instead.
    [How to send and receive CAN bus messages](./Send_Receive_CAN_Bus.md) describes the panel.
 
-If the adapter is not discovered, shows amber or red, or the panel stays empty, refer to [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapter_Troubleshooting.md).
+If the adapter is not discovered, shows amber or red, or the panel stays empty, refer to [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md).
 
 A bridge in TCP mode accepts one connection at a time, and one that was connected and disconnected rapidly rejects new TCP connections for a short time.
 If the connection fails, confirm that no other client holds the bridge, wait 30 seconds to a minute (refer to [Common Problems & Solutions](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Common_Problems_And_Solutions.md)), and restart Profinity if it still fails.

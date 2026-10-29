@@ -108,7 +108,7 @@ Open the person in **Users & Groups**, note their **Assigned roles**, and check 
 | **Profinity AI** | **Profinity AI** |
 
 If the permission is present and the person still cannot see a particular component or tag collection, that item is restricted to certain roles.
-Check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security.md).
+Check its allowed roles as described in [Component and collection security](./Component_And_Collection_Security/index.md).
 
 Profinity has no single administrator permission.
 Someone who needs broad access is given the **Administrators** role, or a role with the specific permissions they need.
@@ -118,8 +118,8 @@ Someone who needs broad access is given the **Administrators** role, or a role w
 - [Create a role](./Create_a_Role.md)
 - [Managing users](./Manage_Users.md)
 - [Password policy](../System_Configuration/Security/Password_Policy.md)
-- [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md)
+- [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication/index.md)
 - [Service accounts](./Service_Accounts.md)
 - [SSO and sign-in method](../System_Configuration/Security/SSO_and_Sign_In.md)
-- [Component and collection security](./Component_And_Collection_Security.md)
+- [Component and collection security](./Component_And_Collection_Security/index.md)
 - [Security guide](../../Installation/Security.md)

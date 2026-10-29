@@ -15,7 +15,7 @@ The [Send / receive CAN bus messages](../CAN_Utilities/Send_Receive_CAN_Bus_Mess
 Before you start, you need:
 
 - Profinity running, with an active [profile](../Getting_Started/Profiles.md) that has the adapter configured.
-- A [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) connected and active. To set one up, refer to [How to connect to CAN bus](./Connect_to_CAN_Bus.md).
+- A [CAN bus adapter](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) connected and active. To set one up, refer to [How to connect to CAN bus](./Connect_to_CAN_Bus.md).
 - A [role](../Administration/Users_and_Access/Roles_and_Permissions.md) that includes the **View CAN data** permission to receive and view CAN messages, and the **Send CAN messages** permission to send them.
 
 ## Check user permissions

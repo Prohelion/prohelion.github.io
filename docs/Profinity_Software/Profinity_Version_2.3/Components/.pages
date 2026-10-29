@@ -1,7 +1,5 @@
 nav:
     - index.md
-    - Connections_and_Reconnecting.md
-    - Logging_Modes.md
     - CAN_Bus_Protocols
     - Industrial_Protocols
     - Battery_Management_Systems
@@ -15,3 +13,5 @@ nav:
     - Dashboard
     - Cloud_Dashboard
     - Custom_Components
+    - Connections_and_Reconnecting.md
+    - Logging_Modes.md

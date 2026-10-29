@@ -23,7 +23,7 @@ You need the **System administration** permission to choose the method.
 3. Set **Sign-in method** to **Local** or **Sso**.
 
 With **Local** selected, the tab also offers **Enforce two-factor for local users** and **Allow security-key sign-in**.
-Refer to [Two-factor authentication](./Two_Factor_Authentication.md) for both.
+Refer to [Two-factor authentication](./Two_Factor_Authentication/index.md) for both.
 With **Sso** selected, the **SSO** and **SCIM Provisioning** groups appear.
 
 !!! note "Licence required"
@@ -110,7 +110,7 @@ The sign-in page now shows the username and password fields.
 
 ## Multi-factor authentication and SCIM
 
-With **Sso** selected, multi-factor authentication is enforced by the identity provider and Profinity's local [two-factor policy](./Two_Factor_Authentication.md) does not apply.
+With **Sso** selected, multi-factor authentication is enforced by the identity provider and Profinity's local [two-factor policy](./Two_Factor_Authentication/index.md) does not apply.
 Automated user provisioning from the identity provider is described in [SCIM and SIEM](./SCIM_and_SIEM.md).
 
 ## Related pages

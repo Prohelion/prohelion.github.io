@@ -75,4 +75,4 @@ To revoke a service account's access, do one of the following:
 ## Related documentation
 
 - [Managing users](Manage_Users.md)
-- [Component and collection security](./Component_And_Collection_Security.md), which describes how restricted components and collections apply to service accounts
+- [Component and collection security](./Component_And_Collection_Security/index.md), which describes how restricted components and collections apply to service accounts

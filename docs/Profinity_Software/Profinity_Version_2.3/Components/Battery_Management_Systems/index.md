@@ -10,6 +10,6 @@ last_reviewed: 2026-10-15
 
 Profinity monitors and manages Prohelion Battery Management Systems (BMS) through the Battery Management Unit (BMU) added to a Profile.
 
-- [Prohelion BMU](Prohelion_BMU.md): choose the BMS model, add the BMU to a Profile and set its base address, timeout, and **Control Pack** option.
-- [BMU dashboard](BMU_Dashboard.md): read the BMU data, status indicators, state machine and node telemetry.
-- [Update BMU configuration and firmware](Update_BMU_Configuration_and_Firmware.md): change firmware settings, unlock Admin parameters and flash the firmware.
+- [Prohelion BMU](Prohelion_BMU/index.md): choose the BMS model, add the BMU to a Profile and set its base address, timeout, and **Control Pack** option.
+- [BMU dashboard](Prohelion_BMU/BMU_Dashboard.md): read the BMU data, status indicators, state machine and node telemetry.
+- [Update BMU configuration and firmware](Prohelion_BMU/Update_BMU_Configuration_and_Firmware.md): change firmware settings, unlock Admin parameters and flash the firmware.

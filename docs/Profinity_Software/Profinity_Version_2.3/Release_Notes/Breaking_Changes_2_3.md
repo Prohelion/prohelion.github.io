@@ -9,7 +9,7 @@ last_reviewed: 2026-10-25
 # Profinity 2.3 breaking changes
 
 These changes in Profinity 2.3 can affect an installation, integration, or plugin that works on 2.2.
-Read them with [Upgrade from Profinity 2.2](../Installation/Upgrade_From_2_2.md) before you upgrade a production system, and refer to the [Profinity 2.3 release notes](2.3.1.md) for the new features and known issues.
+Read them with [Upgrade from Profinity 2.2](../Installation/Upgrading/Upgrade_From_2_2.md) before you upgrade a production system, and refer to the [Profinity 2.3 release notes](2.3.1.md) for the new features and known issues.
 If you already run 2.3.1 or 2.3.2, read the [Profinity 2.3.2 release notes](2.3.2.md) and the [Profinity 2.3.3 release notes](2.3.3.md) for the changes in those patches.
 
 ## Security file format
@@ -125,7 +125,7 @@ Tag addresses are slash paths, such as `Component/DBC/Message/Signal`.
 Profinity 2.3 no longer accepts the dotted form that 2.2 dashboards and scripts used, such as `Component.Message.Signal`, the `[TimeSeries].` prefix, or dotted patterns that contain `*`.
 The `{COMPONENT_NAME}` placeholder is also removed, so a bind that began with it must use a path relative to the component instead, such as `DBC/Message/Signal`.
 Dashboards, scripts, and integrations that pass these addresses must switch to the slash form.
-Profinity 2.3 does not convert dashboards written for 2.2, so check each one after the upgrade (refer to step 7 of [Upgrade from Profinity 2.2](../Installation/Upgrade_From_2_2.md)).
+Profinity 2.3 does not convert dashboards written for 2.2, so check each one after the upgrade (refer to step 7 of [Upgrade from Profinity 2.2](../Installation/Upgrading/Upgrade_From_2_2.md)).
 Refer to [Tag tree paths and dashboard binds](../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 ## Firmware passcodes

@@ -48,7 +48,7 @@ Mount configuration files read-only so that a container cannot modify them accid
 Encrypt backups of sensitive data and keep them in a secured location.
 Publish only the ports you need to the host, and restrict access to them with a host firewall.
 Place a reverse proxy in front of Profinity for production deployments.
-For deployment details, refer to [Install Profinity with Docker](./Docker_Installation.md).
+For deployment details, refer to [Install Profinity with Docker](./Docker/index.md).
 
 ## Protect the security files and keys
 
@@ -113,7 +113,7 @@ Profinity offers these sign-in and session controls:
 - Service accounts with long-lived tokens
 
 Two-factor authentication needs the Server edition, and SSO and System for Cross-domain Identity Management (SCIM) need the Enterprise edition.
-Refer to [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md), [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication.md), [SCIM and SIEM](../Administration/System_Configuration/Security/SCIM_and_SIEM.md), and [Service accounts](../Administration/Users_and_Access/Service_Accounts.md).
+Refer to [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md), [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md), [SCIM and SIEM](../Administration/System_Configuration/Security/SCIM_and_SIEM.md), and [Service accounts](../Administration/Users_and_Access/Service_Accounts.md).
 
 ### Security roles
 
@@ -157,8 +157,8 @@ Before deploying Profinity in a production environment:
 - [System Configuration](../Administration/System_Configuration/index.md): HTTPS and security settings.
 - [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md): roles and permissions in 2.3.
 - [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md): Local and SSO sign-in.
-- [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication.md): two-factor policy.
+- [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md): two-factor policy.
 - [Managing users](../Administration/Users_and_Access/Manage_Users.md): user accounts and role assignment.
 - [Kiosk Mode](../Administration/Kiosk_Mode.md): Kiosk Mode configuration and security.
 - [Profinity Scripting](../Developing_with_Profinity/Scripting/index.md): scripting security considerations.
-- [Install Profinity with Docker](./Docker_Installation.md): Docker deployment.
+- [Install Profinity with Docker](./Docker/index.md): Docker deployment.

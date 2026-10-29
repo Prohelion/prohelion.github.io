@@ -28,4 +28,4 @@ The lockout applies to the username, so it ends on its own once the lockout dura
 An administrator does not need to unlock the account.
 Service accounts and kiosk sessions use tokens that follow the rules described in [Service accounts](../../Users_and_Access/Service_Accounts.md) and [Kiosk Mode](../../Kiosk_Mode.md).
 
-A site with strict requirements combines these settings with the [Password policy](Password_Policy.md) and [Two-factor authentication](Two_Factor_Authentication.md).
+A site with strict requirements combines these settings with the [Password policy](Password_Policy.md) and [Two-factor authentication](Two_Factor_Authentication/index.md).

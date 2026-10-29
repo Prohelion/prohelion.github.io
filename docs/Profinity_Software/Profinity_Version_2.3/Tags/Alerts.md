@@ -12,19 +12,9 @@ Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indi
 Users with the **View alerts** permission can view and acknowledge alerts and silence their actions.
 An alert's text, level, and links come from the [rule](Rules/index.md) that raised it.
 
-<figure markdown>
-![A diagram of the All alerts page with Active and History tabs, a side menu where warnings roll up the tree, an audit trail, and a detail panel with what to do, documentation, related tags, and Acknowledge and Silence buttons.](../images/diagram-alerts.png)
-<figcaption>Alerts Log with Active and History tabs and the alert detail panel</figcaption>
-</figure>
-
 ## Open Alerts Log
 
 Select **ALL ALERTS** in the side menu to open the Alerts Log, which shows the page heading **ALERTS**.
-
-<figure markdown>
-![The Tag Explorer in tree view, with warning triangles beside the root and several components, and a Tag Details panel on the right.](../images/side-menu-all-alerts.png)
-<figcaption>ALL ALERTS in the side menu</figcaption>
-</figure>
 
 ## Active and history tabs
 

@@ -47,6 +47,8 @@ Every page does one job. Choose its type before writing, and keep to it: a page 
 
 Where a reader needs two types, link between two pages instead of combining them. A concept page links to the task that applies it, and a task links back to the reference for each setting it uses.
 
+Keep one job on as few pages as it needs. A procedure of about five steps or fewer is a section of the task it belongs to, not a page of its own, and a reader should not have to open a chain of pages to finish one job. Give a procedure its own page only when several pages link to it, or when it is long enough to need its own headings.
+
 Page shapes are maximums, not minimums. Use only the parts a page needs, in the order shown, and leave out any part that would be one line long or empty. A short page is better than a padded one. Prerequisites and a check that it worked are always required, but on a short task they are a sentence in the introduction and a sentence after the last step, not headings.
 
 - **Task:** outcome in one sentence; prerequisites and permissions; numbered steps, one action each, with the expected result; how to verify it worked; the three most likely failures and their fixes (only where there are real ones); related pages (only where they add something the body has not already linked).
@@ -54,7 +56,9 @@ Page shapes are maximums, not minimums. Use only the parts a page needs, in the 
 - **Concept:** what it is in two sentences; why it exists and when to use it; how it works, with a diagram; how it relates to other parts of Profinity; where to go next.
 - **Tutorial:** what the reader will have at the end, shown first; time needed and prerequisites; a single path with no branches; a checkpoint after each stage; what to try next.
 - **Reference:** a one-line description, then complete entries in a consistent format, grouped logically.
-- **Index:** a section landing page. A short paragraph on what the section holds and who it is for, then a list of links, each with one line saying what the page lets the reader do. Group the links under a heading only when there are more than about eight.
+- **Index:** a section landing page. A short paragraph on what the section holds and who it is for, then a list of links, each with one line saying what the page lets the reader do. Group the links under a heading only when there are more than about eight. Where the reader chooses between a few parallel options, such as installation methods, show the options as a grid of cards (`<div class="grid cards" markdown>`), one card per option with an icon, a one-line description, and a link, as on the Battery Management Systems index.
+
+Write troubleshooting as a table with the columns "What you see", "Cause", and "What to do", so the reader can match the symptom in front of them to a fix. Sibling pages, such as one guide per tool for the same job, use the same table, so a reader who has used one can find the fix on any other.
 
 Every page, whatever its type, opens with a sentence that states its purpose, has a title the reader would search for, and ends by pointing to a next step.
 
@@ -112,6 +116,7 @@ Sentence rhythm depends on the page type. Prohelion's existing prose runs long a
 - Be candid about limitations and work-in-progress features rather than smoothing them over: "For the moment, Profinity provides a DBC Viewer..."; "Prohelion's API solution is currently evolving rapidly as we develop new capabilities." This honesty is part of the voice — don't polish it into evergreen marketing language.
 - Safety content escalates to blunt, short, emphatic language — capitals, short imperatives — rather than softened warnings: "Wear eye protection. Use insulated tools. Take extreme caution. Go slow." Use the admonition blocks in §3 for this, titled with a direct statement rather than a generic label — e.g. `!!! danger "Working around batteries is DANGEROUS"`, `!!! danger "Ensure your pack is correctly fused"`.
 - Date capability statements rather than treating them as timeless, when a feature is versioned: "As of Profinity 1.11, Prohelion has migrated to a modern container and API centric architecture."
+- Date every fact about another company's product, such as the minimum version of a third-party tool or a setting it lacks: "As of October 2026, Cursor 3.19 and later on Windows uses the operating system certificate stores." Where the vendor documents the fact, link to that page as well, because it changes without Prohelion knowing.
 - Write in the present tense. Avoid "will", "would" and "should" except in a tutorial or to describe a genuine future event, and do not announce future features or make statements that will soon be out of date. Prefer positive phrasing to negative.
 - Do not use minimising words: "simply", "just", "easily", "straightforward", "merely", "obviously". A step that is not simple for the reader makes the page feel unfriendly, and a step that is simple needs no label.
 - Repeating a page shape or an opening sentence template across sibling pages is normal and expected, not something to "vary for freshness". Repeating a fact is different: each fact (a setting's meaning, a licensing rule, an environment variable) lives on one authoritative page, and every other page links to it, so the copies cannot drift apart.
@@ -284,6 +289,7 @@ Use admonitions sparingly. Reserve `danger` and `warning` for safety, data loss 
 - Omit the command prompt from command examples, and show a command's output in a separate block from the command itself, so the command can be copied as it stands.
 - Write placeholders in angle brackets, such as `<tag-name>`, in command examples, and in capitals such as `YOUR_API_KEY` in YAML. Explain what each placeholder stands for immediately after the block.
 - Format configuration examples so they paste into the file the page names, and say which file that is.
+- Give a command for every operating system the reader may run it on. Where the commands differ, use one tab per operating system, and check that each tab follows from the earlier steps on that system, such as the file name and folder an earlier step created there.
 ```python
 # Example code block
 def example_function():
@@ -368,6 +374,7 @@ When a sentence mentions a Profinity concept, component or feature that has its 
 - Organise by what the reader is trying to do, and name sections with plain words a reader would search for
 - Keep content that belongs to a hardware manual in that manual, and link to it from here
 - Group related documents in directories
+- Nest child pages under their parent. When pages belong to one parent page, such as the setup, dashboard, and troubleshooting pages of one component, put them in a folder named for the parent, make the parent that folder's `index.md`, and give the folder a `.pages` file with the section title. Do not list child pages beside their parent, or split a related group with an unrelated page
 - Use clear directory names
 - Maintain a logical hierarchy
 - Include index.md files in each directory
@@ -422,6 +429,17 @@ Never guess a default, a permission name, a limit, a UI label, a file location o
 - Add genuine product terms to the spellcheck word list instead of rewording around them
 - Check the page against the quick reference below before it is published
 
+### Reviewing a page or section
+
+An editorial review judges the writing and the reader's journey.
+Review a whole section in one pass, in the order a reader follows it, because the most damaging problems span pages: a job split over a chain of short pages, a fact stated differently on two pages, or a step that depends on something set up later.
+
+- Read as the reader the page is written for, with only the product and these docs.
+- Open the review with a verdict, then rank the findings as blockers (the reader cannot finish, or is misled), improvements (the reader finishes, with effort), and polish.
+- Give each finding its location, the problem, and a suggested rewrite.
+- Raise a fact that looks wrong, or two pages that disagree, as a query to the author. The fix is checked against the code before it is published (see Accuracy).
+- Do not change files during a review. The fixes are a separate edit, checked against this guide like any other.
+
 ## 11. Quick reference for drafting
 
 Use this list when drafting or reviewing a page, and when briefing an AI assistant to draft one. Each line points to the section that holds the full rule.
@@ -443,6 +461,10 @@ Use this list when drafting or reviewing a page, and when briefing an AI assista
 15. Give the page a 70 to 160 character `description`, answer first, topic-naming headings, and no page that needs another page to make sense (2.9).
 16. Use only the structure the page needs, and read the page aloud before it is published (2.6a).
 17. If you are not sure of a fact, check the code first, and never guess a default, permission, label or behaviour (section 10).
+18. Keep one job on as few pages as it needs, and do not give a short procedure its own page (section 1).
+19. Write troubleshooting as a "What you see", "Cause", and "What to do" table (section 1).
+20. Give commands for every operating system the reader uses, one tab each (section 4).
+21. Date every fact about another company's product, and link to the vendor's page where one exists (2.4).
 
 ---
 

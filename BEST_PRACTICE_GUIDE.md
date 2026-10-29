@@ -58,17 +58,23 @@ Applied in: the `tutorial` page type.
 
 Every page that tells the reader to do something includes a real example that has been run, not pseudocode. Examples are kept in step with the product and, where possible, checked automatically, as the repo already does for dashboard YAML.
 
+An example that runs on one operating system only is incomplete for everyone else. Profinity runs on macOS, Windows, and Linux, so a bash-only command strands Windows readers, often at a step where an earlier tab has already created a different file name on their system.
+
 Applied in: [Code and technical elements](STYLE_GUIDE.md#4-code-and-technical-elements).
 
 ### 4.4 Use a repeatable page shape
 
 Pages of the same type have the same shape, so a reader who has seen one component page can find the same information on any other. Repeatable shapes also make docs faster to write and review.
 
+The shape reaches inside sections too. Troubleshooting written as a "What you see", "Cause", and "What to do" table starts from the symptom the reader has, and the same table on sibling pages lets a reader move between them without relearning the layout.
+
 Applied in: [Page types and templates](STYLE_GUIDE.md#page-types-and-templates).
 
 ### 4.5 Organise around the reader's tasks
 
 Navigation follows what the reader is trying to do, not how the product is built. Section names are plain words a reader would search for. A wide product range without clear signposting is a navigation failure, not a content failure.
+
+The reverse failure is a job split too finely. The 2.3 MCP setup was once six pages of about five steps each, and every page passed the rules on its own. The reader still had to find their place again at each page break, and the pages began to say "from the previous page", which no reader arriving from search can follow. Merging them into one task page with a section per stage shortened the path and removed the repeated facts that had started to disagree.
 
 Applied in: [File organisation](STYLE_GUIDE.md#8-file-organisation).
 
@@ -89,6 +95,10 @@ Applied in: [Search and AI readiness](STYLE_GUIDE.md#29-search-and-ai-readiness)
 ### 4.8 Give docs an owner and a place in the definition of done
 
 Stripe credits its documentation quality to culture and process: leadership example, support for writers, and docs counted in performance reviews. A page with no owner decays, and a feature with no docs change is not finished.
+
+Facts about other companies' products decay fastest, because they change on another company's release schedule and no Profinity change prompts a review. Dating them shows the reader how old the fact is, and a link to the vendor's page gives them the current answer.
+
+Review is where decay and drift are caught. Reviewing a section as a whole, in the reader's order, finds the problems that a page-by-page check misses: repeated facts that disagree, a journey split over too many pages, and steps that depend on something set up later.
 
 Applied in: the `owner` and `last_reviewed` front matter fields.
 

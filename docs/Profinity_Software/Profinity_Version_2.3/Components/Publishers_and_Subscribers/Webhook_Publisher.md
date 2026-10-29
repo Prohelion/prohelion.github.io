@@ -129,5 +129,5 @@ Check the [Logs](../../Administration/Logs_Config.md) for the underlying message
 
 ## Related pages
 
-Use the [MQTT Publisher](MQTT_Publisher.md) to publish to a broker, or the [MQTT Subscriber](MQTT_Subscriber.md) to bring external data in.
+Use the [MQTT Publisher](MQTT_Publisher.md) to publish to a broker, or the [MQTT Subscriber](MQTT_Subscriber/index.md) to bring external data in.
 A [rule action](../../Tags/Rules/Actions/index.md) can also send a one-off webhook or MQTT message, and needs the **Tag Rule Actions** licensed feature.

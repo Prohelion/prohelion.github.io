@@ -44,7 +44,7 @@ The **CAN Activity** table has these columns:
 | **Time** | The timestamp of the last message |
 
 Select the **CAN Activity** table headers to filter or sort the messages by CAN ID, direction, flags, and so on.
-Adapters that support them also show endian representation and local traffic filtering in the same header, as [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) describes.
+Adapters that support them also show endian representation and local traffic filtering in the same header, as [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) describes.
 
 Two toggle buttons sit at the top of the window:
 

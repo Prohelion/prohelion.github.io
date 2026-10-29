@@ -1,0 +1,7 @@
+title: Install Profinity with Docker
+nav:
+    - index.md
+    - Docker_One_Line_Installer.md
+    - Docker_Ports_and_Data_Directory.md
+    - Update_Docker_Image.md
+    - Troubleshoot_Docker_Installation.md

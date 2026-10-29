@@ -17,7 +17,7 @@ A component type that is not licensed shows as unavailable.
 A component shows data only when data arrives.
 For live data, add a protocol adapter first, because an adapter lets Profinity receive data from external systems.
 To see data without any hardware, replay a CAN log as described in the [Quick start guide](../Getting_Started/Quick_Start.md#step-3-replay-the-example-can-log).
-For CAN bus networks, [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md) describes the supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges.
+For CAN bus networks, [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) describes the supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges.
 [How to connect to CAN bus](./Connect_to_CAN_Bus.md) gives the steps.
 For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7, described in [Industrial protocols](../Components/Industrial_Protocols/index.md).
 
@@ -26,7 +26,7 @@ For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, Ope
 The **ADD COMPONENT** page groups the component types by category.
 The **COMPONENT TYPES** filter limits the list to one category:
 
-- **Adapters**, including the [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters.md), which are also shown at the top of the screen when discovered
+- **Adapters**, including the [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md), which are also shown at the top of the screen when discovered
 - **Battery Management Systems**, **Chargers & Power Supplies**, **Motor Controllers**, and **MPPTs**, for devices such as:
     - A Battery Management Unit (BMU).
     - A motor controller.
@@ -91,7 +91,7 @@ Each component has a coloured indicator on its icon that displays the operationa
 A red indicator means an error state, so check the [logs](../Administration/Logs_Config.md).
 A component that stays red, or shows an outlined or empty lamp, after you add it usually has an adapter that is not connected.
 The CAN bus may also not be delivering data.
-[CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapter_Troubleshooting.md) covers the usual causes and fixes for an adapter.
+[CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md) covers the usual causes and fixes for an adapter.
 
 ## Connect the component
 

@@ -8,14 +8,13 @@ last_reviewed: 2026-10-15
 
 # Tag rules
 
-A tag rule watches the tags in its scope and, when its condition changes, records an alert in the [Alerts Log](../Alerts.md) and runs the actions attached to it.
-This page explains how rules work.
-[Create a rule](Create_a_Rule.md) walks through an example, [Rule settings](Rule_Settings.md) looks up evaluation settings and permissions, and [Complete rules.yaml example](Rules_YAML_Example.md) shows a full `rules.yaml` that uses most of the settings.
-[Rule actions](Actions/index.md) covers the actions that a rule can run, such as Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT).
+A tag rule watches a set of tags and raises an alert in the [Alerts Log](../Alerts.md) when its condition is met.
+A rule can also run actions when it raises an alert, such as sending an email or a Slack message, calling a webhook, publishing a Message Queuing Telemetry Transport (MQTT) message, or running a script.
+To write your first rule, follow [Create a rule](Create_a_Rule.md).
 
-!!! info "Rules need no licence"
+!!! info "Rule actions need a licence"
     Rules and the Alerts Log work on every edition.
-    The Email, Slack, Webhook, MQTT, and script actions need the **Tag Rule Actions** licensed feature, as described in [Rule actions](Actions/index.md).
+    The Email, Slack, Webhook, MQTT, and script actions need the **Tag Rule Actions** licensed feature.
     Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## How a rule works
@@ -26,7 +25,8 @@ Rules evaluate whenever a tag in their scope changes.
 A rule set is all the rules in one rules file, either the profile's rules file or a component's own rules file, and each rule set has its own on and off switch.
 A scope is a tag path prefix, a tag collection, or both, and a scope with neither covers every tag.
 A scope can be set for the whole file, for a group, and for a single rule, and each level inherits the scope of the level above unless it sets its own.
-Actions set for the file or a group are inherited by every rule beneath it and run when the alert level of the rule reaches the action's trigger level, and a rule can switch an inherited action off.
+Actions set for the file or a group are inherited by every rule beneath it, and a rule can switch an inherited action off.
+An action runs when the rule's alert level reaches the action's trigger level.
 A rule runs only when the file, its group, and the rule itself are all enabled.
 
 A threshold rule holds ordered steps, and one evaluation can cross more than one of them.
@@ -64,5 +64,12 @@ It shows every rule with its level, scope, thresholds, and actions.
 </figure>
 
 The editor writes the same `rules.yaml` document that can be edited directly.
-To build a rule in the editor, refer to [Create a rule](Create_a_Rule.md).
+
+## Where to go next
+
+- [Create a rule](Create_a_Rule.md): build a rule in the editor, step by step.
+- [Rule settings](Rule_Settings.md): look up the evaluation settings and the permissions rules need.
+- [Complete rules.yaml example](Rules_YAML_Example.md): read a full `rules.yaml` that uses most of the settings.
+- [Rule actions](Actions/index.md): set up the email, Slack, webhook, MQTT, and script actions a rule can run.
+
 For the rest of the tag layer, refer to [Tag expressions](../Selecting_Tags/Tag_Expressions.md), [Collections](../Collections/index.md), [Derived tags](../Derived_Tags/index.md) and [Tag layer](../index.md).

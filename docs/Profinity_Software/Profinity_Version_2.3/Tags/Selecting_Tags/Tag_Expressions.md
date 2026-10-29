@@ -177,8 +177,7 @@ The builder has no facet for `tag.MatchesName`, `tag.Is`, or `tag.Meta.Number`.
 Write those, a complex `&&` / `||` combination, and derived formulas as free text in the **Expression** field.
 To use the builder, refer to [Build an expression with the guided builder](Build_an_Expression.md).
 
-Some spellings fail validation in Profinity 2.3.
-[Unsupported expression spellings](Unsupported_Expression_Spellings.md) lists each one with its replacement.
+Profinity rejects an expression that uses a spelling Profinity 2.3 no longer supports, and the message names the spelling to use.
 
 For the places these expressions are used, refer to [Tag collections](../Collections/index.md), [Alerts Log](../Alerts.md), [Tag rules](../Rules/index.md), [Rule actions](../Rules/Actions/index.md), [Derived tags](../Derived_Tags/index.md), and [Create collections, rules, and dashboard bindings from tags](../Create_Collections_Rules_and_Bindings_from_Tags.md).
 To return to the overview, refer to [Tag layer](../index.md).

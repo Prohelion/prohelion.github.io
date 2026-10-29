@@ -2,7 +2,6 @@ nav:
     - index.md
     - SSO_and_Sign_In.md
     - Password_Policy.md
-    - Two_Factor_Authentication.md
-    - Two_Factor_Sign_In.md
+    - Two_Factor_Authentication
     - Session_Policy.md
     - SCIM_and_SIEM.md

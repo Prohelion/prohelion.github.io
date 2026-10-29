@@ -50,7 +50,7 @@ These Profinity 2.3 features have no separate guide, and the reference pages des
 - [Tag collections](../Tags/Collections/index.md): group tags for logging and publishing.
 - [Derived tags](../Tags/Derived_Tags/index.md): calculate a new tag from existing tags with an expression.
 - [Tag rules](../Tags/Rules/index.md) and [Rule actions](../Tags/Rules/Actions/index.md): run an action when a rule raises an alert.
-- [AI Skills](../Profinity_AI/AI_Skills.md): generate dashboards, rules, and scripts with an AI tool.
+- [AI Skills](../Profinity_AI/AI_Skills/index.md): generate dashboards, rules, and scripts with an AI tool.
 - [Developing Plugins](../Developing_with_Profinity/SDK/Developing_Plugins.md): extend Profinity with a plugin.
 
 ## More help

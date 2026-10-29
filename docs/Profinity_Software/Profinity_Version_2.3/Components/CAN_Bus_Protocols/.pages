@@ -1,7 +1,5 @@
 nav:
     - index.md
-    - CAN_Bus_Adapters.md
-    - CAN_Bus_Adapter_Settings.md
-    - CAN_Bus_Adapter_Troubleshooting.md
+    - CAN_Bus_Adapters
     - Virtual_CAN_Adapter.md
     - Virtual_CAN_Adapter_Protocols.md

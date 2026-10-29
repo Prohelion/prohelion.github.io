@@ -17,4 +17,4 @@ For what a relay is, how tags are mounted, collision rules and known limitations
 - [Set up a tag relay](Set_Up_a_Tag_Relay.md) connects a first sender and receiver over HTTPS or Message Queuing Telemetry Transport (MQTT).
 
 Tag Relay works between Profinity instances only and does not use Sparkplug.
-If the other end is a third-party Sparkplug B source, use the [MQTT Subscriber](../Publishers_and_Subscribers/MQTT_Subscriber.md) instead.
+If the other end is a third-party Sparkplug B source, use the [MQTT Subscriber](../Publishers_and_Subscribers/MQTT_Subscriber/index.md) instead.

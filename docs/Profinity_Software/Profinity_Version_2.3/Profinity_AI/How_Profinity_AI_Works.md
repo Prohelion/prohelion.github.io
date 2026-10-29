@@ -9,7 +9,7 @@ last_reviewed: 2026-10-28
 # How Profinity AI uses your profile
 
 Profinity AI gives AI the context of a running Profinity system, so it can work across devices rather than one signal at a time.
-[AI Chat](./AI_Chat.md) and [AI Skills](./AI_Skills.md) both draw on that context.
+[AI Chat](./AI_Chat.md) and [AI Skills](./AI_Skills/index.md) both draw on that context.
 
 <figure markdown>
 ![Profinity AI gathers context from the whole profile (devices, alerts, documentation and history), correlates signals across devices, matches alerts to documentation, and proposes a likely root cause with supporting evidence](../images/diagram-ai-diagnostics.png)

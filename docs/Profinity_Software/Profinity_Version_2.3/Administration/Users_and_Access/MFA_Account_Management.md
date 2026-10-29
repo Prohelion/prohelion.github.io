@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 A user manages their own authenticator from the **ADMIN** page.
 An administrator resets another user's authenticator or password from the **User Actions** tab of that user's settings dialog.
 Both apply to **local** users when the site **Sign-in method** is **Local**.
-The policy that requires multi-factor authentication (MFA) is described in [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication.md).
+The policy that requires multi-factor authentication (MFA) is described in [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication/index.md).
 
 Users who sign in through single sign-on (SSO) manage MFA and credentials in the identity provider.
 **Reset MFA** and **Reset Password** are not used for them, so reset their authenticator or password in the identity provider.
@@ -28,7 +28,7 @@ The dialog states whether two-factor authentication is enabled and how many reco
 It offers **Reset authenticator** and **Regenerate recovery codes**.
 **Reset authenticator** asks for a code from the current authenticator app before it issues a new one.
 A user who has lost the app cannot use it, and asks an administrator for a reset instead.
-Where the site allows security keys, the dialog also holds the panel for registering one, as described in [Sign in with two-factor authentication](../System_Configuration/Security/Two_Factor_Sign_In.md#register-a-security-key).
+Where the site allows security keys, the dialog also holds the panel for registering one, as described in [Sign in with two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication/Two_Factor_Sign_In.md#register-a-security-key).
 
 ## Administrator reset of MFA
 

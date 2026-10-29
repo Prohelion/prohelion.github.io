@@ -6,7 +6,7 @@ nav:
     - Settings.md
     - Main_Script.md
     - Menu_Actions.md
+    - Component_Metadata.md
     - Firmware:
         - Firmware maps: Firmware_Maps.md
         - Firmware actions: Firmware_Actions.md
-    - Component_Metadata.md
