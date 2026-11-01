@@ -1,28 +1,28 @@
 ---
 title: Licensing
-description: "Find which features each Profinity edition includes, how licence and site settings combine, and how the 14-day trial and machine fingerprint work."
+description: "Find which features each Profinity edition includes, what each licence state means, and how the 14-day trial and machine fingerprint work."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-31
 ---
 
 # Licensing
 
-Profinity uses an offline, signed licence file to control which commercial features and components are available on an instance.
-Profinity has no activation service and makes no online licence check, because it is designed to run on remote or air-gapped edge machines.
-Licensing works from a file placed on the instance, and Profinity validates the file's signature locally.
-To apply a licence file, refer to [Apply a licence](Installation/Applying_a_Licence.md), and to read the licence state of an instance, refer to [License manager](Administration/License_Manager.md).
+Profinity uses a signed licence file to control which commercial features and components are available on an instance.
+Profinity checks the file's signature on the instance itself, so licensing works offline.
+To apply a licence file, refer to [Apply a licence](Installation/Applying_a_Licence.md), and to read the licence state of an instance, refer to [License manager](Administration/License_Manager.md) or the licence summary in [System Information](Administration/System_Info.md).
 
-A licence sets the most that an instance can use.
-A component is available only when the licence, the original equipment manufacturer (OEM) customisation file (`custom.yaml`), and the site configuration (`config.yaml`) all allow it.
+A licence sets the most that an instance can use, and configuration can switch parts of it off.
+A licensed feature, such as Profinity AI or Data Relay, is available whenever the licence includes it, with one exception: the [site configuration](Administration/System_Configuration/index.md) (`config.yaml`) can also switch scripting off.
+
+Components work differently.
+A component is available only when the licence, the original equipment manufacturer (OEM) customisation file (`custom.yaml`), and `config.yaml` all allow it, so either file can hide a component group or type that the licence includes.
 Refer to [Choose available components](Administration/Choose_Available_Components.md).
-A licensed feature is controlled by the licence alone, apart from scripting, which `config.yaml` can also switch off.
-Configuration toggles can narrow what the licence permits, but never grant more.
 
 ## What each edition includes
 
-Not every feature described in this documentation is available on every instance.
-The features ticked in every column are available in every edition, including an unlicensed instance, and a licence adds the rest.
+The features an instance can use depend on its edition.
+Some features are included in every edition, and a licence adds the rest.
 In the tables in this section:
 
 - :material-check-circle:{ .edition-icon .edition-icon--yes aria-hidden="true" } means the feature is included.
@@ -31,16 +31,16 @@ In the tables in this section:
 
 ### Features by edition
 
-The first eight rows are included in every edition.
+The rows from Local web UI to Loggers are included in every edition.
 Each edition also includes everything in the edition before it.
 The remaining rows differ by edition:
 
-- Unlicensed: none of the remaining rows are included.
-- Desktop: adds Scripting, Custom components, Custom plugins, Historians, and Themes and branding, and has Industrial Protocols and the SDK as separately licensed extras.
+- No licence: only the rows included in every edition.
+- Desktop: adds Scripting, Custom components, Custom plugins, Historians, and Themes and branding, and has Industrial Protocols and the Profinity software development kit (SDK) as separately licensed extras.
 - Server: adds Tag Rule Actions, Data Relay, Two-Factor Authentication, Profinity AI, and Profinity Server, and has the same two separately licensed extras.
 - Enterprise: adds Enterprise Security, so only the two separately licensed extras remain.
 
-| Feature | Unlicensed (Personal use only) | Desktop | Server | Enterprise |
+| Feature | No licence (personal use only) | Desktop | Server | Enterprise |
 |---------|:----------:|:-------:|:------:|:----------:|
 | Local web UI (reachable from the same computer only) and the Representational State Transfer (REST) [API](Integrating_to_Profinity/APIs/index.md) | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | Tags: [tag tree](Tags/index.md), [derived tags](Tags/Derived_Tags/index.md), [expressions](Tags/Selecting_Tags/Tag_Expressions.md), [linking](Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), [collections](Tags/Collections/index.md), and [logging and replay](Tags/Tag_Logs/index.md) | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
@@ -49,7 +49,7 @@ The remaining rows differ by edition:
 | Device components: [battery management systems](Components/Battery_Management_Systems/index.md), [motor controllers](Components/Motor_Controller/index.md), [chargers and power](Components/Chargers_and_Power/index.md), and [maximum power point trackers (MPPTs)](Components/MPPT/Elmar_Solar_MPPT.md) | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | CAN adapters: [CAN bus adapters](Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) and the [virtual CAN adapter](Components/CAN_Bus_Protocols/Virtual_CAN_Adapter.md) | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | CAN utilities: [send and receive](CAN_Utilities/Send_Receive_CAN_Bus_Messages.md), [logging and replay](CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md), and [DBC files](CAN_Utilities/CAN_Bus_DBC.md) | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
-| Loggers: [file and SFTP loggers](Components/Loggers/index.md), and the [InfluxDB (v1) and Prometheus loggers](Components/Loggers/index.md) | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
+| Loggers: [file and SSH File Transfer Protocol (SFTP) loggers](Components/Loggers/index.md), and the [InfluxDB v1 and Prometheus loggers](Components/Loggers/index.md) | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | [Scripting](Developing_with_Profinity/Scripting/index.md) in [C#, Lua and Python](Developing_with_Profinity/Scripting/Supported_Languages/index.md) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | [Custom components](Components/Custom_Components/Using_a_Custom_Component.md) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | Custom plugins: [custom plugins](Developing_with_Profinity/SDK/Developing_Plugins.md) and [dynamic-link library (DLL) plugins](Administration/Install_and_Manage_Plugins.md) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
@@ -62,120 +62,121 @@ The remaining rows differ by edition:
 | Profinity Server: [Users & Groups](Administration/Users_and_Access/Manage_Users.md), [Roles](Administration/Users_and_Access/Roles_and_Permissions.md), remote (non-localhost) web access and the [Extensions Web](Administration/System_Configuration/Extensions_Web.md) server | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | Enterprise Security: [single sign-on (SSO)](Administration/System_Configuration/Security/SSO_and_Sign_In.md), [System for Cross-domain Identity Management (SCIM) provisioning](Administration/System_Configuration/Security/SCIM_and_SIEM.md) and [security-key sign-in](Administration/System_Configuration/Security/Two_Factor_Authentication/index.md#security-key-sign-in) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-check-circle:{ .edition-icon .edition-icon--yes title="Included" role="img" aria-label="Included" } |
 | [Industrial Protocols](Components/Industrial_Protocols/index.md): [BACnet](Components/Industrial_Protocols/BACnet.md), [EtherNet/IP](Components/Industrial_Protocols/EtherNet_IP.md), [Modbus](Components/Industrial_Protocols/Modbus.md), [Open Platform Communications Unified Architecture (OPC UA)](Components/Industrial_Protocols/index.md) and [S7](Components/Industrial_Protocols/S7.md) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on |
-| [Profinity software development kit (SDK)](Developing_with_Profinity/SDK/index.md): the `Profinity.Sdk` library, [`profinity-component-pack`](Developing_with_Profinity/SDK/Component_Pack_CLI.md) and [`profinity-script`](Developing_with_Profinity/SDK/Test_a_Script.md) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on |
+| [Profinity SDK](Developing_with_Profinity/SDK/index.md): the `Profinity.Sdk` library, [`profinity-component-pack`](Developing_with_Profinity/SDK/Component_Pack_CLI.md) and [`profinity-script`](Developing_with_Profinity/SDK/Test_a_Script.md) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on |
 
-- **Unlicensed** is the state of a Desktop installation with no licence file, and of any instance after its 14-day local trial expires.
-  Unlicensed Desktop use is limited to personal, non-commercial purposes, as described in [Desktop free-use policy](#desktop-free-use-policy).
-- Without Profinity Server there are no user accounts or roles, and **Users & Groups** is not shown.
-  A Desktop installation runs as a single built-in admin user.
+- A Desktop installation is free for personal, non-commercial use, under the [Desktop free-use policy](#desktop-free-use-policy).
+  Every other installation starts with the [14-day local trial](#the-14-day-local-trial).
+- User accounts, roles, and the **Users & Groups** page come with the Profinity Server feature.
+  For who can sign in on each installation type, refer to [Who can sign in, by installation type](Installation/Applying_a_Licence.md#who-can-sign-in).
 - Kiosk Mode is included in every edition.
   It signs a display in as an enabled Profinity user, and a dedicated kiosk user is created in **Users & Groups**, which needs Profinity Server.
   Refer to [Kiosk Mode](Administration/Kiosk_Mode.md).
-- Themes and branding are not included for an unlicensed instance.
-  The instance keeps its `theme.yaml` file but shows the default Profinity appearance until a Desktop or higher licence is installed.
-- The 14-day local trial and sales evaluation licences include everything in the **Server** edition, but not **Enterprise Security**.
-  Refer to [The 14-day local trial](#the-14-day-local-trial).
+- Themes and branding need a Desktop or higher licence.
+  Until one is installed, the instance keeps its `theme.yaml` file and shows the default Profinity appearance.
+- The 14-day local trial and evaluation licences from Prohelion include everything in the **Server** edition.
 - **Add-on** means something licensed separately from the edition, available on any commercial edition.
   Industrial Protocols is a component group that needs the matching plugin installed as well, and the partner hardware component packs are licensed in the same way as component groups.
   The Profinity SDK is a developer kit that Prohelion supplies on request.
 - Pages for licence-dependent features carry a **Licence required** note at the top.
-  The [License manager](Administration/License_Manager.md) in the product is always the authority for your instance, because configuration can further narrow what a licence allows.
+  The **License** page is always the authority for your instance, because `custom.yaml` and `config.yaml` can hide components that the licence includes.
 
-!!! warning "Remote web access needs a Server licence"
-    A Desktop host without a Server licence listens for web connections on `127.0.0.1` only.
-    The web interface and API can then be reached from the same computer and not from another one.
-    Profinity does this whatever is entered under [Profinity Web](Administration/System_Configuration/Profinity_Web.md), and records a message beginning "Remote web access requires a Server license" in the [Profinity log](Administration/Logs_Config.md).
-    A server installation is different: it stays reachable on its configured address when its licence is missing, expired, or not valid, so you can replace the licence from a browser.
-    Until you do, it runs in [restricted mode](#when-a-licence-is-missing-or-has-expired).
+!!! info "Remote web access needs a Server licence"
+    Until it has a Server licence, a Desktop host listens for web connections on `127.0.0.1` only, so the web interface and API work from the same computer only.
+    Profinity does this whatever is entered under [**Profinity Web**](Administration/System_Configuration/Profinity_Web.md), and records a message beginning "Remote web access requires a Server license" in the [Profinity log](Administration/Logs_Config.md).
+
     If you cannot reach Profinity from another computer, check the licence on the **License** page before you change the address or the firewall.
 
-Opening the web interface from another machine, and creating user accounts and roles, need the **Profinity Server** licensed feature, which the Server and Enterprise editions include.
-Local access on the same machine needs no licence.
-A new installation that is not a Desktop host starts a one-time 14-day local trial with the Server features.
-When the trial ends, the installation runs in restricted mode until you apply a licence file under **ADMIN > License**.
-For who can sign in on each installation type, refer to [Who can sign in, by installation type](Installation/Applying_a_Licence.md#who-can-sign-in).
-Production use of Profinity Server on Windows, Docker, Linux, or macOS needs a licence from Prohelion; contact Prohelion through the [Prohelion contact page](https://www.prohelion.com/contact-us/).
+Opening the web interface from another computer, and creating user accounts and roles, need the Profinity Server feature, which the Server and Enterprise editions and the 14-day local trial include.
+Every edition includes access from the same computer.
+Production use of Profinity Server on Windows, Docker, Linux, or macOS needs a licence from Prohelion, which you can request through the [Prohelion contact page](https://www.prohelion.com/contact-us/).
 
 ## The 14-day local trial
 
-A Profinity instance that has never had a licence applied issues itself a one-time, 14-day trial on first startup.
-The installer build must have trial issuance enabled, and some OEM-customised builds do not offer the local trial.
+A new server installation, meaning a Windows service, Linux, macOS, or Docker installation, starts a one-time, 14-day trial the first time it runs.
+Desktop hosts follow the [Desktop free-use policy](#desktop-free-use-policy) instead, and some OEM-customised builds leave the trial out.
 The trial:
 
-- Needs no network access and no request to Prohelion.
-- Runs for a maximum of 14 days from first startup.
-- Grants the Server features, the same set as a standard `Commercial` Server licence, but not the Enterprise-only features.
-- Is issued once per installation.
-  Reinstalling or resetting the instance does not restart it, because Profinity records the trial against the instance fingerprint.
+- Works offline.
+- Runs for 14 days from first startup.
+- Grants the Server features, the same set as a standard `Commercial` Server licence.
+- Runs once per installation.
+  Upgrading or reinstalling Profinity over an existing installation keeps the original trial, because the trial is recorded against the [machine fingerprint](#the-machine-fingerprint).
 - Reports the state `Trial` while more than 7 days remain, and `Expiring` for the last 7 days.
-  A signed trial licence file reports `Trial` while more than 30 days remain.
-- Is not available on Desktop hosts, which have a separate free-use policy ([Desktop free-use policy](#desktop-free-use-policy)).
+  A signed trial licence file from Prohelion reports `Trial` while more than 30 days remain.
 
-Before the trial ends, the Home screen shows an expiry notice that links to the **License** pill on the **ADMIN** page.
-When it ends, the installation runs in [restricted mode](#when-a-licence-is-missing-or-has-expired) until you upload a suitable commercial or extended evaluation licence.
+Before the trial ends, the Home screen shows an expiry notice that links to the **License** page under **ADMIN**.
+When it ends, the state becomes `Expired`, and the installation runs in [restricted mode](#when-a-licence-is-missing-or-has-expired) until you apply a commercial or evaluation licence.
 
 ## When a licence is missing or has expired
 
-An expiry date is final.
-Profinity allows no grace period.
-Profinity checks the date while it runs, so an installation that is never restarted still notices when its licence expires.
-When the date passes, Profinity restarts itself once and starts with the state `Expired`.
-Scripting, AI, custom plugins and the [Extensions Web](Administration/System_Configuration/Extensions_Web.md) server are among the features that stop.
+The **State** on the [License manager](Administration/License_Manager.md) page shows whether a licence is in force.
+In these three states, every feature the licence includes works:
 
-In the 30 days before a licence expires (the last 7 days of a local trial), the Home screen shows a notice with the days remaining and a link to the **License** page.
+| State | What it means |
+|---|---|
+| `Valid` | A commercial or evaluation licence from Prohelion is applied and current |
+| `Trial` | The 14-day local trial, or a signed trial licence from Prohelion, is running, with the Server features |
+| `Expiring` | 30 days or fewer remain on a licence, or 7 days or fewer on the local trial, and the Home screen shows the days remaining |
 
-A server installation whose licence is missing, expired, not valid, issued for a different server or not supported by this release then runs in *restricted mode*:
+An expiry date is final: the licensed features stop on that date.
+Profinity checks the date while it runs, so it notices the expiry as soon as the date passes.
+It then restarts itself once and starts with the state `Expired`.
+Scripting, AI, custom plugins, and the [Extensions Web](Administration/System_Configuration/Extensions_Web.md) server are among the features that stop.
+
+In these five states, the instance falls back to the features every edition includes, shown in [Features by edition](#features-by-edition):
+
+| State | What it means |
+|---|---|
+| `Expired` | The licence's expiry date has passed |
+| `Missing` | The instance has no licence file and no trial running, which is the usual state of a Desktop host under the free-use policy |
+| `Invalid` | The licence file fails its signature check, has a start date in the future, or has an unrecognised type |
+| `WrongInstance` | The licence file was issued for a different installation |
+| `UnsupportedVersion` | The licence covers only earlier releases of Profinity |
+
+A server installation in any of these five states runs in *restricted mode*:
 
 - It stays reachable on its configured address, so you can still replace the licence from a browser.
 - A banner on every page says why.
 - Users with the **Security administration** permission can sign in, open the **License** page to upload a new licence, read the **Logs**, and change their own password.
   The side menu shows only **ADMIN** and **LOGOUT**.
-- Other users can sign in and see a message that the licence needs renewing, and nothing else.
-- Every other page and API request is refused until a Server licence is applied.
+- Other users can sign in and see only a message that the licence needs renewing.
+- Profinity refuses every other page and API request until a Server licence is applied.
 
-Upload the new licence on the **License** page.
-Profinity restarts, the page waits for it to come back, and then it reloads with everything available again.
+To leave restricted mode, apply a licence as described in [Apply a licence](Installation/Applying_a_Licence.md).
+Profinity restarts, the **License** page waits for it to come back, and then it reloads with everything available again.
 
 !!! warning "Use HTTPS where you can"
     Over plain HTTP, sign-in details are sent without encryption.
     Restricted mode works over HTTP, so a server that can only be reached that way can still be renewed, but the **License** page warns you.
 
-A Desktop host does not run in restricted mode.
-It keeps the unlicensed feature set described in [Desktop free-use policy](#desktop-free-use-policy).
+A Desktop host in these states keeps working with the features every edition includes, as described in [Desktop free-use policy](#desktop-free-use-policy).
 
 ## Desktop free-use policy
 
-An unlicensed Desktop installation is provided for personal, non-commercial use only and must not be used for commercial purposes.
-Commercial use requires a purchased Desktop licence from Prohelion.
-A Desktop installation does not need a licence for personal use, and does not issue or consume the automatic local trial described in [The 14-day local trial](#the-14-day-local-trial).
-It keeps the unlicensed entitlement set indefinitely.
-It also shows a notice on the Home screen that explains the non-commercial-use restriction and directs commercial users to contact Prohelion to purchase a Desktop licence.
-If a trial or commercial `license.yaml` is installed on a Desktop host manually, Profinity validates and applies it in the same way as on a server host.
-A Desktop host that holds a Server licence also accepts connections from other machines and creates the default `admin` account, as a server host does.
+A Desktop installation is free for personal, non-commercial use, and commercial use needs a Desktop licence from Prohelion.
+It runs with the features every edition includes for as long as you use it.
+The Home screen shows a notice that explains the personal-use limit and directs commercial users to contact Prohelion.
+
+A signed trial or commercial `license.yaml` installed on a Desktop host is validated and applied in the same way as on a server host.
+With a Server licence, a Desktop host also accepts connections from other computers and creates the default `admin` account, as a server host does.
 The built-in desktop sign-in used by the application window still works from the same computer only.
+
 Do not put a reverse proxy on the same computer in front of a Desktop host.
-Requests that come through the proxy look as if they came from the computer itself.
-Profinity refuses the desktop sign-in on a request that carries forwarding headers.
-The safe set-up is to run Profinity as a server host behind the proxy instead.
+Requests that come through the proxy look as if they came from the computer itself, so Profinity refuses the desktop sign-in on any request that carries forwarding headers.
+To use a reverse proxy, run Profinity as a server host behind it instead.
 
 ## The machine fingerprint
 
-The fingerprint is a value computed from the installation itself, unique to that machine and Profinity install.
+The fingerprint is the identity of one Profinity installation, and the **License** page shows it with a button to copy it.
+It is a random value that Profinity creates on first startup and keeps in the `license` folder of the [artefacts directory](Installation/Artifacts_Directory.md).
 It has two purposes:
 
-- It ties a signed `license.yaml` to one specific installation, so a licence file cannot be copied to another machine and reused.
-- It is the only piece of information an administrator needs to send to Prohelion to request a licence or evaluation.
-  This keeps the process usable for edge machines with no internet access.
+- It ties a signed `license.yaml` to one installation, so a licence file works only on the installation it was issued for.
+- It is the only information an administrator sends to Prohelion to request a licence or evaluation, so an offline instance can be licensed too.
 
-A licence is signed for one machine's fingerprint.
-A licence issued for one instance does not apply to another.
-Profinity rejects an upload of a licence issued for a different machine, and reports the state `WrongInstance` if such a file is placed directly in the licence folder.
-The fingerprint is shown on the [License manager](Administration/License_Manager.md), with a button to copy it.
+The fingerprint travels with the artefacts directory.
+It stays the same when the computer's name changes, when a Docker container is recreated, and when the artefacts directory is moved.
+Back up the artefacts directory with the rest of your Profinity data.
+If the `license` folder is lost, Profinity creates a new fingerprint, and you need a new licence from Prohelion for it.
 
-## Related documentation
-
-- [Apply a licence](Installation/Applying_a_Licence.md): upload or place a licence file on an instance.
-- [License manager](Administration/License_Manager.md): read the licence state, fingerprint, and licensed features of an instance.
-- [System Information](Administration/System_Info.md): instance version and licence summary shown alongside other system details.
-- [Roles and Permissions](Administration/Users_and_Access/Roles_and_Permissions.md): assigning the **Security administration** permission needed to manage licences.
-- [System Configuration](Administration/System_Configuration/index.md): the site-level configuration layer that can narrow, but never exceed, what the licence permits.
+Profinity rejects an upload of a licence issued for a different installation, and reports the state `WrongInstance` if such a file is copied into the `license` folder.
