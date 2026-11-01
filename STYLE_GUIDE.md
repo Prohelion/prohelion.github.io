@@ -60,7 +60,7 @@ Page shapes are maximums, not minimums. Use only the parts a page needs, in the 
 
 Write troubleshooting as a table with the columns "What you see", "Cause", and "What to do", so the reader can match the symptom in front of them to a fix. Sibling pages, such as one guide per tool for the same job, use the same table, so a reader who has used one can find the fix on any other.
 
-Every page, whatever its type, opens with a sentence that states its purpose, has a title the reader would search for, and ends by pointing to a next step.
+Every page, whatever its type, opens with a sentence that states its purpose and has a title the reader would search for. Every page except a reference page ends by pointing to a next step. A reference page is looked up, not read through, so it ends with its last entry.
 
 ### Heading hierarchy
 - H1 (#): Main document title
@@ -117,7 +117,13 @@ Sentence rhythm depends on the page type. Prohelion's existing prose runs long a
 - Safety content escalates to blunt, short, emphatic language — capitals, short imperatives — rather than softened warnings: "Wear eye protection. Use insulated tools. Take extreme caution. Go slow." Use the admonition blocks in §3 for this, titled with a direct statement rather than a generic label — e.g. `!!! danger "Working around batteries is DANGEROUS"`, `!!! danger "Ensure your pack is correctly fused"`.
 - Date capability statements rather than treating them as timeless, when a feature is versioned: "As of Profinity 1.11, Prohelion has migrated to a modern container and API centric architecture."
 - Date every fact about another company's product, such as the minimum version of a third-party tool or a setting it lacks: "As of October 2026, Cursor 3.19 and later on Windows uses the operating system certificate stores." Where the vendor documents the fact, link to that page as well, because it changes without Prohelion knowing.
-- Write in the present tense. Avoid "will", "would" and "should" except in a tutorial or to describe a genuine future event, and do not announce future features or make statements that will soon be out of date. Prefer positive phrasing to negative.
+- Write in the present tense. Avoid "will", "would" and "should" except in a tutorial or to describe a genuine future event, and do not announce future features or make statements that will soon be out of date.
+- State what the product does, not what it does not do. A reader has to undo a negative to find the fact, so write the positive form wherever one says the same thing. Three forms to rewrite:
+  - A double negative: "an installation that is not a Desktop host and has never had a licence" becomes "a new server installation".
+  - A negative used to state a positive: "works offline, with no activation step" becomes "works offline"; "is not shown without the permission" becomes "is shown to users with the permission".
+  - A negative with a condition: "does not start until a collection is selected" becomes "needs a collection before it can start". Keep a precondition a precondition. Write "starts once X" only when X itself starts the action, because selecting a collection makes a component ready to start and the reader still has to start it.
+
+  Keep a negative where it is the fact: a safety prohibition ("Do not disconnect the pack while it is charging"), a symptom the reader sees ("If you cannot reach Profinity"), a state defined by an absence ("No licence file is installed"), or a contrast the reader needs ("Disabling a component hides it, and does not uninstall it").
 - Do not use minimising words: "simply", "just", "easily", "straightforward", "merely", "obviously". A step that is not simple for the reader makes the page feel unfriendly, and a step that is simple needs no label.
 - Repeating a page shape or an opening sentence template across sibling pages is normal and expected, not something to "vary for freshness". Repeating a fact is different: each fact (a setting's meaning, a licensing rule, an environment variable) lives on one authoritative page, and every other page links to it, so the copies cannot drift apart.
 - Near-identical opening paragraphs recur deliberately across product generations — the D1000 Gen1 and Gen2 Warnings pages share nearly the same opening two paragraphs; the WS22 and WS200 datasheets both open "This document describes the specifications, performance and properties of the Prohelion WaveSculptor [X] Motor Controller." When documenting a family of similar products, reuse the same sentence template rather than manufacturing artificial variation between pages.
@@ -445,7 +451,7 @@ Review a whole section in one pass, in the order a reader follows it, because th
 Use this list when drafting or reviewing a page, and when briefing an AI assistant to draft one. Each line points to the section that holds the full rule.
 
 1. Choose one page type and use its shape (section 1).
-2. State the page's purpose in the first sentence, and end with a next step (section 1).
+2. State the page's purpose in the first sentence, and end with a next step, except on a reference page (section 1).
 3. Write for a customer with only the product and these docs (2.8).
 4. Use sentence case for headings, and a verb in task headings (section 1).
 5. Write task steps as numbered, imperative, one action each, with the condition first and the result after (section 5).

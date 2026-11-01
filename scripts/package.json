@@ -11,7 +11,11 @@
     "update-2.3-checklist": "node verify-2.3-doc-urls.js -- --update-checklist",
     "validate-dashboards:all": "node validate-dashboard-examples.js --recursive",
     "lint-docs": "node lint-docs.js",
-    "test-lint": "node --test lint-docs.test.js",
+    "test-lint": "node --test lint-docs.test.js review-pages.test.js",
+    "review-prepass": "node review-pages.js prepass",
+    "review-phrasing": "node review-pages.js phrasing",
+    "review-apply-phrasing": "node review-pages.js apply-phrasing",
+    "review-score": "node review-pages.js score",
     "generate-llms": "node generate-llms-txt.js"
   },
   "dependencies": {
