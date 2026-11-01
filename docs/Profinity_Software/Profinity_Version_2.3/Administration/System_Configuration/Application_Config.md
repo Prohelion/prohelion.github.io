@@ -1,9 +1,9 @@
 ---
 title: Application Config
-description: "Set packet retention, update checks, the recent tag history window and scripting on the System Configuration Application Config tab."
+description: "Set packet retention, update checks, the recent tag history window and scripting languages on the System Configuration Application Config tab."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-01
 ---
 
 # Application Config
@@ -19,16 +19,20 @@ Refer to [System Configuration](index.md) for what to expect.
 | `Custom Update Server` | Text | Blank (standard Prohelion update service) | - | The address of your own update server. Leave it blank to use the standard Prohelion update service. |
 | `Update Check Interval (hours)` | Whole number | 24 | 1 to 168 (one week), or 0 | How often Profinity checks for updates. 0 disables scheduled checks. |
 | `Recent tag history — local window (minutes)` | Whole number | 60 | 1 to 10080 | How far back dashboard bindings read from the in-memory [tag buffer](Tags.md). |
-| `Enable Scripting` | On or off | Off | - | In the **Optional Capabilities** section. Turns scripting on for the instance. |
+| `Enable C# Scripting` | On or off | Off | - | In the **Optional Capabilities** section. Turns on C# script components and the C# script engine. |
+| `Enable Python Scripting` | On or off | Off | - | In the **Optional Capabilities** section. Turns on Python script components and the Python script engine. |
+| `Enable Lua Scripting` | On or off | Off | - | In the **Optional Capabilities** section. Turns on Lua script components and the Lua script engine. |
 
 For the recent tag history window, a dashboard binding that queries a time range starting within the window is served entirely from the in-memory tag buffer.
 A range that starts earlier uses the designated InfluxDB reader for the whole window, when one is configured.
 
-Scripts run code on the host, so turning on scripting is a security decision.
-The **Enable Scripting** field is available only when the licence includes the **Scripting** feature (**Desktop**, **Server**, and **Enterprise** editions).
+Scripts run code on the host, so turning on a scripting language is a security decision.
+Each language toggle is available only when the licence includes the **Scripting** feature (**Desktop**, **Server**, and **Enterprise** editions).
 An unlicensed instance does not include scripting.
 
+When a language is off, that script type does not appear under Add Component, and scripts in that language do not run — including scripts attached to custom components.
+
 <figure markdown>
-![The Application Config tab of the System Configuration dialog, with update server and check interval fields, packet and tag history limits, and an Enable Scripting checkbox that is ticked.](../../images/app_configuration.png)
+![The Application Config tab of the System Configuration dialog, with update server and check interval fields, packet and tag history limits, and scripting language checkboxes.](../../images/app_configuration.png)
 <figcaption>Profinity System Configuration</figcaption>
 </figure>
