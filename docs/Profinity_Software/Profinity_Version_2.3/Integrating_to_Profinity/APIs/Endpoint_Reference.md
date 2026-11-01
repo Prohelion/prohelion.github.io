@@ -69,9 +69,10 @@ They match the **Reset MFA** (multi-factor authentication) and **Reset Password*
 
 | Method | Route | Purpose |
 |--------|-------|---------|
-| POST | `/api/v2/Relay/snapshot` | Receives a snapshot from a [Tag Relay Sender](../../Components/Tag_Relays/Tag_Relay_Sender.md) that uses HTTPS. Rules for this route follow the table. |
+| POST | `/api/v2/Relay/snapshot` | Receives a full snapshot from a [Tag Relay Sender](../../Components/Tag_Relays/Tag_Relay_Sender.md) that uses HTTPS. |
+| POST | `/api/v2/Relay/delta` | Receives a batch of changed tag samples from a sender in On Change mode. |
 
-The rules for the snapshot route are:
+The rules for both routes are:
 
 - The caller needs a JSON Web Token (JWT) for a user with the **Receive external tags** permission, or for an Admin.
 - The request body can be up to 5 MB.

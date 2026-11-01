@@ -3,14 +3,14 @@ title: Tag relay
 description: Share live tags between Profinity instances using sender and receiver roles, a choice of HTTPS or MQTT transport, and per-site tag prefixes.
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-01
 ---
 
 # Tag relay
 
 Tag relay shares live tag data between two Profinity instances.
-One instance runs as a sender and publishes periodic snapshots of the [tag collections](Collections/index.md) it is set to export.
-Another instance runs as a receiver and ingests those snapshots as remote, read-only tags.
+One instance runs as a sender and publishes the [tag collections](Collections/index.md) it is set to export, either as periodic full snapshots or as On Change deltas between full snapshots.
+Another instance runs as a receiver and ingests that data as remote, read-only tags.
 The tags sit under a prefix that identifies where they came from.
 It supports a fleet or head-office view spanning multiple sites, vehicles, or installations.
 Tag relay requires the **Data Relay** licensed feature on both the sending and receiving instance.
@@ -36,8 +36,10 @@ Refer to that page for the reverse comparison.
 </figure>
 
 A Profinity instance with a [Tag Relay Sender](../Components/Tag_Relays/Tag_Relay_Sender.md) component exports the member tags of the collections selected in the sender.
-It sends them as a complete snapshot at a fixed interval, which defaults to 60 seconds.
-The receiver therefore always holds the values from the most recent snapshot rather than a stream of individual changes.
+In Snapshot mode it sends a complete snapshot at a fixed interval, which defaults to 60 seconds.
+In On Change mode it sends a complete snapshot on connect and reconnect (and again on a resync interval), and sends only value changes between those snapshots.
+Full snapshots include tag metadata such as units.
+The receiver always holds the latest applied values for each mirrored tag.
 Tags outside the selected collections are never sent.
 
 A [Tag Relay Receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md) component connects to one or more senders.

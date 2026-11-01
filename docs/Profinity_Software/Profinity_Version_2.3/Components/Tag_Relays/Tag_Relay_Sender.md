@@ -1,15 +1,16 @@
 ---
 title: Tag Relay Sender
-description: "Publish a snapshot of selected tag collections to a remote Profinity instance over HTTPS or MQTT at a fixed interval."
+description: "Publish selected tag collections to a remote Profinity instance over HTTPS or MQTT in Snapshot or On Change mode."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-01
 ---
 
 # Tag Relay Sender
 
 The **Tag Relay Sender** exports the [tags](../../Tags/index.md) that belong to the [collections](../../Tags/Collections/index.md) you select.
-It sends them, as a full snapshot at a fixed interval, to a remote Profinity instance running a [Tag Relay Receiver](Tag_Relay_Receiver.md).
+It sends them to a remote Profinity instance running a [Tag Relay Receiver](Tag_Relay_Receiver.md), either as a full snapshot on a fixed interval (**Snapshot** mode) or as a full snapshot on connect and resync with value-change deltas between those snapshots (**On Change** mode).
+Each full snapshot includes tag metadata such as units so tooling on the receiving instance can use it.
 It sends over HTTPS or Message Queuing Telemetry Transport (MQTT) and sits in the **Tag Relays** category.
 The position of each tag in the exported tree is its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 The [Tag relay](../../Tags/Tag_Relay.md) page covers the concept of sender and receiver roles.
@@ -43,15 +44,16 @@ To set up a first relay end to end, refer to [Set up a tag relay](Set_Up_a_Tag_R
 
 1. Add a **Tag Relay Sender** to your profile from the **Tag Relays** category.
 2. Set **Protocol** to **HTTPS** or **MQTT**.
-3. Under **Collections**, add each collection to export and choose it by name.
+3. Under **Collections**, add one or more collections to export.
+   The list shows each collection's display name, with its group path when it sits in a group, as described in [Collections](../../Tags/Collections/index.md).
 4. Enter the settings for your protocol, from [HTTPS settings](#https-settings) or [MQTT settings](#mqtt-settings).
 5. Save the settings.
    With **Auto Connect** on, which is the default, the sender starts when the profile loads and its status shows **On**.
 
 The sender needs at least one collection to be selected, and every selected collection must exist in the profile, before it can start.
 A sender set to HTTPS also needs the **Remote base URL** and **Bearer token**, and a sender set to MQTT also needs the **MQTT broker URL** and **MQTT snapshot topic**.
-To check that it works, wait for one **Snapshot interval (seconds)** and confirm that the total number of messages sent on the component dashboard has increased.
-That total increases only when a snapshot is delivered.
+To check that it works, wait for one publish interval and confirm that the total number of messages sent on the component dashboard has increased.
+That total increases when a snapshot or a delta is delivered.
 
 ## Settings
 
@@ -59,12 +61,14 @@ That total increases only when a snapshot is delivered.
 
 | Setting | Purpose |
 |---|---|
-| **Protocol** | **HTTPS** posts the snapshot to the remote instance's relay API, and **MQTT** publishes it as a JSON payload on a broker. Defaults to HTTPS. |
+| **Protocol** | **HTTPS** posts to the remote instance's relay API, and **MQTT** publishes a JSON payload on a broker. Defaults to HTTPS. |
+| **Mode** | **Snapshot** sends the full collection tree on every interval. **On Change** sends a full snapshot on connect and reconnect, flushes value changes as deltas on the change interval, and sends another full snapshot on the resync interval so a rebooted receiver can rebuild tags that have not changed. Defaults to Snapshot. |
 | **Sender tag path prefix** | Optional. Added as outer path segments on the exported tree, beneath the receiver's own **Receiver tag path prefix**. For an example, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md). |
 | **Exclude relay-managed nodes** | Excludes tags that were received from another Tag Relay, so that mirrored data is not sent on again in a loop. Enabled by default. |
-| **Snapshot interval (seconds)** | How often a snapshot is sent, from 5 to 86400 seconds. Defaults to 60. Each snapshot carries every tag in the selected collections, so a short interval with a large collection produces a large payload. |
+| **Snapshot / change interval (seconds)** | In Snapshot mode, how often a full snapshot is sent. In On Change mode, how often pending value changes are flushed as a delta. From 5 to 86400 seconds. Defaults to 60. |
+| **Resync interval (seconds)** | On Change only. How often a full snapshot with metadata is sent again. Must be at least the change interval. Defaults to 300. |
 | **Auto Connect** | Starts sending when the profile loads. Enabled by default. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Collections** | The profile tag collections to export. Add one or more. |
+| **Collections** | One or more profile [tag collections](../../Tags/Collections/index.md) to export. The picker shows display names (and group path); the profile stores the collection id. |
 
 ### HTTPS settings
 
@@ -83,7 +87,7 @@ That total increases only when a snapshot is delivered.
 | **Trust all server certificates** | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
 | **MQTT username** / **MQTT password** | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
 | **MQTT client id** | Optional. Leave blank to generate a client ID. Each client on the broker needs a different ID. |
-| **MQTT snapshot topic** | The topic the UTF-8 JSON snapshot is published on, for example `profinity/relay/site1`. Required when the protocol is MQTT. The receiver must subscribe to the same topic. |
+| **MQTT snapshot topic** | The topic for UTF-8 JSON envelopes, for example `profinity/relay/site1`. Snapshots use a `tree` property and deltas use an `items` property on the same topic. Required when the protocol is MQTT. The receiver must subscribe to the same topic. |
 
 ## Running the sender
 
@@ -91,7 +95,7 @@ The component shows **On** while it is running and **Off** when it is stopped.
 The component has **Start Sender** and **Stop Sender** actions, and a toggle that combines the two.
 Its dashboard shows its status and the total number of messages sent.
 The status shows whether the sender is running, not whether the last snapshot was delivered, so a sender that shows **On** can still be failing to deliver.
-The total number of messages sent increases only when a snapshot is delivered.
+The total number of messages sent increases when a snapshot or a delta is delivered.
 
 ## Troubleshooting
 
