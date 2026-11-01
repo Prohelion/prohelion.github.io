@@ -160,7 +160,7 @@ It returns the last value the script wrote.
     Only a change to a watched tag does, so test by changing the tag.
 
 The method runs when a watched tag's value changes.
-Writing the same value again does not call it, and neither does a change of quality alone, such as a tag going stale while it keeps its last value.
+Only a change in value calls it. Writing the same value again, or a change of quality alone such as a tag going stale while it keeps its last value, leaves the method idle.
 
 ### Trigger overlap
 

@@ -72,6 +72,6 @@ After a session ends, the dialog reloads and the Admin parameters disappear.
 3. Run the **Update Firmware** action, and confirm the dialog that warns that the update writes firmware to the device and cannot be undone.
    A progress indicator shows the update.
 4. If an error message appears, select its link to view the logs, and fix the problem they report.
-   When the progress completes with no error, check the BMU dashboard to confirm that the BMU reports data.
+   When the progress completes successfully, check the BMU dashboard to confirm that the BMU reports data.
 
 The step-by-step procedure for Gen1 units, including the CAN bus requirements, is in the [M48 Gen1 Firmware Update Procedure](../../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Firmware_update_procedure.md) in the hardware manual.

@@ -14,7 +14,7 @@ The settings are grouped into tabs, and each tab has its own page, listed in the
 
 !!! warning "Saving changes restarts Profinity"
     Saving changes in **System Configuration** restarts Profinity and interrupts all active sessions.
-    Enabling or disabling components on the [Choose available components](../Choose_Available_Components.md) page applies immediately without a restart.
+    Enabling or disabling components on the [Choose available components](../Choose_Available_Components.md) page applies immediately, while Profinity keeps running.
 
     After the save, Profinity shows a "Restarting, please wait..." message and checks Profinity every two seconds.
     It refreshes the settings automatically once Profinity is running again, so you do not need to reload the page.

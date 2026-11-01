@@ -62,12 +62,12 @@ Each item in the pill group's `items` must contain a `value` object, which is a 
 | `precision` | number | No | None | Number of decimal places for numeric values |
 | `dotColor` | string | No | None | Shows a status dot beside the value. Use `success`, `warning` or `error` for the dashboard theme colours, or any CSS colour value |
 | `hyperlink` | string | No | None | When set, the value is displayed as a link. A path that starts with `Profile/` resolves against the Profinity server |
-| `openHyperLinkInNewWindow` | boolean | No | `false` | When `true` and `hyperlink` is set, the link opens in a new browser tab. The parameter has no effect without `hyperlink` |
+| `openHyperLinkInNewWindow` | boolean | No | `false` | When `true` and `hyperlink` is set, the link opens in a new browser tab. The parameter takes effect only when `hyperlink` is set |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md) for the item. The `value`, `label` and `unit` targets are handled, and `enabled` and `visible` bindings are ignored |
 
 `enabled` and `visible` are accepted but have no effect, because pill items are always displayed normally.
 
-The status dot is not shown when `hyperlink` is set.
+The status dot is hidden when `hyperlink` is set.
 Give the item a `label` as well as a `dotColor`, because colour alone does not state the status.
 
 ## Example

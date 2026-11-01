@@ -10,7 +10,7 @@ last_reviewed: 2026-10-28
 
 Use these steps to build or change a dashboard in the Visual Editor, bind its elements to tags and save it.
 You need the **Modify dashboards** permission, which an administrator grants in a role as described in [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
-Without it, the **Edit Dashboard** icon is not shown.
+The **Edit Dashboard** icon is shown only to users with that permission.
 Every dashboard value is bound to a tag, so familiarity with the [Tag Explorer](../../Tags/index.md) helps.
 A basic understanding of YAML syntax is needed only when you use the **YAML** tab or read the examples in this guide.
 Dashboards created before Profinity 2.3 keep working unchanged, and one opens in the Visual Editor ready to change.

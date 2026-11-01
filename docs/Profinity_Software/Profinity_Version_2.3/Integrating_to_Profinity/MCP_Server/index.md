@@ -41,7 +41,7 @@ The server's tools cover three jobs:
 
 Every call needs a token for an account with the **MCP integration** permission.
 Tag tools also need **View tags**, and alert tools also need **View alerts**.
-A tag or alert that the account cannot view is left out of the answer, without an error.
+The answer silently includes only the tags and alerts that the account can view.
 
 The [MCP tool reference](Tool_Reference.md) lists each tool and the permission it needs.
 When a connection fails or returns less than you expect, refer to [MCP connection errors](Connection_Errors.md).

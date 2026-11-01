@@ -67,7 +67,7 @@ For a D1000 Gen1 they are:
 - The CMU serial number (**Node Number**).
 - The CMU board and external cell temperatures (**PCB C** and **Cell C**).
 - The voltage of each cell in millivolts (**Cell 1 - 8 mV**).
-A negative voltage is a trust error, where the two redundant measurement channels disagree, and the table shows it without the minus sign.
+A negative voltage is a trust error, where the two redundant measurement channels disagree, and the table shows it as a positive number.
 The value `-32768` indicates a cell position that the BMU has not configured as present, as described in [Transmitted CAN Packets](../../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Communications_Protocol/Transmitted_CAN_Packets.md).
 
 <figure markdown>
@@ -76,7 +76,7 @@ The value `-32768` indicates a cell position that the BMU has not configured as 
 </figure>
 
 The colour of each voltage reading shows additional information, and every cell shows its voltage in millivolts as text, except where the colour table says otherwise.
-Without a loaded firmware configuration, the balancing, zero state of charge, and critical thresholds are not applied.
+The balancing, zero state of charge, and critical thresholds are applied only with a loaded firmware configuration.
 
 | Colour | Meaning | Text in the cell |
 |---|---|---|

@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # How to replay CAN bus logs
 
-Replay recorded CAN bus messages, with no CAN bus adapter needed, to test dashboards, rules, and custom components without live CAN bus data, or to debug a component configuration against a recording.
+Replay recorded CAN bus messages in place of live CAN bus data and a CAN bus adapter, to test dashboards, rules, and custom components, or to debug a component configuration against a recording.
 The CAN Data Log Replayer replays log files that were recorded earlier in Profinity.
 For how to record a log, refer to [Log / replay CAN bus messages](../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md).
 

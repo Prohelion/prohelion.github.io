@@ -12,7 +12,7 @@ Profinity decides what each person can see and do through **roles**.
 A role is a named list of things that people holding it are allowed to do, such as viewing tags, sending CAN messages, or editing profiles.
 Each user is given one or more roles when the account is set up.
 A person who holds two roles can do everything either role allows.
-You cannot give a single user an extra permission without a role, so to find out who can do something, check only the roles.
+You can give a single user an extra permission only through a role, so to find out who can do something, check only the roles.
 
 Refer to [Create a role](./Create_a_Role.md) to create a role, give it to a person, and choose which roles your site needs.
 This page lists every permission and helps you work out why someone cannot see something they expect to.

@@ -58,7 +58,7 @@ The failure appears only in the Profinity log.
 | **Basic auth username** / **Basic auth password** | Shown when **Auth mode** is **Basic auth**. |
 
 The **Destination URL** may embed a token, for example `https://host/hooks/<secret>`.
-Saving without a bearer token reports "You must provide a bearer token when auth mode is Bearer token."
+Saving with an empty bearer token reports "You must provide a bearer token when auth mode is Bearer token."
 The other modes report a matching message for their missing fields.
 
 ## MQTT action settings

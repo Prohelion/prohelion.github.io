@@ -130,7 +130,7 @@ Any other text is ignored.
 | `IPADDRESS` | IP address |
 | `PASSWORD` | Masked text |
 | `EMAIL` | Email address |
-| `INFORMATION` | Text only, with no value to edit |
+| `INFORMATION` | Read-only text |
 
 The calls a script uses to read these values are on [Component and firmware settings](../Scripting/Script_Operations/Settings.md).
 The service that uses them is on [Main script](Main_Script.md).

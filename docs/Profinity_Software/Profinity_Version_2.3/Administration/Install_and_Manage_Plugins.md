@@ -15,7 +15,7 @@ The other half of the screen, **COMPONENT CATALOGUE**, hides or shows individual
 Opening the screen needs the **View plugins** permission and a licence that includes the **Custom Plugins** feature.
 An unlicensed instance does not show the **Components & Plugins** pill.
 Uploading, enabling, disabling, deleting, or changing the catalogue needs **Modify plugins**.
-Without it, the tables have no action buttons.
+Only users with **Modify plugins** see the action buttons on the tables.
 Refer to [Roles and permissions](Users_and_Access/Roles_and_Permissions.md) for the permissions.
 
 Plugins are different from **Custom Components**, which are bundles of YAML and scripts.
@@ -31,7 +31,7 @@ Plugins that ship with Profinity are listed alongside the ones you install.
 3. Enable the plugin once it is listed.
 
 Enabling a plugin that you uploaded needs the **Custom Plugins** licensed feature.
-It is available from the Desktop edition upwards and not when unlicensed (refer to [Licensing](../Licensing.md)).
+It is available from the Desktop edition upwards, when licensed (refer to [Licensing](../Licensing.md)).
 
 The plugin ID is the package file name without its extension, so `my_plugin.zip` installs as `my_plugin`.
 It may contain only letters, digits, hyphens, and underscores.

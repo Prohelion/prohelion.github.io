@@ -27,7 +27,7 @@ Use an [Accordion](../Layout/Accordion.md) when sections should expand and colla
 
 `id` is accepted but has no effect.
 
-A tabs component with one tab displays the tab as the active tab without a switching control.
+A tabs component with one tab displays the tab as the active tab and hides the switching control.
 
 ### Tab parameters
 

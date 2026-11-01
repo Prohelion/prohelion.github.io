@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Component and collection security
 
 Component and collection security controls which users can **see** a profile component or a tag collection, independent of who can **modify** it.
-A user without the **Modify components** or **Modify tag collections** permission already cannot change a component or a collection.
+A user already needs the **Modify components** or **Modify tag collections** permission to change a component or a collection.
 This feature goes further and removes the resource from that user's view entirely.
 The resource disappears from these places:
 
@@ -94,8 +94,8 @@ A hidden component keeps running.
 Rule evaluation, the collection members that rules use, and the tree that relays send are not filtered, because the restrictions apply only to what users and the API see.
 
 A direct API request for a hidden component, collection, or tag path returns `404 Not Found` and not `403 Forbidden`.
-A caller cannot tell a resource that does not exist from one that is hidden from them.
-List responses, the tag catalogue, tag queries including historian queries, alerts, and MCP tool results omit hidden items without an error.
+A caller gets the same response for a resource that does not exist as for one that is hidden from them.
+List responses, the tag catalogue, tag queries including historian queries, alerts, and MCP tool results omit hidden items silently.
 
 The CAN utilities and the script log are not filtered by component security.
 The Collections editor lists every collection, including restricted ones, to any user with **View tag collections**.

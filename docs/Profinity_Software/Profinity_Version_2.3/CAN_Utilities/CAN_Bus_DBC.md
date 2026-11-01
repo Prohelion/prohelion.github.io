@@ -15,7 +15,7 @@ The DBC Viewer takes a DBC file and shows the CAN bus traffic travelling through
 
 Many of the components that Profinity supports have DBC support built in.
 Examples are the [Elmar Solar MPPT](../Components/MPPT/Elmar_Solar_MPPT.md) (Maximum Power Point Tracker) and the [WaveSculptor](../Components/Motor_Controller/index.md).
-These components show their Messages and Signals without a separate DBC file.
+These components show their Messages and Signals from their own built-in DBC.
 
 Prohelion publishes the DBC files that describe its devices with the hardware documentation.
 Examples are the [WaveSculptor22 DBC file](../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md) and the [EV Driver Controls DBC file](../../../Solar_Car_Racing/EV_Driver_Controller/Communications_Protocol/DBC.md).

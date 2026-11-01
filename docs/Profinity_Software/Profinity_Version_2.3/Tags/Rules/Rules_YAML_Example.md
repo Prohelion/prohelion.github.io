@@ -120,7 +120,7 @@ Deadband and dwell control when each happens:
 - The `throttleMinutes` value holds back repeat actions, as described under [Throttle and more information links](Rule_Settings.md#throttle-and-more-information-links).
 
 A rule holds its state while its tag is unreadable, unless it sets `onUnreadable: evaluate`.
-The example does not set it, because neither rule alerts on a lost reading.
+The example leaves it unset, because neither rule alerts on a lost reading.
 See [Unreadable tags](Rule_Settings.md#unreadable-tags).
 
 A threshold rule still needs a rule-level `expression`, and `tag.HasValue` is the usual choice.

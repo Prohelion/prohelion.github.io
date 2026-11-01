@@ -53,7 +53,7 @@ Each `[-]` sequence in a `label` becomes a soft hyphen, so that long words can b
 | `grey` | Grey lamp |
 | `disabled` | Pale lamp in the disabled style |
 | `off` | Recessed lamp with an inset border, without a colour fill of its own |
-| `on` | No colour fill of its own, so the lamp shows no colour when it is lit |
+| `on` | Colourless when lit, because it has no colour fill of its own |
 | `unknown` | The lamp indicator is not drawn and only the caption is shown |
 
 ## Example

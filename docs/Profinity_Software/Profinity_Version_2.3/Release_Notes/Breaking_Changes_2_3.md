@@ -29,14 +29,14 @@ Refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Pe
 
 All installations are affected.
 In 2.2, a damaged `config.yaml` or `security.yaml` was copied aside and Profinity started with default settings, and in the case of `security.yaml` with a default administrator.
-In 2.3, Profinity does not start when `config.yaml` or `security.yaml` is empty, cannot be read as settings, has a key that Profinity does not define, or refers to an environment variable that is not set.
+In 2.3, Profinity stops at startup when `config.yaml` or `security.yaml` is empty, unreadable as settings, has an unknown key, or refers to an unset environment variable.
 It writes nothing, and the message names the file, the reason, and how to recover: fix the file, restore the safety copy `<file>.bak`, or delete the file to reset it.
 Keys that 2.2 wrote and 2.3 no longer uses are ignored, so a `config.yaml` that 2.2 wrote still starts.
 Hand-edited files and files that other tools generate need checking: run `Profinity --preflight-only` against the data folder before you upgrade a production system.
 A container that restarts automatically repeats the message until the file is fixed.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
 
-Other files fall back to a default and say so in the log: `plugins.yaml` starts with no plugins and registers plugin folders as disabled, `theme.yaml` uses the default theme, and a damaged `custom.yaml` withholds the trial.
+Other files fall back to a default and say so in the log: `plugins.yaml` starts with an empty plugin list and registers plugin folders as disabled, `theme.yaml` uses the default theme, and a damaged `custom.yaml` disables the trial.
 Every save of these files now keeps one safety copy, `<file>.bak`, in place of the timestamped copies that an upgrade made in 2.3 development builds.
 Signing in no longer rewrites `security.yaml`: the last sign-in time is kept in `user_activity.yaml`.
 
@@ -45,7 +45,7 @@ Signing in no longer rewrites `security.yaml`: the last sign-in time is kept in 
 All installations that use rules, collections, or derived tags are affected.
 In 2.2, a key that Profinity did not define was ignored, and the rule, collection, or derived tag still worked.
 In 2.3, an item with an unknown key, such as a misspelt setting name, is skipped, and every other item still works.
-A skipped rule does not run, and a skipped collection or derived tag is not offered.
+A skipped rule is inactive, and a skipped collection or derived tag is unavailable for selection.
 Profinity writes a line to the log for each skipped item, and the editors mark it with a red **Invalid** marker and the reason.
 Open the rules, collections, and derived tags editors after the upgrade and correct anything that is marked.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
@@ -72,7 +72,7 @@ Upload a licence before you upgrade a production system that relies on any of th
 ## REST API errors
 
 Every `/api/v2` endpoint now reports failure with the HTTP status code and an RFC 7807 `application/problem+json` body, and no longer returns `200 OK` with `{"success": false}`.
-Validation failures on settings return `422` or `400` with an `errors` object whose keys are dotted setting paths, creating a resource returns `201 Created` with a `Location` header, and deleting one returns `204 No Content` with no body.
+Validation failures on settings return `422` or `400` with an `errors` object whose keys are dotted setting paths, creating a resource returns `201 Created` with a `Location` header, and deleting one returns `204 No Content` with an empty body.
 The users and roles endpoints return a fixed set of fields rather than the whole stored user or role.
 Integrations that read a `success` flag or a `message` field from the response body must read the status code and the problem body instead.
 SCIM keeps its own RFC 7644 error format, and the MCP tools are unchanged.
@@ -94,7 +94,7 @@ Profinity rewrites an older `security.yaml`, `profile.yaml` or `config.yaml` in 
 Before it rewrites a file on load, Profinity keeps the file it replaces beside it as `<file>.bak`, such as `security.yaml.bak`, and keeps one copy per file.
 If Profinity cannot save the copy, it leaves the file unchanged and writes an error to the log.
 Earlier builds could also leave `.history` folders, `.corrupt-` copies, and timestamped `.bak.` copies beside these files.
-Profinity no longer writes or reads them, leaves any that exist where they are, and leaves them out of exported and imported profile packs, so delete them when you no longer need them.
+Profinity stops writing or reading them, leaves any that exist where they are, and excludes them from exported and imported profile packs, so delete them when you have finished with them.
 Re-save collections and rules in the visual editors after the upgrade if you edit their YAML by hand.
 
 ## Profile files
@@ -108,7 +108,7 @@ A key at the top level of a profile that Profinity does not define, such as a mi
 In 2.2 it was ignored.
 When the active profile is invalid at start-up, Profinity creates a new default profile, makes it the active profile, and writes the reason to the log, and the invalid file is left unchanged.
 Correct the file, then select the profile again in the **Profile** pill on the **ADMIN** page.
-Settings inside a component are not checked this way, and Profinity does not keep a setting that the component does not recognise when it saves the profile.
+Settings inside a component are skipped by this check, and Profinity drops an unrecognised setting from a component when it saves the profile.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md#profiles).
 
 ## Uploads and imports are checked
@@ -165,7 +165,7 @@ The value is a compile-time constant, so a plugin built against an earlier SDK k
 
 A Windows installation, including the Windows service that `ProfinityService.cmd` registers, used to serve its web interface to the local computer only, whatever licence it held.
 With a Server licence it now uses the address configured under **Profinity Web**, and it creates the default `admin` account (password change required at first sign-in) so people on other computers can sign in.
-Without a Server licence nothing changes.
+Without a Server licence, behaviour stays as it was.
 The built-in sign-in used by the application window is refused when it arrives from another computer.
 An engine restart, for example after you apply a licence, now keeps a desktop installation a desktop installation, where before it started behaving as a server host.
 

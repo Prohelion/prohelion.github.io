@@ -13,7 +13,7 @@ Before you start, finish [Prepare Profinity for an MCP client](Prepare_Profinity
 You need the MCP address you chose on that page.
 
 Codex signs in to Profinity with the token in `PROFINITY_TOKEN`.
-Profinity does not offer any other sign-in for this server, so do not run `codex mcp login` for it.
+Profinity offers only the token sign-in for this server, so do not run `codex mcp login` for it.
 
 ## Add the server
 
@@ -59,7 +59,7 @@ Run `/mcp`, and match what Codex shows to a row in this table:
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
-| A certificate error | The operating system did not trust the certificate when Codex started, or the address is not a name on it | Trust the certificate, then start Codex again. A certificate from a trusted authority avoids this step |
+| A certificate error | The operating system treated the certificate as untrusted when Codex started, or the address is missing from it | Trust the certificate, then start Codex again. A certificate from a trusted authority avoids this step |
 | Codex asks you to sign in, or `/mcp` offers a login | `PROFINITY_TOKEN` is missing or empty | Set `PROFINITY_TOKEN`, then restart Codex. Do not complete a login for this server |
 | A 401 response | The variable holds an old or incomplete token | Set the variable to the current service account token, then restart Codex |
 | `profinity` is missing from `/mcp` | The table heading is not `[mcp_servers.profinity]`, or Codex started with a different configuration file | Correct the heading, or add the server to the file Codex uses |

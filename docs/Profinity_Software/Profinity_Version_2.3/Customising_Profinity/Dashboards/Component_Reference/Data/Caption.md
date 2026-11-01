@@ -19,7 +19,7 @@ Use [Readouts](Readouts.md) for a measurement with a unit and precision, and [HT
 |-----------|------|----------|---------|-------------|
 | `class` | string | No | None | Extra CSS class names added to the caption |
 | `color` | string | No | None | Status colour of the text: `red`, `green`, `amber` or `grey`, the same colours as a [Lamp](Lamp.md). Can be bound with the `color` target |
-| `value` | string | No | None | Static text shown when no `value` binding supplies the text. When no data is available, the caption shows `--` and is displayed as stale |
+| `value` | string | No | None | Static text shown until a `value` binding supplies the text. When no data is available, the caption shows `--` and is displayed as stale |
 | `bind` | array | No | None | Data binding. The `value` target supplies the text, which is displayed as a string, and the `color` target supplies the colour |
 
 `id`, `label`, `enabled`, and `visible` are accepted but have no effect.

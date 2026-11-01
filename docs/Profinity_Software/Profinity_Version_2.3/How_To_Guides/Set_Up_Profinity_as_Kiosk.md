@@ -114,7 +114,7 @@ A kiosk session expires under the normal token expiry policy, and [Kiosk Mode](.
 1. Restart the system.
 2. Confirm that Profinity starts automatically.
 3. Confirm that the browser opens fullscreen and loads the correct profile.
-4. Confirm that the browser signs in automatically, without the login page.
+4. Confirm that the browser signs in automatically and skips the login page.
 
 ## Troubleshooting
 

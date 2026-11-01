@@ -55,7 +55,7 @@ Web search, when the administrator has enabled it, is available only with the Cl
 </figure>
 
 Profinity AI answers questions about this instance by querying live data with the same permissions you have.
-It cannot see tags, alerts, or configuration that you could not otherwise see in Profinity.
+It sees only the tags, alerts, or configuration that you can see in Profinity.
 
 You can send another question while Profinity AI is still answering the previous one.
 Profinity AI queues it and answers it in turn.

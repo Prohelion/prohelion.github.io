@@ -14,7 +14,7 @@ Groups create visual and logical groupings that keep a dashboard organised and e
 
 Use a group to keep related data displays together as one section and to give them a shared `width`.
 A group stacks its items vertically unless `direction` is set to `horizontal`.
-Use a [Row](Row.md) when the section needs a `height` instead of a width, or when it is a whole band of the dashboard and not a part of one.
+Use a [Row](Row.md) when the section needs a `height` instead of a width, or when it is a whole band of the dashboard rather than a part of one.
 
 ## Parameters
 

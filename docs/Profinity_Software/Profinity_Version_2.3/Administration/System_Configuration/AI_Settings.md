@@ -56,7 +56,7 @@ Profinity rejects a save that leaves the configuration in an inconsistent state,
 
 Profinity treats a configuration that passes these checks as ready to use.
 It does not make a live test call to the provider when you save the configuration.
-A valid-looking configuration with, for example, a revoked API key is not flagged until a user sends a chat message, and the chat then returns an error.
+A valid-looking configuration with, for example, a revoked API key is flagged only once a user sends a chat message, and the chat then returns an error.
 When chat fails or times out, check the **API Key**, **Model**, and **Base URL**.
 Raise **Response timeout (seconds)** for slow models.
 
@@ -70,7 +70,7 @@ Raise **Response timeout (seconds)** for slow models.
 The API key is stored encrypted and is never sent to the browser.
 
 Live-data access through MCP is scoped to the permissions of the user asking the question, using a short-lived token minted for that user.
-Profinity AI cannot see data the asking user could not otherwise see through the API.
+Profinity AI sees only the data that the asking user can already see in Profinity with their security settings.
 
 ## Permissions
 

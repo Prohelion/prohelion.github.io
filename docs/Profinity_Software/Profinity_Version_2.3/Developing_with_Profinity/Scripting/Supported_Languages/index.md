@@ -58,7 +58,7 @@ For more detail, refer to the [IronPython Documentation](https://ironpython.net/
 Lua scripts in Profinity use a procedural style, with functions that Profinity calls at defined points, such as `receive()` for a Receive script or `on_start()` for a Service script.
 Profinity embeds the Lua 5.4 runtime through [NLua](https://github.com/NLua/NLua).
 A Lua script can call .NET types directly, including the same `Profinity` script variable that C# and Python scripts use.
-The General Purpose Input/Output (GPIO) and serial port types `GpioController`, `PinMode`, `PinValue`, `SerialPort`, `Parity`, `StopBits` and `Handshake` are available as globals without any import.
+The General Purpose Input/Output (GPIO) and serial port types `GpioController`, `PinMode`, `PinValue`, `SerialPort`, `Parity`, `StopBits` and `Handshake` are available as globals, already imported into the script.
 
 Profinity also registers four Lua host functions:
 

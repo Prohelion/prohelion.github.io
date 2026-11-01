@@ -54,6 +54,6 @@ Each entry gives a one-sentence meaning and links to the page that explains it i
 | SSO | Single sign-on, signing in through an external identity provider. Refer to [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md). |
 | Swagger | The interactive API page on a Profinity instance, which lists every endpoint. Refer to [Profinity REST APIs](../Integrating_to_Profinity/APIs/index.md). |
 | TOTP | Time-based one-time password, the six-digit code an authenticator app generates for two-factor sign-in. Refer to [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md). |
-| UDP | User Datagram Protocol, a network protocol that sends messages without a connection |
+| UDP | User Datagram Protocol, a connectionless network protocol that sends messages |
 
 To return to the section start, refer to [Getting started with Profinity](index.md).

@@ -8,7 +8,7 @@ last_reviewed: 2026-10-25
 
 # When a configuration file is invalid
 
-This page describes what Profinity does when one of its settings files is damaged, has a key it does not recognise, or refers to an environment variable that is not set, and how to recover.
+This page describes what Profinity does when one of its settings files is damaged, has an unrecognised key, or refers to an unset environment variable, and how to recover from these scenarios.
 Profinity stops rather than start on a guess for the two files that control how it is secured and exposed: `config.yaml` and `security.yaml`.
 For the other settings files it carries on with a default and tells you in the log.
 
@@ -19,20 +19,20 @@ For the other settings files it carries on with a default and tells you in the l
 | `config.yaml` | Profinity does not start and shows a message that names the file and the reason. | Nothing. The file is left exactly as it is. |
 | `security.yaml` | Profinity does not start and shows a message that names the file and the reason. | Nothing. No keys or users are created or changed. |
 | `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile. The file is left exactly as it is. |
-| `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity does not save over the damaged file. |
+| `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity leaves the damaged file as it is. |
 | `theme.yaml` | Profinity starts with the default theme. | Nothing. |
 | `custom.yaml` | The install is not offered a trial. | Nothing. |
 
-A file that does not exist is not invalid.
+A file that does not exist counts as valid.
 Profinity creates the default for `config.yaml`, `security.yaml` and `plugins.yaml`, and uses the default theme and no custom settings for the others.
 
 ## Rules, collections, and derived tags
 
 These documents hold many separate items, so Profinity checks each item on its own and does not stop.
 An item that is not valid is skipped, and every other item still works.
-A skipped rule does not run, and a skipped collection or derived tag is not offered.
+A skipped rule is inactive, and a skipped collection or derived tag is withheld.
 
-An item is skipped when it fails its own checks, refers to something that does not exist, or has a key that Profinity does not define, such as a misspelt setting name.
+An item is skipped when it fails its own checks, refers to something missing, or has an unrecognised key, such as a misspelt setting name.
 An item with an unknown key does not run, so check these documents after an upgrade from 2.2.
 Refer to the [breaking changes](../../Release_Notes/Breaking_Changes_2_3.md) for what changed.
 
@@ -45,7 +45,7 @@ The file itself is not changed when it loads.
 To fix a skipped item, open the editor, correct the item named in the marker, and select **SAVE**.
 Saving is refused until every item in the document is valid.
 
-If the whole file cannot be read, the editor tells you so and does not show an empty list that you might save over the top of it.
+If the whole file cannot be read, the editor tells you so and shows a message in place of an empty list that you might save over the top of it.
 
 ## Menu layout
 
@@ -58,15 +58,15 @@ Refer to [Menu Layout](../Menu_Layout.md).
 
 ## Profiles
 
-A profile is invalid when it has a key at its own level that Profinity does not define, such as a misspelt setting name, or when it cannot be read as YAML.
+A profile is invalid when it has an unrecognised key at its own level, such as a misspelt setting name, or when it cannot be read as YAML.
 Profinity checks the profile when it starts.
 If the profile is invalid, Profinity creates a new default profile and makes it the active profile, and the log names the profile and the reason.
-The invalid profile file is not changed, so nothing in it is lost.
+The invalid profile file stays unchanged, so everything in it is kept.
 To go back to it, correct the key that the log names, then select the profile again in the **Profile** pill on the **ADMIN** page, as described in [Manage profiles](../Manage_Profiles.md).
 If the profile named in `config.yaml` does not exist, as on a new installation, Profinity also creates a default profile, and the log says that no profile of that name was found.
 
 Settings inside a component are defined by the component, so Profinity does not check them this way.
-When Profinity saves the profile, it does not keep a setting that the component does not recognise.
+When Profinity saves the profile, it discards an unrecognised setting for that component.
 A profile is read from `profile.yaml` in the profile folder and from no other file name.
 
 ## Alert state
@@ -98,7 +98,7 @@ It names the file and the reason.
 4. Start Profinity again.
 
 If the message names an environment variable, set the variable and start again.
-The file itself is not damaged, so do not delete it.
+The file itself is intact, so do not delete it.
 
 If the message says the file could not be read, check the file permissions for the account that runs Profinity.
 

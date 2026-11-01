@@ -50,7 +50,7 @@ The installer adds Windows Firewall exceptions for ports 4876 (TCP and UDP) and 
 
 A Server licence changes this.
 Profinity then uses the address set in System Configuration, so other machines can open the web interface and sign in with their own accounts.
-A Desktop licence does not provide this, and a Desktop host does not start the 14-day local trial.
+A Desktop licence leaves this out, and a Desktop host skips the 14-day local trial.
 To apply a Server licence, refer to [Apply a licence](./Applying_a_Licence.md), and restart Profinity so that the new address takes effect.
 For the accounts that exist with and without a Server licence, refer to [Who can sign in, by installation type](./Applying_a_Licence.md#who-can-sign-in).
 

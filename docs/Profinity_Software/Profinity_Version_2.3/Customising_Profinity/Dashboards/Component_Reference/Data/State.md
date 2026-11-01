@@ -22,7 +22,7 @@ Use a [Caption](Caption.md) or a [Lamp](Lamp.md) when only the name or the healt
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `model` | string | Yes | None | Mermaid flowchart definition that lists the states and the transitions between them. Without a model, the component shows that no model is available |
+| `model` | string | Yes | None | Mermaid flowchart definition that lists the states and the transitions between them. Until a model is set, the component shows that no model is available |
 | `value` | string | No | None | Identifier of the active state, which the diagram highlights. The identifier must match a node identifier in `model`, for example `IDLE` for the node `IDLE(Idle)` |
 | `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). Bind a tag to the `value` target to drive the highlighted state. Only the `value` target is handled |
 

@@ -31,7 +31,7 @@ To share tags between two Profinity instances, use [Tag Relay](../../Tag_Relays/
 
 ## Quick start {#adding-an-mqtt-subscriber}
 
-The subscriber does not start unless **Server URL**, **Topic filter**, **Host ID** and **Tag path prefix** are all set.
+The subscriber starts only when **Server URL**, **Topic filter**, **Host ID** and **Tag path prefix** are all set.
 
 1. Add an **MQTT Subscriber** to your profile from the **Publishers & Subscribers** category.
 2. Enter the broker address in **Server URL**, for example `mqtt://broker.example.com`.
@@ -117,7 +117,7 @@ Check the [Logs](../../../Administration/Logs_Config.md) for the underlying mess
 |---|---|---|
 | The status shows **Error**. | The **Server URL** scheme or **Broker port** does not match the broker. | Correct the scheme and port. |
 | The status shows **Error**. | The broker does not accept the **Username** and **Password**. | Correct the credentials. |
-| The status stays **Off**. | One of **Server URL**, **Topic filter**, **Host ID** or **Tag path prefix** is not set, so the subscriber does not start. | Set all four. |
-| The status shows **On** but no tags appear. | The **Topic filter** does not cover the group you expect. | Change the **Topic filter** to cover that group. |
+| The status stays **Off**. | One of **Server URL**, **Topic filter**, **Host ID** or **Tag path prefix** is not set, so the subscriber stays off. | Set all four. |
+| The status shows **On** but no tags appear. | The **Topic filter** is set to a different group from the one you expect. | Change the **Topic filter** to cover that group. |
 
 Use the [MQTT Publisher](../MQTT_Publisher.md) or [Webhook Publisher](../Webhook_Publisher.md) to send data out, and [Tag Relays](../../Tag_Relays/index.md) to share tags between Profinity instances.

@@ -105,7 +105,7 @@ Then select the packet and select the **Send** arrow, to confirm that it transmi
 ### A packet does not appear in the activity panel
 
 A packet that was sent but is missing from the CAN Activity panel is usually hidden by a filter.
-The adapter may also not be receiving traffic back, or the CAN bus bit rate may not match the network.
+The adapter may also be receiving no traffic back, or the CAN bus bit rate may differ from the network.
 Clear the filters, check that the adapter is receiving traffic, and check the bit rate.
 
 ### The data is wrong

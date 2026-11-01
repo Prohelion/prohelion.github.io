@@ -17,7 +17,7 @@ Saving the tab restarts Profinity and interrupts active sessions.
 
 !!! note "Licence required"
     SCIM provisioning requires the **Enterprise Security** licensed feature, included in the **Enterprise** edition only.
-    Without it, **Enable SCIM user provisioning** does not take effect.
+    **Enable SCIM user provisioning** takes effect only with the **Enterprise Security** licensed feature.
     Refer to [Licensing](../../../Licensing.md) for what each edition includes.
 
 The **SCIM Provisioning** group appears only when **Sign-in method** is **Sso**, because provisioned users sign in through the identity provider configured in [SSO and sign-in method](./SSO_and_Sign_In.md).
@@ -38,7 +38,7 @@ Profinity refuses to save in two cases:
 |---------|-------------|
 | **Enable SCIM user provisioning** | Allows the identity provider to create and deactivate users through the SCIM 2.0 interface. Off by default. |
 | **SCIM bearer token** | The long-lived secret the identity provider presents as `Authorization: Bearer`. Treat it like a password. To replace it, enter a new value here, save, and enter the same value in the identity provider. |
-| **Default assigned roles** | A comma-separated list of Profinity roles given to every user that SCIM creates. Names that do not match an existing role are ignored. An empty list creates users with no role. |
+| **Default assigned roles** | A comma-separated list of Profinity roles given to every user that SCIM creates. Names that match an existing role are assigned, and any other name is ignored. An empty list creates users with no role. |
 
 ### Endpoint and supported operations
 

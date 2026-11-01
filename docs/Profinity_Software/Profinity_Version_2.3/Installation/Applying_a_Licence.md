@@ -77,7 +77,7 @@ Removing licensed features restarts Profinity automatically, and so does applyin
 
 | What the page or message shows | Likely cause | What to do |
 |--------------------------------|--------------|------------|
-| The upload is rejected | The file's signature, expiry, or fingerprint did not pass validation | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that it has not expired |
+| The upload is rejected | The file's signature, expiry, or fingerprint failed validation | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that its expiry date is in the future |
 | `WrongInstance` as the **State** after a `license.yaml` is copied into the `license` folder | The file was issued for a different machine | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it |
 | `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way. A server installation stays reachable in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired), so you can still sign in and upload it |
 

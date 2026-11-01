@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Tags
 
 Profinity keeps a rolling in-memory history of recent tag values, which is used for dashboard charts and for the recent-history queries described under [Application Config](Application_Config.md).
-The Tags tab sets the limits on that buffer, so that it cannot grow without bound on a busy instance.
+The Tags tab sets the limits on that buffer, so that it stays bounded on a busy instance.
 
 Saving changes on any System Configuration tab restarts Profinity.
 Refer to [System Configuration](index.md) for what to expect.

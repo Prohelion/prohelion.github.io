@@ -16,7 +16,7 @@ A component type that is not licensed shows as unavailable.
 
 A component shows data only when data arrives.
 For live data, add a protocol adapter first, because an adapter lets Profinity receive data from external systems.
-To see data without any hardware, replay a CAN log as described in the [Quick start guide](../Getting_Started/Quick_Start.md#step-3-replay-the-example-can-log).
+To see data from a CAN log alone, replay one as described in the [Quick start guide](../Getting_Started/Quick_Start.md#step-3-replay-the-example-can-log).
 For CAN bus networks, [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) describes the supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges.
 [How to connect to CAN bus](./Connect_to_CAN_Bus.md) gives the steps.
 For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7, described in [Industrial protocols](../Components/Industrial_Protocols/index.md).
@@ -40,7 +40,7 @@ The **COMPONENT TYPES** filter limits the list to one category:
 To add a component:
 
 1. Select **ADD COMPONENT** on the homepage or at the bottom of the sidebar.
-   The homepage tile is not shown when the home screen has Add Component turned off.
+   The homepage tile is shown only when the home screen has Add Component turned on.
    A page opens that lists every component type that can be added, including hardware devices, data loggers, and custom scripts.
    Profinity can auto-discover some CAN bus adapters, and it shows a discovered adapter at the top of the page.
 2. Select the type to add.

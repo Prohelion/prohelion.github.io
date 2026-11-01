@@ -13,7 +13,7 @@ To create and run a script, refer to [Test a script outside Profinity](./Test_a_
 
 ## Templates
 
-`profinity-script new` with no template name prints the template names and exits with no error message.
+`profinity-script new` with no template name prints the template names and exits cleanly.
 `new` copies one example folder.
 The folder contains `sim.yaml` and the script.
 The table is in the order `profinity-script new` prints.
@@ -54,7 +54,7 @@ A script that waits for a CAN reply names that reply under `onSend`.
 `matchId` is the CAN ID the script sends, and `replyId` is the CAN ID it receives.
 Both are decimal numbers: 256 is CAN ID 0x100.
 The reply packet carries `replyId` and no data bytes.
-A wait uses the timeout the script passes, and a reply that is not listed does not arrive.
+A wait uses the timeout the script passes, and only a listed reply arrives.
 For sending and receiving, refer to [CAN bus](../Scripting/Script_Operations/CANBus.md).
 
 ```yaml

@@ -65,9 +65,9 @@ Open the Output panel with Cmd+Shift+U or Ctrl+Shift+U, select **MCP Logs**, and
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
-| The log names a certificate, a self-signed issuer, or a host name mismatch | Cursor does not trust the certificate, or the address is not a name on it | Trust the certificate, use a name that is on it, or use the HTTP address on the same computer. Then quit Cursor completely and open it again |
+| The log names a certificate, a self-signed issuer, or a host name mismatch | Cursor treats the certificate as untrusted, or the address is missing from it | Trust the certificate, use a name that is on it, or use the HTTP address on the same computer. Then quit Cursor completely and open it again |
 | The log shows 401, or the header still contains `${env:PROFINITY_TOKEN}` | Cursor did not receive the token | Set `PROFINITY_TOKEN` for your login session, then quit Cursor and open it again |
-| `profinity` is missing from **Customize** | The file is not valid JSON, or Cursor was not reopened after the file was saved | Correct the file, then quit Cursor and open it again |
+| `profinity` is missing from **Customize** | The file is invalid JSON, or Cursor was last opened before the file was saved | Correct the file, then quit Cursor and open it again |
 
 For a 403 or another response, refer to [MCP connection errors](Connection_Errors.md).
 When Cursor can read the instance, install [AI Skills](../../Profinity_AI/AI_Skills/Install_AI_Skills.md) so that Cursor can build dashboards, rules, and other configuration from that data.

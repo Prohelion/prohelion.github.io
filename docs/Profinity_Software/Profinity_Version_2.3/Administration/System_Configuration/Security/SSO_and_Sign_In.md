@@ -28,7 +28,7 @@ With **Sso** selected, the **SSO** and **SCIM Provisioning** groups appear.
 
 !!! note "Licence required"
     Choosing **Sso** as the **Sign-in method** requires the **Enterprise Security** licensed feature, included in the **Enterprise** edition only.
-    Without it Profinity keeps **Local** sign-in and the **Sso** choice does not take effect.
+    The **Sso** choice takes effect only with the **Enterprise Security** licensed feature; otherwise Profinity keeps **Local** sign-in.
     Refer to [Licensing](../../../Licensing.md) for what each edition includes.
 
 ## Configuring the identity provider
@@ -97,7 +97,7 @@ Service accounts are not linked to identity providers and keep using their token
 A site cannot mix **Local** and **Sso**, so a misconfigured or unreachable identity provider prevents every user from signing in.
 Confirm the callback address and the issuer with a test account before you rely on **Sso**.
 
-If Profinity starts with **Sso** selected and no **Authority URL (IdP issuer)**, it reverts to **Local** sign-in so that the site is not locked out.
+If Profinity starts with **Sso** selected and no **Authority URL (IdP issuer)**, it reverts to **Local** sign-in so that users can still sign in.
 When the authority is set but wrong, set the **Sign-in method** back to **Local** in the configuration file:
 
 1. Stop Profinity if it is running.

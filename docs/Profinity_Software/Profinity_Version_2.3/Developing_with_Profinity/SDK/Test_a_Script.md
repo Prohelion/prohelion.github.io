@@ -55,7 +55,7 @@ With no arguments, `profinity-script` runs `sim` in the current directory.
     profinity-script sim
     ```
 
-    The command prints `ran` and exits with no error message.
+    The command prints `ran` and exits cleanly.
     That line is what `script.py` writes with `Profinity.Console.WriteLine`.
 
     ```text
@@ -65,7 +65,7 @@ With no arguments, `profinity-script` runs `sim` in the current directory.
 `profinity-script sim runnable`, run from the `profinity-script` folder, does the same thing without changing directory.
 
 The simulator reads `sim.yaml`, which sits next to the script, runs the script, and prints the lines the script writes to the console.
-A script that only stores a tag or a setting prints nothing, and the run has still worked when the command exits with no error message.
+A script that only stores a tag or a setting prints nothing, and the run has still worked when the command exits cleanly.
 Add `Profinity.Console.WriteLine` to see a stored value.
 The command does not print tags, settings, notifications, or CAN frames on its own.
 To run a tag-change, receiver, service, alert, firmware-load, or prompt script, create it from the matching template and edit `sim.yaml`.

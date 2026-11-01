@@ -31,7 +31,7 @@ A [profile](./Profiles.md) uses the layout as soon as it is saved, so no setting
 The **Menu structure** list shows each group with its components beneath it.
 Drag the handle beside a group or a component to move it.
 You can drag a component into a different group or to a new position in the same group.
-You can also drag a component out of its group to the top level of the menu, where it appears on its own and not inside any group.
+You can also drag a component out of its group to the top level of the menu, where it appears on its own and outside any group.
 A component at the top level stays there when you edit or rename it.
 
 - The search box filters the list by group or component name.
@@ -66,8 +66,8 @@ The temporary group becomes a real group the next time you save.
 ## When components change
 
 Editing a component never moves it in the menu.
-Renaming a component never moves it either, because the menu refers to the component and not to its name.
-A component you add to the profile appears in the menu without any change to the layout.
+Renaming a component also leaves it in place, because the menu refers to the component itself, rather than to its name.
+A component you add to the profile appears in the menu, and the layout stays unchanged.
 When you delete a component, it is removed from the layout in the same save.
 Any group it was in stays, even if it is now empty, because you may have created it on purpose.
 Loading a profile never changes the layout or the profile file.
@@ -77,7 +77,7 @@ Loading a profile never changes the layout or the profile file.
 If the saved layout is not valid, Profinity ignores the whole layout and shows every component in its default group.
 A layout can be invalid when it was written by hand and contains a mistake, or when it uses an older format.
 Profinity writes one message to the log that names the problem.
-The profile file is not changed, and the ignored layout is kept as it is until you save a new one.
+The profile file stays unchanged, and the ignored layout is kept as it is until you save a new one.
 The **Menu Layout** editor shows a notice with the reasons.
 Saving from the editor replaces the ignored layout.
 

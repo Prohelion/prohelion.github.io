@@ -29,7 +29,7 @@ The Elcon charger has no **Auto Connect** setting, because it communicates over 
 After that the component is a switch that you turn on with **Connect** (or **Start**) and off with **Disconnect** (or **Stop**).
 
 - With **Auto Connect** on, the component connects when the profile loads.
-- With **Auto Connect** off, the component stays **Off** and makes no connection attempt until you switch it on.
+- With **Auto Connect** off, the component stays **Off** and makes connection attempts only after you manually switch it on.
 - Switched on, the component keeps trying until it is connected. Switched off, it stops trying and stays off, and loading or changing the profile does not switch it back on.
 
 The default depends on the kind of component:
@@ -43,7 +43,7 @@ For a component that defaults to off, turn **Auto Connect** on in its settings i
 
 ## Starting when the other end is not there
 
-A component starts even when what it connects to is not available.
+A component starts even when what it connects to is unavailable.
 It does not stop at start with an error.
 It shows **Error**, writes the reason to the [Logs](../Administration/Logs_Config.md) once, and keeps trying.
 The TDK and Siglent power supplies have an **Auto Reconnect** setting, and with it off they make one attempt and report a failure.
@@ -102,7 +102,7 @@ Once connected, it shows **On** while CAN frames are arriving.
 A Tritium bridge heartbeat is a CAN frame, so a bridge that is only sending heartbeats stays **On**.
 A connected adapter that has never seen a frame, or whose last frame is more than 5 seconds old, shows a warning (amber).
 Exactly 5 seconds since the last frame stays **On**.
-Choosing **Disconnect** shows **Off**, and the adapter does not retry until you connect it again.
+Choosing **Disconnect** shows **Off**, and the adapter retries only after you manually connect it again.
 Check the [Logs](../Administration/Logs_Config.md) for the reason an adapter is not connecting.
 
 To see how the protocol components use these settings, refer to [Industrial protocols](Industrial_Protocols/index.md).

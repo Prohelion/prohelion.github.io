@@ -22,7 +22,7 @@ Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `class` | string | No | None | Not normally needed. The value is used only when `image` does not resolve to an icon, and it is not a general styling class |
+| `class` | string | No | None | Rarely needed. The value is used only when `image` fails to resolve to an icon, and it is not a general styling class |
 | `image` | string | Yes | None | Icon name such as `BatteryCharging`, an icon filename such as `nav_motorcontrollers_active.svg`, or the filename of an image in the `/Profile/Images` directory |
 | `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed (inset) frame at a larger size |
 | `bind` | array | No | None | Data binding. Only the `value` target is handled, and the value is limited to the range `0` to `1`. The value has no visible effect on an icon that is drawn from `image` |

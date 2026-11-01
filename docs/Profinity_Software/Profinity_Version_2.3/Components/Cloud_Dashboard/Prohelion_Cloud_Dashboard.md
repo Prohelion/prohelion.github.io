@@ -58,13 +58,13 @@ Complete the settings in the following table.
 | **Logging mode** | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
 | **Auto Connect** | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
-The component does not start until you select a collection.
+A collection must be selected before the component can start.
 It connects out from the Profinity server to Prohelion Cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.
 No inbound port is needed.
 
 ## Troubleshooting
 
-The component cannot be saved without an access token and a device ID.
+The component can be saved only with an access token and a device ID.
 It reports "You must provide a device access token." or "You must provide a device ID." when either is empty.
 
 If the component is added but no data reaches Prohelion Cloud, check these things:

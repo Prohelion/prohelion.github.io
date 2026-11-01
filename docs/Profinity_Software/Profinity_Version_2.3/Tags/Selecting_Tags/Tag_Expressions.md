@@ -68,7 +68,7 @@ Leaf name contains (case-insensitive):
 tag.MatchesName("*Current*")
 ```
 
-`tag.MatchesPath("Elmar Solar MPPT")` already includes everything beneath that component, so a trailing `*` is not needed.
+`tag.MatchesPath("Elmar Solar MPPT")` already includes everything beneath that component, so you can omit a trailing `*`.
 A trailing `*` lets the last segment continue.
 For example, `Elmar Solar MPPT*` also matches a neighbouring component whose name starts with the same text, and `/Pack1*` matches `/Pack10` as well as `/Pack1`.
 The **Path prefix** option of the guided builder adds this trailing `*` for you.

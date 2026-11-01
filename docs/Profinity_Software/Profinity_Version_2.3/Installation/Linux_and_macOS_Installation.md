@@ -57,7 +57,7 @@ The installer can also be piped straight into the shell with `curl -fsSL https:/
 | `--install-dir <path>` | Install into a different location than `/opt/profinity` |
 | `--version <x.y.z>` | Install a specific GitHub release tag instead of the latest, ignored with `--channel` |
 | `--channel <name>` | Download from a Prohelion file server channel instead of GitHub. Prohelion supplies the channel name and the installer address |
-| `--package <archive>` | Install from a local `.tar.gz` or `.zip` with no download, for hosts without internet access. No checksum step is performed for a local package |
+| `--package <archive>` | Install from a local `.tar.gz` or `.zip` in place of a download, for hosts without internet access. The checksum step is skipped for a local package |
 | `--no-systemd` | File-only install: skip the service user, artefacts directory, and systemd unit |
 | `--dry-run` | Print the planned actions without changing the system |
 
@@ -77,7 +77,7 @@ If the `profinity` service is active, `update.sh` stops it before it applies the
 
 ## Where Profinity stores its data
 
-On Linux, Profinity 2.3 stores writable data under `/var/lib/prohelion/profinity` by default, not `~/.local/share`, and there is no per-user fallback.
+On Linux, Profinity 2.3 stores writable data under `/var/lib/prohelion/profinity` by default, not `~/.local/share`, and it uses only that location.
 On macOS the default is `~/Library/Application Support/Prohelion/Profinity`.
 
 The bootstrap installer creates this directory.

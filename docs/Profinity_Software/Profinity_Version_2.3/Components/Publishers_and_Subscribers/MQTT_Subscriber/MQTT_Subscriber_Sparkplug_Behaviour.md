@@ -48,5 +48,5 @@ Refer to [Tags](../../../Tags/index.md) for how data quality is shown.
 
 The subscriber supports scalar metric types only: boolean, string, the integer widths, float, double, and DateTime.
 It skips dataset, template, bytes, and property-set values.
-It also skips a metric whose name is not yet known, because the edge node has not announced it.
+It also skips a metric until the edge node announces that metric's name.
 A payload that cannot be decoded is logged and dropped, and the subscriber stays connected.

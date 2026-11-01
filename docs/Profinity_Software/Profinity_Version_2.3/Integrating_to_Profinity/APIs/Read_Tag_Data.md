@@ -41,7 +41,7 @@ This request body reads the latest local value of one tag and the last hour of a
 ```
 
 The response has the form `{ "srcSetId": "...", "data": [ ... ] }`, and each poll of the delta route returns an array of `{ "src", "val", "historicalTimeSeries" }` entries for the values that changed.
-The set expires after 15 minutes without a poll, and after that you send the full request again.
+The set expires 15 minutes after the last poll, and after that you send the full request again.
 
 A response that carries values for the requested time range shows the query worked.
 

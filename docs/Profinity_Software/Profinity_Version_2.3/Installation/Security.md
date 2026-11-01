@@ -132,7 +132,7 @@ Profinity does not restrict which enabled user is selected, including administra
 Use a dedicated user with only the view permissions the display needs, such as a read-only role, and review that user's permissions regularly.
 Monitor kiosk access through the logs.
 Secure the device physically, because Kiosk Mode bypasses the login page.
-In production, isolate the device on its own network segment, and disable Kiosk Mode when it is not needed.
+In production, isolate the device on its own network segment, and disable Kiosk Mode when you no longer need it.
 Refer to [Kiosk Mode](../Administration/Kiosk_Mode.md) for the configuration.
 
 ## Production deployment checklist
@@ -144,13 +144,13 @@ Before deploying Profinity in a production environment:
 - [ ] Create individual user accounts and assign minimum permissions.
 - [ ] Apply a Server licence if you need remote access, users, or roles.
 - [ ] Restrict read access to `security.yaml` and encrypt backups of it.
-- [ ] Review and audit all active scripts, and disable scripting if it is not required.
+- [ ] Review and audit all active scripts, and disable scripting unless it is required.
 - [ ] Configure firewall rules to restrict access to Profinity ports.
 - [ ] Review the logs on a schedule and forward them to your monitoring system.
 - [ ] Back up configurations and profiles on a schedule, and test a restore.
 - [ ] Write down the security configuration and who may change it.
 - [ ] If using Docker, mount a volume at `PROFINITY_HOME` and follow the [Docker security](#docker-security) guidance.
-- [ ] Review Kiosk Mode and disable it if it is not needed.
+- [ ] Review Kiosk Mode and disable it unless it is needed.
 
 ## Related documentation
 

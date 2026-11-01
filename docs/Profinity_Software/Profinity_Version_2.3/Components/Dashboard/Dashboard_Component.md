@@ -14,7 +14,7 @@ You can edit it in the visual dashboard editor.
 Use it for human-machine interface (HMI) style screens that bind only to [tags](../../Tags/index.md) that already exist.
 
 It is included in every edition.
-It differs from a [Custom Component](../Custom_Components/Using_a_Custom_Component.md) in that it has no CAN database (DBC), script, or pack files, so there is nothing to upload except the dashboard itself.
+It differs from a [Custom Component](../Custom_Components/Using_a_Custom_Component.md) in that it has no CAN database (DBC), script, or pack files, so you upload only the dashboard itself.
 
 ## Add the component {#add-a-dashboard-component}
 

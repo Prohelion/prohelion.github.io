@@ -36,7 +36,7 @@ The TAG SFTP Logger needs the remote server settings described in [File logger r
 Both loggers log the values of the tags in the collections selected in **Collections**.
 Every sample is written with its quality.
 A Stale tag keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value.
-A logger with no collection selected does not start and its status stays **Off**, so create and select a collection first.
+A logger shows **Off** and cannot start until it has a collection, so create and select a collection first.
 
 | Setting | Purpose |
 |---|---|

@@ -361,7 +361,7 @@ The `size` of an icon and of a point is the only measurement in pixels.
 
 Write each position as a plain number such as `50` or `12.5`, without a `%` or `px` suffix.
 A string such as `"50%"` or `"120px"` is not a number.
-A region whose `x`, `y`, `width` and `height` are not all numbers is not drawn from those properties.
+A region is drawn from those properties only when its `x`, `y`, `width` and `height` are all numbers.
 
 A value above `100` places the element outside the image, so keep every position between `0` and `100`.
 

@@ -32,6 +32,6 @@ Make those changes in the Profinity UI or through the REST API.
 Ask about one component, or a narrow time range, when you can.
 A tool refuses a whole-profile tag list that is too large to return in one answer, and the AI tool then has to ask again with a narrower scope.
 
-A tag or alert that the account cannot view is left out of the answer, without an error.
+The answer silently includes only the tags and alerts that the account can view.
 When a question returns less than you expect, refer to [Fewer results than expected](Connection_Errors.md#fewer-results-than-expected).
 To connect a tool, refer to [Prepare Profinity for an MCP client](Prepare_Profinity.md).

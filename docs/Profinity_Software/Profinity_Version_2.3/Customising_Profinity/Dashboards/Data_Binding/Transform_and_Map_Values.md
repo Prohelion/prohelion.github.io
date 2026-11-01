@@ -93,7 +93,7 @@ dashboard:
                         toType: "number"
 ```
 
-To invert a boolean or numerical value, set `toType` and `invert: true`, because `invert` has no effect without `toType`:
+To invert a boolean or numerical value, set `toType` and `invert: true`, because `invert` takes effect only with `toType`:
 
 ```yaml
 dashboard:

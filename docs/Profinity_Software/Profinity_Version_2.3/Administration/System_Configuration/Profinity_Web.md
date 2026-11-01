@@ -21,7 +21,7 @@ Refer to [System Configuration](index.md) for what to expect.
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| **IP Address for Http** | IP address | All IP addresses (0.0.0.0) | The IP address Profinity runs on for HTTP. You can set localhost (127.0.0.1) or a specific IP address instead. Without a Server licence this setting is not shown and the address is always 127.0.0.1. |
+| **IP Address for Http** | IP address | All IP addresses (0.0.0.0) | The IP address Profinity runs on for HTTP. You can set localhost (127.0.0.1) or a specific IP address instead. Only with a Server licence is this setting shown. Otherwise the address is always 127.0.0.1. |
 | **IP Port for Http** | Whole number | 18080 | The port used for HTTP. Setting this below 1024 requires administrator permissions on the host. |
 | **Enable Https** | On or off | Enabled | Enable or disable the HTTPS server. |
 | **IP Address for Https** | IP address | All IP addresses (0.0.0.0) | Same as the HTTP address but for HTTPS, and hidden under the same licence restriction. |
@@ -30,7 +30,7 @@ Refer to [System Configuration](index.md) for what to expect.
 
 The certificate options are shared with the **Extensions Web** tab and are described in [HTTPS certificates](#https-certificates).
 
-Without a Server licence, including on a Windows desktop installation, the IP address settings are not shown on this tab.
+Only with a Server licence, including on a Windows desktop installation, are the IP address settings shown on this tab.
 Profinity forces both the HTTP and the HTTPS address to `127.0.0.1`, even if `config.yaml` holds another value.
 The web interface can then be reached only from the same computer.
 Entering `0.0.0.0` does not change this, and the log records a message that remote web access requires a Server licence.
@@ -39,7 +39,7 @@ The full rule is in the remote web access warning on [Licensing](../../Licensing
 ## Troubleshooting
 
 If Profinity cannot be reached from another computer, check the licence on the **License** page first.
-Without a Server licence, Profinity uses only `127.0.0.1`.
+Only with a Server licence can Profinity use addresses other than `127.0.0.1`.
 
 With a Server licence, check these three things:
 
@@ -65,7 +65,7 @@ When **Cert File** and the Windows certificate store fields are empty, Profinity
 That certificate stays in place across restarts, and HTTPS stays enabled.
 It names `localhost`, the computer's host name, and the network addresses on the computer at the time it was created.
 Open the site with one of those names.
-A browser warns that the certificate is not from a trusted authority until you trust it, or until you choose your own certificate in the fields above.
+A browser warns that the certificate is from an untrusted authority until you trust it, or until you choose your own certificate in the certificate fields.
 After the host name or an address changes, stop Profinity, delete `profinity_generated.pfx` from the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and start Profinity again.
 Profinity creates a new certificate for the names and addresses it finds then.
 Trust that certificate again in each browser that trusted the old one.

@@ -92,7 +92,7 @@ Refer to [Tags in scripts](../../Developing_with_Profinity/Scripting/Script_Oper
 To check it worked, save the script, then change the source tag, `SpeedMph` in the example.
 Open **Tag Explorer** and confirm that the published tag, `SpeedKmh` in the example, shows the converted value.
 Reading the published tag returns the last value the script published, and a read never re-runs the script.
-If nothing has triggered the script yet, the tag has no value.
+Until the script is triggered, the tag has no value.
 
 Next, choose how the script is triggered.
 A computation that is not purely reactive to a tag change can use another trigger mode: **Run On Time Interval**, **Run On CRON Schedule**, or **Run as Service**.

@@ -46,7 +46,7 @@ Install InfluxDB v2 or v3 and confirm that it is running, then:
 1. Add an **InfluxDB v2 Historian** or an **InfluxDB v3 Historian** to your profile from the **Historians** category.
 2. For the v2 historian, enter **InfluxDB Bucket**, **InfluxDB Organisation** and **InfluxDB Token**.
 3. For the v3 historian, enter **InfluxDB Database** and **InfluxDB Token**.
-4. Under **Collections**, add at least one tag collection. The component does not start until one is configured.
+4. Under **Collections**, add at least one tag collection. The component needs one to be configured before it can start.
 5. In **Influx Server URL**, enter the endpoint URL of your InfluxDB server, or keep the default `http://localhost:8086/`.
 
 Settings cannot be saved while a required field is empty.

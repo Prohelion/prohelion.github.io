@@ -11,7 +11,7 @@ last_reviewed: 2026-10-28
 Data binding connects a dashboard component to a *tag*.
 A tag is a named value in Profinity, such as a CAN signal, a component property or a derived value.
 You can browse every tag in the Tag Explorer.
-When the tag changes, the component updates, so a dashboard shows live information without any code to fetch it.
+When the tag changes, the component updates, so a dashboard shows live information through its bindings alone.
 
 This page covers how a binding names a tag, which tags a dashboard can use, and the binding modes.
 For the settings of a binding, refer to the [Binding settings reference](./Binding_Settings_Reference.md).

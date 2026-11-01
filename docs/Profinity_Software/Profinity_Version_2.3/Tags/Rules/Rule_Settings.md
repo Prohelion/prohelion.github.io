@@ -39,7 +39,7 @@ Rules support two settings that stop an alert flickering on and off:
 A tag is unreadable when it has no value, for example while a device is offline.
 By default a rule holds its current state while its tag is unreadable.
 An alert that is active stays active, and an alert that is clear stays clear, until the tag can be read again.
-A short dropout therefore does not clear an alert, because a missing reading does not show that the condition has passed.
+A short dropout therefore keeps an alert in its current state, because a missing reading leaves open whether the condition has passed.
 
 A rule that alerts on a lost reading, such as `!tag.HasValue`, must be evaluated while the tag is unreadable, or it can never trip.
 Set **When the tag is unreadable** to **Evaluate the rule** for that rule, or set `onUnreadable: evaluate` in YAML:
@@ -53,7 +53,7 @@ Set **When the tag is unreadable** to **Evaluate the rule** for that rule, or se
 
 The setting takes `hold` (the default) or `evaluate`.
 Any other value skips that rule, and the other rules in the file still load.
-Add `onUnreadable: evaluate` to any rule from an earlier release whose expression reads `HasValue` or `Quality`, because those rules no longer run while the tag is unreadable unless you ask.
+Add `onUnreadable: evaluate` to any rule from an earlier release whose expression reads `HasValue` or `Quality`, because those rules stop running while the tag is unreadable, unless you ask.
 After a rules file is saved or reloaded, a tag that was readable before the save is still treated as one that has dropped out.
 
 ## Evaluation tick

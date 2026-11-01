@@ -8,7 +8,7 @@ last_reviewed: 2026-10-28
 
 # Visual Editor reference
 
-The *Visual Editor* is the primary way to build and change a dashboard, with no YAML to write.
+The *Visual Editor* is the primary way to build and change a dashboard, through visual controls rather than YAML.
 The **YAML** tab is a fallback for anything the Visual Editor does not cover, and the reference format when a dashboard is shared or reviewed.
 For the steps, refer to [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md).
 

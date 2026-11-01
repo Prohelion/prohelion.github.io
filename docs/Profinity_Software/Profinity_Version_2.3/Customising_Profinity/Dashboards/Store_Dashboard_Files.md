@@ -201,7 +201,7 @@ The rule for the group goes in `styles/custom-dashboard.css`, which `profile.css
 The `content` folder holds HTML snippets and templates that an HTML component shows.
 Files from this folder cannot be included directly in YAML, and the HTML sanitiser removes the `object`, `embed`, `script` and `form` elements.
 An HTML component therefore shows a content file in an `iframe` or links to it with an `a` element.
-A Markdown file shown this way is not rendered as formatted text, because dashboards have no Markdown renderer.
+A Markdown file shown this way appears as plain text, because dashboards have no Markdown renderer.
 
 ```yaml
 dashboard:

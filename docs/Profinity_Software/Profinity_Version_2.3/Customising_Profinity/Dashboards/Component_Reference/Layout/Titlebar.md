@@ -32,13 +32,13 @@ The `menu` of a titlebar can hold a `modal` item that opens a dialog.
 
 `id` is accepted but has no effect.
 
-When both `showTitlebar` and `showActions` are `false`, the titlebar is not displayed and takes no space.
+When both `showTitlebar` and `showActions` are `false`, the titlebar is hidden and takes no space.
 
 ## Titlebar menu
 
 ### Menu items in the titlebar
 
-The titlebar displays every item of its `menu` as an icon, without the item caption, and each item type behaves as follows.
+The titlebar displays every item of its `menu` as an icon with the item caption hidden, and each item type behaves as follows.
 
 | Item type | Behaviour in the titlebar |
 |-----------|---------------------------|

@@ -71,7 +71,7 @@ A derived tag built on an input with no value is unavailable.
 
 To handle missing inputs yourself, for example with `a.HasValue`, set `inputQuality: ignore` on the derived tag in the YAML.
 The YAML is `derived_tags.yaml` by default, in the `derived_tags` folder of the profile directory, which is inside the [artefacts directory](../../Installation/Artifacts_Directory.md#default-locations).
-Profinity reloads the file when it changes, so a hand edit takes effect without a restart. If the edited file cannot be read, Profinity keeps the derived tags it already has.
+Profinity reloads the file when it changes, so a hand edit takes effect while Profinity keeps running. If the edited file is unreadable, Profinity keeps the derived tags it already has.
 The tag then evaluates whatever the input quality, and is Good when the expression succeeds.
 The default is `inputQuality: propagate`.
 
@@ -89,7 +89,7 @@ Refer to [Create a derived tag with a script](Create_a_Derived_Tag_with_a_Script
 | Use an **expression** when... | Use a **script** when... |
 |---|---|
 | The computation is simple real-time maths, a unit conversion, or combining a handful of tags | The logic needs multiple steps, branching, or state carried between runs |
-| You want automatic history with no extra setup | You need a timed or on-demand trigger rather than pure tag-change reactivity |
+| You want automatic history from the defaults | You need a timed or on-demand trigger rather than pure tag-change reactivity |
 | | You want to populate several tags from one computation |
 
 ## Permissions

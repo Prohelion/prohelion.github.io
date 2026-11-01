@@ -19,7 +19,7 @@ Rows are the basic building blocks of dashboard layout.
 
 Use a row to divide a dashboard into logical sections and to control the direction in which the components of a section are laid out.
 A row stacks its items vertically unless `direction` is set to `horizontal`, so set `direction: horizontal` to place items side by side.
-Use a [Group](Group.md) when a set of related components needs a shared `width`, because a row takes a `height` and not a width.
+Use a [Group](Group.md) when a set of related components needs a shared `width`, because a row takes a `height` rather than a width.
 
 ## Parameters
 
@@ -29,11 +29,11 @@ Use a [Group](Group.md) when a set of related components needs a shared `width`,
 | `class` | string | No | None | CSS class added to the row, alongside the horizontal or vertical layout class |
 | `direction` | string | No | `vertical` | Layout direction, `vertical` or `horizontal`. Items are stacked from top to bottom unless the value is `horizontal` |
 | `height` | string | No | None | Height in CSS format, for example `100px`, `50vh` or `auto`, applied directly to the row |
-| `minHeight` | string | No | None | Minimum height in CSS format. The row grows with its content and never shrinks below this value. The value does not stretch the row to fill space |
+| `minHeight` | string | No | None | Minimum height in CSS format. The row grows with its content and stays at or above this value. The value sets a floor only, so the row is as tall as its content or this value, whichever is taller |
 | `distributeChildren` | boolean | No | `false` | When the row holds several stacked [Panels](Panels.md) grids, shares the height of the row evenly between them instead of letting each grid size to its own content |
 | `items` | array | No | None | Components displayed in the row |
 
-The `distributeChildren` setting has no effect unless a `height` or `minHeight` is set on the row itself.
+The `distributeChildren` setting takes effect only when a `height` or `minHeight` is set on the row itself.
 A height on a parent of the row does not count.
 
 ## Example

@@ -132,7 +132,7 @@ The full files `CSharpAlertTemplate.cs`, `PythonAlertTemplate.py` and `LuaAlertT
     The **Run Script** action on a component menu, and the Run On Demand and scheduled paths, do not call `OnAlert` or `on_alert`.
     Only a rule firing does, so the alert method is tested by driving the rule's condition true.
 
-**Run On Alert** has no start and stop lifecycle, because a rule invokes the script and the script does not sit watching.
+**Run On Alert** has no start and stop lifecycle, because a rule invokes the script and the script stays idle between invocations.
 Between firings its status reads **Not Run** or **Run N times**, and the status shows **Running** while `OnAlert` or `on_alert` is executing.
 The component's menu in this mode is **Edit Script** only.
 

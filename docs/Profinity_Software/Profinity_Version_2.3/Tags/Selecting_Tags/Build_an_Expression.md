@@ -13,7 +13,7 @@ This procedure builds a condition in the expression panel of a collection or a r
 Derived tag formulas are written as free text, because the builder cannot express them.
 
 1. Expand the expression panel, which is titled **Expression** by default.
-2. In the first row, select a facet from **Condition facet**. The row shows the fields for that facet. Refer to [Tag expressions](Tag_Expressions.md#guided-builder-facets) for what each facet writes.
+2. In the first condition row, select a facet from **Condition facet**. The row shows the fields for that facet. Refer to [Tag expressions](Tag_Expressions.md#guided-builder-facets) for what each facet writes.
 3. Enter the values for the facet, such as an operator and a number for **Numeric value**.
 4. To add a condition, select **Add**. The new row is joined to the previous row with **AND**.
 5. Optional: To join a row with **OR**, change **Join with previous condition** on that row.

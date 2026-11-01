@@ -42,12 +42,12 @@ For where the server keeps its certificates and how to trust one explicitly, ref
 The server publishes the readable scalar values in the profile's tag tree.
 Each tag appears as a node with the NodeId `ns=2;s=` followed by the tag's full tag ID, which is the tag's [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
-Clients cannot write to the address space, so the server cannot be used to change values in Profinity.
+Clients have read-only access to the address space, so the server can be used only to view values in Profinity.
 The server accepts anonymous connections without message security only.
 
 The server builds the address space once, when it starts, from the tags that are readable at that moment:
 
-- Tags added to the profile after that do not appear until you restart the server.
+- Tags added to the profile after that appear only after you restart the server.
 - A tag with no sample or a null value reads as `BadNoData` to the client.
 
 ## Listening address

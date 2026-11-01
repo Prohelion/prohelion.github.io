@@ -54,7 +54,7 @@ Refer to the [Profinity dashboard development guide](../Customising_Profinity/Da
 !!! warning "Removing the dashboard deletes its file"
     Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting.
     Keep a copy of the file if you need it again.
-    If Profinity cannot delete the file, it does not clear the dashboard file setting, and it writes the error to the log.
+    If Profinity fails to delete the file, it keeps the dashboard file setting and writes the error to the log.
 
 To remove a Profile Dashboard, open the profile settings, switch off **Custom Home Dashboard** and save.
 The standard Profinity home page is then shown when the profile is active.

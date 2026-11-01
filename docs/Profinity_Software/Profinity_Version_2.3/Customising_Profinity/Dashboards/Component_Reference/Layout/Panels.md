@@ -26,7 +26,7 @@ Use a [Row](Row.md) or a [Group](Group.md) when the components need no titles or
 |-----------|------|----------|---------|-------------|
 | `class` | string | No | None | CSS class added to the panel grid, for use with a profile style sheet |
 | `height` | string | No | None | Height in CSS format, applied directly to the grid and overriding any height the grid would otherwise take |
-| `minHeight` | string | No | None | Minimum height in CSS format. The grid grows with its content and never shrinks below this value. The value does not stretch the grid to fill space |
+| `minHeight` | string | No | None | Minimum height in CSS format. The grid grows with its content and stays at or above this value. The value sets a floor only, so the grid is as tall as its content or this value, whichever is taller |
 | `items` | array | Yes | None | Array of objects that each contain a single `panel`. The grid displays the panels in the order listed |
 
 `id` is accepted but has no effect.

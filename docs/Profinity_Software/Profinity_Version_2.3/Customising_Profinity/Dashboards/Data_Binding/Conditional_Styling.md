@@ -99,7 +99,7 @@ dashboard:
 ```
 
 A partition with more thresholds styles a value by range, which suits status indicators and alerts.
-The following lamp is green below 60, amber from 60 up to (but not including) 80, and red from 80 upward.
+The following lamp is green below 60, amber from 60 to below 80, and red from 80 upward.
 With `bias: right`, a value equal to a threshold takes the label after that threshold.
 With `bias: left`, it takes the label before it.
 

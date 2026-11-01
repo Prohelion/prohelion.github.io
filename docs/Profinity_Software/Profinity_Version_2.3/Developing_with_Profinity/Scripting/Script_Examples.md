@@ -73,7 +73,7 @@ Prefixing log lines with a timestamp, from `DateTime.Now` in C# or `datetime.now
 ## Sending a CAN message
 
 Payload data can be built from a byte array (in C#) or set as typed properties on `CanBusPacket` (for example `Int32Pos0` and `Int32Pos1`) when the layout matches your frames.
-The `CanBusPacket` type is available to C# scripts without an extra `using` statement, and Python scripts import it from `Profinity.Sdk.Models.CANBus`.
+The `CanBusPacket` type is available to C# scripts with its namespace already imported, and Python scripts import it from `Profinity.Sdk.Models.CANBus`.
 A sent message goes onto the connected CAN bus, so use IDs that are safe for the devices on that bus.
 
 === "C#"

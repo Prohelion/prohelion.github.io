@@ -11,7 +11,7 @@ last_reviewed: 2026-10-28
 Use this procedure to make the BACnet, EtherNet/IP, Modbus, OPC UA or S7 components available in Profinity.
 You need an edition with the **Industrial Protocols** licensed component group, which is an add-on to your Desktop, Server, or Enterprise edition.
 
-The plugins are not included in the standard Profinity installation.
+The plugins are an add-on to the standard Profinity installation.
 Each one brings data in as ordinary Profinity tags, and the Open Platform Communications Unified Architecture (OPC UA) plugin can also expose Profinity's tag tree to third-party clients.
 
 <figure markdown>

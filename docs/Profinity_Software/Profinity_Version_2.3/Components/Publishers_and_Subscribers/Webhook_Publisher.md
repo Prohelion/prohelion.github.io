@@ -35,7 +35,7 @@ These steps publish one collection to a web service with no authentication.
 3. Under **Collections**, add a collection and choose it by name.
 4. Save the settings.
 
-The publisher does not start until at least one collection is selected and every selected collection exists in the profile.
+The publisher needs at least one collection to be selected, and every selected collection must exist in the profile, before it can start.
 With **Auto Connect** on, which is the default, it starts when the profile loads, and its status shows **On**.
 The publisher does not test the receiver when it starts, so **On** shows only that it is running.
 The status changes to **Error** if a delivery fails.
@@ -107,7 +107,7 @@ The publisher makes up to three attempts in total when the destination does any 
 
 It waits 1 second before the second attempt and 2 seconds before the third.
 The attempt count, timeout and waits cannot be changed in Profinity 2.3.
-If all three attempts fail, the batch is not retried further and the publisher reports **Error** until a later publish succeeds.
+If all three attempts fail, the publisher stops retrying the batch and reports **Error** until a later publish succeeds.
 
 The publisher shows **On** while it is running, **Off** when it is stopped, and **Error** when it is running but a delivery fails.
 It also exposes two tags for a dashboard or rule:
@@ -125,7 +125,7 @@ Check the [Logs](../../Administration/Logs_Config.md) for the underlying message
 | The status shows **Error**. | The **Destination URL** is not correct. | Correct the **Destination URL**. |
 | The status shows **Error** and the log shows a 401 or 403 response. | The receiver does not accept the selected **Authentication**. | Correct the credential for the selected mode. |
 | The status shows **Error**. | The receiver does not return a success status. | Make the receiver return a success status for the POST. |
-| The status shows **Error** for an HTTPS destination. | The receiver presents a certificate that the Profinity server does not trust. | Use a certificate that the Profinity server trusts. The Webhook Publisher has no option to skip certificate validation. |
+| The status shows **Error** for an HTTPS destination. | The receiver presents a certificate that the Profinity server does not trust. | Use a certificate that the Profinity server trusts. The Webhook Publisher always validates certificates. |
 
 ## Related pages
 

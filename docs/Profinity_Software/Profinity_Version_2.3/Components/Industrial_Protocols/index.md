@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 Profinity connects to the industrial systems a site already runs through a set of protocol plugins.
 Each plugin brings data in as ordinary Profinity tags, and the Open Platform Communications Unified Architecture (OPC UA) plugin can also expose Profinity's tag tree to third-party clients.
-The plugins are not included in the standard Profinity installation, and they need the **Industrial Protocols** licensed component group.
+The plugins are an add-on to the standard Profinity installation, and they need the Industrial Protocols licence.
 
 - [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md): obtain a plugin from Prohelion, install it, and add its components.
 - [Industrial protocol components](Industrial_Protocol_Components.md): compare what each component connects to and how a point map row identifies a value.

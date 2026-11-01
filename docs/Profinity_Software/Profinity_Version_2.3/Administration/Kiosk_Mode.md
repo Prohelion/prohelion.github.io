@@ -61,7 +61,7 @@ On a Windows desktop installation without a Server licence there are no user acc
 
 A kiosk session expires after the **Access token lifetime (minutes)** set in [Session policy and login lockout](System_Configuration/Security/Session_Policy.md).
 The default is 120 minutes.
-A display that runs for months without attention can use a kiosk user marked as a service account, whose session never expires.
+A display that runs unattended for months can use a kiosk user, configured with a service account, whose session lasts indefinitely.
 Treat that account with the same care as any long-lived credential.
 Review the kiosk user from time to time to confirm it is still appropriate and enabled.
 Disable Kiosk Mode on any profile that no longer needs it.
@@ -77,4 +77,4 @@ Disable Kiosk Mode on any profile that no longer needs it.
 - If the display was signed out unexpectedly, Kiosk Mode was disabled, the Kiosk Mode User was changed, or a different profile was made active.
   Check the profile settings and sign the display in again.
 - If a user is missing from the Kiosk Mode User dropdown, enable the user in [Managing users](./Users_and_Access/Manage_Users.md), because only enabled users are listed.
-- If the save is rejected, select an existing, enabled user before saving, as Kiosk Mode cannot be enabled without one.
+- If the save is rejected, select an existing, enabled user before saving, as Kiosk Mode needs an enabled user to provide the login credentials.

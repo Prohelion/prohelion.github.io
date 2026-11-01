@@ -47,7 +47,7 @@ This documentation uses the lowercase names throughout.
 ## Sample content on a new installation
 
 The first time Profinity starts on a new, empty artefacts directory, it adds an **Example Profile**, the example scripts in `example_scripts/`, and a starter web page in `webroot/`.
-It never replaces a file that already exists, and it does not add them again after the first start, so anything you delete stays deleted.
+It keeps every file that already exists, and adds them only on the first start, so anything you delete stays deleted.
 Existing installations, including upgrades from 2.2, are not changed.
 The example CAN log used for the replay examples is added too.
 
@@ -80,7 +80,7 @@ On every host, the **ADMIN > Logs** page lists a message for each file that move
 | Linux | `~/Documents/Prohelion/Profinity`, `~/Prohelion/Profinity`, `~/.local/share/Prohelion/Profinity` (the 2.2 location), `/var/lib/Prohelion/Profinity`, and `/var/lib/profinity/Prohelion/Profinity` |
 
 !!! warning "Migration does not run when PROFINITY_HOME is set"
-    When `PROFINITY_HOME` is set, Profinity does not copy data from the older locations, so a custom root is never filled from the default install.
+    When `PROFINITY_HOME` is set, Profinity skips copying data from the older locations, so a custom root receives nothing from the default install.
     Copy any data you need into the custom root yourself, including for Docker deployments that set `PROFINITY_HOME`.
     The rename of capitalised folders (`Config`, `Profiles`, `Logs`) to lowercase still runs under any root.
 

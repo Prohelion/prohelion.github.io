@@ -58,7 +58,7 @@ To import a profile pack prepared on another instance of Profinity:
 
 Profinity imports the profile with all its associated configuration, and it appears in the table of profiles.
 
-Profinity refuses a pack whose `profile.yaml` is not valid, for example one that has a setting name Profinity does not define or that cannot be read as YAML.
+Profinity refuses a pack whose `profile.yaml` is invalid, for example one with an unrecognised setting name or one that cannot be read as YAML.
 It shows "Failed to unpack the Profile Pack. The file may be corrupted or invalid. Check the logs for more details." and imports nothing, and the log names the reason.
 Correct the file in the pack and upload it again.
 

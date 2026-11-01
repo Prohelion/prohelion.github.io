@@ -53,7 +53,7 @@ Refer to [Action invocation](../Images_and_Models/Overlay_Elements.md#action-inv
 |--------|-----------|
 | `Component` | Runs the action named by `actionId` on the component that owns the dashboard, and posts `value` with the request. This is the default |
 | `System` | Runs the system-level action named by `actionId` on the Profinity engine. The available system actions are `UPDATE PROFINITY`, `INSTALL PROFINITY` and `RESTART PROFINITY` |
-| `Navigate` | Navigates the web interface to `target`, without a request to the server |
+| `Navigate` | Navigates the web interface to `target`, entirely in the browser |
 | `Endpoint` | Describes an HTTP request in `endpointAction`. The browser sends the request, on an action button or on a region, icon, or button of an [Image](../Images_and_Models/Image.md) or [3D model](../Images_and_Models/Model.md) component |
 
 ### Endpoint action parameters
@@ -92,7 +92,7 @@ dashboard:
               imageAlt: "Refresh"
 ```
 
-An icon without a label:
+Icon only:
 
 ``` yaml
 dashboard:

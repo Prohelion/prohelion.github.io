@@ -29,7 +29,7 @@ You can enable the server on its own and leave Profinity AI off when only an ext
 4. Select **Save**. Profinity restarts, and the web interface shows "Restarting, please wait..." until the engine is running again.
 
 When the settings load again, **Enable MCP Server** shows as on, and the server is ready.
-On an edition without the **AI** feature, **Enable MCP Server** is not shown.
+On an edition without the **AI** feature, **Enable MCP Server** is hidden.
 For the other settings in this group, refer to [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md).
 
 ## Create a service account token
@@ -118,7 +118,7 @@ Refer to [Profinity Web](../../Administration/System_Configuration/Profinity_Web
 
     Replace `<host>` with the host name or network address of the computer that runs Profinity.
     It has to be one of the names on the certificate, and the port has to be open through any firewall between the two computers.
-    Without a Server licence, Profinity listens only on `127.0.0.1`, so a tool on another computer cannot connect.
+    Without a Server licence, Profinity listens only on `127.0.0.1`, so only a tool on the same computer can connect.
 
 For an HTTPS address, [trust the HTTPS certificate](Trust_HTTPS_Certificate.md) on the computer that runs the AI tool before you continue.
 
@@ -159,7 +159,7 @@ The expected output is:
 ```
 
 A `401` means the server is running and is waiting for a token, which the AI tool sends.
-A certificate error means the host name is not on the certificate, or the certificate is not trusted.
+A certificate error means the host name is missing from the certificate, or the certificate is untrusted.
 For any other response, refer to [MCP connection errors](Connection_Errors.md).
 
 Next, connect your tool:

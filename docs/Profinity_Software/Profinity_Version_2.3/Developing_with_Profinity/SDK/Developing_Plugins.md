@@ -31,5 +31,5 @@ The kit Prohelion sends to approved developers includes examples of this framewo
 For a copy of the SDK, or for more information, [contact Prohelion](https://www.prohelion.com/contact-us/).
 
 Uploading a plugin needs the **Modify plugins** permission, described in [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md), and the **Custom Plugins** feature.
-That feature is available from the Desktop edition upwards, and not when unlicensed.
+That feature is available from the Desktop edition upwards, and only when licensed.
 Refer to [Licensing](../../Licensing.md).

@@ -17,7 +17,7 @@ Users who sign in through single sign-on (SSO) rely on their identity provider f
 
 !!! info "Licence required"
     Two-factor authentication requires the **Two-Factor Authentication** licensed feature, included in the **Server** and **Enterprise** editions.
-    Without it **Enforce two-factor for local users** is switched off when Profinity starts and cannot be kept on.
+    Only with the **Two-Factor Authentication** licensed feature can **Enforce two-factor for local users** stay on. Otherwise it is switched off when Profinity starts and stays off.
     Refer to [Licensing](../../../../Licensing.md) for what each edition includes.
 
 ## Two-factor policy settings

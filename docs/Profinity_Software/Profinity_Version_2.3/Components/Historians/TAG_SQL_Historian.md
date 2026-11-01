@@ -37,7 +37,7 @@ To start recording, add the component and point it at a database.
 
 1. Add a **TAG SQL Historian** to your profile from the **Historians** category.
 2. Choose the **Database Provider** and enter its **Connection String**.
-3. Under **Collections**, add at least one tag collection. The component does not start until one is configured.
+3. Under **Collections**, add at least one tag collection. The component needs one to be configured before it can start.
 4. Save the settings.
 
 With **Auto Create Table** on, the historian creates the table when it starts.
@@ -138,7 +138,7 @@ Check the connection string, that the database is reachable from the Profinity s
 
 !!! warning "Moving a component starts a new history in this historian"
     This historian records history under the tag's path, so moving a component changes its tag paths.
-    The history recorded under the old paths is not carried across, and queries for the new path return a new series with no earlier points.
+    The history recorded under the old paths stays there, and queries for the new path return a new series that begins with its first point.
     The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message, and signal instead, so their history carries on after a move.
     Refer to [Change the path on a deployed component](../../Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md#change-the-path-on-a-deployed-component).
 

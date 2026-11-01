@@ -12,7 +12,7 @@ This page explains how to diagnose and fix dashboard problems with data that doe
 
 ## Dashboard does not load
 
-A dashboard that fails to load, or that cannot be saved, has a validation error, because Profinity does not load an invalid dashboard.
+A dashboard that fails to load, or that cannot be saved, has a validation error, because Profinity loads only valid dashboards.
 Open **Edit Dashboard** from the title bar, read the **Schema validation issues** list, which names each problem, and correct each entry.
 The usual causes are a missing colon, wrong indentation, an invalid property name, or an absent required property.
 The editor blocks **SAVE** while any entry remains, so save once the list is empty and close the editor to see the result.
@@ -20,7 +20,7 @@ The editor blocks **SAVE** while any entry remains, so save once the list is emp
 A dashboard whose saved layout no longer matches the schema shows the message "This dashboard no longer matches the schema", with the buttons **Reset from Template** and **View Logs**.
 
 !!! warning
-    **Reset from Template** replaces the dashboard with the latest template and loses every customisation, so use it only when the dashboard is not needed.
+    **Reset from Template** replaces the dashboard with the latest template and loses every customisation, so use it only when you can discard the dashboard.
 
 ## Data binding issues
 
@@ -71,8 +71,8 @@ dashboard:
 
 ### Binding to logged data not working
 
-A logged binding that returns no data usually means that data logging is not configured and enabled for the profile, or that the time range is invalid.
-For data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+A logged binding that returns no data usually has one of three causes: data logging still has to be configured and enabled for the profile, exactly one historian still has to have **Designated tag historian reader** enabled, or the time range is invalid.
+For data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md), and for the historian setting, refer to [Designated historian](../../Components/Historians/Designated_Historian.md).
 Set `timeRangeStart` in the past (for example `-10m`) and `timeRangeStop` after it, where `0m` means now.
 An invalid time range or aggregation window makes the binding return no data.
 Start with the simple binding in this example, and add the aggregation back once it returns data.

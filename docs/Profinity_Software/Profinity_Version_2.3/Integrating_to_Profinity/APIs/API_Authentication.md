@@ -17,7 +17,7 @@ For a guided first call, refer to [Make your first API call](../First_API_Call.m
 A [service account](../../Administration/Users_and_Access/Service_Accounts.md) token is generated on the account's **User Actions** tab in **Users & Groups**, and it is already a Bearer token.
 A client that has one skips the `/api/v2/Users/Authenticate` call and passes the token directly in each request.
 In Swagger, paste the token into the **Authorize** dialog.
-The token never expires and has no refresh token, so it suits a client that runs for a long time or unattended.
+The token lasts indefinitely and has no refresh token, so it suits a client that runs for a long time or unattended.
 It stays valid until an administrator generates a new one, changes the account's roles, or disables the account.
 
 ## Sign in with a username and password
@@ -64,7 +64,7 @@ To get a token from any other client:
 <figcaption>Generating a Bearer token on the Swagger page</figcaption>
 </figure>
 
-A browser client receives the same session as cookies and a body without the token.
+A browser client receives the same session as cookies and a body that omits the token.
 A user who must complete two-factor authentication or change a password first receives a `preAuthToken` instead of a `token`, with `requiresTwoFactor` or `requiresPasswordChange` set.
 Complete the sign-in through `/api/v2/Users/Authenticate/TwoFactor` or `/api/v2/Users/Current/ChangePassword`.
 A token that is still valid can be renewed with `GET /api/v2/Users/Refresh`.

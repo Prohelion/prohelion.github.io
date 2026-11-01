@@ -35,7 +35,7 @@ Some skills can also read from the Model Context Protocol (MCP) server of your i
 This access is read-only, and it never pushes changes.
 It needs the **AI** licensed feature, which the **Server** and **Enterprise** editions include ([Licensing](../../Licensing.md) lists what each edition includes).
 If the MCP server is unavailable, the skill falls back to the REST API alone.
-If the REST API is not available when you ask a skill to generate something, the skill says so and stops.
+If the REST API is unavailable when you ask a skill to generate something, the skill says so and stops.
 It does not guess an endpoint or use a remembered schema.
 
 ## What each tool can do

@@ -19,8 +19,8 @@ You need Profinity running, and the **Modify profiles** permission, which allows
 4. Optional: Add a description.
 5. Save the profile.
 6. In the list, select **ACTIVATE** on the row of the new profile.
-   The new profile becomes the active profile immediately, without a restart of Profinity.
-   The row of the new profile is marked **ACTIVE**, and the side menu shows no components until you add some.
+   The new profile becomes the active profile immediately, while Profinity keeps running.
+   The row of the new profile is marked **ACTIVE**, and the side menu shows components once you add some.
 
 To import a Profile Pack from another Profinity instance instead, use **Upload Profile Pack**.
 Each profile keeps its own components, so a component added to one profile does not appear in another.

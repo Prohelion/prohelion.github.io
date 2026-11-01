@@ -116,7 +116,7 @@ Each snapshot that is not valid JSON, has the wrong format, or conflicts with an
 ## Troubleshooting
 
 If no tags appear, check the [Logs](../../Administration/Logs_Config.md) first.
-A receiver set to MQTT that has no **MQTT broker URL** or **MQTT subscribe topic** does not start and logs the reason.
+A receiver set to MQTT that has no **MQTT broker URL** or **MQTT subscribe topic** stays stopped and logs the reason.
 
 A receiver that shows **On** but receives nothing has one of two problems:
 

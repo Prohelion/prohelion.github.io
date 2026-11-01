@@ -48,7 +48,8 @@ To set up a first relay end to end, refer to [Set up a tag relay](Set_Up_a_Tag_R
 5. Save the settings.
    With **Auto Connect** on, which is the default, the sender starts when the profile loads and its status shows **On**.
 
-The sender does not start until at least one collection is selected and every selected collection exists in the profile.
+The sender needs at least one collection to be selected, and every selected collection must exist in the profile, before it can start.
+A sender set to HTTPS also needs the **Remote base URL** and **Bearer token**, and a sender set to MQTT also needs the **MQTT broker URL** and **MQTT snapshot topic**.
 To check that it works, wait for one **Snapshot interval (seconds)** and confirm that the total number of messages sent on the component dashboard has increased.
 That total increases only when a snapshot is delivered.
 

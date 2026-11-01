@@ -47,7 +47,7 @@ In YAML the two built-in actions are written `ProfinityLog` and `None`.
 
 ### Making an action available
 
-An Email, Slack, Webhook, or MQTT action does not appear in the picker until it exists as a component.
+An Email, Slack, Webhook, or MQTT action appears in the picker once it exists as a component.
 To add one:
 
 1. [Add a new component](../../../How_To_Guides/Add_Component_to_Profile.md) from the **Rule Actions** group.
@@ -105,8 +105,8 @@ actions:
         tag: Vehicles/Car1/Battery/PackTemperature
 ```
 
-An action that is not found, or is not an action component, is reported as `references unknown component` when the rules file loads.
-The rules file does not load until the name is corrected.
+An action that is missing, or is a different kind of component, is reported as `references unknown component` when the rules file loads.
+The rules file loads once the name is corrected.
 
 ## `TriggeredTags`
 

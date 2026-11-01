@@ -10,7 +10,7 @@ last_reviewed: 2026-10-28
 
 Create a role when you want a person to do only what their job needs.
 You need the **Security administration** permission and a Server licence.
-A Windows desktop installation without a Server licence does not use roles.
+A Windows desktop installation offers the use of roles only with a Server licence.
 Refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) for what each installation signs in with.
 Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md).
 [Roles and permissions](./Roles_and_Permissions.md) lists every permission and what it allows.

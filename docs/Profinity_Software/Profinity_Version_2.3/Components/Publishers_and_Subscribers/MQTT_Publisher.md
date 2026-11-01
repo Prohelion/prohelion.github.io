@@ -47,7 +47,7 @@ These steps publish one collection as JSON.
 5. Under **Collections**, add a collection and choose it by name.
 6. Save the settings.
 
-The publisher does not start until at least one collection is selected and every selected collection exists in the profile.
+The publisher needs at least one collection to be selected, and every selected collection must exist in the profile, before it can start.
 With **Auto Connect** on, which is the default, it starts when the profile loads, and its status shows **On** while it is running.
 To check that it works, subscribe to the topic on your broker.
 The data arrives in the form shown in [Payload formats](#payload-formats).
@@ -100,7 +100,7 @@ Each key is the tag path with every character other than a letter or digit repla
 ```
 
 A sample is included only when it has good quality and holds a finite number.
-The payload has no place for quality, so a tag that is stale, lost or not numeric does not appear in it.
+The payload has no place for quality, so a tag that is stale, lost or not numeric is left out of it.
 
 **Sparkplug B** follows the [Sparkplug](https://sparkplug.eclipse.org/) convention for MQTT topics and payloads, which industrial platforms use.
 The publisher appears to a Sparkplug-aware platform as an edge node, identified by the **Group ID** and **Edge Node ID**.
@@ -126,7 +126,7 @@ Check the [Logs](../../Administration/Logs_Config.md) for the underlying message
 | The status stays **Off** after the profile loads. | No collection is selected, or a selected collection does not exist in the profile. | Select at least one existing collection under **Collections**. |
 | A save fails with "You must provide a destination topic." | **Payload** is **JSON** and **Destination Topic** is empty. | Enter a **Destination Topic**. |
 | The status shows **Error**. | The **Server URL** scheme or port does not match the broker. | Correct the scheme and port. |
-| The status shows **Error**. | The broker does not accept the **Username** and **Password**. | Correct the credentials. No restart is needed. |
+| The status shows **Error**. | The broker rejects the **Username** and **Password**. | Correct the credentials. Restarting is optional. |
 | The status shows **Error**. | Another client on the broker uses the same **Device ID**. | Enter a **Device ID** that no other client uses. |
 | The status shows **Error** on an `mqtts` connection. | The broker has a self-signed certificate. | Turn on **Trust all server certificates**. |
 

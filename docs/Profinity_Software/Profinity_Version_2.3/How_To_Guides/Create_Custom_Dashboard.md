@@ -26,7 +26,7 @@ Both start from the same template dashboard and use the same editor, so the step
     - A Custom Component (refer to [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md#add-a-custom-component)) with a CAN database (DBC) file attached, because a signal has a tag to bind only when a DBC file is attached
 - The **Modify dashboards** permission, which allows dashboards to be edited
 
-To practise without a device, load the Example Profile and replay `example_log.csv`, as described in the [Quick start guide](../Getting_Started/Quick_Start.md).
+To practise with only a recorded log, load the Example Profile and replay `example_log.csv`, as described in the [Quick start guide](../Getting_Started/Quick_Start.md).
 Add a Dashboard Component and bind to a tag such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`, where `Prohelion BMU` is the name of the BMU component in the Example Profile.
 
 ## Open the dashboard editor

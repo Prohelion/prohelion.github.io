@@ -52,14 +52,14 @@ Local tags, [collections](Collections/index.md), [rules](Rules/index.md), and [a
 
 The receiver checks a whole snapshot against its live tag tree before it changes anything.
 A single collision rejects the entire snapshot, so nothing is partially applied.
-A snapshot is rejected whole, with no tags created or updated, when any item in it meets one of these conditions:
+A snapshot is rejected whole, leaving every tag as it was, when any item in it meets one of these conditions:
 
 - The path is already occupied by a tag that did not come from relay, such as a local device tag, a script register or a [derived tag](Derived_Tags/index.md).
 - A tag that came from relay already exists as a leaf where the snapshot needs a branch, or as a branch where the snapshot needs a leaf.
 - The snapshot itself asks for both a branch and a leaf at the same path.
 
 A relayed leaf that already exists where the snapshot carries a leaf is not a collision, and its sample is updated.
-A path occupied by a tag that did not come from relay is never skipped on its own while the rest of the snapshot is applied.
+A path occupied by a tag that did not come from relay always causes the whole snapshot to be rejected.
 
 ### Troubleshooting a sender that stops updating
 

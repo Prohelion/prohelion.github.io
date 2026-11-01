@@ -34,7 +34,7 @@ This page holds the steps every destination shares: adding the component, select
 | An HTTP(S) URL | **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** | Publishers & Subscribers | Data Relay |
 
 The TAG loggers log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections/index.md).
-The Loggers and Historians write to a queryable store, so you can retrieve the data later without a live connection.
+The Loggers and Historians write to a queryable store, so you can retrieve the data later, whatever the state of the live connection.
 You can also read Historian data back through the APIs.
 The MQTT Publisher and Webhook Publisher push to a receiver that is listening at that moment.
 InfluxDB V1, V2, and V3 are separate, incompatible products, so the component must match the installed InfluxDB version.
@@ -78,7 +78,7 @@ Then check the component's status in the component list.
 
 ### No data is logged
 
-A logger or publisher that writes nothing is usually not running, or has no tag collection to log.
+A logger or publisher that writes nothing is usually inactive, or has no tag collection to log.
 Check that the component is active.
 For a TAG logger, InfluxDB, Prometheus, or a publisher, also check that at least one tag collection is selected, because those components start only when a collection is configured.
 Then check that the components that feed the tags are receiving data.

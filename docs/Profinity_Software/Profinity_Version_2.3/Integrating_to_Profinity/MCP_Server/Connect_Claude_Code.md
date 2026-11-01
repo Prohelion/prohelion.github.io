@@ -70,7 +70,7 @@ Run `/mcp`, read the status beside `profinity`, and match it to a row in this ta
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
-| A certificate or handshake error | Claude Code does not trust the certificate, or the address is not a name on it | Trust the certificate in the operating system, or set `NODE_EXTRA_CA_CERTS`, then start Claude Code from that terminal |
+| A certificate or handshake error | Claude Code treats the certificate as untrusted, or the address is missing from it | Trust the certificate in the operating system, or set `NODE_EXTRA_CA_CERTS`, then start Claude Code from that terminal |
 | A 401 response | The saved token is missing, incomplete, or replaced | Remove the server, then add it again with the current token |
 | `profinity` is missing | The add command did not save, or Claude Code runs under another user account | Run `claude mcp get profinity`, and add the server again |
 

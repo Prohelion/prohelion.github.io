@@ -37,7 +37,7 @@ The **Available** column reflects the actual runtime state and names what blocks
 Component groups are licensed separately from product features.
 For example, the BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7 [industrial protocol plugins](../Components/Industrial_Protocols/index.md) all need the **Industrial Protocols** component group.
 [Tag Relays](../Components/Tag_Relays/index.md) need the **Data Relay** feature.
-Without the matching entitlement the components show as unavailable, even when the plugin is installed.
+The components need the matching entitlement; otherwise they show as unavailable, even when the plugin is installed.
 
 To change the licence, refer to [Apply a licence](../Installation/Applying_a_Licence.md).
 For what each edition includes, the 14-day local trial, and the machine fingerprint, refer to [Licensing](../Licensing.md).

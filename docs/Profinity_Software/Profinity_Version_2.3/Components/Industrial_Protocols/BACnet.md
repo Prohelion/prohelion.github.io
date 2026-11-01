@@ -53,7 +53,7 @@ Set **Device instance** to the instance of the device you are connecting to, eve
 A BACnet configuration tool or the device's own display shows the instance.
 Profinity sends every request to the **Remote host**.
 Each time it connects, it reads the Device object of the device at that address and compares the two numbers.
-It does not connect while they differ, so a changed address never leads to another device being read.
+It connects only while they match, which stops a changed address from leading to another device being read.
 
 Profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
 
@@ -100,7 +100,7 @@ Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for 
 
 A **Device instance** that differs from the device at the **Remote host** puts the component in the **Error** status, and its points show no valid readings until the instance matches.
 The component shows and logs a message of the form `The device at 192.168.1.20 reports Device instance 1234, but Device instance is set to 0`.
-Profinity tries again every **Reconnect delay**, so correcting the setting or the device connects it without a restart.
+Profinity tries again every **Reconnect delay**, so correcting the setting or the device connects it on the next attempt while the component stays running.
 Set **Device instance** to the number in the message, or correct the **Remote host** if the address now belongs to a different device.
 
 Profinity reads the Device object to check the instance.
