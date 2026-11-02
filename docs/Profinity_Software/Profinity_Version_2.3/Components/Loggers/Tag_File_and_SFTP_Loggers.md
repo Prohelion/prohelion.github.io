@@ -13,6 +13,8 @@ The TAG File Logger writes the file to the local file system of the machine runn
 The TAG SFTP Logger transmits it to a remote Secure Shell (SSH) File Transfer Protocol (SFTP) server.
 Each is added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers** and is included in every edition.
 A logger only writes data out for later retrieval, so history that Profinity must read back belongs in a [historian](../Historians/index.md).
+CSV and JSON Lines files under `tag_logs/` are meant to be opened or shipped as files.
+Queryable history on the host belongs in the [TAG Local Historian](../Historians/TAG_Local_Historian.md) under `tag_history/`, or in another historian you designate.
 
 <figure markdown>
 ```mermaid
@@ -40,7 +42,7 @@ A logger shows **Off** and cannot start until it has a collection, so create and
 
 | Setting | Purpose |
 |---|---|
-| **Collections** | The tag collections whose member values are logged. At least one collection must be configured before the logger starts. |
+| **Collections** | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
 | **Update Interval (Seconds)** | The seconds between writes. The default is 10, and the value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Logging mode** | **Snapshot**, **On Change** or **Everything**. The default is **Snapshot**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
 | **File Format** | **CSV** or **JSON Lines**. The default is **CSV**. Refer to [File formats](#file-formats). |

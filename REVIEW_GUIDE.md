@@ -373,6 +373,7 @@ The difference came from reporting missing rule requirements as queries, not che
 
 A review of many pages runs as a script pre-pass, parallel page reviewers, a section pass and a scoring script.
 Every review starts from this guide, so record any change to the method here, not in a separate brief.
+[scripts/REVIEW.md](scripts/REVIEW.md) explains how the pieces fit together and lists the standard tasks, which `npm run review -- <task>` runs from `scripts`: `check`, `status`, `prepass`, `score`, `chunks`, `phrasing`, `prompt` and `all`.
 
 ### Steps
 
@@ -434,6 +435,26 @@ Each reviewer writes one JSON file holding an array with one object per page:
 `category` is `reader`, `audience`, `consistency`, `voice`, `structure`, `flow` or `visual`.
 A confirmed candidate is listed again under `findings` with its own title, evidence and rewrite.
 The section pass writes objects of the form `{ "section": "Components", "findings": [...] }` to its own file, using the same finding format.
+
+### The ledger
+
+The state of a review lives in one file, `tasks/reviews/ledger.json`, which holds every finding with a stable id and a status.
+The per-chunk findings files from a run are the input to the ledger and are not updated afterwards.
+Back the ledger up before a bulk change, and never edit it by hand.
+
+A finding is `open`, `deferred` (known, not being fixed now), `fixed`, `dropped` (not a real finding) or `superseded` (replaced by a later review of the same page).
+Open and deferred findings count against a page's score.
+The pre-pass findings are not stored, because they are recalculated from the pages.
+
+- **Start a ledger** from the findings files of a run: `npm run review-ledger -- init tasks/reviews/ledger.json <findings.json>...`.
+- **Record a fix:** `npm run review-ledger -- status tasks/reviews/ledger.json fixed --wave "<wave>" --note "<what changed>" --recheck <id>...`, or `--page <page>` for every open finding on a page. `--recheck` marks the page as awaiting re-review.
+- **Drop a finding that is not real,** such as a blocker the code check shows is already correct: `status ... dropped --note "<evidence>"`.
+- **Re-review a page** after fixing it, then `replace tasks/reviews/ledger.json <page> <findings.json>`. This supersedes the page's open findings, keeps the fixed ones as history, and clears the re-review mark.
+- **Score** after running `npm run review-prepass -- <prepass.json>` for a fresh pre-pass: `score tasks/reviews/ledger.json <prepass.json> --out <ranking.md> --json <scores.json>`. Pages awaiting re-review are listed at the end of the ranking, because their scores are not confirmed.
+- **Count** by status, blockers and wave with `summary`.
+
+A fix is confirmed only when the page has been re-reviewed.
+A page fixed from a finding alone has not been checked against the code: confirm the claim in the code first, and drop the finding if the page was already right.
 
 ### Phrasing sweep
 

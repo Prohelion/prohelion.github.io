@@ -1,6 +1,6 @@
 ---
 title: Rule settings
-description: Look up how a rule is evaluated, including dwell, deadband, unreadable tags, and the evaluation tick, how a rule publishes its state to a tag, and the permissions rules need.
+description: Look up how a rule is evaluated (dwell, deadband, unreadable tags, evaluation tick), how it publishes its state to a tag, and the permissions it needs.
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-29

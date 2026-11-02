@@ -50,7 +50,7 @@ Nothing is logged until you select at least one tag collection.
 | **Influx Server URL** | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
 | **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
 | **InfluxDB Health Check** | On | Checks the health of the connection at regular intervals. Turn it off for InfluxDB Cloud, which does not support the check. |
-| **Collections** | None | The tag collections whose tags are logged. At least one collection must be configured before the component starts. |
+| **Collections** | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
 | **Update Interval (Seconds)** | 10 | How often log data is sent, from 1 to 86400 seconds. |
 | **Logging mode** | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |

@@ -27,8 +27,10 @@ This page holds the steps every destination shares: adding the component, select
 |-------------|-----------|----------|---------------|
 | A file on the local file system | **[CAN File Logger](../Components/Loggers/CAN_File_and_SFTP_Loggers.md)** (native CAN bus messages), **[TAG File Logger](../Components/Loggers/Tag_File_and_SFTP_Loggers.md)** (tag values) | Loggers | No licensed feature |
 | A file on an SFTP server | **CAN SFTP Logger**, **TAG SFTP Logger** | Loggers | No licensed feature |
+| Local queryable history (managed SQLite) | **[TAG Local Historian](../Components/Historians/TAG_Local_Historian.md)** | Historians | Historians |
 | InfluxDB v1 | **[InfluxDB v1 Logger](../Components/Loggers/InfluxDB_v1_Logger.md)** | Loggers | No licensed feature |
 | InfluxDB v2 or v3 | **[InfluxDB v2 Historian](../Components/Historians/InfluxDB_Historians.md)**, **[InfluxDB v3 Historian](../Components/Historians/InfluxDB_Historians.md)** | Historians | Historians |
+| SQL database you operate | **[TAG SQL Historian](../Components/Historians/TAG_SQL_Historian.md)** | Historians | Historians |
 | Prometheus | **[Prometheus Logger](../Components/Loggers/Prometheus_Logger.md)** | Loggers | No licensed feature |
 | An MQTT broker | **[MQTT Publisher](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** | Publishers & Subscribers | Data Relay |
 | An HTTP(S) URL | **[Webhook Publisher](../Components/Publishers_and_Subscribers/Webhook_Publisher.md)** | Publishers & Subscribers | Data Relay |
@@ -56,8 +58,8 @@ A component whose licensed feature is missing shows as unavailable.
 
 The TAG File Logger, TAG SFTP Logger, InfluxDB loggers and historians, Prometheus Logger and both publishers log only the tags in the collections you select.
 
-1. In **Collections**, add a row for each tag collection to log or publish.
-2. Select the collection in that row.
+1. In **Collections**, add one or more tag collections to log or publish.
+   The list shows each collection's display name, with its group path when it sits in a group, as described in [Collections](../Tags/Collections/index.md).
 
 These components start only when at least one collection is configured.
 

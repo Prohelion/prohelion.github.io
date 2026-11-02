@@ -42,6 +42,11 @@ The YAML is `collections.yaml` by default, in the `collections` folder of the pr
 Do not change an `id` in the YAML.
 Profinity treats a changed `id` as a different collection, and rules that use the old `id` stop resolving.
 
+When a logger, historian, Tag Relay Sender, or similar component asks you to pick **Collections**, the list shows each collection's display name.
+Collections inside a group show the group path as `Group / Display name` (nested groups keep joining with ` / `).
+The profile still stores the collection identifier.
+You can add one or more named collections, or the built-in **(All Tags)** collection on its own.
+
 The **Scope prefix**, shown under **Binding**, limits a collection to the tags beneath a path in the tag tree.
 A scope on a collection is added to the scope of its group.
 For example, a group scoped to `Vehicles/Car1` and a collection scoped to `Battery` together cover `Vehicles/Car1/Battery`.

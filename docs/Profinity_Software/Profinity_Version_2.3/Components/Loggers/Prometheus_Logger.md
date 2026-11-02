@@ -28,7 +28,7 @@ Prometheus treats Profinity as a source of data and calls it to request the late
 Prometheus stores data only and has no graphing capability out of the box, so it is usually coupled with a tool such as [Grafana](https://grafana.com) for visualisation.
 
 Adding a **Prometheus Logger** to Profinity is all that Prometheus logging needs on the Profinity side.
-The **Collections** setting selects the tag collections that are served, and you must select at least one before the component starts.
+The **Collections** setting selects one or more [tag collections](../../Tags/Collections/index.md) that are served (display names in the picker, id stored), and you must select at least one before the component starts.
 You can also set the following connection values.
 
 | Setting | Default | Purpose |

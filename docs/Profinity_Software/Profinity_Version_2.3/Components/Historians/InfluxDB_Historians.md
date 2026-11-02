@@ -69,7 +69,7 @@ The remaining settings are the same on both historians.
 | **Influx Server URL** | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
 | **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
 | **InfluxDB Health Check** | On | Checks the health of the InfluxDB server when the component connects and about every 30 seconds while it runs. Turn it off for InfluxDB Cloud, which does not support the check. |
-| **Collections** | None | The tag collections whose tags are recorded. At least one collection must be configured before the component starts. |
+| **Collections** | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
 | **Update Interval (Seconds)** | 10 | How often data is sent, from 1 to 86400 seconds. |
 | **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |

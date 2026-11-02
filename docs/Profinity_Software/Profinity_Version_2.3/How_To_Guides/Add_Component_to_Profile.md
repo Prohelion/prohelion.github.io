@@ -33,7 +33,7 @@ The **COMPONENT TYPES** filter limits the list to one category:
     - A Maximum Power Point Tracker (MPPT).
 - **[Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md)** to create a new component
 - **[Loggers](../Components/Loggers/index.md)** (CAN File, TAG File, InfluxDB v1, and Prometheus)
-- **[Historians](../Components/Historians/index.md)** (InfluxDB v2, InfluxDB v3, and TAG SQL)
+- **[Historians](../Components/Historians/index.md)** (TAG Local, InfluxDB v2, InfluxDB v3, and TAG SQL)
 - **[Publishers & Subscribers](../Components/Publishers_and_Subscribers/MQTT_Publisher.md)** (Message Queuing Telemetry Transport (MQTT) and Webhook)
 - **Scripts**, for scripts that run inside Profinity
 

@@ -1,6 +1,7 @@
 title: Historians
 nav:
     - index.md
+    - TAG_Local_Historian.md
     - InfluxDB_Historians.md
     - TAG_SQL_Historian.md
     - Designated_Historian.md

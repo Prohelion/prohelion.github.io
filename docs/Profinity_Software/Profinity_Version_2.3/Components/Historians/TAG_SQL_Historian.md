@@ -12,6 +12,7 @@ The **TAG SQL Historian** writes the values of the tags in the [collections](../
 It also allows that history to be read back through the APIs.
 It sits in the **Historians** category.
 Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](InfluxDB_Historians.md).
+If you only need on-box SQLite with no connection string, use the [TAG Local Historian](TAG_Local_Historian.md) instead.
 Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 <figure markdown>
@@ -59,7 +60,7 @@ The following tables describe every setting.
 
 | Setting | Default | Purpose |
 |---|---|---|
-| **Collections** | None | The tag collections whose tags are recorded. At least one collection must be configured before the component starts. |
+| **Collections** | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
 | **Logging mode** | `Snapshot` | Sets what is written on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
 | **Auto Connect** | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **Update Interval (Seconds)** | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |

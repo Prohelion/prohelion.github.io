@@ -328,9 +328,8 @@ function sectionOf(page) {
   return page.includes(path.sep) ? page.split(path.sep)[0] : 'Home';
 }
 
-function score(prepassFile, findingsFiles, out, jsonOut) {
-  const pre = Object.fromEntries(JSON.parse(fs.readFileSync(prepassFile, 'utf8')).map((p) => [p.page, p]));
-  const reviews = findingsFiles.flatMap((f) => JSON.parse(fs.readFileSync(f, 'utf8')));
+/** Score a set of reviews against the pre-pass: pages best to worst, and sections (REVIEW_GUIDE section 8). */
+function scoreReviews(pre, reviews) {
   const sectionFindings = reviews.filter((r) => r.section);
   const unknown = reviews.flatMap((r) => (r.findings || []).filter((f) => !(f.category in CATEGORIES) || !(f.severity in DEDUCTION))
     .map((f) => `${r.page || r.section}: ${f.severity}/${f.category} "${f.title}"`));
@@ -346,17 +345,19 @@ function score(prepassFile, findingsFiles, out, jsonOut) {
   for (const p of pages) (sections[sectionOf(p.page)] ||= []).push(p);
   const sectionRows = Object.entries(sections).map(([name, ps]) => {
     const own = sectionFindings.filter((s) => s.section === name).flatMap((s) => s.findings || []);
-    let s = Math.round(ps.reduce((n, p) => n + p.score, 0) / ps.length)
-      - own.reduce((n, f) => n + DEDUCTION[f.severity], 0);
+    const pageMean = Math.round(ps.reduce((n, p) => n + p.score, 0) / ps.length);
+    let s = pageMean - own.reduce((n, f) => n + DEDUCTION[f.severity], 0);
     if (ps.some((p) => p.findings.some((f) => f.severity === 'blocker')) || own.some((f) => f.severity === 'blocker')) {
       s = Math.min(s, 69);
     }
     const lowest = ps[ps.length - 1];
-    const pageMean = Math.round(ps.reduce((n, p) => n + p.score, 0) / ps.length);
     return { name, pages: ps.length, pageMean, sectionFindings: own.length, score: Math.max(0, s),
       lowest: `${lowest.page} (${lowest.score})` };
   }).sort((a, b) => b.score - a.score);
+  return { pages, sectionRows };
+}
 
+function writeScores({ pages, sectionRows }, out, jsonOut) {
   const count = (p, sev) => p.findings.filter((f) => f.severity === sev).length;
   const md = [
     '# Documentation review scores', '',
@@ -370,6 +371,12 @@ function score(prepassFile, findingsFiles, out, jsonOut) {
   fs.writeFileSync(out, md);
   if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify({ sections: sectionRows, pages }, null, 1));
   console.log(`${pages.length} pages scored -> ${out}`);
+}
+
+function score(prepassFile, findingsFiles, out, jsonOut) {
+  const pre = Object.fromEntries(JSON.parse(fs.readFileSync(prepassFile, 'utf8')).map((p) => [p.page, p]));
+  const reviews = findingsFiles.flatMap((f) => JSON.parse(fs.readFileSync(f, 'utf8')));
+  writeScores(scoreReviews(pre, reviews), out, jsonOut);
 }
 
 if (require.main === module) {
@@ -398,4 +405,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { prepassPage, scorePage, mergeReviews, classify, phrasingHits, applyPhrasing };
+module.exports = { prepassPage, scorePage, scoreReviews, writeScores, mergeReviews, classify, phrasingHits, applyPhrasing, CATEGORIES, DEDUCTION };
