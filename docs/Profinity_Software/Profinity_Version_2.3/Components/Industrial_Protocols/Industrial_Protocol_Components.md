@@ -3,7 +3,7 @@ title: Industrial protocol components
 description: Compare the BACnet, EtherNet/IP, Modbus, OPC UA and S7 components, what each connects to, and how a point map row identifies a value.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-02
 ---
 
 # Industrial protocol components
@@ -39,6 +39,37 @@ The components, what they connect to, and how a point map row identifies a value
 | S7 | **S7 PLC** | One PLC | **Area** and **Offset**, and **DB number** when the area is `DataBlock` |
 
 For a Siemens S7-1200 or S7-1500, the S7 plugin reads absolute addresses, and the OPC UA client reads symbolic tags by name from the PLC's own OPC UA server.
+
+## Point map
+
+The **Points** tab of the component settings is where you choose what the component polls.
+It shows the folders under **Points**, and a table of the points in the folder you have selected.
+A point can sit directly under **Points**, or inside a folder.
+Its tag path is the component name, then `Points`, then any folders, then the point name.
+The same point name can be used in different folders.
+A name must be unique among the points in one folder.
+
+**New folder** and **New point** add rows by hand.
+**Remove** deletes the points you tick in the table.
+Double-click a point to edit it.
+Added and removed points are not polled until you save the component settings.
+
+**Browse** is the same action on every protocol that publishes a point list.
+The component plugs that list into this tab.
+**Browse** stays unavailable until the component is connected, and it uses the connection last saved.
+An address you have typed but not saved is not the device that gets listed.
+Modbus does not publish a register list, and S7 does not publish the variables inside a data block, so those components have no **Browse** button.
+You add those points by hand.
+The OPC UA client lists the server's nodes.
+The BACnet device lists its objects, grouped by object type.
+An EtherNet/IP PLC lists its tags when it is a ControlLogix, CompactLogix or Micro800 controller.
+A PLC-5 or SLC has no symbol list, so **Browse** stays unavailable and you type the file address, for example `N7:0`.
+
+Opening **Browse** does not add points and does not read their values.
+Select a device folder or point, then **Add**, to copy it into the folder that is open in your map.
+A selected folder is copied with the folders inside it.
+A point whose address is already in the map is skipped.
+If the point name is already used in the destination folder, Profinity adds a number to the new name.
 
 ## How polled values behave
 

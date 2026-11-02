@@ -3,7 +3,7 @@ title: BACnet
 description: Configure the BACnet Device component to poll BACnet/IP object present-values from a building automation device into Profinity tags.
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-02
 ---
 
 # BACnet
@@ -61,10 +61,12 @@ Profinity keeps trying to connect when the device is down at start and after a c
 
 The point map lists the BACnet objects to read.
 Each row becomes one tag.
+Folders and **Browse** are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
+Save the device and wait until it is connected before **Browse** lists its objects.
 
 | Column | Description |
 |---|---|
-| **Name** | The name of the tag, published under the component's `Points` tags. Use a unique name for each row. |
+| **Name** | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
 | **Object type** | The type of BACnet object: `AnalogInput`, `AnalogOutput`, `AnalogValue` (the default), `BinaryInput`, `BinaryOutput` or `BinaryValue`. |
 | **Instance** | The BACnet object instance number. |
 | **Writable** | Allows Profinity to write to the object's present-value from the tag. Off by default. |

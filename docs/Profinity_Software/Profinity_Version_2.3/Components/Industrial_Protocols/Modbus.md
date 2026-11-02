@@ -3,7 +3,7 @@ title: Modbus
 description: Configure the Modbus Device component to poll coils and registers from a Modbus TCP or RTU slave into Profinity tags, with point map and scaling.
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-02
 ---
 
 # Modbus
@@ -63,10 +63,12 @@ If they differ, the slave does not answer.
 
 The point map lists the coils and registers to read.
 Each row becomes one tag.
+This component has no **Browse** button, because a Modbus device does not publish a register list.
+Folders are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
 
 | Column | Description |
 |---|---|
-| **Name** | The name of the tag, published under the component's `Points` tags. Use a unique name for each row. |
+| **Name** | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
 | **Table** | The Modbus table to read: `Coil`, `DiscreteInput`, `HoldingRegister` (the default) or `InputRegister`. |
 | **Address** | The zero-based protocol address. Register `40001` in a one-based manufacturer's manual is address `0` of the holding registers. |
 | **Data type** | How the value is decoded: `Boolean`, `Word` (the default), `SignedWord`, `Dword`, `SignedDword` or `Real`. |

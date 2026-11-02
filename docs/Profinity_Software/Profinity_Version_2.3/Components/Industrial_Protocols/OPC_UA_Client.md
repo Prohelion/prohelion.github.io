@@ -3,7 +3,7 @@ title: OPC UA Client
 description: Poll the nodes of a remote OPC UA server into Profinity tags, with a point map of NodeIds, optional user name and password, and certificate trust settings.
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-02
 ---
 
 # OPC UA Client
@@ -54,10 +54,13 @@ Profinity keeps trying to connect when the server is down at start and after a c
 
 The point map lists the OPC UA nodes to read.
 Each row becomes one tag.
+Folders and **Browse** are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
+Save the client and wait until it is connected before you open **Browse**.
+**Browse** then lists the saved server, one folder at a time, and an endpoint you have not saved is not used.
 
 | Column | Description |
 |---|---|
-| **Name** | The name of the tag, published under the component's `Points` tags. Use a unique name for each row. |
+| **Name** | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
 | **NodeId** | The identifier of the node on the server, for example `ns=2;s=Temp`. |
 | **Writable** | Allows Profinity to write the node from the tag. Off by default, so every node is read-only unless you turn this on. |
 | **Unit** | An optional unit label for the tag. |

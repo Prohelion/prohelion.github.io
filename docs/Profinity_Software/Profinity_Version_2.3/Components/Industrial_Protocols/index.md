@@ -3,7 +3,7 @@ title: Industrial protocols
 description: Find the Profinity plugin for BACnet, EtherNet/IP, Modbus, OPC UA or S7, and what you need to install and licence it before you add its components.
 type: index
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-02
 ---
 
 # Industrial protocols
@@ -13,7 +13,7 @@ Each plugin brings data in as ordinary Profinity tags, and the Open Platform Com
 The plugins are an add-on to the standard Profinity installation, and they need the Industrial Protocols licence.
 
 - [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md): obtain a plugin from Prohelion, install it, and add its components.
-- [Industrial protocol components](Industrial_Protocol_Components.md): compare what each component connects to and how a point map row identifies a value.
+- [Industrial protocol components](Industrial_Protocol_Components.md): compare what each component connects to, how a point map row identifies a value, and how the **Points** tab and **Browse** work.
 - [BACnet](BACnet.md): poll objects from a BACnet/IP device, for building automation and heating, ventilation, and air conditioning (HVAC) systems.
 - [EtherNet/IP](EtherNet_IP.md): poll tags from a Rockwell programmable logic controller (PLC).
 - [Modbus](Modbus.md): poll coils and registers from a Modbus TCP or Remote Terminal Unit (RTU) slave.

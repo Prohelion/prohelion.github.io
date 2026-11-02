@@ -3,7 +3,7 @@ title: EtherNet/IP
 description: Configure the EtherNet/IP PLC component to poll Allen-Bradley CIP tags into Profinity tags, with CIP path, PLC kind and data type settings.
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-02
 ---
 
 # EtherNet/IP
@@ -63,10 +63,13 @@ Profinity keeps trying to connect when the PLC is down at start and after a conn
 
 The point map lists the PLC tags to read.
 Each row becomes one tag.
+Folders and **Browse** are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
+On a ControlLogix, CompactLogix or Micro800 controller, save the PLC and wait until it is connected before **Browse** lists its tags.
+A PLC-5 or SLC has no symbol list, so type the file address, for example `N7:0`.
 
 | Column | Description |
 |---|---|
-| **Name** | The name of the tag, published under the component's `Points` tags. Use a unique name for each row. |
+| **Name** | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
 | **PLC tag** | The tag name in the PLC. For ControlLogix, CompactLogix and Micro800 this is the Logix tag name. For PLC-5 and SLC it is the file and element, for example `N7:0`. |
 | **Data type** | How the value is read: `Boolean`, `Word`, `SignedWord`, `Dword` (the default), `SignedDword` or `Real`. |
 | **Writable** | Allows Profinity to write the PLC tag from the Profinity tag. Off by default. |
