@@ -9,6 +9,7 @@ site_description: >-
 # never reach the built site, the sitemap or the search index.
 exclude_docs: |
   internal/
+  Overrides/
 
 extra_css:
   - assets/stylesheets/theme.css

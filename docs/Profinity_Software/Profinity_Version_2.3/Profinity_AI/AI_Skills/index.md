@@ -3,15 +3,18 @@ title: AI Skills
 description: Learn how AI Skills lets Claude Code, Cursor, Codex, or ChatGPT build Profinity dashboards, rules, and scripts from your live instance, and when to use it.
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-27
+last_reviewed: 2026-11-03
 ---
 
 # AI Skills
 
-AI Skills is a pack of seven skills for AI coding assistants such as [Claude Code](https://claude.com/product/claude-code), [Cursor](https://cursor.com), [Codex](https://openai.com/codex), and [ChatGPT](https://chatgpt.com).
-The skills help you build Profinity [dashboards](../../Customising_Profinity/Dashboards/index.md), [rules](../../Tags/Rules/index.md), [collections](../../Tags/Collections/index.md), [scripts](../../Developing_with_Profinity/Scripting/index.md), [plugins](../../Developing_with_Profinity/SDK/Developing_Plugins.md), [derived tags](../../Tags/Derived_Tags/index.md), and example apps.
-Every skill works from the live schema and API of your own Profinity instance, and from curated examples drawn from Profinity's shipped content.
-What it generates therefore matches the conventions of your instance.
+AI Skills is a pack of eight skills for AI coding assistants such as [Claude Code](https://claude.com/product/claude-code), [Cursor](https://cursor.com), [Codex](https://openai.com/codex), and [ChatGPT](https://chatgpt.com).
+One skill connects the assistant to your instance.
+
+The others help you build Profinity [dashboards](../../Customising_Profinity/Dashboards/index.md), [rules](../../Tags/Rules/index.md), [collections](../../Tags/Collections/index.md), [scripts](../../Developing_with_Profinity/Scripting/index.md), [plugins](../../Developing_with_Profinity/SDK/Developing_Plugins.md), [derived tags](../../Tags/Derived_Tags/index.md), and example apps.
+Those skills work from the live schema and API of your own Profinity instance, and from curated examples drawn from Profinity's shipped content.
+What they generate therefore matches the conventions of your instance.
+
 AI Skills runs in your own AI tool, outside Profinity.
 [AI Chat](../AI_Chat.md) is the assistant built into the product, and it answers questions about a running instance.
 To install the skills, refer to [Install AI Skills](./Install_AI_Skills.md).
@@ -73,9 +76,15 @@ Your messages go to whichever provider that tool uses, so check that provider ag
 ## Developing with Profinity
 
 AI Skills also helps people who build on Profinity.
-Each skill reads the schema and API of your instance, and generates what your Profinity version accepts.
+Run Connect before Dashboard Builder, Tag Rules, Tag Collections, Derived Tags, or App.
+Those skills read the live instance and wait until Connect has confirmed the connection.
+Script and Plugin do not call the live instance.
+
 Use the skill that matches what you are building:
 
+- A first connection from Claude Code, Cursor, or Codex: Connect.
+  Finish [Prepare Profinity for an MCP client](../../Integrating_to_Profinity/MCP_Server/Prepare_Profinity.md) with that skill.
+  ChatGPT uses [Connect ChatGPT to Profinity](Connect_ChatGPT.md) instead, because it cannot use the MCP server.
 - A [dashboard](../../Customising_Profinity/Dashboards/index.md) or [component dashboard](../../Developing_with_Profinity/Custom_Components/index.md): Dashboard Builder.
 - [Alert rules](../../Tags/Rules/index.md), [tag collections](../../Tags/Collections/index.md), or [derived tags](../../Tags/Derived_Tags/index.md): Tag Rules, Tag Collections, Derived Tags.
 - An in-profile [script](../../Developing_with_Profinity/Scripting/index.md), with simulation before you deploy: Script.

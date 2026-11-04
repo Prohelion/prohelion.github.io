@@ -13,7 +13,7 @@ The Prohelion D1000 Gen2 Battery Management Unit (BMU) supports the following de
 
 ![Isabellenhuette IVT-S](images/IVTS_Device.png)
 
-For more information on the Isabellenhuette IVT-S, see the datasheet: [Datasheet-IVT-S-V1.03.pdf](https://www.isabellenhuetteusa.com/wp-content/uploads/2022/07/Datasheet-IVT-S-V1.03.pdf)    
+For more information on the Isabellenhuette IVT-S, see the datasheet: [IVT-S datasheet (Isabellenhütte, February 2026)](https://www.isabellenhuette.com/hubfs/Files/Data-sheets/IVT-S.pdf)    
 
 #### Expected Usage
 
