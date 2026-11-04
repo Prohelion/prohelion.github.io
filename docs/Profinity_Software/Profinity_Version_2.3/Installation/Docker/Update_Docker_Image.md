@@ -1,9 +1,9 @@
 ---
 title: Update the Profinity Docker image
-description: "Move a Docker installation to a newer Profinity image with Docker Compose, or update it automatically each day with Watchtower."
+description: "Move a Docker installation to a newer Profinity image with Docker Compose, after backing up the mounted data folder."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-04
 ---
 
 # Update the Profinity Docker image
@@ -30,42 +30,3 @@ Before you start:
     ```
 
 Configuration and profiles are kept in the mounted volume.
-
-## Update automatically with Watchtower
-
-To update automatically, add Watchtower to the compose file.
-Watchtower is a community tool that replaces a container whenever a newer image appears.
-
-!!! warning "Unattended updates can discard data"
-    An unattended update discards any data that is not in a host-mounted volume.
-    Back up the mounted folder, and check that `PROFINITY_HOME` matches the mount, before you enable it.
-
-This file adds Watchtower:
-
-```yaml
-services:
-  profinity:
-    image: prohelion/profinity:latest
-    restart: always
-    ports:
-      - 18080:18080
-      - 18443:18443
-      - 4876:4876
-    environment:
-      - PROFINITY_HOME=/app/Prohelion
-    volumes:
-      - $HOME/Prohelion:/app/Prohelion:rw
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
-
-  watchtower:
-    image: containrrr/watchtower
-    restart: always
-    command: --label-enable --cleanup --interval 86400
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-```
-
-In this compose file, the `label` limits updates to the Profinity container, `--cleanup` removes old images, and `--interval 86400` checks once a day.
-Refer to the [Watchtower documentation](https://containrrr.dev/watchtower/) for the other options.
-
