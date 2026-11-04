@@ -12,6 +12,7 @@ The **TAG File Logger** and the **TAG SFTP Logger** write the values of the [tag
 The TAG File Logger writes the file to the local file system of the machine running Profinity.
 The TAG SFTP Logger transmits it to a remote Secure Shell (SSH) File Transfer Protocol (SFTP) server.
 Each is added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers** and is included in every edition.
+
 A logger only writes data out for later retrieval, so history that Profinity must read back belongs in a [historian](../Historians/index.md).
 CSV and JSON Lines files under `tag_logs/` are meant to be opened or shipped as files.
 Queryable history on the host belongs in the [TAG Local Historian](../Historians/TAG_Local_Historian.md) under `tag_history/`, or in another historian you designate.
@@ -38,14 +39,14 @@ The TAG SFTP Logger needs the remote server settings described in [File logger r
 Both loggers log the values of the tags in the collections selected in **Collections**.
 Every sample is written with its quality.
 A Stale tag keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value.
-A logger shows **Off** and cannot start until it has a collection, so create and select a collection first.
+A logger shows **Off** and needs a collection before it can start, so create and select a collection first.
 
-| Setting | Purpose |
-|---|---|
-| **Collections** | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
-| **Update Interval (Seconds)** | The seconds between writes. The default is 10, and the value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
-| **Logging mode** | **Snapshot**, **On Change** or **Everything**. The default is **Snapshot**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **File Format** | **CSV** or **JSON Lines**. The default is **CSV**. Refer to [File formats](#file-formats). |
+| Setting | Default | Purpose |
+|---|---|---|
+| **Collections** | Empty | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
+| **Update Interval (Seconds)** | 10 | The seconds between writes. The value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Logging mode** | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
+| **File Format** | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
 
 ### File formats {#file-formats}
 

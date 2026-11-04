@@ -11,6 +11,7 @@ last_reviewed: 2026-10-14
 A Profile Dashboard is a custom home page that replaces the standard Profinity home page whenever a [profile](./Profiles.md) is active.
 It is built in the dashboard [visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md) and stored as a YAML file in the profile.
 It uses the same dashboard system as [Custom Components](../Developing_with_Profinity/Custom_Components/index.md) dashboards, so the same dashboard components, data bindings, and features are available.
+
 The difference is scope.
 A Profile Dashboard is always shown as the home page, such as a system overview or a control interface.
 A Component Dashboard is reached through its component in the side menu.
@@ -53,8 +54,16 @@ Refer to the [Profinity dashboard development guide](../Customising_Profinity/Da
 
 !!! warning "Removing the dashboard deletes its file"
     Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting.
-    Keep a copy of the file if you need it again.
+    Profinity does not keep a copy of the deleted file, so copy it first, as step 1 describes.
     If Profinity fails to delete the file, it keeps the dashboard file setting and writes the error to the log.
 
-To remove a Profile Dashboard, open the profile settings, switch off **Custom Home Dashboard** and save.
+To remove a Profile Dashboard:
+
+1. If you may need the dashboard again, copy its YAML file to a safe place.
+   The file is in the `dashboards` folder of the profile directory, as described in [Profile folders](./Profile_Folders.md).
+   Its name is shown in **Dashboard YAML file (Optional)** in the profile settings.
+2. Open the profile settings, switch off **Custom Home Dashboard** and save.
+
 The standard Profinity home page is then shown when the profile is active.
+
+To change what the home page shows, refer to [Build a dashboard in the Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md).

@@ -12,6 +12,11 @@ Docker does not update a running container, so the `latest` tag only moves when 
 To move to a newer Profinity image, use the compose file from [Install Profinity with Docker](./index.md).
 To upgrade a 2.2 container, read [Upgrade from Profinity 2.2](../Upgrading/Upgrade_From_2_2.md) first.
 
+Before you start:
+
+- Back up the host folder that the compose file mounts at `PROFINITY_HOME`, as described in [Back up and restore](../Artifacts_Directory.md#back-up-and-restore).
+- Check that `PROFINITY_HOME` names the container path of that mounted volume, because Docker discards data kept anywhere else when it replaces the container.
+
 1. In the directory that holds the compose file, pull the newer image:
 
     ```bash
@@ -24,13 +29,18 @@ To upgrade a 2.2 container, read [Upgrade from Profinity 2.2](../Upgrading/Upgra
     docker compose up -d
     ```
 
-Configuration and profiles are kept as long as `PROFINITY_HOME` names the container path of your mounted volume.
+Configuration and profiles are kept in the mounted volume.
 
 ## Update automatically with Watchtower
 
 To update automatically, add Watchtower to the compose file.
 Watchtower is a community tool that replaces a container whenever a newer image appears.
-This file adds it:
+
+!!! warning "Unattended updates can discard data"
+    An unattended update discards any data that is not in a host-mounted volume.
+    Back up the mounted folder, and check that `PROFINITY_HOME` matches the mount, before you enable it.
+
+This file adds Watchtower:
 
 ```yaml
 services:
@@ -58,7 +68,4 @@ services:
 
 In this compose file, the `label` limits updates to the Profinity container, `--cleanup` removes old images, and `--interval 86400` checks once a day.
 Refer to the [Watchtower documentation](https://containrrr.dev/watchtower/) for the other options.
-
-!!! warning "Unattended updates can discard data"
-    An unattended update discards any data that is not in a host-mounted volume, so check that `PROFINITY_HOME` matches the mount before you enable it.
 

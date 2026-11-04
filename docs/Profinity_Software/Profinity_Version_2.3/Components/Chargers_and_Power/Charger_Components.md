@@ -11,6 +11,7 @@ last_reviewed: 2026-10-15
 Profinity charges a pack by controlling a charger and a Prohelion Battery Management System (BMS) together.
 The charger must be one that Profinity can control remotely.
 A BMS that can only switch a charger on and off gives slow or poor balancing of the cells, as the [D1000 Gen1 Charger Control](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Operation/Charging.md) documentation describes.
+
 The D1000 Gen1 Battery Management Unit (BMU) raises the charge current setpoint until the highest cell voltage reaches the Balance Threshold and then reduces it to hold that voltage.
 On a D1000 Gen2 the BMS hardware handles charging, so refer to the [D1000 Gen2 documentation](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/index.md) for how charging is managed there.
 
@@ -58,4 +59,3 @@ Once the charger is added it appears under **Chargers & Power Supplies** in the 
 
 [Charger settings](Charger_Settings.md) lists the limits and communication settings that each charger asks for.
 To run a charge from the dashboard, refer to [Start a charge](Start_a_Charge.md).
-For the messages and faults that stop a charge, refer to [Charging troubleshooting](Charging_Troubleshooting.md).

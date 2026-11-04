@@ -22,7 +22,7 @@ Use names from your own DBC and profile in other profiles: **Component**, **Mess
 Confirm the names in the DBC viewer in Profinity.
 Refer to [DBC](Script_Operations/DBC.md).
 
-## Reading a DBC signal value
+The first example reads a DBC signal value.
 
 === "C#"
 
@@ -70,6 +70,26 @@ Refer to [DBC](Script_Operations/DBC.md).
 
 Prefixing log lines with a timestamp, from `DateTime.Now` in C# or `datetime.now()` in Python, helps when correlating script output with bus or application events.
 
+The second example keeps a run count in script state.
+
+=== "C#"
+
+    ```csharp
+    int runCount = Profinity.State.Get("runCount") is int previousCount ? previousCount : 0;
+    runCount++;
+    Profinity.State.Set("runCount", runCount);
+    Profinity.Console.WriteLine($"This script has completed {runCount} time(s).");
+    ```
+
+=== "Python"
+
+    ```python
+    run_count = Profinity.State.Get("runCount")
+    run_count = (run_count + 1) if run_count is not None else 1
+    Profinity.State.Set("runCount", run_count)
+    print(f"This script has completed {run_count} time(s).")
+    ```
+
 ## Sending a CAN message
 
 Payload data can be built from a byte array (in C#) or set as typed properties on `CanBusPacket` (for example `Int32Pos0` and `Int32Pos1`) when the layout matches your frames.
@@ -102,26 +122,6 @@ A sent message goes onto the connected CAN bus, so use IDs that are safe for the
     packet_props.Int32Pos0 = 100
     packet_props.Int32Pos1 = 200
     Profinity.CAN.Send(packet_props)
-    ```
-
-## Persisting script state
-
-=== "C#"
-
-    ```csharp
-    int runCount = Profinity.State.Get("runCount") is int previousCount ? previousCount : 0;
-    runCount++;
-    Profinity.State.Set("runCount", runCount);
-    Profinity.Console.WriteLine($"This script has completed {runCount} time(s).");
-    ```
-
-=== "Python"
-
-    ```python
-    run_count = Profinity.State.Get("runCount")
-    run_count = (run_count + 1) if run_count is not None else 1
-    Profinity.State.Set("runCount", run_count)
-    print(f"This script has completed {run_count} time(s).")
     ```
 
 For the full operations, refer to [Script Operations](Script_Operations/index.md): CAN bus, DBC, state, and console.

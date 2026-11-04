@@ -11,6 +11,7 @@ last_reviewed: 2026-10-28
 Create a role when you want a person to do only what their job needs.
 You need the **Security administration** permission and a Server licence.
 A Windows desktop installation offers the use of roles only with a Server licence.
+
 Refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) for what each installation signs in with.
 Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md).
 [Roles and permissions](./Roles_and_Permissions.md) lists every permission and what it allows.
@@ -73,3 +74,5 @@ The person's row now lists the role under **Assigned roles**.
 
 To change a role later, open the **Roles** tab and select the role.
 A role that is still given to one or more users cannot be deleted, so remove it from those users first.
+
+To limit which roles can see a particular component or collection, refer to [Restrict a component or collection](Component_And_Collection_Security/Restrict_a_Component_or_Collection.md).

@@ -21,7 +21,7 @@ Each one brings data in as ordinary Profinity tags, and the Open Platform Commun
 
 !!! info "Licence required"
     The protocol plugins also require the **Industrial Protocols** licensed component group, an add-on to your Desktop, Server, or Enterprise edition.
-    Installing a plugin does not make its components available without it.
+    Installing a plugin makes its components available only with the **Industrial Protocols** licensed component group.
     To check your instance, refer to [Licensing](../../Licensing.md), where the group is listed as **Industrial Protocols** under **Licensed component groups**.
 
 To install a plugin:

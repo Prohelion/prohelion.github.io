@@ -39,6 +39,7 @@ flowchart LR
 Access to Prohelion Cloud is by request.
 Raise an access request in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
 Prohelion support assists with device onboarding, dashboard set-up and integration with existing systems.
+
 The component needs an access token and a device ID for the device in Prohelion Cloud.
 Both are shown in your account on the Prohelion Cloud dashboard, so have both ready before you add the component.
 
@@ -62,17 +63,44 @@ A collection must be selected before the component can start.
 It connects out from the Profinity server to Prohelion Cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.
 No inbound port is needed.
 
+## Example
+
+This example sends one tag collection to Prohelion Cloud every 60 seconds.
+Add it to the `components` list in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
+
+```yaml
+components:
+- component:
+    type: ProhelionCloudDashboard
+    name: Prohelion Cloud Dashboard
+    accessToken: YOUR_ACCESS_TOKEN
+    deviceID: YOUR_DEVICE_ID
+    intervalSec: 60
+    logType: Snapshot
+    collections:
+    - collectionName: YOUR_COLLECTION_NAME
+    autoConnect: true
+```
+
+Replace the placeholders as follows:
+
+- `YOUR_ACCESS_TOKEN` is the access token for the device.
+  Profinity encrypts it when it saves the Profile.
+- `YOUR_DEVICE_ID` is the device ID in Prohelion Cloud.
+- `YOUR_COLLECTION_NAME` is the name of a [tag collection](../../Tags/Collections/index.md) in the Profile.
+
 ## Troubleshooting
 
 The component can be saved only with an access token and a device ID.
-It reports "You must provide a device access token." or "You must provide a device ID." when either is empty.
 
-If the component is added but no data reaches Prohelion Cloud, check these things:
-
-- The Profile has the **Data Relay** feature licensed.
-- The token and device ID match the device in Prohelion Cloud.
-- At least one collection is selected.
-- Outbound traffic on port 1883 is allowed.
+| What you see | Cause | What to do |
+|---|---|---|
+| The message "You must provide a device access token." | The access token is empty. | Enter the access token. |
+| The message "You must provide a device ID." | The device ID is empty. | Enter the device ID. |
+| No data reaches Prohelion Cloud after the component is added | The Profile does not have the **Data Relay** feature licensed. | Check the licence for the Profile. |
+| No data reaches Prohelion Cloud after the component is added | The token and device ID do not match the device in Prohelion Cloud. | Check the token and device ID against the device in Prohelion Cloud. |
+| No data reaches Prohelion Cloud after the component is added | No collection is selected. | Select at least one collection. |
+| No data reaches Prohelion Cloud after the component is added | Outbound traffic on port 1883 is blocked. | Allow outbound traffic on port 1883. |
 
 Then read the Profinity logs for the connection error.
 For the shared settings of MQTT components, refer to [MQTT Publisher](../Publishers_and_Subscribers/MQTT_Publisher.md).

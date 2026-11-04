@@ -11,6 +11,7 @@ last_reviewed: 2026-10-28
 Use these steps to build or change a dashboard in the Visual Editor, bind its elements to tags and save it.
 You need the **Modify dashboards** permission, which an administrator grants in a role as described in [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
 The **Edit Dashboard** icon is shown only to users with that permission.
+
 Every dashboard value is bound to a tag, so familiarity with the [Tag Explorer](../../Tags/index.md) helps.
 A basic understanding of YAML syntax is needed only when you use the **YAML** tab or read the examples in this guide.
 Dashboards created before Profinity 2.3 keep working unchanged, and one opens in the Visual Editor ready to change.
@@ -83,6 +84,10 @@ Closing the editor with unsaved changes asks for confirmation before the changes
 ## Copy a dashboard as a template
 
 Every dashboard in Profinity uses this dashboard system, so the YAML of an existing dashboard is a useful starting point alongside the examples in the [Component reference](./Component_Reference/index.md) and the [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md).
+
+If the target already has a dashboard, **SAVE** replaces it.
+Profinity keeps the replaced dashboard as a safety copy, with `.bak` added to the file name, in the same folder, as described in [The safety copy](../../Administration/System_Configuration/Invalid_Configuration_Files.md#the-safety-copy).
+The safety copy holds one version, and the next save replaces it, so copy the YAML of the target dashboard to a file of your own before step 4 if you want to keep it.
 
 1. Open the dashboard in the editor and select the **YAML** tab.
 2. Select all the YAML and copy it.

@@ -11,6 +11,7 @@ last_reviewed: 2026-10-28
 Profinity decides what each person can see and do through **roles**.
 A role is a named list of things that people holding it are allowed to do, such as viewing tags, sending CAN messages, or editing profiles.
 Each user is given one or more roles when the account is set up.
+
 A person who holds two roles can do everything either role allows.
 You can give a single user an extra permission only through a role, so to find out who can do something, check only the roles.
 

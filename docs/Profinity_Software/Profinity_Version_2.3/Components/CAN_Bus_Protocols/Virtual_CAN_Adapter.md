@@ -51,6 +51,27 @@ Profinity can only select the network interface.
     Give each bridge a unique bus number unless you are joining two buses deliberately.
     Refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md) and the [bus number guidance](CAN_Bus_Adapters/CAN_Bus_Adapter_Settings.md#tritium-can-to-ethernet-bridge) for the physical bridge.
 
+## Example
+
+This example is a Virtual CAN Bridge for a Profile that already has an adapter for the physical CAN network.
+Add it to the `components` list in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
+
+```yaml
+components:
+- component:
+    type: ProhelionVirtualAdapter
+    name: Prohelion Virtual CAN to Ethernet Bridge
+    protocol: TCP
+    tritiumProtocolVersion: All
+    networkInterface: YOUR_NETWORK_INTERFACE
+    busNo: 5
+    udpTTL: 128
+    autoConnect: true
+```
+
+Replace `YOUR_NETWORK_INTERFACE` with the name of the network interface that the clients can reach, as listed in the **Network Adapter** setting.
+The bus number `5` is an example, so choose a number that no other bridge on the network uses.
+
 If a client cannot connect, check these things:
 
 - The **Network Adapter** is the interface that the client can reach.

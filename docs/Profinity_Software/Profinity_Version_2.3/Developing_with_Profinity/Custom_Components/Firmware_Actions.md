@@ -29,6 +29,7 @@ actions:
 
 The upload field is **Firmware Actions YAML file (Optional)**, under **Pack files** and **Firmware**, and on the **Scripts** tab **Firmware scripts** lists the paths from this file.
 Until the file is attached, that note reads: "Load, save, and flash scripts are named in firmware.yaml under Pack files → Firmware. Attach that file to see the script paths here."
+
 Refer to [Custom Component files](Files.md).
 The buttons are on the **Firmware Utilities** tab, in the **Firmware** group.
 They are shown to users whose role includes the **Allow firmware actions** permission.

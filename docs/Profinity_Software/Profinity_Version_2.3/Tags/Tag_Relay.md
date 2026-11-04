@@ -12,6 +12,7 @@ Tag relay shares live tag data between two Profinity instances.
 One instance runs as a sender and publishes the [tag collections](Collections/index.md) it is set to export, either as periodic full snapshots or as On Change deltas between full snapshots.
 Another instance runs as a receiver and ingests that data as remote, read-only tags.
 The tags sit under a prefix that identifies where they came from.
+
 It supports a fleet or head-office view spanning multiple sites, vehicles, or installations.
 Tag relay requires the **Data Relay** licensed feature on both the sending and receiving instance.
 [Licensing](../Licensing.md) shows whether it is licensed and available on a given instance.
@@ -39,7 +40,9 @@ A Profinity instance with a [Tag Relay Sender](../Components/Tag_Relays/Tag_Rela
 In Snapshot mode it sends a complete snapshot at a fixed interval, which defaults to 60 seconds.
 In On Change mode it sends a complete snapshot on connect and reconnect (and again on a resync interval), and sends only value changes between those snapshots.
 Full snapshots include tag metadata such as units.
-The receiver always holds the latest applied values for each mirrored tag.
+
+The receiver holds the latest accepted values for each mirrored tag.
+A rejected snapshot leaves the previous values in place, as the troubleshooting section describes.
 Tags outside the selected collections are never sent.
 
 A [Tag Relay Receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md) component connects to one or more senders.
@@ -65,14 +68,10 @@ A path occupied by a tag that did not come from relay always causes the whole sn
 
 ### Troubleshooting a sender that stops updating
 
-When the tags from one sender stop updating on the receiver, a path in that sender's latest snapshot clashes with a tag already on the receiver.
-The receiver rejects the whole snapshot.
-Over HTTPS the sender receives a `409 Conflict` response carrying the reason.
-A malformed snapshot, for example one with an unsupported relay version, receives `400 Bad Request`.
-Over MQTT the receiver writes a warning to the Profinity log and discards the snapshot.
-
-To fix the clash, remove the local tag that occupies the path or change the receiver prefix.
-The receiver then accepts the next snapshot from that sender.
+| What you see | Cause | What to do |
+|---|---|---|
+| The tags from one sender stop updating. Over HTTPS, the sender receives a `409 Conflict` response carrying the reason. Over MQTT, the receiver writes a warning to the Profinity log and discards the snapshot. | A path in that sender's latest snapshot clashes with a tag already on the receiver, so the receiver rejects the whole snapshot. | Remove the local tag that occupies the path, or change the receiver prefix. The receiver then accepts the next snapshot from that sender. |
+| The sender receives `400 Bad Request`. | The snapshot is malformed, for example one with an unsupported relay version. | - |
 
 For the settings of each role, refer to [Tag Relay Sender](../Components/Tag_Relays/Tag_Relay_Sender.md) and [Tag Relay Receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md).
 Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for the permissions involved.

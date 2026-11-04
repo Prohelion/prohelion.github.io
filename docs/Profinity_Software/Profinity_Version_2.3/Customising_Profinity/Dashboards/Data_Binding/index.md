@@ -49,6 +49,7 @@ The `source` of a binding is a tag path, and it takes one of two forms:
 A path without a leading `/` is relative to the component that owns the dashboard.
 The common branches are `DBC/...` and `Properties/...`.
 Profinity resolves a relative path under the owning component when the dashboard loads.
+
 A relative path makes a dashboard reusable, because the dashboard does not contain the name of a component.
 The component can be renamed, or the dashboard applied to another component with the same tags.
 A component dashboard needs a leading `/` to bind to a tag in a different component.
@@ -87,6 +88,7 @@ A [derived tag](../../../Tags/Derived_Tags/index.md) is a tag whose value Profin
 A dashboard binds to it exactly as it binds to any other tag.
 Use a derived tag when a dashboard needs a value that no device reports, such as a calculated power or a combined status.
 The calculation then lives in one place instead of in every dashboard.
+
 Derived tags suit calculated values that several dashboards, rules, or the API also use.
 
 ## Binding modes
@@ -123,6 +125,7 @@ dashboard:
 A series binding that sets `timeRangeStop` but omits `timeRangeStart` starts its window 10 minutes before the stop time.
 The Visual Editor sets the same length of history when it adds a series.
 A binding that sets neither shows only the latest value.
+
 Set both `timeRangeStart` and `timeRangeStop` on a series binding to state the history that the chart shows.
 Time values use a relative form, where `-5m` is five minutes before now and `0m` is now.
 Time series bindings suit charts, trends and the live history of any numeric tag.
@@ -153,6 +156,7 @@ Logged data requires data logging to be configured and enabled for the profile, 
 A logged binding returns no data while logging is not available.
 The `aggregationWindow` groups the data into intervals of the given length (for example `10s` or `1m`).
 The `aggregationFunction` decides which value represents each interval.
+
 Logged bindings suit historical analysis over periods longer than the live window.
 
 [Tag layer](../../../Tags/index.md) covers the Tag Explorer, [Derived tags](../../../Tags/Derived_Tags/index.md) and [Create collections, rules, and dashboard bindings from tags](../../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.

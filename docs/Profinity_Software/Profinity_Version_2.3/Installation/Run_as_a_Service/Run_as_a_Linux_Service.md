@@ -20,6 +20,7 @@ On a distribution without systemd, follow that distribution's documentation for 
 `profinity.sh` supports two ways to start Profinity, selected by the `-s` (`--service`) flag.
 Running `/opt/profinity/profinity.sh` in a terminal starts Profinity in the foreground, which suits testing a configuration before you enable the service.
 Ctrl+C stops it.
+
 Running `systemctl start profinity` starts the service, whose unit runs `profinity.sh -s`.
 The `-s` flag does not select the account that Profinity runs under.
 Always start Profinity through `profinity.sh` and never by calling `dotnet Profinity.dll`, because the launcher resolves the installed edition and runs preflight checks.
@@ -47,9 +48,11 @@ WantedBy=multi-user.target
 ```
 
 Adjust `WorkingDirectory` and `ExecStart` if you installed with a different `--install-dir`.
-If you installed with `--no-systemd` or from an archive, create the file yourself, and create the `profinity` user and the [artefacts directory](../Artifacts_Directory.md) first:
+If you installed with `--no-systemd` or from an archive, create the file yourself, and create the `profinity` user and the [artefacts directory](../Artifacts_Directory.md) first.
+Run these commands:
 
 ```bash
+sudo useradd -r -m -d /home/profinity -s /usr/sbin/nologin profinity
 sudo mkdir -p /var/lib/prohelion/profinity
 sudo chown -R profinity:profinity /var/lib/prohelion
 ```
@@ -89,5 +92,9 @@ Run `sudo systemctl status profinity.service`.
 
 If the service does not start, read the log with `journalctl -u profinity.service`.
 
-- If Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration, the service user does not own the artefacts directory. Run `sudo chown -R profinity:profinity /var/lib/prohelion`.
-- A "file not found" error means the path to `profinity.sh` in the unit does not match where Profinity is installed. Correct the path in the service configuration and start the service again.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration | The service user does not own the artefacts directory | Run `sudo chown -R profinity:profinity /var/lib/prohelion` |
+| A "file not found" error | The path to `profinity.sh` in the unit does not match where Profinity is installed | Correct the path in the service configuration and start the service again |
+
+Next, refer to [Apply a licence](../Applying_a_Licence.md) to open the web interface from another machine.

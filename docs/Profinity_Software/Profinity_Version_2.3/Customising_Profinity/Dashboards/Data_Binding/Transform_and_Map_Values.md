@@ -93,7 +93,8 @@ dashboard:
                         toType: "number"
 ```
 
-To invert a boolean or numerical value, set `toType` and `invert: true`, because `invert` takes effect only with `toType`:
+`invert` takes effect only when a `toType` applies, either the one you set or the default that some components supply, such as the `enabled` target of a lamp.
+To invert a boolean or numerical value, set `toType` and `invert: true`:
 
 ```yaml
 dashboard:
@@ -111,6 +112,7 @@ dashboard:
                           bind:
                             - target: "enabled"
                               source: "DBC/Status/ErrorConfigRead"
+                              toType: "boolean"
                               invert: true
 ```
 
@@ -159,6 +161,7 @@ dashboard:
 
 The partition array defines ranges in the form `[label1, threshold1, label2, threshold2, label3]`.
 A value below `threshold1` takes `label1`, a value from `threshold1` up to `threshold2` takes `label2`, and any higher value takes `label3`.
+
 The `bias` is required, and it is either `left` or `right`.
 With `left`, a value equal to a threshold takes the label before that threshold.
 With `right`, it takes the label after it.

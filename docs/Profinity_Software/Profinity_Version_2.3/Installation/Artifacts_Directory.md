@@ -40,6 +40,7 @@ The subfolders use lowercase names on every platform because Linux file systems 
 
 The Linux installer pre-creates only `config/`, `profiles/`, `plugins/`, and `logs/`.
 Profinity creates the other folders on demand.
+
 Because `.dp_keys/` lives inside the artefacts directory, it stays on a Docker volume when you replace the container.
 Profinity renames the capitalised names that earlier releases used (`Config`, `Config.yaml`, `Profiles`, `Logs`) to the lowercase forms on first start.
 This documentation uses the lowercase names throughout.
@@ -71,6 +72,7 @@ export PROFINITY_HOME=/var/lib/prohelion-staging/profinity
 On the first start after you upgrade to 2.3, Profinity copies data from the older locations in the table into the artefacts directory.
 It renames `Config`, `Profiles`, and `Logs` to lowercase, and removes an old folder once every file is present at the new location.
 A locked or offline file does not stop Profinity from starting, and migration resumes from where it stopped on the next restart.
+
 The Windows desktop application shows a progress window during migration.
 On every host, the **ADMIN > Logs** page lists a message for each file that moved.
 
@@ -92,9 +94,11 @@ Stop Profinity before you copy or restore the folders, restore by replacing thos
 
 ## Troubleshooting
 
-- The profile is empty after an upgrade: migration did not find your data. Check **ADMIN > Logs** for migration messages, and if `PROFINITY_HOME` is set, copy the old data across yourself or unset the variable.
-- Linux reports a permission error: the account that runs Profinity does not own the artefacts directory. Give it ownership with `chown` on the artefacts tree, because `/var/lib` needs root to create the folder, which is then handed to the service user.
-- Two instances share one configuration: give each its own `PROFINITY_HOME` and its own HTTP and HTTPS ports.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| The profile is empty after an upgrade | Migration did not find your data. | Check **ADMIN > Logs** for migration messages. If `PROFINITY_HOME` is set, copy the old data across yourself or unset the variable. |
+| Linux reports a permission error | The account that runs Profinity does not own the artefacts directory. | Give that account ownership with `chown` on the artefacts tree. `/var/lib` needs root to create the folder, which is then handed to the service user. |
+| Two instances share one configuration | The instances share one configuration. | Give each its own `PROFINITY_HOME` and its own HTTP and HTTPS ports. |
 
 For the Linux service layout and launcher, refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
 For Docker volume mounts, refer to [Install Profinity with Docker](./Docker/index.md).

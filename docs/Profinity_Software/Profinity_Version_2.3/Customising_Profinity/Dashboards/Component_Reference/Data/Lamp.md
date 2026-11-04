@@ -36,7 +36,7 @@ Use [Lamps](Lamps.md) for a set of related indicators, and [Readouts](Readouts.m
 | `value` | number | No | `0` | On or off state. `0` shows the lamp as off (grey) and any other number lights the lamp in its colour. Bind the `value` target to drive the state from data |
 | `label` | string | No | None | Caption shown beside the lamp. The caption can be bound with the `label` target |
 | `enabled` | boolean | No | `true` | When `false`, the lamp is displayed in the disabled style and the caption is dimmed. Bind the `enabled` target to drive the state from data |
-| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `value`, `enabled`, `color` and `label` targets are handled. A binding with no `target` binds `value` |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `value`, `enabled`, `color` and `label` targets are handled. A binding that omits `target` binds `value` |
 
 `id`, `class`, and `visible` are accepted but have no effect.
 
@@ -94,7 +94,9 @@ dashboard:
 
 ## Display rules
 
-A lamp is displayed in grey when it has no data, when `enabled` is `false` or when its value is `0`, whatever its `color`.
+A lamp is displayed in grey when its value is `0`, whatever its `color`.
+A lamp is displayed in the disabled style, a pale lamp with a dimmed caption, when it has no data or when `enabled` is `false`, whatever its `color`.
 A lamp that has a `color` and no `value` therefore stays grey.
+
 A lamp that is driven by an `enabled` binding or by a `color` binding must also have `value: 1`.
 When a bound source has no data, the lamp is displayed in the disabled style.

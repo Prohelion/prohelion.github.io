@@ -24,6 +24,7 @@ Native SocketCAN is available only on Linux: when Profinity runs in [Docker](../
 SocketCAN is a Linux kernel feature.
 A Peak adapter that you plug into a Linux host also appears there as a SocketCAN interface.
 On Linux, use the SocketCAN adapter, or the SocketCANd adapter from another machine, instead of the Peak adapter.
+
 The Ewert CANdapter connects through its serial port on every platform.
 
 Install the Peak driver before starting Profinity, because the Peak CAN to USB Adapter needs it.

@@ -30,7 +30,7 @@ Scripts run code on the host, so turning on a scripting language is a security d
 Each language toggle is available only when the licence includes the **Scripting** feature (**Desktop**, **Server**, and **Enterprise** editions).
 An unlicensed instance does not include scripting.
 
-When a language is off, that script type does not appear under Add Component, and scripts in that language do not run — including scripts attached to custom components.
+When a language is off, that script type is hidden under Add Component, and scripts in that language are skipped, including scripts attached to custom components.
 
 <figure markdown>
 ![The Application Config tab of the System Configuration dialog, with update server and check interval fields, packet and tag history limits, and scripting language checkboxes.](../../images/app_configuration.png)

@@ -37,7 +37,7 @@ To show and hide content inside an accordion, bind `visible` on the accordion it
 
 ## Example
 
-### Basic example
+This example holds two readouts in an accordion labelled System Details.
 
 ``` yaml
 dashboard:
@@ -56,8 +56,6 @@ dashboard:
                           label: "Version"
                           value: "1.4.2"
 ```
-
-### Data binding for visibility
 
 Control accordion visibility based on system state or conditions.
 
@@ -80,8 +78,6 @@ dashboard:
                           label: "Debug Mode"
                           value: "Enabled"
 ```
-
-### Nested accordions
 
 Accordions can be nested within other accordions for hierarchical organisation.
 
@@ -121,8 +117,6 @@ dashboard:
                                       value: "Required"
 ```
 
-### Conditional content
-
 To show content inside an accordion only under certain conditions, place the visibility binding on a component inside the row, such as the readout in this example.
 
 ``` yaml
@@ -161,7 +155,7 @@ dashboard:
                               toType: boolean
 ```
 
-### Complete example
+This example combines a bound accordion that starts expanded with a nested accordion that holds a line chart.
 
 ``` yaml
 dashboard:

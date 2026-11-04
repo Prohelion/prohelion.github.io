@@ -32,6 +32,7 @@ In `runnable` mode, Python scripts and Lua scripts run from the top, and C# scri
 If `on_start` returns false, the simulator stops and does not call `run` or `on_stop`.
 If `run` returns false, the cycle loop stops and `on_stop` still runs.
 `serviceCycles` in `sim.yaml` is how many times `run` is called, and the default is 1.
+
 The simulator does not call `on_pause` or `on_continue`.
 The function or method for each mode is the one Profinity calls.
 Refer to [Script types](../Scripting/Script_Types/index.md).
@@ -53,6 +54,7 @@ componentName: sim
 A script that waits for a CAN reply names that reply under `onSend`.
 `matchId` is the CAN ID the script sends, and `replyId` is the CAN ID it receives.
 Both are decimal numbers: 256 is CAN ID 0x100.
+
 The reply packet carries `replyId` and no data bytes.
 A wait uses the timeout the script passes, and only a listed reply arrives.
 For sending and receiving, refer to [CAN bus](../Scripting/Script_Operations/CANBus.md).
@@ -88,6 +90,7 @@ onSend:
 When `steps` is present, the simulator delivers the list and does not also deliver the single `tagId` and `tagValue` pair.
 A step that omits one of the two uses the value at the top of the file.
 The `mode` key also accepts `tag-change` for `tagChange`, and `rule` or `rule-context` for `alert`.
+
 A tag-change sample has quality `Good`, and its timestamp is the time of the run.
 Any other file in the folder is copied next to the script, so the script can load a sibling file.
 `sim.yaml` itself is not copied.
@@ -102,6 +105,7 @@ The simulator covers the `Profinity` object the script calls, and the call Profi
 It has no CAN database (DBC) and no tag history.
 A DBC call fails with `DBC lookup is not loaded in the Profinity script simulator.`
 A tag-history call fails with `Timeseries sources are not available in the Profinity script simulator.`
+
 `Profinity.Action` is not set.
 A script that reads an action context is checked in a profile.
 Refer to [Action context](../Scripting/Script_Operations/Action.md).

@@ -28,3 +28,5 @@ The `cell_over_voltage` rule in [Complete rules.yaml example](../Rules/Rules_YAM
 You can also start a collection from the **Tag Explorer** context menu with **Create collection from tag(s)…**.
 Refer to [Create collections, rules, and dashboard bindings from tags](../Create_Collections_Rules_and_Bindings_from_Tags.md) for the steps.
 To start a rule, right-click a collection in the editor and choose **Create rule from collection…**.
+
+Next, refer to [Tag rules](../Rules/index.md) to use the collection in a rule.

@@ -87,17 +87,22 @@ Press Ctrl-C to shut the application down.
 INFO: Starting Prohelion - Profinity
 INFO: Profinity Profile : Default 11
 INFO: Profinity Services Starting
-INFO: Now listening on: http://127.0.0.1:18080
+INFO: Now listening on: http://0.0.0.0:18080
 ```
 
 The address in the last line is the address Profinity listens on.
-The default is `0.0.0.0` (all network interfaces), and `127.0.0.1` means that only the local machine can connect.
+The default is `0.0.0.0` (all network interfaces).
+If the line shows `127.0.0.1`, only the local machine can connect.
+
 To open the web interface and sign in, refer to [Open the web interface](./Linux_and_macOS_Installation.md#open-the-web-interface).
 On Linux, create the artefacts directory and set its ownership before the first start, or set `PROFINITY_HOME` to a writable path, as described in [Where Profinity stores its data](./Linux_and_macOS_Installation.md#where-profinity-stores-its-data).
 
 ## Troubleshooting
 
-- `./profinity.sh` reports `Permission denied`: the archive tool did not keep the executable bit, so run `chmod +x profinity.sh` and start it again.
-- On the macOS and portable archive, a host without internet access cannot download the .NET runtime on first start.
-  Install the ASP.NET Core 10 runtime from Microsoft before you start Profinity, and run `./profinity.sh --check-only` to confirm.
-- On Linux, Profinity cannot write to `/var/lib/prohelion`: refer to [Troubleshooting](./Linux_and_macOS_Installation.md#troubleshooting).
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| `./profinity.sh` reports `Permission denied`. | The archive tool did not keep the executable bit. | Run `chmod +x profinity.sh` and start it again. |
+| On the macOS and portable archive, the .NET runtime is not downloaded on the first start. | The host does not have internet access. | Install the ASP.NET Core 10 runtime from Microsoft before you start Profinity, and run `./profinity.sh --check-only` to confirm. |
+| On Linux, Profinity cannot write to `/var/lib/prohelion`. | The account that runs Profinity does not own the artefacts directory. | Refer to [Troubleshooting](./Linux_and_macOS_Installation.md#troubleshooting). |
+
+Next, [apply a licence](./Applying_a_Licence.md) to the installation.

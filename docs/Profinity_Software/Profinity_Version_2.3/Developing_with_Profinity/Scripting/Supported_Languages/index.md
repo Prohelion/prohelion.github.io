@@ -12,6 +12,7 @@ Profinity scripting supports three languages: C#, Python (through [IronPython](h
 Each language runs on .NET, the Microsoft software framework Profinity is written in, so scripts can use .NET libraries directly.
 Each language supports the same [script types](../Script_Types/index.md): Run, Receive, Service, Tag Change and Rule scripts.
 A Rule script is a script set to Run On Alert mode.
+
 Each language also supports the same host operations, exposed through the `Profinity` script variable.
 The choice of language is a matter of preference and background.
 
@@ -41,6 +42,7 @@ Python scripts in Profinity use a procedural style, with functions that Profinit
 Profinity runs them through [IronPython](https://ironpython.net/), a .NET implementation of Python, so a Python script can also call .NET libraries directly.
 IronPython is not the standard CPython interpreter.
 Python packages that depend on compiled CPython extensions, such as numpy, cannot be imported.
+
 The Python standard library modules that IronPython provides, and .NET types, can be imported.
 
 Profinity runs IronPython with Python 3 compatibility enabled, so all Python scripts use Python 3 syntax, including:

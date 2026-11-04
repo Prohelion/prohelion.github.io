@@ -15,6 +15,7 @@ The [CAN Data Log Replayer](Logging_Replaying_CAN_Bus_Messages.md#can-data-log-r
 Before you send or receive any CAN packets, check that the current user holds the associated permission.
 Receiving needs **View CAN data**, and sending needs **Send CAN messages**, which includes **View CAN data**.
 The replayer requires **Replay CAN logs**.
+
 A user with only **View CAN data** sees the menu item as **RECEIVED CAN** instead of **SEND & RECEIVED CAN**.
 Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
@@ -74,6 +75,7 @@ When you change the raw data, the values update to match.
 Setting an interval causes Profinity to send your CAN packet at your chosen loop rate, so setting **Interval [ms]** to 100 sends the packet every 100 ms.
 The interval must be a whole number from 1 to 4,294,967,295 milliseconds.
 Leave it blank, or enter 0, to send the packet once only.
+
 When **Interval [ms]** is blank or 0, the primary button reads **SEND** and sends the packet once.
 When it is above 0, the button reads **START**, and the schedule must be saved first.
 The editor shows "Value must be an integer greater or equal to zero" or "Value must not exceed 4,294,967,295 milliseconds (maximum for uint)" beside the field when the value is not valid.

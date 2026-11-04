@@ -18,6 +18,7 @@ This guide covers the security controls that matter when deploying and operating
 
 Profinity V2 provides control over critical industrial, automotive, and energy systems.
 Securing it involves six areas.
+
 [HTTPS](#https-configuration) protects the network path, [Docker](#docker-security) settings isolate the container, and the [security files and keys](#protect-the-security-files-and-keys) hold the secrets.
 [Scripting](#scripting-security) controls what code runs with Profinity's privileges, [user accounts](#user-account-security) limit who can do what, and [Kiosk Mode](#kiosk-mode-security) controls unattended displays.
 The [checklist](#production-deployment-checklist) at the end summarises the steps for a production deployment.
@@ -33,6 +34,7 @@ Use a certificate from the Windows Certificate Store for a Windows deployment, o
 For production, turn on **Redirect all Http traffic to Https** so that every connection uses encryption.
 Use certificates from a trusted Certificate Authority (CA), and plan certificate renewal so that an expiry does not interrupt the service.
 Binding HTTP to localhost only and requiring HTTPS for remote access keeps credentials off the network.
+
 [Profinity Mobile](../Mobile/index.md) connects over the local network, so keep the HTTPS port reachable from the networks that phones use.
 For the certificate steps, refer to [Profinity Web](../Administration/System_Configuration/Profinity_Web.md#https-certificates).
 
@@ -43,11 +45,14 @@ Keep it that way, and make sure the host directory mounted at `PROFINITY_HOME` i
 Set CPU and memory limits on the container to prevent resource exhaustion.
 Use Docker networks to isolate Profinity from other services, and use only official Profinity images from Prohelion repositories.
 
-Give mounted volumes that hold profiles, configurations, or logs file system permissions that match their sensitivity.
-Mount configuration files read-only so that a container cannot modify them accidentally.
-Encrypt backups of sensitive data and keep them in a secured location.
-Publish only the ports you need to the host, and restrict access to them with a host firewall.
-Place a reverse proxy in front of Profinity for production deployments.
+Apply these controls:
+
+- Give mounted volumes that hold profiles, configurations, or logs file system permissions that match their sensitivity.
+- Mount configuration files read-only so that a container cannot modify them accidentally.
+- Encrypt backups of sensitive data and keep them in a secured location.
+- Publish only the ports you need to the host, and restrict access to them with a host firewall.
+- Place a reverse proxy in front of Profinity for production deployments.
+
 For deployment details, refer to [Install Profinity with Docker](./Docker/index.md).
 
 ## Protect the security files and keys
@@ -55,6 +60,7 @@ For deployment details, refer to [Install Profinity with Docker](./Docker/index.
 `security.yaml` in the `config/` folder of the [artefacts directory](./Artifacts_Directory.md) holds users, roles, two-factor secrets, and the keys that sign sessions and encrypt secrets.
 Restrict read access to that folder to the account that runs Profinity.
 Include `security.yaml` in encrypted backups, and never commit a file that contains real keys to source control.
+
 In a Docker container, `security.yaml` and its keys are written to the container's own storage when `PROFINITY_HOME` does not match a mounted volume.
 Replacing the image then regenerates the keys and resets Profinity to the default administrator account, so always set `PROFINITY_HOME` to the container path of a mounted volume.
 
@@ -72,9 +78,11 @@ Scripting is switched off by default.
 An administrator turns it on with **Enable Scripting** under **ADMIN > System Configuration**.
 The setting is available only when the licence includes the **Scripting** feature, which the Desktop, Server, and Enterprise editions include.
 An unlicensed instance does not include scripting.
+
 Enable it only when the use case needs it, and review script code before deployment, especially scripts from external sources.
 Keep production scripts under version control with a review process, and audit active scripts regularly.
 When Profinity runs as a service, give it the minimum operating system permissions it needs.
+
 Document each script and its purpose for security reviews.
 For the scripting pages, refer to [Profinity Scripting](../Developing_with_Profinity/Scripting/index.md).
 
@@ -120,16 +128,19 @@ Refer to [SSO and sign-in method](../Administration/System_Configuration/Securit
 Profinity uses 27 granular permissions grouped into roles, and users receive assigned roles.
 Profinity has no security groups or per-user permission lists.
 Assign users only the permissions their work needs.
+
 Give monitoring accounts read-only roles for dashboards and the Tag Explorer, and use individual administrator accounts.
 Review accounts and role assignments periodically.
+
 The **Send CAN messages** permission lets a user inject CAN frames onto the bus, so assign it only to trusted users.
 Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for the full catalogue and the built-in Administrators role, and [Managing users](../Administration/Users_and_Access/Manage_Users.md) for user management.
 
 ## Kiosk Mode security
 
-Kiosk Mode signs a selected user in automatically without a login, which needs careful configuration.
+Kiosk Mode signs a selected user in automatically, skipping the login, which needs careful configuration.
 Profinity does not restrict which enabled user is selected, including administrators, so anyone at the kiosk inherits that user's permissions.
 Use a dedicated user with only the view permissions the display needs, such as a read-only role, and review that user's permissions regularly.
+
 Monitor kiosk access through the logs.
 Secure the device physically, because Kiosk Mode bypasses the login page.
 In production, isolate the device on its own network segment, and disable Kiosk Mode when you no longer need it.
@@ -162,3 +173,5 @@ Before deploying Profinity in a production environment:
 - [Kiosk Mode](../Administration/Kiosk_Mode.md): Kiosk Mode configuration and security.
 - [Profinity Scripting](../Developing_with_Profinity/Scripting/index.md): scripting security considerations.
 - [Install Profinity with Docker](./Docker/index.md): Docker deployment.
+
+Next, [configure HTTPS](../Administration/System_Configuration/Profinity_Web.md#https-certificates) in the Profinity Web settings.

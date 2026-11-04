@@ -10,6 +10,7 @@ last_reviewed: 2026-11-01
 
 A **historian** is a logging component that writes the history of your [tags](../../Tags/index.md) to a database.
 Unlike a [logger](../Loggers/index.md), it also allows that history to be read back through the APIs.
+
 [Dashboards](../../Customising_Profinity/Dashboards/index.md), trend charts and integrations that ask for long-range tag history are answered from the historian, so a profile that needs more than the recent in-memory values needs one.
 Each historian selects the tags it records through [collections](../../Tags/Collections/index.md), and requires the **Historians** licensed feature, included in the **Desktop**, **Server** and **Enterprise** editions.
 [Licensing](../../Licensing.md) shows whether it is available on your instance.

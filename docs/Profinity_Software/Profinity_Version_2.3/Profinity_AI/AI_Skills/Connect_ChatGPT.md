@@ -26,7 +26,10 @@ Refer to [What each tool can do](AI_Skills_Reference.md#what-each-tool-can-do).
 ## Set up ChatGPT
 
 1. In ChatGPT, create a Custom GPT.
-2. Paste the instructions from the pack, upload the example files, and import the OpenAPI actions file with your public Profinity host in it. The file list and the order of those three actions are in [Set up ChatGPT](Install_AI_Skills.md#set-up-chatgpt).
+2. Paste the instructions from the pack, upload the example files, and import the OpenAPI actions file.
+   Before you import it, open the file and find the address in the `servers` entry, which reads `https://REPLACE-WITH-YOUR-PROFINITY-HOST`.
+   Replace the whole address with your public HTTPS address for Profinity.
+   The file list and the order of those three actions are in [Set up ChatGPT](Install_AI_Skills.md#set-up-chatgpt).
 3. Set the action authentication to an API key of type Bearer, and paste the service account token. Do not choose OAuth.
 4. Save the Custom GPT.
 5. Start a new chat with that GPT, and ask: "What components are in my active profile?"

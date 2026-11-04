@@ -53,6 +53,7 @@ The valid levels, from least to most severe, are `Trace`, `Debug`, `Info`, `Warn
 Level names are not case-sensitive.
 `Information` is accepted as `Info` and `Warn` as `Warning`, and a rule with no level is treated as `Info`.
 An unrecognised level on a rule, threshold step, or `triggerLevel` stops the rules file loading and names the rule that holds it.
+
 Correct the spelling and save again.
 The same names are used as the `triggerLevel` of an action configured on a parent rule file or group.
 

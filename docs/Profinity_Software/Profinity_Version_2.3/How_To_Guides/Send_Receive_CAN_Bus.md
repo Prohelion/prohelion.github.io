@@ -90,27 +90,10 @@ Also check that the CAN ID, data format, and CAN bus bit rate match what the net
 
 ## Troubleshooting
 
-### A packet does not send
+| What you see | Cause | What to do |
+|---|---|---|
+| A scheduled packet never appears in the CAN Activity panel. | Usually one of these: (1) the adapter is disconnected, so its status indicator is not green; (2) the signed-in user lacks the **Send CAN messages** permission; (3) the CAN ID is invalid; (4) no interval is set, so the packet waits for a manual send. | Work through the causes in that order. Then select the packet and select the **Send** arrow, to confirm that it transmits before you rely on the schedule. |
+| A packet that was sent is missing from the CAN Activity panel. | A filter usually hides it. The adapter may also be receiving no traffic back, or the CAN bus bit rate may differ from the network. | Clear the filters, check that the adapter is receiving traffic, and check the bit rate. |
+| The data differs from what was entered. | The byte order or the data format is usually wrong. | Check that the **Endian** setting matches your system. Check the conversion between bytes and integers. Review the raw data to confirm the values. |
 
-A scheduled packet that never appears in the CAN Activity panel usually has one of these causes:
-
-- The adapter is not connected, so its status indicator is not green.
-- The signed-in user lacks the **Send CAN messages** permission.
-- The CAN ID is not valid.
-- No interval is set, so the packet waits for a manual send.
-
-Work through the causes in that order.
-Then select the packet and select the **Send** arrow, to confirm that it transmits before you rely on the schedule.
-
-### A packet does not appear in the activity panel
-
-A packet that was sent but is missing from the CAN Activity panel is usually hidden by a filter.
-The adapter may also be receiving no traffic back, or the CAN bus bit rate may differ from the network.
-Clear the filters, check that the adapter is receiving traffic, and check the bit rate.
-
-### The data is wrong
-
-Data that differs from what was entered usually has the wrong byte order or the wrong data format.
-Check that the **Endian** setting matches your system.
-Check the conversion between bytes and integers.
-Review the raw data to confirm the values.
+For every option of the packet editor, refer to [Send / receive CAN bus messages](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md).

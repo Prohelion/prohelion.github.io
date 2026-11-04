@@ -49,27 +49,50 @@ The tags then appear under the **Tag path prefix**, at the paths described in [W
 
 ### Connection settings
 
-| Setting | Required | Purpose |
-|---|---|---|
-| **Server URL** | Yes | The broker's connection URL, for example `mqtt://broker.example.com` or `mqtts://broker.example.com`. Use `mqtts://` to enable Transport Layer Security (TLS). |
-| **Broker port** | No | The broker's port, from 1 to 65535. Defaults to `1883`. A port in the **Server URL** takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`, and any other value is used as entered. |
-| **Auto Connect** | No | Connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). |
-| **Trust all server certificates** | No | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
-| **Username** / **Password** | No | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
-| **Client ID** | No | The MQTT client ID. Leave blank to generate one. |
+| Setting | Required | Default | Purpose |
+|---|---|---|---|
+| **Server URL** | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com` or `mqtts://broker.example.com`. Use `mqtts://` to enable Transport Layer Security (TLS). |
+| **Broker port** | No | `1883` | The broker's port, from 1 to 65535. Defaults to `1883`. A port in the **Server URL** takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`, and any other value is used as entered. |
+| **Auto Connect** | No | On | Connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). |
+| **Trust all server certificates** | No | Off | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
+| **Username** / **Password** | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
+| **Client ID** | No | Empty | The MQTT client ID. Leave blank to generate one. |
 
 ### Sparkplug settings
 
-| Setting | Required | Purpose |
-|---|---|---|
-| **Topic filter** | Yes | The Sparkplug topic filter to subscribe to. Defaults to `spBv1.0/#`, the whole Sparkplug B namespace. Narrow it to one group, for example `spBv1.0/Plant1/#`, to subscribe to only that group. |
-| **Host ID** | Yes | The name this subscriber announces as a Sparkplug primary host application, for example `Profinity`. It must not contain `+`, `#` or `/`. |
+| Setting | Required | Default | Purpose |
+|---|---|---|---|
+| **Topic filter** | Yes | `spBv1.0/#` | The Sparkplug topic filter to subscribe to. Defaults to `spBv1.0/#`, the whole Sparkplug B namespace. Narrow it to one group, for example `spBv1.0/Plant1/#`, to subscribe to only that group. |
+| **Host ID** | Yes | None | The name this subscriber announces as a Sparkplug primary host application, for example `Profinity`. It must not contain `+`, `#` or `/`. |
 
 ### Tags settings
 
-| Setting | Required | Purpose |
-|---|---|---|
-| **Tag path prefix** | Yes | The profile subtree that subscribed metrics are written under, for example `External`. The subscriber owns this subtree, so do not create tags beneath it from any other component or script. Refer to [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md) for the path rules. |
+| Setting | Required | Default | Purpose |
+|---|---|---|---|
+| **Tag path prefix** | Yes | None | The profile subtree that subscribed metrics are written under, for example `External`. The subscriber owns this subtree, so do not create tags beneath it from any other component or script. Refer to [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md) for the path rules. |
+
+## Example
+
+This example is for illustration.
+It subscribes to the group `Plant1` and writes its metrics under the tag path prefix `External`.
+Add it under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: MqttSubscriber
+    id: MqttSubscriber1
+    name: MQTT Subscriber
+    tagTreeParentPath: /
+    url: mqtt://BROKER_HOST
+    brokerPort: 1883
+    autoConnect: true
+    topicFilter: spBv1.0/Plant1/#
+    hostId: Profinity
+    tagPathPrefix: External
+```
+
+Replace `BROKER_HOST` with the address of your broker.
+Each value is a setting from the [Settings](#settings) section.
 
 ## Where tags appear
 
@@ -108,12 +131,12 @@ Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md) f
 
 ## Status and troubleshooting
 
-The MQTT Subscriber shows **On** while it is connected to the broker, **Error** while it is running but not connected, and **Off** when it is stopped.
+The MQTT Subscriber shows **On** while it is connected to the broker, **Error** while it is running and disconnected, and **Off** when it is stopped.
 While it is in **Error**, it retries as described under [Reconnection](#reconnection).
 
 Check the [Logs](../../../Administration/Logs_Config.md) for the underlying message first.
 
-| Symptom | Cause | Fix |
+| What you see | Cause | What to do |
 |---|---|---|
 | The status shows **Error**. | The **Server URL** scheme or **Broker port** does not match the broker. | Correct the scheme and port. |
 | The status shows **Error**. | The broker does not accept the **Username** and **Password**. | Correct the credentials. |

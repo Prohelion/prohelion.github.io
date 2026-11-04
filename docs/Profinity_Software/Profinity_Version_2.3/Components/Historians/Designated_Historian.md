@@ -10,7 +10,7 @@ last_reviewed: 2026-11-01
 
 More than one [historian](index.md) can write in the same profile, but exactly one of them answers long-range tag and history queries.
 Enable **Designated tag historian reader** on that one component and leave it disabled on the others.
-A new [TAG Local Historian](TAG_Local_Historian.md) has this setting on by default so a simple profile can answer history queries without a second checkbox.
+A new [TAG Local Historian](TAG_Local_Historian.md) has this setting on by default so a simple profile can answer history queries with only this checkbox.
 
 <figure markdown>
 ```mermaid

@@ -22,6 +22,7 @@ The default **Administrators** role holds every permission, including **MCP inte
 Hand-edited `security.yaml` files, such as those kept in source control, need the new keys.
 On disk the keys are camelCase: `securityGroups` becomes `roles`, a user's `securityGroups` becomes `assignedRoles`, a group's `securityRoles` becomes the role's `permissions`, and `Version` becomes `version: "2.3"`.
 Check that `roles` and `assignedRoles` are present before you start Profinity, and review role assignments afterwards.
+
 Passwords that 2.2 stored are converted to one-way hashes when the file first loads, and users sign in with the same password.
 Refer to [Roles and Permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
@@ -31,7 +32,11 @@ All installations are affected.
 In 2.2, a damaged `config.yaml` or `security.yaml` was copied aside and Profinity started with default settings, and in the case of `security.yaml` with a default administrator.
 In 2.3, Profinity stops at startup when `config.yaml` or `security.yaml` is empty, unreadable as settings, has an unknown key, or refers to an unset environment variable.
 It writes nothing, and the message names the file, the reason, and how to recover: fix the file, restore the safety copy `<file>.bak`, or delete the file to reset it.
-Keys that 2.2 wrote and 2.3 no longer uses are ignored, so a `config.yaml` that 2.2 wrote still starts.
+
+Copy a file to a safe place before you delete it, because deleting `security.yaml` resets its users, roles and two-factor secrets.
+Profinity ignores a short list of keys that 2.2 wrote to `config.yaml` and 2.3 no longer uses, such as `mcp`, `enableScripting`, `urls` and `webSite`, so a `config.yaml` that holds only those still starts.
+Any other key that 2.3 does not define stops Profinity, so run the preflight check before you upgrade.
+
 Hand-edited files and files that other tools generate need checking: run `Profinity --preflight-only` against the data folder before you upgrade a production system.
 A container that restarts automatically repeats the message until the file is fixed.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
@@ -45,6 +50,7 @@ Signing in no longer rewrites `security.yaml`: the last sign-in time is kept in 
 All installations that use rules, collections, or derived tags are affected.
 In 2.2, a key that Profinity did not define was ignored, and the rule, collection, or derived tag still worked.
 In 2.3, an item with an unknown key, such as a misspelt setting name, is skipped, and every other item still works.
+
 A skipped rule is inactive, and a skipped collection or derived tag is unavailable for selection.
 Profinity writes a line to the log for each skipped item, and the editors mark it with a red **Invalid** marker and the reason.
 Open the rules, collections, and derived tags editors after the upgrade and correct anything that is marked.
@@ -75,6 +81,7 @@ Every `/api/v2` endpoint now reports failure with the HTTP status code and an RF
 Validation failures on settings return `422` or `400` with an `errors` object whose keys are dotted setting paths, creating a resource returns `201 Created` with a `Location` header, and deleting one returns `204 No Content` with an empty body.
 The users and roles endpoints return a fixed set of fields rather than the whole stored user or role.
 Integrations that read a `success` flag or a `message` field from the response body must read the status code and the problem body instead.
+
 SCIM keeps its own RFC 7644 error format, and the MCP tools are unchanged.
 The older data endpoints are no longer available under `/api/v2`, so integrations that call them must move to the tag, collection, rule, and alert endpoints.
 Refer to [REST APIs](../Integrating_to_Profinity/APIs/index.md).
@@ -92,6 +99,7 @@ Profinity writes every YAML document it owns with camelCase keys, lowercase file
 Older PascalCase files still load.
 Profinity rewrites an older `security.yaml`, `profile.yaml` or `config.yaml` in the new format when it loads it, and rewrites other documents when it saves them, so only tooling that reads these files directly needs to change.
 Before it rewrites a file on load, Profinity keeps the file it replaces beside it as `<file>.bak`, such as `security.yaml.bak`, and keeps one copy per file.
+
 If Profinity cannot save the copy, it leaves the file unchanged and writes an error to the log.
 Earlier builds could also leave `.history` folders, `.corrupt-` copies, and timestamped `.bak.` copies beside these files.
 Profinity stops writing or reading them, leaves any that exist where they are, and excludes them from exported and imported profile packs, so delete them when you have finished with them.
@@ -100,14 +108,17 @@ Re-save collections and rules in the visual editors after the upgrade if you edi
 ## Profile files
 
 Profinity 2.3 reads a profile only from `profile.yaml` in the profile's folder.
-Profinity 2.2 also accepted a profile file whose name ended in `.pprof`, `.yml`, or `.json`, and at start-up it turned a single profile file in the `profiles` folder into a profile folder.
+Profinity 2.2 also accepted a profile file whose name ended in `.pprof` or `.yml`, and at start-up it turned a single profile file in the `profiles` folder into a profile folder.
 Profinity 2.3 does neither.
-Rename a `.pprof` or `.yml` profile file, which holds YAML, to `profile.yaml` in the profile's folder, and save a JSON profile's settings as YAML in `profile.yaml`.
+
+Copy the profile's folder to a safe place first, or download the profile as a pack, as described in [Manage profiles](../Administration/Manage_Profiles.md#download-a-profile-pack).
+Then rename the `.pprof` or `.yml` profile file, which holds YAML, to `profile.yaml` in the profile's folder.
 
 A key at the top level of a profile that Profinity does not define, such as a misspelt setting name, now stops the profile loading.
 In 2.2 it was ignored.
 When the active profile is invalid at start-up, Profinity creates a new default profile, makes it the active profile, and writes the reason to the log, and the invalid file is left unchanged.
 Correct the file, then select the profile again in the **Profile** pill on the **ADMIN** page.
+
 Settings inside a component are skipped by this check, and Profinity drops an unrecognised setting from a component when it saves the profile.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md#profiles).
 
@@ -116,6 +127,7 @@ Refer to [When a configuration file is invalid](../Administration/System_Configu
 Profinity now checks an uploaded dashboard when you upload it, and refuses one that would not load.
 When a valid upload replaces a dashboard, rules file, or collections file, Profinity keeps the replaced file as `<file>.bak`.
 It also refuses to import a profile pack whose `profile.yaml` is not valid, and removes anything it extracted, so you can correct the pack and upload it again.
+
 In 2.2 both were accepted, and the problem showed up later when the dashboard or profile loaded.
 Refer to [Profile Dashboard](../Administration/Profile_Dashboard.md) and [Manage profiles](../Administration/Manage_Profiles.md).
 
@@ -124,6 +136,7 @@ Refer to [Profile Dashboard](../Administration/Profile_Dashboard.md) and [Manage
 Tag addresses are slash paths, such as `Component/DBC/Message/Signal`.
 Profinity 2.3 no longer accepts the dotted form that 2.2 dashboards and scripts used, such as `Component.Message.Signal`, the `[TimeSeries].` prefix, or dotted patterns that contain `*`.
 The `{COMPONENT_NAME}` placeholder is also removed, so a bind that began with it must use a path relative to the component instead, such as `DBC/Message/Signal`.
+
 Dashboards, scripts, and integrations that pass these addresses must switch to the slash form.
 Profinity 2.3 does not convert dashboards written for 2.2, so check each one after the upgrade (refer to step 7 of [Upgrade from Profinity 2.2](../Installation/Upgrading/Upgrade_From_2_2.md)).
 Refer to [Tag tree paths and dashboard binds](../Tags/Selecting_Tags/Tag_Tree_Path.md).
@@ -153,6 +166,7 @@ A component that connects to a broker, device, server, or database no longer ref
 It starts, shows **Error**, and retries every 5 seconds, or at its own reconnect setting.
 A component that used to show **Off** after a failed start now shows **Error**, and anything that relied on a start failure to detect a missing device should watch the status instead.
 The MQTT and Tag Relay subscribers retry at a steady interval instead of backing off to 60 seconds.
+
 For plugin authors, `ManagedConnection` in `Profinity.Sdk` replaces the need for a plugin to keep its own reconnect scheduler, and `PolledDeviceController<TPoint>` in `Profinity.Sdk.Components` provides the whole connect, poll, sample, and write lifecycle for a device that is read by polling, so a protocol plugin supplies only how to open its transport and read and write one point.
 Refer to [Connections and Reconnecting](../Components/Connections_and_Reconnecting.md).
 
@@ -165,7 +179,8 @@ The value is a compile-time constant, so a plugin built against an earlier SDK k
 
 A Windows installation, including the Windows service that `ProfinityService.cmd` registers, used to serve its web interface to the local computer only, whatever licence it held.
 With a Server licence it now uses the address configured under **Profinity Web**, and it creates the default `admin` account (password change required at first sign-in) so people on other computers can sign in.
-Without a Server licence, behaviour stays as it was.
+Until a Server licence is applied, behaviour stays as it was.
+
 The built-in sign-in used by the application window is refused when it arrives from another computer.
 An engine restart, for example after you apply a licence, now keeps a desktop installation a desktop installation, where before it started behaving as a server host.
 

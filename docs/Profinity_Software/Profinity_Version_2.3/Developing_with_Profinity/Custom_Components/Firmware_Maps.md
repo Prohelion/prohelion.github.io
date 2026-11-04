@@ -11,10 +11,12 @@ last_reviewed: 2026-10-28
 `firmware_map.yaml` adds the firmware tabs on a [Custom Component](index.md).
 It uses the same sections, categories, and fields as [Settings](Settings.md).
 A section is a tab, a category is a group on that tab, and a field is a control.
+
 The upload field is **Firmware Map YAML file (Optional)**.
 The file must contain at least one field.
 A map with no fields fails with `Settings map contains no field definitions.`
 The [Component Pack CLI](../SDK/Component_Pack_CLI.md) (`profinity-component-pack validate`) reports the same failure as `Failed to parse firmware_map.yaml:` followed by that message.
+
 Refer to [Custom Component files](Files.md).
 The scripts that load and save the values are named in `firmware.yaml`.
 Refer to [Firmware actions](Firmware_Actions.md).
@@ -27,7 +29,8 @@ Those fields are shown on a **Firmware Settings** tab, in a group named **Firmwa
 `index` is the device parameter address.
 A load script and a save script use it when they read or write that field on the device.
 Write it on the field next to `type` and `scale`.
-`scale` multiplies the number shown on the firmware page.
+
+`scale` multiplies `default` to give the number shown on the firmware page.
 `min` and `max` are checked against that number, so write them in the units the user types.
 The other field keys are on [Settings](Settings.md).
 
@@ -83,10 +86,12 @@ sections:
 That file adds a **BMS Settings** tab.
 **Cell Limits** heads **Balance Up** and **Balance Down**.
 **Current Shunt** heads **Current Shunt Rating** and **Current Shunt Rated @**.
+
 **Balance Up** opens as 4.1 V, because 4100 multiplied by 0.001 is 4.1.
 A value above 4.4 is rejected.
-`4100` is the stored default, and `4.4` is the largest number the user can type.
-`index: 0x35` is the slot the load and save scripts send on the bus for **Balance Up**.
+`4100` is the `default` in the file, and `4.4` is the largest number the user can type.
+
+`index: 0x35` is the device parameter address for **Balance Up**.
 **Current Shunt Rated @** has no `index`, so it is not a device parameter.
 It is a companion list that exists only in the UI.
 

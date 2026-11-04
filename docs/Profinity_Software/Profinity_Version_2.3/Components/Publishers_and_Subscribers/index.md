@@ -41,3 +41,5 @@ To share tags between two Profinity instances, use [Tag Relay](../Tag_Relays/ind
 
 The two publishers share the **Logging mode** setting, described in [Logging modes](../Logging_Modes.md).
 Neither starts until at least one collection is selected and every selected collection exists in the profile.
+
+To set one up, refer to [MQTT Publisher](MQTT_Publisher.md), [Webhook Publisher](Webhook_Publisher.md) or [MQTT Subscriber](MQTT_Subscriber/index.md).

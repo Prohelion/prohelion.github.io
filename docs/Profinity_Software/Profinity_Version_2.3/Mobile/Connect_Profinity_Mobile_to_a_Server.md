@@ -20,12 +20,12 @@ The server sends heartbeats only while the web server is running and the machine
 1. On the Profinity server, select **ADMIN** in the side menu, then [**System Configuration**](../Administration/System_Configuration/index.md), then the **Discovery** tab.
 2. Check the four settings in this table, which [Discovery](../Administration/System_Configuration/Discovery.md) describes.
 
-| Setting | Description |
-|---------|-------------|
-| **Profinity Server Name** | The friendly name shown in the mobile list, which defaults to the host name of the machine (for example `Workshop-Profinity`) |
-| **Send Profinity Heartbeat** | Turns the broadcast on or off, and is on by default |
-| **Heartbeat UDP port** | The UDP port of the broadcast, 49025 by default |
-| **Heartbeat interval (seconds)** | The time between broadcasts, from 1 to 60 seconds, 3 by default |
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Profinity Server Name** | The host name of the machine | The friendly name shown in the mobile list, which defaults to the host name of the machine (for example `Workshop-Profinity`) |
+| **Send Profinity Heartbeat** | On | Turns the broadcast on or off, and is on by default |
+| **Heartbeat UDP port** | 49025 | The UDP port of the broadcast, 49025 by default |
+| **Heartbeat interval (seconds)** | 3 | The time between broadcasts, from 1 to 60 seconds, 3 by default |
 
 <figure markdown>
 ![The Discovery tab of the System Configuration dialog, showing a Server Discovery section with a ticked Send Profinity Heartbeat box, a Profinity Server Name field, a Heartbeat UDP Port field and a Heartbeat Interval in seconds.](../images/config-server-discovery.png)

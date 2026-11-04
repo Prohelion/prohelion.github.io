@@ -51,6 +51,7 @@ The previous kiosk session can no longer be used.
 
 The kiosk user must exist and must be enabled.
 Profinity does not restrict which roles that user holds, so the user's permissions are the only control over what an unattended display can do.
+
 Create a dedicated account for the purpose, such as `kiosk-display`, rather than reusing a person's account.
 A dedicated account also makes kiosk access identifiable in the system logs.
 You create users in **Users & Groups**, which needs a Server licence, as described in [Licensing](../Licensing.md).
@@ -62,19 +63,19 @@ On a Windows desktop installation without a Server licence there are no user acc
 A kiosk session expires after the **Access token lifetime (minutes)** set in [Session policy and login lockout](System_Configuration/Security/Session_Policy.md).
 The default is 120 minutes.
 A display that runs unattended for months can use a kiosk user, configured with a service account, whose session lasts indefinitely.
+
 Treat that account with the same care as any long-lived credential.
 Review the kiosk user from time to time to confirm it is still appropriate and enabled.
 Disable Kiosk Mode on any profile that no longer needs it.
 
 ## Troubleshooting
 
-- If the login page is shown instead of signing in, confirm all the following:
-  - The profile is the active profile.
-  - Kiosk Mode is enabled on the profile.
-  - A valid, enabled user is selected as the Kiosk Mode User.
-  If the display was signed out on purpose, select **Return to kiosk**.
-- If the display shows the wrong profile, make the intended profile active, because Kiosk Mode signs in to the active profile only.
-- If the display was signed out unexpectedly, Kiosk Mode was disabled, the Kiosk Mode User was changed, or a different profile was made active.
-  Check the profile settings and sign the display in again.
-- If a user is missing from the Kiosk Mode User dropdown, enable the user in [Managing users](./Users_and_Access/Manage_Users.md), because only enabled users are listed.
-- If the save is rejected, select an existing, enabled user before saving, as Kiosk Mode needs an enabled user to provide the login credentials.
+| What you see | Cause | What to do |
+|---|---|---|
+| The login page is shown instead of signing in. | The profile is inactive, Kiosk Mode is disabled on the profile, or no valid, enabled user is selected as the Kiosk Mode User. | Confirm that the profile is the active profile, that Kiosk Mode is enabled on it, and that a valid, enabled user is selected as the Kiosk Mode User. If the display was signed out on purpose, select **Return to kiosk**. |
+| The display shows the wrong profile. | Kiosk Mode signs in to the active profile only. | Make the intended profile active. |
+| The display was signed out unexpectedly. | Kiosk Mode was disabled, the Kiosk Mode User was changed, or a different profile was made active. | Check the profile settings and sign the display in again. |
+| A user is missing from the Kiosk Mode User dropdown. | Only enabled users are listed. | Enable the user in [Managing users](./Users_and_Access/Manage_Users.md). |
+| The save is rejected. | Kiosk Mode needs an enabled user to provide the login credentials. | Select an existing, enabled user before saving. |
+
+To set up the display itself, refer to [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).

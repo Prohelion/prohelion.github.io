@@ -18,6 +18,7 @@ A [service account](../../Administration/Users_and_Access/Service_Accounts.md) t
 A client that has one skips the `/api/v2/Users/Authenticate` call and passes the token directly in each request.
 In Swagger, paste the token into the **Authorize** dialog.
 The token lasts indefinitely and has no refresh token, so it suits a client that runs for a long time or unattended.
+
 It stays valid until an administrator generates a new one, changes the account's roles, or disables the account.
 
 ## Sign in with a username and password
@@ -92,9 +93,10 @@ A request that returns data shows the token works.
 
 ## Fix 401 and 403 responses
 
-A call with a missing or expired token is answered with 401.
-A call from a user that lacks the permission the route needs is answered with 403.
-When a client that signed in with a username and password starts receiving 401, it signs in again or renews the token with `GET /api/v2/Users/Refresh`.
-A client that uses a service account token and starts receiving 401 needs the current token from an administrator, because the old token stops working when a new one is generated or the account's roles change.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| A `401` response. | The token is missing or has expired. | A client that signed in with a username and password signs in again to get a new token. A client can also renew a token that is still valid with `GET /api/v2/Users/Refresh` before it expires. |
+| A `401` response from a client that uses a service account token. | The old token stops working when a new one is generated or the account's roles change. | Get the current token from an administrator. |
+| A `403` response. | The user lacks the permission the route needs. | Use an account that holds the permission the route needs. |
 
 To read tag data with the token, refer to [Read real-time and historical tag data](Read_Tag_Data.md).

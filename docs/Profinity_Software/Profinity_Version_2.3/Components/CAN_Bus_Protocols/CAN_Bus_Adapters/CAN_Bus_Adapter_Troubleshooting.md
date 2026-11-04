@@ -23,38 +23,33 @@ Once you add the adapter to the Profile, a coloured status indicator appears in 
 Green is the state of a working adapter, and [How to add a component to your profile](../../../How_To_Guides/Add_Component_to_Profile.md#check-the-component-status) lists every colour.
 An adapter that is connected but has no data arriving shows amber, and one that is stopped, or still making its first connection attempt, is outlined with no fill.
 
-If the indicator is amber, check these things:
-
-- The bit rate matches the bus.
-- The bus is terminated.
-- Another device is transmitting.
-
-If the indicator is red, read the Profinity System Logs, then check these things:
-
-- The Peak driver.
-- The IP address and port of a TCP bridge.
-- The interface name of a SocketCAN adapter.
+| What you see | Cause | What to do |
+|---|---|---|
+| An amber indicator | The adapter is connected, but no data is arriving. | Check that the bit rate matches the bus, that the bus is terminated and whether another device is transmitting. |
+| A red indicator | Known only after the logs are read. | Read the Profinity System Logs, then check the Peak driver, the IP address and port of a TCP bridge, and the interface name of a SocketCAN adapter. |
 
 ## If a Peak adapter is not found
 
 The Peak CAN to USB Adapter needs the Peak driver installed on the machine that runs Profinity, as set out in [CAN bus adapters](index.md).
-Without the driver, the adapter does not appear in the **Discovered** category.
-An adapter already in the Profile shows a red status with the message "The Peak driver is not installed. Install the latest Peak drivers from the Peak website, then restart Profinity."
 
-Install the latest driver from the [Peak System website](https://www.peak-system.com/), confirm with the Peak tools that the adapter works, then restart Profinity.
-An out-of-date driver also stops the adapter connecting, and Peak updates its driver often.
-If the adapter is plugged in and still shows red, update the driver.
+| What you see | Cause | What to do |
+|---|---|---|
+| The adapter does not appear in the **Discovered** category, or an adapter in the Profile shows a red status with the message "The Peak driver is not installed. Install the latest Peak drivers from the Peak website, then restart Profinity." | The Peak driver is not installed. | Install the latest driver from the [Peak System website](https://www.peak-system.com/), confirm with the Peak tools that the adapter works, then restart Profinity. |
+| The adapter is plugged in and still shows red | The driver is out of date, which stops the adapter connecting. | Update the driver. Peak updates its driver often. |
+
 On Linux, a Peak adapter appears as a SocketCAN interface instead, so use the SocketCAN adapter and no Peak driver is needed.
 
 ## If a CAN to Ethernet bridge is not found
 
 Profinity discovers a CAN to Ethernet bridge from the UDP heartbeat datagrams that the bridge sends periodically (refer to [Bridge Heartbeat](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/Bridge_Heartbeat.md)).
-If the bridge does not appear in the **Discovered** category, check these things:
+If the bridge does not appear in the **Discovered** category, check the causes in the following table.
 
-- The bridge and the PC are on the same subnet, because Auto Discovery does not work across subnets. Across subnets, add the bridge manually with its IP address and the TCP protocol.
-- Any firewall allows UDP and TCP port 4876 for the bridge.
-- For SocketCANd, the firewall allows UDP port 42000 for discovery and TCP port 29536 (or the configured **Port**) for the connection.
-- A WiFi router passes broadcast UDP.
+| What you see | Cause | What to do |
+|---|---|---|
+| The bridge does not appear in the **Discovered** category. | The bridge and the PC are on different subnets, and Auto Discovery works only within one subnet. | Add the bridge manually with its IP address and the TCP protocol. |
+| The bridge does not appear in the **Discovered** category. | A firewall blocks UDP and TCP port 4876 for the bridge. | Allow UDP and TCP port 4876 for the bridge. |
+| The bridge does not appear in the **Discovered** category. | A WiFi router blocks broadcast UDP. | Check that the WiFi router passes broadcast UDP. |
+| The SocketCANd adapter is not discovered, or does not connect. | A firewall blocks UDP port 42000 for discovery, or TCP port 29536 (or the configured **Port**) for the connection. | Allow those ports through the firewall. |
 
 The bridge documentation covers further troubleshooting:
 
@@ -68,6 +63,7 @@ The bridge documentation covers further troubleshooting:
 Every device on the CAN bus, including the adapter that connects Profinity, must operate at the same bit rate to communicate.
 Prohelion devices ship with a factory default of 500 kbit/s.
 This is also the default of the bridge, the Peak adapter and the CANdapter in Profinity.
+
 Prohelion devices support 1 Mbit/s and 500, 250, 125, 100 and 50 kbit/s.
 A device changed from the default constrains the rest of the network.
 

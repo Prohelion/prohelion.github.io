@@ -45,7 +45,11 @@ To replay a log:
    Components receive the messages, dashboards update, and the slider shows the position in the log.
 
 An uploaded file must have a `.csv` or `.txt` extension, otherwise the upload is refused with "Your file must have an extension of .txt or .csv".
-The upload is also refused if a log with the same name already exists, so delete the existing log first or rename the new one.
+The upload is also refused if a log with the same name already exists.
+To keep the existing log, rename the new file.
+
+To replace the existing log, first copy it from the `can_bus_logs/replay/` folder to a safe location, because deleting a log cannot be undone.
+Then delete the existing log with the trashcan icon, and upload the new file.
 
 <figure markdown>
 ![The CAN LOG REPLAY page with the Upload CAN Log files control, the pause, stop and loop buttons and position slider for the selected log, and a table of log files with a trashcan icon on each row](../images/log_replayer.png)
@@ -58,6 +62,7 @@ While a replay plays, the position slider moves through the log.
 You can drag the slider at any time, including during playback.
 If you release the handle during playback, the replay jumps to that point and continues playing.
 If the replay is paused or stopped, the handle sets the position that **Play** resumes from.
+
 **Pause** suspends the replay, and **Play** resumes it.
 **Stop** ends the replay, and **Loop** replays the log continuously.
 The trashcan icon deletes a log file from the list, which is separate from controlling a replay.
@@ -67,6 +72,7 @@ The trashcan icon deletes a log file from the list, which is separate from contr
 Only a CAN message log recorded by a File or SFTP logger can be replayed, so an uploaded file of another kind does not play.
 If the **CAN LOG REPLAY** entry is missing from the side menu, the signed-in user lacks the **Replay CAN logs** permission.
 If the replay runs but the dashboards stay empty, no component in the active profile listens to the replayed CAN IDs.
+
 Load the profile that the log was recorded against.
 Recorded tag values are replayed separately with **TAG LOG REPLAY**, described in [Replay a tag log](../Tags/Tag_Logs/Replay_a_Tag_Log.md).
 

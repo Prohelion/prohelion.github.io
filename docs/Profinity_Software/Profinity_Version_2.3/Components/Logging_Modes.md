@@ -34,7 +34,7 @@ The difference between the modes is clearest with one worked case.
 A tag updates once a second with the same reading, and the **Update Interval (Seconds)** is 10.
 
 - **Snapshot** writes one row for that tag every 10 seconds: the value at the moment of the interval.
-- **On Change** writes nothing further after the first sample, because the value and quality have not changed.
+- **On Change** writes a row on the first sample and then only when the value or quality changes.
 - **Everything** writes about ten rows every 10 seconds: each sample that arrived in the interval, even though the value repeated.
 
 **Snapshot** and **Everything** can both record an unchanged reading.

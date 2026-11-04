@@ -36,6 +36,7 @@ When each script runs is on [Script types](../Script_Types/index.md#custom-compo
 A load script opens the device with the values in `ComponentSettings`, such as a COM port and a baud rate.
 It then calls `FirmwareSettings.SetValue` once for each field it read from the device.
 Those values are what the firmware page shows after a successful load.
+
 A save script reads the same fields with `FirmwareSettings.GetValue` and sends them to the device.
 `Profinity.Action` is set only for an entry under `actions`.
 
@@ -80,6 +81,7 @@ A `STRING` field in the map is `StringValue`, a `BOOL` field is `BooleanValue`, 
 `GetValue` returns the value last saved for that field.
 For a `LIST` field, that value is the text shown for the row the operator chose.
 Refer to [Settings](../../Custom_Components/Settings.md).
+
 Convert a numeric field before using it as an integer: in Python, `int(str(value))` accepts both a number and text.
 `SetValue` stores the value the script passes.
 
@@ -101,7 +103,10 @@ Without those entries, `SetValue` reports an unknown field.
 
 ## Example
 
-The example is a firmware load script.
+The example shows the settings calls in a firmware load script.
+It writes a fixed value for `currentShuntRating`, where a real load script writes the value it read from the device.
+The device communication is left out.
+
 `comPort` is a field in the `settings_map.yaml` example on [Settings](../../Custom_Components/Settings.md), and `currentShuntRating` is a field in the `firmware_map.yaml` example on [Firmware maps](../../Custom_Components/Firmware_Maps.md).
 A script uses the field identifiers from its own map files.
 A save script reads `currentShuntRating` with `GetValue` instead of writing it.

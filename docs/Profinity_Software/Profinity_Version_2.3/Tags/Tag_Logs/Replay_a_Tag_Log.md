@@ -20,6 +20,7 @@ Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and
 !!! warning "Replay overwrites live values"
     Replayed values are applied to the same tags that live devices write to.
     Disconnect or stop the live source first, or the live and replayed values compete.
+    When the replay stops, or reaches the end of the log, the replayed values stay in place as the last values applied, and Profinity does not restore the earlier values.
 
 Before you start, check two conditions on the log file:
 
@@ -61,5 +62,6 @@ The replayer skips a line, and its status reports the reason, in three cases:
 
 Replay a log against a profile that contains the same tags it was recorded from.
 When the replay stops, or reaches the end of the log, the replayed values stay in place as the last values applied, rather than reverting.
+To return to live values, start the live source again, and it publishes fresh values.
 To check a replay, open **Tag Explorer** and confirm that the replayed tags show the recorded values.
 To act on replayed data, refer to [Create a rule](../Rules/Create_a_Rule.md), which raises alerts from a replayed log.

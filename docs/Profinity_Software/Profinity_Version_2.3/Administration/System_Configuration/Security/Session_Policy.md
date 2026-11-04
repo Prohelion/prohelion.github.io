@@ -24,6 +24,7 @@ It stops working when its current access token expires.
 
 A locked-out user who keeps trying receives a "Too many attempts. Try later." response.
 The response carries the number of seconds that remain before another attempt is accepted.
+
 The lockout applies to the username, so it ends on its own once the lockout duration has passed.
 An administrator does not need to unlock the account.
 Service accounts and kiosk sessions use tokens that follow the rules described in [Service accounts](../../Users_and_Access/Service_Accounts.md) and [Kiosk Mode](../../Kiosk_Mode.md).

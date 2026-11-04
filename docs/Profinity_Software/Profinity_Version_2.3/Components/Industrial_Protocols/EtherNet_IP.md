@@ -37,23 +37,23 @@ The component does not browse the PLC's CIP objects to discover tags for you.
 
 ## Communications settings
 
-| Setting | Description |
-|---|---|
-| **Name** | The name of the component. Must be unique within the profile. |
-| **Gateway** | The IP address of the PLC, or of the gateway module that the PLC sits behind. Required. The default is `127.0.0.1`. |
-| **CIP path** | The route to the PLC's central processing unit (CPU), as comma-separated values. The default is `1,0`. |
-| **PLC kind** | The family of PLC: `ControlLogix` (the default), `CompactLogix`, `Micro800`, `PLC-5` or `SLC`. |
-| **Poll interval (ms)** | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
-| **Request timeout (ms)** | How long Profinity waits for the PLC to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |
-| **Reconnect delay (ms)** | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. The default is `2000`. |
-| **Auto Connect** | Connects to the PLC automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| Setting | Default | Description |
+|---|---|---|
+| **Name** | `EtherNet/IP PLC` | The name of the component. Must be unique within the profile. |
+| **Gateway** | `127.0.0.1` | The IP address of the PLC, or of the gateway module that the PLC sits behind. Required. |
+| **CIP path** | `1,0` | The route to the PLC's central processing unit (CPU), as comma-separated values. |
+| **PLC kind** | `ControlLogix` | The family of PLC: `ControlLogix`, `CompactLogix`, `Micro800`, `PLC-5` or `SLC`. |
+| **Poll interval (ms)** | `1000` | How often the point map is read, in milliseconds. Between `50` and `600000`. |
+| **Request timeout (ms)** | `1000` | How long Profinity waits for the PLC to answer a request, in milliseconds. Between `50` and `60000`. |
+| **Reconnect delay (ms)** | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
+| **Auto Connect** | Off | Connects to the PLC automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 Profinity sends the **CIP path** to the PLC as you enter it:
 
 - The default `1,0` is the backplane (`1`) and slot `0`. For a CPU in slot 2 of the same chassis, enter `1,2`.
 - Leave it empty to send no path.
 - For a CPU reached through a bridge module, enter the route as pairs of port and address, one pair for each hop.
-- A PLC-5 or SLC controller on EtherNet/IP needs no path. These controllers ignore a path unless it is a route through a Data Highway Plus (DH+) bridge.
+- A PLC-5 or SLC controller on EtherNet/IP needs no path. These controllers use a path only when it is a route through a Data Highway Plus (DH+) bridge.
   The default `1,0` therefore does no harm, and you can clear it.
 - Micro800 controllers ignore this setting even when it is filled in.
 
@@ -63,6 +63,7 @@ Profinity keeps trying to connect when the PLC is down at start and after a conn
 
 The point map lists the PLC tags to read.
 Each row becomes one tag.
+
 Folders and **Browse** are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
 On a ControlLogix, CompactLogix or Micro800 controller, save the PLC and wait until it is connected before **Browse** lists its tags.
 A PLC-5 or SLC has no symbol list, so type the file address, for example `N7:0`.
@@ -89,6 +90,41 @@ Each row reads one element of the size given for its data type.
 
 !!! warning "Writing to a PLC"
     A write can change the controlled process, so turn **Writable** on only for tags that must be set from Profinity.
+
+## Example
+
+This example is for illustration.
+It reads a motor speed and a run status from a ControlLogix PLC with its CPU in slot 0 of the same chassis.
+Add it under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: EtherNetIpPlc
+    id: EtherNetIpPlc1
+    name: Line 1 PLC
+    tagTreeParentPath: /
+    gateway: PLC_IP_ADDRESS
+    cipPath: "1,0"
+    plcKind: ControlLogix
+    pollIntervalMilliseconds: 1000
+    requestTimeoutMilliseconds: 1000
+    reconnectDelayMilliseconds: 2000
+    autoConnect: true
+    points:
+    - name: MotorSpeed
+      tagName: Motor_Speed
+      dataType: Real
+      writable: false
+      unit: rpm
+    - name: MotorRunning
+      tagName: Motor_Run
+      dataType: Boolean
+      writable: false
+```
+
+Replace `PLC_IP_ADDRESS` with the IP address of your PLC.
+Each value is a setting from the [Communications settings](#communications-settings) or a column from the [Point map](#point-map).
+The `tagName` value is the **PLC tag** column.
 
 ## Dashboard
 

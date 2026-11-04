@@ -15,8 +15,6 @@ The menu items provide dashboard identification, status information, navigation,
 <figcaption>Dashboard titlebar component showing a status lamp and a menu toolbar</figcaption>
 </figure>
 
-## When to use
-
 Use the titlebar for dashboard identification, a status indicator, navigation links, component-specific actions and settings dialogs.
 The `menu` of a titlebar can hold a `modal` item that opens a dialog.
 
@@ -36,8 +34,6 @@ When both `showTitlebar` and `showActions` are `false`, the titlebar is hidden a
 
 ## Titlebar menu
 
-### Menu items in the titlebar
-
 The titlebar displays every item of its `menu` as an icon with the item caption hidden, and each item type behaves as follows.
 
 | Item type | Behaviour in the titlebar |
@@ -53,6 +49,8 @@ A titlebar menu usually contains `menuitem`, `action`, `toggle` and `modal` item
 The `logo` and `submenu` types suit the side menu, which displays `menuitem`, `modal`, `logo` and `submenu` entries and does not display `action` or `toggle` entries.
 
 ## Example
+
+This example shows a titlebar with a lamp for the Prohelion BMU component, a navigation menu item and a settings dialog.
 
 ``` yaml
 dashboard:

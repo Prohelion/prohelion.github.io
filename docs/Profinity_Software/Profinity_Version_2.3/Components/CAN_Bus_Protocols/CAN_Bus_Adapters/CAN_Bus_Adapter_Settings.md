@@ -47,6 +47,7 @@ The forwarding range is described in [CAN-TCP Bridging](../../../../../Solar_Car
 Auto Discovery sets the **Tritium Protocol Version** to match the bridge firmware.
 A profile can hold only one Tritium or Virtual adapter for each bus number.
 Two bridges that share a bus number on one Ethernet network join their CAN buses into one virtual bus.
+
 Give every bridge a unique bus number unless you are joining two buses deliberately.
 Refer to [Network Topologies](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md).
 

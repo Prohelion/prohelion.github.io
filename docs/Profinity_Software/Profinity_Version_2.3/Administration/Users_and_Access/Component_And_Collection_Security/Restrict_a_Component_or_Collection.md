@@ -11,6 +11,7 @@ last_reviewed: 2026-10-28
 Restrict a profile component or a tag collection so that only users holding certain roles can see it.
 You need the **Security administration** permission, and the roles you want to allow must already exist.
 Any other user, including one with **Modify components**, does not see the **Security** tab or panel at all.
+
 [Component and collection security](./index.md) explains what a restriction hides, who bypasses it, and what **Mode** and **Allowed roles** mean.
 To create a role first, refer to [Create a role](../Create_a_Role.md).
 
@@ -50,3 +51,5 @@ Changes save with the rest of the collection's settings.
 ![The Security panel in the Collections editor inspector, with the Mode dropdown and the Allowed roles list](../../../images/collection-security-panel.png)
 <figcaption>Security panel on a collection in the Collections editor</figcaption>
 </figure>
+
+To see what happens when **Allowed roles** is empty or names a role that no longer exists, refer to [Fail-closed behaviour](./index.md#fail-closed-behaviour).

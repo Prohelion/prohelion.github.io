@@ -16,6 +16,7 @@ Which upload field holds each file is on [Custom Component files](Files.md).
 With a DBC file, the component menu includes **Messages and Signals** and **Edit DBC File**.
 The device's CAN traffic can then be read as named messages and signals, and the dashboard can bind those signals.
 The component runs with **Upload DBC File (Optional)** left empty.
+
 **Rebase DBC** and **Rebase Address** shift the loaded message identifiers onto the base address the device actually uses.
 **Edit DBC File** opens the DBC editor once a file is set, and a saved change is picked up automatically.
 If the file fails to parse, the component stays in the profile and **Messages and Signals** is left out until the file is fixed.
@@ -30,6 +31,7 @@ Layout, elements, and the visual editor are in the [Profinity dashboard developm
 A binding that reads a CAN signal uses the DBC names, and a binding that reads a value the [main script](Main_Script.md) published uses a tag path.
 A relative path has no leading `/`.
 Profinity resolves it against the component's place in the tag tree, so the binding follows the component if **Tag tree path** changes.
+
 An absolute path begins with `/` and names some other place in the tree.
 Use a relative path in place of the `{COMPONENT_NAME}` placeholder.
 Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) and [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md).

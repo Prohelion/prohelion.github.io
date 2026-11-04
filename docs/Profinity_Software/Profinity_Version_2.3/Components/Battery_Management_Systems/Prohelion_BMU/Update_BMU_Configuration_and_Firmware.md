@@ -27,14 +27,20 @@ Flashing a Gen1 BMU needs a [CAN to Ethernet bridge](../../../../../Solar_Car_Ra
     Change a value only when the configuration parameters page for the firmware describes its purpose.
 
 1. Open **Change Settings** on the BMU dashboard.
-2. Select the **Firmware Settings** tab.
-3. Change a setting.
+2. Keep a copy of the current settings:
+   a. On a Gen2 BMU, select the **Firmware Utilities** tab, then select **SAVE SETTINGS**. Profinity downloads the settings as a YAML file.
+   b. On a Gen1 BMU, note the current value of each setting that you plan to change.
+3. Select the **Firmware Settings** tab.
+4. Change a setting.
    Profinity saves each setting to the device as you change it.
 
 Each D1000 Gen2 parameter has a User or Admin permission level.
 The Configuration Parameters pages in the table of models on the [BMU dashboard](BMU_Dashboard.md) page list these levels.
 The M48 Gen1 parameters are on its Software Specifications page.
+
 To check the change, reopen the **Firmware Settings** tab and confirm that the setting shows the new value.
+To go back on a Gen2 BMU, select **CLICK TO UPDATE FIRMWARE SETTINGS** on the **Firmware Utilities** tab and choose the YAML file that you saved.
+On a Gen1 BMU, set each value back by hand.
 
 <figure markdown>
 ![Change Settings dialog with the Firmware Settings tab showing the BMU firmware configuration parameters](../../../images/update_bmu_firmware_config.png)
@@ -67,11 +73,16 @@ After a session ends, the dialog reloads and the Admin parameters disappear.
 
 ## Flash the BMU firmware
 
+!!! danger "A firmware update cannot be undone"
+    The update writes new firmware to the BMU and replaces the firmware that is there now.
+    On a Gen2 BMU, save the current settings first, as in step 3 below.
+
 1. Open **Change Settings** on the BMU dashboard.
 2. Select the **Firmware Utilities** tab.
-3. Run the **Update Firmware** action, and confirm the dialog that warns that the update writes firmware to the device and cannot be undone.
+3. On a Gen2 BMU, select **SAVE SETTINGS**. Profinity downloads the current settings as a YAML file.
+4. Run the **Update Firmware** action, and confirm the dialog that warns that the update writes firmware to the device and cannot be undone.
    A progress indicator shows the update.
-4. If an error message appears, select its link to view the logs, and fix the problem they report.
+5. If an error message appears, select its link to view the logs, and fix the problem they report.
    When the progress completes successfully, check the BMU dashboard to confirm that the BMU reports data.
 
 The step-by-step procedure for Gen1 units, including the CAN bus requirements, is in the [M48 Gen1 Firmware Update Procedure](../../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Firmware_update_procedure.md) in the hardware manual.

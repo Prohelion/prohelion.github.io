@@ -96,12 +96,12 @@ Actions that send an email, Slack message, webhook, or Message Queuing Telemetry
 ## Next steps
 
 You now have a running system with data, a dashboard you have edited, and a view of its alerts.
+If a dashboard does not work as described, refer to the dashboard [Troubleshooting guide](../Customising_Profinity/Dashboards/Troubleshooting.md) or the dashboard [Frequently asked questions](../Customising_Profinity/Dashboards/FAQ.md).
+To contact Prohelion, use the **Feedback** pill on the **ADMIN** page.
+
 Choose the next job:
 
 - To add your own device, refer to [How to add a component to your profile](../How_To_Guides/Add_Component_to_Profile.md).
 - To build a dashboard of your own, refer to the [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md).
 - To write your own rule conditions, refer to [Tag expressions](../Tags/Selecting_Tags/Tag_Expressions.md) and the [Alerts Log](../Tags/Alerts.md).
 - To give other people access, refer to [Create a user](./Create_User.md), which needs a Server licence.
-
-If a dashboard does not work as described, refer to the dashboard [Troubleshooting guide](../Customising_Profinity/Dashboards/Troubleshooting.md) or the dashboard [Frequently asked questions](../Customising_Profinity/Dashboards/FAQ.md).
-To contact Prohelion, use the **Feedback** pill on the **ADMIN** page.

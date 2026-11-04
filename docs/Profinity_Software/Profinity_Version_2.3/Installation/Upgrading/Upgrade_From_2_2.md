@@ -25,6 +25,7 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
     On a 2.2 system the artefacts directory is `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS, and `~/.local/share/Prohelion/Profinity` on Linux.
 
 2. Install Profinity 2.3 and start it once.
+    If you run Profinity in Docker, first complete the [Docker data steps](#linux-and-docker-data-locations).
     The first start moves data from older locations into the 2.3 artefacts directory.
     It renames `Config`, `Profiles`, and `Logs` to lowercase.
     It rewrites `security.yaml` and `profile.yaml` in the 2.3 camelCase format when it loads them.
@@ -62,10 +63,11 @@ Before you start, take the backup in step 1, and test the upgrade on a non-produ
 7. Open each custom dashboard.
     Profinity 2.3 does not convert dashboards written for 2.2.
     A dashboard that no longer matches the current format shows **This dashboard no longer matches the schema**.
-    Select **Reset from Template** to replace it with the latest template, or open **Edit Dashboard** and repair the file.
+    To keep a copy before you change it, select **Edit Dashboard**, open the **YAML** tab, select all the YAML, copy it, and paste it into a text file that you save.
+    Then select **Reset from Template** to replace the dashboard with the latest template, or repair the file in **Edit Dashboard**.
 
     !!! warning "Reset removes customisations"
-        Resetting removes any customisations, so save a copy of the dashboard first.
+        **Reset from Template** replaces the whole dashboard with the latest template, so save the copy before you select it.
 
     A user who cannot modify dashboards sees a message to contact an administrator instead.
     Binds written in the dotted 2.2 form, such as `Component.Message.Signal`, return no data, so change them to [slash paths](../../Tags/Selecting_Tags/Tag_Tree_Path.md).

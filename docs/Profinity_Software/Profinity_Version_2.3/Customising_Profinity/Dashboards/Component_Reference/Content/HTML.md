@@ -47,6 +47,7 @@ Use `/Profile/Images/{filename}` in the `src` attribute of an `img` element to s
 Add style rules to the `profile.css` file in the `/Profile/Styles` directory.
 The web interface loads the file when it is present.
 Apply the rules with the `class` attribute in the HTML.
+
 The `profile.css` file can load further stylesheets with CSS `@import`.
 Refer to a content file as `/Profile/Content/{filename}`.
 

@@ -149,6 +149,7 @@ a.Value != null ? Math.Abs(a.Value ?? 0) : null
 Static members of `Math` are available in formulas.
 A tag's `Value` can be empty, because a tag has no value until it has produced one.
 `Math` functions need a number, so give them one with the `??` operator, as in `Math.Abs(a.Value ?? 0)`.
+
 The `??` operator uses the right-hand number when the tag has no value, so the result is `0` in that case.
 To get no value instead, test first, as in `a.Value != null ? Math.Abs(a.Value ?? 0) : null`.
 

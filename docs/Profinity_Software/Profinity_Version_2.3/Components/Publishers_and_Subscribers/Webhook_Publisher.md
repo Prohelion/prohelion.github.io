@@ -37,6 +37,7 @@ These steps publish one collection to a web service with no authentication.
 
 The publisher needs at least one collection to be selected, and every selected collection must exist in the profile, before it can start.
 With **Auto Connect** on, which is the default, it starts when the profile loads, and its status shows **On**.
+
 The publisher does not test the receiver when it starts, so **On** shows only that it is running.
 The status changes to **Error** if a delivery fails.
 To check that it works, look for the POST at your receiver.
@@ -45,10 +46,10 @@ To check that it works, look for the POST at your receiver.
 
 ### Connection settings
 
-| Setting | Required | Purpose |
-|---|---|---|
-| **Destination URL** | Yes | The HTTP or HTTPS address the publisher POSTs to on each publish. It is stored encrypted and masked on screen, because webhook URLs often embed an access token. A save without it fails with "You must provide a webhook destination URL." |
-| **Authentication** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. Refer to [Authentication](#authentication). |
+| Setting | Default | Required | Purpose |
+|---|---|---|---|
+| **Destination URL** | Empty | Yes | The HTTP or HTTPS address the publisher POSTs to on each publish. It is stored encrypted and masked on screen, because webhook URLs often embed an access token. A save without it fails with "You must provide a webhook destination URL." |
+| **Authentication** | **None** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. Refer to [Authentication](#authentication). |
 
 ### Publishing settings {#logger-settings}
 
@@ -95,7 +96,7 @@ The `reason`, `message` and `metadata` fields of that response are not sent.
 
 Each entry reports the quality the tag had when the sample was taken.
 A Stale entry carries its last `value`, and an entry for a tag that is Unavailable or Bad has `quality` and no `value`.
-Only tags that hold a finite number are included.
+A tag is included only when its value is a finite number, so text, for example, is skipped.
 
 ## Delivery health
 

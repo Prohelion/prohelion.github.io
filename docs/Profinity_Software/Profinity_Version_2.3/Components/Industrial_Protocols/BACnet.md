@@ -38,19 +38,20 @@ It does not discover devices on the network with the BACnet Who-Is request.
 
 ## Communications settings
 
-| Setting | Description |
-|---|---|
-| **Name** | The name of the component. Must be unique within the profile. |
-| **Local UDP port** | The User Datagram Protocol (UDP) port Profinity uses locally. Between `1` and `65535`. The default is `47808`, the standard BACnet/IP port (`0xBAC0` in hexadecimal). |
-| **Remote host** | The IP address of the BACnet device. Required, and it is the address Profinity sends every request to. The default is `127.0.0.1`. |
-| **Device instance** | The BACnet device instance number, as held in the device's own Device object. Between `0` and `4194302`. The default is `0`. |
-| **Poll interval (ms)** | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
-| **Request timeout (ms)** | How long Profinity waits for the device to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |
-| **Reconnect delay (ms)** | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. The default is `2000`. |
-| **Auto Connect** | Connects to the device automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| Setting | Default | Description |
+|---|---|---|
+| **Name** | `BACnet Device` | The name of the component. Must be unique within the profile. |
+| **Local UDP port** | `47808` | The User Datagram Protocol (UDP) port Profinity uses locally. Between `1` and `65535`. `47808` is the standard BACnet/IP port (`0xBAC0` in hexadecimal). |
+| **Remote host** | `127.0.0.1` | The IP address of the BACnet device. Required, and it is the address Profinity sends every request to. |
+| **Device instance** | `0` | The BACnet device instance number, as held in the device's own Device object. Between `0` and `4194302`. |
+| **Poll interval (ms)** | `1000` | How often the point map is read, in milliseconds. Between `50` and `600000`. |
+| **Request timeout (ms)** | `1000` | How long Profinity waits for the device to answer a request, in milliseconds. Between `50` and `60000`. |
+| **Reconnect delay (ms)** | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
+| **Auto Connect** | Off | Connects to the device automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 Set **Device instance** to the instance of the device you are connecting to, even when that instance is `0`.
 A BACnet configuration tool or the device's own display shows the instance.
+
 Profinity sends every request to the **Remote host**.
 Each time it connects, it reads the Device object of the device at that address and compares the two numbers.
 It connects only while they match, which stops a changed address from leading to another device being read.
@@ -77,6 +78,41 @@ Profinity reads and writes the object's `present-value` property, and it polls e
 
 !!! warning "Writing to a device"
     A write can change how the building plant behaves, so turn **Writable** on only for points that must be controlled from Profinity.
+
+## Example
+
+This example is for illustration.
+It reads one temperature and writes one setpoint on a BACnet device at the address you supply.
+Add it under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: BacnetDevice
+    id: BacnetDevice1
+    name: Plant Room Controller
+    tagTreeParentPath: /
+    localUdpPort: 47808
+    remoteHost: DEVICE_IP_ADDRESS
+    deviceInstance: 1234
+    pollIntervalMilliseconds: 1000
+    requestTimeoutMilliseconds: 1000
+    reconnectDelayMilliseconds: 2000
+    autoConnect: true
+    points:
+    - name: SupplyTemperature
+      objectType: AnalogInput
+      instance: 1
+      writable: false
+      unit: °C
+    - name: TemperatureSetpoint
+      objectType: AnalogValue
+      instance: 2
+      writable: true
+      unit: °C
+```
+
+Replace `DEVICE_IP_ADDRESS` with the IP address of your BACnet device, and set `deviceInstance` to the instance of that device.
+Each value is a setting from the [Communications settings](#communications-settings) or a column from the [Point map](#point-map).
 
 ## Dashboard
 
@@ -109,6 +145,9 @@ Profinity reads the Device object to check the instance.
 BACnet requires every device from protocol revision 4 (2004) onwards to answer this read.
 A device older than that, or one that does not allow its Device object to be read, answers with a BACnet error.
 The component shows that error as the reason.
+
 A device that does not answer the read puts the component in **Error** in the same way, with a message that the device did not answer.
 Profinity tries again every **Reconnect delay**.
 A device that is replaced on the same address after it was connected is caught at the next failed read, and the component then shows **Error** until the instance matches.
+
+To compare BACnet with the other protocol components, refer to [Industrial protocol components](Industrial_Protocol_Components.md).

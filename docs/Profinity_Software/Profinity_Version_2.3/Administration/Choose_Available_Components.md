@@ -8,8 +8,9 @@ last_reviewed: 2026-10-15
 
 # Choose available components
 
-The **COMPONENT CATALOGUE** half of **Components & Plugins** lists every component type that is available.
+The **COMPONENT CATALOGUE** half of **Components & Plugins** lists every component type in Profinity, and the **Status** column shows which ones are available.
 It also lets you choose which types engineers see when they add a component to a [profile](Profiles.md).
+
 Opening the screen needs the **View plugins** permission.
 Changing the catalogue needs **Modify plugins**.
 Refer to [Install and manage plugins](Install_and_Manage_Plugins.md).
@@ -27,8 +28,7 @@ The **Actions** column holds the button that changes it:
 - **Disable** hides a single component type, and **Enable** makes it available again.
 - **Disable group** hides every component type in a group at once, and **Enable group** restores them.
 
-The change takes effect as soon as you select the button.
-You do not need to restart Profinity.
+The change takes effect as soon as you select the button, without restarting Profinity.
 Enabling one component type inside a disabled group enables the group and leaves the other types in it disabled.
 This lets you bring back a single device without exposing the rest of its family.
 The components of a disabled plugin do not appear in the catalogue at all, so enable the plugin first, as described in [Install and manage plugins](Install_and_Manage_Plugins.md#disable-or-remove-a-plugin).

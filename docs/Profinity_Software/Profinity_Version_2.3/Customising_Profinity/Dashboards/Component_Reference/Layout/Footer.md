@@ -30,7 +30,7 @@ Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) c
 
 `id`, `class`, and `menu` are accepted but have no effect.
 
-A footer that has a `menu` appears as an empty bar, because the web interface does not display menu items in the footer.
+A footer that has a `menu` looks the same as one without it, because the web interface hides menu items in the footer.
 
 ## Example
 

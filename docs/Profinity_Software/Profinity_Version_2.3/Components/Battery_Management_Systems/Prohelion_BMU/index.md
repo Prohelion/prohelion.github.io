@@ -35,6 +35,7 @@ The BMU data, firmware configuration and firmware flashing on the linked pages a
 In every model the BMU organises its CMUs, which are also called Nodes.
 Add only the BMU to the Profile, which gives control of and data from the entire BMS.
 Larger and split packs, such as those used in racing, can have two or more BMUs.
+
 Add one BMU for each unit, each with a different base CAN address.
 The hardware is described in the [Prohelion BMS documentation](../../../../../Battery_Management_Systems/index.md).
 
@@ -61,3 +62,24 @@ The CAN address of each model is described on these pages:
 
 The [BMU dashboard](BMU_Dashboard.md) describes the BMU data and the node telemetry.
 To change the firmware settings, unlock the Admin parameters or flash the firmware, refer to [Update BMU configuration and firmware](Update_BMU_Configuration_and_Firmware.md).
+
+## Example
+
+This example is an illustration only.
+Replace the capitalised placeholders with your own values.
+It adds a D1000 Gen1 BMU to the `components` list in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: D1000Gen1Bms
+    id: D1000Gen1Bms1
+    tagTreeParentPath: /
+    name: YOUR_BMU_NAME
+    controlPack: false
+    milliValid: 5000
+    baseAddress: 1536
+```
+
+`YOUR_BMU_NAME` is the unique name of the component.
+The `baseAddress` value 1536 is the decimal form of `0x600`, the default base address of the D1000 Gen1.
+The `milliValid` value is the timeout in milliseconds.

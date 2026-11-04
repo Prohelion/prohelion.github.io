@@ -11,6 +11,7 @@ last_reviewed: 2026-10-14
 Every person who signs in to Profinity through the Web or the API has a user account.
 The **roles** assigned to the account decide what that person can see and do.
 A role is a named set of permissions such as viewing tags, sending CAN messages, or editing profiles.
+
 Setting up a new person means creating the account and choosing the role that matches their job.
 [Roles and permissions](./Roles_and_Permissions.md) describes the roles and the permissions inside them.
 
@@ -25,14 +26,14 @@ Refer to [Who can sign in, by installation type](../../Installation/Applying_a_L
 3. Fill in the fields in the table that follows.
 4. Choose one or more roles under **Assigned roles**, and save.
 
-| Field | Description |
-|-------|-------------|
-| **Profinity Username** | A unique name for the account, up to 256 characters, using only letters, numbers, periods, hyphens, underscores, and `@`. A name with any other character is rejected. |
-| **Password** | The initial password for local sign-in, which must meet the [Password policy](../System_Configuration/Security/Password_Policy.md). When editing an existing user, leave it blank to keep the current password. |
-| **Is the user currently enabled** | Only enabled users can sign in or use the API. Switching it off blocks a person's access without deleting the account. |
-| **Service Account** | Marks an account that exists for automation and produces a token that never expires, as described in [Service accounts](./Service_Accounts.md). |
-| **Require password change on next login** | Makes the person choose their own password the first time they sign in. |
-| **Assigned roles** | The roles that decide what the user can do. |
+| Field | Description | Default |
+|-------|-------------|---------|
+| **Profinity Username** | A unique name for the account, up to 256 characters, using only letters, numbers, periods, hyphens, underscores, and `@`. A name with any other character is rejected. | None |
+| **Password** | The initial password for local sign-in, which must meet the [Password policy](../System_Configuration/Security/Password_Policy.md). When editing an existing user, leave it blank to keep the current password. | None |
+| **Is the user currently enabled** | Only enabled users can sign in or use the API. Switching it off blocks a person's access without deleting the account. | On |
+| **Service Account** | Marks an account that exists for automation and produces a token that never expires, as described in [Service accounts](./Service_Accounts.md). | Off |
+| **Require password change on next login** | Makes the person choose their own password the first time they sign in. | Off |
+| **Assigned roles** | The roles that decide what the user can do. | None |
 
 <figure markdown>
 ![The Add user panel with the username, password, and Assigned roles fields](../../images/add_user.png)

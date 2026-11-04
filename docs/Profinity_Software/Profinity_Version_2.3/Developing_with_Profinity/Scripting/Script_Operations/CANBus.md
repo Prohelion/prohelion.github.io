@@ -65,7 +65,7 @@ In C#, a packet can also be created directly from a byte array.
 `Profinity.CANBus.SendMessage()` returns the number of interfaces the packet was sent on.
 That is one for each CAN adapter the packet went out on, so more than one when several CAN adapters are configured.
 
-## Accessing latest received packets
+## Reading received CAN packets
 
 Profinity maintains a cache of the latest received CAN packets, from which a script can read the most recent packet or query packets by CAN ID.
 `Profinity.CAN.LatestValidPacketReceivedByID()` returns the latest packet for a CAN ID only while the packet is still valid.
@@ -132,8 +132,6 @@ The method returns null (`None` in Python, `nil` in Lua) when no valid packet ex
     end
     ```
 
-## Receiving CAN packets in real-time
-
 For real-time CAN packet reception, use [Receive scripts](../Script_Types/Receive_Scripts.md).
 Receive scripts automatically execute when matching CAN packets are received, which suits real-time monitoring and processing.
 
@@ -169,8 +167,6 @@ Receive scripts automatically execute when matching CAN packets are received, wh
         -- Process the packet in real-time
     end
     ```
-
-## Complete example
 
 The following example sends a packet and then checks for a response.
 

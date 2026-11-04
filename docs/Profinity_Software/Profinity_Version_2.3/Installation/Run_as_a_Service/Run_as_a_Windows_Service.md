@@ -18,6 +18,7 @@ You need administrator privileges to run it.
 
 A default installation installs the service under the LocalSystem user.
 Prohelion recommends a dedicated user account instead, because it holds fewer privileges than LocalSystem and keeps the artefacts directory out of the Windows directory.
+
 The service resolves its [artefacts directory](../Artifacts_Directory.md) in the same way as the desktop application, as `%LOCALAPPDATA%\Prohelion\Profinity` of the account it runs under.
 For LocalSystem that folder is inside the system profile, which is difficult to work with.
 On 64-bit Windows it is `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Prohelion\Profinity`, because `Profinity.exe` is a 32-bit application.
@@ -39,12 +40,20 @@ On 64-bit Windows it is `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\
 3. Open the Services app, find Profinity in the list, and start it like any other service.
 
 To place the artefacts directory at a path of your choosing, set the `PROFINITY_HOME` system environment variable before the service starts.
-For example, run `setx PROFINITY_HOME "D:\ProfinityData" /M` from an administrator command prompt.
-Restart the service so that it reads the new value.
+Profinity does not move existing data when `PROFINITY_HOME` is set, so move it yourself:
 
-Without a Server licence the service serves its web interface to the local machine only, on `127.0.0.1`.
+1. Stop the service.
+2. Copy the folders listed in [Back up and restore](../Artifacts_Directory.md#back-up-and-restore) from the current artefacts directory into the new folder.
+3. Run `setx PROFINITY_HOME "D:\ProfinityData" /M` from an administrator command prompt, as an example.
+4. Start the service so that it reads the new value.
+
+The current folder stays as it is, so removing the variable returns Profinity to it.
+
+Until a Server licence is applied, the service serves its web interface to the local machine only, on `127.0.0.1`.
 With a Server licence applied under **ADMIN > License**, it uses the address set under [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md), so other machines can sign in.
-A service has no application window, so apply the licence file before you rely on remote access.
+
+A service has no application window, so open a browser on the same machine and apply the licence file from **ADMIN > License**, or copy the file into the artefacts directory, before you rely on remote access.
+Both routes are described in [Apply a licence](../Applying_a_Licence.md).
 Expect Profinity to restart when you apply the licence.
 For the accounts that can sign in, refer to [Who can sign in, by installation type](../Applying_a_Licence.md#who-can-sign-in).
 
@@ -65,4 +74,9 @@ Open the Services app, find Profinity in the list, and confirm that its status i
 ## Troubleshooting
 
 If the service does not start, read the log in the Event Viewer.
-A "file not found" error means the installation directory does not match where Profinity is installed, so correct the path in the service configuration and start the service again.
+
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| A "file not found" error | The installation directory does not match where Profinity is installed | Correct the path in the service configuration and start the service again |
+
+Next, review the [Security guide](../Security.md).

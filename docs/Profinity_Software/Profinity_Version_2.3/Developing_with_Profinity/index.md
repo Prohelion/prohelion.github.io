@@ -10,6 +10,7 @@ last_reviewed: 2026-10-20
 
 When configuration is not enough, Profinity can be extended with code.
 A script runs inside Profinity.
+
 A Custom Component allows a developer to create a new component from files.
 A compiled plugin adds a new component type.
 The Profinity SDK develops and packages all three.

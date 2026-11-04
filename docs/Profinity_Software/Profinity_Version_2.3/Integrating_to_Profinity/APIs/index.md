@@ -27,6 +27,7 @@ The **Enable Profinity API** and **Enable Swagger on API** settings apply only t
 [Swagger](https://swagger.io) is the interactive API page on your Profinity instance.
 Open it by adding `/swagger` to the URL that Profinity is running on.
 For example, if Profinity is running on `localhost:18080`, the Swagger page is at `http://localhost:18080/swagger`.
+
 The OpenAPI document is served at `/swagger/v2/swagger.json`.
 API tools and AI skills can import it to generate a client or to read the available routes and models.
 

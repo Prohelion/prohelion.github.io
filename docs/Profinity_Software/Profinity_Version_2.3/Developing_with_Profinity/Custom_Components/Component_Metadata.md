@@ -10,6 +10,7 @@ last_reviewed: 2026-10-20
 
 `component_metadata.yaml` names a [Custom Component](index.md) in the catalogue and binds the files in the folder.
 It is written in the component folder; it is not an upload on the settings dialog.
+
 A pack also needs `settings_map.yaml`, `firmware_map.yaml`, and `actions.yaml`.
 Refer to [Custom Component files](Files.md).
 The [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the [Profinity SDK](../SDK/index.md) validates that folder and writes the bundle.
@@ -49,6 +50,7 @@ dashboardFile: hello.yaml
 
 That file is the metadata from the [Hello component pack](First_Custom_Component.md).
 After an administrator uploads the bundle under **ADMIN** > **Components & Plugins**, **ADD COMPONENT** lists the `name` from this file.
+
 Refer to [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md) for the upload screen, and to [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md) for the instance that results.
 A compiled plugin is a different bundle.
 Refer to [Developing Plugins](../SDK/Developing_Plugins.md).

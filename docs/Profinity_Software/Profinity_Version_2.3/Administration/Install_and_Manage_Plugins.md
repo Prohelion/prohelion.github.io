@@ -14,6 +14,7 @@ The other half of the screen, **COMPONENT CATALOGUE**, hides or shows individual
 
 Opening the screen needs the **View plugins** permission and a licence that includes the **Custom Plugins** feature.
 An unlicensed instance does not show the **Components & Plugins** pill.
+
 Uploading, enabling, disabling, deleting, or changing the catalogue needs **Modify plugins**.
 Only users with **Modify plugins** see the action buttons on the tables.
 Refer to [Roles and permissions](Users_and_Access/Roles_and_Permissions.md) for the permissions.
@@ -52,8 +53,11 @@ Enable the plugin again before you manage its components there.
 Installed plugins live in a `plugins/{pluginId}/` folder.
 The registry of installed plugins is `config/plugins.yaml`.
 Both are inside the [artefacts directory](../Installation/Artifacts_Directory.md), which gives the location for each operating system.
+
 Both names are lowercase, which matters on Linux where the file system is case-sensitive.
 Plugins that ship with Profinity are loaded from `plugins/core` under the Profinity install folder.
 
 For the industrial protocol components, refer to [Industrial protocols](../Components/Industrial_Protocols/index.md).
 It covers BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7.
+
+After you enable a plugin, choose which of its components engineers can add in [Choose available components](Choose_Available_Components.md).

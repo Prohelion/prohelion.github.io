@@ -38,6 +38,7 @@ This page holds the steps every destination shares: adding the component, select
 The TAG loggers log the values of the [tags](../Tags/index.md) in selected [tag collections](../Tags/Collections/index.md).
 The Loggers and Historians write to a queryable store, so you can retrieve the data later, whatever the state of the live connection.
 You can also read Historian data back through the APIs.
+
 The MQTT Publisher and Webhook Publisher push to a receiver that is listening at that moment.
 InfluxDB V1, V2, and V3 are separate, incompatible products, so the component must match the installed InfluxDB version.
 
@@ -78,26 +79,14 @@ Then check the component's status in the component list.
 
 ## Troubleshooting
 
-### No data is logged
+Find the symptom in the first column, then follow the cause and the fix in the same row.
 
-A logger or publisher that writes nothing is usually inactive, or has no tag collection to log.
-Check that the component is active.
-For a TAG logger, InfluxDB, Prometheus, or a publisher, also check that at least one tag collection is selected, because those components start only when a collection is configured.
-Then check that the components that feed the tags are receiving data.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| No data is logged | A logger or publisher that writes nothing is usually inactive, or has no tag collection to log. | Check that the component is active. For a TAG logger, InfluxDB, Prometheus, or a publisher, check that at least one tag collection is selected, because those components start only when a collection is configured. Then check that the components that feed the tags are receiving data. |
+| A connection error appears | The destination is unreachable or rejects the credentials. | Check the network connection to the destination and the credentials. For InfluxDB, confirm that the component type matches the installed InfluxDB version, because the wrong component type causes connection failures. The [Profinity logs](../Administration/Logs_Config.md) record connection errors. |
+| Gaps in logged data | Gaps usually come from a logging interval that is too long for the data, or from a component that stopped receiving data. | In **Snapshot** mode, a shorter **Update Interval (Seconds)** gives more detailed data. [Logging modes](../Components/Logging_Modes.md) describes what the other modes do with it. Also check that the component that supplies the data is receiving it. |
 
-### A connection error appears
+## Next steps
 
-A connection error means the destination cannot be reached or does not accept the credentials.
-Check the network connection to the destination and the credentials.
-For InfluxDB, confirm that the component type matches the installed InfluxDB version, because the wrong component type causes connection failures.
-The [Profinity logs](../Administration/Logs_Config.md) record connection errors.
-
-### Data is missing
-
-Gaps in logged data usually come from a logging interval that is too long for the data or from a component that stopped receiving data.
-In **Snapshot** mode, a shorter **Update Interval (Seconds)** gives more detailed data, and [Logging modes](../Components/Logging_Modes.md) describes what the other modes do with it.
-Also check that the component that supplies the data is receiving it.
-
-## Related pages
-
-- [Loggers](../Components/Loggers/index.md): file, tag, InfluxDB, and Prometheus logger settings
+Next, refer to [Loggers](../Components/Loggers/index.md) for file, tag, InfluxDB, and Prometheus logger settings.

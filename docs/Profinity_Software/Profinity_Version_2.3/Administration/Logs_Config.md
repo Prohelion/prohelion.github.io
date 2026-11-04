@@ -20,6 +20,7 @@ If a log line is too long to fit on the page, select the line to expand that log
 Each log entry contains a timestamp, a message level (for example `Info`, `Warn`, or `Error`), and a message description.
 **Log Level** on the **Logging** tab of **System Configuration** sets which levels are recorded.
 Limiting the logs to particular message levels helps diagnose particular issues.
+
 A higher level records fewer messages, and the viewer shows what has been recorded at the persisted level.
 **Log Rollover Size (MB)** and **Retained Logs** are set on the same tab.
 [Logging](System_Configuration/Logging.md) describes the log levels and these settings.

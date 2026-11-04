@@ -56,14 +56,14 @@ The data arrives in the form shown in [Payload formats](#payload-formats).
 
 ### Connection settings
 
-| Setting | Required | Purpose |
-|---|---|---|
-| **Server URL** | Yes | The broker's connection URL, for example `mqtt://broker.example.com:1883`. Use `mqtt` for a plain connection and `mqtts` for a connection that uses Transport Layer Security (TLS). |
-| **Trust all server certificates** | No | Disables Transport Layer Security (TLS) server certificate validation for this connection. Enable only when connecting to a trusted broker using a self-signed certificate. |
-| **Username** / **Password** | No | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
-| **Device ID** | Yes | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge Node ID** when that field is empty. |
-| **Payload** | No | **JSON** or **Sparkplug B**, an MQTT payload format for industrial data. Defaults to **JSON**. Refer to [Payload formats](#payload-formats). |
-| **Destination Topic** | Yes, for JSON | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
+| Setting | Required | Default | Purpose |
+|---|---|---|---|
+| **Server URL** | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com:1883`. Use `mqtt` for a plain connection and `mqtts` for a connection that uses Transport Layer Security (TLS). |
+| **Trust all server certificates** | No | Off | Disables Transport Layer Security (TLS) server certificate validation for this connection. Enable only when connecting to a trusted broker using a self-signed certificate. |
+| **Username** / **Password** | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
+| **Device ID** | Yes | None | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge Node ID** when that field is empty. |
+| **Payload** | No | **JSON** | **JSON** or **Sparkplug B**, an MQTT payload format for industrial data. Defaults to **JSON**. Refer to [Payload formats](#payload-formats). |
+| **Destination Topic** | Yes, for JSON | None | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
 
 The URL sets the connection:
 
@@ -74,10 +74,10 @@ The URL sets the connection:
 
 These settings are shown only when **Payload** is **Sparkplug B**:
 
-| Setting | Required | Purpose |
-|---|---|---|
-| **Group ID** | Yes | The Sparkplug group ID used in the topic path. A save without it fails with "You must provide a Sparkplug Group ID." |
-| **Edge Node ID** | No | The Sparkplug edge node ID. Defaults to **Device ID** when left empty. |
+| Setting | Required | Default | Purpose |
+|---|---|---|---|
+| **Group ID** | Yes | None | The Sparkplug group ID used in the topic path. A save without it fails with "You must provide a Sparkplug Group ID." |
+| **Edge Node ID** | No | Empty | The Sparkplug edge node ID. Defaults to **Device ID** when left empty. |
 
 ### Publishing settings
 
@@ -115,13 +115,14 @@ The status returns to **On** after the next successful publish.
 The publisher keeps trying to connect every 5 seconds.
 A broker that is down when the publisher starts, or that goes away later, leaves the publisher in **Error** until the broker is back.
 You do not need to restart the publisher.
+
 A rejected login is treated the same way, so fixing the credentials needs no restart either.
 The log records the reason once for each outage.
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for the full behaviour.
 
 Check the [Logs](../../Administration/Logs_Config.md) for the underlying message first.
 
-| Symptom | Cause | Fix |
+| What you see | Cause | What to do |
 |---|---|---|
 | The status stays **Off** after the profile loads. | No collection is selected, or a selected collection does not exist in the profile. | Select at least one existing collection under **Collections**. |
 | A save fails with "You must provide a destination topic." | **Payload** is **JSON** and **Destination Topic** is empty. | Enter a **Destination Topic**. |

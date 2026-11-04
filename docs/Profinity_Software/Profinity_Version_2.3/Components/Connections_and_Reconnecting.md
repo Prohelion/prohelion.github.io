@@ -46,6 +46,7 @@ For a component that defaults to off, turn **Auto Connect** on in its settings i
 A component starts even when what it connects to is unavailable.
 It does not stop at start with an error.
 It shows **Error**, writes the reason to the [Logs](../Administration/Logs_Config.md) once, and keeps trying.
+
 The TDK and Siglent power supplies have an **Auto Reconnect** setting, and with it off they make one attempt and report a failure.
 When the broker, device, server, or database appears, the component connects by itself and the status changes to **On**.
 
@@ -63,6 +64,7 @@ When the connection returns, the log records that it reconnected.
 A component can be connected and still fail to read a value, write a point or send a message.
 Profinity reports that once for each outage.
 The first failure is written to the [Logs](../Administration/Logs_Config.md) as a warning that names what failed and why.
+
 Later failures during the same outage are logged at debug level only, and the first success afterwards is logged at information level as the component working again.
 The first success is the first poll in which every point reads correctly.
 A long outage does not fill the log, and a new outage warns again.
@@ -90,18 +92,21 @@ A stopped component never reconnects by itself.
 
 | Status | Meaning |
 | --- | --- |
-| **Off** | The component is stopped, or has just been switched on and is making its first connection attempt. |
+| **Off** | The component is stopped, or has just been switched on and is making its first connection attempt. A logger or historian shows **On** during that first attempt instead. |
 | **On** | The connection is up. |
 | **Error** | The component is running but cannot reach what it connects to. Check the [Logs](../Administration/Logs_Config.md) for the reason. |
 
 A logger or historian shows **On** as soon as it is started, and changes to **Error** if it cannot reach its server.
+
 A CAN bus adapter connects and retries in the same way, and adds a warning for a quiet bus.
 While it is stopped, or still making its first connection attempt, it shows **Off**.
 When a connection it was asked to make fails or is lost, it shows **Error** and keeps retrying.
 Once connected, it shows **On** while CAN frames are arriving.
+
 A Tritium bridge heartbeat is a CAN frame, so a bridge that is only sending heartbeats stays **On**.
 A connected adapter that has never seen a frame, or whose last frame is more than 5 seconds old, shows a warning (amber).
 Exactly 5 seconds since the last frame stays **On**.
+
 Choosing **Disconnect** shows **Off**, and the adapter retries only after you manually connect it again.
 Check the [Logs](../Administration/Logs_Config.md) for the reason an adapter is not connecting.
 

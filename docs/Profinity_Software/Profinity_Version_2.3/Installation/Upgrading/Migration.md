@@ -21,9 +21,10 @@ To upgrade from Profinity 2.2 to Profinity 2.3, refer to [Upgrade from Profinity
 
 Prohelion recommends a clean installation of V2, removing V1 before you install V2.
 
-1. Back up the V1 profiles, configuration files, CAN database (DBC) files, and any custom scripts or data.
+1. Copy the V1 profiles, configuration files, CAN database (DBC) files, and any custom scripts or data to a location outside the V1 installation and its profile directory.
    Write down the component settings and addresses, and any custom V1 settings you want to replicate in V2.
-2. Uninstall V1 with the standard uninstallation procedure, and remove the files in the V1 profile directory.
+2. Confirm that the copies from step 1 open correctly.
+    Then uninstall V1 with the standard uninstallation procedure, and remove the files in the V1 profile directory.
 
     !!! warning "There is no downgrade path"
         Keep your V1 backups.

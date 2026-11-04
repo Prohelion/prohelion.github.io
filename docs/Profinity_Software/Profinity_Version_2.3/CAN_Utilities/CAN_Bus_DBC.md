@@ -50,6 +50,7 @@ The global search box filters across all columns at once.
 The Message and Signal columns take a text filter that is not case-sensitive.
 Space-separated terms must all match, so `battery voltage` shows rows containing both words.
 The operators `&` and `AND` behave the same way.
+
 The operators `|`, `OR`, and a comma match any of the terms instead, so `error, warning, fault` shows every row that contains at least one of the three.
 The global search box accepts the same operators.
 

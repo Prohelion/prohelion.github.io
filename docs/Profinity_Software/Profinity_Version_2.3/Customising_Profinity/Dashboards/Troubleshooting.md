@@ -19,6 +19,13 @@ The editor blocks **SAVE** while any entry remains, so save once the list is emp
 
 A dashboard whose saved layout no longer matches the schema shows the message "This dashboard no longer matches the schema", with the buttons **Reset from Template** and **View Logs**.
 
+Before you select **Reset from Template**, keep a copy of the dashboard:
+
+1. Select **Edit Dashboard** from the title bar, then select the **YAML** tab.
+2. Select all the YAML, copy it and paste it into a file of your own.
+
+If Profinity saved the dashboard while it was valid, the file `<file>.bak` in the same folder as the dashboard holds the last valid version, and the reset leaves that file in place.
+
 !!! warning
     **Reset from Template** replaces the dashboard with the latest template and loses every customisation, so use it only when you can discard the dashboard.
 
@@ -26,7 +33,7 @@ A dashboard whose saved layout no longer matches the schema shows the message "T
 
 ### Data not updating
 
-Components that show static values, or do not update when the data changes, usually have a `source` that does not match a tag.
+Components that show static values, or fail to update when the data changes, usually have a `source` that differs from a tag.
 Check the following in the Tag Explorer:
 
 - The path in the binding matches the tag path exactly, including a leading `/` for a tag of another component.
@@ -73,6 +80,7 @@ dashboard:
 
 A logged binding that returns no data usually has one of three causes: data logging still has to be configured and enabled for the profile, exactly one historian still has to have **Designated tag historian reader** enabled, or the time range is invalid.
 For data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md), and for the historian setting, refer to [Designated historian](../../Components/Historians/Designated_Historian.md).
+
 Set `timeRangeStart` in the past (for example `-10m`) and `timeRangeStop` after it, where `0m` means now.
 An invalid time range or aggregation window makes the binding return no data.
 Start with the simple binding in this example, and add the aggregation back once it returns data.
@@ -91,8 +99,6 @@ dashboard:
                   store: logged
                   timeRangeStart: "-10m"
                   timeRangeStop: "0m"
-                  aggregationWindow: "1m"
-                  aggregationFunction: "mean"
 ```
 
 ### Type conversion errors
@@ -215,59 +221,18 @@ dashboard:
 
 ## Component-specific troubleshooting
 
-### Image does not appear
+Match the symptom you see to the cause and the fix for each component.
 
-An icon or image that does not display is not being found.
-Check that the file exists in the `images` folder of the profile, that the filename matches exactly, including its case, and that the property holds the filename alone and not a full path.
-A profile image with the same name as a built-in image is never used, so rename it.
-For the accepted file types and the lookup order, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#images).
-
-### Style has no effect
-
-The web interface loads only `profile.css` from the `styles` folder of the profile, so import any other stylesheet from `profile.css`.
-The class named in the dashboard must match the one in the CSS exactly.
-A `class` on a `readout` item has no effect, so put it on the `readouts` element.
-For where the file goes, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#styles).
-
-### Pill values do not group
-
-Each `pillgroup` must contain an `items` array, and each item must be wrapped in a `value` object.
-
-### Lamps do not light or change colour
-
-An `enabled` binding must return `0` or `1` (or `false` or `true`), and a lamp that is greyed out has `enabled` set to false.
-A lamp bound to `color` takes the colour name that the binding returns, as described in [Conditional styling](./Data_Binding/Conditional_Styling.md).
-The `value` property of the lamp must be set, typically to 1.
-
-### Table shows no data or no highlighting
-
-Check the following:
-
-- `tableHeaders` has the structure shown under [Table header parameters](./Component_Reference/Data/Tables.md#table-header-parameters).
-- Each `accessorKey` matches a data property name.
-- The data array is bound.
-
-Highlighting needs numeric data values and threshold properties such as `highlightAtOrBelow` or `highlightAtOrAbove`.
-
-### Chart type is not supported or a time series chart does not update
-
-The `type` property (not `charttype`) must be one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`.
-A time series chart needs `seriesMode: timeSeries` in its binding, or `store: logged` with data logging enabled, and a suitable time range.
-
-### Image regions are not clickable or data values are missing
-
-A region needs `x`, `y`, `width` and `height` values, which are percentages of the image size.
-It also needs an `action` that is an object with an `invoke` value of `Navigate`, `Component`, `System` or `Endpoint`.
-The `action` needs a `target` when `invoke` is `Navigate`, or an `actionId` when `invoke` is `Component` or `System`.
-A data value that does not display needs a correct `bind`, a suitable `displayType`, and `maxValue` for the `graph` display type.
-
-### HTML content does not render
-
-The HTML must be valid and properly escaped in YAML, and multi-line content uses a literal block (`|` or `>`).
-The HTML sanitiser removes the `script`, `embed`, `object`, `form`, `input` and `button` elements, so content that depends on them does not appear.
-Images in HTML use the full URL path, and the file must exist in the `images` folder of the profile.
-A stylesheet cannot be linked from the HTML, because the sanitiser removes a `link` element.
-Style rules go in `profile.css` in the `styles` folder, as described in [Store dashboard files in a profile](./Store_Dashboard_Files.md#styles).
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| Image does not appear | The file is not being found. | Check that the file exists in the `images` folder of the profile, that the filename matches exactly, including its case, and that the property holds the filename alone and not a full path. A profile image with the same name as a built-in image is ignored, so rename it. For the accepted file types and the lookup order, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#images). |
+| Style has no effect | The web interface loads only `profile.css`, the class does not match the CSS exactly, or the class is on a `readout` item, which has no effect. | Import any other stylesheet from `profile.css` in the `styles` folder of the profile. Make the class in the dashboard match the one in the CSS exactly. Put the class on the `readouts` element. For where the file goes, refer to [Store dashboard files in a profile](./Store_Dashboard_Files.md#styles). |
+| Pill values do not group | A `pillgroup` lacks an `items` array, or an item sits outside a `value` object. | Give each `pillgroup` an `items` array, and wrap each item in a `value` object. |
+| Lamps do not light or change colour | The `enabled` binding returns a value outside `0` or `1` (or `false` or `true`), or the `value` property is unset. A lamp that is greyed out has `enabled` set to `false`. | Make the `enabled` binding return `0` or `1` (or `false` or `true`), and set the `value` property of the lamp, typically to `1`. A lamp bound to `color` takes the colour name that the binding returns, as described in [Conditional styling](./Data_Binding/Conditional_Styling.md). |
+| Table shows no data or no highlighting | The `tableHeaders` structure is wrong, an `accessorKey` differs from a data property name, or the data array is unbound. Highlighting needs numeric data values and threshold properties. | Check that `tableHeaders` has the structure shown under [Table header parameters](./Component_Reference/Data/Tables.md#table-header-parameters), that each `accessorKey` matches a data property name, and that the data array is bound. For highlighting, use numeric data values and threshold properties such as `highlightAtOrBelow` or `highlightAtOrAbove`. |
+| Chart type is not supported or a time series chart does not update | The chart uses a `type` value that is not supported, or its binding lacks the time series settings. | Set `type` (not `charttype`) to one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. For a time series chart, set `seriesMode: timeSeries` in the binding, or `store: logged` with data logging enabled, and a suitable time range. |
+| Image regions are not clickable or data values are missing | A region is missing its position values or a valid `action`, or a data value has an incorrect `bind`, `displayType` or `maxValue`. | Give each region `x`, `y`, `width` and `height` values as percentages of the image size. Set the `action` to an object with an `invoke` value of `Navigate`, `Component`, `System` or `Endpoint`. Set a `target` when `invoke` is `Navigate`, or an `actionId` when `invoke` is `Component` or `System`. Check the `bind` and the `displayType` of each data value, and set a `maxValue` for the `graph` display type. |
+| HTML content does not render | The HTML is invalid or escaped incorrectly in YAML, the sanitiser removes an element such as `script`, `embed`, `object`, `form`, `input`, `button` or `link`, or an image is missing. | Make the HTML valid and properly escaped in YAML, and use a literal block (`\|` or `>`) for multi-line content. Remove content that depends on a removed element. Use the full URL path for images, and store each image file in the `images` folder of the profile. Put style rules in `profile.css` in the `styles` folder, as described in [Store dashboard files in a profile](./Store_Dashboard_Files.md#styles). |
 
 ## Getting more help
 

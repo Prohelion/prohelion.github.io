@@ -52,6 +52,7 @@ It is the preferred way to recover a compromised account, because no temporary p
 
 A user with this requirement sees a **change password** dialog after signing in.
 They can use Profinity only after they save a new password that meets the policy.
+
 The default `admin` account has this requirement already set, so the first sign-in as `admin` always forces a password change.
 The default `admin` credentials are listed in the [Security guide](../../../Installation/Security.md).
 Refer to [Who can sign in, by installation type](../../../Installation/Applying_a_Licence.md#who-can-sign-in) for which installations have that account.

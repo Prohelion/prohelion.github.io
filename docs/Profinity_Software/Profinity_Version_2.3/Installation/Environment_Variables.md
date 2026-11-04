@@ -38,6 +38,7 @@ token: ${INFLUXDB_ADMIN_TOKEN:-}
 A name uses only letters, numbers and underscores, and must not start with a number.
 So `${PROFILE_NAME}`, `${BMU1_BASE_ADDRESS}` and `${_UNDERSCORE_VAR}` are valid, while `${VAR-WITH-DASH}`, `${VAR WITH SPACES}` and `${VAR.WITH.DOTS}` are not.
 Profinity looks the name up exactly as written.
+
 On Linux and macOS, names are case-sensitive, so `${Profile_Name}` and `${profile_name}` are different variables.
 On Windows, names are not case-sensitive, so they are the same variable.
 
@@ -45,8 +46,6 @@ On Windows, names are not case-sensitive, so they are the same variable.
     A configuration or profile file that references an undefined or empty variable with no default fails to load.
     Profinity writes the names of the undefined variables to the log.
     Define every variable that has no default before you start Profinity, or give it a default.
-
-### In the configuration file
 
 This `config.yaml` takes the active profile, the web server address and port, the log settings and the scripting switch from environment variables:
 
@@ -65,8 +64,6 @@ appSettings:
   scripts:
     enabled: ${ENABLE_SCRIPTING:-false}
 ```
-
-### In a profile file
 
 This `profile.yaml` takes the connection settings of an InfluxDB v2 historian from environment variables, so the token never appears in the file:
 
@@ -128,6 +125,7 @@ Restart the service, not only the application, so that it reads the new value.
 In a shell, run `export PROFILE_NAME="Production Profile"` to set a variable for that session.
 For an interactive run, add the same line to a shell profile file such as `~/.bashrc`, `~/.profile` or `~/.zshrc`.
 A service does not read those files.
+
 For the Linux systemd service, add `Environment=` lines to the `[Service]` section of `/etc/systemd/system/profinity.service`, for example `Environment=PROFILE_NAME="Production Profile"`.
 Then run `sudo systemctl daemon-reload` and restart the service.
 Refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
@@ -142,10 +140,13 @@ HTTP_PORT=8080
 ```
 
 ```bash
-docker run -e PROFILE_NAME="Production Profile" \
+docker run -p 8080:8080 \
+           -e PROFILE_NAME="Production Profile" \
            -e HTTP_PORT="8080" \
            prohelion/profinity:latest
 ```
+
+The `-p 8080:8080` option publishes port `8080` on the host and in the container, so the web interface answers on `http://localhost:8080`.
 
 Docker Compose [substitutes variables](https://docs.docker.com/compose/environment-variables/) into the compose file as well, so the same variable can set the published port and the setting inside the container:
 
@@ -177,6 +178,7 @@ The Profinity image declares only ports 18080 and 18443, and Docker publishes on
 Mount the whole `/app/Prohelion` directory, so that the licence, security keys, and logs survive when the container is replaced.
 Keep the `config.yaml` and profile files that hold placeholders in the `config` and `profiles` folders of the mounted directory.
 `PROFINITY_HOME` must match the container-side mount path, as described in [Install Profinity with Docker](./Docker/index.md#install-with-docker-compose).
+
 Docker Compose reads a `.env` file in the same folder as the compose file automatically.
 To keep one file per environment, name the file explicitly:
 

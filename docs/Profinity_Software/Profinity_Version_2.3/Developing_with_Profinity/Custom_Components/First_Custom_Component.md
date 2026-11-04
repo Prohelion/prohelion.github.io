@@ -13,9 +13,10 @@ This tutorial adds a [Custom Component](../../Components/Custom_Components/Using
 [Download the Hello component pack :material-download:](hello.zip){ .md-button }
 
 The Hello pack already contains every file this tutorial uses: `hello.dbc`, `hello.yaml`, `actions.yaml`, `firmware_map.yaml`, `firmware.yaml`, `scripts/hello.py`, `scripts/load_firmware.py`, and `scripts/save_firmware.py`.
-It also holds `settings_map.yaml` and `component_metadata.yaml`, which the last step of this path uses to pack the folder.
+It also holds `settings_map.yaml` and `component_metadata.yaml`, which the Next steps use if you pack the folder.
 Unzip the pack, create the Hello component in Profinity, and attach the pack files to it in the steps that follow.
 The tutorial lists the content of each file so you can read it, and you do not write any of them.
+
 The pack includes a CAN database (DBC) file so this path can bind a CAN signal, and firmware files so the component can show an Output Limit field.
 A Custom Component does not need a DBC file or firmware files.
 
@@ -194,6 +195,7 @@ The **Hello** menu includes **Connect / Disconnect**.
 A [firmware map](Firmware_Maps.md) adds firmware fields on the component.
 The load and save scripts are named in `firmware.yaml`.
 Refer to [Firmware actions](Firmware_Actions.md).
+
 This example uses a firmware map and firmware scripts.
 A Custom Component does not need them.
 
@@ -256,6 +258,6 @@ On **Firmware Utilities**, select **LOAD SETTINGS**.
 
 - Change the dashboard in the visual editor, as described in [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md).
 - Replay CAN traffic so **TEMPERATURE** shows a value, as described in [How to replay CAN bus logs](../../How_To_Guides/Replay_CAN_Logs.md).
-- Write `component_metadata.yaml` and pack the folder so another installation can add it by name.
-  The file is described in [Component metadata](Component_Metadata.md), and the commands are on [Component Pack CLI](../SDK/Component_Pack_CLI.md).
+- Pack the folder so another installation can add it by name.
   The downloaded pack already includes `settings_map.yaml` and `component_metadata.yaml`.
+  `component_metadata.yaml` is described in [Component metadata](Component_Metadata.md), and the commands are on [Component Pack CLI](../SDK/Component_Pack_CLI.md).

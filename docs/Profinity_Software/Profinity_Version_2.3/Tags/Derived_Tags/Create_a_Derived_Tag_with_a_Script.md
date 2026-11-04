@@ -21,8 +21,11 @@ To set one up:
 1. Add a **CSharp Script**, **Python Script**, or **Lua Script** component, or use an existing one.
 2. Set its **Script Mode** to **Run On Tag Change**.
 3. Select the source tags in its **Collections** setting, as described in [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).
-4. In the component's actions, select **Edit Script**. The script editor opens with the starter template for the component's language.
-5. Replace the template with the example for your language, which publishes the computed result with `Profinity.Tags.SetValue(...)`.
+4. In the component's actions, select **Edit Script**.
+A new script opens with the starter template for the component's language, and an existing script opens with its saved code.
+5. If the script already holds code you want to keep, copy it to a file on your computer first.
+Profinity does not keep an earlier version when you save.
+6. Replace the code in the editor with the example for your language, which publishes the computed result with `Profinity.Tags.SetValue(...)`.
 
 === "C#"
 

@@ -46,6 +46,7 @@ The bridge can then communicate with tools that support the V2 protocol.
 The physical bridge handles a single TCP connection at a time, so a second TCP connection fails.
 UDP is the alternative for several clients.
 The Virtual Bridge handles multiple clients at once.
+
 It can therefore act as a TCP CAN bridge server, where many clients connect over TCP and keep the connection open to receive CAN data.
 This suits real-time CAN monitoring in remote locations.
 

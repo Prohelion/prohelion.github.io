@@ -23,8 +23,7 @@ For two-factor authentication and password changes at sign-in, refer to [Authent
 
 ## Get a token
 
-1. Send a POST request to `http://localhost:18080/api/v2/Users/Authenticate`.
-2. Put the username and password in the JSON body:
+1. Send a POST request to `http://localhost:18080/api/v2/Users/Authenticate` with `curl`, or use the POST route on the Swagger page, with the username and password in this JSON body:
 
     ```json
     {
@@ -40,7 +39,7 @@ For two-factor authentication and password changes at sign-in, refer to [Authent
         Do not put a real password in a script, in shell history, or in a file under version control.
         For an application that runs unattended, use a service account instead.
 
-3. Read the `token` field in the response.
+2. Read the `token` field in the response.
    Profinity responds to a non-browser client with a JSON body like this (the `permissions` list is abbreviated):
 
     ```json

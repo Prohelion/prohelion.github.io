@@ -18,7 +18,7 @@ The guides for [Claude Code](Connect_Claude_Code.md), [Codex](Connect_Codex.md),
 | 403 | The account lacks **MCP integration** | Add that permission to one of the account's roles |
 | 404 | The server is not available | Refer to [Causes of a 404](#causes-of-a-404) |
 | 429 with `Too many MCP requests. Please try again later.` | The account sent too many MCP requests | Wait, then try again |
-| An error that the account cannot read components or tags | The account lacks **View tags** | Add that permission to one of the account's roles |
+| An error when the tool asks for components, tags, or alerts | The account lacks **View tags** for component and tag requests, or **View alerts** for alert requests | Add that permission to one of the account's roles |
 
 ## Causes of a 404
 
@@ -32,11 +32,11 @@ A 404 has one of these causes:
 ## Fewer results than expected
 
 A tool that connects but returns fewer components, tags, or alerts than you expect is working.
-Profinity shows an account only what the security role says it can view, and leaves the rest out silently.
+Profinity shows an account only the components and collections its roles allow, and leaves the rest out silently.
+An account that lacks **View tags** or **View alerts** gets an error instead of a short result.
 The likely causes are:
 
 - A component or collection is restricted to roles the account does not have. Refer to [Component and collection security](../../Administration/Users_and_Access/Component_And_Collection_Security/index.md).
-- The account lacks **View alerts**, for alert results.
 - The active profile has no matching data.
 
 To find out which tool answers which question, refer to the [MCP tool reference](Tool_Reference.md).

@@ -25,9 +25,6 @@ flowchart LR
 <figcaption>Profinity broadcasts a UDP heartbeat that fills the discovery list in Profinity Mobile, and the app then connects to the chosen server over HTTPS and shows its web interface</figcaption>
 </figure>
 
-To set up discovery and connect a phone, refer to [Connect Profinity Mobile to a server](Connect_Profinity_Mobile_to_a_Server.md).
-If no servers appear, refer to [Troubleshoot Profinity Mobile](Troubleshoot_Profinity_Mobile.md).
-
 ## Install the app
 
 Prohelion does not publish the app in the public app stores.
@@ -44,3 +41,6 @@ The app can save the username and password in the phone's secure storage.
 The **Kiosk** mode logs in automatically with a configured kiosk user (refer to [Kiosk Mode](../Administration/Kiosk_Mode.md)).
 The app has no mode switch, because Kiosk Mode is a setting of the server.
 The web sign-in page signs in automatically when the active profile has Kiosk Mode enabled.
+
+To set up discovery and connect a phone, refer to [Connect Profinity Mobile to a server](Connect_Profinity_Mobile_to_a_Server.md).
+If no servers appear, refer to [Troubleshoot Profinity Mobile](Troubleshoot_Profinity_Mobile.md).

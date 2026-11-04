@@ -40,6 +40,7 @@ If no dashboard is uploaded, Profinity writes a starter dashboard named after th
 
 Every Profinity YAML document in that set carries `version: "2.3"`.
 A component can mix script languages, because Profinity runs each script from its file extension: `.cs`, `.py`, or `.lua`.
+
 `profinity-component-pack validate` and `pack` stop with `Missing required file:` followed by the file name when any of the four pack files is absent.
 The component still runs in a profile without those files.
 The keys are on [Component metadata](Component_Metadata.md), and the pack commands are on [Component Pack CLI](../SDK/Component_Pack_CLI.md).

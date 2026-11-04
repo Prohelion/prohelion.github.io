@@ -10,6 +10,7 @@ last_reviewed: 2026-11-02
 
 The **Modbus Device** component is a Modbus master.
 It connects to one Modbus slave over Transmission Control Protocol (TCP) or over a serial line using Remote Terminal Unit (RTU) framing.
+
 It polls the coils and registers you list in its point map and publishes each one as a Profinity tag.
 Modbus is used for industrial devices and distributed input/output (I/O).
 Profinity acts as a Modbus master only, not as a Modbus slave or server.
@@ -37,22 +38,22 @@ You can change the settings in the Communications settings section later from th
 
 Which settings apply depends on the **Connection Mode**.
 
-| Setting | Applies to | Description |
-|---|---|---|
-| **Name** | Both | The name of the component. Must be unique within the profile. |
-| **Connection Mode** | Both | `TCP` (the default) or `RTU`. |
-| **Host** | TCP | The IP address of the slave. Required. The default is `127.0.0.1`. |
-| **Port** | TCP | The TCP port. Between `1` and `65535`. The default is `502`. |
-| **Serial Port** | RTU | The serial port the slave is connected to. Required for RTU. |
-| **Baud Rate** | RTU | The serial baud rate. The default is `9600`. |
-| **Parity** | RTU | The serial parity. The default is `None`. |
-| **Data Bits** | RTU | `7` or `8`. The default is `8`. |
-| **Stop Bits** | RTU | The number of stop bits. The default is `One`. |
-| **Unit ID** | Both | The Modbus unit (slave) address. Between `0` and `255`. The default is `1`. |
-| **Poll interval (ms)** | Both | How often the point map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
-| **Request timeout (ms)** | Both | How long Profinity waits for the slave to answer a request, in milliseconds. Between `50` and `60000`. The default is `1000`. |
-| **Reconnect delay (ms)** | Both | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. The default is `2000`. |
-| **Auto Connect** | Both | Connects automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| Setting | Default | Applies to | Description |
+|---|---|---|---|
+| **Name** | `Modbus Device` | Both | The name of the component. Must be unique within the profile. |
+| **Connection Mode** | `TCP` | Both | `TCP` or `RTU`. |
+| **Host** | `127.0.0.1` | TCP | The IP address of the slave. Required. |
+| **Port** | `502` | TCP | The TCP port. Between `1` and `65535`. |
+| **Serial Port** | Empty | RTU | The serial port the slave is connected to. Required for RTU. |
+| **Baud Rate** | `9600` | RTU | The serial baud rate. |
+| **Parity** | `None` | RTU | The serial parity. |
+| **Data Bits** | `8` | RTU | `7` or `8`. |
+| **Stop Bits** | `One` | RTU | The number of stop bits. |
+| **Unit ID** | `1` | Both | The Modbus unit (slave) address. Between `0` and `255`. |
+| **Poll interval (ms)** | `1000` | Both | How often the point map is read, in milliseconds. Between `50` and `600000`. |
+| **Request timeout (ms)** | `1000` | Both | How long Profinity waits for the slave to answer a request, in milliseconds. Between `50` and `60000`. |
+| **Reconnect delay (ms)** | `2000` | Both | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
+| **Auto Connect** | Off | Both | Connects automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 Profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
 
@@ -79,6 +80,7 @@ Folders are described in [Industrial protocol components](Industrial_Protocol_Co
 Registers are read as big-endian values.
 `Word` and `SignedWord` use one register.
 `Dword`, `SignedDword` and `Real` use two consecutive registers starting at the address, with the first register holding the high word.
+
 The component has no word-swap option, so a device that sends the low word first returns wrong 32-bit values.
 `Real` is a 32-bit floating point value.
 
@@ -93,6 +95,43 @@ Only the `HoldingRegister` and `Coil` tables can be written.
 
 !!! warning "Writing to a device"
     Leave **Writable** off for any point that Profinity should only monitor, because a write changes the device.
+
+## Example
+
+This example is for illustration.
+It reads a temperature held as tenths of a degree from a holding register, and switches a pump through a coil, on a Modbus TCP slave.
+Add it under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: ModbusDevice
+    id: ModbusDevice1
+    name: Pump Controller
+    tagTreeParentPath: /
+    connectionMode: Tcp
+    host: SLAVE_IP_ADDRESS
+    port: 502
+    unitId: 1
+    pollIntervalMilliseconds: 1000
+    requestTimeoutMilliseconds: 1000
+    reconnectDelayMilliseconds: 2000
+    autoConnect: true
+    points:
+    - name: Temperature
+      table: HoldingRegister
+      address: 0
+      dataType: Word
+      scale: 0.1
+      writable: false
+      unit: °C
+    - name: PumpRunning
+      table: Coil
+      address: 0
+      writable: true
+```
+
+Replace `SLAVE_IP_ADDRESS` with the IP address of your Modbus slave.
+Each value is a setting from the [Communications settings](#communications-settings) or a column from the [Point map](#point-map).
 
 ## Dashboard
 

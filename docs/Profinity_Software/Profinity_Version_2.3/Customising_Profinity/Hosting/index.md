@@ -30,18 +30,19 @@ With the default ports, open the application at `http://<host>:19080/`.
 The Profinity web server supports Secure Sockets Layer / Transport Layer Security (SSL/TLS) certificates for production environments.
 A certificate comes from either the Windows Certificate Store or a certificate file with its password.
 The certificate file option works on Windows, macOS, and Linux.
+
 When a certificate comes from the Windows Certificate Store, provide all of **Windows Cert Store**, **Windows Cert Store Location**, and **Windows Cert Store Subject**.
 Profinity validates that the named store and certificate exist.
 
-| Setting | Effect |
-|---------|--------|
-| **Cert File** | The certificate file. |
-| **Cert File Password** | The password for the certificate file. |
-| **Cert Key File** | Optional. |
-| **IP Port for Http** | The HTTP port. The default is 19080. |
-| **IP Port for Https** | The HTTPS port. The default is 19443. |
-| **Redirect all Http traffic to Https** | Forces all HTTP traffic to the HTTPS interface. |
-| **Enable Swagger on API** | Publishes the Swagger interface on this server. |
+| Setting | Default | Effect |
+|---------|---------|--------|
+| **Cert File** | None | The certificate file. |
+| **Cert File Password** | None | The password for the certificate file. |
+| **Cert Key File** | None | Optional. |
+| **IP Port for Http** | 19080 | The HTTP port. |
+| **IP Port for Https** | 19443 | The HTTPS port. |
+| **Redirect all Http traffic to Https** | Off | Forces all HTTP traffic to the HTTPS interface. |
+| **Enable Swagger on API** | Off | Publishes the Swagger interface on this server. |
 
 These settings are on the **Extensions Web** tab.
 The **Web** tab has its own copy of the same settings for the Profinity web interface, with default ports 18080 and 18443.

@@ -27,6 +27,7 @@ Choose the **File Format** with replay in mind.
 Both `CSV` (comma-separated values, `.txt`) and `JSON Lines` (`.jsonl`) can be replayed.
 For the full list of settings, including the **Logging mode**, rotation, and archive options, refer to [Tag file and SFTP loggers](../../Components/Loggers/Tag_File_and_SFTP_Loggers.md).
 For the SFTP connection and the rotation and archive settings, refer to [File logger rotation, archive, and SFTP settings](../../Components/Loggers/File_Logger_Rotation_Archive_and_SFTP.md).
+
 To check it worked, look in the `tag_logs/<profile name>/<logger name>/` folder on the instance for a new log file, which holds rows for the tags in your collections.
 Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where `tag_logs/` sits on each platform.
 To play a recording back, refer to [Replay a tag log](Replay_a_Tag_Log.md).

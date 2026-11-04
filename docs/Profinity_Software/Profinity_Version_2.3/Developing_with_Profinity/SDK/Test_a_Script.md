@@ -11,9 +11,11 @@ last_reviewed: 2026-10-20
 `profinity-script` creates a script on a developer machine and runs it against a simulated Profinity, before the script file is copied into a profile.
 The tool ships in the [Profinity SDK](index.md) download, in its `profinity-script` folder, and not with the Profinity install.
 This page calls the downloaded SDK the kit.
+
 On Windows the program is `profinity-script.exe`.
 The kit also contains the [Component Pack CLI](Component_Pack_CLI.md) (`profinity-component-pack`) and the `Profinity.Sdk` package.
 The package on its own does not create or run a script.
+
 The SDK is licensed separately.
 Refer to [Licensing](../../Licensing.md).
 For a copy of the SDK, [contact Prohelion](https://www.prohelion.com/contact-us/).
@@ -67,6 +69,7 @@ With no arguments, `profinity-script` runs `sim` in the current directory.
 The simulator reads `sim.yaml`, which sits next to the script, runs the script, and prints the lines the script writes to the console.
 A script that only stores a tag or a setting prints nothing, and the run has still worked when the command exits cleanly.
 Add `Profinity.Console.WriteLine` to see a stored value.
+
 The command does not print tags, settings, notifications, or CAN frames on its own.
 To run a tag-change, receiver, service, alert, firmware-load, or prompt script, create it from the matching template and edit `sim.yaml`.
 Refer to [profinity-script reference](./Profinity_Script_Reference.md) for the templates and every `sim.yaml` key.
@@ -77,9 +80,12 @@ When the console lines are right, copy the script file into the profile.
 Leave `sim.yaml` on the developer machine.
 Profinity runs the copied file.
 
-1. Add a script component as described in [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
+1. If the component already holds a script with the same file name, copy that file to a folder outside the profile.
+   The file sits in the folder named after the component, in the `components` folder of the profile.
+   Saving replaces the file in place, so this copy is how you restore the earlier script.
+2. Add a script component as described in [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
    A script that belongs to a [Custom Component](../Custom_Components/index.md) goes in that component, under the name the component already uses.
-2. Review the script before it is enabled.
+3. Review the script before it is enabled.
    A script in a profile runs with the same operating system permissions as Profinity.
 
 For what a script can do in a profile, refer to [Profinity Scripting](../Scripting/index.md).

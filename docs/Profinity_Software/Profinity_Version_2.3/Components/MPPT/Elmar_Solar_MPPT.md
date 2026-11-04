@@ -10,6 +10,7 @@ last_reviewed: 2026-10-15
 
 Profinity monitors the Elmar Solar Maximum Power Point Tracker (MPPT) Series A and B.
 They use the CAN database (DBC) file described in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md) documentation.
+
 Elmar Solar makes MPPTs that optimise the output of solar arrays.
 The Elmar range distributed by Prohelion consists of the Elmar 3A MPPT, the Elmar Race MPPT and the Elmar Best MPPT.
 The [Solar Charge Controllers by Elmar](../../../../Solar_Charge_Controllers/index.md) documentation describes them.
@@ -22,14 +23,14 @@ The **Change Settings** button on the MPPT dashboard changes these details later
 
 | Parameter | Description | Default |
 |---|---|---|
-| **Name** | The name of the component. Must be unique. | The component name |
+| **Name** | The name of the component. Must be unique. | Elmar Solar MPPT |
 | **Milliseconds Valid** | The timeout of the device in milliseconds, from 1 to 60000, or -1 for no timeout. | 5000 |
 | **Base Address** | The CAN address of the MPPT, as described in the Elmar MPPT DBC. | `0x300` |
 
 If the network receives no traffic from the device within the **Milliseconds Valid** time, Profinity treats the connection as lost.
 
 Once the MPPT is added to the Profile, the Elmar Solar MPPT dashboard is available in the sidebar.
-The dashboard displays input and output voltage graphs, error status indicators and, under the **MORE DETAILS** banner, temperature readings.
+The dashboard displays graphs of input voltage and output power, error status indicators and, under the **MORE DETAILS** banner, temperature readings.
 
 <figure markdown>
 ```mermaid
@@ -92,3 +93,21 @@ Expand the **MORE DETAILS** banner to see these readings:
 - The auxiliary 12 V and 3 V supply and battery-side output voltages.
 
 The state of a connected battery is described on the [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU/index.md) page.
+
+## Example
+
+This example is for illustration.
+It adds a second Elmar Solar MPPT to a profile, with the CAN base address `0x6A0` (1696 in decimal).
+Add it under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: ElmarMPPT
+    id: ElmarMPPT2
+    name: Elmar Solar MPPT - 6A0
+    tagTreeParentPath: /
+    milliValid: 5000
+    baseAddress: 1696
+```
+
+Use a different `id` and **Base Address** for each MPPT in the profile.

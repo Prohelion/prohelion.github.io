@@ -11,6 +11,7 @@ last_reviewed: 2026-10-20
 The `profinity-component-pack` command-line interface (CLI) tool ships as part of the [Profinity SDK](index.md) download, not with the engine install itself.
 It validates [Custom Components](../Custom_Components/index.md) file bundles (YAML, scripts, and maps), packs them as a `.zip` or a `.nupkg`, and installs that package into a profile.
 It does not handle DLL plugins, which are installed through **Components & Plugins** (refer to [Developing Plugins](Developing_Plugins.md)).
+
 `component_metadata.yaml` names the pack in the catalogue and binds the files in the folder.
 Refer to [Component metadata](../Custom_Components/Component_Metadata.md).
 The tool runs from the `profinity-component-pack` subfolder of the SDK download.
@@ -48,6 +49,7 @@ The first positional argument can replace `--component-dir` (or `--package` for 
 `validate` and `pack` require `component_metadata.yaml`, `settings_map.yaml`, `firmware_map.yaml` and `actions.yaml` in the component folder, and report `Missing required file:` followed by the name when one is absent.
 The `name` in `component_metadata.yaml` must be usable as a folder name.
 Otherwise the tool reports `Component name is not a valid folder name`.
+
 A `.nupkg` also needs a valid semantic `pluginVersion` and a non-empty `author`.
 Messages from `actions.yaml` that name a menu entry, such as an unsupported `kind`, are described on [Menu actions](../Custom_Components/Menu_Actions.md).
 
@@ -56,7 +58,10 @@ Messages from `actions.yaml` that name a menu entry, such as an unsupported `kin
 Use the tool when the same Custom Component is installed on more than one system.
 An example is a continuous integration (CI) pipeline that produces versioned bundles for field engineers.
 An administrator then uploads one `.nupkg` in **Components & Plugins** instead of copying files into each profile by hand.
+
 Refer to [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md).
-The tool does not pack DLL plugins. [Developing Plugins](Developing_Plugins.md) describes what a plugin is.
-A dashboard-only component can be copied through profile administration without a pack step.
+The tool does not pack DLL plugins.
+[Developing Plugins](Developing_Plugins.md) describes what a plugin is.
+
+A dashboard-only component can be copied through profile administration, skipping the pack step.
 [Custom Components](../Custom_Components/index.md) compares Custom Components with Dashboard Components and DLL plugins.

@@ -46,6 +46,7 @@ The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only
 You can keep a large set of styles in further files in the same folder, for example `custom-dashboard.css`.
 `profile.css` loads them with a CSS `@import` rule.
 The web interface loads only `profile.css`.
+
 The HTML sanitiser, which cleans HTML content before Profinity displays it, removes `link` elements from the `content` of an [HTML component](../Customising_Profinity/Dashboards/Component_Reference/Content/HTML.md).
 A dashboard therefore cannot link a stylesheet, so import it from `profile.css`:
 
@@ -79,7 +80,7 @@ The web interface loads `profile.css` when the page opens.
 
 If a class has no effect, check these causes:
 
-- The stylesheet is not named `profile.css`, or `profile.css` does not import it.
+- The stylesheet is named differently from `profile.css`, or `profile.css` lacks an import for it.
 - The class name in the dashboard differs from the CSS in spelling or case.
 - The class is on an element that does not use it, such as a `readout` item.
 

@@ -76,11 +76,57 @@ The remaining settings are the same on both historians.
 | **Allow Retrieval** | On | Allows data to be retrieved through this historian using the APIs. |
 | **Designated tag historian reader** | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only, and only while **Allow Retrieval** is on. Refer to [Designated historian](Designated_Historian.md). |
 
+## Example
+
+These examples are historian entries in the `profile.yaml` file of a profile.
+The first is an InfluxDB v2 Historian.
+
+```yaml
+components:
+- component:
+    type: InfluxDbHistorianV2
+    id: InfluxDbHistorianV21
+    name: InfluxDB v2 Historian
+    tagTreeParentPath: /
+    url: http://localhost:8086/
+    bucket: YOUR_BUCKET
+    organisation: YOUR_ORGANISATION
+    token: YOUR_INFLUXDB_TOKEN
+    intervalSec: 10
+    logType: Snapshot
+    allowRetrieval: true
+    collections:
+    - collectionName: YOUR_COLLECTION_ID
+```
+
+The second is an InfluxDB v3 Historian, which takes a database in place of a bucket and an organisation.
+
+```yaml
+components:
+- component:
+    type: InfluxDbHistorianV3
+    id: InfluxDbHistorianV31
+    name: InfluxDB v3 Historian
+    tagTreeParentPath: /
+    url: http://localhost:8086/
+    database: YOUR_DATABASE
+    token: YOUR_INFLUXDB_TOKEN
+    intervalSec: 10
+    logType: Snapshot
+    collections:
+    - collectionName: YOUR_COLLECTION_ID
+```
+
+Replace `YOUR_BUCKET`, `YOUR_ORGANISATION` and `YOUR_DATABASE` with the names in your InfluxDB server.
+Replace `YOUR_INFLUXDB_TOKEN` with your InfluxDB token, which Profinity stores encrypted.
+Replace `YOUR_COLLECTION_ID` with the id of a tag collection in the profile.
+
 ## What is stored
 
 Every sample is written with its quality in a `quality` field.
 A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale.
 A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`.
+
 A chart can then show the gap instead of an invented reading.
 Only tags that hold a number are written, and a query for readings should ask for the `value` field.
 

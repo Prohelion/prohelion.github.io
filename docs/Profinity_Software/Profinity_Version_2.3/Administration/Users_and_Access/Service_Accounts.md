@@ -18,13 +18,18 @@ Treat the token like a password, store it in a secrets manager, and give the acc
 
 ## Creating a service account
 
+!!! danger "Generating a token stops the old one working"
+    **Generate Token** issues a new token, and the previous token stops working immediately.
+    On an account that already has a token, select **View Token** on the **User Actions** tab and copy the current token before you generate a new one.
+    Every integration that uses the old token fails until you update it with the new one, so plan to update the integration straight after you generate the token.
+
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select **Add user**, or select an existing automation user.
 3. Switch on **Service Account**.
 4. Assign the roles the account needs under **Assigned roles**, and save.
 5. Select the user's row to open its settings dialog.
 6. Select the **User Actions** tab.
-7. Select **Generate Token**. The bearer token appears in a dialog.
+7. Select **Generate Token**, then confirm. The bearer token appears in a dialog. Copy it into a secrets manager.
 
 On an account that already has a token, **View Token** also appears and displays the current token again.
 
@@ -32,11 +37,6 @@ On an account that already has a token, **View Token** also appears and displays
 ![The Service Account Token dialog over the User Actions tab, with the token text hidden and a Close button](../../images/service-account-token-dialog.png)
 <figcaption>Service account token dialog</figcaption>
 </figure>
-
-!!! danger "Generating a token stops the old one working"
-    **Generate Token** issues a new token, and the previous token stops working immediately.
-    Every integration that uses the old token fails until you update it with the new one.
-    Copy the token into a secrets manager when it is shown, so that it is available to configure the integration.
 
 ## Permissions
 

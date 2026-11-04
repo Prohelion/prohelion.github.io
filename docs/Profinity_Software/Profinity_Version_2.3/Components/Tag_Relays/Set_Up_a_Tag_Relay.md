@@ -11,6 +11,7 @@ last_reviewed: 2026-10-15
 This page sets up a first Tag Relay, so that tags on a sending Profinity instance appear on a receiving instance.
 The relay uses one of two protocols: HTTPS or Message Queuing Telemetry Transport (MQTT).
 The HTTPS procedure comes first, and the MQTT procedure follows it.
+
 Both components require the **Data Relay** licensed feature on the instance they run on, as described in [Licensing](../../Licensing.md).
 The HTTPS protocol also needs a user with the **Receive external tags** permission on the receiving instance.
 

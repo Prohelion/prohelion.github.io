@@ -89,7 +89,8 @@ An app sees only the variables that were set before it started, so set the varia
     ```
 
 Replace `<token>` with the service account token.
-After you generate a new token, set the variable again and restart the AI tool.
+After you generate a new token, set the variable again and restart Cursor or Codex.
+Claude Code keeps its own copy of the token, so remove its server and add it again, as described in [Connect Claude Code to Profinity](Connect_Claude_Code.md#add-the-server).
 
 ## Choose the MCP server address
 
@@ -118,9 +119,10 @@ Refer to [Profinity Web](../../Administration/System_Configuration/Profinity_Web
 
     Replace `<host>` with the host name or network address of the computer that runs Profinity.
     It has to be one of the names on the certificate, and the port has to be open through any firewall between the two computers.
-    Without a Server licence, Profinity listens only on `127.0.0.1`, so only a tool on the same computer can connect.
+    Until a Server licence is applied, Profinity listens only on `127.0.0.1`, so only a tool on the same computer can connect.
 
 For an HTTPS address, [trust the HTTPS certificate](Trust_HTTPS_Certificate.md) on the computer that runs the AI tool before you continue.
+When Profinity runs on another computer, copy `profinity_generated.pfx` from its `certificates` folder to the computer that runs the AI tool first, as that page describes.
 
 ## Check the server answers
 
@@ -135,10 +137,10 @@ Opening the address in a browser does not test the server, so use the command fo
     curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" http://localhost:18080/api/v2/Ai/Mcp
     ```
 
-    For the HTTPS address, run this command with the certificate you exported:
+    For the HTTPS address, run this command after you trust the certificate, so that it tests the operating system trust:
 
     ```bash
-    curl -s -o /dev/null -w "%{http_code}\n" --cacert "$HOME/profinity.pem" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
+    curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
 === "Windows"

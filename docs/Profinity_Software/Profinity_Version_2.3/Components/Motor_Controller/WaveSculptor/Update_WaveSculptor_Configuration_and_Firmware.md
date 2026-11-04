@@ -30,8 +30,10 @@ The factory default CAN bus data rate for all Prohelion devices is 500 kbit/s.
 1. Open the settings of the WaveSculptor component and select the **Firmware Utilities** tab.
 2. Select **Setup and Config**.
    Profinity runs three steps in order, and stops if one fails: **Check Suitable Available Network** checks that a suitable network is available, **Set Active** sets the WaveSculptor as the active device over a TCP connection, and **Run WaveSculptor Config** launches the Tritium wsConfig program.
-3. In wsConfig, set the CAN bus data rate and base address of the WaveSculptor.
-4. Set the CAN adapter in the Profile to the same data rate as the WaveSculptor.
+3. In wsConfig, use the **File** menu to save the current configuration of the WaveSculptor to the PC, as described in [Configuration](../../../../../Motor_Controllers/Config_Software/Configuration.md).
+   Profinity keeps no copy of the configuration, so this file is the way back.
+4. In wsConfig, set the CAN bus data rate and base address of the WaveSculptor.
+5. Set the CAN adapter in the Profile to the same data rate as the WaveSculptor.
 
 <figure markdown>
 ![Firmware Utilities tab with the Setup and Config button for configuring a WaveSculptor](../../../images/configure_wavesculptor.png)
@@ -51,6 +53,7 @@ The procedure for [setting up a motor](../../../../../Motor_Controllers/Config_S
 
 Flash the firmware once the configuration has been updated.
 It needs the same Windows desktop instance and the same CAN to Ethernet bridge or Virtual CAN Adapter as the configuration tool.
+A flash replaces the firmware on the WaveSculptor and cannot be undone from Profinity, so save the configuration to the PC first, as in step 3 of the configuration procedure.
 
 1. Select the **Firmware Utilities** tab in the settings.
 2. Select **Update Firmware**.

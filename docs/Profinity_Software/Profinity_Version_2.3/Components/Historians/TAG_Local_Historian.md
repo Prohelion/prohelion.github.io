@@ -54,9 +54,7 @@ Profinity creates the SQLite file under the site `tag_history/` directory when t
 Once it is running, its status shows **On**, and rows appear after the first **Update Interval (Seconds)**.
 If a write fails, its status shows **Error** until a write succeeds.
 
-## Settings
-
-### Logger settings
+## Logger settings
 
 | Setting | Default | Purpose |
 |---|---|---|
@@ -65,12 +63,33 @@ If a write fails, its status shows **Error** until a write succeeds.
 | **Auto Connect** | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **Update Interval (Seconds)** | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 
-### Data storage
+## Data storage
 
 | Setting | Default | Purpose |
 |---|---|---|
 | **Retention (days)** | 30 | Deletes stored samples older than this many days after each successful write interval. |
 | **Designated tag historian reader** | On | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Designated historian](Designated_Historian.md). |
+
+## Example
+
+This example is a TAG Local Historian entry in the `profile.yaml` file of a profile.
+
+```yaml
+components:
+- component:
+    type: TagLocalHistorian
+    id: TagLocalHistorian1
+    name: TAG Local Historian
+    tagTreeParentPath: /
+    intervalSec: 10
+    logType: Snapshot
+    retentionDays: 30
+    designatedTagDataStore: true
+    collections:
+    - collectionName: YOUR_COLLECTION_ID
+```
+
+Replace `YOUR_COLLECTION_ID` with the id of a tag collection in the profile.
 
 ## Where the database is stored
 

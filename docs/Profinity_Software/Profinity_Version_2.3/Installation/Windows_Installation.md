@@ -44,12 +44,13 @@ If the browser cannot reach the address, check that Profinity is running and tha
 
 ## Remote access and user accounts
 
-Without a Server licence, the desktop application binds its web interface to the local machine (`127.0.0.1`) on TCP port 18080 by default, whatever address is set in System Configuration.
+Until a Server licence is applied, the desktop application binds its web interface to the local machine (`127.0.0.1`) on TCP port 18080 by default, whatever address is set in System Configuration.
 Other machines cannot open the web interface.
 The installer adds Windows Firewall exceptions for ports 4876 (TCP and UDP) and 42000 (UDP).
 
 A Server licence changes this.
 Profinity then uses the address set in System Configuration, so other machines can open the web interface and sign in with their own accounts.
+
 A Desktop licence leaves this out, and a Desktop host skips the 14-day local trial.
 To apply a Server licence, refer to [Apply a licence](./Applying_a_Licence.md), and restart Profinity so that the new address takes effect.
 For the accounts that exist with and without a Server licence, refer to [Who can sign in, by installation type](./Applying_a_Licence.md#who-can-sign-in).

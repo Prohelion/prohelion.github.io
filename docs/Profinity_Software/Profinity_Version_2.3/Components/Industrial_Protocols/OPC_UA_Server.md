@@ -28,14 +28,30 @@ You can change the settings in the Settings section later from the component's *
 
 ## Settings
 
-| Setting | Description |
-|---|---|
-| **Name** | The name of the component. Must be unique within the profile. |
-| **Bind URL** | The endpoint address that the server listens on, and the address clients connect to. Required, and must start with `opc.tcp://`. The default is `opc.tcp://127.0.0.1:4840/Profinity`, which accepts clients on this computer only. |
-| **Auto Connect** | Starts the server automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
-| **Trust all client certificates** | Skips validation of connecting clients' certificates. Off by default. Turn it on only on a trusted network. |
+| Setting | Default | Description |
+|---|---|---|
+| **Name** | `OPC UA Server` | The name of the component. Must be unique within the profile. |
+| **Bind URL** | `opc.tcp://127.0.0.1:4840/Profinity` | The endpoint address that the server listens on, and the address clients connect to. Required, and must start with `opc.tcp://`. The default accepts clients on this computer only. |
+| **Auto Connect** | Off | Starts the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Trust all client certificates** | Off | Skips validation of connecting clients' certificates. Turn it on only on a trusted network. |
 
 For where the server keeps its certificates and how to trust one explicitly, refer to [OPC UA certificates](OPC_UA_Certificates.md).
+
+## Example
+
+This example is for illustration only.
+Add it under `Components` in the profile file, and replace `SERVER_HOST` with an IP address of the Profinity computer that your OPC UA clients can reach.
+
+```yaml
+Components:
+  Plant OPC UA Server:
+    Type: OpcUaServer
+    BindUrl: opc.tcp://SERVER_HOST:4840/Profinity
+    AutoConnect: true
+    TrustAllClientCertificates: false
+```
+
+Clients then connect to the **Bind URL** and read tags at `ns=2;s=` followed by the full tag ID.
 
 ## What the server exposes
 
@@ -67,6 +83,7 @@ A **Bind URL** with a host of `0.0.0.0` or `localhost` is treated in the same wa
 
 The component has a dashboard showing its **STATUS**, whether it is **LISTENING**, and the number of client requests **RECEIVED** and responses **SENT** since the server last started listening.
 To check that the server works, look for the status **Listening** and **LISTENING** true.
+
 Then connect a client to the **Bind URL** and browse **Objects > Profinity**, which is the `Profinity` folder with NodeId `ns=2;s=Profinity`.
 Read a tag at `ns=2;s=` followed by its full tag ID.
 Viewing the dashboard requires the **Security administration** permission, described under [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).

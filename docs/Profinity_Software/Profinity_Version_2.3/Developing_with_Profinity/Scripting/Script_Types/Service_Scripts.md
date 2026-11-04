@@ -18,10 +18,10 @@ A [Custom Component](../../Custom_Components/index.md) main script is a service 
 
 ## Settings
 
-| Setting | Description |
-|---------|-------------|
-| **Auto Start Script** | When on, the service starts by itself. |
-| **Maximum Run Time (seconds)** | Cancels a run that takes too long. |
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Auto Start Script** | Off | When on, the service starts by itself. |
+| **Maximum Run Time (seconds)** | None | Cancels a run that takes too long. Leaving it blank sets no limit. |
 
 <figure markdown>
 ![The script editor for a Python Service script, showing the Python service template with the on_start and on_stop functions](../../../images/python_service_script.png)
@@ -170,6 +170,7 @@ Long-running work in `Run()` or `run()` observes `Profinity.ScriptCancelled`, so
 `Profinity.ScriptCancelled` becomes `true` when the service is stopped or paused, or when Profinity is shutting down.
 A `run()` function with its own `while` loop tests `not Profinity.ScriptCancelled` (or `!Profinity.ScriptCancelled` in C#) in the loop condition, and may break out before slow steps.
 When the service is paused, cancellation is signalled so an inner loop can finish, and when the service continues Profinity calls `run()` again.
+
 In Python, the service body uses `import time` for `time.sleep`.
 In C#, `Thread.Sleep` needs `using System.Threading;`.
 In Lua, the `sleep(seconds)` global is limited to 30 seconds per call, so a longer wait is written as repeated calls.

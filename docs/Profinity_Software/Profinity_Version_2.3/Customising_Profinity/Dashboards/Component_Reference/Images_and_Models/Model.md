@@ -11,6 +11,7 @@ last_reviewed: 2026-10-14
 A model component is an interactive three-dimensional view that loads one or more 3D model files from the `/Profile/Models` directory.
 The user orbits and zooms the view.
 The component overlays regions, icons, buttons, data values, points, and annotation lines at positions in the space of the model.
+
 It is the three-dimensional counterpart of the [Image](Image.md) component, and uses the same overlay structure.
 The action invocation, layer, icon source, display type and annotation line parameters are shared with the [Image](Image.md) component.
 They are described on [Overlay elements](Overlay_Elements.md).
@@ -52,7 +53,10 @@ A model that uses external textures needs those texture files stored beside the 
 ### Coordinates
 
 Every overlay position is given as `x`, `y` and `z` in model space, which uses the same units and axes as the loaded model files.
-Each coordinate is a plain number, and a missing or non-numeric coordinate is read as `0`.
+Each coordinate is a plain number.
+Supply `x`, `y` and `z` on every overlay element, because a dashboard is saved only when each element has them.
+In a dashboard file that is already stored, a missing or non-numeric coordinate is read as `0`.
+
 Positions are not percentages, which is the difference from an [Image](Image.md) component.
 Multiple models share the same space.
 The `size` of an icon is the only measurement in pixels.

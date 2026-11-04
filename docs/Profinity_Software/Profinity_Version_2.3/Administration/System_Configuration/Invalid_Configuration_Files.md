@@ -38,6 +38,7 @@ Refer to the [breaking changes](../../Release_Notes/Breaking_Changes_2_3.md) for
 
 Profinity writes one line to the log for each skipped item, with the name of the item and the reason.
 The rules, collections, and derived tags editors show the same list.
+
 Each skipped item has a red **Invalid** marker, and the reason appears when you point at it.
 A key that is not inside any item appears in a banner instead of on an item.
 The file itself is not changed when it loads.
@@ -52,6 +53,7 @@ If the whole file cannot be read, the editor tells you so and shows a message in
 If the saved menu layout is not valid, Profinity ignores the whole layout and shows every component in its default group.
 A layout is not valid when it has a mistake such as a misspelt key, the same component listed twice, or an icon in an unsupported form.
 Profinity writes one message to the log that names the problem, and the profile file is not changed.
+
 The **Menu Layout** editor shows a notice that gives the reasons.
 Saving from the editor replaces the ignored layout.
 Refer to [Menu Layout](../Menu_Layout.md).
@@ -61,6 +63,7 @@ Refer to [Menu Layout](../Menu_Layout.md).
 A profile is invalid when it has an unrecognised key at its own level, such as a misspelt setting name, or when it cannot be read as YAML.
 Profinity checks the profile when it starts.
 If the profile is invalid, Profinity creates a new default profile and makes it the active profile, and the log names the profile and the reason.
+
 The invalid profile file stays unchanged, so everything in it is kept.
 To go back to it, correct the key that the log names, then select the profile again in the **Profile** pill on the **ADMIN** page, as described in [Manage profiles](../Manage_Profiles.md).
 If the profile named in `config.yaml` does not exist, as on a new installation, Profinity also creates a default profile, and the log says that no profile of that name was found.
@@ -85,28 +88,32 @@ A settings file is invalid when any of these is true:
 - The file has a key that Profinity does not define, such as a misspelt setting name.
 - The file refers to an environment variable, such as `${PROFINITY_ADMIN_USERNAME}`, that is not set.
 
-Keys that earlier releases wrote and Profinity 2.3 no longer uses are ignored, so a `config.yaml` that 2.2 wrote still starts.
+Profinity ignores the keys that 2.2 wrote to `config.yaml` and that 2.3 dropped, such as `mcp`, `enableScripting`, `urls` and `webSite`, so a `config.yaml` that 2.2 wrote still starts.
+Any other key that Profinity 2.3 does not define still makes the file invalid.
 
 ## Recover when Profinity will not start
 
 The message appears in the console, in the Windows desktop start-up dialog, and in the log.
 It names the file and the reason.
 
+!!! warning "Resetting security.yaml removes users and keys"
+    Deleting `security.yaml` resets security.
+    All users, roles, and keys are reset, and Profinity creates the default **admin** account, which must change its password at first sign-in.
+    Values that were encrypted under the old key, such as the AI key and two-factor secrets, become unreadable and must be entered again.
+    Restore the safety copy first if you have one.
+
 1. Open the file named in the message and fix the problem it reports. If it names a key, correct or remove that key.
-2. If you cannot fix the file, restore the last good copy by copying `<file>.bak` over it. For example, copy `config.yaml.bak` over `config.yaml`.
-3. If neither works, delete the file to reset it. Profinity creates the default on the next start.
+2. If you cannot fix the file, copy it to a safe place so that its content is kept.
+   Then restore the last good copy by copying `<file>.bak` over it.
+   For example, copy `config.yaml.bak` over `config.yaml`.
+3. If both fail, copy the file to a safe place if you have not already, then delete it to reset it.
+   Profinity creates the default on the next start.
 4. Start Profinity again.
 
 If the message names an environment variable, set the variable and start again.
 The file itself is intact, so do not delete it.
 
 If the message says the file could not be read, check the file permissions for the account that runs Profinity.
-
-!!! warning "Resetting security.yaml removes users and keys"
-    Deleting `security.yaml` resets security.
-    All users, roles, and keys are reset, and Profinity creates the default **admin** account, which must change its password at first sign-in.
-    Values that were encrypted under the old key, such as the AI key and two-factor secrets, become unreadable and must be entered again.
-    Restore the safety copy first if you have one.
 
 Resetting `config.yaml` returns every setting to its default.
 

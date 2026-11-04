@@ -35,10 +35,10 @@ To restrict a component or a collection, follow [Restrict a component or collect
 
 Each component and each collection carries its own security policy, made up of two fields.
 
-| Field | Description |
-|-------|-------------|
-| **Mode** | **All** (the default) shows the resource to every user with the underlying view permission. **Restricted** shows it only to users with one of the **Allowed roles**. |
-| **Allowed roles** | The roles permitted to see the resource when **Mode** is **Restricted**. A user needs only one of them. The list is ignored when **Mode** is **All**. |
+| Field | Description | Default |
+|-------|-------------|---------|
+| **Mode** | **All** shows the resource to every user with the underlying view permission. **Restricted** shows it only to users with one of the **Allowed roles**. | **All** |
+| **Allowed roles** | The roles permitted to see the resource when **Mode** is **Restricted**. A user needs only one of them. The list is ignored when **Mode** is **All**. | Empty |
 
 A component or collection with no security policy behaves as **Mode** **All**.
 
@@ -84,6 +84,7 @@ Look for an empty or fully unresolved **Allowed roles** list before you look for
 Role and user definitions are specific to a site, but security grants travel with the profile pack.
 A profile pack built on a different site can therefore name a role that does not exist locally.
 A user with **Security administration** sees these names as unresolved, read-only entries in the **Security** tab or panel, with helper text naming the missing role.
+
 Uploading a profile pack with unresolved grants also shows a summary warning.
 An unresolved role name never grants access, so remove it or replace it with a role that exists on the site.
 Profile packs are described in [Profiles](../../Profiles.md).

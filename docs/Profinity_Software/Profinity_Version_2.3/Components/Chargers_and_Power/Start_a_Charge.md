@@ -43,7 +43,7 @@ To start a charge, follow these steps.
 5. Check that the charge has started.
    The message in the panel shows **Charging Status** with the charging current and voltage, for example "Charging at 5.0A • 280.4V • On".
    The **DC OUTPUT** lamp is green and the message ends with On, and the **Charge Current (Amps)** chart rises above zero.
-   If the message stays on **Ready** or **START** returns, refer to [Charging troubleshooting](Charging_Troubleshooting.md).
+   If the message stays on **Ready** or **START** returns, the charge has not started.
 
 Selecting **START** engages the pack itself, so there is no separate step to close the contactors.
 Profinity runs these stages in order:
@@ -58,5 +58,3 @@ Selecting **STOP** stops the charger and disengages the pack.
 
 Set the supply and charge limits before a first charge, because a **Supply Current Limit** higher than the rating of the wall circuit can overload that circuit.
 Refer to [Charger settings](Charger_Settings.md) for the limits and the risks of setting them wrongly.
-
-If a charge does not start, refer to [Charging troubleshooting](Charging_Troubleshooting.md).

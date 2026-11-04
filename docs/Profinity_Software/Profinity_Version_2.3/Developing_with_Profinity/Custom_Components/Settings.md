@@ -11,10 +11,12 @@ last_reviewed: 2026-10-20
 `settings_map.yaml` adds extra fields to the settings dialog of a [Custom Component](index.md).
 Each *section* is drawn as a tab, each *category* as a headed group on that tab, and each *field* as a control in that group.
 The upload field is **Settings Map YAML file (Optional)**.
+
 Refer to [Custom Component files](Files.md).
 The file must contain at least one field.
 A map with no fields fails with `Settings map contains no field definitions.`
 The [Component Pack CLI](../SDK/Component_Pack_CLI.md) (`profinity-component-pack validate`) reports the same failure as `Failed to parse settings_map.yaml:` followed by that message.
+
 A script reads a saved value with `Profinity.ComponentSettings` and the field identifier, such as `comPort`.
 Refer to [Component and firmware settings](../Scripting/Script_Operations/Settings.md).
 Firmware fields use this same layout in `firmware_map.yaml`.
@@ -69,6 +71,7 @@ sections:
 
 `COM1` is an example port name.
 Replace it with the port on the machine that runs Profinity.
+
 That file adds a **Communications** tab.
 **Serial Settings** heads **COM Port** and **Baud Rate**.
 **CAN Export** heads **Publish Telemetry To CAN** and **CAN Export Message ID**.

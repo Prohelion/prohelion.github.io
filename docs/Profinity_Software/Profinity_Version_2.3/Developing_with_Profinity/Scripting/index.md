@@ -69,8 +69,8 @@ For more detail on each, refer to [Supported operations](./Script_Operations/ind
 
 ## Next steps
 
-To write and test a script on a developer machine before it is copied into a profile, refer to [Test a script outside Profinity](../SDK/Test_a_Script.md).
-To choose a language, refer to [Supported Languages](./Supported_Languages/index.md).
-To choose a script style, refer to [Script types](./Script_Types/index.md).
-For what a script can do, refer to [Supported operations](./Script_Operations/index.md).
-To build a first script, refer to [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
+- To write and test a script on a developer machine before it is copied into a profile, refer to [Test a script outside Profinity](../SDK/Test_a_Script.md).
+- To choose a language, refer to [Supported Languages](./Supported_Languages/index.md).
+- To choose a script style, refer to [Script types](./Script_Types/index.md).
+- For what a script can do, refer to [Supported operations](./Script_Operations/index.md).
+- To build a first script, refer to [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).

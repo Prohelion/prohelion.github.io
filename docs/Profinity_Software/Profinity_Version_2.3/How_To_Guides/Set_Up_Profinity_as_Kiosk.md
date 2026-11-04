@@ -118,16 +118,10 @@ A kiosk session expires under the normal token expiry policy, and [Kiosk Mode](.
 
 ## Troubleshooting
 
-### The browser does not start
+| What you see | Cause | What to do |
+|---|---|---|
+| The browser does not open after a restart. | The browser usually starts before Profinity or before the display is ready. | Check the startup order and service dependencies so that the browser starts after Profinity. To run Profinity as a service, refer to [Run Profinity as a service](../Installation/Run_as_a_Service/index.md). |
+| The login page is shown, or the display shows the wrong profile. | The Kiosk Mode page describes the causes. | Refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#troubleshooting). |
+| The display is blank, cropped, or slow. | The display resolution settings, or a dashboard that is too complex for the machine, usually cause this. | Check the display configuration and resolution settings. Monitor system resources, and simplify the dashboard. |
 
-A browser that does not open after a restart usually starts before Profinity or before the display is ready.
-Check the startup order and service dependencies so that the browser starts after Profinity.
-To run Profinity as a service, refer to [Run Profinity as a service](../Installation/Run_as_a_Service/index.md).
-
-If the login page is shown, or the display shows the wrong profile, refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#troubleshooting).
-
-### The display or performance is poor
-
-A blank, cropped, or slow display usually comes from the display resolution settings or a dashboard that is too complex for the machine.
-Check the display configuration and resolution settings.
-Monitor system resources, and simplify the dashboard.
+To choose the kiosk user and manage its token, refer to [Kiosk Mode](../Administration/Kiosk_Mode.md).

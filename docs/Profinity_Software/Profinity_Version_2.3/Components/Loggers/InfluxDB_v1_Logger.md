@@ -31,6 +31,7 @@ flowchart LR
 [InfluxDB](https://www.influxdata.com) both stores and visualises data.
 InfluxDB v1, v2 and v3 are separate products with different APIs, authentication methods and configuration requirements.
 Using the wrong component type results in connection failures, so check the version of your InfluxDB server before you add a component to a [profile](../../Getting_Started/Profiles.md).
+
 For InfluxDB v2 and v3, use the **InfluxDB v2 Historian** or the **InfluxDB v3 Historian**, documented in [InfluxDB historians](../Historians/InfluxDB_Historians.md).
 The [Loggers](index.md) page compares this logger with the others.
 
@@ -55,11 +56,39 @@ Nothing is logged until you select at least one tag collection.
 | **Logging mode** | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
+## Example
+
+This example shows an InfluxDB v1 Logger in the `components` list of the `profile.yaml` file in the profile folder.
+Refer to [Profile folders](../../Administration/Profile_Folders.md) for where that file sits.
+It is an example only, so replace the placeholders with your own values.
+
+```yaml
+components:
+- component:
+    type: InfluxDbLoggerV1
+    id: InfluxDbLoggerV11
+    name: InfluxDB v1 Logger
+    tagTreeParentPath: /
+    bucket: YOUR_DATABASE
+    url: http://localhost:8086/
+    retentionPolicy: autogen
+    healthCheck: true
+    intervalSec: 10
+    logType: Snapshot
+    collections:
+    - collectionName: YOUR_COLLECTION_ID
+```
+
+`YOUR_DATABASE` is the InfluxDB database that the data is stored in.
+`YOUR_COLLECTION_ID` is the id of a tag collection in the profile.
+The example leaves the username and password out, which suits an unsecured InfluxDB connection.
+
 ## What is stored
 
 Every sample is written with its quality in a `quality` field.
 A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale.
 A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`.
+
 A chart can then show the gap instead of an invented reading.
 Only tags that hold a number are written, and a query for readings should ask for the `value` field.
 

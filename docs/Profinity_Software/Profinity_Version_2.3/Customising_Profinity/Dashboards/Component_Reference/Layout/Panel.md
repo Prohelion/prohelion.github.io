@@ -53,7 +53,7 @@ Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) c
 
 ## Example
 
-### Basic example
+This example places two readouts in a panel with an automatic height.
 
 ``` yaml
 dashboard:
@@ -79,8 +79,6 @@ dashboard:
                                 unit: "°C"
                                 precision: 1
 ```
-
-### Height variations
 
 Panels support different height configurations for flexible layouts.
 
@@ -123,8 +121,6 @@ dashboard:
                                 value: 42
 ```
 
-### Width example
-
 Panels also support explicit width values to control horizontal sizing within layouts.
 
 ``` yaml
@@ -152,8 +148,6 @@ dashboard:
                       - html:
                           content: "<p>Fixed width content area</p>"
 ```
-
-### Complex nested structures
 
 Panels can contain complex nested component structures, in which a `group` holds the components that the panel does not accept directly.
 
@@ -219,7 +213,8 @@ dashboard:
                                           toType: boolean
 ```
 
-### Complete example
+This example sets a sunken panel with a body height of 60vh and a minimum height of 200px.
+It holds lamps, a readout and a chart.
 
 ``` yaml
 dashboard:

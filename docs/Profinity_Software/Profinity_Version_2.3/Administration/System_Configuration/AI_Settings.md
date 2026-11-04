@@ -34,17 +34,17 @@ An external AI provider (Claude, OpenAI, or OpenRouter) or a local, self-hosted 
 Select **ADMIN** in the side menu, then **System Configuration**.
 Find the **Profinity AI** category and set the fields in the following table.
 
-| Field | Description |
-|-------|-------------|
-| **Enable Profinity AI** | Turns the feature on for the instance. Enabling it also turns on the MCP server, since Profinity AI depends on it. |
-| **Provider** | **Claude**, **OpenAI**, **OpenRouter**, or **Local / self-hosted**. |
-| **Base URL** | Absolute `http(s)` URL of a local or self-hosted OpenAI-compatible endpoint, for example Ollama. Shown and required only when Provider is **Local**. |
-| **Model** | The model identifier to send to the provider. |
-| **API Key** | The provider's API key, stored encrypted and masked in the UI. Not shown or required when Provider is **Local**. |
-| **Enable web search** | Lets the assistant search the web as part of answering a question. Available for **Claude**, **OpenAI**, and **OpenRouter**; not available for **Local**. |
-| **Reasoning** | **Low**, **Medium** (default), or **High**. Higher settings can produce better answers at the cost of a longer response time. |
-| **Response timeout (seconds)** | 30 to 3600, default 300. Local and reasoning-heavy models often need several minutes to respond. |
-| **Enable MCP Server** | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically. It can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. Refer to [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md). |
+| Field | Default | Description |
+|-------|---------|-------------|
+| **Enable Profinity AI** | Off | Turns the feature on for the instance. Enabling it also turns on the MCP server, since Profinity AI depends on it. |
+| **Provider** | Claude | **Claude**, **OpenAI**, **OpenRouter**, or **Local / self-hosted**. |
+| **Base URL** | None | Absolute `http(s)` URL of a local or self-hosted OpenAI-compatible endpoint, for example Ollama. Shown and required only when Provider is **Local**. |
+| **Model** | None | The model identifier to send to the provider. |
+| **API Key** | None | The provider's API key, stored encrypted and masked in the UI. Not shown or required when Provider is **Local**. |
+| **Enable web search** | Off | Lets the assistant search the web as part of answering a question. Available for **Claude**, **OpenAI**, and **OpenRouter**; not available for **Local**. |
+| **Reasoning** | Medium | **Low**, **Medium**, or **High**. Higher settings can produce better answers at the cost of a longer response time. |
+| **Response timeout (seconds)** | 300 | 30 to 3600. Local and reasoning-heavy models often need several minutes to respond. |
+| **Enable MCP Server** | Off | Shown as its own "MCP Server" field group on this page. Enabling Profinity AI turns this on automatically. It can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. Refer to [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md). |
 
 Profinity rejects a save that leaves the configuration in an inconsistent state, according to these rules:
 
@@ -57,6 +57,7 @@ Profinity rejects a save that leaves the configuration in an inconsistent state,
 Profinity treats a configuration that passes these checks as ready to use.
 It does not make a live test call to the provider when you save the configuration.
 A valid-looking configuration with, for example, a revoked API key is flagged only once a user sends a chat message, and the chat then returns an error.
+
 When chat fails or times out, check the **API Key**, **Model**, and **Base URL**.
 Raise **Response timeout (seconds)** for slow models.
 

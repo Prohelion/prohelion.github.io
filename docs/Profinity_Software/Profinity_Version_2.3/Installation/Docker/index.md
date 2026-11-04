@@ -13,6 +13,7 @@ Prohelion publishes the Profinity image for `linux/amd64`, `linux/arm64`, and `l
 
 A container binds all network interfaces, so other machines can reach it.
 A new installation starts a one-time 14-day local trial with the Server features.
+
 When the trial ends, Profinity keeps answering on its published ports in [restricted mode](../../Licensing.md#when-a-licence-is-missing-or-has-expired), where only sign-in, the **License** page, and the logs work.
 Apply a licence file under **ADMIN > License**, as described in [Apply a licence](../Applying_a_Licence.md).
 For who can sign in, refer to [Who can sign in, by installation type](../Applying_a_Licence.md#who-can-sign-in).
@@ -111,8 +112,10 @@ After you sign in, the Profinity homepage appears.
 Docker does not expose all devices to containers.
 SocketCAN is the Linux kernel's CAN interface, which Profinity can read natively when it runs in Docker, as described in [CAN bus adapters](../../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md).
 To use the host's SocketCAN interfaces, run the container on the host network.
+
 On a Linux host, remove the `#` from the `network_mode: host` line in the `docker-compose.yml` file from the installation steps, then run `docker compose up -d` again.
 The container then sees the host's CAN interfaces, and components that use UDP broadcasting can be discovered.
+
 With host networking, Docker ignores the `ports` entries, because the container uses the host's ports directly.
 Host networking is also what [Profinity Mobile](../../Mobile/index.md) server discovery needs, because UDP broadcasts do not leave a Docker bridge network.
 

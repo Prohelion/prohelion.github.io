@@ -11,6 +11,7 @@ last_reviewed: 2026-10-14
 The CAN bus database (DBC) functionality in Profinity provides tools for reading signals defined in DBC files that are loaded by the components in a profile.
 These files define the structure of CAN messages, including signals, message IDs, and data formats.
 A script does not load or parse a DBC file itself.
+
 The component that owns the DBC file loads it, and the script looks up that component's signals by name through `Profinity.DBC`.
 The [DBC viewer](../../../CAN_Utilities/CAN_Bus_DBC.md) shows the Component, Message, and Signal names that a script needs to track.
 
@@ -23,8 +24,6 @@ A script can do three things with a component's loaded DBC file:
 ## The `GetDbcSignal` method
 
 The `GetDbcSignal` method retrieves a signal definition from a component's loaded DBC file using the component name, message name and signal name.
-
-### Syntax
 
 === "C#"
 
@@ -44,7 +43,7 @@ The `GetDbcSignal` method retrieves a signal definition from a component's loade
     local signal = Profinity.DBC:GetDbcSignal(component, message, signal)
     ```
 
-### Parameters
+The method takes these parameters.
 
 | Parameter | Meaning |
 |-----------|---------|
@@ -133,4 +132,4 @@ That happens when no packet has been received for the message yet, or when the l
 `GetDbcSignal` throws an `ArgumentException` if any of the parameters do not match the profile or the DBC file.
 When the component is the one that does not match, the message is `Component not found:` followed by the name.
 The `Value` property converts the raw CAN data to the physical value using the signal's factor and offset.
-It returns `NaN` when the device is not valid or no current packet is available.
+It returns `NaN` when the device is invalid or no current packet is available.

@@ -11,6 +11,7 @@ last_reviewed: 2026-10-14
 The **Tag Relay Receiver** ingests the snapshots published by one or more [Tag Relay Senders](Tag_Relay_Sender.md).
 It mounts the incoming [tags](../../Tags/index.md) in the local tag tree as read-only tags, beneath a prefix that identifies where they came from.
 It sits in the **Tag Relays** category and receives over Message Queuing Telemetry Transport (MQTT) or HTTPS.
+
 Once relayed tags are mounted they behave like any other tag.
 You can browse them in Tag Explorer, place them in [collections](../../Tags/Collections/index.md), show them on a [dashboard](../../Customising_Profinity/Dashboards/index.md), log them, and use them in rules and scripts.
 The [Tag relay](../../Tags/Tag_Relay.md) page covers the concept, collision rules and limitations.
@@ -58,22 +59,22 @@ The relayed tags appear under the **Receiver tag path prefix**.
 
 ### Tag Relay settings
 
-| Setting | Purpose |
-|---|---|
-| **Protocol** | **MQTT** subscribes to a broker topic and applies each snapshot it receives. **HTTPS** uses the relay API on this instance, so the component makes no outbound connection. Defaults to MQTT. |
-| **Receiver tag path prefix** | Required. The profile subtree that every ingest batch is applied under. It must not equal or overlap the tag path of any component or the prefix of another receiver in the profile. The sender's prefix is appended beneath it, as shown in [Set up a tag relay](Set_Up_a_Tag_Relay.md). Refer to [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md). |
+| Setting | Default | Purpose |
+|---|---|---|
+| **Protocol** | **MQTT** | **MQTT** subscribes to a broker topic and applies each snapshot it receives. **HTTPS** uses the relay API on this instance, so the component makes no outbound connection. Defaults to MQTT. |
+| **Receiver tag path prefix** | None | Required. The profile subtree that every ingest batch is applied under. It must not equal or overlap the tag path of any component or the prefix of another receiver in the profile. The sender's prefix is appended beneath it, as shown in [Set up a tag relay](Set_Up_a_Tag_Relay.md). Refer to [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md). |
 
 ### MQTT settings
 
-| Setting | Purpose |
-|---|---|
-| **Auto Connect** | With the **MQTT** protocol, connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **MQTT broker URL** | The broker's connection URL. Use an `mqtts://` scheme to enable Transport Layer Security (TLS). Required when the protocol is MQTT. |
-| **MQTT broker port** | The broker's port. Defaults to `1883`. A port in the broker URL takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`. |
-| **Trust all server certificates** | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
-| **MQTT username** / **MQTT password** | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
-| **MQTT client id** | Optional. Leave blank to generate a client ID. Each client on the broker needs a different ID. |
-| **MQTT subscribe topic** | The topic carrying the JSON snapshots, for example `profinity/relay/site1`. Required when the protocol is MQTT. It must match the sender's **MQTT snapshot topic**. |
+| Setting | Default | Purpose |
+|---|---|---|
+| **Auto Connect** | On | With the **MQTT** protocol, connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **MQTT broker URL** | None | The broker's connection URL. Use an `mqtts://` scheme to enable Transport Layer Security (TLS). Required when the protocol is MQTT. |
+| **MQTT broker port** | `1883` | The broker's port. Defaults to `1883`. A port in the broker URL takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`. |
+| **Trust all server certificates** | Off | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
+| **MQTT username** / **MQTT password** | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
+| **MQTT client id** | None | Optional. Leave blank to generate a client ID. Each client on the broker needs a different ID. |
+| **MQTT subscribe topic** | None | The topic carrying the JSON snapshots, for example `profinity/relay/site1`. Required when the protocol is MQTT. It must match the sender's **MQTT snapshot topic**. |
 
 ### Receiving over HTTPS
 
@@ -81,6 +82,7 @@ When the protocol is HTTPS, the sender posts directly to this instance.
 It uses a JSON Web Token (JWT) for a user with the **Receive external tags** permission, or for an Admin user.
 Create a service account on this instance with that permission and give its token to the sender.
 Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how to grant the permission.
+
 The Tag Relay Receiver component supplies the receiver prefix and only displays the receiving state.
 An instance accepts a relay post for only one Tag Relay Receiver set to HTTPS, so add a single HTTPS receiver per instance.
 To call the relay API directly, refer to the [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#tag-relay).
@@ -90,6 +92,29 @@ To call the relay API directly, refer to the [Endpoint Reference](../../Integrat
     Only the next snapshot from the sender updates it.
     A path already used by a tag that relay does not own, such as a local device tag, causes the whole batch to be rejected.
     Refer to [Collision rules](../../Tags/Tag_Relay.md#collision-rules).
+
+## Example
+
+This example is for illustration only.
+It shows a receiver that subscribes to a broker and mounts the relayed tags under `SiteA`.
+Add it to the `components` list in `profile.yaml`, or enter the same values in the component settings.
+
+```yaml
+- component:
+    type: TagRelayReceiver
+    id: TagRelayReceiver1
+    name: Tag Relay Receiver
+    tagTreeParentPath: /
+    protocol: Mqtt
+    autoConnect: true
+    receiverTagPathPrefix: SiteA
+    mqttBrokerUrl: mqtt://BROKER_HOST
+    mqttBrokerPort: 1883
+    mqttSubscribeTopic: profinity/relay/site1
+```
+
+Replace `BROKER_HOST` with the host name or address of your MQTT broker.
+The `mqttSubscribeTopic` value must match the **MQTT snapshot topic** of the sender.
 
 ## Monitoring the receiver
 
@@ -116,18 +141,14 @@ Each snapshot that is not valid JSON, has the wrong format, or conflicts with an
 ## Troubleshooting
 
 If no tags appear, check the [Logs](../../Administration/Logs_Config.md) first.
-A receiver set to MQTT that has no **MQTT broker URL** or **MQTT subscribe topic** stays stopped and logs the reason.
 
-A receiver that shows **On** but receives nothing has one of two problems:
+| What you see | Cause | What to do |
+|---|---|---|
+| A receiver set to MQTT stays stopped. | The receiver has no **MQTT broker URL** or **MQTT subscribe topic**, and it logs the reason. | Enter both settings. |
+| The receiver shows **On** but receives nothing. | A broker connection problem. The receiver keeps retrying every 5 seconds. | Refer to [Broker connection messages in the log](#broker-connection-messages-in-the-log) for what the log records. |
+| The receiver shows **On** but receives nothing. | The **MQTT subscribe topic** differs from the sender's **MQTT snapshot topic**. | Set the **MQTT subscribe topic** to match the sender's **MQTT snapshot topic**. |
+| Snapshots arrive but the tags do not update. The log of an MQTT receiver shows an ingest conflict warning, and a sender using HTTPS receives a 409 response. | A path in the batch may already be used by a tag that relay does not own. The receiver then rejects the whole batch. The receiver writes the warning for every rejected snapshot, so it repeats for as long as the conflict lasts. | Change the **Receiver tag path prefix** or the sender's **Sender tag path prefix** so that the relayed tags mount in an empty subtree. |
+| Over HTTPS, the sender receives a 401 or 403 response. | The token is missing, invalid, or belongs to a user without the **Receive external tags** permission. | Give the sender a token for a user with the **Receive external tags** permission, or for an Admin user. |
+| Over HTTPS, the sender receives a 409 response. | More than one Tag Relay Receiver set to HTTPS is active on this instance. | Keep a single HTTPS receiver on the instance. |
 
-- A broker connection problem. The receiver keeps retrying every 5 seconds, and the log records it as described under [Broker connection messages in the log](#broker-connection-messages-in-the-log).
-- An **MQTT subscribe topic** that differs from the sender's **MQTT snapshot topic**.
-
-If snapshots arrive but the tags do not update, a path in the batch may already be used by a tag that relay does not own.
-The receiver then rejects the whole batch.
-The log of an MQTT receiver then shows an ingest conflict warning, and a sender using HTTPS receives a 409 response.
-The receiver writes this warning for every rejected snapshot, so it repeats for as long as the conflict lasts.
-Change the **Receiver tag path prefix** or the sender's **Sender tag path prefix** so that the relayed tags mount in an empty subtree.
-
-Over HTTPS, a 401 or 403 response at the sender means the token is missing, invalid, or belongs to a user without the **Receive external tags** permission.
-A 409 response can also mean that more than one Tag Relay Receiver set to HTTPS is active on this instance.
+To set up a relay end to end, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md).

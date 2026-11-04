@@ -189,6 +189,7 @@ dataValues:
 A status display shows a lamp.
 A status data value is always lit.
 The bound value supplies the colour of the lamp as a string such as `green`, `amber` or `red`, so bind the `color` target, as this example does.
+
 A binding with the `value` target is also applied as the lamp colour.
 The `lampColor` parameter is the colour shown until the bound colour arrives:
 

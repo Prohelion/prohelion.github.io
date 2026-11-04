@@ -25,6 +25,7 @@ Unzip the file into the `themes` folder of the artefacts directory.
 
 The theme is a file-based setting, so there is no administration screen for it.
 Edit `themes/theme.yaml` on the Profinity host, and put logos and icons in the `assets` sub-folder.
+
 Profinity applies the file when it starts and again whenever the file changes.
 A missing file leaves the built-in defaults in place.
 A file with errors is reported in the [Logs](../../Administration/Logs_Config.md) and also falls back to the defaults.

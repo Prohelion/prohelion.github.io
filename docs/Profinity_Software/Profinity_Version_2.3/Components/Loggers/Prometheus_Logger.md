@@ -51,6 +51,30 @@ http://localhost:7065/metrics
 
 Configuring Prometheus to receive and display this data is covered in the Prometheus documentation.
 
+## Example
+
+This example shows a Prometheus Logger in the `components` list of the `profile.yaml` file in the profile folder.
+Refer to [Profile folders](../../Administration/Profile_Folders.md) for where that file sits.
+It is an example only, so replace the placeholders with your own values.
+
+```yaml
+components:
+- component:
+    type: PrometheusLogger
+    id: PrometheusLogger1
+    name: Prometheus Logger
+    tagTreeParentPath: /
+    hostname: localhost
+    port: 7065
+    url: metrics/
+    intervalSec: 10
+    collections:
+    - collectionName: YOUR_COLLECTION_ID
+```
+
+`YOUR_COLLECTION_ID` is the id of a tag collection in the profile.
+With these values, Prometheus reads the data from `http://localhost:7065/metrics`.
+
 ## Let another computer read the data {#let-another-computer-read-the-data}
 
 With **Server Hostname** set to `localhost`, only a scraper on the same computer can read the data.

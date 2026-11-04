@@ -21,10 +21,10 @@ Enable scripting in [Application Config](../../../Administration/System_Configur
 Then add a **CSharp Script**, **Python Script** or **Lua Script** component.
 Set **Script Mode** to **Run On Tag Change**, and choose the tags to watch in the **Tag Change Settings** category:
 
-| Setting | Description |
-|---------|-------------|
-| **Tag Paths** | Explicit full tag paths to watch. |
-| **Collections** | Tag [Collections](../../../Tags/Collections/index.md) to watch. Members are resolved from the collections file. |
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Tag Paths** | Empty | Explicit full tag paths to watch. |
+| **Collections** | Empty | Tag [Collections](../../../Tags/Collections/index.md) to watch. Members are resolved from the collections file. |
 
 The script watches the union of the two lists, and at least one tag path or collection is required.
 
@@ -83,6 +83,7 @@ The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `L
     Sibling tags are therefore not guaranteed to be consistent with each other.
 
 To read the tag that fired, including its quality and timestamp, pass its tag ID back to [`Profinity.Tags`](../Script_Operations/Tags.md) with a leading `/`, which is the root of the tag tree.
+
 In C# and Python, write `Profinity.Tags.GetSample("/" + tagId)`.
 In Lua, write `Profinity.Tags:GetSample('/' .. tagId)`.
 Without the `/`, the id is treated as relative to the script's host component.
@@ -148,8 +149,14 @@ Refer to [Derived tags](../../../Tags/Derived_Tags/index.md) for when to choose 
     end
     ```
 
-Paths without a leading `/` are relative to the script's host component, so this script is meant to run on the component that owns both tags.
+To run the example, create the tags `SpeedMph` and `SpeedKmh` on the component that will host the script.
+Then add the full path of `SpeedMph` to **Tag Paths**, from the tag tree root, starting with the component name, for example `/<COMPONENT>/SpeedMph`.
+Selecting the tag in the browser fills this in for you.
+The script then runs each time `SpeedMph` changes.
+
+Paths inside the script that start with a name are relative to the script's host component, so this script is meant to run on the component that owns both tags.
 To publish to a tag on another component, start the path with `/`, as described in [Tag paths](../Script_Operations/Tags.md#tag-paths).
+
 Reading the published tag never re-runs the script.
 It returns the last value the script wrote.
 
@@ -169,6 +176,7 @@ If the method is still running when another change arrives, **Trigger Overlap** 
 Keep the method fast.
 A slow script under **Queue** builds a backlog, and under **Drop** silently misses changes.
 Store previous values in [State](../Script_Operations/State.md) rather than recomputing them.
+
 If a run must be bounded, set **Maximum Run Time (seconds)**.
 The handler stops only when the script checks `Profinity.ScriptCancelled`.
 

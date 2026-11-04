@@ -11,6 +11,7 @@ last_reviewed: 2026-10-14
 A dashboard is a vertical list of full-width elements.
 Each element at the top level is a titlebar, a row, an accordion or a footer.
 Anything else, such as a group, a panel or a readout, sits inside one of these.
+
 This page describes the four top-level elements, the `items` property that nests elements, and the layout direction of rows.
 The [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md) shows them all in one dashboard.
 
@@ -43,7 +44,7 @@ It keeps the main dashboard focused on key information.
 </figure>
 
 A [footer](./Component_Reference/Layout/Footer.md) is a bar at the bottom of the dashboard that a binding on its `visible` target can show or hide.
-A menu added to the footer is not displayed, so the footer is not a place for navigation.
+A menu added to the footer is hidden, so the footer is not a place for navigation.
 Use a footer when the dashboard needs a bar that appears only under some conditions.
 For navigation and actions, use the titlebar menu or an [Action](./Component_Reference/Interactive/Actions.md) component.
 
@@ -57,6 +58,7 @@ For navigation and actions, use the titlebar menu or an [Action](./Component_Ref
 The `items` property is an array that holds the child elements of a container.
 It appears at almost every level of a dashboard: in `dashboard`, `row`, `group`, `panel`, `accordion`, and in containers such as `pill`, `lamps`, `readouts` and `tabs`.
 It is always an array, written with `-` list syntax even for one element, and the order of the array is the order on screen.
+
 A row holds groups and components, a group organises related components, and a panel is a titled container.
 The HTML and Image components display custom content.
 

@@ -72,8 +72,9 @@ A derived tag built on an input with no value is unavailable.
 To handle missing inputs yourself, for example with `a.HasValue`, set `inputQuality: ignore` on the derived tag in the YAML.
 The YAML is `derived_tags.yaml` by default, in the `derived_tags` folder of the profile directory, which is inside the [artefacts directory](../../Installation/Artifacts_Directory.md#default-locations).
 Profinity reloads the file when it changes, so a hand edit takes effect while Profinity keeps running. If the edited file is unreadable, Profinity keeps the derived tags it already has.
-The tag then evaluates whatever the input quality, and is Good when the expression succeeds.
-The default is `inputQuality: propagate`.
+
+With `inputQuality: ignore`, the tag evaluates whatever the input quality, and is Good when the expression succeeds.
+Without that setting, the default `inputQuality: propagate` applies and the quality follows the worst dependency.
 
 ### Deleting a derived tag that others depend on
 

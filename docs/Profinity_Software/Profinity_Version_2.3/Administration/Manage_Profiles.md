@@ -39,14 +39,8 @@ To edit a profile's name and description:
 **Profile Name** must be unique across all profiles.
 **Description** is optional text that describes the profile's purpose.
 
-The active profile cannot be renamed.
-To rename it:
-
-1. Select **ACTIVATE** on a different profile.
-2. Select the name of the profile to rename, edit the name, and save.
-3. Optional: select **ACTIVATE** on the renamed profile again.
-
-If you created a different profile only so that you could rename the active one, you can delete it afterwards.
+You can rename the active profile in the same way.
+Profinity saves the profile, reloads it under the new name and keeps it active, so its components restart briefly.
 
 ## Import a profile pack
 
@@ -59,7 +53,8 @@ To import a profile pack prepared on another instance of Profinity:
 Profinity imports the profile with all its associated configuration, and it appears in the table of profiles.
 
 Profinity refuses a pack whose `profile.yaml` is invalid, for example one with an unrecognised setting name or one that cannot be read as YAML.
-It shows "Failed to unpack the Profile Pack. The file may be corrupted or invalid. Check the logs for more details." and imports nothing, and the log names the reason.
+Profinity shows "Failed to unpack the Profile Pack. The file may be corrupted or invalid. Check the logs for more details." It imports nothing, and the log names the reason.
+
 Correct the file in the pack and upload it again.
 
 Profinity rejects an uploaded profile pack that contains script content when the licence does not include the **Scripting** feature, and shows the message "Profile pack contains script content, which requires Scripting on the license."

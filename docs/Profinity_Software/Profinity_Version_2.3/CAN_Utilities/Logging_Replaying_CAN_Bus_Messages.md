@@ -36,6 +36,7 @@ You add them from the **Publishers & Subscribers** category in the same way.
 The CAN Data Log Replayer replays log files that were recorded earlier in Profinity.
 The replayer cannot replay InfluxDB or Prometheus data.
 It replays only a file log of CAN messages recorded by a File or SFTP logger.
+
 Profinity processes replayed messages as if it had received them from the bus, so they mix with any live traffic.
 [How to replay CAN bus logs](../How_To_Guides/Replay_CAN_Logs.md) gives the procedure, the **Replay CAN logs** permission, the replay controls, and the warning about live traffic.
 

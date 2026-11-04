@@ -11,6 +11,7 @@ last_reviewed: 2026-10-29
 Export the public certificate that Profinity generates and trust it in the operating system, so an AI tool accepts an `https://` Model Context Protocol (MCP) address.
 Skip this page when you use the HTTP address on the same computer as Profinity.
 You need an [HTTPS address](Prepare_Profinity.md#choose-the-mcp-server-address) and access to the computer that runs the AI tool.
+You also need access to the `certificates` folder on the computer that runs Profinity, or a copy of `profinity_generated.pfx`.
 
 When **Cert File** and the Windows certificate store fields are empty, Profinity creates its own certificate the first time HTTPS starts.
 The certificate file is `profinity_generated.pfx` in the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
@@ -20,6 +21,9 @@ It names `localhost`, the computer's host name, and the network addresses on the
 Accepting the certificate warning in a browser trusts it for that browser only.
 Cursor, Claude Code, and Codex do not use that browser decision.
 Trust the exported public certificate in the operating system, or give Claude Code the exported file, as the guide for that tool describes.
+
+When Profinity runs on another computer, copy `profinity_generated.pfx` from its `certificates` folder to the computer that runs the AI tool first.
+In step 1, use the path of the copied file in place of the `certificates` folder path.
 
 Follow these steps on the computer that runs the AI tool:
 
@@ -36,6 +40,7 @@ Follow these steps on the computer that runs the AI tool:
         Replace `<certificates-folder>` with the `certificates` folder of the artefacts directory.
         On macOS that folder is `~/Library/Application Support/Prohelion/Profinity/certificates`.
         On Linux it is `/var/lib/prohelion/profinity/certificates`.
+
         The command writes `profinity.pem` in your home directory.
         `-passin pass:` supplies the empty password of the generated file.
         When you selected your own certificate and set **Cert File Password**, use that password in place of the empty value.

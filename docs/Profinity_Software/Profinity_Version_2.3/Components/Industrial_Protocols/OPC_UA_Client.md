@@ -31,18 +31,18 @@ You can change the settings in the Settings section later from the component's *
 
 ## Settings
 
-| Setting | Description |
-|---|---|
-| **Name** | The name of the component. Must be unique within the profile. |
-| **Endpoint URL** | The address of the server. Required, and must start with `opc.tcp://`. The default is `opc.tcp://127.0.0.1:4840`. |
-| **Use security** | When off (the default), the client connects without message security. Turn it on to connect to an endpoint that uses security (message signing or encryption) when the server offers one. |
-| **Username** | An optional user name. Leave it empty to connect anonymously. |
-| **Password** | The password for the user name. It is stored encrypted. |
-| **Trust all server certificates** | Skips validation of the server's certificate. Off by default. Turn it on only when connecting to a trusted endpoint that uses a self-signed certificate. |
-| **Poll interval (ms)** | How often the node map is read, in milliseconds. Between `50` and `600000`. The default is `1000`. |
-| **Request timeout (ms)** | How long Profinity waits for the server to answer a request, in milliseconds. Between `50` and `60000`. The default is `5000`. |
-| **Reconnect delay (ms)** | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. The default is `2000`. |
-| **Auto Connect** | Connects to the server automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| Setting | Default | Description |
+|---|---|---|
+| **Name** | `OPC UA Client` | The name of the component. Must be unique within the profile. |
+| **Endpoint URL** | `opc.tcp://127.0.0.1:4840` | The address of the server. Required, and must start with `opc.tcp://`. |
+| **Use security** | Off | When off, the client connects without message security. Turn it on to connect to an endpoint that uses security (message signing or encryption) when the server offers one. |
+| **Username** | Empty | An optional user name. Leave it empty to connect anonymously. |
+| **Password** | Empty | The password for the user name. It is stored encrypted. |
+| **Trust all server certificates** | Off | Skips validation of the server's certificate. Turn it on only when connecting to a trusted endpoint that uses a self-signed certificate. |
+| **Poll interval (ms)** | `1000` | How often the node map is read, in milliseconds. Between `50` and `600000`. |
+| **Request timeout (ms)** | `5000` | How long Profinity waits for the server to answer a request, in milliseconds. Between `50` and `60000`. |
+| **Reconnect delay (ms)** | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
+| **Auto Connect** | Off | Connects to the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 Profinity keeps trying to connect when the server is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
 
@@ -54,9 +54,10 @@ Profinity keeps trying to connect when the server is down at start and after a c
 
 The point map lists the OPC UA nodes to read.
 Each row becomes one tag.
+
 Folders and **Browse** are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
 Save the client and wait until it is connected before you open **Browse**.
-**Browse** then lists the saved server, one folder at a time, and an endpoint you have not saved is not used.
+**Browse** then lists the saved server, one folder at a time, using the endpoint last saved.
 
 | Column | Description |
 |---|---|
@@ -64,6 +65,29 @@ Save the client and wait until it is connected before you open **Browse**.
 | **NodeId** | The identifier of the node on the server, for example `ns=2;s=Temp`. |
 | **Writable** | Allows Profinity to write the node from the tag. Off by default, so every node is read-only unless you turn this on. |
 | **Unit** | An optional unit label for the tag. |
+
+## Example
+
+This example is for illustration only.
+Add it under `Components` in the profile file, and replace `OPC_SERVER_HOST` with the address of your OPC UA server.
+
+```yaml
+Components:
+  Plant OPC UA Client:
+    Type: OpcUaClient
+    EndpointUrl: opc.tcp://OPC_SERVER_HOST:4840
+    UseSecurity: false
+    PollIntervalMilliseconds: 1000
+    RequestTimeoutMilliseconds: 5000
+    ReconnectDelayMilliseconds: 2000
+    AutoConnect: true
+    Points:
+      - Name: Temp
+        NodeId: ns=2;s=Temp
+        Writable: false
+```
+
+This client reads the node `ns=2;s=Temp` once a second and publishes it as the tag `Temp` under the component's `Points` tags.
 
 ## Dashboard
 

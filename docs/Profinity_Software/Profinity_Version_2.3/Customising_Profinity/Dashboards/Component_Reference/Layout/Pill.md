@@ -7,15 +7,13 @@ last_reviewed: 2026-10-14
 ---
 
 # Pill component
-A pill is a compact status display that shows several related values, arranged in groups, beside a central icon.
+A pill is a compact status display that shows several related values, arranged in groups, beside an icon at the left.
 It suits component status and key metrics.
 
 <figure markdown>
 ![A rounded bar with a battery icon, then Battery voltage, current and state of charge, minimum and maximum cell voltage, and minimum and maximum cell temperature readings.](../../images/pill.png)
 <figcaption>Pill with an icon and grouped readouts</figcaption>
 </figure>
-
-## When to use
 
 Use a pill for component status and key metrics, where several related values sit beside one icon.
 Use [Readouts](../Data/Readouts.md) when the values need no icon or grouping.
@@ -71,6 +69,8 @@ The status dot is hidden when `hyperlink` is set.
 Give the item a `label` as well as a `dotColor`, because colour alone does not state the status.
 
 ## Example
+
+This example shows a motor controller pill with an icon and two pill groups of values.
 
 ``` yaml
 dashboard:

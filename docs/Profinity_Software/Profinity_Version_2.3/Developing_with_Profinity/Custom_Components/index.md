@@ -41,12 +41,14 @@ flowchart LR
 To make a first Custom Component, follow [Make your first Custom Component](First_Custom_Component.md).
 This section is the reference for a Custom Component: the files that make one up, including `component_metadata.yaml`, which names a pack.
 To pack that folder, use the [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the SDK.
+
 Refer to [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md) to add one to a profile and attach optional files.
 For the dashboard itself, refer to the [Visual Editor](../../Customising_Profinity/Dashboards/Build_a_Dashboard.md).
 For a DLL plugin, refer to [Developing Plugins](../SDK/Developing_Plugins.md).
 
 Component metadata names the DBC file, the dashboard, and the main script for a pack.
 The main script reads the settings map, and the dashboard binds signals from the DBC file.
+
 Menu actions name the action scripts.
 The firmware scripts named in the firmware actions read the firmware map.
 Profinity manages the DBC file and the dashboard, and runs the scripts.

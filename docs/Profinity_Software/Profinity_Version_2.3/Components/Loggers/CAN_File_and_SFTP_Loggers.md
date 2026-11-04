@@ -11,6 +11,7 @@ last_reviewed: 2026-10-15
 The **CAN File Logger** and the **CAN SFTP Logger** record native CAN bus messages to a file.
 The CAN File Logger stores the file on the local file system of the machine running Profinity.
 The CAN SFTP Logger transmits it to a remote Secure Shell (SSH) File Transfer Protocol (SFTP) server.
+
 Each is added to a [Profile](../../Getting_Started/Profiles.md) as its own component under **Loggers** and is included in every edition.
 Profinity can also [log and replay messages](../../CAN_Utilities/Logging_Replaying_CAN_Bus_Messages.md) from a CAN bus network.
 
@@ -36,6 +37,23 @@ The CAN File Logger has no destination setting.
 It creates its files under the Profinity CAN bus log directory (`can_bus_logs/`), in a folder named after the Profile and the component.
 Refer to the [artefacts directory](../../Installation/Artifacts_Directory.md) for where that directory sits on each platform.
 The CAN SFTP Logger needs the remote server settings described in [File logger rotation, archive, and SFTP settings](File_Logger_Rotation_Archive_and_SFTP.md), which also covers rotating, archiving, and compressing the log files.
+
+## Example
+
+This example is for illustration only.
+Add it under `Components` in the profile file.
+
+```yaml
+Components:
+  CAN File Logger 1:
+    Type: CANFileLogger
+    IntervalSec: 10
+    FileFormat: Prohelion
+    AutoConnect: true
+```
+
+This logger writes the Prohelion format and updates every 10 seconds.
+Use `FileFormat: Tritium` for the Tritium format.
 
 ## Download the logged files
 

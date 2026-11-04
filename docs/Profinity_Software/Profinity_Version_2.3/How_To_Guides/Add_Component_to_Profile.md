@@ -10,6 +10,7 @@ last_reviewed: 2026-10-28
 
 Add a component to the active [profile](../Getting_Started/Profiles.md) from the sidebar or homepage to monitor a CAN bus device, then check its status and connect it.
 You need Profinity running, an active profile, and the **Modify components** permission, which allows components to be added ([Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
+
 Some component types also need a licensed feature, such as a historian.
 A component type that is not licensed shows as unavailable.
 [Licensing](../Licensing.md) lists which features each edition includes.
@@ -17,6 +18,7 @@ A component type that is not licensed shows as unavailable.
 A component shows data only when data arrives.
 For live data, add a protocol adapter first, because an adapter lets Profinity receive data from external systems.
 To see data from a CAN log alone, replay one as described in the [Quick start guide](../Getting_Started/Quick_Start.md#step-3-replay-the-example-can-log).
+
 For CAN bus networks, [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) describes the supported adapters, including the Prohelion and Tritium CAN to Ethernet bridges.
 [How to connect to CAN bus](./Connect_to_CAN_Bus.md) gives the steps.
 For industrial systems, Profinity also supports BACnet, EtherNet/IP, Modbus, Open Platform Communications Unified Architecture (OPC UA), and S7, described in [Industrial protocols](../Components/Industrial_Protocols/index.md).
@@ -105,13 +107,20 @@ To connect the component:
 
 ## Remove a component
 
+Deleting a component removes its settings from the profile and deletes its folder, which holds its dashboard, scripts and other files.
+To bring a deleted component back, restore it from a copy that you keep before you delete it.
+
 To remove a component that is no longer required:
 
-1. Open the component settings, which is the three bar settings icon in the menu of the component dashboard.
-2. Select **DELETE COMPONENT** at the bottom of the settings dialog, then confirm in the Delete component dialog.
+1. Download a profile pack, as described in [Download a profile pack](../Administration/Manage_Profiles.md#download-a-profile-pack).
+   The ZIP file holds the profile and its related files, including the component.
+2. Open the component settings, which is the three bar settings icon in the menu of the component dashboard.
+3. Select **DELETE COMPONENT** at the bottom of the settings dialog, then confirm in the Delete component dialog.
    If rules use the component as an action, Profinity removes those actions from the affected rules.
 
 <figure markdown>
 ![A component dashboard with the three bar settings icon in its menu](../images/wavesculptor.png)
 <figcaption>A dashboard showing the three bar settings icon</figcaption>
 </figure>
+
+To see the data of the new component on a dashboard, refer to [How to create a custom dashboard](./Create_Custom_Dashboard.md).

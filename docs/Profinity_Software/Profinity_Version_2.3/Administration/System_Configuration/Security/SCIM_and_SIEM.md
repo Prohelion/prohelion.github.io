@@ -34,11 +34,11 @@ Profinity refuses to save in two cases:
 - The token is empty. It shows "SCIM bearer token is required when SCIM provisioning is enabled."
 - The single sign-on (SSO) group has no **Authority URL (IdP issuer)**. It shows "SSO must be configured when SCIM provisioning is enabled."
 
-| Setting | Description |
-|---------|-------------|
-| **Enable SCIM user provisioning** | Allows the identity provider to create and deactivate users through the SCIM 2.0 interface. Off by default. |
-| **SCIM bearer token** | The long-lived secret the identity provider presents as `Authorization: Bearer`. Treat it like a password. To replace it, enter a new value here, save, and enter the same value in the identity provider. |
-| **Default assigned roles** | A comma-separated list of Profinity roles given to every user that SCIM creates. Names that match an existing role are assigned, and any other name is ignored. An empty list creates users with no role. |
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Enable SCIM user provisioning** | Off | Allows the identity provider to create and deactivate users through the SCIM 2.0 interface. |
+| **SCIM bearer token** | None | The long-lived secret the identity provider presents as `Authorization: Bearer`. Treat it like a password. To replace it, enter a new value here, save, and enter the same value in the identity provider. |
+| **Default assigned roles** | Empty | A comma-separated list of Profinity roles given to every user that SCIM creates. Names that match an existing role are assigned, and any other name is ignored. An empty list creates users with no role. |
 
 ### Endpoint and supported operations
 
@@ -93,6 +93,7 @@ Raising **Minimum log level** reduces the volume sent, which matters when the le
 Each event is one line of text.
 It starts with `SECURITY|` and the event name, followed by `name=value` fields separated by `|`.
 The fields appear in this order when they apply: `username`, `actor`, `target`, `ip`, `authMode`, `reason`, `from`, `to`, and `backup`, then one `change.<field>` entry for each changed field.
+
 Profinity replaces a `|`, carriage return, or line feed inside a value with `_`.
 It never writes passwords or tokens.
 For example, a failed local sign-in looks like this:

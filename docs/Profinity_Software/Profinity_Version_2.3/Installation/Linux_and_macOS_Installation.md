@@ -52,14 +52,14 @@ The installer can also be piped straight into the shell with `curl -fsSL https:/
 
 ### Installer options
 
-| Option | Effect |
-|--------|--------|
-| `--install-dir <path>` | Install into a different location than `/opt/profinity` |
-| `--version <x.y.z>` | Install a specific GitHub release tag instead of the latest, ignored with `--channel` |
-| `--channel <name>` | Download from a Prohelion file server channel instead of GitHub. Prohelion supplies the channel name and the installer address |
-| `--package <archive>` | Install from a local `.tar.gz` or `.zip` in place of a download, for hosts without internet access. The checksum step is skipped for a local package |
-| `--no-systemd` | File-only install: skip the service user, artefacts directory, and systemd unit |
-| `--dry-run` | Print the planned actions without changing the system |
+| Option | Default | Effect |
+|--------|---------|--------|
+| `--install-dir <path>` | `/opt/profinity` | Install into a different location than `/opt/profinity` |
+| `--version <x.y.z>` | The latest release | Install a specific GitHub release tag instead of the latest, ignored with `--channel` |
+| `--channel <name>` | GitHub releases | Download from a Prohelion file server channel instead of GitHub. Prohelion supplies the channel name and the installer address |
+| `--package <archive>` | None | Install from a local `.tar.gz` or `.zip` in place of a download, for hosts without internet access. The checksum step is skipped for a local package |
+| `--no-systemd` | Off | File-only install: skip the service user, artefacts directory, and systemd unit |
+| `--dry-run` | Off | Print the planned actions without changing the system |
 
 For a channel, download the installer from the address Prohelion supplies, then run it with the channel name:
 
@@ -73,6 +73,7 @@ sudo bash install.sh --channel <channel supplied by Prohelion>
 It swaps the application files in place.
 It takes the same `--channel` and `--version` options as the installer, and does nothing if the installed version is already current.
 Pass `--force` to reinstall anyway.
+
 If the `profinity` service is active, `update.sh` stops it before it applies the update and restarts it afterwards.
 
 ## Where Profinity stores its data
@@ -111,6 +112,9 @@ To stop it as a service on Linux, run `sudo systemctl stop profinity`, as descri
 
 ## Troubleshooting
 
-- On Linux, Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration.
-  The account that runs Profinity does not own the directory.
-  Run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| On Linux, Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration | The account that runs Profinity does not own the directory | Run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write |
+
+To keep Profinity running across restarts, refer to [Run Profinity as a service](./Run_as_a_Service/index.md).
+

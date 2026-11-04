@@ -12,6 +12,7 @@ The **TAG SQL Historian** writes the values of the tags in the [collections](../
 It also allows that history to be read back through the APIs.
 It sits in the **Historians** category.
 Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](InfluxDB_Historians.md).
+
 If you only need on-box SQLite with no connection string, use the [TAG Local Historian](TAG_Local_Historian.md) instead.
 Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
@@ -121,6 +122,34 @@ Replace the host names, database names, account names and `<password>` in the ex
 
 The account in the connection string needs permission to insert into and select from the table.
 With **Auto Create Table** on, it also needs permission to create the table, and you can remove that permission after the first start.
+
+## Example
+
+This example is for illustration.
+It records the tags in one collection to a PostgreSQL table every 10 seconds.
+Add it under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: TagSqlHistorian
+    id: TagSqlHistorian1
+    name: TAG SQL Historian
+    tagTreeParentPath: /
+    provider: PostgreSql
+    connectionString: Host=DB_HOST;Port=5432;Database=profinity;Username=profinity;Password=DB_PASSWORD
+    tableName: TagChangeLog
+    autoCreate: true
+    logType: Snapshot
+    intervalSec: 10
+    autoConnect: true
+    designatedTagDataStore: false
+    collections:
+    - collectionName: COLLECTION_ID
+```
+
+Replace `DB_HOST` and `DB_PASSWORD` with the host name and password of your database, and `COLLECTION_ID` with the id of a [tag collection](../../Tags/Collections/index.md).
+Each value is a setting from the [Connection settings](#connection-settings) or [Logger settings](#logger-settings) section.
+Profinity stores the connection string encrypted when it saves the profile.
 
 ## If the historian does not start
 

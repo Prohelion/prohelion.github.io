@@ -26,18 +26,21 @@ A rule set is all the rules in one rules file, either the profile's rules file o
 A scope is a tag path prefix, a tag collection, or both, and a scope with neither covers every tag.
 A scope can be set for the whole file, for a group, and for a single rule, and each level inherits the scope of the level above unless it sets its own.
 Actions set for the file or a group are inherited by every rule beneath it, and a rule can switch an inherited action off.
+
 An action runs when the rule's alert level reaches the action's trigger level.
 A rule runs only when the file, its group, and the rule itself are all enabled.
 
 A threshold rule holds ordered steps, and one evaluation can cross more than one of them.
 Profinity then runs an action for each step it enters or leaves, in order, and starts the next action without waiting for a [rule script](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) to finish.
 Set **Trigger Overlap** to **Queue** on that script when the action for the step the value lands on must still run.
+
 **Drop**, the default, discards an action that arrives while the script is still running, and that action is not tried again.
 The setting is described under [Trigger overlap](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md#trigger-overlap).
 
 The condition is written in the [tag expression](../Selecting_Tags/Tag_Expressions.md) language.
 For example, `tag.Value > 4.2` trips the rule (raises the alert) and `tag.Value < 4.0` clears it, while `tag.IsStale` catches a sensor that has stopped reporting.
 A `tag.IsStale` rule fires for a tag that has stopped changing only when an evaluation tick is set, as described under [Evaluation tick](Rule_Settings.md#evaluation-tick).
+
 The valid alert levels, their aliases and the default are described under [Alert levels](../Alerts.md#alert-levels).
 Each rule also has a `description` that the Alerts Log shows to the user.
 

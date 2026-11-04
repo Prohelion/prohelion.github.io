@@ -31,6 +31,7 @@ A Custom Component dashboard is that component's page in the profile.
 Profinity writes a starter dashboard named after the component when none is uploaded, and the Visual Editor replaces it.
 A DBC file is optional, and is only required when the component needs to publish CAN signals as tags.
 A Custom Component that publishes CAN tags also needs the CAN database (DBC) messages and signals of the device it reads.
+
 To add the component, refer to [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md#add-a-custom-component).
 For the files around the dashboard, such as scripts, actions, and maps, refer to [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md).
 
@@ -49,6 +50,7 @@ The Tag Explorer shows the path of each tag to bind, and [Binding source paths](
 
 A component that has no dashboard of its own starts from the Hello World template, which is a vertical row holding a styled group with one pill.
 The pill has an icon and two values, one labelled `CUSTOM DASHBOARD` and one that points to the Profinity documentation.
+
 In the Visual Editor, **NEW FROM TEMPLATE** replaces the dashboard with this template after a confirmation prompt.
 A component can supply its own template, which loads instead.
 The YAML of the template is:
@@ -78,5 +80,8 @@ dashboard:
 In the Visual Editor the template appears as a tree of rows, groups, pills, and values.
 To add a binding, select a value and use the **Binding** section of the inspector.
 The **YAML** tab shows the same dashboard as text, which is the format the rest of this guide describes.
+
 A source such as `DBC/<message>/<signal>` in a binding is the tag of a CAN signal of the component that owns the dashboard, as described in [Binding source paths](./Data_Binding/index.md#binding-source-paths).
 Replace the message and signal names with those from the DBC file, or copy the path of the tag from the Tag Explorer.
+
+To build a dashboard of your own, refer to [Build a dashboard](./Build_a_Dashboard.md).

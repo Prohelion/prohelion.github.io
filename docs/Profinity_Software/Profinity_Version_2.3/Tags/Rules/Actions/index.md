@@ -11,6 +11,7 @@ last_reviewed: 2026-10-28
 A [tag rule](../index.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
 Profinity 2.3 has two built-in actions, **Profinity Log** and **None**.
 It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
+
 Every action receives the list of tags in the rule's scope that are currently evaluating true.
 This list is named `TriggeredTags` in a script and `triggeringTags` in the Webhook and MQTT JSON message.
 
@@ -18,6 +19,7 @@ This list is named `TriggeredTags` in a script and `triggeringTags` in the Webho
     Rules, the [Alerts Log](../../Alerts.md) and the built-in actions **Profinity Log** and **None** work on every edition.
     The Email, Slack, Webhook, and MQTT actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
     A script set to **Run On Alert** needs both **Tag Rule Actions** and **Scripting** (included in the **Desktop**, **Server** and **Enterprise** editions).
+
     Without **Tag Rule Actions** the rule still evaluates and the alert is still recorded.
     Only the licensed actions are skipped.
     Refer to [Licensing](../../../Licensing.md) for what each edition includes.
@@ -58,6 +60,7 @@ To add one:
 A rule can then select the action from the picker.
 The component's name becomes the action id in the picker and in `rules.yaml`.
 A component named `OpsSlack` is written `action: OpsSlack`, so renaming the component means updating the rules that use it.
+
 Several components of the same type, for example one Slack action per channel, can exist side by side.
 The settings of each action are described in [Email and Slack rule actions](Email_and_Slack_Rule_Actions.md) and [Webhook and MQTT rule actions](Webhook_and_MQTT_Rule_Actions.md).
 
@@ -66,6 +69,7 @@ The settings of each action are described in [Email and Slack rule actions](Emai
 Actions written on the file or on a group are parent actions, and each one needs a `triggerLevel`.
 A parent action runs for every rule beneath it whose alert level is at or above the `triggerLevel`.
 The level comes from the rule or, for a threshold rule, from the step that fired.
+
 In [Complete rules.yaml example](../Rules_YAML_Example.md), a Warning on `pack_temperature` runs only **Profinity Log**.
 An Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
 Actions written on a rule or on a threshold step are local.
@@ -74,6 +78,7 @@ They take no `triggerLevel` and always run when that rule or step fires.
 The `clearActions` lists work the same way when the alert clears.
 You can switch off each side for one rule with `disableActions` and `disableClearActions`.
 These list an inherited action as the id of its parent, a slash, and its name, as in `profile/ProfinityLog`.
+
 For a rules file that belongs to a component, the parent id is the component name instead of `profile`.
 For a group it is the group `id`.
 
@@ -91,6 +96,7 @@ A **Run On Alert** script action may also carry optional `parameters`: a map of 
 Each value is either a literal (`string`, `number`, or `boolean`) or a tag variable written as `tag: <path>`.
 When the rule fires, string literals expand the [message placeholders](#message-placeholders), and each tag variable becomes that tag's current value.
 A missing tag yields no value for that name; the script still runs.
+
 Parameter names are chosen by the script author.
 **Profinity Log**, **None**, Email, Slack, Webhook, and MQTT reject `parameters`.
 

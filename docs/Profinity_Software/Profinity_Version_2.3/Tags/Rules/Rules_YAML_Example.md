@@ -100,9 +100,10 @@ rules:
 ```
 
 The `scope.prefix` of `Vehicles/Car1` is the default for every rule.
-A `prefix` written without a leading `/` in a group or rule joins beneath its parent, so `pack_temperature` watches `Vehicles/Car1/Battery/PackTemperature`.
+A `prefix` that starts with a name in a group or rule joins beneath its parent, so `pack_temperature` watches `Vehicles/Car1/Battery/PackTemperature`.
 A prefix with a leading `/` replaces the inherited one, and `/` alone covers the whole tag tree.
 Every rule must end up with a `prefix`, a `collection`, or both.
+
 When both are present, a tag has to satisfy both.
 A rules file that belongs to a component is written relative to that component, so its prefixes start from the component's own place in the tag tree.
 
@@ -121,13 +122,14 @@ Deadband and dwell control when each happens:
 
 A rule holds its state while its tag is unreadable, unless it sets `onUnreadable: evaluate`.
 The example leaves it unset, because neither rule alerts on a lost reading.
-See [Unreadable tags](Rule_Settings.md#unreadable-tags).
+Refer to [Unreadable tags](Rule_Settings.md#unreadable-tags).
 
 A threshold rule still needs a rule-level `expression`, and `tag.HasValue` is the usual choice.
 It takes its level from each step, so it must not set a rule-level `level`, `actions`, or `clearActions`.
 When one evaluation crosses more than one step, those steps' actions run in order.
+
 A script named by the actions needs **Trigger Overlap** set to **Queue**, or the action for the step the value lands on is discarded.
-See [Trigger overlap](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md#trigger-overlap).
+Refer to [Trigger overlap](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md#trigger-overlap).
 
 The `cell_over_voltage` rule is a boolean rule.
 It has a single `level`, and its own `actions` and `clearActions`.

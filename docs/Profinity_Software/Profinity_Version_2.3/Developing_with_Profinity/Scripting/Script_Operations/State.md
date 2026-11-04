@@ -10,11 +10,12 @@ last_reviewed: 2026-10-14
 
 Scripts in Profinity run and then stop, so information that must survive between invocations of a script, or be shared between different scripts, needs to be held in state.
 Profinity provides two key-value stores for this, with examples in C#, Python and Lua.
+
 `State` holds values that persist between runs of the same script, so a script that runs several times finds the values it stored on the earlier runs.
 `GlobalState` holds values that every script can read and change, which allows scripts to pass data to each other.
 Either store accepts any object type as a value, and each individual call is thread-safe, so several scripts can use the stores at the same time.
 
-## Storing state values
+## Store and retrieve state values
 
 The examples in this section save data to both the local and global state stores, using different value types.
 
@@ -55,8 +56,6 @@ The examples in this section save data to both the local and global state stores
     -- Store a value that can be shared with other scripts
     Profinity.GlobalState:Set('totalScriptsRun', 'Shared data')
     ```
-
-## Retrieving state values
 
 Any stored key can be retrieved from both the local and global state stores, and a key that does not exist returns null.
 
@@ -173,6 +172,7 @@ Lua uses the `Profinity.State:Get` and `Profinity.State:Set` calls from the Stor
 Each store has three methods: `Get(key)`, `Set(key, value)` and `Clear()`, which removes every value in the store.
 The individual calls are thread-safe, but a sequence of calls is not atomic.
 A read followed by a write can lose an update when two scripts run it at the same time on the same `GlobalState` key.
+
 A counter held in `GlobalState` is one case. The run counter in the More complete examples section uses `State`, which is not shared with other scripts.
 Neither store survives a Profinity restart, and both keep their values in memory, so store only the data a script needs.
 

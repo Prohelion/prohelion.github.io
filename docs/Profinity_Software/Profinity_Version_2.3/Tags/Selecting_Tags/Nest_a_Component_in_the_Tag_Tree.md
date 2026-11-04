@@ -25,6 +25,7 @@ A component named `Charger` with a **Tag tree path** of `Vehicles/Car1` mounts a
 Every mount point must be unique.
 Profinity rejects the change if two components would resolve to the same or an overlapping location.
 It also rejects the change if a component would resolve to a location published by a [Tag relay](../Tag_Relay.md) receiver.
+
 The message reports which paths overlap, in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.`
 Change the **Tag tree path** or the name of one of the two components until the paths no longer overlap.
 
@@ -32,6 +33,10 @@ Change the **Tag tree path** or the name of one of the two components until the 
 
 !!! warning "Moving a component breaks absolute binds in other dashboards"
     Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and Profinity does not update them.
+
+Before you change the path, copy the `rules.yaml`, `collections.yaml` and dashboard files from the profile folder to a safe place.
+Profinity also keeps one safety copy, `<file>.bak`, beside each of these files it updates, holding the version before the latest save.
+A later save replaces that safety copy, so your own copy is the reliable one.
 
 Changing a deployed component's **Tag tree path**, or renaming it, automatically updates the [rules](../Rules/index.md) and [collections](../Collections/index.md) that refer to it, along with the home dashboard's `source:` bindings.
 Only paths that refer to the moved component are updated, and an unrelated branch with the same name is left alone.
@@ -47,3 +52,5 @@ History recorded by the [TAG SQL Historian](../../Components/Historians/TAG_SQL_
 The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message, and signal, not by its path.
 Moving a component therefore does not start a new series in them.
 Renaming a component does, in every historian and logger, because the component name is part of how history is identified.
+
+Next, refer to [Tag collections](../Collections/index.md) to select the tags of a nested component.

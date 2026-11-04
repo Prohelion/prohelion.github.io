@@ -58,6 +58,27 @@ Set the main script and **Auto Start Main Script** under **Scripts**, as describ
 A component installed from a content pack hides **Pack files** and **Scripts**, because those files belong to the pack.
 It shows **Name**, **Tag tree path**, menu placement, and the fields declared in the pack's settings map.
 
+## Example
+
+This example is a Custom Component entry in the `profile.yaml` file of a profile.
+It attaches a dashboard and a main script that starts when the profile loads.
+
+```yaml
+components:
+- component:
+    type: CustomComponent
+    id: CustomComponent1
+    name: YOUR_COMPONENT_NAME
+    tagTreeParentPath: /
+    dashboardFilename: YOUR_DASHBOARD.yaml
+    mainScriptFilename: YOUR_SCRIPT.py
+    autoStart: true
+```
+
+Replace `YOUR_COMPONENT_NAME` with a name that is unique in the profile.
+Replace `YOUR_DASHBOARD.yaml` and `YOUR_SCRIPT.py` with the names of the files uploaded under **Pack files** and **Scripts**.
+The script file can end in `.cs`, `.py` or `.lua`.
+
 ## Optional capabilities
 
 A Custom Component can have a DBC file, a dashboard, or both.

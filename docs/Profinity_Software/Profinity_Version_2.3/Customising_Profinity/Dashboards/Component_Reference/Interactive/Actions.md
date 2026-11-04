@@ -159,4 +159,5 @@ A `Component` action runs one of the actions that the component named by the das
 The Actions API lists those names at `/api/v2/Actions/{componentId}`.
 A `System` action runs one of `UPDATE PROFINITY`, `INSTALL PROFINITY` or `RESTART PROFINITY`.
 A `System` action with any other name is rejected with the message "No system action of that id was found".
+
 A user who lacks the permission that an action requires is refused when the action is clicked.

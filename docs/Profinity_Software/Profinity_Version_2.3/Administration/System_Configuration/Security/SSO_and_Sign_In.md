@@ -12,11 +12,19 @@ Profinity uses one **Sign-in method** for the whole site, so every user signs in
 **Local** uses a username and password held by Profinity.
 **Sso** uses single sign-on (SSO) through an OpenID Connect (OIDC) identity provider (IdP).
 A site cannot mix the two.
+
 Profinity 2.3 supports one identity provider for the whole site, so every SSO user signs in through the same **Authority URL (IdP issuer)**.
 
 ## Choosing the sign-in method
 
 You need the **System administration** permission to choose the method.
+
+Choosing **Sso** replaces local sign-in for every user.
+Before you choose it, confirm the callback address and the issuer with a test account, as described in [Configuring the identity provider](#configuring-the-identity-provider).
+
+Saving the **Security** tab restarts Profinity and interrupts active sessions.
+Profinity keeps `config.yaml.bak`, a copy of the configuration as it was before the save, in the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md).
+If sign-in fails after the change, follow [Recovering from a misconfigured provider](#recovering-from-a-misconfigured-provider).
 
 1. Select **ADMIN** in the side menu, then **System Configuration**.
 2. Open the **Security** tab.
@@ -35,16 +43,16 @@ With **Sso** selected, the **SSO** and **SCIM Provisioning** groups appear.
 
 When **Sign-in method** is **Sso**, the **SSO** group holds the values taken from the application registration in the identity provider.
 
-| Setting | What to enter |
-|---------|---------------|
-| **Display name** | The text on the login button, which reads **Sign in with** followed by this name, for example `Corporate SSO`. Up to 128 characters. |
-| **Authority URL (IdP issuer)** | Required. The issuer URL from the identity provider's metadata, as an absolute `http` or `https` URL. This is the issuer, not the address of the provider's login page. |
-| **Client ID** | Required. The application (client) identifier from the identity provider's app registration. |
-| **Client secret** | The confidential client secret from the app registration. Leave it empty only when the identity provider allows public clients without a secret. |
-| **Redirect URIs (ACS URL)** | A comma-separated allow list of Profinity callback addresses. It should include the address registered in the identity provider. |
-| **End session endpoint (IdP logout URL)** | The identity provider's logout URL, used to end the identity provider session when the user signs out. When empty, Profinity discovers it from the authority metadata. |
-| **Post-logout redirect URI (SP return URL)** | The Profinity address the identity provider returns the user to after logout. When empty, the user returns to the login page. |
-| **Group claim name** | The name of the claim that carries group or role membership from the identity provider. The default is `groups`. |
+| Setting | Default | What to enter |
+|---------|---------|---------------|
+| **Display name** | Empty | The text on the login button, which reads **Sign in with** followed by this name, for example `Corporate SSO`. Up to 128 characters. |
+| **Authority URL (IdP issuer)** | Empty | Required. The issuer URL from the identity provider's metadata, as an absolute `http` or `https` URL. This is the issuer, not the address of the provider's login page. |
+| **Client ID** | Empty | Required. The application (client) identifier from the identity provider's app registration. |
+| **Client secret** | Empty | The confidential client secret from the app registration. Leave it empty only when the identity provider allows public clients without a secret. |
+| **Redirect URIs (ACS URL)** | Empty | A comma-separated allow list of Profinity callback addresses. It should include the address registered in the identity provider. |
+| **End session endpoint (IdP logout URL)** | Empty | The identity provider's logout URL, used to end the identity provider session when the user signs out. When empty, Profinity discovers it from the authority metadata. |
+| **Post-logout redirect URI (SP return URL)** | Empty | The Profinity address the identity provider returns the user to after logout. When empty, the user returns to the login page. |
+| **Group claim name** | `groups` | The name of the claim that carries group or role membership from the identity provider. |
 
 If the identity provider requires a secret and **Client secret** is empty, sign-in fails on the login page with "SSO login failed: TokenExchangeFailed".
 
@@ -52,7 +60,9 @@ The identity provider must accept the Profinity callback address, `https://<your
 Replace `<your-host>` with the address users type to reach Profinity.
 Register that address as a redirect uniform resource identifier (URI) in the identity provider, and enter the same address in **Redirect URIs (ACS URL)**.
 Some products call a redirect URI the Assertion Consumer Service (ACS) URL.
+
 The app registration must allow the `openid`, `profile` and `email` scopes, which Profinity requests.
+
 Profinity builds the callback address from the address the user used to reach the sign-in page.
 A site served over HTTPS registers an `https` address, as described in [Profinity Web](../Profinity_Web.md).
 
@@ -98,13 +108,22 @@ A site cannot mix **Local** and **Sso**, so a misconfigured or unreachable ident
 Confirm the callback address and the issuer with a test account before you rely on **Sso**.
 
 If Profinity starts with **Sso** selected and no **Authority URL (IdP issuer)**, it reverts to **Local** sign-in so that users can still sign in.
-When the authority is set but wrong, set the **Sign-in method** back to **Local** in the configuration file:
+When the authority is set but wrong, set the **Sign-in method** back to **Local** in the configuration file.
+
+You need an administrator account with a local password to sign in afterwards, because Profinity accepts password sign-in only when the method is **Local**.
+Check that this account exists before you choose **Sso**.
+Then follow these steps:
 
 1. Stop Profinity if it is running.
-2. Open the `config.yaml` file in the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md).
-3. Under the `securityPolicy` section, change `authenticationMode` to `Local`.
-4. Save the file and restart Profinity.
-5. Sign in as an administrator with a local password.
+2. Open the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md).
+3. Copy the `config.yaml` file to a safe location outside that folder.
+4. Open the `config.yaml` file.
+5. Under the `securityPolicy` section, change `authenticationMode` to `Local`.
+6. Save the file and restart Profinity.
+7. Sign in as an administrator with a local password.
+
+If Profinity fails to start after the edit, replace `config.yaml` with the copy from step 3 and restart Profinity.
+Profinity also keeps `config.yaml.bak` in the same folder, a copy of the file as it was before the last save made by Profinity.
 
 The sign-in page now shows the username and password fields.
 

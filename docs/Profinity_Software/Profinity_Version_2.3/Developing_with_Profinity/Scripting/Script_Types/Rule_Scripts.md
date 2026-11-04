@@ -22,6 +22,7 @@ You do not add a separate rule script component, and the rule passes its firing 
 Enable scripting in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first, because every script trigger requires it.
 Then add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one.
 Set **Script Mode** to **Run On Alert**.
+
 Name that component in the `actions` list of a rule, in the same way any other rule action is referenced by component name.
 The example rule calls a script component named `PackTempScript` when the pack temperature passes 45:
 
@@ -58,10 +59,13 @@ The context holds:
 - The triggering tag.
 - `TriggeredTags`, which holds every tag in the rule's scope that is currently true.
 - `Parameters`, the optional named inputs from the rule's action entry (refer to [Rule actions](../../../Tags/Rules/Actions/index.md)).
+
 The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage`, `TriggeredTags` and `Parameters`, with the same names in C#, Python and Lua.
 `RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert levels](../../../Tags/Alerts.md#alert-levels)).
+
 `Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`.
 Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
+
 `Parameters` is a dictionary keyed by the names written under `parameters` on the action entry.
 Literals arrive as their scalar values; a tag variable arrives as that tag's current value.
 Read an entry by name, for example `context.Parameters["setpoint"]` in C# and Python, or `context.Parameters['setpoint']` in Lua.
@@ -134,6 +138,7 @@ The full files `CSharpAlertTemplate.cs`, `PythonAlertTemplate.py` and `LuaAlertT
 
 **Run On Alert** has no start and stop lifecycle, because a rule invokes the script and the script stays idle between invocations.
 Between firings its status reads **Not Run** or **Run N times**, and the status shows **Running** while `OnAlert` or `on_alert` is executing.
+
 The component's menu in this mode is **Edit Script** only.
 
 ### Trigger overlap
@@ -143,9 +148,11 @@ If the alert method is still running when the rule fires again, **Trigger Overla
 A threshold rule can start several of those firings in one evaluation.
 Moving up runs the actions of each step it enters, from the lower step to the higher one.
 Moving down runs the clear actions of each step it leaves, starting at the step it was on and stopping before the step it lands on.
+
 Profinity starts the next action without waiting for the script to finish.
 With **Drop**, a script that is still running discards that next action, and the rule does not try it again, because the step has already changed.
 The side effect then stays on a step the value has already left.
+
 Set **Trigger Overlap** to **Queue** when the script must carry out every step, including the step the value lands on.
 Actions beyond **Queue Depth** are still discarded.
 The same choice applies when one step names the script more than once, because those actions also start one after another.

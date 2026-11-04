@@ -62,6 +62,7 @@ The **Evaluation tick (seconds)** setting, `evaluationTickSeconds` in YAML, take
 A value outside that range fails schema validation.
 Rules evaluate whenever a tag in their scope changes.
 The tick adds a periodic extra pass.
+
 This is the only way a `tag.IsStale` rule can fire for a tag that has stopped changing.
 A rule that tests for stale or missing data needs the tick to be set in at least one loaded rules file.
 When several rules files set a tick, the smallest value applies to the whole profile.
@@ -101,6 +102,7 @@ If the rule has no history, the tag starts at `false` (`-1` for a threshold rule
 A rule has a single state tag, even when its scope matches many tags.
 Every matching tag writes to the same state tag, so the value shown is that of whichever matching tag changed state most recently.
 It is not a summary of all of them.
+
 Where the state of each tag matters, define one rule per tag, each with its own **Publish state tag path**.
 Do not give two rules the same path.
 Profinity does not load the rules when two of them share a path, and the error names both rules.

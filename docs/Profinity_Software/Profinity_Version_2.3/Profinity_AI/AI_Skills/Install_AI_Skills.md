@@ -44,6 +44,7 @@ To see which skills the pack contains before installing, run `npx skills add ./p
 After installation, the skills are available in your AI tool.
 Each skill's `SKILL.md` file gives step-by-step instructions.
 API reference notes, examples, and schemas sit beside it in the skill's folder.
+
 Ask the tool for a list of components in the active profile.
 A list of names confirms that the skills and the MCP connection are both working.
 
@@ -54,7 +55,7 @@ Whoever builds the GPT does a short one-time setup from the files in the pack, a
 
 1. Paste the instructions.
 2. Upload the example files.
-3. Import the OpenAPI Actions file (the file that tells the GPT how to call the REST API) with your Profinity host in it.
+3. Import the OpenAPI Actions file (the file that tells the GPT how to call the REST API). Before you import it, replace the address in its `servers` entry, `https://REPLACE-WITH-YOUR-PROFINITY-HOST`, with your public HTTPS address for Profinity.
 
-The host, certificate, and token steps are in [Connect ChatGPT to Profinity](Connect_ChatGPT.md).
+The certificate and token steps are in [Connect ChatGPT to Profinity](Connect_ChatGPT.md).
 For what a Custom GPT can and cannot do, refer to [AI Skills reference](./AI_Skills_Reference.md#what-each-tool-can-do).

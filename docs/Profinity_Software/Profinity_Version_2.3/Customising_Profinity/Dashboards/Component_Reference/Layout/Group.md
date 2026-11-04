@@ -28,8 +28,6 @@ Use a [Row](Row.md) when the section needs a `height` instead of a width, or whe
 
 ## Example
 
-### Horizontal group
-
 A horizontal group arranges its components side by side.
 This example shows a horizontal group containing an icon and HTML content.
 
@@ -58,8 +56,6 @@ dashboard:
                         </div>
                       </div>
 ```
-
-### Vertical group
 
 A vertical group stacks its components from top to bottom.
 
@@ -92,8 +88,6 @@ dashboard:
                         - label: "Pressure Trend"
                           data: [1010, 1012, 1015, 1013]
 ```
-
-### Width example
 
 The `width` of a group controls its horizontal footprint in rows and in panel content.
 

@@ -10,6 +10,7 @@ last_reviewed: 2026-10-24
 
 The top section of the side menu holds the components of the active profile, grouped by type.
 The **Menu Layout** editor changes which group each component sits in, the order of groups and components, and the name and icon of each group.
+
 Only this top section can be customised.
 The bottom system section of the menu (CAN utilities, Tags, and Admin) is fixed and cannot be rearranged.
 Its entries appear according to the user's permissions and in a fixed order.
@@ -31,6 +32,7 @@ A [profile](./Profiles.md) uses the layout as soon as it is saved, so no setting
 The **Menu structure** list shows each group with its components beneath it.
 Drag the handle beside a group or a component to move it.
 You can drag a component into a different group or to a new position in the same group.
+
 You can also drag a component out of its group to the top level of the menu, where it appears on its own and outside any group.
 A component at the top level stays there when you edit or rename it.
 
@@ -41,6 +43,7 @@ A component at the top level stays there when you edit or rename it.
 
 Selecting a group opens its settings in the **Inspector**.
 **Name** sets the label shown in the menu.
+
 The **Appearance** section sets the icon, either a standard icon or an image from the profile.
 Groups take their icon from the component type unless one is set.
 Selecting a component shows its name.
@@ -59,6 +62,7 @@ The **YAML** tab next to the **DESIGN** tab shows the same layout as text, for u
 
 A group that came from a component type keeps collecting components of that type, even after you rename it or change its icon.
 A group you add with **NEW MENU GROUP** is a custom group and only holds what you put in it.
+
 When a component has no place in the saved layout, it appears in the group for its type.
 If no group for that type exists, Profinity shows a temporary group for it after your own groups.
 The temporary group becomes a real group the next time you save.
@@ -68,6 +72,7 @@ The temporary group becomes a real group the next time you save.
 Editing a component never moves it in the menu.
 Renaming a component also leaves it in place, because the menu refers to the component itself, rather than to its name.
 A component you add to the profile appears in the menu, and the layout stays unchanged.
+
 When you delete a component, it is removed from the layout in the same save.
 Any group it was in stays, even if it is now empty, because you may have created it on purpose.
 Loading a profile never changes the layout or the profile file.
@@ -77,6 +82,7 @@ Loading a profile never changes the layout or the profile file.
 If the saved layout is not valid, Profinity ignores the whole layout and shows every component in its default group.
 A layout can be invalid when it was written by hand and contains a mistake, or when it uses an older format.
 Profinity writes one message to the log that names the problem.
+
 The profile file stays unchanged, and the ignored layout is kept as it is until you save a new one.
 The **Menu Layout** editor shows a notice with the reasons.
 Saving from the editor replaces the ignored layout.

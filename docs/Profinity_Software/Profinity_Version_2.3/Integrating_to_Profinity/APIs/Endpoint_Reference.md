@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 This page lists REST API routes that complement the screens described elsewhere in the documentation.
 The Swagger page, the interactive API page on your Profinity instance, lists every route and the parameters it accepts.
 Refer to [Authenticate to the Profinity REST API](API_Authentication.md) for how to authenticate.
-Each route needs the same permission as the matching screen.
+Each route needs the same permission as the matching screen, except the Themes route, which needs no sign-in.
 
 ## Alerts
 
@@ -47,6 +47,7 @@ The `Unack` route is the same revert that the **Unacknowledge alert** button use
 The component and collection security routes work on the active profile only.
 The API edits security only for a profile that is currently loaded.
 A GET response includes an `unresolvedRoles` list alongside `mode` and `allowedRoles`.
+
 A PUT accepts only `mode` and `allowedRoles`.
 Refer to [Component and collection security](../../Administration/Users_and_Access/Component_And_Collection_Security/index.md) for the policy itself.
 
@@ -83,5 +84,6 @@ The rules for both routes are:
 The theme is read-only through the API.
 `GET /api/v2/Themes` is anonymous, so the sign-in page can use it before a user has authenticated.
 It returns `appTitle`, `hasCustomTheme` and a `logos` object with `main`, `login` and `favicon` URLs.
+
 The generated stylesheet is served from `/Themes/theme.css`, and each asset from `/Themes/Assets/{file}`.
 Changes are made by editing the theme file, as described in [Themes and branding](../../Customising_Profinity/Theming/index.md).

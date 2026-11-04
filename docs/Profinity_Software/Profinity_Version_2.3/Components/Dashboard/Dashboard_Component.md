@@ -23,6 +23,23 @@ Its only setting besides the name is **Upload Dashboard (Optional)**, which take
 When no file is uploaded, Profinity creates a template dashboard that the dashboard editor opens for editing, as described in [Using a custom component](../Custom_Components/Using_a_Custom_Component.md).
 A component name that matches an existing dashboard file in the profile is rejected with the message "There is already a component in this profile with that name".
 
+## Example
+
+This example is a Dashboard Component entry in the `profile.yaml` file of a profile.
+
+```yaml
+components:
+- component:
+    type: DashboardComponent
+    id: DashboardComponent1
+    name: YOUR_DASHBOARD_NAME
+    tagTreeParentPath: /
+    dashboardFilename: YOUR_DASHBOARD_NAME.yaml
+```
+
+Replace `YOUR_DASHBOARD_NAME` with a name that is unique in the profile.
+When you leave `dashboardFilename` out, Profinity uses the component name followed by `.yaml`.
+
 ## Building the dashboard
 
 Dashboards are written in YAML.
