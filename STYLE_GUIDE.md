@@ -326,6 +326,7 @@ def example_function():
 - Label sub-steps with lowercase letters and sub-sub-steps with lowercase Roman numerals, and end a parent step that has sub-steps with a colon.
 - Document one method per procedure. If a second method is genuinely needed, put it on its own page, under its own heading, or in a tab.
 - Put prerequisites and permissions before the first step, never partway through.
+- Before a step that overwrites, deletes or resets data, give the step that keeps a copy, or state that Profinity keeps one and where. Check in the code whether Profinity already keeps a copy, and say so only if it does. Put the warning before the step it concerns, never after.
 - End the procedure with how to verify it worked.
 - Link to an existing procedure instead of repeating it.
 - Name UI elements exactly as they appear, in bold (see 2.5)

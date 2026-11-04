@@ -328,6 +328,10 @@ function sectionOf(page) {
   return page.includes(path.sep) ? page.split(path.sep)[0] : 'Home';
 }
 
+// REVIEW_GUIDE.md section 8, Section score: a large section is not penalised for its size.
+const SECTION_DEDUCTION_LIMIT = 30;
+const SECTION_BLOCKER_SHARE = 0.2;
+
 /** Score a set of reviews against the pre-pass: pages best to worst, and sections (REVIEW_GUIDE section 8). */
 function scoreReviews(pre, reviews) {
   const sectionFindings = reviews.filter((r) => r.section);
@@ -346,8 +350,9 @@ function scoreReviews(pre, reviews) {
   const sectionRows = Object.entries(sections).map(([name, ps]) => {
     const own = sectionFindings.filter((s) => s.section === name).flatMap((s) => s.findings || []);
     const pageMean = Math.round(ps.reduce((n, p) => n + p.score, 0) / ps.length);
-    let s = pageMean - own.reduce((n, f) => n + DEDUCTION[f.severity], 0);
-    if (ps.some((p) => p.findings.some((f) => f.severity === 'blocker')) || own.some((f) => f.severity === 'blocker')) {
+    let s = pageMean - Math.min(SECTION_DEDUCTION_LIMIT, own.reduce((n, f) => n + DEDUCTION[f.severity], 0));
+    const withBlocker = ps.filter((p) => p.findings.some((f) => f.severity === 'blocker')).length;
+    if (own.some((f) => f.severity === 'blocker') || withBlocker / ps.length >= SECTION_BLOCKER_SHARE) {
       s = Math.min(s, 69);
     }
     const lowest = ps[ps.length - 1];

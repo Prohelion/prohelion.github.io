@@ -3,7 +3,7 @@ const assert = require('node:assert');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { prepassPage, scorePage, mergeReviews, phrasingHits, applyPhrasing } = require('./review-pages');
+const { prepassPage, scorePage, mergeReviews, phrasingHits, applyPhrasing, scoreReviews } = require('./review-pages');
 
 // Rules: REVIEW_GUIDE.md section 8 (scoring model) and section 11 (running a review with agents).
 
@@ -115,4 +115,23 @@ test('a reference page is not asked for a closing next step', () => {
   fs.writeFileSync(file, ['---', 'title: Ref', 'type: reference', '---', '', '# Ref', '', 'A fact.', ''].join('\n'));
   const checks = prepassPage(file, dir).candidates.map((x) => x.check);
   assert.ok(!checks.includes('no-closing-next-step'));
+});
+
+// Rule: REVIEW_GUIDE.md section 8, Section score.
+test('one blocker does not cap a large section, and many blockers do', () => {
+  const page = (name, findings) => ({ page: name, findings });
+  const pre = {};
+  const clean = Array.from({ length: 9 }, (_, i) => ({ page: `S/P${i}.md`, findings: [] }));
+  const one = scoreReviews(pre, [...clean, { page: 'S/Bad.md', findings: [{ severity: 'blocker', category: 'reader', title: 't' }] }]);
+  assert.ok(one.sectionRows[0].score > 69);
+  const many = scoreReviews(pre, [...clean.slice(0, 7),
+    ...['A', 'B', 'C'].map((n) => page(`S/${n}.md`, [{ severity: 'blocker', category: 'reader', title: 't' }]))]);
+  assert.strictEqual(many.sectionRows[0].score, 69);
+});
+
+test('section-level deductions stop at 30 points', () => {
+  const pre = {};
+  const result = scoreReviews(pre, [{ page: 'S/A.md', findings: [] },
+    { section: 'S', findings: Array.from({ length: 10 }, () => ({ severity: 'improvement', category: 'consistency', title: 't' })) }]);
+  assert.strictEqual(result.sectionRows[0].score, 70);
 });

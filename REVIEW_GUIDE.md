@@ -277,8 +277,8 @@ Caps stop a page that fails the reader from scoring well on the strength of its 
 ### Section score
 
 1. Take the mean of the page scores.
-2. Deduct for section-level findings from section 6, using the same deductions: 10, 4 and 1.
-3. Apply the cap: a section containing any blocker, on a page or at section level, cannot exceed 69.
+2. Deduct for section-level findings from section 6, using the same deductions: 10, 4 and 1. The total deduction is limited to 30 points, so a large section is not penalised for its size.
+3. Apply the cap: a section with a section-level blocker, or with blockers on at least a fifth of its pages, cannot exceed 69. A blocker on one page of a large section lowers that page and appears as the lowest page, and does not cap the whole section.
 4. Report the lowest-scoring page beside the section score, because a mean can hide one page that stops the reader.
 
 ### When a category cannot be judged

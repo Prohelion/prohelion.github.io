@@ -83,8 +83,8 @@ The positive-phrasing rule (Style Guide 2.4) needs every sentence fixed, not one
 Each page starts at 100 points across seven categories, and loses 10, 4 or 1 point for each blocker, improvement or polish finding.
 One blocker caps a page at 69, and two or more cap it at 49.
 Visual flow cannot be judged from Markdown source, so scores are provisional and out of the other 90 points.
-The section score is the mean page score, less points for each cross-page finding, capped at 69 when the section has a blocker.
-Large sections lose more under this rule, so read the page mean beside it.
+The section score is the mean page score, less points for each cross-page finding (at most 30 in total), capped at 69 when the section has a section-level blocker or blockers on a fifth of its pages.
+The lowest page is shown beside it, because a mean can hide one page that stops the reader.
 The full model is in section 8 of `REVIEW_GUIDE.md`, and `scorePage` in `review-pages.js` implements it.
 
 The objective checks on every page (paragraph length, troubleshooting tables, settings tables without a default column, a closing next step and others) come from a fresh pre-pass each time, so they update as pages change.
