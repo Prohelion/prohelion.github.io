@@ -79,6 +79,6 @@ The usual firmware flash uses `Firmware` with `.bin`.
 Refer to [Component Pack CLI](../SDK/Component_Pack_CLI.md).
 
 The load script opens the device with values from `Profinity.ComponentSettings`, such as a COM port and a baud rate.
-How the load and save scripts use `Profinity.FirmwareSettings` is on [Firmware maps](Firmware_Maps.md#index-and-scale).
+How the load and save scripts use `Profinity.FirmwareSettings` is on [Firmware maps](Firmware_Maps.md#scale).
 Only an entry under `actions` receives `Profinity.Action`, including the uploaded file and progress.
 Refer to [Component and firmware settings](../Scripting/Script_Operations/Settings.md) and [Action context](../Scripting/Script_Operations/Action.md).

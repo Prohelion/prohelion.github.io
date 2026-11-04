@@ -75,7 +75,8 @@ After a session ends, the dialog reloads and the Admin parameters disappear.
 
 !!! danger "A firmware update cannot be undone"
     The update writes new firmware to the BMU and replaces the firmware that is there now.
-    On a Gen2 BMU, save the current settings first, as in step 3 below.
+    The settings stored on the BMU are kept.
+    On a Gen2 BMU, save the current settings first anyway, as in step 3 below, so that you can restore them if you need to.
 
 1. Open **Change Settings** on the BMU dashboard.
 2. Select the **Firmware Utilities** tab.

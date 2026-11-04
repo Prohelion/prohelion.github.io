@@ -20,7 +20,7 @@ Users who sign in through single sign-on (SSO) manage MFA and credentials in the
 
 When the site **Sign-in method** is **Local** and **Enforce two-factor for local users** is on, a signed-in user sees a **Two-Factor Authentication** pill.
 The pill is in the **Account** group of the **ADMIN** page, next to **Change My Password**.
-The pill is hidden in a kiosk session.
+The pill is not shown in a kiosk session.
 
 It appears only while two-factor authentication is enforced, so a user can enrol voluntarily only on a site that enforces it.
 To open it, select **ADMIN** in the side menu and then the pill.

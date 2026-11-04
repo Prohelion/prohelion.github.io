@@ -42,6 +42,8 @@ Changing a deployed component's **Tag tree path**, or renaming it, automatically
 Only paths that refer to the moved component are updated, and an unrelated branch with the same name is left alone.
 The same updates appear in `rules.yaml` and `collections.yaml` for anyone who edits those files directly.
 Relative binds inside the moved component's own dashboard are unaffected.
+Setting the **Tag tree path**, or the name, back to its earlier value applies the same update in reverse, so references that Profinity updated return to their original paths.
+References you edited by hand after the move, and absolute binds in other components' dashboards, stay as they are.
 
 Absolute binds in other components' dashboards are literal paths to the old location, so they are not updated.
 This includes binds that use the `[TimeSeries]` and `[TimeSeries_Delta]` source prefixes as well as those that begin with a slash.

@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # Migrate from Profinity V1 to V2
 
-Profinity V2 is a significant architectural upgrade from V1.
+Profinity V2 is a significant architectural upgrade from V1, which ran on Windows only.
 It keeps the functionality of V1 and adds a web-based interface and an expanded API, but the two versions are not compatible.
 The incompatibilities are:
 
@@ -24,7 +24,7 @@ Prohelion recommends a clean installation of V2, removing V1 before you install 
 1. Copy the V1 profiles, configuration files, CAN database (DBC) files, and any custom scripts or data to a location outside the V1 installation and its profile directory.
    Write down the component settings and addresses, and any custom V1 settings you want to replicate in V2.
 2. Confirm that the copies from step 1 open correctly.
-    Then uninstall V1 with the standard uninstallation procedure, and remove the files in the V1 profile directory.
+    Then uninstall V1 by running the V1 Windows installer and choosing its uninstall option, and remove the files in the V1 profile directory, `Documents\Prohelion\Profinity`.
 
     !!! warning "There is no downgrade path"
         Keep your V1 backups.

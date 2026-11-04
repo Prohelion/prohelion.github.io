@@ -53,7 +53,8 @@ The procedure for [setting up a motor](../../../../../Motor_Controllers/Config_S
 
 Flash the firmware once the configuration has been updated.
 It needs the same Windows desktop instance and the same CAN to Ethernet bridge or Virtual CAN Adapter as the configuration tool.
-A flash replaces the firmware on the WaveSculptor and cannot be undone from Profinity, so save the configuration to the PC first, as in step 3 of the configuration procedure.
+A flash replaces the firmware on the WaveSculptor and cannot be undone from Profinity.
+The stored configuration is kept, and saving it to the PC first, as in step 3 of the configuration procedure, gives you a copy to restore.
 
 1. Select the **Firmware Utilities** tab in the settings.
 2. Select **Update Firmware**.

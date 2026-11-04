@@ -104,8 +104,7 @@ When `name` is omitted, the identifier is used as the label.
 | `readOnly` | `true` means the value is visible and the user cannot change it |
 | `min`, `max` | Smallest and largest numbers the field accepts. Write them in the units the user types |
 | `units` | Unit printed beside a number |
-| `scale` | Multiplies the number shown on a firmware field. A save stores that on-screen number. Refer to [Firmware maps](Firmware_Maps.md#index-and-scale) |
-| `index` | Firmware maps only. Device parameter address the load and save scripts use |
+| `scale` | Multiplies the number shown on a firmware field. A save stores that on-screen number. Refer to [Firmware maps](Firmware_Maps.md#scale) |
 | `dependsOn` | The field is shown when every named field has the given value. The name is another field identifier in this file |
 | `gridSpanX` | How many columns the control spans. `2` draws it across two columns |
 | `gridSpanY` | How many rows the control spans |
@@ -119,7 +118,7 @@ When the two sides differ, for example `"1": NMEA`, the list shows `NMEA` and `G
 `units` is shown for `V`, `mV`, `A`, `Ah`, `W`, `Wh`, `Ms`, `Seconds`, `°C`, `kb/s`, `%`, `Ohms`, `Ohm`, `J`, `kPa`, `RH %`, and `Bitfield`.
 Any other text is ignored.
 
-`scale`, `index`, and `min` and `max` on a firmware field, with a worked example and the rule that a save stores the number on screen, are on [Firmware maps](Firmware_Maps.md#index-and-scale).
+`scale`, `min` and `max` on a firmware field, with a worked example and the rule that a save stores the number on screen, are on [Firmware maps](Firmware_Maps.md#scale).
 
 ## Field types
 

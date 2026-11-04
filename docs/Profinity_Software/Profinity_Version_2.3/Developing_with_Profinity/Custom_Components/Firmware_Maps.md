@@ -24,11 +24,9 @@ Refer to [Firmware actions](Firmware_Actions.md).
 A file that uses a flat `config` map instead of `sections` is also read.
 Those fields are shown on a **Firmware Settings** tab, in a group named **Firmware**.
 
-## Index and scale
+## Scale
 
-`index` is the device parameter address.
-A load script and a save script use it when they read or write that field on the device.
-Write it on the field next to `type` and `scale`.
+A script receives a field by its id only, so keep device addresses in the load and save scripts.
 
 `scale` multiplies `default` to give the number shown on the firmware page.
 `min` and `max` are checked against that number, so write them in the units the user types.
@@ -53,7 +51,6 @@ sections:
             scale: 0.001
             min: 0
             max: 4.4
-            index: 0x35
           cellBalancingVoltage:
             name: Balance Down
             type: UINT16
@@ -62,7 +59,6 @@ sections:
             scale: 0.001
             min: 0
             max: 4.4
-            index: 0x36
       - id: shunt
         displayName: Current Shunt
         fields:
@@ -73,7 +69,6 @@ sections:
             units: A
             min: 2
             max: 1999
-            index: 0x50
           shuntRatedAt:
             name: Current Shunt Rated @
             type: LIST
@@ -91,9 +86,7 @@ That file adds a **BMS Settings** tab.
 A value above 4.4 is rejected.
 `4100` is the `default` in the file, and `4.4` is the largest number the user can type.
 
-`index: 0x35` is the device parameter address for **Balance Up**.
-**Current Shunt Rated @** has no `index`, so it is not a device parameter.
-It is a companion list that exists only in the UI.
+**Current Shunt Rated @** is a companion list that exists only in the UI.
 
 !!! warning "A save stores the number on screen"
     `scale` changes the number drawn on the firmware page.

@@ -108,6 +108,8 @@ To connect the component:
 ## Remove a component
 
 Deleting a component removes its settings from the profile and deletes its folder, which holds its dashboard, scripts and other files.
+Deleting a local historian also deletes its history database.
+Log files from file and SFTP loggers stay on the device, and data in an external database or on a remote server stays where it is.
 To bring a deleted component back, restore it from a copy that you keep before you delete it.
 
 To remove a component that is no longer required:

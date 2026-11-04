@@ -80,7 +80,7 @@ The web interface loads `profile.css` when the page opens.
 
 If a class has no effect, check these causes:
 
-- The stylesheet is named differently from `profile.css`, or `profile.css` lacks an import for it.
+- The stylesheet is not named `profile.css`, or `profile.css` does not import it.
 - The class name in the dashboard differs from the CSS in spelling or case.
 - The class is on an element that does not use it, such as a `readout` item.
 

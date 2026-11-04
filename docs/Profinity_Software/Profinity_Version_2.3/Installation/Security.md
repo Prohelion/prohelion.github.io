@@ -137,7 +137,7 @@ Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Pe
 
 ## Kiosk Mode security
 
-Kiosk Mode signs a selected user in automatically, skipping the login, which needs careful configuration.
+Kiosk Mode signs a selected user in automatically without a login, which needs careful configuration.
 Profinity does not restrict which enabled user is selected, including administrators, so anyone at the kiosk inherits that user's permissions.
 Use a dedicated user with only the view permissions the display needs, such as a read-only role, and review that user's permissions regularly.
 

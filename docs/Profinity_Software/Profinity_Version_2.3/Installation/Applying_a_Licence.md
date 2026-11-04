@@ -32,7 +32,7 @@ What you can sign in with depends on the type of installation and its licence.
 | Windows service, Linux, macOS, or Docker | Server licence | `admin` with the password `password` on a new installation, which must be changed at first sign-in | Yes |
 
 When the 14-day trial ends, the `admin` account stays and Profinity stays reachable on the same address in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired).
-In restricted mode, a user with the **Security administration** permission can sign in to apply a licence, and other features need that licence before they work.
+In restricted mode, a user with the **Security administration** permission can sign in to apply a licence, and nothing else works until they do.
 User accounts and roles need the Server licensed feature, which the Server and Enterprise editions and the 14-day trial include.
 Refer to [Licensing](../Licensing.md) for the trial and for what each edition includes.
 

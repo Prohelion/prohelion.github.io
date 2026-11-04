@@ -108,11 +108,11 @@ Re-save collections and rules in the visual editors after the upgrade if you edi
 ## Profile files
 
 Profinity 2.3 reads a profile only from `profile.yaml` in the profile's folder.
-Profinity 2.2 also accepted a profile file whose name ended in `.pprof` or `.yml`, and at start-up it turned a single profile file in the `profiles` folder into a profile folder.
+Profinity 2.2 also accepted other profile file names, and at start-up it turned a single profile file in the `profiles` folder into a profile folder.
 Profinity 2.3 does neither.
 
 Copy the profile's folder to a safe place first, or download the profile as a pack, as described in [Manage profiles](../Administration/Manage_Profiles.md#download-a-profile-pack).
-Then rename the `.pprof` or `.yml` profile file, which holds YAML, to `profile.yaml` in the profile's folder.
+Then name the profile file `profile.yaml` in the profile's folder.
 
 A key at the top level of a profile that Profinity does not define, such as a misspelt setting name, now stops the profile loading.
 In 2.2 it was ignored.
