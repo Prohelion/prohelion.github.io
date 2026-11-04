@@ -135,3 +135,8 @@ test('section-level deductions stop at 30 points', () => {
     { section: 'S', findings: Array.from({ length: 10 }, () => ({ severity: 'improvement', category: 'consistency', title: 't' })) }]);
   assert.strictEqual(result.sectionRows[0].score, 70);
 });
+
+test('a line listed in phrasing-keep.json is not flagged again', () => {
+  const kept = JSON.parse(fs.readFileSync(path.join(__dirname, 'phrasing-keep.json'), 'utf8'))[0];
+  assert.deepStrictEqual(phrasingHits([kept], ['prose']), []);
+});

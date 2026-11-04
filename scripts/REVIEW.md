@@ -103,6 +103,6 @@ Findings that need a reader's judgement come from the ledger.
 
 - Reviewers read Markdown source and cannot judge visual flow or screenshots.
 - A single reviewer can miss a blocker or over-grade a minor one. The blocker pass and a spot-check exist for that reason.
-- The `negative-phrasing` count will not reach zero, because some negatives are right: safety prohibitions, symptoms, states defined by an absence, and contrasts the reader needs.
+- Some negatives are right: safety prohibitions, symptoms, states defined by an absence, and contrasts the reader needs. A line that a sweep kept, or whose rewrite you rejected, goes into `scripts/phrasing-keep.json` and is not flagged again. Add every kept or rejected line there after each sweep.
 - The ledger is local. Back it up if the review matters to anyone else.
 - The scripts prepare agent inputs and print their briefs. Running the agents needs Claude Code.

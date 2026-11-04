@@ -62,9 +62,14 @@ function phrasingText(line, kind) {
   return s;
 }
 
+// Lines a person has judged correct as written (kept by a sweep, or a rewrite was rejected), so they are not flagged again.
+const KEEP_FILE = path.join(__dirname, 'phrasing-keep.json');
+const PHRASING_KEEP = new Set(fs.existsSync(KEEP_FILE) ? JSON.parse(fs.readFileSync(KEEP_FILE, 'utf8')) : []);
+
 function phrasingHits(lines, kinds) {
   return lines.flatMap((line, i) => {
     if (!['prose', 'list', 'table', 'admonition'].includes(kinds[i])) return [];
+    if (PHRASING_KEEP.has(line.trim())) return [];
     const s = phrasingText(line, kinds[i]);
     const patterns = Object.keys(PHRASING_PATTERNS).filter((p) => PHRASING_PATTERNS[p](s));
     return patterns.length ? [{ line: i + 1, text: line.trim(), patterns }] : [];
