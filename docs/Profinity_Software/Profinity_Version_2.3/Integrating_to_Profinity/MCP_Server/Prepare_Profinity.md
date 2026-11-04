@@ -143,6 +143,9 @@ Opening the address in a browser does not test the server, so use the command fo
     curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
+    On macOS, the `curl` in `/usr/bin` checks the certificates in the keychain.
+    A `curl` from another source can keep its own list of trusted certificates, so run `/usr/bin/curl` for this check.
+
 === "Windows"
 
     Run this command in PowerShell, with the HTTP or HTTPS address:
