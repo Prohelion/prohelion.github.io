@@ -450,3 +450,7 @@ misspelt
 enrollment
 onwards
 math
+resync
+connectionless
+hotspot
+isabellenhutte
