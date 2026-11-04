@@ -80,7 +80,7 @@ The other settings appear only after you switch on **Enable SIEM export**.
 | **SIEM port** | 0 (unset) | The collector port, from 0 to 65535. Enter the port the collector listens on, because 0 means no port is set. |
 | **Protocol** | UDP | The transport used to send events, either `UDP` (User Datagram Protocol) or `TCP` (Transmission Control Protocol). |
 | **Minimum log level** | Info | Only audit events at this level or higher are exported. The options are `Trace`, `Debug`, `Info`, `Warn`, `Error` and `Fatal`. |
-| **Format** | Syslog | The message format. Syslog is the only option. |
+| **Format** | Syslog | The message format. Syslog is the only option, and each event is the plain text line described in [Event format](#event-format), not an RFC syslog message. |
 
 Profinity sends each event as the plain text line described in [Event format](#event-format), without a syslog priority or header.
 Set the collector to accept a plain line over UDP or TCP.

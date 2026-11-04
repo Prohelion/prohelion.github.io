@@ -3,7 +3,7 @@ title: Binding settings reference
 description: "Look up every setting a dashboard binding accepts, grouped by what it does, with its type, default, and the page that explains it."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-04
 ---
 
 # Binding settings reference
@@ -51,16 +51,18 @@ These settings change the value before the component shows it, and [Transform an
 
 ## Mode
 
-These settings decide whether the binding reads the latest value, recent history or the data log, and [Binding modes](./index.md#binding-modes) explains them.
+These settings decide whether the binding reads the latest value or a window of history, and [Binding modes](./index.md#binding-modes) explains them.
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| `seriesMode` | string | `instant` | `instant` (the default), `timeSeries`, or `timeSeriesDelta`. A chart plots a series of samples when this is `timeSeries` or `timeSeriesDelta` |
-| `store` | string | `local` | `local` (the default) for live values, or `logged` for values read from the data log |
-| `timeRangeStart` | string | `-10m` | Start of the time window for a logged or time series binding, relative to now (for example `-10m`). When `timeRangeStop` is set and this is omitted, the window starts 10 minutes before the stop time |
-| `timeRangeStop` | string | None | End of the time window, where `0m` is now |
-| `aggregationWindow` | string | None | Length of each aggregation interval for logged data (for example `1m`) |
-| `aggregationFunction` | string | `max` | How each interval is reduced for logged data: `max` (the default), `mean`, `min`, `last`, `first`, `sum`, or `count` |
+| `seriesMode` | string | `instant` | `instant` (the default), `timeSeries`, or `timeSeriesDelta`. A chart plots a series of samples when this is `timeSeries` or `timeSeriesDelta`. The Visual Editor shows the window settings only for these two modes |
+| `start` | string | `-10m` | Start of the time window, relative to now, such as `-10m`, or an ISO 8601 instant. When `stop` is set and this is omitted, the window starts 10 minutes before the stop time |
+| `stop` | string | None | End of the time window, relative to now, where `0m` is now. When omitted, the window ends at now |
+| `aggregationWindow` | string | None | Length of each interval used for the older values that come from the designated historian (for example `1m`). When omitted, Profinity chooses the length from the length of the window |
+| `aggregationFunction` | string | `max` | How each interval is reduced for the older values from the designated historian: `max` (the default), `mean`, `min`, `last`, `first`, `sum`, or `count` |
+
+Profinity reads the recent part of a window from memory, and the older part from the designated historian, as described in [Live and past data](./index.md#live-and-past-data).
+Aggregation applies only to the values from the historian, and values from memory are not aggregated.
 
 ## Chart only
 

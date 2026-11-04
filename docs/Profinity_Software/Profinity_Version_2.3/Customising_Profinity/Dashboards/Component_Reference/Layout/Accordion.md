@@ -194,6 +194,6 @@ dashboard:
                                   - target: value
                                     source: 'DBC/Metrics/History'
                                     seriesMode: timeSeries
-                                    timeRangeStart: "-5m"
-                                    timeRangeStop: "0m"
+                                    start: "-5m"
+                                    stop: "0m"
 ```

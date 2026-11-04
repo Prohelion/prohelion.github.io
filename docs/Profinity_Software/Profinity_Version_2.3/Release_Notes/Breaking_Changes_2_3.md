@@ -175,6 +175,18 @@ Refer to [Connections and Reconnecting](../Components/Connections_and_Reconnecti
 `DataSource.DefaultLocalSeriesTimeRangeStart` in the plugin SDK changed from `-5m` to `-10m`, so a data source that asks for a local series without its own range now starts ten minutes back.
 The value is a compile-time constant, so a plugin built against an earlier SDK keeps `-5m` until you rebuild it against the 2.3 SDK.
 
+## Dashboard time range settings are renamed
+
+The `store` setting is removed from dashboard bindings and from the `TagQuerySet` API, and `timeRangeStart` and `timeRangeStop` are renamed to `start` and `stop`.
+Profinity now reads the recent part of a window from memory and the older part from the designated historian, so a binding no longer chooses a store.
+A dashboard that still uses `store`, `timeRangeStart` or `timeRangeStop` is refused, and the message names the setting and says to use `start` and `stop`.
+An API request that uses these names returns an error for that binding.
+Profinity 2.3 does not convert these settings, so change each dashboard and integration after the upgrade.
+Refer to [Binding settings reference](../Customising_Profinity/Dashboards/Data_Binding/Binding_Settings_Reference.md) for the settings that remain.
+
+For plugin authors, the 2.3 SDK replaces `Store`, `TimeRangeStart` and `TimeRangeStop` with `Start` and `Stop` on the `Bind`, `Chart`, `SourceBinding` and `SourceValuePair` types, and removes `Store` and `DataStoreType`.
+Rebuild each plugin against the 2.3 SDK.
+
 ## Windows install with a Server licence accepts remote connections
 
 A Windows installation, including the Windows service that `ProfinityService.cmd` registers, used to serve its web interface to the local computer only, whatever licence it held.

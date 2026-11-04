@@ -76,7 +76,7 @@ That total increases when a snapshot or a delta is delivered.
 | Setting | Default | Purpose |
 |---|---|---|
 | **Remote base URL** | None | The remote Profinity base URL, for example `https://receiver:443/`. Required when the protocol is HTTPS. |
-| **Bearer token** | None | A JSON Web Token (JWT) for a user on the remote instance with the **Receive external tags** permission, or for an Admin user. Use the token of a service account created on the receiving instance, so the relay keeps working without anyone signing in again. Required when the protocol is HTTPS, and stored encrypted. |
+| **Bearer token** | None | A JSON Web Token (JWT) for a user on the remote instance with the **Receive external tags** permission, or for an Admin user. Use the token of a service account created on the receiving instance, copied from its **Service Account Token** dialog, so the relay keeps working without anyone signing in again. Required when the protocol is HTTPS, and stored encrypted. |
 | **Trust all server certificates** | Off | Disables Transport Layer Security (TLS) server certificate validation. Enable only when connecting to a trusted receiver that uses a self-signed certificate. |
 
 ### MQTT settings

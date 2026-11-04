@@ -33,6 +33,9 @@ The panel has four controls:
 <figcaption>Start the Charge</figcaption>
 </figure>
 
+Set the supply and charge limits before a first charge, because a **Supply Current Limit** higher than the rating of the wall circuit can overload that circuit.
+Refer to [Charger settings](Charger_Settings.md) for the limits and the risks of setting them wrongly.
+
 To start a charge, follow these steps.
 
 1. Select the battery to charge.
@@ -55,6 +58,3 @@ Profinity runs these stages in order:
 
 If any stage fails, Profinity stops the charge and disengages the pack.
 Selecting **STOP** stops the charger and disengages the pack.
-
-Set the supply and charge limits before a first charge, because a **Supply Current Limit** higher than the rating of the wall circuit can overload that circuit.
-Refer to [Charger settings](Charger_Settings.md) for the limits and the risks of setting them wrongly.

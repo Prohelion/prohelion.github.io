@@ -84,8 +84,8 @@ dashboard:
                                   - target: value
                                     source: Properties/BusPower
                                     seriesMode: timeSeries
-                                    timeRangeStart: "-5m"
-                                    timeRangeStop: "0m"
+                                    start: "-5m"
+                                    stop: "0m"
                       - panel:
                           title: VELOCITY (M/S)
                           items:
@@ -96,8 +96,8 @@ dashboard:
                                   - target: value
                                     source: DBC/VelocityMeasurement/VehicleVelocity
                                     seriesMode: timeSeries
-                                    timeRangeStart: "-5m"
-                                    timeRangeStop: "0m"
+                                    start: "-5m"
+                                    stop: "0m"
                       - panel:
                           title: CONTROLLER LIMITS
                           items:

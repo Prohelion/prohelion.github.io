@@ -22,7 +22,7 @@ The settings for an authored component are arranged on four tabs: **Settings**, 
 - **Scripts** holds **Main Script (Optional)** and **Auto Start Main Script**.
 
 `component_metadata.yaml` is not an upload.
-Profinity writes it in the component folder when the component is packed.
+You create it by hand in the component folder, and the pack requires it.
 None of these files is required for the component to run in a profile.
 If no dashboard is uploaded, Profinity writes a starter dashboard named after the component.
 
@@ -36,7 +36,7 @@ If no dashboard is uploaded, Profinity writes a starter dashboard named after th
 | [`settings_map.yaml`](Settings.md) | **Settings Map YAML file (Optional)** | Yes | Extra settings fields shown on the component |
 | [`firmware_map.yaml`](Firmware_Maps.md) | **Firmware Map YAML file (Optional)** | Yes | Firmware settings fields shown on the component |
 | [`firmware.yaml`](Firmware_Actions.md) | **Firmware Actions YAML file (Optional)** | No | Scripts for load, save, and any further firmware actions |
-| [`component_metadata.yaml`](Component_Metadata.md) | Written in the component folder | Yes | Catalogue name, description, and which files the pack binds |
+| [`component_metadata.yaml`](Component_Metadata.md) | Created by hand in the component folder | Yes | Catalogue name, description, and which files the pack binds |
 
 Every Profinity YAML document in that set carries `version: "2.3"`.
 A component can mix script languages, because Profinity runs each script from its file extension: `.cs`, `.py`, or `.lua`.

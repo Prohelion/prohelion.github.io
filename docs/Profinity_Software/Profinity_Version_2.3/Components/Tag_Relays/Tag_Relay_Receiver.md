@@ -80,7 +80,7 @@ The relayed tags appear under the **Receiver tag path prefix**.
 
 When the protocol is HTTPS, the sender posts directly to this instance.
 It uses a JSON Web Token (JWT) for a user with the **Receive external tags** permission, or for an Admin user.
-Create a service account on this instance with that permission and give its token to the sender.
+Create a service account on this instance with a role that holds that permission, select **Generate Token** on its **User Actions** tab, and give the token from the **Service Account Token** dialog to the sender, as described in [Service accounts](../../Administration/Users_and_Access/Service_Accounts.md).
 Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how to grant the permission.
 
 The Tag Relay Receiver component supplies the receiver prefix and only displays the receiving state.

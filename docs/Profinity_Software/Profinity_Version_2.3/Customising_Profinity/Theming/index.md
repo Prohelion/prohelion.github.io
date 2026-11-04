@@ -13,7 +13,9 @@ The web client shows the colours, logos, and application title from that file in
 
 [Download the example theme :material-download:](example_theme.zip){ .md-button }
 
-Unzip the file into the `themes` folder of the artefacts directory.
+The zip file holds `theme.yaml` and an `assets` folder with `acme-login.svg`, `acme-logo.svg` and `acme-favicon.svg`.
+Unzipping it into the `themes` folder of the artefacts directory replaces an existing `theme.yaml` and any file in `assets` with the same name, so copy your current `theme.yaml` and `assets` folder somewhere safe first.
+Then unzip the file into the `themes` folder.
 
 !!! info "Themes need a licence, and distributing a themed Profinity needs an agreement"
     Themes and branding are included in the Desktop, Server, and Enterprise editions.

@@ -17,6 +17,7 @@ Start with the [Quick start guide](../Getting_Started/Quick_Start.md) if Profini
 - [How to create a custom dashboard](./Create_Custom_Dashboard.md): build a first dashboard for a Custom Component.
 - [How to add images to your dashboard](./Add_Images_to_Dashboard.md): use custom images in dashboard components.
 - [How to style your dashboard](./Style_Dashboard.md): add a `profile.css` stylesheet, and apply its classes to dashboard groups and readouts.
+- [View a dashboard at a past time](./View_Dashboard_at_a_Past_Time.md): switch a dashboard from live values to values from an earlier time, when a designated historian holds the history.
 
 ## Add components and connect devices
 

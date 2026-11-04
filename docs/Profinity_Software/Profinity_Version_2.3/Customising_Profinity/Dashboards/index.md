@@ -21,7 +21,8 @@ This guide is for people who build dashboards for components, profile home pages
 - [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md) walks through opening the editor, adding elements, binding tags, saving, and copying a dashboard as a template.
 - [Visual Editor reference](./Visual_Editor.md) describes the dashboard tree, inspector, footer buttons and YAML tab.
 - [Core elements](./Core_Elements.md) explains the structure of a dashboard.
-- [Data binding](./Data_Binding/index.md) describes how to bind tags to components.
+- [Data binding](./Data_Binding/index.md) describes how to bind tags to components, and how a binding shows live values or a window of history.
+- [View a dashboard at a past time](../../How_To_Guides/View_Dashboard_at_a_Past_Time.md) switches a dashboard between live values and values from an earlier time.
 - [Component reference](./Component_Reference/index.md) describes each component you can include.
 - [Conditional styling](./Data_Binding/Conditional_Styling.md) shows how to hide and show elements or change colour based on data.
 - [Store dashboard files in a profile](./Store_Dashboard_Files.md) explains where images, stylesheets, and content files go.

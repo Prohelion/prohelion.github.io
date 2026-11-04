@@ -13,7 +13,8 @@ The dashboard monitors electrical, thermal, and performance values in real time.
 
 [Download the example dashboard :material-download:](example_dashboard.zip){ .md-button }
 
-Upload `dashboard.yaml` on a WaveSculptor22 or WaveSculptor200 component.
+To use it on a WaveSculptor22 component, copy the contents of `dashboard.yaml` from the zip file.
+Open the component dashboard, select **Edit Dashboard** in the title bar, select the **YAML** tab, paste the contents, and select **SAVE**.
 Every message and signal name in the YAML is taken from the [WaveSculptor22 CAN database (DBC) file](../../../../Motor_Controllers/WaveSculptor22/User_Manual/DBC.md).
 The [CAN protocol appendix](../../../../Motor_Controllers/WaveSculptor22/User_Manual/Appendix_C.md) of the WaveSculptor22 User Manual describes the same messages.
 
@@ -184,8 +185,8 @@ dashboard:
                                   - target: value
                                     source: Properties/BusPower
                                     seriesMode: timeSeries
-                                    timeRangeStart: "-5m"
-                                    timeRangeStop: "0m"
+                                    start: "-5m"
+                                    stop: "0m"
                       - panel:
                           title: VELOCITY (M/S)
                           items:
@@ -196,8 +197,8 @@ dashboard:
                                   - target: value
                                     source: DBC/VelocityMeasurement/VehicleVelocity
                                     seriesMode: timeSeries
-                                    timeRangeStart: "-5m"
-                                    timeRangeStop: "0m"
+                                    start: "-5m"
+                                    stop: "0m"
                       - panel:
                           title: CONTROLLER LIMITS
                           items:
@@ -499,7 +500,7 @@ dashboard:
 The bindings in this dashboard follow three patterns, which [Data binding](./Data_Binding/index.md) describes in full:
 
 - A readout bound to a `DBC/` tag shows the latest value.
-- A chart bound with `seriesMode: timeSeries` and a `timeRangeStart` and `timeRangeStop` window shows recent history.
+- A chart bound with `seriesMode: timeSeries` and a `start` and `stop` window shows recent history.
 - A lamp bound to `enabled` with `toType: boolean` shows a status flag.
 
 The `DBC/` paths are relative to the component that owns the dashboard, so the dashboard works for any component that publishes the same tags, such as a second WaveSculptor22 controller.

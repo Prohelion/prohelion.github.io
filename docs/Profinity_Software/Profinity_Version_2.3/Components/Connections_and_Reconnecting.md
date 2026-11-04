@@ -47,8 +47,9 @@ A component starts even when what it connects to is unavailable.
 It does not stop at start with an error.
 It shows **Error**, writes the reason to the [Logs](../Administration/Logs_Config.md) once, and keeps trying.
 
-The TDK and Siglent power supplies have an **Auto Reconnect** setting, and with it off they make one attempt and report a failure.
-When the broker, device, server, or database appears, the component connects by itself and the status changes to **On**.
+The TDK and Siglent power supplies have an **Auto Reconnect** setting, which is on by default.
+With it off, they make one attempt, report a failure and do not connect later.
+Every other component, and these power supplies with **Auto Reconnect** on, connects by itself when the broker, device, server, or database appears, and the status changes to **On**.
 
 This includes a login that is rejected.
 Profinity keeps trying and shows the reason, so fixing the credentials in the settings needs no restart.

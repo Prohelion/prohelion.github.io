@@ -189,8 +189,8 @@ dashboard:
                             - target: value
                               source: 'DBC/BusMeasurement/BusVoltage'
                               seriesMode: timeSeries
-                              timeRangeStart: "-5m"
-                              timeRangeStop: "0m"
+                              start: "-5m"
+                              stop: "0m"
                       - lamps:
                           items:
                             - lampgroup:
@@ -257,6 +257,6 @@ dashboard:
                                   - target: value
                                     source: 'DBC/Temperature/Value'
                                     seriesMode: timeSeries
-                                    timeRangeStart: "-5m"
-                                    timeRangeStop: "0m"
+                                    start: "-5m"
+                                    stop: "0m"
 ```

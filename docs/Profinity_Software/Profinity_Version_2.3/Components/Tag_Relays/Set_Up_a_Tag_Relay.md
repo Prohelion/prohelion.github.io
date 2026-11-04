@@ -13,7 +13,7 @@ The relay uses one of two protocols: HTTPS or Message Queuing Telemetry Transpor
 The HTTPS procedure comes first, and the MQTT procedure follows it.
 
 Both components require the **Data Relay** licensed feature on the instance they run on, as described in [Licensing](../../Licensing.md).
-The HTTPS protocol also needs a user with the **Receive external tags** permission on the receiving instance.
+The HTTPS protocol also needs a [service account](../../Administration/Users_and_Access/Service_Accounts.md) on the receiving instance, with a role that holds the **Receive external tags** permission.
 
 !!! warning "The default protocols differ"
     A new **Tag Relay Sender** defaults to **HTTPS**, and a new **Tag Relay Receiver** defaults to **MQTT**.
@@ -24,8 +24,8 @@ The HTTPS protocol also needs a user with the **Receive external tags** permissi
 1. On the sending instance, create a tag collection that holds the tags to share, as described in [Collections](../../Tags/Collections/index.md).
 2. On the receiving instance, add a **Tag Relay Receiver** and set **Protocol** to **HTTPS**.
 3. Set a unique **Receiver tag path prefix**, for example `Fleet`.
-4. Create a user on the receiving instance with the **Receive external tags** permission.
-   Note a JSON Web Token (JWT) for that user.
+4. On the receiving instance, create a service account with a role that holds the **Receive external tags** permission, as described in [Service accounts](../../Administration/Users_and_Access/Service_Accounts.md).
+   On the **User Actions** tab of the account, select **Generate Token**, and copy the token from the **Service Account Token** dialog.
 5. On the sending instance, add a **Tag Relay Sender** and set **Protocol** to **HTTPS**.
 6. In **Collections**, select the collection from step 1.
 7. Optional: set a **Sender tag path prefix**, for example `Vehicle12`.

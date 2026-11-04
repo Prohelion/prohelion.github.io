@@ -141,12 +141,17 @@ HTTP_PORT=8080
 
 ```bash
 docker run -p 8080:8080 \
+           -v "$PWD/Prohelion:/app/Prohelion" \
+           -e PROFINITY_HOME="/app/Prohelion" \
            -e PROFILE_NAME="Production Profile" \
            -e HTTP_PORT="8080" \
            prohelion/profinity:latest
 ```
 
-The `-p 8080:8080` option publishes port `8080` on the host and in the container, so the web interface answers on `http://localhost:8080`.
+The `-v` option mounts the artefacts directory, and `PROFINITY_HOME` names its path inside the container.
+Profinity reads `HTTP_PORT` and `PROFILE_NAME` only through placeholders in the files in that directory, so `config/config.yaml` needs `httpPort: ${HTTP_PORT:-18080}`, as in [Change a setting from an environment variable](#change-a-setting-from-an-environment-variable).
+With that placeholder, the `-p 8080:8080` option publishes port `8080` on the host and in the container, and the web interface answers on `http://localhost:8080`.
+Without the placeholder, Profinity listens on port 18080.
 
 Docker Compose [substitutes variables](https://docs.docker.com/compose/environment-variables/) into the compose file as well, so the same variable can set the published port and the setting inside the container:
 

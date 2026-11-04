@@ -29,7 +29,7 @@ Treat the token like a password, store it in a secrets manager, and give the acc
 4. Assign the roles the account needs under **Assigned roles**, and save.
 5. Select the user's row to open its settings dialog.
 6. Select the **User Actions** tab.
-7. Select **Generate Token**, then confirm. The bearer token appears in a dialog. Copy it into a secrets manager.
+7. Select **Generate Token**, then confirm. The **Service Account Token** dialog shows the bearer token in the **Token** box. Select **Copy** (the button reads **Copied** for a moment), store the token in a secrets manager, then select **Close**.
 
 On an account that already has a token, **View Token** also appears and displays the current token again.
 

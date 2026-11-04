@@ -18,23 +18,24 @@ Historical data is retrieved in three steps.
 Step 2 uses `POST /api/v2/TagQuerySet`, which requires the `TagView` permission (**View tags**).
 For more information on configuring InfluxDB, refer to [InfluxDB and Prometheus Logging](../../Components/Loggers/index.md).
 
-1. Configure an InfluxDB database in the profile.
+1. Configure a historian in the profile, and enable **Designated tag historian reader** on it, as described in [Designated historian](../../Components/Historians/Designated_Historian.md).
 2. Send `POST /api/v2/TagQuerySet` with a body that holds an optional `srcSetId` and a list of `bindings`. The response carries the matching values and a `srcSetId`.
-    - Each binding names a tag `source` and a `store` of `Local` or `Logged`.
-    - For the `Logged` store, a binding also carries the `timeRangeStart` and `timeRangeStop` of the InfluxDB range.
-    - A `Logged` binding can also carry `seriesMode`, `aggregationWindow` and `aggregationFunction` values.
-    - Only `source` is required in a binding, and a binding with an empty `source` is skipped.
+    - Each binding names a tag `source`. Only `source` is required, and a binding with an empty `source` is skipped.
+    - A binding with no `start` or `stop` returns the latest value of the tag.
+    - A binding with a `start` or `stop` returns the values in that window, from memory and, for older values, from the designated historian. Refer to [Live and past data](../../Customising_Profinity/Dashboards/Data_Binding/index.md#live-and-past-data).
+    - A binding with a window can also carry `seriesMode`, `aggregationWindow` and `aggregationFunction` values. The aggregation applies only to the older values from the historian.
+    - A binding that uses `store`, `timeRangeStart` or `timeRangeStop` returns an error. Omit `store`, and use `start` and `stop` in place of the other two.
     - If you omit `srcSetId`, the server numbers the set for you, and if you supply one, the server uses it and replaces any set that has the same identifier.
 3. Send `GET /api/v2/TagQuerySet/Delta/{sourceSet}` to poll that set, replacing `{sourceSet}` with the `srcSetId` from the response in step 2. It returns only the values that have changed since the previous poll.
 
-This request body reads the latest local value of one tag and the last hour of another, averaged over one-minute windows:
+This request body reads the latest value of one tag and the last hour of another, averaged over one-minute windows:
 
 ```json
 {
   "bindings": [
-    { "source": "Charger/DBC/BMSInfo/Flag", "store": "Local" },
-    { "source": "Charger/DBC/BMSInfo/Temp", "store": "Logged",
-      "timeRangeStart": "-1h", "timeRangeStop": "now()",
+    { "source": "Charger/DBC/BMSInfo/Flag" },
+    { "source": "Charger/DBC/BMSInfo/Temp",
+      "start": "-1h", "stop": "now()",
       "aggregationWindow": "1m", "aggregationFunction": "Mean" }
   ]
 }

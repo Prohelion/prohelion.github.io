@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: "Get short answers to common questions about building Profinity dashboards, binding tags, using profile assets and fixing problems, with links to the full pages."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-04
 ---
 
 # Frequently asked questions
@@ -13,7 +13,7 @@ This page answers common questions about creating Profinity dashboards in a sent
 ## General questions
 
 - What is a Profinity dashboard? A Profinity dashboard is a user interface that you build in the [Visual Editor](./Build_a_Dashboard.md) and that Profinity stores as a YAML file.
-  Its components show tag values, such as CAN signals, component properties and logged data, and its actions and toggles control the system.
+  Its components show tag values, such as CAN signals, component properties and historical data, and its actions and toggles control the system.
 - How do I create a dashboard? Add a Custom Component to the profile, or open a component that already has a dashboard, then open the Visual Editor.
   The steps are in [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md).
   A CAN database (DBC) file is only needed when the dashboard binds CAN signals.
@@ -31,7 +31,7 @@ This page answers common questions about creating Profinity dashboards in a sent
 
 - How do I display a simple value? Use a `readout` component, as in the [Readouts](./Component_Reference/Data/Readouts.md#example) reference example.
 - How do I show multiple related values? Use a `pill` component, which groups values beside an icon, as in the [starter template](./Where_Dashboards_Are_Used.md#starter-template) and the [Pill](./Component_Reference/Layout/Pill.md#example) reference example.
-- How do I create a chart? Use a `chart` component whose binding sets `seriesMode: timeSeries` with a `timeRangeStart` and `timeRangeStop` window.
+- How do I create a chart? Use a `chart` component whose binding sets `seriesMode: timeSeries` with a `start` and `stop` window.
   For examples, refer to [Time series](./Data_Binding/index.md#time-series) and the [Charts](./Component_Reference/Data/Charts.md#example) reference example.
 - How do I show status indicators? Use a `lamps` component, and bind its `enabled` or `color` target to a tag, as in [Conditional styling](./Data_Binding/Conditional_Styling.md).
 - How do I organise components into sections? Use `row` and `group` to arrange components, `panels` for titled panels, and `accordion` for collapsible sections, as described in [Core elements](./Core_Elements.md).
@@ -48,9 +48,11 @@ This page answers common questions about creating Profinity dashboards in a sent
   The same dashboard therefore works for any component that has the same tags.
   A source that starts with `/` names a tag in another component.
   Refer to [Binding source paths](./Data_Binding/index.md#binding-source-paths).
-- How do I access logged or historical data? Set `store: logged` with a time range on the binding.
-  This needs data logging to be enabled, as described in [Logged data](./Data_Binding/index.md#logged-data).
-  Add `aggregationWindow` and `aggregationFunction` to aggregate the data into intervals.
+- How do I show historical data? Set `start` and `stop` on a series binding with `seriesMode: timeSeries`.
+  Older values come from the designated historian, which needs data logging to be enabled, as described in [Live and past data](./Data_Binding/index.md#live-and-past-data).
+  Add `aggregationWindow` and `aggregationFunction` to aggregate the older values into intervals.
+- How do I view a dashboard at a past time? Select **View at a time** in the title bar, when the profile has a designated historian.
+  Refer to [View a dashboard at a past time](../../How_To_Guides/View_Dashboard_at_a_Past_Time.md).
 - How do I convert data types or scale values? Use `toType` to convert a type, and `gain` and `offset` to scale a value, as described under [Type conversion](./Data_Binding/Transform_and_Map_Values.md#type-conversion) and [Scaling and offset](./Data_Binding/Transform_and_Map_Values.md#scaling-and-offset).
 
 ## Troubleshooting questions

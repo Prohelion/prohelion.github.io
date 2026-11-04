@@ -54,10 +54,9 @@ Profinity can only select the network interface.
 ## Example
 
 This example is a Virtual CAN Bridge for a Profile that already has an adapter for the physical CAN network.
-Add it to the `components` list in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
+Add this list item under the existing `components:` key in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), with the same indentation as the other items.
 
 ```yaml
-components:
 - component:
     type: ProhelionVirtualAdapter
     name: Prohelion Virtual CAN to Ethernet Bridge

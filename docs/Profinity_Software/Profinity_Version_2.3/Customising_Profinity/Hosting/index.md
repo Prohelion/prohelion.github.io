@@ -39,6 +39,7 @@ Profinity validates that the named store and certificate exist.
 | **Cert File** | None | The certificate file. |
 | **Cert File Password** | None | The password for the certificate file. |
 | **Cert Key File** | None | Optional. |
+| **Enable Https** | On | Serves the HTTPS interface. **Redirect all Http traffic to Https** needs it on. |
 | **IP Port for Http** | 19080 | The HTTP port. |
 | **IP Port for Https** | 19443 | The HTTPS port. |
 | **Redirect all Http traffic to Https** | Off | Forces all HTTP traffic to the HTTPS interface. |
@@ -47,7 +48,7 @@ Profinity validates that the named store and certificate exist.
 These settings are on the **Extensions Web** tab.
 The **Web** tab has its own copy of the same settings for the Profinity web interface, with default ports 18080 and 18443.
 
-Saving the configuration with **Redirect all Http traffic to Https** enabled while HTTPS is disabled is rejected with the message "You can only redirect traffic if Https is enabled".
+Saving the configuration with **Redirect all Http traffic to Https** enabled while **Enable Https** is off is rejected with the message "You can only redirect traffic if Https is enabled".
 Turn off **Enable Swagger on API** in a production environment that does not need it.
 
 An application hosted here calls the same [Profinity REST APIs](../../Integrating_to_Profinity/APIs/index.md) that Profinity itself uses.

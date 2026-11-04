@@ -13,10 +13,11 @@ Profinity checks the file's signature on the instance itself, so licensing works
 To apply a licence file, refer to [Apply a licence](Installation/Applying_a_Licence.md), and to read the licence state of an instance, refer to [License manager](Administration/License_Manager.md) or the licence summary in [System Information](Administration/System_Info.md).
 
 A licence sets the most that an instance can use, and configuration can switch parts of it off.
-A licensed feature, such as Profinity AI or Data Relay, is available whenever the licence includes it, with one exception: the [site configuration](Administration/System_Configuration/index.md) (`config.yaml`) can also switch scripting off.
+A licensed feature, such as Profinity AI, is available whenever the licence includes it, with one exception: the [site configuration](Administration/System_Configuration/index.md) (`config.yaml`) can also switch scripting off.
 
 Components work differently.
 A component is available only when the licence, the original equipment manufacturer (OEM) customisation file (`custom.yaml`), and `config.yaml` all allow it, so either file can hide a component group or type that the licence includes.
+Data Relay is a licensed feature that works through components (Tag Relays, the MQTT Publisher and Subscriber, the Webhook Publisher and the Cloud Dashboard), so these components follow the component rule.
 Refer to [Choose available components](Administration/Choose_Available_Components.md).
 
 ## What each edition includes
@@ -65,7 +66,7 @@ The remaining rows differ by edition:
 | [Profinity SDK](Developing_with_Profinity/SDK/index.md): the `Profinity.Sdk` library, [`profinity-component-pack`](Developing_with_Profinity/SDK/Component_Pack_CLI.md) and [`profinity-script`](Developing_with_Profinity/SDK/Test_a_Script.md) | :material-close-circle-outline:{ .edition-icon .edition-icon--no title="Not included" role="img" aria-label="Not included" } | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on | :material-plus-circle:{ .edition-icon .edition-icon--addon title="Licensed separately" aria-hidden="true" } Add-on |
 
 - A Desktop installation is free for personal, non-commercial use, under the [Desktop free-use policy](#desktop-free-use-policy).
-  Every other installation starts with the [14-day local trial](#the-14-day-local-trial).
+  Every other installation starts with the [14-day local trial](#the-14-day-local-trial), unless an OEM-customised build leaves the trial out or the machine has already used it.
 - User accounts, roles, and the **Users & Groups** page come with the Profinity Server feature.
   For who can sign in on each installation type, refer to [Who can sign in, by installation type](Installation/Applying_a_Licence.md#who-can-sign-in).
 - Kiosk Mode is included in every edition.
@@ -92,8 +93,8 @@ Production use of Profinity Server on Windows, Docker, Linux, or macOS needs a l
 
 ## The 14-day local trial
 
-A new server installation, meaning a Windows service, Linux, macOS, or Docker installation, starts a one-time, 14-day trial the first time it runs.
-Desktop hosts follow the [Desktop free-use policy](#desktop-free-use-policy) instead, and some OEM-customised builds leave the trial out.
+A new server installation, meaning a Linux, macOS, or Docker installation, starts a one-time, 14-day trial the first time it runs with no licence installed.
+Desktop hosts, including the Windows service, follow the [Desktop free-use policy](#desktop-free-use-policy) instead, and some OEM-customised builds leave the trial out.
 The trial:
 
 - Works offline.

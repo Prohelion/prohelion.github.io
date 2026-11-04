@@ -3,12 +3,14 @@ title: Titlebar component
 description: "Reference for the Titlebar dashboard component: the header bar with a status lamp and menu toolbar, with its parameters, menu item behaviour and an example."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-04
 ---
 
 # Titlebar component
 The titlebar is the header bar of a dashboard, with a status lamp and a toolbar of menu items.
 The menu items provide dashboard identification, status information, navigation, component-specific actions and settings dialogs.
+When the profile has a designated historian, the titlebar also shows the **Live** and **View at a time** control, which switches the dashboard between live values and values from an earlier time.
+Refer to [View a dashboard at a past time](../../../../How_To_Guides/View_Dashboard_at_a_Past_Time.md) for how to use it.
 
 <figure markdown>
 ![A dark titlebar with a green status lamp and the title Prohelion BMU, and three icon buttons at the right.](../../images/titlebar.png)

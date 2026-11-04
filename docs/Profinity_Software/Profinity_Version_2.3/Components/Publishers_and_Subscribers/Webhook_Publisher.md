@@ -96,7 +96,7 @@ The `reason`, `message` and `metadata` fields of that response are not sent.
 
 Each entry reports the quality the tag had when the sample was taken.
 A Stale entry carries its last `value`, and an entry for a tag that is Unavailable or Bad has `quality` and no `value`.
-A tag is included only when its value is a finite number, so text, for example, is skipped.
+A Good or Stale tag is included only when its value is a finite number, so text, for example, is skipped.
 
 ## Delivery health
 

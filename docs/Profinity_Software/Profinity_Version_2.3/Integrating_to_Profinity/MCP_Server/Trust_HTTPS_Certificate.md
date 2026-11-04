@@ -70,6 +70,7 @@ Follow these steps on the computer that runs the AI tool:
     === "Debian or Ubuntu"
 
         Copy `profinity.pem` to `/usr/local/share/ca-certificates/profinity.crt`, and run `update-ca-certificates`.
+        Both commands need administrator rights, so start each with `sudo`.
         Another Linux distribution uses its own trusted-certificate command.
 
 Quit and reopen the AI tool after the operating system trusts the certificate.

@@ -3,7 +3,7 @@ title: Charts component
 description: "Data visualisation component supporting line, bar, radar, pie, doughnut, bubble, scatter, and polar area charts."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-04
 ---
 
 # Charts component
@@ -52,10 +52,11 @@ A chart binding accepts two chart-only properties, as well as the common binding
 | `seriesType` | string | Chart type | Overrides the chart `type` for one series with `line`, `bar` or `scatter` |
 | `stackScale` | boolean | `false` | When `true`, the series gets its own value axis in a stack of axes |
 
-The same reference describes `seriesMode`, `store`, `timeRangeStart`, `timeRangeStop`, `aggregationWindow` and `aggregationFunction`.
+The same reference describes `seriesMode`, `start`, `stop`, `aggregationWindow` and `aggregationFunction`.
 A `seriesMode` of `timeSeriesDelta` plots the differences between successive samples.
-Set `timeRangeStart` and `timeRangeStop` together on a `timeSeries` binding that needs a particular history.
+Set `start` and `stop` together on a `timeSeries` binding that needs a particular history.
 The Visual Editor sets `-10m` and `0m` when you choose a series mode.
+Older values that a window reaches back to come from the designated historian, as described in [Live and past data](../../Data_Binding/index.md#live-and-past-data).
 
 ## Chart types
 
@@ -121,8 +122,8 @@ dashboard:
                 - target: value
                   source: "DBC/BusMeasurement/BusCurrent"
                   seriesMode: timeSeries
-                  timeRangeStart: "-5m"
-                  timeRangeStop: "0m"
+                  start: "-5m"
+                  stop: "0m"
 ```
 
 The same time series chart with a refresh interval of 5000 milliseconds:
@@ -139,6 +140,6 @@ dashboard:
                 - target: value
                   source: "DBC/BusMeasurement/BusCurrent"
                   seriesMode: timeSeries
-                  timeRangeStart: "-5m"
-                  timeRangeStop: "0m"
+                  start: "-5m"
+                  stop: "0m"
 ```

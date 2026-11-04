@@ -1,9 +1,9 @@
 ---
 title: Data binding
-description: "Learn how a dashboard binding names a tag by path, which tags a dashboard can use, and the instant, time series and logged binding modes."
+description: "Learn how a binding names a tag by path, and how it shows the latest value, a window of history or values from an earlier time."
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-04
 ---
 
 # Data binding
@@ -25,7 +25,7 @@ flowchart LR
 <figcaption>A binding connects a tag to a dashboard component, and the component updates when the tag changes</figcaption>
 </figure>
 
-A binding can show the latest value of a tag, plot its recent history, or read its values back from the data log.
+A binding can show the latest value of a tag, plot a window of its recent history, or show older values from a designated historian.
 The tag is the same in each case, and only the binding settings differ.
 Whatever the origin of the value, Profinity presents it as a tag with an address, a value, a quality flag and a timestamp.
 One binding therefore works the same way for all of them.
@@ -95,15 +95,15 @@ Derived tags suit calculated values that several dashboards, rules, or the API a
 
 The mode of a binding decides what the dashboard reads from the tag.
 The `source` is a tag path in every mode.
-The default mode, `seriesMode: instant` with `store: local`, shows only the latest value of the tag.
+The default mode, `seriesMode: instant` with no `start` or `stop`, shows only the latest value of the tag.
 Readouts, lamps, and most other components use it, and it is the setting to leave unchanged unless a chart needs history.
 
 ### Time series
 
-A chart plots history when its binding sets `seriesMode`, or when it reads logged data with `store: logged`.
+A chart plots history when its binding sets `seriesMode` to `timeSeries` or `timeSeriesDelta`, and sets the window with `start` and `stop`.
 The values of `seriesMode` are:
 
-- `timeSeries` plots the recent values of the tag over the window set by `timeRangeStart` and `timeRangeStop`.
+- `timeSeries` plots the values of the tag across the window.
 - `timeSeriesDelta` plots the change between successive values.
 - `instant`, the default, shows only the latest value.
 
@@ -118,22 +118,45 @@ dashboard:
                 - target: value
                   source: DBC/VelocityMeasurement/VehicleVelocity
                   seriesMode: timeSeries
-                  timeRangeStart: "-5m"
-                  timeRangeStop: "0m"
+                  start: "-5m"
+                  stop: "0m"
 ```
 
-A series binding that sets `timeRangeStop` but omits `timeRangeStart` starts its window 10 minutes before the stop time.
-The Visual Editor sets the same length of history when it adds a series.
+A series binding that sets `stop` but omits `start` starts its window 10 minutes before the stop time.
+A series binding that sets `start` but omits `stop` ends its window at now.
 A binding that sets neither shows only the latest value.
 
-Set both `timeRangeStart` and `timeRangeStop` on a series binding to state the history that the chart shows.
 Time values use a relative form, where `-5m` is five minutes before now and `0m` is now.
+Set both `start` and `stop` on a series binding to state the history that the chart shows.
 Time series bindings suit charts, trends and the live history of any numeric tag.
 
-### Logged data
+### Live and past data
 
-Set `store: logged` to read the values of a tag back from the data log instead of the live values.
-A logged binding names a time range and, optionally, how to aggregate the data:
+A window of history comes from two places.
+Profinity keeps the recent values of each tag in memory, for 60 minutes by default, and up to 1,500 values for each tag.
+A window that starts within those values is read from memory.
+
+A window that reaches further back takes its older values from the designated historian, which returns them in intervals set by `aggregationWindow`.
+The `aggregationFunction` decides which value represents each interval, and the values in memory are not aggregated.
+
+<figure markdown>
+```mermaid
+flowchart LR
+    subgraph Profinity["Profinity"]
+        Memory["Recent values"]
+        Historian["Designated historian"]
+    end
+    Dashboard["Dashboard chart"]
+    Memory --> Dashboard
+    Historian --> Dashboard
+```
+<figcaption>A chart window takes its recent values from memory, and takes its older values from the designated historian when the window starts before the values in memory</figcaption>
+</figure>
+
+Only the tags that a historian records have older values, and a window with no designated historian shows only the values in memory.
+Refer to [Designated historian](../../../Components/Historians/Designated_Historian.md) for how to choose the historian.
+Older values need data logging to be configured and enabled for the profile, as described in [How to configure data logging](../../../How_To_Guides/Configure_Data_Logging.md).
+A binding with a window that reaches further back looks like this:
 
 ```yaml
 dashboard:
@@ -145,19 +168,21 @@ dashboard:
               bind:
                 - target: value
                   source: DBC/BusMeasurement/BusVoltage
-                  store: logged
-                  timeRangeStart: "-1h"
-                  timeRangeStop: "0m"
+                  seriesMode: timeSeries
+                  start: "-1h"
+                  stop: "0m"
                   aggregationWindow: "1m"
                   aggregationFunction: mean
 ```
 
-Logged data requires data logging to be configured and enabled for the profile, as described in [How to configure data logging](../../../How_To_Guides/Configure_Data_Logging.md).
-A logged binding returns no data while logging is not available.
-The `aggregationWindow` groups the data into intervals of the given length (for example `10s` or `1m`).
-The `aggregationFunction` decides which value represents each interval.
+The chart shows the last hour. The most recent values come from memory, and the older values come from the historian in one-minute intervals, each the mean of the values in that interval.
+Without a designated historian, the same binding shows only the values in memory.
 
-Logged bindings suit historical analysis over periods longer than the live window.
+### Past time on a dashboard
+
+A dashboard can also show its values at a past time, when the profile has a designated historian that holds the tag history.
+Every window then ends at the chosen time, so a chart with a `start` of `-10m` shows the ten minutes before that time.
+Refer to [View a dashboard at a past time](../../../How_To_Guides/View_Dashboard_at_a_Past_Time.md) to choose the time and step through the values.
 
 [Tag layer](../../../Tags/index.md) covers the Tag Explorer, [Derived tags](../../../Tags/Derived_Tags/index.md) and [Create collections, rules, and dashboard bindings from tags](../../../Tags/Create_Collections_Rules_and_Bindings_from_Tags.md), which adds tags to a dashboard from the Tag Explorer.
 The [Binding settings reference](./Binding_Settings_Reference.md) lists every binding setting.

@@ -66,10 +66,9 @@ No inbound port is needed.
 ## Example
 
 This example sends one tag collection to Prohelion Cloud every 60 seconds.
-Add it to the `components` list in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
+Add this list item under the existing `components:` key in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), with the same indentation as the other items.
 
 ```yaml
-components:
 - component:
     type: ProhelionCloudDashboard
     name: Prohelion Cloud Dashboard

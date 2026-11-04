@@ -1,9 +1,9 @@
 ---
 title: Troubleshooting guide
-description: "Diagnose and fix dashboard problems by symptom: data that does not update, logged data, blank charts, slow dashboards and component faults."
+description: "Diagnose and fix dashboard problems by symptom, such as data that does not update, missing historical data, blank charts and slow dashboards."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-04
 ---
 
 # Troubleshooting guide
@@ -76,17 +76,17 @@ dashboard:
                         toType: number
 ```
 
-### Binding to logged data not working
+### Historical data does not appear
 
-A logged binding that returns no data usually has one of three causes: data logging still has to be configured and enabled for the profile, exactly one historian still has to have **Designated tag historian reader** enabled, or the time range is invalid.
+A window that reaches back to older values returns none usually has one of three causes: data logging still has to be configured and enabled for the profile, exactly one historian still has to have **Designated tag historian reader** enabled, or the window is invalid.
 For data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md), and for the historian setting, refer to [Designated historian](../../Components/Historians/Designated_Historian.md).
 
-Set `timeRangeStart` in the past (for example `-10m`) and `timeRangeStop` after it, where `0m` means now.
-An invalid time range or aggregation window makes the binding return no data.
+Set `start` in the past (for example `-10m`) and `stop` after it, where `0m` means now.
+An invalid window or aggregation window makes the binding return no data.
 Start with the simple binding in this example, and add the aggregation back once it returns data.
 
 ``` yaml
-# Start with a simple logged data binding
+# Start with a simple time series binding
 dashboard:
   items:
     - row:
@@ -96,10 +96,17 @@ dashboard:
               bind:
                 - target: value
                   source: DBC/Temperature/Value
-                  store: logged
-                  timeRangeStart: "-10m"
-                  timeRangeStop: "0m"
+                  seriesMode: timeSeries
+                  start: "-10m"
+                  stop: "0m"
 ```
+
+### Old time range settings are refused
+
+Profinity refuses a dashboard that still uses `store`, `timeRangeStart` or `timeRangeStop`.
+The message names the setting and says to use `start` and `stop`.
+Remove `store` from each binding, rename `timeRangeStart` to `start` and `timeRangeStop` to `stop`, and save the dashboard again.
+Refer to [Dashboard time range settings are renamed](../../Release_Notes/Breaking_Changes_2_3.md#dashboard-time-range-settings-are-renamed) for the other changes that affect dashboards from earlier versions.
 
 ### Type conversion errors
 
@@ -146,7 +153,7 @@ dashboard:
 
 A chart that appears blank shows only the latest value unless its binding sets `seriesMode: timeSeries`, so add the series settings first.
 Then check in the Tag Explorer that the tag has a current value.
-For logged data, check that the time range is valid.
+For a window that reaches back to older values, check that the window is valid and that the designated historian holds values for the tag in that window.
 A chart that is given static data in its `value` property, rather than a binding, needs that data to have `labels` and `datasets`.
 
 ``` yaml
@@ -161,8 +168,8 @@ dashboard:
                 - target: value
                   source: DBC/Data/Value
                   seriesMode: timeSeries
-                  timeRangeStart: "-5m"
-                  timeRangeStop: "0m"
+                  start: "-5m"
+                  stop: "0m"
 ```
 
 ``` yaml
@@ -199,8 +206,8 @@ dashboard:
                 - target: value
                   source: DBC/Data/Value
                   seriesMode: timeSeries
-                  timeRangeStart: "-5m"
-                  timeRangeStop: "0m"
+                  start: "-5m"
+                  stop: "0m"
 ```
 
 ``` yaml
@@ -230,7 +237,7 @@ Match the symptom you see to the cause and the fix for each component.
 | Pill values do not group | A `pillgroup` lacks an `items` array, or an item sits outside a `value` object. | Give each `pillgroup` an `items` array, and wrap each item in a `value` object. |
 | Lamps do not light or change colour | The `enabled` binding returns a value outside `0` or `1` (or `false` or `true`), or the `value` property is unset. A lamp that is greyed out has `enabled` set to `false`. | Make the `enabled` binding return `0` or `1` (or `false` or `true`), and set the `value` property of the lamp, typically to `1`. A lamp bound to `color` takes the colour name that the binding returns, as described in [Conditional styling](./Data_Binding/Conditional_Styling.md). |
 | Table shows no data or no highlighting | The `tableHeaders` structure is wrong, an `accessorKey` differs from a data property name, or the data array is unbound. Highlighting needs numeric data values and threshold properties. | Check that `tableHeaders` has the structure shown under [Table header parameters](./Component_Reference/Data/Tables.md#table-header-parameters), that each `accessorKey` matches a data property name, and that the data array is bound. For highlighting, use numeric data values and threshold properties such as `highlightAtOrBelow` or `highlightAtOrAbove`. |
-| Chart type is not supported or a time series chart does not update | The chart uses a `type` value that is not supported, or its binding lacks the time series settings. | Set `type` (not `charttype`) to one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. For a time series chart, set `seriesMode: timeSeries` in the binding, or `store: logged` with data logging enabled, and a suitable time range. |
+| Chart type is not supported or a time series chart does not update | The chart uses a `type` value that is not supported, or its binding lacks the time series settings. | Set `type` (not `charttype`) to one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. For a time series chart, set `seriesMode: timeSeries` in the binding, with a suitable `start` and `stop` window. For older values, enable data logging and designate a historian. |
 | Image regions are not clickable or data values are missing | A region is missing its position values or a valid `action`, or a data value has an incorrect `bind`, `displayType` or `maxValue`. | Give each region `x`, `y`, `width` and `height` values as percentages of the image size. Set the `action` to an object with an `invoke` value of `Navigate`, `Component`, `System` or `Endpoint`. Set a `target` when `invoke` is `Navigate`, or an `actionId` when `invoke` is `Component` or `System`. Check the `bind` and the `displayType` of each data value, and set a `maxValue` for the `graph` display type. |
 | HTML content does not render | The HTML is invalid or escaped incorrectly in YAML, the sanitiser removes an element such as `script`, `embed`, `object`, `form`, `input`, `button` or `link`, or an image is missing. | Make the HTML valid and properly escaped in YAML, and use a literal block (`\|` or `>`) for multi-line content. Remove content that depends on a removed element. Use the full URL path for images, and store each image file in the `images` folder of the profile. Put style rules in `profile.css` in the `styles` folder, as described in [Store dashboard files in a profile](./Store_Dashboard_Files.md#styles). |
 

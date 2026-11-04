@@ -86,7 +86,8 @@ That file adds a **BMS Settings** tab.
 A value above 4.4 is rejected.
 `4100` is the `default` in the file, and `4.4` is the largest number the user can type.
 
-**Current Shunt Rated @** is a companion list that exists only in the UI.
+**Current Shunt Rated @** is a list field that the map defines with the choices 50mv and 100mv.
+The map gives it no device `index`, so Profinity does not read it from the device or write it to the device.
 
 !!! warning "A save stores the number on screen"
     `scale` changes the number drawn on the firmware page.
