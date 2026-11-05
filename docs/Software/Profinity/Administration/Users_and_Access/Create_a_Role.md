@@ -68,9 +68,10 @@ To remove a role from a person, clear it under **Assigned roles** and select **S
 A new user is given roles in the same way while the account is being created, as described in [Managing users](./Manage_Users.md#creating-a-new-user).
 The person's row now lists the role under **Assigned roles**.
 
-!!! warning "Sign-in is needed for the change to apply"
+!!! warning "When a role change applies"
     Changing someone's **Assigned roles** signs that person out, and they must sign in again.
-    Changing what a role allows does not sign anyone out. Each person with the role has the new permissions only after they sign out and sign in again.
+    Changing what a role allows does not sign anyone out. Each person's current access token keeps the previous permissions until it expires, which is 120 minutes by default (refer to [Session policy](../System_Configuration/Security/Session_Policy.md)), or until the session refreshes.
+    A permission that you remove therefore keeps working until then. To apply the change sooner, ask the person to sign out and sign in again.
     Make the change when nobody is part-way through something that matters, such as a firmware update or a logging session.
 
 ## Change or delete a role

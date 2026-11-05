@@ -46,7 +46,7 @@ Viewing the dashboard requires the **Security administration** permission, descr
 |---|---|---|---|
 | **Name** | Text | `OPC UA Client` | The name of the component. Must be unique within the profile. |
 | **Endpoint URL** | Text | `opc.tcp://127.0.0.1:4840` | The address of the server. Required, and must start with `opc.tcp://`. |
-| **Use security** | True or false | Off | When off, the client connects without message security. Turn it on to connect to an endpoint that uses security (message signing or encryption) when the server offers one. |
+| **Use security** | True or false | Off | When off, the client connects without message security. Turn it on to connect to an endpoint that uses security (message signing or encryption). When the server offers no such endpoint, the connection fails with the message "No OPC UA endpoint was selected for" and the address, and Profinity does not fall back to an unsecured connection. |
 | **Username** | Text | Empty | An optional user name. Leave it empty to connect anonymously. |
 | **Password** | Text (encrypted) | Empty | The password for the user name. It is stored encrypted. |
 | **Trust all server certificates** | True or false | Off | Skips validation of the server's certificate. Turn it on only when connecting to a trusted endpoint that uses a self-signed certificate. |

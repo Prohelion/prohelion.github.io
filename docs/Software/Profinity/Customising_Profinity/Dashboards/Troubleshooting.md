@@ -25,7 +25,7 @@ Before you select **Reset from Template**, keep a copy of the dashboard:
 1. Select **Edit Dashboard** from the title bar, then select the **YAML** tab.
 2. Select all the YAML, copy it and paste it into a file of your own.
 
-If Profinity saved the dashboard while it was valid, the file `<file>.bak` in the same folder as the dashboard holds the last valid version, and the reset leaves that file in place.
+The reset keeps the dashboard it replaces as `<file>.bak` in the same folder as the dashboard. It replaces any earlier `.bak` copy, so a `.bak` that holds a version you want to keep is lost unless you copy it first.
 
 !!! warning
     **Reset from Template** replaces the dashboard with the latest template and loses every customisation, so use it only when you can discard the dashboard.
