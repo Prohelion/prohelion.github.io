@@ -71,7 +71,7 @@ export PROFINITY_HOME=/var/lib/prohelion-staging/profinity
 ## Automatic migration on startup
 
 On the first start after you upgrade to 2.3, Profinity copies data from the older locations in the table into the artefacts directory.
-It renames `Config`, `Profiles`, and `Logs` to lowercase, and removes an old folder once every file is present at the new location.
+It renames `Config`, `Config.yaml`, `Profiles`, and `Logs` to lowercase, and removes an old folder once every file is present at the new location.
 A locked or offline file does not stop Profinity from starting, and migration resumes from where it stopped on the next restart.
 
 The Windows desktop application shows a progress window during migration.

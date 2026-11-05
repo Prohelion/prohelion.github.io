@@ -37,7 +37,7 @@ The default depends on the kind of component:
 
 | Component | **Auto Connect** default |
 | --- | --- |
-| CAN bus adapters, loggers, historians, the MQTT Publisher and Subscriber, and the Tag Relay sender and receiver | On |
+| CAN bus adapters, loggers, historians, the MQTT Publisher and Subscriber, the Webhook Publisher, the Prohelion Cloud Dashboard, and the Tag Relay sender and receiver | On |
 | TDK and Siglent power supplies, and the Modbus, BACnet, S7, EtherNet/IP, and OPC UA components | Off |
 
 For a component that defaults to off, turn **Auto Connect** on in its settings if it should connect whenever the profile loads.
