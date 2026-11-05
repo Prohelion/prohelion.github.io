@@ -33,6 +33,16 @@ To make a first Custom Component, follow [Make your first Custom Component](../.
 [Custom Components](../../Developing_with_Profinity/Custom_Components/index.md) describes the files that make one up.
 It also compares a Custom Component with a Dashboard Component and a dynamic-link library (DLL) plugin.
 
+## Quick start
+
+You need the **Custom Plugins** licensed feature and the **Modify components** permission. The component needs only a name, so no files are required to start.
+
+1. Select **ADD COMPONENT** in the side menu.
+2. Select **Custom Component**.
+3. Enter a **Name** that is unique in the profile.
+4. Select **ADD COMPONENT** at the bottom of the dialog.
+5. Check that the component appears in the side menu and opens its dashboard.
+
 ## Add a Custom Component
 
 A Custom Component needs only a name, and every file attached to it is optional.

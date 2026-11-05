@@ -39,19 +39,18 @@ Check which InfluxDB version your server runs before adding a component.
 InfluxDB v1, v2 and v3 are incompatible, and a component only connects to the version it was built for, so a mismatch causes connection failures.
 An InfluxDB v1 server needs the [InfluxDB v1 Logger](../Loggers/InfluxDB_v1_Logger.md), which is a logger rather than a historian.
 
-## Adding an InfluxDB historian
+## Quick start {#adding-an-influxdb-historian}
 
-Install InfluxDB v2 or v3 and confirm that it is running, then:
+You need a running InfluxDB v2 or v3 server, a token for it, and the **Historians** licensed feature.
 
-1. Add an **InfluxDB v2 Historian** or an **InfluxDB v3 Historian** to your profile from the **Historians** category.
-2. For the v2 historian, enter **InfluxDB Bucket**, **InfluxDB Organisation** and **InfluxDB Token**.
-3. For the v3 historian, enter **InfluxDB Database** and **InfluxDB Token**.
-4. Under **Collections**, add at least one tag collection. The component needs one to be configured before it can start.
-5. In **Influx Server URL**, enter the endpoint URL of your InfluxDB server, or keep the default `http://localhost:8086/`.
+1. Select **ADD COMPONENT**, then select **InfluxDB v2 Historian** in the **Historians** category.
+2. Enter **InfluxDB Bucket** and **InfluxDB Organisation**, then enter your **InfluxDB Token**.
+3. Under **Collections**, add at least one tag collection. The historian does not start without one.
+4. If InfluxDB runs on another computer, enter its address in **Influx Server URL**. The default is `http://localhost:8086/`.
+5. Select **ADD COMPONENT** at the bottom of the dialog. **Auto Connect** is on by default, so the historian starts when the profile loads. If it is off, select **Start Logger** from the component's menu.
+6. Check that **STATUS** shows **On**. Data appears in InfluxDB after the first **Update Interval (Seconds)**, which is 10 seconds by default.
 
-Settings cannot be saved while a required field is empty.
-Once the historian is running and has connected, its status shows **On**, and your data appears in InfluxDB after the first **Update Interval (Seconds)**.
-If it cannot reach InfluxDB, its status shows **Error** until the connection succeeds.
+For the **InfluxDB v3 Historian**, enter **InfluxDB Database** in place of **InfluxDB Bucket** and **InfluxDB Organisation**.
 
 The first three settings identify where the data is stored, and differ between the two historians.
 

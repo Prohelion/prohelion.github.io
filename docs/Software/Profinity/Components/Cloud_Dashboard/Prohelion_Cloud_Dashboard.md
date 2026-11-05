@@ -34,6 +34,17 @@ flowchart LR
     Without it the component is unavailable.
     Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
+## Quick start
+
+You need the Data Relay licensed feature, plus the access token and device ID for the device in Prohelion Cloud.
+
+1. Add the **Prohelion Cloud Dashboard** from **ADD COMPONENT**. A Profile holds only one.
+2. Enter the device's access token in **Prohelion Access Token**.
+3. Enter the device ID in **Prohelion Device ID**.
+4. Under **Collections**, select at least one tag collection. The component cannot start without one.
+5. Select **ADD COMPONENT** at the bottom of the dialog.
+6. Check that the component status shows **On**. If it shows **Error**, read the Profinity System Logs for the reason.
+
 ## Get access to Prohelion Cloud
 
 Access to Prohelion Cloud is by request.

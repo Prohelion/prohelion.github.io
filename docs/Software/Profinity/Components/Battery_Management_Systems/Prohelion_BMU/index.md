@@ -40,6 +40,17 @@ Larger and split packs, such as those used in racing, can have two or more BMUs.
 Add one BMU for each unit, each with a different base CAN address.
 The hardware is described in the [Prohelion BMS documentation](../../../../../Battery_Management_Systems/index.md).
 
+## Quick start
+
+**You need** a CAN bus adapter in the profile that is connected to the BMS CAN bus, as described in [How to add a component to your profile](../../../How_To_Guides/Add_Component_to_Profile.md).
+
+1. Select **ADD COMPONENT**, then select the model that matches your hardware from the **Battery Management Systems** group.
+2. Keep **Name** at the model name, or enter a name that is unique in the profile.
+3. Keep **Base Address** at the default for the model in the model table, unless your hardware uses a different CAN address.
+4. Keep **Milliseconds Valid** at `5000` and **Control Pack** off, unless you need Profinity to engage and disengage the pack.
+5. Select **ADD COMPONENT** at the bottom of the dialog.
+6. Open the BMU dashboard tab in the sidebar, and check that **BATTERY VOLTAGE** shows a reading.
+
 ## BMU management
 
 When you add a Prohelion BMU to the Profile, Profinity prompts for the information in the following table.

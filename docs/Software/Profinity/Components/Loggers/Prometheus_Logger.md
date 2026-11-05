@@ -27,6 +27,15 @@ InfluxDB expects its data to be pushed to it.
 Prometheus treats Profinity as a source of data and calls it to request the latest values.
 Prometheus stores data only and has no graphing capability out of the box, so it is usually coupled with a tool such as [Grafana](https://grafana.com) for visualisation.
 
+## Quick start
+
+1. Select **ADD COMPONENT**, then select **Prometheus Logger** in the **Loggers** category.
+2. Under **Collections**, select at least one tag collection. The logger does not start without one.
+3. Keep **Server Hostname** as `localhost`, **Server Port** as `7065` and **Data endpoint URL** as `metrics/` to serve the data to a scraper on this computer.
+4. Select **ADD COMPONENT** at the bottom of the dialog. **Auto Connect** is on by default, so the logger starts when the profile loads. If it is off, select **Start Logger** from the component's menu.
+5. Check that **STATUS** shows **On**.
+6. Open `http://localhost:7065/metrics` in a browser on this computer, or point Prometheus at that address, and check that each tag in the selected collections appears as a gauge.
+
 Adding a **Prometheus Logger** to Profinity is all that Prometheus logging needs on the Profinity side.
 The **Collections** setting selects one or more [tag collections](../../Tags/Collections/index.md) that are served (display names in the picker, id stored), and you must select at least one before the component starts.
 You can also set the following connection values.

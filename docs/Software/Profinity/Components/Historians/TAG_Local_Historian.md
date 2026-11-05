@@ -36,22 +36,20 @@ flowchart LR
     The TAG Local Historian requires the **Historians** licensed feature.
     Refer to [Licensing](../../Licensing.md) for the editions that include it.
 
-## Adding the historian {#adding-a-tag-local-historian}
+## Quick start {#adding-a-tag-local-historian}
 
-To start recording:
+You need the **Historians** licensed feature. Refer to [Licensing](../../Licensing.md) for the editions that include it.
 
-1. Add a **TAG Local Historian** to your profile from the **Historians** category.
-2. Under **Collections**, add at least one tag collection.
-   The component needs one to be configured before it can start.
-3. Choose the **Logging mode** and **Update Interval (Seconds)** if you need values other than the defaults.
-4. Optionally change **Retention (days)** (default 30).
-5. Leave **Designated tag historian reader** on unless another historian in the profile is already designated.
-6. Save the settings.
+1. Add a **TAG Local Historian** from the **Historians** category, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
+2. Under **Collections**, add the tag collection whose tags you want recorded. The historian does not start until a collection is configured.
+3. Leave **Logging mode** as **Snapshot**, **Update Interval (Seconds)** as 10, **Retention (days)** as 30 and **Designated tag historian reader** on, unless you need other values.
+4. Select **ADD COMPONENT** at the bottom of the dialog.
+5. Leave **Auto Connect** on, which is its default, so the historian starts when the profile loads. If it is off, select **Start Logger**.
+6. Check that the status shows **On**. Rows are written to the database file after each **Update Interval (Seconds)**.
 
 There is no connection string, provider, or table name to configure.
 Profinity creates the SQLite file under the site `tag_history/` directory when the historian starts.
 
-Once it is running, its status shows **On**, and rows appear after the first **Update Interval (Seconds)**.
 If a write fails, use this table to find the cause.
 
 | What you see | Cause | What to do |

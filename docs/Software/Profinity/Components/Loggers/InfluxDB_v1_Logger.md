@@ -35,6 +35,18 @@ Using the wrong component type results in connection failures, so check the vers
 For InfluxDB v2 and v3, use the **InfluxDB v2 Historian** or the **InfluxDB v3 Historian**, documented in [InfluxDB historians](../Historians/InfluxDB_Historians.md).
 It sits in the **Loggers** category. The [Loggers](index.md) page compares this logger with the others.
 
+## Quick start
+
+**You need** a running InfluxDB v1 server with the database already created, because the logger does not create it. If the server requires a login, you also need its user name and password.
+
+1. Select **ADD COMPONENT**, then select **InfluxDB v1 Logger** in the **Loggers** group.
+2. Set **InfluxDB Database** to the name of the database you created on the server.
+3. Under **Collections**, add at least one tag collection whose tags you want to log.
+4. Optional: If InfluxDB is not at its default address, set **Influx Server URL** to the address of the server. The default is `http://localhost:8086/`.
+5. Select **ADD COMPONENT** at the bottom of the dialog, or **SAVE** when you change an existing logger.
+6. If **Auto Connect** is off, select **Start Logger** from the component's menu.
+7. Check that **STATUS** shows **On**. If it shows **Error**, the logger cannot write to InfluxDB, so check the logs as described under [If data does not arrive](#if-data-does-not-arrive).
+
 ## Add the logger
 
 InfluxDB v1 uses username and password authentication, and organises data into databases and retention policies.

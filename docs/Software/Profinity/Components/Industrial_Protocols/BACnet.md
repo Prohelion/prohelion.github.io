@@ -36,6 +36,17 @@ The component supports BACnet/IP only, not BACnet MS/TP (Master-Slave/Token-Pass
 It reads and writes the device at the **Remote host** address you configure.
 It does not discover devices on the network with the BACnet Who-Is request.
 
+## Quick start
+
+You need the Industrial Protocols licensed component group and a BACnet/IP device that the Profinity machine can reach on the network.
+
+1. Set **Remote host** to the IP address of the BACnet device.
+2. Set **Device instance** to the instance number of that device. The default is `0`, and the component stays in Error until the instance matches.
+3. Add one row to the **Point map** with a **Name**, an **Object type** and an **Instance**. The default **Object type** is `AnalogValue`.
+4. Select **ADD COMPONENT** at the bottom of the dialog.
+5. If **Auto Connect** is off, which is its default, switch the component on with the **Connect / Disconnect** menu action.
+6. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true. The tag for the point row, under the component's `Points` tags, shows Good quality.
+
 ## Communications settings
 
 | Setting | Default | Description |

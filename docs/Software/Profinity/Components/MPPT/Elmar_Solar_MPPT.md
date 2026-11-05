@@ -15,6 +15,16 @@ Elmar Solar makes MPPTs that optimise the output of solar arrays.
 The Elmar range distributed by Prohelion consists of the Elmar 3A MPPT, the Elmar Race MPPT and the Elmar Best MPPT.
 The [Solar Charge Controllers by Elmar](../../../../Solar_Charge_Controllers/index.md) documentation describes them.
 
+## Quick start
+
+You need the Elmar Solar MPPT sending its CAN messages on a CAN network that the Profinity host reads. The component shows only the messages it receives from that network.
+
+1. Add an **Elmar Solar MPPT** to the Profile.
+2. Set **Base Address** to the CAN address of the MPPT, as described in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md). The default is `0x300`.
+3. Select **ADD COMPONENT** at the bottom of the dialog.
+4. Open the **Elmar Solar MPPT** dashboard from the sidebar.
+5. Check that **INPUT VOLTAGE** and **OUTPUT VOLTAGE** show values, and that the `MpptStateText` tag shows `ON` or `STANDBY`.
+
 ## Add the MPPT to a profile
 
 To monitor an Elmar Solar MPPT, add an Elmar Solar MPPT tracker to the [Profile](../../Getting_Started/Profiles.md).

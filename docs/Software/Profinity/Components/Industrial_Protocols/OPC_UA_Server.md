@@ -26,6 +26,17 @@ flowchart LR
 Add the server to your [Profile](../../Getting_Started/Profiles.md) from the **Industrial Protocols** group in the component catalogue, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 You can change the settings in the Settings section later from the component's **Change Settings** menu action.
 
+## Quick start
+
+You need the **Industrial Protocols** licensed component group and the OPC UA plugin installed. [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md) explains how.
+
+1. Add an **OPC UA Server** from the **Industrial Protocols** group, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
+2. Check that **Name** is unique within the profile. The default is `OPC UA Server`.
+3. Leave **Bind URL** as `opc.tcp://127.0.0.1:4840/Profinity` to accept clients on this computer only. To accept other computers, change the host as described in the Listening address section.
+4. Select **ADD COMPONENT** at the bottom of the dialog.
+5. If **Auto Connect** is off, which is its default, switch the server on with the **Start / Stop** menu action.
+6. On the component dashboard, check that **STATUS** shows **Listening** and **LISTENING** is true.
+
 ## Settings
 
 | Setting | Default | Description |

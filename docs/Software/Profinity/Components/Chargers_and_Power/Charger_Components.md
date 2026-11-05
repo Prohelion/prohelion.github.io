@@ -38,6 +38,18 @@ flowchart LR
 <figcaption>Siglent Charger</figcaption>
 </figure>
 
+## Quick start
+
+You need a charger that Profinity can control remotely, and a Prohelion BMU in the same profile with **Control Pack** on. This quick start covers the TDK and Siglent supplies. For an Elcon charger, which also needs a CAN adapter that is already configured in the profile, refer to [Charger settings](Charger_Settings.md).
+
+1. Check that the profile contains a Prohelion BMU with **Control Pack** on. **Control Pack** is off by default.
+2. Add your charger from **ADD COMPONENT**, selecting **TDK Power Supply** or **Siglent Power Supply** under **Chargers & Power Supplies**.
+3. Set **Charger IP Address** and **Charger Port** to the address of the supply and its port, which is 5025 by default. If you use a TDK supply, also set **Charger ID**.
+4. Check that **Charger Voltage Limit**, **Charger Current Limit** and **Charger Power Limit** match the output of your charger.
+5. Select **ADD COMPONENT** at the bottom of the dialog.
+6. If **Auto Connect** is off, which is its default, switch the charger on with the **Connect / Disconnect** menu action.
+7. Check that the **IsConnected** tag of the charger is true.
+
 ## Supported chargers
 
 - **TDK Power Supply** controls TDK programmable power supplies such as the Genesys family using Standard Commands for Programmable Instruments (SCPI) over TCP.

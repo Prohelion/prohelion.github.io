@@ -16,6 +16,17 @@ Use it for human-machine interface (HMI) style screens that bind only to [tags](
 It is included in every edition.
 It differs from a [Custom Component](../Custom_Components/Using_a_Custom_Component.md) in that it has no CAN database (DBC), script, or pack files, so you upload only the dashboard itself.
 
+## Quick start
+
+**You need** the **Modify components** permission to add the component, and the **Security administration** permission to view its dashboard, as described under [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
+
+1. Select **ADD COMPONENT**, then select **Dashboard Component** in the **Dashboards** group.
+2. Keep **Name** at `Dashboard Component`, or enter a name that is unique in the profile. Profinity refuses a name that matches an existing dashboard file, with the message "There is already a component in this profile with that name".
+3. Optional: To start from your own dashboard, select **Upload Dashboard (Optional)** and choose a `.yaml` file. Leave it empty to create a template.
+4. Select **ADD COMPONENT** at the bottom of the dialog.
+5. If you left the upload empty, the dashboard editor opens on the template. Bind each element to a tag from another component by its absolute path, which starts with `/`, such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
+6. Open the component's dashboard, and check that the bound elements show the values of their tags.
+
 ## Add the component {#add-a-dashboard-component}
 
 Add the component from **ADD COMPONENT** (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)), where it is listed under **Dashboards**.

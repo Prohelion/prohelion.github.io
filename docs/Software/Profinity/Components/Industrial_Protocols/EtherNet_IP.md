@@ -35,6 +35,18 @@ You can change the settings in the Communications settings section later from th
 You list each PLC tag by name in the point map.
 The component does not browse the PLC's CIP objects to discover tags for you. On a ControlLogix, CompactLogix or Micro800 controller, **Browse** reads the PLC's tag symbol list instead.
 
+## Quick start
+
+**You need** the **Industrial Protocols** licensed component group, as described in [Install an industrial protocol plugin](Install_an_Industrial_Protocol_Plugin.md), and network access to the PLC.
+
+1. Select **ADD COMPONENT**, then select **EtherNet/IP PLC** in the **Industrial Protocols** group.
+2. Set **Gateway** to the IP address of the PLC, or of the gateway module that the PLC sits behind. The default is `127.0.0.1`.
+3. Check that **PLC kind** matches your controller, and keep **CIP path** at `1,0` for a CPU in slot 0 of the same chassis.
+4. Select **ADD COMPONENT** at the bottom of the dialog, or **SAVE** when you change an existing component.
+5. In the **Point map**, add a row with a **Name** and a **PLC tag**, and set its **Data type** to match the PLC tag. The default is `Dword`.
+6. If **Auto Connect** is off, which is its default, switch the component on with the **Connect / Disconnect** menu action.
+7. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true, and that the tags under `Points` show values rather than bad quality.
+
 ## Communications settings
 
 | Setting | Default | Description |

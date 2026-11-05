@@ -34,6 +34,18 @@ It creates its files under the Profinity tag log directory (`tag_logs/`), in a f
 Refer to the [artefacts directory](../../Installation/Artifacts_Directory.md) for where that directory sits on each platform.
 The TAG SFTP Logger needs the remote server settings described in [File logger rotation, archive, and SFTP settings](File_Logger_Rotation_Archive_and_SFTP.md), which also covers rotating, archiving, and compressing the log files.
 
+## Quick start
+
+This quick start covers the **TAG File Logger**. The TAG SFTP Logger also needs remote server settings, described in [File logger rotation, archive, and SFTP settings](File_Logger_Rotation_Archive_and_SFTP.md).
+
+1. Create a tag collection that holds the tags to log, as described in [Tag collections](../../Tags/Collections/index.md).
+2. Add a **TAG File Logger** from the **Loggers** group, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
+3. Under **Collections**, add the collection from step 1. The logger does not start until a collection is configured.
+4. Leave **Logging mode** as **Snapshot**, **Update Interval (Seconds)** as 10 and **File Format** as **CSV**, unless you need other values.
+5. Select **ADD COMPONENT** at the bottom of the dialog. Leave **Auto Connect** on, which is its default, so the logger starts when the profile loads.
+6. On the Logger Dashboard, check that **STATUS** shows **On**.
+7. Select **TAG LOGS REPOSITORY** on the Logger Dashboard and open the file. Each line shows a tag ID with a quality of Good.
+
 ## Settings
 
 Both loggers log the values of the tags in the collections selected in **Collections**.

@@ -28,6 +28,17 @@ Both loggers have **Auto Connect**, which is on by default, so a logger begins l
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how it behaves.
 They record the bus, so they do not use tag collections.
 
+## Quick start
+
+You need a CAN adapter connected to a CAN bus that carries traffic. The logger writes a message only when it receives one, so without traffic the file records no messages.
+
+1. Add the **CAN File Logger** from the **Loggers** group in the component catalogue, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
+2. Check **Name**. The default is `CAN File Logger`.
+3. Select **ADD COMPONENT** at the bottom of the dialog.
+4. Leave **Auto Connect** on, which is its default, so the logger starts when the profile loads. If it is off, select **Start Logger** from the menu.
+5. On the logger dashboard, check that **STATUS** shows **On**.
+6. Once CAN messages have been recorded, select **FILE LOGS REPOSITORY** under **DOWNLOAD VIA** to download the log file.
+
 Both loggers have these settings:
 
 - **Update Interval (Seconds)** sets how often the background task runs. It defaults to 10 and accepts values from 1 to 86400. For the CAN File Logger, each CAN packet is written to the file as it arrives, and the interval checks time-based rotation only.

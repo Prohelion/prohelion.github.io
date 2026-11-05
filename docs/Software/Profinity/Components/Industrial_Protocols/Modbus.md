@@ -34,6 +34,17 @@ Add a Modbus Device to your [Profile](../../Getting_Started/Profiles.md) from th
 Add one component for each slave you want to read.
 You can change the settings in the Communications settings section later from the component's **Change Settings** menu action.
 
+## Quick start
+
+You need a Modbus TCP slave that this computer can reach over the network, and its IP address. Viewing the dashboard requires the **Security administration** permission.
+
+1. Select **ADD COMPONENT**, then select **Modbus Device** in the **Industrial Protocols** group.
+2. Leave **Connection Mode** as **TCP**, and set **Host** to the IP address of the slave.
+3. In the **Point map**, add one row with a **Name** and the **Address** of the register. Leave **Table** as **HoldingRegister** and **Data type** as **Word**.
+4. Select **ADD COMPONENT** at the bottom of the dialog.
+5. If **Auto Connect** is off, which is its default, select **Connect / Disconnect** from the component's menu to start polling.
+6. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true.
+
 ## Communications settings
 
 Which settings apply depends on the **Connection Mode**.

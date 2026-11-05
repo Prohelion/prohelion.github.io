@@ -33,18 +33,16 @@ flowchart LR
 !!! info "Licence required"
     The TAG SQL Historian requires the **Historians** licensed feature. Refer to [Licensing](../../Licensing.md) for the editions that include it.
 
-## Adding the historian {#adding-a-tag-sql-historian}
+## Quick start {#adding-a-tag-sql-historian}
 
-To start recording, add the component and point it at a database.
+You need the Historians licensed feature, a database that the Profinity server can reach, and an account that can insert into and select from the table. With **Auto Create Table** on, the account also needs permission to create the table.
 
-1. Add a **TAG SQL Historian** to your profile from the **Historians** category.
-2. Choose the **Database Provider** and enter its **Connection String**.
-3. Under **Collections**, add at least one tag collection. The component needs one to be configured before it can start.
-4. Save the settings.
-
-With **Auto Create Table** on, the historian creates the table when it starts.
-Once it is running and has connected, its status shows **On**, and rows appear in the table after the first **Update Interval (Seconds)**.
-If it cannot reach the database or a write fails, its status shows **Error** until the database is reachable again or a write succeeds.
+1. Add a **TAG SQL Historian** from the **Historians** category.
+2. Set **Connection String** to the connection string for your database, in the format of the provider you choose.
+3. If the database is not SQLite, set **Database Provider** to match it. SQLite is the default.
+4. Under **Collections**, add at least one tag collection. The historian cannot start without one.
+5. Select **ADD COMPONENT** at the bottom of the dialog.
+6. Check that the status shows **On**. In Snapshot mode, the default **Logging mode**, rows appear in the table named by **Table Name** after each **Update Interval (Seconds)**, which is 10 seconds by default. If the status shows **Error**, read the [Logs](../../Administration/Logs_Config.md) for the reason.
 
 The following tables describe every setting.
 
@@ -162,7 +160,7 @@ If the settings save but no rows arrive, the Profinity system logs show one of t
 Refer to [Logs](../../Administration/Logs_Config.md) for where to read them.
 
 - The component name followed by `could not connect` and the reason, for a connection that failed. The historian shows **Error** and retries every 5 seconds until the database is reachable.
-- `Failed to write to the` followed by the component name, for a failed write.
+- The component name followed by `writing failed` and the reason, for a failed write. Profinity logs the first failure at warning level and logs further failures at debug level until a write works again.
 
 Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table.
 

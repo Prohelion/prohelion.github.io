@@ -26,6 +26,16 @@ The Virtual Adapter has no setting that selects its partner adapter.
 It forwards traffic between itself and every other active CAN adapter in the Profile.
 Add the [Peak or SocketCAN adapter](CAN_Bus_Adapters/index.md) to the same Profile first.
 
+## Quick start
+
+You need a Peak or SocketCAN adapter in the same profile, added first, so the bridge has a CAN network to relay.
+
+1. Select **ADD COMPONENT**, then select **Prohelion Virtual CAN to Ethernet Bridge** in the **Adapters** group.
+2. Check that **Network Adapter** shows the interface that your clients can reach. Profinity selects the first available multicast interface by default.
+3. Check that **Bus Number** is not used by another bridge in the profile. The default is 13.
+4. Select **ADD COMPONENT** at the bottom of the dialog. **Auto Connect** is on by default, so the adapter starts when the profile loads.
+5. Check that the adapter's status reads **Connected** while CAN traffic flows, or **No CAN traffic** if no CAN packet has arrived for 5 seconds.
+
 ## Virtual adapter settings
 
 To relay traffic, add a Virtual Adapter to the Profile after the adapter for the physical CAN network, and set the parameters in the following table.

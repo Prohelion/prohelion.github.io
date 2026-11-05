@@ -28,6 +28,16 @@ The two controllers send the same CAN messages with the same signals.
 The WaveSculptor200 [DBC file](../../../../../Motor_Controllers/WaveSculptor200/User_Manual/DBC.md) matches the one the component uses.
 Add the WaveSculptor22 component, whichever controller you have.
 
+## Quick start
+
+You need a CAN adapter connected to a powered CAN bus. The WaveSculptor takes its low-voltage supply from the CAN cable, and the dashboard shows no data without the adapter.
+
+1. Add the **WaveSculptor22** component from the **Motor Controllers** group in the component catalogue, as described in [How to add a component to your profile](../../../How_To_Guides/Add_Component_to_Profile.md).
+2. Check **Name**. The default is `WaveSculptor22`, and it must be unique in the profile.
+3. Set **Base Address** to the address programmed into the controller. The default is `0x400`.
+4. Select **ADD COMPONENT** at the bottom of the dialog.
+5. Open the tab for the component in the sidebar, and check that **BUS VOLTAGE** and **BUS CURRENT** show values.
+
 Profinity requests the settings in the following table when you add the WaveSculptor.
 The **Change Settings** button on the dashboard changes them later.
 
