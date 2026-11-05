@@ -76,6 +76,8 @@ If the request fails, the browser shows an error message with the reason.
 
 ## Examples
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 A button with a label and an icon:
 
 ``` yaml

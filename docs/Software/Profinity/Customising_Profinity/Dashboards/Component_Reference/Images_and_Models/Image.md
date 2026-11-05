@@ -245,6 +245,8 @@ points:
 
 ## Example
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 This example combines every overlay type on one image.
 Tag paths such as `DBC/Voltage/Value` are placeholders, so replace them with tags from your own component.
 

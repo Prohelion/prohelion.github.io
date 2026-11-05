@@ -70,6 +70,8 @@ Give the item a `label` as well as a `dotColor`, because colour alone does not s
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 This example shows a motor controller pill with an icon and two pill groups of values.
 
 ``` yaml

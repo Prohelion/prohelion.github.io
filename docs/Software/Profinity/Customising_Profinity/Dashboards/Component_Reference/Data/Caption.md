@@ -28,6 +28,8 @@ A `color` value other than the four listed is ignored, and the text keeps its no
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 ``` yaml
 dashboard:
   items:

@@ -53,6 +53,8 @@ Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) c
 
 ## Example
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 This example places two readouts in a panel with an automatic height.
 
 ``` yaml

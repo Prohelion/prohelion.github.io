@@ -35,6 +35,8 @@ Bind the `classes` target to a boolean, and map `true` to `on` and `false` to `o
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 ``` yaml
 dashboard:
   items:

@@ -52,6 +52,8 @@ The `logo` and `submenu` types suit the side menu, which displays `menuitem`, `m
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 This example shows a titlebar with a lamp for the Prohelion BMU component, a navigation menu item and a settings dialog.
 
 ``` yaml

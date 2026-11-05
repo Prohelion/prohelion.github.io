@@ -25,6 +25,8 @@ Use an [Action](../Interactive/Actions.md) with `invoke: Navigate`, or an `a` el
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 ``` yaml
 dashboard:
   items:

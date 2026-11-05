@@ -45,6 +45,8 @@ Each item in `items` must contain a `tab` object with:
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 ``` yaml
 dashboard:
   items:

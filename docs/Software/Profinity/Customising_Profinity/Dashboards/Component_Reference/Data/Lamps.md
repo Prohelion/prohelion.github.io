@@ -43,6 +43,8 @@ The display rules explain why a lamp driven by an `enabled` binding also needs `
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 ``` yaml
 dashboard:
   items:

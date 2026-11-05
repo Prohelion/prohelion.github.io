@@ -63,6 +63,8 @@ Each item in `tableHeaders` must contain a `header` object with:
 
 ## Example
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 The example follows the cell voltage table of the Prohelion Battery Management Unit (BMU) dashboard, and it assumes a Prohelion BMU component is in the profile, added as described on the [Prohelion BMU](../../../../Components/Battery_Management_Systems/Prohelion_BMU/index.md) page.
 Each cell value is in millivolts, and the value `-32768` marks a cell position that is not present.
 The setting `minValueToDisplay: 0` leaves those cells empty.

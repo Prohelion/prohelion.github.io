@@ -47,6 +47,8 @@ When `unit` is omitted and the bound tag defines a unit in its metadata, the web
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 ``` yaml
 dashboard:
   items:

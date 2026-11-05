@@ -37,6 +37,8 @@ To show and hide content inside an accordion, bind `visible` on the accordion it
 
 ## Example
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 This example holds two readouts in an accordion labelled System Details.
 
 ``` yaml

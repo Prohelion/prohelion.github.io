@@ -30,6 +30,8 @@ Use a [Caption](Caption.md) or a [Lamp](Lamp.md) when only the name or the healt
 
 ## Example
 
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 The bound tag supplies the name of the current state, which must match one of the node identifiers in `model`, such as `IDLE`:
 
 ``` yaml

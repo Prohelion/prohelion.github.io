@@ -58,6 +58,8 @@ Each `[-]` sequence in a `label` becomes a soft hyphen, so that long words can b
 
 ## Example
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 A lamp that a binding on `enabled` turns on and off:
 
 ``` yaml

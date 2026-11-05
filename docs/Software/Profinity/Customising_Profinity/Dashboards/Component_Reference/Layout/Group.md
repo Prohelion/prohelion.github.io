@@ -28,6 +28,8 @@ Use a [Row](Row.md) when the section needs a `height` instead of a width, or whe
 
 ## Example
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+
 A horizontal group arranges its components side by side.
 This example shows a horizontal group containing an icon and HTML content.
 
