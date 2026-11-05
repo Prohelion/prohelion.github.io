@@ -14,7 +14,8 @@ Skip this page when you use the HTTP address on the same computer as Profinity.
 Accepting the certificate warning in a browser trusts the certificate in that browser only.
 Another application, such as an AI tool, needs the certificate trusted in the operating system, or given to it as a file.
 The guides for [Claude Code](Connect_Claude_Code.md), [Codex](Connect_Codex.md), and [Cursor](Connect_Cursor.md) give the steps for each tool.
-Claude Code on an npm install older than Node.js 22.15 needs an extra step: refer to [Connect Claude Code to Profinity](Connect_Claude_Code.md#trust-the-certificate).
+As of November 2026, Claude Code on an npm install that uses a Node.js version older than 22.15 needs an extra step, as described in [Claude Code network configuration](https://code.claude.com/docs/en/network-config).
+For that step, refer to [Connect Claude Code to Profinity](Connect_Claude_Code.md#trust-the-certificate).
 
 ## Before you begin
 
@@ -25,14 +26,19 @@ You need:
   Refer to [Licensing](../../Licensing.md#features-by-edition).
 - Access to the computer that runs the AI tool, where you follow every step on this page.
 - When Profinity runs on another computer, a copy of `profinity_generated.pfx` from its `certificates` folder, made with a method you trust, such as a USB drive or `scp`.
-- Administrator rights (`sudo`) for step 2 when the AI tool runs on Linux.
+- When Profinity runs as a Windows service on this computer, read access to the `certificates` folder of the account the service runs under.
+  [Run Profinity as a Windows service](../../Installation/Run_as_a_Service/Run_as_a_Windows_Service.md) describes where that folder is.
+- The `openssl` command on macOS or Linux, and PowerShell on Windows.
+- Administrator rights (`sudo`) on Linux, for step 3, and for step 1 when only the account that runs Profinity can read `profinity_generated.pfx`.
 
 ## The certificate Profinity generates
 
 When [**Cert File**](../../Administration/System_Configuration/Profinity_Web.md#https-certificates) and **Windows Cert Store** are empty, Profinity creates its own certificate the first time HTTPS starts.
 The certificate file is `profinity_generated.pfx` in the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and it has no password.
+
 Profinity also creates this file in place of a **Cert File** that is missing, cannot be read, or has a wrong password.
-When you set **Cert File** and find `profinity_generated.pfx` in the folder, check **Cert File** and **Cert File Password**.
+When you set **Cert File** and still find `profinity_generated.pfx` in the folder, Profinity could not use your file.
+Confirm the path in **Cert File** and the value in **Cert File Password**, as described in [HTTPS certificates](../../Administration/System_Configuration/Profinity_Web.md#https-certificates).
 
 The certificate names `localhost`, the computer's host name, `127.0.0.1`, `::1`, and the address of each network interface that was up when Profinity created it.
 The host in the MCP address has to be one of these names.
@@ -44,7 +50,7 @@ The default `certificates` folder depends on how Profinity is installed:
 |--------|-------------------------------|
 | macOS | `$HOME/Library/Application Support/Prohelion/Profinity/certificates` |
 | Linux | `/var/lib/prohelion/profinity/certificates` |
-| Windows desktop | `%LOCALAPPDATA%\Prohelion\Profinity\certificates` |
+| Windows desktop | `$env:LOCALAPPDATA\Prohelion\Profinity\certificates` |
 | Windows service | `certificates` in the artefacts directory of the account the service runs under, as described in [Run Profinity as a Windows service](../../Installation/Run_as_a_Service/Run_as_a_Windows_Service.md) |
 | Docker, with the published compose file | `$HOME/Prohelion/certificates` on the host, which is `/app/Prohelion/certificates` in the container |
 | Docker, with the one-line installer | `$HOME/profinity-docker/data/certificates`, or `data/certificates` in the folder you gave with `--dir` |
@@ -56,14 +62,14 @@ To set up a certificate you supply yourself, refer to [HTTPS certificates](../..
 
 !!! warning "The file holds a private key with no password"
     Anyone who has a copy of `profinity_generated.pfx` can impersonate the Profinity server.
-    If you copied the file from another computer, delete the copy after the export in step 1.
 
 These steps use the certificate Profinity generates.
-For a certificate you supplied, export it as described in [Export a certificate you supplied](#export-a-certificate-you-supplied), then continue from step 2.
+For a certificate you supplied, export it as described in [Export a certificate you supplied](#export-a-certificate-you-supplied), then continue from step 3.
 
 Follow these steps on the computer that runs the AI tool:
 
 1. Export the public certificate for your operating system.
+    Replace `<certificates-folder>` in the command with the folder in [The certificate Profinity generates](#the-certificate-profinity-generates), or with the folder that holds your copy of the file.
 
     === "macOS or Linux"
 
@@ -74,7 +80,8 @@ Follow these steps on the computer that runs the AI tool:
         ```
 
         The command writes only the public certificate to `profinity.pem` in your home folder.
-        When the file is readable only by the account that runs Profinity, as on a Linux service, put `sudo` before the first `openssl`.
+        Write `$HOME` in the path, as the table does, because `~` does not expand inside quotes.
+        When only the account that runs Profinity can read the file, as on a Linux service, put `sudo` before the first `openssl`.
 
     === "Windows"
 
@@ -87,12 +94,9 @@ Follow these steps on the computer that runs the AI tool:
 
         PowerShell lists `profinity.cer` on the desktop, which holds the public certificate only.
 
-    Replace `<certificates-folder>` with the folder in [The certificate Profinity generates](#the-certificate-profinity-generates), or with the folder that holds your copy of the file.
-    On macOS, write `$HOME`, as the table does, because `~` does not expand inside quotes.
-    On Windows, write `%LOCALAPPDATA%` as `$env:LOCALAPPDATA`, the form PowerShell expands.
-    If you copied `profinity_generated.pfx` from another computer, delete the copy now.
+2. If you copied `profinity_generated.pfx` from another computer, delete that copy.
 
-2. Trust the exported certificate in the operating system.
+3. Trust the exported certificate in the operating system:
 
     === "macOS"
 
@@ -199,13 +203,15 @@ Follow these steps on the computer that runs the AI tool:
 
             The command prints nothing when the update succeeds.
 
-3. If the AI tool is open, quit it.
-   Start it again so that it uses the trusted certificate.
+4. Quit the AI tool if it is open.
+
+5. Start the AI tool.
+    The AI tool now uses the trusted certificate.
 
 ## Export a certificate you supplied
 
 When **Cert File** names your own certificate in a `.pfx` or `.p12` file with a **Cert File Password**, export the public certificate from that file in place of step 1.
-Then follow steps 2 and 3 of [Export and trust the certificate](#export-and-trust-the-certificate).
+Then follow steps 3 to 5 of [Export and trust the certificate](#export-and-trust-the-certificate).
 
 === "macOS or Linux"
 
@@ -233,7 +239,25 @@ Replace `<path-to-your-certificate-file>` with the full path of the file that **
 
 ## Check it worked
 
-From the computer that runs the AI tool, run the HTTPS command in [Check the server answers](Prepare_Profinity.md#check-the-server-answers).
+From the computer that runs the AI tool, run the check for your operating system:
+
+=== "macOS or Linux"
+
+    ```bash
+    /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" "<https-address>"
+    ```
+
+    The `curl` in `/usr/bin` checks the certificates the operating system trusts, and a `curl` from another source can keep its own list.
+
+=== "Windows"
+
+    ```powershell
+    curl.exe -s -o NUL -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" "<https-address>"
+    ```
+
+Replace `<https-address>` with the HTTPS address of the MCP server, from [Choose the MCP server address](Prepare_Profinity.md#choose-the-mcp-server-address).
+For the check on the HTTP address, refer to [Check the server answers](Prepare_Profinity.md#check-the-server-answers).
+
 The command prints `401` and no certificate error.
 A 401 means the server answered and wants a token, so the certificate was accepted.
 
@@ -241,19 +265,20 @@ A 401 means the server answered and wants a token, so the certificate was accept
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
-| The AI tool still reports a certificate error after step 2 | The tool was open when the operating system began to trust the certificate | Quit the tool, start it again, and repeat the check in [Check it worked](#check-it-worked) |
-| The check still reports a certificate error after step 2 | The certificate is in a store other than **Trusted Root Certification Authorities** on Windows, or its trust is left at the default on macOS | Repeat step 2, and choose the store or the trust setting the step names |
-| You selected **No** at the Windows security warning, or cancelled the macOS password request | The operating system did not add the certificate | Repeat step 2, and confirm the request |
+| The AI tool still reports a certificate error after step 3 | The tool was open when the operating system began to trust the certificate | Quit the tool, start it again, and repeat the check in [Check it worked](#check-it-worked) |
+| The check still reports a certificate error after step 3 | The certificate is in a store other than **Trusted Root Certification Authorities** on Windows, or its trust is left at the default on macOS | Repeat step 3, and choose the store or the trust setting the step names |
+| You selected **No** at the Windows security warning, or cancelled the macOS password request | The operating system did not add the certificate | Repeat step 3, and confirm the request |
 | The certificate error names a different host name or address | The address uses a name missing from the certificate, or the certificate was created before the host name or address changed | Use a name from [The certificate Profinity generates](#the-certificate-profinity-generates), or [create a new certificate](#create-a-new-certificate-after-a-host-name-or-address-changes) |
 | The certificate error says that no name matches, even for `localhost` | The certificate came from an older installation and names no host | [Create a new certificate](#create-a-new-certificate-after-a-host-name-or-address-changes) |
 | The `openssl` command prints an error, or `profinity.pem` is empty | The path is wrong, or the file has a password | Check the folder against the table in [The certificate Profinity generates](#the-certificate-profinity-generates), and for a file with a password use the command in [Export a certificate you supplied](#export-a-certificate-you-supplied) |
-| PowerShell reports an error when it opens the file | The path is wrong, or the file has a password | Check the path, write `%LOCALAPPDATA%` as `$env:LOCALAPPDATA`, and for a file with a password use the commands in [Export a certificate you supplied](#export-a-certificate-you-supplied) |
+| PowerShell reports an error when it opens the file | The path is wrong, or the file has a password | Check the folder against the table in [The certificate Profinity generates](#the-certificate-profinity-generates), and for a file with a password use the commands in [Export a certificate you supplied](#export-a-certificate-you-supplied) |
 
 For other errors, refer to [MCP connection errors](Connection_Errors.md).
 
 ## Create a new certificate after a host name or address changes
 
-Profinity creates the certificate once and keeps it, so a new host name or network address is missing from it until you create a new certificate.
+Profinity creates the certificate once and keeps it, and the certificate lists the host names and addresses present at that time.
+A new host name or network address therefore needs a new certificate.
 The certificate is valid for five years, so note its expiry date and create a new one before then.
 On Linux, `openssl x509 -in "$HOME/profinity.pem" -noout -enddate` prints the date, and on macOS and Windows the certificate details show it.
 
@@ -275,7 +300,7 @@ To keep the old certificate, copy it in step 2, before you delete it:
 3. Delete `profinity_generated.pfx` from the `certificates` folder.
 4. Start Profinity.
    Profinity creates a new `profinity_generated.pfx`, with a new key, for the host name and addresses it finds as HTTPS starts.
-5. On the computer that runs the AI tool, repeat steps 1 to 3 of [Export and trust the certificate](#export-and-trust-the-certificate).
+5. On the computer that runs the AI tool, repeat steps 1 to 5 of [Export and trust the certificate](#export-and-trust-the-certificate).
    When two certificates named Profinity are listed, choose the one with the later expiry date, which is the new one.
    The check in [Check it worked](#check-it-worked) prints `401` with the new address.
 
