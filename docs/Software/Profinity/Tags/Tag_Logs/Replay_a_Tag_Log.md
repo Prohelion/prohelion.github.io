@@ -54,11 +54,14 @@ The replay controls are:
 
 Each recorded value is written to the tag with the matching tag path, as if a new value had arrived.
 Anything that reacts to tag changes, such as rules, alerts, derived tags, and dashboards, reacts to the replay.
-The replayer skips a line, and its status reports the reason, in three cases:
+Historians and tag logs that record changes also record replayed values, in the same way as live values.
+The replayer skips a line, and its status records the reason, in three cases:
 
 - The tag does not exist in the loaded profile.
 - The value cannot be read.
 - The `Recv time` is invalid.
+
+Only an invalid `Recv time` shows on screen, as a **Replay failed** message. The other reasons appear in the replay status.
 
 Replay a log against a profile that contains the same tags it was recorded from.
 When the replay stops, or reaches the end of the log, the replayed values stay in place as the last values applied, rather than reverting.

@@ -55,7 +55,7 @@ Selecting a component shows its name. For a component at the top level, the Insp
 
 When the arrangement is right, select **SAVE** to apply it to the side menu.
 **RELOAD** discards unsaved changes and reloads the saved layout.
-**NEW FROM TEMPLATE** loads a template layout.
+**NEW FROM TEMPLATE** is not available for the menu layout. It shows **No template available** and leaves the current layout unchanged.
 The **YAML** tab next to the **DESIGN** tab shows the same layout as text, for users who prefer to edit it directly.
 
 ## Groups that collect components by type

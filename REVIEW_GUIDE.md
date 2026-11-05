@@ -83,8 +83,9 @@ The list below groups the checks and points to the rule that holds the detail.
 
 ### Project rules
 
-- Pages under `Software/Profinity` name the release "2.3" only. The release notes page is the only place that may say 2.3.1.
-- Pages under `Software/Profinity` link only to other 2.3 pages, unless the sentence is about an earlier version.
+- Pages under `Software/Profinity` name the release "2.3" only. Pages in the `Release_Notes` folder are exempt and may name patch releases such as 2.3.3.
+- Pages under `Software/Profinity` link only to other 2.3 pages, unless the sentence is about an earlier version. Links to hardware manuals, such as the WaveSculptor DBC pages, and to the Solar Car Racing section are allowed when they resolve.
+- A dated fact about another vendor's product is checked against that vendor's official documentation by web search, and the page links the source. Do not remove it unchecked.
 - Internal client components named in the author's brief as excluded must not appear on any 2.3 page.
 - Review only 2.3 content unless the author names another version.
 

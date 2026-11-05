@@ -25,7 +25,7 @@ With host networking, Docker ignores the `ports` entries, as described under [Ex
 
 The artefacts directory inside the container is whatever `PROFINITY_HOME` names.
 With the volume in the compose file, the configuration is in `/app/Prohelion/config`, the profiles in `/app/Prohelion/profiles`, and the logs in `/app/Prohelion/logs`, which appear on the host under `$HOME/Prohelion`.
-The one-line installer uses `PROFINITY_HOME=/var/lib/prohelion/profinity` mounted from a local `data` directory, which is also the default artefacts path on Linux.
+The one-line installer creates a `data` folder inside the install folder, `~/profinity-docker` by default or the folder you give with `--dir`, and mounts it at `/var/lib/prohelion/profinity`, which is also the default artefacts path on Linux. It sets `PROFINITY_HOME` to that path.
 Either path is valid, provided that the environment variable and the mount destination match.
 
 !!! warning "Set PROFINITY_HOME to your mount path"

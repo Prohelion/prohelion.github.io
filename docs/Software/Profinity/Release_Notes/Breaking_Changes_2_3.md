@@ -11,7 +11,6 @@ last_reviewed: 2026-11-05
 These changes in Profinity 2.3 can affect an installation, integration, or plugin that works on 2.2.
 Read them with [Upgrade from Profinity 2.2](../Installation/Upgrading/Upgrade_From_2_2.md) before you upgrade a production system.
 The [Profinity 2.3 release notes](2.3.1.md) describe the new features and known issues.
-If you already run a 2.3 patch release, the [Profinity 2.3.2 release notes](2.3.2.md) and the [Profinity 2.3.3 release notes](2.3.3.md) list the later changes.
 
 Each section says who is affected, what changed, and what to do.
 The sections start with the changes that affect every installation and end with the changes that affect plugin authors.
@@ -50,48 +49,11 @@ Profinity 2.3 ignores these keys, which 2.2 wrote to `config.yaml` and 2.3 no lo
 
 Any other key that 2.3 does not define stops Profinity.
 
-Run the preflight check before you upgrade a production system, especially if you edit settings files by hand or other tools generate them.
-The check reads the data folder named in `PROFINITY_HOME`, and it writes nothing.
-Replace `<data-folder>` with the path of the Profinity data folder.
-
-=== "Linux"
-
-    Run this command from the install folder:
-
-    ```bash
-    PROFINITY_HOME=<data-folder> Profinity --preflight-only
-    ```
-
-=== "Windows"
-
-    Run these commands in Command Prompt, from the install folder:
-
-    ```bat
-    set PROFINITY_HOME=<data-folder>
-    Profinity.exe --preflight-only
-    ```
-
-=== "Docker"
-
-    Run this command with the same volume mount as the running container:
-
-    ```bash
-    docker run --rm -v "<host-folder>:/app/Prohelion" -e PROFINITY_HOME=/app/Prohelion <image> --preflight-only
-    ```
-
-    Replace `<host-folder>` with the host folder that the running container mounts, and `<image>` with the Profinity image.
-
-Exit code 0 means the check passed, and exit code 2 means a file needs fixing.
-
-If Profinity stops at startup, recover the file that the message names.
+Profinity checks both files when it starts, and writes nothing if a file is invalid.
+If Profinity stops at startup, correct the file that the message names, or restore its safety copy `<file>.bak`.
 
 !!! warning "Deleting security.yaml resets its users, roles, and two-factor secrets"
     Copy the file to a safe place before you delete it.
-
-1. Copy the file to a safe place.
-2. Fix the file, or restore the safety copy by copying `<file>.bak` over it.
-3. If neither works, delete the file to reset it.
-4. Start Profinity again.
 
 A container that restarts automatically repeats the message until the file is fixed.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
@@ -127,11 +89,7 @@ The keys are camelCase on disk:
 | A group's `securityRoles` | The role's `permissions` |
 | `Version` | `version: "2.3"` |
 
-A file without `roles` loads with no error, and its users then hold no roles.
-To keep each user's access:
-
-1. Before you start Profinity 2.3, check that `security.yaml` holds `roles` and each user holds `assignedRoles`.
-2. After Profinity starts, review the roles assigned to each user.
+A file without `roles` loads with no error, and its users then hold no roles, so check that `security.yaml` holds `roles` and that each user holds `assignedRoles`.
 
 ## Licensing
 
@@ -208,12 +166,9 @@ The invalid file stays unchanged.
 This check covers the top level of the profile only.
 When Profinity saves the profile, it drops any setting that a component does not recognise.
 
-To keep each profile loading:
-
-1. Copy the profile's folder to a safe place, or download the profile as a pack, as described in [Download a profile pack](../Administration/Manage_Profiles.md#download-a-profile-pack).
-2. If the profile file in the profile's folder has another name, rename that file to `profile.yaml`.
-3. If the profile is a single file in the `profiles` folder, move it into a new folder in `profiles` named after the profile, and rename it `profile.yaml`.
-4. If the log reports the profile as invalid, correct the key that the log names, then select the profile again in the **Profile** pill on the **ADMIN** page.
+Profinity renames a `Profile.yaml` file to `profile.yaml` itself.
+A profile with any other file name, or a profile stored as a single file, needs its file named `profile.yaml` in the profile's folder.
+Copy the profile's folder to a safe place first, or download the profile as a pack, as described in [Download a profile pack](../Administration/Manage_Profiles.md#download-a-profile-pack).
 
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md#profiles).
 
@@ -263,7 +218,6 @@ In 2.3, Profinity skips an item with an unknown key, such as a misspelt setting 
 A skipped rule is inactive, and a skipped collection or derived tag is unavailable for selection.
 Profinity writes a line to the log for each skipped item, and the editors mark it with a red **Invalid** marker and the reason.
 
-After the upgrade, open the rules, collections, and derived tags editors and correct each item marked **Invalid**.
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md#rules-collections-and-derived-tags).
 
 ## Uploads and imports are checked
@@ -295,8 +249,6 @@ Profinity 2.3 ignores any other copy beside a settings file, such as a timestamp
 It leaves these copies in place, and excludes them from exported and imported profile packs.
 
 Update any tool that reads these files directly to use the new key, file, and folder names.
-Delete the older copies when you have finished with them.
-If you edit the YAML of collections or rules by hand, re-save them in the visual editors after the upgrade.
 
 ## Settings in config.yaml
 
@@ -383,8 +335,6 @@ Users of Gen2 battery management systems (BMS) are affected.
 
 Profinity holds the firmware configuration key and setup passcodes of a Gen2 BMS only for the current sign-in session, and keeps them out of the profile.
 
-Enter the passcodes in the component's settings dialog, or when you unlock firmware on the firmware updates page.
-Unlock again after each sign-in.
 Refer to [Unlock administration firmware parameters](../Components/Battery_Management_Systems/Prohelion_BMU/Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters).
 
 ## BACnet device instance

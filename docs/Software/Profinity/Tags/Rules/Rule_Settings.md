@@ -81,7 +81,7 @@ tag.Value < 4.0
 ```
 
 A no-data or stale sensor condition is written as follows.
-The term `!tag.HasValue` catches a tag that has never had a value.
+The term `!tag.HasValue` is true while a tag has no value, including when its device is offline.
 Set the rule to evaluate while the tag is unreadable, as described under [Unreadable tags](#unreadable-tags):
 
 ```text

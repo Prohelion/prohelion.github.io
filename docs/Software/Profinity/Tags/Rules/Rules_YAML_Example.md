@@ -133,7 +133,7 @@ Refer to [Trigger overlap](../../Developing_with_Profinity/Scripting/Script_Type
 
 The `cell_over_voltage` rule is a boolean rule.
 It has a single `level`, and its own `actions` and `clearActions`.
-Its `clearExpression` clears the alert even while the main `expression` is still true.
+Its `clearExpression` sets the clear point at 4.1 V, below the 4.2 V trip point, so the alert holds until the voltage falls back.
 
 The `description` is the text the user reads in the detail dialog of the [Alerts Log](../Alerts.md), and it supports Markdown.
 The `moreInformation` list adds links, as described under [Throttle and more information links](Rule_Settings.md#throttle-and-more-information-links).

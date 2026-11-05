@@ -37,6 +37,7 @@ The components of a disabled plugin do not appear in the catalogue at all, so en
 
 A component type is available only when the licence, the `custom.yaml` file and the site configuration (`config.yaml`) all allow it.
 Profinity checks the licence first, then `custom.yaml`, then `config.yaml`.
+Selecting **Enable** on a row that the site configuration disables removes it from the disabled list in `config.yaml`.
 
 ## Locked and disabled rows
 

@@ -32,7 +32,7 @@ The subfolders use lowercase names on every platform because Linux file systems 
 | `config/` | `config.yaml`, `security.yaml`, `plugins.yaml`, `custom.yaml` |
 | `profiles/` | Profile and component YAML, dashboards, scripts |
 | `example_scripts/` | Example scripts in C#, Python and Lua, added on the first start |
-| `plugins/` | User-installed plugin folders, each holding a dynamic-link library (DLL) |
+| `plugins/` | User-installed plugin folders, each holding a .NET assembly (`.dll`) on every platform, and any native libraries it needs (`.so` on Linux, `.dylib` on macOS) |
 | `logs/` | File logs when enabled |
 | `can_bus_logs/` | CAN bus logs, with `replay/` and `archive/` beneath it |
 | `tag_logs/` | Tag logs |

@@ -47,8 +47,7 @@ Skip this section for an `http://` address.
 For an `https://` address, trust the exported certificate in the operating system, as described in [Trust the HTTPS certificate](Trust_HTTPS_Certificate.md), then quit Cursor and open it again.
 Cursor has no setting that turns certificate checking off, and accepting the warning in a browser does not change what Cursor trusts.
 
-As of October 2026, Cursor 3.19 and later on Windows uses the operating system certificate stores for MCP connections, including an enterprise certificate authority.
-Update Cursor when it still rejects a certificate that the operating system trusts.
+Update Cursor when it still rejects a certificate that the operating system trusts, and check Cursor's current documentation for how it handles an enterprise certificate authority on your operating system.
 The host in the address has to be one of the certificate names in [The certificate Profinity generates](Trust_HTTPS_Certificate.md#the-certificate-profinity-generates).
 
 ## Confirm Cursor can read data

@@ -41,19 +41,19 @@ The CAN SFTP Logger needs the remote server settings described in [File logger r
 ## Example
 
 This example is for illustration only.
-Add it under `Components` in the profile file.
+Add it under `components:` in the `profile.yaml` file of the profile.
 
 ```yaml
-Components:
-  CAN File Logger 1:
-    Type: CANFileLogger
-    IntervalSec: 10
-    FileFormat: Prohelion
-    AutoConnect: true
+- component:
+    type: CANFileLogger
+    name: CAN File Logger 1
+    intervalSec: 10
+    fileFormat: Prohelion
+    autoConnect: true
 ```
 
 This logger writes the Prohelion format and updates every 10 seconds.
-Use `FileFormat: Tritium` for the Tritium format.
+Use `fileFormat: Tritium` for the Tritium format.
 
 ## Download the logged files
 

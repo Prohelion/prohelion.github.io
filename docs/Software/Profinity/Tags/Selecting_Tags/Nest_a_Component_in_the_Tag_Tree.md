@@ -13,6 +13,8 @@ To see what nesting does to scopes and dashboard binds, refer to [Tag tree paths
 
 Editing the **Tag tree path** needs **Modify components**.
 
+If the component is already deployed, read [Change the path on a deployed component](#change-the-path-on-a-deployed-component) and back up the files it names before you start.
+
 To nest a component:
 
 1. In the **Component Identifier** section of the component's settings dialog, go to **Tag tree path**.

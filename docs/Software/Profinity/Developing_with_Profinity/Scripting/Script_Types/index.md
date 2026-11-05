@@ -46,7 +46,7 @@ A threshold rule can start several of those events in one evaluation, so a rule 
 ## Custom Component scripts
 
 A Custom Component script is a file named on the component.
-**Script Mode** applies to a script component.
+**Script Mode** applies to a script component. A Custom Component main script has no **Script Mode** setting, and it always runs as a service script.
 
 | Script | Runs as |
 |--------|---------|

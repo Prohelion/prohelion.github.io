@@ -41,7 +41,7 @@ Each entry gives a one-sentence meaning and links to the page that explains it i
 | DBC | The CAN database file format that describes the messages and signals on a CAN bus. Refer to [CAN bus DBC](../CAN_Utilities/CAN_Bus_DBC.md). |
 | DLL | Dynamic-link library, the compiled file format of a C# plugin |
 | MCP | Model Context Protocol, the standard that lets AI tools connect to Profinity. Refer to [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md). |
-| MFA | Multi-factor authentication, a sign-in that needs more than a password. Refer to [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md). |
+| MFA | Multi-factor authentication, a sign-in that needs more than a password. The sign-in screen labels the code field MFA, and the feature is called Two-factor authentication. Refer to [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md). |
 | MPPT | Maximum Power Point Tracker, a solar charge controller. Refer to [Elmar Solar MPPT](../Components/MPPT/Elmar_Solar_MPPT.md). |
 | MQTT | Message Queuing Telemetry Transport, a messaging protocol for sending data through a broker. Refer to [Publishers and Subscribers](../Components/Publishers_and_Subscribers/index.md). |
 | OPC UA | Open Platform Communications Unified Architecture, an industrial data protocol. Refer to [OPC UA Client](../Components/Industrial_Protocols/OPC_UA_Client.md). |

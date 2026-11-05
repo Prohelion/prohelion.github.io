@@ -26,6 +26,8 @@ Saving the **Security** tab restarts Profinity and interrupts active sessions.
 Profinity keeps `config.yaml.bak`, a copy of the configuration as it was before the save, in the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md).
 If sign-in fails after the change, follow [Recovering from a misconfigured provider](#recovering-from-a-misconfigured-provider).
 
+Before you choose **Sso**, check that a local administrator account with a password exists. It is the way back if sign-in through the identity provider fails.
+
 1. Select **ADMIN** in the side menu, then **System Configuration**.
 2. Open the **Security** tab.
 3. Set **Sign-in method** to **Local** or **Sso**.
@@ -138,4 +140,4 @@ Automated user provisioning from the identity provider is described in [SCIM and
 
 ## Related pages
 
-Refer to [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md) and to the [Profinity 2.3 release notes](../../../Release_Notes/2.3.1.md) for the 2.3 security changes.
+Refer to [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md) and to the [Profinity 2.3 release notes](../../../Release_Notes/2.3.3.md) for the 2.3 security changes.

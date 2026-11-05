@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 A user manages their own authenticator from the **ADMIN** page.
 An administrator resets another user's authenticator or password from the **User Actions** tab of that user's settings dialog.
-Both apply to **local** users when the site **Sign-in method** is **Local**.
+The self-service pill and the administrator resets apply to **local** users, when the site **Sign-in method** is **Local** and the conditions in each section below are met.
 The policy that requires multi-factor authentication (MFA) is described in [Two-factor authentication](../System_Configuration/Security/Two_Factor_Authentication/index.md).
 
 Users who sign in through single sign-on (SSO) manage MFA and credentials in the identity provider.

@@ -130,7 +130,7 @@ Exported profile packs do not include safety copies, and importing a pack ignore
 
 A container that restarts automatically will restart again and again while a file is invalid, and each attempt writes the same message to the log.
 Read the message, fix or restore the file in the data volume, and the next start succeeds.
-Check a configuration before an upgrade by running `Profinity --preflight-only` with the Profinity executable on any operating system. The command checks the runtime and the configuration and security files without starting Profinity or writing anything. A valid set prints `Preflight checks passed.` and exits with code 0. An invalid file prints its message and exits with code 2. The check runs the same way on each platform, reporting the runtime checks first and then each invalid file.
+Check a configuration without starting Profinity by running `Profinity --preflight-only` with the Profinity executable on any operating system. The command checks the runtime and the configuration and security files without starting Profinity or writing anything. A valid set prints `Preflight checks passed.` and exits with code 0. An invalid file prints its message and exits with code 2. The check runs the same way on each platform, reporting the runtime checks first and then each invalid file.
 
 ## Last sign-in times
 

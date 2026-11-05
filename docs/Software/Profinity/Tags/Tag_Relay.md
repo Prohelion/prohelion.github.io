@@ -71,7 +71,7 @@ A path occupied by a tag that did not come from relay always causes the whole sn
 | What you see | Cause | What to do |
 |---|---|---|
 | The tags from one sender stop updating. Over HTTPS, the sender receives a `409 Conflict` response carrying the reason. Over MQTT, the receiver writes a warning to the Profinity log and discards the snapshot. | A path in that sender's latest snapshot clashes with a tag already on the receiver, so the receiver rejects the whole snapshot. | Remove the local tag that occupies the path, or change the receiver prefix. The receiver then accepts the next snapshot from that sender. |
-| The sender receives `400 Bad Request`. | The snapshot is malformed, or its version is not 2.3. | Set `version` to `"2.3"` in each snapshot, on a sender that runs Profinity 2.3. |
+| The sender receives `400 Bad Request`. | The snapshot is malformed, or its version is not 2.3. | A Profinity 2.3 sender sets `version` itself, so this applies to a snapshot from another publisher or release. Set `version` to `"2.3"` in each snapshot. |
 
 For the settings of each role, refer to [Tag Relay Sender](../Components/Tag_Relays/Tag_Relay_Sender.md) and [Tag Relay Receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md).
 Refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) for the permissions involved.

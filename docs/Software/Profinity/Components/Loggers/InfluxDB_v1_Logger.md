@@ -79,7 +79,7 @@ components:
     - collectionName: YOUR_COLLECTION_ID
 ```
 
-`YOUR_DATABASE` is the InfluxDB database that the data is stored in.
+`YOUR_DATABASE` is the InfluxDB database that the data is stored in. The YAML key is `bucket` for InfluxDB v1 too, although the UI labels the setting **InfluxDB Database**.
 `YOUR_COLLECTION_ID` is the id of a tag collection in the profile.
 The example leaves the username and password out, which suits an unsecured InfluxDB connection.
 

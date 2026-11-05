@@ -135,6 +135,8 @@ dashboard:
         items:
           - chart:
               type: line
+              label: Bus Current
+              legend: false
               refreshInterval: 5000
               bind:
                 - target: value

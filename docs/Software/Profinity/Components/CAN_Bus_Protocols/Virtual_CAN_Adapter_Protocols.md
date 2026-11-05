@@ -16,7 +16,7 @@ To add the adapter and set it up, refer to [Prohelion Virtual CAN Bus Adapter](V
 
 Tritium and Prohelion CAN to Ethernet bridges have two major firmware releases, V1 and V2.
 The two releases speak different protocols.
-They also differ in the width of the bus identifier: 4 bits for V1 and 16 bits for V2, as set out in [CAN-UDP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md).
+They also differ in the width of the bus identifier: 4 bits for V1 and 16 bits for V2, and Profinity accepts bus numbers from 0 to 32767 for V2, as set out in [CAN-UDP Bridging](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_UDP_Bridging.md).
 Refreshing the firmware of a V1 bridge updates it to V2, but many bridges remain on V1 firmware.
 
 Tritium software tools shipped in either a V1 or a V2 variant.

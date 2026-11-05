@@ -29,6 +29,8 @@ To enable provisioning:
 3. Optional: enter **Default assigned roles**.
 4. Save the tab.
 
+To check the connection, request `/scim/v2/ServiceProviderConfig` with the SCIM bearer token. A valid token returns the service provider settings. An invalid token returns 401, and 404 means SCIM provisioning is off or the **Enterprise Security** feature is not licensed.
+
 Profinity refuses to save in two cases:
 
 - The token is empty. It shows "SCIM bearer token is required when SCIM provisioning is enabled."
