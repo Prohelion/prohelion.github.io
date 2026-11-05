@@ -69,11 +69,11 @@ For example, in a Linux shell:
 export PROFINITY_HOME=/var/lib/prohelion-staging/profinity
 ```
 
-Profinity reads `PROFINITY_HOME` when it starts, so restart Profinity after you set it.
+Profinity reads `PROFINITY_HOME` when it starts, so restart Profinity after you set it. Set it before the first start, because Profinity does not migrate data from the older locations while it is set.
 
 ## Automatic migration on startup
 
-On the first start after you upgrade to 2.3, Profinity copies data from the older locations in the table into the artefacts directory.
+On the first start after you upgrade to 2.3, Profinity moves or copies data from the older locations in the table into the artefacts directory.
 It renames capitalised names from earlier releases, such as `Config`, `Config.yaml`, `Profiles`, and `Logs`, to lowercase, and removes an old folder once every file is present at the new location.
 A locked or offline file does not stop Profinity from starting, and migration resumes from where it stopped on the next restart.
 
@@ -82,13 +82,13 @@ On every host, the **ADMIN > Logs** page lists a message for each file that move
 
 | Platform | Older locations that Profinity migrates |
 |----------|----------------------------------------|
-| Windows and macOS | `~/Documents/Prohelion/Profinity`, `~/Prohelion/Profinity`, and the same folder under the application-data location with the other casing (`prohelion/profinity`) |
+| Windows and macOS | `~/Documents/Prohelion/Profinity`, `~/Prohelion/Profinity`, `%LOCALAPPDATA%\prohelion\profinity` on Windows, and `~/Library/Application Support/prohelion/profinity` on macOS |
 | Linux | `~/Documents/Prohelion/Profinity`, `~/Prohelion/Profinity`, `~/.local/share/Prohelion/Profinity` (the 2.2 location), `/var/lib/Prohelion/Profinity`, and `/var/lib/profinity/Prohelion/Profinity` |
 
 !!! warning "Migration does not run when PROFINITY_HOME is set"
     When `PROFINITY_HOME` is set, Profinity skips copying data from the older locations, so a custom root receives nothing from the default install.
     Copy any data you need into the custom root yourself, including for Docker deployments that set `PROFINITY_HOME`.
-    The rename of capitalised folders (`Config`, `Profiles`, `Logs`) to lowercase still runs under any root.
+    The rename of capitalised names (`Config`, `Config.yaml`, `Profiles`, `Logs`) to lowercase still runs under any root.
 
 ## Back up and restore
 

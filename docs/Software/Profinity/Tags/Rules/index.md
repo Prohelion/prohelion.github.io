@@ -34,7 +34,7 @@ An action runs when the rule's alert level reaches the action's trigger level.
 A rule runs only when the file, its group, and the rule itself are all enabled.
 
 A threshold rule holds ordered steps, and one evaluation can cross more than one of them.
-Profinity then runs an action for each step it enters or leaves, in order, and starts the next action without waiting for a [rule script](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) to finish.
+Profinity then runs an action for each step it enters or leaves, in order, and hands each one to a [rule script](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) without waiting for the script to finish.
 Set **Trigger Overlap** to **Queue** on that script when the action for the step the value lands on must still run.
 
 **Drop**, the default, discards an action that arrives while the script is still running, and that action is not tried again.

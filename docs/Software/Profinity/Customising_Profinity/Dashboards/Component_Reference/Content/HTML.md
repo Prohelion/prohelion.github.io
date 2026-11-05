@@ -43,7 +43,7 @@ A link whose address begins with a single `/` navigates inside the web interface
 
 ### Referencing profile assets in HTML
 
-Use `/Profile/Images/{filename}` in the `src` attribute of an `img` element to show an image from the profile.
+Use `/Profile/Images/{filename}` in the `src` attribute of an `img` element to show an image from the profile. To add the file, upload it in the profile's image library, as described in [Store dashboard files in a profile](../../Store_Dashboard_Files.md#images).
 Add style rules to the `profile.css` file in the `/Profile/Styles` directory.
 The web interface loads the file when it is present.
 Apply the rules with the `class` attribute in the HTML.

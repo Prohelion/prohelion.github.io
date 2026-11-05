@@ -73,7 +73,7 @@ When you change one of these values, the raw data updates to match.
 When you change the raw data, the values update to match.
 
 Setting an interval causes Profinity to send your CAN packet at your chosen loop rate, so setting **Interval [ms]** to 100 sends the packet every 100 ms.
-The interval must be a whole number from 1 to 4,294,967,295 milliseconds.
+The interval must be a whole number from 0 to 4,294,967,295 milliseconds.
 Leave it blank, or enter 0, to send the packet once only.
 **Interval [ms]** defaults to 0, which sends the packet once.
 

@@ -40,7 +40,7 @@ Profiles support three features:
 - [Profile Dashboard](./Profile_Dashboard.md) provides a custom home page from a dashboard YAML file.
 - [Menu Layout](./Menu_Layout.md) sets up the side menu.
 
-You can change the Kiosk Mode settings of a profile when it is not the active profile.
+You can change the Kiosk Mode settings of any profile, including the active one.
 Anyone at a kiosk inherits the permissions of its Kiosk Mode User, so choose a user with only the permissions the display needs, as described in [Kiosk Mode](./Kiosk_Mode.md#choosing-the-kiosk-user).
 The steps are in [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
 

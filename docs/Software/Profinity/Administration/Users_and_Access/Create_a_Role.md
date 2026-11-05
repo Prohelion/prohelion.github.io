@@ -10,7 +10,7 @@ last_reviewed: 2026-10-28
 
 Create a role when you want a person to do only what their job needs.
 You need the **Security administration** permission and a Server licence.
-A Windows desktop installation offers the use of roles only with a Server licence.
+Roles need a Server licence on every type of installation.
 
 Refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) for what each installation signs in with.
 Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md).
@@ -48,7 +48,7 @@ A person who has quietly held too much access may never be noticed.
 3. Enter a **Role name**, and a **Description** that says who the role is for, since that description is what the next administrator relies on.
 4. Switch on each permission the role should include.
    The permissions are grouped under headings such as **Administration**, **Components**, **CAN & DBC**, and **Tags**, and each has a one-line explanation beside it.
-5. Save the role.
+5. Select **SAVE**.
 
 Some permissions need another one to be useful, so Profinity switches the second one on for you and locks it while the first remains on.
 Turning on **Send CAN messages**, for example, also turns on **View CAN data**, because a person who can send messages needs to see the bus.
@@ -63,6 +63,8 @@ The new role appears in the **Roles** tab.
 2. Choose one or more roles under **Assigned roles**.
 3. Save.
 
+To remove a role from a person, clear it under **Assigned roles** and select **SAVE**.
+
 A new user is given roles in the same way while the account is being created, as described in [Managing users](./Manage_Users.md#creating-a-new-user).
 The person's row now lists the role under **Assigned roles**.
 
@@ -76,6 +78,6 @@ The person's row now lists the role under **Assigned roles**.
 To change a role later, open the **Roles** tab and select the role.
 Before you delete a role, write down its name, description and permissions, so you can create it again. Refer to [Create the role](#create-the-role).
 
-To delete a role, open it on the **Roles** tab, select **DELETE ROLE** and confirm. The button is disabled while users hold the role, so remove the role from each of those users first.
+To delete a role, open it on the **Roles** tab, select **DELETE ROLE** and confirm. The button is disabled while users hold the role, so remove the role from each of those users first. Profinity keeps the previous `security.yaml` as `security.yaml.bak`, which still holds the deleted role until the next save of security settings replaces it.
 
 To limit which roles can see a particular component or collection, refer to [Restrict a component or collection](Component_And_Collection_Security/Restrict_a_Component_or_Collection.md).

@@ -37,8 +37,8 @@ Refer to that page for the reverse comparison.
 </figure>
 
 A Profinity instance with a [Tag Relay Sender](../Components/Tag_Relays/Tag_Relay_Sender.md) component exports the member tags of the collections selected in the sender.
-In Snapshot mode it sends a complete snapshot at a fixed interval, which defaults to 60 seconds.
-In On Change mode it sends a complete snapshot on connect and reconnect (and again on a resync interval), and sends only value changes between those snapshots.
+In Snapshot mode it sends a complete snapshot at the interval set on the [Tag Relay Sender](../Components/Tag_Relays/Tag_Relay_Sender.md), under **Snapshot / change interval (seconds)**.
+In On Change mode it sends a complete snapshot on connect and reconnect, and again every **Resync interval (seconds)** (default 300 seconds), and sends only value changes between those snapshots.
 Full snapshots include tag metadata such as units.
 
 The receiver holds the latest accepted values for each mirrored tag.

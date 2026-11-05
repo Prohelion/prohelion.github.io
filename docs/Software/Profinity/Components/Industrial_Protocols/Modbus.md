@@ -131,6 +131,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
 ```
 
 Replace `SLAVE_IP_ADDRESS` with the IP address of your Modbus slave.
+Profinity fills in a missing or duplicate `id`, and a missing `tagTreeParentPath` (set to `/`), when it loads the profile, so you can leave them out. Set `name`, the connection settings and `points`. `type` names the component kind, so keep it as shown.
 Each value is a setting from the [Communications settings](#communications-settings) or a column from the [Point map](#point-map).
 
 ## Dashboard

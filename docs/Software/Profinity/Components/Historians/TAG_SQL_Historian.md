@@ -44,7 +44,7 @@ To start recording, add the component and point it at a database.
 
 With **Auto Create Table** on, the historian creates the table when it starts.
 Once it is running and has connected, its status shows **On**, and rows appear in the table after the first **Update Interval (Seconds)**.
-If it cannot reach the database or a write fails, its status shows **Error** until a write succeeds.
+If it cannot reach the database or a write fails, its status shows **Error** until the database is reachable again or a write succeeds.
 
 The following tables describe every setting.
 

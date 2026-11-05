@@ -32,7 +32,7 @@ Profinity skips the move from older locations when `PROFINITY_HOME` is set, so t
 
     === "Windows"
 
-        The 2.2 data folder is `%LOCALAPPDATA%\Prohelion\Profinity`.
+        The 2.2 data folder is `%LOCALAPPDATA%\Prohelion\Profinity` for the desktop application. A Windows service keeps its data in the same folder name under the local application data folder of the account it runs as.
         Copy it in PowerShell:
 
         ```powershell
@@ -75,7 +75,7 @@ Profinity skips the move from older locations when `PROFINITY_HOME` is set, so t
     On Linux, macOS and Docker, open `http://localhost:18080` to reach the sign-in page.
     The first start migrates the 2.2 data into the 2.3 [artefacts directory](../Artifacts_Directory.md), and keeps the original of each file it rewrites beside it as `<file>.bak`.
     Profinity 2.3 reads a profile only from `profile.yaml`, so if a profile uses another file name, rename it as described in [Profile files](../../Release_Notes/Breaking_Changes_2_3.md#profile-files).
-    When `PROFINITY_HOME` is set, Profinity skips the migration, so copy anything you need into that location yourself.
+    When `PROFINITY_HOME` is set, Profinity skips the move from the 2.2 locations, so copy the 2.2 data into that location yourself. The users, roles and passwords in it are then converted in place.
 
 3. On **ADMIN > License**, apply the licence file, as described in [Apply a licence](../Applying_a_Licence.md).
     The **State** shows `Valid`, or `Expiring` when 30 days or fewer remain.
@@ -111,10 +111,10 @@ Profinity skips the move from older locations when `PROFINITY_HOME` is set, so t
     Profinity 2.3 does not accept a bind written in the dotted 2.2 form, such as `Component.Message.Signal`, so change it to a [slash path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 6. If you change the firmware configuration of an M48 Gen2, C48 Gen2, or D1000 Gen2 battery management system (BMS), enter its **Firmware Configuration Key** first, as described in [Unlock administration firmware parameters](../../Components/Battery_Management_Systems/Prohelion_BMU/Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters).
-    Profinity 2.3 holds the key for a limited session and never saves it in the profile, so enter it in each session in which you change the firmware configuration.
+    Profinity 2.3 holds the key for a limited session of 30 minutes by default and never saves it in the profile, so enter it in each session in which you change the firmware configuration.
 
 7. In the **Change Settings** dialog of each Building Automation and Control Networks (BACnet) component, set **Device instance** to the instance number of the device at **Remote host**.
-    The number is the instance of the device's own Device object, which the device's configuration or a BACnet scan of the network shows.
+    The number is the instance of the device's own Device object, which the device's configuration shows. If you do not know it, the **Error** message on the component names the number to use.
     A component whose **Device instance** differs from the device shows **Error** with a message that states the number to use:
     `The device at <host> reports Device instance <actual>, but Device instance is set to <n>. Set Device instance to <actual>, or correct the Remote host.`
     Refer to [BACnet](../../Components/Industrial_Protocols/BACnet.md).

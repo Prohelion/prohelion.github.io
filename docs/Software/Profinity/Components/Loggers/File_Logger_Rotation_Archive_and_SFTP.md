@@ -46,7 +46,7 @@ It defaults to **No Rotation**, so a logger writes one growing file until you sw
 | **Archive the Logs** | Off | Moves rotated log files into an `archive` folder beneath the log folder, so no archive directory needs to be provided. |
 | **Compress Logs** | Off | Shown when **Archive the Logs** is on. Compresses archived log files into `.zip` files. |
 | **Limit Number of Archive Files** | Off | Shown when **Archive the Logs** is on. Enables a limit on the number of log files retained in the archive. |
-| **Archive File Limit** | 0 | Shown when **Limit Number of Archive Files** is on. Must be greater than 0. If the limit is on and this is 0, Profinity reports a validation error and the setting is not valid. The maximum number of log files kept in the archive. For the SFTP loggers it applies to the remote files. |
+| **Archive File Limit** | 0 | Shown when **Limit Number of Archive Files** is on. Must be greater than 0. If the limit is on and this is 0, Profinity reports a validation error and the setting is not valid. The maximum number of log files kept in the archive. When the limit is reached, the oldest files are deleted first. For the CAN SFTP Logger, the oldest remote files are deleted too. |
 
 The CAN SFTP Logger and the TAG SFTP Logger always archive, because they archive files before they upload them.
 They do not show **Archive the Logs**, because it is always on for them.

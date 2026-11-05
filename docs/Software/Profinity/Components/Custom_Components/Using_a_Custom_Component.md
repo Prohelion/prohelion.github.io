@@ -54,7 +54,7 @@ Component settings are arranged as **Settings**, **Pack files**, **Scripts**, an
 **Security** (last tab, SecurityAdmin only) sets who can see the component.
 **Mode** is **All** (the default) or **Restricted**.
 When Restricted, **Allowed roles** lists the roles that can see the component.
-Upload the DBC, dashboard, rules file, actions file, settings map, firmware map, and firmware file under **Pack files**, and leave a field empty when that file is not needed.
+Upload the files under **Pack files** using these fields: **Upload DBC File (Optional)**, **Upload Dashboard (Optional)**, **Rules YAML file (Optional)**, **Actions YAML file (Optional)**, **Settings Map YAML file (Optional)**, **Firmware Map YAML file (Optional)** and **Firmware Actions YAML file (Optional)**. Leave a field empty when that file is not needed.
 The format of each YAML file is in [Custom Component files](../../Developing_with_Profinity/Custom_Components/Files.md).
 Set the main script and **Auto Start Main Script** under **Scripts**, as described in [Main script](../../Developing_with_Profinity/Custom_Components/Main_Script.md).
 

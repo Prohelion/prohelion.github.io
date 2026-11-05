@@ -60,7 +60,7 @@ The prompt reads: "This writes a firmware binary to the device and cannot be und
 | `id` | Identifier for the entry. The validation message names this id | — |
 | `displayName` | Words on the button, shown in capitals | — |
 | `script` | Path of the script, relative to the component folder, ending in `.cs`, `.py`, or `.lua` | — |
-| `icon` | Icon on the button. When omitted, the button uses the custom icon | — |
+| `icon` | Icon on the button. When omitted, the button uses the custom icon | `Custom` |
 | `uploadFileType` | Asks the user to choose a file before the button runs. The usual firmware flash uses `Firmware` | — |
 | `uploadFileExtension` | Required with `uploadFileType`. The extension the chosen file must have, such as `.bin` | — |
 | `requiresFirmwareLoaded` | Boolean. `true` hides the button until **LOAD SETTINGS** has succeeded | `false` |

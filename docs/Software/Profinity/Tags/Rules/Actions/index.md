@@ -93,7 +93,7 @@ An action entry may be a bare name or an object. An object takes `action`, and o
 The `tagId` and `value` fields substitute a different tag path and value for those reported to the action.
 
 A **Run On Alert** script action may also carry optional `parameters`: a map of names to values that the script reads from the alert context.
-Each value is either a literal (`string`, `number`, or `boolean`) or a tag variable written as `tag: <path>`.
+Each value is either a literal (`string`, `number`, or `boolean`) or a tag variable written as `tag: <path>`, where the path is a full path from the root of the tag tree.
 When the rule fires, string literals expand the [message placeholders](#message-placeholders), and each tag variable becomes that tag's current value.
 A missing tag yields no value for that name; the script still runs.
 

@@ -84,7 +84,7 @@ That file adds a **Communications** tab.
 | `categories` | The groups on the tab | |
 | `fields` | | The controls in the group |
 
-A file that uses a flat `config` map instead of `sections` is also read.
+A file that uses a flat `config` map instead of `sections` is also read, but that form is legacy, so write new files with `sections`.
 Those fields are shown on a **Configuration Settings** tab, in a group named **Settings**.
 
 ## Fields

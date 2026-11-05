@@ -42,7 +42,7 @@ With no arguments, `profinity-script` runs `sim` in the current directory.
     profinity-script new runnable --language python
     ```
 
-    The command writes a folder named `runnable` and prints its path.
+    The command writes a folder named `runnable` and prints its path. The folder holds `script.py`, which sets the tag `ran` and writes `ran` to the console, and `sim.yaml`, which the simulator reads.
     `--language` accepts `python`, `lua`, or `csharp`, and it defaults to `python`.
 
 2. Change into that folder.
@@ -85,8 +85,8 @@ Profinity runs the copied file.
    Saving replaces the file in place, so this copy is how you restore the earlier script.
 2. Add a script component as described in [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
    A script that belongs to a [Custom Component](../Custom_Components/index.md) goes in that component, under the name the component already uses.
-   For a Python script, set **Upload Script File (Optional)** in the component's settings to the `.py` file. Alternatively, paste the script into the script editor and select **Save**.
-3. Review the script before it is enabled.
+   For a Python script, set **Upload Script File (Optional)** in the component's settings to the `.py` file. Alternatively, paste the script into the script editor and select **Save**. To run it, set **Script Mode** to **Run On Demand**, then select **Run Script** from the component's menu. The component's status shows **On** while the script runs.
+3. Review the script, then set **Script Mode** to **Run On Demand** and select **Run Script**. The status reads `Run 1 time` after the first run.
    A script in a profile runs with the same operating system permissions as Profinity.
 
 For what a script can do in a profile, refer to [Profinity Scripting](../Scripting/index.md).

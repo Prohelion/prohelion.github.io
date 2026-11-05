@@ -58,7 +58,7 @@ dashboard:
               image: BatteryCharging
 ```
 
-An image that is not a known icon is loaded from the `/Profile/Images` directory:
+An image that is not a known icon is loaded from the `/Profile/Images` directory, where you upload it through the profile's image library. See [Store dashboard files in a profile](../../Store_Dashboard_Files.md#images). For example:
 
 ``` yaml
 dashboard:

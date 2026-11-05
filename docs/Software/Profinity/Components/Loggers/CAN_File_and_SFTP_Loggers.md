@@ -61,7 +61,7 @@ Once a log file has been created, select the link on the Logger Dashboard to dow
 A CAN File Logger shows this link as **FILE LOGS REPOSITORY**.
 
 <figure markdown>
-![File Logger dashboard showing status On, a Download via File Logs Repository link and a Messages Logged per second chart](../../images/file_logger.png)
+![File Logger dashboard showing status On, a DOWNLOAD VIA FILE LOGS REPOSITORY link and a Messages Logged per second chart](../../images/file_logger.png)
 <figcaption>Download Log File</figcaption>
 </figure>
 

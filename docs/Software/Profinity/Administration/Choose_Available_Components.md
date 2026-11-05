@@ -1,6 +1,6 @@
 ---
 title: Choose available components
-description: "Hide or show component types, or whole groups, in the Add Component list from the component catalogue on the Components & Plugins page."
+description: "Hide or show component types, or whole groups, in the ADD COMPONENT list from the component catalogue on the Components & Plugins page."
 type: reference
 owner: Documentation
 last_reviewed: 2026-10-15

@@ -68,7 +68,7 @@ These components start only when at least one collection is configured.
 
 Make sure the logger or publisher is added to the active profile.
 The **Auto Connect** setting starts the component when the profile loads, and [Connections and reconnecting](../Components/Connections_and_Reconnecting.md) describes its default.
-With **Auto Connect** off, start the component yourself.
+With **Auto Connect** off, select **Connect** (or **Start**) on the component to start it. Its status shows **On** once it is running.
 Then check the component's status in the component list.
 
 ## Check that data is flowing

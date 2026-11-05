@@ -16,7 +16,7 @@ A commercial or evaluation licence from Prohelion removes those limits, and you 
 
 You need three things:
 
-- The **Security administration** permission, which is needed to view or change the **License** page. On a Windows desktop installation the built-in account holds it.
+- The **Security administration** permission, which is needed to view or change the **License** page. On a Windows desktop installation the built-in account holds it. On Linux, macOS and Docker, the `admin` account holds it through the **Administrators** role.
 - The licence file, named `license.yaml`, which Prohelion signs for one installation and returns after receiving its fingerprint.
 - Access to the machine that runs Profinity, or to its artefacts directory, when the instance has no network access.
 

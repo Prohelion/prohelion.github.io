@@ -38,9 +38,9 @@ The [Loggers](index.md) page compares this logger with the others.
 ## Add the logger
 
 InfluxDB v1 uses username and password authentication, and organises data into databases and retention policies.
-Install InfluxDB v1 and confirm that it is running, then add an **InfluxDB v1 Logger** to the profile.
+Install InfluxDB v1, confirm that it is running, and create the database that the logger will write to, because the logger does not create it. Then add an **InfluxDB v1 Logger** to the profile.
 Enter the **InfluxDB Database**, add at least one tag collection under **Collections**, and set the other settings as needed.
-Nothing is logged until you select at least one tag collection.
+Nothing is logged until you select at least one tag collection. When the logger is running, its status shows **On**. If it cannot write to InfluxDB, the status shows **Error**.
 
 | Setting | Default | Purpose |
 |---|---|---|

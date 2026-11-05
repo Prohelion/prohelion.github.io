@@ -22,7 +22,7 @@ Use [Readouts](Readouts.md) for a few individual values, and a [Chart](Charts.md
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `tableHeaders` | array | Yes | None | Column definitions for tables whose data is an array of row objects. For time series data the headers are not used, so set it to `[]` |
+| `tableHeaders` | array | Yes, the key must be present | None | Column definitions for tables whose data is an array of row objects. For time series data the headers are not used, so set it to `[]` |
 | `value` | array | No | None | Not used for display. Leave it out, and the table shows `Loading table data...` until the first data arrives. Set it to `[]` to skip that message. The rows come from `bind` at run time |
 | `selectColumns` | boolean | No | `false` | Lets the user show and hide individual columns |
 | `minValueToDisplay` | number | No | None | Numeric cells below this value are displayed empty |
@@ -63,7 +63,7 @@ Each item in `tableHeaders` must contain a `header` object with:
 
 ## Example
 
-The example follows the cell voltage table of the Prohelion Battery Management Unit (BMU) dashboard.
+The example follows the cell voltage table of the Prohelion Battery Management Unit (BMU) dashboard, and it assumes a Prohelion BMU component is in the profile, added as described on the [Prohelion BMU](../../../../Components/Battery_Management_Systems/Prohelion_BMU/index.md) page.
 Each cell value is in millivolts, and the value `-32768` marks a cell position that is not present.
 The setting `minValueToDisplay: 0` leaves those cells empty.
 

@@ -25,7 +25,7 @@ The [checklist](#production-deployment-checklist) at the end summarises the step
 
 ## HTTPS configuration
 
-When Profinity is accessed over a network rather than only through localhost, all communication uses HTTPS.
+HTTPS is on by default, but Profinity also listens on HTTP. When Profinity is accessed over a network, turn on **Redirect all Http traffic to Https** so that all communication uses HTTPS.
 Without it, usernames, passwords, API tokens, and system data can be intercepted.
 
 Profinity supports HTTPS configuration through the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md#https-certificates) settings.
@@ -120,7 +120,7 @@ Profinity offers these sign-in and session controls:
 - Security Information and Event Management (SIEM) export
 - Service accounts with long-lived tokens
 
-Two-factor authentication needs the Server edition, and SSO and System for Cross-domain Identity Management (SCIM) need the Enterprise edition.
+Two-factor authentication needs the Server or Enterprise edition, and SSO and System for Cross-domain Identity Management (SCIM) need the Enterprise edition.
 Refer to [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md), [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md), [SCIM and SIEM](../Administration/System_Configuration/Security/SCIM_and_SIEM.md), and [Service accounts](../Administration/Users_and_Access/Service_Accounts.md).
 
 ### Security roles

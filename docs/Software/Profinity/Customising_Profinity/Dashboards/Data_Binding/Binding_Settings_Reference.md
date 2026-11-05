@@ -43,10 +43,10 @@ These settings change the value before the component shows it, and [Transform an
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| `toType` | string | None | Data type conversion (`number`, `string`, `boolean` or `string\|number`). Not set means no conversion, and the value passes through |
+| `toType` | string | None | Data type conversion (`number`, `string`, `boolean` or `string\|number`). Not set means no conversion, and the value passes through unless the component sets its own type for that target. A lamp `enabled` target is always read as a boolean. |
 | `gain` | number | None | Multiplicative scaling factor, applied before `offset`. Not set means no scaling (1) |
 | `offset` | number | None | Additive offset, applied after `gain`. Not set means no offset (0) |
-| `invert` | boolean | None | Flips a boolean or `0`/`1` value. It has an effect only when `toType` is set. Not set means not inverted |
+| `invert` | boolean | None | Flips a boolean. For a number, gives `1` for `0` and `0` for any other number. It has an effect only when `toType` is set. Not set means not inverted |
 | `mapToText` | object | None | Text mapping configuration. Refer to [Text mapping](./Transform_and_Map_Values.md#text-mapping) |
 
 ## Mode
@@ -58,7 +58,7 @@ These settings decide whether the binding reads the latest value or a window of 
 | `seriesMode` | string | `instant` | `instant` (the default), `timeSeries`, or `timeSeriesDelta`. A chart plots a series of samples when this is `timeSeries` or `timeSeriesDelta`. The Visual Editor shows the window settings only for these two modes |
 | `start` | string | `-10m` | Start of the time window, relative to now, such as `-10m`, or an ISO 8601 instant. When `stop` is set and this is omitted, the window starts 10 minutes before the stop time |
 | `stop` | string | None | End of the time window, relative to now, where `0m` is now. When omitted, the window ends at now |
-| `aggregationWindow` | string | None | Length of each interval used for the older values that come from the designated historian (for example `1m`). When omitted, Profinity chooses the length from the length of the window |
+| `aggregationWindow` | string | None | Length of each interval used for the older values that come from the designated historian (for example `1m`). When omitted, the interval is 1 second for a window up to 1 hour, 10 seconds up to 24 hours, and 1 minute for longer windows. |
 | `aggregationFunction` | string | `max` | How each interval is reduced for the older values from the designated historian: `max` (the default), `mean`, `min`, `last`, `first`, `sum`, or `count` |
 
 Profinity reads the recent part of a window from memory, and the older part from the designated historian, as described in [Live and past data](./index.md#live-and-past-data).

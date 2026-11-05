@@ -20,7 +20,7 @@ For Windows, refer to [Install Profinity on Windows](./Windows_Installation.md),
 
 The installer downloads the release archive that matches the host operating system and CPU architecture, verifies it, and unpacks it into an install root, `/opt/profinity` by default.
 On Linux with systemd it also creates the `profinity` service user, the [artefacts directory](./Artifacts_Directory.md), and the `profinity.service` unit.
-Installing does not start Profinity.
+Installing does not start Profinity. When it finishes, the installer prints `[profinity] Installed to` followed by the install folder, `/opt/profinity` by default.
 
 On Linux, run the installer as root with `sudo`, unless you use `--no-systemd` with a writable `--install-dir`.
 The host needs internet access, or a local archive as described under [Installer options](#installer-options).

@@ -25,7 +25,7 @@ profinity-component-pack pack --component-dir <path> --output bundle.zip
 profinity-component-pack install --package bundle.zip --profinity-dir <Artifacts> --profile <name> --engine-dir <engine-bin>
 ```
 
-`<Artifacts>` is the [Artefacts directory](../../Installation/Artifacts_Directory.md), and `<engine-bin>` is the `bin` folder of the Profinity engine install.
+`<Artifacts>` is the [Artefacts directory](../../Installation/Artifacts_Directory.md), and `<engine-bin>` is the `bin` folder of the Profinity engine install. On success, each command prints one line: `Component bundle is valid for '<name>'.` for `validate`, `Created component bundle: <path>` for `pack`, and `Installed component '<name>' to <folder>` for `install`.
 
 | Command | Purpose |
 |---------|---------|

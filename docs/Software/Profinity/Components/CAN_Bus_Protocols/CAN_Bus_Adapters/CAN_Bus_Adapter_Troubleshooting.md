@@ -21,7 +21,7 @@ The adapters are listed on [CAN bus adapters](index.md).
 
 Once you add the adapter to the Profile, a coloured status indicator appears in the sidebar next to the device name.
 Green is the state of a working adapter, and [How to add a component to your profile](../../../How_To_Guides/Add_Component_to_Profile.md#check-the-component-status) lists every colour.
-An adapter that is connected but has no data arriving shows amber, and one that is stopped, or still making its first connection attempt, is outlined with no fill.
+An adapter that is connected but has no data arriving shows amber, and one that is stopped, or still making its first connection attempt, is outlined with no fill. The indicator has no text label, so the colour is the only cue.
 
 | What you see | Cause | What to do |
 |---|---|---|
@@ -30,7 +30,7 @@ An adapter that is connected but has no data arriving shows amber, and one that 
 
 ## If a Peak adapter is not found
 
-The Peak CAN to USB Adapter needs the Peak driver installed on the machine that runs Profinity, as set out in [CAN bus adapters](index.md).
+The Peak Systems CAN Adapter needs the Peak driver installed on the machine that runs Profinity, as set out in [CAN bus adapters](index.md).
 
 | What you see | Cause | What to do |
 |---|---|---|
@@ -70,4 +70,4 @@ A device changed from the default constrains the rest of the network.
 The CAN to Ethernet bridge does not terminate the bus, so terminate the CAN bus with 120 ohm resistors at each end.
 Refer to the [bridge DB9 connector datasheet](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Datasheet/DB9_Connector.md).
 
-For the parameters of each adapter, refer to [CAN bus adapter settings](CAN_Bus_Adapter_Settings.md).
+To change the bit rate of a CAN to Ethernet bridge, set **Bit Rate (kbps)** in its firmware settings, as described in [CAN Bridge Configuration](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md). For the parameters of each adapter, refer to [CAN bus adapter settings](CAN_Bus_Adapter_Settings.md).

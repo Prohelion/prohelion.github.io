@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Complete rules.yaml example
 
 The [rules visual editor](index.md#rules-visual-editor) writes rules to a file, and you can also edit the file directly.
-The file is `rules.yaml` by default, in the `rules` folder of the profile directory, which is inside the [artefacts directory](../../Installation/Artifacts_Directory.md#default-locations), and Profinity reloads it when it changes.
+The file is `rules.yaml` by default, in the `rules` folder of the profile directory, `profiles/<profile>/rules/`, under the [artefacts directory](../../Installation/Artifacts_Directory.md#default-locations), and Profinity reloads it when it changes.
 This page shows one file that uses most rule settings.
 It does not show `dwellMinutes`, a step-level `expression`, or rule state publishing, which [Rule settings](Rule_Settings.md) and the text below describe.
 The file has:
@@ -99,7 +99,7 @@ rules:
             message: "Cell {TagId} is back to {Value} V"
 ```
 
-The `scope.prefix` of `Vehicles/Car1` is the default for every rule.
+The `scope.prefix` of `Vehicles/Car1` is the default for every rule. `disableActions` switches off an action that a parent passes down, by its `parent/action` id, so `profile/ProfinityLog` turns off the `ProfinityLog` action that the profile passes down. Action messages accept the tokens `{RuleId}`, `{TagId}`, `{Transition}`, `{Value}`, `{Quality}`, `{MetaType}`, `{RuleLevel}`, `{TriggeredTagCount}`, `{TriggeredTagIds}`, `{TagValue}`, `{ThresholdLevel}` and `{ThresholdMessage}`.
 A `prefix` that starts with a name in a group or rule joins beneath its parent, so `pack_temperature` watches `Vehicles/Car1/Battery/PackTemperature`.
 A prefix with a leading `/` replaces the inherited one, and `/` alone covers the whole tag tree.
 Every rule must end up with a `prefix`, a `collection`, or both.
@@ -113,7 +113,7 @@ Each step has a `level` and a `message`, and either a structured `condition` or 
 The operators for a `condition` are `==`, `!=`, `>`, `>=`, `<`, `<=`, and `between`. The `between` operator takes `operator: between`, with numeric `min` and `max`, and `min` must not exceed `max`. The optional `minInclusive` and `maxInclusive` keys default to `true`.
 
 A rule trips when its condition becomes true and raises the alert.
-It clears when the alert ends.
+It clears when its clear condition becomes true. For a threshold step that is the step's `clearValue` or `clearExpression`. For other rules it is the rule's `clearExpression`, or, if none is set, the point where the trigger is no longer true.
 Deadband and dwell control when each happens:
 
 - The `clearValue` on a step is its deadband, so the Warning step stays active until the value falls below 42. The `clearExpression` does the same job for a step that uses an `expression`.

@@ -13,9 +13,9 @@ To set up discovery first, refer to [Connect Profinity Mobile to a server](Conne
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
-| The screen shows **Searching the local network…** and no servers. | **Send Profinity Heartbeat** is off, the phone and server are on different subnets, the firewall blocks UDP port 49025, or the network blocks broadcast traffic between Wi-Fi and wired segments or virtual LANs (VLANs). | Confirm that **Send Profinity Heartbeat** is on, that the phone and server are on the same subnet, that the firewall allows UDP port 49025, and that the network allows broadcast traffic between Wi-Fi and wired segments or VLANs. |
+| The screen shows **Searching the local network…** and no servers. | **Send Profinity Heartbeat** is off, the phone and server are on different subnets, the firewall blocks the heartbeat UDP port (49025 by default), or the network blocks broadcast traffic between Wi-Fi and wired segments or virtual LANs (VLANs). | Confirm that **Send Profinity Heartbeat** is on, that the phone and server are on the same subnet, that the firewall allows UDP port 49025, and that the network allows broadcast traffic between Wi-Fi and wired segments or VLANs. |
 | The Android emulator list is empty. | Emulators cannot receive LAN broadcasts. | Use a physical phone. |
-| Certificate warnings appear. | The server does not have a trusted HTTPS certificate. | Install a trusted HTTPS certificate on the server, or accept the prompt once per server. |
+| Certificate warnings appear. | The server does not have a trusted HTTPS certificate. | Install a trusted HTTPS certificate on the server, as described in [HTTPS certificates](../Administration/System_Configuration/Profinity_Web.md#https-certificates), or accept the prompt once per server. |
 | Single sign-on (SSO) does not complete. | SSO needs the site to use the **Sso** sign-in method. | Confirm the site uses the **Sso** sign-in method, and complete the identity provider (IdP) sign-in in the app's embedded browser. |
 
 For single sign-on setup, refer to [SSO and sign-in method](../Administration/System_Configuration/Security/SSO_and_Sign_In.md).

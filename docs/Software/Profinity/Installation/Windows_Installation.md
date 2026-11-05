@@ -48,7 +48,7 @@ If the browser cannot reach the address, check that Profinity is running and tha
 
 Until a Server licence is applied, the desktop application binds its web interface to the local machine (`127.0.0.1`) on TCP port 18080 by default, whatever address is set in System Configuration.
 Other machines cannot open the web interface.
-The installer adds Windows Firewall exceptions for ports 4876 (TCP and UDP) and 42000 (UDP).
+The installer adds Windows Firewall exceptions for ports 4876 (TCP and UDP) and 42000 (UDP), which the Tritium bridge and the SocketCANd or Candapter CAN adapters use. You do not need to do anything with them unless one of those adapters cannot be reached through the firewall.
 
 A Server licence changes this.
 Profinity then uses the address set in System Configuration, so other machines can open the web interface and sign in with their own accounts.

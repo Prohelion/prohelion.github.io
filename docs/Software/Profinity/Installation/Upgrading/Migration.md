@@ -34,7 +34,7 @@ Before you begin, have the V2 installer for your platform, and administrator rig
 3. Install V2 as a new installation, not as an upgrade of V1, for your platform: [Windows](../Windows_Installation.md), [Linux and macOS](../Linux_and_macOS_Installation.md), or [Docker](../Docker/index.md).
    Confirm that V2 is running.
 4. Recreate the configuration.
-   Create new profiles, add components in the V2 interface, import or recreate the DBC files, and set the system settings for your environment.
+   Create new profiles, add components in the V2 interface, import or recreate the DBC files (upload each one in the **Upload DBC File (Optional)** setting of its Custom Component), and set the system settings for your environment.
 5. Check that every component is detected and configured correctly, and test the critical functions before you put the system into production.
 6. Review the security settings and user accounts, starting with the default administrator password described in the [Security guide](../Security.md#default-credentials).
 

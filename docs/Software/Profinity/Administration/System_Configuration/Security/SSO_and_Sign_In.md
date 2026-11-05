@@ -31,6 +31,7 @@ Before you choose **Sso**, check that a local administrator account with a passw
 1. Select **ADMIN** in the side menu, then **System Configuration**.
 2. Open the **Security** tab.
 3. Set **Sign-in method** to **Local** or **Sso**.
+4. Select **SAVE**.
 
 The security policy is stored in `config.yaml` under `securityPolicy`.
 The **Sign-in method** setting is stored as `authenticationMode` in that section, with the values `Local` or `Sso`.

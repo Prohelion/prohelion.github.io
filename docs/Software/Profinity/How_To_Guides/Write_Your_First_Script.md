@@ -69,7 +69,7 @@ Use **Cancel Script** to stop a script that is still running.
 With **Log Script Output** enabled, the output appears in the Profinity log at the `Info` level.
 To open the log, select **ADMIN**, then **Logs**.
 The entry reads `Script <script file name>: This is my first Profinity script.`, followed by a line for `Profinity.Message`.
-The second line reads Hello from Profinity, the default value of `Profinity.Message`.
+The second line reads `Script <script file name>: Hello from Profinity`, the default value of `Profinity.Message`.
 
 Profinity always writes compile errors and script errors to the log, whether or not **Log Script Output** is on.
 Review the error message, fix the script, and run it again.

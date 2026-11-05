@@ -13,7 +13,7 @@ It is written in the component folder; it is not an upload on the settings dialo
 
 A pack also needs `settings_map.yaml`, `firmware_map.yaml`, and `actions.yaml`.
 Refer to [Custom Component files](Files.md).
-The [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the [Profinity SDK](../SDK/index.md) validates that folder and writes the bundle.
+The [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the [Profinity SDK](../SDK/index.md) validates that folder and writes the bundle as a `.zip` or a `.nupkg`, a NuGet package file.
 
 | Key | Meaning |
 |-----|---------|

@@ -45,7 +45,7 @@ To replay a log:
 While a replay plays, the position slider shows the current point in the log.
 The replay controls are:
 
-- The pause control suspends the replay so that you can resume it later.
+- The pause control, an icon with the tooltip **Pause Replay Tag Change Log**, suspends the replay so that you can resume it later.
 - **Stop** ends the replay.
 - **Loop** replays the log continuously.
 - The trashcan icon deletes the log. Deleting a log removes its file permanently, and Profinity cannot restore it. Copy the file to a safe place first if you may need it again.
@@ -61,7 +61,7 @@ The replayer skips a line, and its status records the reason, in three cases:
 - The value cannot be read.
 - The `Recv time` is invalid.
 
-Only an invalid `Recv time` shows on screen, as a **Replay failed** message. The other reasons appear in the replay status.
+Only an invalid `Recv time` shows on screen, as a **Replay failed** message. The other reasons are kept in the replay status, which the **TAG LOG REPLAY** screen does not show.
 
 Replay a log against a profile that contains the same tags it was recorded from.
 When the replay stops, or reaches the end of the log, the replayed values stay in place as the last values applied, rather than reverting.

@@ -32,7 +32,7 @@ To use InfluxDB Cloud:
 To use a self-hosted InfluxDB:
 
 1. Install and start InfluxDB on your server.
-2. Create a bucket and an API token, for example:
+2. Create a bucket and an API token. The following example grants all access, which is more than Profinity needs, so limit the token to read and write access to the bucket:
 
     ```bash
     influx bucket create --name my-profinity-data
@@ -46,7 +46,7 @@ To use a self-hosted InfluxDB:
    For InfluxDB Cloud, use the URL shown in your account, such as `https://us-east-1-1.aws.cloud2.influxdata.com`.
    For a self-hosted server, use `http://<your-server>:8086`.
 3. Enter the **InfluxDB Organisation**, **InfluxDB Bucket**, and **InfluxDB Token**.
-4. For InfluxDB Cloud, set **InfluxDB Health Check** to false, because InfluxDB Cloud does not support the health check API.
+4. For InfluxDB Cloud, set **InfluxDB Health Check** to false, because InfluxDB Cloud does not support the health check API. For a self-hosted server, leave it on, which is the default.
 5. In **Collections**, add a row for each tag collection to log and select the collection in that row.
    The historian starts only when at least one collection is configured.
 6. Optional: set the **Update Interval (Seconds)** and the **Logging mode**.

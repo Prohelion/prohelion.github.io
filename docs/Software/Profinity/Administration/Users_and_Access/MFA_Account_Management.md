@@ -22,7 +22,7 @@ When the site **Sign-in method** is **Local** and **Enforce two-factor for local
 The pill is in the **Account** group of the **ADMIN** page, next to **Change My Password**.
 The pill is not shown in a kiosk session.
 
-It appears only while two-factor authentication is enforced, so a user can enrol voluntarily only on a site that enforces it.
+It appears only while two-factor authentication is enforced. While it is enforced, sign-in requires set-up, so a user cannot skip enrolment.
 To open it, select **ADMIN** in the side menu and then the pill.
 
 The dialog states whether two-factor authentication is enabled and how many recovery codes remain.
@@ -34,7 +34,7 @@ Where the site allows security keys, the dialog also holds the panel for registe
 
 ## Administrator reset of MFA
 
-A user with the **Security administration** permission can clear another user's authenticator when the site enforces two-factor authentication and the licence includes the **Two-Factor Authentication** feature.
+A user with the **Security administration** permission can clear another user's authenticator when the site **Sign-in method** is **Local**, the site enforces two-factor authentication, and the licence includes the **Two-Factor Authentication** feature. Otherwise **Reset MFA** is not shown.
 
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select the other user's row to open their settings dialog.
@@ -48,7 +48,7 @@ An administrator manages their own authenticator with the **Two-Factor Authentic
 
 ## Administrator reset of a password
 
-**Reset Password** is also on the **User Actions** tab of the other user's settings dialog. Select **Reset Password**, then select **Reset Password** again in the confirmation prompt.
+**Reset Password** is also on the **User Actions** tab of the other user's settings dialog. Select **Reset Password**, then select **Reset Password** again in the confirmation prompt. You need the **Security administration** permission, the same as for **Reset MFA**.
 It requires the user to choose a new password at the next sign-in and signs out the user's active sessions, as described in [Password policy](../System_Configuration/Security/Password_Policy.md#forced-password-change).
 Like **Reset MFA**, it is hidden on the administrator's own account. Unlike **Reset MFA**, it also appears on the tab of a service account.
 It is shown only when the site **Sign-in method** is **Local**.

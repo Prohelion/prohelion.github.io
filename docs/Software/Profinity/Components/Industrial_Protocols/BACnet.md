@@ -113,6 +113,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
 
 Replace `DEVICE_IP_ADDRESS` with the IP address of your BACnet device, and set `deviceInstance` to the instance of that device.
 Each value is a setting from the [Communications settings](#communications-settings) or a column from the [Point map](#point-map).
+The points appear under **Plant Room Controller** > **Points**, as `Plant Room Controller/Points/SupplyTemperature` and `Plant Room Controller/Points/TemperatureSetpoint`.
 
 ## Dashboard
 
@@ -144,7 +145,7 @@ Set **Device instance** to the number in the message, or correct the **Remote ho
 Profinity reads the Device object to check the instance.
 BACnet requires every device from protocol revision 4 (2004) onwards to answer this read.
 A device older than that, or one that does not allow its Device object to be read, answers with a BACnet error.
-The component shows that error as the reason.
+The component shows that error as the reason. Check the **Remote host**, and that the device allows its Device object to be read.
 
 A device that does not answer the read puts the component in **Error** in the same way, with a message that the device did not answer.
 Profinity tries again every **Reconnect delay**.

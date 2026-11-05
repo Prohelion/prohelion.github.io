@@ -87,7 +87,7 @@ A profile pack built on a different site can therefore name a role that does not
 A user with **Security administration** sees these names as unresolved, read-only entries in the **Security** tab or panel, with helper text naming the missing role.
 
 Uploading a profile pack with unresolved grants also shows a summary warning.
-An unresolved role name never grants access, so remove it or replace it with a role that exists on the site.
+An unresolved role name never grants access. Use the remove control beside it in the **Allowed roles** list, or add a role that exists on the site.
 Profile packs are described in [Profiles](../../Profiles.md).
 
 ## What stays unaffected
@@ -101,7 +101,7 @@ List responses, the tag catalogue, tag queries including historian queries, aler
 
 The CAN utilities and the script log are not filtered by component security.
 The Collections editor lists every collection, including restricted ones, to any user with **View tag collections**.
-Only the tag collections picker and the collection's members are filtered.
+For users and the API, only the tag collections picker and the collection's members are filtered.
 
 ## Related documentation
 

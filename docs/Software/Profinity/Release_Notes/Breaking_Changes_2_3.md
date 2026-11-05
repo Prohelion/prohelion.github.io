@@ -126,7 +126,7 @@ On those platforms, Profinity also moves data into that folder from three older 
 
 - `~/Documents/Prohelion/Profinity`
 - `~/Prohelion/Profinity`
-- `prohelion/profinity`, the lowercase folder in the same application-data folder
+- `prohelion/profinity`, the same folder name in lowercase, in the same application-data folder, such as `%LOCALAPPDATA%\prohelion\profinity` on Windows.
 
 On every platform, Profinity renames the `Profiles`, `Config`, and `Logs` folders to `profiles`, `config`, and `logs` on first start.
 
@@ -164,10 +164,10 @@ When the active profile is invalid at startup, Profinity creates a new default p
 The invalid file stays unchanged.
 
 This check covers the top level of the profile only.
-When Profinity saves the profile, it drops any setting that a component does not recognise.
+When Profinity saves the profile, it drops any setting that a component does not recognise, and it does not log or show a warning.
 
 Profinity renames a `Profile.yaml` file to `profile.yaml` itself.
-A profile with any other file name, or a profile stored as a single file, needs its file named `profile.yaml` in the profile's folder.
+Profinity does not rename any other file name. For a profile with any other file name, or stored as a single file, rename its file to `profile.yaml` in the profile's folder.
 Copy the profile's folder to a safe place first, or download the profile as a pack, as described in [Download a profile pack](../Administration/Manage_Profiles.md#download-a-profile-pack).
 
 Refer to [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md#profiles).
@@ -282,7 +282,7 @@ Other responses change as well:
 
 | Request | Response |
 |---|---|
-| A setting fails validation | `422` or `400`, with an `errors` object whose keys are dotted setting paths |
+| A setting fails validation | `422`, with an `errors` object whose keys are dotted setting paths. A malformed request returns `400`. |
 | Create a resource | `201 Created`, with a `Location` header |
 | Delete a resource | `204 No Content`, with an empty body |
 | Read users or roles | A fixed set of fields, in place of the whole stored user or role |
@@ -295,7 +295,7 @@ Profinity 2.3 removes the older data endpoints under `/api/v2/Data`:
 |---|---|
 | `POST /api/v2/Data/Query` | `POST /api/v2/TagQuerySet` |
 | `GET /api/v2/Data/QueryDelta/{sourceSet}` | `GET /api/v2/TagQuerySet/Delta/{sourceSet}` |
-| `GET /api/v2/Data`, `/api/v2/Data/AllInfo`, `/api/v2/Data/{component}`, `/api/v2/Data/{component}/AllInfo`, and `/api/v2/Data/{component}/{message}/{signal}` | `GET /api/v2/Tags` for tag values |
+| `GET /api/v2/Data`, `/api/v2/Data/AllInfo`, `/api/v2/Data/{component}`, `/api/v2/Data/{component}/AllInfo`, and `/api/v2/Data/{component}/{message}/{signal}` | `GET /api/v2/Tags` for the tag tree, with `componentId` to scope it to one component and `samples=true` for values, or `GET /api/v2/Tags/Sample/{fullTagPath}` for one tag's value |
 
 Change any integration that reads a `success` flag or a `message` field to read the status code and the problem body instead.
 Replace each call to a removed endpoint with the endpoint in the **Use instead** column.
@@ -303,9 +303,9 @@ Refer to [Profinity REST APIs](../Integrating_to_Profinity/APIs/index.md).
 
 ## Auto Connect replaces Auto Start
 
-Profiles with loggers, historians, publishers, the Tag Relay sender, or the Open Platform Communications Unified Architecture (OPC UA) server are affected.
+Profiles with loggers, historians, publishers, the MQTT Subscriber, the Tag Relay sender or receiver, or the Open Platform Communications Unified Architecture (OPC UA) server are affected.
 
-The setting that connects a component when the profile loads is now **Auto Connect** on every component that holds a connection.
+The setting that connects a component when the profile loads is now **Auto Connect** on every component that holds a connection, except the Elcon charger, which has no connection step.
 In 2.2, loggers, historians, publishers, the Tag Relay sender, and the OPC UA server called it **Auto Start**.
 Profinity 2.3 ignores the old setting.
 The MQTT Subscriber and Tag Relay receiver gain **Auto Connect**, on by default, and a **Connect** / **Disconnect** switch.
@@ -318,7 +318,7 @@ If a profile turned **Auto Start** off for a component, turn **Auto Connect** of
 Components that connect to a broker, device, server, or database are affected, and so is anything that relied on a failed start to detect a missing device.
 
 A component that connects to another system now starts when that system is unavailable.
-It shows **Error**, and retries every five seconds or at its own reconnect setting.
+It shows **Error**, and retries every five seconds, every second for the Tag Relay sender, or at its own reconnect setting.
 A component that showed **Off** after a failed start now shows **Error**.
 The MQTT and Tag Relay subscribers retry at a steady interval, in place of backing off to 60 seconds.
 
@@ -346,7 +346,7 @@ If the two numbers differ, the component neither connects to the device nor read
 It shows **Error** with the reason, and retries.
 The allowed range of **Device instance** is now `0` to `4194302`.
 
-Set **Device instance** to the real instance of the device.
+Set **Device instance** to the real instance of the device. The component's error message gives the instance that the device reports.
 A component left at `0` needs this change before it can read points.
 Refer to [BACnet](../Components/Industrial_Protocols/BACnet.md).
 

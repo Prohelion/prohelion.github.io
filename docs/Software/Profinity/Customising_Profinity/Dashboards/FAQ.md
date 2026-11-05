@@ -16,7 +16,7 @@ This page answers common questions about creating Profinity dashboards in a sent
   Its components show tag values, such as CAN signals, component properties and historical data, and its actions and toggles control the system.
 - How do I create a dashboard? Add a Custom Component to the profile, or open a component that already has a dashboard, then open the Visual Editor.
   The steps are in [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md).
-  A CAN database (DBC) file is only needed when the dashboard binds CAN signals.
+  A CAN database (DBC) file is only needed when the component needs to publish CAN signals as tags. See [Where dashboards are used](Where_Dashboards_Are_Used.md).
   For adding the component, refer to [Using a Custom Component](../../Components/Custom_Components/Using_a_Custom_Component.md#add-a-custom-component).
 - Where do I put my dashboard YAML file? The Visual Editor creates and saves the dashboard file for you, and its **YAML** tab shows the contents.
   The file is stored in the `dashboards` directory of the profile, or in the folder of the component, as described in [Profiles](../../Administration/Profiles.md).

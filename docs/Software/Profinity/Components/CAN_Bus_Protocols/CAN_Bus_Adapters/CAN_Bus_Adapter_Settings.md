@@ -34,7 +34,7 @@ The **Tritium Can to Ethernet Bridge** adapter connects to a Prohelion or Tritiu
 | **Network Protocol** | `UDP` or `TCP`. | `UDP` |
 | **Tritium Protocol Version** | `V1` or `V2`. Must match the firmware of the bridge. | `V1` |
 | **IP Address** | The IP address of the bridge. TCP only. | `127.0.0.1` |
-| **Bus Number** | The virtual bus number of the bridge, from 0 to 13 for `V1` and 0 to 32767 for `V2`. | 13 |
+| **Bus Number** | The bus number of the bridge, from 0 to 13 for `V1` and 0 to 32767 for `V2`. It must match the Virtual Bus Number set in the bridge firmware, because Profinity drops packets from other bus numbers. | 13 |
 | **UDP TTL** | The time to live of the UDP packets that Profinity transmits, from 1 to 1024. | 128 |
 | **Forward Address** | The lowest CAN identifier that the bridge forwards. TCP only. | `0x0` |
 | **Forward Address Range** | The size of the identifier range that the bridge forwards. TCP only. | All CAN identifiers |
@@ -56,7 +56,7 @@ The bit rate, static IP address, and bus number of the bridge itself are set in 
 
 ### SocketCANd
 
-The **SocketCANd Adapter** connects over TCP to the socketcand daemon on another machine.
+The **SocketCANd Adapter** connects over TCP to the socketcand daemon, which can run on this machine or on another one.
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|

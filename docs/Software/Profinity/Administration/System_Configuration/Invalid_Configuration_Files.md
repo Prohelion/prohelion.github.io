@@ -21,7 +21,7 @@ For the other settings files it carries on with a default and tells you in the l
 | `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile. The file is left exactly as it is. |
 | `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity leaves the damaged file as it is. |
 | `theme.yaml` | Profinity starts with the default theme. | Nothing. |
-| `custom.yaml` | The install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. | Nothing. |
+| `custom.yaml` | The install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. Profinity never changes `custom.yaml`, which the OEM build supplies, so it must be corrected in that file. | Nothing. |
 
 A file that does not exist counts as valid.
 Profinity creates the default for `config.yaml`, `security.yaml` and `plugins.yaml`, and uses the default theme and no custom settings for the others.
@@ -104,7 +104,7 @@ It names the file and the reason.
     Values that were encrypted under the old key, such as the AI key and two-factor secrets, become unreadable and must be entered again.
     Restore the safety copy first if you have one.
 
-1. Open the file named in the message, in the `config` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and fix the problem it reports. If it names a key, correct or remove that key.
+1. Open the file named in the message and fix the problem it reports. `theme.yaml` is in the `themes` folder and `profile.yaml` is in the profile folder; the others are in the `config` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md). If it names a key, correct or remove that key.
 2. If you cannot fix the file, copy it to a safe place so that its content is kept.
    Then restore the last good copy by copying `<file>.bak` over it.
    For example, copy `config.yaml.bak` over `config.yaml`.

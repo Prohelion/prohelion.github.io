@@ -19,7 +19,7 @@ To nest a component:
 
 1. In the **Component Identifier** section of the component's settings dialog, go to **Tag tree path**.
 2. Enter the parent folder as a slash-separated path, for example `Vehicles/Car1`.
-3. Save the settings. The component's tags now appear under that folder in **Tag Explorer**.
+3. Select **SAVE**. The component's tags now appear under that folder in **Tag Explorer**.
 
 The path must not include the component's own name, which Profinity appends automatically.
 The default value of `/` mounts the component at the root.
@@ -38,11 +38,11 @@ Change the **Tag tree path** or the name of one of the two components until the 
 !!! warning "Moving a component breaks absolute binds in other dashboards"
     Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and Profinity does not update them.
 
-Before you change the path, copy the `rules.yaml`, `collections.yaml` and dashboard files from the profile folder to a safe place.
+Before you change the path, copy the `rules.yaml`, `collections.yaml` and dashboard files from the profile folder, which is the folder named after the profile inside the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), to a safe place. The profile folder is `profiles/<profile name>` in the artefacts directory, and each file sits in its own subfolder: `rules`, `collections` or `dashboards`.
 Profinity also keeps one safety copy, `<file>.bak`, beside each of these files it updates, holding the version before the latest save.
 A later save replaces that safety copy, so your own copy is the reliable one.
 
-Renaming or moving a deployed component updates the [rules](../Rules/index.md) and [collections](../Collections/index.md) that refer to it, and the home dashboard's `source:` bindings. Rule actions that name the component update only when it sits at the root of the Tag tree; otherwise update them by hand.
+Renaming or moving a deployed component updates the [rules](../Rules/index.md) and [collections](../Collections/index.md) that refer to it, and the home dashboard's `source:` bindings. Rule actions that name the component update only when it sits at the root of the Tag tree; otherwise update them by hand in the rules visual editor or in `rules.yaml`.
 Only paths that refer to the moved component are updated, and an unrelated branch with the same name is left alone.
 The same updates appear in `rules.yaml` and `collections.yaml` for anyone who edits those files directly.
 Relative binds inside the moved component's own dashboard are unaffected.
@@ -56,7 +56,7 @@ Before relocating a component that other dashboards reference by absolute path, 
 
 History recorded by the [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) under the old path is not migrated, so a trend from it spanning the move shows a break at that point.
 The InfluxDB historians and loggers and the Prometheus logger identify a tag by its component, message, and signal, not by its path.
-Moving a component therefore does not start a new series in them.
+Moving a component therefore keeps its existing history in them, because a tag's series is set by its component and its path within that component, not by its position in the tag tree.
 Renaming a component does, in every historian and logger, because the component name is part of how history is identified.
 
 Next, refer to [Tag collections](../Collections/index.md) to select the tags of a nested component.

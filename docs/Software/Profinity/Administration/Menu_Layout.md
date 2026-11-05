@@ -38,7 +38,7 @@ A component at the top level stays there when you edit or rename it.
 
 - The search box filters the list by group or component name.
 - **NEW MENU GROUP** adds a custom group.
-- **DELETE** removes the selected custom group.
+- **DELETE** removes the selected custom group, and its components move to the default group for their type.
 - **RESET LOCATION** returns the selected component to the group it belongs to by default.
 
 Selecting a group opens its settings in the **Inspector**.

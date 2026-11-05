@@ -18,15 +18,15 @@ This page lists the ports that the compose file in [Install Profinity with Docke
 | `18443` | HTTPS web interface |
 | `4876` | Tritium CAN to Ethernet bridge, which uses this port for both UDP and TCP and cannot change it |
 
-Docker publishes a port as TCP unless the mapping ends in `/udp`, so add `- 4876:4876/udp` when a Tritium adapter is reached through the published ports.
+Docker publishes a port as TCP unless the mapping ends in `/udp`, so keep the existing `- 4876:4876` line and add `- 4876:4876/udp` beside it when a Tritium adapter is reached through the published ports.
 With host networking, Docker ignores the `ports` entries, as described under [Expose devices to the container](./index.md#expose-devices-to-the-container).
 
 ## Artefacts directory
 
 The artefacts directory inside the container is whatever `PROFINITY_HOME` names.
 With the volume in the compose file, the configuration is in `/app/Prohelion/config`, the profiles in `/app/Prohelion/profiles`, and the logs in `/app/Prohelion/logs`, which appear on the host under `$HOME/Prohelion`.
-The one-line installer creates a `data` folder inside the install folder, `~/profinity-docker` by default or the folder you give with `--dir`, and mounts it at `/var/lib/prohelion/profinity`, which is also the default artefacts path on Linux. It sets `PROFINITY_HOME` to that path.
-Either path is valid, provided that the environment variable and the mount destination match.
+The [one-line installer](./Docker_One_Line_Installer.md) creates a `data` folder inside the install folder, `~/profinity-docker` by default or the folder you give with `--dir`, and mounts it at `/var/lib/prohelion/profinity`, which is also the default artefacts path on Linux. It sets `PROFINITY_HOME` to that path.
+Either path is valid, provided that the environment variable and the mount destination match. The compose file sets `PROFINITY_HOME` in the `environment` list of the `profinity` service, to the container path of its volume.
 
 !!! warning "Set PROFINITY_HOME to your mount path"
     If `PROFINITY_HOME` does not name the container path of your mounted volume, Profinity writes its configuration and profiles inside the container, and they are lost when the image is replaced.

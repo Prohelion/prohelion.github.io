@@ -19,7 +19,7 @@ You do not add a separate rule script component, and the rule passes its firing 
 
 ## Settings
 
-Enable scripting in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first. In **Optional Capabilities**, select **Enable C# Scripting**, **Enable Python Scripting** or **Enable Lua Scripting** for the language your script uses.
+Enable scripting in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first. Changing Application Config needs the system administration permission. In **Optional Capabilities**, select **Enable C# Scripting**, **Enable Python Scripting** or **Enable Lua Scripting** for the language your script uses.
 Then add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one.
 Set **Script Mode** to **Run On Alert**.
 

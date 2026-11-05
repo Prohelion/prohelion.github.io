@@ -9,7 +9,7 @@ last_reviewed: 2026-10-28
 # Restrict a component or collection
 
 Restrict a profile component or a tag collection so that only users holding certain roles can see it.
-You need the **Security administration** permission, and the roles you want to allow must already exist.
+You need the **Security administration** permission, and the roles you want to allow must already exist. Restricting needs no licence feature of its own, but creating a role does (see [Create a role](../Create_a_Role.md)).
 Any other user, including one with **Modify components**, does not see the **Security** tab or panel at all.
 
 [Component and collection security](./index.md) explains what a restriction hides, who bypasses it, and what **Mode** and **Allowed roles** mean.
@@ -38,7 +38,7 @@ Setting **Mode** back to **All** removes the restriction.
 
 To restrict a collection:
 
-1. Open the **Collections** editor.
+1. Select **TAG UTILITIES** in the side menu, then select **COLLECTIONS** to open the Collections editor.
 2. Select the collection in the tree.
 3. Open the **Security** panel in the inspector.
 4. Set **Mode** to **Restricted**.

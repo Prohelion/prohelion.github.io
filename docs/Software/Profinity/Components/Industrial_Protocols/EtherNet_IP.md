@@ -65,7 +65,7 @@ The point map lists the PLC tags to read.
 Each row becomes one tag.
 
 Folders and **Browse** are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
-On a ControlLogix, CompactLogix or Micro800 controller, save the PLC and wait until it is connected before **Browse** lists its tags.
+On a ControlLogix, CompactLogix or Micro800 controller, select **SAVE** in the component settings, then wait until the PLC is connected before **Browse** lists its tags.
 A PLC-5 or SLC has no symbol list, so type the file address, for example `N7:0`.
 
 | Column | Description |
@@ -125,6 +125,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
 Replace `PLC_IP_ADDRESS` with the IP address of your PLC.
 Each value is a setting from the [Communications settings](#communications-settings) or a column from the [Point map](#point-map).
 The `tagName` value is the **PLC tag** column.
+Profinity fills in a missing or duplicate `id`, and a missing `tagTreeParentPath` (set to `/`), when it loads the profile, so you can leave them out. `type` names the component kind, so keep it as shown.
 
 ## Dashboard
 

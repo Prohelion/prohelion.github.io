@@ -13,11 +13,11 @@ Change the firmware configuration of a Prohelion Battery Management Unit (BMU), 
 ## Before you begin
 
 Add the BMU to a profile first, as described in [Prohelion BMU](index.md).
-The **Firmware Settings** and **Firmware Utilities** tabs appear only when Profinity can reach the BMU on the CAN network and the BMU is in a state that accepts firmware changes.
+The **Firmware Settings** tab appears once Profinity has read the BMU's firmware settings. While it is still reading them, the tab says so, and if it cannot read them it shows **Error Loading Firmware**.
 If the tabs are missing, check that the CAN adapter status is green, the **Base Address** matches the BMU and the BMU is powered.
 
 Unlocking the Admin parameters needs the **Modify components** permission and a firmware configuration key.
-The Admin key is not published, so contact Prohelion if you believe you need it.
+The Firmware Configuration Key is not published, so contact Prohelion if you believe you need it.
 Flashing a Gen1 BMU needs a [CAN to Ethernet bridge](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) or a [Prohelion Virtual CAN Bus Adapter](../../CAN_Bus_Protocols/Virtual_CAN_Adapter.md), and a Gen2 BMU can be flashed with any supported CAN adapter.
 
 ## Change the BMU configuration
@@ -36,7 +36,7 @@ Flashing a Gen1 BMU needs a [CAN to Ethernet bridge](../../../../../Solar_Car_Ra
 
 Each D1000 Gen2 parameter has a User or Admin permission level.
 The Configuration Parameters pages in the table of models on the [BMU dashboard](BMU_Dashboard.md) page list these levels.
-The M48 Gen1 parameters are on its Software Specifications page.
+The M48 Gen1 parameters are on its [Software Specifications](../../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Software_Specifications.md) page.
 
 To check the change, reopen the **Firmware Settings** tab and confirm that the setting shows the new value.
 To go back on a Gen2 BMU, select **CLICK TO UPDATE FIRMWARE SETTINGS** on the **Firmware Utilities** tab and choose the YAML file that you saved.
@@ -60,8 +60,8 @@ To unlock the Admin parameters, a user with the **Modify components** permission
 2. On the **Prohelion BMU Settings** tab, in the **Firmware Configuration Key** row, select **Enter**.
 3. Type the key.
    Type the key in hexadecimal, with or without the `0x` prefix, for example `0x1A2B` or `1A2B`. Digits with no prefix are read as hexadecimal, so `10` means 16.
-   The key is from 0 to 65535.
-4. Set the session duration in minutes.
+   The key is from 0 to FFFF in hexadecimal (0 to 65535 in decimal).
+4. In **Session duration (minutes)**, set the duration in minutes.
    The duration defaults to 30 and accepts 1 to 1440 minutes.
 5. Select **Apply**.
    The dialog reloads and the Admin parameters appear.
@@ -82,9 +82,9 @@ After a session ends, the dialog reloads and the Admin parameters disappear.
 1. Open **Change Settings** on the BMU dashboard.
 2. Select the **Firmware Utilities** tab.
 3. On a Gen2 BMU, select **SAVE SETTINGS**. Profinity downloads the current settings as a YAML file.
-4. **Update Firmware** uses a `.bin` file that you upload with the **Update Firmware** field. Profinity keeps it in the `firmware` folder of the profile. Select **CLICK TO UPDATE FIRMWARE** and confirm the dialog that warns that the update writes firmware to the device and cannot be undone.
+4. **Update Firmware** uses a `.bin` file that you upload with the **Update Firmware** field. Profinity keeps it in the `firmware` folder inside the active profile's folder, described in [Profile folders](../../../Administration/Profile_Folders.md). Select **CLICK TO UPDATE FIRMWARE**, then select the button of the same name in the dialog that warns that the update writes firmware to the device and cannot be undone.
    A progress indicator shows the update.
 5. If an error message appears, select its link to view the logs, and fix the problem they report. The logs name one of three causes: no firmware file was selected or no profile is loaded, the firmware file path is not valid, or the bootloader could not be set up for the update.
    When the progress completes successfully, check the BMU dashboard to confirm that the BMU reports data.
 
-The step-by-step procedure for M48 Gen1 units, including the CAN bus requirements, is in the [M48 Gen1 Firmware Update Procedure](../../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Firmware_update_procedure.md) in the hardware manual.
+Gen1 BMUs are the D1000 Gen1 and M48 Gen1. The C20 Gen1 has no firmware update in Profinity. The step-by-step procedure for M48 Gen1 units, including the CAN bus requirements, is in the [M48 Gen1 Firmware Update Procedure](../../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Firmware_update_procedure.md) in the hardware manual.

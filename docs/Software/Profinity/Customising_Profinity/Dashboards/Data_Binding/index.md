@@ -120,7 +120,7 @@ dashboard:
 
 A series binding that sets `stop` but omits `start` starts its window 10 minutes before the stop time.
 A series binding that sets `start` but omits `stop` ends its window at now.
-A binding that sets neither shows only the latest value.
+A series binding that sets neither shows the last ten minutes, ending now.
 
 Time values use a relative form, where `-5m` is five minutes before now and `0m` is now.
 Set both `start` and `stop` on a series binding to state the history that the chart shows.

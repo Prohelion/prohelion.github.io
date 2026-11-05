@@ -81,7 +81,7 @@ A packet with an interval starts sending when you save it, and it keeps sending 
 Packets do not start automatically after a profile change or a restart of Profinity. To restart a stopped packet, open it in the Scheduled CAN Packets list and select **START**.
 
 To stop a packet, select it in the scheduled packets panel, then select **Delete** or press the **Delete** key.
-This removes the packet from the schedule.
+This removes the packet from the schedule, and Profinity does not keep a copy, so a deleted packet cannot be restored. To use it again, create the packet again.
 To change a packet, select it, then select **Edit** or double-click it.
 Change the settings, and select **Save**.
 

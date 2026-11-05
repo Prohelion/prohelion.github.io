@@ -35,7 +35,7 @@ Use a [Toggle](Toggles.md) for a switch that alternates between two states.
 | `confirmMessage` | string | No | None | Message of a confirmation dialog that the user must accept before the action runs |
 | `restartingOnSuccess` | boolean | No | `false` | After the action succeeds, shows a wait dialog and polls until the Profinity engine is running again. Use the parameter for actions that restart the engine |
 | `enabled` | boolean | No | `true` | Whether the button can be clicked. The state can be bound with the `enabled` target |
-| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `enabled`, `tooltip` and `classes` targets are handled |
+| `bind` | array | No | None | [Data binding](../../Data_Binding/index.md). The `enabled` target sets whether the button can be clicked, the `tooltip` target sets its hover text, and the `classes` target adds CSS classes to it. |
 
 `id`, `hyperlink`, `openHyperLinkInNewWindow`, and `visible` are accepted but have no effect.
 To navigate, use `invoke: Navigate` with `target`.
@@ -67,7 +67,7 @@ Refer to [Action invocation](../Images_and_Models/Overlay_Elements.md#action-inv
 | `image` | string | No | None | Carbon icon name shown on the button |
 | `imageAlt` | string | No | None | Accessible label for the icon |
 | `confirmMessage` | string | No | None | Message of a confirmation dialog shown before the request is sent |
-| `successKinds` | array of string | No | None | What the interface does after the request succeeds. `Toast` shows the response message, or Action completed. On a dashboard only `Toast` has an effect. `ReloadSettings`, `ShowServiceAccountTokenDialog` and `RefreshOnClose` apply on settings pages only |
+| `successKinds` | array of string | No | None | What the interface does after the request succeeds. `Toast` shows the response message, or `Action completed.` when the response has no message. On a dashboard only `Toast` has an effect. `ReloadSettings`, `ShowServiceAccountTokenDialog` and `RefreshOnClose` apply on settings pages only |
 
 Endpoint actions run from the browser.
 The browser sends the HTTP request itself, with the signed-in user's credentials.
@@ -160,4 +160,4 @@ The Actions API lists those names at `/api/v2/Actions/{componentId}`.
 A `System` action runs one of `UPDATE PROFINITY`, `INSTALL PROFINITY` or `RESTART PROFINITY`.
 A `System` action with any other name is rejected with the message "No system action of that id was found".
 
-Component and System actions need the **Allow component actions** permission. Firmware actions need **Allow firmware actions**. A user without the permission is refused: the request fails, the browser shows the API error, and the action does not run.
+Component and System actions need the **Allow component actions** permission. Firmware actions are the actions a component lists for its firmware, such as updating firmware or its settings. A custom component can define its own. Firmware actions need **Allow firmware actions**. A user without the permission is refused: the request fails, the browser shows the API error, and the action does not run.

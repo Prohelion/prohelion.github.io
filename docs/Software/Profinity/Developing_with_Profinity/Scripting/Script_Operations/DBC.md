@@ -18,7 +18,7 @@ The [DBC viewer](../../../CAN_Utilities/CAN_Bus_DBC.md) shows the Component, Mes
 A script can do three things with a component's loaded DBC file:
 
 - Look up a signal definition by component, message, and signal name.
-- Read signal properties such as the unit, minimum, maximum, and comment.
+- Read signal properties such as the name, unit, minimum, maximum, factor, offset, and comment.
 - Read the current physical value of a signal, converted from the latest raw CAN data using the signal's factor and offset.
 
 ## The `GetDbcSignal` method

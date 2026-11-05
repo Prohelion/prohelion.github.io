@@ -65,7 +65,7 @@ It implements the `Receive` handler, reads the CAN ID of the incoming packet in 
 
 ## Behaviour
 
-A Receive script runs for each matching CAN packet, which on a busy bus can mean many invocations per second. If a run is still going when the next packet arrives, **Trigger Overlap** decides: **Drop**, the default, discards the packet, and **Queue** keeps up to **Queue Depth** packets and runs them in order after the current run.
+A Receive script runs for each matching CAN packet, which on a busy bus can mean many invocations per second. If a run is still going when the next packet arrives, **Trigger Overlap** decides: **Drop**, the default, discards the packet, and **Queue** keeps up to **Queue Depth** packets (from 1 to 100, default 8) and runs them in order after the current run.
 Keep the `Receive` or `receive` handler short, because a slow handler delays other work.
 Avoid blocking calls such as `time.sleep` in Python and `Thread.Sleep` in C#, and avoid long calculations, locks, and slow input or output.
 

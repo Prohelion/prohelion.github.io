@@ -18,14 +18,14 @@ To enrol:
 
 1. Scan the QR code with an authenticator app.
 2. Enter a one-time code from the app to verify that it is working.
-3. When the policy requires it, save the recovery codes shown on the recovery codes step, tick **I have saved these recovery codes in a secure location**, then select **Continue**. The button stays disabled until you do.
+3. When the policy requires it, save the recovery codes shown on the recovery codes step, tick **I have saved these recovery codes in a secure location**, then select **Continue** (or **Done** when the policy does not require the acknowledgement). The button stays disabled until you do. Profinity then opens the page you asked for.
 
 ## Sign in with a code
 
 On later sign-ins, Profinity asks for the authenticator code after it accepts the password, with a **6-Digit MFA Code** field and an alternative **Recovery Code** field.
 A user who selects **Remember this device** on a site that allows it skips this step on that browser until the remember duration ends.
 
-Repeated incorrect codes are rate limited, so a user who keeps entering wrong codes must wait before trying again.
+Five incorrect codes within one minute are rate limited, so the user must wait before trying again. This is separate from the login lockout.
 A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](../Session_Policy.md).
 
 If a code is rejected although it was typed correctly, the usual cause is the clock on the phone, because authenticator codes depend on the device time being correct.

@@ -20,7 +20,7 @@ To set one up:
 
 1. Add a **CSharp Script**, **Python Script**, or **Lua Script** component, or use an existing one.
 2. Set its **Script Mode** to **Run On Tag Change**.
-3. Add the source tags in its **Tag Paths** setting, one full tag path each, or add a [collection](../Collections/Create_a_Collection.md) that holds them in its **Collections** setting.
+3. Add the source tags in its **Tag Paths** setting, one full tag path each, counted from the root of the tag tree (for example `Vehicles/Car1/SpeedMph`), or add a [collection](../Collections/Create_a_Collection.md) that holds them in its **Collections** setting.
 A collection must exist before you can select it.
 This follows [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).
 4. In the component's actions, select **Edit Script**.
@@ -96,7 +96,7 @@ A script therefore suits computing a derived value from, and publishing back to,
 A path with a leading `/` starts at the root of the tag tree instead, which reaches tags on other components.
 Refer to [Tags in scripts](../../Developing_with_Profinity/Scripting/Script_Operations/Tags.md#tag-paths) for the path rules.
 
-To check it worked, save the script, then replay a tag log that sets `SpeedMph` in the example (refer to [Replay a tag log](../Tag_Logs/Replay_a_Tag_Log.md)).
+To check it worked, select **SAVE** to save the script, then replay a tag log that sets `SpeedMph` in the example (refer to [Replay a tag log](../Tag_Logs/Replay_a_Tag_Log.md)).
 Open **Tag Explorer** and confirm that the published tag, `SpeedKmh` in the example, shows the converted value.
 Reading the published tag returns the last value the script published, and a read never re-runs the script.
 Until the script is triggered, the tag has no value.

@@ -19,7 +19,8 @@ The editor exposes these settings for evaluation:
 - **Rule level** and **Rule type** for each rule.
 - **Dwell seconds**, **Throttle minutes**, and the **More information links** for each rule.
 - **When the tag is unreadable** for each rule.
-- **Evaluation tick (seconds)** on the rules source.
+- **Clear value (deadband)** and **Clear expression (deadband)** for each threshold step.
+- **Evaluation tick (seconds)** on the rule source of a profile or component.
 - **Publish state tag path** in the **Rule State** group of each rule.
 
 Dwell, throttle and the evaluation tick are off unless you set them. A rule's level is Info unless you set it.
@@ -43,7 +44,7 @@ By default a rule holds its current state while its tag is unreadable.
 An alert that is active stays active, and an alert that is clear stays clear, until the tag can be read again.
 A short dropout therefore keeps an alert in its current state, because a missing reading leaves open whether the condition has passed.
 
-A rule that alerts on a lost reading, such as `!tag.HasValue`, must be evaluated while the tag is unreadable, or it can never trip.
+A rule that alerts on a lost reading, such as `!tag.HasValue`, must be evaluated while the tag is unreadable, or it cannot trip once the tag has been read.
 Set **When the tag is unreadable** to **Evaluate the rule** for that rule, or set `onUnreadable: evaluate` in YAML:
 
 ```yaml
@@ -56,7 +57,7 @@ Set **When the tag is unreadable** to **Evaluate the rule** for that rule, or se
 The setting takes `hold` (the default) or `evaluate`.
 Any other value skips that rule, and the other rules in the file still load.
 Add `onUnreadable: evaluate` to any rule from an earlier release whose expression reads `HasValue` or `Quality`, because those rules stop running while the tag is unreadable, unless you ask.
-After a rules file is saved or reloaded, a tag that was readable before the save is still treated as one that has dropped out.
+After a rules file is saved or reloaded, a tag that was readable before the save is still treated as one that has dropped out, so its rules hold their current alert state until it is read again.
 
 ## Evaluation tick
 
@@ -73,7 +74,7 @@ A low value in one file therefore changes how often every file is evaluated.
 ## Condition examples
 
 Conditions use the same `tag` expression language as collections, so a numeric trip and clear pair is written as follows.
-The first line trips the rule and the second line clears it:
+The first line trips the rule and the second line clears it, as its `clearExpression`:
 
 ```text
 tag.Value > 4.2

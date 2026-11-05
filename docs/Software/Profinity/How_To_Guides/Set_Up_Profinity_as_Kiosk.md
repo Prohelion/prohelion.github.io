@@ -22,7 +22,7 @@ Before you start, you need:
 - Administrator access to the system.
 - A [profile](../Getting_Started/Profiles.md) configured and ready to display, and the **Modify profiles** permission to change its settings. [Profiles](../Administration/Profiles.md) describes the profile settings, including Kiosk Mode.
 - An enabled [user](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, holding only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs (refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user)).
-- A licence that includes the **Profinity Server** licensed feature, to create that user. Kiosk Mode is available in every edition, but the kiosk user must be a user account, and **Users & Groups** creates user accounts only with that feature. For a Windows desktop installation without a Server licence, refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user). [Licensing](../Licensing.md) lists the features of each edition.
+- A licence that includes the **Profinity Server** licensed feature, to create that user, and to keep the display working on a server installation, where restricted mode shows other users only the licence message. Kiosk Mode is available in every edition, but the kiosk user must be a user account, and **Users & Groups** creates user accounts only with that feature. For a Windows desktop installation without a Server licence, refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user). [Licensing](../Licensing.md) lists the features of each edition.
 
 ## Configure Kiosk Mode in Profinity
 
@@ -122,7 +122,7 @@ A kiosk session expires under the normal token expiry policy, and [Kiosk Mode](.
 | What you see | Cause | What to do |
 |---|---|---|
 | The browser does not open after a restart. | The browser usually starts before Profinity or before the display is ready. | Check the startup order and service dependencies so that the browser starts after Profinity. To run Profinity as a service, refer to [Run Profinity as a service](../Installation/Run_as_a_Service/index.md). |
-| The login page is shown, or the display shows the wrong profile. | The Kiosk Mode page describes the causes. | Refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#troubleshooting). |
+| The login page is shown, or the display shows the wrong profile. | The profile is not the active profile, Kiosk Mode is off on it, or no valid, enabled user is selected as the Kiosk Mode User. Kiosk Mode signs in only the active profile. | Refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#troubleshooting). |
 | The display is blank, cropped, or slow. | The display resolution settings, or a dashboard that is too complex for the machine, usually cause this. | Check the display configuration and resolution settings. Monitor system resources, and simplify the dashboard. |
 
 To choose the kiosk user and manage its token, refer to [Kiosk Mode](../Administration/Kiosk_Mode.md).

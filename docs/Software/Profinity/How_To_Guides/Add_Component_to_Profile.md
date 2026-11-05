@@ -87,7 +87,7 @@ Each component has a coloured indicator on its icon that displays the operationa
 | Amber | Warning | The device is available, but is either not sending data or is in a warning state |
 | Red | Error | The device is in an error state |
 | Grey | Idle | The device is idle |
-| Outlined, no fill | Off | The device can be contacted but is switched off |
+| Outlined, no fill | Off | The component is switched off, has not started, or is still making its first connection attempt |
 | Empty (white) | N/A | The device is not available or cannot be contacted |
 
 A red indicator means an error state, so check the [logs](../Administration/Logs_Config.md).

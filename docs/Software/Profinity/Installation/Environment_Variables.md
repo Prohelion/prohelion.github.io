@@ -134,7 +134,7 @@ A service does not read those files.
 
 For the Linux systemd service, add `Environment=` lines to the `[Service]` section of `/etc/systemd/system/profinity.service`, for example `Environment=PROFILE_NAME="Production Profile"`.
 Then run `sudo systemctl daemon-reload` and `sudo systemctl restart profinity`.
-On macOS, run `sudo launchctl stop com.profinity.service`, then `sudo launchctl start com.profinity.service`.
+If you set up the macOS service as described in [Run as a macOS Service](Run_as_a_Service/Run_as_a_macOS_Service.md), run `sudo launchctl stop com.profinity.service`, then `sudo launchctl start com.profinity.service`.
 Refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
 
 ### Docker
@@ -200,7 +200,7 @@ services:
 ```
 
 With `HTTP_PORT=8080`, host port 8080 maps to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}`.
-The Profinity image declares only ports 18080 and 18443, and Docker publishes only the ports listed under `ports`.
+The Profinity image declares only ports 18080 and 18443, and Docker publishes only the ports listed under `ports`. Port `4876` is the Tritium CAN bridge port, which uses TCP and UDP. Keep it only if you use a Tritium adapter, and then publish it for the protocols the adapter uses, as described in [Docker ports and data directory](./Docker/Docker_Ports_and_Data_Directory.md).
 
 Mount the whole `/app/Prohelion` directory, so that the licence, security keys, and logs survive when the container is replaced.
 Keep the `config.yaml` and profile files that hold placeholders in the `config` and `profiles` folders of the mounted directory.

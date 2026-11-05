@@ -52,12 +52,12 @@ The Alerts Log and the alert indicators combine the active rule state with that 
 The valid levels, from least to most severe, are `Trace`, `Debug`, `Info`, `Warning`, `Error` and `Fatal`.
 Level names are not case-sensitive.
 `Information` is accepted as `Info` and `Warn` as `Warning`, and a rule with no level is treated as `Info`.
-An unrecognised level on a rule, threshold step, or `triggerLevel` stops the rules file loading and names the rule that holds it.
+An unrecognised level on a rule, threshold step, or `triggerLevel` skips that rule, and the log names it. The other rules in the file still load.
 
 Correct the spelling and save again.
 The same names are used as the `triggerLevel` of an action configured on a parent rule file or group.
 
-A script receives the level as the string `RuleLevel`.
+A script reads the level from the `RuleLevel` property of its context object, as a string such as `Warning`.
 The Webhook and MQTT JSON message has no level field, so add `{RuleLevel}` to the rule message if a receiver needs it.
 The level filter on the Active and History queries is not case-sensitive.
 

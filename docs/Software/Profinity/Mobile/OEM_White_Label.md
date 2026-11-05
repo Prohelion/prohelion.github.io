@@ -15,7 +15,7 @@ The Profinity Mobile source package includes the build guide (`BUILD.md`) and th
 ## Branding configuration
 
 OEM partners rebrand the app by editing the build-time file `app.config.yaml`.
-Prohelion supplies this file with the Profinity Mobile source code and the branding assets.
+Prohelion supplies this file with the Profinity Mobile source code and the branding assets. It sits in the root folder of the source package, beside `package.json`.
 The partner then builds signed iOS and Android binaries.
 The file holds these fields:
 

@@ -8,12 +8,12 @@ last_reviewed: 2026-10-28
 
 # Session policy and login lockout
 
-The **Session Policy** group sets how long a sign-in lasts and how Profinity responds to repeated failed sign-ins.
-Each setting applies to every user on the site, and none of them needs a licensed feature.
+The **Session Policy** group on the **Security** tab of **System Configuration** sets how long a sign-in lasts and how Profinity responds to repeated failed sign-ins.
+Each setting applies to every user on the site, except that the idle timeout does not apply to service accounts, and none of them needs a licensed feature. Changing them needs the **System administration** permission.
 
 | Setting | Default | Range | Effect |
 |---------|---------|-------|--------|
-| **Access token lifetime (minutes)** | 120 | 1 to 10080 (one week) | How long a sign-in remains valid, regardless of activity. When it ends the user signs in again. |
+| **Access token lifetime (minutes)** | 120 | 1 to 10080 (one week) | How long a session's access token stays valid, regardless of activity. A session is one sign-in; when its access token ends, the session can refresh it, or the user signs in again. |
 | **Session idle timeout (minutes)** | Empty (no idle timeout) | 1 to 10080 | When set, a session ends once it has been idle for this period, even if its access token is still valid. |
 | **Maximum concurrent sessions** | Empty (no limit) | 1 to 1000 | When set, limits how many active sessions one user can hold. Signing in beyond the limit ends the user's oldest session. |
 | **Maximum login attempts** | 10 | 1 to 100 | The number of sign-in attempts allowed in one minute before the user is locked out. |

@@ -80,7 +80,7 @@ With these values, Prometheus reads the data from `http://localhost:7065/metrics
 
 With **Server Hostname** set to `localhost`, only a scraper on the same computer can read the data.
 To let a scraper on another computer connect, enter the host name or IP address of the Profinity computer, or `+` to answer on every address.
-On Windows, listening on anything other than `localhost` needs a URL reservation or administrator rights.
+On Windows, listening on anything other than `localhost` needs a URL reservation or administrator rights. This section covers Windows only.
 For example, run this command to reserve the URL:
 
 ```text

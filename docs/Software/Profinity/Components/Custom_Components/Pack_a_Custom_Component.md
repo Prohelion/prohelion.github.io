@@ -20,12 +20,12 @@ You need:
 
 Run `profinity-component-pack` on Windows (`win-x86`), macOS (`osx-x64`, also used on Apple silicon through Rosetta) or Linux (`linux-x64`, `linux-arm` or `linux-arm64`). The commands are the same on each system, except that on Windows the tool starts as `dotnet profinity-component-pack.dll`, and the path separators in examples differ.
 
-1. On the machine that has the SDK, run `profinity-component-pack` with the `validate` command on the component folder.
+1. On the machine that has the SDK, run `profinity-component-pack validate --component-dir <path>`, where `<path>` is the component folder.
    The tool reports the first problem it finds.
    Fix each problem and validate again until it reports none.
-2. Run `profinity-component-pack` with the `pack` command to create a `.zip` or a `.nupkg` file.
+2. Run `profinity-component-pack pack --component-dir <path> --output <path.zip|path.nupkg>`, where the output ends in `.zip` or `.nupkg`.
    Refer to [Component Pack CLI](../../Developing_with_Profinity/SDK/Component_Pack_CLI.md) for the commands and flags.
-3. On the other installation, an administrator selects **ADMIN**, then **Components & Plugins**, and uploads the package.
+3. On the other installation, an administrator selects **ADMIN**, then **Components & Plugins**, and uploads the `.zip` or `.nupkg` package. The package then appears in the list on that page.
 4. Open the profile and select **ADD COMPONENT**.
    The component is listed under the name that `component_metadata.yaml` gives it.
 

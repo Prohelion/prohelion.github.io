@@ -38,7 +38,7 @@ flowchart LR
 
 To set up a sender and a receiver together for the first time, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md).
 
-1. Add a **Tag Relay Receiver** to your profile from the **Tag Relays** category.
+1. Select **ADD COMPONENT** on the homepage or at the bottom of the sidebar, then choose **Tag Relay Receiver** from the **Tag Relays** category. See [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 2. Set **Protocol** to the same protocol as the sender, **MQTT** or **HTTPS**.
 3. Set a **Receiver tag path prefix** that sits in its own subtree, outside the tag path of any component and of any other receiver's prefix.
 4. Enter the settings for your protocol.

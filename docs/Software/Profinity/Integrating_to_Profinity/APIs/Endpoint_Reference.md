@@ -26,7 +26,7 @@ Every Alerts route needs the **View alerts** permission.
 | POST | `/api/v2/Alerts/Unack` | `{ "ruleId": "...", "tagId": "..." }` |
 | POST | `/api/v2/Alerts/Silence` | `{ "ruleId": "...", "tagId": "...", "durationMinutes": 60 }` |
 
-Through the API a silence can last from 1 to 1440 minutes (24 hours).
+Get `ruleId` and `tagId` from the `items` list that `GET /api/v2/Alerts/Active` returns, where each item carries both. Through the API a silence can last from 1 to 1440 minutes (24 hours).
 A request outside that range is refused with "durationMinutes must be between 1 and 1440."
 The `Unack` route is the same revert that the **Unacknowledge alert** button uses.
 
@@ -48,7 +48,7 @@ The `Unack` route is the same revert that the **Unacknowledge alert** button use
 
 The component and collection security routes work on the active profile only.
 The API edits security only for a profile that is currently loaded.
-A GET response includes an `unresolvedRoles` list alongside `mode` and `allowedRoles`.
+A GET response includes `mode` (a string, `All` or `Restricted`), `allowedRoles` (a list of role names), and `unresolvedRoles` (the `allowedRoles` names that do not match a role on this instance).
 
 A PUT accepts only `mode` and `allowedRoles`, and `mode` is `All` or `Restricted`.
 Refer to [Component and collection security](../../Administration/Users_and_Access/Component_And_Collection_Security/index.md) for the policy itself.
@@ -88,4 +88,4 @@ The theme is read-only through the API.
 It returns `appTitle`, `hasCustomTheme` and a `logos` object with `main`, `login` and `favicon` URLs.
 
 The generated stylesheet is served from `/Themes/theme.css`, and each asset from `/Themes/Assets/{file}`.
-Changes are made by editing the theme file, as described in [Themes and branding](../../Customising_Profinity/Theming/index.md).
+Changes are made by editing the `theme.yaml` file in the `themes` folder of the artefacts directory, as described in [Themes and branding](../../Customising_Profinity/Theming/index.md).

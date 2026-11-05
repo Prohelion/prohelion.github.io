@@ -54,7 +54,7 @@ A model that uses external textures needs those texture files stored beside the 
 
 Every overlay position is given as `x`, `y` and `z` in model space, which uses the same units and axes as the loaded model files.
 Each coordinate is a plain number.
-Supply `x`, `y` and `z` on every overlay element, because a dashboard is saved only when each element has them.
+Give every overlay element `x`, `y` and `z`. The Visual Editor does not save a dashboard in which an element lacks one of them.
 In a dashboard file that is already stored, a missing or non-numeric coordinate is read as `0`.
 
 Positions are not percentages, which is the difference from an [Image](Image.md) component.

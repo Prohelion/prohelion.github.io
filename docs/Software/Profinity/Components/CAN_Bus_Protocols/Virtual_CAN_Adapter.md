@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # Prohelion Virtual CAN Bus Adapter
 
-The Prohelion Virtual CAN Bus Adapter is added to a [Profile](../../Getting_Started/Profiles.md) as the **Prohelion Virtual CAN to Ethernet Bridge** component.
+The Prohelion Virtual CAN Bus Adapter is added to a [Profile](../../Getting_Started/Profiles.md) as the **Prohelion Virtual CAN to Ethernet Bridge** component. It is in the **Adapters** group.
 It relays Controller Area Network (CAN) traffic between the other CAN adapters in the Profile and any client that connects to it.
 To those clients, it looks like a Tritium or Prohelion [CAN to Ethernet bridge](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md).
 Use it to run tools that were developed for the Tritium and Prohelion bridges, such as the bridge configuration and firmware tools, when no physical bridge is present.
@@ -40,7 +40,7 @@ To relay traffic, add a Virtual Adapter to the Profile after the adapter for the
 | **Auto Connect** | Enables the adapter when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). | On |
 
 The Virtual CAN Bridge runs inside Profinity, so the operating system of that machine sets its IP address.
-The CAN Bridge Config tools and Profinity cannot change the address remotely.
+The bridge configuration tools and Profinity cannot change the address remotely.
 Profinity can only select the network interface.
 
 !!! warning "Two bridges with the same bus number relay data between each other"
@@ -55,7 +55,7 @@ Profinity can only select the network interface.
 
 This example is a Virtual CAN Bridge for a Profile that already has an adapter for the physical CAN network.
 In the product, add it with **ADD COMPONENT** by choosing **Prohelion Virtual CAN to Ethernet Bridge**, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md). To add it in the file instead, follow the next step.
-Add this list item under the existing `components:` key in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), with the same indentation as the other items.
+Add this list item under the existing `components:` key in the `profile.yaml` file of the Profile, in the folder named after the Profile inside the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), with the same indentation as the other items.
 
 ```yaml
 - component:
@@ -70,7 +70,7 @@ Add this list item under the existing `components:` key in the `profile.yaml` fi
 ```
 
 Replace `YOUR_NETWORK_INTERFACE` with the name of the network interface that the clients can reach, as listed in the **Network Adapter** setting.
-The bus number `5` is an example, so choose a number that no other bridge on the network uses.
+The bus number `5` is an example, so choose a number that no other bridge on the network uses. When the adapter runs, its status reads **Connected**, or **No CAN traffic** if no CAN packet has arrived for 5 seconds.
 
 If a client cannot connect, check these things:
 

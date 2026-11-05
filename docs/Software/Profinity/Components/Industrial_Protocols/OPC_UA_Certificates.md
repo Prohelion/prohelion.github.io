@@ -17,7 +17,7 @@ The folder is at:
 - macOS: `~/Library/Application Support/Prohelion/Profinity/opcua_pki`
 - Linux: `~/.local/share/Prohelion/Profinity/opcua_pki`
 
-The folder follows the home folder of the account that runs Profinity, not the `PROFINITY_HOME` setting or the `/var/lib/prohelion/profinity` data folder.
+The folder follows the home folder of the account that runs Profinity, not the `PROFINITY_HOME` environment variable (see [Environment variables](../../Installation/Environment_Variables.md)) or the `/var/lib/prohelion/profinity` data folder.
 In Docker it therefore sits inside the container rather than in the data volume, and the certificates are created again if the container is recreated.
 For a LocalSystem service on 64-bit Windows, the folder is under `C:\Windows\System32\config\systemprofile\AppData\Local\Prohelion\Profinity\opcua_pki`. The 32-bit (x86) build uses `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Prohelion\Profinity\opcua_pki`.
 

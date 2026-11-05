@@ -9,11 +9,11 @@ last_reviewed: 2026-10-15
 # Create a derived tag
 
 This procedure creates a derived tag that converts a vehicle's speed from mph to km/h, grouped under that vehicle.
-Open the derived tags editor first, as described in [Derived tags](index.md#open-the-derived-tags-editor), which lists the permissions it needs.
-Before you save, the source tag must already exist in the profile, or be a derived tag defined earlier in the same file. Saving fails otherwise, and the message names the missing tag.
+Open the derived tags editor first, as described in [Derived tags](index.md#open-the-derived-tags-editor). Opening it needs **View tag collections**, and saving needs **Modify tag collections**.
+Before you save, the source tag must already exist in the profile, or be a derived tag defined earlier in the same derived tags file, the one named by the **Derived tags YAML file (Optional)** setting in the **Tags** category. Saving fails otherwise, and the message names the missing tag.
 
-1. Create a group called **Vehicle unit conversions** with the mount path `Vehicles/Car1`.
-2. Inside it, create a derived tag with the mount path `SpeedKmh`. Because the path is relative, it mounts beneath the group's mount path.
+1. Create a group called **Vehicle unit conversions** with the **Mount path** `Vehicles/Car1`.
+2. Inside it, create a derived tag with the **Mount path** `SpeedKmh`. Because the path is relative, it mounts beneath the group's mount path.
 3. Add a dependency with the alias `a` that points at the tag `Vehicles/Car1/SpeedMph`.
 4. Set the expression to `a.Value * 1.60934`.
 

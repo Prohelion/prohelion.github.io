@@ -13,7 +13,7 @@ You can edit a profile's `profile.yaml` file in the profile's own folder with a 
 Profinity reloads the file once the change is saved.
 
 A profile directory has four folders that serve files to dashboards: `images`, `models`, `styles` and `content`.
-Profinity creates the other folders, such as `dashboards`, `scripts` and `rules`, when the profile first needs them.
+Profinity also uses `collections`, `components`, `dashboards`, `dbc`, `firmware`, `rules` and `scripts` in a profile directory, and creates them when the profile first needs them.
 
 | Folder | Holds |
 |---|---|

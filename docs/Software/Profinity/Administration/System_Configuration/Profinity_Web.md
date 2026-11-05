@@ -36,7 +36,7 @@ A desktop installation without a Server licence uses `127.0.0.1` for both the HT
 
 The web interface can then be reached only from the same computer.
 Profinity records a warning in the log, "Remote web access requires a Server license", when it replaces another address.
-An archive or Docker installation uses the address in `config.yaml`, regardless of whether it has a Server licence.
+An [archive installation](../../Installation/Linux_and_macOS_Archive_Installation.md) on Linux or macOS, or a Docker installation, binds to the address in `config.yaml`, whether or not it has a Server licence. The IP address settings are shown only with a Server licence.
 The full rule is in the remote web access warning on [Licensing](../../Licensing.md).
 
 ## Troubleshooting
@@ -55,7 +55,7 @@ Each server has its own copy of them.
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| **Windows Cert Store** | Empty | Selects a certificate from the Windows Certificate Store for HTTPS on Windows. Enter the name of the certificate store, for example **My**. Then set **Windows Cert Store Location** and **Windows Cert Store Subject** to identify the certificate. Use it when the certificate is installed in the system's certificate store. |
+| **Windows Cert Store** | Empty | Selects a certificate from the Windows Certificate Store for HTTPS on Windows. Enter the store name that Windows uses, for example **My**, which is the Personal store. Then set **Windows Cert Store Location** and **Windows Cert Store Subject** to identify the certificate. Use it when the certificate is installed in the system's certificate store. |
 | **Windows Cert Store Location** | None | The location of the certificate store. The location is `CurrentUser` for user-specific certificates or `LocalMachine` for system-wide certificates. |
 | **Windows Cert Store Subject** | Empty | The subject name of the certificate as it appears in the Windows Certificate Store. It must match the certificate's subject name exactly. |
 | **Cert File** | Empty | An alternative to the Windows Certificate Store: a certificate file, normally in `.pfx` or `.p12` format, for HTTPS. |

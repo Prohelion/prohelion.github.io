@@ -41,7 +41,7 @@ Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Ta
 `class`, `showControls`, `enabled`, and `visible` are accepted but have no effect.
 
 Most chart types take static data as `labels` and `datasets`, and a `bubble`, `scatter` or `radar` chart takes datasets only.
-A chart with a `refreshInterval` polls for its data instead of using the live data feed.
+A chart with a `refreshInterval` of `1000` or more polls for its data instead of using the live data feed.
 
 ### Chart binding options
 
@@ -56,7 +56,7 @@ The same reference describes `seriesMode`, `start`, `stop`, `aggregationWindow` 
 A `seriesMode` of `timeSeriesDelta` plots the differences between successive samples.
 Set `start` and `stop` together on a `timeSeries` binding that needs a particular history.
 The Visual Editor sets `-10m` and `0m` when you choose a series mode.
-Older values that a window reaches back to come from the designated historian, as described in [Live and past data](../../Data_Binding/index.md#live-and-past-data).
+Older values that a window reaches back to come from the [designated historian](../../../../Components/Historians/Designated_Historian.md), as described in [Live and past data](../../Data_Binding/index.md#live-and-past-data).
 
 ## Chart types
 

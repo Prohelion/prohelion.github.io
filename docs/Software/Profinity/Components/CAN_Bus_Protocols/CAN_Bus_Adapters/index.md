@@ -36,7 +36,7 @@ The parameters that manual configuration asks for are in [CAN bus adapter settin
 ## Adapter auto discovery
 
 Auto Discovery finds the supported CAN bus adapters that are visible to Profinity.
-If an adapter is visible on the network but is not yet in the current [Profile](../../../Getting_Started/Profiles.md), a **Discovered** category appears in the **ADD COMPONENT** window.
+If an adapter is visible on the network but is not yet in the current [Profile](../../../Getting_Started/Profiles.md), a **Discovered** category appears on the **Available Components** screen, which opens from **ADD COMPONENT**.
 The category lists every adapter that Profinity can currently see.
 An adapter that is missing from the list has configuration issues that need [manual configuration](CAN_Bus_Adapter_Settings.md#adapter-manual-configuration), or is not discoverable.
 

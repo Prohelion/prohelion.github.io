@@ -121,7 +121,7 @@ tag.MatchesPath("Elmar Solar MPPT") && tag.IsStale
 
 Sample age in seconds is not part of the language.
 Use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rule settings](../Rules/Rule_Settings.md#evaluation-tick).
-A tag becomes stale when its validity period ends. Profinity checks for expired tags every 250 milliseconds by default, so the stale state appears within a quarter of a second of that deadline.
+A tag becomes stale when its validity period ends. Profinity checks for expired tags every 250 milliseconds, so the stale state appears within a quarter of a second of that deadline.
 
 ## Metadata
 

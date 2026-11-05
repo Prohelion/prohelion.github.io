@@ -74,7 +74,7 @@ With the default **Bind URL**, the server listens on the loopback address `127.0
 The server offers no message security (None only), so messages are not signed or encrypted, and it accepts anonymous clients.
 Allow other computers only on a network you trust.
 
-Profinity deletes the old server certificate and its private key. To keep them, copy the `own` folder first. Each connecting client must then trust the new certificate.
+When the server starts, Profinity deletes the old server certificate and its private key if the certificate does not name the host in the **Bind URL**, such as after you change the **Bind URL** to another address. To keep them, copy the `own` folder first. Each connecting client must then trust the new certificate.
 
 To accept remote clients, replace the host in the **Bind URL** with the IP address or host name of the Profinity computer that those clients can reach, for example `opc.tcp://192.168.1.20:4840/Profinity`:
 
