@@ -80,6 +80,8 @@ From a command line, this request returns the latest sample of a tag:
 curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sample/<full-tag-path>
 ```
 
+In Windows PowerShell, type `curl.exe` instead of `curl`, because `curl` is an alias for another command there.
+
 Replace `<token>` with the token and `<full-tag-path>` with the full path of the tag.
 
 In Swagger, select the **Authorize** button and paste in the generated token:

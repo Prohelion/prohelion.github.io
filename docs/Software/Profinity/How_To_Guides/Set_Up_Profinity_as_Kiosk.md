@@ -83,6 +83,7 @@ The example assumes that Google Chrome is installed.
 
 2. Enable the service with `sudo systemctl enable profinity-kiosk.service`.
 3. Start the service with `sudo systemctl start profinity-kiosk.service`.
+4. Restart the computer and check that the browser opens on the display. The unit is an example, so change `User` and the browser path to suit your system.
 
 ### macOS
 

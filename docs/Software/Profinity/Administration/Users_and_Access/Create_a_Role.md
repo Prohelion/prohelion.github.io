@@ -66,8 +66,9 @@ The new role appears in the **Roles** tab.
 A new user is given roles in the same way while the account is being created, as described in [Managing users](./Manage_Users.md#creating-a-new-user).
 The person's row now lists the role under **Assigned roles**.
 
-!!! warning "The person is signed out"
-    Changing someone's **Assigned roles**, or changing what a role allows, signs out everyone affected, and they must sign in again.
+!!! warning "Sign-in is needed for the change to apply"
+    Changing someone's **Assigned roles** signs that person out, and they must sign in again.
+    Changing what a role allows does not sign anyone out. Each person with the role has the new permissions only after they sign out and sign in again.
     Make the change when nobody is part-way through something that matters, such as a firmware update or a logging session.
 
 ## Change or delete a role
