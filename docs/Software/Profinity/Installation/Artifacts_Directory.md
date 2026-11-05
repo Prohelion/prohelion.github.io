@@ -51,7 +51,7 @@ This documentation uses the lowercase names throughout.
 The first time Profinity starts on a new, empty artefacts directory, it adds an **Example Profile**, the example scripts in `example_scripts/`, and a starter web page in `webroot/`.
 It keeps every file that already exists, and adds them only on the first start, so anything you delete stays deleted.
 Existing installations, including upgrades from 2.2, are not changed.
-The example CAN log used for the replay examples is added too.
+The example CAN log used for the replay examples is added too, for the replay step in the [Quick start guide](../Getting_Started/Quick_Start.md).
 
 ## Move the directory with PROFINITY_HOME
 
@@ -61,17 +61,20 @@ Set the environment variable `PROFINITY_HOME` to the full path of the artefacts 
 - Use a staging or test layout outside the default path.
 - Match a non-standard mount root in a Docker or custom image.
 
-Give each instance its own `PROFINITY_HOME` and its own HTTP and HTTPS ports.
+Give each instance its own `PROFINITY_HOME`, and its own HTTP and HTTPS ports, set in the **IP Port for Http** and **IP Port for Https** settings on the **Web** tab, as described on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page.
+Setting `PROFINITY_HOME` stops migration from the older locations, so copy any existing data you need into the new root first. Refer to [Automatic migration on startup](#automatic-migration-on-startup) for those locations.
 For example, in a Linux shell:
 
 ```bash
 export PROFINITY_HOME=/var/lib/prohelion-staging/profinity
 ```
 
+Profinity reads `PROFINITY_HOME` when it starts, so restart Profinity after you set it.
+
 ## Automatic migration on startup
 
 On the first start after you upgrade to 2.3, Profinity copies data from the older locations in the table into the artefacts directory.
-It renames `Config`, `Config.yaml`, `Profiles`, and `Logs` to lowercase, and removes an old folder once every file is present at the new location.
+It renames capitalised names from earlier releases, such as `Config`, `Config.yaml`, `Profiles`, and `Logs`, to lowercase, and removes an old folder once every file is present at the new location.
 A locked or offline file does not stop Profinity from starting, and migration resumes from where it stopped on the next restart.
 
 The Windows desktop application shows a progress window during migration.
@@ -91,15 +94,23 @@ On every host, the **ADMIN > Logs** page lists a message for each file that move
 
 Back up the artefacts directory before every upgrade.
 Keep `config/` (including `security.yaml`), `profiles/`, `license/`, and `certificates/` in every backup.
-Stop Profinity before you copy or restore the folders, rename the current folders instead of deleting them, copy the backed-up folders into place, and start Profinity again. Delete the renamed folders only after Profinity runs correctly.
+Restore the folders in this order:
+
+1. Stop Profinity.
+2. Rename the current folders instead of deleting them, so that they remain as a copy.
+3. Copy the backed-up folders into place.
+4. Start Profinity again.
+5. Check that Profinity runs correctly, then delete the renamed folders.
 
 ## Troubleshooting
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
 | The profile is empty after an upgrade | Migration did not find your data. | Check **ADMIN > Logs** for migration messages. If `PROFINITY_HOME` is set, copy the old data across yourself or unset the variable. |
-| Linux reports a permission error | The account that runs Profinity does not own the artefacts directory. | Give that account ownership with `chown` on the artefacts tree. `/var/lib` needs root to create the folder, which is then handed to the service user. |
-| Two instances share one configuration | The instances share one configuration. | Give each its own `PROFINITY_HOME` and its own HTTP and HTTPS ports. |
+| Linux reports a permission error | The account that runs Profinity does not own the artefacts directory. | Run `chown -R <service-account>:<service-group> <artefacts-root>` as root, with `sudo`. |
+| Two instances show the same profiles and settings | Both instances use the same artefacts directory, so they read the same `config.yaml`. |  Give each its own `PROFINITY_HOME`, and its own HTTP and HTTPS ports, set in the **IP Port for Http** and **IP Port for Https** settings on the **Web** tab, as described on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page. |
+
+In the command, `<service-account>` and `<service-group>` are the user and group that run Profinity, and `<artefacts-root>` is the artefacts directory, such as `/var/lib/prohelion/profinity`. The Linux installer creates the `profinity` user and group, so on a default install use `profinity:profinity`. Run the command with `sudo`, because only root can change the owner of a folder.
 
 For the Linux service layout and launcher, refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
 For Docker volume mounts, refer to [Install Profinity with Docker](./Docker/index.md).
