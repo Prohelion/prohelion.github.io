@@ -42,7 +42,7 @@ const SCHEMA_PATH = path.join(__dirname, '../../Profinity/Profinity-Engine/UserI
 // Path to the documentation directory - relative to Profinity-Docs root
 const DEFAULT_DOCS_PATH = path.join(
   __dirname,
-  '../docs/Profinity_Software/Profinity_Version_2.3/Customising_Profinity/Dashboards'
+  '../docs/Software/Profinity/Customising_Profinity/Dashboards'
 );
 const argv = process.argv.slice(2);
 const docsArgIndex = argv.indexOf('--docs');

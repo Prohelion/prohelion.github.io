@@ -103,7 +103,7 @@ __Step 8: Connect the CAN Bus__
 
 __8a.__ Using a Windows computer, install the following software.
     - [Install the PEAK drivers](https://www.peak-system.com/Drivers.523.0.html?&L=1)
-    - [Install Profinity](../../Profinity_Software/Profinity_Version_2.3/Installation/index.md)
+    - [Install Profinity](../../Software/Profinity/Installation/index.md)
 
 __8b.__ Follow the same setup procedure as defined in the Firmware Update Procedure.  
     - Connect PEAK CAN-USB adapter to the Front Panel and the Windows Computer

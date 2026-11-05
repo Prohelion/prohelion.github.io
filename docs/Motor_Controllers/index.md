@@ -118,7 +118,7 @@ description: "Complete documentation for Prohelion WaveSculptor motor controller
 
     Our WaveSculptor22 and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Management Software](../Profinity_Software/Profinity_Version_2.3/Components/Motor_Controller/index.md)
+    [:octicons-arrow-right-24: Management Software](../Software/Profinity/Components/Motor_Controller/index.md)
 
 
 </div>

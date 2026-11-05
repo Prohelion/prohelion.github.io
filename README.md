@@ -41,7 +41,7 @@ A link checker is used to validate all URLs on the site before publishing, we ha
 
 ## Version folders
 
-When a new Profinity docs version is forked, copy the previous version folder and keep it (`Profinity_Version_2.2` stays beside `Profinity_Version_2.3`). Do not rename the old folder away in the same change that adds the new one — the CI `mkdocs build` publishes only what is in the tree.
+The current Profinity release lives at `docs/Software/Profinity` (URL `/Software/Profinity/`), so search engines and AI agents always find the latest docs at one stable address. Earlier releases live under `docs/Software/Previous_Versions/` (for example `Profinity_Version_2.2`). When a new version is forked, move the outgoing current version to `Software/Previous_Versions/Profinity_Version_<n>`, add a `redirect_maps` entry in `mkdocs.yml` for every one of its pages if it was released, and put the new version at `Software/Profinity`. Do this in one change, because the CI `mkdocs build` publishes only what is in the tree.
 
 ## Publishing the documentation
 
@@ -53,7 +53,7 @@ The rules are in `STYLE_GUIDE.md`, and the reasoning is in `BEST_PRACTICE_GUIDE.
 
 ```
 cd scripts
-npm run lint-docs -- --details ../docs/Profinity_Software/Profinity_Version_2.3/Getting_Started/Create_User.md
+npm run lint-docs -- --details ../docs/Software/Profinity/Getting_Started/Create_User.md
 npm run lint-docs                 # every 2.3 page, summary only
 npm run test-lint                 # tests for the linter itself
 npm run generate-llms             # rebuild docs/llms-full.txt after changing page descriptions

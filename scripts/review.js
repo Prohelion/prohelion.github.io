@@ -22,7 +22,7 @@ const { spawnSync } = require('child_process');
 const { phrasingHits, classify } = require('./review-pages');
 
 const repoRoot = path.resolve(__dirname, '..');
-const docsRoot = path.join(repoRoot, 'docs', 'Profinity_Software', 'Profinity_Version_2.3');
+const docsRoot = path.join(repoRoot, 'docs', 'Software', 'Profinity');
 const reviews = path.join(repoRoot, 'tasks', 'reviews');
 const files = {
   ledger: path.join(reviews, 'ledger.json'),

@@ -136,7 +136,7 @@ Sentence rhythm depends on the page type. Prohelion's existing prose runs long a
   - In sentences and headings, write the product and the number with no letter: Profinity 2.3, Profinity 2.2, "As of Profinity 1.11". If the product name is already in the sentence, "version 2.3" is fine. Do not write V2.3 or v2.3 in prose.
   - On a button, a git tag, or a quoted installer banner, use a lowercase v: "Download Profinity v2.2", `v2.3.x.x`.
   - **Profinity V2**, capital V and no minor number, is the product generation. "Security (V2 Only)" and "Profinity V2 installed" stay in that form.
-  - Leave paths, document keys, and other products as they are. Folder names such as `Profinity_Version_2.3`, YAML stamps such as `version: "2.3"`, API paths such as `/api/v2`, and third-party names such as InfluxDB v2 are not Profinity release names. Quote software output literally.
+  - Leave paths, document keys, and other products as they are. Folder names such as `Software/Profinity`, YAML stamps such as `version: "2.3"`, API paths such as `/api/v2`, and third-party names such as InfluxDB v2 are not Profinity release names. Quote software output literally.
 - Expand an acronym in full on its first use on every page, for example "Message Queuing Telemetry Transport (MQTT)", because readers arrive on a page from search; later uses on the same page are bare. Universal terms (API, CAN, URL, YAML, JSON, HTTP, HTTPS, UI, CSV, PDF, ID) are not expanded.
 - Write on-screen UI labels (buttons, tabs, menu items and field names) in **bold**, exactly as they appear, without quotation marks. Reserve backticks for values the reader types, file names, paths, YAML keys and code identifiers.
 - Keep configuration fields, parameters and code identifiers literal — don't "prettify" `serialNumber` into "Serial Number" where the text is referring to the actual field name.
@@ -348,7 +348,7 @@ When a sentence mentions a Profinity concept, component or feature that has its 
 - Reference and concept pages should point to the how-to that applies them, and how-to guides should point back to the reference pages for each concept they use. Where one guide naturally follows another, say so with a link.
 - Keep link density readable: as a guide, a handful of links per page, not several per sentence. If a paragraph is mostly blue, keep only the links the reader is most likely to need.
 - Do not reword a sentence to fit a link. If the link text does not read naturally in place, leave the word unlinked.
-- Link to the page for the version being documented. Pages under `Profinity_Version_2.3` link to other `Profinity_Version_2.3` pages, never to earlier versions, unless the sentence is about that earlier version.
+- Link to the page for the version being documented. Pages under `Software/Profinity` link to other `Software/Profinity` pages, never to earlier versions, unless the sentence is about that earlier version.
 
 ### Citations
 - Cite sources when referencing external material
@@ -420,6 +420,8 @@ Never guess a default, a permission name, a limit, a UI label, a file location o
 - When two pages disagree, find out which is right from the code, fix both, and link to one page that owns the fact (see 2.4).
 - Where the code cannot answer, for example how a screen looks or what a customer does in practice, run the product, or ask the owner of the feature. If neither is possible, leave the sentence out or mark it for review. Do not fill the gap with a plausible guess.
 - Describe the result in user terms. The code tells you what is true, and the page does not mention class names, file paths or source references (see 2.8).
+- Do the checking yourself. Do not finish a page with a fact marked "unconfirmed" or "needs checking" when the code can answer it: read the code, or brief a code-search agent, and write the confirmed fact. This covers defaults, labels, permissions, log and error messages, status codes, limits, file locations and which release introduced a behaviour. A fact may be left open only when the code cannot answer it (how a screen looks, what a customer does in practice, vendor behaviour), and then it is reported to the page owner as a query, never published as a guess.
+- A writing agent that is given facts from a checker does not pass its own doubts back unchecked. It asks for the code to be searched, or searches it, before it hands the page over.
 - Say in the review note or pull request which facts you checked against the code, so a reviewer can see that the page was verified and not only edited.
 
 ### Quality checks

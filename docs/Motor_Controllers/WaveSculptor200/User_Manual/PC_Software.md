@@ -6,7 +6,7 @@ description: "How to configure a WaveSculptor200 motor controller using Prohelio
 # PC Software
 
 !!! info "WaveSculptor Software is now bundled in Prohelion Profinity"
-    To download the PC Software to configure your WaveSculptor, download Profinity and configure a [WaveSculptor](../../../Profinity_Software/Profinity_Version_2.3/Components/Motor_Controller/index.md) in your Profile.
+    To download the PC Software to configure your WaveSculptor, download Profinity and configure a [WaveSculptor](../../../Software/Profinity/Components/Motor_Controller/index.md) in your Profile.
 
 Refer to the [Software Download](https://www.prohelion.com/software/) section on the Prohelion Website for the Configuration & Setup software tool download, while you can download the Configuration Tools separately, we recommend Prohelion Profinity, which integrates the tools as well as a number of other useful utilities.
 

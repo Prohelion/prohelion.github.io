@@ -25,7 +25,7 @@ const { spawnSync } = require('child_process');
 const YAML = require('yaml');
 
 const repoRoot = path.resolve(__dirname, '..');
-const defaultRoot = path.join(repoRoot, 'docs', 'Profinity_Software', 'Profinity_Version_2.3');
+const defaultRoot = path.join(repoRoot, 'docs', 'Software', 'Profinity');
 
 const PAGE_TYPES = ['tutorial', 'task', 'reference', 'concept', 'component', 'index'];
 const DESCRIPTION_MIN = 70;

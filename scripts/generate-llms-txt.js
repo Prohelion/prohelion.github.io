@@ -18,7 +18,7 @@ const YAML = require('yaml');
 
 const repoRoot = path.resolve(__dirname, '..');
 const docsDir = path.join(repoRoot, 'docs');
-const root = path.join(docsDir, 'Profinity_Software', 'Profinity_Version_2.3');
+const root = path.join(docsDir, 'Software', 'Profinity');
 const outFile = path.join(docsDir, 'llms-full.txt');
 const siteUrl = 'https://docs.prohelion.com';
 

@@ -24,7 +24,7 @@ const path = require('path');
 const { structureFindings } = require('./lint-docs');
 
 const repoRoot = path.resolve(__dirname, '..');
-const defaultRoot = path.join(repoRoot, 'docs', 'Profinity_Software', 'Profinity_Version_2.3');
+const defaultRoot = path.join(repoRoot, 'docs', 'Software', 'Profinity');
 
 // REVIEW_GUIDE.md section 8. Visual flow is scored only when a reviewer saw the built page.
 const CATEGORIES = {

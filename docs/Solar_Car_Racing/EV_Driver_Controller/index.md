@@ -27,6 +27,6 @@ description: "Product overview and navigation hub for the Prohelion EV driver co
 
     Our battery and CAN Bus management software solution
 
-    [:octicons-arrow-right-24: Supporting Software](../../Profinity_Software/index.md)
+    [:octicons-arrow-right-24: Supporting Software](../../Software/index.md)
 
 </div>

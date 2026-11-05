@@ -83,8 +83,8 @@ The list below groups the checks and points to the rule that holds the detail.
 
 ### Project rules
 
-- Pages under `Profinity_Version_2.3` name the release "2.3" only. The release notes page is the only place that may say 2.3.1.
-- Pages under `Profinity_Version_2.3` link only to other 2.3 pages, unless the sentence is about an earlier version.
+- Pages under `Software/Profinity` name the release "2.3" only. The release notes page is the only place that may say 2.3.1.
+- Pages under `Software/Profinity` link only to other 2.3 pages, unless the sentence is about an earlier version.
 - Internal client components named in the author's brief as excluded must not appear on any 2.3 page.
 - Review only 2.3 content unless the author names another version.
 

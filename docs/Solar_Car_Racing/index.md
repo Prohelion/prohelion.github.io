@@ -89,7 +89,7 @@ Solar car racing demands the highest levels of efficiency, reliability, and perf
 
     Advanced CAN bus management platform for real-time monitoring, cloud connectivity, and comprehensive vehicle data analysis.
 
-    [:octicons-arrow-right-24: Learn More](../Profinity_Software/index.md)
+    [:octicons-arrow-right-24: Learn More](../Software/index.md)
 
 </div>
 

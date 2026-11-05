@@ -1,6 +1,6 @@
 # Prohelion documentation (Profinity-Docs)
 
-MkDocs Material site for Prohelion's documentation. The current work is Profinity 2.3 in `docs/Profinity_Software/Profinity_Version_2.3`. Hardware manuals (BMS, motor controllers, solar charge controllers, Solar Car Racing) sit beside it under `docs/`.
+MkDocs Material site for Prohelion's documentation. The current work is Profinity 2.3 in `docs/Software/Profinity`. Hardware manuals (BMS, motor controllers, solar charge controllers, Solar Car Racing) sit beside it under `docs/`.
 
 ## Read first
 
@@ -14,6 +14,7 @@ Never guess a default, a permission name, a limit, a UI label, a file location o
 - The source repository is the sibling checkout `../Profinity`. Read it only. Do not edit it from a docs task.
 - Look in `Profinity-Components-Core` and `Profinity-Components-Plugins` for component settings and defaults, `Profinity-Engine/Model/Security` for roles and permissions, and `Profinity-Engine/Controllers` for API routes.
 - When a page and the code disagree, fix the page to match the code. If the behaviour itself looks wrong, say so, and document what the code does.
+- If you are unsure of a fact, check the code yourself before you write or hand back the page. Do not leave a fact "unconfirmed" for the user when the code can answer it, and brief any writing agent to do the same. Only a fact the code cannot answer (screen appearance, customer practice) is reported as a query.
 - Never put class names, file paths or source references in a published page (STYLE_GUIDE.md 2.8).
 
 ## Scope

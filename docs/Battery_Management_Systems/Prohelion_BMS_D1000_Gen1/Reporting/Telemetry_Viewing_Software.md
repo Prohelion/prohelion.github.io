@@ -5,10 +5,10 @@ description: "Telemetry viewing software for the Prohelion BMS D1000 Gen1 in Pro
 
 # Telemetry Viewing Software
 
-The Prohelion Battery Management System should be monitored using [Prohelion Profinity](../../../Profinity_Software/index.md).
+The Prohelion Battery Management System should be monitored using [Prohelion Profinity](../../../Software/index.md).
 
 <figure markdown>
-![BMS Viewing Software](../../../Profinity_Software/Profinity_Version_2.3/images/prohelion_bmu.png)
+![BMS Viewing Software](../../../Software/Profinity/images/prohelion_bmu.png)
 <figcaption>BMS Viewing Software</figcaption>
 </figure>
 
