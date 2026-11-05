@@ -76,10 +76,9 @@ If a write fails, use this table to find the cause.
 
 ## Example
 
-Add this entry under the existing `components:` key in the `profile.yaml` file of the profile. Each profile has its own folder in the `profiles/` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md). If the file already has a `components:` key, add only the `- component:` item beneath it.
+Add this item under the existing `components:` key in the `profile.yaml` file of the profile. Each profile has its own folder in the `profiles/` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md).
 
 ```yaml
-components:
 - component:
     type: TagLocalHistorian
     id: TagLocalHistorian1

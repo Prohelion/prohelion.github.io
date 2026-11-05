@@ -146,6 +146,8 @@ PROFILE_NAME=Production Profile
 HTTP_PORT=8080
 ```
 
+Profinity reads `HTTP_PORT` only through a placeholder in `config/config.yaml`, so add `httpPort: ${HTTP_PORT:-18080}` to that file first, as in [Change a setting from an environment variable](#change-a-setting-from-an-environment-variable).
+
 === "macOS and Linux"
 
     ```bash
