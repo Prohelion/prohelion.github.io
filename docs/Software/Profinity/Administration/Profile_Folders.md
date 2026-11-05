@@ -9,7 +9,7 @@ last_reviewed: 2026-10-28
 # Profile folders
 
 Profinity stores profiles and their related files in the `profiles` folder of the [artefacts directory](../Installation/Artifacts_Directory.md), which gives the location for each operating system.
-You can edit a profile file directly in a text editor, but this is not recommended.
+You can edit a profile's `profile.yaml` file in the profile's own folder with a text editor, but this is not recommended, because a mistake such as an unrecognised setting name stops the profile loading, as described in [Invalid configuration files](System_Configuration/Invalid_Configuration_Files.md).
 Profinity reloads the file once the change is saved.
 
 A profile directory has four folders that serve files to dashboards: `images`, `models`, `styles` and `content`.

@@ -118,7 +118,8 @@ When the authority is set but wrong, set the **Sign-in method** back to **Local*
 
 You need an administrator account with a local password to sign in afterwards, because Profinity accepts password sign-in only when the method is **Local**.
 Check that this account exists before you choose **Sso**.
-Then follow these steps:
+Then follow these steps.
+Stop and start Profinity the way you normally run it: with the commands in [Run Profinity as a service](../../../Installation/Run_as_a_Service/index.md) for a service, or by closing and reopening the desktop application.
 
 1. Stop Profinity if it is running.
 2. Open the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md).

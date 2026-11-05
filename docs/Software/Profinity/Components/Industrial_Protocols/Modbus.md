@@ -55,7 +55,7 @@ Which settings apply depends on the **Connection Mode**.
 | **Reconnect delay (ms)** | `2000` | Both | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
 | **Auto Connect** | Off | Both | Connects automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
-Profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
+With **Auto Connect** on, profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
 
 Match the serial settings to those configured on the slave.
 If they differ, the slave does not answer.

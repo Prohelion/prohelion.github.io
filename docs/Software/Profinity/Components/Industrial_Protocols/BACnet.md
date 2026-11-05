@@ -56,7 +56,7 @@ Profinity sends every request to the **Remote host**.
 Each time it connects, it reads the Device object of the device at that address and compares the two numbers.
 It connects only while they match, which stops a changed address from leading to another device being read.
 
-Profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
+With **Auto Connect** on, profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
 
 ## Point map
 

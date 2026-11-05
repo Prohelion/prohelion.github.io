@@ -83,6 +83,7 @@ Removing licensed features restarts Profinity automatically, and so does applyin
 | `WrongInstance` as the **State** after a `license.yaml` is copied into the `license` folder | The file was issued for a different machine | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it |
 | `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way. A server installation stays reachable in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired), so you can still sign in and upload it |
 
-A file issued for a different machine is rejected with the message "License is not valid for this instance." and is not saved.
+A file issued for a different machine is rejected on upload with the message "License is not valid for this instance." and is not saved.
+A copy placed directly in the `license` folder stays there and shows `WrongInstance` as the **State**.
 A rejected upload never replaces a working licence, so it is safe to retry.
 For editions, features, and the 14-day local trial, refer to [Licensing](../Licensing.md).

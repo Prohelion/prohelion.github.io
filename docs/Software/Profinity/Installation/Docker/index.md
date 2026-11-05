@@ -76,7 +76,7 @@ The listing includes the `config`, `profiles`, and `logs` folders.
 
 Run these commands from the directory that holds the `docker-compose.yml` file.
 Docker Compose, not Profinity, starts the container on boot.
-The `restart: always` line in the compose file restarts the container whenever Docker starts, so configure Docker to start on boot.
+The `restart: always` line in the compose file restarts the container whenever Docker starts, so configure Docker to start on boot. On Linux, run `sudo systemctl enable docker`. On Docker Desktop, turn on **Start Docker Desktop when you sign in** in its settings.
 
 | Command | Effect |
 |---------|--------|

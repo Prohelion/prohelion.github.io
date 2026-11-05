@@ -87,4 +87,4 @@ After a session ends, the dialog reloads and the Admin parameters disappear.
 5. If an error message appears, select its link to view the logs, and fix the problem they report. The logs name one of three causes: no firmware file was selected or no profile is loaded, the firmware file path is not valid, or the bootloader could not be set up for the update.
    When the progress completes successfully, check the BMU dashboard to confirm that the BMU reports data.
 
-The step-by-step procedure for Gen1 units, including the CAN bus requirements, is in the [M48 Gen1 Firmware Update Procedure](../../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Firmware_update_procedure.md) in the hardware manual.
+The step-by-step procedure for M48 Gen1 units, including the CAN bus requirements, is in the [M48 Gen1 Firmware Update Procedure](../../../../../Battery_Management_Systems/Prohelion_BMS_M48_Gen1/Firmware_update_procedure.md) in the hardware manual.

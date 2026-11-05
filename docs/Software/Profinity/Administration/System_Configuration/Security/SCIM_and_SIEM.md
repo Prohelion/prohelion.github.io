@@ -108,5 +108,5 @@ The event names are `LoginSuccess`, `LoginFailure`, `TokenRefresh`, `TokenReject
 
 ## Securing the integration
 
-Restrict access to the site configuration backups that contain the SCIM bearer token.
+The SCIM bearer token is stored encrypted in `config.yaml`, in the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md). Restrict access to that file, to its `config.yaml.bak` copy, and to any backup of the folder.
 Serve Profinity over HTTPS, as described in [Profinity Web](../Profinity_Web.md), so that sign-in and provisioning traffic is not exposed on the network.

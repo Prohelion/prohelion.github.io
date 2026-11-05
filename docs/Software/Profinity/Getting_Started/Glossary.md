@@ -36,7 +36,7 @@ Each entry gives a one-sentence meaning and links to the page that explains it i
 | 2FA | Two-factor authentication, a second proof of identity at sign-in. Refer to [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md). |
 | BMS | Battery Management System. Refer to [Battery management systems](../Components/Battery_Management_Systems/index.md). |
 | BMU | Battery Management Unit, the controller of a Prohelion BMS. Refer to [Prohelion BMU](../Components/Battery_Management_Systems/Prohelion_BMU/index.md). |
-| CAN | Controller Area Network, the vehicle and industrial bus that Profinity reads. Refer to [CAN bus adapters](../Components/CAN_Bus_Protocols/index.md). |
+| CAN | Controller Area Network, the vehicle and industrial bus that Profinity reads. Refer to [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md). |
 | CMU | Cell Management Unit, a module that measures the cells it monitors and reports to the BMU. Refer to [Prohelion BMU](../Components/Battery_Management_Systems/Prohelion_BMU/index.md). |
 | DBC | The CAN database file format that describes the messages and signals on a CAN bus. Refer to [CAN bus DBC](../CAN_Utilities/CAN_Bus_DBC.md). |
 | DLL | Dynamic-link library, the compiled file format of a C# plugin |

@@ -63,7 +63,7 @@ For the accounts that can sign in, refer to [Who can sign in, by installation ty
 
 Starting a second instance with the same configuration on the same machine causes a port conflict on the API or web content ports.
 To serve content and develop on the same machine at the same time, install Profinity under a separate user account.
-Then change the port in the config file for one of the instances.
+Then change **IP Port for Http** and **IP Port for Https** for one of the instances, as described in [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md).
 
 To remove the service, run this command as an administrator:
 

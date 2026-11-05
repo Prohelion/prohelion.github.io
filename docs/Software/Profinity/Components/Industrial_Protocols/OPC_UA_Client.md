@@ -44,7 +44,7 @@ You can change the settings in the Settings section later from the component's *
 | **Reconnect delay (ms)** | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
 | **Auto Connect** | Off | Connects to the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
-Profinity keeps trying to connect when the server is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
+With **Auto Connect** on, Profinity keeps trying to connect when the server is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
 
 !!! warning "Trusting certificates"
     **Trust all server certificates** removes the check that proves you are talking to the server you intended.

@@ -57,7 +57,7 @@ Profinity sends the **CIP path** to the PLC as you enter it:
   The default `1,0` therefore does no harm, and you can clear it.
 - Micro800 controllers ignore this setting even when it is filled in.
 
-Profinity keeps trying to connect when the PLC is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md).
+With **Auto Connect** on, profinity keeps trying to connect when the PLC is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
 
 ## Point map
 
