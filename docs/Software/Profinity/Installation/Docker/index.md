@@ -45,13 +45,10 @@ To move an existing installation to a newer image, refer to [Update the Profinit
             - 18080:18080
             - 18443:18443
             - 4876:4876
-          # PROFINITY_HOME must match the container-side mount path in volumes, otherwise the
-          # security keys and profiles are written to the container's writable layer and are
-          # lost when the image is updated
-          environment:
-            - PROFINITY_HOME=/app/Prohelion
+          # The volume holds the artefacts directory. Without it, the security keys and profiles
+          # are written to the container's writable layer and are lost when the image is updated
           volumes:
-            - $HOME/Prohelion:/app/Prohelion:rw
+            - $HOME/Prohelion:/var/lib/prohelion/profinity:rw
     ```
 
 3. On Linux, create the data directory and give the container user ownership of it, because the container runs as the non-root `app` user (ID 1654) and Docker otherwise creates the directory owned by `root`:
@@ -67,9 +64,9 @@ To move an existing installation to a newer image, refer to [Update the Profinit
 In the second address, replace `<your-ip-address>` with the address of the machine that runs Docker.
 The sign-in page opens, as described under [Sign in](#sign-in).
 
-The compose file publishes ports `18080`, `18443`, and `4876`, and sets `PROFINITY_HOME` to the path of the mounted volume.
-For what each port does, what the data directory holds and why `PROFINITY_HOME` must match the mount path, refer to [Docker ports and data directory](./Docker_Ports_and_Data_Directory.md).
-To check where Profinity stores its files, open a shell in the running container with `docker compose exec profinity bash`, and run `ls -la /app/Prohelion/`.
+The compose file publishes ports `18080`, `18443`, and `4876`, and mounts `$HOME/Prohelion` at the default artefacts directory, `/var/lib/prohelion/profinity`.
+For what each port does and what the data directory holds, refer to [Docker ports and data directory](./Docker_Ports_and_Data_Directory.md).
+To check where Profinity stores its files, open a shell in the running container with `docker compose exec profinity bash`, and run `ls -la /var/lib/prohelion/profinity/`.
 The listing includes the `config`, `profiles`, and `logs` folders.
 
 ## Start and stop Profinity

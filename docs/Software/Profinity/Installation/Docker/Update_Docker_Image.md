@@ -14,8 +14,8 @@ To upgrade a 2.2 container, read [Upgrade from Profinity 2.2](../Upgrading/Upgra
 
 Before you start:
 
-- Back up the host folder that the compose file mounts at `PROFINITY_HOME`, as described in [Back up and restore](../Artifacts_Directory.md#back-up-and-restore).
-- Check that `PROFINITY_HOME` names the container path of that mounted volume, because Docker discards data kept anywhere else when it replaces the container.
+- Back up the host folder that the compose file mounts at `/var/lib/prohelion/profinity`, as described in [Back up and restore](../Artifacts_Directory.md#back-up-and-restore).
+- Check that the compose file mounts a host folder at `/var/lib/prohelion/profinity`, because Docker discards data kept anywhere else when it replaces the container.
 
 1. In the directory that holds the compose file, pull the newer image:
 

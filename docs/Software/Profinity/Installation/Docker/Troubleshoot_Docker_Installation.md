@@ -12,7 +12,7 @@ This page lists the symptoms seen on a Profinity container installed with [Insta
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
-| The profile and configuration are back to their defaults after an image update | `PROFINITY_HOME` did not match the container-side mount path, so the data was written to the container and lost when it was replaced. | Set the variable to the mount path and restore the files from your backup. |
+| The profile and configuration are back to their defaults after an image update | No host folder is mounted at the artefacts directory, `/var/lib/prohelion/profinity`, so the data was written to the container and lost when it was replaced. | Mount a host folder at that path, and restore the files from your backup. |
 | Profinity fails to start with a permission error on the mounted directory | The `app` user cannot write to the directory. | Change the ownership or permissions of the host directory. |
 | A Tritium adapter is not found | Port `4876` is not published for UDP. | Publish port `4876` for UDP as well as TCP, or use host networking. |
 | The host's SocketCAN interfaces are not visible inside the container | The host interfaces are not exposed to the container. | Expose them to Docker, as described under [Expose devices to the container](./index.md#expose-devices-to-the-container). |

@@ -152,8 +152,7 @@ Profinity reads `HTTP_PORT` only through a placeholder in `config/config.yaml`, 
 
     ```bash
     docker run -p 8080:8080 \
-               -v "$PWD/Prohelion:/app/Prohelion" \
-               -e PROFINITY_HOME="/app/Prohelion" \
+               -v "$PWD/Prohelion:/var/lib/prohelion/profinity" \
                -e PROFILE_NAME="Production Profile" \
                -e HTTP_PORT="8080" \
                prohelion/profinity:latest
@@ -163,14 +162,13 @@ Profinity reads `HTTP_PORT` only through a placeholder in `config/config.yaml`, 
 
     ```powershell
     docker run -p 8080:8080 `
-               -v "${PWD}/Prohelion:/app/Prohelion" `
-               -e PROFINITY_HOME="/app/Prohelion" `
+               -v "${PWD}/Prohelion:/var/lib/prohelion/profinity" `
                -e PROFILE_NAME="Production Profile" `
                -e HTTP_PORT="8080" `
                prohelion/profinity:latest
     ```
 
-The `-v` option mounts the artefacts directory, and `PROFINITY_HOME` names its path inside the container.
+The `-v` option mounts a host folder at the artefacts directory, `/var/lib/prohelion/profinity` inside the container.
 Profinity reads `HTTP_PORT` and `PROFILE_NAME` only through placeholders in the files in that directory, so `config/config.yaml` needs `httpPort: ${HTTP_PORT:-18080}`, as in [Change a setting from an environment variable](#change-a-setting-from-an-environment-variable).
 With that placeholder, the `-p 8080:8080` option publishes port `8080` on the host and in the container, and the web interface answers on `http://localhost:8080`.
 Without the placeholder, Profinity listens on port 18080.
@@ -187,24 +185,20 @@ services:
       - "${HTTPS_PORT:-18443}:${HTTPS_PORT:-18443}"
       - "4876:4876"
     environment:
-      # The artefacts directory inside the container, which must match the volumes entries
-      - PROFINITY_HOME=/app/Prohelion
-
       - HTTP_ADDRESS=${HTTP_ADDRESS:-0.0.0.0}
       - HTTP_PORT=${HTTP_PORT:-18080}
       - LOG_LEVEL=${LOG_LEVEL:-Info}
       - ENABLE_SCRIPTING=${ENABLE_SCRIPTING:-false}
       - PROFILE_NAME=${PROFILE_NAME:-Docker Profile}
     volumes:
-      - ./Prohelion:/app/Prohelion
+      - ./Prohelion:/var/lib/prohelion/profinity
 ```
 
 With `HTTP_PORT=8080`, host port 8080 maps to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}`.
 The Profinity image declares only ports 18080 and 18443, and Docker publishes only the ports listed under `ports`. Port `4876` is the Tritium CAN bridge port, which uses TCP and UDP. Keep it only if you use a Tritium adapter, and then publish it for the protocols the adapter uses, as described in [Docker ports and data directory](./Docker/Docker_Ports_and_Data_Directory.md).
 
-Mount the whole `/app/Prohelion` directory, so that the licence, security keys, and logs survive when the container is replaced.
-Keep the `config.yaml` and profile files that hold placeholders in the `config` and `profiles` folders of the mounted directory.
-`PROFINITY_HOME` must match the container-side mount path, as described in [Install Profinity with Docker](./Docker/index.md#install-with-docker-compose).
+Mount the whole `/var/lib/prohelion/profinity` directory, so that the licence, security keys, and logs survive when the container is replaced.
+Keep the `config.yaml` and profile files that hold placeholders in the `config` and `profiles` folders of the mounted directory, as described in [Install Profinity with Docker](./Docker/index.md#install-with-docker-compose).
 
 Docker Compose reads a `.env` file in the same folder as the compose file automatically.
 To keep one file per environment, name the file explicitly:
@@ -223,7 +217,7 @@ Besides the variables that your own files reference, Profinity and its install s
 
 | Variable | Type | Read by | Default | Effect |
 |----------|------|---------|---------|--------|
-| `PROFINITY_HOME` | Path | Profinity, `profinity.sh` | `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS, `/var/lib/prohelion/profinity` on Linux | Sets the [artefacts directory](./Artifacts_Directory.md) and turns off automatic migration from older locations |
+| `PROFINITY_HOME` | Path | Profinity, `profinity.sh` | `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS, `/var/lib/prohelion/profinity` on Linux | Moves the [artefacts directory](./Artifacts_Directory.md) away from its default and turns off automatic migration from older locations. Set it only for an exception, such as several instances on one host |
 | `PROFINITY_INSTALL_ROOT` | Path | `profinity.sh`, `update.sh` | The folder that holds the script | Overrides the install root, which otherwise is the folder that holds the script |
 | `PROFINITY_DOTNET_INSTALL_URL` | URL | `profinity.sh` | The `dotnet-install.sh` URL pinned in the script | Overrides the address that the portable edition downloads the .NET installer from |
 | `PROFINITY_FILES_BASE` | URL | `install.sh`, `update.sh` | `https://files.prohelion.com/profinity` | Overrides the file server that releases are downloaded from |

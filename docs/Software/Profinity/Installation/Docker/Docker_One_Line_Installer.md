@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Install Profinity with the Docker one-line installer
 
 Install Profinity on a Docker host with a single script instead of writing a compose file yourself.
-To write the compose file yourself, and for the Docker, CAN adapter, licence, and `PROFINITY_HOME` requirements that apply to both methods, refer to [Install Profinity with Docker](./index.md).
+To write the compose file yourself, and for the Docker, CAN adapter, licence, and data directory requirements that apply to both methods, refer to [Install Profinity with Docker](./index.md).
 
 Prohelion provides three helper scripts for Docker hosts:
 
