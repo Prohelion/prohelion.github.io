@@ -24,7 +24,7 @@ Refer to [Who can sign in, by installation type](../../Installation/Applying_a_L
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select **Add user**.
 3. Fill in the fields in the table that follows.
-4. Choose one or more roles under **Assigned roles**, then select **ADD USER**.
+4. Choose one or more roles under **Assigned roles**, then select **ADD USER**. Profinity confirms with the message "Successfully created the user".
 
 | Field | Description | Default |
 |-------|-------------|---------|

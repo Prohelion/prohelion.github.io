@@ -22,7 +22,7 @@ To restrict a component:
 1. Open the component's settings dialog from the profile menu or the component list.
 2. Select the **Security** tab, which sits beside **Settings** and **Firmware** (when present).
 3. Set **Mode** to **Restricted**.
-4. Add one or more roles to **Allowed roles**.
+4. In **Allowed roles**, open the dropdown that reads **Add role…** and choose each role to allow.
 5. Select **SAVE** in the dialog footer to save the **Security** tab.
 
 The component is now visible only to users who hold one of the allowed roles, plus the users described in [Who bypasses a restriction](./index.md#who-bypasses-a-restriction).

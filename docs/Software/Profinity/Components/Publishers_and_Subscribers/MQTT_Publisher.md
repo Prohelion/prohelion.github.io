@@ -100,7 +100,7 @@ Each key is the tag path with every character other than a letter or digit repla
 ```
 
 A sample is included only when it has good quality and holds a finite number.
-The payload has no place for quality, so a tag that is stale, lost or not numeric is left out of it.
+The payload has no place for quality, so a tag that is not Good (Stale, Unavailable or Bad) or is not numeric is left out of it.
 
 **Sparkplug B** follows the [Sparkplug](https://sparkplug.eclipse.org/) convention for MQTT topics and payloads, which industrial platforms use.
 The publisher appears to a Sparkplug-aware platform as an edge node, identified by the **Group ID** and **Edge Node ID**.

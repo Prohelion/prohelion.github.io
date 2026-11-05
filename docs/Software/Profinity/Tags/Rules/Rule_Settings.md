@@ -19,7 +19,7 @@ The editor exposes these settings for evaluation:
 - **Rule level** and **Rule type** for each rule.
 - **Dwell seconds**, **Throttle minutes**, and the **More information links** for each rule.
 - **When the tag is unreadable** for each rule.
-- **Clear value (deadband)** and **Clear expression (deadband)** for each threshold step.
+- **Clear value (deadband)** and **Clear expression (deadband)** for each threshold step, and **Clear expression (deadband)** for a boolean rule.
 - **Evaluation tick (seconds)** on the rule source of a profile or component.
 - **Publish state tag path** in the **Rule State** group of each rule.
 

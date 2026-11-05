@@ -50,7 +50,7 @@ When **Sign-in method** is **Sso**, the **SSO** group holds the values taken fro
 
 | Setting | Type | Default | Effect |
 |---------|------|---------|--------|
-| **Display name** | Text, up to 128 characters | Empty | The text on the login button, which reads **Sign in with** followed by this name, for example `Corporate SSO`. |
+| **Display name** | Text, up to 128 characters | Empty | The text on the login button, which reads **Sign in with** followed by this name, for example `Corporate SSO`. When the name is empty, the button reads only **Sign in with**. |
 | **Authority URL (IdP issuer)** | URL (`http` or `https`) | Empty | Required. The issuer URL from the identity provider's metadata. This is the issuer, not the address of the provider's login page. |
 | **Client ID** | Text | Empty | Required. The application (client) identifier from the identity provider's app registration. |
 | **Client secret** | Text, masked | Empty | The confidential client secret from the app registration. Leave it empty only when the identity provider allows public clients without a secret. |
@@ -98,7 +98,7 @@ You need the **Security administration** permission to link an identity. The **E
 
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select the user, or create the user as described in [Managing users](../../Users_and_Access/Manage_Users.md).
-3. On the **User Actions** tab, in **External identities (SSO)**, add a link.
+3. On the **User Actions** tab, in **External identities (SSO)**, fill in the fields in steps 4 to 6.
 4. Enter `default` as the **Provider ID**. This is the identifier Profinity gives its single identity provider.
 5. Enter the identity provider's unique identifier for the person (the OIDC `sub` claim) as the **Subject ID**.
 6. Optional: enter the person's email address as **Email**.
@@ -143,4 +143,4 @@ Automated user provisioning from the identity provider is described in [SCIM and
 
 ## Related pages
 
-Refer to [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md) and to the [Profinity 2.3 release notes](../../../Release_Notes/2.3.3.md) for the 2.3 security changes.
+Refer to [Roles and permissions](../../Users_and_Access/Roles_and_Permissions.md) and to the [Profinity 2.3 release notes](../../../Release_Notes/2.3.1.md) for the 2.3 security changes.

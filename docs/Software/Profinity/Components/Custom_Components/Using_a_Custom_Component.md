@@ -51,7 +51,7 @@ After the component is saved it is listed in the side menu and opens onto its da
 Loggers, rules, and scripts bind to it the same way they bind to any other component.
 
 Component settings are arranged as **Settings**, **Pack files**, **Scripts**, and **Security**, with **Security** last.
-**Security** (last tab, SecurityAdmin only) sets who can see the component.
+**Security** (last tab, visible only with the **Security administration** permission) sets who can see the component.
 **Mode** is **All** (the default) or **Restricted**.
 When Restricted, **Allowed roles** lists the roles that can see the component.
 Upload the files under **Pack files** using these fields: **Upload DBC File (Optional)**, **Upload Dashboard (Optional)**, **Rules YAML file (Optional)**, **Actions YAML file (Optional)**, **Settings Map YAML file (Optional)**, **Firmware Map YAML file (Optional)** and **Firmware Actions YAML file (Optional)**. Leave a field empty when that file is not needed.
@@ -94,7 +94,7 @@ Live values that a script publishes are tags, and a dashboard binds those tags r
 ## Check the component
 
 1. Confirm the component is in the side menu and opens its dashboard.
-2. If you set a main script, connect it and confirm that the tags the script publishes update on the dashboard.
+2. If you set a main script and **Auto Start Main Script** is off, select **Start Main Service** and confirm that the tags the script publishes update on the dashboard.
 3. If you attached a DBC file, open **Messages and Signals** and confirm that the expected messages arrive.
    [How to replay CAN bus logs](../../How_To_Guides/Replay_CAN_Logs.md) shows how to supply recorded traffic while you check.
 

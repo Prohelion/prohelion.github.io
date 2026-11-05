@@ -45,7 +45,7 @@ Refer to [Licensing](../Licensing.md) for the trial and for what each edition in
 3. Send the fingerprint to Prohelion through the usual sales or support channel.
    The fingerprint identifies this installation and is the only information Prohelion needs to issue a licence.
 4. When Prohelion returns the `license.yaml` file, return to the **License** page, select **Update license file**, and choose the file.
-5. Restart Profinity if the licence adds features, in particular a Server licence.
+5. Restart Profinity, using the restart command for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, in particular a Server licence.
    Profinity sets the address that the web interface listens on when it starts.
 
 Profinity checks the file's signature, its expiry, and that its fingerprint matches this installation before it applies the file.
@@ -55,7 +55,8 @@ The machine that runs Profinity does not need internet access.
 
 ## Apply a licence without the web interface
 
-For Docker, Linux services, and scripted deployments, copy the file into the artefacts directory instead.
+For Docker, Linux services, the Windows service, and scripted deployments, copy the file into the artefacts directory instead.
+A Windows service with no Server licence has no account that can sign in to the **License** page, so it needs this route.
 
 1. Copy `license.yaml` into the `license` folder of the [artefacts directory](./Artifacts_Directory.md), so that the file ends up at `license/license.yaml`.
 2. On Docker, place it in the mounted volume that holds the artefacts directory, so that it survives the container being recreated.

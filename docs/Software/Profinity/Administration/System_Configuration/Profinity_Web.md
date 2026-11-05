@@ -28,7 +28,7 @@ Refer to [System Configuration](index.md) for what to expect.
 | **IP Port for Https** | Whole number | 18443 | Same as the HTTP port but for HTTPS. |
 | **Redirect all Http traffic to Https** | On or off | Off | Forces the system to use HTTPS for all traffic. It can be enabled only when HTTPS is enabled. |
 
-The certificate options are shared with the **Extensions Web** tab and are described in [HTTPS certificates](#https-certificates).
+The **Extensions Web** tab has the same certificate options, with their own values, and they are described in [HTTPS certificates](#https-certificates).
 
 With a Server licence, the IP address settings are shown on this tab on every installation.
 They are shown only with a Server licence.
@@ -37,7 +37,7 @@ A desktop installation without a Server licence uses `127.0.0.1` for both the HT
 The web interface can then be reached only from the same computer.
 Profinity records a warning in the log, "Remote web access requires a Server license", when it replaces another address.
 An [archive installation](../../Installation/Linux_and_macOS_Archive_Installation.md) on Linux or macOS, or a Docker installation, binds to the address in `config.yaml`, whether or not it has a Server licence. The IP address settings are shown only with a Server licence.
-The full rule is in the remote web access warning on [Licensing](../../Licensing.md).
+The full rule is in the **Remote web access needs a Server licence** note under the "Features by edition" heading on [Licensing](../../Licensing.md).
 
 ## Troubleshooting
 

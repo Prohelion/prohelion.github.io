@@ -39,7 +39,7 @@ Profinity validates that the named store and certificate exist.
 |---------|---------|--------|
 | **Cert File** | None | The certificate file. |
 | **Cert File Password** | None | The password for the certificate file. |
-| **Cert Key File** | None | Optional. |
+| **Cert Key File** | None | Optional. The private key for a PEM certificate. Leave it empty to let Profinity find the key in the same folder as the certificate file. |
 | **Enable Https** | On | Serves the HTTPS interface. **Redirect all Http traffic to Https** needs it on. |
 | **IP Port for Http** | 19080 | The HTTP port. |
 | **IP Port for Https** | 19443 | The HTTPS port. |

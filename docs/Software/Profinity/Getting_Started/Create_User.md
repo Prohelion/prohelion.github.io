@@ -12,7 +12,7 @@ Create a user account for each person who signs in to Profinity, and give it the
 You need the **Security administration** permission and the **Profinity Server** licensed feature, which the **Server** and **Enterprise** editions include.
 
 Without the Profinity Server feature, you can sign in, but you cannot create or manage user accounts or roles.
-A Desktop installation runs as a single built-in desktop user, and **Users & Groups** shows that user and group administration needs the Profinity Server feature, which Enterprise also includes.
+A Windows desktop installation runs as a single built-in desktop user, and **Users & Groups** shows that user and group administration needs the Profinity Server feature, which Enterprise also includes.
 [Licensing](../Licensing.md) lists what each edition includes.
 
 1. In the side menu, select **ADMIN**, then **Users & Groups**.

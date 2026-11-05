@@ -31,7 +31,7 @@ A log recorded on this instance is written to a `tag_logs/<profile name>/<logger
 Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where this folder sits on each platform.
 To add a log recorded on this instance, copy the file:
 
-1. Copy the recorded file from its `tag_logs/<profile name>/<logger name>/` folder into `tag_logs/replay/`.
+1. Copy the recorded file from its `tag_logs/<profile name>/<logger name>/` folder into `tag_logs/replay/`. Profinity creates that folder at start-up.
 2. In **TAG LOG REPLAY**, check that the log is in the list.
 
 To add a log recorded on another Profinity instance, use the **Upload Tag Change Log files** control in **TAG LOG REPLAY** and choose the file.
@@ -48,7 +48,7 @@ The replay controls are:
 - The pause control, an icon with the tooltip **Pause Replay Tag Change Log**, suspends the replay so that you can resume it later.
 - **Stop** ends the replay.
 - **Loop** replays the log continuously.
-- The trashcan icon deletes the log. Deleting a log removes its file permanently, and Profinity cannot restore it. Copy the file to a safe place first if you may need it again.
+- The trashcan icon deletes the log after you confirm. Deleting a log removes its file permanently, and Profinity cannot restore it. Copy the file to a safe place first if you may need it again.
 
 ## What replay does to your tags
 

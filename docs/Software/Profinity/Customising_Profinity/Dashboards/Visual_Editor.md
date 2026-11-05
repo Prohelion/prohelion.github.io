@@ -35,7 +35,7 @@ Each property uses the control that suits it, such as a drop-down for fixed choi
 A property that the Visual Editor cannot edit shows a hint to use the **YAML** tab.
 An element that can show live data has a **Binding** section, as described in [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md#bind-an-element-to-a-tag).
 
-With nothing selected, the inspector shows the dashboard switches:
+With nothing selected, the inspector shows the dashboard switches, all of which are on by default:
 
 | Switch | Effect |
 |--------|--------|

@@ -41,7 +41,7 @@ Before you begin, have the V2 installer for your platform, and administrator rig
 ## Run V1 and V2 on one machine
 
 Running both versions on one machine causes port conflicts, mixed-up profiles, and unsynchronised data, so Prohelion does not recommend it.
-If both versions must run for a while, give each version different ports and a different user account, and keep their profiles and configurations separate.
+If both versions must run for a while, give each version different ports and a different user account, and keep their profiles and configurations separate. For V2, set the ports in **IP Port for Http** and **IP Port for Https** on the Profinity Web tab, as described in [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md).
 Complete the move to V2 as soon as practical.
 
 ## Get help

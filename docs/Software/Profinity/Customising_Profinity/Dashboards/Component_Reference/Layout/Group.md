@@ -97,6 +97,7 @@ The `width` of a group controls its horizontal footprint in rows and in panel co
 dashboard:
   items:
     - row:
+        direction: "horizontal"
         items:
           - group:
               width: "40%"

@@ -28,11 +28,11 @@ You need a plugin package, a `.nupkg` or `.zip` file from the plugin's author.
 Plugins that ship with Profinity are listed alongside the ones you install.
 
 1. Select **ADMIN** in the side menu and open the **Components & Plugins** pill.
-2. In the **UPLOAD PLUGIN (.ZIP OR .NUPKG)** panel, upload the package.
-3. Enable the plugin once it is listed.
+2. In the **UPLOAD PLUGIN (.ZIP OR .NUPKG)** panel, select **browse** in the **Plugin archive** drop area, or drag the package onto it.
+3. In the **INSTALLED PLUGINS** table, select **Enable** on the plugin's row in the Actions column.
 
 Enabling a plugin that you uploaded needs the **Custom Plugins** licensed feature.
-It is available from the Desktop edition upwards, when licensed (refer to [Licensing](../Licensing.md)).
+The licence must include the feature, which the Desktop, Server, and Enterprise editions include (refer to [Licensing](../Licensing.md)).
 
 The plugin ID is the package file name without its extension, so `my_plugin.zip` installs as `my_plugin`.
 It may contain only letters, digits, hyphens, and underscores.

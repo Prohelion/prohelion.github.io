@@ -10,7 +10,7 @@ last_reviewed: 2026-11-05
 
 Prepare a Profinity instance once so that Claude Code, Cursor, or Codex can read its live data through the Model Context Protocol (MCP) server.
 You switch the server on, create a token for the tool to sign in with, choose the address the tool uses, and check that the server answers.
-You need the **System administration** permission, the **AI** licensed feature, which the **Server** and **Enterprise** editions include, and **Users & Groups**, which needs a Server licence.
+You need the **System administration** permission, the **AI** licensed feature, which the **Server** and **Enterprise** editions include, and the **Security administration** permission and a Server licence for **Users & Groups**.
 Refer to [Licensing](../../Licensing.md) and [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
 
 !!! warning "Enabling the MCP server restarts Profinity"

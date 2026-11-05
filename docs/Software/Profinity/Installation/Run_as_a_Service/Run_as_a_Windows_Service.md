@@ -56,7 +56,7 @@ The current folder stays as it is, so removing the variable returns Profinity to
 Until a Server licence is applied, the service serves its web interface to the local machine only, on `127.0.0.1`.
 With a Server licence applied under **ADMIN > License**, it uses the address set under [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md), so other machines can sign in.
 
-A service has no application window, so open a browser on the same machine and apply the licence file from **ADMIN > License**, or copy the file into the artefacts directory, before you rely on remote access.
+A service has no application window. Without a Server licence, the browser sign-in page has no account to sign in with, so copy the licence file into the artefacts directory, as described in [Apply a licence](../Applying_a_Licence.md#apply-a-licence-without-the-web-interface), before you rely on remote access.
 Both routes are described in [Apply a licence](../Applying_a_Licence.md).
 Expect Profinity to restart when you apply the licence.
 For the accounts that can sign in, refer to [Who can sign in, by installation type](../Applying_a_Licence.md#who-can-sign-in).

@@ -62,7 +62,7 @@ The last section is an accordion at the top level.
 ### Status pill section
 
 The dashboard begins with a pill that carries a motor controller icon, so the component is recognisable at a glance.
-The pill groups the bus voltage, bus current, three temperatures and velocities into readouts.
+The pill groups the bus voltage, bus current, three temperatures and velocities into value items.
 Profinity updates the readouts from the CAN bus data, and the precision of each readout suits its measurement.
 Each binding names a tag, and the `DBC/` tags correspond to CAN message signals.
 

@@ -31,7 +31,7 @@ Use [Readouts](Readouts.md) when only the latest value matters, and a [Table](Ta
 | `id` | string | No | None | Optional identifier of the chart. The value is not displayed |
 | `type` | string | Yes | None | Chart type, one of `bar`, `line`, `radar`, `doughnut`, `pie`, `polarArea`, `bubble` or `scatter`. Refer to [Chart types](#chart-types) for details |
 | `value` | object or array | No | None | Static chart data, or a starting shape for a chart whose live series come from `bind` |
-| `legend` | boolean | No | Depends on chart type | Whether to show the legend. The default is `true` for `line`, `pie`, `doughnut` and `polarArea` charts, and `false` for `bar`, `radar`, `bubble` and `scatter` charts. A `line` chart with more than one series always shows its legend. Set `legend` to `false` to hide it |
+| `legend` | boolean | No | Depends on chart type | Whether to show the legend. The default is `true` for `line`, `pie`, `doughnut` and `polarArea` charts, and `false` for `bar`, `radar`, `bubble` and `scatter` charts. A `line` chart with more than one series always shows its legend, and `legend: false` does not hide it. On the other chart types, set `legend` to `false` to hide it |
 | `refreshInterval` | number | No | None | Automatic refresh interval in milliseconds. The web interface honours values of `1000` and above. A smaller value is ignored, and the chart uses its live data bindings instead |
 | `min` | number | No | None | Fixed lower bound of the value axis. The bound is calculated from the data when omitted |
 | `max` | number | No | None | Fixed upper bound of the value axis. The bound is calculated from the data when omitted |

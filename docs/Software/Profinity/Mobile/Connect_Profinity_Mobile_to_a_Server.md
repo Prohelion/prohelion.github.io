@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 To connect Profinity Mobile to a server, check the discovery settings on the Profinity server, then select the server from the app's discovery list.
 You need the app installed on the phone (refer to [Profinity Mobile](index.md)).
-Before you start, check that other machines on the phone's network can open the server's web interface. Phones reach the server only when they can, which depends on the installation type and licence (refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in)).
+Before you start, check that other machines on the phone's network can open the server's web interface. Phones reach the server only when they can, which depends on the installation type and licence. A phone needs the **Profinity Server** feature, because a Desktop host without it listens on this computer only (refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in)).
 
 ## Enable server discovery
 
@@ -34,7 +34,7 @@ The server sends heartbeats only while the web server is running and the machine
 </figure>
 
 The mobile app listens for the broadcast on UDP port 49025 by default.
-If you change the **Heartbeat UDP port**, the app build must use the same port (refer to [OEM white-label mobile builds](OEM_White_Label.md)).
+If you change the **Heartbeat UDP port**, the app build must use the same port. The app reads the port when it is built, so a changed port needs a new build from the organisation that distributes the app (refer to [OEM white-label mobile builds](OEM_White_Label.md)).
 Each entry in the app's discovery list shows the server name, the active profile, and the server's network addresses.
 
 ## Connect from the app
@@ -45,14 +45,14 @@ Each entry in the app's discovery list shows the server name, the active profile
 3. Select your server and connect.
    The app opens the server's web sign-in page inside the app.
 4. Sign in to the server's web page, using the first option that applies:
-   - If the active profile has Kiosk Mode enabled, the page signs you in automatically as the kiosk user. No further action is needed.
+   - If the active profile has [Kiosk Mode](../Administration/Kiosk_Mode.md) enabled, the page signs you in automatically as the kiosk user. No further action is needed.
    - If the site uses single sign-on (SSO), select **Sign in with** and the name of your identity provider, then complete the sign-in.
    - Otherwise, sign in with your Profinity user name and password.
 
    If the site requires two-factor authentication, enter your authenticator code when prompted.
    After sign-in, the server's web interface opens in the app.
 
-The app uses HTTPS when the server has it configured.
+The app uses HTTPS when the server has it configured. For a self-signed certificate, the app shows a **Self-signed certificate** prompt, and you select **Trust and connect** to continue.
 
 To return to the server list, swipe from the left edge of the screen on iOS.
 On Android, use the system back action, which first steps back through the pages you opened in the app.

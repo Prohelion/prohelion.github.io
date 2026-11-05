@@ -51,7 +51,7 @@ The first positional argument can replace `--component-dir` (or `--package` for 
 The `name` in `component_metadata.yaml` must be usable as a folder name.
 Otherwise the tool reports `Component name is not a valid folder name`.
 
-A `.nupkg` also needs a valid semantic `pluginVersion` and a non-empty `author`.
+A `.nupkg` also needs a valid semantic `pluginVersion`, such as `1.0.0` or `1.0.0-beta.1`, and a non-empty `author`.
 Messages from `actions.yaml` that name a menu entry, such as an unsupported `kind`, are described on [Menu actions](../Custom_Components/Menu_Actions.md).
 
 ## When to use the tool

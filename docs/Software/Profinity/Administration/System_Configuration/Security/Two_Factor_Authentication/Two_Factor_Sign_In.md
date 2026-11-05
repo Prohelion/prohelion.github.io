@@ -23,7 +23,7 @@ To enrol:
 ## Sign in with a code
 
 On later sign-ins, Profinity asks for the authenticator code after it accepts the password, with a **6-Digit MFA Code** field and an alternative **Recovery Code** field.
-A user who selects **Remember this device** on a site that allows it skips this step on that browser until the remember duration ends.
+A user who selects **Remember this device** on a site that allows it skips this step on that browser until the remember duration ends. The duration is set by **Remember device duration (days)**, which defaults to 10, as described in [Two-factor authentication](index.md).
 
 Five incorrect codes within one minute are rate limited, so the user must wait before trying again. This is separate from the login lockout.
 A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](../Session_Policy.md).

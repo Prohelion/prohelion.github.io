@@ -34,7 +34,7 @@ The HTTPS protocol also needs a [service account](../../Administration/Users_and
 9. If **Auto Connect** is off, select **Start Sender**.
    The sender shows **On**.
 
-Wait for one **Snapshot interval (seconds)**, then open Tag Explorer.
+Wait for one **Snapshot / change interval (seconds)**, then open Tag Explorer.
 The tags appear under the receiver's prefix.
 
 ## Set up a relay over MQTT
@@ -52,7 +52,7 @@ The tags appear under the receiver's prefix.
 9. If **Auto Connect** is off, select **Start Sender**.
    The sender shows **On**.
 
-Wait for one **Snapshot interval (seconds)**, then open Tag Explorer.
+Wait for one **Snapshot / change interval (seconds)**, then open Tag Explorer.
 The tags appear under the receiver's prefix.
 
 If the tags do not appear, refer to the troubleshooting sections on the [sender](Tag_Relay_Sender.md#troubleshooting) and [receiver](Tag_Relay_Receiver.md#troubleshooting) pages.

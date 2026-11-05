@@ -16,7 +16,7 @@ Each route needs the same permission as the matching screen, except the Themes r
 ## Alerts
 
 Routes under `/api/v2/Alerts` return and manage the alerts shown in the [Alerts Log](../../Tags/Alerts.md).
-Every Alerts route needs the **View alerts** permission.
+Every Alerts route needs the **View alerts** permission. Ack, Unack and Silence also return not found for a tag that the signed-in user cannot see under component security.
 
 | Method | Route | Body |
 |--------|-------|------|
@@ -26,7 +26,7 @@ Every Alerts route needs the **View alerts** permission.
 | POST | `/api/v2/Alerts/Unack` | `{ "ruleId": "...", "tagId": "..." }` |
 | POST | `/api/v2/Alerts/Silence` | `{ "ruleId": "...", "tagId": "...", "durationMinutes": 60 }` |
 
-Get `ruleId` and `tagId` from the `items` list that `GET /api/v2/Alerts/Active` returns, where each item carries both. Through the API a silence can last from 1 to 1440 minutes (24 hours).
+Get `ruleId` and `tagId` from the `items` list that `GET /api/v2/Alerts/Active` returns, where each item carries both. Through the API a silence can last from 1 to 1440 minutes (24 hours). The `durationMinutes` value has no default, so the request must include it.
 A request outside that range is refused with "durationMinutes must be between 1 and 1440."
 The `Unack` route is the same revert that the **Unacknowledge alert** button uses.
 
@@ -72,14 +72,14 @@ They match the **Reset MFA** (multi-factor authentication) and **Reset Password*
 
 | Method | Route | Purpose |
 |--------|-------|---------|
-| POST | `/api/v2/Relay/snapshot` | Receives a full snapshot from a [Tag Relay Sender](../../Components/Tag_Relays/Tag_Relay_Sender.md) that uses HTTPS. |
-| POST | `/api/v2/Relay/delta` | Receives a batch of changed tag samples from a sender in On Change mode. |
+| POST | `/api/v2/Relay/snapshot` | Receives the full collection tree from a [Tag Relay Sender](../../Components/Tag_Relays/Tag_Relay_Sender.md) in **Snapshot** mode that uses HTTPS. |
+| POST | `/api/v2/Relay/delta` | Receives a batch of changed tag samples from a sender in **On Change** mode. |
 
 The rules for both routes are:
 
 - The caller needs a JSON Web Token (JWT) for a user with the **Receive external tags** permission, or for an Admin.
 - The request body can be up to 5 MB.
-- An instance accepts relay posts for only one [Tag Relay Receiver](../../Components/Tag_Relays/Tag_Relay_Receiver.md) set to HTTPS.
+- An instance accepts relay posts only when at most one [Tag Relay Receiver](../../Components/Tag_Relays/Tag_Relay_Receiver.md) is set to HTTPS.
 
 ## Themes
 

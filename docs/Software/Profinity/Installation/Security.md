@@ -33,7 +33,7 @@ Use a certificate from the Windows Certificate Store for a Windows deployment, o
 
 For production, turn on **Redirect all Http traffic to Https** so that every connection uses encryption.
 Use certificates from a trusted Certificate Authority (CA), and plan certificate renewal so that an expiry does not interrupt the service.
-Binding HTTP to localhost only and requiring HTTPS for remote access keeps credentials off the network.
+Binding HTTP to localhost only, with the **IP Address for Http** setting on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page, and requiring HTTPS for remote access keeps credentials off the network.
 
 [Profinity Mobile](../Mobile/index.md) connects over the local network, so keep the HTTPS port reachable from the networks that phones use.
 For the certificate steps, refer to [Profinity Web](../Administration/System_Configuration/Profinity_Web.md#https-certificates).
@@ -62,7 +62,7 @@ Restrict read access to that folder to the account that runs Profinity.
 Include `security.yaml` in encrypted backups, and never commit a file that contains real keys to source control.
 
 In a Docker container, `security.yaml` and its keys are written to the container's own storage when `PROFINITY_HOME` does not match a mounted volume.
-Replacing the image then regenerates the keys and resets Profinity to the default administrator account, so always set `PROFINITY_HOME` to the container path of a mounted volume.
+Replacing the image then regenerates the keys and resets Profinity to the default administrator account, so mount a volume at the default artefacts directory, `/var/lib/prohelion/profinity`, and do not set `PROFINITY_HOME` for a normal installation.
 
 ## Scripting security
 
@@ -141,7 +141,7 @@ Kiosk Mode signs a selected user in automatically without a login, which needs c
 Profinity does not restrict which enabled user is selected, including administrators, so anyone at the kiosk inherits that user's permissions.
 Use a dedicated user with only the view permissions the display needs, such as a read-only role, and review that user's permissions regularly.
 
-Monitor kiosk access through the logs.
+Monitor kiosk access through the `SECURITY|` login entries in the Profinity logs.
 Secure the device physically, because Kiosk Mode bypasses the login page.
 In production, isolate the device on its own network segment, and disable Kiosk Mode when you no longer need it.
 Refer to [Kiosk Mode](../Administration/Kiosk_Mode.md) for the configuration.

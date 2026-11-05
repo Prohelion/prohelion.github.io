@@ -10,7 +10,7 @@ last_reviewed: 2026-11-05
 
 Connect the Codex command-line client or IDE extension on your computer to the Profinity Model Context Protocol (MCP) server so that Codex can read live components, tags, and alerts.
 Before you start, finish [Prepare Profinity for an MCP client](Prepare_Profinity.md), including [storing the token in an environment variable](Prepare_Profinity.md#store-the-token-in-an-environment-variable).
-You need the MCP address you chose on that page.
+You need the MCP address you chose on that page, and the service account token you created there.
 
 Codex signs in to Profinity with the token in `PROFINITY_TOKEN`.
 Profinity offers only the token sign-in for this server, so do not run `codex mcp login` for it.

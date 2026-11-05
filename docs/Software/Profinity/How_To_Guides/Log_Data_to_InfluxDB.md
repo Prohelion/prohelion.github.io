@@ -32,11 +32,11 @@ To use InfluxDB Cloud:
 To use a self-hosted InfluxDB:
 
 1. Install and start InfluxDB on your server.
-2. Create a bucket and an API token. The following example grants all access, which is more than Profinity needs, so limit the token to read and write access to the bucket:
+2. Create a bucket and an API token that can read and write only that bucket. In the following example, replace `my-org` with your organisation name and `<bucket-id>` with the ID that `influx bucket create` prints:
 
     ```bash
-    influx bucket create --name my-profinity-data
-    influx auth create --org my-org --all-access
+    influx bucket create --name my-profinity-data --org my-org
+    influx auth create --org my-org --read-bucket <bucket-id> --write-bucket <bucket-id>
     ```
 
 ## Connect the InfluxDB v2 Historian

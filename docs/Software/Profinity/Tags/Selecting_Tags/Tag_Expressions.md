@@ -13,9 +13,9 @@ Derived tags write a value formula over the aliases they declare (`a`, `b`, …)
 The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
 
 You enter expressions in the [collections](../Collections/index.md), [rules](../Rules/index.md), and [derived tags](../Derived_Tags/index.md) editors.
-Use either the guided builder, a form that assembles an expression for you, or free text.
+Use either the guided builder, a form that assembles an expression for you, or free text. The derived tags editor takes free text only.
 Refer to [Build an expression with the guided builder](Build_an_Expression.md) for the builder.
-An invalid member fails validation when the file is saved, with a message that points at the correct spelling.
+An invalid member fails validation when you save it in the editor, with a message that points at the correct spelling.
 
 ## Picking tags
 

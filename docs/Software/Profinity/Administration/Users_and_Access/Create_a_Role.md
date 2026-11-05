@@ -9,8 +9,8 @@ last_reviewed: 2026-10-28
 # Create a role
 
 Create a role when you want a person to do only what their job needs.
-You need the **Security administration** permission and a Server licence.
-Roles need a Server licence on every type of installation.
+You need the **Security administration** permission and a licence that includes the **Profinity Server** feature.
+Roles need that feature on every type of installation.
 
 Refer to [Who can sign in, by installation type](../../Installation/Applying_a_Licence.md#who-can-sign-in) for what each installation signs in with.
 Roles are managed from **Users & Groups**, the same place used to [create users](./Manage_Users.md).

@@ -100,7 +100,7 @@ Check the usual causes in this table before reading the [Log](../../Administrati
 | Symptom | Cause | Fix |
 |---|---|---|
 | A client on another computer cannot connect. | The default **Bind URL** listens on `127.0.0.1` only. | Replace the host in the **Bind URL** with an address the clients can reach, as described under Listening address. |
-| A tag added to the profile is missing from the address space. | The server builds the address space once, when it starts. | Restart the server. |
+| A tag added to the profile is missing from the address space. | The server builds the address space once, when it starts. | Stop the server, then start it again from the component's menu. |
 | A tag reads as `BadNoData`. | The tag has no sample or a null value. | Check that the tag has a value in Profinity. |
 | A client cannot write a value. | The address space is read-only. | Change the value at its source in Profinity instead. |
 | A connection fails on a certificate. | The refused certificate is in the `rejected` folder. | Move the certificate into `trusted` once you have confirmed it, as described in [OPC UA certificates](OPC_UA_Certificates.md). |

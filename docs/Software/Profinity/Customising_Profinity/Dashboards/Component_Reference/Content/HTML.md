@@ -44,7 +44,7 @@ A link whose address begins with a single `/` navigates inside the web interface
 ### Referencing profile assets in HTML
 
 Use `/Profile/Images/{filename}` in the `src` attribute of an `img` element to show an image from the profile. To add the file, upload it in the profile's image library, as described in [Store dashboard files in a profile](../../Store_Dashboard_Files.md#images).
-Add style rules to the `profile.css` file in the `/Profile/Styles` directory.
+Add style rules to the `profile.css` file in the `/Profile/Styles` directory, as described in [Store dashboard files in a profile](../../Store_Dashboard_Files.md#styles).
 The web interface loads the file when it is present.
 Apply the rules with the `class` attribute in the HTML.
 
@@ -60,18 +60,18 @@ Until the first position arrives, the component shows nothing.
 Set `content` to an empty string when `map` is used, because `content` is required.
 
 Each position source is a full tag path that names the component, as in the map example.
-Profinity expands relative `DBC/` and `Properties/` paths only for the `source` of a binding, so a relative path does not work in a position source.
+Profinity expands relative `DBC/` (from the CAN database, or DBC, file) and `Properties/` paths only for the `source` of a binding, so a relative path does not work in a position source.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `latSource` | string | Yes | None | Full tag path of the latitude, which starts with the name of the component |
 | `lonSource` | string | Yes | None | Full tag path of the longitude, which starts with the name of the component |
-| `fixSource` | string | No | None | Full tag path of the GPS fix quality. The map is displayed as stale when the fix value is missing or is not greater than `0` |
+| `fixSource` | string | No | None | Full tag path of the GPS fix quality. The map is faded and greyed when the fix value is missing or is not greater than `0` |
 | `zoom` | integer | No | `14` | OpenStreetMap zoom level |
 
 ## Example
 
-The first example displays custom content with an image from the profile:
+The first example displays custom content with an image from the profile. The `info-box` class is not built in, so the box looks as shown only when `profile.css` defines rules for it:
 
 ``` yaml
 dashboard:

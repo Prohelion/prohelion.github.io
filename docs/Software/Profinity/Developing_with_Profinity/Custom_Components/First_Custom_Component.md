@@ -28,8 +28,6 @@ At the end, the component:
 - Has **Connect / Disconnect** in the menu.
 - Shows an **Output Limit** firmware field.
 
-The path takes about 20 minutes.
-
 ## What you need
 
 - Profinity 2.3 running, with an active [profile](../../Getting_Started/Profiles.md).

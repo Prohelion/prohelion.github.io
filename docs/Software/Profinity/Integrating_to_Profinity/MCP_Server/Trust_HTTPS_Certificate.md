@@ -51,7 +51,7 @@ The default `certificates` folder depends on how Profinity is installed:
 | macOS | `$HOME/Library/Application Support/Prohelion/Profinity/certificates` |
 | Linux | `/var/lib/prohelion/profinity/certificates` |
 | Windows desktop | `$env:LOCALAPPDATA\Prohelion\Profinity\certificates` |
-| Windows service | `certificates` in the artefacts directory of the account the service runs under, as described in [Run Profinity as a Windows service](../../Installation/Run_as_a_Service/Run_as_a_Windows_Service.md) |
+| Windows service | `$env:LOCALAPPDATA\Prohelion\Profinity\certificates` for the account the service runs under, as described in [Run Profinity as a Windows service](../../Installation/Run_as_a_Service/Run_as_a_Windows_Service.md) |
 | Docker, with the published compose file | `$HOME/Prohelion/certificates` on the host, which is `/app/Prohelion/certificates` in the container |
 | Docker, with the one-line installer | `$HOME/profinity-docker/data/certificates`, or `data/certificates` in the folder you gave with `--dir` |
 

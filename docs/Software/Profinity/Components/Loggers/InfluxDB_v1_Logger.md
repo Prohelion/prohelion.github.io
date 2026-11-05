@@ -33,7 +33,7 @@ InfluxDB v1, v2 and v3 are separate products with different APIs, authentication
 Using the wrong component type results in connection failures, so check the version of your InfluxDB server before you add a component to a [profile](../../Getting_Started/Profiles.md).
 
 For InfluxDB v2 and v3, use the **InfluxDB v2 Historian** or the **InfluxDB v3 Historian**, documented in [InfluxDB historians](../Historians/InfluxDB_Historians.md).
-The [Loggers](index.md) page compares this logger with the others.
+It sits in the **Loggers** category. The [Loggers](index.md) page compares this logger with the others.
 
 ## Add the logger
 

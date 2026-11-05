@@ -27,7 +27,7 @@ This follows [Script types](../../Developing_with_Profinity/Scripting/Script_Typ
 A new script opens with the starter template for the component's language, and an existing script opens with its saved code.
 5. If the script already holds code you want to keep, copy it to a file on your computer first.
 Profinity does not keep an earlier version when you save.
-6. Replace the code in the editor with the example for your language, which publishes the computed result with `Profinity.Tags.SetValue(...)`.
+6. Replace the code in the editor with the example for your language, which publishes the computed result with `Profinity.Tags.SetValue(...)`, or with `Profinity.Tags:SetValue(...)` in Lua.
 
 === "C#"
 

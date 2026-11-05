@@ -21,7 +21,7 @@ For the other settings files it carries on with a default and tells you in the l
 | `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile. The file is left exactly as it is. |
 | `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity leaves the damaged file as it is. |
 | `theme.yaml` | Profinity starts with the default theme. | Nothing. |
-| `custom.yaml` | The install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. Profinity never changes `custom.yaml`, which the OEM build supplies, so it must be corrected in that file. | Nothing. |
+| `custom.yaml` | Because the file is invalid, the install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. Profinity never changes `custom.yaml`, which the OEM build supplies, so it must be corrected in that file. | Nothing. |
 
 A file that does not exist counts as valid.
 Profinity creates the default for `config.yaml`, `security.yaml` and `plugins.yaml`, and uses the default theme and no custom settings for the others.
@@ -110,6 +110,7 @@ It names the file and the reason.
    For example, copy `config.yaml.bak` over `config.yaml`.
 3. If both fail, copy the file to a safe place if you have not already, then delete it to reset it.
    Profinity creates the default on the next start.
+   Do not delete `custom.yaml`: the OEM build supplies it, so ask your supplier for a corrected copy.
 4. Start Profinity again.
 
 If the message names an environment variable, set the variable and start again.

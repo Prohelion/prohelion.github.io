@@ -56,7 +56,7 @@ If a write fails, use this table to find the cause.
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The status shows **Error** until a write succeeds. | The local database rejected a write, or its connection is unavailable. | Read the reason in the Profinity System Logs. Check that the database file is on a writable drive with free space, and that no other program holds the file. |
+| The status shows **Error** until a write succeeds. | The local database rejected a write, or its connection is unavailable. | Read the reason on the **Logs** page under **ADMIN**. Check that the database file is on a writable drive with free space, and that no other program holds the file. |
 
 ## Logger settings
 
@@ -113,7 +113,7 @@ This directory is separate from `tag_logs/`, which holds viewable CSV and JSON L
 
 To keep the history, copy the files before you remove the component:
 
-1. Stop the component.
+1. Stop the component with **Stop Logger**.
 2. Copy the `<component>.db` file and any `-wal` and `-shm` files from `tag_history/<profile>/` in the [artefacts directory](../../Installation/Artifacts_Directory.md).
 3. Remove the component from the profile.
 

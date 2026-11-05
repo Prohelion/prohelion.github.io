@@ -50,7 +50,7 @@ The Tag Explorer shows the path of each tag to bind, and [Binding source paths](
 ## Starter template
 
 A component that has no dashboard of its own starts from the Hello World template, which is a vertical row holding a styled group with one pill.
-The pill has an icon and two values, one labelled `CUSTOM DASHBOARD` and one that points to the Profinity documentation.
+The pill has an icon and two values, one labelled `CUSTOM DASHBOARD` and one that points to the Profinity documentation. The icon is the Carbon icon that Profinity uses for its custom icon, so it is built in.
 
 In the Visual Editor, **NEW FROM TEMPLATE** replaces the dashboard with this template after a confirmation prompt.
 A component can supply its own template, which loads instead.

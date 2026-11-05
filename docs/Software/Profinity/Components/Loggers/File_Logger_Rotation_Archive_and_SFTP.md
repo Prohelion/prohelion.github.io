@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # File logger rotation, archive, and SFTP settings
 
-The [CAN file and SFTP loggers](CAN_File_and_SFTP_Loggers.md) and the [Tag file and SFTP loggers](Tag_File_and_SFTP_Loggers.md) share the settings on this page.
+The [CAN file and SFTP loggers](CAN_File_and_SFTP_Loggers.md) and the [TAG file and SFTP loggers](Tag_File_and_SFTP_Loggers.md) share the settings on this page.
 They cover rotating, archiving, and compressing log files, and connecting to a Secure Shell (SSH) File Transfer Protocol (SFTP) server.
 
 ## SFTP settings

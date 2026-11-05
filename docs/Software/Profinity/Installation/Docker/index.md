@@ -72,7 +72,7 @@ The listing includes the `config`, `profiles`, and `logs` folders.
 ## Start and stop Profinity
 
 Run these commands from the directory that holds the `docker-compose.yml` file.
-Docker Compose, not Profinity, starts the container on boot.
+The Docker service starts the container on boot, not Profinity.
 The `restart: always` line in the compose file restarts the container whenever Docker starts, so configure Docker to start on boot. On Linux, run `sudo systemctl enable docker`. On Docker Desktop, turn on **Start Docker Desktop when you sign in** in its settings.
 
 | Command | Effect |
@@ -87,7 +87,7 @@ Refer to the [Docker Compose reference](https://docs.docker.com/compose/referenc
 
 ## Sign in
 
-The container serves HTTP with the default credentials, so follow the [Security guide](../Security.md) to enable HTTPS before you expose it beyond a trusted network.
+HTTPS is on by default, but the container also serves HTTP with the default credentials, so follow the [Security guide](../Security.md) before you expose it beyond a trusted network.
 The browser opens the Profinity sign-in page.
 
 <figure markdown>

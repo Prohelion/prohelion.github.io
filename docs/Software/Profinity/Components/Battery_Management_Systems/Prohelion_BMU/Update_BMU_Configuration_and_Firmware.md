@@ -16,7 +16,7 @@ Add the BMU to a profile first, as described in [Prohelion BMU](index.md).
 The **Firmware Settings** tab appears once Profinity has read the BMU's firmware settings. While it is still reading them, the tab says so, and if it cannot read them it shows **Error Loading Firmware**.
 If the tabs are missing, check that the CAN adapter status is green, the **Base Address** matches the BMU and the BMU is powered.
 
-Unlocking the Admin parameters needs the **Modify components** permission and a firmware configuration key.
+Unlocking the Admin parameters needs the **Modify components** permission and a firmware configuration key. Uploading a firmware file needs the **Modify profiles** and **Allow firmware actions** permissions.
 The Firmware Configuration Key is not published, so contact Prohelion if you believe you need it.
 Flashing a Gen1 BMU needs a [CAN to Ethernet bridge](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md) or a [Prohelion Virtual CAN Bus Adapter](../../CAN_Bus_Protocols/Virtual_CAN_Adapter.md), and a Gen2 BMU can be flashed with any supported CAN adapter.
 
@@ -61,7 +61,7 @@ To unlock the Admin parameters, a user with the **Modify components** permission
 3. Type the key.
    Type the key in hexadecimal, with or without the `0x` prefix, for example `0x1A2B` or `1A2B`. Digits with no prefix are read as hexadecimal, so `10` means 16.
    The key is from 0 to FFFF in hexadecimal (0 to 65535 in decimal).
-4. In **Session duration (minutes)**, set the duration in minutes.
+4. In **Session Unlock Timeout**, set the duration in minutes.
    The duration defaults to 30 and accepts 1 to 1440 minutes.
 5. Select **Apply**.
    The dialog reloads and the Admin parameters appear.

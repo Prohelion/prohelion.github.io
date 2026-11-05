@@ -34,7 +34,7 @@ Each item in `items` must contain a `readout` object with:
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `label` | string | Yes | None | Caption of the readout. The caption can be bound with the `label` target, and it is underlined when `action` is set |
-| `value` | number or string | No | None | Static value. The value is formatted with `unit` and `precision`. When no data is available, the readout shows `--` and is displayed as stale |
+| `value` | number or string | No | None | Static value. The value is formatted with `unit` and `precision`. When no data is available, the readout shows `--` and is dimmed |
 | `unit` | string | No | None | Unit appended after a numeric value. The unit can be bound with the `unit` target |
 | `precision` | number | No | None | Number of decimal places for numeric values. When not set, a number shows every decimal place it has, such as 12.5 |
 | `width` | integer | No | `1` | Number of columns that the readout spans, from `1` to `4`. A value greater than `1` displays the readout as a wide readout |

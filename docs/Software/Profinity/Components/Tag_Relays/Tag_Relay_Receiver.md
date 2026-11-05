@@ -46,7 +46,7 @@ To set up a sender and a receiver together for the first time, refer to [Set up 
    For HTTPS, follow [Receiving over HTTPS](#receiving-over-https).
 5. Save the settings.
    Saving restarts the receiver.
-   An MQTT receiver starts again when **Auto Connect** is on, or when you last turned the **Connect / Disconnect Toggle** on its component dashboard on.
+   An MQTT receiver starts when the profile loads if **Auto Connect** is on. Otherwise it stays **Off** until you turn on the **Connect / Disconnect Toggle** on its component dashboard.
    Otherwise its status shows **Off**, and you turn the toggle on.
    A receiver set to HTTPS starts running without a start step.
 

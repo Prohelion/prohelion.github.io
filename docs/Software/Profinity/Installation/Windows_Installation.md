@@ -62,5 +62,5 @@ For the accounts that exist with and without a Server licence, refer to [Who can
 Work through the [Quick start guide](../Getting_Started/Quick_Start.md) in the desktop window.
 No licence or browser sign-in is needed.
 
-To let other people sign in from a browser, apply a Server licence, restart Profinity, sign in as `admin`, change the password, and create accounts with [Create a user](../Getting_Started/Create_User.md).
+To let other people sign in from a browser, apply a Server licence, select **ADMIN > Restart Profinity**, sign in as `admin`, change the password, and create accounts with [Create a user](../Getting_Started/Create_User.md).
 Review the [Security guide](./Security.md), and run Profinity in the background with [Run Profinity as a Windows service](./Run_as_a_Service/Run_as_a_Windows_Service.md).

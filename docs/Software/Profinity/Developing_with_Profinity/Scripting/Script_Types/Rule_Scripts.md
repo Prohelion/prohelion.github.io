@@ -65,7 +65,7 @@ The context holds:
 The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage`, `TriggeredTags` and `Parameters`, with the same names in C#, Python and Lua.
 `RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert levels](../../../Tags/Alerts.md#alert-levels)).
 
-`Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`.
+`Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`. `EnteredStep` means the value entered a threshold step, and `ExitedStep` means it left one.
 Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
 
 `Parameters` is a dictionary keyed by the names written under `parameters` on the action entry.

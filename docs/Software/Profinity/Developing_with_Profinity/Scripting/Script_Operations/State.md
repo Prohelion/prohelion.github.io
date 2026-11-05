@@ -59,7 +59,7 @@ The examples in this section save data to both the local and global state stores
     Profinity.GlobalState:Set('totalScriptsRun', 'Shared data')
     ```
 
-Any stored key can be retrieved from both the local and global state stores, and a key that does not exist returns null.
+A key can be retrieved only from the store it was set in, and a key that does not exist returns null.
 
 === "C#"
 

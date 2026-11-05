@@ -114,6 +114,41 @@ function setStatus(ledgerFile, status, ids, { page, note, wave, recheck } = {}) 
   return targets.length;
 }
 
+
+const queryText = (q) => (typeof q.query === 'string' ? q.query : JSON.stringify(q.query));
+const queryTokens = (q) => new Set(queryText(q).toLowerCase().match(/[a-z]{5,}/g) || []);
+const similar = (a, b) => {
+  const x = queryTokens(a);
+  const y = queryTokens(b);
+  if (!x.size || !y.size) return false;
+  let both = 0;
+  for (const t of x) if (y.has(t)) both += 1;
+  return both / (x.size + y.size - both) > 0.35;
+};
+
+/**
+ * After a page is re-reviewed, close any older open query that the new review raised again, so the backlog does not
+ * count one question twice, and note any new query that resembles one already closed so triage can check it first.
+ */
+function reconcileQueries(ledger, page, existingBefore, when) {
+  const fresh = ledger.queries.slice(existingBefore).filter((q) => q.page === page);
+  const older = ledger.queries.slice(0, existingBefore).filter((q) => q.page === page);
+  let reraised = 0;
+  for (const n of fresh) {
+    for (const o of older) {
+      if (o.status === 'open' && similar(n, o)) {
+        o.status = 'closed';
+        o.note = `Raised again by the ${when} review`;
+        o.updated = when;
+        reraised += 1;
+      }
+    }
+    const closed = older.find((o) => o.status === 'closed' && !String(o.note || '').startsWith('Raised again') && similar(n, o));
+    if (closed) n.similarToClosed = String(closed.note || 'closed query').slice(0, 80);
+  }
+  return reraised;
+}
+
 function replace(ledgerFile, page, findingsFile) {
   const ledger = read(ledgerFile);
   const when = today();
@@ -128,9 +163,11 @@ function replace(ledgerFile, page, findingsFile) {
     }
   }
   const before = ledger.findings.length;
+  const queriesBefore = ledger.queries.length;
   for (const r of Object.values(mergeReviews(reviews))) addReview(ledger, r, when);
+  const reraised = reconcileQueries(ledger, page, queriesBefore, when);
   write(ledgerFile, ledger);
-  console.log(`${superseded} open findings superseded, ${ledger.findings.length - before} added for ${page}`);
+  console.log(`${superseded} open findings superseded, ${ledger.findings.length - before} added, ${reraised} repeat queries closed for ${page}`);
 }
 
 /** Replace the findings of every page named in the review files, merging a page review with its blocker pass. */
@@ -141,6 +178,7 @@ function ingest(ledgerFile, findingsFiles) {
   const merged = mergeReviews(all.filter((r) => r.page));
   let superseded = 0;
   let added = 0;
+  let reraised = 0;
   for (const review of Object.values(merged)) {
     for (const f of ledger.findings) {
       if (f.page === review.page && f.status === 'open') {
@@ -150,7 +188,9 @@ function ingest(ledgerFile, findingsFiles) {
       }
     }
     const before = ledger.findings.length;
+    const queriesBefore = ledger.queries.length;
     addReview(ledger, review, when);
+    reraised += reconcileQueries(ledger, review.page, queriesBefore, when);
     added += ledger.findings.length - before;
   }
   for (const section of [...new Set(all.filter((r) => r.section).map((r) => r.section))]) {
@@ -166,8 +206,8 @@ function ingest(ledgerFile, findingsFiles) {
     added += ledger.findings.length - before;
   }
   write(ledgerFile, ledger);
-  console.log(`${Object.keys(merged).length} pages re-reviewed: ${superseded} open findings superseded, ${added} added`);
-  return { pages: Object.keys(merged).length, superseded, added };
+  console.log(`${Object.keys(merged).length} pages re-reviewed: ${superseded} open findings superseded, ${added} added, ${reraised} repeat queries closed`);
+  return { pages: Object.keys(merged).length, superseded, added, reraised };
 }
 
 function ledgerReviews(ledger) {
@@ -228,6 +268,15 @@ if (require.main === module) {
       replace(args[0], args[1], args[2]);
     } else if (command === 'ingest' && args.length >= 2) {
       ingest(args[0], args.slice(1));
+    } else if (command === 'reconcile-queries' && args.length === 2) {
+      // Apply the repeat-query check to queries added after position <n>, for an ingest that ran without it.
+      const ledger = read(args[0]);
+      const n = Number(args[1]);
+      const pages = [...new Set(ledger.queries.slice(n).map((q) => q.page))];
+      let closed = 0;
+      for (const page of pages) closed += reconcileQueries(ledger, page, n, today());
+      write(args[0], ledger);
+      console.log(`${closed} older open queries closed as raised again, across ${pages.length} pages`);
     } else if (command === 'score') {
       const out = flag('--out');
       const jsonOut = flag('--json');
@@ -236,7 +285,7 @@ if (require.main === module) {
     } else if (command === 'summary' && args[0]) {
       summary(args[0]);
     } else {
-      console.error('Usage: review-ledger.js init | status | replace | score | summary (see the header of this file)');
+      console.error('Usage: review-ledger.js init | status | replace | ingest | reconcile-queries | score | summary (see the header of this file)');
       process.exit(2);
     }
   } catch (e) {

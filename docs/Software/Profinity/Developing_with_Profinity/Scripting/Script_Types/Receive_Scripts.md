@@ -20,7 +20,7 @@ Three settings decide which packets reach the script.
 | Setting | Default | Meaning |
 |---------|---------|---------|
 | **Base Address** | 0 | The base CAN address of the device, entered in hexadecimal. |
-| **Address Range** | 0 | The range of packet addresses the device sends, entered in hexadecimal. |
+| **Address Range** | 0 | The number of addresses above Base Address that the script receives, entered in hexadecimal. A packet is received when its CAN ID is from Base Address to Base Address plus Address Range, inclusive, so 0 receives only the Base Address. |
 | **Milliseconds Valid** | 5000 | How long traffic from the device counts as valid before the connection is assumed lost. The range is -1 to 60000, and -1 means traffic never expires. |
 
 <figure markdown>

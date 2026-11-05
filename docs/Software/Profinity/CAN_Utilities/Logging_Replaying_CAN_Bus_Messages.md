@@ -20,7 +20,7 @@ Once CAN bus messages are coming in to Profinity, you are ready to log.
 Profinity has two kinds of logger:
 
 - Loggers that log to file: [CAN file and SFTP loggers](../Components/Loggers/CAN_File_and_SFTP_Loggers.md) and [Tag file and SFTP loggers](../Components/Loggers/Tag_File_and_SFTP_Loggers.md).
-- Loggers that log to timeseries databases, such as [InfluxDB](../Components/Loggers/InfluxDB_v1_Logger.md) and [Prometheus](../Components/Loggers/Prometheus_Logger.md).
+- Loggers that log to timeseries databases, such as [InfluxDB v1](../Components/Loggers/InfluxDB_v1_Logger.md) and [Prometheus](../Components/Loggers/Prometheus_Logger.md).
 
 You configure all loggers in the same way, by adding the logger to the profile as a component.
 

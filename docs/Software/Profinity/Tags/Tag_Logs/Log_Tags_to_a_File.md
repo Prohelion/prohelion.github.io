@@ -19,7 +19,7 @@ Adding a logger and selecting its collections needs **Modify components**. Start
 To record tags:
 
 1. Add the logger to your [Profinity profile](../../Getting_Started/Profiles.md) as a component, using **ADD COMPONENT** in the side menu.
-2. In **Collections**, select the tag collections to record.
+2. In the logger's settings, set **Collections** to the tag collections to record.
 3. Start the logger with the **Start Logger / Stop Logger** toggle in the logger component's actions.
 A logger added without a collection stays stopped even with **Auto Connect** on (the default), and saving its settings does not start it.
 With a collection selected and **Auto Connect** on, the logger also starts when the profile loads.
@@ -28,7 +28,7 @@ Only the tags that belong to the selected collections are written, at every qual
 A TAG File Logger and a TAG SFTP Logger each need at least one collection selected before they start.
 Saving its settings restarts a running logger but does not start a stopped one.
 
-Choose the **File Format** with replay in mind.
+Choose the **File Format** in the logger's settings, with replay in mind. The default is **CSV**.
 Both `CSV` (comma-separated values, `.txt`) and `JSON Lines` (`.jsonl`) can be replayed.
 For the full list of settings, including the **Logging mode**, rotation, and archive options, refer to [Tag file and SFTP loggers](../../Components/Loggers/Tag_File_and_SFTP_Loggers.md).
 For the SFTP connection and the rotation and archive settings, refer to [File logger rotation, archive, and SFTP settings](../../Components/Loggers/File_Logger_Rotation_Archive_and_SFTP.md).

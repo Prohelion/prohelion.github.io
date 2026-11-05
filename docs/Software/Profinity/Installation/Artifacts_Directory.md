@@ -43,7 +43,7 @@ The Linux installer pre-creates only `config/`, `profiles/`, `plugins/`, and `lo
 Profinity creates the other folders on demand.
 
 Because `.dp_keys/` lives inside the artefacts directory, it stays on a Docker volume when you replace the container.
-Profinity renames the capitalised names that earlier releases used (`Config`, `Config.yaml`, `Profiles`, `Logs`) to the lowercase forms on first start.
+Profinity renames the capitalised names that earlier releases used, such as `Config`, `Config.yaml`, `Profiles`, `Logs`, `Themes` and `Webroot`, to the lowercase forms on first start.
 This documentation uses the lowercase names throughout.
 
 ## Sample content on a new installation
@@ -63,13 +63,13 @@ Set the environment variable `PROFINITY_HOME` to the full path of the artefacts 
 
 Give each instance its own `PROFINITY_HOME`, and its own HTTP and HTTPS ports, set in the **IP Port for Http** and **IP Port for Https** settings on the **Web** tab, as described on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page.
 Setting `PROFINITY_HOME` stops migration from the older locations, so copy any existing data you need into the new root first. Refer to [Automatic migration on startup](#automatic-migration-on-startup) for those locations.
-For example, in a Linux shell:
+For example, in a Linux or macOS shell (for Windows commands, see [Set a variable](./Environment_Variables.md#set-a-variable)):
 
 ```bash
 export PROFINITY_HOME=/var/lib/prohelion-staging/profinity
 ```
 
-Profinity reads `PROFINITY_HOME` when it starts, so restart Profinity after you set it. Set it before the first start, because Profinity does not migrate data from the older locations while it is set.
+Profinity reads `PROFINITY_HOME` when it starts, so restart Profinity after you set it. An `export` lasts only for the shell it runs in. For a service or a container, set the variable as described in [Set a variable](./Environment_Variables.md#set-a-variable). Set it before the first start, because Profinity does not migrate data from the older locations while it is set.
 
 ## Automatic migration on startup
 

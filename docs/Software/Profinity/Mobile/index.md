@@ -34,7 +34,7 @@ The organisation that distributes it builds and signs its own iOS and Android bi
 
 ## Login modes
 
-The **Password** mode is the standard Profinity web sign-in page, which the app opens inside the app.
+Password sign-in uses the standard Profinity web sign-in page, which the app opens inside the app.
 It follows the site's Local or single sign-on (SSO) sign-in method, and it shows the two-factor prompt when the site requires it.
 The app can save the username and password in the phone's secure storage.
 

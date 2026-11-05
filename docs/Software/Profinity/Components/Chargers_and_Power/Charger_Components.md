@@ -1,6 +1,6 @@
 ---
 title: Charger components
-description: "Choose a TDK Power Supply, Siglent Power Supply or Elcon Charger component and add it to a profile with a Prohelion BMS to charge a battery pack."
+description: "Choose a TDK Power Supply, Siglent Power Supply or Elcon Charger component and add it to a profile with a Prohelion BMU to charge a battery pack."
 type: component
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -16,21 +16,21 @@ The D1000 Gen1 Battery Management Unit (BMU) raises the charge current setpoint 
 On a D1000 Gen2 the BMS hardware handles charging, so refer to the [D1000 Gen2 documentation](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/index.md) for how charging is managed there.
 
 Profinity supports three charger types.
-A [Prohelion BMS](../Battery_Management_Systems/Prohelion_BMU/index.md) in the same Profile supplies the pack data.
+A [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU/index.md) in the same Profile supplies the pack data.
 A user needs the **Control charging** permission to see the charging controls (refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md)).
 
 <figure markdown>
 ```mermaid
 flowchart LR
     subgraph Profile["Profile"]
-        BMS["Prohelion BMS"] --> Component["Charger component"]
+        BMS["Prohelion BMU"] --> Component["Charger component"]
     end
     subgraph Hardware["Charger"]
         Charger["TDK, Siglent or Elcon"]
     end
     Component --> Charger
 ```
-<figcaption>A Prohelion BMS in the Profile supplies the pack data, and the charger component controls the charger, over TCP for a TDK or Siglent supply and over CAN for an Elcon charger</figcaption>
+<figcaption>A Prohelion BMU in the Profile supplies the pack data, and the charger component controls the charger, over TCP for a TDK or Siglent supply and over CAN for an Elcon charger</figcaption>
 </figure>
 
 <figure markdown>
@@ -48,7 +48,7 @@ flowchart LR
 ## Add a charger to the Profile
 
 Add a charger from **ADD COMPONENT** in the same way as any other device (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)).
-The Profile must also contain a Prohelion BMS with **Control Pack** switched on.
+The Profile must also contain a Prohelion BMU with **Control Pack** switched on.
 **Control Pack** is off by default, and Profinity can engage and disengage the pack, which a charge needs, only when it is on.
 Once the charger is added it appears under **Chargers & Power Supplies** in the main menu with its own dashboard.
 

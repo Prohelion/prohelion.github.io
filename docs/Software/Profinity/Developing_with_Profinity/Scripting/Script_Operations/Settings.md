@@ -99,7 +99,7 @@ Values convert to the type of the field. `RebaseAddress` takes a whole number.
 | `SetValue` or `TrySetValue` on a numeric property given text that is not a number | The .NET conversion message, for example: `The input string is not in a correct format.` |
 
 `profinity-script sim` runs the script on a simulated component.
-In `sim.yaml`, which sits in the same folder as the script, list the field identifiers under `componentFields` and `firmwareFields` as YAML lists so `SetValue` can save them, and `GetValue` returns a value only after one has been saved.
+In `sim.yaml`, which sits in the same folder as the script, list the bare field identifiers, without the `SETTINGS.` or `FIRMWARE.` prefix, under `componentFields` and `firmwareFields` as YAML lists so `SetValue` can save them, and `GetValue` returns a value only after one has been saved.
 The rest of that file is on [profinity-script reference](../../SDK/Profinity_Script_Reference.md).
 Without those entries, `SetValue` reports an unknown field.
 

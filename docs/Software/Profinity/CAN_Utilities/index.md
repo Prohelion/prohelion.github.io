@@ -13,4 +13,4 @@ To connect a CAN bus first, refer to [CAN bus adapters](../Components/CAN_Bus_Pr
 
 - [CAN bus DBC](CAN_Bus_DBC.md): open the CAN database (DBC) Viewer, load a third-party DBC file, and filter messages and signals.
 - [Send / receive CAN bus messages](Send_Receive_CAN_Bus_Messages.md): monitor CAN bus traffic, send a CAN packet on demand and schedule packets at a fixed interval.
-- [Log / replay CAN bus messages](Logging_Replaying_CAN_Bus_Messages.md): choose how to log CAN bus messages and find what the replayer can replay.
+- [Log / replay CAN bus messages](Logging_Replaying_CAN_Bus_Messages.md): choose how to log CAN bus messages and find what the CAN data log replayer (**CAN LOG REPLAY** under **CAN UTILITIES**) can replay.

@@ -37,7 +37,7 @@ Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and
 
 | Key | Button the user gets |
 |-----|--------------------------|
-| `loadScript` | **LOAD SETTINGS**. Runs once and, on success, marks the firmware as loaded |
+| `loadScript` | **LOAD SETTINGS**. Runs the script once each time the button is pressed and, on success, marks the firmware as loaded |
 | `saveScript` | **SAVE SETTINGS**. Runs once |
 | `actions` | One button per entry. The label is `displayName` in capitals |
 

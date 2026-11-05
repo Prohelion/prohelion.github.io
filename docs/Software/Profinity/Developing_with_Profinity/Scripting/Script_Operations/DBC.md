@@ -61,7 +61,7 @@ A script that could reference a missing name wraps the call in `try`/`catch` (C#
 
 The most important property of the returned `DbcSignal` object is `Value`, which returns the current physical value of the signal.
 `Value` is `NaN` (not a number) when no valid value is available.
-That happens when the device fails its validity check, when no packet has been received for the message, when the last packet is older than the Milliseconds Valid period, or when the signal is not present in the packet.
+That happens when no packet has been received for the message, when the last packet is older than the Milliseconds Valid period, or when the signal is not present in the packet.
 
 The DBC validity period is the Milliseconds Valid setting of the device that sends the message. It defaults to 5000 ms on battery and charger components. A Receive script Milliseconds Valid setting does not change it.
 

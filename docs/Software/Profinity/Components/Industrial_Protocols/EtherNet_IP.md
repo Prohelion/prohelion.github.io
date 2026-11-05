@@ -33,7 +33,7 @@ Add one component for each PLC you want to read.
 You can change the settings in the Communications settings section later from the component's **Change Settings** menu action.
 
 You list each PLC tag by name in the point map.
-The component does not browse the PLC's CIP objects to discover tags for you.
+The component does not browse the PLC's CIP objects to discover tags for you. On a ControlLogix, CompactLogix or Micro800 controller, **Browse** reads the PLC's tag symbol list instead.
 
 ## Communications settings
 

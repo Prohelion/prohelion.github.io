@@ -104,7 +104,7 @@ regions:
     visibleBorder: true
 ```
 
-A region that runs an action:
+A region that runs an action. Its `actionId` must name an action that the component offers. Refer to [Action names](../Interactive/Actions.md#action-names).
 
 ```yaml
 regions:

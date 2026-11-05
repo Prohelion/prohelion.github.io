@@ -71,7 +71,7 @@ A parent action runs for every rule beneath it whose alert level is at or above 
 The level comes from the rule or, for a threshold rule, from the step that fired.
 
 In [Complete rules.yaml example](../Rules_YAML_Example.md), a Warning on `pack_temperature` runs only **Profinity Log**.
-An Error runs **Profinity Log** and `OpsSlack`, and the Fatal step also runs `OpsEmail` from the group.
+An Error on any rule runs **Profinity Log** and `OpsSlack` from the profile, unless the rule disables Profinity Log, as `cell_over_voltage` does. The Fatal step also runs `OpsEmail` from the group.
 Actions written on a rule or on a threshold step are local.
 They take no `triggerLevel` and always run when that rule or step fires.
 
@@ -112,7 +112,7 @@ actions:
 ```
 
 An action that is missing, or is a different kind of component, is reported as `references unknown component` when the rules file loads.
-The rules file loads once the name is corrected.
+The other rules in the file still load, and the rule that names it stays skipped until the name is corrected.
 
 ## `TriggeredTags`
 

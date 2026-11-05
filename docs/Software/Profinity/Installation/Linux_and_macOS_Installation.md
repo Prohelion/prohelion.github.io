@@ -69,7 +69,7 @@ sudo bash install.sh --channel <channel supplied by Prohelion>
 
 ### Update Profinity
 
-`update.sh`, installed alongside `profinity.sh` in the install root, fetches the matching release for the installed edition.
+`update.sh`, installed alongside `profinity.sh` in the install root, fetches the matching release for the installed edition. To update, run `/opt/profinity/update.sh`.
 It swaps the application files in place.
 It takes the same `--channel` and `--version` options as the installer, and does nothing if the installed version is already current.
 Pass `--force` to reinstall anyway.
@@ -81,7 +81,7 @@ If the `profinity` service is active, `update.sh` stops it before it applies the
 On Linux, Profinity 2.3 stores writable data under `/var/lib/prohelion/profinity` by default, not `~/.local/share`, and it uses only that location.
 On macOS the default is `~/Library/Application Support/Prohelion/Profinity`.
 
-The bootstrap installer creates this directory.
+The bootstrap installer creates this directory, unless you pass `--no-systemd`.
 For more information, refer to [Artefacts directory](./Artifacts_Directory.md).
 
 ## Open the web interface

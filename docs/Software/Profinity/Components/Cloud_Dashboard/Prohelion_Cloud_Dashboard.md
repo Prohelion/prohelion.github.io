@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Prohelion Cloud Dashboard
 
-The Prohelion Cloud Dashboard component publishes the values of selected [tag collections](../../Tags/Collections/index.md) from a Profile to a device in Prohelion Cloud at a fixed interval.
+The Prohelion Cloud Dashboard component publishes the values of selected [tag collections](../../Tags/Collections/index.md) from a Profile to a device in Prohelion Cloud in Snapshot mode at each Update Interval (Seconds). In On Change and Everything modes, the Update Interval sets the flush timing.
 You can view them on cloud-hosted dashboards.
 Prohelion Cloud is an Internet of Things (IoT) platform that stores the data reported by field devices and lets an organisation monitor and manage those devices and assets remotely.
 

@@ -33,11 +33,11 @@ A relative path has no leading `/`.
 Profinity resolves it against the component's place in the tag tree, so the binding follows the component if **Tag tree path** changes.
 
 An absolute path begins with `/` and names some other place in the tree.
-Use a relative path in place of the `{COMPONENT_NAME}` placeholder.
+Use a relative path to bind to this component, not an absolute path that names it.
 Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) and [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 ## Rules
 
-**Rules YAML file** is an optional [Tag rules](../../Tags/Rules/index.md) document for this component, evaluated when this component's tags change, and alerts raised from those rules appear in [Alerts Log](../../Tags/Alerts.md).
+**Rules YAML file (Optional)** is an optional [Tag rules](../../Tags/Rules/index.md) document for this component, evaluated when this component's tags change, and alerts raised from those rules appear in [Alerts Log](../../Tags/Alerts.md).
 A tag rule can also run an action when a condition fires, which is not a menu action: menu entries are declared in `actions.yaml`.
 Refer to [Menu actions](Menu_Actions.md).

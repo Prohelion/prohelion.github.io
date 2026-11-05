@@ -30,7 +30,7 @@ The file holds these fields:
 | `splashLogo`, `landingLogo` and `appIcon` | `assets/images/profinity-logo.svg`, `assets/images/landing-profinity.svg` and `assets/images/apple-touch-icon.png` | Paths to the splash logo, the landing page logo and the app icon source artwork |
 | `development.androidEmulatorHostConnect` | `false` | Set to `true` only for development builds that connect an Android emulator to a Profinity server on the host machine |
 | `discovery.profinityHeartbeatPort` | `49025` | Must match the **Heartbeat UDP port** on the Profinity server (default 49025) |
-| `discovery.profinityHeartbeatVersion` | `2.3` | The product version a server must report in its heartbeat. The app hides any server that reports a different version |
+| `discovery.profinityHeartbeatVersion` | `2.3` | The major.minor product version (for example `2.3`) that a server must report in its heartbeat. The app hides any server that reports a different version |
 | `discovery.staleTimeoutMs` | `10000` | Time in milliseconds after which a server that has not been seen is removed from the discovery list |
 
 The iOS bundle identifier is set in Xcode under the **ProfinityMobile** target, in **Signing**. The Android application identifier is `defaultConfig.applicationId` in `android/app/build.gradle`.

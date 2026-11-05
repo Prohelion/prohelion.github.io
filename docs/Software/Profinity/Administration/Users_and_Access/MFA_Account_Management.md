@@ -36,6 +36,8 @@ Where the site allows security keys, the dialog also holds the panel for registe
 
 A user with the **Security administration** permission can clear another user's authenticator when the site **Sign-in method** is **Local**, the site enforces two-factor authentication, and the licence includes the **Two-Factor Authentication** feature. Otherwise **Reset MFA** is not shown.
 
+Reset MFA deletes the user's authenticator and recovery codes and signs them out of every session, and you cannot undo it.
+
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select the other user's row to open their settings dialog.
 3. Select the **User Actions** tab.

@@ -17,6 +17,7 @@ You need:
 - The [Profinity SDK](../../Developing_with_Profinity/SDK/index.md), which includes `profinity-component-pack`. The SDK is available from Prohelion.
 - A `component_metadata.yaml` file in the folder, which sets the name that the component has in the catalogue. Refer to [Component metadata](../../Developing_with_Profinity/Custom_Components/Component_Metadata.md).
 - An administrator on the other installation who can upload packages, as described in [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md).
+- The **Custom Plugins** licensed feature on the other installation.
 
 Run `profinity-component-pack` on Windows (`win-x86`), macOS (`osx-x64`, also used on Apple silicon through Rosetta) or Linux (`linux-x64`, `linux-arm` or `linux-arm64`). The commands are the same on each system, except that on Windows the tool starts as `dotnet profinity-component-pack.dll`, and the path separators in examples differ.
 
@@ -25,7 +26,7 @@ Run `profinity-component-pack` on Windows (`win-x86`), macOS (`osx-x64`, also us
    Fix each problem and validate again until it reports none.
 2. Run `profinity-component-pack pack --component-dir <path> --output <path.zip|path.nupkg>`, where the output ends in `.zip` or `.nupkg`.
    Refer to [Component Pack CLI](../../Developing_with_Profinity/SDK/Component_Pack_CLI.md) for the commands and flags.
-3. On the other installation, an administrator selects **ADMIN**, then **Components & Plugins**, and uploads the `.zip` or `.nupkg` package. The package then appears in the list on that page.
+3. On the other installation, an administrator selects **ADMIN**, then **Components & Plugins**, and uses the **UPLOAD PLUGIN** panel to upload the `.zip` or `.nupkg` package. The package then appears in the list on that page.
 4. Open the profile and select **ADD COMPONENT**.
    The component is listed under the name that `component_metadata.yaml` gives it.
 

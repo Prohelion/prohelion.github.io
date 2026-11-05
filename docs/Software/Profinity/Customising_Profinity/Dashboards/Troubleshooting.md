@@ -13,7 +13,7 @@ This page explains how to diagnose and fix dashboard problems with data that doe
 ## Dashboard does not load
 
 A dashboard that fails to load, or that cannot be saved, has a validation error, because Profinity loads only valid dashboards.
-Open **Edit Dashboard** from the title bar, read the **Schema validation issues** list, which names each problem, and correct each entry.
+Open **Edit Dashboard** from the title bar (you need the **Modify dashboards** permission), read the **Schema validation issues** list, which names each problem, and correct each entry.
 The usual causes are a missing colon, wrong indentation, an invalid property name, or an absent required property.
 The editor blocks **SAVE** while any entry remains, so save once the list is empty and close the editor to see the result.
 

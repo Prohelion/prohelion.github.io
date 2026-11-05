@@ -108,7 +108,7 @@ A metric name that contains `/` adds further segments beneath the device.
 
 !!! warning "Subscribed tags are read-only"
     A tag the MQTT Subscriber creates cannot be written to from a dashboard, a script or any other source, and the write is rejected.
-    The only thing that updates the value of one of these tags is the next Sparkplug message for that metric.
+    The only thing that changes the value of one of these tags is the next Sparkplug message for that metric.
     A lost broker connection, or a death message for the node or device, marks the tags **Stale** and keeps their last value.
 
 To react to an incoming value, use a **Run On Tag Change** script that watches the tag.

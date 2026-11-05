@@ -44,7 +44,7 @@ The `action` object of a [Toggle](../Interactive/Toggles.md) is an action invoca
 | `value` | string | No | None | Not used by toggles. Set `value` on the toggle itself to post a payload |
 | `confirmMessage` | string | No | None | Message of a confirmation dialog shown before the action runs |
 | `trackProgress` | boolean | No | `false` | Polls the progress of the action after a `Component` or `System` request |
-| `restartingOnSuccess` | boolean | No | None | Shows a wait dialog after the action succeeds and polls until the engine is running again |
+| `restartingOnSuccess` | boolean | No | `false` | Shows a wait dialog after the action succeeds and polls until the engine is running again |
 
 ## Shared element parameters
 

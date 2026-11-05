@@ -66,7 +66,7 @@ appSettings:
     enabled: ${ENABLE_SCRIPTING:-false}
 ```
 
-This `profile.yaml` takes the connection settings of an InfluxDB v2 historian from environment variables, so the token never appears in the file:
+This `profile.yaml`, which sits in the `profiles/<profile name>/` folder, takes the connection settings of an InfluxDB v2 historian from environment variables, so the token never appears in the file:
 
 ```yaml
 description: ${PROFILE_DESCRIPTION}
@@ -194,7 +194,7 @@ services:
       - ./Prohelion:/var/lib/prohelion/profinity
 ```
 
-With `HTTP_PORT=8080`, host port 8080 maps to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}`.
+With `HTTP_PORT=8080`, host port 8080 maps to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}`. `HTTPS_PORT` works the same way only if `config.yaml` also has `httpsPort: ${HTTPS_PORT:-18443}`. Profinity does not read `HTTPS_PORT` on its own, so without that placeholder Compose publishes the new port while Profinity still listens on 18443.
 The Profinity image declares only ports 18080 and 18443, and Docker publishes only the ports listed under `ports`. Port `4876` is the Tritium CAN bridge port, which uses TCP and UDP. Keep it only if you use a Tritium adapter, and then publish it for the protocols the adapter uses, as described in [Docker ports and data directory](./Docker/Docker_Ports_and_Data_Directory.md).
 
 Mount the whole `/var/lib/prohelion/profinity` directory, so that the licence, security keys, and logs survive when the container is replaced.

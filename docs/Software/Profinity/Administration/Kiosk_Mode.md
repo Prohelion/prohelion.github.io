@@ -62,7 +62,7 @@ On a Windows desktop installation without a Server licence there are no user acc
 
 A kiosk session expires after the **Access token lifetime (minutes)** set in [Session policy and login lockout](System_Configuration/Security/Session_Policy.md).
 The default is 120 minutes.
-A display that runs unattended for months can use a kiosk user, configured with a service account, whose session lasts indefinitely.
+A display that runs unattended for months can use a kiosk user with **Service Account** turned on, whose session lasts indefinitely.
 
 Treat that account with the same care as any long-lived credential.
 Review the kiosk user from time to time to confirm it is still appropriate and enabled.

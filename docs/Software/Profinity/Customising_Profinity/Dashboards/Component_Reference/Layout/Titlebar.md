@@ -36,7 +36,7 @@ When both `showTitlebar` and `showActions` are `false`, the titlebar is hidden a
 
 ## Titlebar menu
 
-The titlebar displays every item of its `menu` as an icon with the item caption hidden, and each item type behaves as follows.
+The titlebar displays every item of its `menu` as an icon with the item caption hidden, except `toggle` items, which show as a switch. Each item type behaves as follows.
 
 | Item type | Behaviour in the titlebar |
 |-----------|---------------------------|

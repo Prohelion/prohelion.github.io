@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Start a charge
 
 Start a charge from the dashboard of a charger component.
-The charger must be in the same Profile as a Prohelion Battery Management System (BMS) with **Control Pack** switched on (refer to [Charger components](Charger_Components.md)).
+The charger must be in the same Profile as a Prohelion Battery Management Unit (BMU) with **Control Pack** switched on (refer to [Charger components](Charger_Components.md)).
 
 Open the charger from **Chargers & Power Supplies**.
 The dashboard shows:
@@ -23,7 +23,7 @@ Once it is connected, the message in the **Charger / Power Supply Controller** p
 
 The panel has four controls:
 
-- The battery selector chooses which Prohelion BMS to charge when the Profile has more than one.
+- The battery selector chooses which Prohelion BMU to charge when the Profile has more than one.
 - The current control sets the charge current in amps, in steps of 0.5 A, up to the maximum the screen allows.
 - **Charge To** sets the state of charge, in percent, at which charging stops.
 - **START** begins the charge and becomes **STOP** while charging is running.
@@ -53,7 +53,7 @@ Profinity runs these stages in order:
 
 1. Set the charger to the estimated pack voltage.
 2. Check that the charger is ready for precharge.
-3. Engage the pack through the BMS.
+3. Engage the pack through the BMU.
 4. Start the charge.
 
 If any stage fails, Profinity stops the charge and disengages the pack.

@@ -108,7 +108,7 @@ Lock the system down with the operating system's own facilities, for example Win
 Hide the taskbar and system tray, and configure the system to restart the browser when it exits.
 The Linux unit in this guide does this with `Restart=always`.
 
-A kiosk session expires under the normal token expiry policy, and [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) describes how a display that runs unattended for months avoids this.
+A kiosk session expires under the normal token expiry policy, which lasts 120 minutes by default, and [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) describes how a display that runs unattended for months avoids this.
 
 ## Test Kiosk Mode
 

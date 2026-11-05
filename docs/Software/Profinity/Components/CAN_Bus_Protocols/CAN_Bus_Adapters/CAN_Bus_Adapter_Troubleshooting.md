@@ -26,7 +26,7 @@ An adapter that is connected but has no data arriving shows amber, and one that 
 | What you see | Cause | What to do |
 |---|---|---|
 | An amber indicator | The adapter is connected, but no data is arriving. | Check that the bit rate matches the bus, that the bus is terminated and whether another device is transmitting. |
-| A red indicator | An attempt to connect failed, or the connection was lost. | Read the Profinity System Logs for the reason. Common causes: a missing Peak driver, a wrong TCP bridge address or port, or a wrong SocketCAN interface name. |
+| A red indicator | An attempt to connect failed, or the connection was lost. | Read the [Logs](../../../Administration/Logs_Config.md) page under **ADMIN** for the reason. Common causes: a missing Peak driver, a wrong TCP bridge address or port, or a wrong SocketCAN interface name. |
 
 ## If a Peak adapter is not found
 

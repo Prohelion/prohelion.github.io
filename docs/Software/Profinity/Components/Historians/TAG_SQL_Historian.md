@@ -149,7 +149,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
 
 Replace `DB_HOST` and `DB_PASSWORD` with the host name and password of your database, and `COLLECTION_ID` with the id of a [tag collection](../../Tags/Collections/index.md).
 Each value is a setting from the [Connection settings](#connection-settings) or [Logger settings](#logger-settings) section.
-Profinity stores the connection string encrypted when it saves the profile.
+Profinity stores the connection string encrypted when it saves the profile. Until then, a password written in plain text stays readable in the file.
 
 ## If the historian does not start
 

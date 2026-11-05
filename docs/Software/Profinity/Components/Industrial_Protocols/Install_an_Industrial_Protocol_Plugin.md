@@ -9,7 +9,7 @@ last_reviewed: 2026-10-28
 # Install an industrial protocol plugin
 
 Use this procedure to make the BACnet, EtherNet/IP, Modbus, OPC UA or S7 components available in Profinity.
-You need an edition with the **Industrial Protocols** licensed component group, which is an add-on to your Desktop, Server, or Enterprise edition.
+You need an edition with the **Industrial Protocols** licensed component group, which is an add-on to your Desktop, Server, or Enterprise edition. You also need the **Modify plugins** permission to install a plugin.
 
 The plugins are an add-on to the standard Profinity installation.
 Each one brings data in as ordinary Profinity tags, and the Open Platform Communications Unified Architecture (OPC UA) plugin can also expose Profinity's tag tree to third-party clients.
@@ -27,7 +27,7 @@ Each one brings data in as ordinary Profinity tags, and the Open Platform Commun
 To install a plugin:
 
 1. [Contact Prohelion](https://www.prohelion.com/contact-us/) to arrange access to the protocols you need. Prohelion supplies the plugins on request.
-2. Install each plugin like any other dynamic-link library (DLL) [plugin](../../Administration/Install_and_Manage_Plugins.md).
+2. Install each plugin from its `.zip` or `.nupkg` package, as described in [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md).
 3. Add its components from the **Industrial Protocols** group, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 
 To check that it worked, confirm that the **Industrial Protocols** group is listed under **Licensed component groups** in [Licensing](../../Licensing.md), and that the plugin's components appear in the **Industrial Protocols** group of the component catalogue.
