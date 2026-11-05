@@ -108,11 +108,11 @@ Add it to the `components` list in `profile.yaml`, or enter the same values in t
     mqttBrokerPort: 1883
     mqttSnapshotTopic: profinity/relay/site1
     collections:
-    - collectionName: COLLECTION_NAME
+    - collectionName: COLLECTION_ID
 ```
 
 Replace `BROKER_HOST` with the host name or address of your MQTT broker.
-Replace `COLLECTION_NAME` with the name of a collection that exists in the profile.
+Replace `COLLECTION_ID` with the id of a collection that exists in the profile.
 The receiver's **MQTT subscribe topic** matches the `mqttSnapshotTopic` value.
 
 After the profile loads, the sender's status shows **On**.

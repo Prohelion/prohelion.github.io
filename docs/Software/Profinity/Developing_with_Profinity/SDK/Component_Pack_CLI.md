@@ -15,6 +15,7 @@ It does not handle DLL plugins, which are installed through **Components & Plugi
 `component_metadata.yaml` names the pack in the catalogue and binds the files in the folder.
 Refer to [Component metadata](../Custom_Components/Component_Metadata.md).
 The tool runs from the `profinity-component-pack` subfolder of the SDK download.
+The download holds no Windows `.exe`, so on Windows run it from that folder as `dotnet profinity-component-pack.dll`, followed by the command.
 
 ## Commands
 

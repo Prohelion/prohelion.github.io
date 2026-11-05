@@ -19,6 +19,7 @@ Each language writes to the console in its own way.
 In C# the console is `Profinity.Console`.
 In Python, `print()` writes standard output and `print(..., file=sys.stderr)` writes error output.
 In Lua, `print(...)` writes standard output and the `stderr(...)` global writes error output.
+Python and Lua scripts can also call `Profinity.Console.WriteLine` in Python and `Profinity.Console:WriteLine` in Lua, which the scripts that `profinity-script new` creates use.
 
 ## Example usage
 

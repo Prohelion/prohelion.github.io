@@ -18,7 +18,7 @@ You need:
 - A `component_metadata.yaml` file in the folder, which sets the name that the component has in the catalogue. Refer to [Component metadata](../../Developing_with_Profinity/Custom_Components/Component_Metadata.md).
 - An administrator on the other installation who can upload packages, as described in [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md).
 
-Run `profinity-component-pack` on Windows (`win-x86`), macOS (`osx-x64`, also used on Apple silicon through Rosetta) or Linux (`linux-x64`, `linux-arm` or `linux-arm64`). The commands are the same on each system; only the path separators in examples differ.
+Run `profinity-component-pack` on Windows (`win-x86`), macOS (`osx-x64`, also used on Apple silicon through Rosetta) or Linux (`linux-x64`, `linux-arm` or `linux-arm64`). The commands are the same on each system, except that on Windows the tool starts as `dotnet profinity-component-pack.dll`, and the path separators in examples differ.
 
 1. On the machine that has the SDK, run `profinity-component-pack` with the `validate` command on the component folder.
    The tool reports the first problem it finds.

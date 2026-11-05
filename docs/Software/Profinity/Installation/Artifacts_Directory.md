@@ -91,7 +91,7 @@ On every host, the **ADMIN > Logs** page lists a message for each file that move
 
 Back up the artefacts directory before every upgrade.
 Keep `config/` (including `security.yaml`), `profiles/`, `license/`, and `certificates/` in every backup.
-Stop Profinity before you copy or restore the folders, restore by replacing those folders, and start Profinity again.
+Stop Profinity before you copy or restore the folders, rename the current folders instead of deleting them, copy the backed-up folders into place, and start Profinity again. Delete the renamed folders only after Profinity runs correctly.
 
 ## Troubleshooting
 

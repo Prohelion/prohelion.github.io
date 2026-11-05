@@ -77,7 +77,7 @@ Add this list item under the existing `components:` key in the `profile.yaml` fi
     intervalSec: 60
     logType: Snapshot
     collections:
-    - collectionName: YOUR_COLLECTION_NAME
+    - collectionName: YOUR_COLLECTION_ID
     autoConnect: true
 ```
 
@@ -86,7 +86,7 @@ Replace the placeholders as follows:
 - `YOUR_ACCESS_TOKEN` is the access token for the device.
   Profinity encrypts it when it saves the Profile.
 - `YOUR_DEVICE_ID` is the device ID in Prohelion Cloud.
-- `YOUR_COLLECTION_NAME` is the name of a [tag collection](../../Tags/Collections/index.md) in the Profile.
+- `YOUR_COLLECTION_ID` is the id of a [tag collection](../../Tags/Collections/index.md) in the Profile.
 
 After the example runs, the component status shows **On**.
 If the send fails, it shows **Error**, and the reason is in the Profinity System Logs.

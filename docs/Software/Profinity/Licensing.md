@@ -124,7 +124,7 @@ Profinity checks the date while it runs, so it notices the expiry as soon as the
 It then restarts itself once and starts with the state `Expired`.
 Scripting, AI, custom plugins, and the [Extensions Web](Administration/System_Configuration/Extensions_Web.md) server are among the features that stop.
 
-In these five states, the instance falls back to the features every edition includes, shown in [Features by edition](#features-by-edition):
+In these five states, a Desktop installation falls back to the features every edition includes, shown in [Features by edition](#features-by-edition), and a server installation runs in restricted mode, described after the table:
 
 | State | What it means |
 |---|---|

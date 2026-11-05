@@ -12,7 +12,7 @@ last_reviewed: 2026-10-20
 The tool ships in the [Profinity SDK](index.md) download, in its `profinity-script` folder, and not with the Profinity install.
 This page calls the downloaded SDK the kit.
 
-On Windows the program is `profinity-script.exe`.
+The kit holds no Windows `.exe`. On Windows, run the tool from its folder as `dotnet profinity-script.dll`, followed by the command.
 The kit also contains the [Component Pack CLI](Component_Pack_CLI.md) (`profinity-component-pack`) and the `Profinity.Sdk` package.
 The package on its own does not create or run a script.
 
