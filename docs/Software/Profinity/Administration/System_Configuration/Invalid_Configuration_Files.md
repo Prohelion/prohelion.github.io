@@ -9,7 +9,7 @@ last_reviewed: 2026-10-25
 # When a configuration file is invalid
 
 This page describes what Profinity does when one of its settings files is damaged, has an unrecognised key, or refers to an unset environment variable, and how to recover from these scenarios.
-Profinity stops rather than start on a guess for the two files that control how it is secured and exposed: `config.yaml` and `security.yaml`.
+For `config.yaml` and `security.yaml`, the two files that control how Profinity is secured and exposed, Profinity stops and shows a message.
 For the other settings files it carries on with a default and tells you in the log.
 
 ## What happens to each file
@@ -21,10 +21,12 @@ For the other settings files it carries on with a default and tells you in the l
 | `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile. The file is left exactly as it is. |
 | `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity leaves the damaged file as it is. |
 | `theme.yaml` | Profinity starts with the default theme. | Nothing. |
-| `custom.yaml` | The install is not offered a trial. | Nothing. |
+| `custom.yaml` | The install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. | Nothing. |
 
 A file that does not exist counts as valid.
 Profinity creates the default for `config.yaml`, `security.yaml` and `plugins.yaml`, and uses the default theme and no custom settings for the others.
+`config.yaml`, `security.yaml`, `plugins.yaml` and `custom.yaml` are in the `config` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), `theme.yaml` is in the `themes` folder, and `profile.yaml` is in the profile folder.
+`custom.yaml` holds the installer settings of an OEM build, such as the trial and the component groups it hides.
 
 ## Rules, collections, and derived tags
 
@@ -33,7 +35,7 @@ An item that is not valid is skipped, and every other item still works.
 A skipped rule is inactive, and a skipped collection or derived tag is withheld.
 
 An item is skipped when it fails its own checks, refers to something missing, or has an unrecognised key, such as a misspelt setting name.
-An item with an unknown key does not run, so check these documents after an upgrade from 2.2.
+Because an item with an unknown key is skipped, check these documents after an upgrade from 2.2.
 Refer to the [breaking changes](../../Release_Notes/Breaking_Changes_2_3.md) for what changed.
 
 Profinity writes one line to the log for each skipped item, with the name of the item and the reason.
@@ -41,22 +43,22 @@ The rules, collections, and derived tags editors show the same list.
 
 Each skipped item has a red **Invalid** marker, and the reason appears when you point at it.
 A key that is not inside any item appears in a banner instead of on an item.
-The file itself is not changed when it loads.
+The file itself stays unchanged when it loads.
 
-To fix a skipped item, open the editor, correct the item named in the marker, and select **SAVE**.
-Saving is refused until every item in the document is valid.
+To fix a skipped item, open its editor, correct the item named in the marker, and select **SAVE**. The editors are under **TAG UTILITIES** in the side menu: **RULES & ACTIONS** for rules, **COLLECTIONS** for tag collections, and **DERIVED TAGS** for derived tags.
+Saving needs every item in the document to be valid first.
 
 If the whole file cannot be read, the editor tells you so and shows a message in place of an empty list that you might save over the top of it.
 
 ## Menu layout
 
-If the saved menu layout is not valid, Profinity ignores the whole layout and shows every component in its default group.
-A layout is not valid when it has a mistake such as a misspelt key, the same component listed twice, or an icon in an unsupported form.
+A menu layout that is invalid is ignored, and every component appears in its default group.
+A layout is invalid when it has a mistake such as a misspelt key, a component listed twice, or a value of the wrong type, or when it uses an older format.
 Profinity writes one message to the log that names the problem, and the profile file is not changed.
 
 The **Menu Layout** editor shows a notice that gives the reasons.
 Saving from the editor replaces the ignored layout.
-Refer to [Menu Layout](../Menu_Layout.md).
+Refer to [Menu Layout](../Menu_Layout.md) for how to arrange groups and components in the editor.
 
 ## Profiles
 
@@ -70,7 +72,7 @@ If the profile named in `config.yaml` has no `profile.yaml`, as on a new install
 
 Settings inside a component are defined by the component, so Profinity does not check them this way.
 When Profinity saves the profile, it discards an unrecognised setting for that component.
-A profile is read from `profile.yaml` in the profile folder and from no other file name.
+A profile is read only from `profile.yaml` in the profile folder.
 
 ## Alert state
 
@@ -102,7 +104,7 @@ It names the file and the reason.
     Values that were encrypted under the old key, such as the AI key and two-factor secrets, become unreadable and must be entered again.
     Restore the safety copy first if you have one.
 
-1. Open the file named in the message and fix the problem it reports. If it names a key, correct or remove that key.
+1. Open the file named in the message, in the `config` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and fix the problem it reports. If it names a key, correct or remove that key.
 2. If you cannot fix the file, copy it to a safe place so that its content is kept.
    Then restore the last good copy by copying `<file>.bak` over it.
    For example, copy `config.yaml.bak` over `config.yaml`.
@@ -130,7 +132,7 @@ Exported profile packs do not include safety copies, and importing a pack ignore
 
 A container that restarts automatically will restart again and again while a file is invalid, and each attempt writes the same message to the log.
 Read the message, fix or restore the file in the data volume, and the next start succeeds.
-Check a configuration without starting Profinity by running `Profinity --preflight-only` with the Profinity executable on any operating system. The command checks the runtime and the configuration and security files without starting Profinity or writing anything. A valid set prints `Preflight checks passed.` and exits with code 0. An invalid file prints its message and exits with code 2. The check runs the same way on each platform, reporting the runtime checks first and then each invalid file.
+Check a configuration without starting Profinity by running `Profinity --preflight-only` with the Profinity executable on any operating system. The command checks the runtime and the configuration and security files without starting Profinity or writing anything. A valid set prints `[profinity] Preflight checks passed.` and exits with code 0. An invalid file prints its message and exits with code 2. The check runs the same way on each platform, reporting the runtime checks first and then each invalid file.
 
 ## Last sign-in times
 

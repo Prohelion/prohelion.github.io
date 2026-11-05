@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 To connect Profinity Mobile to a server, check the discovery settings on the Profinity server, then select the server from the app's discovery list.
 You need the app installed on the phone (refer to [Profinity Mobile](index.md)).
-Phones reach the server only when other machines can open its web interface, which depends on the installation type and licence (refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in)).
+Before you start, check that other machines on the phone's network can open the server's web interface. Phones reach the server only when they can, which depends on the installation type and licence (refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in)).
 
 ## Enable server discovery
 
@@ -18,7 +18,8 @@ Phones find a server only while it broadcasts a heartbeat, so check these settin
 The server sends heartbeats only while the web server is running and the machine has at least one network address other than loopback.
 
 1. On the Profinity server, select **ADMIN** in the side menu, then [**System Configuration**](../Administration/System_Configuration/index.md), then the **Discovery** tab.
-2. Check the four settings in this table, which [Discovery](../Administration/System_Configuration/Discovery.md) describes.
+2. Set **Send Profinity Heartbeat** to on, then set the other settings in the table as needed. The **Heartbeat UDP port** and **Heartbeat interval (seconds)** settings apply only when the heartbeat is on. [Discovery](../Administration/System_Configuration/Discovery.md) describes each setting.
+3. Select **SAVE**, then select **Save** in the confirmation prompt. Saving restarts Profinity and interrupts all active sessions, so save when no one needs the server.
 
 | Setting | Default | Description |
 |---------|---------|-------------|
@@ -32,23 +33,26 @@ The server sends heartbeats only while the web server is running and the machine
 <figcaption>Server Discovery heartbeat settings</figcaption>
 </figure>
 
-Saving System Configuration restarts Profinity.
 The mobile app listens for the broadcast on UDP port 49025 by default.
 If you change the **Heartbeat UDP port**, the app build must use the same port (refer to [OEM white-label mobile builds](OEM_White_Label.md)).
 Each entry in the app's discovery list shows the server name, the active profile, and the server's network addresses.
 
 ## Connect from the app
 
-1. Connect the phone to the same Wi-Fi network as the Profinity server.
+1. Connect the phone to the same Wi-Fi network and subnet as the Profinity server. Discovery uses a local broadcast, which routers do not pass between subnets.
 2. Open Profinity Mobile.
    The discovery list shows the servers that are broadcasting a heartbeat.
 3. Select your server and connect.
    The app opens the server's web sign-in page inside the app.
-4. Sign in with your Profinity user name and password.
-   If the site uses single sign-on (SSO), sign in with SSO instead, and answer the two-factor prompt if the site requires one.
+4. Sign in to the server's web page, using the first option that applies:
+   - If the active profile has Kiosk Mode enabled, the page signs you in automatically as the kiosk user. No further action is needed.
+   - If the site uses single sign-on (SSO), select **Sign in with** and the name of your identity provider, then complete the sign-in.
+   - Otherwise, sign in with your Profinity user name and password.
+
+   If the site requires two-factor authentication, enter your authenticator code when prompted.
+   After sign-in, the server's web interface opens in the app.
 
 The app uses HTTPS when the server has it configured.
-If the active profile has Kiosk Mode enabled, the page signs in automatically as the kiosk user.
 
 To return to the server list, swipe from the left edge of the screen on iOS.
 On Android, use the system back action, which first steps back through the pages you opened in the app.

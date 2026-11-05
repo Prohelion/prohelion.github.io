@@ -52,30 +52,31 @@ There is no connection string, provider, or table name to configure.
 Profinity creates the SQLite file under the site `tag_history/` directory when the historian starts.
 
 Once it is running, its status shows **On**, and rows appear after the first **Update Interval (Seconds)**.
-If a write fails, its status shows **Error** until a write succeeds.
-The local database rejected a write, or its connection is not available.
-Read the reason in the Profinity System Logs.
-Check that the database file is on a writable drive with free space, and that no other program holds the file.
+If a write fails, use this table to find the cause.
+
+| What you see | Cause | What to do |
+|---|---|---|
+| The status shows **Error** until a write succeeds. | The local database rejected a write, or its connection is unavailable. | Read the reason in the Profinity System Logs. Check that the database file is on a writable drive with free space, and that no other program holds the file. |
 
 ## Logger settings
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Collections** | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
-| **Logging mode** | `Snapshot` | Sets what is written on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **Auto Connect** | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Update Interval (Seconds)** | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Collections** | List | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
+| **Logging mode** | Choice | `Snapshot` | Sets what is written on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
+| **Auto Connect** | On or off | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Update Interval (Seconds)** | Whole number | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 
 ## Data storage
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Retention (days)** | 30 | Deletes stored samples older than this many days after each successful write interval. |
-| **Designated tag historian reader** | On | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Designated historian](Designated_Historian.md). |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Retention (days)** | Whole number | 30 | Deletes stored samples older than this many days after each successful write interval. |
+| **Designated tag historian reader** | On or off | On | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Designated historian](Designated_Historian.md). |
 
 ## Example
 
-This example is a TAG Local Historian entry in the `profile.yaml` file of a profile.
+Add this entry under the existing `components:` key in the `profile.yaml` file of the profile. Each profile has its own folder in the `profiles/` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md). If the file already has a `components:` key, add only the `- component:` item beneath it.
 
 ```yaml
 components:
@@ -100,8 +101,7 @@ The file path is:
 
 `{artefacts}/tag_history/{profile name}/{component name}.db`
 
-On Linux the artefacts root is typically `/var/lib/prohelion/profinity`.
-On Windows and macOS it is under the Prohelion Profinity application data folder.
+The artefacts root is `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS, and `/var/lib/prohelion/profinity` on Linux, unless `PROFINITY_HOME` is set.
 The profile name and component name are kept as you named them (only characters that are illegal in a file name are removed).
 The table inside the file is always `TagChangeLog`.
 
@@ -109,10 +109,15 @@ This directory is separate from `tag_logs/`, which holds viewable CSV and JSON L
 
 ## Deleting the component
 
-When you remove the TAG Local Historian from the profile, Profinity deletes its `.db` file and any SQLite sidecar files (`-wal`, `-shm`), and the history in them is lost.
-Copy the files first if you need the history.
-The files are at `tag_history/<profile>/<component>.db` in the [artefacts directory](../../Installation/Artifacts_Directory.md), with the `-wal` and `-shm` files beside the `.db` file.
-Stop the component before you copy them.
+!!! warning "Removing the component deletes its history"
+    Removing the TAG Local Historian from the profile deletes its `.db` file and any SQLite sidecar files (`-wal`, `-shm`), and the history in them is lost.
+
+To keep the history, copy the files before you remove the component:
+
+1. Stop the component.
+2. Copy the `<component>.db` file and any `-wal` and `-shm` files from `tag_history/<profile>/` in the [artefacts directory](../../Installation/Artifacts_Directory.md).
+3. Remove the component from the profile.
+
 Unloading a profile without removing the component leaves the file in place.
 
 ## Reading history back

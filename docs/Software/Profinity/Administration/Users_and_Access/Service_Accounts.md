@@ -8,9 +8,9 @@ last_reviewed: 2026-10-27
 
 # Service accounts
 
-A service account is a user record that exists for automation rather than a person.
-It signs in with a long-lived **API token** instead of a password, which suits integrations and Model Context Protocol (MCP) clients.
-A user with the **Security administration** permission manages service accounts in **Users & Groups**, which needs a Server licence.
+Create a service account for an integration or Model Context Protocol (MCP) client, so the integration signs in with an API token instead of a password.
+A service account is a user record that exists for automation rather than a person, and it signs in with a long-lived **API token**.
+A user with the **Security administration** permission manages service accounts in **Users & Groups**, which needs a Server licence. MCP access also needs the **AI** licensed feature, which the **Server** and **Enterprise** editions include. Refer to [Licensing](../../Licensing.md) for details.
 
 A service account token never expires, unlike the sign-in of an ordinary user.
 The token stays valid until an administrator generates a new one or disables the account.
@@ -27,10 +27,18 @@ Treat the token like a password, store it in a secrets manager, and give the acc
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select **Add user**, or select an existing automation user.
 3. Switch on **Service Account**.
-4. Assign the roles the account needs under **Assigned roles**, and save.
+4. Assign the roles the account needs under **Assigned roles**, then select **ADD USER**. On an existing account, select **SAVE** instead.
 5. Select the user's row to open its settings dialog.
 6. Select the **User Actions** tab.
-7. Select **Generate Token**, then confirm. The **Service Account Token** dialog shows the bearer token in the **Token** box. Select **Copy** (the button reads **Copied** for a moment), store the token in a secrets manager, then select **Close**.
+7. Select **Generate Token**, then confirm. The **Service Account Token** dialog shows the bearer token in the **Token** box. Then do the following:
+
+   a. Select **Copy**. The button reads **Copied** for a moment.
+
+   b. Store the token in a secrets manager.
+
+   c. Select **Close**.
+
+To check the new token, send a `GET` request to `/api/v2/Users/Current` with it, as described under Using the token. A successful response returns status `200` and the account's details, with `isServiceAccount` set to `true`.
 
 On an account that already has a token, **View Token** also appears and displays the current token again.
 
@@ -48,10 +56,7 @@ The following table shows common patterns.
 |----------|----------------------|
 | Read-only monitoring | A role holding view permissions only, as suggested in [Create a role](Create_a_Role.md#which-roles-to-create) |
 | Tag and query automation | **View tags**, plus any other view permission the integration reads |
-| MCP access | **MCP integration**, which the default **Administrators** role includes and which any other role must be given explicitly |
-
-MCP access also needs the **AI** licensed feature, which the **Server** and **Enterprise** editions include.
-Refer to [Licensing](../../Licensing.md).
+| MCP access | **MCP integration**, or the **Profinity AI** permission, which implies it. The default **Administrators** role has both. |
 
 ## Using the token
 
@@ -67,10 +72,9 @@ For MCP setup and testing, refer to [Prepare Profinity for an MCP client](../../
 
 ## Revoking access
 
-To revoke a service account's access, do one of the following:
+To revoke a service account's access, disable the account in **Users & Groups**. Requests with its token are then refused.
 
-- Disable the account in **Users & Groups**.
-- Select **Generate Token** on its **User Actions** tab, which stops the old token working.
+To stop one token working without disabling the account, select **Generate Token** on its **User Actions** tab. The old token stops working, and the account keeps access with the new token.
 
 ## Related documentation
 

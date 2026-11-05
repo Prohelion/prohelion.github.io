@@ -25,10 +25,10 @@ A component name that matches an existing dashboard file in the profile is rejec
 
 ## Example
 
-This example is a Dashboard Component entry in the `profile.yaml` file of a profile.
+This example is a Dashboard Component entry.
+Add it under `components:` in the `profile.yaml` file of the profile.
 
 ```yaml
-components:
 - component:
     type: DashboardComponent
     id: DashboardComponent1
@@ -39,6 +39,7 @@ components:
 
 Replace `YOUR_DASHBOARD_NAME` with a name that is unique in the profile.
 When you leave `dashboardFilename` out, Profinity uses the component name followed by `.yaml`.
+The dashboard file sits in the `dashboards` folder of the profile. Upload it with **Upload Dashboard (Optional)**, or let Profinity create the template there.
 
 ## Building the dashboard
 

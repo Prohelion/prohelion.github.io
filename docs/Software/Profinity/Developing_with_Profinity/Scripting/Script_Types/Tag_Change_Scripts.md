@@ -17,14 +17,14 @@ The script can read and write other tags with [Tags](../Script_Operations/Tags.m
 
 ## Settings {#choosing-what-to-watch}
 
-Enable scripting in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first, as every script type requires it.
-Then add a **CSharp Script**, **Python Script** or **Lua Script** component.
-Set **Script Mode** to **Run On Tag Change**, and choose the tags to watch in the **Tag Change Settings** category:
+Scripting must be enabled in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first, as every script type requires it.
+A Tag Change script is a **CSharp Script**, **Python Script** or **Lua Script** component with **Script Mode** set to **Run On Tag Change**.
+Its tags to watch are set in the **Tag Change Settings** category:
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| **Tag Paths** | Empty | Explicit full tag paths to watch. |
-| **Collections** | Empty | Tag [Collections](../../../Tags/Collections/index.md) to watch. Members are resolved from the profile collections file, `collections.yaml`. Refer to [Collections](../../../Tags/Collections/index.md). |
+| Setting | Type | Default | Description |
+|---------|------|---------|-------------|
+| **Tag Paths** | List of full tag paths | Empty | Explicit full tag paths to watch. |
+| **Collections** | List of tag collections | Empty | Tag [Collections](../../../Tags/Collections/index.md) to watch. Members are resolved from the profile collections file, `collections.yaml`. Refer to [Collections](../../../Tags/Collections/index.md). |
 
 The script watches the union of the two lists, and at least one tag path or collection is required.
 
@@ -74,7 +74,7 @@ Profinity calls the method once for each tag that changes, passing:
     end
     ```
 
-The full files `CSharpTagChangeTemplate.cs`, `PythonTagChangeTemplate.py` and `LuaTagChangeTemplate.lua` are built into Profinity as the templates it offers when you create a script of that type.
+Profinity offers the matching template when you create a script of that type. To use an example, open the script in the **Edit Script** window and paste the example in place of the template.
 
 !!! warning "One call per tag"
     The `sample` argument is only the tag that changed.
@@ -149,10 +149,10 @@ Refer to [Derived tags](../../../Tags/Derived_Tags/index.md) for when to choose 
     end
     ```
 
-To run the example, create the tags `SpeedMph` and `SpeedKmh` on the component that will host the script.
-Then add the full path of `SpeedMph` to **Tag Paths**, from the tag tree root, starting with the component name, for example `/<COMPONENT>/SpeedMph`.
-Selecting the tag in the browser fills this in for you.
-The script then runs each time `SpeedMph` changes.
+The example needs the tags `SpeedMph` and `SpeedKmh` on the component that hosts the script.
+Then add the full path of `SpeedMph` to **Tag Paths**, from the tag tree root, starting with the component name, for example `/<COMPONENT>/SpeedMph`. The leading `/` is optional.
+Enter the path in the **Tag Path** field of the entry.
+The script then runs each time `SpeedMph` changes. Refer to [How to write your first script](../../../How_To_Guides/Write_Your_First_Script.md) for the steps to build the example.
 
 Paths inside the script that start with a name are relative to the script's host component, so this script is meant to run on the component that owns both tags.
 To publish to a tag on another component, start the path with `/`, as described in [Tag paths](../Script_Operations/Tags.md#tag-paths).
@@ -177,7 +177,6 @@ Keep the method fast.
 A slow script under **Queue** builds a backlog, and under **Drop** silently misses changes.
 Store previous values in [State](../Script_Operations/State.md) rather than recomputing them.
 
-If a run must be bounded, set **Maximum Run Time (seconds)**.
-The handler stops only when the script checks `Profinity.ScriptCancelled`.
+To limit how long each run takes, set **Maximum Run Time (seconds)**. The limit sets `Profinity.ScriptCancelled` to true, and the handler stops early only when the script checks that flag.
 
 For the other script modes, refer to [Script types](./index.md), and for a worked first script, refer to [How to write your first script](../../../How_To_Guides/Write_Your_First_Script.md).

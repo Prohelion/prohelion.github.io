@@ -89,11 +89,13 @@ components:
     name: InfluxDbLogger
 ```
 
+The example reads five variables, and none has a default, so set each one before you start Profinity: `PROFILE_DESCRIPTION` is the profile description, `INFLUXDB_URL` is the address of the InfluxDB server, `INFLUXDB_ORG` is its organisation, `INFLUXDB_BUCKET` is the bucket to write to, and `INFLUXDB_ADMIN_TOKEN` is the access token.
 The same syntax works for any component setting in a profile file.
 
 ## Set a variable
 
-Set the variable in the environment of the process that starts Profinity.
+Set the variable in the environment of the process that starts Profinity, then restart Profinity so that it reads the new value.
+The sections for [Windows](#windows), [Linux and macOS](#linux-and-macos) and [Docker](#docker) each end with the restart command.
 
 ### Change a setting from an environment variable
 
@@ -102,11 +104,14 @@ This example moves the Profinity web server to port 8080, and the same steps app
 
 1. In `config.yaml`, replace the port with a placeholder that has a default: `httpPort: ${HTTP_PORT:-18080}`.
 2. Set `HTTP_PORT` to `8080` in the environment of the process that starts Profinity, as described in [Windows](#windows), [Linux and macOS](#linux-and-macos), or [Docker](#docker).
-3. Restart Profinity.
+3. Restart Profinity, using the restart command in the section for your platform.
 
 Open `http://localhost:8080` in a browser, and the Profinity sign-in page loads on the new port.
-If Profinity does not start, confirm that the variable is set in the environment of the process that starts Profinity, and read the [Profinity logs](../Administration/Logs_Config.md).
-In Docker, publish the same port number on the host and in the container.
+
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| Profinity does not start after you add a placeholder. | The variable is not set in the environment of the process that starts Profinity. | Set the variable as described in the section for your platform, restart Profinity, and read the [Profinity logs](../Administration/Logs_Config.md). |
+| The page does not load on the new port in Docker. | The host and container port numbers differ. | Publish the same port number on the host and in the container. |
 
 ### Windows
 
@@ -114,12 +119,12 @@ In a command prompt, run `set PROFILE_NAME=Production Profile`, and in PowerShel
 Either form lasts only for that window.
 To set a variable permanently:
 
-1. Open **System Properties**, then **Advanced**, then **Environment Variables**.
+1. Select **System Properties > Advanced > Environment Variables**.
 2. Add the variable under **User** or **System** variables.
 3. Restart Profinity.
 
 When Profinity runs as a [Windows service](./Run_as_a_Service/Run_as_a_Windows_Service.md), add the variable as a **System** variable, because a user variable is not visible to a service that runs as another account.
-Restart the service, not only the application, so that it reads the new value.
+Restart the service, not only the application, so that it reads the new value. Restart it from the **Services** app, or run Profinity again if you run the application directly.
 
 ### Linux and macOS
 
@@ -128,7 +133,8 @@ For an interactive run, add the same line to a shell profile file such as `~/.ba
 A service does not read those files.
 
 For the Linux systemd service, add `Environment=` lines to the `[Service]` section of `/etc/systemd/system/profinity.service`, for example `Environment=PROFILE_NAME="Production Profile"`.
-Then run `sudo systemctl daemon-reload` and restart the service.
+Then run `sudo systemctl daemon-reload` and `sudo systemctl restart profinity`.
+On macOS, run `sudo launchctl stop com.profinity.service`, then `sudo launchctl start com.profinity.service`.
 Refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
 
 ### Docker
@@ -140,14 +146,27 @@ PROFILE_NAME=Production Profile
 HTTP_PORT=8080
 ```
 
-```bash
-docker run -p 8080:8080 \
-           -v "$PWD/Prohelion:/app/Prohelion" \
-           -e PROFINITY_HOME="/app/Prohelion" \
-           -e PROFILE_NAME="Production Profile" \
-           -e HTTP_PORT="8080" \
-           prohelion/profinity:latest
-```
+=== "macOS and Linux"
+
+    ```bash
+    docker run -p 8080:8080 \
+               -v "$PWD/Prohelion:/app/Prohelion" \
+               -e PROFINITY_HOME="/app/Prohelion" \
+               -e PROFILE_NAME="Production Profile" \
+               -e HTTP_PORT="8080" \
+               prohelion/profinity:latest
+    ```
+
+=== "Windows PowerShell"
+
+    ```powershell
+    docker run -p 8080:8080 `
+               -v "${PWD}/Prohelion:/app/Prohelion" `
+               -e PROFINITY_HOME="/app/Prohelion" `
+               -e PROFILE_NAME="Production Profile" `
+               -e HTTP_PORT="8080" `
+               prohelion/profinity:latest
+    ```
 
 The `-v` option mounts the artefacts directory, and `PROFINITY_HOME` names its path inside the container.
 Profinity reads `HTTP_PORT` and `PROFILE_NAME` only through placeholders in the files in that directory, so `config/config.yaml` needs `httpPort: ${HTTP_PORT:-18080}`, as in [Change a setting from an environment variable](#change-a-setting-from-an-environment-variable).
@@ -189,23 +208,23 @@ Docker Compose reads a `.env` file in the same folder as the compose file automa
 To keep one file per environment, name the file explicitly:
 
 ```bash
-docker compose --env-file .env.production up
-docker compose -f docker-compose.prod.yml --env-file .env.production up
+docker compose --env-file .env.production up -d
 ```
 
-Docker documents [env files](https://docs.docker.com/compose/environment-variables/#the-env-file) and [compose file overrides](https://docs.docker.com/compose/extends/) in detail.
+To apply a changed variable to a running container, run `docker compose up -d` again, which recreates the container with the new value.
+
+Docker documents [env files](https://docs.docker.com/compose/environment-variables/#the-env-file) in detail.
 
 ## Variables Profinity reads
 
 Besides the variables that your own files reference, Profinity and its install scripts read these variables.
 
-| Variable | Read by | Default | Effect |
-|----------|---------|---------|--------|
-| `PROFINITY_HOME` | Profinity, `profinity.sh` | Platform path | Sets the [artefacts directory](./Artifacts_Directory.md) and turns off automatic migration from older locations |
-| `PROFINITY_INSTALL_ROOT` | `profinity.sh`, `update.sh` | The folder that holds the script | Overrides the install root, which otherwise is the folder that holds the script |
-| `DOTNET_ROOT` | Set by `profinity.sh` | None | Set by the launcher to the portable .NET install root, with no default |
-| `PROFINITY_DOTNET_INSTALL_URL` | `profinity.sh` | The `dotnet-install.sh` URL pinned in the script | Overrides the address that the portable edition downloads the .NET installer from |
-| `PROFINITY_FILES_BASE` | `install.sh`, `update.sh` | `https://files.prohelion.com/profinity` | Overrides the file server that releases are downloaded from |
-| `PROFINITY_DOCKER_IMAGE` | `install-docker.sh` | `prohelion/profinity:latest` | Sets the Docker image that the one-line Docker installer uses |
+| Variable | Type | Read by | Default | Effect |
+|----------|------|---------|---------|--------|
+| `PROFINITY_HOME` | Path | Profinity, `profinity.sh` | `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS, `/var/lib/prohelion/profinity` on Linux | Sets the [artefacts directory](./Artifacts_Directory.md) and turns off automatic migration from older locations |
+| `PROFINITY_INSTALL_ROOT` | Path | `profinity.sh`, `update.sh` | The folder that holds the script | Overrides the install root, which otherwise is the folder that holds the script |
+| `PROFINITY_DOTNET_INSTALL_URL` | URL | `profinity.sh` | The `dotnet-install.sh` URL pinned in the script | Overrides the address that the portable edition downloads the .NET installer from |
+| `PROFINITY_FILES_BASE` | URL | `install.sh`, `update.sh` | `https://files.prohelion.com/profinity` | Overrides the file server that releases are downloaded from |
+| `PROFINITY_DOCKER_IMAGE` | Image name | `install-docker.sh` | `prohelion/profinity:latest` | Sets the Docker image that the one-line Docker installer uses |
 
 The [Profile folders](../Administration/Profile_Folders.md) page covers the files a profile holds, and [System configuration](../Administration/System_Configuration/index.md) covers the other settings in `config.yaml`.
