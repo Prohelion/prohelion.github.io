@@ -98,7 +98,7 @@ Installations that upgrade from 2.2 without a licence file are affected.
 Features that were available without limit in 2.2 now depend on the edition.
 A 2.2 installation without a licence file loses these features:
 
-- Cloud Dashboard
+- ThingsBoard Logger (formerly the Cloud Dashboard)
 - Custom components
 - Custom plugins
 - Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) rule actions, and rule scripts that run on alert

@@ -1,6 +1,6 @@
 ---
 title: Loggers
-description: "Choose a Profinity logger to write tag collections or CAN messages to files, an SFTP server, InfluxDB v1 or Prometheus."
+description: "Choose a Profinity logger to write tag collections or CAN messages to files, an SFTP server, InfluxDB v1, Prometheus, or a ThingsBoard device."
 type: index
 owner: Documentation
 last_reviewed: 2026-10-15
@@ -21,5 +21,9 @@ The settings that the file loggers share are on [File logger rotation, archive, 
 | [TAG SFTP Logger](Tag_File_and_SFTP_Loggers.md) | Out | A remote SFTP server, as CSV or JSON Lines | Tag collections | On | Included in every edition |
 | [InfluxDB v1 Logger](InfluxDB_v1_Logger.md) | Out | An InfluxDB v1 server, which Profinity sends the data to | Tag collections | On | Included in every edition |
 | [Prometheus Logger](Prometheus_Logger.md) | Out | Served by Profinity, which Prometheus calls to request the latest values | Tag collections | On | Included in every edition |
+
+The [ThingsBoard Logger](../Cloud_Dashboard/Prohelion_Cloud_Dashboard.md) is a logger plugin.
+It sends tag collections to a ThingsBoard device and needs the Data Relay feature, included in the Server and Enterprise editions.
+Install the plugin before the component appears under **Loggers** in **ADD COMPONENT**.
 
 To push data to a broker or a web service, refer to the [Publishers and Subscribers](../Publishers_and_Subscribers/index.md) components.

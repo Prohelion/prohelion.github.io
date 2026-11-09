@@ -1,88 +1,84 @@
 ---
-title: Prohelion Cloud Dashboard
-description: "Send Profinity tag values to the Prohelion Cloud platform with the Prohelion Cloud Dashboard component, including settings, licensing, and network requirements."
+title: ThingsBoard Logger
+description: "Send Profinity tag values to a ThingsBoard device with the ThingsBoard Logger, including settings, licensing, and network requirements."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-09
 ---
 
-# Prohelion Cloud Dashboard
+# ThingsBoard Logger
 
-The Prohelion Cloud Dashboard component publishes the values of selected [tag collections](../../Tags/Collections/index.md) from a Profile to a device in Prohelion Cloud in Snapshot mode at each Update Interval (Seconds). In On Change and Everything modes, the Update Interval sets the flush timing.
-You can view them on cloud-hosted dashboards.
-Prohelion Cloud is an Internet of Things (IoT) platform that stores the data reported by field devices and lets an organisation monitor and manage those devices and assets remotely.
+The ThingsBoard Logger publishes the values of selected [tag collections](../../Tags/Collections/index.md) from a Profile to a device in ThingsBoard.
+In Snapshot mode it sends the current value of each member at each Update Interval (Seconds).
+In On Change and Everything modes, the Update Interval sets the flush timing.
+It appears under **Loggers** in **ADD COMPONENT** after the ThingsBoard Logger plugin is installed.
+A Profile holds only one.
 
-[Rules](../../Tags/index.md), [Dashboards](../../Customising_Profinity/Dashboards/index.md), and [Tag Relays](../Tag_Relays/index.md) cover many of the functions that Prohelion Cloud provides, so new deployments are usually better served by those features.
-The component needs the Data Relay feature and access to Prohelion Cloud, which is by request.
+The logger needs the Data Relay licensed feature.
+Refer to [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md) to install the plugin, and to [Licensing](../../Licensing.md) for the editions that include Data Relay.
 
 <figure markdown>
 ```mermaid
 flowchart LR
     subgraph Server["Profinity server"]
-        Tags --> Collections["Tag collections"] --> Component["Prohelion Cloud Dashboard"]
+        Tags --> Collections["Tag collections"] --> Component["ThingsBoard Logger"]
     end
-    subgraph Cloud["Prohelion Cloud"]
+    subgraph Cloud["ThingsBoard"]
         Device
     end
     Component --> Device
 ```
-<figcaption>The Prohelion Cloud Dashboard component sends tag collections from the Profinity server to a device in Prohelion Cloud over Message Queuing Telemetry Transport (MQTT)</figcaption>
+<figcaption>The ThingsBoard Logger sends tag collections from the Profinity server to a ThingsBoard device over Message Queuing Telemetry Transport (MQTT)</figcaption>
 </figure>
 
 !!! info "Licence required"
-    The Prohelion Cloud Dashboard component requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions.
+    The ThingsBoard Logger requires the **Data Relay** licensed feature, included in the **Server** and **Enterprise** editions.
     Without it the component is unavailable.
     Refer to [Licensing](../../Licensing.md) for what each edition includes.
 
 ## Quick start
 
-You need the Data Relay licensed feature, plus the access token and device ID for the device in Prohelion Cloud.
+You need the Data Relay licensed feature, the ThingsBoard Logger plugin installed, and the access token and device ID for the ThingsBoard device.
 
-1. Add the **Prohelion Cloud Dashboard** from **ADD COMPONENT**. A Profile holds only one.
-2. Enter the device's access token in **Prohelion Access Token**.
-3. Enter the device ID in **Prohelion Device ID**.
-4. Under **Collections**, select at least one tag collection. The component cannot start without one.
-5. Select **ADD COMPONENT** at the bottom of the dialog.
-6. Check that the component status shows **On**. If it shows **Error**, read the Profinity System Logs for the reason.
-
-## Get access to Prohelion Cloud
-
-Access to Prohelion Cloud is by request.
-Raise an access request in the [Prohelion Support Portal](https://prohelion.atlassian.net/servicedesk/customer/portals).
-Prohelion support assists with device onboarding, dashboard set-up and integration with existing systems.
-
-The component needs an access token and a device ID for the device in Prohelion Cloud.
-Both are shown in your account on the Prohelion Cloud dashboard, so have both ready before you add the component.
+1. Install the ThingsBoard Logger plugin. Refer to [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md).
+2. Add **ThingsBoard Logger** from **ADD COMPONENT**, under **Loggers**. A Profile holds only one.
+3. Enter the device's access token in **ThingsBoard Access Token**.
+4. Enter the device ID in **ThingsBoard Device ID**.
+5. Under **Collections**, select at least one tag collection. The component cannot start without one.
+6. Select **ADD COMPONENT** at the bottom of the dialog.
+7. Check that the component status shows **On**. If it shows **Error**, read the Profinity System Logs for the reason.
 
 ## Add the component
 
-Only one Prohelion Cloud Dashboard component can exist in a Profile.
-Add it from **ADD COMPONENT** (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)) and choose **Prohelion Cloud Dashboard**.
+Only one ThingsBoard Logger can exist in a Profile.
+Add it from **ADD COMPONENT** (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)) and choose **ThingsBoard Logger** under **Loggers**.
 Complete the settings in the following table.
 
 | Setting | Default | Notes |
 |---|---|---|
-| **Name** | Prohelion Cloud Dashboard | The name shown in the Profile. |
-| **Prohelion Access Token** | None | The access token for the device. Required, and stored encrypted. |
-| **Prohelion Device ID** | None | The device ID in Prohelion Cloud. Required. |
-| **Update Interval (Seconds)** | 60 | Seconds between samples sent to Prohelion Cloud, from 1 to 86400. |
+| **Name** | ThingsBoard Logger | The name shown in the Profile. |
+| **ThingsBoard Access Token** | None | The access token for the device. Required, and stored encrypted. |
+| **ThingsBoard Device ID** | None | The device ID in ThingsBoard. Required. Profinity also uses it as the MQTT client ID. |
+| **Update Interval (Seconds)** | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
 | **Collections** | None | The tag collections to send. At least one is required. |
 | **Logging mode** | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
 | **Auto Connect** | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 A collection must be selected before the component can start.
-It connects out from the Profinity server to Prohelion Cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.
+It connects out from the Profinity server to thingsboard.cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.
 No inbound port is needed.
+
+A Profile saved with the earlier component type `ProhelionCloudDashboard` loads as this logger once the plugin is installed.
 
 ## Example
 
-This example sends one tag collection to Prohelion Cloud every 60 seconds.
+This example sends one tag collection to ThingsBoard every 60 seconds.
 Add this list item under the existing `components:` key in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), with the same indentation as the other items.
 
 ```yaml
 - component:
-    type: ProhelionCloudDashboard
-    name: Prohelion Cloud Dashboard
+    type: ThingsBoardLogger
+    name: ThingsBoard Logger
     accessToken: YOUR_ACCESS_TOKEN
     deviceID: YOUR_DEVICE_ID
     intervalSec: 60
@@ -96,7 +92,7 @@ Replace the placeholders as follows:
 
 - `YOUR_ACCESS_TOKEN` is the access token for the device.
   Profinity encrypts it when it saves the Profile.
-- `YOUR_DEVICE_ID` is the device ID in Prohelion Cloud.
+- `YOUR_DEVICE_ID` is the device ID in ThingsBoard.
 - `YOUR_COLLECTION_ID` is the id of a [tag collection](../../Tags/Collections/index.md) in the Profile.
 
 After the example runs, the component status shows **On**.
@@ -110,10 +106,10 @@ The component can be saved only with an access token and a device ID.
 |---|---|---|
 | The message "You must provide a device access token." | The access token is empty. | Enter the access token. |
 | The message "You must provide a device ID." | The device ID is empty. | Enter the device ID. |
-| No data reaches Prohelion Cloud after the component is added | The Profile does not have the **Data Relay** feature licensed. | Check the licence for the Profile. |
-| No data reaches Prohelion Cloud after the component is added | The token and device ID do not match the device in Prohelion Cloud. | Check the token and device ID against the device in Prohelion Cloud. |
-| No data reaches Prohelion Cloud after the component is added | No collection is selected. | Select at least one collection. |
-| No data reaches Prohelion Cloud after the component is added | Outbound traffic on port 1883 is blocked. | Allow outbound traffic on port 1883. |
+| ThingsBoard Logger is not in **ADD COMPONENT** | The plugin is not installed, or Data Relay is not licensed. | Install the plugin and check the licence for the Profile. |
+| No data reaches ThingsBoard after the component is added | The token and device ID do not match the device in ThingsBoard. | Check the token and device ID against the device in ThingsBoard. |
+| No data reaches ThingsBoard after the component is added | No collection is selected. | Select at least one collection. |
+| No data reaches ThingsBoard after the component is added | Outbound traffic on port 1883 is blocked. | Allow outbound traffic on port 1883. |
 
 Then read the Profinity logs for the connection error.
 For the shared settings of MQTT components, refer to [MQTT Publisher](../Publishers_and_Subscribers/MQTT_Publisher.md).

@@ -21,13 +21,12 @@ To add one, refer to [How to add a component to your profile](../How_To_Guides/A
 - [Motor controllers](Motor_Controller/index.md): add a WaveSculptor, read its dashboard and update its configuration and firmware.
 - [Elmar Solar MPPT](MPPT/Elmar_Solar_MPPT.md): monitor an Elmar Solar maximum power point tracker.
 
-## Store, send and share data
+## Store, send, and share data
 
-- [Loggers](Loggers/index.md): write tag collections or CAN messages to files, a Secure Shell (SSH) File Transfer Protocol (SFTP) server, InfluxDB v1 or Prometheus.
+- [Loggers](Loggers/index.md): write tag collections or CAN messages to files, a Secure Shell (SSH) File Transfer Protocol (SFTP) server, InfluxDB v1, Prometheus, or a ThingsBoard device.
 - [Historians](Historians/index.md): store tag history in InfluxDB v2, InfluxDB v3 or a SQL database.
 - [Publishers and Subscribers](Publishers_and_Subscribers/index.md): move tag values to and from Message Queuing Telemetry Transport (MQTT) brokers and web services.
 - [Tag Relays](Tag_Relays/index.md): share live tags between Profinity instances.
-- [Prohelion Cloud Dashboard](Cloud_Dashboard/Prohelion_Cloud_Dashboard.md): send tag values to the Prohelion Cloud platform.
 
 ## Display and extend
 

@@ -18,7 +18,7 @@ This covers these components:
 - The CAN bus adapters.
 - The Open Platform Communications Unified Architecture (OPC UA) server and client.
 - The Modbus, BACnet, S7, and EtherNet/IP components.
-- The Prohelion Cloud Dashboard.
+- The ThingsBoard Logger.
 
 A CAN bus adapter adds a warning when the bus is quiet, as described under [Status](#status).
 
@@ -37,7 +37,7 @@ The default depends on the kind of component:
 
 | Component | **Auto Connect** default |
 | --- | --- |
-| CAN bus adapters, loggers, historians, the MQTT Publisher and Subscriber, the Webhook Publisher, the Prohelion Cloud Dashboard, and the Tag Relay sender and receiver | On |
+| CAN bus adapters, loggers, historians, the MQTT Publisher and Subscriber, the Webhook Publisher, the ThingsBoard Logger, and the Tag Relay sender and receiver | On |
 | TDK and Siglent power supplies, and the Modbus, BACnet, S7, EtherNet/IP, and OPC UA components | Off |
 
 For a component that defaults to off, turn **Auto Connect** on in its settings if it should connect whenever the profile loads.

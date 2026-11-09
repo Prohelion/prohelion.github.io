@@ -74,7 +74,7 @@ The dedicated component pages describe the properties of each component and how 
 
 Multiple components of the same type can be added to a profile, but each must have a unique name.
 Profinity refuses a device that listens on a range of CAN addresses if the range overlaps the range of another such device in the profile.
-Only one Prohelion Cloud Dashboard can be added to a profile. A Custom Component can also be limited to one instance in its metadata.
+Only one ThingsBoard Logger can be added to a profile. A Custom Component can also be limited to one instance in its metadata.
 If the name is already used in the profile, Profinity refuses the component and asks you to choose another name.
 
 ## Check the component status
@@ -108,7 +108,7 @@ To connect the component:
 
 ## Remove a component
 
-Deleting a component removes its settings from the profile and deletes its folder, which holds its dashboard, scripts and other files.
+Deleting a component removes its settings from the profile and deletes its folder, which holds its dashboard, scripts, and other files.
 Deleting a local historian also deletes its history database.
 Log files from file and SFTP loggers stay on the device, and data in an external database or on a remote server stays where it is.
 To bring a deleted component back, restore it from a copy that you keep before you delete it.

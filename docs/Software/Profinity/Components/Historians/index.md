@@ -16,10 +16,10 @@ Each historian selects the tags it records through [collections](../../Tags/Coll
 [Licensing](../../Licensing.md) shows whether it is available on your instance.
 
 <figure markdown>
-![Data out of Profinity: historians, publishers and subscribers, loggers and Prohelion Cloud](../../images/diagram-data-out.png)
+![Data out of Profinity: historians, publishers and subscribers, loggers and the ThingsBoard Logger](../../images/diagram-data-out.png)
 <figcaption>Data out of Profinity. Historians (TAG Local, InfluxDB v2, InfluxDB v3, TAG SQL) store and read data back.
 Publishers and subscribers (Message Queuing Telemetry Transport, or MQTT, and Webhook) stream it in both directions.
-Loggers (file, Secure Shell File Transfer Protocol (SFTP), InfluxDB v1, Prometheus) stream it out, and a Prohelion Cloud dashboard gives hosted monitoring.</figcaption>
+Loggers (file, Secure Shell File Transfer Protocol (SFTP), InfluxDB v1, Prometheus, and the ThingsBoard Logger) stream it out.</figcaption>
 </figure>
 
 - [TAG Local Historian](TAG_Local_Historian.md): store history in a managed SQLite file on the Profinity host, with no connection string.
