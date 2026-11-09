@@ -3,7 +3,7 @@ title: Tag rules
 description: Understand how tag rules watch tags, raise alerts at set levels, and run actions, and where to write rules, configure them, and attach actions.
 type: concept
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-10
 ---
 
 # Tag rules
@@ -25,7 +25,7 @@ Rules evaluate whenever a tag in their scope changes.
 
 A rule set is all the rules in one rules file, either the profile's rules file or a component's own rules file, and each rule set has its own on and off switch.
 A scope is a tag path prefix, a tag collection, or both.
-A rule needs a prefix, a collection, or both after its scope inherits from its file, group and component. Use the prefix `/` to cover the whole tag catalogue.
+A rule needs a prefix, a collection, or both after its scope inherits from its file, group, and component. Use the prefix `/` to cover the whole tag catalogue.
 A scope can be set for the whole file, for a group, and for a single rule, and each level inherits the scope of the level above unless it sets its own.
 A relative tag path prefix joins beneath the prefix of the level above, and a prefix that starts with `/` replaces it.
 Actions set for the file or a group are inherited by every rule beneath it, and a rule can switch an inherited action off.
@@ -54,8 +54,8 @@ Each rule also has a `description` that the Alerts Log shows to the user.
 
 Two settings stop an alert flickering on and off.
 Dwell holds the alert back until the condition has lasted a set time, and deadband clears the alert at a different point from where it tripped.
-A rule can also mirror its current state to a read-only tag, so that dashboards and other rules can use it.
-[Rule settings](Rule_Settings.md) describes dwell, deadband, the evaluation tick and rule state publishing.
+A rule can also send again when its value changes while the alert stays true, name related tags for the expression and the message, and mirror its current state to a read-only tag.
+[Rule settings](Rule_Settings.md) describes those settings, the evaluation tick, and rule state publishing.
 
 ## Rules visual editor
 

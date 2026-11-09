@@ -3,7 +3,7 @@ title: Set up an AI technician
 description: Add an AI technician to a profile, give it a service account, instructions and a schedule, and check its first finding.
 type: task
 owner: Documentation
-last_reviewed: 2026-11-09
+last_reviewed: 2026-11-10
 ---
 
 # Set up an AI technician
@@ -62,8 +62,9 @@ Each press of Run AI Technician counts towards **Daily limit**, so once that man
 
 ## Send the findings on
 
-The built-in **Findings severity** rule logs each finding as an alert.
-To be told about a finding, add an action to that rule with **Edit Rules** on the technician, such as an email at Warning and above.
-Refer to [Rule actions](../../Tags/Rules/Actions/index.md) for the actions available.
+The technician ships rules on its findings tags, with no actions attached.
+To be told about a finding, add an action to **Findings message** with **Edit Rules** on the technician, such as an email.
+That rule sends again when a new attention finding has different text, even at the same severity.
+Refer to [Built-in rules](./AI_Technician.md#built-in-rules) on the component page, and to [Rule actions](../../Tags/Rules/Actions/index.md) for the actions available.
 
 To have device alerts start a round, continue to [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md).

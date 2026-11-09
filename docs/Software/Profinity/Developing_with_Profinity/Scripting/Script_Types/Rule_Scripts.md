@@ -3,7 +3,7 @@ title: Rule scripts
 description: "Run a script when a tag rule fires by setting Script Mode to Run On Alert, and read the alert context the rule passes to it."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-10
 ---
 
 # Rule scripts
@@ -65,7 +65,9 @@ The context holds:
 The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage`, `TriggeredTags` and `Parameters`, with the same names in C#, Python and Lua.
 `RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert levels](../../../Tags/Alerts.md#alert-levels)).
 
-`Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep` or `ExitedStep`. `EnteredStep` means the value entered a threshold step, and `ExitedStep` means it left one.
+`Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep`, `ExitedStep` or `Updated`.
+`EnteredStep` means the value entered a threshold step, and `ExitedStep` means it left one.
+`Updated` means the value changed while the alert stayed true, as described under [On update](../../../Tags/Rules/Rule_Settings.md#on-update).
 Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
 
 `Parameters` is a dictionary keyed by the names written under `parameters` on the action entry.

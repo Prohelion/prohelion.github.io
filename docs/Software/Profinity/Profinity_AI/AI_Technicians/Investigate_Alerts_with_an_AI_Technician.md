@@ -3,13 +3,13 @@ title: Investigate alerts with an AI technician
 description: Add an AI technician as a rule action so a device alert starts a review, and read the technician's finding as a second alert.
 type: task
 owner: Documentation
-last_reviewed: 2026-11-09
+last_reviewed: 2026-11-10
 ---
 
 # Investigate alerts with an AI technician
 
 An [AI Technician](./AI_Technician.md) can be a [rule action](../../Tags/Rules/Actions/index.md), so an alert on a device starts a round.
-The device alert is raised straight away, and the technician's finding follows as a second alert from its own **Findings severity** rule when the round ends.
+The device alert is raised straight away, and the technician's finding follows as a second alert from its own **Findings message** rule when the round ends.
 
 ## Before you start
 
@@ -74,9 +74,11 @@ A device that alerts often should rely on the throttle, so the technician's **Da
 
 When the round ends:
 
-1. The technician's findings tags update, and **Findings severity** raises or clears its alert in the [Alerts Log](../../Tags/Alerts.md).
-2. The `Wake` findings tag reads `alert`.
-3. The `Report` tag starts with `source=Rule motor_temperature`, followed by the transition, the tag, and the alert message.
+1. The technician's findings tags update.
+2. **Findings severity** raises or clears its alert at the finding's level in the [Alerts Log](../../Tags/Alerts.md).
+3. **Findings message** sends when the outcome is `attention` and the text is new.
+4. The `Wake` findings tag reads `alert`.
+5. The `Report` tag starts with `source=Rule motor_temperature`, followed by the transition, the tag, and the alert message.
 
 If no finding follows the device alert, the wake was dropped.
 Refer to [Troubleshooting](./AI_Technician.md#troubleshooting) to find the reason in the Profinity log.

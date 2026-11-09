@@ -3,12 +3,13 @@ title: Rule actions
 description: "Choose actions for a tag rule, add Email, Slack, Webhook, MQTT, and script actions, and see how actions are inherited and which message placeholders exist."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-10
 ---
 
 # Rule actions
 
 A [tag rule](../index.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
+With **On update** on, it also runs those actions when the value changes while the alert stays true.
 Profinity 2.3 has two built-in actions, **Profinity Log** and **None**.
 It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
 
@@ -131,8 +132,11 @@ Profinity replaces them when the action fires.
 - `{Value}` and `{TagValue}`, which both give the value reported to the action, normally that of the tag that caused the transition.
 - `{TriggeredTagIds}`, which is a comma-separated list.
 - `{ThresholdLevel}` and `{ThresholdMessage}`, which are filled only for threshold rules.
+- `{alias}` for each related-tag alias on the rule, such as `{coolantTemperature}`, as described under [Related tags](../Rule_Settings.md#related-tags).
+  A name that is not an alias on this rule and not one of the tokens above is left as written.
 
 Control characters in substituted values are removed so that a device value cannot split a notification across lines.
+Each substituted value is trimmed to 4000 characters.
 
 ## Permissions
 

@@ -3,14 +3,15 @@ title: Tag expressions
 description: Look up the expression language that collections, rules, and derived tags use to select tags, compare values and compute derived values.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-10
 ---
 
 # Tag expressions
 Collections, rules, and derived tags share one small expression language.
-Collections and rules write a boolean expression over a single parameter named `tag`.
+Collections write a boolean expression over a single parameter named `tag`.
+Rules write the same `tag` expression, and can also name related-tag aliases that read other tags.
 Derived tags write a value formula over the aliases they declare (`a`, `b`, …).
-The reading names (`Value`, `Text`, `Bool`, and so on) are the same in both places.
+The reading names (`Value`, `Text`, `Bool`, and so on) are the same in each place.
 
 You enter expressions in the [collections](../Collections/index.md), [rules](../Rules/index.md), and [derived tags](../Derived_Tags/index.md) editors.
 Use either the guided builder, a form that assembles an expression for you, or free text. The derived tags editor takes free text only.
@@ -132,6 +133,18 @@ tag.Meta.Type == "dbc.signal"
 tag.Meta.Text("unit") == "A"
 tag.Meta.Number("limits/min") <= 100
 ```
+
+## Related-tag aliases on a rule
+
+A rule can name other tags in `relatedTags`, as described under [Related tags](../Rules/Rule_Settings.md#related-tags).
+Each alias is a parameter with the same reading members as a derived-tag alias.
+Path methods stay on `tag` only.
+
+```text
+tag.HasValue && tag.Text != "" && outcome.Text == "attention"
+```
+
+The rule still evaluates only when its own scope tag changes.
 
 ## Derived formulas
 

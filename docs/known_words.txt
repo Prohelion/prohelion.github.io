@@ -30,6 +30,7 @@ siglent
 splunk
 lufft
 grafana
+thingsboard
 digikey
 farnell
 jaycar
@@ -290,6 +291,7 @@ referencedata
 customizable
 customisable
 rebase
+rebases
 rebasing
 erdem
 guven
@@ -352,6 +354,7 @@ relayed
 # Australian English forms the dictionary does not contain
 normalises
 modernises
+greyscale
 
 # Technical terms, names, and fragments split on punctuation
 lua
@@ -454,3 +457,4 @@ resync
 connectionless
 hotspot
 isabellenhutte
+cooldown

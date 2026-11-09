@@ -3,7 +3,7 @@ title: AI Technician
 description: Look up the AI Technician settings, findings tags, built-in rules and dashboard, and fix blocked rounds and dropped wakes.
 type: component
 owner: Documentation
-last_reviewed: 2026-11-09
+last_reviewed: 2026-11-10
 ---
 
 # AI Technician
@@ -85,14 +85,22 @@ A new technician has no finding, so its findings tags have no value and no findi
 
 ## Built-in rules
 
-The technician ships two rules, which you open and change with **Edit Rules** on the technician, as described in [Tag rules](../../Tags/Rules/index.md).
+The technician ships three rules, which you open and change with **Edit Rules** on the technician, as described in [Tag rules](../../Tags/Rules/index.md).
+None of them ships an action.
+Add the actions you want, such as an email at Warning and above.
 
-| Rule | Raises | Default action |
-|------|--------|----------------|
-| **Findings severity** | An alert at the level of the `Severity` tag, from Trace to Fatal. It clears when a `clear` finding sets `Severity` to 0. | **Profinity Log** |
-| **Technician not working** | A Warning when `FailedRounds` reaches 3, at most once an hour | **Profinity Log** |
+| Rule | Raises |
+|------|--------|
+| **Findings severity** | An alert at the level of the `Severity` tag, from Trace to Fatal. It clears when a `clear` finding sets `Severity` to 0. |
+| **Findings message** | A Warning when the `Message` tag changes and the outcome is `attention`. The same text does not send again. A `clear` finding ends the alert. A `blocked` round leaves it raised and does not send. |
+| **Technician not working** | A Warning when `FailedRounds` reaches 3, at most once an hour. |
 
-Add your own actions to these rules, such as an email at Error and above.
+**Findings message** is the rule that sends each distinct attention finding, even when two nights share the same severity.
+It is on while the value is already true, as described under [On update](../../Tags/Rules/Rule_Settings.md#on-update).
+The shipped expression sends only `attention` rounds.
+Edit that expression if blocked or clear rounds should send as well.
+Its related tags name the other findings tags, so the expression and the action message can read them, as described under [Related tags](../../Tags/Rules/Rule_Settings.md#related-tags).
+
 Refer to [Rule actions](../../Tags/Rules/Actions/index.md) for the actions a rule can run.
 
 ## Dashboard

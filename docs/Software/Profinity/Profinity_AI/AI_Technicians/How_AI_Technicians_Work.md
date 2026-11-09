@@ -3,7 +3,7 @@ title: How AI technicians work
 description: Understand an AI technician round, the three things that wake it, why it only reads, and how its findings reach alerts through ordinary rules.
 type: concept
 owner: Documentation
-last_reviewed: 2026-11-09
+last_reviewed: 2026-11-10
 ---
 
 # How AI technicians work
@@ -26,17 +26,17 @@ The next section lists the other limits that drop a wake.
 ## From a device rule to an alert
 
 A technician never raises an alert itself.
-It publishes its finding on its own **Findings** tags, and the built-in rules on those tags raise the alert and run its actions, in the same way as any other rule.
+It publishes its finding on its own **Findings** tags, and the built-in rules on those tags raise the alert and run any actions you add, in the same way as any other rule.
 
 <figure markdown>
 ```mermaid
 flowchart LR
     Device["Device rule"] --> Technician["AI technician"]
     Technician --> Findings["Findings tags"]
-    Findings --> Rule["Findings rule"]
+    Findings --> Rule["Findings rules"]
     Rule --> Alert["Alert and actions"]
 ```
-<figcaption>A device rule wakes the technician, the technician publishes its findings tags, and the findings rule raises the alert and runs its actions</figcaption>
+<figcaption>A device rule wakes the technician, the technician publishes its findings tags, and the findings rules raise the alert and run their actions</figcaption>
 </figure>
 
 Keeping alerts in rules means the findings appear in the Alerts Log beside every other alert, use the same alert levels, and run the actions you already use, such as an email or a Slack message.
@@ -52,6 +52,12 @@ Each finding has one of three outcomes:
 
 A blocked round leaves the last severity in place, so one failed round does not clear an alert that is still valid.
 Three blocked rounds in a row raise the **Technician not working** alert instead.
+
+Two attention findings with different messages each send, even when they share a severity.
+The same message does not send again.
+The shipped **Findings message** rule sends only `attention` rounds.
+Edit its expression if blocked or clear rounds should send as well.
+The full list of built-in rules is on [AI Technician](./AI_Technician.md#built-in-rules).
 
 ## What the AI sees and keeps
 

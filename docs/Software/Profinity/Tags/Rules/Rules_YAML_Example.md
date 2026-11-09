@@ -3,7 +3,7 @@ title: Complete rules.yaml example
 description: Read a complete rules.yaml with file and group actions, a threshold rule with dwell and deadband, and a boolean rule that uses a collection.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-10
 ---
 
 # Complete rules.yaml example
@@ -62,7 +62,7 @@ rules:
                 - description: Battery cooling guide
                   url: https://docs.example.com/battery-cooling
               relatedTags:
-                - Vehicles/Car1/Battery/CoolantTemperature
+                coolantTemperature: Vehicles/Car1/Battery/CoolantTemperature
               scope:
                 prefix: PackTemperature
               expression: tag.HasValue
@@ -99,7 +99,7 @@ rules:
             message: "Cell {TagId} is back to {Value} V"
 ```
 
-The `scope.prefix` of `Vehicles/Car1` is the default for every rule. `disableActions` switches off an action that a parent passes down, by its `parent/action` id, so `profile/ProfinityLog` turns off the `ProfinityLog` action that the profile passes down. Action messages accept the tokens `{RuleId}`, `{TagId}`, `{Transition}`, `{Value}`, `{Quality}`, `{MetaType}`, `{RuleLevel}`, `{TriggeredTagCount}`, `{TriggeredTagIds}`, `{TagValue}`, `{ThresholdLevel}` and `{ThresholdMessage}`.
+The `scope.prefix` of `Vehicles/Car1` is the default for every rule. `disableActions` switches off an action that a parent passes down, by its `parent/action` id, so `profile/ProfinityLog` turns off the `ProfinityLog` action that the profile passes down. Action messages accept the tokens `{RuleId}`, `{TagId}`, `{Transition}`, `{Value}`, `{Quality}`, `{MetaType}`, `{RuleLevel}`, `{TriggeredTagCount}`, `{TriggeredTagIds}`, `{TagValue}`, `{ThresholdLevel}` and `{ThresholdMessage}`, and any related-tag alias such as `{coolantTemperature}`.
 A `prefix` that starts with a name in a group or rule joins beneath its parent, so `pack_temperature` watches `Vehicles/Car1/Battery/PackTemperature`.
 A prefix with a leading `/` replaces the inherited one, and `/` alone covers the whole tag tree.
 Every rule must end up with a `prefix`, a `collection`, or both.
@@ -137,7 +137,8 @@ Its `clearExpression` sets the clear point at 4.1 V, below the 4.2 V trip point,
 
 The `description` is the text the user reads in the detail dialog of the [Alerts Log](../Alerts.md), and it supports Markdown.
 The `moreInformation` list adds links, as described under [Throttle and more information links](Rule_Settings.md#throttle-and-more-information-links).
-The `relatedTags` list holds tag paths that help diagnose the alert.
+The `relatedTags` map names other tags by alias, as described under [Related tags](Rule_Settings.md#related-tags).
+Those paths also appear in the Alerts Log detail dialog.
 A rule, group, or file also takes `enabled: false` to switch everything beneath it off.
 
 For which actions each step in this example runs, refer to [Actions inherited down the rule tree](Actions/index.md#actions-inherited-down-the-rule-tree).

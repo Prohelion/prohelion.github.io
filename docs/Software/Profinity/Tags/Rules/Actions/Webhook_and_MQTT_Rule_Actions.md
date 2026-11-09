@@ -3,7 +3,7 @@ title: Webhook and MQTT rule actions
 description: Send rule notifications to an HTTP endpoint or an MQTT broker, with the JSON message format, a guide to choosing between them, and the action settings.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-10
 ---
 
 # Webhook and MQTT rule actions
@@ -18,8 +18,11 @@ The message is JSON with these properties:
 - `ruleId` is the stable identifier of the rule, and `ruleName` is its name.
 - `triggerTagId` is the tag whose change caused this firing.
 - `message` is the alert message with its placeholders expanded, which is the text the Slack and Email actions send. It is empty when the rule has no message.
-- `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep`, or `ExitedStep`.
+- `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep`, `ExitedStep`, or `Updated`.
+  `Updated` is used when **On update** re-runs the actions because the value changed while the alert stayed true.
 - `triggeringTags` holds the same tags that a script receives as `TriggeredTags`, but each row carries `tagId`, `value`, and `quality` only.
+- `relatedTags` holds one row per related-tag alias on the rule, each with `alias`, `path`, `value`, and `quality`.
+  The array is empty when the rule has no related tags.
 
 For example:
 
@@ -32,6 +35,9 @@ For example:
   "message": "Battery temperature exceeded 60C",
   "triggeringTags": [
     { "tagId": "Vehicles/Car1/BatteryTemp", "value": 63.2, "quality": "Good" }
+  ],
+  "relatedTags": [
+    { "alias": "coolantTemperature", "path": "Vehicles/Car1/Battery/CoolantTemperature", "value": 41.0, "quality": "Good" }
   ]
 }
 ```

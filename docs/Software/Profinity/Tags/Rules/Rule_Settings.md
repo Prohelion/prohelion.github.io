@@ -1,15 +1,16 @@
 ---
 title: Rule settings
-description: Look up how a rule is evaluated (dwell, deadband, unreadable tags, evaluation tick), how it publishes its state to a tag, and the permissions it needs.
+description: Look up evaluation settings for a tag rule, including on update and related tags, how it publishes its state, and the permissions it needs.
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-29
+last_reviewed: 2026-11-10
 ---
 
 # Rule settings
 
 This page lists the settings that control how a [tag rule](index.md) is evaluated and published, and the permissions that control who can view and edit rules.
-Every setting except `dwellMinutes` is available in the rules visual editor. Set `dwellMinutes` in `rules.yaml` only.
+Every setting except `dwellMinutes` is available in the rules visual editor.
+Set `dwellMinutes` in `rules.yaml` only.
 [Complete rules.yaml example](Rules_YAML_Example.md) shows most of them in one file.
 
 ## Settings in the rules editor
@@ -17,7 +18,7 @@ Every setting except `dwellMinutes` is available in the rules visual editor. Set
 The editor exposes these settings for evaluation:
 
 - **Rule level** and **Rule type** for each rule.
-- **Dwell seconds**, **Throttle minutes**, and the **More information links** for each rule.
+- **Dwell seconds**, **Throttle minutes**, **On update**, **Related tags**, and the **More information links** for each rule.
 - **When the tag is unreadable** for each rule.
 - **Clear value (deadband)** and **Clear expression (deadband)** for each threshold step, and **Clear expression (deadband)** for a boolean rule.
 - **Evaluation tick (seconds)** on the rule source of a profile or component.
@@ -31,6 +32,40 @@ Rules support two settings that stop an alert flickering on and off:
 
 - *Dwell*: the condition must hold for a set time before the alert trips. Set it with `dwellSeconds` or `dwellMinutes`, and use only one of them on a rule, because setting both is an error when the rules load.
 - *Deadband*: the alert clears at a different point from where it tripped. Set it with `clearValue` or `clearExpression` on a threshold step, and with `clearExpression` on a boolean rule.
+
+## On update
+
+**On update**, `onUpdate` in YAML, is off unless you set it.
+When it is on, the rule re-runs its true actions if the watched value changes while the alert stays true, or while a threshold rule stays on the same step.
+The Alerts Log records that as an `Updated` transition.
+A change that first trips the rule, or that moves to another threshold step, still uses the usual enter or leave behaviour and does not also fire as an update.
+
+The same value does not send again.
+Throttle, silence, and the licence check still suppress the send.
+A suppressed send is not treated as already sent, so the next allowed change can still send.
+A rule with dwell only updates after it has activated.
+
+After Profinity restarts, an active alert is restored.
+The first evaluation takes the current value as already sent, so the rule does not send again until the value changes.
+
+The [AI Technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#built-in-rules) **Findings message** rule uses **On update** so two attention findings with different text each send.
+
+## Related tags
+
+**Related tags**, `relatedTags` in YAML, is a map of alias to tag path, in the same shape as a derived tag's dependencies.
+An alias is available in the rule `expression` and `clearExpression`, with the same reading members as a derived-tag alias (`Value`, `Text`, `Bool`, `HasValue`, `Quality`, `IsStale`).
+The same alias is a `{alias}` token in the action message, as described under [Message placeholders](Actions/index.md#message-placeholders).
+
+A path with no leading `/` joins under the component's tag root on a component rules file, and is a path from the tag tree root on the profile file.
+A path that starts with `/` is from the tag tree root.
+The Alerts Log detail dialog lists the related tag paths under **RELATED TAGS**.
+
+The rule still evaluates only when its own scope tag changes.
+A change to an alias tag alone does not re-run the rule.
+
+An alias must start with a letter or underscore and then contain only letters, digits, and underscores.
+Profinity refuses an empty alias, a duplicate alias, and an alias that collides with `tag` or with a built-in message placeholder such as `Value` or `TagId`.
+An alias tag that has no value has `HasValue` false in the expression and expands to empty text in the message.
 
 ## Throttle and more information links
 

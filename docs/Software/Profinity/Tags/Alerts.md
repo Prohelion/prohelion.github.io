@@ -3,7 +3,7 @@ title: Alerts Log
 description: "View, acknowledge, and silence rule-generated alerts in the Alerts Log, with active and history tabs and live alert indicators."
 type: reference
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-10
 ---
 
 # Alerts Log
@@ -26,7 +26,7 @@ Each row has a **More info** button that opens a detail dialog.
 The dialog shows the alert's message, tag, time, and status.
 It then shows these items from the rule, when the rule defines them:
 
-- Any `relatedTags` under **RELATED TAGS**.
+- The related tag paths from the rule, under **RELATED TAGS**.
 - The `description`, which supports Markdown.
 - Any `moreInformation` links under **DOCUMENTATION**.
 

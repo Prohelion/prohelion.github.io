@@ -3,7 +3,7 @@ title: AI technicians
 description: Use an AI technician to have Profinity AI review a device on a schedule or after an alert, and publish its finding as tags for alert rules.
 type: index
 owner: Documentation
-last_reviewed: 2026-11-09
+last_reviewed: 2026-11-10
 ---
 
 # AI technicians
