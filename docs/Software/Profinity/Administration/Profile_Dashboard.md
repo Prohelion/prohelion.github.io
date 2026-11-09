@@ -3,7 +3,7 @@ title: Profile Dashboard
 description: "Create a custom home page dashboard for a profile in the visual editor or from a YAML file, and remove it again."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-09
 ---
 
 # Profile Dashboard
@@ -25,12 +25,12 @@ Refer to [Roles and permissions](./Users_and_Access/Roles_and_Permissions.md).
 To create a Profile Dashboard from the built-in template:
 
 1. Select **ADMIN** in the side menu, then open the **Profile** pill.
-2. Select the profile and open its settings. The **Profile Settings** dialog holds **Profile Name**, **Description** and the profile options (**Custom Home Dashboard**, **Kiosk Mode**, **Kiosk Mode User**). Use it to change the home dashboard and kiosk settings.
-3. Switch on **Custom Home Dashboard** and leave **Dashboard YAML file (Optional)** empty.
+2. Select the profile and open its settings.
+3. Open the **Home** tab, switch on **Custom Home Dashboard**, and leave **Dashboard YAML file (Optional)** empty.
 4. Save the profile settings. Profinity creates a starter dashboard from the built-in template.
 5. Select the pencil (**Edit Dashboard**) icon on the home page to edit the dashboard in the visual editor, as described in [Build a dashboard in the Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md).
 
-To use your own layout, upload a `.yaml` file in **Dashboard YAML file (Optional)**, then select it from the list.
+To use your own layout, open the **Home** tab, upload a `.yaml` file in **Dashboard YAML file (Optional)**, then select it from the list.
 It opens in the visual editor like any other dashboard.
 Once configured, the Profile Dashboard is the home page whenever the profile is active.
 

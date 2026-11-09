@@ -1,9 +1,9 @@
 ---
 title: Manage profiles
-description: "Activate a profile, rename it or edit its description, import a profile pack from another instance, and download a profile pack as a ZIP file."
+description: "Activate a profile, rename it, edit its description and links, import a profile pack from another instance, and download a profile pack as a ZIP file."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-09
 ---
 
 # Manage profiles
@@ -30,14 +30,29 @@ The active profile carries the **ACTIVE** marker on its row.
 
 ## Edit profile settings
 
-To edit a profile's name and description:
+**Profile Settings** has three tabs.
+
+| Tab | What it holds |
+| --- | --- |
+| **Profile** | **Profile Name**, **Description**, and **More information** |
+| **Home** | **Kiosk Mode**, **Kiosk Mode User**, **Custom Home Dashboard**, and the dashboard file |
+| **Tags** | The collections file, the rules file, and the derived tags file |
+
+**Kiosk Mode User** appears when **Kiosk Mode** is on.
+The dashboard file appears when **Custom Home Dashboard** is on.
+
+To edit them:
 
 1. Select **ADMIN** in the side menu and open the **Profile** pill.
-2. Select the name of the profile, which opens **Profile Settings**. It holds **Profile Name**, **Description** and the profile options, including **Kiosk Mode**, **Kiosk Mode User** and **Custom Home Dashboard**.
+2. Select the name of the profile, which opens **Profile Settings** on the **Profile** tab.
 3. Edit the fields and select **Save**.
 
 **Profile Name** must be unique across all profiles.
-**Description** is optional text that describes the profile's purpose.
+**Description** is optional.
+It is shown when you choose a profile, and it is given to a Model Context Protocol (MCP) client when that client connects.
+Each **More information** link needs a label and an `https://` address.
+A client that is already connected keeps the text from when it connected.
+Save the profile, then connect the client again, to give it the new description and links.
 
 You can rename the active profile in the same way.
 Profinity saves the profile, reloads it under the new name and keeps it active, so its components restart briefly.

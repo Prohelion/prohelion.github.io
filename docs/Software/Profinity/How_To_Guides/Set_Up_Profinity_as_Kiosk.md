@@ -3,7 +3,7 @@ title: How to set up Profinity as a kiosk application
 description: "Configure Kiosk Mode in Profinity and start a fullscreen browser on Windows, Linux, or macOS so a display shows a profile without a login page."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-09
 ---
 
 # How to set up Profinity as a kiosk application
@@ -31,7 +31,7 @@ It authenticates the browser automatically as the configured kiosk user, so no l
 
 1. Select **ADMIN** in the side menu, then **Profile**.
 2. Select or create the profile to display, and open its profile settings.
-3. Enable **Kiosk Mode**.
+3. Open the **Home** tab and enable **Kiosk Mode**.
 4. Select a **Kiosk Mode User** from the dropdown.
    The list shows all enabled users, and anyone at the display acts as the user you choose, so choose a dedicated user with minimal permissions.
 5. Save the profile settings.
