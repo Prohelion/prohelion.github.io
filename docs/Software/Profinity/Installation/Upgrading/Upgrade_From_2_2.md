@@ -72,10 +72,10 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder you mounte
 
 2. Install Profinity 2.3 and start it once, following [Install Profinity on Windows](../Windows_Installation.md), [Install Profinity on Linux and macOS](../Linux_and_macOS_Installation.md), or, for Docker, [Update the Profinity Docker image](../Docker/Update_Docker_Image.md).
     On a Windows desktop installation the application window opens.
-    On Linux, macOS and Docker, open `http://localhost:18080` to reach the sign-in page.
+    On Linux, macOS, and Docker, open `http://localhost:18080` to reach the sign-in page.
     The first start migrates the 2.2 data into the 2.3 [artefacts directory](../Artifacts_Directory.md), and keeps the original of each file it rewrites beside it as `<file>.bak`.
     Profinity 2.3 reads a profile only from `profile.yaml`, so if a profile uses another file name, rename it as described in [Profile files](../../Release_Notes/Breaking_Changes_2_3.md#profile-files).
-    When `PROFINITY_HOME` is set, Profinity skips the move from the 2.2 locations, so copy the 2.2 data into that location yourself. The users, roles and passwords in it are then converted in place.
+    When `PROFINITY_HOME` is set, Profinity skips the move from the 2.2 locations, so copy the 2.2 data into that location yourself. The users, roles, and passwords in it are then converted in place.
 
 3. On **ADMIN > License**, apply the licence file, as described in [Apply a licence](../Applying_a_Licence.md).
     The **State** shows `Valid`, or `Expiring` when 30 days or fewer remain.

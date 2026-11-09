@@ -44,7 +44,7 @@ Selecting **Enable** on a row that the site configuration disables removes it fr
 A row with no action button is locked, and the **Status** column says why.
 
 - **Not licensed** means your licence does not cover the component. Refer to [Licensing](../Licensing.md).
-- **Disabled (Custom.yaml)** means the supplier of your Profinity build hid the component through the `custom.yaml` file in the `config` folder. Profinity only reads that file, so you cannot enable the component from this screen.
+- **Disabled (Custom.yaml)** means the supplier of your Profinity build hid the component through the `custom.yaml` file in the `config` folder. Profinity only reads that file, so you cannot enable the component from this screen. To make the component available, ask your supplier.
 - **Disabled**, **Disabled (group)**, or **Disabled (component)** means the site configuration disables the component.
 
 To make a Disabled, Disabled (group) or Disabled (component) row available, select **Enable** in its **Actions** column, or **Enable group** for a group row. The change takes effect straight away.

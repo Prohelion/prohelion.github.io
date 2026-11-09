@@ -18,7 +18,7 @@ In server mode the user interface is available only through a browser.
 Representational State Transfer (REST) APIs serve it, and those APIs are also available to [custom applications](../../Customising_Profinity/Hosting/index.md) hosted on the Profinity Server.
 
 A service serves the web interface to other machines only with a Server licence.
-On Docker, Linux and macOS, the 14-day local trial includes the Server feature, so other machines can connect while it runs.
+On Docker, Linux, and macOS, the 14-day local trial includes the Server feature, so other machines can connect while it runs.
 The Windows service is a desktop host with no local trial, so it serves the web interface to the local machine only until you apply a Server licence.
 Apply a licence file under **ADMIN > License**, as described in [Apply a licence](../Applying_a_Licence.md).
 For the accounts that can sign in, refer to [Who can sign in, by installation type](../Applying_a_Licence.md#who-can-sign-in).

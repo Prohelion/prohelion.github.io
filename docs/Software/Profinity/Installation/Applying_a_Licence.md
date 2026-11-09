@@ -10,13 +10,13 @@ last_reviewed: 2026-10-28
 
 A new Profinity installation runs without a licence file.
 An unlicensed Desktop installation is limited to personal, non-commercial use.
-A Linux, macOS or Docker installation starts a one-time 14-day local trial with the Server features, as described in [Licensing](../Licensing.md).
+A Linux, macOS, or Docker installation starts a one-time 14-day local trial with the Server features, as described in [Licensing](../Licensing.md).
 The Windows service has no local trial, and serves the web interface to the local machine only until you apply a Server licence.
 A commercial or evaluation licence from Prohelion removes those limits, and you apply it after installation in the same way on every platform.
 
 You need three things:
 
-- The **Security administration** permission, which is needed to view or change the **License** page. On a Windows desktop installation the built-in account holds it. On Linux, macOS and Docker, the `admin` account holds it through the **Administrators** role.
+- The **Security administration** permission, which is needed to view or change the **License** page. On a Windows desktop installation the built-in account holds it. On Linux, macOS, and Docker, the `admin` account holds it through the **Administrators** role.
 - The licence file, named `license.yaml`, which Prohelion signs for one installation and returns after receiving its fingerprint.
 - Access to the machine that runs Profinity, or to its artefacts directory, when the instance has no network access.
 
@@ -60,7 +60,7 @@ A Windows service with no Server licence has no account that can sign in to the 
 
 1. Copy `license.yaml` into the `license` folder of the [artefacts directory](./Artifacts_Directory.md), so that the file ends up at `license/license.yaml`.
 2. On Docker, place it in the mounted volume that holds the artefacts directory, so that it survives the container being recreated.
-3. Restart Profinity if the licence adds features, or if the **License** page still shows the previous state.
+3. Restart Profinity, using the restart command for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, or if the **License** page still shows the previous state.
 
 The licence must belong to the installation's own fingerprint, in the same way as one uploaded from the page.
 To read the fingerprint, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Licensing.md#the-machine-fingerprint).
