@@ -28,7 +28,6 @@ Refer to [Profinity Scripting](../Scripting/index.md).
 A C# project in a generated folder references `Profinity.Sdk`.
 To let the editor complete Profinity types, add the kit folder that contains that package as a local NuGet source. In Visual Studio, use Tools, Options, NuGet Package Manager, Package Sources. From any editor or a terminal, run `dotnet nuget add source` with the kit folder path and a name such as `ProfinityKit`.
 `profinity-script sim` compiles and runs the script itself.
-If a project still references `Profinity.Component.Sdk`, change that reference to `Profinity.Sdk`.
 
 ## Create a runnable script
 

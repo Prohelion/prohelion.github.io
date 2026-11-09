@@ -9,7 +9,7 @@ last_reviewed: 2026-11-01
 # TAG Local Historian
 
 The **TAG Local Historian** writes the values of the tags in the [collections](../../Tags/Collections/index.md) you select to a SQLite database file that Profinity manages on the host.
-It also allows that history to be read back through the APIs.
+Dashboards and integrations can read that history back.
 It sits in the **Historians** category.
 
 Use it for simple or embedded setups where you want queryable history without entering a connection string or running a separate database server.

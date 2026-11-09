@@ -106,7 +106,7 @@ The state of a connected battery is described on the [Prohelion BMU](../Battery_
 
 ## Tags
 
-The component publishes the tags OutputPower, InputPower and MpptStateText.
+The component publishes the tags OutputPower, InputPower, and MpptStateText.
 
 ## Example
 

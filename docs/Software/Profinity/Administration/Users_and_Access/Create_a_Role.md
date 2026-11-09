@@ -77,7 +77,7 @@ The person's row now lists the role under **Assigned roles**.
 ## Change or delete a role
 
 To change a role later, open the **Roles** tab and select the role.
-Before you delete a role, write down its name, description and permissions, so you can create it again. Refer to [Create the role](#create-the-role).
+Before you delete a role, write down its name, description, and permissions, so you can create it again. Refer to [Create the role](#create-the-role).
 
 To delete a role, open it on the **Roles** tab, select **DELETE ROLE** and confirm. The button is disabled while users hold the role, so remove the role from each of those users first. Profinity keeps the previous `security.yaml` as `security.yaml.bak`, which still holds the deleted role until the next save of security settings replaces it.
 

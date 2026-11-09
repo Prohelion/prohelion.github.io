@@ -64,7 +64,7 @@ Refer to [Action invocation](../Images_and_Models/Overlay_Elements.md#action-inv
 | `url` | string | Yes | None | Relative or absolute address that the request is sent to |
 | `label` | string | No | None | Caption of the button for the request |
 | `description` | string | No | None | Supporting text beside the button |
-| `image` | string | No | None | Carbon icon name shown on the button |
+| `image` | string | No | None | Icon name shown on the button |
 | `imageAlt` | string | No | None | Accessible label for the icon |
 | `confirmMessage` | string | No | None | Message of a confirmation dialog shown before the request is sent |
 | `successKinds` | array of string | No | None | What the interface does after the request succeeds. `Toast` shows the response message, or `Action completed.` when the response has no message. On a dashboard only `Toast` has an effect. `ReloadSettings`, `ShowServiceAccountTokenDialog` and `RefreshOnClose` apply on settings pages only |

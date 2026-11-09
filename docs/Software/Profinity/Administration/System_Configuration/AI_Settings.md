@@ -64,7 +64,7 @@ Raise **Response timeout (seconds)** for slow models.
 ## Data handling and security
 
 !!! warning "Prompts and data can leave the instance boundary"
-    Sending a message through Profinity AI sends the conversation, and any Profinity data the assistant retrieves through MCP to answer it, to the configured provider. When Provider is Claude, OpenAI or OpenRouter, prompts and data leave this instance. For Local / self-hosted, data leaves the instance only if the Base URL is outside your own infrastructure.
+    Sending a message through Profinity AI sends the conversation, and any Profinity data the assistant retrieves through MCP to answer it, to the configured provider. When Provider is Claude, OpenAI, or OpenRouter, prompts and data leave this instance. For Local / self-hosted, data leaves the instance only if the Base URL is outside your own infrastructure.
     If web search is enabled, search queries are also sent to the provider's web-search capability, and documentation queries are sent to docs.prohelion.com.
     Review this data flow against your organisation's security requirements before enabling Profinity AI for a regulated or air-gapped deployment.
 

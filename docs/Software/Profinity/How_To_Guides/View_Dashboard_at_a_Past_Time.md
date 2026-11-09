@@ -29,6 +29,7 @@ Selecting **Live** returns the control to **Live**, and the values update as new
 |--------------|-------|------------|
 | The **Live** and **View at a time** control does not appear | The profile has no designated historian, more than one, or the Historians feature is not licensed. | Refer to [Designated historian](../Components/Historians/Designated_Historian.md) and [Licensing](../Licensing.md). |
 | **View at a time** is greyed out, or the picker shows "No stored samples for the tags on this dashboard yet." | The historian holds no values for the tags on the dashboard. | Check that the tags are recorded, as described in [How to configure data logging](./Configure_Data_Logging.md), and wait until values are stored. |
+| A text value, such as a message or a status, stays empty at the chosen time while numbers show | The designated historian is an InfluxDB historian, which stores only tags that hold a number. | Make a TAG Local Historian or TAG SQL Historian the [designated historian](../Components/Historians/Designated_Historian.md). |
 | A chart is empty or has gaps at the chosen time | A chart window reaches further back than the stored values. | Choose a later time, or refer to [Live and past data](../Customising_Profinity/Dashboards/Data_Binding/index.md#live-and-past-data) to see how a window fills. |
 
 To set the window that a chart shows, refer to [Data binding](../Customising_Profinity/Dashboards/Data_Binding/index.md).

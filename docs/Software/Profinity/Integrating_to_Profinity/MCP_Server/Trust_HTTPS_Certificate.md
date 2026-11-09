@@ -14,8 +14,7 @@ Skip this page when you use the HTTP address on the same computer as Profinity.
 Accepting the certificate warning in a browser trusts the certificate in that browser only.
 Another application, such as an AI tool, needs the certificate trusted in the operating system, or given to it as a file.
 The guides for [Claude Code](Connect_Claude_Code.md), [Codex](Connect_Codex.md), and [Cursor](Connect_Cursor.md) give the steps for each tool.
-As of November 2026, Claude Code on an npm install that uses a Node.js version older than 22.15 needs an extra step, as described in [Claude Code network configuration](https://code.claude.com/docs/en/network-config).
-For that step, refer to [Connect Claude Code to Profinity](Connect_Claude_Code.md#trust-the-certificate).
+Claude Code needs an extra step on some installs. Refer to [Connect Claude Code to Profinity](Connect_Claude_Code.md#trust-the-certificate) for it.
 
 ## Before you begin
 

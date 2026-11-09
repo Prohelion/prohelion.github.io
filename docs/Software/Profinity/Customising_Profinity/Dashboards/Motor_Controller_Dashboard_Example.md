@@ -90,7 +90,7 @@ For more information, refer to the [Observation](../../../../Motor_Controllers/C
 
 ### Detailed information section
 
-The last section is the `MORE DETAILS` accordion, which holds a tab labelled `INFO` with panels for low voltage, phase currents, motor vectors, speed and distance, and other data.
+The last section is the `MORE DETAILS` accordion, which holds a tab labelled `INFO` with panels for low voltage, phase currents, motor vectors, speed, and distance, and other data.
 The other data includes the identifier, serial number, and CAN error counts.
 Keeping the full set of measurements in an accordion leaves the main dashboard with the key metrics.
 A user opens the accordion only when the detail is needed.

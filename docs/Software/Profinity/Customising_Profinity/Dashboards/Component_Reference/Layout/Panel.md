@@ -36,15 +36,15 @@ Use a [Group](Group.md) when the components need no title or panel frame.
 The `sunken` variant suits charts and state diagrams, and it applies to the panel body rather than to the whole panel.
 A panel accepts these components in `items`:
 
-- [Chart](../Data/Charts.md)
-- [Lamps](../Data/Lamps.md)
-- [State](../Data/State.md) diagram
-- [Group](Group.md)
-- [Readouts](../Data/Readouts.md)
-- [Table](../Data/Tables.md)
-- [HTML](../Content/HTML.md)
-- [Redirect](../Content/Redirect.md)
 - [Caption](../Data/Caption.md)
+- [Chart](../Data/Charts.md)
+- [Group](Group.md)
+- [HTML](../Content/HTML.md)
+- [Lamps](../Data/Lamps.md)
+- [Readouts](../Data/Readouts.md)
+- [Redirect](../Content/Redirect.md)
+- [State](../Data/State.md) diagram
+- [Table](../Data/Tables.md)
 
 Place any other component inside a `group`.
 

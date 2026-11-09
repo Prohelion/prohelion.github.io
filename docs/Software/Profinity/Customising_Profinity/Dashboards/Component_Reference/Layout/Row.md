@@ -17,7 +17,7 @@ Rows are the basic building blocks of dashboard layout.
 
 ## When to use
 
-Use a row to divide a dashboard into logical sections and to control the direction in which the components of a section are laid out.
+A row divides a dashboard into logical sections and sets the direction in which the components of a section are laid out.
 A row stacks its items vertically unless `direction` is set to `horizontal`, so set `direction: horizontal` to place items side by side.
 Use a [Group](Group.md) when a set of related components needs a shared `width`, because a row takes a `height` rather than a width.
 

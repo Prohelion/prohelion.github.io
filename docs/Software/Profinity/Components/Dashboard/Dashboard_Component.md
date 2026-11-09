@@ -78,7 +78,7 @@ flowchart LR
 
 A relative tag path in a Dashboard Component starts at the Dashboard Component itself.
 The component has no DBC, so a path such as `DBC/BusMeasurement/BusVoltage` finds no tag there.
-Bind to the tags of another component with an absolute path that starts with `/`, such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`, where `Prohelion BMU` is the name of the BMU component in the Example Profile.
+Bind to the tags of another component with an absolute path that starts with `/`, such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`, where `Prohelion BMU` is the name of the BMU component in the [Example Profile](../../Administration/Profiles.md#shipped-example).
 Use the name of your own component.
 
 To connect the dashboard to tags, refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md).

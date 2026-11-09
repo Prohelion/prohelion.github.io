@@ -16,7 +16,7 @@ Each route needs the same permission as the matching screen, except the Themes r
 ## Alerts
 
 Routes under `/api/v2/Alerts` return and manage the alerts shown in the [Alerts Log](../../Tags/Alerts.md).
-Every Alerts route needs the **View alerts** permission. Ack, Unack and Silence also return not found for a tag that the signed-in user cannot see under component security.
+Every Alerts route needs the **View alerts** permission. Ack, Unack, and Silence also return not found for a tag that the signed-in user cannot see under component security.
 
 | Method | Route | Body |
 |--------|-------|------|

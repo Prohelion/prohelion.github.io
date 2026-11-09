@@ -78,7 +78,7 @@ The schedule, receive, and tag change settings appear only for the mode that use
 | **Trigger Overlap** | Drop | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
 | **Queue Depth** | 8 | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
 | **Time Interval** and **Time Interval Unit** | Empty, and Seconds | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
-| **Cron Schedule** | Empty | Run On CRON Schedule | The Quartz cron expression that decides when the script runs |
+| **Cron Schedule** | Empty | Run On CRON Schedule | The cron expression that decides when the script runs, as described in [Run scripts](./Run_Scripts.md) |
 | **Maximum Run Time (seconds)** | Empty (no limit) | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
 | **Base Address**, **Address Range** and **Milliseconds Valid** | 0, 0 and 5000 | Run On Receipt of CAN Message | The CAN addresses the script receives, as unsigned 32-bit numbers in hexadecimal, and how long traffic from the device counts as valid |
 | **Tag Paths** and **Collections** | Empty | Run On Tag Change | The tags and tag collections that trigger the script |
