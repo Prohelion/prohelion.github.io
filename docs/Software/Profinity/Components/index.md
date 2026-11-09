@@ -32,6 +32,7 @@ To add one, refer to [How to add a component to your profile](../How_To_Guides/A
 ## Display and extend
 
 - [Dashboard Component](Dashboard/Dashboard_Component.md): show a YAML dashboard bound to existing tags.
+- [AI Technician](../Profinity_AI/AI_Technicians/AI_Technician.md): have Profinity AI review a device on a schedule or after an alert, and publish its finding as tags.
 - [Using a Custom Component](Custom_Components/Using_a_Custom_Component.md): add a custom component to a profile.
 - [Pack a Custom Component](Custom_Components/Pack_a_Custom_Component.md): pack a working component so another installation can add it.
 

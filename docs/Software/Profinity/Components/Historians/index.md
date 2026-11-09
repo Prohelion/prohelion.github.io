@@ -26,3 +26,6 @@ Loggers (file, Secure Shell File Transfer Protocol (SFTP), InfluxDB v1, Promethe
 - [InfluxDB historians](InfluxDB_Historians.md): store history in an InfluxDB v2 server (bucket and organisation) or an InfluxDB v3 server (database), and choose the one that matches your server version.
 - [TAG SQL Historian](TAG_SQL_Historian.md): store history in a SQLite, SQL Server / Azure SQL, PostgreSQL, MySQL, or Oracle table that you configure with a connection string.
 - [Designated historian](Designated_Historian.md): choose which historian answers long-range history queries.
+
+The InfluxDB historians store only tags that hold a number.
+To keep the history of tags that hold text, such as the findings of an [AI technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#keep-a-history-of-findings), use the TAG Local Historian or the TAG SQL Historian.

@@ -47,6 +47,7 @@ A question such as "Why is Cell 12 overheating?" can therefore be answered from 
 ## Choose how to use it
 
 AI Chat answers questions, and AI Skills helps you build things.
+An [AI technician](./AI_Technicians/index.md) asks the same kind of question without anyone at the screen, on a schedule or after an alert, and publishes its answer as tags that alert rules can use.
 You can also pair AI Skills with the Model Context Protocol (MCP) server and use your own AI tool for the same questions.
 Users need the **Profinity AI** permission to open AI Chat, and the built-in **Administrators** role has it by default.
 [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists the **Profinity AI** and **MCP integration** permissions.

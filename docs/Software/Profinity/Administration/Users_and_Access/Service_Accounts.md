@@ -58,6 +58,17 @@ The following table shows common patterns.
 | Tag and query automation | **View tags**, plus any other view permission the integration reads |
 | MCP access | **MCP integration**, or the **Profinity AI** permission, which implies it. The default **Administrators** role has both. |
 
+## Run an AI technician
+
+An [AI technician](../../Profinity_AI/AI_Technicians/index.md) names a user in its **Run as** setting, and each round signs in as that user.
+A service account is the usual choice, because its roles can be limited to reading.
+The round signs in with its own session, so it does not use the account's token, and **Generate Token** does not affect it.
+That session expires two minutes after the technician's **Round timeout (seconds)**, so it cannot be used once the round is over.
+
+Give the account a role that holds **MCP integration**, **View tags**, **View alerts**, and **View tag rules**, and no permission that changes anything.
+Restricted components and collections apply to the account in the same way as to any user, so the technician cannot see a device the account cannot see.
+Disabling the account stops the technician, and each round then ends with a `blocked` finding.
+
 ## Using the token
 
 Send the token as a bearer token on `/api/v2` requests:

@@ -73,6 +73,10 @@ The API key is stored encrypted and is never sent to the browser.
 Live-data access through MCP is scoped to the permissions of the user asking the question, using a short-lived token minted for that user.
 Profinity AI sees only the data that the asking user can already see in Profinity with their security settings.
 
+[AI technicians](../../Profinity_AI/AI_Technicians/index.md) use the same provider settings.
+They send device data to the provider on a schedule or after an alert, with nobody at the screen, so review the provider before you schedule them.
+Each round signs in as the technician's [service account](../Users_and_Access/Service_Accounts.md#run-an-ai-technician) and sees only what that account can see.
+
 ## Permissions
 
 A user needs the **Profinity AI** permission to see and use the **Profinity AI** menu item.
