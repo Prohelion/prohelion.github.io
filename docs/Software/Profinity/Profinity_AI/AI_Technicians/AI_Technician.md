@@ -78,7 +78,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     tagTreeParentPath: /
     enabled: true
     runAsServiceAccount: technician
-    instructions: <your instructions>
+    instructions: YOUR_INSTRUCTIONS
     scheduleMode: CronSchedule
     cronSchedule: 0 0 0 * * ?
     reviewWindowHours: 24
@@ -87,7 +87,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     dailyLimit: 10
 ```
 
-Replace `technician` with the user name of the account the technician runs as, and `<your instructions>` with the review.
+Replace `technician` with the user name of the account the technician runs as, and `YOUR_INSTRUCTIONS` with the review.
 The keys match the settings: `runAsServiceAccount` is **Run as**, `scheduleMode` is **Schedule**, `timeoutSeconds` is **Round timeout (seconds)**, and the others follow the setting names.
 
 ## Actions

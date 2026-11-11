@@ -75,17 +75,17 @@ Refer to [Profile folders](../../Administration/Profile_Folders.md) for where th
     id: InfluxDbLoggerV11
     name: InfluxDB v1 Logger
     tagTreeParentPath: /
-    bucket: <database>
+    bucket: YOUR_DATABASE
     url: http://localhost:8086/
     retentionPolicy: autogen
     healthCheck: true
     intervalSec: 10
     logType: Snapshot
     collections:
-    - collectionName: <collection id>
+    - collectionName: YOUR_COLLECTION_ID
 ```
 
-Replace `<database>` with the InfluxDB database, which the profile stores under the `bucket` key, and `<collection id>` with the `id` of a collection in the profile's `collections.yaml` file.
+Replace `YOUR_DATABASE` with the InfluxDB database, which the profile stores under the `bucket` key, and `YOUR_COLLECTION_ID` with the `id` of a collection in the profile's `collections.yaml` file.
 The example has no user name or password, which suits a server without a sign-in.
 
 ## What is stored

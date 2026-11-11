@@ -25,7 +25,8 @@ Each setting is in the rules visual editor and in the `rules.yaml` file, except 
 | **Related tags** | `relatedTags` | Alias and tag path pairs | None | Other tags that the expression and the action message can read. Refer to [Related tags](#related-tags). |
 | **More information links** | `moreInformation` | Description and `https://` address pairs | None | Links shown with the alert in the Alerts Log. |
 | **When the tag is unreadable** | `onUnreadable` | Choice: `hold` or `evaluate` | `hold` | Whether the rule keeps its state or runs while its tag has no value. Refer to [Unreadable tags](#unreadable-tags). |
-| **Clear value (deadband)**, **Clear expression (deadband)** | `clearValue`, `clearExpression` | Number, expression | None | Where a threshold step or a boolean rule clears, when that differs from where it tripped. |
+| **Clear value (deadband)** | `clearValue` | Decimal number | None | On a threshold step with a condition, the value where the step clears, when that differs from where it tripped. A step takes `clearValue` or `clearExpression`, not both. |
+| **Clear expression (deadband)** | `clearExpression` | Text | None | On a threshold step or a boolean rule, the expression that clears the alert, when that differs from where it tripped. |
 | **Publish state tag path** | `publishStateTagPath` | Tag path | None | A tag that mirrors the rule's state. Refer to [Rule state publishing](#rule-state-publishing). |
 | **Evaluation tick (seconds)** | `evaluationTickSeconds` | Whole number, 1 to 3600 | None | An extra evaluation pass at this interval, set on the rule source of a profile or component. Refer to [Evaluation tick](#evaluation-tick). |
 
@@ -34,7 +35,7 @@ Each setting is in the rules visual editor and in the `rules.yaml` file, except 
 Dwell and deadband stop an alert flickering on and off.
 
 - *Dwell* makes the condition hold for a set time before the alert trips. Set `dwellSeconds` or `dwellMinutes` on a rule, not both, because a rule with both is an error when the rules load.
-- *Deadband* makes the alert clear at a different point from where it tripped. Set `clearValue` or `clearExpression` on a threshold step, or `clearExpression` on a boolean rule.
+- *Deadband* makes the alert clear at a different point from where it tripped. Set `clearValue` or `clearExpression` on a threshold step, or `clearExpression` on a boolean rule, which has no `clearValue`.
 
 ## On update
 

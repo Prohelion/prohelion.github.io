@@ -90,14 +90,14 @@ Add it under `components:` in the `profile.yaml` file of the Profile.
 - component:
     type: CustomComponent
     id: CustomComponent1
-    name: <component name>
+    name: YOUR_COMPONENT_NAME
     tagTreeParentPath: /
-    dashboardFilename: <dashboard file>.yaml
-    mainScriptFilename: <script file>.py
+    dashboardFilename: YOUR_DASHBOARD.yaml
+    mainScriptFilename: YOUR_SCRIPT.py
     autoStart: true
 ```
 
-Replace `<component name>` with a name that is unique in the Profile, and `<dashboard file>` and `<script file>` with the names of the files you uploaded.
+Replace `YOUR_COMPONENT_NAME` with a name that is unique in the Profile, and `YOUR_DASHBOARD` and `YOUR_SCRIPT` with the names of the files you uploaded.
 The script file can end in `.cs`, `.py`, or `.lua`.
 `autoStart` is **Auto Start Main Script**.
 

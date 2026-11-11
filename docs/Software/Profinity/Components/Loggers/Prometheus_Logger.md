@@ -67,10 +67,10 @@ Refer to [Profile folders](../../Administration/Profile_Folders.md) for where th
     url: metrics/
     intervalSec: 10
     collections:
-    - collectionName: <collection id>
+    - collectionName: YOUR_COLLECTION_ID
 ```
 
-Replace `<collection id>` with the `id` of a collection in the profile's `collections.yaml` file.
+Replace `YOUR_COLLECTION_ID` with the `id` of a collection in the profile's `collections.yaml` file.
 With these values, Prometheus reads the data from `http://localhost:7065/metrics`.
 
 ## Let another computer read the data {#let-another-computer-read-the-data}

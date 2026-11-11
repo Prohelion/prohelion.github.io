@@ -68,12 +68,12 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     id: OpcUaServer1
     name: Plant OPC UA Server
     tagTreeParentPath: /
-    bindUrl: opc.tcp://<server address>:4840/Profinity
+    bindUrl: opc.tcp://SERVER_ADDRESS:4840/Profinity
     autoConnect: true
     trustAllClientCertificates: false
 ```
 
-Replace `<server address>` with an IP address of the Profinity computer that your OPC UA clients can reach.
+Replace `SERVER_ADDRESS` with an IP address of the Profinity computer that your OPC UA clients can reach.
 
 ## Listening address
 

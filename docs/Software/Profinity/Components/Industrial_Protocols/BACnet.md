@@ -97,8 +97,8 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     name: Plant Room Controller
     tagTreeParentPath: /
     localUdpPort: 47808
-    remoteHost: <device IP address>
-    deviceInstance: <device instance>
+    remoteHost: DEVICE_IP_ADDRESS
+    deviceInstance: DEVICE_INSTANCE
     pollIntervalMilliseconds: 1000
     requestTimeoutMilliseconds: 1000
     reconnectDelayMilliseconds: 2000
@@ -116,7 +116,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
       unit: °C
 ```
 
-Replace `<device IP address>` with the IP address of your BACnet device and `<device instance>` with its instance number.
+Replace `DEVICE_IP_ADDRESS` with the IP address of your BACnet device and `DEVICE_INSTANCE` with its instance number.
 The other keys match the settings and point map columns in the tables on this page.
 The two points appear in the tag tree as `/Plant Room Controller/Points/SupplyTemperature` and `/Plant Room Controller/Points/TemperatureSetpoint`.
 

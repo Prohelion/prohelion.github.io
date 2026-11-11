@@ -42,15 +42,17 @@ Profinity keeps the set for 15 minutes after the last poll, so poll more often t
 ## Binding settings
 
 Each binding needs only `source`, and Profinity skips a binding whose `source` is empty.
+The aggregation settings apply only to the older values from the historian, and they have the same meaning as in a dashboard binding.
 
-| Setting | Effect |
-|---|---|
-| `source` | The full path of the tag. |
-| `start`, `stop` | The time window. A binding without them returns the latest value, and a binding with either returns the values in the window. Values older than the memory window come from the designated historian, as described in [Live and past data](../../Customising_Profinity/Dashboards/Data_Binding/index.md#live-and-past-data). |
-| `seriesMode` | How the window is returned, as for a dashboard binding. |
-| `aggregationWindow`, `aggregationFunction` | The length of each interval and how it is reduced, such as `1m` and `Mean`. They apply only to the older values from the historian. |
+| Setting | Type | Default | Effect |
+|---|---|---|---|
+| `source` | Text | None | The full path of the tag. Required. |
+| `start`, `stop` | Text | `start` is `-10m`, `stop` is now | The time window, as a time relative to now such as `-10m`, or an ISO 8601 instant. A binding without either returns the latest value. Values older than the memory window come from the designated historian, as described in [Live and past data](../../Customising_Profinity/Dashboards/Data_Binding/index.md#live-and-past-data). |
+| `seriesMode` | Choice | `instant` | How the window is returned: `instant`, `timeSeries`, or `timeSeriesDelta`. |
+| `aggregationWindow` | Text | None | The length of each interval for the older values from the historian, such as `1m`. |
+| `aggregationFunction` | Choice | `max` | How each interval is reduced: `max`, `mean`, `min`, `last`, `first`, `sum`, or `count`. |
 
-The settings have the same meaning as in a dashboard binding, described in [Binding settings reference](../../Customising_Profinity/Dashboards/Data_Binding/Binding_Settings_Reference.md).
+The full list is in [Binding settings reference](../../Customising_Profinity/Dashboards/Data_Binding/Binding_Settings_Reference.md).
 
 To choose the set's name yourself, add `srcSetId` to the body.
 Profinity then uses that name and replaces any set that already has it, and without `srcSetId` it names the set for you.

@@ -71,10 +71,10 @@ Each profile has its own folder in the `profiles` folder of the [artefacts direc
     retentionDays: 30
     designatedTagDataStore: true
     collections:
-    - collectionName: <collection id>
+    - collectionName: YOUR_COLLECTION_ID
 ```
 
-Replace `<collection id>` with the `id` of the collection, which is in the `collections.yaml` file of the profile.
+Replace `YOUR_COLLECTION_ID` with the `id` of the collection, which is in the `collections.yaml` file of the profile.
 The keys match the settings in this order: `intervalSec` is **Update Interval (Seconds)**, `logType` is **Logging mode**, `retentionDays` is **Retention (days)**, `designatedTagDataStore` is **Designated tag historian reader**, and `collections` is **Collections**.
 
 ## Where the database is stored

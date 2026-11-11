@@ -94,9 +94,9 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     id: TDKPowerSupply1
     name: TDK Power Supply
     tagTreeParentPath: /
-    chargerIpAddress: <supply IP address>
+    chargerIpAddress: SUPPLY_IP_ADDRESS
     chargerPort: 5025
-    chargerId: <charger ID>
+    chargerId: CHARGER_ID
     chargerVoltageLimit: 300
     chargerCurrentLimit: 10
     chargerPowerLimit: 3000
@@ -105,7 +105,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     autoConnect: false
 ```
 
-Replace `<supply IP address>` with the IP address of the supply and `<charger ID>` with the ID it is set to, and set the limits to match your supply.
+Replace `SUPPLY_IP_ADDRESS` with the IP address of the supply and `CHARGER_ID` with the ID it is set to, and set the limits to match your supply.
 
 ## Troubleshooting
 
