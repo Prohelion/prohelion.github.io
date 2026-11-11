@@ -113,7 +113,7 @@ actions:
         tag: Vehicles/Car1/Battery/PackTemperature
 ```
 
-An action that is missing, or is a different kind of component, is reported as `references unknown component` when the rules file loads.
+An action that is missing, or is a different kind of component, is reported as `references unknown component` when the rule is saved in the rule editor, and when the rules file loads.
 The other rules in the file still load, and the rule that names it stays skipped until the name is corrected.
 
 ## `TriggeredTags`

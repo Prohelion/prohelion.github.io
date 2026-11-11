@@ -191,7 +191,7 @@ services:
       - ENABLE_SCRIPTING=${ENABLE_SCRIPTING:-false}
       - PROFILE_NAME=${PROFILE_NAME:-Docker Profile}
     volumes:
-      - ./Prohelion:/var/lib/prohelion/profinity
+      - $HOME/Prohelion:/var/lib/prohelion/profinity
 ```
 
 With `HTTP_PORT=8080`, host port 8080 maps to container port 8080, which matches a `config.yaml` that listens on `${HTTP_PORT}`. `HTTPS_PORT` works the same way only if `config.yaml` also has `httpsPort: ${HTTPS_PORT:-18443}`. Profinity does not read `HTTPS_PORT` on its own, so without that placeholder Compose publishes the new port while Profinity still listens on 18443.
@@ -219,7 +219,7 @@ Besides the variables that your own files reference, Profinity and its install s
 |----------|------|---------|---------|--------|
 | `PROFINITY_HOME` | Path | Profinity, `profinity.sh` | `%LOCALAPPDATA%\Prohelion\Profinity` on Windows, `~/Library/Application Support/Prohelion/Profinity` on macOS, `/var/lib/prohelion/profinity` on Linux | Moves the [artefacts directory](./Artifacts_Directory.md) away from its default and turns off automatic migration from older locations. Set it only for an exception, such as several instances on one host |
 | `PROFINITY_INSTALL_ROOT` | Path | `profinity.sh`, `update.sh` | The folder that holds the script | Overrides the install root, which otherwise is the folder that holds the script |
-| `PROFINITY_DOTNET_INSTALL_URL` | URL | `profinity.sh` | The `dotnet-install.sh` URL pinned in the script | Overrides the address that the portable edition downloads the .NET installer from |
+| `PROFINITY_DOTNET_INSTALL_URL` | URL | `profinity.sh` | The `dotnet-install.sh` URL pinned in the script | Overrides the address that `profinity.sh` downloads the .NET installer from when the host has no .NET runtime |
 | `PROFINITY_FILES_BASE` | URL | `install.sh`, `update.sh` | `https://files.prohelion.com/profinity` | Overrides the file server that releases are downloaded from |
 | `PROFINITY_DOCKER_IMAGE` | Image name | `install-docker.sh` | `prohelion/profinity:latest` | Sets the Docker image that the one-line Docker installer uses |
 

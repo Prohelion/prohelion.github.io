@@ -41,10 +41,10 @@ This quick start covers the **TAG File Logger**. The TAG SFTP Logger also needs 
 1. Create a tag collection that holds the tags to log, as described in [Tag collections](../../Tags/Collections/index.md).
 2. Add a **TAG File Logger** from the **Loggers** group, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 3. Under **Collections**, add the collection from step 1. The logger does not start until a collection is configured.
-4. Leave **Logging mode** as **Snapshot**, **Update Interval (Seconds)** as 10 and **File Format** as **CSV**, unless you need other values.
+4. Leave **Logging mode** as **Snapshot**, **Update Interval (seconds)** as 10 and **File Format** as **CSV**, unless you need other values.
 5. Select **ADD COMPONENT** at the bottom of the dialog. Leave **Auto Connect** on, which is its default, so the logger starts when the profile loads.
 6. On the Logger Dashboard, check that **STATUS** shows **On**.
-7. Select **TAG LOGS REPOSITORY** on the Logger Dashboard and open the file. Each line shows a tag ID with a quality of Good.
+7. Select **TAG LOGS REPOSITORY** on the Logger Dashboard and open the file. The first line is a header row. Each sample line shows a tag ID and its quality, such as Good.
 
 ## Settings
 
@@ -56,7 +56,7 @@ A logger shows **Off** and needs a collection before it can start, so create and
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
 | **Collections** | Choice | Empty | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
-| **Update Interval (Seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Update Interval (seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Logging mode** | Choice | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
 | **File Format** | Choice | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
 
@@ -92,6 +92,25 @@ Once a log file has been created, select the link on the Logger Dashboard to dow
 A TAG File Logger shows this link as **TAG LOGS REPOSITORY**.
 
 To record tags for a later replay, refer to [Log tags to a file](../../Tags/Tag_Logs/Log_Tags_to_a_File.md), and to send the same collections to a database, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
+
+Add this item under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: TagChangeFileLogger
+    id: TagChangeFileLogger1
+    name: TAG File Logger
+    tagTreeParentPath: /
+    fileFormat: Csv
+    intervalSec: 10
+    logType: Snapshot
+    autoConnect: true
+    collections:
+    - collectionName: YOUR_COLLECTION_ID
+```
+
+Replace `YOUR_COLLECTION_ID` with the `id` of a collection in the profile's `collections.yaml` file.
+Use `fileFormat: JsonLines` for JSON Lines.
 
 ## Troubleshooting
 

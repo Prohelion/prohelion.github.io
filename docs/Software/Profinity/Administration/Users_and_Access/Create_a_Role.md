@@ -53,7 +53,7 @@ A person who has quietly held too much access may never be noticed.
 Some permissions need another one to be useful, so Profinity switches the second one on for you and locks it while the first remains on.
 Turning on **Send CAN messages**, for example, also turns on **View CAN data**, because a person who can send messages needs to see the bus.
 To clear the locked permission, switch off the one that requires it.
-The permissions that work this way are marked in the [permission list](./Roles_and_Permissions.md#what-each-permission-allows).
+The permissions that work this way have a note in the **What it allows** column of the [permission list](./Roles_and_Permissions.md#what-each-permission-allows).
 
 The new role appears in the **Roles** tab.
 
@@ -79,7 +79,7 @@ The person's row now lists the role under **Assigned roles**.
 To change a role later, open the **Roles** tab and select the role.
 Before you delete a role, write down its name, description, and permissions, so you can create it again. Refer to [Create the role](#create-the-role).
 
-To delete a role, open it on the **Roles** tab, select **DELETE ROLE** and confirm. The button is disabled while users hold the role, so remove the role from each of those users first. Profinity keeps the previous `security.yaml` as `security.yaml.bak`, which still holds the deleted role until the next save of security settings replaces it.
+To delete a role, open it on the **Roles** tab, select **DELETE ROLE** and confirm. The button is disabled while users hold the role, so remove the role from each of those users first. Profinity keeps the previous `security.yaml` as `security.yaml.bak` in the `config` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), which still holds the deleted role until the next save of security settings replaces it.
 
 To limit which roles can see a particular component or collection, refer to [Restrict a component or collection](Component_And_Collection_Security/Restrict_a_Component_or_Collection.md).
 

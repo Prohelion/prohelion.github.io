@@ -50,4 +50,4 @@ A server that uses HTTPS with a self-signed certificate shows the user a certifi
 Install a trusted certificate on the server where you deploy the app to staff.
 Sign-in through single sign-on (SSO) needs a Profinity site set to the **Sso** sign-in method.
 
-Refer to the [Profinity 2.3 release notes](../Release_Notes/2.3.1.md) for what changed in this release.
+Refer to the [Profinity release notes](../Release_Notes/index.md) for what changed in the release you ship.

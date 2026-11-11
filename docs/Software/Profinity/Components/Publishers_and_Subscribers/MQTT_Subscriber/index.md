@@ -117,7 +117,7 @@ Refer to [Script Types](../../../Developing_with_Profinity/Scripting/Script_Type
 
 If an incoming metric's path is already used by something that is not one of this subscriber's own tags, that one metric is skipped and a warning is written to the log.
 Examples are an existing device tag, a Tag Relay mirror, a writable tag that a script component owns, or a [derived tag](../../../Tags/Derived_Tags/index.md).
-The rest of the message is still applied.
+The rest of the message is still applied. To stop the skip, remove the other tag at that path, or change the **Tag path prefix** so that the metric is written beneath a subtree that holds no other tags.
 
 ## Sparkplug behaviour
 

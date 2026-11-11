@@ -93,7 +93,7 @@ On every host, the **ADMIN > Logs** page lists a message for each file that move
 ## Back up and restore
 
 Back up the artefacts directory before every upgrade.
-Keep `config/` (including `security.yaml`), `profiles/`, `license/`, and `certificates/` in every backup.
+Keep `config/` (including `security.yaml`), `profiles/`, `license/`, `certificates/`, `themes/`, and `webroot/` in every backup.
 Restore the folders in this order:
 
 1. Stop Profinity.

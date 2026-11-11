@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # How to add images to your dashboard
 
 Add custom images to your dashboards by placing them in the `images` folder of the profile directory, which Profinity serves at `/Profile/Images`.
-You need access to the `images` folder of your [profile's](../Getting_Started/Profiles.md) directory, image files in a supported format (SVG, PNG, JPG, WEBP, or GIF), and a dashboard to edit.
+You need access to the `images` folder of your [profile's](../Getting_Started/Profiles.md) directory, image files in a supported format (SVG, PNG, JPG, WEBP, or GIF), and a dashboard to edit. Editing the dashboard needs the **Modify dashboards** permission, as described in [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
 ## Place the image file
 
@@ -36,6 +36,8 @@ The folder then looks like this:
 Profinity serves the folder of the active profile when a browser requests a file, so a new image does not need a restart.
 
 ## Reference the image in a component
+
+Enter these examples in the **YAML** tab of the dashboard editor.
 
 In an [Icon](../Customising_Profinity/Dashboards/Component_Reference/Content/Icon.md) component, or the icon of a pill component, set `image` to the filename only:
 

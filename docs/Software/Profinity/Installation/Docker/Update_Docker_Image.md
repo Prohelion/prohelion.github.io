@@ -29,4 +29,4 @@ Before you start:
     docker compose up -d
     ```
 
-Configuration and profiles are kept in the mounted volume.
+Configuration and profiles are kept in the mounted volume. Open `http://localhost:18080` on the local machine to check that the sign-in page loads, as described in [Sign in](./index.md#sign-in).

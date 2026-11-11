@@ -29,7 +29,7 @@ While **Enforce two-factor for local users** is on, a signed-in local user manag
 
 ## Register a security key
 
-You need a site that allows security-key sign-in and has **Enforce two-factor for local users** switched on, because Profinity shows the **Two-Factor Authentication** dialog only while the enforcement setting is on.
+You need a site that allows security-key sign-in and has **Enforce two-factor for local users** switched on, because Profinity shows the **Two-Factor Authentication** pill on the **ADMIN** page only while the enforcement setting is on.
 You also need a browser that supports Web Authentication (WebAuthn) and a page served over HTTPS or from localhost.
 
 To register a key:
@@ -48,7 +48,7 @@ To see which settings control these screens, refer to [Two-factor authentication
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The user is asked to wait before trying again after five incorrect codes within one minute | Rate limiting, which is separate from the login lockout | The user must wait before trying again. A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](../Session_Policy.md). |
+| The user is asked to wait before trying again after five incorrect codes within one minute | Rate limiting, which is separate from the login lockout | The user must wait up to one minute before trying again. A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](../Session_Policy.md). |
 | A code is rejected although it was typed correctly | The usual cause is the clock on the phone, because authenticator codes depend on the device time being correct | Set the phone's date and time to update automatically, then sign in with the code the app currently shows. |
 | The user cannot sign in with an authenticator code | The phone is lost and the recovery codes are not available | An administrator resets the user's authenticator from the **User Actions** tab. The user then enrols again at the next sign-in. Refer to [MFA account management](../../../Users_and_Access/MFA_Account_Management.md) for the reset. |
 | Profinity shows "Security key registration was cancelled or timed out." | The browser did not complete the security key prompt. It was cancelled, timed out, or returned no credential. | Select **Begin security key registration** again. |

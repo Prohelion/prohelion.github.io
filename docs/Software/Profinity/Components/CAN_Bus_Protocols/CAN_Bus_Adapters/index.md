@@ -38,7 +38,7 @@ The parameters that manual configuration asks for are in [CAN bus adapter settin
 Auto Discovery finds the supported CAN bus adapters that are visible to Profinity.
 If an adapter is visible on the network but is not yet in the current [Profile](../../../Getting_Started/Profiles.md), a **Discovered** category appears on the **Available Components** screen, which opens from **ADD COMPONENT**.
 The category lists every adapter that Profinity can currently see.
-An adapter that is missing from the list has configuration issues that need [manual configuration](CAN_Bus_Adapter_Settings.md#adapter-manual-configuration), or is not discoverable.
+An adapter that is missing from the list is not visible to Profinity, or is not discoverable. Profinity removes an adapter from the list when it has not been seen for 10 seconds. A Peak adapter is discovered on Windows only, so add it manually on other systems, using [manual configuration](CAN_Bus_Adapter_Settings.md#adapter-manual-configuration).
 
 <figure markdown>
 ![The Available Components screen with a Discovered Components section containing one entry, a Peak Systems CANFD Adapter, and the Adapters list.](../../../images/add_adapter_autodiscovery.png)

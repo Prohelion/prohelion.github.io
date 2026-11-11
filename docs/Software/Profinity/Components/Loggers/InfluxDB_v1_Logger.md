@@ -27,10 +27,7 @@ flowchart LR
 <figcaption>The InfluxDB v1 Logger sends the selected tag collections to an InfluxDB v1 server</figcaption>
 </figure>
 
-<figure markdown>
-![InfluxDB dashboard with a Pack Voltage line chart falling from about 25.4k to 24.8k and a Pack Current line chart near -4.99k](../../images/InfluxDB.png)
-<figcaption>An InfluxDB dashboard showing pack voltage and pack current logged by Profinity</figcaption>
-</figure>
+
 
 ## Quick start
 
@@ -46,7 +43,7 @@ If the server needs a sign-in, you also need its user name and password.
 7. Select **ADD COMPONENT**.
 8. Check that **STATUS** shows **On**. If **Auto Connect** is off, select **Start Logger** from the component's menu first.
 
-Data appears in the database after the first **Update Interval (Seconds)**, 10 seconds by default.
+Data appears in the database after the first **Update Interval (seconds)**, 10 seconds by default.
 
 ## Settings
 
@@ -60,7 +57,7 @@ Data appears in the database after the first **Update Interval (Seconds)**, 10 s
 | **Dashboard URL** | Text | Blank | The full address of an InfluxDB dashboard. When it is set, Profinity shows a link to it. |
 | **InfluxDB Health Check** | On or off | On | Checks at regular intervals that the server answers. Turn it off for InfluxDB Cloud, where the logger reports that the health check failed. |
 | **Collections** | Choice | None | The [tag collections](../../Tags/Collections/index.md) whose tags are logged. The logger needs at least one before it can start. The picker shows each collection's display name, and the profile stores its `id`. |
-| **Update Interval (Seconds)** | Time | `10` | How often data is sent, from 1 to 86400 seconds. |
+| **Update Interval (seconds)** | Time | `10` | How often data is sent, from 1 to 86400 seconds. |
 | **Logging mode** | Choice | `Snapshot` | What is sent on each interval: `Snapshot`, `On Change`, or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On or off | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 

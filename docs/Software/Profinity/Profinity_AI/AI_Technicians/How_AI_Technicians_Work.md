@@ -15,7 +15,7 @@ The technician advises and never acts, so a person or an ordinary [tag rule](../
 
 Three things start a round:
 
-- A schedule, set on the **Settings** tab as a time interval or a Quartz cron expression, such as a review at midnight every day.
+- A schedule, set on the **Settings** tab as a time interval or a [Quartz cron expression](../../Developing_with_Profinity/Scripting/Script_Types/Run_Scripts.md), such as a review at midnight every day.
 - A user with the **Allow component actions** permission selecting **Run AI Technician** on the technician.
 - An alert from a tag rule on another device that names the technician as one of its [rule actions](../../Tags/Rules/Actions/index.md).
 
@@ -50,7 +50,7 @@ Each finding has one of three outcomes:
 | `clear` | Nothing to report | 0, so the findings alert clears |
 | `blocked` | The round could not finish, for example the provider did not answer | Unchanged from the last finding |
 
-A blocked round leaves the last severity in place, so one failed round does not clear an alert that is still valid.
+A blocked round leaves the last severity in place, so one failed round does not clear an alert that is still valid. If no finding exists yet, a blocked round publishes no severity value.
 Three blocked rounds in a row raise the **Technician not working** alert instead.
 
 Two attention findings with different messages each send, even when they share a severity.
@@ -83,7 +83,7 @@ Each limit is a setting on the technician, described on [AI Technician](./AI_Tec
 |-------|------------|--------|
 | One round at a time | Every wake | A wake during a round is dropped. |
 | **Alert cooldown (minutes)** | Alert wakes | An alert within this time of the end of the last round is dropped. |
-| **Daily limit** | Alert and Run AI Technician wakes | Once this many rounds have run today, in the technician's timezone, further wakes are dropped until midnight. |
+| **Daily limit** | Alert and Run AI Technician wakes | Once this many rounds have run today, on the clock of the computer that runs Profinity, further wakes are dropped until midnight. |
 | Own findings | Alert wakes | A rule on the technician's own findings tags cannot wake it, so a finding never starts another round. |
 
 Scheduled rounds ignore the cooldown and the daily limit, so a daily review always runs unless a round is already in progress.

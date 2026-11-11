@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 Run Profinity as a service to start it automatically on boot and restart it if it fails, which suits production environments where uptime matters.
 Install Profinity first, using the page for your platform: [Install Profinity on Windows](../Windows_Installation.md), [Install Profinity on Linux and macOS](../Linux_and_macOS_Installation.md), or [Install Profinity with Docker](../Docker/index.md).
-In Docker, configure Docker to start the container on boot instead.
+In Docker, configure Docker to start the container on boot instead, as described in [Start and stop Profinity](../Docker/index.md#start-and-stop-profinity).
 
 As of Profinity V2, Profinity runs in server mode on Docker, macOS, and Linux (x86-64 and 64-bit Advanced RISC Machine (ARM), plus 32-bit ARM on Linux).
 On Windows the service runs the desktop application, and becomes a server when a Server licence is applied.
@@ -19,7 +19,7 @@ Representational State Transfer (REST) APIs serve it, and those APIs are also av
 
 A service serves the web interface to other machines only with a Server licence.
 On Docker, Linux, and macOS, the 14-day local trial includes the Server feature, so other machines can connect while it runs.
-The Windows service is a desktop host with no local trial, so it serves the web interface to the local machine only until you apply a Server licence.
+The Windows service runs the desktop application with no local trial, so it serves the web interface to the local machine only until you apply a Server licence.
 Apply a licence file under **ADMIN > License**, as described in [Apply a licence](../Applying_a_Licence.md).
 For the accounts that can sign in, refer to [Who can sign in, by installation type](../Applying_a_Licence.md#who-can-sign-in).
 

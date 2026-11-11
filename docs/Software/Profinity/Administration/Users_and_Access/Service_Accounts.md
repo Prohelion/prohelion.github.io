@@ -13,7 +13,7 @@ A service account is a user record for automation rather than a person, and its 
 Changing the account's roles keeps the same token.
 
 You need the **Security administration** permission and the **Profinity Server** licensed feature, which **Users & Groups** uses.
-MCP access also needs the **AI** licensed feature, which the Server and Enterprise editions include.
+MCP access also needs the Profinity AI licensed feature, which the Server and Enterprise editions include.
 Refer to [Licensing](../../Licensing.md).
 
 Treat the token like a password: store it in a secrets manager, and give the account only the permissions its integration needs.
@@ -90,7 +90,7 @@ The session lasts for the technician's **Round timeout (seconds)** plus two minu
 ## Revoke access
 
 To stop the account signing in, turn off **Is the user currently enabled** for the account in **Users & Groups**, and select **SAVE**.
-Profinity then refuses every request with its token, and an AI technician that runs as the account stops.
+Profinity then refuses every request with its token, and an AI technician that runs as the account stops, recording a `blocked` [finding](../../Profinity_AI/AI_Technicians/AI_Technician.md#findings-tags) on each round.
 
 ## Troubleshooting
 

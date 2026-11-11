@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Replay a tag log
 
 The tag log replayer applies recorded values back onto your live tags, using the timing recorded in the file, so the replay runs at the pace of the original recording.
-Only a log file written by a TAG File Logger or TAG SFTP Logger (Secure Shell File Transfer Protocol) can be replayed.
+Only a log file written by a TAG File Logger or the TAG SFTP Logger, which uses Secure Shell (SSH) File Transfer Protocol (SFTP), can be replayed.
 InfluxDB and Prometheus data cannot.
 To record a log, refer to [Log tags to a file](Log_Tags_to_a_File.md).
 
@@ -19,7 +19,7 @@ Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and
 
 !!! warning "Replay overwrites live values"
     Replayed values are applied to the same tags that live devices write to.
-    Disconnect or stop the live source first, or the live and replayed values compete.
+    Stop the component that writes these tags, or disconnect its device, first, or the live and replayed values compete. Refer to [Connections and reconnecting](../../Components/Connections_and_Reconnecting.md#stopping) for how a component stops.
     When the replay stops, or reaches the end of the log, the replayed values stay in place as the last values applied, and Profinity does not restore the earlier values.
 
 Before you start, check two conditions on the log file:
@@ -57,16 +57,16 @@ The replay controls are:
 Each recorded value is written to the tag with the matching tag path, as if a new value had arrived.
 Anything that reacts to tag changes, such as rules, alerts, derived tags, and dashboards, reacts to the replay.
 Historians and tag logs that record changes also record replayed values, in the same way as live values.
-The replayer skips a line, and its status records the reason, in three cases:
+The replayer skips a line in three cases:
 
 - The tag does not exist in the loaded profile.
 - The value cannot be read.
 - The `Recv time` is invalid.
 
-Only an invalid `Recv time` shows on screen, as a **Replay failed** message. The other reasons are kept in the replay status, which the **TAG LOG REPLAY** screen does not show.
+Only an invalid `Recv time` shows on screen, in a **Replay failed** dialog that reads `Error Reading File - invalid Recv time`. Correct the invalid `Recv time` values in the log file, or replace the log, and then replay it again. The other reasons are kept in the replay status, which the **TAG LOG REPLAY** screen does not show.
 
 Replay a log against a profile that contains the same tags it was recorded from.
 When the replay stops, or reaches the end of the log, the replayed values stay in place as the last values applied, rather than reverting.
-To return to live values, start the live source again, and it publishes fresh values.
+To return to live values, start the component that writes these tags again, and it publishes fresh values.
 To check a replay, open **Tag Explorer** and confirm that the replayed tags show the recorded values.
 To act on replayed data, refer to [Create a rule](../Rules/Create_a_Rule.md), which raises alerts from a replayed log.

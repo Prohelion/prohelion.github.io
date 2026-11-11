@@ -39,13 +39,13 @@ Each entry gives a one-sentence meaning and links to the page that explains it i
 | CAN | Controller Area Network, the vehicle and industrial bus that Profinity reads. Refer to [CAN bus adapters](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/index.md). |
 | CMU | Cell Management Unit, a module that measures the cells it monitors and reports to the BMU. Refer to [Prohelion BMU](../Components/Battery_Management_Systems/Prohelion_BMU/index.md). |
 | DBC | The CAN database file format that describes the messages and signals on a CAN bus. Refer to [CAN bus DBC](../CAN_Utilities/CAN_Bus_DBC.md). |
-| DLL | Dynamic-link library, the compiled file format of a C# plugin |
+| DLL | Dynamic-link library, the compiled file format of a C# plugin. Refer to [Developing Plugins](../Developing_with_Profinity/SDK/Developing_Plugins.md). |
 | MCP | Model Context Protocol, the standard that lets AI tools connect to Profinity. Refer to [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md). |
 | MFA | Multi-factor authentication, a sign-in that needs more than a password. The sign-in screen labels the code field MFA, and the feature is called Two-factor authentication. Refer to [Two-factor authentication](../Administration/System_Configuration/Security/Two_Factor_Authentication/index.md). |
 | MPPT | Maximum Power Point Tracker, a solar charge controller. Refer to [Elmar Solar MPPT](../Components/MPPT/Elmar_Solar_MPPT.md). |
 | MQTT | Message Queuing Telemetry Transport, a messaging protocol for sending data through a broker. Refer to [Publishers and Subscribers](../Components/Publishers_and_Subscribers/index.md). |
 | OPC UA | Open Platform Communications Unified Architecture, an industrial data protocol. Refer to [OPC UA Client](../Components/Industrial_Protocols/OPC_UA_Client.md). |
-| PLC | Programmable Logic Controller |
+| PLC | Programmable Logic Controller. Refer to [Industrial protocols](../Components/Industrial_Protocols/index.md). |
 | SCIM | System for Cross-domain Identity Management, a standard for provisioning users from an identity provider. Refer to [SCIM and SIEM](../Administration/System_Configuration/Security/SCIM_and_SIEM.md). |
 | SDK | Software development kit, the libraries used to build Profinity plugins and components. Refer to [Profinity SDK](../Developing_with_Profinity/SDK/index.md). |
 | SFTP | Secure Shell (SSH) File Transfer Protocol, a protocol for copying files over a secure connection. Refer to [File logger rotation, archive, and SFTP settings](../Components/Loggers/File_Logger_Rotation_Archive_and_SFTP.md). |

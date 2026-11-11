@@ -80,7 +80,7 @@ Profinity retries every 5 seconds unless the component has its own setting.
 
 | Component | Retry interval |
 | --- | --- |
-| TDK and Siglent power supplies | **Reconnect Interval** setting (default 5000 ms), when **Auto Reconnect** is on |
+| TDK and Siglent power supplies | **Reconnect delay (ms)** setting (default 5000 ms), when **Auto Reconnect** is on |
 | Modbus, BACnet, S7, EtherNet/IP, OPC UA client | **Reconnect delay (ms)** setting (default 2000 ms) |
 | Tag Relay sender | 1 second |
 | All others | 5 seconds |

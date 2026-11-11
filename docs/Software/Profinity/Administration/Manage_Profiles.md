@@ -49,7 +49,7 @@ To edit them:
 
 **Profile Name** must be unique across all profiles.
 **Description** is optional.
-It is shown when you choose a profile, and it is given to a Model Context Protocol (MCP) client when that client connects.
+It is shown in the **DESCRIPTION** column of the profiles table on the **Profile** pill, and it is given to a Model Context Protocol (MCP) client when that client connects.
 Each **More information** link needs a label and an `https://` address.
 A client that is already connected keeps the text from when it connected.
 Save the profile, then connect the client again, to give it the new description and links.

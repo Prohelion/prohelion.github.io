@@ -52,7 +52,7 @@ To change the settings later, select **Change Settings** from the component's me
 |---|---|---|---|
 | **Name** | Text | `BACnet Device` | The name of the component. Must be unique within the profile. |
 | **Local UDP port** | Whole number | `47808` | The User Datagram Protocol (UDP) port that Profinity uses on this computer, from `1` to `65535`. `47808` is the standard BACnet/IP port. |
-| **Remote host** | Text | `127.0.0.1` | The IP address of the BACnet device. Required. Profinity sends every request to this address. |
+| **Remote host** | Text | `127.0.0.1` | The IP address of the BACnet device. Required. The default is this computer, not the device, and Profinity sends every request to this address, so set it before you connect. |
 | **Device instance** | Whole number | `0` | The instance number that the device holds in its own Device object, from `0` to `4194302`. Set it even when the instance is `0`. |
 | **Poll interval (ms)** | Time | `1000` | How often Profinity reads the point map, in milliseconds, from `50` to `600000`. |
 | **Request timeout (ms)** | Time | `1000` | How long Profinity waits for the device to answer a request, in milliseconds, from `50` to `60000`. |

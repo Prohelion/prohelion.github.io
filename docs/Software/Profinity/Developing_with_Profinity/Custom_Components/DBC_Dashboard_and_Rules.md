@@ -25,7 +25,7 @@ The viewer is documented in [CAN bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md).
 ## Dashboard
 
 The dashboard YAML is the page the user opens.
-When **Upload Dashboard (Optional)** is left empty, Profinity writes a starter file named after the component, and the dashboard editor then replaces it.
+When **Upload Dashboard (Optional)** is left empty, Profinity writes a starter file named after the component, and the dashboard replaces it when you select **SAVE** in the dashboard editor.
 Layout, elements, and the visual editor are in the [Profinity dashboard development guide](../../Customising_Profinity/Dashboards/index.md).
 
 A binding that reads a CAN signal uses the DBC names, and a binding that reads a value the [main script](Main_Script.md) published uses a tag path.

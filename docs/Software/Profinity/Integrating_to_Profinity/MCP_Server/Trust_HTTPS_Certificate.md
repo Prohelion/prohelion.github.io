@@ -21,7 +21,7 @@ Claude Code needs an extra step on some installs. Refer to [Connect Claude Code 
 You need:
 
 - An HTTPS address for the MCP server, from [Choose the MCP server address](Prepare_Profinity.md#choose-the-mcp-server-address).
-- A licence that includes Profinity AI, because the MCP server is part of that licensed feature.
+- An edition with the **AI** licensed feature, which the Server and Enterprise editions include, because the MCP server is part of that licensed feature.
   Refer to [Licensing](../../Licensing.md#features-by-edition).
 - Access to the computer that runs the AI tool, where you follow every step on this page.
 - When Profinity runs on another computer, a copy of `profinity_generated.pfx` from its `certificates` folder, made with a method you trust, such as a USB drive or `scp`.

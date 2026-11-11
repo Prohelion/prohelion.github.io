@@ -18,10 +18,10 @@ For the other settings files it carries on with a default and tells you in the l
 |---|---|---|
 | `config.yaml` | Profinity does not start and shows a message that names the file and the reason. | Nothing. The file is left exactly as it is. |
 | `security.yaml` | Profinity does not start and shows a message that names the file and the reason. | Nothing. No keys or users are created or changed. |
-| `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile. The file is left exactly as it is. |
+| `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile, which is left exactly as it is. The new default profile is saved to disk, and `config.yaml` is updated to name it as the active profile. |
 | `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity leaves the damaged file as it is. |
 | `theme.yaml` | Profinity starts with the default theme. | Nothing. |
-| `custom.yaml` | Because the file is invalid, the install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. Profinity never changes `custom.yaml`, which an original equipment manufacturer (OEM) build supplies, so ask the supplier for a corrected copy. | Nothing. |
+| `custom.yaml` | Because the file is invalid, the install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), so with no licence installed Profinity runs in restricted mode. The component groups that the file hides are shown. Profinity never changes `custom.yaml`, which an original equipment manufacturer (OEM) build supplies, so ask the supplier for a corrected copy. | Nothing. |
 
 A file that does not exist counts as valid.
 Profinity creates the default for `config.yaml`, `security.yaml`, and `plugins.yaml`, and uses the default theme and no custom settings for the others.
@@ -35,7 +35,7 @@ An item that is not valid is skipped, and every other item still works.
 A skipped rule is inactive, and a skipped collection or derived tag is withheld.
 
 An item is skipped when it fails its own checks, refers to something missing, or has an unrecognised key, such as a misspelt setting name.
-Because an item with an unknown key is skipped, check these documents after an upgrade from 2.2.
+Because an item with an unknown key is skipped, check these documents after an upgrade from 2.2. This is a precaution, not a required step, because Profinity keeps running and marks each skipped item.
 Refer to the [breaking changes](../../Release_Notes/Breaking_Changes_2_3.md) for what changed.
 
 Profinity writes one line to the log for each skipped item, with the name of the item and the reason.

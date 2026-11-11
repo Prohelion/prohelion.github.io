@@ -55,7 +55,7 @@ When **Sign-in method** is **Sso**, the **SSO** group holds the values taken fro
 | **Authority URL (IdP issuer)** | URL (`http` or `https`) | Empty | Required. The issuer URL from the identity provider's metadata. This is the issuer, not the address of the provider's login page. |
 | **Client ID** | Text | Empty | Required. The application (client) identifier from the identity provider's app registration. |
 | **Client secret** | Text, masked | Empty | The confidential client secret from the app registration. Leave it empty only when the identity provider allows public clients without a secret. |
-| **Redirect URIs (ACS URL)** | Comma-separated URLs | Empty | A comma-separated allow list of Profinity callback addresses. It must include the callback address, or sign-in stops with `InvalidRedirectUri` before the identity provider is contacted. |
+| **Redirect URIs (ACS URL)** | Comma-separated URLs | Empty | Required for sign-in. A comma-separated allow list of Profinity callback addresses. It must include the callback address, or sign-in stops with `InvalidRedirectUri` before the identity provider is contacted. |
 | **End session endpoint (IdP logout URL)** | URL (`http` or `https`) | Empty | The identity provider's logout URL, used to end the identity provider session when the user signs out. When empty, Profinity discovers it from the authority metadata. |
 | **Post-logout redirect URI (SP return URL)** | URL (`http` or `https`) | Empty | The Profinity address the identity provider returns the user to after logout. When empty, the user returns to the login page. |
 | **Group claim name** | Text | `groups` | The name of the claim that carries group or role membership from the identity provider. |

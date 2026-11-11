@@ -14,7 +14,7 @@ Set up the historian with [Designated historian](../Components/Historians/Design
 
 1. Select **View at a time** in the title bar. The time picker opens.
 2. Select a day in the calendar. Days with no stored values for the tags on the dashboard are unavailable.
-3. Set the time with the **Hour** and **Minute** lists, or with the step buttons on either side of them. Each step button moves the time by an hour, or by 15 minutes.
+3. Set the time with the **Hour** and **Minute** lists, or with the step buttons on either side of them. The outer step buttons, **-1h** and **+1h**, move the time by an hour. The inner step buttons, **-15m** and **+15m**, move it by 15 minutes.
 4. Select **View**. The dashboard shows the values at the chosen time, and playback starts from that time.
 5. Optional: Select the step back or step forward button to move through the values by the jump size. The jump size list runs from 15 seconds to 1 day, and its default is 15 minutes.
 6. Optional: Select the play or pause button to start or stop playback. The speed list sets the playback speed from 1x to 3600x.

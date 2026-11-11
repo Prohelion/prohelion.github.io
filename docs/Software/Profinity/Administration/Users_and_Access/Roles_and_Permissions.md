@@ -17,7 +17,7 @@ You can give a single user an extra permission only through a role, so to find o
 
 Refer to [Create a role](./Create_a_Role.md) to create a role, give it to a person, and choose which roles your site needs.
 This page lists every permission and helps you work out why someone cannot see something they expect to.
-You need the **Security administration** permission and a Server licence to manage roles.
+You need the **Security administration** permission and a licence that includes the Profinity Server licensed feature, which the Server and Enterprise editions include, to manage roles.
 
 ## What each permission allows
 
@@ -88,7 +88,7 @@ A note in the **What it allows** column means that switching the permission on a
 |------------|----------------|
 | **Profinity AI** | Using the **Profinity AI** chat assistant, described in [Profinity AI Settings](../System_Configuration/AI_Settings.md). Also turns on **MCP integration** |
 | **MCP integration** | Connecting tools that use the Model Context Protocol (MCP) endpoint to read live data from Profinity |
-| **Receive external tags** | Accepting tag snapshots and updates sent from another Profinity system |
+| **Receive external tags** | Accepting [tag relay](../../Tags/Tag_Relay.md) snapshots and updates sent from another Profinity system |
 
 ## When a person cannot see something
 

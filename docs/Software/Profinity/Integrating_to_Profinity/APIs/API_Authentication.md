@@ -23,6 +23,8 @@ It stays valid until an administrator generates a new one, changes the account's
 
 ## Sign in with a username and password
 
+Signing in needs no licensed feature, but a user account comes with the **Profinity Server** licensed feature, as described in [Licensing](../../Licensing.md#features-by-edition).
+
 To test the APIs from the Swagger page without a service account token, execute a call against `/api/v2/Users/Authenticate` on that page.
 Then apply the returned token with the **Authorize** button of the Swagger page.
 

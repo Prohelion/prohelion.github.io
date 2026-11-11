@@ -191,7 +191,7 @@ dashboard:
 
 | What you see | Cause | What to do |
 |---|---|---|
-| A dashboard loads slowly or stops responding | The dashboard holds many components, or charts that update very often. | Put sections you do not need all the time in an accordion or in tabs. On a chart, set `refreshInterval` in milliseconds, at least `1000`, so that the chart polls at that interval instead of updating live. A value below `1000` is ignored. |
+| A dashboard loads slowly or stops responding | The dashboard holds many components, or charts that update very often. | Put sections you do not need all the time in an accordion or in tabs. On a chart, set `refreshInterval` in milliseconds, at least `1000`, so that the chart polls at that interval instead of updating live. A value below `1000` is ignored, and the chart keeps updating live. |
 
 ``` yaml
 # A chart that polls every second instead of updating live

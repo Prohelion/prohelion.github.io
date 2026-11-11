@@ -13,7 +13,7 @@ It reads with read-only tools, publishes its verdict as tags, and leaves the ale
 AI technicians require the **AI** licensed feature, included in the **Server** and **Enterprise** editions.
 
 - [How AI technicians work](./How_AI_Technicians_Work.md): what happens in a round, what wakes a technician, and the limits that keep AI reviews rare.
-- [AI Technician](./AI_Technician.md): the settings, the findings tags, the built-in rules, the dashboard, and troubleshooting.
-- [Set up an AI technician](./Set_Up_an_AI_Technician.md): add a technician, give it a service account and a schedule, and check its first finding.
+- [AI Technician](./AI_Technician.md): the settings, the tags under its **Findings** branch, the built-in rules, the dashboard, and troubleshooting.
+- [Set up an AI technician](./Set_Up_an_AI_Technician.md): add a technician, give it a [Service Account](../../Administration/Users_and_Access/Service_Accounts.md) user and a schedule, and check its first finding.
 - [Write instructions](./Write_Instructions.md): write the instructions that give a technician a reliable verdict.
 - [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md): have a device rule wake the technician when an alert fires.

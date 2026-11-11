@@ -18,7 +18,7 @@ You need:
 - Administrator access to the computer that drives the display.
 - Google Chrome on Windows or macOS, or Chromium on Linux.
 - The [profile](../Getting_Started/Profiles.md) to display, and the **Modify profiles** permission.
-- An enabled [user account](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, with only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs. Creating user accounts needs the **Profinity Server** licensed feature, as described in [Licensing](../Licensing.md). For a Windows desktop installation without it, refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user).
+- An enabled [user account](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, with only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs. Kiosk Mode needs the **Profinity Server** licensed feature, as described in [Licensing](../Licensing.md), because the kiosk user is a user account, and user accounts need that feature. [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) describes how to pick that account.
 
 ## Turn on Kiosk Mode
 

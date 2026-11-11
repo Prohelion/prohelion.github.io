@@ -82,7 +82,7 @@ Folders are described in [Industrial protocol components](Industrial_Protocol_Co
 |---|---|---|---|
 | **Name** | Text | None | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
 | **Table** | Choice | `HoldingRegister` | The Modbus table to read: `Coil`, `DiscreteInput`, `HoldingRegister` or `InputRegister`. |
-| **Address** | Whole number | None | The zero-based protocol address. Register `40001` in a one-based manufacturer's manual is address `0` of the holding registers. |
+| **Address** | Whole number | `0` | The zero-based protocol address. Register `40001` in a one-based manufacturer's manual is address `0` of the holding registers. |
 | **Data type** | Choice | `Word` | How the value is decoded: `Boolean`, `Word`, `SignedWord`, `Dword`, `SignedDword` or `Real`. |
 | **Scale** | Decimal number | `1` | A factor that reads are multiplied by. Writes are divided by the same factor. |
 | **Writable** | On or off | Off | Allows Profinity to write the value from the tag. |
@@ -147,7 +147,7 @@ Each value is a setting from the [Communications settings](#communications-setti
 
 ## Dashboard
 
-The component dashboard shows the connection **STATUS** (Connected or Disconnected) and whether the device is **CONNECTED**.
+The component dashboard shows the connection **STATUS** (Connected, Not connected; retrying, or Disconnected) and whether the device is **CONNECTED**.
 It also shows the number of values read (**RECEIVED**) and values written (**SENT**).
 Use the **Connect / Disconnect** menu action to start or stop polling manually.
 Viewing the dashboard requires the **Security administration** permission, described under [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).

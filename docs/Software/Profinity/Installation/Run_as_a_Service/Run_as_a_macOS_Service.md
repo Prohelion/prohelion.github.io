@@ -69,4 +69,4 @@ The command lists the service when it is loaded.
 | The service does not start | A fault stops Profinity during start-up. The reason is written to the daily log file, because launchd discards console output unless the plist sets `StandardOutPath` and `StandardErrorPath`. | Read the `profinity_<date>.log` file in the `logs` folder of the artefacts directory (refer to [Artefacts directory](../Artifacts_Directory.md)). Launchd discards console output unless you add `StandardOutPath` and `StandardErrorPath` keys to the plist |
 | A "file not found" error | The path to `profinity.sh` in the plist does not match where Profinity is installed | Correct the path in the service configuration and start the service again |
 
-Next, refer to [Apply a licence](../Applying_a_Licence.md) to open the web interface from another machine.
+Next, refer to [Apply a licence](../Applying_a_Licence.md) to apply a Server licence.

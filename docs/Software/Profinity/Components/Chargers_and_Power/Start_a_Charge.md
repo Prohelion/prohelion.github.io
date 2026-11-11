@@ -23,7 +23,7 @@ Once it is connected, the message in the **Charger / Power Supply Controller** p
 
 The panel has four controls:
 
-- The battery selector chooses which Prohelion BMU to charge when the Profile has more than one.
+- The battery selector, which shows the battery's ID between two arrows, chooses which Prohelion BMU to charge when the Profile has more than one.
 - The current control sets the charge current in amps, in steps of 0.5 A, up to the maximum the screen allows.
 - **Charge To** sets the state of charge, in percent, at which charging stops.
 - **START** begins the charge and becomes **STOP** while charging is running.
@@ -62,5 +62,5 @@ Selecting **STOP** stops the charger and disengages the pack.
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The message stays on **Ready**, or **START** returns | Profinity did not start the charge, because a start stage failed or the charger did not provide current within about five seconds. | Read the Profinity log for the error that names the failed stage, fix that cause, then select **START** again. |
-| The charge stops and the pack disengages without you selecting **STOP** | A stage in the start sequence fails. | Check the status of the battery management system and the charger, correct the fault, then select **START** again. Profinity stops the charge and disengages the pack. |
+| The message stays on **Ready**, or **START** returns | Profinity did not start the charge, because a start stage failed or the charger did not provide current within five seconds. | Read the Profinity log for the error that names the failed stage, fix that cause, then select **START** again. |
+| The charge stops and the pack disengages without you selecting **STOP** | The battery management system or the charger goes into an error state, or stops reporting normally, during the charge. | Check the status of the battery management system and the charger, correct the fault, then select **START** again. Profinity stops the charge and disengages the pack. |

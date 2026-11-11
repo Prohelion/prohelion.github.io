@@ -28,7 +28,7 @@ Before you start, you need:
 1. Select **ADMIN** in the side menu, then the **System Configuration** pill, and open the **Application Config** tab.
    [Application Config](../Administration/System_Configuration/Application_Config.md) describes the tab.
 2. Find the **Optional Capabilities** section.
-3. Enable **Enable Scripting**.
+3. Turn on **Enable Python Scripting**, which this tutorial uses.
 4. Select **Save**.
 
 ## Add a script component and set its mode
@@ -73,7 +73,7 @@ The second line reads `Script <script file name>: Hello from Profinity`, the def
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The script does not run. | Python scripting is turned off in the Application Config, so Profinity does not run Python scripts. | Confirm that **Enable Scripting** is on and that you added the **Python Script** component. |
+| The script does not run. | Python scripting is turned off in the Application Config, so Profinity does not run Python scripts. | Confirm that **Enable Python Scripting** is on and that you added the **Python Script** component. |
 | Compile and script errors always appear in the Profinity log, whether or not **Log Script Output** is on. | Script errors always go to the main Profinity log. Script output goes there only when **Log Script Output** is on. | Review the error message, fix the script, and run it again. |
 
 For more examples, refer to [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md).

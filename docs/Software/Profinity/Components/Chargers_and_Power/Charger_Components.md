@@ -42,7 +42,7 @@ flowchart LR
 
 ## Quick start
 
-This quick start adds a TDK or Siglent supply. For an Elcon charger, refer to [Charger settings](Charger_Settings.md).
+This quick start adds a TDK or Siglent supply. To add an Elcon charger, add a CAN adapter to the Profile first, then select **Elcon Charger** in the **Chargers & Power Supplies** group and set its values as listed in [Charger settings](Charger_Settings.md).
 
 You need:
 

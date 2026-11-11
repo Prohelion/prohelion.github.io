@@ -97,7 +97,7 @@ Add it under `components:` in the `profile.yaml` file of the Profile.
     autoStart: true
 ```
 
-Replace `YOUR_COMPONENT_NAME` with a name that is unique in the Profile, and `YOUR_DASHBOARD` and `YOUR_SCRIPT` with the names of the files you uploaded.
+Replace `YOUR_COMPONENT_NAME` with a name that is unique in the Profile, and `YOUR_DASHBOARD` and `YOUR_SCRIPT` with the names of the files you uploaded in **Upload Dashboard (Optional)** and **Main Script (Optional)**, which store them in the profile's `dashboards` and `scripts` folders.
 The script file can end in `.cs`, `.py`, or `.lua`.
 `autoStart` is **Auto Start Main Script**.
 

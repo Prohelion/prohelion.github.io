@@ -9,7 +9,7 @@ last_reviewed: 2026-11-09
 # ThingsBoard Logger
 
 The ThingsBoard Logger publishes the values of selected [tag collections](../../Tags/Collections/index.md) from a Profile to a device in ThingsBoard.
-In Snapshot mode it sends the current value of each member at each Update Interval (Seconds).
+In Snapshot mode it sends the current value of each member at each Update Interval (seconds).
 In On Change and Everything modes, the Update Interval sets the flush timing.
 It appears under **Loggers** in **ADD COMPONENT** after the ThingsBoard Logger plugin is installed.
 A Profile holds only one.
@@ -59,7 +59,7 @@ Complete the settings in the following table.
 | **Name** | Text | ThingsBoard Logger | The name shown in the Profile. |
 | **ThingsBoard Access Token** | Secret | None | The access token for the device. Required, and stored encrypted. |
 | **ThingsBoard Device ID** | Text | None | The device ID in ThingsBoard. Required. Profinity also uses it as the MQTT client ID. |
-| **Update Interval (Seconds)** | Time | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
+| **Update Interval (seconds)** | Time | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
 | **Collections** | Choice | None | The tag collections to send. At least one is required. |
 | **Logging mode** | Choice | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
 | **Auto Connect** | On or off | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
@@ -68,7 +68,7 @@ A collection must be selected before the component can start.
 It connects out from the Profinity server to thingsboard.cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.
 No inbound port is needed.
 
-A Profile saved with the earlier component type `ProhelionCloudDashboard` loads as this logger once the plugin is installed.
+
 
 ## Example
 

@@ -20,7 +20,7 @@ You need:
 - A Profinity licence file from Prohelion, ready before you start, because Profinity 2.3 starts without one and step 3 applies it
 - Access to the machine that runs Profinity, to copy its data folder in step 1
 
-If you run Profinity in Docker, mount the host folder that holds the 2.2 data at `/var/lib/prohelion/profinity` in the 2.3 compose file, and do not set `PROFINITY_HOME`.
+If you run Profinity in Docker, mount the host folder that holds the 2.2 data at `/var/lib/prohelion/profinity` in the 2.3 compose file, and do not set `PROFINITY_HOME`, the environment variable that moves the [artefacts directory](../Artifacts_Directory.md).
 The 2.2 image kept its data in a `Profinity` folder inside the folder you mounted at `/app/Prohelion`, so mount that `Profinity` folder.
 [Docker ports and data directory](../Docker/Docker_Ports_and_Data_Directory.md#artefacts-directory) describes the mount.
 

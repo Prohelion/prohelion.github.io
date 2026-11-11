@@ -9,14 +9,14 @@ last_reviewed: 2026-10-20
 # Run scripts
 
 Run scripts are the general-purpose script type: they run when a user starts them or on a schedule, which suits data collection, testing, and system configuration.
-A Run script can use the CAN bus, CAN database (DBC), State, Console, and Tags operations, can write to the console, and can stop early when it checks `Profinity.ScriptCancelled`.
+A Run script can use the CAN bus, CAN database (DBC), State, Console, and Tags operations, can write to the console, and can stop early when it checks `Profinity.ScriptCancelled`, as shown in [Cooperative cancellation](./Service_Scripts.md#cooperative-cancellation).
 
 A [Custom Component](../../Custom_Components/index.md) firmware load script, firmware save script, menu button and firmware action also run once.
 Refer to [Custom Component scripts](./index.md#custom-component-scripts).
 
 ## Settings
 
-A Run script has three modes, chosen with **Script Mode**.
+A Run script has three modes, chosen with **Script Mode**, which defaults to **Run On Demand**.
 
 | Script Mode | Behaviour |
 |-------------|-----------|
@@ -87,6 +87,6 @@ The interfaces used by the C# sample are available to a script by default, so th
 
 In C# the `Run()` method returns a boolean, where `true` reports success and `false` reports failure.
 Python and Lua Run scripts have no return value: the script file runs from the top, so the sample defines a function and then calls it.
-A Python or Lua script reports failure by raising an error (or, in Python, by calling `sys.exit()` with a non-zero exit code, where `sys.exit(0)` is treated as success).
+A Python or Lua script reports failure by raising an error (or, in Python, by calling `sys.exit()` with a non-zero exit code, where `sys.exit(0)` is treated as success). A failure appears in the script's log, and in the Profinity log at the Error level whether or not **Log Script Output** is on.
 
 Python scripts run on [IronPython](https://ironpython.net/) with Python 3 syntax, as described on [Supported Languages](../Supported_Languages/index.md).

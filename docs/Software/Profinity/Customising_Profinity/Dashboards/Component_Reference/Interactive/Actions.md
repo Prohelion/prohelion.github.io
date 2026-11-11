@@ -76,7 +76,7 @@ If the request fails, the browser shows an error message with the reason.
 
 ## Examples
 
-Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md). Each example starts with a `dashboard:` key, so pasting one replaces the whole dashboard in the **YAML** tab.
 
 A button with a label and an icon:
 
@@ -158,7 +158,7 @@ dashboard:
 ## Action names
 
 A `Component` action runs one of the actions that the component named by the dashboard offers.
-The Actions API lists those names at `/api/v2/Actions/{componentId}`.
+The Actions API lists those names at `/api/v2/Actions/{componentId}`. The examples on this page use `Refresh` and `Settings` to show the syntax, and no shipped component offers those names, so use a name from that list.
 A `System` action runs one of `UPDATE PROFINITY`, `INSTALL PROFINITY` or `RESTART PROFINITY`.
 A `System` action with any other name is rejected with the message "No system action of that id was found".
 

@@ -52,7 +52,7 @@ You need:
 6. Select **ADD COMPONENT**. **Auto Connect** is on by default, so the historian starts at once.
 7. Check that **STATUS** shows **On**.
 
-Data appears in InfluxDB after the first **Update Interval (Seconds)**, 10 seconds by default.
+Data appears in InfluxDB after the first **Update Interval (seconds)**, 10 seconds by default.
 
 ## Settings
 
@@ -73,10 +73,10 @@ These settings are the same on both historians.
 | **Dashboard URL** | Text | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
 | **InfluxDB Health Check** | On or off | On | Checks the health of the InfluxDB server when the component connects and about every 30 seconds while it runs. Turn it off for InfluxDB Cloud, which does not support the check. |
 | **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
-| **Update Interval (Seconds)** | Time | 10 | How often data is sent, from 1 to 86400 seconds. |
+| **Update Interval (seconds)** | Time | 10 | How often data is sent, from 1 to 86400 seconds. |
 | **Logging mode** | Choice | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On or off | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Allow Retrieval** | On or off | On | Allows data to be retrieved through this historian using the APIs. |
+| **Allow Retrieval** | On or off | On | Allows data to be retrieved through this historian using the [Tag history API](../../Integrating_to_Profinity/APIs/Read_Tag_Data.md). |
 | **Designated tag historian reader** | On or off | Off | Makes this historian the one that dashboards and integrations read older tag history from. Turn it on for exactly one historian in the profile, and only while **Allow Retrieval** is on. Refer to [Designated historian](Designated_Historian.md). |
 
 ## Example
@@ -120,7 +120,7 @@ The second is an InfluxDB v3 Historian, which takes a database in place of a buc
 
 Replace `YOUR_BUCKET`, `YOUR_ORGANISATION` and `YOUR_DATABASE` with the names in your InfluxDB server.
 Replace `YOUR_INFLUXDB_TOKEN` with your InfluxDB token, which Profinity stores encrypted.
-Replace `YOUR_COLLECTION_ID` with the id of a tag collection in the profile.
+Replace `YOUR_COLLECTION_ID` with the `id` of the collection, which is in the `collections.yaml` file of the profile. Leave `tagTreeParentPath` as `/` to mount the historian at the root of the tag tree, as described in [Tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 ## What is stored
 
@@ -146,7 +146,7 @@ For example, a motor speed signal on a component called `Inverter`, in a profile
 
 Characters other than letters and digits in these names are replaced with underscores.
 
-For the full procedure to send data to InfluxDB Cloud, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
+For the full procedure to send data to InfluxDB Cloud or a self-hosted server, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
 
 ## Troubleshooting {#if-data-does-not-arrive}
 

@@ -74,6 +74,8 @@ Profinity calls the method once for each tag that changes, passing:
     end
     ```
 
+With **Log Script Output** on, each call writes a line to the Profinity log at the Info level. The line starts with `CSharp Tag Change :`, `Python Tag Change :` or `Lua Tag Change :`, followed by the tag ID, the new value and the previous value. Refer to [Console](../Script_Operations/Console.md).
+
 Profinity offers the matching template when you create a script of that type. To use an example, open the script in the **Edit Script** window and paste the example in place of the template.
 
 !!! warning "One call per tag"
@@ -91,7 +93,7 @@ Without the `/`, the id is treated as relative to the script's host component.
 ## Publishing a computed tag
 
 A common use is computing one tag from another.
-This example follows the `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua` templates built into Profinity.
+This example follows the derived tag example scripts `CSharpDerivedTagTemplate.cs`, `PythonDerivedTagTemplate.py` and `LuaDerivedTagTemplate.lua`, which Profinity adds to `example_scripts/` in the [Artefacts directory](../../../Installation/Artifacts_Directory.md) on its first start.
 It converts a speed in miles per hour into kilometres per hour whenever the source tag changes, and publishes the result with [`Profinity.Tags.SetValue`](../Script_Operations/Tags.md#writing-tag-values).
 Refer to [Derived tags](../../../Tags/Derived_Tags/index.md) for when to choose this over an expression-based derived tag.
 

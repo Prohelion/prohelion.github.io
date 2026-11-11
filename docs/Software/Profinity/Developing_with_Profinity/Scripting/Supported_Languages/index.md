@@ -73,7 +73,7 @@ Profinity also registers four Lua host functions:
 
 Lua scripts follow Lua syntax, including these points that differ from Python and C#:
 
-- Native Lua tables use 1-based indexing, whereas .NET collections such as `TriggeredTags` keep their own 0-based indexing.
+- Native Lua tables use 1-based indexing, whereas .NET collections such as the `TriggeredTags` list in a [rule script](../Script_Types/Rule_Scripts.md#the-alert-context) keep their own 0-based indexing.
 - `nil` takes the place of `null` or `None`.
 - Strings are joined with `..` rather than `+`.
 - Blocks are written as `function name(...) ... end` rather than with indentation or braces.

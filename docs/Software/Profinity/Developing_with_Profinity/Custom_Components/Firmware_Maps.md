@@ -8,7 +8,7 @@ last_reviewed: 2026-10-28
 
 # Firmware maps
 
-`firmware_map.yaml` adds the firmware tabs on a [Custom Component](index.md).
+`firmware_map.yaml` adds the firmware tabs to the **Change Settings** dialog of a [Custom Component](index.md).
 It uses the same sections, categories, and fields as [Settings](Settings.md).
 A section is a tab, a category is a group on that tab, and a field is a control.
 

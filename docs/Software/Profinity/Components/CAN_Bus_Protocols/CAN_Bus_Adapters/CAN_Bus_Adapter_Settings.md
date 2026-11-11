@@ -13,14 +13,14 @@ These are the parameters that Profinity asks for when a [CAN bus adapter](index.
 ## Adapter manual configuration
 
 An adapter is added to a Profile in the same way as any other component, as described in [Add a component to a profile](../../../How_To_Guides/Add_Component_to_Profile.md).
-Profinity prompts for the parameters on this page when the adapter is added.
+When you add the adapter manually, Profinity prompts for the parameters on this page. Auto Discovery sets them from the discovered adapter.
 The **Change Settings** button on the adapter dashboard changes them later.
 
 Every adapter has the parameters in the following table.
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Name** | Text | The name of the component. Must be unique. | The adapter name |
+| **Name** | Text | The name of the component. Must be unique. | The adapter's model name, such as `SocketCANd Adapter` or `Ewert CANdapter` |
 | **Auto Connect** | On or off | Connects to the adapter when the profile loads. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). | On |
 
 The remaining parameters depend on the type of adapter.
@@ -60,7 +60,7 @@ The **SocketCANd Adapter** connects over TCP to the socketcand daemon, which can
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Bus Name** | Choice | The SocketCAN interface on the machine running socketcand, such as `can0`. | `can0` |
+| **Bus Name** | Choice | The SocketCAN interface on the machine running socketcand: `can0` to `can9`, or `vcan0` to `vcan9`. | `can0` |
 | **IP Address** | Text | The IP address of the machine running socketcand. | `127.0.0.1` |
 | **Port** | Whole number | The port that socketcand listens on, from 1 to 65535. | 29536 |
 | **Timeout** | Time | The TCP timeout in milliseconds, from 0 to 60000. | 2000 |

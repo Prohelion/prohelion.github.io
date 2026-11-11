@@ -23,7 +23,7 @@ Sign in with an account that has administrator rights. The installer sets Profin
 3. Start Profinity from the Start menu.
 
 Profinity opens its homepage in the desktop window.
-To stop Profinity, shut down the application.
+To stop Profinity, select **Close** at the top right of the window.
 
 <figure markdown>
 ![The Profinity welcome page, headed "Welcome to Profinity Version 2.3", with Documentation, Add Component and Help shortcuts.](../images/homepage.png)
@@ -41,6 +41,7 @@ The default URL is `http://localhost:18080`, and the browser opens the Profinity
 </figure>
 
 The desktop application window signs in automatically, with no password.
+
 | What you see | Cause | What to do |
 |--------------|-------|------------|
 | The browser sign-in page has no account to sign in with | No Server licence is applied | Use the desktop application window until you apply a Server licence |
@@ -55,7 +56,7 @@ The installer adds Windows Firewall exceptions for ports 4876 (TCP and UDP) and 
 A Server licence changes this.
 Profinity then uses the address set in System Configuration, so other machines can open the web interface and sign in with their own accounts.
 
-A Desktop licence leaves this out, and a Desktop host skips the 14-day local trial.
+With a Desktop licence, the web interface stays on this computer, and a Desktop host skips the 14-day local trial.
 To apply a Server licence, refer to [Apply a licence](./Applying_a_Licence.md), and restart Profinity so that the new address takes effect.
 For the accounts that exist with and without a Server licence, refer to [Who can sign in, by installation type](./Applying_a_Licence.md#who-can-sign-in).
 

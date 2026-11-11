@@ -21,7 +21,7 @@ The device alert is raised straight away, and the technician's finding follows a
 ## Add the technician to a device rule
 
 1. Open the device rule in the rules visual editor, as described in [Create a rule](../../Tags/Rules/Create_a_Rule.md).
-2. In the action picker, choose the technician by its component name, such as `MotorTechnician`.
+2. In **Add action**, choose the technician by its component name, such as `MotorTechnician`.
 3. Add it to the rule's actions, or to the threshold step that should start a review.
    Do not add it to the clear actions, because the technician starts a round each time it runs, including when an alert clears.
 4. Save the rules.
@@ -74,7 +74,7 @@ A device that alerts often should rely on the throttle, so the technician's **Da
 
 When the round ends:
 
-1. The technician's findings tags update.
+1. The tags under the technician's **Findings** branch update, and **TAG EXPLORER** shows them.
 2. **Findings severity** raises or clears its alert at the finding's level in the [Alerts Log](../../Tags/Alerts.md).
 3. **Findings message** sends when the outcome is `attention` and the text is new.
 4. The `Wake` findings tag reads `alert`.

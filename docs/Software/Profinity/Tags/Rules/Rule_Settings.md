@@ -23,7 +23,7 @@ Each setting is in the rules visual editor and in the `rules.yaml` file, except 
 | **Throttle minutes** | `throttleMinutes` | Whole number | None | The minutes before the rule's actions can run again for the same tag. Refer to [Throttle and more information links](#throttle-and-more-information-links). |
 | **On update** | `onUpdate` | On or off | Off | Runs the true actions again when the value changes while the rule stays tripped. Refer to [On update](#on-update). |
 | **Related tags** | `relatedTags` | Alias and tag path pairs | None | Other tags that the expression and the action message can read. Refer to [Related tags](#related-tags). |
-| **More information links** | `moreInformation` | Description and `https://` address pairs | None | Links shown with the alert in the Alerts Log. |
+| **More information** | `moreInformation` | Description and `https://` address pairs | None | Links shown with the alert in the Alerts Log. |
 | **When the tag is unreadable** | `onUnreadable` | Choice: `hold` or `evaluate` | `hold` | Whether the rule keeps its state or runs while its tag has no value. Refer to [Unreadable tags](#unreadable-tags). |
 | **Clear value (deadband)** | `clearValue` | Decimal number | None | On a threshold step with a condition, the value where the step clears, when that differs from where it tripped. A step takes `clearValue` or `clearExpression`, not both. |
 | **Clear expression (deadband)** | `clearExpression` | Text | None | On a threshold step or a boolean rule, the expression that clears the alert, when that differs from where it tripped. |
@@ -44,7 +44,7 @@ The Alerts Log records each of these as an `Updated` transition.
 The change that first trips the rule, and a change to another threshold step, run the usual trip and clear actions only.
 
 A value that is the same as the last one sent does not send again.
-A throttle, a silence that a user sets on the alert in the Alerts Log, or the licence check can each hold back a send, and the next change that is allowed then sends.
+A throttle, a silence that a user sets with **Silence alert for 1 hour** on the alert in the [Alerts Log](../Alerts.md), or the licence check can each hold back a send, and the next change that is allowed then sends.
 A rule with a dwell sends updates only after it has tripped.
 
 After Profinity restarts, it restores each active alert and treats the current value as already sent, so the rule sends again when the value next changes.
@@ -69,7 +69,7 @@ Profinity refuses an empty alias, a duplicate alias, and an alias that matches `
 
 **Throttle minutes** holds back the actions of one rule on one tag for that many minutes after they run, for both the trip and the clear.
 
-**More information links** adds links to a rule.
+**More information** adds links to a rule.
 Each link has a `description` and an `https://` `url`, and the Alerts Log detail dialog lists them under **DOCUMENTATION**.
 
 ## Unreadable tags

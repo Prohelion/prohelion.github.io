@@ -14,6 +14,7 @@ This page adds an [AI Technician](./AI_Technician.md) to a profile, runs its fir
 
 - [Profinity AI](../index.md) is licensed and configured under [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md), and the [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md) is turned on.
 - You have the **Allow component actions** permission and the permission to change the profile.
+- You have the **Security administration** permission, to create the role and service account in the next section.
 
 ## Create the service account
 
@@ -48,17 +49,15 @@ Each round signs in as a service account, so the account's roles decide what the
 If **Outcome** reads `blocked`, **Message** gives the reason.
 Refer to [Troubleshooting](./AI_Technician.md#troubleshooting) on the component page.
 
-Each press of Run AI Technician counts towards **Daily limit**, so once that many presses and alert rounds have run today, further presses are dropped until midnight.
+Each press of Run AI Technician counts towards **Daily limit**, which is in the **Limits** group of the technician's settings, so once that many presses and alert rounds have run today, further presses are dropped until midnight in the machine's local time.
 
 ## Schedule the review
 
 1. On the **Settings** tab, set **Schedule** to **Run On CRON Schedule**.
 2. Set **Cron Schedule** to a Quartz cron expression, such as `0 0 0 * * ?` for midnight every day.
-   For a repeating gap instead, set **Schedule** to **Run On Time Interval** and set **Time Interval** and **Time Interval Unit**.
-3. Set **Timezone** to the site timezone, such as `Australia/Brisbane`.
-   Leave it empty for UTC.
-4. On the **Settings** tab, set **Review window (hours)** to the time since the last review, such as 24 for a daily review.
-5. Save, and check that the dashboard **NEXT** shows the next round in UTC.
+   For a repeating gap instead, set **Schedule** to **Run On Time Interval**, set **Time Interval** to a whole number of at least 1, and set **Time Interval Unit** to **Seconds**, **Minutes**, **Hours** or **Days**.
+3. On the **Settings** tab, set **Review window (hours)** to the time since the last review, such as 24 for a daily review.
+4. Save, and check that the dashboard **NEXT** shows the next round in UTC.
 
 ## Send the findings on
 

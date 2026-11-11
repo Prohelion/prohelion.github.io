@@ -104,7 +104,7 @@ When `name` is omitted, the identifier is used as the label.
 | `readOnly` | On or off | `false` | `true` means the value is visible and the user cannot change it. |
 | `min`, `max` | Decimal number | - | Smallest and largest numbers the field accepts. Write them in the units the user types |
 | `units` | Text | - | Unit printed beside a number |
-| `scale` | Decimal number | - | Multiplies the number shown on a firmware field. A save stores that on-screen number. Refer to [Firmware maps](Firmware_Maps.md#scale) |
+| `scale` | Decimal number | - | Multiplies the `default` value to give the number shown on the firmware page. Refer to [Firmware maps](Firmware_Maps.md#scale) |
 | `dependsOn` | - | - | The field is shown when every named field has the given value. The name is another field identifier in this file |
 | `gridSpanX` | Whole number | `1` | How many columns the control spans. `2` draws it across two columns. |
 | `gridSpanY` | Whole number | `1` | How many rows the control spans. |
@@ -118,14 +118,14 @@ When the two sides differ, for example `"1": NMEA`, the list shows `NMEA` and `G
 `units` is shown for `V`, `mV`, `A`, `Ah`, `W`, `Wh`, `Ms`, `Seconds`, `°C`, `kb/s`, `%`, `Ohms`, `Ohm`, `J`, `kPa`, `RH %`, and `Bitfield`.
 Any other text is ignored.
 
-`scale`, `min` and `max` on a firmware field, with a worked example and the rule that a save stores the number on screen, are on [Firmware maps](Firmware_Maps.md#scale).
+`scale`, `min` and `max` on a firmware field, with a worked example, are on [Firmware maps](Firmware_Maps.md#scale).
 
 ## Field types
 
 | `type` | Control |
 |--------|---------|
 | `STRING` | Text box. An omitted or unrecognised type is also a text box |
-| `BOOL`, `BOOLEAN` | Tick box |
+| `BOOL`, `BOOLEAN` | Check box |
 | `LIST` | Drop-down of the `values` entries |
 | `UINT8`, `UINT16`, `UINT32`, `UINT64`, `INT8`, `INT16`, `INT32`, `INT64`, `FLOAT`, `DOUBLE`, `DECIMAL`, `NUMBER` | Number |
 | `HEX`, `HEXVALUE` | Hexadecimal number |
@@ -135,4 +135,4 @@ Any other text is ignored.
 | `INFORMATION` | Read-only text |
 
 The calls a script uses to read these values are on [Component and firmware settings](../Scripting/Script_Operations/Settings.md).
-The service that uses them is on [Main script](Main_Script.md).
+That page also lists which scripts read them. The [Main script](Main_Script.md), which is a service script, is one of them.

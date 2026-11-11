@@ -32,8 +32,8 @@ The factory default CAN bus data rate for all Prohelion devices is 500 kbit/s.
    Profinity runs three steps in order, and stops if one fails: **Check Suitable Available Network** checks that a suitable network is available, **Set Active** sets the WaveSculptor as the active device over a TCP connection, and **Run WaveSculptor Config** launches the Tritium wsConfig program.
 3. In wsConfig, use the **File** menu to save the current configuration of the WaveSculptor to the PC, as described in [Configuration](../../../../../Motor_Controllers/Config_Software/Configuration.md).
    Profinity keeps no copy of the configuration, so this file is the way back.
-4. In wsConfig, set the CAN bus data rate and base address of the WaveSculptor.
-5. Set the CAN adapter in the Profile to the same data rate as the WaveSculptor.
+4. In wsConfig, set the CAN bus data rate, and set the base address to the same value as **Base Address** in the component settings.
+5. Set the baud rate of the CAN adapter in the Profile to the same data rate as the WaveSculptor, using its baud rate control, such as **PCAN BaudRate** or **Candapter BaudRate**.
 
 <figure markdown>
 ![Firmware Utilities tab with the Setup and Config button for configuring a WaveSculptor](../../../images/configure_wavesculptor.png)
@@ -64,5 +64,5 @@ The stored configuration is kept, and saving it to the PC first, as in step 3 of
 |---|---|---|
 | wsConfig does not open. | The sequence stopped before the third step. | See the [Profinity log](../../../Administration/Logs_Config.md), which records that the operation did not run successfully. |
 | The sequence stops at **Check Suitable Available Network**. | No suitable network is available. | Check that the bridge and the PC are on the same local network. |
-| The sequence stops at **Set Active**. | The step needs a Tritium or Prohelion CAN bridge in the profile that Profinity can reach over TCP. When none is reachable, the step stops. | Check that no other client holds the bridge's single TCP connection. |
-| The dashboard shows no data after the firmware loader finishes. | Not stated. | Use the checks on [WaveSculptor motor controller](index.md). |
+| The sequence stops at **Set Active**. | The profile has no Tritium or Prohelion CAN bridge, or Virtual CAN Bus Adapter, that Profinity can reach over TCP. A Virtual CAN Bus Adapter also needs another CAN adapter in the profile. | Add the missing adapter to the profile, and check that it is reachable from this computer. |
+| The dashboard shows no data after the firmware loader finishes. | Profinity receives no CAN traffic from the WaveSculptor within **Milliseconds Valid**, so the connection is treated as lost. | Use the checks on [WaveSculptor motor controller](index.md). |

@@ -31,7 +31,7 @@ flowchart LR
 - **Everything** records every sample a tag receives, including a repeat of the same value, and holds those samples until the next flush.
 
 The difference between the modes is clearest with one worked case.
-A tag updates once a second with the same reading, and the **Update Interval (Seconds)** is 10.
+A tag updates once a second with the same reading, and the **Update Interval (seconds)** is 10.
 
 - **Snapshot** writes one row for that tag every 10 seconds: the value at the moment of the interval.
 - **On Change** writes a row on the first sample and then only when the value or quality changes.
@@ -61,7 +61,7 @@ Routine logging and publishing use **Snapshot** or **On Change**.
 
 In **Snapshot** mode the interval is how often the current value of each member is read and written or sent.
 In **On Change** and **Everything** modes the interval is how often pending samples are flushed to the file, database, or destination.
-The setting appears as **Update Interval (Seconds)** on the component pages that offer **Logging mode**.
+The setting appears as **Update Interval (seconds)** on the component pages that offer **Logging mode**.
 
 ## Components that offer logging modes
 
@@ -71,7 +71,7 @@ These components have a **Logging mode** setting:
 - The **InfluxDB v2 Historian** and the **InfluxDB v3 Historian**, on [InfluxDB historians](Historians/InfluxDB_Historians.md).
 - The Message Queuing Telemetry Transport (MQTT) Publisher, on [MQTT Publisher](Publishers_and_Subscribers/MQTT_Publisher.md).
 - The **ThingsBoard Logger**, on [ThingsBoard Logger](Cloud_Dashboard/Prohelion_Cloud_Dashboard.md).
-- The **TAG File Logger** and the **TAG SFTP Logger** (Secure File Transfer Protocol), on [Tag file and SFTP loggers](Loggers/Tag_File_and_SFTP_Loggers.md).
+- The **TAG File Logger** and the **TAG SFTP Logger** (Secure Shell (SSH) File Transfer Protocol), on [Tag file and SFTP loggers](Loggers/Tag_File_and_SFTP_Loggers.md).
 - The **TAG Local Historian**, on [TAG Local Historian](Historians/TAG_Local_Historian.md).
 - The **TAG SQL Historian**, on [TAG SQL Historian](Historians/TAG_SQL_Historian.md).
 - The **Webhook Publisher**, on [Webhook Publisher](Publishers_and_Subscribers/Webhook_Publisher.md).

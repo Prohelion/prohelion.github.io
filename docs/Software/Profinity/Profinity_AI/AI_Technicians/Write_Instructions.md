@@ -11,6 +11,8 @@ last_reviewed: 2026-11-09
 The **Instructions** setting tells an [AI Technician](./AI_Technician.md) what to review and how to judge it.
 The technician reads the same instructions every round, so clear instructions give the same verdict on the same data.
 
+Add an [AI Technician](./AI_Technician.md) to the profile first, as described in [Set up an AI technician](./Set_Up_an_AI_Technician.md). Selecting **Run AI Technician** to check the instructions needs the **Allow component actions** permission.
+
 ## What to put in instructions
 
 Write the instructions to a technician who knows nothing about the site:
@@ -41,7 +43,7 @@ Give attention when:
 - the motor temperature climbs through the day and does not settle (Warning)
 - the output current stays above its usual band for the load (Warning)
 - the same alert has fired more than five times in the day (Info)
-- the motor temperature has gone above its limit (Error)
+- the motor temperature alert has fired and other tags show the same fault at the same time (Error)
 
 Give clear when none of these apply.
 
@@ -51,7 +53,7 @@ In the report, list what you checked and what you found for each item.
 
 ## Example: an alert investigation
 
-This example suits a technician that a device rule wakes when an alert fires, as described in [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md).
+This example suits a technician that a tag rule wakes when an alert fires, as described in [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md).
 
 ```text
 You are woken when an alert fires on the motor controller.

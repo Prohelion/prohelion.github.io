@@ -45,7 +45,7 @@ Refer to [Licensing](../Licensing.md) for the trial and for what each edition in
 3. Send the fingerprint to Prohelion through the usual sales or support channel.
    The fingerprint identifies this installation and is the only information Prohelion needs to issue a licence.
 4. When Prohelion returns the `license.yaml` file, return to the **License** page, select **Update license file**, and choose the file.
-5. Restart Profinity, using the restart command for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, in particular a Server licence.
+5. Restart Profinity, using the restart steps for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, in particular a Server licence.
    Profinity sets the address that the web interface listens on when it starts.
 
 Profinity checks the file's signature, its expiry, and that its fingerprint matches this installation before it applies the file.
@@ -60,7 +60,7 @@ A Windows service with no Server licence has no account that can sign in to the 
 
 1. Copy `license.yaml` into the `license` folder of the [artefacts directory](./Artifacts_Directory.md), so that the file ends up at `license/license.yaml`.
 2. On Docker, place it in the mounted volume that holds the artefacts directory, so that it survives the container being recreated.
-3. Restart Profinity, using the restart command for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, or if the **License** page still shows the previous state.
+3. Restart Profinity, using the restart steps for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, or if the **License** page still shows the previous state.
 
 The licence must belong to the installation's own fingerprint, in the same way as one uploaded from the page.
 To read the fingerprint, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Licensing.md#the-machine-fingerprint).
@@ -71,7 +71,7 @@ Open **ADMIN**, then **License**, and check these three things:
 
 - **State** reads `Valid`, or `Expiring` when 30 days or fewer remain before the licence expires.
 - **Expires**, **Customer**, and **Edition** match the licence that Prohelion issued.
-- The **Licensed features** and **Licensed component groups** tables show the expected entries as licensed and available.
+- The **Licensed features** and **Licensed component groups** tables show **Profinity Server** as licensed and available under **Licensed features**.
 
 If the page still shows the previous state after you copied the file into the folder, restart Profinity and check again.
 Removing licensed features restarts Profinity automatically, and so does applying a licence to a server installation that was in restricted mode.

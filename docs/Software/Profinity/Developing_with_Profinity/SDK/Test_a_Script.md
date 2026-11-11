@@ -16,7 +16,7 @@ The kit holds no Windows `.exe`. On Windows, run the tool from its folder as `do
 The kit also contains the [Component Pack CLI](Component_Pack_CLI.md) (`profinity-component-pack`) and the `Profinity.Sdk` package.
 The package on its own does not create or run a script.
 
-The SDK is licensed separately.
+The SDK is an add-on to the Desktop, Server, or Enterprise edition, licensed separately.
 Refer to [Licensing](../../Licensing.md).
 For a copy of the SDK, [contact Prohelion](https://www.prohelion.com/contact-us/).
 
@@ -84,7 +84,7 @@ Profinity runs the copied file.
    Saving replaces the file in place, so this copy is how you restore the earlier script.
 2. Add a script component as described in [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
    A script that belongs to a [Custom Component](../Custom_Components/index.md) goes in that component, under the name the component already uses.
-   For a Python script, set **Upload Script File (Optional)** in the component's settings to the `.py` file. Alternatively, paste the script into the script editor and select **Save**. To run it, set **Script Mode** to **Run On Demand**, then select **Run Script** from the component's menu. The component's status shows **On** while the script runs.
+   For a Python script, set **Upload Script File (Optional)** in the component's settings to the `.py` file. Alternatively, paste the script into the script editor and select **Save**.
 3. Review the script, then set **Script Mode** to **Run On Demand** and select **Run Script**. The status reads `Run 1 time` after the first run.
    A script in a profile runs with the same operating system permissions as Profinity.
 

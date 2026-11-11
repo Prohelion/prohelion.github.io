@@ -55,6 +55,7 @@ Profinity rejects a save that leaves the configuration in an inconsistent state,
 - The MCP server must stay enabled while Profinity AI is enabled.
 
 Profinity treats a configuration that passes these checks as ready to use.
+
 | What you see | Cause | What to do |
 |---|---|---|
 | The chat returns an error after you save a configuration that looks valid | The configuration has, for example, a revoked API key. Profinity does not make a live test call to the provider when you save the configuration, so the fault appears only once a user sends a chat message. | Check the **API Key**, **Model**, and **Base URL**. |

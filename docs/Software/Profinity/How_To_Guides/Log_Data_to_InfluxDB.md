@@ -49,7 +49,7 @@ To use a self-hosted InfluxDB:
 4. For InfluxDB Cloud, set **InfluxDB Health Check** to false, because InfluxDB Cloud does not support the health check API. For a self-hosted server, leave it on, which is the default.
 5. In **Collections**, add a row for each tag collection to log and select the collection in that row.
    The historian starts only when at least one collection is configured.
-6. Optional: set the **Update Interval (Seconds)** and the **Logging mode**.
+6. Optional: set the **Update Interval (seconds)** and the **Logging mode**.
    [Logging modes](../Components/Logging_Modes.md) describes what each mode sends.
 7. Select **ADD COMPONENT** at the bottom of the dialog.
 

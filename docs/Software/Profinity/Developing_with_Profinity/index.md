@@ -25,7 +25,7 @@ The Profinity SDK develops and packages all three.
 - [Custom Components](./Custom_Components/index.md) covers the three ways to create a custom component, from a Dashboard Component through to a compiled C# plugin.
   It then covers the files that make a Custom Component: an optional [CAN database (DBC)](../CAN_Utilities/CAN_Bus_DBC.md) file, a dashboard, scripts, actions, and settings maps.
   For using one in a profile, refer to [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md).
-- [Profinity SDK](./SDK/index.md) covers the developer kit, with frameworks for plugins, Custom Components, and scripts. Prohelion supplies the SDK on request. Contact Prohelion to request a copy.
+- [Profinity SDK](./SDK/index.md) covers the developer kit, with frameworks for plugins, Custom Components, and scripts. Prohelion supplies the SDK on request. [Contact Prohelion](https://www.prohelion.com/contact-us/) to request a copy.
     - [Developing Plugins](./SDK/Developing_Plugins.md) covers a compiled plugin, built on the same framework as Prohelion's own components.
       An administrator installs it in **Components & Plugins**.
     - [Component Pack CLI](./SDK/Component_Pack_CLI.md) covers the `profinity-component-pack` tool for validating, packing, and installing Custom Component bundles.

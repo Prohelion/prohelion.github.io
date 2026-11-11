@@ -68,7 +68,7 @@ The same dialog contains a **User Actions** tab for the administrator tasks in t
 | Require a user to choose a new password, and sign out their sessions | **User Actions** tab, then **Reset Password**. Refer to [MFA account management](./MFA_Account_Management.md) |
 | Clear a user's authenticator so they enrol again | **User Actions** tab, then **Reset MFA**. Refer to [MFA account management](./MFA_Account_Management.md) |
 | Create or view an API token for a service account | **User Actions** tab, then **Generate Token** or **View Token**. Refer to [Service accounts](./Service_Accounts.md) |
-| Link a user to an identity provider account | **User Actions** tab, in **External identities (SSO)**. Refer to [SSO and Sign-In Method](../System_Configuration/Security/SSO_and_Sign_In.md#linking-sso-users-to-profinity-accounts) |
+| Link a user to an identity provider account | **User Actions** tab, in **External identities (SSO)**. Refer to [SSO and sign-in method](../System_Configuration/Security/SSO_and_Sign_In.md#linking-sso-users-to-profinity-accounts) |
 
 ## Disabling a user
 

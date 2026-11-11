@@ -93,7 +93,7 @@ Also check that the CAN ID, data format, and CAN bus bit rate match what the net
 | What you see | Cause | What to do |
 |---|---|---|
 | A scheduled packet never appears in the CAN Activity panel. | Usually one of these: (1) the adapter is disconnected, so its status indicator is not green; (2) the signed-in user lacks the **Send CAN messages** permission; (3) the CAN ID is invalid; (4) no interval is set, so the packet waits for a manual send. | Work through the causes in that order. Then select the packet and select the **Send** arrow, to confirm that it transmits before you rely on the schedule. |
-| A packet that was sent is missing from the CAN Activity panel. | A filter usually hides it. The adapter may also be receiving no traffic back, or the CAN bus bit rate may differ from the network. | Clear the filters, check that the adapter is receiving traffic, and check the bit rate. |
+| A packet that was sent is missing from the CAN Activity panel. | A filter usually hides it. The adapter may also be receiving no traffic back, or the CAN bus bit rate may differ from the network. | Clear the filters, check that the adapter is receiving traffic, and check the bit rate in the adapter's settings (for example **Candapter BaudRate** or **PCAN BaudRate**; a Tritium bridge uses **Bit Rate (kbps)** in its firmware settings). |
 | The data differs from what was entered. | The byte order or the data format is usually wrong. | Check that the **Endian** setting matches your system. Check the conversion between bytes and integers. Review the raw data to confirm the values. |
 
 For every option of the packet editor, refer to [Send / receive CAN bus messages](../CAN_Utilities/Send_Receive_CAN_Bus_Messages.md).

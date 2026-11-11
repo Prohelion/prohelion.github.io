@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Administering Profinity
 
 The **ADMIN** area of Profinity holds the settings that apply to the whole installation.
-Most of these pages need a permission that engineers and other users do not have by default.
+Most of these pages need a permission that engineers and other users do not have by default. [When a person cannot see something](Users_and_Access/Roles_and_Permissions.md#when-a-person-cannot-see-something) names the permission for the main pages.
 Give it only to the people who manage the installation.
 
 - [System Configuration](System_Configuration/index.md): every tab of the **System Configuration** page.

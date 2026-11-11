@@ -38,7 +38,7 @@ You need an edition with the **Historians** licensed feature, as described in [L
 4. Select **ADD COMPONENT**.
 5. Check that the historian status shows **On**.
 
-The historian writes a row for each tag after every **Update Interval (Seconds)**, 10 seconds by default.
+The historian writes a row for each tag after every **Update Interval (seconds)**, 10 seconds by default.
 The other settings keep their defaults, which suit most profiles, and the following tables list them.
 
 ## Settings
@@ -48,7 +48,7 @@ The other settings keep their defaults, which suit most profiles, and the follow
 | **Collections** | Choice | None | The [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows each collection's display name, and the profile stores its `id`. |
 | **Logging mode** | Choice | `Snapshot` | What is written on each interval: `Snapshot`, `On Change`, or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On or off | On | Starts the historian when the profile loads. When it is off, start the historian with **Start Logger** from its menu. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Update Interval (Seconds)** | Whole number | `10` | The seconds between writes, from 1 to 86400. |
+| **Update Interval (seconds)** | Whole number | `10` | The seconds between writes, from 1 to 86400. |
 | **Retention (days)** | Whole number | `30` | After each write, Profinity deletes samples older than this many days. |
 | **Designated tag historian reader** | On or off | On | Makes this historian the one that dashboards and integrations read older tag history from. Turn it on for exactly one historian in the profile. Refer to [Designated historian](Designated_Historian.md). |
 
@@ -75,7 +75,7 @@ Each profile has its own folder in the `profiles` folder of the [artefacts direc
 ```
 
 Replace `YOUR_COLLECTION_ID` with the `id` of the collection, which is in the `collections.yaml` file of the profile.
-The keys match the settings in this order: `intervalSec` is **Update Interval (Seconds)**, `logType` is **Logging mode**, `retentionDays` is **Retention (days)**, `designatedTagDataStore` is **Designated tag historian reader**, and `collections` is **Collections**.
+The keys match the settings in this order: `intervalSec` is **Update Interval (seconds)**, `logType` is **Logging mode**, `retentionDays` is **Retention (days)**, `designatedTagDataStore` is **Designated tag historian reader**, and `collections` is **Collections**.
 
 ## Where the database is stored
 

@@ -14,7 +14,7 @@ It uses the same dashboard system as [Custom Components](../Developing_with_Prof
 
 The difference is scope.
 A Profile Dashboard is always shown as the home page, such as a system overview or a control interface.
-A Component Dashboard is reached through its component in the side menu.
+A Component Dashboard is reached through its component in the side menu, and a Custom Component dashboard is one of these.
 
 Editing the profile settings needs the **Modify profiles** permission.
 Editing the dashboard itself needs **Modify dashboards**.
@@ -30,7 +30,7 @@ To create a Profile Dashboard from the built-in template:
 4. Save the profile settings. Profinity creates a starter dashboard from the built-in template.
 5. Select the pencil (**Edit Dashboard**) icon on the home page to edit the dashboard in the visual editor, as described in [Build a dashboard in the Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md).
 
-To use your own layout, open the **Home** tab, upload a `.yaml` file in **Dashboard YAML file (Optional)**, then select it from the list.
+To use your own layout, open the **Home** tab, upload a `.yaml` file in **Dashboard YAML file (Optional)**, then select it in **Dashboard YAML file (Optional)**.
 It opens in the visual editor like any other dashboard.
 Once configured, the Profile Dashboard is the home page whenever the profile is active.
 
@@ -41,7 +41,7 @@ A dashboard built in the visual editor meets the file requirements automatically
 A dashboard uploaded or edited by hand has three requirements:
 
 - It must be valid YAML.
-- It must pass the dashboard schema.
+- It must pass the dashboard schema. The **Schema validation issues** list in the [visual editor](../Customising_Profinity/Dashboards/Visual_Editor.md) names each problem in a dashboard's YAML.
 - It must have the `.yaml` extension.
 
 Profinity checks an uploaded dashboard when you upload it.
@@ -55,7 +55,7 @@ Refer to the [Profinity dashboard development guide](../Customising_Profinity/Da
 !!! warning "Removing the dashboard deletes its file"
     Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting.
     Profinity does not keep a copy of the deleted file, so copy it first, as step 1 describes.
-    If Profinity fails to delete the file, it keeps the dashboard file setting and writes the error to the log.
+    If Profinity fails to delete the file, it keeps the dashboard file setting and writes the error to the log, which you can read on the **Logs** pill on the **ADMIN** page.
 
 To remove a Profile Dashboard:
 

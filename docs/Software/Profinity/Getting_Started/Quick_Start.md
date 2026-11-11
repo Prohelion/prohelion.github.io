@@ -88,7 +88,7 @@ The Example Profile includes battery alert rules for the Prohelion 12v and the P
 
 To see alerts, select **ALL ALERTS** in the side menu to open the Alerts Log.
 The **Active** tab lists alerts that are firing now, and the **History** tab lists earlier alerts, newest first.
-Select an alert to **Acknowledge** it, or to **Silence** it for a set number of minutes.
+Select an alert to **Acknowledge** it, or to **Silence** it for one hour.
 
 The desktop user and the `admin` account can view and change rules.
 Actions that send an email, Slack message, webhook, or Message Queuing Telemetry Transport (MQTT) message need the Tag Rule Actions licensed feature, as described in [Rule actions](../Tags/Rules/Actions/index.md).

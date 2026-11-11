@@ -64,7 +64,7 @@ To add a component:
 <figcaption>Example of defining component properties</figcaption>
 </figure>
 
-The start setting is **Auto Connect** on every component that connects to a broker, device, server, or database, and each component type has its own default, listed in [Connections and reconnecting](../Components/Connections_and_Reconnecting.md).
+The start setting is **Auto Connect**, which every component that connects to a broker, device, server, or database has, except the Elcon charger, and each component type has its own default, listed in [Connections and reconnecting](../Components/Connections_and_Reconnecting.md).
 With it on, the component connects when the profile loads.
 With it off, the component waits until you switch it on with its **Connect** or **Start** action, and it stays off until you do.
 
@@ -111,7 +111,8 @@ To connect the component:
 Deleting a component removes its settings from the profile and deletes its folder, which holds its dashboard, scripts, and other files.
 Deleting a local historian also deletes its history database.
 Log files from file and SFTP loggers stay on the device, and data in an external database or on a remote server stays where it is.
-To bring a deleted component back, restore it from a copy that you keep before you delete it.
+To bring a deleted component back, import the profile pack that you downloaded before the deletion, as described in [Import a profile pack](../Administration/Manage_Profiles.md#import-a-profile-pack).
+The import adds the pack as a separate profile, and it is refused while a profile with the same name exists, so give the pack file a name that no profile uses.
 
 To remove a component that is no longer required:
 

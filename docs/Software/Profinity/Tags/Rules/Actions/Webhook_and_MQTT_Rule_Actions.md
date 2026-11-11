@@ -17,7 +17,7 @@ The message is JSON with these properties:
 - The property names are camelCase.
 - `ruleId` is the stable identifier of the rule, and `ruleName` is its name.
 - `triggerTagId` is the tag whose change caused this firing.
-- `message` is the alert message with its placeholders expanded, which is the text the Slack and Email actions send. It is empty when the rule has no message.
+- `message` is the alert message with its [placeholders](index.md#message-placeholders) expanded, which is the text the Slack and Email actions send. It is empty when the rule has no message.
 - `transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep`, `ExitedStep`, or `Updated`.
   `Updated` is used when **On update** re-runs the actions because the value changed while the alert stayed true.
 - `triggeringTags` holds the same tags that a script receives as `TriggeredTags`, but each row carries `tagId`, `value`, and `quality` only.
@@ -73,7 +73,7 @@ The other modes report a matching message for their missing fields.
 | Setting | Type | Default | Purpose |
 |---|------|---|---|
 | **Broker URL** | Text | None | The broker's connection URL, with a scheme of `mqtt`, `mqtts`, `http`, or `https`. Use `mqtts://` to enable Transport Layer Security (TLS). |
-| **Trust all server certificates** | On or off | Disabled | Disables TLS server certificate validation for this action. Enable only for a trusted broker with a self-signed certificate. |
+| **Trust all server certificates** | On or off | Off | Disables TLS server certificate validation for this action. Enable only for a trusted broker with a self-signed certificate. |
 | **Username** / **Password** | Text and Secret | None | Credentials for broker authentication. The password is required but may be empty, and is stored encrypted. |
 | **Client ID** | Text | None | Optional. Leave blank, and Profinity generates a new client identifier for every firing. |
 | **Destination topic** | Text | None | The topic the message is published to when the action fires. Required. |

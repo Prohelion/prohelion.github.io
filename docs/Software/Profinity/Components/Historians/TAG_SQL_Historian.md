@@ -42,7 +42,7 @@ You need the Historians licensed feature, a database that the Profinity server c
 3. If the database is not SQLite, set **Database Provider** to match it. SQLite is the default.
 4. Under **Collections**, add at least one tag collection. The historian cannot start without one.
 5. Select **ADD COMPONENT** at the bottom of the dialog.
-6. Check that the status shows **On**. In Snapshot mode, the default **Logging mode**, rows appear in the table named by **Table Name** after each **Update Interval (Seconds)**, which is 10 seconds by default. If the status shows **Error**, read the [Logs](../../Administration/Logs_Config.md) for the reason.
+6. Check that the status shows **On**. In Snapshot mode, the default **Logging mode**, rows appear in the table named by **Table Name** after each **Update Interval (seconds)**, which is 10 seconds by default. If the status shows **Error**, read the [Logs](../../Administration/Logs_Config.md) for the reason.
 
 The following tables describe every setting.
 
@@ -51,7 +51,7 @@ The following tables describe every setting.
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
 | **Database Provider** | Choice | SQLite | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. |
-| **Connection String** | Secret | None | The connection string for the chosen database provider, in that provider's own format. Required, and stored encrypted at rest. |
+| **Connection String** | Secret | None | The connection string for the chosen database provider, in that provider's own format. Required. Profinity encrypts it in the profile file when the profile is saved, unless it is an environment variable reference. |
 | **Table Name** | Text | `TagChangeLog` | The table the historian writes rows to. Use letters, digits, and underscores only, and do not start with a digit. |
 | **Auto Create Table** | On or off | On | Creates the table when the historian starts, if it does not already exist. |
 
@@ -62,7 +62,7 @@ The following tables describe every setting.
 | **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
 | **Logging mode** | Choice | `Snapshot` | Sets what is written on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
 | **Auto Connect** | On or off | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Update Interval (Seconds)** | Time | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Update Interval (seconds)** | Time | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Designated tag historian reader** | On or off | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Designated historian](Designated_Historian.md). |
 
 ## Table layout

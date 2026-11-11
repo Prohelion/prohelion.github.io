@@ -31,14 +31,14 @@ Every mount point must be unique.
 | What you see | Cause | What to do |
 |---|---|---|
 | Profinity rejects the change, with a message in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.` that reports which paths overlap. | Two components would resolve to the same or an overlapping location. | Change the **Tag tree path** or the name of one of the two components until the paths no longer overlap. |
-| Profinity rejects the change to the **Tag tree path**. | The component would resolve to a location published by a [Tag relay](../Tag_Relay.md) receiver. | Not stated. |
+| Profinity rejects the change to the **Tag tree path**. | The component would resolve to a location published by a [Tag relay](../Tag_Relay.md) receiver. | Change the **Tag tree path**, or the **Receiver tag path prefix** of the Tag Relay Receiver, so that the two no longer overlap. |
 
 ## Change the path on a deployed component
 
 !!! warning "Moving a component breaks absolute binds in other dashboards"
     Absolute binds in other components' dashboards stop resolving when the component they reference is moved, and Profinity does not update them.
 
-Before you change the path, copy the `rules.yaml`, `collections.yaml` and dashboard files from the profile folder, which is the folder named after the profile inside the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), to a safe place. The profile folder is `profiles/<profile name>` in the artefacts directory, and each file sits in its own subfolder: `rules`, `collections` or `dashboards`.
+Before you change the path, copy the `rules.yaml` and `collections.yaml` files, and every dashboard file, from the profile folder, which is the folder named after the profile inside the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), to a safe place. The profile folder is `profiles/<profile name>` in the artefacts directory, and each file sits in its own subfolder: `rules`, `collections` or `dashboards`.
 Profinity also keeps one safety copy, `<file>.bak`, beside each of these files it updates, holding the version before the latest save.
 A later save replaces that safety copy, so your own copy is the reliable one.
 

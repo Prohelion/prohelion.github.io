@@ -25,11 +25,11 @@ To build a plugin yourself, refer to [Developing Plugins](../Developing_with_Pro
 ## Install a plugin
 
 You need a plugin package, a `.nupkg` or `.zip` file from the plugin's author.
-Plugins that ship with Profinity are listed alongside the ones you install.
+Plugins that ship with Profinity are listed alongside the ones you install. They are enabled by default, so step 3 applies only to a shipped plugin that has been disabled.
 
 1. Select **ADMIN** in the side menu and open the **Components & Plugins** pill.
 2. In the **UPLOAD PLUGIN (.ZIP OR .NUPKG)** panel, select **browse** in the **Plugin archive** drop area, or drag the package onto it.
-3. In the **INSTALLED PLUGINS** table, select **Enable** on the plugin's row in the Actions column.
+3. In the **INSTALLED PLUGINS** table, select **Enable** on the plugin's row in the Actions column. The **Enabled** column then shows **Yes**, and the button on that row changes to **Disable**. If Profinity cannot enable the plugin, it shows the reason in an error dialog.
 
 Enabling a plugin that you uploaded needs the **Custom Plugins** licensed feature.
 The licence must include the feature, which the Desktop, Server, and Enterprise editions include (refer to [Licensing](../Licensing.md)).

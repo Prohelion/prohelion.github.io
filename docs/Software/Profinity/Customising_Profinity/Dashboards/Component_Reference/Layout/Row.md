@@ -38,7 +38,7 @@ A height on a parent of the row does not count.
 
 ## Example
 
-Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+Enter the example in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md). The example starts with a `dashboard:` key, so pasting it replaces the whole dashboard in the **YAML** tab.
 
 ``` yaml
 dashboard:

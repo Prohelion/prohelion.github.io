@@ -72,13 +72,13 @@ The properties have the same names in C#, Python, and Lua.
 - `Updated`: the value changed while the alert stayed tripped, as described under [On update](../../../Tags/Rules/Rule_Settings.md#on-update).
 
 `Parameters` is a dictionary keyed by the names written under `parameters` on the action entry.
-A literal arrives as its value, and a tag variable arrives as that tag's current value.
+A number or boolean literal arrives as its value, a text literal arrives with its [message placeholders](../../../Tags/Rules/Actions/index.md#message-placeholders) filled in, such as `{TagId}`, and a tag variable arrives as that tag's current value.
 Read an entry by name, for example `context.Parameters["setpoint"]` in C# and Python, or `context.Parameters['setpoint']` in Lua.
 
 ## Example
 
 Each example is a complete alert script, which goes in the script component's editor, opened with **Edit Script**.
-It writes the alert details to the script output.
+It writes the alert details to the script output, which the reader sees in the script's log, and in the Profinity log at the Info level when **Log Script Output** is on.
 
 === "C#"
 
@@ -155,7 +155,7 @@ If the alert method is still running when the rule fires again, **Trigger Overla
 
 A threshold rule can start several of those firings in one evaluation.
 Moving up runs the actions of each step it enters, from the lower step to the higher one.
-Moving down runs the clear actions of each step it leaves, starting at the step it was on and stopping before the step it lands on.
+Moving down runs the [clear actions](../../../Tags/Rules/Actions/index.md#actions-inherited-down-the-rule-tree) of each step it leaves, starting at the step it was on and stopping before the step it lands on.
 
 Profinity starts the next action without waiting for the script to finish.
 With **Drop**, a script that is still running discards that next action, and the rule does not try it again, because the step has already changed.

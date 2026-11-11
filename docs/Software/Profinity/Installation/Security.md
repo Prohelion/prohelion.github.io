@@ -75,7 +75,7 @@ A script can:
 - Control connected hardware, including batteries, chargers, and motor controllers.
 
 Scripting is switched off by default.
-An administrator turns it on with **Enable Scripting** under **ADMIN > System Configuration**.
+An administrator turns it on under **ADMIN > System Configuration**, with **Enable C# Scripting**, **Enable Python Scripting**, or **Enable Lua Scripting** for each language to allow.
 The setting is available only when the licence includes the **Scripting** feature, which the Desktop, Server, and Enterprise editions include.
 An unlicensed instance does not include scripting.
 

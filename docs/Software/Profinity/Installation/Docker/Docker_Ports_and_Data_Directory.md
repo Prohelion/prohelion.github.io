@@ -30,7 +30,7 @@ The [one-line installer](./Docker_One_Line_Installer.md) creates a `data` folder
 
 !!! warning "Mount a volume at the artefacts directory"
     If no host folder is mounted at `/var/lib/prohelion/profinity`, Profinity writes its configuration and profiles inside the container, and they are lost when the image is replaced.
-    A compose file written for 2.2 mounts `/root/Prohelion/Profinity/...`. Mount the host folder that holds the 2.2 data at `/var/lib/prohelion/profinity` instead, as described in [Upgrade from Profinity 2.2](../Upgrading/Upgrade_From_2_2.md).
+    A compose file written for 2.2 mounts a host folder at `/app/Prohelion`, which holds the 2.2 data in its `Profinity` folder. Mount the host folder that holds the 2.2 data at `/var/lib/prohelion/profinity` instead, as described in [Upgrade from Profinity 2.2](../Upgrading/Upgrade_From_2_2.md).
 
 Do not set `PROFINITY_HOME` for a normal installation, because the default path is the right one.
 The variable moves the artefacts directory to another path and turns off the move from older locations, so use it only for an exception such as a non-standard mount root, and then make the mount destination match it, as described under [Move or relocate the artefacts directory](../Artifacts_Directory.md).

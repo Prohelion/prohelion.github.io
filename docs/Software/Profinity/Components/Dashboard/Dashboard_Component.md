@@ -24,14 +24,14 @@ It differs from a [Custom Component](../Custom_Components/Using_a_Custom_Compone
 2. Keep **Name** at `Dashboard Component`, or enter a name that is unique in the profile. Profinity refuses a name that matches an existing dashboard file, with the message "There is already a component in this profile with that name".
 3. Optional: To start from your own dashboard, select **Upload Dashboard (Optional)** and choose a `.yaml` file. Leave it empty to create a template.
 4. Select **ADD COMPONENT** at the bottom of the dialog.
-5. If you left the upload empty, the dashboard editor opens on the template. Bind each element to a tag from another component by its absolute path, which starts with `/`, such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
+5. If you left the upload empty, the dashboard editor opens on the template. Bind each element to a tag from another component by entering its absolute path, which starts with `/`, in the **Tag path** box (or choose the tag with **Browse tags**), such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
 6. Open the component's dashboard, and check that the bound elements show the values of their tags.
 
 ## Add the component {#add-a-dashboard-component}
 
 Add the component from **ADD COMPONENT** (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)), where it is listed under **Dashboards**.
 Its only setting besides the name is **Upload Dashboard (Optional)**, which takes a `.yaml` dashboard file.
-When no file is uploaded, Profinity creates a template dashboard that the dashboard editor opens for editing, as described in [Using a custom component](../Custom_Components/Using_a_Custom_Component.md).
+When no file is uploaded, Profinity creates a template dashboard that the dashboard editor opens for editing.
 A component name that matches an existing dashboard file in the profile is rejected with the message "There is already a component in this profile with that name".
 
 ## Example

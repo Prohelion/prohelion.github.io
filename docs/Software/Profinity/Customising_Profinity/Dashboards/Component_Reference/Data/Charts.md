@@ -73,6 +73,8 @@ Older values that a window reaches back to come from the [designated historian](
 
 ## Example
 
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md). Each example starts with a `dashboard:` key, so pasting one replaces the whole dashboard.
+
 A bar chart that takes its data from a binding:
 
 ``` yaml

@@ -81,7 +81,7 @@ If the `profinity` service is active, `update.sh` stops it before it applies the
 On Linux, Profinity 2.3 stores writable data under `/var/lib/prohelion/profinity` by default, not `~/.local/share`, and it uses only that location.
 On macOS the default is `~/Library/Application Support/Prohelion/Profinity`.
 
-The bootstrap installer creates this directory, unless you pass `--no-systemd`.
+On Linux, the bootstrap installer creates this directory, unless you pass `--no-systemd`.
 For more information, refer to [Artefacts directory](./Artifacts_Directory.md).
 
 ## Open the web interface
@@ -91,7 +91,7 @@ By default Profinity listens on all network interfaces (`0.0.0.0`) on port `1808
 You reach it at `http://localhost:18080` on the local machine, or at `http://<host-name-or-ip-address>:18080` from another machine, where `<host-name-or-ip-address>` is the name or address of the machine that runs Profinity.
 Other machines can open the web interface during the 14-day local trial and with a Server licence, as described in [Who can sign in, by installation type](./Applying_a_Licence.md#who-can-sign-in).
 
-The browser opens the Profinity sign-in page.
+Your browser then shows the Profinity sign-in page.
 
 <figure markdown>
 ![The Profinity sign-in page](../images/login_page.png)
@@ -114,7 +114,7 @@ To stop it as a service on Linux, run `sudo systemctl stop profinity`, as descri
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|
-| On Linux, Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration | The account that runs Profinity does not own the directory | Run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write |
+| On Linux, Profinity logs `Unable to create directory '/var/lib/prohelion/...'` and then fails to save its configuration | The account that runs Profinity does not own the directory | Run `sudo chown -R profinity:profinity /var/lib/prohelion` for the service user, or set `PROFINITY_HOME` to a path the account can write, as described in [Set a variable](./Environment_Variables.md#linux-and-macos) |
 
 To keep Profinity running across restarts, refer to [Run Profinity as a service](./Run_as_a_Service/index.md).
 

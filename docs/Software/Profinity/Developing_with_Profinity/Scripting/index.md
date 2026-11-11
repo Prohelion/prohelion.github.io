@@ -27,10 +27,10 @@ Profinity scripting automates tasks, processes CAN messages and creates custom o
     An administrator must review what each script does before it is enabled.
 
 To keep the Profinity environment secure, scripting is disabled until it is explicitly enabled.
-To enable Profinity Scripting, open [Application Config](../../Administration/System_Configuration/Application_Config.md) and turn on **Enable Scripting**.
+To enable Profinity Scripting, open [Application Config](../../Administration/System_Configuration/Application_Config.md) and turn on **Enable C# Scripting**, **Enable Python Scripting**, or **Enable Lua Scripting** for the language you use.
 
 <figure markdown>
-![Profinity System Configuration page, where the Enable Scripting setting turns scripting on](../../images/app_configuration.png)
+![Profinity System Configuration page, where the Enable C# Scripting, Enable Python Scripting, and Enable Lua Scripting settings turn scripting on](../../images/app_configuration.png)
 <figcaption>Profinity System Configuration</figcaption>
 </figure>
 

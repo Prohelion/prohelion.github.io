@@ -20,7 +20,7 @@ The table is in the order `profinity-script new` prints.
 
 | Template | Languages | What the simulator runs |
 |----------|-----------|-------------------------|
-| `runnable` | Python, Lua, and C# | The script file. A scheduled script uses this mode. |
+| `runnable` | Python, Lua, and C# | The script file. A [Run Script](../Scripting/Script_Types/Run_Scripts.md) uses this mode, in any of its three modes. |
 | `tag-change` | Python, Lua, and C# | `on_tag_change` with the sample in `sim.yaml`. The example stores the value and prints nothing. |
 | `receiver` | Python, Lua, and C# | `receive` with one CAN packet. |
 | `service` | Python, Lua, and C# | `on_start`, then `run`, then `on_stop`. |
@@ -72,7 +72,7 @@ onSend:
 | Key | Type | Default | Meaning |
 |-----|---|---------|---------|
 | `version` | Text | | Write `"2.3"`. |
-| `script` | Text | | The script file name in this folder. |
+| `script` | Text | Required | The script file name in this folder. |
 | `mode` | Choice | `runnable` | `runnable`, `tagChange`, `receiver`, `service`, or `alert`. |
 | `componentName` | Text | `sim` | The name of the simulated component. A script that looks up its component by name uses this value. |
 | `tagId` | Text | `tag` | The tag ID passed to a tag-change script, and the trigger tag on an alert, when the file omits the key. |
@@ -109,7 +109,7 @@ A tag-history call fails with `Timeseries sources are not available in the Profi
 `Profinity.Action` is not set.
 A script that reads an action context is checked in a profile.
 Refer to [Action context](../Scripting/Script_Operations/Action.md).
-Live hardware stays in Profinity.
+The simulator does not connect to a CAN adapter or a device, so check a script that needs live hardware in a profile.
 
 ## Errors
 

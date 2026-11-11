@@ -35,7 +35,7 @@ Viewing the dashboard requires the **Security administration** permission, descr
 
 1. Set **Endpoint URL** to the address of the server, starting with `opc.tcp://`.
 2. Check that **Name** is unique within the profile. The default is `OPC UA Client`.
-3. Add one row to the point map, with a **Name** and a **NodeId**.
+3. In the **Points** tab, select **New point**, then enter a **Name** and a **NodeId**.
 4. Select **Save**.
 5. If **Auto Connect** is off, which is its default, switch the component on with the **Connect / Disconnect** menu action.
 6. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true. The tags under the component's `Points` tags show Good quality and a changing value.

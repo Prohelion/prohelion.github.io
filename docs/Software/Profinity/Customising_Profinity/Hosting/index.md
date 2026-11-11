@@ -28,23 +28,14 @@ With the default ports, open the application at `http://<host>:19080/`.
 
 ## Production configuration and HTTPS
 
-The Profinity web server supports Secure Sockets Layer / Transport Layer Security (SSL/TLS) certificates for production environments.
+The Extensions Web server supports Secure Sockets Layer / Transport Layer Security (SSL/TLS) certificates for production environments.
 A certificate comes from either the Windows Certificate Store or a certificate file with its password.
 The certificate file option works on Windows, macOS, and Linux.
 
 When a certificate comes from the Windows Certificate Store, provide all of **Windows Cert Store**, **Windows Cert Store Location**, and **Windows Cert Store Subject**.
 Profinity validates that the named store and certificate exist.
 
-| Setting | Type | Default | Effect |
-|---------|---|---------|--------|
-| **Cert File** | File upload | None | The certificate file. |
-| **Cert File Password** | Secret | None | The password for the certificate file. |
-| **Cert Key File** | File upload | None | Optional. The private key for a PEM certificate. Leave it empty to let Profinity find the key in the same folder as the certificate file. |
-| **Enable Https** | On or off | On | Serves the HTTPS interface. **Redirect all Http traffic to Https** needs it on. |
-| **IP Port for Http** | Whole number | 19080 | The HTTP port. |
-| **IP Port for Https** | Whole number | 19443 | The HTTPS port. |
-| **Redirect all Http traffic to Https** | On or off | Off | Forces all HTTP traffic to the HTTPS interface. |
-| **Enable Swagger on API** | On or off | Off | Publishes the Swagger interface on this server. |
+The options are the same as on the **Web** tab, described in [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md), including the certificate options. Refer to [Extensions Web](../../Administration/System_Configuration/Extensions_Web.md) for the **Enable Swagger on API** setting.
 
 These settings are on the **Extensions Web** tab.
 The **Web** tab has its own copy of the same settings for the Profinity web interface, with default ports 18080 and 18443.

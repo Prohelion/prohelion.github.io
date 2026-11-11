@@ -17,21 +17,21 @@ The [Solar Charge Controllers by Elmar](../../../../Solar_Charge_Controllers/ind
 
 ## Quick start
 
-You need the Elmar Solar MPPT sending its CAN messages on a CAN network that the Profinity host reads. The component shows only the messages it receives from that network.
+You need the **Modify components** permission to add the component. The Elmar Solar MPPT must send its CAN messages on a CAN network that the Profinity host reads through a [CAN adapter](../CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) in the Profile. The component shows only the messages it receives from that network.
 
 1. Add an **Elmar Solar MPPT** to the Profile.
 2. Set **Base Address** to the CAN address of the MPPT, as described in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md). The default is `0x300`.
 3. Select **ADD COMPONENT** at the bottom of the dialog.
 4. Open the **Elmar Solar MPPT** dashboard from the sidebar.
-5. Check that **INPUT VOLTAGE** and **OUTPUT VOLTAGE** show values, and that the `MpptStateText` tag shows `ON` or `STANDBY`.
+5. Check that **INPUT VOLTAGE** and **OUTPUT VOLTAGE** show values, and that the **BATTERY STATE** panel shows **On** or **Standby**.
 
 ## Add the MPPT to a profile
 
 To monitor an Elmar Solar MPPT, add an Elmar Solar MPPT tracker to the [Profile](../../Getting_Started/Profiles.md).
-Profinity prompts for the information in the following table.
-The **Change Settings** button on the MPPT dashboard changes these details later.
+Profinity requests the settings in the following table.
+The **Change Settings** button on the MPPT dashboard changes these settings later.
 
-| Parameter | Type | Description | Default |
+| Setting | Type | Description | Default |
 |---|---|---|---|
 | **Name** | Text | The name of the component. Must be unique. | Elmar Solar MPPT |
 | **Milliseconds Valid** | Time | The timeout of the device in milliseconds, from 1 to 60000, or -1 for no timeout. | 5000 |
@@ -40,7 +40,7 @@ The **Change Settings** button on the MPPT dashboard changes these details later
 If the network receives no traffic from the device within the **Milliseconds Valid** time, Profinity treats the connection as lost.
 
 Once the MPPT is added to the Profile, the Elmar Solar MPPT dashboard is available in the sidebar.
-The dashboard displays graphs of input voltage and output power, error status indicators and, under the **MORE DETAILS** banner, temperature readings.
+The dashboard displays graphs of input voltage and output power, error status indicators and, under the **MORE DETAILS** banner, the input, output, temperature and auxiliary supply readings.
 
 <figure markdown>
 ```mermaid
@@ -81,7 +81,7 @@ The dashboard also shows two time-series graphs of the input voltage and output 
 Hover over a graph to see the data in greater resolution.
 
 The **MPPT EVENTS** panel shows status indicators for MPPT events.
-The colour of each indicator matches its type, as the following table shows.
+Error indicators are red. Limit indicators are amber, except the local and global MPPT limits, which are green.
 
 | Type | Colour | Indicators |
 |---|---|---|

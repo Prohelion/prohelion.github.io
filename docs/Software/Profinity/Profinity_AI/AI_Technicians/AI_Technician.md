@@ -55,7 +55,6 @@ Every setting is on the **Settings** tab, except **Instructions**, which has its
 | **Schedule** | No schedule, Run On Time Interval, or Run On CRON Schedule | No schedule | When scheduled rounds run. With No schedule, rounds start only from **Run AI Technician** and from alerts. |
 | **Time Interval** and **Time Interval Unit** | Whole number and a unit | Empty, seconds | Shown when **Schedule** is Run On Time Interval. |
 | **Cron Schedule** | Quartz cron expression | Empty | Shown when **Schedule** is Run On CRON Schedule. |
-| **Timezone** | Timezone ID | Empty, which is Coordinated Universal Time (UTC) | The timezone for a cron schedule and for the day that **Daily limit** counts. |
 | **Review window (hours)** | Whole number, 1 to 168 | 24 | How far back the technician is told to look. |
 | **Round timeout (seconds)** | Whole number, 30 to 3600 | 300 | A round running longer than this stops with a `blocked` finding. |
 | **Alert cooldown (minutes)** | Whole number, 0 to 1440 | 60 | Alert wakes are dropped for this long after a round ends. 0 turns the cooldown off. |
@@ -63,7 +62,7 @@ Every setting is on the **Settings** tab, except **Instructions**, which has its
 
 A Quartz cron expression has six or seven fields that start with seconds, so `0 0 0 * * ?` runs at midnight every day.
 [Run scripts](../../Developing_with_Profinity/Scripting/Script_Types/Run_Scripts.md) describes the same format.
-Profinity rejects a save with an expression or timezone it cannot read.
+Profinity rejects a save with an expression it cannot read, and it reads the expression on the clock of the computer that runs Profinity.
 
 ## Example
 
@@ -179,7 +178,7 @@ A [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) or [TAG 
 | `DroppedDisabled` | **Enabled** is off. | Turn on **Enabled**. |
 | `DroppedBusy` | A round was already running. | Wait for the round to end, then select **Run AI Technician** again. |
 | `DroppedCooldown` | An alert arrived within **Alert cooldown (minutes)** of the last round. | Wait for the cooldown, or lower **Alert cooldown (minutes)**. |
-| `DroppedDailyLimit` | The day's alert and **Run AI Technician** rounds reached **Daily limit**. | Wait for the next day in **Timezone**, or raise **Daily limit**. |
+| `DroppedDailyLimit` | The day's alert and **Run AI Technician** rounds reached **Daily limit**. | Wait for the next day on the computer's clock, or raise **Daily limit**. |
 | `DroppedLoopGuard` | The alert came from a rule on the technician's own findings tags, which would start rounds in a loop. | Leave the technician out of the actions of its own findings rules. |
 
 To have device alerts start a round, continue to [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md).

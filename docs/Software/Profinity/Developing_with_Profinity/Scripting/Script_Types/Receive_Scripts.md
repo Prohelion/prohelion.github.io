@@ -70,7 +70,7 @@ Keep the `Receive` or `receive` handler short, because a slow handler delays oth
 Avoid blocking calls such as `time.sleep` in Python and `Thread.Sleep` in C#, and avoid long calculations, locks, and slow input or output.
 
 The **Trigger Overlap** setting decides what happens to a packet that arrives while the handler is still running, as described under [Script settings](./index.md#script-settings).
-The shipped receive templates recommend **Queue**.
+The Python and C# receive templates note that **Queue** keeps a short backlog.
 
 Heavier processing belongs in a [Service scripts](./Service_Scripts.md), with the handler passing a small amount of data to a queue.
 

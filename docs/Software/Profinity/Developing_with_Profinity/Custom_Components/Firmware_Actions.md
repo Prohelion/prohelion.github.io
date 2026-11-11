@@ -8,7 +8,7 @@ last_reviewed: 2026-10-20
 
 # Firmware actions
 
-The firmware page of a [Custom Component](index.md) shows **LOAD SETTINGS**, **SAVE SETTINGS**, and any extra buttons the author declares, and `firmware.yaml` names the scripts behind those buttons.
+The **Firmware Utilities** tab of a [Custom Component](index.md) shows **LOAD SETTINGS**, **SAVE SETTINGS**, and any extra buttons the author declares, and `firmware.yaml` names the scripts behind those buttons.
 The fields they read and write come from `firmware_map.yaml`.
 Refer to [Firmware maps](Firmware_Maps.md).
 

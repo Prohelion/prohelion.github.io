@@ -43,9 +43,9 @@ Reset MFA deletes the user's authenticator and recovery codes and signs them out
 3. Select the **User Actions** tab.
 4. Select **Reset MFA**, then select **Reset MFA** again in the confirmation prompt.
 
-The user must then set up two-factor authentication again at their next sign-in.
+Profinity then shows a notification and reloads the user's settings. The user must then set up two-factor authentication again at their next sign-in.
 
-**Reset MFA** is hidden on the administrator's own **User Actions** tab, and on the tab of a service account.
+**Reset MFA** is hidden on the administrator's own **User Actions** tab, and on the tab of a [service account](./Service_Accounts.md).
 An administrator manages their own authenticator with the **Two-Factor Authentication** pill on the **ADMIN** page.
 
 ## Administrator reset of a password

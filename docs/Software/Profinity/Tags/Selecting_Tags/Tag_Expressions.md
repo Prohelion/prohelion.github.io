@@ -122,7 +122,7 @@ tag.MatchesPath("Elmar Solar MPPT") && tag.IsStale
 
 Sample age in seconds is not part of the language.
 Use `tag.IsStale` together with the rules evaluation tick, `evaluationTickSeconds`, described in [Rule settings](../Rules/Rule_Settings.md#evaluation-tick).
-A tag becomes stale when its validity period ends. Profinity checks for expired tags every 250 milliseconds, so the stale state appears within a quarter of a second of that deadline.
+A tag becomes stale when its validity period ends. Profinity checks for tags whose validity period has ended every 250 milliseconds, so the stale state appears within a quarter of a second of that deadline.
 
 ## Metadata
 
@@ -144,7 +144,7 @@ Path methods stay on `tag` only.
 tag.HasValue && tag.Text != "" && outcome.Text == "attention"
 ```
 
-The rule still evaluates only when its own scope tag changes.
+The rule still evaluates only when a tag in its scope changes.
 
 ## Derived formulas
 
@@ -191,8 +191,6 @@ Each facet writes the expression shown:
 The builder has no facet for `tag.MatchesName`, `tag.Is`, or `tag.Meta.Number`.
 Write those, a complex `&&` / `||` combination, and derived formulas as free text in the **Expression** field.
 To use the builder, refer to [Build an expression with the guided builder](Build_an_Expression.md).
-
-Profinity rejects these retired names: `MatchesPathPrefix` (use `tag.MatchesPath`), `FullTagId` (use `tag.Is` or `tag.MatchesName`), `IsValueValid` (use `tag.HasValue`), `SampleAgeSeconds` and `SecondsSinceUpdate` (use `tag.IsStale`), `Definition` (use `tag.Meta.Type`), `FieldString` and `Field` (use `tag.Meta.Text` or `tag.Meta.Number`), and `Convert` (`tag.Value` is already numeric).
 
 For the places these expressions are used, refer to [Tag collections](../Collections/index.md), [Alerts Log](../Alerts.md), [Tag rules](../Rules/index.md), [Rule actions](../Rules/Actions/index.md), [Derived tags](../Derived_Tags/index.md), and [Create collections, rules, and dashboard bindings from tags](../Create_Collections_Rules_and_Bindings_from_Tags.md).
 To return to the overview, refer to [Tag layer](../index.md).

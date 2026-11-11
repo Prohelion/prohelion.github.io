@@ -32,7 +32,7 @@ The TDK and Siglent supplies are reached over the network and share these commun
 | **Comms Timeout** | Time | 5000 | Time in milliseconds Profinity waits for the supply to answer. |
 | **Auto Connect** | On or off | Off | Connects to the supply when the Profile loads. Use the **Connect / Disconnect** toggle in the component's menu to connect it otherwise. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **Auto Reconnect** | On or off | On | Keeps trying to connect in the background when the supply is off at start. With it off, Profinity makes one connection attempt and reports a failure. |
-| **Reconnect Interval** | Time | 5000 | Time in milliseconds between connection attempts, between 500 and 600000. Shown only when **Auto Reconnect** is on. |
+| **Reconnect delay (ms)** | Time | 5000 | Time in milliseconds between connection attempts, between 500 and 600000. Shown only when **Auto Reconnect** is on. |
 | **Charger ID** | Whole number | 0 | TDK only. The ID the TDK supply is set to. |
 | **Channel ID** | Whole number | 1 | Siglent only. The channel in use on a multi-channel supply. |
 

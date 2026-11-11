@@ -89,7 +89,7 @@ A profile pack built on a different site can therefore name a role that does not
 A user with **Security administration** sees these names as unresolved, read-only entries in the **Security** tab or panel, with helper text naming the missing role.
 
 Uploading a profile pack with unresolved grants also shows a summary warning.
-An unresolved role name never grants access. Use the remove control beside it in the **Allowed roles** list, or add a role that exists on the site.
+An unresolved role name never grants access. Use the trash-can button beside it in the **Allowed roles** list, whose tooltip reads **Remove item**, or add a role that exists on the site.
 Profile packs are described in [Profiles](../../Profiles.md).
 
 ## What stays unaffected

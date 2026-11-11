@@ -10,7 +10,7 @@ last_reviewed: 2026-10-15
 
 To connect Profinity Mobile to a server, check the discovery settings on the Profinity server, then select the server from the app's discovery list.
 You need the app installed on the phone (refer to [Profinity Mobile](index.md)).
-Before you start, check that other machines on the phone's network can open the server's web interface. Phones reach the server only when they can, which depends on the installation type and licence. A phone needs the **Profinity Server** feature, because a Desktop host without it listens on this computer only (refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in)).
+Before you start, check that other machines on the phone's network can open the server's web interface. Phones reach the server only when they can, which depends on the installation type and licence. The server needs the **Profinity Server** feature, because a Desktop host without it listens on this computer only (refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in)).
 
 ## Enable server discovery
 

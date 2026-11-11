@@ -155,7 +155,7 @@ The HTML sanitiser removes a `link` element from the `content` of an HTML compon
 @import url("theme-override.css");
 ```
 
-A dashboard applies the rules with the `class` attribute, on an HTML component or on a `group`, `row` or `readouts` container:
+A dashboard applies the rules with the `class` attribute, on an HTML component or on any component that takes a `class` parameter, such as a `group`, `row` or `readouts` container:
 
 ```yaml
 dashboard:

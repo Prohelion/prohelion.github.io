@@ -17,7 +17,7 @@ Before you start, you need:
 - A dashboard to style.
 - Basic CSS knowledge.
 - Access to the `styles` folder of the [profile](../Getting_Started/Profiles.md) directory, which is `<artefacts directory>/profiles/<profile name>/styles` inside the [artefacts directory](../Installation/Artifacts_Directory.md#default-locations).
-  On Docker, create the file in the mounted volume that holds the artefacts directory.
+  On Docker, create the file in `$HOME/Prohelion/profiles/<profile name>/styles` on the host, which is the mounted volume that holds the artefacts directory.
 
 The folder is named `styles` in lowercase on disk, and `/Profile/Styles` is only its URL path (refer to [Store dashboard files in a profile](../Customising_Profinity/Dashboards/Store_Dashboard_Files.md)).
 

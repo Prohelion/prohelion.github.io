@@ -31,6 +31,7 @@ Which address Profinity listens on depends on the installation and the licence:
 
 - A desktop installation without a Server licence always listens on `127.0.0.1`, so the web interface can be reached only from the same computer. When `config.yaml` holds another address, Profinity uses `127.0.0.1` and records the warning "Remote web access requires a Server license" in the log.
 - An [archive installation](../../Installation/Linux_and_macOS_Archive_Installation.md) on Linux or macOS, and a Docker installation, listen on the address in `config.yaml` with or without a Server licence.
+- A desktop installation with a Server licence, and a Windows installation running the console build, listen on the address in `config.yaml`.
 
 The full rule is in the **Remote web access needs a Server licence** note on [Licensing](../../Licensing.md).
 
@@ -41,7 +42,7 @@ The **Web** tab and the [Extensions Web](Extensions_Web.md) tab both have these 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | **Windows Cert Store** | Text | Empty | On Windows, the name of the certificate store that holds the HTTPS certificate, such as `My`, which is the Personal store. Profinity uses the store only when **Windows Cert Store Location** is also set. |
-| **Windows Cert Store Location** | Choice | None | The location of the store: **Current User** for certificates of the account that runs Profinity, or **Local Machine** for certificates of the whole computer. With **None**, Profinity does not use the Windows store. |
+| **Windows Cert Store Location** | Choice | None | The location of the store: **Current User** for certificates of the account that runs Profinity, or **Local Machine** for certificates of the whole computer. With **None**, Profinity does not use the Windows store, and uses **Cert File** instead, or the generated certificate when **Cert File** is empty. |
 | **Windows Cert Store Subject** | Text | Empty | The subject name of the certificate in the store, exactly as the certificate shows it. |
 | **Cert File** | File upload | Empty | A certificate file for HTTPS, normally in `.pfx` or `.p12` format, in place of the Windows store. |
 | **Cert File Password** | Secret | Empty | The password that protects **Cert File**. |
@@ -60,6 +61,6 @@ To export and trust the generated certificate, or to create a new one, refer to 
 |--------------|-------|------------|
 | Profinity cannot be reached from another computer, on a desktop installation | The installation has no Server licence, so it listens on `127.0.0.1` only. | Check the licence on the **License** page, as described in [Applying a licence](../../Installation/Applying_a_Licence.md). |
 | Profinity cannot be reached from another computer, with a Server licence | The address is `127.0.0.1`, or an address that the other computer cannot reach. | Set **IP Address for Http** and **IP Address for Https** to `0.0.0.0` or to an address of the host that the other computer can reach. |
-| Profinity cannot be reached from another computer, and the address is right | The host firewall blocks the ports. | Allow **IP Port for Http** and **IP Port for Https** through the host firewall. |
+| Profinity cannot be reached from another computer, and the address is right | The host firewall blocks the ports. | Allow **IP Port for Http** and **IP Port for Https** through the host firewall. Refer to [Security](../../Installation/Security.md) for host firewall guidance. |
 | Profinity does not start its web server after a port change | Another program already uses the port. | Enter a free port on this tab. |
 | `profinity_generated.pfx` appears although **Cert File** is set | Profinity could not use **Cert File**. | Check **Cert File** and **Cert File Password**. |

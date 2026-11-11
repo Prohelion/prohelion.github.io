@@ -22,6 +22,7 @@ Profinity 2.3 stops at startup when `config.yaml` or `security.yaml` has one of 
 
 - The file is empty.
 - The file cannot be read as settings.
+- The file has a value of the wrong type or shape.
 - The file has a key that Profinity 2.3 does not define.
 - The file refers to an unset environment variable.
 
@@ -49,7 +50,7 @@ Profinity 2.3 ignores these keys, which 2.2 wrote to `config.yaml` and 2.3 no lo
 Any other key that 2.3 does not define stops Profinity.
 
 Profinity checks both files when it starts, and writes nothing if a file is invalid.
-If Profinity stops at startup, correct the file that the message names, or restore its safety copy by copying `<file>.bak` over the file, as described in [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
+If Profinity stops at startup, correct the file that the message names. If a `<file>.bak` copy exists, you can restore it by copying it over the file instead, as described in [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md). Profinity keeps a `<file>.bak` copy only after it saves or rewrites the file, so a file that has never been saved may have none.
 
 !!! warning "Deleting security.yaml resets its users, roles, and two-factor secrets"
     Copy the file to a safe place before you delete it.
@@ -95,22 +96,9 @@ A file without `roles` loads with no error, and its users then hold no roles, so
 Installations that upgrade from 2.2 without a licence file are affected.
 
 Features that were available without limit in 2.2 now depend on the edition.
-A 2.2 installation without a licence file loses these features:
+A 2.2 installation without a licence file loses every feature that needs an edition above the no-licence level.
 
-- ThingsBoard Logger (formerly the Cloud Dashboard)
-- Custom components
-- Custom plugins
-- Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) rule actions, and rule scripts that run on alert
-- Extensions Web server
-- InfluxDB v2, InfluxDB v3, TAG SQL, and TAG Local historians
-- Profinity AI
-- Remote web access
-- Scripting
-- Themes
-- Two-factor authentication
-- Users and roles
-
-Apply a licence before you upgrade a production system that relies on any of these features, as described in [Apply a licence](../Installation/Applying_a_Licence.md).
+Apply a licence before you upgrade a production system that relies on any of them, as described in [Apply a licence](../Installation/Applying_a_Licence.md).
 [Features by edition](../Licensing.md#features-by-edition) lists the features in each edition.
 
 ## Data locations
@@ -320,7 +308,7 @@ A component that connects to another system now starts when that system is unava
 It shows **Error** and tries again at an interval that depends on the component:
 
 - The Tag Relay sender tries every second.
-- A component with its own reconnect setting, such as **Reconnect delay (ms)** on the industrial protocol components, uses that setting.
+- A component with its own reconnect setting uses that setting. The SCPI charger components use **Reconnect delay (ms)**, which defaults to 5000 milliseconds, and the Modbus, BACnet, S7, EtherNet/IP, and OPC UA client components use **Reconnect delay (ms)**, which defaults to 2000 milliseconds.
 - Every other component tries every five seconds.
 
 A component that showed **Off** after a failed start now shows **Error**.

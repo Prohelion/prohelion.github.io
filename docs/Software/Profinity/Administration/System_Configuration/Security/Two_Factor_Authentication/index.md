@@ -32,7 +32,7 @@ The group holds the settings in the following table.
 | **Enforce two-factor for local users** | On or off | Off | On or off | Every local user must enrol a TOTP authenticator. |
 | **Require recovery codes during enrollment** | On or off | On | On or off | Users must confirm that they have saved their recovery codes before setup completes. |
 | **Allow remember this device** | On or off | Off | On or off | Shows **Remember this device** on the sign-in step, so that a user can skip the second factor on that browser until the duration ends. |
-| **Remember device duration (days)** | Time | 10 | 1 to 90 | How long a trusted browser skips the second factor. The setting appears only when **Allow remember this device** is on. |
+| **Remember device duration (days)** | Whole number | 10 | 1 to 90 | How long a trusted browser skips the second factor. The setting appears only when **Allow remember this device** is on. |
 
 Saving the tab restarts Profinity and interrupts active sessions.
 

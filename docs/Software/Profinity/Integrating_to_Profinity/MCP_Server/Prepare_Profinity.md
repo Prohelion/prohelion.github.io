@@ -29,7 +29,7 @@ You need:
 4. Select **Save**. The web interface shows "Restarting, please wait..." while Profinity restarts.
 
 When the settings load again, **Enable MCP Server** shows as on, and the server is ready.
-Turning on **Enable Profinity AI** turns the server on too, because [AI Chat](../../Profinity_AI/AI_Chat.md) uses it, so the server is already on when Profinity AI is in use.
+Turning on **Enable Profinity AI** turns the server on too, because Profinity AI uses it, through [AI Chat](../../Profinity_AI/AI_Chat.md) and [AI technicians](../../Profinity_AI/AI_Technicians/index.md), so the server is already on when Profinity AI is in use.
 The server can also run on its own, with Profinity AI off, when only an external tool needs it.
 For the other settings in the group, refer to [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md).
 

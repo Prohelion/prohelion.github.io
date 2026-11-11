@@ -69,7 +69,7 @@ Each binding names a tag, and the `DBC/` tags correspond to CAN message signals.
 ### Performance charts section
 
 The second row holds two line charts, each in its own titled panel.
-The bus power chart plots the `Properties/BusPower` tag, which the component calculates as the product of `BusVoltage` and `BusCurrent`, and which the WaveSculptor does not transmit as a signal.
+The bus power chart plots the `Properties/BusPower` tag, which the component calculates as the product of `BusVoltage` and `BusCurrent`, and which the WaveSculptor does not transmit as a signal. The same component provides it for a WaveSculptor200.
 The velocity chart plots the `DBC/VelocityMeasurement/VehicleVelocity` tag in metres per second.
 Both bind with `seriesMode: timeSeries` to plot recent history, and both hide the legend.
 
@@ -509,7 +509,7 @@ The `DBC/` paths are relative to the component that owns the dashboard, so the d
 The `Properties/` tags depend on the component, and the Tag Explorer lists them under it.
 For the Tag Explorer, refer to [Tag layer](../../Tags/index.md).
 
-To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can copy from the Tag Explorer.
+To adapt the dashboard to another controller, replace each `source` with the path of the matching tag, which you can find in the Tag Explorer.
 Then adjust the measurements, layout, precision, and labels to suit.
 
 The WaveSculptor200 sends the same CAN messages and signals as the WaveSculptor22, so the tags in this dashboard apply to both controllers.
@@ -521,4 +521,4 @@ To add sections:
 - Add readouts for system-specific parameters.
 - Add [actions](./Component_Reference/Interactive/Actions.md) and [toggles](./Component_Reference/Interactive/Toggles.md) for control.
 
-The [Visual Editor](./Build_a_Dashboard.md) is the quickest way to make these changes.
+The [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md) task is the quickest way to make these changes.

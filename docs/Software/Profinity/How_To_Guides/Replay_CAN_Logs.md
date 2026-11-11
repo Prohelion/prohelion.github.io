@@ -16,7 +16,7 @@ Before you start, you need:
 
 - Profinity running.
 - A recorded CAN bus log file.
-  It comes from the CAN File Logger or the CAN SFTP Logger (refer to [CAN file and SFTP loggers](../Components/Loggers/CAN_File_and_SFTP_Loggers.md)), or it is the `example_log.csv` supplied with Profinity.
+  It comes from the CAN File Logger or the CAN SFTP Logger (refer to [CAN file and SFTP loggers](../Components/Loggers/CAN_File_and_SFTP_Loggers.md)), or it is the `example_log.csv` supplied with Profinity, in the `can_bus_logs/replay` folder.
   SFTP is the Secure Shell (SSH) File Transfer Protocol.
   Logs from InfluxDB or Prometheus cannot be replayed, so use a File or SFTP logger to record logs for later replay.
 - The **Replay CAN logs** permission (refer to [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)), which provides the **CAN LOG REPLAY** side-menu entry and also turns on **View CAN data**.
@@ -36,7 +36,7 @@ To replay a log:
 1. Select **CAN UTILITIES** in the side menu, then **CAN LOG REPLAY**.
    The CAN Data Log Replayer opens and lists the available log files.
 2. If the log file is not listed, for example a file recorded earlier or on another Profinity instance, add it in one of two ways:
-    - Copy it into the `can_bus_logs/replay/` folder.
+    - Copy it into the `can_bus_logs/replay/` folder, creating the folder first if it does not exist.
     - Use the **Upload CAN Log files** control and select the file.
 
    The file then appears in the list.

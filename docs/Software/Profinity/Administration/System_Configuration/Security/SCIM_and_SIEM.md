@@ -95,7 +95,7 @@ The other settings appear only after you switch on **Enable SIEM export**.
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
 | **Enable SIEM export** | On or off | Off | Forwards security audit events to the SIEM collector. |
-| **SIEM host** | Text | Empty | The host name or IP address of the SIEM collector. |
+| **SIEM host** | Text | Empty | The host name or Internet Protocol (IP) address of the SIEM collector. |
 | **SIEM port** | Whole number | 0 | The collector port, from 0 to 65535. Enter the port the collector listens on, because Profinity sends to port 0 when export is on and you leave the default. |
 | **Protocol** | Choice | UDP | The transport used to send events, either `UDP` (User Datagram Protocol) or `TCP` (Transmission Control Protocol). |
 | **Minimum log level** | Choice | Info | Only audit events at this level or higher are exported. The options are `Trace`, `Debug`, `Info`, `Warn`, `Error` and `Fatal`. |
@@ -135,5 +135,5 @@ The event names are:
 
 ## Securing the integration
 
-The SCIM bearer token is stored encrypted in `config.yaml`, in the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md). Restrict access to that file, to its `config.yaml.bak` copy, and to any backup of the folder.
+The SCIM bearer token is stored encrypted in `config.yaml`, in the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md). Restrict access to that file, to its `config.yaml.bak` copy, and to any backup of the folder. Profinity writes `config.yaml.bak` itself when it saves `config.yaml` over a valid file, copying the file as it was before the save.
 Serve Profinity over HTTPS, as described in [Profinity Web](../Profinity_Web.md), so that sign-in and provisioning traffic is encrypted on the network.

@@ -74,7 +74,7 @@ A Custom Component does not need one.
 
     The file describes one message named `Temperature` with one signal named `Value`.
 
-2. On the **Hello** dashboard, select the three bar settings icon in the dashboard menu to open the settings.
+2. On the **Hello** dashboard, select **Change Settings** in the dashboard menu to open the settings.
 3. Select the **Pack files** tab.
 4. Set **Upload DBC File (Optional)** to `hello.dbc`.
 5. Select **SAVE**.

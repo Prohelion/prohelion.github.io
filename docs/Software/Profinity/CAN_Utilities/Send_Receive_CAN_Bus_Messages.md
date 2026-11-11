@@ -67,7 +67,7 @@ This includes the WaveSculptor, which sends its data fields least significant by
 </figure>
 
 The schedule editor transmits messages back on to the CAN bus network from Profinity.
-In this tool you can set the CAN ID and endian, and the values for either Bytes, Int16, Int32, Floats, or the raw packet data.
+In this tool you can set the CAN ID and endian (the CAN ID defaults to `0x400`, and the endianness to Little Endian), and the values for either Bytes, Int16, Int32, Floats, or the raw packet data.
 When you change one of these values, the raw data updates to match.
 When you change the raw data, the values update to match.
 

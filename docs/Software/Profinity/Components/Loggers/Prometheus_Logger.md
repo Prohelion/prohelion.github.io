@@ -48,7 +48,7 @@ Then add `http://localhost:7065/metrics` to the scrape targets in your Prometheu
 | **Server Hostname** | Text | `localhost` | The host name or IP address that the address answers on. Refer to [Let another computer read the data](#let-another-computer-read-the-data). |
 | **Server Port** | Whole number | `7065` | The port of the address, from 1 to 65535. |
 | **Dashboard URL** | Text | Blank | The full address of a Prometheus or Grafana dashboard. When it is set, Profinity shows a link to it. |
-| **Update Interval (Seconds)** | Time | `10` | The seconds between samples, from 1 to 86400. |
+| **Update Interval (seconds)** | Time | `10` | The seconds between samples, from 1 to 86400. |
 | **Auto Connect** | On or off | On | Starts the logger when the profile loads. When it is off, select **Start Logger** from the component's menu. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 ## Example
@@ -84,10 +84,10 @@ For Prometheus on another computer, set **Server Hostname** to the host name or 
     To reserve it, run this command in an administrator PowerShell window:
 
     ```powershell
-    netsh http add urlacl url=http://+:<port>/<path> user=<account>
+    netsh http add urlacl url=http://<host>:<port>/<path> user=<account>
     ```
 
-    Replace `<port>` with **Server Port**, `<path>` with **Data endpoint URL**, and `<account>` with the account that runs Profinity, such as `DOMAIN\user`.
+    Replace `<host>` with **Server Hostname**, such as `+`, `<port>` with **Server Port**, `<path>` with **Data endpoint URL**, and `<account>` with the account that runs Profinity, such as `DOMAIN\user`.
 
 === "Linux and macOS"
 
@@ -107,7 +107,7 @@ For example, a motor speed signal on a component called `Inverter`, in a profile
 MyProfile_Inverter_Status_Speed{profile="MyProfile",component="Inverter",transmitter="",message="Status",signal="Speed",full_tag_id="Inverter_DBC_Status_Speed"} 23.4
 ```
 
-The value is the latest reading of a tag with Good quality, and `NaN` for a tag with any other quality.
+The value is the latest reading of a tag with Good quality, and `NaN` for a tag with any other quality. The `transmitter` label is always empty.
 
 ## Troubleshooting
 

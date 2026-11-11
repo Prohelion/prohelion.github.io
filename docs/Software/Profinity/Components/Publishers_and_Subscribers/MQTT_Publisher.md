@@ -43,7 +43,7 @@ These steps publish one collection as JSON.
 1. Add an **MQTT Publisher** to your profile from the **Publishers & Subscribers** category.
 2. Enter the broker address in **Server URL**, for example `mqtt://broker.example.com:1883`.
 3. Enter a **Device ID** that no other client on the broker uses.
-4. Leave **Payload** as **JSON** and enter a **Destination Topic**, for example `profinity/site1/tags`.
+4. Leave **Payload** as **JSON** and enter a **Destination topic**, for example `profinity/site1/tags`.
 5. Under **Collections**, add a collection and choose it by name.
 6. Save the settings.
 
@@ -63,7 +63,7 @@ The data arrives in the form shown in [Payload formats](#payload-formats).
 | **Username** / **Password** | Text and Secret | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
 | **Device ID** | Text | Yes | None | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge Node ID** when that field is empty. |
 | **Payload** | Choice | No | **JSON** | **JSON** or **Sparkplug B**, an MQTT payload format for industrial data. Defaults to **JSON**. Refer to [Payload formats](#payload-formats). |
-| **Destination Topic** | Text | Yes, for JSON | None | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
+| **Destination topic** | Text | Yes, for JSON | None | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
 
 The URL sets the connection:
 
@@ -86,7 +86,7 @@ These settings are shown only when **Payload** is **Sparkplug B**:
 | **Collections** | Choice | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
 | **Auto Connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **Logging mode** | Choice | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
-| **Update Interval (Seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Update Interval (seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 
 ## Payload formats
 
@@ -125,7 +125,7 @@ Check the [Logs](../../Administration/Logs_Config.md) for the underlying message
 | What you see | Cause | What to do |
 |---|---|---|
 | The status stays **Off** after the profile loads. | No collection is selected, or a selected collection does not exist in the profile. | Select at least one existing collection under **Collections**. |
-| A save fails with "You must provide a destination topic." | **Payload** is **JSON** and **Destination Topic** is empty. | Enter a **Destination Topic**. |
+| A save fails with "You must provide a destination topic." | **Payload** is **JSON** and **Destination topic** is empty. | Enter a **Destination topic**. |
 | The status shows **Error**. | The **Server URL** scheme or port does not match the broker. | Correct the scheme and port. |
 | The status shows **Error**. | The broker rejects the **Username** and **Password**. | Correct the credentials. Restarting is optional. |
 | The status shows **Error**. | Another client on the broker uses the same **Device ID**. | Enter a **Device ID** that no other client uses. |

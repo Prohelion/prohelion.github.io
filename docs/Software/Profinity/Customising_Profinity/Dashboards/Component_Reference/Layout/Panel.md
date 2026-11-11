@@ -25,7 +25,7 @@ Use a [Group](Group.md) when the components need no title or panel frame.
 |-----------|------|----------|---------|-------------|
 | `class` | string | No | None | Style variant of the panel body. `sunken` is the only variant that Profinity defines |
 | `title` | string | Yes | None | Title text in the panel header, at the top of the panel |
-| `menu` | object | No | None | When present, the panel header shows a static menu icon. The menu items are not displayed |
+| `menu` | object | No | None | Accepted, but it has no effect. The panel header shows no menu icon |
 | `width` | string | No | None | Width in CSS format, for example `100px`, `50%` or `auto`, applied to the panel |
 | `height` | string | No | None | Height in CSS format, for example `100px`, `50vh` or `auto`, applied to the body area of the panel |
 | `minHeight` | string | No | None | Minimum height of the panel body in CSS format. The body grows with its content and stays at or above this value. The value sets a floor only, so the panel is as tall as its content or this value, whichever is taller |
@@ -48,12 +48,11 @@ A panel accepts these components in `items`:
 
 Place any other component inside a `group`.
 
-A panel with a `menu` shows a static menu icon in its header that is display-only, so a panel menu does not provide navigation, actions, or dialogs.
-Use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) component for navigation and actions.
+The panel `menu` parameter has no effect. To add navigation or actions, use the [Titlebar](Titlebar.md) menu or an [Action](../Interactive/Actions.md) component.
 
 ## Example
 
-Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md).
+Enter the examples in the **YAML** tab of the dashboard editor, as described in [Build a dashboard](../../Build_a_Dashboard.md). Each example starts with a `dashboard:` key, so pasting one replaces the whole dashboard in the **YAML** tab.
 
 This example places two readouts in a panel with an automatic height.
 
