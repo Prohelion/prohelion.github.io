@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # Icon component
 
-An icon is a single graphic that displays an icon from the [Carbon icon library](https://carbondesignsystem.com/elements/icons/library/), an icon filename, or an image from the `/Profile/Images` directory.
+An icon is a single graphic that displays an icon from the [Carbon icon library](https://carbondesignsystem.com/elements/icons/library/) or an image from the `/Profile/Images` directory.
 
 <figure markdown>
 ![A small grey car icon with a signal-bars symbol above its roof.](../../images/icon.png)
@@ -23,7 +23,7 @@ Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `class` | string | No | None | Rarely needed. The value is used only when `image` fails to resolve to an icon, and it is not a general styling class |
-| `image` | string | Yes | None | Icon name such as `BatteryCharging`, an icon filename built into Profinity, such as `nav_motorcontrollers_active.svg`, or the filename of an image in the `/Profile/Images` directory |
+| `image` | string | Yes | None | Icon name such as `BatteryCharging`, or the filename of an image in the `/Profile/Images` directory. Older names such as `nav_motorcontrollers_active.svg` still resolve, and map to the Carbon icon `SysProvision` |
 | `recess` | boolean | No | `false` | When `true`, the icon is displayed in a recessed (inset) frame at a larger size |
 | `bind` | array | No | None | Data binding. Only the `value` target is handled, and the value is limited to the range `0` to `1`. The value has no visible effect on an icon that is drawn from `image` |
 
@@ -31,11 +31,11 @@ Use [Actions](../Interactive/Actions.md) when the icon must be a button, and the
 
 A bound value is limited to the range `0` to `1`. A value below 0 is treated as 0, and a value above 1 as 1, after any gain and offset are applied.
 
-A name that matches no known icon is loaded as an image file, so a misspelt icon name does not show the icon.
+A name that matches no known icon is loaded as an image file, so a misspelt icon name does not show the icon. The icon control in the inspector shows **Choose Icon** and lists the Carbon icon names and the images stored in the profile.
 
 ## Example
 
-A basic icon from an icon filename:
+A basic icon with recess turned off:
 
 ``` yaml
 dashboard:
@@ -43,7 +43,7 @@ dashboard:
     - row:
         items:
           - icon:
-              image: nav_motorcontrollers_active.svg
+              image: SysProvision
               recess: false
 ```
 
@@ -77,6 +77,6 @@ dashboard:
     - row:
         items:
           - icon:
-              image: nav_motorcontrollers_active.svg
+              image: SysProvision
               recess: true
 ```

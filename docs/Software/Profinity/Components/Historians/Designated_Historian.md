@@ -8,7 +8,7 @@ last_reviewed: 2026-11-04
 
 # Designated historian
 
-More than one [historian](index.md) can write in the same profile, but exactly one of them answers long-range tag and history queries.
+More than one [historian](index.md) can write in the same profile, but exactly one of them answers long-range tag and history queries. A second historian is for logging different collections in different historians. Retrieval still uses only one of them.
 Enable **Designated tag historian reader** on that one component and leave it disabled on the others.
 A new [TAG Local Historian](TAG_Local_Historian.md) has this setting on by default so a simple profile can answer history queries with only this checkbox.
 

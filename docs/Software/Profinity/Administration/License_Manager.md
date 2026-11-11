@@ -25,6 +25,15 @@ The page shows:
   It shows whether the feature is licensed, whether it is currently available (licensed **and** not blocked by configuration), and, if unavailable, what is blocking it.
 - **Licensed component groups**: the same status for licensed component groups, such as protocol or hardware-integration bundles.
 
+On a server, each of these states leaves Profinity running in restricted mode. Install a licence that matches this server and this release. The page shows the raw state name, and the banner gives the reason:
+
+- **Missing**: no licence file is installed. A file that is present but cannot be read is treated the same way. Banner: "No licence is installed."
+- **Invalid**: the token does not verify, the start date is still in the future, the licence type is not a known type, or the file holds a local trial. A local trial lives in `trial.state`. Banner: "The licence is not valid."
+- **WrongInstance**: the licence names a server and this server's fingerprint is different. Banner: "The licence is for a different server." The check is skipped when the licence names no server, or this server has no fingerprint yet.
+- **UnsupportedVersion**: this release is newer than the licence's maximum product version, or the maximum is not a version. A maximum of `2.3` still allows every 2.3.x release. Banner: "The licence version is not supported by this release." The check is skipped when the maximum is blank.
+
+The banner then says: "Profinity is running in restricted mode. Install a licence to restore access."
+
 <figure markdown>
 ![The License page showing licence state, edition, expiry date, fingerprint, and the tables of licensed features and component groups](../images/license-status-entitlements.png)
 <figcaption>The License page under ADMIN, showing status, entitlements and fingerprint</figcaption>

@@ -118,7 +118,7 @@ It names the file and the reason.
 | What you see | Cause | What to do |
 |---|---|---|
 | Profinity does not start, and the message names an environment variable | The file refers to an environment variable that is not set. | Set the variable and start Profinity again. The file itself is intact, so keep it. |
-| Profinity does not start, and the message says the file could not be read | The account that runs Profinity cannot read the file, or the disk reported an error. | Give the account that runs Profinity read access to the file, as described in [Artefacts directory](../../Installation/Artifacts_Directory.md#troubleshooting). |
+| Profinity does not start, and the message says the file could not be read | The account that runs Profinity cannot read the file, or the disk reported an error. | Check the artefacts folder as the account that runs Profinity, and give that account read access to the file, as described in [Artefacts directory](../../Installation/Artifacts_Directory.md#troubleshooting). |
 | Profinity does not start, and the message names a key or a value | The file has a key that Profinity does not define, or a value of the wrong type. | Follow [Recover when Profinity will not start](#recover-when-profinity-will-not-start). |
 | A different profile is active after a restart, and the log names your profile | Your profile has an unrecognised key or cannot be read, so Profinity started a default profile. | Correct the key that the log names, then activate your profile again, as described in [Profiles](#profiles). |
 | A rule, collection, or derived tag shows a red **Invalid** marker | The item fails its checks or has an unknown key, so Profinity skips it. | Point at the marker to read the reason, correct the item in its editor, and select **SAVE**. |
@@ -138,7 +138,7 @@ Exported profile packs do not include safety copies, and importing a pack ignore
 A container that restarts automatically will restart again and again while a file is invalid, and each attempt writes the same message to the log.
 Read the message, then correct or restore the file in the data volume, and the next start succeeds.
 
-To check the configuration without starting Profinity, run the Profinity executable with `--preflight-only`:
+To check the configuration without starting Profinity, run the Profinity console program with `--preflight-only`. On Windows that program is `Profinity-Console.exe`, not `Profinity.exe`, which is the desktop application and does not accept the flag. The installer does not add either program to PATH, so run `Profinity-Console.exe` from the folder that contains it. The same flag works on the other platforms:
 
 ```bash
 Profinity --preflight-only

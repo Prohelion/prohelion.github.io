@@ -36,56 +36,9 @@ Profinity refuses the save when **Kiosk Mode User** is empty or names a user tha
 
 ## Open the browser full screen at startup
 
-The browser's `--kiosk` switch fills the screen.
-Each operating system tab starts the browser at `http://localhost:18080`, the default Profinity address, which opens the home dashboard of the active profile.
-Profinity has to be running before the browser opens it, so each method starts the browser after the user signs in to the computer, by which time the Profinity service has started.
-
-=== "Windows"
-
-    1. Create a desktop shortcut for Google Chrome.
-    2. Right-click the shortcut, then select **Properties**.
-    3. In **Target**, add `--kiosk http://localhost:18080` after the program path:
-
-        ```text
-        "C:\Program Files\Google\Chrome\Application\chrome.exe" --kiosk http://localhost:18080
-        ```
-
-    4. Select **OK**.
-    5. Press `Win + R`, type `shell:startup`, and press `Enter`. The startup folder opens.
-    6. Copy the shortcut into the startup folder.
-
-=== "Linux"
-
-    These steps use the desktop's autostart folder, which GNOME, KDE Plasma, Xfce, and other desktops that follow the freedesktop.org autostart standard read when the user signs in.
-
-    1. Sign in to the computer as the user that the display runs under.
-    2. Create the file `~/.config/autostart/profinity-kiosk.desktop` with this content:
-
-        ```ini
-        [Desktop Entry]
-        Type=Application
-        Name=Profinity kiosk
-        Exec=chromium --kiosk --noerrdialogs http://localhost:18080
-        X-GNOME-Autostart-enabled=true
-        ```
-
-    3. Check the browser command on your distribution with `which chromium chromium-browser`, and change `chromium` in the `Exec` line to the name it prints.
-    4. Set the computer to sign that user in automatically, in the desktop's user settings.
-
-=== "macOS"
-
-    1. Open Automator and create a new **Application**.
-    2. Add a **Run Shell Script** action with this script:
-
-        ```bash
-        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk http://localhost:18080
-        ```
-
-    3. Save the application.
-    4. Open **System Settings**, select **General**, then **Login Items & Extensions**. Older versions of macOS name the section **Login Items**.
-    5. Under **Open at Login**, select the **Add** button below the list of items, then choose the application from the list that appears.
-
-    As of November 2026, Apple describes these settings in [Open items automatically when you log in on Mac](https://support.apple.com/guide/mac-help/open-items-automatically-when-you-log-in-mh15189/mac).
+Start the browser in its full-screen kiosk mode at `http://localhost:18080`, the default Profinity address, which opens the home dashboard of the active profile.
+Profinity has to be running before the browser opens it, so start the browser after the user signs in to the computer, by which time the Profinity service has started.
+Use the browser's and the operating system's own documentation for the steps.
 
 To hide the side menu so that only the dashboard shows, add `?noMenu=true` to the address, so that it reads `http://localhost:18080/?noMenu=true`.
 On an address that already has a query string, add `&noMenu=true` instead.
@@ -102,8 +55,8 @@ For a display that runs unattended for longer, refer to [Choosing the kiosk user
 
 ## Lock down the display
 
-The `--kiosk` switch fills the screen, and operating system shortcuts such as `Alt+F4` and `Ctrl+Alt+Del` still work.
-Lock the computer down with the operating system's own tools, such as Group Policy on Windows, and hide the taskbar and system tray.
+Kiosk mode fills the screen, and operating system shortcuts still work.
+Lock the computer down with the operating system's own tools.
 
 ## Troubleshooting
 

@@ -46,6 +46,7 @@ You need the Data Relay licensed feature, the ThingsBoard Logger plugin installe
 4. Enter the device ID in **ThingsBoard Device ID**.
 5. Under **Collections**, select at least one tag collection. The component cannot start without one.
 6. Select **ADD COMPONENT** at the bottom of the dialog.
+   When the add succeeds, the dialog title is **Error**, with the error icon, and the message is **Successfully created the component**.
 7. Check that the component status shows **On**. If it shows **Error**, read the Profinity System Logs for the reason.
 
 ## Add the component
@@ -69,34 +70,6 @@ It connects out from the Profinity server to thingsboard.cloud using MQTT on TCP
 No inbound port is needed.
 
 
-
-## Example
-
-This example sends one tag collection to ThingsBoard every 60 seconds.
-Add this list item under the existing `components:` key in the `profile.yaml` file of the Profile, in the `profiles` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), with the same indentation as the other items.
-
-```yaml
-- component:
-    type: ThingsBoardLogger
-    name: ThingsBoard Logger
-    accessToken: YOUR_ACCESS_TOKEN
-    deviceID: YOUR_DEVICE_ID
-    intervalSec: 60
-    logType: Snapshot
-    collections:
-    - collectionName: YOUR_COLLECTION_ID
-    autoConnect: true
-```
-
-Replace the placeholders as follows:
-
-- `YOUR_ACCESS_TOKEN` is the access token for the device.
-  Profinity encrypts it when it saves the Profile.
-- `YOUR_DEVICE_ID` is the device ID in ThingsBoard.
-- `YOUR_COLLECTION_ID` is the id of a [tag collection](../../Tags/Collections/index.md) in the Profile.
-
-After the example runs, the component status shows **On**.
-If the send fails, it shows **Error**, and the reason is in the Profinity System Logs.
 
 ## Troubleshooting
 

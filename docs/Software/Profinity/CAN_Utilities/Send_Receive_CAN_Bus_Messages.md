@@ -39,10 +39,11 @@ The **CAN Activity** table has these columns:
 | Column | Contents |
 |--------|----------|
 | **CAN ID** | The message identifier |
-| **Data** | The message data bytes |
 | **Direction** | Incoming or outgoing |
+| **Data** | The message data bytes |
+| **Flags** | A short code for the frame, or blank: `E` for an extended identifier, `R` for a remote frame, `FD` for CAN FD, and `BRS` for a bit-rate switch. More than one can appear, separated by spaces. |
 | **Count** | The number of times the message was seen |
-| **Time** | The timestamp of the last message |
+| **CycleTime [ms]** | Milliseconds since the previous frame with the same CAN ID in the same direction. Received and sent frames are timed separately. The first frame of an ID shows 0. It is not a time of day. |
 
 Select the **CAN Activity** table headers to filter or sort by CAN ID, Direction, Data, **Flags**, Count or **CycleTime [ms]**.
 

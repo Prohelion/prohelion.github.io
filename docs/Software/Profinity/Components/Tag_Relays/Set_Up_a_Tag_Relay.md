@@ -15,9 +15,9 @@ The HTTPS procedure comes first, and the MQTT procedure follows it.
 Both components require the **Data Relay** licensed feature on the instance they run on, as described in [Licensing](../../Licensing.md).
 The HTTPS protocol also needs a [service account](../../Administration/Users_and_Access/Service_Accounts.md) on the receiving instance, with a role that holds the **Receive external tags** permission.
 
-!!! warning "The default protocols differ"
-    A new **Tag Relay Sender** defaults to **HTTPS**, and a new **Tag Relay Receiver** defaults to **MQTT**.
-    Set the **Protocol** of both components explicitly, so that they match.
+!!! note "Both ends default to HTTPS"
+    A new **Tag Relay Sender** and a new **Tag Relay Receiver** both default to **HTTPS**.
+    Leave both on **HTTPS**, or set both to **MQTT**.
 
 ## Set up a relay over HTTPS
 

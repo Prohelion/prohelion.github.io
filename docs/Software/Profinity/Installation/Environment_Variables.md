@@ -97,6 +97,8 @@ The same syntax works for any component setting in a profile file.
 Set the variable in the environment of the process that starts Profinity, then restart Profinity so that it reads the new value.
 The sections for [Windows](#windows), [Linux and macOS](#linux-and-macos) and [Docker](#docker) each end with the restart command.
 
+To check that a variable reached Profinity, open **Administration → Profiles** and confirm that **ACTIVE** shows on the profile that is running. The check is the same on every platform. After a normal start, Profinity writes no log line that prints the profile name. If the profile name matches no profile, the log says that no profile of that name was found and a default profile was created.
+
 ### Change a setting from an environment variable
 
 This example moves the Profinity web server to port 8080, and the same steps apply to any other setting.
@@ -134,7 +136,7 @@ A service does not read those files.
 
 For the Linux systemd service, add `Environment=` lines to the `[Service]` section of `/etc/systemd/system/profinity.service`, for example `Environment=PROFILE_NAME="Production Profile"`.
 Then run `sudo systemctl daemon-reload` and `sudo systemctl restart profinity`.
-If you set up the macOS service as described in [Run as a macOS Service](Run_as_a_Service/Run_as_a_macOS_Service.md), run `sudo launchctl stop com.profinity.service`, then `sudo launchctl start com.profinity.service`.
+Profinity does not ship a macOS service. If you set one up from the example in [Run as a macOS Service](Run_as_a_Service/Run_as_a_macOS_Service.md), add an `EnvironmentVariables` dictionary to its plist with the variables you need, then restart the service.
 Refer to [Run Profinity as a Linux service](./Run_as_a_Service/Run_as_a_Linux_Service.md).
 
 ### Docker
@@ -222,5 +224,8 @@ Besides the variables that your own files reference, Profinity and its install s
 | `PROFINITY_DOTNET_INSTALL_URL` | URL | `profinity.sh` | The `dotnet-install.sh` URL pinned in the script | Overrides the address that `profinity.sh` downloads the .NET installer from when the host has no .NET runtime |
 | `PROFINITY_FILES_BASE` | URL | `install.sh`, `update.sh` | `https://files.prohelion.com/profinity` | Overrides the file server that releases are downloaded from |
 | `PROFINITY_DOCKER_IMAGE` | Image name | `install-docker.sh` | `prohelion/profinity:latest` | Sets the Docker image that the one-line Docker installer uses |
+| `PROFINITY_JWT_SIGNING_KEY` | Secret | Profinity | A key that Profinity generates on first start and saves in `security.yaml` | The key that signs sign-in tokens. A value in the environment takes priority over `security.yaml`. Set it to keep the key out of the file, or to give several instances the same key. Changing it signs every user out. |
+| `PROFINITY_ENCRYPTION_KEY` | Secret | Profinity | A key that Profinity generates on first start and saves in `security.yaml` | The key that encrypts the secrets Profinity stores, such as two-factor secrets and recovery codes. A value in the environment takes priority over `security.yaml`. Keep the same value for as long as the stored data is in use, because secrets that were encrypted with a previous key cannot be read. |
+| `PROFINITY_JWT_RSA_PRIVATE_KEY_PEM` | Text | Profinity | None | An optional RSA private key in Privacy-Enhanced Mail (PEM) format. When it is set, Profinity signs sign-in tokens with RS256 in place of the signing key. A value in the environment takes priority over `security.yaml`. |
 
 The [Profile folders](../Administration/Profile_Folders.md) page covers the files a profile holds, and [System configuration](../Administration/System_Configuration/index.md) covers the other settings in `config.yaml`.

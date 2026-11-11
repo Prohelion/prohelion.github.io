@@ -23,7 +23,7 @@ For a LocalSystem service on 64-bit Windows, the folder is under `C:\Windows\Sys
 
 To trust a certificate explicitly, rather than trusting all, place it in `trusted`.
 Profinity places refused certificates in `rejected`.
-A connection that fails on a certificate leaves the refused certificate there, and you can move it into `trusted` once you have confirmed it.
+A connection that fails on a certificate leaves the refused certificate there. To trust it, move it into `trusted`. To remove a certificate, delete its file from the folder, using your operating system's file tools.
 
 The `own` folder holds Profinity's own certificate and private key, which the library creates automatically. The `issuer` folder holds the CA certificates that validate the chain of a peer's certificate. Add a CA certificate there only when the peer's certificate is CA-signed.
 

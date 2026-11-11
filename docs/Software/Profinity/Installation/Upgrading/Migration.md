@@ -21,11 +21,11 @@ To upgrade from Profinity 2.2 to Profinity 2.3, refer to [Upgrade from Profinity
 
 Prohelion recommends a clean installation of V2, removing V1 before you install V2.
 
-Before you begin, have the V2 installer for your platform, and administrator rights on the Windows computer for the V2 install. Confirm the rights the V1 uninstall needs.
+Before you begin, have the V2 installer for your platform, and administrator rights on the Windows computer for the V2 install. Uninstall V1 while signed in to Windows as the user account that V1 was installed under.
 
 1. Copy the V1 profiles, configuration files, CAN database (DBC) files, and any custom scripts or data to a location outside the V1 installation and its profile directory.
    Write down the component settings and addresses, and any custom V1 settings you want to replicate in V2.
-2. Confirm that the copies from step 1 open correctly.
+2. Check that every file you copied in step 1 is there and opens.
     Then uninstall V1 by running the V1 Windows installer and choosing its uninstall option, and remove the files in the V1 profile directory, `Documents\Prohelion\Profinity`.
 
     !!! warning "There is no downgrade path"
@@ -37,12 +37,6 @@ Before you begin, have the V2 installer for your platform, and administrator rig
    Create new profiles, add components in the V2 interface, upload each DBC file in the **Upload DBC File (Optional)** setting of its Custom Component, and set the system settings for your environment.
 5. Check that every component is detected and configured correctly, and test the critical functions before you put the system into production.
 6. Review the security settings and user accounts, starting with the default administrator password described in the [Security guide](../Security.md#default-credentials).
-
-## Run V1 and V2 on one machine
-
-Running both versions on one machine causes port conflicts, mixed-up profiles, and unsynchronised data, so Prohelion does not recommend it.
-If both versions must run for a while, give each version different ports and a different user account, and keep their profiles and configurations separate. For V2, set the ports in **IP Port for Http** and **IP Port for Https** on the Profinity Web tab, as described in [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md).
-Complete the move to V2 as soon as practical.
 
 ## Get help
 

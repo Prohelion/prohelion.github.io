@@ -19,7 +19,7 @@ To create a role first, refer to [Create a role](../Create_a_Role.md).
 
 To restrict a component:
 
-1. Open the component's settings dialog from the profile menu or the component list.
+1. On the component's own page, select **Change Settings** in the title bar. This needs the **Modify components** permission.
 2. Select the **Security** tab, which sits beside **Settings** and **Firmware** (when present).
 3. Set **Mode** to **Restricted**.
 4. In **Allowed roles**, open the dropdown that reads **Add role…** and choose each role to allow.

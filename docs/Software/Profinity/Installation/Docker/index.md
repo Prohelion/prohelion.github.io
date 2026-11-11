@@ -64,7 +64,7 @@ To move an existing installation to a newer image, refer to [Update the Profinit
 In the second address, replace `<your-ip-address>` with the address of the machine that runs Docker.
 The sign-in page opens, as described under [Sign in](#sign-in).
 
-The compose file publishes ports `18080`, `18443`, and `4876`, and mounts `$HOME/Prohelion` at the default artefacts directory, `/var/lib/prohelion/profinity`.
+The compose file publishes ports `18080`, `18443`, and `4876`, and mounts `$HOME/Prohelion` at the default artefacts directory, `/var/lib/prohelion/profinity`. The `$HOME` path is the Unix home folder, so the mount applies to Linux and macOS hosts. This page does not give a host folder for Windows.
 For what each port does and what the data directory holds, refer to [Docker ports and data directory](./Docker_Ports_and_Data_Directory.md).
 To check where Profinity stores its files, open a shell in the running container with `docker compose exec profinity bash`, and run `ls -la /var/lib/prohelion/profinity/`.
 The listing includes the `config`, `profiles`, and `logs` folders.
@@ -73,7 +73,7 @@ The listing includes the `config`, `profiles`, and `logs` folders.
 
 Run these commands from the directory that holds the `docker-compose.yml` file.
 The Docker service starts the container on boot, not Profinity.
-The `restart: always` line in the compose file restarts the container whenever Docker starts, so configure Docker to start on boot. On Linux, run `sudo systemctl enable docker`. On Docker Desktop, turn on **Start Docker Desktop when you sign in** in its settings.
+The `restart: always` line in the compose file restarts the container whenever Docker starts, so Docker must start on boot. Refer to the Docker documentation for how to set this on your host.
 
 | Command | Effect |
 |---------|--------|

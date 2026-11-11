@@ -94,5 +94,7 @@ It adds a D1000 Gen1 BMU to the `components` list in the `profile.yaml` file of 
 ```
 
 `YOUR_BMU_NAME` is the unique name of the component.
+The `id` can be left out, and Profinity then gives the component an id such as `D1000Gen1Bms1`.
+`tagTreeParentPath: /` places the component at the root of the [tag tree](../../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 The `baseAddress` value 1536 is the decimal form of `0x600`, the default base address of the D1000 Gen1.
 The `milliValid` value is the timeout in milliseconds.

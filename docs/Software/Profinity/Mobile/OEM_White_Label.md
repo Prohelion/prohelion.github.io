@@ -8,9 +8,9 @@ last_reviewed: 2026-10-14
 
 # OEM white-label mobile builds
 
-Original equipment manufacturer (OEM) partners can ship white-label builds of Profinity Mobile with their own branding and bundle identifiers.
+Original equipment manufacturer (OEM) partners can ship white-label builds of Profinity Mobile with their own branding and bundle identifiers. Prohelion sends the source package, `BUILD.md` and `WHITE-LABEL.md` on request, so contact Prohelion at [prohelion.com/contact](https://prohelion.com/contact/).
 
-The Profinity Mobile source package includes the build guide (`BUILD.md`) and the white-label guide (`WHITE-LABEL.md`). The source package's `BUILD.md` lists the prerequisites for building, including Node.js, Xcode, CocoaPods, Android Studio and JDK 17.
+The Profinity Mobile source package includes the build guide (`BUILD.md`) and the white-label guide (`WHITE-LABEL.md`). The source package's `BUILD.md` lists the full prerequisites for building, with their minimum versions.
 
 ## Branding configuration
 

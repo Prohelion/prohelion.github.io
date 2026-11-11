@@ -86,7 +86,7 @@ The Example Profile includes battery alert rules for the Prohelion 12v and the P
 3. Expand a rule group, such as **Cell limits** or **Critical status flags**.
 4. Open a rule to see the tags it watches, its condition, its `level` and its description.
 
-To see alerts, select **ALL ALERTS** in the side menu to open the Alerts Log.
+To see alerts, select **ALL ALERTS** in the side menu to open the Alerts Log. Checkpoint: alerts start to appear on the Alerts Log after the example log plays.
 The **Active** tab lists alerts that are firing now, and the **History** tab lists earlier alerts, newest first.
 Select an alert to **Acknowledge** it, or to **Silence** it for one hour.
 

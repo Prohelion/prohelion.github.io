@@ -30,7 +30,7 @@ A pack that contains script content needs the **Scripting** feature on the licen
 
 Profinity ships with an example profile called the Example Profile.
 It contains a Prohelion 12v battery, a Prohelion Battery Management Unit (BMU), three Elmar Solar maximum power point tracker (MPPT) devices, and two Prohelion WaveSculptor 22 Motor Controllers, as described in the [Quick start guide](../Getting_Started/Quick_Start.md).
-Copy it to a new profile before using it as a basis for your own work, because Profinity overwrites the file each time a new version is installed.
+Do not use it as the basis for your own work, because Profinity overwrites the file each time a new version is installed. To keep a copy of a profile, use **Download Profile Pack** on **Administration → Profiles**.
 
 ## Profile features
 

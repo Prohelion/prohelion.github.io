@@ -8,7 +8,7 @@ last_reviewed: 2026-10-14
 
 # CAN bus DBC
 
-[DBC](http://socialledge.com/sjsu/index.php/DBC_Format) (CAN database) is a file format that describes the format and nature of Controller Area Network (CAN) bus data.
+A DBC file (CAN database) describes the CAN messages on a bus.
 A DBC file breaks CAN data down into Messages and Signals, the building blocks of a DBC file, so you can understand the data more clearly.
 For the moment, Profinity provides a DBC Viewer.
 The DBC Viewer takes a DBC file and shows the CAN bus traffic travelling through Profinity as Messages and Signals.

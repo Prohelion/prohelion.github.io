@@ -8,7 +8,7 @@ last_reviewed: 2026-10-15
 
 # Elmar Solar MPPT
 
-Profinity monitors the Elmar Solar Maximum Power Point Tracker (MPPT) Series A and B.
+Profinity monitors the Elmar Solar Maximum Power Point Tracker (MPPT). Profinity supports the 3A, Race and Best with one component, because they share one communications protocol.
 They use the CAN database (DBC) file described in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md) documentation.
 
 Elmar Solar makes MPPTs that optimise the output of solar arrays.
@@ -81,13 +81,13 @@ The dashboard also shows two time-series graphs of the input voltage and output 
 Hover over a graph to see the data in greater resolution.
 
 The **MPPT EVENTS** panel shows status indicators for MPPT events.
-Error indicators are red. Limit indicators are amber, except the local and global MPPT limits, which are green.
+Error indicators are red. Limit indicators are amber, except the local and global MPPT lamps, which are green. Each lamp shows On or Off.
 
 | Type | Colour | Indicators |
 |---|---|---|
 | Error | Red | Low array power, hardware overvoltage, hardware overcurrent, metal-oxide-semiconductor field-effect transistor (MOSFET) overheat, 12 V undervoltage, battery low and battery full |
 | Limit | Amber | Input current minimum and maximum, output voltage maximum, duty cycle minimum and maximum, and MOSFET temperature |
-| Limit | Green | The local and global MPPT limits |
+| Limit | Green | The local and global MPPT lamps, each On or Off |
 
 The events correspond to the `Status` message of the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md).
 The message carries the error and limit flags, the mode, and the CAN receive and transmit error counters.

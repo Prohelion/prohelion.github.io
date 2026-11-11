@@ -77,7 +77,7 @@ The remaining rows differ by edition:
 - The 14-day local trial and signed trial licences from Prohelion include everything in the **Server** edition.
 - **Add-on** means something licensed separately from the edition, available on any commercial edition.
   Industrial Protocols is a component group. Each protocol, such as Modbus or S7, also needs its own plugin installed, and that plugin requires the Industrial Protocols licence.
-  The Profinity SDK is a developer kit that Prohelion supplies on request.
+  The Profinity SDK is a developer kit that Prohelion supplies on request. To ask for it, [contact Prohelion](https://prohelion.com/contact/).
 - Pages for licence-dependent features carry a **Licence required** note near the top.
   The **License** page is always the authority for your instance, because `custom.yaml` and `config.yaml` can hide components that the licence includes.
 

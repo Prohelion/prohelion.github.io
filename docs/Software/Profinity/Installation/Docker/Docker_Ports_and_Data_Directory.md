@@ -18,7 +18,7 @@ This page lists the ports that the compose file in [Install Profinity with Docke
 | `18443` | HTTPS web interface |
 | `4876` | Tritium CAN to Ethernet bridge, which uses this port for both UDP and TCP and cannot change it |
 
-Docker publishes a port as TCP unless the mapping ends in `/udp`, so keep the existing `- 4876:4876` line and add `- 4876:4876/udp` beside it when a Tritium adapter is reached through the published ports.
+Keep the existing `- 4876:4876` line and add `- 4876:4876/udp` beside it when a Tritium adapter is reached through the published ports, so that both UDP and TCP are published. For how Docker maps ports, refer to the Docker documentation.
 With host networking, Docker ignores the `ports` entries, as described under [Expose devices to the container](./index.md#expose-devices-to-the-container).
 
 ## Artefacts directory

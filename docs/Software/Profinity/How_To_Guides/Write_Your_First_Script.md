@@ -40,7 +40,7 @@ This guide uses a run script, which starts on demand from the menu.
 1. Select **ADD COMPONENT** (refer to [How to add a component to your profile](Add_Component_to_Profile.md)).
 2. Select the **Python Script** component.
    The script component settings and the script editor open together.
-3. Set the component name, and add a description if wanted.
+3. Set the component name, and add a description if wanted. If the script file name is empty when the settings are checked, Profinity sets it to the component name plus `.py`.
 4. Set **Script Mode** to **Run On Demand**.
 5. Enable **Log Script Output**, which is off by default, so that the script's output appears in the Profinity log.
 
@@ -68,7 +68,7 @@ Use **Cancel Script** to stop a script that is still running.
 
 With **Log Script Output** enabled, the output appears in the Profinity log at the `Info` level.
 To open the log, select **ADMIN**, then **Logs**.
-The entry reads `Script <script file name>: This is my first Profinity script.`, followed by a line for `Profinity.Message`.
+The entry reads `Script <script file name>: This is my first Profinity script.`, followed by a line for `Profinity.Message`. The script file name is the file's name only, not its folder.
 The second line reads `Script <script file name>: Hello from Profinity`, the default value of `Profinity.Message`.
 
 | What you see | Cause | What to do |

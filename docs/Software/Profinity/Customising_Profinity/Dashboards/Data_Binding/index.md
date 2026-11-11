@@ -55,7 +55,7 @@ The component can be renamed, or the dashboard applied to another component with
 A component dashboard needs a leading `/` to bind to a tag in a different component.
 
 A dashboard that has no owning component, such as a home dashboard, names the component in full.
-The path can start with `/`, which is the form the Visual Editor writes, or without it, as in `Prohelion BMU/Properties/StatusColourText` in the Example Profile that ships with Profinity.
+The path can start with `/`, which is the form the Visual Editor writes, or without it, as in `Prohelion BMU/Properties/StatusColourText` in the Example Profile that ships with Profinity. On a dashboard with no owning component, the first segment must be a component name. A path that starts with `DBC/`, `Properties/` or `Firmware/` does not resolve there.
 If a component is mounted at a nested location in the tag tree, an absolute path includes that location, as described in [Tag tree paths and dashboard binds](../../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
 Dashboards written before Profinity 2.3 need the changes listed in [Breaking changes in Profinity 2.3](../../../Release_Notes/Breaking_Changes_2_3.md).

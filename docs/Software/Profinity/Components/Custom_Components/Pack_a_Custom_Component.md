@@ -22,7 +22,7 @@ You need:
 Run `profinity-component-pack` on Windows, macOS or Linux. The commands are the same on each system, except that on Windows the tool starts as `dotnet profinity-component-pack.dll`, and the path separators in examples differ.
 
 1. On the machine that has the SDK, run `profinity-component-pack validate --component-dir <path>`, where `<path>` is the component folder.
-   The tool reports the first problem it finds.
+   The tool reports the first problem it finds, on standard error.
    Fix each problem and validate again until it reports none.
 2. Run `profinity-component-pack pack --component-dir <path> --output <path.zip|path.nupkg>`, where the output ends in `.zip` or `.nupkg`.
    Refer to [Component Pack CLI](../../Developing_with_Profinity/SDK/Component_Pack_CLI.md) for the commands and flags.
@@ -38,4 +38,7 @@ When the component is added, it behaves as described in [Using a Custom Componen
 |---|---|---|
 | "Plugin archive must use a .zip or .nupkg extension." when you upload the package | The package file was saved with a different extension | Run `pack` again with an `--output` path that ends in `.zip` or `.nupkg`, then upload the new file. |
 | `profinity-component-pack validate` reports a problem | The component folder has a problem, and the tool reports the first one it finds | Fix the problem that it names, then run `validate` again until it reports none. |
+| `Component directory does not exist:` followed by a path | The `--component-dir` path does not point to a folder | Give the path to the component folder, then run `validate` again. |
+| `Missing required file: component_metadata.yaml`, or the same message for `settings_map.yaml`, `firmware_map.yaml`, or `actions.yaml` | The component folder is missing a file that the pack needs | Add the file named in the message, then run `validate` again. |
+| `Component directory is required.`, `component_metadata.yaml is empty or invalid.`, or `Component name is not a valid folder name.` | The component folder or its metadata does not pass the check | Correct the item the message names, then run `validate` again. |
 

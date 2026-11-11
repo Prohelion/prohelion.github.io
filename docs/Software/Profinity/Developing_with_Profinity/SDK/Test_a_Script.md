@@ -26,7 +26,7 @@ Once the script is in a profile it needs the Scripting feature, which a Desktop,
 Refer to [Profinity Scripting](../Scripting/index.md).
 
 A C# project in a generated folder references `Profinity.Sdk`.
-To let the editor complete Profinity types, add the kit folder that contains that package as a local NuGet source. In Visual Studio, use Tools, Options, NuGet Package Manager, Package Sources. From any editor or a terminal, run `dotnet nuget add source` with the kit folder path and a name such as `ProfinityKit`.
+To let the editor complete Profinity types, add the kit folder that contains that package as a local NuGet source. Use your editor's package source settings, or run `dotnet nuget add source` with the kit folder path and a name such as `ProfinityKit`.
 `profinity-script sim` compiles and runs the script itself.
 
 ## Create a runnable script
@@ -90,6 +90,7 @@ Profinity runs the copied file.
 
 | What you see | Cause | What to do |
 |---|---|---|
+| The command does not start and reports an error from .NET | The .NET 10 runtime that the tool was built for is not installed. | Install that runtime, as described in [Create a runnable script](#create-a-runnable-script), then run the command again. |
 | The command fails, or the simulator cannot cover a call the script makes | - | Refer to the [errors](./Profinity_Script_Reference.md#errors) and the [limits of the simulator](./Profinity_Script_Reference.md#limits-of-the-simulator) in the profinity-script reference. |
 
 For what a script can do in a profile, refer to [Profinity Scripting](../Scripting/index.md).

@@ -59,7 +59,6 @@ Profinity can only select the network interface.
     Two bridges with the same bus number on one network relay data from one bridge to the other.
     This joins two separate CAN bus networks into one virtual bus over Ethernet.
     Two bridges on the same CAN bus that are also on the same Ethernet network form a cyclic network.
-    In a cyclic network, every message is resent indefinitely until the CAN bus is overloaded.
     Give each bridge a unique bus number unless you are joining two buses deliberately.
     Refer to [Network Topologies](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Network_Topologies.md) and the [bus number guidance](CAN_Bus_Adapters/CAN_Bus_Adapter_Settings.md#tritium-can-to-ethernet-bridge) for the physical bridge.
 
@@ -90,6 +89,7 @@ If a client cannot connect, check these things:
 |---|---|---|
 | A client cannot connect to the Virtual Adapter | The **Network Adapter** is not the interface that the client can reach. | Check that the **Network Adapter** is the interface that the client can reach. |
 | A client cannot connect to the Virtual Adapter | The client speaks a protocol version that the **Bridge Protocol Version** does not cover. | Check that the client's protocol version is covered by the **Bridge Protocol Version**. |
+| The status reads **No CAN traffic** | The usual cause is that no CAN traffic is coming from the bridged adapter. | Check the adapter that is bridged onto this bus. |
 
 For how the Virtual Bridge speaks both the V1 and V2 bridge protocols and serves several clients at once, refer to [Virtual CAN adapter protocol and client support](Virtual_CAN_Adapter_Protocols.md).
 

@@ -112,7 +112,7 @@ Replace the host names, database names, account names and `<password>` in the ex
 
 | Provider | Example |
 |---|---|
-| SQLite | `Data Source=/var/lib/prohelion/profinity/history.db`. SQLite creates the file at the path you give, so use a full path to a folder the Profinity service can write to. |
+| SQLite | `Data Source=/var/lib/prohelion/profinity/history.db`. SQLite creates the file at the path you give, so use a full path to a folder the Profinity service can write to. Profinity passes the string through unchanged, so give the path in the form your computer uses, such as `Data Source=C:\path\to\file.db` on Windows. |
 | SQL Server / Azure SQL | `Server=dbhost,1433;Database=Profinity;User Id=profinity;Password=<password>;Encrypt=True` |
 | PostgreSQL | `Host=dbhost;Port=5432;Database=profinity;Username=profinity;Password=<password>` |
 | MySQL | `Server=dbhost;Port=3306;Database=profinity;User ID=profinity;Password=<password>` |

@@ -65,9 +65,8 @@ Profinity sends the **CIP path** to the PLC as you enter it:
 - The default `1,0` is the backplane (`1`) and slot `0`. For a CPU in slot 2 of the same chassis, enter `1,2`.
 - Leave it empty to send no path.
 - For a CPU reached through a bridge module, enter the route as pairs of port and address, one pair for each hop.
-- A PLC-5 or SLC controller on EtherNet/IP needs no path. These controllers use a path only when it is a route through a Data Highway Plus (DH+) bridge.
-  The default `1,0` therefore does no harm, and you can clear it.
-- Micro800 controllers ignore this setting even when it is filled in.
+- For a PLC-5 or SLC controller, Profinity sends the CIP path on every read when it is not blank, including the default `1,0`.
+- Micro800 controllers ignore this setting while **Browse** reads the PLC's tag symbol list.
 
 With **Auto Connect** on, profinity keeps trying to connect when the PLC is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
 

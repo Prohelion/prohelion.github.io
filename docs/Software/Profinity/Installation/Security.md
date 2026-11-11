@@ -41,7 +41,7 @@ For the certificate steps, refer to [Profinity Web](../Administration/System_Con
 ## Docker security
 
 The Profinity image runs as the non-root `app` user, so a container already runs without root privileges.
-Keep it that way, and make sure the host directory mounted at `PROFINITY_HOME` is writable by that user.
+Keep it that way, and make sure the host directory mounted at `/var/lib/prohelion/profinity` is writable by that user.
 Set CPU and memory limits on the container to prevent resource exhaustion.
 Use Docker networks to isolate Profinity from other services, and use only official Profinity images from Prohelion repositories.
 
@@ -126,7 +126,7 @@ Refer to [SSO and sign-in method](../Administration/System_Configuration/Securit
 ### Security roles
 
 Profinity uses 27 granular permissions grouped into roles, and users receive assigned roles.
-Profinity has no security groups or per-user permission lists.
+Profinity has no security groups or per-user permission lists. The **Users & Groups** menu under **ADMIN** manages users and roles, and its name is left over from older security groups. A security file from an earlier version that holds groups is converted to roles when it loads.
 Assign users only the permissions their work needs.
 
 Give monitoring accounts read-only roles for dashboards and the Tag Explorer, and use individual administrator accounts.
@@ -160,7 +160,7 @@ Before deploying Profinity in a production environment:
 - [ ] Review the logs on a schedule and forward them to your monitoring system.
 - [ ] Back up configurations and profiles on a schedule, and test a restore.
 - [ ] Write down the security configuration and who may change it.
-- [ ] If using Docker, mount a volume at `PROFINITY_HOME` and follow the [Docker security](#docker-security) guidance.
+- [ ] If using Docker, mount a volume at `/var/lib/prohelion/profinity` and follow the [Docker security](#docker-security) guidance.
 - [ ] Review Kiosk Mode and disable it unless it is needed.
 
 ## Related documentation

@@ -28,7 +28,7 @@ A component built on it can:
   Refer to [Connections and reconnecting](../../Components/Connections_and_Reconnecting.md).
 
 The kit Prohelion sends to approved developers includes examples of this framework, and documentation that goes further than this page.
-For a copy of the SDK, or for more information, [contact Prohelion](https://www.prohelion.com/contact-us/).
+For a copy of the SDK, or for more information, [contact Prohelion](https://prohelion.com/contact/).
 
 Uploading a plugin needs the **Modify plugins** permission, described in [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md), and the **Custom Plugins** feature.
 That feature is available from the Desktop edition upwards, and only when licensed.

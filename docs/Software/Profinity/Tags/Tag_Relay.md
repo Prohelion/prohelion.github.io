@@ -42,7 +42,7 @@ In On Change mode it sends a complete snapshot on connect and reconnect, and aga
 Full snapshots include tag metadata such as units.
 
 The receiver holds the latest accepted values for each mirrored tag.
-A rejected snapshot leaves the previous values in place, as the troubleshooting section describes.
+A rejected snapshot leaves the previous values in place, as the [Tag Relay Sender troubleshooting](../Components/Tag_Relays/Tag_Relay_Sender.md#troubleshooting) describes.
 Tags outside the selected collections are never sent.
 
 A [Tag Relay Receiver](../Components/Tag_Relays/Tag_Relay_Receiver.md) component connects to one or more senders.

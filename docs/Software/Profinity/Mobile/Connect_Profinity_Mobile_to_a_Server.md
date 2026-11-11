@@ -58,4 +58,4 @@ To return to the server list, swipe from the left edge of the screen on iOS.
 On Android, use the system back action, which first steps back through the pages you opened in the app.
 A certificate warning that you accepted for a server stays accepted when you go back.
 
-If the discovery list is empty or sign-in does not complete, refer to [Troubleshoot Profinity Mobile](Troubleshoot_Profinity_Mobile.md).
+If the discovery list is empty, refer to [Troubleshoot Profinity Mobile](Troubleshoot_Profinity_Mobile.md). If single sign-on does not complete, use the SSO row in that page's troubleshooting table.

@@ -131,8 +131,10 @@ Tag metadata fields are available on `tag` only:
 ```text
 tag.Meta.Type == "dbc.signal"
 tag.Meta.Text("unit") == "A"
-tag.Meta.Number("limits/min") <= 100
+tag.Meta.Number("min") <= 100
 ```
+
+In Tag Explorer, select a tag and open **Tag Details** to see its **Meta Type**, such as `dbc.signal`. For a leaf, **Tag Metadata** lists the keys on that tag, such as `unit`.
 
 ## Related-tag aliases on a rule
 

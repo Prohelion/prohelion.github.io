@@ -49,7 +49,7 @@ The M48 Gen1 parameters are on its [Software Specifications](../../../../../Batt
 ## Unlock the Admin firmware parameters {#unlock-administration-firmware-parameters}
 
 The D1000 Gen2, M48 Gen2, and C48 Gen2 show their Admin parameters only while a session unlock is active, and otherwise Profinity works at the User permission level.
-The unlock uses the **Firmware Configuration Key**, which Prohelion supplies on request, because the key is not published.
+The unlock uses the **Firmware Configuration Key**, which is supplied with the product when it is purchased, because the key is not published.
 Profinity holds the key for your sign-in session only and never saves it to the profile.
 
 1. Select **Change Settings** on the BMU dashboard.

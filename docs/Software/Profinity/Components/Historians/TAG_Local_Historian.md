@@ -98,6 +98,8 @@ To keep the history:
 4. Remove the component from the profile.
 
 To read the history again, open the copied `.db` file with any SQLite tool.
+
+To restore the history, copy the `.db`, `-wal`, and `-shm` files back to `tag_history/<profile name>/` with the same component name, then add a TAG Local Historian with that name to the same profile. Profinity opens the file, and no other step is required. A different component name is a different file.
 Unloading a profile leaves the file in place, because only removing the component deletes it.
 
 ## Reading history back

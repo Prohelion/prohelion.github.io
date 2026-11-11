@@ -45,22 +45,21 @@ Do not type the token into a project's `.cursor/mcp.json`, because everyone who 
 
 Skip this section for an `http://` address.
 For an `https://` address, trust the exported certificate in the operating system, as described in [Trust the HTTPS certificate](Trust_HTTPS_Certificate.md), then quit Cursor and open it again.
-Cursor has no setting that turns certificate checking off, and accepting the warning in a browser does not change what Cursor trusts.
 
-Update Cursor when it still rejects a certificate that the operating system trusts, and check Cursor's current documentation for how it handles an enterprise certificate authority on your operating system.
+If Cursor still rejects a certificate that the operating system trusts, see Cursor's own documentation.
 The host in the address has to be one of the certificate names in [The certificate Profinity generates](Trust_HTTPS_Certificate.md#the-certificate-profinity-generates).
 
 ## Confirm Cursor can read data
 
-1. In Cursor, open **Customize**, and confirm that `profinity` is enabled.
+1. In Cursor, check that `profinity` is listed as an enabled MCP server.
 2. Ask Cursor: "What components are in my active profile?"
 
-Cursor calls `get_all_components`, and a list of component names confirms the connection.
+A list of component names confirms the connection.
 When the list is shorter than you expect, refer to [Fewer results than expected](Connection_Errors.md#fewer-results-than-expected).
 
 ## Fix a failed connection
 
-Open the Output panel with Cmd+Shift+U or Ctrl+Shift+U, select **MCP Logs**, and match the log to a row in this table:
+Open Cursor's MCP logs (refer to Cursor's documentation for where they are), and match the log to a row in this table:
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|

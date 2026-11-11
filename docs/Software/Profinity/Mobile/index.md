@@ -28,7 +28,7 @@ flowchart LR
 ## Install the app
 
 Prohelion does not publish the app in the public app stores.
-Contact Prohelion at the [Prohelion Website](https://www.prohelion.com) for more information.
+A customer who is not an OEM contacts Prohelion through the [Prohelion contact page](https://prohelion.com/contact/) and is given the mobile kit.
 Prohelion supplies the Profinity Mobile source code.
 The organisation that distributes it builds and signs its own iOS and Android binaries, as described in [OEM white-label mobile builds](OEM_White_Label.md).
 

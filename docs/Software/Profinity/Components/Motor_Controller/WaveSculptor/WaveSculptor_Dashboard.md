@@ -51,7 +51,7 @@ Each indicator lights when its bit in the Status message is set.
 | **WATCHDOG RESET** | The watchdog reset the controller. This is a warning rather than a fault and stays set until the next power cycle. |
 | **CONFIG READ** | The stored configuration could not be read at start-up, so default values are in use. |
 | **15v UNDER VOLTAGE** | The internal 15 V rail has dropped too low. |
-| **DESATURATION FAULT** | On the WaveSculptor22 this indicates an under voltage of the metal-oxide-semiconductor field-effect transistor (MOSFET) driver. |
+| **DESATURATION FAULT** | Refer to the WaveSculptor documentation for what this indicator means. |
 | **MOTOR OVERSPEED** | The motor speed exceeded the configured maximum by 15%. |
 
 Each limit and error is described in more detail on the [Observation](../../../../../Motor_Controllers/Config_Software/Observation.md) page of the configuration software manual.

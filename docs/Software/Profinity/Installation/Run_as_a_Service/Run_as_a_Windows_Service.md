@@ -25,7 +25,7 @@ On 64-bit Windows it is `C:\Windows\SysWOW64\config\systemprofile\AppData\Local\
 
 1. Search for cmd, right-click it, and select **Run as administrator**.
 2. Run the install command.
-    To install under a user account, give the account name:
+    To install under a user account, give the name of the account the service will run as:
 
     ```bat
     ProfinityService.cmd install [Username to install under]

@@ -90,7 +90,7 @@ Role permissions are listed in [Roles and permissions](../../Users_and_Access/Ro
 ## SIEM export
 
 When **Enable SIEM export** is on, Profinity forwards its security audit events, such as sign-ins, failed sign-ins, and licence changes, to the collector configured in the **SIEM Export** group.
-The other settings appear only after you switch on **Enable SIEM export**.
+The other settings appear only after you switch on **Enable SIEM export**. Set **SIEM host** and a real **SIEM port** before you rely on export. Profinity does not refuse a save with port 0. With a host filled in, it sends to port 0, and with a blank host it sends nothing.
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|

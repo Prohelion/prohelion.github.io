@@ -55,7 +55,7 @@ A chart binding accepts two chart-only properties, as well as the common binding
 The same reference describes `seriesMode`, `start`, `stop`, `aggregationWindow` and `aggregationFunction`.
 A `seriesMode` of `timeSeriesDelta` plots the differences between successive samples.
 Set `start` and `stop` together on a `timeSeries` binding that needs a particular history.
-The Visual Editor sets `-10m` and `0m` when you choose a series mode.
+The [Visual Editor](../../Visual_Editor.md) sets `-10m` and `0m` when you choose a series mode and the binding has no window yet. A window that you have already set is kept, and clearing the series mode clears the window.
 Older values that a window reaches back to come from the [designated historian](../../../../Components/Historians/Designated_Historian.md), as described in [Live and past data](../../Data_Binding/index.md#live-and-past-data).
 
 ## Chart types

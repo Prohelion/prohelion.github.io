@@ -10,7 +10,7 @@ last_reviewed: 2026-10-26
 
 Release notes for Profinity V2 list the user-visible changes, what to do when upgrading, and the known issues that affect deployments.
 
-- [Profinity 2.3.3 release notes](2.3.3.md): stricter profile and settings files, one menu layout shape, licence reissue, and service accounts.
+- [Profinity 2.3.3 release notes](2.3.3.md): stricter profile and settings files, one menu layout shape, and service accounts.
 - [Profinity 2.3.2 release notes](2.3.2.md): stale tags and quality in logs and history, component visibility, theme logos, and dashboard caption and chart colours.
 - [Profinity 2.3 release notes](2.3.1.md): editions and licensing, Profinity AI, derived tags, publishers, and subscribers, role-based access control (RBAC), single sign-on (SSO) and multi-factor authentication (MFA), mobile, Linux artefacts path, and known issues.
 - [Profinity 2.3 breaking changes](Breaking_Changes_2_3.md): what changes for existing installations, integrations, and plugins, including the security file format, licensing, REST API errors and data locations.

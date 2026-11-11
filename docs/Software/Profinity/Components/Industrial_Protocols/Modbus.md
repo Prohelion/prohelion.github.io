@@ -36,7 +36,7 @@ You can change the settings in the Communications settings section later from th
 
 ## Quick start
 
-You need a Modbus TCP slave that this computer can reach over the network, and its IP address. Viewing the dashboard requires the **Security administration** permission.
+You need a Modbus TCP slave that this computer can reach over the network, and its IP address. Viewing the dashboard needs you to be signed in and allowed to see the component.
 
 1. Select **ADD COMPONENT**, then select **Modbus Device** in the **Industrial Protocols** group.
 2. Leave **Connection Mode** as **TCP**, and set **Host** to the IP address of the slave.
@@ -147,10 +147,10 @@ Each value is a setting from the [Communications settings](#communications-setti
 
 ## Dashboard
 
-The component dashboard shows the connection **STATUS** (Connected, Not connected; retrying, or Disconnected) and whether the device is **CONNECTED**.
+The component dashboard shows the connection **STATUS** (Connected, Not connected; retrying, or Disconnected) and whether the device is **CONNECTED**. **Disconnected** means polling has not started. **Not connected; retrying** means polling has started and the device is not connected yet. If the status is **Disconnected**, check the [Log](../../Administration/Logs_Config.md).
 It also shows the number of values read (**RECEIVED**) and values written (**SENT**).
 Use the **Connect / Disconnect** menu action to start or stop polling manually.
-Viewing the dashboard requires the **Security administration** permission, described under [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
+Viewing the dashboard needs you to be signed in and allowed to see this component, as described under [Component and collection security](../../Administration/Users_and_Access/Component_And_Collection_Security/index.md).
 
 Polled values behave like any other tag, so they can be shown on a [dashboard](../Dashboard/Dashboard_Component.md), logged, watched by a rule, or read by a script.
 

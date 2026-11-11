@@ -131,7 +131,7 @@ Sentence rhythm depends on the page type. Prohelion's existing prose runs long a
 ### 2.5 Terminology
 
 - Assume a technically literate reader. Domain jargon (CAN Bus, DBC, BMU, CMU, HVIL, ASIL D, precharge, regen) is used freely, expanded once on first use if it's an acronym, then used bare — not re-explained on every page.
-- Product, feature and UI element names are proper nouns and always capitalised: Profinity, Profile, Adapter, WaveSculptor200, Battery Management Unit. Reference on-screen UI labels exactly as they appear, in quotes or Title Case: `'Add / New Item'`, the "Engage Contactors" button.
+- Product, feature and UI element names are proper nouns and always capitalised: Profinity, Profile, Adapter, WaveSculptor200, Battery Management Unit. Reference on-screen UI labels exactly as they appear in the product (see the bold rule below). From Profinity 2.3 the UI uses sentence case for labels (ADR 0003 and the design-system label guide in the Profinity code repository), so write **Add / new item**, not "Add / New Item". Acronyms, product names and units keep their own form. Until a label has been converted in the product, copy it as shipped and let the code win.
 - Version numbers use three forms, and only these:
   - In sentences and headings, write the product and the number with no letter: Profinity 2.3, Profinity 2.2, "As of Profinity 1.11". If the product name is already in the sentence, "version 2.3" is fine. Do not write V2.3 or v2.3 in prose.
   - On a button, a git tag, or a quoted installer banner, use a lowercase v: "Download Profinity v2.2", `v2.3.x.x`.

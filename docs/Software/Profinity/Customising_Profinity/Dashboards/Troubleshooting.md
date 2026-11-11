@@ -33,6 +33,8 @@ In each example, replace the tag path, such as `DBC/Temperature/Value`, with the
 
 To return to your layout, open **Edit Dashboard**, select the **YAML** tab, replace its content with the YAML from your copy, correct each entry in **Schema validation issues**, and select **SAVE**.
 
+Profinity has no restore command. To restore the replaced dashboard from its `.bak` file, copy `<file>.bak` back over the dashboard file of the same name in the same folder. For the default home dashboard, copy `dashboard.yaml.bak` over `dashboard.yaml`.
+
 ## Data binding issues
 
 ### Data not updating
@@ -82,7 +84,7 @@ dashboard:
 |---|---|---|
 | A window that reaches back to older values returns no data | Data logging is not set up for the profile. | Set up data logging, as described in [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md). |
 | A window that reaches back to older values returns no data, and data logging is set up | No historian has **Designated tag historian reader** turned on, so Profinity has nowhere to read older values from. | Turn on **Designated tag historian reader** on exactly one historian, as described in [Designated historian](../../Components/Historians/Designated_Historian.md). |
-| The binding returns no data at all | `start`, `stop` or `aggregationWindow` is not a value Profinity can read. `start` and `stop` take a time relative to now, such as `-10m`, or an ISO 8601 instant. `aggregationWindow` takes a length, such as `1m`. | Correct the value. Start with the simple binding in the following example, then add `aggregationWindow` back once it returns data. The settings are described in [Binding settings reference](./Data_Binding/Binding_Settings_Reference.md). |
+| The binding returns no data at all | `start`, `stop` or `aggregationWindow` is not a value Profinity can read, or the window does not make sense. `start` and `stop` take a time relative to now, such as `-10m`, or an ISO 8601 instant. A blank `start` means 10 minutes before `stop`. A blank `stop`, `0m` and `now()` mean the anchor time. A `start` in the future is not invalid by itself, but a `start` after the `stop` is. `aggregationWindow` takes a positive length in `s`, `m`, `h` or `d`, such as `1m`, and can be left blank. Zero, a negative value, `w` and `y` are not valid. Using `store`, `timeRangeStart` or `timeRangeStop` in a binding also makes the query invalid. | Correct the value. Start with the simple binding in the following example, then add `aggregationWindow` back once it returns data. The settings are described in [Binding settings reference](./Data_Binding/Binding_Settings_Reference.md). |
 
 ``` yaml
 # A simple time series binding over the last 10 minutes

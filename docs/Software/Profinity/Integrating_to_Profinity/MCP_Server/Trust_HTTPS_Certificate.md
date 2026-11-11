@@ -91,116 +91,11 @@ Follow these steps on the computer that runs the AI tool:
         Export-Certificate -Cert $certificate -FilePath "$env:USERPROFILE\Desktop\profinity.cer"
         ```
 
-        PowerShell lists `profinity.cer` on the desktop, which holds the public certificate only.
+        The command writes only the public certificate to `profinity.cer` in the Desktop folder of your user profile, `$env:USERPROFILE\Desktop`.
 
 2. If you copied `profinity_generated.pfx` from another computer, delete that copy.
 
-3. Trust the exported certificate in the operating system:
-
-    === "macOS"
-
-        1. Double-click `profinity.pem` in your home folder.
-           Keychain Access opens, and adds the certificate to the login keychain.
-           If it asks for a keychain, select **login**.
-        2. In Keychain Access, double-click the certificate named Profinity.
-           The certificate window opens.
-        3. Expand **Trust**, and set **When using this certificate** to **Always Trust**.
-        4. Close the certificate window.
-           macOS asks for your password.
-        5. Enter your password, and select **Update Settings**.
-           The certificate shows "This certificate is marked as trusted for this account".
-
-        To trust the certificate from a terminal instead, run this command, and enter your password when macOS asks for it:
-
-        ```bash
-        security add-trusted-cert -r trustRoot -k ~/Library/Keychains/login.keychain-db "$HOME/profinity.pem"
-        ```
-
-        To limit the trust to HTTPS connections, add `-p ssl` before `-k`.
-
-    === "Windows"
-
-        1. Double-click `profinity.cer` on the desktop, and select **Install Certificate**.
-           The Certificate Import Wizard opens.
-        2. Select **Current User**, then select **Next**.
-        3. Select **Place all certificates in the following store**, then select **Browse**.
-        4. Select **Trusted Root Certification Authorities**, then select **OK**.
-        5. Select **Next**, then select **Finish**.
-           Windows shows a security warning that asks whether to install the certificate.
-        6. Select **Yes**.
-           Windows reports that the import was successful.
-
-        To trust the certificate from PowerShell instead, run this command, and select **Yes** at the same security warning:
-
-        ```powershell
-        Import-Certificate -FilePath "$env:USERPROFILE\Desktop\profinity.cer" -CertStoreLocation Cert:\CurrentUser\Root
-        ```
-
-    === "Debian or Ubuntu"
-
-        1. Copy the certificate into the trusted certificates folder:
-
-            ```bash
-            sudo cp "$HOME/profinity.pem" /usr/local/share/ca-certificates/profinity.crt
-            ```
-
-            The command prints nothing when the copy succeeds.
-
-        2. Update the trusted certificates:
-
-            ```bash
-            sudo update-ca-certificates
-            ```
-
-            The command reports `1 added`.
-
-    === "Fedora, RHEL, or CentOS"
-
-        1. Copy the certificate into the trusted certificates folder:
-
-            ```bash
-            sudo cp "$HOME/profinity.pem" /etc/pki/ca-trust/source/anchors/profinity.pem
-            ```
-
-            The command prints nothing when the copy succeeds.
-
-        2. Update the trusted certificates:
-
-            ```bash
-            sudo update-ca-trust
-            ```
-
-            The command prints nothing when the update succeeds.
-
-    === "Arch Linux"
-
-        Add the certificate to the trusted certificates:
-
-        ```bash
-        sudo trust anchor --store "$HOME/profinity.pem"
-        ```
-
-        The command prints nothing when it succeeds.
-
-    === "openSUSE or SLES"
-
-        On openSUSE or SUSE Linux Enterprise Server (SLES):
-
-        1. Copy the certificate into the trusted certificates folder:
-
-            ```bash
-            sudo cp "$HOME/profinity.pem" /etc/pki/trust/anchors/
-            ```
-
-            The command prints nothing when the copy succeeds.
-
-        2. Update the trusted certificates:
-
-            ```bash
-            sudo update-ca-certificates
-            ```
-
-            The command prints nothing when the update succeeds.
+3. Trust the exported certificate in your operating system, using that system's own documentation.
 
 4. Quit the AI tool if it is open.
 
@@ -265,8 +160,7 @@ A 401 means the server answered and wants a token, so the certificate was accept
 | What you see | Cause | What to do |
 |--------------|-------|------------|
 | The AI tool still reports a certificate error after step 3 | The tool was open when the operating system began to trust the certificate | Quit the tool, start it again, and repeat the check in [Check it worked](#check-it-worked) |
-| The check still reports a certificate error after step 3 | The certificate is in a store other than **Trusted Root Certification Authorities** on Windows, or its trust is left at the default on macOS | Repeat step 3, and choose the store or the trust setting the step names |
-| You selected **No** at the Windows security warning, or cancelled the macOS password request | The operating system did not add the certificate | Repeat step 3, and confirm the request |
+| The check still reports a certificate error after step 3 | The operating system did not trust the certificate | Repeat step 3 |
 | The certificate error names a different host name or address | The address uses a name missing from the certificate, or the certificate was created before the host name or address changed | Use a name from [The certificate Profinity generates](#the-certificate-profinity-generates), or [create a new certificate](#create-a-new-certificate-after-a-host-name-or-address-changes) |
 | The certificate error says that no name matches, even for `localhost` | The certificate came from an older installation and names no host | [Create a new certificate](#create-a-new-certificate-after-a-host-name-or-address-changes) |
 | The `openssl` command prints an error, or `profinity.pem` is empty | The path is wrong, or the file has a password | Check the folder against the table in [The certificate Profinity generates](#the-certificate-profinity-generates), and for a file with a password use the command in [Export a certificate you supplied](#export-a-certificate-you-supplied) |

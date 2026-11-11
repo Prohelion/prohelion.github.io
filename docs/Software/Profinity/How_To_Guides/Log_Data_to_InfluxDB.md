@@ -29,7 +29,7 @@ To use InfluxDB Cloud:
 3. Generate an API token with read and write access to the bucket. If you turn off **Allow Retrieval**, write access alone is enough.
 4. Note the organisation name, bucket name, API token, and the InfluxDB URL shown in your account.
 
-To use a self-hosted InfluxDB:
+To use a self-hosted InfluxDB on Linux, macOS or Windows:
 
 1. Install and start InfluxDB on your server.
 2. Create a bucket and an API token that can read and write only that bucket. In the following example, replace `my-org` with your organisation name and `<bucket-id>` with the ID that `influx bucket create` prints:
@@ -72,3 +72,9 @@ The query returns points when data is arriving.
 If it returns nothing, refer to [If data does not arrive](../Components/Historians/InfluxDB_Historians.md#if-data-does-not-arrive).
 For what Profinity writes for each tag and how to query it, refer to [What is stored](../Components/Historians/InfluxDB_Historians.md#what-is-stored).
 To send the same collections to another destination, refer to [How to configure data logging](./Configure_Data_Logging.md).
+
+## Troubleshooting
+
+| What you see | What to do |
+|---|---|
+| The health check failed (InfluxDB Cloud has none; switch Health Check off in the settings). | For InfluxDB Cloud, set **InfluxDB Health Check** to false. |

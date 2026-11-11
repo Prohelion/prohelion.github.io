@@ -8,7 +8,7 @@ last_reviewed: 2026-11-04
 
 # Upgrade from Profinity 2.2
 
-Upgrade a Profinity 2.2 system to Profinity 2.3 by following these steps in order.
+Upgrade a Profinity 2.2 system to Profinity 2.3 by following these steps in order. Any 2.2 release can be upgraded directly to 2.3.
 Profinity 2.3 migrates the 2.2 data when it first starts, and existing users, roles, and passwords carry over.
 For the default `admin` account and the password, session, and two-factor settings, refer to [User account security](../Security.md#user-account-security) in the Security guide.
 Read the [Profinity 2.3 breaking changes](../../Release_Notes/Breaking_Changes_2_3.md) before you start, and test the upgrade on a non-production instance first.
@@ -21,12 +21,12 @@ You need:
 - Access to the machine that runs Profinity, to copy its data folder in step 1
 
 If you run Profinity in Docker, mount the host folder that holds the 2.2 data at `/var/lib/prohelion/profinity` in the 2.3 compose file, and do not set `PROFINITY_HOME`, the environment variable that moves the [artefacts directory](../Artifacts_Directory.md).
-The 2.2 image kept its data in a `Profinity` folder inside the folder you mounted at `/app/Prohelion`, so mount that `Profinity` folder.
+The 2.2 image kept its data in a `Profinity` folder inside the folder that the 2.2 image mounted at `/root/Prohelion`, so mount that `Profinity` folder.
 [Docker ports and data directory](../Docker/Docker_Ports_and_Data_Directory.md#artefacts-directory) describes the mount.
 
 1. Back up the 2.2 data folder:
 
-    a. Stop Profinity 2.2, so that no file changes while you copy it.
+    a. Stop Profinity 2.2 the way it is running, so that no file changes while you copy it. Quit the desktop application. Stop the Windows service named Profinity in the Services app. On Linux with the systemd unit, run `systemctl stop profinity`. For Docker, run `docker compose stop` in the directory that holds the compose file. Stop a macOS service the way you started it.
 
     b. Copy the whole data folder to a backup location.
 
@@ -59,7 +59,7 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder you mounte
 
     === "Docker"
 
-        The 2.2 data folder is the host folder that the compose file mounts into the container.
+        The 2.2 data folder is the host folder that the compose file bind-mounts into the container. It is not a named volume.
         Copy it on the host:
 
         ```bash
@@ -74,7 +74,7 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder you mounte
     On a Windows desktop installation the application window opens.
     On Linux, macOS, and Docker, open `http://localhost:18080` to reach the sign-in page.
     The first start migrates the 2.2 data into the 2.3 [artefacts directory](../Artifacts_Directory.md), and keeps the original of each file it rewrites beside it as `<file>.bak`.
-    Profinity 2.3 reads a profile only from `profile.yaml`, so if a profile uses another file name, rename it as described in [Profile files](../../Release_Notes/Breaking_Changes_2_3.md#profile-files).
+    Profinity 2.3 reads a profile only from `profile.yaml`, so before this first start, rename a profile that uses another file name to `profile.yaml`, as described in [Profile files](../../Release_Notes/Breaking_Changes_2_3.md#profile-files).
     When `PROFINITY_HOME` is set, Profinity skips the move from the 2.2 locations, so copy the 2.2 data into that location yourself. The users, roles, and passwords in it are then converted in place.
 
 3. On **ADMIN > License**, apply the licence file, as described in [Apply a licence](../Applying_a_Licence.md).

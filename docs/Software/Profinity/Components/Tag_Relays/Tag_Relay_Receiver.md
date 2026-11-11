@@ -39,7 +39,7 @@ flowchart LR
 To set up a sender and a receiver together for the first time, refer to [Set up a tag relay](Set_Up_a_Tag_Relay.md).
 
 1. Select **ADD COMPONENT** on the homepage or at the bottom of the sidebar, then choose **Tag Relay Receiver** from the **Tag Relays** category. See [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
-2. Set **Protocol** to the same protocol as the sender, **MQTT** or **HTTPS**.
+2. Set **Protocol** to the same protocol as the sender, **HTTPS** or **MQTT**.
 3. Set a **Receiver tag path prefix** that sits in its own subtree, outside the tag path of any component and of any other receiver's prefix.
 4. Enter the settings for your protocol.
    For MQTT, enter the **MQTT broker URL** and **MQTT subscribe topic** from [MQTT settings](#mqtt-settings).
@@ -59,7 +59,7 @@ The relayed tags appear under the **Receiver tag path prefix**.
 
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
-| **Protocol** | Choice of **MQTT** or **HTTPS** | **MQTT** | With **MQTT**, the receiver subscribes to a topic on a broker and applies each update it receives. With **HTTPS**, the sender posts each update straight to this instance, so every connection starts at the sender. Set it to match the sender's **Protocol**. |
+| **Protocol** | Choice of **HTTPS** or **MQTT** | **HTTPS** | With **HTTPS**, the sender posts each update straight to this instance, so every connection starts at the sender. With **MQTT**, the receiver subscribes to a topic on a broker and applies each update it receives. Set it to match the sender's **Protocol**. |
 | **Receiver tag path prefix** | Text | None | Required. The profile subtree that receives every update from the sender. It sits outside the tag path of every component and the prefix of every other receiver in the profile, and the check ignores case. The sender's **Sender tag path prefix** is added beneath it. Refer to [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md). |
 
 ### MQTT settings
@@ -154,8 +154,8 @@ If no tags appear, check the [**Logs**](../../Administration/Logs_Config.md) fir
 | The receiver shows **On** but receives nothing, and the log shows a broker connection error. | The receiver cannot reach the broker. It retries every 5 seconds. | Check the broker URL, port, credentials, and TLS settings. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | The receiver shows **On** but receives nothing, and the log shows no broker error. | The **MQTT subscribe topic** differs from the sender's **MQTT snapshot topic**. | Set the **MQTT subscribe topic** to match the sender's **MQTT snapshot topic**. |
 | Relayed tags show **Stale**. | The broker dropped the receiver, and the tags keep their last value. | Restore the broker connection. The tags update when the sender's next snapshot arrives. |
-| Over MQTT, the tags stop updating, and the log shows `Tag relay MQTT ingest conflict; batch rejected.` for every snapshot. | A path in the snapshot [collides](../../Tags/Tag_Relay.md#collision-rules) with an existing tag, such as a local tag at the same path, so the receiver rejects the whole snapshot. | Remove the local tag at that path, or change the **Receiver tag path prefix** or the sender's **Sender tag path prefix** so that the relayed tags mount in an empty subtree. |
-| Over HTTPS, the sender receives a 409 response with `A non-relay tag already exists at '<id>'.` or another collision message. | A path in the snapshot collides with an existing tag, so the receiver rejects the whole snapshot. | Remove the local tag at that path, or change one of the prefixes so that the relayed tags mount in an empty subtree. |
+| Over MQTT, the tags stop updating, and the log shows `Tag relay MQTT ingest conflict; batch rejected.` for every snapshot. | A path in the snapshot [collides](../../Tags/Tag_Relay.md#collision-rules) with an existing tag, such as a local tag at the same path, so the receiver rejects the whole snapshot. | Delete the local tag at that path in the [Derived Tags](../../Tags/Derived_Tags/index.md) editor if it is a derived tag, or change the **Receiver tag path prefix** or the sender's **Sender tag path prefix** so that the relayed tags mount in an empty subtree. |
+| Over HTTPS, the sender receives a 409 response with `A non-relay tag already exists at '<id>'.` or another collision message. | A path in the snapshot collides with an existing tag, so the receiver rejects the whole snapshot. | Delete the local tag at that path in the [Derived Tags](../../Tags/Derived_Tags/index.md) editor if it is a derived tag, or change one of the prefixes so that the relayed tags mount in an empty subtree. |
 | Over HTTPS, the sender receives a 409 response with `Multiple active HTTPS Tag Relay Receivers make the receiver prefix ambiguous.` | More than one Tag Relay Receiver set to HTTPS is active on this instance. | Keep a single HTTPS receiver on the instance. |
 | Over HTTPS, the sender receives a 401 or 403 response. | The token is missing or invalid, or its user lacks the **Receive external tags** permission. | Give the sender a service account token with the **Receive external tags** permission, as in [Receiving over HTTPS](#receiving-over-https). |
 | Over HTTPS, the sender receives a 400 response. | The update is malformed, or its body is over 5 MB. | Select fewer tags in the sender's collections, so that each snapshot is 5 MB or smaller. |

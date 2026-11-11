@@ -42,8 +42,8 @@ Refer to [Licensing](../Licensing.md) for the trial and for what each edition in
 
 1. Select **ADMIN** in the side menu, then **License**.
 2. Copy the **Fingerprint** with the copy button beside it.
-3. Send the fingerprint to Prohelion through the usual sales or support channel.
-   The fingerprint identifies this installation and is the only information Prohelion needs to issue a licence.
+3. [Contact Prohelion](https://prohelion.com/contact/) for a licence, and send the fingerprint.
+   The fingerprint identifies this installation. The Prohelion licensing team tells you what else it needs to issue a licence.
 4. When Prohelion returns the `license.yaml` file, return to the **License** page, select **Update license file**, and choose the file.
 5. Restart Profinity, using the restart steps for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, in particular a Server licence.
    Profinity sets the address that the web interface listens on when it starts.
@@ -56,14 +56,14 @@ The machine that runs Profinity does not need internet access.
 ## Apply a licence without the web interface
 
 For Docker, Linux services, the Windows service, and scripted deployments, copy the file into the artefacts directory instead.
-A Windows service with no Server licence has no account that can sign in to the **License** page, so it needs this route.
+A Windows service with no Server licence can reach the **License** page only as a user with the **Security administration** permission, in restricted mode. If no such user can sign in, this route is the only one.
 
 1. Copy `license.yaml` into the `license` folder of the [artefacts directory](./Artifacts_Directory.md), so that the file ends up at `license/license.yaml`.
 2. On Docker, place it in the mounted volume that holds the artefacts directory, so that it survives the container being recreated.
 3. Restart Profinity, using the restart steps for your platform in [Set a variable](./Environment_Variables.md#set-a-variable), if the licence adds features, or if the **License** page still shows the previous state.
 
 The licence must belong to the installation's own fingerprint, in the same way as one uploaded from the page.
-To read the fingerprint, open the **License** page from a browser on the same machine, or refer to [the machine fingerprint](../Licensing.md#the-machine-fingerprint).
+To read the fingerprint, open the **License** page from a browser on the same machine as a user with the **Security administration** permission, and select **Copy fingerprint**. If no user can sign in, read the contents of `license/instance.id` in the artefacts folder instead. No command-line option prints the fingerprint. You can also refer to [the machine fingerprint](../Licensing.md#the-machine-fingerprint).
 
 ## Check that the licence has taken effect
 
