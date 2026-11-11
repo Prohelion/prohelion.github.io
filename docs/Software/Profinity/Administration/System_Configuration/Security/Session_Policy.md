@@ -11,13 +11,13 @@ last_reviewed: 2026-10-28
 The **Session Policy** group on the **Security** tab of **System Configuration** sets how long a sign-in lasts and how Profinity responds to repeated failed sign-ins.
 Each setting applies to every user on the site, except that the idle timeout does not apply to service accounts, and none of them needs a licensed feature. Changing them needs the **System administration** permission.
 
-| Setting | Default | Range | Effect |
-|---------|---------|-------|--------|
-| **Access token lifetime (minutes)** | 120 | 1 to 10080 (one week) | How long a session's access token stays valid, regardless of activity. A session is one sign-in; when its access token ends, the session can refresh it, or the user signs in again. |
-| **Session idle timeout (minutes)** | Empty (no idle timeout) | 1 to 10080 | When set, a session ends once it has been idle for this period, even if its access token is still valid. |
-| **Maximum concurrent sessions** | Empty (no limit) | 1 to 1000 | When set, limits how many active sessions one user can hold. Signing in beyond the limit stops the user's oldest session from refreshing, so it ends when its access token expires. |
-| **Maximum login attempts** | 10 | 1 to 100 | The number of sign-in attempts allowed in one minute before the user is locked out. |
-| **Login lockout duration (minutes)** | 15 | 1 to 1440 | How long a locked-out user must wait before signing in again. |
+| Setting | Type | Default | Range | Effect |
+|---------|------|---------|-------|--------|
+| **Access token lifetime (minutes)** | Time | 120 | 1 to 10080 (one week) | How long a session's access token stays valid, regardless of activity. A session is one sign-in; when its access token ends, the session can refresh it, or the user signs in again. |
+| **Session idle timeout (minutes)** | Time | Empty (no idle timeout) | 1 to 10080 | When set, a session ends once it has been idle for this period, even if its access token is still valid. |
+| **Maximum concurrent sessions** | Whole number | Empty (no limit) | 1 to 1000 | When set, limits how many active sessions one user can hold. Signing in beyond the limit stops the user's oldest session from refreshing, so it ends when its access token expires. |
+| **Maximum login attempts** | Whole number | 10 | 1 to 100 | The number of sign-in attempts allowed in one minute before the user is locked out. |
+| **Login lockout duration (minutes)** | Time | 15 | 1 to 1440 | How long a locked-out user must wait before signing in again. |
 
 When Profinity ends a session because of the concurrent session limit, that session can no longer refresh its sign-in.
 It stops working when its current access token expires.

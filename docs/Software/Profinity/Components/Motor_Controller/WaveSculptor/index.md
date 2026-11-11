@@ -41,11 +41,11 @@ You need a CAN adapter connected to a powered CAN bus. The WaveSculptor takes it
 Profinity requests the settings in the following table when you add the WaveSculptor.
 The **Change Settings** button on the dashboard changes them later.
 
-| Parameter | Description | Default |
-|---|---|---|
-| **Name** | The name of the component. Must be unique. | WaveSculptor22 |
-| **Milliseconds Valid** | The timeout of the device, in milliseconds. Enter -1 for no timeout. | 5000 |
-| **Base Address** | The CAN base address of the WaveSculptor. It must match the address programmed into the controller. | `0x400` |
+| Parameter | Type | Description | Default |
+|---|---|---|---|
+| **Name** | Text | The name of the component. Must be unique. | WaveSculptor22 |
+| **Milliseconds Valid** | Time | The timeout of the device, in milliseconds. Enter -1 for no timeout. | 5000 |
+| **Base Address** | Whole number | The CAN base address of the WaveSculptor. It must match the address programmed into the controller. | `0x400` |
 
 If Profinity receives no traffic from the device within the **Milliseconds Valid** time, it treats the connection as lost.
 Every WaveSculptor on the same CAN bus requires a different base address, as described in [CAN Bus and Low Voltage](../../../../../Motor_Controllers/WaveSculptor22/User_Manual/CAN_Bus_And_Low_Voltage.md).

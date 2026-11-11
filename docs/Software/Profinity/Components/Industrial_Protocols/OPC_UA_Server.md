@@ -39,12 +39,12 @@ You need the **Industrial Protocols** licensed component group and the OPC UA pl
 
 ## Settings
 
-| Setting | Default | Description |
-|---|---|---|
-| **Name** | `OPC UA Server` | The name of the component. Must be unique within the profile. |
-| **Bind URL** | `opc.tcp://127.0.0.1:4840/Profinity` | The endpoint address that the server listens on, and the address clients connect to. Required, and must start with `opc.tcp://`. The default accepts clients on this computer only. |
-| **Auto Connect** | Off | Starts the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
-| **Trust all client certificates** | Off | When on, any client certificate is accepted. When off, certificates that are not in `trusted` are refused and stored in `rejected`. Turn it on only on a trusted network. |
+| Setting | Type | Default | Description |
+|---|---|---|---|
+| **Name** | Text | `OPC UA Server` | The name of the component. Must be unique within the profile. |
+| **Bind URL** | Text | `opc.tcp://127.0.0.1:4840/Profinity` | The endpoint address that the server listens on, and the address clients connect to. Required, and must start with `opc.tcp://`. The default accepts clients on this computer only. |
+| **Auto Connect** | On or off | Off | Starts the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Trust all client certificates** | On or off | Off | When on, any client certificate is accepted. When off, certificates that are not in `trusted` are refused and stored in `rejected`. Turn it on only on a trusted network. |
 
 For where the server keeps its certificates and how to trust one explicitly, refer to [OPC UA certificates](OPC_UA_Certificates.md).
 

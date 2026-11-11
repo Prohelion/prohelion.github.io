@@ -70,18 +70,18 @@ For the action object, refer to [Action context](../Script_Operations/Action.md)
 Each script component has the following settings.
 The schedule, receive, and tag change settings appear only for the mode that uses them.
 
-| Setting | Default | Applies to | Meaning |
-|---------|---------|------------|---------|
-| **Script Mode** | Run On Demand | All | The mode the script runs in |
-| **Auto Start Script** | Off | All | Starts the script automatically when the component loads: it starts a service, receiver, or watcher, runs an On Demand script once, and arms a scheduled script. Off by default |
-| **Log Script Output** | Off | All | Writes the script's console output to the script log. Off by default |
-| **Trigger Overlap** | Drop | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
-| **Queue Depth** | 8 | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
-| **Time Interval** and **Time Interval Unit** | Empty, and Seconds | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
-| **Cron Schedule** | Empty | Run On CRON Schedule | The cron expression that decides when the script runs, as described in [Run scripts](./Run_Scripts.md) |
-| **Maximum Run Time (seconds)** | Empty (no limit) | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
-| **Base Address**, **Address Range** and **Milliseconds Valid** | 0, 0 and 5000 | Run On Receipt of CAN Message | The CAN addresses the script receives, as unsigned 32-bit numbers in hexadecimal, and how long traffic from the device counts as valid |
-| **Tag Paths** and **Collections** | Empty | Run On Tag Change | The tags and tag collections that trigger the script |
+| Setting | Type | Default | Applies to | Meaning |
+|---------|------|---------|------------|---------|
+| **Script Mode** | Choice | Run On Demand | All | The mode the script runs in |
+| **Auto Start Script** | On or off | Off | All | Starts the script automatically when the component loads: it starts a service, receiver, or watcher, runs an On Demand script once, and arms a scheduled script. Off by default |
+| **Log Script Output** | On or off | Off | All | Writes the script's console output to the script log. Off by default |
+| **Trigger Overlap** | Choice | Drop | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
+| **Queue Depth** | Whole number | 8 | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
+| **Time Interval** and **Time Interval Unit** | Time and Choice | Empty, and Seconds | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
+| **Cron Schedule** | Text | Empty | Run On CRON Schedule | The cron expression that decides when the script runs, as described in [Run scripts](./Run_Scripts.md) |
+| **Maximum Run Time (seconds)** | Time (seconds) | Empty (no limit) | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
+| **Base Address**, **Address Range** and **Milliseconds Valid** | Whole number and Time (ms) | 0, 0 and 5000 | Run On Receipt of CAN Message | The CAN addresses the script receives, as unsigned 32-bit numbers in hexadecimal, and how long traffic from the device counts as valid |
+| **Tag Paths** and **Collections** | Text | Empty | Run On Tag Change | The tags and tag collections that trigger the script |
 
 **Milliseconds Valid** defaults to 5000 and accepts -1 to 60000.
 A value of -1 means traffic never expires.

@@ -56,14 +56,14 @@ The data arrives in the form shown in [Payload formats](#payload-formats).
 
 ### Connection settings
 
-| Setting | Required | Default | Purpose |
-|---|---|---|---|
-| **Server URL** | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com:1883`. Use `mqtt` for a plain connection and `mqtts` for a connection that uses Transport Layer Security (TLS). |
-| **Trust all server certificates** | No | Off | Disables Transport Layer Security (TLS) server certificate validation for this connection. Enable only when connecting to a trusted broker using a self-signed certificate. |
-| **Username** / **Password** | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
-| **Device ID** | Yes | None | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge Node ID** when that field is empty. |
-| **Payload** | No | **JSON** | **JSON** or **Sparkplug B**, an MQTT payload format for industrial data. Defaults to **JSON**. Refer to [Payload formats](#payload-formats). |
-| **Destination Topic** | Yes, for JSON | None | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
+| Setting | Type | Required | Default | Purpose |
+|---|---|---|---|---|
+| **Server URL** | Text | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com:1883`. Use `mqtt` for a plain connection and `mqtts` for a connection that uses Transport Layer Security (TLS). |
+| **Trust all server certificates** | On or off | No | Off | Disables Transport Layer Security (TLS) server certificate validation for this connection. Enable only when connecting to a trusted broker using a self-signed certificate. |
+| **Username** / **Password** | Text and Secret | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
+| **Device ID** | Text | Yes | None | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge Node ID** when that field is empty. |
+| **Payload** | Choice | No | **JSON** | **JSON** or **Sparkplug B**, an MQTT payload format for industrial data. Defaults to **JSON**. Refer to [Payload formats](#payload-formats). |
+| **Destination Topic** | Text | Yes, for JSON | None | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
 
 The URL sets the connection:
 
@@ -74,19 +74,19 @@ The URL sets the connection:
 
 These settings are shown only when **Payload** is **Sparkplug B**:
 
-| Setting | Required | Default | Purpose |
-|---|---|---|---|
-| **Group ID** | Yes | None | The Sparkplug group ID used in the topic path. A save without it fails with "You must provide a Sparkplug Group ID." |
-| **Edge Node ID** | No | Empty | The Sparkplug edge node ID. Defaults to **Device ID** when left empty. |
+| Setting | Type | Required | Default | Purpose |
+|---|---|---|---|---|
+| **Group ID** | Text | Yes | None | The Sparkplug group ID used in the topic path. A save without it fails with "You must provide a Sparkplug Group ID." |
+| **Edge Node ID** | Text | No | Empty | The Sparkplug edge node ID. Defaults to **Device ID** when left empty. |
 
 ### Publishing settings
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
-| **Auto Connect** | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Logging mode** | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
-| **Update Interval (Seconds)** | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Collections** | Choice | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
+| **Auto Connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Logging mode** | Choice | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
+| **Update Interval (Seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 
 ## Payload formats
 

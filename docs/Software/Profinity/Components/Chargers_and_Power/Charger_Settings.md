@@ -25,25 +25,25 @@ Set all five limits to match the actual charger and the wall circuit before char
 
 The TDK and Siglent supplies are reached over the network and share these communication settings.
 
-| Setting | Default | Notes |
-|---|---|---|
-| **Charger IP Address** | `127.0.0.1` | Address of the supply on the network. |
-| **Charger Port** | 5025 | TCP port the supply listens on, between 1 and 65535. |
-| **Comms Timeout** | 5000 | Time in milliseconds Profinity waits for the supply to answer. |
-| **Auto Connect** | Off | Connects to the supply when the Profile loads. Use the **Connect / Disconnect** toggle in the component's menu to connect it otherwise. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Auto Reconnect** | On | Keeps trying to connect in the background when the supply is off at start. With it off, Profinity makes one connection attempt and reports a failure. |
-| **Reconnect Interval** | 5000 | Time in milliseconds between connection attempts, between 500 and 600000. Shown only when **Auto Reconnect** is on. |
-| **Charger ID** | 0 | TDK only. The ID the TDK supply is set to. |
-| **Channel ID** | 1 | Siglent only. The channel in use on a multi-channel supply. |
+| Setting | Type | Default | Notes |
+|---|----|---|---|
+| **Charger IP Address** | Text | `127.0.0.1` | Address of the supply on the network. |
+| **Charger Port** | Whole number | 5025 | TCP port the supply listens on, between 1 and 65535. |
+| **Comms Timeout** | Time | 5000 | Time in milliseconds Profinity waits for the supply to answer. |
+| **Auto Connect** | On or off | Off | Connects to the supply when the Profile loads. Use the **Connect / Disconnect** toggle in the component's menu to connect it otherwise. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Auto Reconnect** | On or off | On | Keeps trying to connect in the background when the supply is off at start. With it off, Profinity makes one connection attempt and reports a failure. |
+| **Reconnect Interval** | Time | 5000 | Time in milliseconds between connection attempts, between 500 and 600000. Shown only when **Auto Reconnect** is on. |
+| **Charger ID** | Whole number | 0 | TDK only. The ID the TDK supply is set to. |
+| **Channel ID** | Whole number | 1 | Siglent only. The channel in use on a multi-channel supply. |
 
 The Elcon charger has no connection step, because it communicates over CAN.
 It asks for the settings in the following table instead.
 
-| Setting | Default | Notes |
-|---|---|---|
-| **Elcon Command CAN Bus Id** | `0x1806E5F4` | CAN address Profinity sends commands to. |
-| **Elcon Status CAN Bus Id** | `0x18FF50E5` | CAN address Profinity receives status messages from. |
-| **Milliseconds Valid** | 5000 | Time in milliseconds the CAN traffic from the charger stays valid before Profinity treats the connection as lost, between 1 and 60000. |
+| Setting | Type | Default | Notes |
+|---|----|---|---|
+| **Elcon Command CAN Bus Id** | Whole number | `0x1806E5F4` | CAN address Profinity sends commands to. |
+| **Elcon Status CAN Bus Id** | Whole number | `0x18FF50E5` | CAN address Profinity receives status messages from. |
+| **Milliseconds Valid** | Time | 5000 | Time in milliseconds the CAN traffic from the charger stays valid before Profinity treats the connection as lost, between 1 and 60000. |
 
 ## Current and voltage limits
 

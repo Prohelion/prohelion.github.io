@@ -53,14 +53,14 @@ The full rule is in the **Remote web access needs a Server licence** note under 
 These options apply to both the **Web** and [Extensions Web](Extensions_Web.md) tabs.
 Each server has its own copy of them.
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| **Windows Cert Store** | Empty | Selects a certificate from the Windows Certificate Store for HTTPS on Windows. Enter the store name that Windows uses, for example **My**, which is the Personal store. Then set **Windows Cert Store Location** and **Windows Cert Store Subject** to identify the certificate. Use it when the certificate is installed in the system's certificate store. |
-| **Windows Cert Store Location** | None | The location of the certificate store. The location is `CurrentUser` for user-specific certificates or `LocalMachine` for system-wide certificates. |
-| **Windows Cert Store Subject** | Empty | The subject name of the certificate as it appears in the Windows Certificate Store. It must match the certificate's subject name exactly. |
-| **Cert File** | Empty | An alternative to the Windows Certificate Store: a certificate file, normally in `.pfx` or `.p12` format, for HTTPS. |
-| **Cert File Password** | Empty | When a certificate file is used, the password used to protect the certificate file. |
-| **Cert Key File** | Empty | The private key file (`.pem` or `.key`) when the certificate is in Privacy-Enhanced Mail (PEM) format. It is optional. When it is empty, Profinity looks for a file named `privkey.pem` in the same folder as the certificate. |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| **Windows Cert Store** | Text | Empty | Selects a certificate from the Windows Certificate Store for HTTPS on Windows. Enter the store name that Windows uses, for example **My**, which is the Personal store. Then set **Windows Cert Store Location** and **Windows Cert Store Subject** to identify the certificate. Use it when the certificate is installed in the system's certificate store. |
+| **Windows Cert Store Location** | Choice | None | The location of the certificate store. The location is `CurrentUser` for user-specific certificates or `LocalMachine` for system-wide certificates. |
+| **Windows Cert Store Subject** | Text | Empty | The subject name of the certificate as it appears in the Windows Certificate Store. It must match the certificate's subject name exactly. |
+| **Cert File** | File upload | Empty | An alternative to the Windows Certificate Store: a certificate file, normally in `.pfx` or `.p12` format, for HTTPS. |
+| **Cert File Password** | Secret | Empty | When a certificate file is used, the password used to protect the certificate file. |
+| **Cert Key File** | File upload | Empty | The private key file (`.pem` or `.key`) when the certificate is in Privacy-Enhanced Mail (PEM) format. It is optional. When it is empty, Profinity looks for a file named `privkey.pem` in the same folder as the certificate. |
 
 When **Windows Cert Store** and **Cert File** are empty, Profinity creates its own certificate the first time HTTPS starts.
 The file is `profinity_generated.pfx` in the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and it has no password.

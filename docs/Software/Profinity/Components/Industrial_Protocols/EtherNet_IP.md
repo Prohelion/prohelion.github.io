@@ -49,16 +49,16 @@ The component does not browse the PLC's CIP objects to discover tags for you. On
 
 ## Communications settings
 
-| Setting | Default | Description |
-|---|---|---|
-| **Name** | `EtherNet/IP PLC` | The name of the component. Must be unique within the profile. |
-| **Gateway** | `127.0.0.1` | The IP address of the PLC, or of the gateway module that the PLC sits behind. Required. |
-| **CIP path** | `1,0` | The route to the PLC's central processing unit (CPU), as comma-separated values. |
-| **PLC kind** | `ControlLogix` | The family of PLC: `ControlLogix`, `CompactLogix`, `Micro800`, `PLC-5` or `SLC`. |
-| **Poll interval (ms)** | `1000` | How often the point map is read, in milliseconds. Between `50` and `600000`. |
-| **Request timeout (ms)** | `1000` | How long Profinity waits for the PLC to answer a request, in milliseconds. Between `50` and `60000`. |
-| **Reconnect delay (ms)** | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
-| **Auto Connect** | Off | Connects to the PLC automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| Setting | Type | Default | Description |
+|---|---|---|---|
+| **Name** | Text | `EtherNet/IP PLC` | The name of the component. Must be unique within the profile. |
+| **Gateway** | Text | `127.0.0.1` | The IP address of the PLC, or of the gateway module that the PLC sits behind. Required. |
+| **CIP path** | Text | `1,0` | The route to the PLC's central processing unit (CPU), as comma-separated values. |
+| **PLC kind** | Choice | `ControlLogix` | The family of PLC: `ControlLogix`, `CompactLogix`, `Micro800`, `PLC-5` or `SLC`. |
+| **Poll interval (ms)** | Time | `1000` | How often the point map is read, in milliseconds. Between `50` and `600000`. |
+| **Request timeout (ms)** | Time | `1000` | How long Profinity waits for the PLC to answer a request, in milliseconds. Between `50` and `60000`. |
+| **Reconnect delay (ms)** | Time | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
+| **Auto Connect** | On or off | Off | Connects to the PLC automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 Profinity sends the **CIP path** to the PLC as you enter it:
 

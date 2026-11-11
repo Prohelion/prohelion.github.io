@@ -13,11 +13,11 @@ The Logging tab of [System Configuration](index.md) holds the log level, the log
 Saving changes on any System Configuration tab restarts Profinity.
 Refer to [System Configuration](index.md) for what to expect.
 
-| Option | Default | Range | Description |
-| ------ | ------- | ----- | ----------- |
-| `Log Level` | `Info` | `Trace`, `Debug`, `Info`, `Warn`, `Error`, `Fatal` | Only messages at this level or higher are recorded in the log files. |
-| `Log Rollover Size (MB)` | 1 | 1 to 4096 | The size a log file reaches before a new file is started. |
-| `Retained Logs` | 10 | 1 to 1000000 | The number of log files kept, after which the oldest are deleted. |
+| Option | Type | Default | Range | Description |
+| ------ | ------ | ------- | ----- | ----------- |
+| `Log Level` | Choice | `Info` | `Trace`, `Debug`, `Info`, `Warn`, `Error`, `Fatal` | Only messages at this level or higher are recorded in the log files. |
+| `Log Rollover Size (MB)` | Whole number | 1 | 1 to 4096 | The size a log file reaches before a new file is started. |
+| `Retained Logs` | Whole number | 10 | 1 to 1000000 | The number of log files kept, after which the oldest are deleted. |
 
 The default rollover size of 1 MB fills quickly on a busy instance, so raise **Log Rollover Size (MB)** when a lower log level is used for diagnosis.
 

@@ -19,19 +19,19 @@ Prohelion supplies this file with the Profinity Mobile source code and the brand
 The partner then builds signed iOS and Android binaries.
 The file holds these fields:
 
-| Field | Default | Description |
-|-------|---------|-------------|
-| `appName` | `Profinity` | Display name on the splash screen and in the app stores |
-| `companyName` | `Prohelion Pty Ltd` | Subtitle on the splash screen |
-| `primaryColor` | `#1976d2` | Action colour for buttons and badges |
-| `navBackground` | `#232c3a` | Navigation and toolbar background colour |
-| `secondaryColor` | `#6b7482` | Muted text colour |
-| `brandRed` | `#e50019` | Accent colour of the Profinity logo |
-| `splashLogo`, `landingLogo` and `appIcon` | `assets/images/profinity-logo.svg`, `assets/images/landing-profinity.svg` and `assets/images/apple-touch-icon.png` | Paths to the splash logo, the landing page logo and the app icon source artwork |
-| `development.androidEmulatorHostConnect` | `false` | Set to `true` only for development builds that connect an Android emulator to a Profinity server on the host machine |
-| `discovery.profinityHeartbeatPort` | `49025` | Must match the **Heartbeat UDP port** on the Profinity server (default 49025) |
-| `discovery.profinityHeartbeatVersion` | `2.3` | The major.minor product version (for example `2.3`) that a server must report in its heartbeat. The app hides any server that reports a different version |
-| `discovery.staleTimeoutMs` | `10000` | Time in milliseconds after which a server that has not been seen is removed from the discovery list |
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `appName` | Text | `Profinity` | Display name on the splash screen and in the app stores |
+| `companyName` | Text | `Prohelion Pty Ltd` | Subtitle on the splash screen |
+| `primaryColor` | Text | `#1976d2` | Action colour for buttons and badges |
+| `navBackground` | Text | `#232c3a` | Navigation and toolbar background colour |
+| `secondaryColor` | Text | `#6b7482` | Muted text colour |
+| `brandRed` | Text | `#e50019` | Accent colour of the Profinity logo |
+| `splashLogo`, `landingLogo` and `appIcon` | File upload | `assets/images/profinity-logo.svg`, `assets/images/landing-profinity.svg` and `assets/images/apple-touch-icon.png` | Paths to the splash logo, the landing page logo and the app icon source artwork |
+| `development.androidEmulatorHostConnect` | On or off | `false` | Set to `true` only for development builds that connect an Android emulator to a Profinity server on the host machine |
+| `discovery.profinityHeartbeatPort` | Whole number | `49025` | Must match the **Heartbeat UDP port** on the Profinity server (default 49025) |
+| `discovery.profinityHeartbeatVersion` | Text | `2.3` | The major.minor product version (for example `2.3`) that a server must report in its heartbeat. The app hides any server that reports a different version |
+| `discovery.staleTimeoutMs` | Time (ms) | `10000` | Time in milliseconds after which a server that has not been seen is removed from the discovery list |
 
 The iOS bundle identifier is set in Xcode under the **ProfinityMobile** target, in **Signing**. The Android application identifier is `defaultConfig.applicationId` in `android/app/build.gradle`.
 

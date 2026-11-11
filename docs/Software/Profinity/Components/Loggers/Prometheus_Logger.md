@@ -40,15 +40,15 @@ Adding a **Prometheus Logger** to Profinity is all that Prometheus logging needs
 The **Collections** setting selects one or more [tag collections](../../Tags/Collections/index.md) that are served (display names in the picker, id stored), and you must select at least one before the component starts.
 You can also set the following connection values.
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Collections** | None | The tag collections that are served. Select at least one before the logger starts. |
-| **Data endpoint URL** | `metrics/` | The URL path, within the hostname and port, that the Prometheus data is served on. |
-| **Server Hostname** | `localhost` | The host name or IP address that the Prometheus endpoint answers to. Refer to [Let another computer read the data](#let-another-computer-read-the-data). |
-| **Server Port** | 7065 | The port that the endpoint runs on, from 1 to 65535. |
-| **Dashboard URL** | Blank | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
-| **Update Interval (Seconds)** | 10 | The seconds between samples, from 1 to 86400. |
-| **Auto Connect** | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Collections** | Choice | None | The tag collections that are served. Select at least one before the logger starts. |
+| **Data endpoint URL** | Text | `metrics/` | The URL path, within the hostname and port, that the Prometheus data is served on. |
+| **Server Hostname** | Text | `localhost` | The host name or IP address that the Prometheus endpoint answers to. Refer to [Let another computer read the data](#let-another-computer-read-the-data). |
+| **Server Port** | Whole number | 7065 | The port that the endpoint runs on, from 1 to 65535. |
+| **Dashboard URL** | Text | Blank | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
+| **Update Interval (Seconds)** | Time | 10 | The seconds between samples, from 1 to 86400. |
+| **Auto Connect** | On or off | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 A tag that is not Good quality is reported as NaN.
 

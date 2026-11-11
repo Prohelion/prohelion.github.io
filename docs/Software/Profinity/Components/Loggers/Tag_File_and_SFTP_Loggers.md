@@ -53,12 +53,12 @@ Every sample is written with its quality.
 A Stale tag keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value.
 A logger shows **Off** and needs a collection before it can start, so create and select a collection first.
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Collections** | Empty | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
-| **Update Interval (Seconds)** | 10 | The seconds between writes. The value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
-| **Logging mode** | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **File Format** | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Collections** | Choice | Empty | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
+| **Update Interval (Seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Logging mode** | Choice | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
+| **File Format** | Choice | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
 
 ### File formats {#file-formats}
 

@@ -52,14 +52,14 @@ The installer can also be piped straight into the shell with `curl -fsSL https:/
 
 ### Installer options
 
-| Option | Default | Effect |
-|--------|---------|--------|
-| `--install-dir <path>` | `/opt/profinity` | Install into a different location than `/opt/profinity` |
-| `--version <x.y.z>` | The latest release | Install a specific GitHub release, given as `x.y.z` or `vx.y.z`, instead of the latest. Ignored with `--channel`. |
-| `--channel <name>` | GitHub releases | Download from a Prohelion file server channel instead of GitHub. Prohelion supplies the channel name and the installer address |
-| `--package <archive>` | None | Install from a local `.tar.gz` or `.zip` in place of a download, for hosts without internet access. The checksum step is skipped for a local package |
-| `--no-systemd` | Off | File-only install: skip the service user, artefacts directory, and systemd unit |
-| `--dry-run` | Off | Print the planned actions without changing the system |
+| Option | Type | Default | Effect |
+|--------|------|---------|--------|
+| `--install-dir <path>` | Text | `/opt/profinity` | Install into a different location than `/opt/profinity` |
+| `--version <x.y.z>` | Text | The latest release | Install a specific GitHub release, given as `x.y.z` or `vx.y.z`, instead of the latest. Ignored with `--channel`. |
+| `--channel <name>` | Text | GitHub releases | Download from a Prohelion file server channel instead of GitHub. Prohelion supplies the channel name and the installer address |
+| `--package <archive>` | File upload | None | Install from a local `.tar.gz` or `.zip` in place of a download, for hosts without internet access. The checksum step is skipped for a local package |
+| `--no-systemd` | On or off | Off | File-only install: skip the service user, artefacts directory, and systemd unit |
+| `--dry-run` | On or off | Off | Print the planned actions without changing the system |
 
 For a channel, download the installer from the address Prohelion supplies, then run it with the channel name:
 

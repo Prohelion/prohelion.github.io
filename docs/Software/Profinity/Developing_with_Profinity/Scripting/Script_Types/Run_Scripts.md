@@ -26,12 +26,12 @@ A Run script has three modes, chosen with **Script Mode**.
 
 The scheduled modes use these settings.
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| **Time Interval** | None | The interval between runs in **Run On Time Interval** mode, for example every 5 minutes or every hour. |
-| **Time Interval Unit** | Seconds | The unit of the interval: Seconds, Minutes, Hours, or Days. |
-| **Cron Schedule** | None | A Quartz cron expression for **Run On CRON Schedule** mode. |
-| **Auto Start Script** | Off | When on, a scheduled script starts by itself. Otherwise it is started with **Start Scheduled Script** and stopped with **Stop Scheduled Script**. |
+| Setting | Type | Default | Description |
+|---------|---|---------|-------------|
+| **Time Interval** | Time | None | The interval between runs in **Run On Time Interval** mode, for example every 5 minutes or every hour. |
+| **Time Interval Unit** | Choice | Seconds | The unit of the interval: Seconds, Minutes, Hours, or Days. |
+| **Cron Schedule** | Text | None | A Quartz cron expression for **Run On CRON Schedule** mode. |
+| **Auto Start Script** | On or off | Off | When on, a scheduled script starts by itself. Otherwise it is started with **Start Scheduled Script** and stopped with **Stop Scheduled Script**. |
 
 A Quartz expression has six or seven fields that start with seconds, which differs from a standard five-field cron expression, so `0 0 6 ? * MON-FRI` runs the script at 06:00 on every weekday.
 

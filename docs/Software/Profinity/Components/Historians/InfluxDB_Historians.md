@@ -54,26 +54,26 @@ For the **InfluxDB v3 Historian**, enter **InfluxDB Database** in place of **Inf
 
 The first three settings identify where the data is stored, and differ between the two historians.
 
-| Setting | Applies to | Default | Purpose |
-|---|---|---|---|
-| **InfluxDB Bucket** | InfluxDB v2 Historian | None | The InfluxDB bucket that the data is stored in. Required. |
-| **InfluxDB Organisation** | InfluxDB v2 Historian | None | The InfluxDB organisation that owns the bucket. Required. |
-| **InfluxDB Database** | InfluxDB v3 Historian | None | The InfluxDB v3 database that the data is stored in. Required. |
+| Setting | Type | Applies to | Default | Purpose |
+|---|---|---|---|---|
+| **InfluxDB Bucket** | Text | InfluxDB v2 Historian | None | The InfluxDB bucket that the data is stored in. Required. |
+| **InfluxDB Organisation** | Text | InfluxDB v2 Historian | None | The InfluxDB organisation that owns the bucket. Required. |
+| **InfluxDB Database** | Text | InfluxDB v3 Historian | None | The InfluxDB v3 database that the data is stored in. Required. |
 
 The remaining settings are the same on both historians.
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **InfluxDB Token** | None | The security token of the InfluxDB user that Profinity connects as. Required, and stored encrypted. |
-| **Influx Server URL** | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
-| **Dashboard URL** | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
-| **InfluxDB Health Check** | On | Checks the health of the InfluxDB server when the component connects and about every 30 seconds while it runs. Turn it off for InfluxDB Cloud, which does not support the check. |
-| **Collections** | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
-| **Update Interval (Seconds)** | 10 | How often data is sent, from 1 to 86400 seconds. |
-| **Logging mode** | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
-| **Auto Connect** | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Allow Retrieval** | On | Allows data to be retrieved through this historian using the APIs. |
-| **Designated tag historian reader** | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only, and only while **Allow Retrieval** is on. Refer to [Designated historian](Designated_Historian.md). |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **InfluxDB Token** | Secret | None | The security token of the InfluxDB user that Profinity connects as. Required, and stored encrypted. |
+| **Influx Server URL** | Text | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
+| **Dashboard URL** | Text | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
+| **InfluxDB Health Check** | On or off | On | Checks the health of the InfluxDB server when the component connects and about every 30 seconds while it runs. Turn it off for InfluxDB Cloud, which does not support the check. |
+| **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
+| **Update Interval (Seconds)** | Time | 10 | How often data is sent, from 1 to 86400 seconds. |
+| **Logging mode** | Choice | `Snapshot` | Sets what is sent on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
+| **Auto Connect** | On or off | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Allow Retrieval** | On or off | On | Allows data to be retrieved through this historian using the APIs. |
+| **Designated tag historian reader** | On or off | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only, and only while **Allow Retrieval** is on. Refer to [Designated historian](Designated_Historian.md). |
 
 ## Example
 

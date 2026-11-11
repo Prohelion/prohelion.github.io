@@ -49,22 +49,22 @@ You need a Modbus TCP slave that this computer can reach over the network, and i
 
 Which settings apply depends on the **Connection Mode**.
 
-| Setting | Default | Applies to | Description |
-|---|---|---|---|
-| **Name** | `Modbus Device` | Both | The name of the component. Must be unique within the profile. |
-| **Connection Mode** | `Tcp` | Both | `Tcp` or `Rtu`, shown as TCP or RTU in the UI. |
-| **Host** | `127.0.0.1` | TCP | The IP address of the slave. Required. |
-| **Port** | `502` | TCP | The TCP port. Between `1` and `65535`. |
-| **Serial Port** | Empty | RTU | The serial port the slave is connected to. Required for RTU. |
-| **Baud Rate** | `9600` | RTU | The serial baud rate. |
-| **Parity** | `None` | RTU | The serial parity. |
-| **Data Bits** | `8` | RTU | `7` or `8`. |
-| **Stop Bits** | `One` | RTU | The number of stop bits. |
-| **Unit ID** | `1` | Both | The Modbus unit (slave) address. Between `0` and `255`. |
-| **Poll interval (ms)** | `1000` | Both | How often the point map is read, in milliseconds. Between `50` and `600000`. |
-| **Request timeout (ms)** | `1000` | Both | How long Profinity waits for the slave to answer a request, in milliseconds. Between `50` and `60000`. |
-| **Reconnect delay (ms)** | `2000` | Both | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
-| **Auto Connect** | Off | Both | Connects automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| Setting | Type | Default | Applies to | Description |
+|---|---|---|---|---|
+| **Name** | Text | `Modbus Device` | Both | The name of the component. Must be unique within the profile. |
+| **Connection Mode** | Choice | `Tcp` | Both | `Tcp` or `Rtu`, shown as TCP or RTU in the UI. |
+| **Host** | Text | `127.0.0.1` | TCP | The IP address of the slave. Required. |
+| **Port** | Whole number | `502` | TCP | The TCP port. Between `1` and `65535`. |
+| **Serial Port** | Text | Empty | RTU | The serial port the slave is connected to. Required for RTU. |
+| **Baud Rate** | Whole number | `9600` | RTU | The serial baud rate. |
+| **Parity** | Choice | `None` | RTU | The serial parity. |
+| **Data Bits** | Whole number | `8` | RTU | `7` or `8`. |
+| **Stop Bits** | Choice | `One` | RTU | The number of stop bits. |
+| **Unit ID** | Whole number | `1` | Both | The Modbus unit (slave) address. Between `0` and `255`. |
+| **Poll interval (ms)** | Time | `1000` | Both | How often the point map is read, in milliseconds. Between `50` and `600000`. |
+| **Request timeout (ms)** | Time | `1000` | Both | How long Profinity waits for the slave to answer a request, in milliseconds. Between `50` and `60000`. |
+| **Reconnect delay (ms)** | Time | `2000` | Both | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
+| **Auto Connect** | On or off | Off | Both | Connects automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 With **Auto Connect** on, profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
 

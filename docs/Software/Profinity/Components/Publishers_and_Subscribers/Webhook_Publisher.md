@@ -46,19 +46,19 @@ To check that it works, look for the POST at your receiver.
 
 ### Connection settings
 
-| Setting | Default | Required | Purpose |
-|---|---|---|---|
-| **Destination URL** | Empty | Yes | The HTTP or HTTPS address the publisher POSTs to on each publish. It is stored encrypted and masked on screen, because webhook URLs often embed an access token. A save without it fails with "You must provide a webhook destination URL." |
-| **Authentication** | **None** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. Refer to [Authentication](#authentication). |
+| Setting | Type | Default | Required | Purpose |
+|---|---|---|---|---|
+| **Destination URL** | Secret | Empty | Yes | The HTTP or HTTPS address the publisher POSTs to on each publish. It is stored encrypted and masked on screen, because webhook URLs often embed an access token. A save without it fails with "You must provide a webhook destination URL." |
+| **Authentication** | Choice | **None** | No | **None**, **Bearer token**, **API key header** or **Basic auth**. Defaults to **None**. Refer to [Authentication](#authentication). |
 
 ### Publishing settings {#logger-settings}
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Collections** | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
-| **Logging mode** | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
-| **Update Interval (Seconds)** | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
-| **Auto Connect** | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Collections** | Choice | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
+| **Logging mode** | Choice | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
+| **Update Interval (Seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Auto Connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 ## Authentication
 

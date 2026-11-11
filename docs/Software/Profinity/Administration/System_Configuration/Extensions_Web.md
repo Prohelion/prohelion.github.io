@@ -29,8 +29,8 @@ The HTTP, HTTPS, and certificate options are the same as on the **Web** tab, des
 The default ports differ: 19080 for HTTP and 19443 for HTTPS, so that they do not collide with the main Profinity Web ports.
 The tab has these additional options:
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-|`Enable Profinity Web Server` | Off | Starts the second web server, so that extensions can be served on their own ports. |
-|`Enable Profinity API` | Off | Makes the Profinity API available through the second web server. |
-|`Enable Swagger on API` | Off | Shows the [Swagger UI](https://swagger.io/tools/swagger-ui/), an interactive API page on your Profinity instance. It can be enabled only when the Profinity API is enabled. |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+|`Enable Profinity Web Server` | On or off | Off | Starts the second web server, so that extensions can be served on their own ports. |
+|`Enable Profinity API` | On or off | Off | Makes the Profinity API available through the second web server. |
+|`Enable Swagger on API` | On or off | Off | Shows the [Swagger UI](https://swagger.io/tools/swagger-ui/), an interactive API page on your Profinity instance. It can be enabled only when the Profinity API is enabled. |

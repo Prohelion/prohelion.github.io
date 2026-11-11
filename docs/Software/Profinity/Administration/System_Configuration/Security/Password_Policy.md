@@ -24,14 +24,14 @@ You need the **System administration** permission to set the policy.
 Saving the tab restarts Profinity and interrupts active sessions.
 
 
-| Setting | Default | Range | Description |
-|---------|---------|-------|-------------|
-| **Minimum password length** | 8 | 1 to 256 | The minimum number of characters in a local user's password. |
-| **Require uppercase letter** | Off | On or off | The password must contain at least one uppercase letter. |
-| **Require lowercase letter** | Off | On or off | The password must contain at least one lowercase letter. |
-| **Require digit** | Off | On or off | The password must contain at least one digit. |
-| **Require special character** | Off | On or off | The password must contain at least one special character. |
-| **Maximum password age (days)** | Empty (no expiry) | 1 to 3650 | When set, local users must change their password after this many days. |
+| Setting | Type | Default | Range | Description |
+|---------|------|---------|-------|-------------|
+| **Minimum password length** | Whole number | 8 | 1 to 256 | The minimum number of characters in a local user's password. |
+| **Require uppercase letter** | On or off | Off | On or off | The password must contain at least one uppercase letter. |
+| **Require lowercase letter** | On or off | Off | On or off | The password must contain at least one lowercase letter. |
+| **Require digit** | On or off | Off | On or off | The password must contain at least one digit. |
+| **Require special character** | On or off | Off | On or off | The password must contain at least one special character. |
+| **Maximum password age (days)** | Time | Empty (no expiry) | 1 to 3650 | When set, local users must change their password after this many days. |
 
 The shipped policy accepts any password of eight characters or more, with no complexity rules and no expiry.
 A site that handles safety-critical equipment raises the minimum length and switches on the complexity rules.

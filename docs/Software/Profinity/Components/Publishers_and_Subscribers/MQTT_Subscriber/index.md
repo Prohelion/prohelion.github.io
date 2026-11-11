@@ -49,27 +49,27 @@ The tags then appear under the **Tag path prefix**, at the paths described in [W
 
 ### Connection settings
 
-| Setting | Required | Default | Purpose |
-|---|---|---|---|
-| **Server URL** | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com` or `mqtts://broker.example.com`. Use `mqtts://` to enable Transport Layer Security (TLS). |
-| **Broker port** | No | `1883` | The broker's port, from 1 to 65535. Defaults to `1883`. A port in the **Server URL** takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`, and any other value is used as entered. |
-| **Auto Connect** | No | On | Connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). |
-| **Trust all server certificates** | No | Off | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
-| **Username** / **Password** | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
-| **Client ID** | No | Empty | The MQTT client ID. Leave blank to generate one. |
+| Setting | Type | Required | Default | Purpose |
+|---|---|---|---|---|
+| **Server URL** | Text | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com` or `mqtts://broker.example.com`. Use `mqtts://` to enable Transport Layer Security (TLS). |
+| **Broker port** | Whole number | No | `1883` | The broker's port, from 1 to 65535. Defaults to `1883`. A port in the **Server URL** takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`, and any other value is used as entered. |
+| **Auto Connect** | On or off | No | On | Connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). |
+| **Trust all server certificates** | On or off | No | Off | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
+| **Username** / **Password** | Text and Secret | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
+| **Client ID** | Text | No | Empty | The MQTT client ID. Leave blank to generate one. |
 
 ### Sparkplug settings
 
-| Setting | Required | Default | Purpose |
-|---|---|---|---|
-| **Topic filter** | Yes | `spBv1.0/#` | The Sparkplug topic filter to subscribe to. Defaults to `spBv1.0/#`, the whole Sparkplug B namespace. Narrow it to one group, for example `spBv1.0/Plant1/#`, to subscribe to only that group. |
-| **Host ID** | Yes | None | The name this subscriber announces as a Sparkplug primary host application, for example `Profinity`. It must not contain `+`, `#` or `/`. |
+| Setting | Type | Required | Default | Purpose |
+|---|---|---|---|---|
+| **Topic filter** | Text | Yes | `spBv1.0/#` | The Sparkplug topic filter to subscribe to. Defaults to `spBv1.0/#`, the whole Sparkplug B namespace. Narrow it to one group, for example `spBv1.0/Plant1/#`, to subscribe to only that group. |
+| **Host ID** | Text | Yes | None | The name this subscriber announces as a Sparkplug primary host application, for example `Profinity`. It must not contain `+`, `#` or `/`. |
 
 ### Tags settings
 
-| Setting | Required | Default | Purpose |
-|---|---|---|---|
-| **Tag path prefix** | Yes | None | The profile subtree that subscribed metrics are written under, for example `External`. The subscriber owns this subtree, so do not create tags beneath it from any other component or script. Refer to [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md) for the path rules. |
+| Setting | Type | Required | Default | Purpose |
+|---|---|---|---|---|
+| **Tag path prefix** | Text | Yes | None | The profile subtree that subscribed metrics are written under, for example `External`. The subscriber owns this subtree, so do not create tags beneath it from any other component or script. Refer to [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md) for the path rules. |
 
 ## Example
 

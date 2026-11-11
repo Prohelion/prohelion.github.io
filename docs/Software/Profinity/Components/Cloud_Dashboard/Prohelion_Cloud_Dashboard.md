@@ -54,15 +54,15 @@ Only one ThingsBoard Logger can exist in a Profile.
 Add it from **ADD COMPONENT** (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)) and choose **ThingsBoard Logger** under **Loggers**.
 Complete the settings in the following table.
 
-| Setting | Default | Notes |
-|---|---|---|
-| **Name** | ThingsBoard Logger | The name shown in the Profile. |
-| **ThingsBoard Access Token** | None | The access token for the device. Required, and stored encrypted. |
-| **ThingsBoard Device ID** | None | The device ID in ThingsBoard. Required. Profinity also uses it as the MQTT client ID. |
-| **Update Interval (Seconds)** | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
-| **Collections** | None | The tag collections to send. At least one is required. |
-| **Logging mode** | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
-| **Auto Connect** | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| Setting | Type | Default | Notes |
+|---|---|---|---|
+| **Name** | Text | ThingsBoard Logger | The name shown in the Profile. |
+| **ThingsBoard Access Token** | Secret | None | The access token for the device. Required, and stored encrypted. |
+| **ThingsBoard Device ID** | Text | None | The device ID in ThingsBoard. Required. Profinity also uses it as the MQTT client ID. |
+| **Update Interval (Seconds)** | Time | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
+| **Collections** | Choice | None | The tag collections to send. At least one is required. |
+| **Logging mode** | Choice | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
+| **Auto Connect** | On or off | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 A collection must be selected before the component can start.
 It connects out from the Profinity server to thingsboard.cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.

@@ -18,10 +18,10 @@ A [Custom Component](../../Custom_Components/index.md) main script is a service 
 
 ## Settings
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| **Auto Start Script** | Off | Script component only. When on, the service starts when the component loads. A Custom Component uses **Auto Start Main Script** instead. |
-| **Maximum Run Time (seconds)** | None | Whole seconds. Cancels a run that takes too long by setting `Profinity.ScriptCancelled` to true, so the script must check that flag to stop. Leaving it blank sets no limit. |
+| Setting | Type | Default | Description |
+|---------|------|---------|-------------|
+| **Auto Start Script** | On or off | Off | Script component only. When on, the service starts when the component loads. A Custom Component uses **Auto Start Main Script** instead. |
+| **Maximum Run Time (seconds)** | Time (seconds) | None | Whole seconds. Cancels a run that takes too long by setting `Profinity.ScriptCancelled` to true, so the script must check that flag to stop. Leaving it blank sets no limit. |
 
 <figure markdown>
 ![The script editor for a Python Service script, showing the Python service template with the on_start and on_stop functions](../../../images/python_service_script.png)

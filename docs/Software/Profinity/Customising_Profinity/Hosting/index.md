@@ -35,16 +35,16 @@ The certificate file option works on Windows, macOS, and Linux.
 When a certificate comes from the Windows Certificate Store, provide all of **Windows Cert Store**, **Windows Cert Store Location**, and **Windows Cert Store Subject**.
 Profinity validates that the named store and certificate exist.
 
-| Setting | Default | Effect |
-|---------|---------|--------|
-| **Cert File** | None | The certificate file. |
-| **Cert File Password** | None | The password for the certificate file. |
-| **Cert Key File** | None | Optional. The private key for a PEM certificate. Leave it empty to let Profinity find the key in the same folder as the certificate file. |
-| **Enable Https** | On | Serves the HTTPS interface. **Redirect all Http traffic to Https** needs it on. |
-| **IP Port for Http** | 19080 | The HTTP port. |
-| **IP Port for Https** | 19443 | The HTTPS port. |
-| **Redirect all Http traffic to Https** | Off | Forces all HTTP traffic to the HTTPS interface. |
-| **Enable Swagger on API** | Off | Publishes the Swagger interface on this server. |
+| Setting | Type | Default | Effect |
+|---------|---|---------|--------|
+| **Cert File** | File upload | None | The certificate file. |
+| **Cert File Password** | Secret | None | The password for the certificate file. |
+| **Cert Key File** | File upload | None | Optional. The private key for a PEM certificate. Leave it empty to let Profinity find the key in the same folder as the certificate file. |
+| **Enable Https** | On or off | On | Serves the HTTPS interface. **Redirect all Http traffic to Https** needs it on. |
+| **IP Port for Http** | Whole number | 19080 | The HTTP port. |
+| **IP Port for Https** | Whole number | 19443 | The HTTPS port. |
+| **Redirect all Http traffic to Https** | On or off | Off | Forces all HTTP traffic to the HTTPS interface. |
+| **Enable Swagger on API** | On or off | Off | Publishes the Swagger interface on this server. |
 
 These settings are on the **Extensions Web** tab.
 The **Web** tab has its own copy of the same settings for the Profinity web interface, with default ports 18080 and 18443.

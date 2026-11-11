@@ -35,10 +35,10 @@ To restrict a component or a collection, follow [Restrict a component or collect
 
 Each component and each collection carries its own security policy, made up of two fields.
 
-| Field | Description | Default |
-|-------|-------------|---------|
-| **Mode** | **All** shows the resource to every user with the underlying view permission. **Restricted** shows it only to users with one of the **Allowed roles**. | **All** |
-| **Allowed roles** | The roles permitted to see the resource when **Mode** is **Restricted**. A user needs only one of them. The list is ignored when **Mode** is **All**. | Empty |
+| Field | Type | Description | Default |
+|-------|----|-------------|---------|
+| **Mode** | Choice | **All** shows the resource to every user with the underlying view permission. **Restricted** shows it only to users with one of the **Allowed roles**. | **All** |
+| **Allowed roles** | Choice | The roles permitted to see the resource when **Mode** is **Restricted**. A user needs only one of them. The list is ignored when **Mode** is **All**. | Empty |
 
 A component or collection with no security policy behaves as **Mode** **All**.
 

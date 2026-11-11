@@ -48,22 +48,22 @@ The following tables describe every setting.
 
 ### Connection settings
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Database Provider** | SQLite | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. |
-| **Connection String** | None | The connection string for the chosen database provider, in that provider's own format. Required, and stored encrypted at rest. |
-| **Table Name** | `TagChangeLog` | The table the historian writes rows to. Use letters, digits, and underscores only, and do not start with a digit. |
-| **Auto Create Table** | On | Creates the table when the historian starts, if it does not already exist. |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Database Provider** | Choice | SQLite | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. |
+| **Connection String** | Secret | None | The connection string for the chosen database provider, in that provider's own format. Required, and stored encrypted at rest. |
+| **Table Name** | Text | `TagChangeLog` | The table the historian writes rows to. Use letters, digits, and underscores only, and do not start with a digit. |
+| **Auto Create Table** | On or off | On | Creates the table when the historian starts, if it does not already exist. |
 
 ### Logger settings
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Collections** | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
-| **Logging mode** | `Snapshot` | Sets what is written on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **Auto Connect** | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Update Interval (Seconds)** | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
-| **Designated tag historian reader** | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Designated historian](Designated_Historian.md). |
+| Setting | Type | Default | Purpose |
+|---|---|---|---|
+| **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
+| **Logging mode** | Choice | `Snapshot` | Sets what is written on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
+| **Auto Connect** | On or off | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Update Interval (Seconds)** | Time | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Designated tag historian reader** | On or off | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Designated historian](Designated_Historian.md). |
 
 ## Table layout
 

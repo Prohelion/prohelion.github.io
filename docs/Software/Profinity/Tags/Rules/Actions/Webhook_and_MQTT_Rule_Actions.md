@@ -56,13 +56,13 @@ The failure appears only in the Profinity log.
 
 ## Webhook action settings
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Destination URL** | Empty | The HTTP or HTTPS endpoint the action posts to when the rule transitions. Stored encrypted. |
-| **Auth mode** | **None** | **None**, **Bearer token**, **API key header** or **Basic auth**, the same four modes as the [Webhook Publisher](../../../Components/Publishers_and_Subscribers/Webhook_Publisher.md). |
-| **Bearer token** | None | Shown when **Auth mode** is **Bearer token**. Sent as `Authorization: Bearer <token>`. |
-| **API key header name** / **API key header value** | None | Shown when **Auth mode** is **API key header**. The header name and value sent on every request, for example `X-Api-Key`. |
-| **Basic auth username** / **Basic auth password** | None | Shown when **Auth mode** is **Basic auth**. |
+| Setting | Type | Default | Purpose |
+|---|------|---|---|
+| **Destination URL** | Secret | Empty | The HTTP or HTTPS endpoint the action posts to when the rule transitions. Stored encrypted. |
+| **Auth mode** | Choice | **None** | **None**, **Bearer token**, **API key header** or **Basic auth**, the same four modes as the [Webhook Publisher](../../../Components/Publishers_and_Subscribers/Webhook_Publisher.md). |
+| **Bearer token** | Secret | None | Shown when **Auth mode** is **Bearer token**. Sent as `Authorization: Bearer <token>`. |
+| **API key header name** / **API key header value** | Text and Secret | None | Shown when **Auth mode** is **API key header**. The header name and value sent on every request, for example `X-Api-Key`. |
+| **Basic auth username** / **Basic auth password** | Text and Secret | None | Shown when **Auth mode** is **Basic auth**. |
 
 The **Destination URL** may embed a token, for example `https://host/hooks/<secret>`.
 Saving with an empty bearer token reports "You must provide a bearer token when auth mode is Bearer token."
@@ -70,14 +70,14 @@ The other modes report a matching message for their missing fields.
 
 ## MQTT action settings
 
-| Setting | Default | Purpose |
-|---|---|---|
-| **Broker URL** | None | The broker's connection URL, with a scheme of `mqtt`, `mqtts`, `http`, or `https`. Use `mqtts://` to enable Transport Layer Security (TLS). |
-| **Trust all server certificates** | Disabled | Disables TLS server certificate validation for this action. Enable only for a trusted broker with a self-signed certificate. |
-| **Username** / **Password** | None | Credentials for broker authentication. The password is required but may be empty, and is stored encrypted. |
-| **Client ID** | None | Optional. Leave blank, and Profinity generates a new client identifier for every firing. |
-| **Destination topic** | None | The topic the message is published to when the action fires. Required. |
-| **Quality of service** | **At least once** | **At most once**, **At least once** or **Exactly once**, the Quality of Service (QoS) level used for the publish. |
+| Setting | Type | Default | Purpose |
+|---|------|---|---|
+| **Broker URL** | Text | None | The broker's connection URL, with a scheme of `mqtt`, `mqtts`, `http`, or `https`. Use `mqtts://` to enable Transport Layer Security (TLS). |
+| **Trust all server certificates** | On or off | Disabled | Disables TLS server certificate validation for this action. Enable only for a trusted broker with a self-signed certificate. |
+| **Username** / **Password** | Text and Secret | None | Credentials for broker authentication. The password is required but may be empty, and is stored encrypted. |
+| **Client ID** | Text | None | Optional. Leave blank, and Profinity generates a new client identifier for every firing. |
+| **Destination topic** | Text | None | The topic the message is published to when the action fires. Required. |
+| **Quality of service** | Choice | **At least once** | **At most once**, **At least once** or **Exactly once**, the Quality of Service (QoS) level used for the publish. |
 
 Both actions need the **Tag Rule Actions** licensed feature, as described in [Rule actions](index.md).
 To add one to a profile so that a rule can select it, refer to [Making an action available](index.md#making-an-action-available).
