@@ -64,5 +64,5 @@ The stored configuration is kept, and saving it to the PC first, as in step 3 of
 |---|---|---|
 | wsConfig does not open. | The sequence stopped before the third step. | See the [Profinity log](../../../Administration/Logs_Config.md), which records that the operation did not run successfully. |
 | The sequence stops at **Check Suitable Available Network**. | No suitable network is available. | Check that the bridge and the PC are on the same local network. |
-| The sequence stops at **Set Active**. | Not stated. | Check that no other client holds the bridge's single TCP connection. |
+| The sequence stops at **Set Active**. | The step needs a Tritium or Prohelion CAN bridge in the profile that Profinity can reach over TCP. When none is reachable, the step stops. | Check that no other client holds the bridge's single TCP connection. |
 | The dashboard shows no data after the firmware loader finishes. | Not stated. | Use the checks on [WaveSculptor motor controller](index.md). |

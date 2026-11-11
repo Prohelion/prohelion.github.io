@@ -27,7 +27,7 @@ This page explains how to diagnose and fix dashboard problems with data that doe
 | What you see | Cause | What to do |
 |---|---|---|
 | Components show static values, or fail to update when the data changes | Usually, the `source` differs from a tag. | Check the following in the Tag Explorer: the path in the binding matches the tag path exactly, including a leading `/` for a tag of another component; and the tag exists and shows a current value with a good quality flag. For a `DBC/` tag, check that the CAN database (DBC) file defines the signal and that the component is connected and sending data. |
-| The tag shows a value, but the component does not | - | Check that `toType`, when it is set, matches the type that the tag publishes. |
+| The tag shows a value, but the component does not | The value does not convert to the type that `toType` sets, so the component receives the binding's fallback value instead of the tag value. | Check that `toType`, when it is set, matches the type that the tag publishes. |
 | A number displays, but it does not drive a lamp or a chart | The number is treated as a string. | Check that `toType`, when it is set, matches the type that the tag publishes. |
 
 To separate a binding fault from a data fault, temporarily replace the binding with a static value.
@@ -138,8 +138,8 @@ dashboard:
 | What you see | Cause | What to do |
 |---|---|---|
 | A chart appears blank | The binding does not set `seriesMode: timeSeries`, so the chart shows only the latest value. | Add the series settings first. Then check in the Tag Explorer that the tag has a current value. |
-| The chart does not render for a window that reaches back to older values | - | Check that the window is valid and that the designated historian holds values for the tag in that window. |
-| The chart does not render from static data in its `value` property | - | Give that data `labels` and `datasets`, as in the example below. |
+| The chart does not render for a window that reaches back to older values | The designated historian holds no points for the tag in that window, or the window fails validation, so the chart has no data to draw. | Check that the window is valid and that the designated historian holds values for the tag in that window. |
+| The chart does not render from static data in its `value` property | Profinity draws static data only when `value` has `labels` and `datasets` arrays, so other shapes do not render. | Give that data `labels` and `datasets`, as in the example below. |
 
 ``` yaml
 # For time series data

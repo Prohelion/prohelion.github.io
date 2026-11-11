@@ -79,7 +79,7 @@ A visible collection is empty, not missing, when every tag it would return belon
 
 | What you see | Cause | What to do |
 |---|---|---|
-| A user cannot see a component, action, tag branch, or collection that they should have access to | - | Check the **Security** tab or panel for an empty or fully unresolved **Allowed roles** list before you look for a permissions problem elsewhere. |
+| A user cannot see a component, action, tag branch, or collection that they should have access to | The resource is restricted, and the user holds none of its allowed roles. An empty list, or one that names only roles missing from this site, allows no one except users with Security administration or Modify profiles. | Check the **Security** tab or panel for an empty or fully unresolved **Allowed roles** list before you look for a permissions problem elsewhere. |
 
 
 ## Unresolved roles after a profile import

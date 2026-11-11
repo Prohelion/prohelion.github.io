@@ -125,3 +125,11 @@ Add it under `components:` in the `profile.yaml` file of the profile.
 ```
 
 Use a different `id` and **Base Address** for each MPPT in the profile.
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| "There is already a component in this profile operating in this CAN Address range, change your CAN Base Address to avoid a conflict" | The MPPT uses a fixed CAN address range of 0x0F above its **Base Address**, and another component in the profile uses an address in that range | Change the **Base Address** of this MPPT, or of the other component, so that the ranges do not overlap, then select **ADD COMPONENT** again. |
+| **INPUT VOLTAGE** and **OUTPUT VOLTAGE** show no values, and the MPPT is treated as lost | No CAN traffic from the MPPT arrives within **Milliseconds Valid**, either because **Base Address** does not match the MPPT or because the MPPT sends on a network that the Profinity host does not read | Check that **Base Address** matches the CAN address in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md) and that the MPPT is on the network the host reads. If traffic is slow, raise **Milliseconds Valid** (1 to 60000, or -1 for no timeout). |
+

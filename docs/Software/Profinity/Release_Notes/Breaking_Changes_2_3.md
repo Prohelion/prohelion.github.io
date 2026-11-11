@@ -147,7 +147,7 @@ It also creates the default `admin` account, so people on other computers can si
 The `admin` account must change its password at first sign-in.
 
 The built-in sign-in that the desktop window uses is refused when it comes from another computer.
-Restarting Profinity, for example after you apply a licence, keeps a desktop installation as a desktop installation.
+After you apply a Server licence, restart Profinity so that the web interface listens for other computers. The desktop window keeps signing in automatically.
 Refer to [Who can sign in, by installation type](../Installation/Applying_a_Licence.md#who-can-sign-in).
 
 ## Profile files

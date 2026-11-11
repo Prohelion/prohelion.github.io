@@ -67,3 +67,11 @@ To remove a Profile Dashboard:
 The standard Profinity home page is then shown when the profile is active.
 
 To change what the home page shows, refer to [Build a dashboard in the Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md).
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| Profinity refuses the upload and reports the reason, and the dashboard you already have stays as it is | The uploaded file is not valid YAML, does not pass the dashboard schema, or does not have the `.yaml` extension | Correct the file so it meets all three requirements, then upload it again. |
+| **Dashboard YAML file (Optional)** still names the file after you switch off **Custom Home Dashboard**, and the log shows an error | Profinity could not delete the file, for example because another program has it open or the account running Profinity cannot write to the `dashboards` folder | Close any program that has the file open, check that the account running Profinity can write to the `dashboards` folder, then switch off **Custom Home Dashboard** and save again. |
+

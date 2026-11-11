@@ -73,8 +73,8 @@ The second line reads `Script <script file name>: Hello from Profinity`, the def
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The script does not run. | - | Confirm that **Enable Scripting** is on and that you added the **Python Script** component. |
-| Compile and script errors always appear in the Profinity log, whether or not **Log Script Output** is on. | - | Review the error message, fix the script, and run it again. |
+| The script does not run. | Python scripting is turned off in the Application Config, so Profinity does not run Python scripts. | Confirm that **Enable Scripting** is on and that you added the **Python Script** component. |
+| Compile and script errors always appear in the Profinity log, whether or not **Log Script Output** is on. | Script errors always go to the main Profinity log. Script output goes there only when **Log Script Output** is on. | Review the error message, fix the script, and run it again. |
 
 For more examples, refer to [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md).
 

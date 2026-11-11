@@ -74,3 +74,11 @@ Write a message that says whether the alert is isolated or part of a pattern, an
 After you change the instructions, select **Run AI Technician** and read the `Report` tag in **TAG EXPLORER**.
 If the report skips a check, name that check more plainly.
 If the verdict changes between rounds on the same data, make the line between `attention` and `clear` more exact.
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| The report skips one of the checks | The instructions name that check too loosely for the technician to find it | Name the check by tag or alert name, then select **Run AI Technician** and read the `Report` tag in **TAG EXPLORER**. |
+| The verdict changes between rounds on the same data | The line between `attention` and `clear` is not exact enough | Make the conditions for `attention` and `clear` more exact, then run the technician again and compare the verdicts. |
+

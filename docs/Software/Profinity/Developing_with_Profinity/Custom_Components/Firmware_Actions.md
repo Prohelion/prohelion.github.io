@@ -35,11 +35,11 @@ The buttons are on the **Firmware Utilities** tab, in the **Firmware** group.
 They are shown to users whose role includes the **Allow firmware actions** permission.
 Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how to grant it.
 
-| Key | Button the user gets |
-|-----|--------------------------|
-| `loadScript` | **LOAD SETTINGS**. Runs the script once each time the button is pressed and, on success, marks the firmware as loaded |
-| `saveScript` | **SAVE SETTINGS**. Runs once |
-| `actions` | One button per entry. The label is `displayName` in capitals |
+| Key | Type | Button the user gets |
+|---|---|---|
+| `loadScript` | Text | **LOAD SETTINGS**. Runs the script once each time the button is pressed and, on success, marks the firmware as loaded |
+| `saveScript` | Text | **SAVE SETTINGS**. Runs once |
+| `actions` | - | One button per entry. The label is `displayName` in capitals |
 
 **LOAD SETTINGS** and **SAVE SETTINGS** are fixed labels.
 Omitting `loadScript` removes the **LOAD SETTINGS** button, and omitting `saveScript` removes the **SAVE SETTINGS** button.
@@ -55,16 +55,16 @@ Each entry under `actions` needs an `id`, a `displayName`, and a `script`, and `
 An action that does not ask for a file asks the user to confirm before it runs.
 The prompt reads: "This writes a firmware binary to the device and cannot be undone. Continue only if you intend to flash."
 
-| Key | Meaning | Default |
-|-----|---------|---------|
-| `id` | Identifier for the entry. The validation message names this id | — |
-| `displayName` | Words on the button, shown in capitals | — |
-| `script` | Path of the script, relative to the component folder, ending in `.cs`, `.py`, or `.lua` | — |
-| `icon` | Icon on the button. When omitted, the button uses the custom icon | `Custom` |
-| `uploadFileType` | Asks the user to choose a file before the button runs. The usual firmware flash uses `Firmware` | — |
-| `uploadFileExtension` | Required with `uploadFileType`. The extension the chosen file must have, such as `.bin` | — |
-| `requiresFirmwareLoaded` | Boolean. `true` hides the button until **LOAD SETTINGS** has succeeded | `false` |
-| `requiresActiveDevice` | Boolean. `true` shows the button only when the component status is on, idle, warning, or error | `false` |
+| Key | Type | Meaning | Default |
+|---|---|---|---|
+| `id` | Text | Identifier for the entry. The validation message names this id | — |
+| `displayName` | Text | Words on the button, shown in capitals | — |
+| `script` | Text | Path of the script, relative to the component folder, ending in `.cs`, `.py`, or `.lua` | — |
+| `icon` | Text | Icon on the button. When omitted, the button uses the custom icon | `Custom` |
+| `uploadFileType` | Choice | Asks the user to choose a file before the button runs. The usual firmware flash uses `Firmware` | — |
+| `uploadFileExtension` | Text | Required with `uploadFileType`. The extension the chosen file must have, such as `.bin` | — |
+| `requiresFirmwareLoaded` | On or off | Boolean. `true` hides the button until **LOAD SETTINGS** has succeeded | `false` |
+| `requiresActiveDevice` | On or off | Boolean. `true` shows the button only when the component status is on, idle, warning, or error | `false` |
 
 An omitted `requiresFirmwareLoaded` or `requiresActiveDevice` key means `false`, so the button is shown.
 

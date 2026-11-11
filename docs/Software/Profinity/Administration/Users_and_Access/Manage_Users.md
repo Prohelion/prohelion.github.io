@@ -106,3 +106,12 @@ The table in [Roles and permissions](./Roles_and_Permissions.md#when-a-person-ca
 
 - [Security guide](../../Installation/Security.md)
 - [Kiosk Mode](../Kiosk_Mode.md)
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| "Username may only contain letters, numbers, periods, hyphens, underscores, and @" | The **Profinity Username** contains a character that is not allowed | Change the name so that it uses only the allowed characters, then select **Save**. |
+| "User account is disabled. Please contact an administrator." | **Is the user currently enabled** is switched off for the account | Open the user's settings dialog, switch on **Is the user currently enabled**, and select **Save**. |
+| The person sees fewer entries in the side menu than expected | The account lacks a permission that the entry needs | Check the permission in [Roles and permissions](./Roles_and_Permissions.md#when-a-person-cannot-see-something), then add it to a role the user holds. |
+

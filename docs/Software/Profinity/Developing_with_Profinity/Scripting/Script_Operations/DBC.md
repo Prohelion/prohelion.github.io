@@ -45,11 +45,11 @@ The `GetDbcSignal` method retrieves a signal definition from a component's loade
 
 The method takes these parameters.
 
-| Parameter | Meaning |
-|-----------|---------|
-| `component` | The name of the component in the profile that owns the DBC file |
-| `message` | The name of the CAN message containing the signal |
-| `signal` | The name of the signal to retrieve |
+| Parameter | Type | Meaning |
+|-----------|---|---------|
+| `component` | Text | The name of the component in the profile that owns the DBC file |
+| `message` | Text | The name of the CAN message containing the signal |
+| `signal` | Text | The name of the signal to retrieve |
 
 ### Return value
 

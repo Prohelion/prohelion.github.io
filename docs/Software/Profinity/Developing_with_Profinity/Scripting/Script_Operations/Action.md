@@ -21,15 +21,15 @@ A script checks for null before it reads the object.
 
 ## Properties
 
-| Property | Meaning |
-|----------|---------|
-| `Name` | The action's display name from `firmware.yaml` |
-| `Group` | The action group. Firmware actions use `Firmware` |
-| `FileName` | The profile-relative name of the uploaded file, or null when the action takes no file |
-| `FilePath` | The absolute path of that file after Profinity has resolved it, or null |
-| `InvokedByUsername` | The user who started the action |
-| `InvokedByJti` | The session identifier of that user |
-| `Variables` | A string dictionary. When a file was uploaded it contains `fileName` and `filePath`, with the same values as `FileName` and `FilePath` |
+| Property | Type | Meaning |
+|---|---|---|
+| `Name` | Text | The action's display name from `firmware.yaml` |
+| `Group` | Text | The action group. Firmware actions use `Firmware` |
+| `FileName` | Text | The profile-relative name of the uploaded file, or null when the action takes no file |
+| `FilePath` | Text | The absolute path of that file after Profinity has resolved it, or null |
+| `InvokedByUsername` | Text | The user who started the action |
+| `InvokedByJti` | Text | The session identifier of that user |
+| `Variables` | - | A string dictionary. When a file was uploaded it contains `fileName` and `filePath`, with the same values as `FileName` and `FilePath` |
 
 `GetVariable(key)` returns the value for that key, or null when the key is missing or empty.
 

@@ -31,3 +31,11 @@ Run `profinity-component-pack` on Windows, macOS or Linux. The commands are the 
    The component is listed under the name that `component_metadata.yaml` gives it.
 
 When the component is added, it behaves as described in [Using a Custom Component](Using_a_Custom_Component.md).
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| "Plugin archive must use a .zip or .nupkg extension." when you upload the package | The package file was saved with a different extension | Run `pack` again with an `--output` path that ends in `.zip` or `.nupkg`, then upload the new file. |
+| `profinity-component-pack validate` reports a problem | The component folder has a problem, and the tool reports the first one it finds | Fix the problem that it names, then run `validate` again until it reports none. |
+

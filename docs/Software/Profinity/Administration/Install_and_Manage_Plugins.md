@@ -41,7 +41,7 @@ It may contain only letters, digits, hyphens, and underscores.
 |---|---|---|
 | "You must provide a plugin archive (.zip or .nupkg)." is shown when you upload | No file is chosen | Choose the correct file, and upload it again. |
 | "Plugin archive must use a .zip or .nupkg extension." is shown when you upload | The file has any other extension | Rename the package or choose the correct file, and upload it again. |
-| The plugin's components do not appear in the catalogue after you upload or enable it | - | A restart is not normally needed, as Profinity loads an uploaded or enabled plugin straight away. If the components still do not appear, restart Profinity from the **Restart Profinity** pill on the **ADMIN** page, which interrupts active sessions. |
+| The plugin's components do not appear in the catalogue after you upload or enable it | The plugin is disabled, the licence does not include custom plugins, or the plugin failed to load. | A restart is not normally needed, as Profinity loads an uploaded or enabled plugin straight away. If the components still do not appear, restart Profinity from the **Restart Profinity** pill on the **ADMIN** page, which interrupts active sessions. |
 
 
 ## Disable or remove a plugin

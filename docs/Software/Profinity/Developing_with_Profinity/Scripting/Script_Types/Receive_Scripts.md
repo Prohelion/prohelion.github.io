@@ -19,8 +19,8 @@ Three settings decide which packets reach the script.
 
 | Setting | Type | Default | Meaning |
 |---------|---|---------|---------|
-| **Base Address** | Whole number | 0 | The base CAN address of the device, entered in hexadecimal. |
-| **Address Range** | Whole number | 0 | The number of addresses above Base Address that the script receives, entered in hexadecimal. A packet is received when its CAN ID is from Base Address to Base Address plus Address Range, inclusive, so 0 receives only the Base Address. |
+| **Base Address** | Hexadecimal number | 0 | The base CAN address of the device, entered in hexadecimal. |
+| **Address Range** | Hexadecimal number | 0 | The number of addresses above Base Address that the script receives, entered in hexadecimal. A packet is received when its CAN ID is from Base Address to Base Address plus Address Range, inclusive, so 0 receives only the Base Address. |
 | **Milliseconds Valid** | Time | 5000 | How long traffic from the device counts as valid before the connection is assumed lost. The range is -1 to 60000, and -1 means traffic never expires. |
 
 <figure markdown>
@@ -73,3 +73,11 @@ The **Trigger Overlap** setting decides what happens to a packet that arrives wh
 The shipped receive templates recommend **Queue**.
 
 Heavier processing belongs in a [Service scripts](./Service_Scripts.md), with the handler passing a small amount of data to a queue.
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| The script runs for some packets and misses others while it is busy | **Trigger Overlap** is **Drop**, the default, which discards a packet that arrives during a run | Set **Trigger Overlap** to **Queue**, set **Queue Depth** (1 to 100, default 8) to suit the traffic, and shorten the `Receive` or `receive` handler. |
+| No packets reach the script | **Base Address** and **Address Range** do not cover the CAN IDs that the device sends | Set **Base Address** to the device's base CAN address and **Address Range** to cover its addresses, both in hexadecimal. |
+

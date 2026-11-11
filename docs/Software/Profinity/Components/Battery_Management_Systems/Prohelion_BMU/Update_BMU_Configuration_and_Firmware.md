@@ -17,9 +17,9 @@ The **Firmware Settings** tab appears once Profinity has read the BMU's firmware
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The **Firmware Settings** tab says Profinity is still reading the settings | Profinity has not finished reading the BMU's firmware settings. | No action stated. |
-| The **Firmware Settings** tab shows **Error Loading Firmware** | Profinity cannot read the BMU's firmware settings. | No action stated. |
-| The tabs are missing | Not stated. The page lists three things to check. | Check that the CAN adapter status is green, the **Base Address** matches the BMU and the BMU is powered. |
+| The **Firmware Settings** tab says Profinity is still reading the settings | Profinity has not finished reading the BMU's firmware settings. | Wait a few seconds, then select refresh. If you still see no firmware details, check that the firmware key is included in the settings. |
+| The **Firmware Settings** tab shows **Error Loading Firmware** | Profinity cannot read the BMU's firmware settings. | Wait a few seconds, then select refresh. If the error stays, check the Profinity logs. |
+| The tabs are missing | Profinity adds the Firmware Settings tabs only when it has a firmware settings registry for the BMU, so the tabs are absent when it has none. | Check that the CAN adapter status is green, the **Base Address** matches the BMU and the BMU is powered. |
 
 Unlocking the Admin parameters needs the **Modify components** permission and a firmware configuration key. Uploading a firmware file needs the **Modify profiles** and **Allow firmware actions** permissions.
 The Firmware Configuration Key is not published, so contact Prohelion if you believe you need it.

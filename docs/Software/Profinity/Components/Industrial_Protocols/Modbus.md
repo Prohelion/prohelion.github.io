@@ -55,7 +55,7 @@ Which settings apply depends on the **Connection Mode**.
 | **Connection Mode** | Choice | `Tcp` | Both | `Tcp` or `Rtu`, shown as TCP or RTU in the UI. |
 | **Host** | Text | `127.0.0.1` | TCP | The IP address of the slave. Required. |
 | **Port** | Whole number | `502` | TCP | The TCP port. Between `1` and `65535`. |
-| **Serial Port** | Text | Empty | RTU | The serial port the slave is connected to. Required for RTU. |
+| **Serial Port** | Choice | Empty | RTU | The serial port the slave is connected to. Required for RTU. |
 | **Baud Rate** | Whole number | `9600` | RTU | The serial baud rate. |
 | **Parity** | Choice | `None` | RTU | The serial parity. |
 | **Data Bits** | Whole number | `8` | RTU | `7` or `8`. |
@@ -78,15 +78,15 @@ Each row becomes one tag.
 This component has no **Browse** button, because a Modbus device does not publish a register list.
 Folders are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
 
-| Column | Description |
-|---|---|
-| **Name** | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
-| **Table** | The Modbus table to read: `Coil`, `DiscreteInput`, `HoldingRegister` (the default) or `InputRegister`. |
-| **Address** | The zero-based protocol address. Register `40001` in a one-based manufacturer's manual is address `0` of the holding registers. |
-| **Data type** | How the value is decoded: `Boolean`, `Word` (the default), `SignedWord`, `Dword`, `SignedDword` or `Real`. |
-| **Scale** | A factor that reads are multiplied by. Writes are divided by the same factor. The default is `1`. |
-| **Writable** | Allows Profinity to write the value from the tag. Off by default. |
-| **Unit** | An optional unit label for the tag. |
+| Column | Type | Default | Description |
+|---|---|---|---|
+| **Name** | Text | None | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
+| **Table** | Choice | `HoldingRegister` | The Modbus table to read: `Coil`, `DiscreteInput`, `HoldingRegister` or `InputRegister`. |
+| **Address** | Whole number | None | The zero-based protocol address. Register `40001` in a one-based manufacturer's manual is address `0` of the holding registers. |
+| **Data type** | Choice | `Word` | How the value is decoded: `Boolean`, `Word`, `SignedWord`, `Dword`, `SignedDword` or `Real`. |
+| **Scale** | Decimal number | `1` | A factor that reads are multiplied by. Writes are divided by the same factor. |
+| **Writable** | On or off | Off | Allows Profinity to write the value from the tag. |
+| **Unit** | Text | None | An optional unit label for the tag. |
 
 Registers are read as big-endian values.
 `Word` and `SignedWord` use one register.

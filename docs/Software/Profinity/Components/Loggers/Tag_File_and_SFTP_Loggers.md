@@ -92,3 +92,11 @@ Once a log file has been created, select the link on the Logger Dashboard to dow
 A TAG File Logger shows this link as **TAG LOGS REPOSITORY**.
 
 To record tags for a later replay, refer to [Log tags to a file](../../Tags/Tag_Logs/Log_Tags_to_a_File.md), and to send the same collections to a database, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| **STATUS** shows **Off** on the Logger Dashboard | No tag collection is selected under **Collections**, and the logger needs one before it can start | Add the collection that holds the tags under **Collections**, then check that **STATUS** shows **On**. |
+| A line has an empty `Value` and a `Quality` of Unavailable or Bad | The tag was Unavailable or Bad when the sample was taken, so the logger writes its quality and no value | Check that the component that provides the tag is connected, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+

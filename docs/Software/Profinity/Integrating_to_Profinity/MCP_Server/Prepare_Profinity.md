@@ -143,7 +143,12 @@ Opening the address in a browser does not test the server, so use the command fo
     curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
-    On macOS, run the HTTPS command as `/usr/bin/curl` in place of `curl`, because the `curl` in `/usr/bin` checks the certificates in the keychain.
+    On macOS, run the HTTPS command with `/usr/bin/curl` in place of `curl`, because the `curl` in `/usr/bin` checks the certificates in the keychain:
+
+    ```bash
+    /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
+    ```
+
     A `curl` from another source can keep its own list of trusted certificates.
 
 === "Windows"
@@ -167,7 +172,7 @@ A `401` means the server is running and is waiting for a token, which the AI too
 | What you see | Cause | What to do |
 |--------------|-------|------------|
 | A certificate error | The host name is missing from the certificate, or the certificate is untrusted | - |
-| Any response other than `401` | - | Refer to [MCP connection errors](Connection_Errors.md) |
+| Any response other than `401` | The MCP server is not enabled, so no MCP route is mapped, or the caller has exceeded the rate limit and receives a `429` response. | Refer to [MCP connection errors](Connection_Errors.md) |
 
 Next, connect your tool:
 

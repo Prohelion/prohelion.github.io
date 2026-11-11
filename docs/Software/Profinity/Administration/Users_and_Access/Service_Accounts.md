@@ -91,3 +91,12 @@ To stop one token working without disabling the account, select **Generate Token
 
 - [Managing users](Manage_Users.md)
 - [Component and collection security](./Component_And_Collection_Security/index.md), which describes how restricted components and collections apply to service accounts
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| "Service account token is no longer valid. Please log in again or request a new token from an administrator." on requests that worked before | **Generate Token** was used on the account, so the previous token stopped working | Select **View Token** on the **User Actions** tab, copy the current token, and update the integration with it. |
+| "User account is disabled. Please contact an administrator." | The account is disabled in **Users & Groups**, so requests with its token are refused | Open the account, switch on **Is the user currently enabled**, and select **Save**. |
+| Each AI technician round ends with a `blocked` finding | The account named in the technician's **Run as** setting is disabled | Enable the account in **Users & Groups**. |
+

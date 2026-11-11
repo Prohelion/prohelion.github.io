@@ -77,12 +77,12 @@ That file adds a **Communications** tab.
 **CAN Export** heads **Publish Telemetry To CAN** and **CAN Export Message ID**.
 **CAN Export Message ID** is shown only while **Publish Telemetry To CAN** is ticked.
 
-| Key | On a section | On a category |
-|-----|--------------|---------------|
-| `id` | Identifier for the tab | Identifier for the group |
-| `displayName` | Tab name. `label` is also accepted | Group heading. `label` is also accepted |
-| `categories` | The groups on the tab | |
-| `fields` | | The controls in the group |
+| Key | Type | On a section | On a category |
+|---|---|---|---|
+| `id` | Text | Identifier for the tab | Identifier for the group |
+| `displayName` | Text | Tab name. `label` is also accepted | Group heading. `label` is also accepted |
+| `categories` | - | The groups on the tab |  |
+| `fields` | - |  | The controls in the group |
 
 A file that uses a flat `config` map instead of `sections` is also read, but that form is legacy, so write new files with `sections`.
 Those fields are shown on a **Configuration Settings** tab, in a group named **Settings**.
@@ -93,22 +93,22 @@ The key under `fields`, such as `comPort`, is the identifier a script passes to 
 `name` is the label on the control.
 When `name` is omitted, the identifier is used as the label.
 
-| Key | Meaning |
-|-----|---------|
-| `name` | Label on the control |
-| `description` | Help text shown with the field |
-| `type` | Which control is drawn. The type names are in the field types table |
-| `default` | Value shown until the user saves another |
-| `values` | Choices for a `LIST` field. The text on the right is what the list shows, and that text is what is saved |
-| `required` | `true` means the field must have a value. The default is `false` |
-| `readOnly` | `true` means the value is visible and the user cannot change it. The default is `false` |
-| `min`, `max` | Smallest and largest numbers the field accepts. Write them in the units the user types |
-| `units` | Unit printed beside a number |
-| `scale` | Multiplies the number shown on a firmware field. A save stores that on-screen number. Refer to [Firmware maps](Firmware_Maps.md#scale) |
-| `dependsOn` | The field is shown when every named field has the given value. The name is another field identifier in this file |
-| `gridSpanX` | How many columns the control spans. `2` draws it across two columns. The default is `1` |
-| `gridSpanY` | How many rows the control spans. The default is `1` |
-| `requiresFeature` | The feature the licence must include: `Scripting`, `TagRuleActions`, `CustomPlugins`, `TwoFactor`, `Historians`, `Ai`, `EnterpriseSecurity`, `ProfinityServer`, `DataRelay`, or `Themes`. The field is hidden without it |
+| Key | Type | Default | Meaning |
+|---|---|---|---|
+| `name` | Text | - | Label on the control |
+| `description` | Text | - | Help text shown with the field |
+| `type` | Choice | - | Which control is drawn. The type names are in the field types table |
+| `default` | - | - | Value shown until the user saves another |
+| `values` | - | - | Choices for a `LIST` field. The text on the right is what the list shows, and that text is what is saved |
+| `required` | On or off | `false` | `true` means the field must have a value. |
+| `readOnly` | On or off | `false` | `true` means the value is visible and the user cannot change it. |
+| `min`, `max` | Decimal number | - | Smallest and largest numbers the field accepts. Write them in the units the user types |
+| `units` | Text | - | Unit printed beside a number |
+| `scale` | Decimal number | - | Multiplies the number shown on a firmware field. A save stores that on-screen number. Refer to [Firmware maps](Firmware_Maps.md#scale) |
+| `dependsOn` | - | - | The field is shown when every named field has the given value. The name is another field identifier in this file |
+| `gridSpanX` | Whole number | `1` | How many columns the control spans. `2` draws it across two columns. |
+| `gridSpanY` | Whole number | `1` | How many rows the control spans. |
+| `requiresFeature` | Choice | - | The feature the licence must include: `Scripting`, `TagRuleActions`, `CustomPlugins`, `TwoFactor`, `Historians`, `Ai`, `EnterpriseSecurity`, `ProfinityServer`, `DataRelay`, or `Themes`. The field is hidden without it |
 
 For a `LIST` field, set `default` to one of the texts on the right.
 The baud rate in the example does this with `"9600"`.

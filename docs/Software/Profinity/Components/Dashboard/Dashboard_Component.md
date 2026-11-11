@@ -84,3 +84,11 @@ Use the name of your own component.
 To connect the dashboard to tags, refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md).
 For each element, refer to the [Component reference](../../Customising_Profinity/Dashboards/Component_Reference/index.md).
 Worked guides are [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md) and [Profile Dashboard](../../Administration/Profile_Dashboard.md).
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| "There is already a component in this profile with that name" | The name matches another component in the profile, or matches an existing dashboard file | Enter a name that is unique in the profile, then select **ADD COMPONENT**. |
+| An element bound with a relative path shows no value | A relative path starts at the Dashboard Component, which has no DBC tags, so the path finds no tag | Bind the element with an absolute path that starts with `/`, such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`, using the name of your own component. |
+

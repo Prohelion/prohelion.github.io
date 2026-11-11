@@ -58,7 +58,7 @@ Profinity treats a configuration that passes these checks as ready to use.
 | What you see | Cause | What to do |
 |---|---|---|
 | The chat returns an error after you save a configuration that looks valid | The configuration has, for example, a revoked API key. Profinity does not make a live test call to the provider when you save the configuration, so the fault appears only once a user sends a chat message. | Check the **API Key**, **Model**, and **Base URL**. |
-| Chat fails or times out | - | Check the **API Key**, **Model**, and **Base URL**. |
+| Chat fails or times out | The provider could not be reached or the stream failed, so Profinity shows an error in the chat instead of a reply. | Check the **API Key**, **Model**, and **Base URL**. |
 | Chat times out | Local and reasoning-heavy models often need several minutes to respond. | Raise **Response timeout (seconds)** for slow models. |
 
 

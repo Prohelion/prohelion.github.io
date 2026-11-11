@@ -15,13 +15,13 @@ Each charger type starts with its own default limits in the following table.
 **Supply Voltage Limit** and **Supply Current Limit** start at 240 V and 10 A.
 Set all five limits to match the actual charger and the wall circuit before charging.
 
-| Setting | TDK | Siglent | Elcon | Notes |
-|---|---|---|---|---|
-| **Charger Voltage Limit** | 300 V | 32 V | 198 V | Maximum voltage, in volts, that the charger can output, from 1 to 1000. |
-| **Charger Current Limit** | 10 A | 3.2 A | 46 A | Maximum current, in amps, that the charger can output, from 1 to 1000. |
-| **Charger Power Limit** | 3000 W | 102 W | 6600 W | Maximum power, in watts, that the charger can output, from 1 to 1000000. If unsure, use maximum voltage multiplied by maximum current, or less. |
-| **Supply Voltage Limit** | 240 V | 240 V | 240 V | Maximum voltage, in volts, that the wall socket supplies, from 1 to 1000. |
-| **Supply Current Limit** | 10 A | 10 A | 10 A | Maximum current, in amps, that the wall socket supplies, from 1 to 1000. |
+| Setting | Type | TDK | Siglent | Elcon | Notes |
+|---|---|---|---|---|---|
+| **Charger Voltage Limit** | Decimal number | 300 V | 32 V | 198 V | Maximum voltage, in volts, that the charger can output, from 1 to 1000. |
+| **Charger Current Limit** | Decimal number | 10 A | 3.2 A | 46 A | Maximum current, in amps, that the charger can output, from 1 to 1000. |
+| **Charger Power Limit** | Decimal number | 3000 W | 102 W | 6600 W | Maximum power, in watts, that the charger can output, from 1 to 1000000. If unsure, use maximum voltage multiplied by maximum current, or less. |
+| **Supply Voltage Limit** | Decimal number | 240 V | 240 V | 240 V | Maximum voltage, in volts, that the wall socket supplies, from 1 to 1000. |
+| **Supply Current Limit** | Decimal number | 10 A | 10 A | 10 A | Maximum current, in amps, that the wall socket supplies, from 1 to 1000. |
 
 The TDK and Siglent supplies are reached over the network and share these communication settings.
 
@@ -41,8 +41,8 @@ It asks for the settings in the following table instead.
 
 | Setting | Type | Default | Notes |
 |---|----|---|---|
-| **Elcon Command CAN Bus Id** | Whole number | `0x1806E5F4` | CAN address Profinity sends commands to. |
-| **Elcon Status CAN Bus Id** | Whole number | `0x18FF50E5` | CAN address Profinity receives status messages from. |
+| **Elcon Command CAN Bus Id** | Hexadecimal number | `0x1806E5F4` | CAN address Profinity sends commands to. |
+| **Elcon Status CAN Bus Id** | Hexadecimal number | `0x18FF50E5` | CAN address Profinity receives status messages from. |
 | **Milliseconds Valid** | Time | 5000 | Time in milliseconds the CAN traffic from the charger stays valid before Profinity treats the connection as lost, between 1 and 60000. |
 
 ## Current and voltage limits

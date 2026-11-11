@@ -82,3 +82,12 @@ Before you delete a role, write down its name, description, and permissions, so 
 To delete a role, open it on the **Roles** tab, select **DELETE ROLE** and confirm. The button is disabled while users hold the role, so remove the role from each of those users first. Profinity keeps the previous `security.yaml` as `security.yaml.bak`, which still holds the deleted role until the next save of security settings replaces it.
 
 To limit which roles can see a particular component or collection, refer to [Restrict a component or collection](Component_And_Collection_Security/Restrict_a_Component_or_Collection.md).
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| **DELETE ROLE** is disabled, or the delete fails with "Cannot delete a role that is assigned to users." | Users still hold the role under **Assigned roles** | Remove the role from each of those users and select **SAVE**, then select **DELETE ROLE** and confirm. |
+| A permission switch is locked on and cannot be switched off | Another permission needs it, so it stays on while that permission is on | Switch off the permission that requires it, and the locked permission can then be cleared. |
+| A removed permission still works for a person who is signed in | Their current access token keeps the old permissions until it expires, 120 minutes by default, or the session refreshes | Ask the person to sign out and sign in again. |
+

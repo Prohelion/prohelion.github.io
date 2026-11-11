@@ -62,5 +62,5 @@ Selecting **STOP** stops the charger and disengages the pack.
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The message stays on **Ready**, or **START** returns | Not stated. The page says only that the charge has not started. | No action stated. |
-| The charge stops and the pack disengages without you selecting **STOP** | A stage in the start sequence fails. | No action stated. Profinity stops the charge and disengages the pack. |
+| The message stays on **Ready**, or **START** returns | Profinity did not start the charge, because a start stage failed or the charger did not provide current within about five seconds. | Read the Profinity log for the error that names the failed stage, fix that cause, then select **START** again. |
+| The charge stops and the pack disengages without you selecting **STOP** | A stage in the start sequence fails. | Check the status of the battery management system and the charger, correct the fault, then select **START** again. Profinity stops the charge and disengages the pack. |

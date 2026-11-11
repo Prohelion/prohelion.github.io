@@ -76,13 +76,13 @@ Each row becomes one tag.
 Folders and **Browse** are described in [Industrial protocol components](Industrial_Protocol_Components.md#point-map).
 Save the device and wait until it is connected before **Browse** lists its objects.
 
-| Column | Description |
-|---|---|
-| **Name** | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
-| **Object type** | The type of BACnet object: `AnalogInput`, `AnalogOutput`, `AnalogValue` (the default), `BinaryInput`, `BinaryOutput` or `BinaryValue`. |
-| **Instance** | The BACnet object instance number. |
-| **Writable** | Allows Profinity to write to the object's present-value from the tag. Off by default. |
-| **Unit** | An optional unit label for the tag. |
+| Column | Type | Default | Description |
+|---|---|---|---|
+| **Name** | Text | - | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
+| **Object type** | Choice | `AnalogValue` | The type of BACnet object: `AnalogInput`, `AnalogOutput`, `AnalogValue`, `BinaryInput`, `BinaryOutput` or `BinaryValue`. |
+| **Instance** | Whole number | - | The BACnet object instance number. |
+| **Writable** | On or off | Off | Allows Profinity to write to the object's present-value from the tag. |
+| **Unit** | Text | - | An optional unit label for the tag. |
 
 Analog objects are published as number tags, and binary objects are published as boolean tags.
 Profinity reads and writes the object's `present-value` property, and it polls each object on the **Poll interval (ms)** rather than subscribing to changes.

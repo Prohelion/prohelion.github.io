@@ -116,7 +116,7 @@ It names the file and the reason.
 | What you see | Cause | What to do |
 |---|---|---|
 | The message names an environment variable | The file refers to an environment variable that is not set | Set the variable and start again. The file itself is intact, so do not delete it. |
-| The message says the file could not be read | - | Check the file permissions for the account that runs Profinity. |
+| The message says the file could not be read | Profinity cannot read the file. The account that runs Profinity lacks permission to read it, or an input or output error occurs. | Check the file permissions for the account that runs Profinity. |
 
 
 Resetting `config.yaml` returns every setting to its default.

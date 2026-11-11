@@ -40,14 +40,14 @@ Refer to [Custom Component files](Files.md).
 
 Refer to [Main script](Main_Script.md) for the service behind `mainScriptToggle`.
 
-| Field | Default | Required | Meaning |
-|-------|---------|----------|---------|
-| `id` | None | Yes | Unique name for the entry |
-| `displayName` | None | Yes | Label on the menu item. `name` is also accepted in place of this key |
-| `kind` | None | Yes | `button`, `toggle`, or `mainScriptToggle` |
-| `script` | None | For `button` and `toggle` | A path relative to the component folder, such as `scripts/calibrate.cs`. A path that leaves the component folder is rejected |
-| `icon` | Custom | No | A [Carbon icon](https://carbondesignsystem.com/elements/icons/library/) name, such as `Play` or `BatteryCharging`. A Profinity name such as `Start` is still accepted. A file name such as `icons/logo.svg` is a custom icon. An omitted icon is shown as `Custom` |
-| `iconPath` | None | No | An image in the component folder, used instead of `icon` |
+| Field | Type | Default | Required | Meaning |
+|-------|---|---------|----------|---------|
+| `id` | Text | None | Yes | Unique name for the entry |
+| `displayName` | Text | None | Yes | Label on the menu item. `name` is also accepted in place of this key |
+| `kind` | Choice | None | Yes | `button`, `toggle`, or `mainScriptToggle` |
+| `script` | Text | None | For `button` and `toggle` | A path relative to the component folder, such as `scripts/calibrate.cs`. A path that leaves the component folder is rejected |
+| `icon` | Text | Custom | No | A [Carbon icon](https://carbondesignsystem.com/elements/icons/library/) name, such as `Play` or `BatteryCharging`. A Profinity name such as `Start` is still accepted. A file name such as `icons/logo.svg` is a custom icon. An omitted icon is shown as `Custom` |
+| `iconPath` | Text | None | No | An image in the component folder, used instead of `icon` |
 
 An entry with an unsupported `kind`, or a `button` or `toggle` without a `script`, fails validation.
 The message names the entry, for example `Menu action 'zero' has unsupported kind`.

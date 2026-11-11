@@ -61,13 +61,13 @@ If the tag cannot be found, the sample has a `Quality` of `Unavailable` rather t
 
 A sample has these properties:
 
-| Property | Description |
-|----------|-------------|
-| `Value` | The scalar reading, or null when unavailable. Enumeration values are returned as their name. |
-| `Quality` | `Good`, `Unavailable`, `Stale` or `Bad`. |
-| `UtcTimestamp` | The source timestamp in Coordinated Universal Time (UTC). |
-| `Reason` | A machine-readable reason for the quality. |
-| `Message` | Optional detail for errors and diagnostics. |
+| Property | Type | Description |
+|---|---|---|
+| `Value` | - | The scalar reading, or null when unavailable. Enumeration values are returned as their name. |
+| `Quality` | Choice | `Good`, `Unavailable`, `Stale` or `Bad`. |
+| `UtcTimestamp` | Time | The source timestamp in Coordinated Universal Time (UTC). |
+| `Reason` | Text | A machine-readable reason for the quality. |
+| `Message` | Text | Optional detail for errors and diagnostics. |
 
 === "C#"
 

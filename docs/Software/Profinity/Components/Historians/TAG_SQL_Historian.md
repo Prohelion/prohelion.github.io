@@ -155,8 +155,8 @@ Settings cannot be saved in two cases. When the settings save but no rows arrive
 
 | What you see | Cause | What to do |
 |---|---|---|
-| Settings do not save, and the message `You must provide a connection string for the database.` appears | No connection string is entered. | - |
-| Settings do not save, and the message `Table name must use letters, digits, and underscore only, and cannot start with a digit.` appears | The table name is invalid. | - |
+| Settings do not save, and the message `You must provide a connection string for the database.` appears | No connection string is entered. | In **Connection String** under **Connection Settings**, enter the connection string for the database in the syntax of the selected **Database Provider**, then save the settings. |
+| Settings do not save, and the message `Table name must use letters, digits, and underscore only, and cannot start with a digit.` appears | The table name is invalid. | In **Table Name** under **Connection Settings**, enter a name that uses only letters, digits, and underscores, and does not start with a digit, such as `TagChangeLog`, then save the settings. |
 | Settings save, but no rows arrive, and the log shows the component name followed by `could not connect` and the reason. The historian shows **Error** and retries every 5 seconds until the database is reachable. | The connection failed, and the log gives the reason. | Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table. |
 | Settings save, but no rows arrive, and the log shows the component name followed by `writing failed` and the reason. Profinity logs the first failure at warning level and further failures at debug level until a write works again. | A write failed, and the log gives the reason. | Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table. |
 
