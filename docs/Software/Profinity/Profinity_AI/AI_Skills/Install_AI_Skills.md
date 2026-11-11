@@ -15,7 +15,7 @@ For what the skills do, refer to [AI Skills](./index.md) and [AI Skills referenc
 
 Prohelion supplies the pack as `profinity-ai-skills.zip` with each Profinity release.
 Contact Prohelion for the zip that matches your release.
-Installing the agent skills with `npx` needs Node.js on your computer.
+As of November 2026, installing the agent skills with `npx` needs Node.js 22.20 or later, as the [skills CLI README](https://github.com/vercel-labs/skills) states.
 
 Before you install for Claude Code, Cursor, or Codex, finish [Prepare Profinity for an MCP client](../../Integrating_to_Profinity/MCP_Server/Prepare_Profinity.md), then the guide for your tool:
 

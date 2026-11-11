@@ -79,7 +79,7 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder you mounte
 
 3. On **ADMIN > License**, apply the licence file, as described in [Apply a licence](../Applying_a_Licence.md).
     The **State** shows `Valid`, or `Expiring` when 30 days or fewer remain.
-    The licensed features stay off until the licence is applied, and [Features by edition](../../Licensing.md#features-by-edition) lists them.
+    A Linux, macOS, or Docker installation starts the 14-day local trial the first time Profinity 2.3 runs with no licence installed, unless an OEM build turns trials off. An upgraded installation starts the trial too, because 2.2 recorded no licence or trial. A Windows desktop or service installation has no trial. When the trial ends, Profinity runs in restricted mode until the licence is applied. [Features by edition](../../Licensing.md#features-by-edition) lists the features of each edition, and [The 14-day local trial](../../Licensing.md#the-14-day-local-trial) describes the trial.
 
 4. Update each integration that calls one of these 2.2 data routes, which Profinity 2.3 removes, so that it uses the tag, tag collection, tag rule, and alert routes:
 

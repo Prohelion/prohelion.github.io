@@ -52,7 +52,7 @@ The same visibility filter applies whether it calls the web interface's APIs or 
 
 ## The built-in (All Tags) collection
 
-**(All Tags)** is a reserved collection that cannot be deleted or edited.
+**(All Tags)** is a reserved collection that cannot be deleted, and its name and members cannot be changed.
 It has the same **Security** panel as any custom collection, and a user with **Security administration** can restrict it the same way.
 A custom collection cannot be created with the ID `All`, because that ID is reserved.
 Profinity rejects the save with `400 Bad Request` and the message Collection id 'All' is reserved.

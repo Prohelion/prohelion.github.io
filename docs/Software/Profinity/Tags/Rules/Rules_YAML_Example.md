@@ -60,7 +60,7 @@ rules:
                 pump and fan before the next drive.
               moreInformation:
                 - description: Battery cooling guide
-                  url: https://docs.example.com/battery-cooling
+                  url: https://YOUR_DOCS_LINK
               relatedTags:
                 coolantTemperature: Vehicles/Car1/Battery/CoolantTemperature
               scope:
@@ -98,6 +98,8 @@ rules:
           - action: OpsEmail
             message: "Cell {TagId} is back to {Value} V"
 ```
+
+Replace `YOUR_DOCS_LINK` with the address of a page of your own, or remove the `moreInformation` entry.
 
 The `scope.prefix` of `Vehicles/Car1` is the default for every rule. `disableActions` switches off an action that a parent passes down, by its `parent/action` id, so `profile/ProfinityLog` turns off the `ProfinityLog` action that the profile passes down. Action messages accept the tokens `{RuleId}`, `{TagId}`, `{Transition}`, `{Value}`, `{Quality}`, `{MetaType}`, `{RuleLevel}`, `{TriggeredTagCount}`, `{TriggeredTagIds}`, `{TagValue}`, `{ThresholdLevel}` and `{ThresholdMessage}`, and any related-tag alias such as `{coolantTemperature}`.
 A `prefix` that starts with a name in a group or rule joins beneath its parent, so `pack_temperature` watches `Vehicles/Car1/Battery/PackTemperature`.

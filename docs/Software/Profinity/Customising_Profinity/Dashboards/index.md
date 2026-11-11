@@ -29,4 +29,4 @@ This guide is for people who build dashboards for components, profile home pages
 - [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md) analyses a complete dashboard for a WaveSculptor22 motor controller, and includes a download of that YAML.
 - [Troubleshooting guide](./Troubleshooting.md) and the [Frequently asked questions](./FAQ.md) cover validation errors, binding problems and common questions.
 
-To build a first dashboard step by step, refer to [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md).
+Start with [How to create a custom dashboard](../../How_To_Guides/Create_Custom_Dashboard.md) to build your first dashboard step by step. [Build a dashboard in the Visual Editor](./Build_a_Dashboard.md) then covers the editor in full, including binding tags and copying a dashboard as a template.

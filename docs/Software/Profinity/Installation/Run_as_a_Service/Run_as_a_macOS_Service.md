@@ -62,7 +62,7 @@ It does not use `-s` (`--service`), which selects service-mode host integration 
 Always start Profinity through `profinity.sh`, because it also bootstraps the .NET runtime for the portable macOS build when needed.
 
 To check that the service is running, run `sudo launchctl list | grep com.profinity.service`.
-The command lists the service when it is loaded.
+The command lists the service when it is loaded. The first column shows its process ID while it is running, and the second column shows the last exit status of the job.
 
 | What you see | Cause | What to do |
 |--------------|-------|------------|

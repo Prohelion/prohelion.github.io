@@ -44,7 +44,7 @@ A valid token returns status `200` and the service provider settings as `applica
 
 Requests with the old token return `401` from the moment you save the new one, so make both changes in one sitting.
 
-1. Keep a copy of the current token in a password manager, so that you can go back to it.
+1. Keep a copy of the current token in a password manager, so that you can go back to it. Profinity does not show the saved token again, so keep the copy before you enter the new value.
 2. Enter the new value in **SCIM bearer token**, then select **SAVE**.
 3. Enter the same value in the identity provider's SCIM settings.
 4. Check the connection with the command in [SCIM provisioning](#scim-provisioning).

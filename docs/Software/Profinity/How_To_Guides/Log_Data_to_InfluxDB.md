@@ -46,7 +46,7 @@ To use a self-hosted InfluxDB:
    For InfluxDB Cloud, use the URL shown in your account, such as `https://us-east-1-1.aws.cloud2.influxdata.com`.
    For a self-hosted server, use `http://<your-server>:8086`.
 3. Enter the **InfluxDB Organisation**, **InfluxDB Bucket**, and **InfluxDB Token**.
-4. For InfluxDB Cloud, set **InfluxDB Health Check** to false, because InfluxDB Cloud does not support the health check API. For a self-hosted server, leave it on, which is the default.
+4. For InfluxDB Cloud, set **InfluxDB Health Check** to false, because InfluxDB Cloud does not support the health check endpoint. As of November 2026, the [InfluxDB documentation](https://docs.influxdata.com/influxdb/cloud/reference/cli/influx/ping/) states that its health check does not work with InfluxDB Cloud. For a self-hosted server, leave it on, which is the default.
 5. In **Collections**, add a row for each tag collection to log and select the collection in that row.
    The historian starts only when at least one collection is configured.
 6. Optional: set the **Update Interval (seconds)** and the **Logging mode**.
@@ -58,7 +58,7 @@ The historian starts when the profile loads if **Auto Connect** is on, and [Conn
 
 ## Check that data is arriving
 
-1. Check that the historian component shows no connection error.
+1. Check that the historian's status is not **Error**. The reason is written to the **Logs** page under **ADMIN**, as a line such as `<historian name>: could not connect (<reason>). Retrying every 5 s.`
 2. In the InfluxDB web interface, open Data Explorer.
 3. Run this query, replacing `my-profinity-data` with your bucket and `Your_Profile_Name` with your profile name. The measurement is the profile name with leading and trailing spaces removed. Each character other than a letter or digit becomes an underscore, and letter case is kept:
 

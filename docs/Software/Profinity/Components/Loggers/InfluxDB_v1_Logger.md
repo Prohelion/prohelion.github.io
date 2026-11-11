@@ -55,7 +55,7 @@ Data appears in the database after the first **Update Interval (seconds)**, 10 s
 | **InfluxDB Retention Policy** | Text | `autogen` | The retention policy that the data is written with. |
 | **Influx Server URL** | Text | `http://localhost:8086/` | The address of the InfluxDB server. |
 | **Dashboard URL** | Text | Blank | The full address of an InfluxDB dashboard. When it is set, Profinity shows a link to it. |
-| **InfluxDB Health Check** | On or off | On | Checks at regular intervals that the server answers. Turn it off for InfluxDB Cloud, where the logger reports that the health check failed. |
+| **InfluxDB Health Check** | On or off | On | Checks at regular intervals that the server answers. Turn it off for InfluxDB Cloud, which does not support the check, as the [InfluxDB documentation](https://docs.influxdata.com/influxdb/cloud/reference/cli/influx/ping/) states as of November 2026. |
 | **Collections** | Choice | None | The [tag collections](../../Tags/Collections/index.md) whose tags are logged. The logger needs at least one before it can start. The picker shows each collection's display name, and the profile stores its `id`. |
 | **Update Interval (seconds)** | Time | `10` | How often data is sent, from 1 to 86400 seconds. |
 | **Logging mode** | Choice | `Snapshot` | What is sent on each interval: `Snapshot`, `On Change`, or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |

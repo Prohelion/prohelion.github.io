@@ -24,7 +24,7 @@ Refer to [Who can sign in, by installation type](../../Installation/Applying_a_L
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select **Add user**.
 3. Fill in the fields in the table that follows.
-4. Choose one or more roles under **Assigned roles**, then select **ADD USER**. Profinity confirms with the message "Successfully created the user".
+4. Optionally choose one or more roles under **Assigned roles**, then select **ADD USER**. Profinity confirms with the message "Successfully created the user".
 
 | Field | Type | Description | Default |
 |-------|----|-------------|---------|
@@ -55,7 +55,7 @@ Examples are a viewer role for people who only watch the system and a role for p
 Because **Administrators** includes managing users and changing the system configuration, keep it for initial setup and emergencies.
 Named individuals use narrower roles the rest of the time.
 
-To change the access of an existing user, select the user's row in **Users & Groups** to open their settings dialog and edit **Assigned roles**.
+To change the access of an existing user, select the user's row in **Users & Groups** to open their settings dialog, edit **Assigned roles**, then select **SAVE**. Profinity confirms with the message "Successfully updated the user".
 
 !!! warning "Changing roles signs people out"
     Changing a user's **Assigned roles** ends that user's active sessions, and they must sign in again.

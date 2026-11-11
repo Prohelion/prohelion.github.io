@@ -42,7 +42,7 @@ The `Unack` route is the same revert that the **Unacknowledge alert** button use
 | Method | Route | Purpose |
 |--------|-------|---------|
 | POST | `/api/v2/Ai/Chat` | Streams a chat response for the calling user, using the instance's [Profinity AI](../../Administration/System_Configuration/AI_Settings.md) configuration. Needs the **Profinity AI** permission. |
-| Streamable HTTP | `/api/v2/Ai/Mcp` | The MCP endpoint that AI clients connect to. Needs the **MCP integration** permission. Refer to [Connect Claude Code](../MCP_Server/Connect_Claude_Code.md). |
+| POST | `/api/v2/Ai/Mcp` | The Streamable HTTP endpoint that AI clients connect to, which accepts `POST` only. Needs the **MCP integration** permission. Refer to [Connect Claude Code](../MCP_Server/Connect_Claude_Code.md). |
 
 ## Component and collection security
 

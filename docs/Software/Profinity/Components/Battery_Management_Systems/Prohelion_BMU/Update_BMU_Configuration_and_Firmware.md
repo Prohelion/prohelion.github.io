@@ -10,7 +10,7 @@ last_reviewed: 2026-11-11
 
 Change the firmware configuration of a Prohelion Battery Management Unit (BMU), unlock its Admin parameters, or flash its firmware, from **Change Settings** on the BMU dashboard.
 
-The steps differ by generation, which is part of the model you chose when you added the BMU:
+The steps differ by generation, which is part of the model you chose when you added the BMU, such as **Prohelion D1000 Gen1 BMS** or **Prohelion D1000 Gen2 BMS**:
 
 - **Gen1:** the D1000 Gen1 and M48 Gen1. The C20 Gen1 has no firmware settings or firmware update in Profinity.
 - **Gen2:** the D1000 Gen2, M48 Gen2, and C48 Gen2.

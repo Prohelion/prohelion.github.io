@@ -83,7 +83,7 @@ Profinity has to be running before the browser opens it, so each method starts t
 
     3. Save the application.
     4. Open **System Settings**, select **General**, then **Login Items & Extensions**. Older versions of macOS name the section **Login Items**.
-    5. Select the add button under the list of items, choose the application, and select **Add**.
+    5. Under **Open at Login**, select the **Add** button below the list of items, then choose the application from the list that appears.
 
     As of November 2026, Apple describes these settings in [Open items automatically when you log in on Mac](https://support.apple.com/guide/mac-help/open-items-automatically-when-you-log-in-mh15189/mac).
 

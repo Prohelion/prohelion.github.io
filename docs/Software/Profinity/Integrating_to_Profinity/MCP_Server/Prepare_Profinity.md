@@ -127,21 +127,21 @@ When Profinity runs on another computer, that page also describes how to copy `p
 ## Check the server answers
 
 Run the check from the computer that runs the AI tool, with the command for your operating system.
-Opening the address in a browser does not test the server.
+The server answers only `POST` requests, so a browser, which sends `GET`, gets `404` from a working server.
 
 === "macOS"
 
     For the HTTP address, run:
 
     ```bash
-    curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" http://localhost:18080/api/v2/Ai/Mcp
+    curl -s -o /dev/null -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" http://localhost:18080/api/v2/Ai/Mcp
     ```
 
     For an HTTPS address, run this command after you trust the certificate.
     It uses `/usr/bin/curl`, which checks the certificates in the keychain:
 
     ```bash
-    /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
+    /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
 === "Linux"
@@ -149,13 +149,13 @@ Opening the address in a browser does not test the server.
     For the HTTP address, run:
 
     ```bash
-    curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" http://localhost:18080/api/v2/Ai/Mcp
+    curl -s -o /dev/null -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" http://localhost:18080/api/v2/Ai/Mcp
     ```
 
     For an HTTPS address, run this command after you trust the certificate:
 
     ```bash
-    curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
+    curl -s -o /dev/null -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
 === "Windows"
@@ -163,18 +163,18 @@ Opening the address in a browser does not test the server.
     For the HTTP address, run this command in PowerShell:
 
     ```powershell
-    curl.exe -s -o NUL -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" http://localhost:18080/api/v2/Ai/Mcp
+    curl.exe -s -o NUL -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" http://localhost:18080/api/v2/Ai/Mcp
     ```
 
     For an HTTPS address, run this command after you trust the certificate.
     Windows checks it against the certificates the operating system trusts:
 
     ```powershell
-    curl.exe -s -o NUL -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
+    curl.exe -s -o NUL -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
 In an HTTPS command, replace `<host>` with the host name from your address.
-The command prints `401`, which means the server is running and is waiting for a token, which the AI tool sends.
+The command sends an empty MCP request with no token, and prints `401`, which means the server is running and is waiting for the token that the AI tool sends.
 
 | What you see | Cause | What to do |
 |---|---|---|

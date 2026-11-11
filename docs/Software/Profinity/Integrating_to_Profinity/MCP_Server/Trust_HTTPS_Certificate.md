@@ -243,7 +243,7 @@ From the computer that runs the AI tool, run the check for your operating system
 === "macOS or Linux"
 
     ```bash
-    /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" "<https-address>"
+    /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" "<https-address>"
     ```
 
     The `curl` in `/usr/bin` checks the certificates the operating system trusts, and a `curl` from another source can keep its own list.
@@ -251,7 +251,7 @@ From the computer that runs the AI tool, run the check for your operating system
 === "Windows"
 
     ```powershell
-    curl.exe -s -o NUL -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" "<https-address>"
+    curl.exe -s -o NUL -w "%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" -d "{}" "<https-address>"
     ```
 
 Replace `<https-address>` with the HTTPS address of the MCP server, from [Choose the MCP server address](Prepare_Profinity.md#choose-the-mcp-server-address).

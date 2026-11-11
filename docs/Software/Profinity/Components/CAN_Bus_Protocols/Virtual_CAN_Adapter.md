@@ -26,6 +26,8 @@ The Virtual Adapter has no setting that selects its partner adapter.
 It forwards traffic between itself and every other active CAN adapter in the Profile.
 Add the [Peak or SocketCAN adapter](CAN_Bus_Adapters/index.md) to the same Profile first.
 
+The adapter publishes eight tags under its component path: `Properties/IsDesiredConnected`, `Properties/Settings/Name`, `Properties/State/Controller/CurrentStateName`, `Properties/Status`, `Properties/StatusColourText`, `Properties/StatusMessage`, `Properties/TotalMessagesReceived` and `Properties/TotalMessagesSent`.
+
 ## Quick start
 
 You need a Peak or SocketCAN adapter in the same profile, added first, so the bridge has a CAN network to relay.

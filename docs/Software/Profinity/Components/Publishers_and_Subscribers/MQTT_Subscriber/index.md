@@ -104,6 +104,8 @@ An incoming metric is written to a path built from the **Tag path prefix** and t
 
 For example, with the prefix `External`, group `Plant1`, edge node `Node1`, device `Pump` and metric `Temp/Out`, the tag path is `External/Plant1/Node1/Pump/Temp/Out`.
 The device segment is omitted for a node-level metric, and present for a device-level metric.
+
+These are Sparkplug B terms. An edge node is the MQTT client that connects to the broker and publishes for a site, a device is a piece of equipment attached to an edge node, and a metric is one named data point. A death message is the message that the broker publishes for an edge node when it disconnects unexpectedly. As of November 2026, the [Eclipse Sparkplug specification](https://sparkplug.eclipse.org/specification/) defines each of these.
 A metric name that contains `/` adds further segments beneath the device.
 
 !!! warning "Subscribed tags are read-only"

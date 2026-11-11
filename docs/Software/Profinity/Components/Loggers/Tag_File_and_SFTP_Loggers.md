@@ -55,8 +55,8 @@ A logger shows **Off** and needs a collection before it can start, so create and
 
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
-| **Collections** | Choice | Empty | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
-| **Update Interval (seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
+| **Update Interval (seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. A value outside this range is refused, and the dialog shows "The field IntervalSec must be between 1 and 86400." Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Logging mode** | Choice | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
 | **File Format** | Choice | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
 
