@@ -3,7 +3,7 @@ title: How AI technicians work
 description: Understand an AI technician round, the three things that wake it, why it only reads, and how its findings reach alerts through ordinary rules.
 type: concept
 owner: Documentation
-last_reviewed: 2026-11-10
+last_reviewed: 2026-11-11
 ---
 
 # How AI technicians work
@@ -64,7 +64,7 @@ The full list of built-in rules is on [AI Technician](./AI_Technician.md#built-i
 Each round signs in as the user named in **Run as**, so the AI sees only the tags, alerts, and rules that user's roles allow.
 The tools it uses are the read-only tools of the [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md), so a technician cannot change a tag, a setting, or a device.
 
-The AI receives the technician's instructions, the review window, and the previous finding.
+The AI receives the technician's instructions and the previous finding.
 When an alert wakes it, the AI also receives that alert, marked as device data to investigate and not as instructions.
 The previous finding lets it keep a verdict steady from one round to the next, instead of changing its view on the same data.
 

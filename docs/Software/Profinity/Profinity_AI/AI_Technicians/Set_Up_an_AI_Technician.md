@@ -3,7 +3,7 @@ title: Set up an AI technician
 description: Add an AI technician to a profile, give it a service account, instructions and a schedule, and check its first finding.
 type: task
 owner: Documentation
-last_reviewed: 2026-11-10
+last_reviewed: 2026-11-11
 ---
 
 # Set up an AI technician
@@ -34,7 +34,7 @@ Each round signs in as a service account, so the account's roles decide what the
 3. On the **Settings** tab, set **Run as** to the service account.
    The list is the enabled users.
 4. Open the **Instructions** tab and edit the example.
-   Change it to match the site, as described in [Write instructions](./Write_Instructions.md).
+   Say how far back the review looks, and change the rest to match the site, as described in [Write instructions](./Write_Instructions.md).
 5. Leave **Schedule** on **No schedule** for now, and save.
 
 ## Run the first round
@@ -56,8 +56,7 @@ Each press of Run AI Technician counts towards **Daily limit**, which is in the 
 1. On the **Settings** tab, set **Schedule** to **Run On CRON Schedule**.
 2. Set **Cron Schedule** to a Quartz cron expression, such as `0 0 0 * * ?` for midnight every day.
    For a repeating gap instead, set **Schedule** to **Run On Time Interval**, set **Time Interval** to a whole number of at least 1, and set **Time Interval Unit** to **Seconds**, **Minutes**, **Hours** or **Days**.
-3. On the **Settings** tab, set **Review window (hours)** to the time since the last review, such as 24 for a daily review.
-4. Save, and check that the dashboard **NEXT** shows the next round in UTC.
+3. Save, and check that the dashboard **NEXT** shows the next round in UTC.
 
 ## Send the findings on
 

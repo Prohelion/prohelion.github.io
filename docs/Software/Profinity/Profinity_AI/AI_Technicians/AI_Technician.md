@@ -3,7 +3,7 @@ title: AI Technician
 description: Look up the AI Technician settings, findings tags, built-in rules and dashboard, and fix blocked rounds and dropped wakes.
 type: component
 owner: Documentation
-last_reviewed: 2026-11-10
+last_reviewed: 2026-11-11
 ---
 
 # AI Technician
@@ -55,7 +55,6 @@ Every setting is on the **Settings** tab, except **Instructions**, which has its
 | **Schedule** | No schedule, Run On Time Interval, or Run On CRON Schedule | No schedule | When scheduled rounds run. With No schedule, rounds start only from **Run AI Technician** and from alerts. |
 | **Time Interval** and **Time Interval Unit** | Whole number and a unit | Empty, seconds | Shown when **Schedule** is Run On Time Interval. |
 | **Cron Schedule** | Text | Empty | Shown when **Schedule** is Run On CRON Schedule. |
-| **Review window (hours)** | Whole number, 1 to 168 | 24 | How far back the technician is told to look. |
 | **Round timeout (seconds)** | Whole number, 30 to 3600 | 300 | A round running longer than this stops with a `blocked` finding. |
 | **Alert cooldown (minutes)** | Whole number, 0 to 1440 | 60 | Alert wakes are dropped for this long after a round ends. 0 turns the cooldown off. |
 | **Daily limit** | Whole number, 0 to 1000 | 10 | The most alert and Run AI Technician rounds in one day. Scheduled rounds do not count. |
@@ -80,7 +79,6 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     instructions: YOUR_INSTRUCTIONS
     scheduleMode: CronSchedule
     cronSchedule: 0 0 0 * * ?
-    reviewWindowHours: 24
     timeoutSeconds: 300
     alertCooldownMinutes: 60
     dailyLimit: 10
@@ -164,7 +162,7 @@ A [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) or [TAG 
 | `Outcome` is `blocked` and `Message` reads `AI is not licensed or configured` or `AI settings are incomplete` | Profinity AI is not licensed, or its settings are not complete | Complete [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md), and check the edition in [Licensing](../../Licensing.md). |
 | `Message` reads `Run as user was not found or is disabled` | **Run as** names no user, or a disabled user | Set **Run as** to an enabled user. A [service account](../../Administration/Users_and_Access/Service_Accounts.md) is the usual choice. |
 | `Message` reads `Model did not call record_finding` | The AI replied without giving a verdict | Make the instructions end with a clear instruction to give a verdict, as described in [Write instructions](./Write_Instructions.md). |
-| `Message` reads `Round timed out` | The round took longer than **Round timeout (seconds)** | Increase the timeout, or narrow the instructions and **Review window (hours)**. |
+| `Message` reads `Round timed out` | The round took longer than **Round timeout (seconds)** | Increase the timeout, or narrow the instructions. |
 | **Run AI Technician** or an alert does nothing | Profinity dropped the wake. The [Profinity log](../../Administration/Logs_Config.md) has a line `AI technician '<name>': dropped` with the reason, which the table in [Dropped wakes](#dropped-wakes) explains. | Fix the cause for the reason in the log. |
 | A finding names data the technician should have seen as missing | The **Run as** account lacks the permission to view it | Add the view permissions to the account's role, as described in [Service accounts](../../Administration/Users_and_Access/Service_Accounts.md#run-an-ai-technician). |
 | Text findings are empty when a dashboard is viewed at a past time | The designated historian is an InfluxDB historian, which stores numbers only | Use a TAG SQL Historian or TAG Local Historian as the [designated historian](../../Components/Historians/Designated_Historian.md). |
