@@ -73,8 +73,8 @@ Every full snapshot includes tag metadata such as units, and the receiver accept
 
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
-| **Remote base URL** | Absolute URL | None | Required for HTTPS. The base address of the receiving instance, for example `https://receiver:443/`. Profinity adds the path it sends to. |
-| **Bearer token** | Text | None | Required for HTTPS. A token for a user on the receiving instance who holds the **Receive external tags** permission, such as a member of the default Administrators role. Use the token of a [service account](../../Administration/Users_and_Access/Service_Accounts.md), so that the relay keeps working without anyone signing in. Refer to [Receiving over HTTPS](Tag_Relay_Receiver.md#receiving-over-https). It is stored encrypted. |
+| **Remote base URL** | Text | None | Required for HTTPS. The base address of the receiving instance, for example `https://receiver:443/`. Profinity adds the path it sends to. |
+| **Bearer token** | Secret | None | Required for HTTPS. A token for a user on the receiving instance who holds the **Receive external tags** permission, such as a member of the default Administrators role. Use the token of a [service account](../../Administration/Users_and_Access/Service_Accounts.md), so that the relay keeps working without anyone signing in. Refer to [Receiving over HTTPS](Tag_Relay_Receiver.md#receiving-over-https). It is stored encrypted. |
 | **Trust all server certificates** | On or off | Off | Accepts the receiving instance's Transport Layer Security (TLS) certificate without validating it. Turn it on only for a trusted receiver that uses a self-signed certificate. |
 
 ### MQTT settings
@@ -85,7 +85,7 @@ Every full snapshot includes tag metadata such as units, and the receiver accept
 | **MQTT broker port** | Whole number, 1 to 65535 | `1883` | The broker's port. A port in the broker URL takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`. |
 | **Trust all server certificates** | On or off | Off | Accepts the broker's TLS certificate without validating it. Turn it on only for a trusted broker that uses a self-signed certificate. |
 | **MQTT username** | Text | None | Optional. The user name for a broker that requires authentication. |
-| **MQTT password** | Text | None | Optional. The password for a broker that requires authentication. It is stored encrypted. |
+| **MQTT password** | Secret | None | Optional. The password for a broker that requires authentication. It is stored encrypted. |
 | **MQTT client id** | Text | None | Optional. Leave blank to generate a client ID. Each client on the broker needs a different ID. |
 | **MQTT snapshot topic** | Text | None | Required for MQTT. The topic that carries the snapshots and changes, for example `profinity/relay/site1`. The receiver's **MQTT subscribe topic** must match it. |
 

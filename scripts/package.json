@@ -18,7 +18,14 @@
     "review-apply-phrasing": "node review-pages.js apply-phrasing",
     "review-score": "node review-pages.js score",
     "review-ledger": "node review-ledger.js",
-    "generate-llms": "node generate-llms-txt.js"
+    "generate-llms": "node generate-llms-txt.js",
+    "check-settings": "node check-settings.js",
+    "check-examples": "node check-examples.js",
+    "check-code-links": "node check-code-links.js",
+    "check-routes": "node check-routes.js",
+    "check-env": "node check-env.js",
+    "check-permissions": "node check-permissions.js",
+    "check-anchors": "node check-anchors.js"
   },
   "dependencies": {
     "ajv": "^8.12.0",

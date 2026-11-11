@@ -61,6 +61,8 @@ The format of each YAML file is in [Custom Component files](../../Developing_wit
 
 | Setting | Tab | Type | Default | Effect |
 |---|---|---|---|---|
+| **Rebase DBC** | **Settings** | On or off | Off | Resets the DBC file to the base address in **Rebase Address**. |
+| **Rebase Address** | **Settings** | Hexadecimal number | `0x0` | The base CAN address of the device, to which Profinity resets the addresses of the DBC file when **Rebase DBC** is on. |
 | **Upload DBC File (Optional)** | **Pack files** | File upload | None | The DBC file that decodes the component's CAN messages. |
 | **Upload Dashboard (Optional)** | **Pack files** | File upload | None | The dashboard YAML file that is the component's page. |
 | **Rules YAML file (Optional)** | **Pack files** | File upload | None | The [tag rules](../../Tags/Rules/index.md) for the component's tags. |

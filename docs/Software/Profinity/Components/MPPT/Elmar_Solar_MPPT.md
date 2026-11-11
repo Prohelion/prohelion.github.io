@@ -35,7 +35,7 @@ The **Change Settings** button on the MPPT dashboard changes these settings late
 |---|---|---|---|
 | **Name** | Text | The name of the component. Must be unique. | Elmar Solar MPPT |
 | **Milliseconds Valid** | Time | The timeout of the device in milliseconds, from 1 to 60000, or -1 for no timeout. | 5000 |
-| **Base Address** | Whole number | The CAN address of the MPPT, as described in the Elmar MPPT DBC. | `0x300` |
+| **Base Address** | Hexadecimal number | The CAN address of the MPPT, as described in the Elmar MPPT DBC. | `0x300` |
 
 If the network receives no traffic from the device within the **Milliseconds Valid** time, Profinity treats the connection as lost.
 

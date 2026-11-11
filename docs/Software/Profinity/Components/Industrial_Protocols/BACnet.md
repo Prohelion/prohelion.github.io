@@ -73,7 +73,7 @@ For folders and **Browse**, refer to [Industrial protocol components](Industrial
 |---|---|---|---|
 | **Name** | Text | None | The name of the tag in the component's **Points** folder. It must be unique in its folder, and the same name can be used in another folder. |
 | **Object type** | Choice | `AnalogValue` | The type of BACnet object: `AnalogInput`, `AnalogOutput`, `AnalogValue`, `BinaryInput`, `BinaryOutput` or `BinaryValue`. |
-| **Instance** | Whole number | None | The instance number of the object in the device. |
+| **Instance** | Whole number | `0` | The instance number of the object in the device. |
 | **Writable** | On or off | Off | Lets Profinity write the tag value to the object. |
 | **Unit** | Text | None | An optional unit label for the tag. |
 

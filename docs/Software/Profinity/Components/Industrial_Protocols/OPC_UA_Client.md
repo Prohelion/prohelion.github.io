@@ -46,14 +46,14 @@ Viewing the dashboard requires the **Security administration** permission, descr
 |---|---|---|---|
 | **Name** | Text | `OPC UA Client` | The name of the component. Must be unique within the profile. |
 | **Endpoint URL** | Text | `opc.tcp://127.0.0.1:4840` | The address of the server. Required, and must start with `opc.tcp://`. |
-| **Use security** | True or false | Off | When off, the client connects without message security. Turn it on to connect to an endpoint that uses security (message signing or encryption). When the server offers no such endpoint, the connection fails with the message "No OPC UA endpoint was selected for" and the address, and Profinity does not fall back to an unsecured connection. |
+| **Use security** | On or off | Off | When off, the client connects without message security. Turn it on to connect to an endpoint that uses security (message signing or encryption). When the server offers no such endpoint, the connection fails with the message "No OPC UA endpoint was selected for" and the address, and Profinity does not fall back to an unsecured connection. |
 | **Username** | Text | Empty | An optional user name. Leave it empty to connect anonymously. |
-| **Password** | Text (encrypted) | Empty | The password for the user name. It is stored encrypted. |
-| **Trust all server certificates** | True or false | Off | Skips validation of the server's certificate. Turn it on only when connecting to a trusted endpoint that uses a self-signed certificate. |
+| **Password** | Secret | Empty | The password for the user name. It is stored encrypted. |
+| **Trust all server certificates** | On or off | Off | Skips validation of the server's certificate. Turn it on only when connecting to a trusted endpoint that uses a self-signed certificate. |
 | **Poll interval (ms)** | Whole number (ms) | `1000` | How often the node map is read, in milliseconds. Between `50` and `600000`. |
 | **Request timeout (ms)** | Whole number (ms) | `5000` | How long Profinity waits for the server to answer a request, in milliseconds. Between `50` and `60000`. |
 | **Reconnect delay (ms)** | Whole number (ms) | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
-| **Auto Connect** | True or false | Off | Connects to the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Auto Connect** | On or off | Off | Connects to the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 With **Auto Connect** on, Profinity keeps trying to connect when the server is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
 
@@ -77,7 +77,7 @@ Browse the server once the client is connected:
 |---|---|---|---|
 | **Name** | Text | Empty | The name of the tag under the component's `Points` tags. It must be unique in its folder. The same name can be used in another folder. |
 | **NodeId** | Text | Empty | The identifier of the node on the server, for example `ns=2;s=Temp`. |
-| **Writable** | True or false | Off | Allows Profinity to write the node from the tag. Nodes stay read-only unless you turn this on. |
+| **Writable** | On or off | Off | Allows Profinity to write the node from the tag. Nodes stay read-only unless you turn this on. |
 | **Unit** | Text | Empty | An optional unit label for the tag. |
 
 ## Example

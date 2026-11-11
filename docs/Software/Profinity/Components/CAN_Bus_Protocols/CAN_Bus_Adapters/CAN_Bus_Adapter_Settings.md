@@ -36,9 +36,11 @@ The **Tritium Can to Ethernet Bridge** adapter connects to a Prohelion or Tritiu
 | **IP Address** | Text | The IP address of the bridge. TCP only. | `127.0.0.1` |
 | **Bus Number** | Whole number | The bus number of the bridge, from 0 to 13 for `V1` and 0 to 32767 for `V2`. It must match the Virtual Bus Number set in the bridge firmware, because Profinity drops packets from other bus numbers. | 13 |
 | **UDP TTL** | Whole number | The time to live of the UDP packets that Profinity transmits, from 1 to 1024. | 128 |
-| **Forward Address** | Whole number | The lowest CAN identifier that the bridge forwards. TCP only. | `0x0` |
-| **Forward Address Range** | Whole number | The size of the identifier range that the bridge forwards. TCP only. | All CAN identifiers |
+| **Forward Address** | Hexadecimal number | The lowest CAN identifier that the bridge forwards. TCP only. | `0x0` |
+| **Forward Address Range** | Hexadecimal number | The size of the identifier range that the bridge forwards. TCP only. | All CAN identifiers |
 | **Allow Loopback Traffic** | On or off | Shows the packets that the bridge receives back from its own transmissions. UDP only. | Off |
+| **Auto Connect** | On or off | Connects to the bridge when the profile loads. | On |
+| **Milliseconds Valid** | Whole number | How long the CAN traffic from the bridge counts as valid before Profinity assumes the connection is lost, from -1 to 60000 milliseconds. | 5000 |
 
 UDP uses the multicast group 239.255.60.60 on port 4876, so several clients can share one bridge.
 TCP connects to the IP address of the bridge on port 4876, and a physical bridge accepts only one TCP connection.
@@ -64,6 +66,7 @@ The **SocketCANd Adapter** connects over TCP to the socketcand daemon, which can
 | **IP Address** | Text | The IP address of the machine running socketcand. | `127.0.0.1` |
 | **Port** | Whole number | The port that socketcand listens on, from 1 to 65535. | 29536 |
 | **Timeout** | Time | The TCP timeout in milliseconds, from 0 to 60000. | 2000 |
+| **Auto Connect** | On or off | Connects to socketcand when the profile loads. | On |
 
 The machine running socketcand sets the bit rate of the interface, not Profinity.
 

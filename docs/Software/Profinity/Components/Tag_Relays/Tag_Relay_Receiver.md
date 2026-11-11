@@ -71,7 +71,7 @@ The relayed tags appear under the **Receiver tag path prefix**.
 | **MQTT broker port** | Whole number, 1 to 65535 | `1883` | The broker's port. A port in the broker URL takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`. |
 | **Trust all server certificates** | On or off | Off | Accepts the broker's TLS certificate without validating it. Turn it on only for a trusted broker that uses a self-signed certificate. |
 | **MQTT username** | Text | None | Optional. The user name for a broker that requires authentication. |
-| **MQTT password** | Text | None | Optional. The password for a broker that requires authentication. It is stored encrypted. |
+| **MQTT password** | Secret | None | Optional. The password for a broker that requires authentication. It is stored encrypted. |
 | **MQTT client id** | Text | None | Optional. Leave blank to generate a client ID. Each client on the broker needs a different ID. |
 | **MQTT subscribe topic** | Text | None | Required for MQTT. The topic the sender publishes to, for example `profinity/relay/site1`. It matches the sender's **MQTT snapshot topic**. Profinity checks it when the receiver starts. |
 
