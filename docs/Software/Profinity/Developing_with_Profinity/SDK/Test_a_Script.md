@@ -88,5 +88,8 @@ Profinity runs the copied file.
 3. Review the script, then set **Script Mode** to **Run On Demand** and select **Run Script**. The status reads `Run 1 time` after the first run.
    A script in a profile runs with the same operating system permissions as Profinity.
 
+| What you see | Cause | What to do |
+|---|---|---|
+| The command fails, or the simulator cannot cover a call the script makes | - | Refer to the [errors](./Profinity_Script_Reference.md#errors) and the [limits of the simulator](./Profinity_Script_Reference.md#limits-of-the-simulator) in the profinity-script reference. |
+
 For what a script can do in a profile, refer to [Profinity Scripting](../Scripting/index.md).
-If the command fails, or the simulator cannot cover a call the script makes, refer to the [errors](./Profinity_Script_Reference.md#errors) and the [limits of the simulator](./Profinity_Script_Reference.md#limits-of-the-simulator) in the profinity-script reference.

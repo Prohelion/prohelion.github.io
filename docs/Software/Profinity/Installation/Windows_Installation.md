@@ -41,8 +41,10 @@ The default URL is `http://localhost:18080`, and the browser opens the Profinity
 </figure>
 
 The desktop application window signs in automatically, with no password.
-Without a Server licence the browser sign-in page has no account to sign in with, so use the desktop application window until you apply one.
-If the browser cannot reach the address, check that Profinity is running and that no other program is using port 18080.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| The browser sign-in page has no account to sign in with | No Server licence is applied | Use the desktop application window until you apply a Server licence |
+| The browser cannot reach the address | Profinity is not running, or another program is using port 18080 | Check that Profinity is running and that no other program is using port 18080 |
 
 ## Remote access and user accounts
 

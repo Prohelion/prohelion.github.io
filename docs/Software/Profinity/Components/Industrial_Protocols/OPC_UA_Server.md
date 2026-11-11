@@ -108,7 +108,7 @@ Viewing the dashboard requires the **Security administration** permission, descr
 
 Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 
-| Symptom | Cause | Fix |
+| What you see | Cause | What to do |
 |---|---|---|
 | A client on another computer cannot connect. | The default **Bind URL** listens on `127.0.0.1` only. | Replace the host in the **Bind URL** with an address the clients can reach, as described under Listening address. |
 | A tag added to the profile is missing from the address space. | The server builds the address space once, when it starts. | Stop the server, then start it again from the component's menu. |

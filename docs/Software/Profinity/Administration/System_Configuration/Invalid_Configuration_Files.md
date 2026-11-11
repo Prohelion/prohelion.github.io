@@ -113,10 +113,11 @@ It names the file and the reason.
    Do not delete `custom.yaml`: the OEM build supplies it, so ask your supplier for a corrected copy.
 4. Start Profinity again.
 
-If the message names an environment variable, set the variable and start again.
-The file itself is intact, so do not delete it.
+| What you see | Cause | What to do |
+|---|---|---|
+| The message names an environment variable | The file refers to an environment variable that is not set | Set the variable and start again. The file itself is intact, so do not delete it. |
+| The message says the file could not be read | - | Check the file permissions for the account that runs Profinity. |
 
-If the message says the file could not be read, check the file permissions for the account that runs Profinity.
 
 Resetting `config.yaml` returns every setting to its default.
 

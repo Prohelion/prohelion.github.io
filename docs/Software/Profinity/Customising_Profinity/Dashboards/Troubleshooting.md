@@ -12,20 +12,10 @@ This page explains how to diagnose and fix dashboard problems with data that doe
 
 ## Dashboard does not load
 
-A dashboard that fails to load, or that cannot be saved, has a validation error, because Profinity loads only valid dashboards.
-Open **Edit Dashboard** from the title bar (you need the **Modify dashboards** permission), read the **Schema validation issues** list, which names each problem, and correct each entry.
-The usual causes are a missing colon, wrong indentation, an invalid property name, or an absent required property.
-The editor blocks **SAVE** while any entry remains, so save once the list is empty and close the editor to see the result.
-
-A dashboard whose saved layout no longer matches the schema shows the message "This dashboard no longer matches the schema", with the buttons **Reset from Template** and **View Logs**.
-**View Logs** opens the Logs page in Administration. It appears only for users with the **Security administration** permission.
-
-Before you select **Reset from Template**, keep a copy of the dashboard:
-
-1. Select **Edit Dashboard** from the title bar, then select the **YAML** tab.
-2. Select all the YAML, copy it and paste it into a file of your own.
-
-The reset keeps the dashboard it replaces as `<file>.bak` in the same folder as the dashboard. It replaces any earlier `.bak` copy, so a `.bak` that holds a version you want to keep is lost unless you copy it first.
+| What you see | Cause | What to do |
+|---|---|---|
+| The dashboard fails to load, or cannot be saved | The dashboard has a validation error, because Profinity loads only valid dashboards. The usual causes are a missing colon, wrong indentation, an invalid property name, or an absent required property. | Open **Edit Dashboard** from the title bar (you need the **Modify dashboards** permission), read the **Schema validation issues** list, which names each problem, and correct each entry. The editor blocks **SAVE** while any entry remains, so save once the list is empty and close the editor to see the result. |
+| The message "This dashboard no longer matches the schema" appears, with the buttons **Reset from Template** and **View Logs** | The saved layout no longer matches the schema. | **View Logs** opens the Logs page in Administration. It appears only for users with the **Security administration** permission. Before you select **Reset from Template**, keep a copy of the dashboard: select **Edit Dashboard** from the title bar, select the **YAML** tab, select all the YAML, copy it, and paste it into a file of your own. The reset keeps the dashboard it replaces as `<file>.bak` in the same folder as the dashboard, and replaces any earlier `.bak` copy, so a `.bak` that holds a version you want to keep is lost unless you copy it first. |
 
 !!! warning
     **Reset from Template** replaces the dashboard with the latest template and loses every customisation, so use it only when you can discard the dashboard.
@@ -34,15 +24,11 @@ The reset keeps the dashboard it replaces as `<file>.bak` in the same folder as 
 
 ### Data not updating
 
-Components that show static values, or fail to update when the data changes, usually have a `source` that differs from a tag.
-Check the following in the Tag Explorer:
-
-- The path in the binding matches the tag path exactly, including a leading `/` for a tag of another component.
-- The tag exists and shows a current value with a good quality flag.
-
-For a `DBC/` tag, check that the CAN database (DBC) file defines the signal and that the component is connected and sending data.
-If the tag shows a value but the component does not, check that `toType`, when it is set, matches the type that the tag publishes.
-A number treated as a string displays, but it does not drive a lamp or a chart.
+| What you see | Cause | What to do |
+|---|---|---|
+| Components show static values, or fail to update when the data changes | Usually, the `source` differs from a tag. | Check the following in the Tag Explorer: the path in the binding matches the tag path exactly, including a leading `/` for a tag of another component; and the tag exists and shows a current value with a good quality flag. For a `DBC/` tag, check that the CAN database (DBC) file defines the signal and that the component is connected and sending data. |
+| The tag shows a value, but the component does not | - | Check that `toType`, when it is set, matches the type that the tag publishes. |
+| A number displays, but it does not drive a lamp or a chart | The number is treated as a string. | Check that `toType`, when it is set, matches the type that the tag publishes. |
 
 To separate a binding fault from a data fault, temporarily replace the binding with a static value.
 If the readout shows it, the readout displays correctly and the fault is in the binding or the data.
@@ -79,12 +65,9 @@ dashboard:
 
 ### Historical data does not appear
 
-A window that reaches back to older values returns none usually has one of three causes: data logging still has to be configured and enabled for the profile, exactly one historian still has to have **Designated tag historian reader** enabled, or the window is invalid.
-For data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md), and for the historian setting, refer to [Designated historian](../../Components/Historians/Designated_Historian.md).
-
-Set `start` in the past (for example `-10m`) and `stop` after it, where `0m` means now.
-An invalid window or aggregation window makes the binding return no data.
-Start with the simple binding in this example, and add the aggregation back once it returns data.
+| What you see | Cause | What to do |
+|---|---|---|
+| A window that reaches back to older values returns no data | Usually one of three causes: data logging still has to be configured and enabled for the profile, exactly one historian still has to have **Designated tag historian reader** enabled, or the window is invalid. | For data logging, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md), and for the historian setting, refer to [Designated historian](../../Components/Historians/Designated_Historian.md). Set `start` in the past (for example `-10m`) and `stop` after it, where `0m` means now. An invalid window or aggregation window makes the binding return no data. Start with the simple binding in this example, and add the aggregation back once it returns data. |
 
 ``` yaml
 # Start with a simple time series binding
@@ -104,15 +87,15 @@ dashboard:
 
 ### Old time range settings are refused
 
-Profinity refuses a dashboard that still uses `store`, `timeRangeStart` or `timeRangeStop`.
-The message names the setting and says to use `start` and `stop`.
-Remove `store` from each binding, rename `timeRangeStart` to `start` and `timeRangeStop` to `stop`, and save the dashboard again.
-Refer to [Dashboard time range settings are renamed](../../Release_Notes/Breaking_Changes_2_3.md#dashboard-time-range-settings-are-renamed) for the other changes that affect dashboards from earlier versions.
+| What you see | Cause | What to do |
+|---|---|---|
+| Profinity refuses a dashboard that still uses `store`, `timeRangeStart` or `timeRangeStop`. The message names the setting and says to use `start` and `stop`. | The dashboard still uses those settings. | Remove `store` from each binding, rename `timeRangeStart` to `start` and `timeRangeStop` to `stop`, and save the dashboard again. Refer to [Dashboard time range settings are renamed](../../Release_Notes/Breaking_Changes_2_3.md#dashboard-time-range-settings-are-renamed) for the other changes that affect dashboards from earlier versions. |
 
 ### Type conversion errors
 
-Values that display incorrectly are usually the result of a `toType` that does not suit the data, such as `toType: number` on a non-numeric tag.
-Components convert most targets themselves, so set `toType` only where a value displays incorrectly: `boolean` for a flag bound to `enabled` or `visible`, and `number` for a numeric value.
+| What you see | Cause | What to do |
+|---|---|---|
+| Values display incorrectly | A `toType` that does not suit the data, such as `toType: number` on a non-numeric tag. | Components convert most targets themselves, so set `toType` only where a value displays incorrectly: `boolean` for a flag bound to `enabled` or `visible`, and `number` for a numeric value. |
 
 ``` yaml
 # For boolean values
@@ -152,10 +135,11 @@ dashboard:
 
 ### Charts not rendering
 
-A chart that appears blank shows only the latest value unless its binding sets `seriesMode: timeSeries`, so add the series settings first.
-Then check in the Tag Explorer that the tag has a current value.
-For a window that reaches back to older values, check that the window is valid and that the designated historian holds values for the tag in that window.
-A chart that is given static data in its `value` property, rather than a binding, needs that data to have `labels` and `datasets`.
+| What you see | Cause | What to do |
+|---|---|---|
+| A chart appears blank | The binding does not set `seriesMode: timeSeries`, so the chart shows only the latest value. | Add the series settings first. Then check in the Tag Explorer that the tag has a current value. |
+| The chart does not render for a window that reaches back to older values | - | Check that the window is valid and that the designated historian holds values for the tag in that window. |
+| The chart does not render from static data in its `value` property | - | Give that data `labels` and `datasets`, as in the example below. |
 
 ``` yaml
 # For time series data
@@ -190,9 +174,9 @@ dashboard:
 
 ## Performance
 
-A dashboard that loads slowly or becomes unresponsive usually holds many components or charts with very frequent updates.
-Place unused sections in an accordion or tabs.
-Set `refreshInterval` (in milliseconds, minimum 1000) on a chart to poll it at a fixed interval instead of updating it live.
+| What you see | Cause | What to do |
+|---|---|---|
+| A dashboard loads slowly or becomes unresponsive | The dashboard usually holds many components or charts with very frequent updates. | Place unused sections in an accordion or tabs. Set `refreshInterval` (in milliseconds, minimum 1000) on a chart to poll it at a fixed interval instead of updating it live. |
 
 ``` yaml
 # Poll the chart every second instead of updating it live

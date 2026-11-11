@@ -13,8 +13,13 @@ Change the firmware configuration of a Prohelion Battery Management Unit (BMU), 
 ## Before you begin
 
 Add the BMU to a profile first, as described in [Prohelion BMU](index.md).
-The **Firmware Settings** tab appears once Profinity has read the BMU's firmware settings. While it is still reading them, the tab says so, and if it cannot read them it shows **Error Loading Firmware**.
-If the tabs are missing, check that the CAN adapter status is green, the **Base Address** matches the BMU and the BMU is powered.
+The **Firmware Settings** tab appears once Profinity has read the BMU's firmware settings.
+
+| What you see | Cause | What to do |
+|---|---|---|
+| The **Firmware Settings** tab says Profinity is still reading the settings | Profinity has not finished reading the BMU's firmware settings. | No action stated. |
+| The **Firmware Settings** tab shows **Error Loading Firmware** | Profinity cannot read the BMU's firmware settings. | No action stated. |
+| The tabs are missing | Not stated. The page lists three things to check. | Check that the CAN adapter status is green, the **Base Address** matches the BMU and the BMU is powered. |
 
 Unlocking the Admin parameters needs the **Modify components** permission and a firmware configuration key. Uploading a firmware file needs the **Modify profiles** and **Allow firmware actions** permissions.
 The Firmware Configuration Key is not published, so contact Prohelion if you believe you need it.

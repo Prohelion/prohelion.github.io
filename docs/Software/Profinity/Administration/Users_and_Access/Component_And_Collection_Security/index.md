@@ -77,8 +77,10 @@ A visible collection is empty, not missing, when every tag it would return belon
     The unresolved names never match a user, even though the resource is still marked **Restricted**.
     Refer to [Unresolved roles after a profile import](#unresolved-roles-after-a-profile-import).
 
-If a user cannot see a component, action, tag branch, or collection that they should have access to, check the **Security** tab or panel.
-Look for an empty or fully unresolved **Allowed roles** list before you look for a permissions problem elsewhere.
+| What you see | Cause | What to do |
+|---|---|---|
+| A user cannot see a component, action, tag branch, or collection that they should have access to | - | Check the **Security** tab or panel for an empty or fully unresolved **Allowed roles** list before you look for a permissions problem elsewhere. |
+
 
 ## Unresolved roles after a profile import
 

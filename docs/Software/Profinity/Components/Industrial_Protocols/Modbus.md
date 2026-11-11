@@ -159,11 +159,11 @@ Polled values behave like any other tag, so they can be shown on a [dashboard](.
 If a point cannot be read, its tag is marked as bad quality.
 Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 
-| Cause | Fix |
-|---|---|
-| The **Address** is one higher or lower than the device manual states. | Use the zero-based protocol address. Register `40001` in a one-based manual is address `0` of the holding registers. |
-| The **Unit ID** differs from the slave. | Set **Unit ID** to the slave's unit address. |
-| The serial settings differ from the slave. | Match **Baud Rate**, **Parity**, **Data Bits** and **Stop Bits** to those configured on the slave. |
-| The **Data type** does not match the register. | Choose the data type that matches the register. |
+| What you see | Cause | What to do |
+|---|---|---|
+| The point is marked as bad quality. | The **Address** is one higher or lower than the device manual states. | Use the zero-based protocol address. Register `40001` in a one-based manual is address `0` of the holding registers. |
+| The point is marked as bad quality. | The **Unit ID** differs from the slave. | Set **Unit ID** to the slave's unit address. |
+| The point is marked as bad quality. | The serial settings differ from the slave. | Match **Baud Rate**, **Parity**, **Data Bits** and **Stop Bits** to those configured on the slave. |
+| The point is marked as bad quality. | The **Data type** does not match the register. | Choose the data type that matches the register. |
 
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.

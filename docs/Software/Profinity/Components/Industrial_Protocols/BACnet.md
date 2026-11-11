@@ -140,26 +140,16 @@ Polled values behave like any other tag, so they can be shown on a [dashboard](.
 If a point cannot be read, its tag is marked as bad quality.
 Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md).
 
-| Cause | Fix |
-|---|---|
-| **Remote host** is wrong. | Set it to the IP address of the BACnet device. |
-| The device does not have the **Object type** or **Instance**. | Correct the point map row to an object that exists in the device. |
-| The device does not answer within the **Request timeout (ms)**. | Check that the device answers at the **Remote host**, or raise the **Request timeout (ms)**. |
+| What you see | Cause | What to do |
+|---|---|---|
+| The point is marked as bad quality. | **Remote host** is wrong. | Set it to the IP address of the BACnet device. |
+| The point is marked as bad quality. | The device does not have the **Object type** or **Instance**. | Correct the point map row to an object that exists in the device. |
+| The point is marked as bad quality. | The device does not answer within the **Request timeout (ms)**. | Check that the device answers at the **Remote host**, or raise the **Request timeout (ms)**. |
+| The component is in the **Error** status, its points show no valid readings, and the component shows and logs a message of the form `The device at 192.168.1.20 reports Device instance 1234, but Device instance is set to 0`. | A **Device instance** that differs from the device at the **Remote host**. | Set **Device instance** to the number in the message, or correct the **Remote host** if the address now belongs to a different device. Profinity tries again every **Reconnect delay**, so correcting the setting or the device connects the component on the next attempt while it stays running. |
+| The component is in **Error** and shows a BACnet error as the reason. | The device is older than protocol revision 4 (2004), or does not allow its Device object to be read. BACnet requires every device from protocol revision 4 (2004) onwards to answer the Device object read, which Profinity uses to check the instance. | Check the **Remote host**, and that the device allows its Device object to be read. |
+| The component is in **Error** and shows a message that the device did not answer. | The device does not answer the Device object read. | Not stated. Profinity tries again every **Reconnect delay**. |
+| The component is in **Error** after a device is replaced on the same address that it was connected to. | The device was replaced on the same address after it was connected. The change is caught at the next failed read. | Not stated. The component stays in **Error** until the instance matches. |
 
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.
-
-A **Device instance** that differs from the device at the **Remote host** puts the component in the **Error** status, and its points show no valid readings until the instance matches.
-The component shows and logs a message of the form `The device at 192.168.1.20 reports Device instance 1234, but Device instance is set to 0`.
-Profinity tries again every **Reconnect delay**, so correcting the setting or the device connects it on the next attempt while the component stays running.
-Set **Device instance** to the number in the message, or correct the **Remote host** if the address now belongs to a different device.
-
-Profinity reads the Device object to check the instance.
-BACnet requires every device from protocol revision 4 (2004) onwards to answer this read.
-A device older than that, or one that does not allow its Device object to be read, answers with a BACnet error.
-The component shows that error as the reason. Check the **Remote host**, and that the device allows its Device object to be read.
-
-A device that does not answer the read puts the component in **Error** in the same way, with a message that the device did not answer.
-Profinity tries again every **Reconnect delay**.
-A device that is replaced on the same address after it was connected is caught at the next failed read, and the component then shows **Error** until the instance matches.
 
 To compare BACnet with the other protocol components, refer to [Industrial protocol components](Industrial_Protocol_Components.md).

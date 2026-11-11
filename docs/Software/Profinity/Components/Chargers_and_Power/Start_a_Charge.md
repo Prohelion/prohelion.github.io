@@ -56,5 +56,11 @@ Profinity runs these stages in order:
 3. Engage the pack through the BMU.
 4. Start the charge.
 
-If any stage fails, Profinity stops the charge and disengages the pack.
 Selecting **STOP** stops the charger and disengages the pack.
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| The message stays on **Ready**, or **START** returns | Not stated. The page says only that the charge has not started. | No action stated. |
+| The charge stops and the pack disengages without you selecting **STOP** | A stage in the start sequence fails. | No action stated. Profinity stops the charge and disengages the pack. |

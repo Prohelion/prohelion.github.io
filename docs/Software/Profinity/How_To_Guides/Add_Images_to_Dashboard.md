@@ -62,13 +62,10 @@ image:
 ## Check the image
 
 Save the dashboard, and the image appears in it.
-If the image area stays empty, check these causes:
 
-- The filename in the dashboard differs from the file in the `images` folder, because the match is case-sensitive.
-- The file format is not one of SVG, PNG, JPG, WEBP, or GIF.
-- The file is in a folder other than the active profile's `images` folder.
-
-Correct the name, convert the file or move it, and save again.
+| What you see | Cause | What to do |
+|---|---|---|
+| The image area stays empty | The filename in the dashboard differs from the file in the `images` folder, because the match is case-sensitive; the file format is not one of SVG, PNG, JPG, WEBP, or GIF; or the file is in a folder other than the active profile's `images` folder. | Correct the name, convert the file or move it, and save again. |
 
 ## Image format recommendations
 

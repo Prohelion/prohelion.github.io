@@ -25,14 +25,6 @@ To enrol:
 On later sign-ins, Profinity asks for the authenticator code after it accepts the password, with a **6-Digit MFA Code** field and an alternative **Recovery Code** field.
 A user who selects **Remember this device** on a site that allows it skips this step on that browser until the remember duration ends. The duration is set by **Remember device duration (days)**, which defaults to 10, as described in [Two-factor authentication](index.md).
 
-Five incorrect codes within one minute are rate limited, so the user must wait before trying again. This is separate from the login lockout.
-A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](../Session_Policy.md).
-
-If a code is rejected although it was typed correctly, the usual cause is the clock on the phone, because authenticator codes depend on the device time being correct.
-If the phone is lost and the recovery codes are not available, an administrator resets the user's authenticator from the **User Actions** tab.
-The user then enrols again at the next sign-in.
-Refer to [MFA account management](../../../Users_and_Access/MFA_Account_Management.md) for the reset.
-
 While **Enforce two-factor for local users** is on, a signed-in local user manages their own authenticator from the **Two-Factor Authentication** pill on the **ADMIN** page, as described in [MFA account management](../../../Users_and_Access/MFA_Account_Management.md#self-service-management).
 
 ## Register a security key
@@ -47,8 +39,16 @@ To register a key:
 3. Follow the browser prompt.
 
 Profinity shows "Security key registered successfully."
-If registration is cancelled or times out, Profinity shows "Security key registration was cancelled or timed out." and the user can select **Begin security key registration** again.
 
 When a site allows security keys and the browser supports them, the login page shows a **Sign in with security key** button under the password form.
 
 To see which settings control these screens, refer to [Two-factor authentication](./index.md).
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| The user is asked to wait before trying again after five incorrect codes within one minute | Rate limiting, which is separate from the login lockout | The user must wait before trying again. A locked-out user waits for the **Login lockout duration (minutes)** described in [Session policy and login lockout](../Session_Policy.md). |
+| A code is rejected although it was typed correctly | The usual cause is the clock on the phone, because authenticator codes depend on the device time being correct | - |
+| The user cannot sign in with an authenticator code | The phone is lost and the recovery codes are not available | An administrator resets the user's authenticator from the **User Actions** tab. The user then enrols again at the next sign-in. Refer to [MFA account management](../../../Users_and_Access/MFA_Account_Management.md) for the reset. |
+| Profinity shows "Security key registration was cancelled or timed out." | - | Select **Begin security key registration** again. |

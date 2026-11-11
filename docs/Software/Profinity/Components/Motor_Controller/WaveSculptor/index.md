@@ -50,11 +50,11 @@ The **Change Settings** button on the dashboard changes them later.
 If Profinity receives no traffic from the device within the **Milliseconds Valid** time, it treats the connection as lost.
 Every WaveSculptor on the same CAN bus requires a different base address, as described in [CAN Bus and Low Voltage](../../../../../Motor_Controllers/WaveSculptor22/User_Manual/CAN_Bus_And_Low_Voltage.md).
 
-If the dashboard shows no data, check these things:
+Check these things if the dashboard shows no data.
 
-- The CAN adapter status is green.
-- The **Base Address** matches the address programmed into the controller.
-- The adapter and the WaveSculptor use the same CAN bit rate (500 kbit/s by default).
+| What you see | Cause | What to do |
+|---|---|---|
+| The dashboard shows no data. | Not stated. | Check that the CAN adapter status is green, that the **Base Address** matches the address programmed into the controller, and that the adapter and the WaveSculptor use the same CAN bit rate (500 kbit/s by default). |
 
 ## Example
 

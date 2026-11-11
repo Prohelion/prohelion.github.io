@@ -84,8 +84,10 @@ The bus number `5` is an example, so choose a number that no other bridge on the
 
 If a client cannot connect, check these things:
 
-- The **Network Adapter** is the interface that the client can reach.
-- The client speaks a protocol version covered by the **Bridge Protocol Version**.
+| What you see | Cause | What to do |
+|---|---|---|
+| A client cannot connect to the Virtual Adapter | The **Network Adapter** is not the interface that the client can reach. | Check that the **Network Adapter** is the interface that the client can reach. |
+| A client cannot connect to the Virtual Adapter | The client speaks a protocol version that the **Bridge Protocol Version** does not cover. | Check that the client's protocol version is covered by the **Bridge Protocol Version**. |
 
 For how the Virtual Bridge speaks both the V1 and V2 bridge protocols and serves several clients at once, refer to [Virtual CAN adapter protocol and client support](Virtual_CAN_Adapter_Protocols.md).
 

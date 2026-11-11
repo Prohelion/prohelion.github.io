@@ -55,11 +55,12 @@ Profinity rejects a save that leaves the configuration in an inconsistent state,
 - The MCP server must stay enabled while Profinity AI is enabled.
 
 Profinity treats a configuration that passes these checks as ready to use.
-It does not make a live test call to the provider when you save the configuration.
-A valid-looking configuration with, for example, a revoked API key is flagged only once a user sends a chat message, and the chat then returns an error.
+| What you see | Cause | What to do |
+|---|---|---|
+| The chat returns an error after you save a configuration that looks valid | The configuration has, for example, a revoked API key. Profinity does not make a live test call to the provider when you save the configuration, so the fault appears only once a user sends a chat message. | Check the **API Key**, **Model**, and **Base URL**. |
+| Chat fails or times out | - | Check the **API Key**, **Model**, and **Base URL**. |
+| Chat times out | Local and reasoning-heavy models often need several minutes to respond. | Raise **Response timeout (seconds)** for slow models. |
 
-When chat fails or times out, check the **API Key**, **Model**, and **Base URL**.
-Raise **Response timeout (seconds)** for slow models.
 
 ## Data handling and security
 

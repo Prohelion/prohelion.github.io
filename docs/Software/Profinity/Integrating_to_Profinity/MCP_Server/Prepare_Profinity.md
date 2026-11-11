@@ -164,8 +164,10 @@ The expected output is:
 ```
 
 A `401` means the server is running and is waiting for a token, which the AI tool sends.
-A certificate error means the host name is missing from the certificate, or the certificate is untrusted.
-For any other response, refer to [MCP connection errors](Connection_Errors.md).
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| A certificate error | The host name is missing from the certificate, or the certificate is untrusted | - |
+| Any response other than `401` | - | Refer to [MCP connection errors](Connection_Errors.md) |
 
 Next, connect your tool:
 

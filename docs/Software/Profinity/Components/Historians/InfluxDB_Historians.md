@@ -156,13 +156,13 @@ For the full procedure to send data to InfluxDB Cloud, refer to [How to log data
 
 The Profinity system logs name the cause, and [Logs](../../Administration/Logs_Config.md) describes where to read them.
 When the component cannot connect, it logs one error for the outage, in the form `<component name>: could not connect (<reason>). Retrying every 5 s.`
-The reason tells you what to check:
+The reason tells you what to check.
 
-| Reason in the log | Meaning |
-|---|---|
-| `credential validation failed (likely an invalid token)` | The token is wrong or lacks access. |
-| `the health check failed (InfluxDB Cloud has none; switch Health Check off in the settings)` | The server did not answer the health check. Turn **InfluxDB Health Check** off if you use InfluxDB Cloud. |
-| Any other text | The connection failed for another reason, and the text is the underlying error. Check the **Influx Server URL** first. |
+| What you see | Cause | What to do |
+|---|---|---|
+| The log gives `credential validation failed (likely an invalid token)` as the reason | The token is wrong or lacks access. | Check the token. |
+| The log gives `the health check failed (InfluxDB Cloud has none; switch Health Check off in the settings)` as the reason | The server did not answer the health check. | Turn **InfluxDB Health Check** off if you use InfluxDB Cloud. |
+| The log gives any other text as the reason | The connection failed for another reason, and the text is the underlying error. | Check the **Influx Server URL** first. |
 
 To add a historian and start it, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
 For an InfluxDB v1 server, refer to [InfluxDB v1 Logger](../Loggers/InfluxDB_v1_Logger.md).

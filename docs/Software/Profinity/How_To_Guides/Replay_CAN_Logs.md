@@ -69,11 +69,12 @@ The trashcan icon deletes a log file from the list, which is separate from contr
 
 ## If nothing happens
 
-Only a CAN message log recorded by a File or SFTP logger can be replayed, so an uploaded file of another kind does not play.
-If the **CAN LOG REPLAY** entry is missing from the side menu, the signed-in user lacks the **Replay CAN logs** permission.
-If the replay runs but the dashboards stay empty, no component in the active profile listens to the replayed CAN IDs.
+| What you see | Cause | What to do |
+|---|---|---|
+| An uploaded log does not play. | Only a CAN message log recorded by a File or SFTP logger can be replayed, so a file of another kind does not play. | Record the log with the [CAN file and SFTP loggers](../Components/Loggers/CAN_File_and_SFTP_Loggers.md), the CAN File Logger or the CAN SFTP Logger. |
+| The **CAN LOG REPLAY** entry is missing from the side menu. | The signed-in user lacks the **Replay CAN logs** permission. | Give the user the **Replay CAN logs** permission, which is described in [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md). |
+| The replay runs, but the dashboards stay empty. | No component in the active profile listens to the replayed CAN IDs. | Load the profile that the log was recorded against. |
 
-Load the profile that the log was recorded against.
 Recorded tag values are replayed separately with **TAG LOG REPLAY**, described in [Replay a tag log](../Tags/Tag_Logs/Replay_a_Tag_Log.md).
 
 To check a Custom Component against its CAN database (DBC) file with recorded messages, refer to [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md#check-the-component).

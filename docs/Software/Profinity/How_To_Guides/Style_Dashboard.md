@@ -80,10 +80,8 @@ The web interface loads `profile.css` when the page opens.
 
 If a class has no effect, check these causes:
 
-- The stylesheet is not named `profile.css`, or `profile.css` does not import it.
-- The class name in the dashboard differs from the CSS in spelling or case.
-- The class is on an element that does not use it, such as a `readout` item.
-
-Correct the file or the dashboard, and reload the page.
+| What you see | Cause | What to do |
+|---|---|---|
+| The class has no effect. | (1) The stylesheet is not named `profile.css`, or `profile.css` does not import it; (2) the class name in the dashboard differs from the CSS in spelling or case; (3) the class is on an element that does not use it, such as a `readout` item. | Correct the file or the dashboard, and reload the page. |
 
 For more, refer to [Conditional styling](../Customising_Profinity/Dashboards/Data_Binding/Conditional_Styling.md), which styles elements from data values.

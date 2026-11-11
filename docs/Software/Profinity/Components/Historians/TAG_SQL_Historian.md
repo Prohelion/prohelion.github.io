@@ -151,18 +151,16 @@ Profinity stores the connection string encrypted when it saves the profile. Unti
 
 ## If the historian does not start
 
-Settings cannot be saved in two cases:
+Settings cannot be saved in two cases. When the settings save but no rows arrive, the Profinity system logs show one of two messages.
 
-- Without a connection string, which shows `You must provide a connection string for the database.`
-- With an invalid table name, which shows `Table name must use letters, digits, and underscore only, and cannot start with a digit.`
+| What you see | Cause | What to do |
+|---|---|---|
+| Settings do not save, and the message `You must provide a connection string for the database.` appears | No connection string is entered. | - |
+| Settings do not save, and the message `Table name must use letters, digits, and underscore only, and cannot start with a digit.` appears | The table name is invalid. | - |
+| Settings save, but no rows arrive, and the log shows the component name followed by `could not connect` and the reason. The historian shows **Error** and retries every 5 seconds until the database is reachable. | The connection failed, and the log gives the reason. | Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table. |
+| Settings save, but no rows arrive, and the log shows the component name followed by `writing failed` and the reason. Profinity logs the first failure at warning level and further failures at debug level until a write works again. | A write failed, and the log gives the reason. | Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table. |
 
-If the settings save but no rows arrive, the Profinity system logs show one of two messages.
 Refer to [Logs](../../Administration/Logs_Config.md) for where to read them.
-
-- The component name followed by `could not connect` and the reason, for a connection that failed. The historian shows **Error** and retries every 5 seconds until the database is reachable.
-- The component name followed by `writing failed` and the reason, for a failed write. Profinity logs the first failure at warning level and logs further failures at debug level until a write works again.
-
-Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table.
 
 !!! warning "Moving a component starts a new history in this historian"
     This historian records history under the tag's path, so moving a component changes its tag paths.

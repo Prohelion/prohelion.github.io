@@ -116,14 +116,11 @@ The value is the latest reading, or `NaN` when the tag is not Good quality.
 
 ## If Prometheus shows no data
 
-If the logger cannot open its Prometheus endpoint, for example because the port is in use, it shows **Error**.
-It writes the reason to the Profinity system logs once, and retries every 5 seconds until the problem clears.
-Refer to [Logs](../../Administration/Logs_Config.md) for where to read them.
-
-If Prometheus shows no data, check three things:
-
-- The logger is running.
-- The scraper uses the same hostname, port and endpoint path as the logger.
-- At least one collection with tags is selected.
+| What you see | Cause | What to do |
+|---|---|---|
+| The logger shows **Error**. | The logger cannot open its Prometheus endpoint, for example because the port is in use. | The logger writes the reason to the Profinity system logs once, and retries every 5 seconds until the problem clears. Refer to [Logs](../../Administration/Logs_Config.md) for where to read them. |
+| Prometheus shows no data. | The logger is not running. | Check that the logger is running. |
+| Prometheus shows no data. | The scraper does not use the same hostname, port and endpoint path as the logger. | Check that the scraper uses the same hostname, port and endpoint path as the logger. |
+| Prometheus shows no data. | No tag collection with tags is selected. | Select at least one tag collection with tags. |
 
 To add the logger and start it, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).

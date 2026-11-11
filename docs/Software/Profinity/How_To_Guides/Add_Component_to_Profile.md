@@ -90,11 +90,11 @@ Each component has a coloured indicator on its icon that displays the operationa
 | Outlined, no fill | Off | The component is switched off, has not started, or is still making its first connection attempt |
 | Empty (white) | N/A | The device is not available or cannot be contacted |
 
-A red indicator means an error state, so check the [logs](../Administration/Logs_Config.md).
-A component that stays red, or shows an empty lamp, after you add it usually has an adapter that is not connected.
-An outlined lamp means the component is switched off, has not started, or is still making its first connection attempt, so check **Auto Connect** and start the component.
-The CAN bus may also not be delivering data.
-[CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md) covers the usual causes and fixes for an adapter.
+| What you see | Cause | What to do |
+|---|---|---|
+| A red indicator | The component is in an error state. | Check the [logs](../Administration/Logs_Config.md). |
+| The component stays red, or shows an empty lamp, after you add it | Usually, an adapter that is not connected. The CAN bus may also not be delivering data. | Refer to [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md), which covers the usual causes and fixes for an adapter. |
+| An outlined lamp | The component is switched off, has not started, or is still making its first connection attempt. | Check **Auto Connect**, and start the component. |
 
 ## Connect the component
 

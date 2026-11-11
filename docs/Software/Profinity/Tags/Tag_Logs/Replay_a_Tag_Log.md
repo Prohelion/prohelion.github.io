@@ -24,8 +24,10 @@ Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and
 
 Before you start, check two conditions on the log file:
 
-- The file has a `.txt`, `.csv`, or `.jsonl` extension. Otherwise the upload is refused with "Your file must have an extension of .txt, .csv or .jsonl".
-- No log with the same name is already there. Otherwise the upload is refused with "A replay log with the name '…' already exists. Please delete the existing file first or upload a file with a different name." Delete the existing log or rename the new one.
+| What you see | Cause | What to do |
+|---|---|---|
+| The upload is refused with "Your file must have an extension of .txt, .csv or .jsonl". | The file does not have a `.txt`, `.csv`, or `.jsonl` extension. | Check that the file has a `.txt`, `.csv`, or `.jsonl` extension. |
+| The upload is refused with "A replay log with the name '…' already exists. Please delete the existing file first or upload a file with a different name." | A log with the same name is already there. | Delete the existing log or rename the new one. |
 
 A log recorded on this instance is written to a `tag_logs/<profile name>/<logger name>/` folder, but the replayer lists only the `tag_logs/replay/` folder.
 Refer to [Artefacts directory](../../Installation/Artifacts_Directory.md) for where this folder sits on each platform.

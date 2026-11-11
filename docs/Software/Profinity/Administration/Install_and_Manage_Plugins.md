@@ -37,11 +37,12 @@ The licence must include the feature, which the Desktop, Server, and Enterprise 
 The plugin ID is the package file name without its extension, so `my_plugin.zip` installs as `my_plugin`.
 It may contain only letters, digits, hyphens, and underscores.
 
-If no file is chosen, Profinity answers "You must provide a plugin archive (.zip or .nupkg).".
-A file with any other extension is rejected with "Plugin archive must use a .zip or .nupkg extension.".
-Rename the package or choose the correct file, and upload it again.
-Profinity loads an uploaded or enabled plugin straight away, so a restart is not normally needed.
-If its components still do not appear in the catalogue, restart Profinity from the **Restart Profinity** pill on the **ADMIN** page, which interrupts active sessions.
+| What you see | Cause | What to do |
+|---|---|---|
+| "You must provide a plugin archive (.zip or .nupkg)." is shown when you upload | No file is chosen | Choose the correct file, and upload it again. |
+| "Plugin archive must use a .zip or .nupkg extension." is shown when you upload | The file has any other extension | Rename the package or choose the correct file, and upload it again. |
+| The plugin's components do not appear in the catalogue after you upload or enable it | - | A restart is not normally needed, as Profinity loads an uploaded or enabled plugin straight away. If the components still do not appear, restart Profinity from the **Restart Profinity** pill on the **ADMIN** page, which interrupts active sessions. |
+
 
 ## Disable or remove a plugin
 

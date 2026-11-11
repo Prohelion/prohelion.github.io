@@ -78,13 +78,12 @@ Removing licensed features restarts Profinity automatically, and so does applyin
 
 ## If the licence is rejected
 
-| What the page or message shows | Likely cause | What to do |
-|--------------------------------|--------------|------------|
-| The upload is rejected | The file's signature, expiry, or fingerprint failed validation | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that its expiry date is in the future |
-| `WrongInstance` as the **State** after a `license.yaml` is copied into the `license` folder | The file was issued for a different machine | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it |
-| `Expired` | The licence's expiry date has passed | Ask Prohelion for a renewal, and apply it in the same way. A server installation stays reachable in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired), so you can still sign in and upload it |
+| What you see | Cause | What to do |
+|---|---|---|
+| The upload is rejected. | The file's signature, expiry, or fingerprint failed validation. | Check that the file is the unchanged `license.yaml` that Prohelion returned, and that its expiry date is in the future. |
+| The upload is rejected with the message "License is not valid for this instance." The file is not saved. | The file was issued for a different machine. | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it. |
+| `WrongInstance` as the **State** after a `license.yaml` is copied into the `license` folder, where the copy stays. | The file was issued for a different machine. | Send Prohelion the fingerprint shown on this installation, and apply the file that is issued for it. |
+| `Expired` | The licence's expiry date has passed. | Ask Prohelion for a renewal, and apply it in the same way. A server installation stays reachable in [restricted mode](../Licensing.md#when-a-licence-is-missing-or-has-expired), so you can still sign in and upload it. |
 
-A file issued for a different machine is rejected on upload with the message "License is not valid for this instance." and is not saved.
-A copy placed directly in the `license` folder stays there and shows `WrongInstance` as the **State**.
 A rejected upload never replaces a working licence, so it is safe to retry.
 For editions, features, and the 14-day local trial, refer to [Licensing](../Licensing.md).

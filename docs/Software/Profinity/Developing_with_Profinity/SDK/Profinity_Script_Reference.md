@@ -116,12 +116,12 @@ Live hardware stays in Profinity.
 A failed command prints one message on the error stream and exits with code 1.
 A C# script that does not compile prints the compiler messages there.
 
-| Message | What to change |
-|---------|----------------|
-| `No sim.yaml in` followed by a path | Run `sim` from the folder `new` created, or pass that folder. |
-| `No python example for firmware-load`, or the same sentence with another language and template | That template does not ship in that language. `firmware-load`, `rule-context`, and `prompt` are Python only. |
-| `Unknown sim mode` followed by the mode | Set `mode` to `runnable`, `tagChange`, `receiver`, `service`, or `alert`. |
-| `Tag-change script must define an on_tag_change(tagId, sample) function` | Define the function that mode calls. Receiver, alert, and service scripts give the same message for `receive`, `on_alert`, and `on_start`. |
-| `C# script has no public` followed by an interface name | Add a public class with a constructor that takes no arguments, implementing the interface for that mode. Refer to [Script types](../Scripting/Script_Types/index.md). |
+| What you see | Cause | What to do |
+|---|---|---|
+| `No sim.yaml in` followed by a path | - | Run `sim` from the folder `new` created, or pass that folder. |
+| `No python example for firmware-load`, or the same sentence with another language and template | That template does not ship in that language. | `firmware-load`, `rule-context`, and `prompt` are Python only. |
+| `Unknown sim mode` followed by the mode | - | Set `mode` to `runnable`, `tagChange`, `receiver`, `service`, or `alert`. |
+| `Tag-change script must define an on_tag_change(tagId, sample) function` | - | Define the function that mode calls. Receiver, alert, and service scripts give the same message for `receive`, `on_alert`, and `on_start`. |
+| `C# script has no public` followed by an interface name | - | Add a public class with a constructor that takes no arguments, implementing the interface for that mode. Refer to [Script types](../Scripting/Script_Types/index.md). |
 
 To copy a tested script into a profile, refer to [Test a script outside Profinity](./Test_a_Script.md#copy-the-script-into-a-profile).

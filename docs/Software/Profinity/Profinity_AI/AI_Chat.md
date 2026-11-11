@@ -63,11 +63,10 @@ Use **Stop** to cancel a response in progress, and **New chat** to clear the con
 
 ## When AI Chat reports an error
 
-If the provider does not answer within the **Response timeout (seconds)** that the administrator set, the chat window shows the provider's timeout message, or **The model timed out.** when the provider sends none.
-Send the question again, or ask the administrator to increase the timeout.
-
-Any other failure shows **Something went wrong.** followed by a link to the logs for administrators, or the text "contact an administrator for more details" for other users. Profinity records the cause in the logs.
-Examples are an API key that the provider rejects and a provider that cannot be reached.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| The chat window shows the provider's timeout message, or "The model timed out." when the provider sends none | The provider does not answer within the **Response timeout (seconds)** that the administrator set | Send the question again, or ask the administrator to increase the timeout |
+| "Something went wrong." followed by a link to the logs for administrators, or the text "contact an administrator for more details" for other users | Examples are an API key that the provider rejects and a provider that cannot be reached. Profinity records the cause in the logs | Administrators can follow the link to the logs. Other users contact an administrator for more details |
 The administrator corrects the provider settings under **ADMIN > System Configuration**.
 
 ## Limitations for 2.3

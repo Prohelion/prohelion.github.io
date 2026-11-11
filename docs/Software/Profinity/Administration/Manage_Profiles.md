@@ -67,13 +67,11 @@ To import a profile pack prepared on another instance of Profinity:
 
 Profinity imports the profile with all its associated configuration, and it appears in the table of profiles.
 
-Profinity refuses a pack whose `profile.yaml` is invalid, for example one with an unrecognised setting name or one that cannot be read as YAML.
-Profinity shows "Failed to unpack the Profile Pack. The file may be corrupted or invalid. Check the logs for more details." It imports nothing, and the log names the reason.
+| What you see | Cause | What to do |
+|---|---|---|
+| Profinity shows "Failed to unpack the Profile Pack. The file may be corrupted or invalid. Check the logs for more details." and imports nothing | The pack's `profile.yaml` is invalid, for example it has an unrecognised setting name or cannot be read as YAML. The log names the reason. | Correct the file in the pack and upload it again. |
+| Profinity shows "Profile pack contains script content, which requires Scripting on the license." and rejects the upload | The licence does not include the **Scripting** feature | Refer to [Licensing](../Licensing.md). |
 
-Correct the file in the pack and upload it again.
-
-Profinity rejects an uploaded profile pack that contains script content when the licence does not include the **Scripting** feature, and shows the message "Profile pack contains script content, which requires Scripting on the license."
-Refer to [Licensing](../Licensing.md).
 
 ## Download a profile pack
 

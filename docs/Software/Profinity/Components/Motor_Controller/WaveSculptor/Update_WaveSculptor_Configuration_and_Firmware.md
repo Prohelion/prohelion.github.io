@@ -41,10 +41,6 @@ The factory default CAN bus data rate for all Prohelion devices is 500 kbit/s.
 </figure>
 
 The configuration worked when all three steps complete and wsConfig opens.
-If wsConfig does not open, the sequence has stopped before the third step, and the [Profinity log](../../../Administration/Logs_Config.md) records that the operation did not run successfully.
-
-- If the sequence stops at **Check Suitable Available Network**, no suitable network is available. Check that the bridge and the PC are on the same local network.
-- If it stops at **Set Active**, check that no other client holds the bridge's single TCP connection.
 
 The PhasorSense, ParamExtract, and ImExtract tools are covered in the [configuration software documentation](../../../../../Motor_Controllers/Config_Software/index.md).
 The procedure for [setting up a motor](../../../../../Motor_Controllers/Config_Software/Set_Up_a_Motor.md) is covered there too.
@@ -61,4 +57,12 @@ The stored configuration is kept, and saving it to the PC first, as in step 3 of
    Profinity sets the WaveSculptor active over UDP rather than TCP, so the update does not use the bridge's single TCP connection.
 3. Complete the update in the firmware loader that Profinity starts, because Profinity does not report the result of the flash itself.
    When the loader finishes, check that the [WaveSculptor dashboard](WaveSculptor_Dashboard.md) shows data.
-   If it shows none, use the checks on [WaveSculptor motor controller](index.md).
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| wsConfig does not open. | The sequence stopped before the third step. | See the [Profinity log](../../../Administration/Logs_Config.md), which records that the operation did not run successfully. |
+| The sequence stops at **Check Suitable Available Network**. | No suitable network is available. | Check that the bridge and the PC are on the same local network. |
+| The sequence stops at **Set Active**. | Not stated. | Check that no other client holds the bridge's single TCP connection. |
+| The dashboard shows no data after the firmware loader finishes. | Not stated. | Use the checks on [WaveSculptor motor controller](index.md). |

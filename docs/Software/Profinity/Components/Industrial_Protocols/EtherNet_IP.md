@@ -153,11 +153,11 @@ Polled values behave like any other tag, so they can be shown on a [dashboard](.
 If a point cannot be read, its tag is marked as bad quality.
 Check the usual causes in this table before reading the [Log](../../Administration/Logs_Config.md) for the reason.
 
-| Cause | Fix |
-|---|---|
-| The **PLC tag** name does not exist in the PLC. | Enter the tag name as it appears in the PLC. |
-| The **Data type** does not match the PLC tag's type. | Choose the data type that matches the PLC tag's type. |
-| The **CIP path** does not lead to the CPU. | Enter the route to the CPU, as described under the settings table. |
-| The **PLC kind** does not match the controller. | Select the family of the controller. |
+| What you see | Cause | What to do |
+|---|---|---|
+| The point is marked as bad quality. | The **PLC tag** name does not exist in the PLC. | Enter the tag name as it appears in the PLC. |
+| The point is marked as bad quality. | The **Data type** does not match the PLC tag's type. | Choose the data type that matches the PLC tag's type. |
+| The point is marked as bad quality. | The **CIP path** does not lead to the CPU. | Enter the route to the CPU, as described under the settings table. |
+| The point is marked as bad quality. | The **PLC kind** does not match the controller. | Select the family of the controller. |
 
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.

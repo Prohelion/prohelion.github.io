@@ -69,10 +69,10 @@ The SocketCAN adapter is available on Linux and Docker installations only, and i
    A user who holds only the **View CAN data** permission sees **RECEIVED CAN** instead.
    [How to send and receive CAN bus messages](./Send_Receive_CAN_Bus.md) describes the panel.
 
-If the adapter is not discovered, shows amber or red, or the panel stays empty, refer to [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md).
-
-A bridge in TCP mode accepts one connection at a time, and one that was connected and disconnected rapidly rejects new TCP connections for a short time.
-If the connection fails, confirm that no other client holds the bridge, wait 30 seconds to a minute (refer to [Common Problems & Solutions](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Common_Problems_And_Solutions.md)), and restart Profinity if it still fails.
+| What you see | Cause | What to do |
+|---|---|---|
+| The adapter is not discovered, shows amber or red, or the panel stays empty | - | Refer to [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md). |
+| The connection to the bridge fails | A bridge in TCP mode accepts one connection at a time, and one that was connected and disconnected rapidly rejects new TCP connections for a short time. | Confirm that no other client holds the bridge, wait 30 seconds to a minute (refer to [Common Problems & Solutions](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Common_Problems_And_Solutions.md)), and restart Profinity if it still fails. |
 
 For the bridge user manual, datasheet, and troubleshooting, refer to [CAN Bus to Ethernet Bridge](../../../Solar_Car_Racing/CAN_Ethernet_Bridge/index.md).
 To relay traffic with a virtual adapter, refer to [Prohelion Virtual CAN Bus Adapter](../Components/CAN_Bus_Protocols/Virtual_CAN_Adapter.md).

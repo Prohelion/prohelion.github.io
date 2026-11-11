@@ -27,9 +27,9 @@ Save the collection or rule in the editor to keep the expression.
 
 ## When the builder cannot show an expression
 
-When an expression uses syntax that the builder cannot represent, the panel shows "This expression cannot be shown in the guided builder, so it can only be edited as text", and **Add** is unavailable.
-Edit the **Expression** field directly in that case.
-The same applies when the condition needs a last-segment name match (`tag.MatchesName`), an exact full path (`tag.Is`), a numeric metadata field (`tag.Meta.Number`), or a complex `&&` / `||` combination.
+| What you see | Cause | What to do |
+|---|---|---|
+| The panel shows "This expression cannot be shown in the guided builder, so it can only be edited as text", and **Add** is unavailable. | The expression uses syntax that the builder cannot represent. The same applies when the condition needs a last-segment name match (`tag.MatchesName`), an exact full path (`tag.Is`), a numeric metadata field (`tag.Meta.Number`), or a complex `&&` / `||` combination. | Edit the **Expression** field directly. |
 
 For the members you can type, refer to [Tag expressions](Tag_Expressions.md).
 To put the expression to use, refer to [Create a collection](../Collections/Create_a_Collection.md) or [Create a rule](../Rules/Create_a_Rule.md).

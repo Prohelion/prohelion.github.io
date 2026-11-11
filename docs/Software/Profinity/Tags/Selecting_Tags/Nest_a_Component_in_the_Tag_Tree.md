@@ -27,11 +27,11 @@ The default value of `/` mounts the component at the root.
 A component named `Charger` with a **Tag tree path** of `Vehicles/Car1` mounts at `Vehicles/Car1/Charger`, and its tags appear in **Tag Explorer** under that folder.
 
 Every mount point must be unique.
-Profinity rejects the change if two components would resolve to the same or an overlapping location.
-It also rejects the change if a component would resolve to a location published by a [Tag relay](../Tag_Relay.md) receiver.
 
-The message reports which paths overlap, in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.`
-Change the **Tag tree path** or the name of one of the two components until the paths no longer overlap.
+| What you see | Cause | What to do |
+|---|---|---|
+| Profinity rejects the change, with a message in the form `Tag destination 'A' overlaps 'B'. Choose a unique destination.` that reports which paths overlap. | Two components would resolve to the same or an overlapping location. | Change the **Tag tree path** or the name of one of the two components until the paths no longer overlap. |
+| Profinity rejects the change to the **Tag tree path**. | The component would resolve to a location published by a [Tag relay](../Tag_Relay.md) receiver. | Not stated. |
 
 ## Change the path on a deployed component
 

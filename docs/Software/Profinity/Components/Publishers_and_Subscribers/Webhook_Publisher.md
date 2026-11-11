@@ -120,7 +120,7 @@ It also exposes two tags under its own component, `LastDeliverySuccess` and `Las
 
 Check the [Logs](../../Administration/Logs_Config.md) for the underlying message first.
 
-| Symptom | Cause | Fix |
+| What you see | Cause | What to do |
 |---|---|---|
 | The status stays **Off** after the profile loads. | No collection is selected, or a selected collection does not exist in the profile. | Select at least one existing collection under **Collections**. |
 | The status shows **Error**. | The **Destination URL** is not correct. | Correct the **Destination URL**. |

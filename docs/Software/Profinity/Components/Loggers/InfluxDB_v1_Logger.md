@@ -128,8 +128,11 @@ Characters other than letters and digits in these names are replaced with unders
 ## If data does not arrive
 
 When the settings are correct, data flows into InfluxDB v1.
-If it does not, check the Profinity system logs, as described in [Logs](../../Administration/Logs_Config.md).
-If the logger cannot reach InfluxDB, it shows **Error**, writes the reason to the logs once, and retries every 5 seconds until the problem clears.
+
+| What you see | Cause | What to do |
+|---|---|---|
+| Data does not arrive in InfluxDB v1. | The settings are not correct. | Check the Profinity system logs, as described in [Logs](../../Administration/Logs_Config.md). |
+| The logger shows **Error**. | The logger cannot reach InfluxDB. | The logger writes the reason to the logs once, then retries every 5 seconds until the problem clears. |
 
 To add the logger and start it, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
 To send data to InfluxDB Cloud, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).

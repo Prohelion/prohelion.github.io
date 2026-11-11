@@ -37,7 +37,7 @@ The editor opens in **DESIGN** mode, which is the Visual Editor.
 4. Drag the new element in the tree to its final position. The tree shows a drop position only where the dashboard schema permits one.
 5. In the **Inspector**, set the properties of the element.
 
-If **Add** is unavailable, the selected element cannot hold other elements.
+If **Add** is unavailable, the selected element cannot hold other elements. Select a container, such as a row, group, or pill, or select the dashboard root.
 Each property in the inspector uses the control that suits it, as listed in the [Visual Editor reference](./Visual_Editor.md#inspector).
 
 To delete an element:

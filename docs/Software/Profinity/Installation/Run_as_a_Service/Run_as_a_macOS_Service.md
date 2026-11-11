@@ -64,9 +64,9 @@ Always start Profinity through `profinity.sh`, because it also bootstraps the .N
 To check that the service is running, run `sudo launchctl list | grep com.profinity.service`.
 The command lists the service when it is loaded.
 
-If the service does not start, read the `profinity_<date>.log` file in the `logs` folder of the artefacts directory (refer to [Artefacts directory](../Artifacts_Directory.md)).
-Launchd discards console output unless you add `StandardOutPath` and `StandardErrorPath` keys to the plist.
-A "file not found" error means the path to `profinity.sh` in the plist does not match where Profinity is installed.
-Correct the path in the service configuration and start the service again.
+| What you see | Cause | What to do |
+|--------------|-------|------------|
+| The service does not start | - | Read the `profinity_<date>.log` file in the `logs` folder of the artefacts directory (refer to [Artefacts directory](../Artifacts_Directory.md)). Launchd discards console output unless you add `StandardOutPath` and `StandardErrorPath` keys to the plist |
+| A "file not found" error | The path to `profinity.sh` in the plist does not match where Profinity is installed | Correct the path in the service configuration and start the service again |
 
 Next, refer to [Apply a licence](../Applying_a_Licence.md) to open the web interface from another machine.
