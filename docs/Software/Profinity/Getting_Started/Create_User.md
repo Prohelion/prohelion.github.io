@@ -42,4 +42,4 @@ Keep it for the few people who manage the installation.
 [Create a role](../Administration/Users_and_Access/Create_a_Role.md) suggests Viewer, Operator, and Engineer roles to start from and explains how to build them.
 [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists every permission.
 
-To manage existing accounts, refer to [Managing users](../Administration/Users_and_Access/Manage_Users.md), which covers password resets and service accounts. A service account is an account for automation, with a token that never expires. You turn it on with the **Service Account** setting in the **Add user** panel, as described in [Service accounts](../Administration/Users_and_Access/Service_Accounts.md).
+To manage existing accounts, refer to [Managing users](../Administration/Users_and_Access/Manage_Users.md), which covers password resets and service accounts. A service account is an account for automation, with a token that never expires. You turn it on with the **Service account** setting in the **Add user** panel, as described in [Service accounts](../Administration/Users_and_Access/Service_Accounts.md).

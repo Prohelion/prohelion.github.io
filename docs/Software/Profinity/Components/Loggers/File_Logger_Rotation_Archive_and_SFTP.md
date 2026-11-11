@@ -36,19 +36,19 @@ Refer to [Logs](../../Administration/Logs_Config.md) for where to read them.
 ## Archive, compression, and rotation
 
 Rotation closes the current log file and starts a new one.
-The **Rotate By** setting selects **No Rotation**, **Time** or **File Size**.
+The **Rotate by** setting selects **No Rotation**, **Time** or **File Size**.
 It defaults to **No Rotation**, so a logger writes one growing file until you switch rotation on.
 
 | Setting | Type | Default | Effect |
 |---|---|---|---|
-| **Rotate By** | Choice | **No Rotation** | **No Rotation**, **Time** or **File Size**. |
-| **Rotation Interval (seconds)** | Time | Follows **Update Interval (seconds)** | Shown when **Rotate By** is **Time**. The seconds between rotations. When not set, it follows **Update Interval (seconds)**, or is 600 seconds when neither is set. |
-| **Rotate MB** | Whole number | 0 | Shown when **Rotate By** is **File Size**. The size in megabytes at which the file rotates. 0 rotates at 10 MB. |
-| **Archive the Logs** | On or off | Off | Moves rotated log files into an `archive` folder beneath the log folder, so no archive directory needs to be provided. |
-| **Compress Logs** | On or off | Off | Shown when **Archive the Logs** is on. Compresses archived log files into `.zip` files. |
-| **Limit Number of Archive Files** | On or off | Off | Shown when **Archive the Logs** is on. Enables a limit on the number of log files retained in the archive. |
-| **Archive File Limit** | Whole number | 0 | Shown when **Limit Number of Archive Files** is on. Must be greater than 0. If the limit is on and this is 0, Profinity reports a validation error and the setting is not valid. The maximum number of log files kept in the archive. When the limit is reached, the oldest files are deleted first. For the CAN SFTP Logger, the oldest remote files are deleted too. |
+| **Rotate by** | Choice | **No Rotation** | **No Rotation**, **Time** or **File Size**. |
+| **Rotation interval (seconds)** | Time | Follows **Update interval (seconds)** | Shown when **Rotate by** is **Time**. The seconds between rotations. When not set, it follows **Update interval (seconds)**, or is 600 seconds when neither is set. |
+| **Rotate MB** | Whole number | 0 | Shown when **Rotate by** is **File Size**. The size in megabytes at which the file rotates. 0 rotates at 10 MB. |
+| **Archive the logs** | On or off | Off | Moves rotated log files into an `archive` folder beneath the log folder, so no archive directory needs to be provided. |
+| **Compress logs** | On or off | Off | Shown when **Archive the logs** is on. Compresses archived log files into `.zip` files. |
+| **Limit number of archive files** | On or off | Off | Shown when **Archive the logs** is on. Enables a limit on the number of log files retained in the archive. |
+| **Archive file limit** | Whole number | 0 | Shown when **Limit number of archive files** is on. Must be greater than 0. If the limit is on and this is 0, Profinity reports a validation error and the setting is not valid. The maximum number of log files kept in the archive. When the limit is reached, the oldest files are deleted first. For the CAN SFTP Logger, the oldest remote files are deleted too. |
 
 The CAN SFTP Logger and the TAG SFTP Logger always archive, because they archive files before they upload them.
-They do not show **Archive the Logs**, because it is always on for them.
+They do not show **Archive the logs**, because it is always on for them.
 Compress Logs, Limit Number of Archive Files and Archive File Limit are always shown on these loggers.

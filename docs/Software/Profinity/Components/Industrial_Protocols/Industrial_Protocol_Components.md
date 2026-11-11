@@ -26,7 +26,7 @@ The Open Platform Communications Unified Architecture (OPC UA) plugin has one pa
 
 ## Components
 
-Every protocol component has **Auto Connect** off by default.
+Every protocol component has **Auto connect** off by default.
 The components, what they connect to, and how a point map row identifies a value are:
 
 | Plugin | Component | Connects to | A point map row identifies a value by |

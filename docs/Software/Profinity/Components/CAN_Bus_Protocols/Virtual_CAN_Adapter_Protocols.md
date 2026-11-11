@@ -23,7 +23,7 @@ Tritium software tools shipped in either a V1 or a V2 variant.
 A V1 tool cannot talk to a V2 bridge.
 The [Fundamentals](../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Fundamentals.md) page recommends using the tools that match the bridge version.
 
-The Virtual Bridge resolves this by speaking both protocols at once, which is the `All` option of the **Bridge Protocol Version** setting.
+The Virtual Bridge resolves this by speaking both protocols at once, which is the `All` option of the **Bridge protocol version** setting.
 It presents itself as two bridges, one V1 and one V2.
 A tool then finds the bridge version that it can speak to.
 

@@ -69,7 +69,7 @@ That is one for each CAN adapter the packet went out on, so more than one when s
 
 Profinity maintains a cache of the latest received CAN packets, from which a script can read the most recent packet or query packets by CAN ID.
 `Profinity.CAN.LatestValidPacketReceivedByID()` returns the latest packet for a CAN ID only while the packet is still valid.
-A packet expires once it is older than the script's **Milliseconds Valid** setting.
+A packet expires once it is older than the script's **Milliseconds valid** setting.
 The setting defaults to 5000 and accepts -1 to 60000:
 
 - `-1`: packets never expire.
@@ -78,7 +78,7 @@ The setting defaults to 5000 and accepts -1 to 60000:
 
 A script saved earlier with 0 now sees no valid packets until you change the value to -1 or to a time window.
 The method returns null (`None` in Python, `nil` in Lua) when no valid packet exists.
-**Milliseconds Valid** is shown only in Run On Receipt of CAN Message mode.
+**Milliseconds valid** is shown only in Run On Receipt of CAN Message mode.
 
 === "C#"
 

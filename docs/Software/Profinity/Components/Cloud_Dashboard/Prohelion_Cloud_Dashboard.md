@@ -42,8 +42,8 @@ You need the Data Relay licensed feature, the ThingsBoard Logger plugin installe
 
 1. Install the ThingsBoard Logger plugin. Refer to [Install and manage plugins](../../Administration/Install_and_Manage_Plugins.md).
 2. Add **ThingsBoard Logger** from **ADD COMPONENT**, under **Loggers**. A Profile holds only one.
-3. Enter the device's access token in **ThingsBoard Access Token**.
-4. Enter the device ID in **ThingsBoard Device ID**.
+3. Enter the device's access token in **ThingsBoard access token**.
+4. Enter the device ID in **ThingsBoard device ID**.
 5. Under **Collections**, select at least one tag collection. The component cannot start without one.
 6. Select **ADD COMPONENT** at the bottom of the dialog.
    When the add succeeds, the dialog title is **Error**, with the error icon, and the message is **Successfully created the component**.
@@ -58,12 +58,12 @@ Complete the settings in the following table.
 | Setting | Type | Default | Notes |
 |---|---|---|---|
 | **Name** | Text | ThingsBoard Logger | The name shown in the Profile. |
-| **ThingsBoard Access Token** | Secret | None | The access token for the device. Required, and stored encrypted. |
-| **ThingsBoard Device ID** | Text | None | The device ID in ThingsBoard. Required. Profinity also uses it as the MQTT client ID. |
-| **Update Interval (seconds)** | Time | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
+| **ThingsBoard access token** | Secret | None | The access token for the device. Required, and stored encrypted. |
+| **ThingsBoard device ID** | Text | None | The device ID in ThingsBoard. Required. Profinity also uses it as the MQTT client ID. |
+| **Update interval (seconds)** | Time | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
 | **Collections** | Choice | None | The tag collections to send. At least one is required. |
 | **Logging mode** | Choice | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
-| **Auto Connect** | On or off | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Auto connect** | On or off | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 A collection must be selected before the component can start.
 It connects out from the Profinity server to thingsboard.cloud using MQTT on TCP port 1883, so the firewall or network must allow that outbound connection.

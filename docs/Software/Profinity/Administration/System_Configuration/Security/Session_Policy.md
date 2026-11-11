@@ -8,7 +8,7 @@ last_reviewed: 2026-10-28
 
 # Session policy and login lockout
 
-The **Session Policy** group on the **Security** tab of **System Configuration** sets how long a sign-in lasts and how Profinity responds to repeated failed sign-ins.
+The **Session policy** group on the **Security** tab of **System Configuration** sets how long a sign-in lasts and how Profinity responds to repeated failed sign-ins.
 Each setting applies to every user on the site, except that the idle timeout does not apply to service accounts, and none of them needs a licensed feature. Changing them needs the **System administration** permission.
 
 | Setting | Type | Default | Range | Effect |

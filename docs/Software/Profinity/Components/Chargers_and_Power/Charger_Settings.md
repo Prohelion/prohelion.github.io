@@ -12,27 +12,27 @@ Profinity asks for these settings when a [charger component](Charger_Components.
 
 Every charger asks for its own limits and the limits of the supply that feeds it.
 Each charger type starts with its own default limits in the following table.
-**Supply Voltage Limit** and **Supply Current Limit** start at 240 V and 10 A.
+**Supply voltage limit** and **Supply current limit** start at 240 V and 10 A.
 Set all five limits to match the actual charger and the wall circuit before charging.
 
 | Setting | Type | TDK | Siglent | Elcon | Notes |
 |---|---|---|---|---|---|
-| **Charger Voltage Limit** | Decimal number | 300 V | 32 V | 198 V | Maximum voltage, in volts, that the charger can output, from 1 to 1000. |
-| **Charger Current Limit** | Decimal number | 10 A | 3.2 A | 46 A | Maximum current, in amps, that the charger can output, from 1 to 1000. |
-| **Charger Power Limit** | Decimal number | 3000 W | 102 W | 6600 W | Maximum power, in watts, that the charger can output, from 1 to 1000000. If unsure, use maximum voltage multiplied by maximum current, or less. |
-| **Supply Voltage Limit** | Decimal number | 240 V | 240 V | 240 V | Maximum voltage, in volts, that the wall socket supplies, from 1 to 1000. |
-| **Supply Current Limit** | Decimal number | 10 A | 10 A | 10 A | Maximum current, in amps, that the wall socket supplies, from 1 to 1000. |
+| **Charger voltage limit** | Decimal number | 300 V | 32 V | 198 V | Maximum voltage, in volts, that the charger can output, from 1 to 1000. |
+| **Charger current limit** | Decimal number | 10 A | 3.2 A | 46 A | Maximum current, in amps, that the charger can output, from 1 to 1000. |
+| **Charger power limit** | Decimal number | 3000 W | 102 W | 6600 W | Maximum power, in watts, that the charger can output, from 1 to 1000000. If unsure, use maximum voltage multiplied by maximum current, or less. |
+| **Supply voltage limit** | Decimal number | 240 V | 240 V | 240 V | Maximum voltage, in volts, that the wall socket supplies, from 1 to 1000. |
+| **Supply current limit** | Decimal number | 10 A | 10 A | 10 A | Maximum current, in amps, that the wall socket supplies, from 1 to 1000. |
 
 The TDK and Siglent supplies are reached over the network and share these communication settings.
 
 | Setting | Type | Default | Notes |
 |---|----|---|---|
-| **Charger IP Address** | Text | `127.0.0.1` | Address of the supply on the network. |
-| **Charger Port** | Whole number | 5025 | TCP port the supply listens on, between 1 and 65535. |
-| **Comms Timeout** | Time | 5000 | Time in milliseconds Profinity waits for the supply to answer. |
-| **Auto Connect** | On or off | Off | Connects to the supply when the Profile loads. Use the **Connect / Disconnect** toggle in the component's menu to connect it otherwise. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Auto Reconnect** | On or off | On | Keeps trying to connect in the background when the supply is off at start. With it off, Profinity makes one connection attempt and reports a failure. |
-| **Reconnect delay (ms)** | Time | 5000 | Time in milliseconds between connection attempts, between 500 and 600000. Shown only when **Auto Reconnect** is on. |
+| **Charger IP address** | Text | `127.0.0.1` | Address of the supply on the network. |
+| **Charger port** | Whole number | 5025 | TCP port the supply listens on, between 1 and 65535. |
+| **Comms timeout** | Time | 5000 | Time in milliseconds Profinity waits for the supply to answer. |
+| **Auto connect** | On or off | Off | Connects to the supply when the Profile loads. Use the **Connect / Disconnect** toggle in the component's menu to connect it otherwise. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Auto reconnect** | On or off | On | Keeps trying to connect in the background when the supply is off at start. With it off, Profinity makes one connection attempt and reports a failure. |
+| **Reconnect delay (ms)** | Time | 5000 | Time in milliseconds between connection attempts, between 500 and 600000. Shown only when **Auto reconnect** is on. |
 | **Charger ID** | Whole number | 0 | TDK only. The ID the TDK supply is set to. |
 | **Channel ID** | Whole number | 1 | Siglent only. The channel in use on a multi-channel supply. |
 
@@ -41,15 +41,15 @@ It asks for the settings in the following table instead.
 
 | Setting | Type | Default | Notes |
 |---|----|---|---|
-| **Elcon Command CAN Bus Id** | Hexadecimal number | `0x1806E5F4` | CAN address Profinity sends commands to. |
-| **Elcon Status CAN Bus Id** | Hexadecimal number | `0x18FF50E5` | CAN address Profinity receives status messages from. |
-| **Milliseconds Valid** | Time | 5000 | Time in milliseconds the CAN traffic from the charger stays valid before Profinity treats the connection as lost, between 1 and 60000. |
+| **Elcon command CAN bus ID** | Hexadecimal number | `0x1806E5F4` | CAN address Profinity sends commands to. |
+| **Elcon status CAN bus ID** | Hexadecimal number | `0x18FF50E5` | CAN address Profinity receives status messages from. |
+| **Milliseconds valid** | Time | 5000 | Time in milliseconds the CAN traffic from the charger stays valid before Profinity treats the connection as lost, between 1 and 60000. |
 
 ## Current and voltage limits
 
 !!! warning "Set the supply and charge limits before charging"
     The charger and supply limits in the Profile are the maximums Profinity works to.
-    A **Supply Current Limit** higher than the rating of the wall circuit can overload that circuit.
+    A **Supply current limit** higher than the rating of the wall circuit can overload that circuit.
     Profinity does not know the cell specification beyond what the Battery Management Unit (BMU) reports.
     Keep the charge current at or below the cell manufacturer's recommended charge current to avoid damaging the battery.
 

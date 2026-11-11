@@ -34,7 +34,7 @@ That item opens the same viewer, already filtered to that component.
 </figure>
 
 To use the DBC Viewer with a third-party DBC file, [add a Custom Component](../How_To_Guides/Add_Component_to_Profile.md) to your [profile](../Getting_Started/Profiles.md).
-Provide the file in its **Upload DBC File (Optional)** setting.
+Provide the file in its **Upload DBC file (optional)** setting.
 Once the file has parsed, the component appears in your profile with the **Messages and Signals** menu item.
 Refer to [Using a Custom Component](../Components/Custom_Components/Using_a_Custom_Component.md) for the full steps.
 

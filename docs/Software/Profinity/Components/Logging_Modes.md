@@ -31,7 +31,7 @@ flowchart LR
 - **Everything** records every sample a tag receives, including a repeat of the same value, and holds those samples until the next flush.
 
 The difference between the modes is clearest with one worked case.
-A tag updates once a second with the same reading, and the **Update Interval (seconds)** is 10.
+A tag updates once a second with the same reading, and the **Update interval (seconds)** is 10.
 
 - **Snapshot** writes one row for that tag every 10 seconds: the value at the moment of the interval.
 - **On Change** writes a row on the first sample and then only when the value or quality changes.
@@ -61,7 +61,7 @@ Routine logging and publishing use **Snapshot** or **On Change**.
 
 In **Snapshot** mode the interval is how often the current value of each member is read and written or sent.
 In **On Change** and **Everything** modes the interval is how often pending samples are flushed to the file, database, or destination.
-The setting appears as **Update Interval (seconds)** on the component pages that offer **Logging mode**.
+The setting appears as **Update interval (seconds)** on the component pages that offer **Logging mode**.
 
 ## Components that offer logging modes
 

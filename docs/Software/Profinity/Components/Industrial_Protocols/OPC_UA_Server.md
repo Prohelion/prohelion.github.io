@@ -30,7 +30,7 @@ You need:
 1. Select **ADD COMPONENT**, then select **OPC UA Server** in the **Industrial Protocols** group.
 2. Keep **Bind URL** as `opc.tcp://127.0.0.1:4840/Profinity`, which accepts clients on this computer only. To accept other computers, change it as described in [Listening address](#listening-address).
 3. Select **ADD COMPONENT**.
-4. Select **Start / Stop** from the component's menu. **Auto Connect** is off by default.
+4. Select **Start / Stop** from the component's menu. **Auto connect** is off by default.
 5. On the component dashboard, check that **STATUS** shows **Listening** and **LISTENING** is true.
 
 To check from a client, connect it to the **Bind URL** and browse **Objects** > **Profinity**.
@@ -41,7 +41,7 @@ To check from a client, connect it to the **Bind URL** and browse **Objects** > 
 |---|---|---|---|
 | **Name** | Text | `OPC UA Server` | The name of the component. Must be unique within the profile. |
 | **Bind URL** | Text | `opc.tcp://127.0.0.1:4840/Profinity` | The address the server listens on, which is also the address clients connect to. Required, and must start with `opc.tcp://`. |
-| **Auto Connect** | On or off | Off | Starts the server when the profile loads, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Auto connect** | On or off | Off | Starts the server when the profile loads, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 | **Trust all client certificates** | On or off | Off | When on, the server accepts any client certificate. When off, it refuses a certificate that is not in its `trusted` folder and stores it in `rejected`. Turn it on only on a trusted network. |
 
 To change the settings later, select **Change Settings** from the component's menu.

@@ -48,7 +48,7 @@ These steps publish one collection as JSON.
 6. Save the settings.
 
 The publisher needs at least one collection to be selected, and every selected collection must exist in the profile, before it can start.
-With **Auto Connect** on, which is the default, it starts when the profile loads, and its status shows **On** while it is running.
+With **Auto connect** on, which is the default, it starts when the profile loads, and its status shows **On** while it is running.
 To check that it works, subscribe to the topic on your broker.
 The data arrives in the form shown in [Payload formats](#payload-formats).
 
@@ -61,7 +61,7 @@ The data arrives in the form shown in [Payload formats](#payload-formats).
 | **Server URL** | Text | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com:1883`. Use `mqtt` for a plain connection and `mqtts` for a connection that uses Transport Layer Security (TLS). |
 | **Trust all server certificates** | On or off | No | Off | Disables Transport Layer Security (TLS) server certificate validation for this connection. Enable only when connecting to a trusted broker using a self-signed certificate. |
 | **Username** / **Password** | Text and Secret | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted and can be left empty for username-only authentication. |
-| **Device ID** | Text | Yes | None | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge Node ID** when that field is empty. |
+| **Device ID** | Text | Yes | None | The MQTT client ID this publisher connects with. It must be unique among the clients connected to the broker. It is also used as the **Edge node ID** when that field is empty. |
 | **Payload** | Choice | No | **JSON** | **JSON** or **Sparkplug B**, an MQTT payload format for industrial data. Defaults to **JSON**. Refer to [Payload formats](#payload-formats). |
 | **Destination topic** | Text | Yes, for JSON | None | The topic the flat JSON payload is published to, for example `profinity/site1/tags`. Shown only when **Payload** is **JSON**. A save without it fails with "You must provide a destination topic." |
 
@@ -77,16 +77,16 @@ These settings are shown only when **Payload** is **Sparkplug B**:
 | Setting | Type | Required | Default | Purpose |
 |---|---|---|---|---|
 | **Group ID** | Text | Yes | None | The Sparkplug group ID used in the topic path. A save without it fails with "You must provide a Sparkplug Group ID." |
-| **Edge Node ID** | Text | No | Empty | The Sparkplug edge node ID. Defaults to **Device ID** when left empty. |
+| **Edge node ID** | Text | No | Empty | The Sparkplug edge node ID. Defaults to **Device ID** when left empty. |
 
 ### Publishing settings
 
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
 | **Collections** | Choice | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
-| **Auto Connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Auto connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **Logging mode** | Choice | **Snapshot** | What the publisher sends on each interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
-| **Update Interval (seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Update interval (seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 
 ## Payload formats
 
@@ -103,7 +103,7 @@ A sample is included only when it has good quality and holds a finite number.
 The payload has no place for quality, so a tag that is not Good (Stale, Unavailable or Bad) or is not numeric is left out of it.
 
 **Sparkplug B** follows the [Sparkplug](https://sparkplug.eclipse.org/) convention for MQTT topics and payloads, which industrial platforms use.
-The publisher appears to a Sparkplug-aware platform as an edge node, identified by the **Group ID** and **Edge Node ID**.
+The publisher appears to a Sparkplug-aware platform as an edge node, identified by the **Group ID** and **Edge node ID**.
 It announces itself when it connects, and announces itself again when the platform asks.
 Sparkplug B is available on the MQTT Publisher only, not on the [Webhook Publisher](Webhook_Publisher.md).
 

@@ -44,7 +44,7 @@ The component does not browse the PLC's CIP objects to discover tags for you. On
 3. Check that **PLC kind** matches your controller, and keep **CIP path** at `1,0` for a CPU in slot 0 of the same chassis.
 4. Select **ADD COMPONENT** at the bottom of the dialog, or **SAVE** when you change an existing component.
 5. In the **Point map**, add a row with a **Name** and a **PLC tag**, and set its **Data type** to match the PLC tag. The default is `Dword`.
-6. If **Auto Connect** is off, which is its default, switch the component on with the **Connect / Disconnect** menu action.
+6. If **Auto connect** is off, which is its default, switch the component on with the **Connect / Disconnect** menu action.
 7. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true, and that the tags under `Points` show values rather than bad quality.
 
 ## Communications settings
@@ -58,7 +58,7 @@ The component does not browse the PLC's CIP objects to discover tags for you. On
 | **Poll interval (ms)** | Time | `1000` | How often the point map is read, in milliseconds. Between `50` and `600000`. |
 | **Request timeout (ms)** | Time | `1000` | How long Profinity waits for the PLC to answer a request, in milliseconds. Between `50` and `60000`. |
 | **Reconnect delay (ms)** | Time | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
-| **Auto Connect** | On or off | Off | Connects to the PLC automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Auto connect** | On or off | Off | Connects to the PLC automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 Profinity sends the **CIP path** to the PLC as you enter it:
 
@@ -68,7 +68,7 @@ Profinity sends the **CIP path** to the PLC as you enter it:
 - For a PLC-5 or SLC controller, Profinity sends the CIP path on every read when it is not blank, including the default `1,0`.
 - Micro800 controllers ignore this setting while **Browse** reads the PLC's tag symbol list.
 
-With **Auto Connect** on, profinity keeps trying to connect when the PLC is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
+With **Auto connect** on, profinity keeps trying to connect when the PLC is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto connect** off, it connects only after you switch the component on.
 
 ## Point map
 

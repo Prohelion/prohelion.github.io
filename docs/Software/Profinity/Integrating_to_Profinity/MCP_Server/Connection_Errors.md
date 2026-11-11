@@ -24,7 +24,7 @@ The guides for [Claude Code](Connect_Claude_Code.md), [Codex](Connect_Codex.md),
 
 A 404 has one of these causes:
 
-- **Enable MCP Server** is off.
+- **Enable MCP server** is off.
 - Profinity has not finished restarting since the setting was saved.
 - The **AI** feature is not licensed.
 - The address was opened in a browser. A browser does not make MCP requests, so check the server with the command in [Check the server answers](Prepare_Profinity.md#check-the-server-answers).

@@ -21,7 +21,7 @@ The profile list shows every profile, and each row can be viewed, edited, or del
 
 - **ACTIVATE** on a row makes that profile the active profile. Use it to switch between system configurations or to test different setups.
 - **Add profile** creates a new profile.
-- **Upload Profile Pack** imports a profile from another Profinity instance.
+- **Upload profile pack** imports a profile from another Profinity instance.
 
 [How to create a new profile](../How_To_Guides/Create_New_Profile.md) gives the steps for creating one.
 

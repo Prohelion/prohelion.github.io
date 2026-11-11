@@ -21,7 +21,7 @@ Every adapter has the parameters in the following table.
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
 | **Name** | Text | The name of the component. Must be unique. | The adapter's model name, such as `SocketCANd Adapter` or `Ewert CANdapter` |
-| **Auto Connect** | On or off | Connects to the adapter when the profile loads. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). | On |
+| **Auto connect** | On or off | Connects to the adapter when the profile loads. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). | On |
 
 The remaining parameters depend on the type of adapter.
 
@@ -31,22 +31,22 @@ The **Tritium Can to Ethernet Bridge** adapter connects to a Prohelion or Tritiu
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Network Protocol** | Choice | `UDP` or `TCP`. | `UDP` |
-| **Tritium Protocol Version** | Choice | `V1` or `V2`. Must match the firmware of the bridge. | `V1` |
-| **IP Address** | Text | The IP address of the bridge. TCP only. | `127.0.0.1` |
-| **Bus Number** | Whole number | The bus number of the bridge, from 0 to 13 for `V1` and 0 to 32767 for `V2`. It must match the Virtual Bus Number set in the bridge firmware, because Profinity drops packets from other bus numbers. | 13 |
+| **Network protocol** | Choice | `UDP` or `TCP`. | `UDP` |
+| **Tritium protocol version** | Choice | `V1` or `V2`. Must match the firmware of the bridge. | `V1` |
+| **IP address** | Text | The IP address of the bridge. TCP only. | `127.0.0.1` |
+| **Bus number** | Whole number | The bus number of the bridge, from 0 to 13 for `V1` and 0 to 32767 for `V2`. It must match the Virtual Bus Number set in the bridge firmware, because Profinity drops packets from other bus numbers. | 13 |
 | **UDP TTL** | Whole number | The time to live of the UDP packets that Profinity transmits, from 1 to 1024. | 128 |
-| **Forward Address** | Hexadecimal number | The lowest CAN identifier that the bridge forwards. TCP only. | `0x0` |
-| **Forward Address Range** | Hexadecimal number | The size of the identifier range that the bridge forwards. TCP only. | All CAN identifiers |
-| **Allow Loopback Traffic** | On or off | Shows the packets that the bridge receives back from its own transmissions. UDP only. | Off |
-| **Auto Connect** | On or off | Connects to the bridge when the profile loads. | On |
-| **Milliseconds Valid** | Whole number | How long the CAN traffic from the bridge counts as valid before Profinity assumes the connection is lost, from -1 to 60000 milliseconds. | 5000 |
+| **Forward address** | Hexadecimal number | The lowest CAN identifier that the bridge forwards. TCP only. | `0x0` |
+| **Forward address range** | Hexadecimal number | The size of the identifier range that the bridge forwards. TCP only. | All CAN identifiers |
+| **Allow loopback traffic** | On or off | Shows the packets that the bridge receives back from its own transmissions. UDP only. | Off |
+| **Auto connect** | On or off | Connects to the bridge when the profile loads. | On |
+| **Milliseconds valid** | Whole number | How long the CAN traffic from the bridge counts as valid before Profinity assumes the connection is lost, from -1 to 60000 milliseconds. | 5000 |
 
 UDP uses the multicast group 239.255.60.60 on port 4876, so several clients can share one bridge.
 TCP connects to the IP address of the bridge on port 4876, and a physical bridge accepts only one TCP connection.
 The forwarding range is described in [CAN-TCP Bridging](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Ethernet_Interface/CAN_TCP_Bridging.md).
 
-Auto Discovery sets the **Tritium Protocol Version** to match the bridge firmware.
+Auto Discovery sets the **Tritium protocol version** to match the bridge firmware.
 A profile can hold only one Tritium or Virtual adapter for each bus number.
 Two bridges that share a bus number on one Ethernet network join their CAN buses into one virtual bus.
 
@@ -62,11 +62,11 @@ The **SocketCANd Adapter** connects over TCP to the socketcand daemon, which can
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Bus Name** | Choice | The SocketCAN interface on the machine running socketcand: `can0` to `can9`, or `vcan0` to `vcan9`. | `can0` |
-| **IP Address** | Text | The IP address of the machine running socketcand. | `127.0.0.1` |
+| **Bus name** | Choice | The SocketCAN interface on the machine running socketcand: `can0` to `can9`, or `vcan0` to `vcan9`. | `can0` |
+| **IP address** | Text | The IP address of the machine running socketcand. | `127.0.0.1` |
 | **Port** | Whole number | The port that socketcand listens on, from 1 to 65535. | 29536 |
 | **Timeout** | Time | The TCP timeout in milliseconds, from 0 to 60000. | 2000 |
-| **Auto Connect** | On or off | Connects to socketcand when the profile loads. | On |
+| **Auto connect** | On or off | Connects to socketcand when the profile loads. | On |
 
 The machine running socketcand sets the bit rate of the interface, not Profinity.
 
@@ -76,7 +76,7 @@ The **Peak Systems CAN Adapter** connects to a Peak CAN to USB adapter through t
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **PCAN Channel ID** | Choice | The channel of the adapter: USB 01 to USB 16, LAN 01 to LAN 16, or PCI 01 to PCI 16, where PCI is Peripheral Component Interconnect. Auto Discovery fills it in. | USB 01 |
+| **PCAN channel ID** | Choice | The channel of the adapter: USB 01 to USB 16, LAN 01 to LAN 16, or PCI 01 to PCI 16, where PCI is Peripheral Component Interconnect. Auto Discovery fills it in. | USB 01 |
 | **PCAN BaudRate** | Choice | 5K, 10K, 20K, 33K, 47K, 50K, 83K, 95K, 100K, 125K, 250K, 500K, 800K, or 1M Baud. | 500K Baud |
 
 On Linux, a Peak adapter appears as a SocketCAN interface, so use the SocketCAN adapter instead (refer to [CAN bus adapters](index.md)).
@@ -84,13 +84,13 @@ On Linux, a Peak adapter appears as a SocketCAN interface, so use the SocketCAN 
 ### Peak CAN FD adapter
 
 The **Peak Systems CANFD Adapter** connects to a Peak adapter that supports CAN with Flexible Data-rate (CAN FD).
-It has the same **PCAN Channel ID** as the Peak CAN adapter, and the bit rate parameters in the following table.
+It has the same **PCAN channel ID** as the Peak CAN adapter, and the bit rate parameters in the following table.
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Connect With CAN FD** | On or off | Runs the adapter in CAN FD mode. | Off |
-| **PCAN BaudRate** | Choice | The classic CAN bit rate, used when **Connect With CAN FD** is off. Same values as the Peak CAN adapter. | 500K Baud |
-| **PCAN BaudRate FD** | Choice | The CAN FD bit rate, used when **Connect With CAN FD** is on: J2284_4 (500 kbit/s, data 2 Mbit/s) or J2284_5 (500 kbit/s, data 5 Mbit/s). | J2284_4 |
+| **Connect with CAN FD** | On or off | Runs the adapter in CAN FD mode. | Off |
+| **PCAN BaudRate** | Choice | The classic CAN bit rate, used when **Connect with CAN FD** is off. Same values as the Peak CAN adapter. | 500K Baud |
+| **PCAN BaudRate FD** | Choice | The CAN FD bit rate, used when **Connect with CAN FD** is on: J2284_4 (500 kbit/s, data 2 Mbit/s) or J2284_5 (500 kbit/s, data 5 Mbit/s). | J2284_4 |
 
 ### Ewert CANdapter
 
@@ -98,7 +98,7 @@ The **Ewert CANdapter** adapter connects to an Ewert Energy CANdapter over its U
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Candapter COM Port** | Choice | The USB serial port, such as `COM3` on Windows or `/dev/ttyUSB0` on Linux and macOS. Required. | None |
+| **Candapter COM port** | Choice | The USB serial port, such as `COM3` on Windows or `/dev/ttyUSB0` on Linux and macOS. Required. | None |
 | **Candapter BaudRate** | Choice | 10K, 20K, 50K, 100K, 125K, 250K, 500K, 800K, or 1M Baud. | 500K Baud |
 
 ### Native SocketCAN
@@ -108,7 +108,7 @@ The **SocketCAN Adapter** connects to a SocketCAN interface on the machine runni
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Bus Name** | Choice | The SocketCAN interface, such as `can0`. | `can0` |
+| **Bus name** | Choice | The SocketCAN interface, such as `can0`. | `can0` |
 
 The operating system sets the bit rate of the interface, not Profinity.
 

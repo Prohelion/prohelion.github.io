@@ -20,7 +20,7 @@ The [Solar Charge Controllers by Elmar](../../../../Solar_Charge_Controllers/ind
 You need the **Modify components** permission to add the component. The Elmar Solar MPPT must send its CAN messages on a CAN network that the Profinity host reads through a [CAN adapter](../CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) in the Profile. The component shows only the messages it receives from that network.
 
 1. Add an **Elmar Solar MPPT** to the Profile.
-2. Set **Base Address** to the CAN address of the MPPT, as described in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md). The default is `0x300`.
+2. Set **Base address** to the CAN address of the MPPT, as described in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md). The default is `0x300`.
 3. Select **ADD COMPONENT** at the bottom of the dialog.
 4. Open the **Elmar Solar MPPT** dashboard from the sidebar.
 5. Check that **INPUT VOLTAGE** and **OUTPUT VOLTAGE** show values, and that the **BATTERY STATE** panel shows **On** or **Standby**.
@@ -34,10 +34,10 @@ The **Change Settings** button on the MPPT dashboard changes these settings late
 | Setting | Type | Description | Default |
 |---|---|---|---|
 | **Name** | Text | The name of the component. Must be unique. | Elmar Solar MPPT |
-| **Milliseconds Valid** | Time | The timeout of the device in milliseconds, from 1 to 60000, or -1 for no timeout. | 5000 |
-| **Base Address** | Hexadecimal number | The CAN address of the MPPT, as described in the Elmar MPPT DBC. | `0x300` |
+| **Milliseconds valid** | Time | The timeout of the device in milliseconds, from 1 to 60000, or -1 for no timeout. | 5000 |
+| **Base address** | Hexadecimal number | The CAN address of the MPPT, as described in the Elmar MPPT DBC. | `0x300` |
 
-If the network receives no traffic from the device within the **Milliseconds Valid** time, Profinity treats the connection as lost.
+If the network receives no traffic from the device within the **Milliseconds valid** time, Profinity treats the connection as lost.
 
 Once the MPPT is added to the Profile, the Elmar Solar MPPT dashboard is available in the sidebar.
 The dashboard displays graphs of input voltage and output power, error status indicators and, under the **MORE DETAILS** banner, the input, output, temperature and auxiliary supply readings.
@@ -124,12 +124,12 @@ Add it under `components:` in the `profile.yaml` file of the profile.
     baseAddress: 1696
 ```
 
-Use a different `id` and **Base Address** for each MPPT in the profile.
+Use a different `id` and **Base address** for each MPPT in the profile.
 
 ## Troubleshooting
 
 | What you see | Cause | What to do |
 |---|---|---|
-| "There is already a component in this profile operating in this CAN Address range, change your CAN Base Address to avoid a conflict" | The MPPT uses a fixed CAN address range of 0x0F above its **Base Address**, and another component in the profile uses an address in that range | Change the **Base Address** of this MPPT, or of the other component, so that the ranges do not overlap, then select **ADD COMPONENT** again. |
-| **INPUT VOLTAGE** and **OUTPUT VOLTAGE** show no values, and the MPPT is treated as lost | No CAN traffic from the MPPT arrives within **Milliseconds Valid**, either because **Base Address** does not match the MPPT or because the MPPT sends on a network that the Profinity host does not read | Check that **Base Address** matches the CAN address in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md) and that the MPPT is on the network the host reads. If traffic is slow, raise **Milliseconds Valid** (1 to 60000, or -1 for no timeout). |
+| "There is already a component in this profile operating in this CAN Address range, change your CAN Base Address to avoid a conflict" | The MPPT uses a fixed CAN address range of 0x0F above its **Base address**, and another component in the profile uses an address in that range | Change the **Base address** of this MPPT, or of the other component, so that the ranges do not overlap, then select **ADD COMPONENT** again. |
+| **INPUT VOLTAGE** and **OUTPUT VOLTAGE** show no values, and the MPPT is treated as lost | No CAN traffic from the MPPT arrives within **Milliseconds valid**, either because **Base address** does not match the MPPT or because the MPPT sends on a network that the Profinity host does not read | Check that **Base address** matches the CAN address in the [Elmar MPPT DBC](../../../../Solar_Charge_Controllers/DBC.md) and that the MPPT is on the network the host reads. If traffic is slow, raise **Milliseconds valid** (1 to 60000, or -1 for no timeout). |
 

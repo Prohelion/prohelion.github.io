@@ -19,7 +19,7 @@ You set it per [profile](Profiles.md), and it applies whenever that profile is t
 
 ## Enabling Kiosk Mode
 
-To set Kiosk Mode for a profile, open the **Home** tab of the profile settings, enable **Kiosk Mode**, and select a **Kiosk Mode User**.
+To set Kiosk Mode for a profile, open the **Home** tab of the profile settings, enable **Kiosk mode**, and select a **Kiosk mode user**.
 The user must be enabled, as described in [Choosing the kiosk user](#choosing-the-kiosk-user).
 The steps, together with the browser and operating system setup that opens Profinity full screen on the display, are in [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
 
@@ -62,7 +62,7 @@ On a Windows desktop installation without a Server licence there are no user acc
 
 A kiosk session expires after the **Access token lifetime (minutes)** set in [Session policy and login lockout](System_Configuration/Security/Session_Policy.md).
 The default is 120 minutes.
-A display that runs unattended for months can use a kiosk user with **Service Account** turned on, whose session lasts indefinitely.
+A display that runs unattended for months can use a kiosk user with **Service account** turned on, whose session lasts indefinitely.
 
 Treat that account with the same care as any long-lived credential.
 Review the kiosk user from time to time to confirm it is still appropriate and enabled.

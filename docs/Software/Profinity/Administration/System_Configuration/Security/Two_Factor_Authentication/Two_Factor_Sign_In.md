@@ -22,7 +22,7 @@ To enrol:
 
 ## Sign in with a code
 
-On later sign-ins, Profinity asks for the authenticator code after it accepts the password, with a **6-Digit MFA Code** field and an alternative **Recovery Code** field.
+On later sign-ins, Profinity asks for the authenticator code after it accepts the password, with a **6-digit MFA code** field and an alternative **Recovery code** field.
 A user who selects **Remember this device** on a site that allows it skips this step on that browser until the remember duration ends. The duration is set by **Remember device duration (days)**, which defaults to 10, as described in [Two-factor authentication](index.md).
 
 While **Enforce two-factor for local users** is on, a signed-in local user manages their own authenticator from the **Two-Factor Authentication** pill on the **ADMIN** page, as described in [MFA account management](../../../Users_and_Access/MFA_Account_Management.md#self-service-management).

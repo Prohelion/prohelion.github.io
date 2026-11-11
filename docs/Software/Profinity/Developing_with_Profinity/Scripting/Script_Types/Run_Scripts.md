@@ -16,22 +16,22 @@ Refer to [Custom Component scripts](./index.md#custom-component-scripts).
 
 ## Settings
 
-A Run script has three modes, chosen with **Script Mode**, which defaults to **Run On Demand**.
+A Run script has three modes, chosen with **Script mode**, which defaults to **Run On Demand**.
 
 | Script Mode | Behaviour |
 |-------------|-----------|
 | **Run On Demand** | Runs the script when a user selects **Run Script** from the script component's menu. **Cancel Script** stops a run that is still going. |
-| **Run On Time Interval** | Runs the script automatically at a fixed interval set with **Time Interval** and **Time Interval Unit**. |
-| **Run On CRON Schedule** | Runs the script from a [Quartz cron expression](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) entered in **Cron Schedule**. |
+| **Run On Time Interval** | Runs the script automatically at a fixed interval set with **Time interval** and **Time interval unit**. |
+| **Run On CRON Schedule** | Runs the script from a [Quartz cron expression](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) entered in **Cron schedule**. |
 
 The scheduled modes use these settings.
 
 | Setting | Type | Default | Description |
 |---------|---|---------|-------------|
-| **Time Interval** | Time | None | The interval between runs in **Run On Time Interval** mode, for example every 5 minutes or every hour. |
-| **Time Interval Unit** | Choice | Seconds | The unit of the interval: Seconds, Minutes, Hours, or Days. |
-| **Cron Schedule** | Text | None | A Quartz cron expression for **Run On CRON Schedule** mode. |
-| **Auto Start Script** | On or off | Off | When on, a scheduled script starts by itself. Otherwise it is started with **Start Scheduled Script** and stopped with **Stop Scheduled Script**. |
+| **Time interval** | Time | None | The interval between runs in **Run On Time Interval** mode, for example every 5 minutes or every hour. |
+| **Time interval unit** | Choice | Seconds | The unit of the interval: Seconds, Minutes, Hours, or Days. |
+| **Cron schedule** | Text | None | A Quartz cron expression for **Run On CRON Schedule** mode. |
+| **Auto start script** | On or off | Off | When on, a scheduled script starts by itself. Otherwise it is started with **Start Scheduled Script** and stopped with **Stop Scheduled Script**. |
 
 A Quartz expression has six or seven fields that start with seconds, which differs from a standard five-field cron expression, so `0 0 6 ? * MON-FRI` runs the script at 06:00 on every weekday.
 
@@ -87,6 +87,6 @@ The interfaces used by the C# sample are available to a script by default, so th
 
 In C# the `Run()` method returns a boolean, where `true` reports success and `false` reports failure.
 Python and Lua Run scripts have no return value: the script file runs from the top, so the sample defines a function and then calls it.
-A Python or Lua script reports failure by raising an error (or, in Python, by calling `sys.exit()` with a non-zero exit code, where `sys.exit(0)` is treated as success). A failure appears in the script's log, and in the Profinity log at the Error level whether or not **Log Script Output** is on.
+A Python or Lua script reports failure by raising an error (or, in Python, by calling `sys.exit()` with a non-zero exit code, where `sys.exit(0)` is treated as success). A failure appears in the script's log, and in the Profinity log at the Error level whether or not **Log script output** is on.
 
 Python scripts run on [IronPython](https://ironpython.net/) with Python 3 syntax, as described on [Supported Languages](../Supported_Languages/index.md).

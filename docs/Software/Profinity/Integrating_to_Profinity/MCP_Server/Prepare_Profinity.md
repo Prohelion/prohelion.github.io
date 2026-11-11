@@ -24,11 +24,11 @@ You need:
 ## Enable the MCP server
 
 1. In the side menu, select **ADMIN**, then **System Configuration**.
-2. Open the **Profinity AI** category and find the **MCP Server** group.
-3. Turn on **Enable MCP Server**.
+2. Open the **Profinity AI** category and find the **MCP server** group.
+3. Turn on **Enable MCP server**.
 4. Select **Save**. The web interface shows "Restarting, please wait..." while Profinity restarts.
 
-When the settings load again, **Enable MCP Server** shows as on, and the server is ready.
+When the settings load again, **Enable MCP server** shows as on, and the server is ready.
 Turning on **Enable Profinity AI** turns the server on too, because Profinity AI uses it, through [AI Chat](../../Profinity_AI/AI_Chat.md) and [AI technicians](../../Profinity_AI/AI_Technicians/index.md), so the server is already on when Profinity AI is in use.
 The server can also run on its own, with Profinity AI off, when only an external tool needs it.
 For the other settings in the group, refer to [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md).
@@ -43,7 +43,7 @@ The **Administrators** role has all three, and a role with only these three is e
 1. In the side menu, select **ADMIN**, then **Users & Groups**.
 2. Select **+ Add user**.
 3. Enter a name, such as `mcp-service`.
-4. Turn on **Service Account**.
+4. Turn on **Service account**.
 5. Under **Assigned roles**, choose the role.
 6. Select **ADD USER**.
 7. Select the new user's row, open the **User Actions** tab, and select **Generate Token**. The dialog shows the token once.
@@ -101,7 +101,7 @@ The default ports are 18080 for HTTP and 18443 for HTTPS, set on the **Web** tab
 
 === "Same computer as Profinity"
 
-    When **Redirect all Http traffic to Https** is off, use the HTTP address, which needs no certificate:
+    When **Redirect all HTTP traffic to HTTPS** is off, use the HTTP address, which needs no certificate:
 
     ```text
     http://localhost:18080/api/v2/Ai/Mcp
@@ -179,7 +179,7 @@ The command sends an empty MCP request with no token, and prints `401`, which me
 | What you see | Cause | What to do |
 |---|---|---|
 | A certificate error | The host name in the address is not one of the certificate names, or the computer does not trust the certificate. | Use a host name from [The certificate Profinity generates](Trust_HTTPS_Certificate.md#the-certificate-profinity-generates), and follow [Fix a certificate error](Trust_HTTPS_Certificate.md#fix-a-certificate-error). |
-| `404` | **Enable MCP Server** is off, so Profinity has no MCP address. | Turn on **Enable MCP Server**, as described in [Enable the MCP server](#enable-the-mcp-server). For the other causes, refer to [MCP connection errors](Connection_Errors.md). |
+| `404` | **Enable MCP server** is off, so Profinity has no MCP address. | Turn on **Enable MCP server**, as described in [Enable the MCP server](#enable-the-mcp-server). For the other causes, refer to [MCP connection errors](Connection_Errors.md). |
 
 Next, connect your tool:
 

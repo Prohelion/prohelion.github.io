@@ -26,11 +26,11 @@ To create a Profile Dashboard from the built-in template:
 
 1. Select **ADMIN** in the side menu, then open the **Profile** pill.
 2. Select the profile and open its settings.
-3. Open the **Home** tab, switch on **Custom Home Dashboard**, and leave **Dashboard YAML file (Optional)** empty.
+3. Open the **Home** tab, switch on **Custom home dashboard**, and leave **Dashboard YAML file (optional)** empty.
 4. Save the profile settings. Profinity creates a starter dashboard from the built-in template.
 5. Select the pencil (**Edit Dashboard**) icon on the home page to edit the dashboard in the visual editor, as described in [Build a dashboard in the Visual Editor](../Customising_Profinity/Dashboards/Build_a_Dashboard.md).
 
-To use your own layout, open the **Home** tab, upload a `.yaml` file in **Dashboard YAML file (Optional)**, then select it in **Dashboard YAML file (Optional)**.
+To use your own layout, open the **Home** tab, upload a `.yaml` file in **Dashboard YAML file (optional)**, then select it in **Dashboard YAML file (optional)**.
 It opens in the visual editor like any other dashboard.
 Once configured, the Profile Dashboard is the home page whenever the profile is active.
 
@@ -53,7 +53,7 @@ Refer to the [Profinity dashboard development guide](../Customising_Profinity/Da
 ## Removing a Profile Dashboard
 
 !!! warning "Removing the dashboard deletes its file"
-    Saving the profile with **Custom Home Dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting.
+    Saving the profile with **Custom home dashboard** disabled deletes the dashboard YAML file from the profile's `dashboards` folder and clears the dashboard file setting.
     Profinity does not keep a copy of the deleted file, so copy it first, as step 1 describes.
     If Profinity fails to delete the file, it keeps the dashboard file setting and writes the error to the log, which you can read on the **Logs** pill on the **ADMIN** page.
 
@@ -61,8 +61,8 @@ To remove a Profile Dashboard:
 
 1. If you may need the dashboard again, copy its YAML file to a safe place.
    The file is in the `dashboards` folder of the profile directory, as described in [Profile folders](./Profile_Folders.md).
-   Its name is shown in **Dashboard YAML file (Optional)** in the profile settings.
-2. Open the profile settings, switch off **Custom Home Dashboard** and save.
+   Its name is shown in **Dashboard YAML file (optional)** in the profile settings.
+2. Open the profile settings, switch off **Custom home dashboard** and save.
 
 The standard Profinity home page is then shown when the profile is active.
 
@@ -73,5 +73,5 @@ To change what the home page shows, refer to [Build a dashboard in the Visual Ed
 | What you see | Cause | What to do |
 |---|---|---|
 | Profinity refuses the upload and reports the reason, and the dashboard you already have stays as it is | The uploaded file is not valid YAML, does not pass the dashboard schema, or does not have the `.yaml` extension | Correct the file so it meets all three requirements, then upload it again. |
-| **Dashboard YAML file (Optional)** still names the file after you switch off **Custom Home Dashboard**, and the log shows an error | Profinity could not delete the file, for example because another program has it open or the account running Profinity cannot write to the `dashboards` folder | Close any program that has the file open, check that the account running Profinity can write to the `dashboards` folder, then switch off **Custom Home Dashboard** and save again. |
+| **Dashboard YAML file (optional)** still names the file after you switch off **Custom home dashboard**, and the log shows an error | Profinity could not delete the file, for example because another program has it open or the account running Profinity cannot write to the `dashboards` folder | Close any program that has the file open, check that the account running Profinity can write to the `dashboards` folder, then switch off **Custom home dashboard** and save again. |
 

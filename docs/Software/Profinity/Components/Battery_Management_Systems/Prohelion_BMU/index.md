@@ -46,8 +46,8 @@ The hardware is described in the [Prohelion BMS documentation](../../../../../Ba
 
 1. Select **ADD COMPONENT**, then select the model that matches your hardware from the **Battery Management Systems** group.
 2. Keep **Name** at the model name, or enter a name that is unique in the profile.
-3. Keep **Base Address** at the default for the model in the model table, unless your hardware uses a different CAN address.
-4. Keep **Milliseconds Valid** at `5000` and **Control Pack** off, unless you need Profinity to engage and disengage the pack.
+3. Keep **Base address** at the default for the model in the model table, unless your hardware uses a different CAN address.
+4. Keep **Milliseconds valid** at `5000` and **Control pack** off, unless you need Profinity to engage and disengage the pack.
 5. Select **ADD COMPONENT** at the bottom of the dialog.
 6. Open the BMU dashboard tab in the sidebar, and check that **BATTERY VOLTAGE** shows a reading.
 
@@ -59,12 +59,12 @@ The **Change Settings** button on the BMU dashboard changes these details later.
 | Parameter | Type | Description | Default |
 |----------------------|----|-----------------------------------------------------------------------------------------------------|---------|
 | **Name** | Text | The name of the component. Must be unique. | The model name |
-| **Control Pack** | On or off | Enables software control of the BMS from Profinity (engaging and disengaging the pack). Applies to the D1000 Gen1 and D1000 Gen2 only, and is hidden on the other models. | Off |
-| **Milliseconds Valid** | Time | The timeout of the device, from 1 to 60000. If no traffic is received from the device within this time, Profinity treats the connection as lost. | 5000 |
-| **Base Address** | Hexadecimal number | The CAN address of the BMU, as described in the protocol documentation of each model. Enter it in hexadecimal, with or without the `0x` prefix, for example `600`, because `1536` is read as `0x1536`. | `0x600`, or `0x100` for the C20 Gen1 |
-| **Firmware Configuration Key** | Secret | D1000 Gen2, M48 Gen2 and C48 Gen2 only. Unlocks the Admin firmware parameters for the current sign-in session. Refer to [Unlock administration firmware parameters](Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters). | No active session |
+| **Control pack** | On or off | Enables software control of the BMS from Profinity (engaging and disengaging the pack). Applies to the D1000 Gen1 and D1000 Gen2 only, and is hidden on the other models. | Off |
+| **Milliseconds valid** | Time | The timeout of the device, from 1 to 60000. If no traffic is received from the device within this time, Profinity treats the connection as lost. | 5000 |
+| **Base address** | Hexadecimal number | The CAN address of the BMU, as described in the protocol documentation of each model. Enter it in hexadecimal, with or without the `0x` prefix, for example `600`, because `1536` is read as `0x1536`. | `0x600`, or `0x100` for the C20 Gen1 |
+| **Firmware configuration key** | Secret | D1000 Gen2, M48 Gen2 and C48 Gen2 only. Unlocks the Admin firmware parameters for the current sign-in session. Refer to [Unlock administration firmware parameters](Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters). | No active session |
 
-A D1000 Gen1 or D1000 Gen2 charges through the Profinity **Charge** screen once **Control Pack** is on.
+A D1000 Gen1 or D1000 Gen2 charges through the Profinity **Charge** screen once **Control pack** is on.
 
 The CAN address of each model is described on these pages:
 

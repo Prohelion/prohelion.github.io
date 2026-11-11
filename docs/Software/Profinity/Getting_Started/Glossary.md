@@ -21,7 +21,7 @@ Each entry gives a one-sentence meaning and links to the page that explains it i
 | Component | A device, protocol adapter, logger, or other item that you add to a profile. Refer to [How to add a component to your profile](../How_To_Guides/Add_Component_to_Profile.md). |
 | Dashboard | A screen of readouts, charts, and controls that shows component data. Refer to [Profinity dashboard development guide](../Customising_Profinity/Dashboards/index.md). |
 | Derived tag | A tag whose value is calculated from other tags with an expression. Refer to [Derived tags](../Tags/Derived_Tags/index.md). |
-| Home dashboard | The dashboard that replaces the standard home page when **Custom Home Dashboard** is enabled for a profile. Refer to [Profile Dashboard](../Administration/Profile_Dashboard.md). |
+| Home dashboard | The dashboard that replaces the standard home page when **Custom home dashboard** is enabled for a profile. Refer to [Profile Dashboard](../Administration/Profile_Dashboard.md). |
 | Pill | A labelled selector on the **ADMIN** page, such as **Profile** or **License**. |
 | Profile | The saved configuration of a system: its components, dashboards, and settings. Refer to [Profinity profiles](Profiles.md). |
 | Rule | A condition on tags that raises an alert when it holds. Refer to [Tag rules](../Tags/Rules/index.md). |

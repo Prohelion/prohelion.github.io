@@ -16,7 +16,7 @@ Saving the tab restarts Profinity and interrupts active sessions.
 ## SCIM provisioning
 
 SCIM provisioning needs the **Enterprise Security** licensed feature, which only the Enterprise edition includes, as described in [Licensing](../../../Licensing.md).
-The **SCIM Provisioning** group appears while **Sign-in method** is **Sso**, because provisioned users sign in through the single sign-on (SSO) identity provider set up in [SSO and sign-in method](./SSO_and_Sign_In.md).
+The **SCIM provisioning** group appears while **Sign-in method** is **Sso**, because provisioned users sign in through the single sign-on (SSO) identity provider set up in [SSO and sign-in method](./SSO_and_Sign_In.md).
 
 To turn on provisioning:
 
@@ -89,7 +89,7 @@ Role permissions are listed in [Roles and permissions](../../Users_and_Access/Ro
 
 ## SIEM export
 
-When **Enable SIEM export** is on, Profinity forwards its security audit events, such as sign-ins, failed sign-ins, and licence changes, to the collector configured in the **SIEM Export** group.
+When **Enable SIEM export** is on, Profinity forwards its security audit events, such as sign-ins, failed sign-ins, and licence changes, to the collector configured in the **SIEM export** group.
 The other settings appear only after you switch on **Enable SIEM export**. Set **SIEM host** and a real **SIEM port** before you rely on export. Profinity does not refuse a save with port 0. With a host filled in, it sends to port 0, and with a blank host it sends nothing.
 
 | Setting | Type | Default | Description |

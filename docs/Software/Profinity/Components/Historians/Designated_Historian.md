@@ -29,8 +29,8 @@ flowchart LR
 
 If no component is designated, or more than one is, Profinity has no store to read history from and does not answer long-range queries.
 In that case, a dashboard shows only the values in memory, and the **Live** and **View at a time** control does not appear in its title bar.
-An InfluxDB historian is designated only while its **Allow Retrieval** setting is also enabled.
-**Allow Retrieval** exists only on the [InfluxDB historians](InfluxDB_Historians.md).
+An InfluxDB historian is designated only while its **Allow retrieval** setting is also enabled.
+**Allow retrieval** exists only on the [InfluxDB historians](InfluxDB_Historians.md).
 **Designated tag historian reader** is described on the page of each historian: [TAG Local Historian](TAG_Local_Historian.md), [InfluxDB historians](InfluxDB_Historians.md) and [TAG SQL Historian](TAG_SQL_Historian.md).
 
 Dashboards use the designated historian for older values in a chart window, and for viewing a dashboard at a past time, as described in [View a dashboard at a past time](../../How_To_Guides/View_Dashboard_at_a_Past_Time.md).

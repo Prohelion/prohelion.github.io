@@ -49,13 +49,13 @@ The M48 Gen1 parameters are on its [Software Specifications](../../../../../Batt
 ## Unlock the Admin firmware parameters {#unlock-administration-firmware-parameters}
 
 The D1000 Gen2, M48 Gen2, and C48 Gen2 show their Admin parameters only while a session unlock is active, and otherwise Profinity works at the User permission level.
-The unlock uses the **Firmware Configuration Key**, which is supplied with the product when it is purchased, because the key is not published.
+The unlock uses the **Firmware configuration key**, which is supplied with the product when it is purchased, because the key is not published.
 Profinity holds the key for your sign-in session only and never saves it to the profile.
 
 1. Select **Change Settings** on the BMU dashboard.
-2. On the **Prohelion BMU Settings** tab, in the **Firmware Configuration Key** row, select **Enter**.
+2. On the **Prohelion BMU settings** tab, in the **Firmware configuration key** row, select **Enter**.
 3. Type the key in hexadecimal, with or without the `0x` prefix, for example `0x1A2B` or `1A2B`. The key is from `0` to `FFFF`, and digits with no prefix are read as hexadecimal, so `10` means 16.
-4. In **Session Unlock Timeout**, set how long the session lasts, from 1 to 1440 minutes. The default is 30.
+4. In **Session unlock timeout**, set how long the session lasts, from 1 to 1440 minutes. The default is 30.
 5. Select **Apply**.
 
 The dialog reloads and shows the Admin parameters.
@@ -87,7 +87,7 @@ For the M48 Gen1, the hardware manual's [M48 Gen1 Firmware Update Procedure](../
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The **Firmware Settings** tab says Profinity is still loading the firmware values | Profinity has not finished reading the settings from the BMU. | Wait a few seconds, then refresh the dialog. On a Gen2 BMU, check that the **Firmware Configuration Key** is entered if you need the Admin parameters. |
+| The **Firmware Settings** tab says Profinity is still loading the firmware values | Profinity has not finished reading the settings from the BMU. | Wait a few seconds, then refresh the dialog. On a Gen2 BMU, check that the **Firmware configuration key** is entered if you need the Admin parameters. |
 | The **Firmware Settings** tab shows **Error Loading Firmware** | Profinity could not read the settings from the BMU. | Wait a few seconds, then refresh the dialog. If the error stays, read the reason on the **Logs** page under **ADMIN**. |
-| The **Firmware Settings** tab is missing | Profinity has not received the BMU's firmware settings. | Check that the CAN adapter status is green, that **Base Address** matches the BMU, and that the BMU is powered. |
+| The **Firmware Settings** tab is missing | Profinity has not received the BMU's firmware settings. | Check that the CAN adapter status is green, that **Base address** matches the BMU, and that the BMU is powered. |
 | The firmware update stops with an error | No firmware file was uploaded, the file is not valid, or no suitable CAN adapter is active. On a Gen1 BMU, the log says the operation needs an adapter that supports a Transmission Control Protocol (TCP) connection. | Select the link in the error to read the logs. Upload the `.bin` file again, or add the bridge or adapter listed under the prerequisites, then start the update again. |

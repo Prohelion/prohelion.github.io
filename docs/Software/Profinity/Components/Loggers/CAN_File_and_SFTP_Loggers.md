@@ -24,7 +24,7 @@ flowchart LR
 <figcaption>The CAN File Logger records CAN bus messages to log files on the local file system, and the CAN SFTP Logger transmits them to an SFTP server</figcaption>
 </figure>
 
-Both loggers have **Auto Connect**, which is on by default, so a logger begins logging when the Profile loads.
+Both loggers have **Auto connect**, which is on by default, so a logger begins logging when the Profile loads.
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how it behaves.
 They record the bus, so they do not use tag collections.
 
@@ -35,14 +35,14 @@ You need a CAN adapter connected to a CAN bus that carries traffic. The logger w
 1. Add the **CAN File Logger** from the **Loggers** group in the component catalogue, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 2. Check **Name**. The default is `CAN File Logger`.
 3. Select **ADD COMPONENT** at the bottom of the dialog.
-4. Leave **Auto Connect** on, which is its default, so the logger starts when the profile loads. If it is off, select **Start Logger** from the menu.
+4. Leave **Auto connect** on, which is its default, so the logger starts when the profile loads. If it is off, select **Start Logger** from the menu.
 5. On the logger dashboard, check that **STATUS** shows **On**.
 6. Once CAN messages have been recorded, select **FILE LOGS REPOSITORY** under **DOWNLOAD VIA** to download the log file.
 
 Both loggers have these settings:
 
-- **Update Interval (seconds)** sets how often the background task runs. It defaults to 10 and accepts values from 1 to 86400. For the CAN File Logger, each CAN packet is written to the file as it arrives, and the interval checks time-based rotation only.
-- **File Format** chooses the layout of the text file, which always uses a `.txt` extension. **Prohelion**, the default, writes a line for every packet with a Sent or Received column. **Tritium** writes the same fields without that column. Choose **Tritium** when Tritium or WaveSculptor tools will read the log, and keep **Prohelion** otherwise.
+- **Update interval (seconds)** sets how often the background task runs. It defaults to 10 and accepts values from 1 to 86400. For the CAN File Logger, each CAN packet is written to the file as it arrives, and the interval checks time-based rotation only.
+- **File format** chooses the layout of the text file, which always uses a `.txt` extension. **Prohelion**, the default, writes a line for every packet with a Sent or Received column. **Tritium** writes the same fields without that column. Choose **Tritium** when Tritium or WaveSculptor tools will read the log, and keep **Prohelion** otherwise.
 
 The CAN File Logger has no destination setting.
 It creates its files under the Profinity CAN bus log directory (`can_bus_logs/`), in a folder named after the Profile and the component.

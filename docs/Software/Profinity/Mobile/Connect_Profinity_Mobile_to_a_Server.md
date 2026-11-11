@@ -18,13 +18,13 @@ Phones find a server only while it broadcasts a heartbeat, so check these settin
 The server sends heartbeats only while the web server is running and the machine has at least one network address other than loopback.
 
 1. On the Profinity server, select **ADMIN** in the side menu, then [**System Configuration**](../Administration/System_Configuration/index.md), then the **Discovery** tab.
-2. Set **Send Profinity Heartbeat** to on, then set the other settings in the table as needed. The **Heartbeat UDP port** and **Heartbeat interval (seconds)** settings apply only when the heartbeat is on. [Discovery](../Administration/System_Configuration/Discovery.md) describes each setting.
+2. Set **Send Profinity heartbeat** to on, then set the other settings in the table as needed. The **Heartbeat UDP port** and **Heartbeat interval (seconds)** settings apply only when the heartbeat is on. [Discovery](../Administration/System_Configuration/Discovery.md) describes each setting.
 3. Select **SAVE**, then select **Save** in the confirmation prompt. Saving restarts Profinity and interrupts all active sessions, so save when no one needs the server.
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| **Profinity Server Name** | Text | The host name of the machine | The friendly name shown in the mobile list, which defaults to the host name of the machine (for example `Workshop-Profinity`) |
-| **Send Profinity Heartbeat** | On or off | On | Turns the broadcast on or off, and is on by default |
+| **Profinity server name** | Text | The host name of the machine | The friendly name shown in the mobile list, which defaults to the host name of the machine (for example `Workshop-Profinity`) |
+| **Send Profinity heartbeat** | On or off | On | Turns the broadcast on or off, and is on by default |
 | **Heartbeat UDP port** | Whole number | 49025 | The UDP port of the broadcast, 49025 by default |
 | **Heartbeat interval (seconds)** | Time (seconds) | 3 | The time between broadcasts, from 1 to 60 seconds, 3 by default |
 

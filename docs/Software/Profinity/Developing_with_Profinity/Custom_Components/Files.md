@@ -18,8 +18,8 @@ Each file on a [Custom Component](index.md) is optional while the component live
 The settings for an authored component are arranged on four tabs: **Settings**, **Pack files**, **Scripts**, and **Security**.
 
 - **Pack files** groups the uploads into **Device**, **Presentation**, **Behaviour**, **Maps**, and **Firmware**.
-- **DBC Settings** on the **Settings** tab holds the CAN database (DBC) options **Rebase DBC** and **Rebase Address**.
-- **Scripts** holds **Main Script (Optional)** and **Auto Start Main Script**.
+- **DBC settings** on the **Settings** tab holds the CAN database (DBC) options **Rebase DBC** and **Rebase address**.
+- **Scripts** holds **Main script (optional)** and **Auto start main script**.
 
 `component_metadata.yaml` is not an upload.
 You create it by hand in the component folder, and the pack requires it.
@@ -28,14 +28,14 @@ If no dashboard is uploaded, Profinity writes a starter dashboard named after th
 
 | File | Upload field | Required to pack | Role |
 |------|--------------|------------------|------|
-| [DBC](DBC_Dashboard_and_Rules.md#dbc-file) (`.dbc`) | **Upload DBC File (Optional)** | No | CAN message and signal database for Messages and Signals, and for dashboard bindings that read CAN signals |
-| [Dashboard](DBC_Dashboard_and_Rules.md#dashboard) (`.yaml`) | **Upload Dashboard (Optional)** | No | The component page |
-| [Rules YAML](DBC_Dashboard_and_Rules.md#rules) | **Rules YAML file (Optional)** | No | Rules evaluated when this component's tags change |
-| [`actions.yaml`](Menu_Actions.md) | **Actions YAML file (Optional)** | Yes | Menu actions: a button, a service toggle, or Connect / Disconnect for the main script |
-| [Main script](Main_Script.md) (`.cs`, `.py`, or `.lua`) | **Main Script (Optional)** on **Scripts** | No | Long-running service that publishes tags |
-| [`settings_map.yaml`](Settings.md) | **Settings Map YAML file (Optional)** | Yes | Extra settings fields shown on the component |
-| [`firmware_map.yaml`](Firmware_Maps.md) | **Firmware Map YAML file (Optional)** | Yes | Firmware settings fields shown on the component |
-| [`firmware.yaml`](Firmware_Actions.md) | **Firmware Actions YAML file (Optional)** | No | Scripts for load, save, and any further firmware actions |
+| [DBC](DBC_Dashboard_and_Rules.md#dbc-file) (`.dbc`) | **Upload DBC file (optional)** | No | CAN message and signal database for Messages and Signals, and for dashboard bindings that read CAN signals |
+| [Dashboard](DBC_Dashboard_and_Rules.md#dashboard) (`.yaml`) | **Upload dashboard (optional)** | No | The component page |
+| [Rules YAML](DBC_Dashboard_and_Rules.md#rules) | **Rules YAML file (optional)** | No | Rules evaluated when this component's tags change |
+| [`actions.yaml`](Menu_Actions.md) | **Actions YAML file (optional)** | Yes | Menu actions: a button, a service toggle, or Connect / Disconnect for the main script |
+| [Main script](Main_Script.md) (`.cs`, `.py`, or `.lua`) | **Main script (optional)** on **Scripts** | No | Long-running service that publishes tags |
+| [`settings_map.yaml`](Settings.md) | **Settings map YAML file (optional)** | Yes | Extra settings fields shown on the component |
+| [`firmware_map.yaml`](Firmware_Maps.md) | **Firmware map YAML file (optional)** | Yes | Firmware settings fields shown on the component |
+| [`firmware.yaml`](Firmware_Actions.md) | **Firmware actions YAML file (optional)** | No | Scripts for load, save, and any further firmware actions |
 | [`component_metadata.yaml`](Component_Metadata.md) | Created by hand in the component folder | Yes | Catalogue name, description, and which files the pack binds |
 
 Every Profinity YAML document in that set carries `version: "2.3"`.

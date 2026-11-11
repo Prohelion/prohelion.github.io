@@ -35,14 +35,14 @@ flowchart LR
 
 ## Quick start {#adding-a-tag-sql-historian}
 
-You need the Historians licensed feature, a database that the Profinity server can reach, and an account that can insert into and select from the table. With **Auto Create Table** on, the account also needs permission to create the table.
+You need the Historians licensed feature, a database that the Profinity server can reach, and an account that can insert into and select from the table. With **Auto create table** on, the account also needs permission to create the table.
 
 1. Add a **TAG SQL Historian** from the **Historians** category.
-2. Set **Connection String** to the connection string for your database, in the format of the provider you choose.
-3. If the database is not SQLite, set **Database Provider** to match it. SQLite is the default.
+2. Set **Connection string** to the connection string for your database, in the format of the provider you choose.
+3. If the database is not SQLite, set **Database provider** to match it. SQLite is the default.
 4. Under **Collections**, add at least one tag collection. The historian cannot start without one.
 5. Select **ADD COMPONENT** at the bottom of the dialog.
-6. Check that the status shows **On**. In Snapshot mode, the default **Logging mode**, rows appear in the table named by **Table Name** after each **Update Interval (seconds)**, which is 10 seconds by default. If the status shows **Error**, read the [Logs](../../Administration/Logs_Config.md) for the reason.
+6. Check that the status shows **On**. In Snapshot mode, the default **Logging mode**, rows appear in the table named by **Table name** after each **Update interval (seconds)**, which is 10 seconds by default. If the status shows **Error**, read the [Logs](../../Administration/Logs_Config.md) for the reason.
 
 The following tables describe every setting.
 
@@ -50,10 +50,10 @@ The following tables describe every setting.
 
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
-| **Database Provider** | Choice | SQLite | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. |
-| **Connection String** | Secret | None | The connection string for the chosen database provider, in that provider's own format. Required. Profinity encrypts it in the profile file when the profile is saved, unless it is an environment variable reference. |
-| **Table Name** | Text | `TagChangeLog` | The table the historian writes rows to. Use letters, digits, and underscores only, and do not start with a digit. |
-| **Auto Create Table** | On or off | On | Creates the table when the historian starts, if it does not already exist. |
+| **Database provider** | Choice | SQLite | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. |
+| **Connection string** | Secret | None | The connection string for the chosen database provider, in that provider's own format. Required. Profinity encrypts it in the profile file when the profile is saved, unless it is an environment variable reference. |
+| **Table name** | Text | `TagChangeLog` | The table the historian writes rows to. Use letters, digits, and underscores only, and do not start with a digit. |
+| **Auto create table** | On or off | On | Creates the table when the historian starts, if it does not already exist. |
 
 ### Logger settings
 
@@ -61,8 +61,8 @@ The following tables describe every setting.
 |---|---|---|---|
 | **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
 | **Logging mode** | Choice | `Snapshot` | Sets what is written on each interval: `Snapshot`, `On Change` or `Everything`. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **Auto Connect** | On or off | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Update Interval (seconds)** | Time | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Auto connect** | On or off | On | Starts the historian when the profile loads. When off, start it with **Start Logger**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Update interval (seconds)** | Time | 10 | The seconds between writes to the database, from 1 to 86400. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Designated tag historian reader** | On or off | Off | Makes this historian the store that long-range history queries are read from. Enable it on one component only. Refer to [Designated historian](Designated_Historian.md). |
 
 ## Table layout
@@ -71,7 +71,7 @@ Every sample is written with its quality.
 A Stale sample keeps its last value.
 A tag that is Unavailable or Bad is written with its quality and an empty value, so the table shows the gap.
 
-When **Auto Create Table** is enabled, the historian creates a table with these columns.
+When **Auto create table** is enabled, the historian creates a table with these columns.
 The names are the same on every provider.
 
 | Column | Contents |
@@ -103,7 +103,7 @@ For example, a motor speed tag is stored as this row:
 A row for a tag that is Unavailable or Bad has the same layout with an empty `ValueType` and `Value`, and its `Quality` says why there is no reading.
 
 The columns follow the same field set as the TAG File Logger, described in [Tag file and SFTP loggers](../Loggers/Tag_File_and_SFTP_Loggers.md), so you can interpret history written by either in the same way.
-If you create the table yourself, disable **Auto Create Table** and give the account in the connection string permission to insert into and read from it.
+If you create the table yourself, disable **Auto create table** and give the account in the connection string permission to insert into and read from it.
 
 ## Example connection strings
 
@@ -119,7 +119,7 @@ Replace the host names, database names, account names and `<password>` in the ex
 | Oracle | `User Id=profinity;Password=<password>;Data Source=dbhost:1521/ORCLPDB1` |
 
 The account in the connection string needs permission to insert into and select from the table.
-With **Auto Create Table** on, it also needs permission to create the table, and you can remove that permission after the first start.
+With **Auto create table** on, it also needs permission to create the table, and you can remove that permission after the first start.
 
 ## Example
 
@@ -155,8 +155,8 @@ Settings cannot be saved in two cases. When the settings save but no rows arrive
 
 | What you see | Cause | What to do |
 |---|---|---|
-| Settings do not save, and the message `You must provide a connection string for the database.` appears | No connection string is entered. | In **Connection String** under **Connection Settings**, enter the connection string for the database in the syntax of the selected **Database Provider**, then save the settings. |
-| Settings do not save, and the message `Table name must use letters, digits, and underscore only, and cannot start with a digit.` appears | The table name is invalid. | In **Table Name** under **Connection Settings**, enter a name that uses only letters, digits, and underscores, and does not start with a digit, such as `TagChangeLog`, then save the settings. |
+| Settings do not save, and the message `You must provide a connection string for the database.` appears | No connection string is entered. | In **Connection string** under **Connection settings**, enter the connection string for the database in the syntax of the selected **Database provider**, then save the settings. |
+| Settings do not save, and the message `Table name must use letters, digits, and underscore only, and cannot start with a digit.` appears | The table name is invalid. | In **Table name** under **Connection settings**, enter a name that uses only letters, digits, and underscores, and does not start with a digit, such as `TagChangeLog`, then save the settings. |
 | Settings save, but no rows arrive, and the log shows the component name followed by `could not connect` and the reason. The historian shows **Error** and retries every 5 seconds until the database is reachable. | The connection failed, and the log gives the reason. | Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table. |
 | Settings save, but no rows arrive, and the log shows the component name followed by `writing failed` and the reason. Profinity logs the first failure at warning level and further failures at debug level until a write works again. | A write failed, and the log gives the reason. | Check the connection string, that the database is reachable from the Profinity server, and that the account can write to the table. |
 

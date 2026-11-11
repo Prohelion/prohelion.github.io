@@ -26,13 +26,13 @@ Kiosk Mode is set for each profile and applies only to the active profile.
 
 1. Select **ADMIN** in the side menu, then open the **Profile** pill.
 2. Select the name of the profile to display. **Profile Settings** opens.
-3. Select the **Home** tab, then turn on **Kiosk Mode**.
-4. In **Kiosk Mode User**, choose the kiosk user. Anyone at the display acts as this user.
+3. Select the **Home** tab, then turn on **Kiosk mode**.
+4. In **Kiosk mode user**, choose the kiosk user. Anyone at the display acts as this user.
 5. Select **Save**.
 6. If the profile is not already active, select **ACTIVATE** on its row in the profile list.
 
 The profile's row carries the **ACTIVE** marker.
-Profinity refuses the save when **Kiosk Mode User** is empty or names a user that is disabled.
+Profinity refuses the save when **Kiosk mode user** is empty or names a user that is disabled.
 
 ## Open the browser full screen at startup
 
@@ -63,5 +63,5 @@ Lock the computer down with the operating system's own tools.
 | What you see | Cause | What to do |
 |---|---|---|
 | The browser shows that it cannot connect after a restart | The browser opened before Profinity finished starting. | Select reload in the browser. If it happens at every restart, check that Profinity runs as a service, as described in [Run Profinity as a service](../Installation/Run_as_a_Service/index.md). |
-| The login page appears, or the display shows the wrong profile | The kiosk profile is not active, Kiosk Mode is off for it, or the **Kiosk Mode User** is disabled. | Activate the profile, and check its **Home** tab, as in [Turn on Kiosk Mode](#turn-on-kiosk-mode). Refer to [Kiosk Mode troubleshooting](../Administration/Kiosk_Mode.md#troubleshooting). |
+| The login page appears, or the display shows the wrong profile | The kiosk profile is not active, Kiosk Mode is off for it, or the **Kiosk mode user** is disabled. | Activate the profile, and check its **Home** tab, as in [Turn on Kiosk Mode](#turn-on-kiosk-mode). Refer to [Kiosk Mode troubleshooting](../Administration/Kiosk_Mode.md#troubleshooting). |
 | The login page appears after the display has run for some hours | The kiosk session reached its token expiry. | Refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) for a session that does not expire. |

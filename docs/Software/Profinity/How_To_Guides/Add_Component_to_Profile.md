@@ -49,7 +49,7 @@ To add a component:
    Profinity prompts for these settings, and the settings that are specific to the component type differ for each component:
     - A **Component Name**, which must be unique in the profile.
     - A **CAN ID** or address, where the device needs one.
-    - The **Auto Connect** setting, which starts the component automatically (explained after these steps).
+    - The **Auto connect** setting, which starts the component automatically (explained after these steps).
 3. Select **ADD COMPONENT** at the bottom of the dialog.
    The button reads **SAVE** when you change the settings of an existing component.
    The component's icon appears in the sidebar.
@@ -64,7 +64,7 @@ To add a component:
 <figcaption>Example of defining component properties</figcaption>
 </figure>
 
-The start setting is **Auto Connect**, which every component that connects to a broker, device, server, or database has, except the Elcon charger, and each component type has its own default, listed in [Connections and reconnecting](../Components/Connections_and_Reconnecting.md).
+The start setting is **Auto connect**, which every component that connects to a broker, device, server, or database has, except the Elcon charger, and each component type has its own default, listed in [Connections and reconnecting](../Components/Connections_and_Reconnecting.md).
 With it on, the component connects when the profile loads.
 With it off, the component waits until you switch it on with its **Connect** or **Start** action, and it stays off until you do.
 
@@ -94,7 +94,7 @@ Each component has a coloured indicator on its icon that displays the operationa
 |---|---|---|
 | A red indicator | The component is in an error state. | Check the [logs](../Administration/Logs_Config.md). |
 | The component stays red, or shows an empty lamp, after you add it | Usually, an adapter that is not connected. The CAN bus may also not be delivering data. | Refer to [CAN bus adapter troubleshooting](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md), which covers the usual causes and fixes for an adapter. |
-| An outlined lamp | The component is switched off, has not started, or is still making its first connection attempt. | Check **Auto Connect**, and start the component. |
+| An outlined lamp | The component is switched off, has not started, or is still making its first connection attempt. | Check **Auto connect**, and start the component. |
 
 ## Connect the component
 

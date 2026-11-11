@@ -34,12 +34,12 @@ The active profile carries the **ACTIVE** marker on its row.
 
 | Tab | What it holds |
 | --- | --- |
-| **Profile** | **Profile Name**, **Description**, and **More information** |
-| **Home** | **Kiosk Mode**, **Kiosk Mode User**, **Custom Home Dashboard**, and the dashboard file |
+| **Profile** | **Profile name**, **Description**, and **More information** |
+| **Home** | **Kiosk mode**, **Kiosk mode user**, **Custom home dashboard**, and the dashboard file |
 | **Tags** | The collections file, the rules file, and the derived tags file |
 
-**Kiosk Mode User** appears when **Kiosk Mode** is on.
-The dashboard file appears when **Custom Home Dashboard** is on.
+**Kiosk mode user** appears when **Kiosk mode** is on.
+The dashboard file appears when **Custom home dashboard** is on.
 
 To edit them:
 
@@ -47,7 +47,7 @@ To edit them:
 2. Select the name of the profile, which opens **Profile Settings** on the **Profile** tab.
 3. Edit the fields and select **Save**.
 
-**Profile Name** must be unique across all profiles.
+**Profile name** must be unique across all profiles.
 **Description** is optional.
 It is shown in the **DESCRIPTION** column of the profiles table on the **Profile** pill, and it is given to a Model Context Protocol (MCP) client when that client connects.
 Each **More information** link needs a label and an `https://` address.

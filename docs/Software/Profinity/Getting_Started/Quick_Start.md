@@ -73,7 +73,7 @@ Every dashboard in Profinity is built the same way, so the source of an existing
 The dashboard now shows your new label.
 **DESIGN** mode shows an outline, not a live preview, so the change is visible only after you close the editor.
 
-The home page is still the standard home page, because the Example Profile home dashboard is off until **Custom Home Dashboard** is enabled.
+The home page is still the standard home page, because the Example Profile home dashboard is off until **Custom home dashboard** is enabled.
 To edit the home page, refer to [Profile Dashboard](../Administration/Profile_Dashboard.md).
 
 ## Step 5: Look at the rules and alerts

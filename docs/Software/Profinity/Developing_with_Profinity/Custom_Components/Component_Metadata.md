@@ -30,7 +30,7 @@ The [Component Pack CLI](../SDK/Component_Pack_CLI.md) in the [Profinity SDK](..
 | `dbcFile` | CAN database (DBC) file name |
 | `dashboardFile` | Dashboard file name |
 | `rebaseDbc` | Same as **Rebase DBC** on the component. Boolean, default `false`. `true` rebases the CAN IDs in the DBC file to `rebaseAddress` |
-| `rebaseAddress` | Same as **Rebase Address** on the component. Number, default empty. The address to rebase to, with a `0x` prefix for hex |
+| `rebaseAddress` | Same as **Rebase address** on the component. Number, default empty. The address to rebase to, with a `0x` prefix for hex |
 | `deviceIdFilter` | Hex device ID, such as `0x1000`, default empty (any device). Firmware whose device ID differs is refused |
 
 ```yaml

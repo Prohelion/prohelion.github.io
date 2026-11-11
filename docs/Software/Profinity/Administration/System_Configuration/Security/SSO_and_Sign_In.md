@@ -43,7 +43,7 @@ The **Sign-in method** setting is stored as `authenticationMode` in that section
 
 With **Local** selected, the tab also offers **Enforce two-factor for local users** and **Allow security-key sign-in**.
 Refer to [Two-factor authentication](./Two_Factor_Authentication/index.md) for both.
-With **Sso** selected, the **SSO** and **SCIM Provisioning** groups appear.
+With **Sso** selected, the **SSO** and **SCIM provisioning** groups appear.
 
 ## Configuring the identity provider
 

@@ -9,7 +9,7 @@ last_reviewed: 2026-10-28
 # Script types
 
 Profinity supports seven script modes, each with its own trigger and execution context.
-The **Script Mode** setting selects the mode:
+The **Script mode** setting selects the mode:
 
 - Run On Demand
 - Run On Receipt of CAN Message
@@ -40,17 +40,17 @@ A [Custom Component](../../Custom_Components/index.md) main script is a service 
 | [Rule Script](./Rule_Scripts.md) | Run On Alert | Notifications and side effects beyond the built-in rule actions. The script runs when a rule names it as an action. |
 
 Use a Service Script for continuous monitoring or real-time responses, and a Run Script for one-off or manual tasks.
-Keep a Receive, Tag Change or Rule Script handler short, because a new event that arrives while it is still running is handled according to **Trigger Overlap**.
+Keep a Receive, Tag Change or Rule Script handler short, because a new event that arrives while it is still running is handled according to **Trigger overlap**.
 A threshold rule can start several of those events in one evaluation, so a rule script that must run the action for every step, including the step the value lands on, uses **Queue**, as described under [Trigger overlap](./Rule_Scripts.md#trigger-overlap).
 
 ## Custom Component scripts
 
 A Custom Component script is a file named on the component.
-**Script Mode** applies to a script component. A Custom Component main script has no **Script Mode** setting, and it always runs as a service script.
+**Script mode** applies to a script component. A Custom Component main script has no **Script mode** setting, and it always runs as a service script.
 
 | Script | Runs as |
 |--------|---------|
-| Main script | [Service scripts](./Service_Scripts.md), started by **Auto Start Main Script** or **Connect / Disconnect** |
+| Main script | [Service scripts](./Service_Scripts.md), started by **Auto start main script** or **Connect / Disconnect** |
 | `toggle` in `actions.yaml` | Service script |
 | `button` in `actions.yaml` | Once, when the user chooses the menu item |
 | `loadScript` in `firmware.yaml` | Once, when firmware is loaded |
@@ -72,18 +72,18 @@ The schedule, receive, and tag change settings appear only for the mode that use
 
 | Setting | Type | Default | Applies to | Meaning |
 |---------|------|---------|------------|---------|
-| **Script Mode** | Choice | Run On Demand | All | The mode the script runs in |
-| **Auto Start Script** | On or off | Off | All | Starts the script automatically when the component loads: it starts a service, receiver, or watcher, runs an On Demand script once, and arms a scheduled script. Off by default |
-| **Log Script Output** | On or off | Off | All | Writes the script's console output to the script log. Off by default |
-| **Trigger Overlap** | Choice | Drop | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
-| **Queue Depth** | Whole number | 8 | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
-| **Time Interval** and **Time Interval Unit** | Time and Choice | Empty, and Seconds | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
-| **Cron Schedule** | Text | Empty | Run On CRON Schedule | The cron expression that decides when the script runs, as described in [Run scripts](./Run_Scripts.md) |
-| **Maximum Run Time (seconds)** | Time (seconds) | Empty (no limit) | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
-| **Base Address**, **Address Range** and **Milliseconds Valid** | Whole number and Time (ms) | 0, 0 and 5000 | Run On Receipt of CAN Message | The CAN addresses the script receives, as unsigned 32-bit numbers in hexadecimal, and how long traffic from the device counts as valid |
-| **Tag Paths** and **Collections** | Text | Empty | Run On Tag Change | The tags and tag collections that trigger the script |
+| **Script mode** | Choice | Run On Demand | All | The mode the script runs in |
+| **Auto start script** | On or off | Off | All | Starts the script automatically when the component loads: it starts a service, receiver, or watcher, runs an On Demand script once, and arms a scheduled script. Off by default |
+| **Log script output** | On or off | Off | All | Writes the script's console output to the script log. Off by default |
+| **Trigger overlap** | Choice | Drop | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
+| **Queue depth** | Whole number | 8 | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
+| **Time interval** and **Time interval unit** | Time and Choice | Empty, and Seconds | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
+| **Cron schedule** | Text | Empty | Run On CRON Schedule | The cron expression that decides when the script runs, as described in [Run scripts](./Run_Scripts.md) |
+| **Maximum run time (seconds)** | Time (seconds) | Empty (no limit) | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
+| **Base address**, **Address range** and **Milliseconds valid** | Whole number and Time (ms) | 0, 0 and 5000 | Run On Receipt of CAN Message | The CAN addresses the script receives, as unsigned 32-bit numbers in hexadecimal, and how long traffic from the device counts as valid |
+| **Tag paths** and **Collections** | Text | Empty | Run On Tag Change | The tags and tag collections that trigger the script |
 
-**Milliseconds Valid** defaults to 5000 and accepts -1 to 60000.
+**Milliseconds valid** defaults to 5000 and accepts -1 to 60000.
 A value of -1 means traffic never expires.
 
 ## Keeping scripts healthy
@@ -94,12 +94,12 @@ Review a script whenever Profinity performs badly while that script is running.
 !!! info "Scripts run inside Profinity"
     Inefficient code, leaked memory or leaked resources run inside the Profinity engine and affect it directly.
 
-Keep each script short, release anything it opens when the script stops, and set **Maximum Run Time (seconds)** on any script that could stall.
-A Tag Change, Receive, or Rule Script handler stops at **Maximum Run Time (seconds)** only when the script checks `Profinity.ScriptCancelled`, so check it regularly in a long handler.
+Keep each script short, release anything it opens when the script stops, and set **Maximum run time (seconds)** on any script that could stall.
+A Tag Change, Receive, or Rule Script handler stops at **Maximum run time (seconds)** only when the script checks `Profinity.ScriptCancelled`, so check it regularly in a long handler.
 Write a failure to the error output, which always reaches the Profinity log, so that a failed scheduled run can be traced afterwards. Refer to [Console](../Script_Operations/Console.md) for the call in each language.
 
-Switch **Log Script Output** on while the script is being developed.
-For event-driven scripts, use **Queue** with a small **Queue Depth** when no event may be lost and **Drop** when only the newest state matters.
+Switch **Log script output** on while the script is being developed.
+For event-driven scripts, use **Queue** with a small **Queue depth** when no event may be lost and **Drop** when only the newest state matters.
 
 State follows the same rule.
 Use `State` for values that belong to one script.

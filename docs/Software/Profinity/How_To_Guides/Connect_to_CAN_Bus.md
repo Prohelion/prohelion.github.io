@@ -33,7 +33,7 @@ On Linux, a Peak adapter appears as a SocketCAN interface, so follow the SocketC
 ### CANdapter
 
 1. Plug the Ewert Energy CANdapter into a USB port.
-2. Note its serial port, such as `COM3` in Device Manager on Windows or `/dev/ttyUSB0` on Linux and macOS. You choose it in **Candapter COM Port** when you add the adapter.
+2. Note its serial port, such as `COM3` in Device Manager on Windows or `/dev/ttyUSB0` on Linux and macOS. You choose it in **Candapter COM port** when you add the adapter.
 
 ### SocketCAN
 
@@ -72,7 +72,7 @@ The SocketCAN adapter is available on Linux and Docker installations only, and i
 ## Connect the adapter and check for traffic
 
 1. Select the adapter in the side menu.
-2. If **Auto Connect** is off, select **Connect** on the adapter dashboard, and wait for the adapter to connect.
+2. If **Auto connect** is off, select **Connect** on the adapter dashboard, and wait for the adapter to connect.
 3. Check the status indicator next to the adapter in the side menu. A green indicator means the adapter is connected and data is arriving, and amber means it is connected with no data, as [Adapter status](../Components/CAN_Bus_Protocols/CAN_Bus_Adapters/CAN_Bus_Adapter_Troubleshooting.md#adapter-status) explains.
 4. Select **CAN UTILITIES** in the side menu, then **SEND & RECEIVED CAN**, and check that messages appear in the CAN Activity panel. A user with only the **View CAN data** permission sees **RECEIVED CAN** instead.
 

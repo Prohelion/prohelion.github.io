@@ -37,7 +37,7 @@ To replay a log:
    The CAN Data Log Replayer opens and lists the available log files.
 2. If the log file is not listed, for example a file recorded earlier or on another Profinity instance, add it in one of two ways:
     - Copy it into the `can_bus_logs/replay/` folder, creating the folder first if it does not exist.
-    - Use the **Upload CAN Log files** control and select the file.
+    - Use the **Upload CAN log files** control and select the file.
 
    The file then appears in the list.
 3. Select the log file in the list, then select **Play**.

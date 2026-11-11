@@ -17,18 +17,18 @@ In each example, replace the tag path, such as `DBC/Temperature/Value`, with the
 | What you see | Cause | What to do |
 |---|---|---|
 | The dashboard does not load, or **SAVE** is unavailable in the editor | The dashboard has a schema error. The usual causes are a missing colon, wrong indentation, an unknown property name, or a missing required property. | Open **Edit Dashboard** and read the **Schema validation issues** list, which names each problem. Correct each entry. The editor allows **SAVE** once the list is empty. |
-| The message "This dashboard no longer matches the schema" appears, with **Reset from Template** and **View Logs** | The saved layout was written for an earlier schema and no longer matches it. | Select **View Logs** to read the reason. Correct the schema errors that **Schema validation issues** lists, or reset the dashboard from the template as described in [Reset a dashboard from the template](#reset-a-dashboard-from-the-template). **View Logs** appears only for users with the **Security administration** permission. |
+| The message "This dashboard no longer matches the schema" appears, with **Reset from template** and **View logs** | The saved layout was written for an earlier schema and no longer matches it. | Select **View logs** to read the reason. Correct the schema errors that **Schema validation issues** lists, or reset the dashboard from the template as described in [Reset a dashboard from the template](#reset-a-dashboard-from-the-template). **View logs** appears only for users with the **Security administration** permission. |
 
 ### Reset a dashboard from the template
 
 !!! warning "Keep a copy first"
-    **Reset from Template** replaces the dashboard with the current template.
+    **Reset from template** replaces the dashboard with the current template.
     Profinity keeps the replaced dashboard as `<file>.bak` in the same folder, but the next reset or save replaces that copy.
     Keep your own copy so that you can return to your layout.
 
 1. Select **Edit Dashboard** in the dashboard title bar, then select the **YAML** tab.
 2. Select all the YAML, copy it, and save it in a text file with the `.yaml` extension.
-3. Close the editor and select **Reset from Template**.
+3. Close the editor and select **Reset from template**.
 4. Check that the dashboard loads from the template.
 
 To return to your layout, open **Edit Dashboard**, select the **YAML** tab, replace its content with the YAML from your copy, correct each entry in **Schema validation issues**, and select **SAVE**.

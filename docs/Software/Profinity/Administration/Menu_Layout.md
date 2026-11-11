@@ -70,7 +70,7 @@ The temporary group becomes a real group the next time you save.
 ## When components change
 
 Editing a component never moves it in the menu.
-To rename a component, open its settings and change **Name** in the **Component Identifier** section.
+To rename a component, open its settings and change **Name** in the **Component identifier** section.
 Renaming a component also leaves it in place, because the menu refers to the component itself, rather than to its name.
 A component you add to the profile appears in the menu, and the layout stays unchanged.
 

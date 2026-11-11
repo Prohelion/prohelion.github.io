@@ -9,16 +9,16 @@ last_reviewed: 2026-10-15
 # Start a charge
 
 Start a charge from the dashboard of a charger component.
-The charger must be in the same Profile as a Prohelion Battery Management Unit (BMU) with **Control Pack** switched on (refer to [Charger components](Charger_Components.md)).
+The charger must be in the same Profile as a Prohelion Battery Management Unit (BMU) with **Control pack** switched on (refer to [Charger components](Charger_Components.md)).
 
 Open the charger from **Chargers & Power Supplies**.
 The dashboard shows:
 
-- The **Charger Status** lamps (**CHARGER STATUS**, **TEMPERATURE**, **COMMUNICATIONS**, **AC SUPPLY**, and **DC OUTPUT**).
+- The **Charger status** lamps (**CHARGER STATUS**, **TEMPERATURE**, **COMMUNICATIONS**, **AC SUPPLY**, and **DC OUTPUT**).
 - The **Charge Current (Amps)** chart.
 - The **Charger / Power Supply Controller** panel, for a user with the **Control charging** permission.
 
-With **Auto Connect** off on a TDK or Siglent supply, connect the charger first (refer to [Connections and reconnecting](../Connections_and_Reconnecting.md)).
+With **Auto connect** off on a TDK or Siglent supply, connect the charger first (refer to [Connections and reconnecting](../Connections_and_Reconnecting.md)).
 Once it is connected, the message in the **Charger / Power Supply Controller** panel shows **Ready** with the text "Charger is ready. You can start charging."
 
 The panel has four controls:
@@ -33,7 +33,7 @@ The panel has four controls:
 <figcaption>Start the Charge</figcaption>
 </figure>
 
-Set the supply and charge limits before a first charge, because a **Supply Current Limit** higher than the rating of the wall circuit can overload that circuit.
+Set the supply and charge limits before a first charge, because a **Supply current limit** higher than the rating of the wall circuit can overload that circuit.
 Refer to [Charger settings](Charger_Settings.md) for the limits and the risks of setting them wrongly.
 
 To start a charge, follow these steps.
@@ -44,7 +44,7 @@ To start a charge, follow these steps.
 4. Select **START**.
    The button changes to **STOP**.
 5. Check that the charge has started.
-   The message in the panel shows **Charging Status** with the charging current and voltage, for example "Charging at 5.0A • 280.4V • On".
+   The message in the panel shows **Charging status** with the charging current and voltage, for example "Charging at 5.0A • 280.4V • On".
    The **DC OUTPUT** lamp is green and the message ends with On, and the **Charge Current (Amps)** chart rises above zero.
    If the message stays on **Ready** or **START** returns, the charge has not started.
 

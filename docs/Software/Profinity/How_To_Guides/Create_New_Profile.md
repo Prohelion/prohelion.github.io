@@ -15,20 +15,20 @@ You need Profinity running, and the **Modify profiles** permission, which allows
 1. In the side menu, select **ADMIN**, then the **Profile** pill.
    The profile list opens.
 2. Select **Add profile**.
-3. Enter a unique **Profile Name** that identifies the site or purpose, for example "Production Site" or "Test Rig".
+3. Enter a unique **Profile name** that identifies the site or purpose, for example "Production Site" or "Test Rig".
 4. Optional: Add a description.
 5. Save the profile.
 6. In the list, select **ACTIVATE** on the row of the new profile.
    The new profile becomes the active profile immediately, while Profinity keeps running.
    The row of the new profile is marked **ACTIVE**, and the side menu shows components once you add some.
 
-To import a Profile Pack instead, use **Upload Profile Pack** and choose the ZIP file that you downloaded from the other Profinity instance, as [Manage profiles](../Administration/Manage_Profiles.md#import-a-profile-pack) describes.
+To import a Profile Pack instead, use **Upload profile pack** and choose the ZIP file that you downloaded from the other Profinity instance, as [Manage profiles](../Administration/Manage_Profiles.md#import-a-profile-pack) describes.
 A Profile Pack is a ZIP of a profile's folder, and [Profiles](../Administration/Profiles.md#profile-packs) lists what it contains.
 Each profile keeps its own components, so a component added to one profile does not appear in another.
 **ACTIVATE** on any row switches to that profile.
 
 With the new profile active, add components to it and configure their settings, as [How to add a component to your profile](./Add_Component_to_Profile.md) describes.
 Profinity saves changes to the profile, such as components added to it, with the profile.
-A profile can also use a **Custom Home Dashboard**, which [Profile Dashboard](../Administration/Profile_Dashboard.md) describes.
+A profile can also use a **Custom home dashboard**, which [Profile Dashboard](../Administration/Profile_Dashboard.md) describes.
 
 [Manage profiles](../Administration/Manage_Profiles.md) covers activating, renaming, importing, and downloading profiles.

@@ -14,14 +14,14 @@ A user controls a service from the script component's menu with **Start Service*
 The component shows its status as Running, Paused, or Stopped.
 
 A [Custom Component](../../Custom_Components/index.md) main script is a service script.
-**Auto Start Main Script**, or **Connect / Disconnect**, starts and stops it, and the script reads `settings_map.yaml` through [Component and firmware settings](../Script_Operations/Settings.md).
+**Auto start main script**, or **Connect / Disconnect**, starts and stops it, and the script reads `settings_map.yaml` through [Component and firmware settings](../Script_Operations/Settings.md).
 
 ## Settings
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| **Auto Start Script** | On or off | Off | Script component only. When on, the service starts when the component loads. A Custom Component uses **Auto Start Main Script** instead. |
-| **Maximum Run Time (seconds)** | Time (seconds) | None | Whole seconds. Cancels a run that takes too long by setting `Profinity.ScriptCancelled` to true, so the script must check that flag to stop. Leaving it blank sets no limit. |
+| **Auto start script** | On or off | Off | Script component only. When on, the service starts when the component loads. A Custom Component uses **Auto start main script** instead. |
+| **Maximum run time (seconds)** | Time (seconds) | None | Whole seconds. Cancels a run that takes too long by setting `Profinity.ScriptCancelled` to true, so the script must check that flag to stop. Leaving it blank sets no limit. |
 
 <figure markdown>
 ![The script editor for a Python Service script, showing the Python service template with the on_start and on_stop functions](../../../images/python_service_script.png)
@@ -164,7 +164,7 @@ These follow the service template that a new script component in **Run as Servic
 
 ## Behaviour
 
-With **Log Script Output** on, each line the examples write reaches the Profinity log at the Info level, as described in [Console](../Script_Operations/Console.md).
+With **Log script output** on, each line the examples write reaches the Profinity log at the Info level, as described in [Console](../Script_Operations/Console.md).
 
 ### Cooperative cancellation
 

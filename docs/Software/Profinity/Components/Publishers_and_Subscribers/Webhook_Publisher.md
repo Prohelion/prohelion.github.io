@@ -36,7 +36,7 @@ These steps publish one collection to a web service with no authentication.
 4. Select **ADD COMPONENT** to add the publisher.
 
 The publisher needs at least one collection to be selected, and every selected collection must exist in the profile, before it can start.
-With **Auto Connect** on, which is the default, it starts when the profile loads, and its status shows **On**.
+With **Auto connect** on, which is the default, it starts when the profile loads, and its status shows **On**.
 
 The publisher does not test the receiver when it starts, so **On** shows only that it is running.
 The status changes to **Error** if a delivery fails.
@@ -57,8 +57,8 @@ To check that it works, look for the POST at your receiver.
 |---|---|---|---|
 | **Collections** | Choice | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
 | **Logging mode** | Choice | **Snapshot** | What the publisher sends. **Snapshot** sends every member on each interval, and **On Change** sends only the members whose values changed since the previous interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
-| **Update Interval (seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
-| **Auto Connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Update interval (seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Auto connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 ## Authentication
 

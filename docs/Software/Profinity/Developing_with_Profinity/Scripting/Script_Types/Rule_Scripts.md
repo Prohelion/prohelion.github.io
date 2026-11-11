@@ -8,7 +8,7 @@ last_reviewed: 2026-11-10
 
 # Rule scripts
 
-A rule script is a script component with **Script Mode** set to **Run On Alert**, which a [tag rule](../../../Tags/Rules/index.md) runs as one of its actions.
+A rule script is a script component with **Script mode** set to **Run On Alert**, which a [tag rule](../../../Tags/Rules/index.md) runs as one of its actions.
 The rule passes the details of the alert to the method the script implements.
 
 A rule runs the script only with both the **Scripting** and **Tag Rule Actions** licensed features, which the Server and Enterprise editions include.
@@ -19,8 +19,8 @@ Refer to [Licensing](../../../Licensing.md).
 
 A rule script needs these settings in place:
 
-- The language is turned on in **Optional Capabilities** in [Application Config](../../../Administration/System_Configuration/Application_Config.md): **Enable C# Scripting**, **Enable Python Scripting**, or **Enable Lua Scripting**. Changing Application Config needs the **System administration** permission.
-- A **CSharp Script**, **Python Script**, or **Lua Script** component has **Script Mode** set to **Run On Alert**. The component's script holds the alert method shown in [Example](#example), which you edit with **Edit Script** on the component's menu.
+- The language is turned on in **Optional capabilities** in [Application Config](../../../Administration/System_Configuration/Application_Config.md): **Enable C# scripting**, **Enable Python scripting**, or **Enable Lua scripting**. Changing Application Config needs the **System administration** permission.
+- A **CSharp Script**, **Python Script**, or **Lua Script** component has **Script mode** set to **Run On Alert**. The component's script holds the alert method shown in [Example](#example), which you edit with **Edit Script** on the component's menu.
 - A rule names the script component in its `actions` list, in the same way as any other rule action. Create the rule in `rules.yaml` or in the rules visual editor, which is under **TAG UTILITIES** > **RULES & ACTIONS**, as described in [Complete rules.yaml example](../../../Tags/Rules/Rules_YAML_Example.md).
 
 This rule runs a script component named `PackTempScript` when the pack temperature passes 45:
@@ -78,7 +78,7 @@ Read an entry by name, for example `context.Parameters["setpoint"]` in C# and Py
 ## Example
 
 Each example is a complete alert script, which goes in the script component's editor, opened with **Edit Script**.
-It writes the alert details to the script output, which the reader sees in the script's log, and in the Profinity log at the Info level when **Log Script Output** is on.
+It writes the alert details to the script output, which the reader sees in the script's log, and in the Profinity log at the Info level when **Log script output** is on.
 
 === "C#"
 
@@ -151,7 +151,7 @@ The component's menu in this mode is **Edit Script** only.
 
 ### Trigger overlap
 
-If the alert method is still running when the rule fires again, **Trigger Overlap** decides what happens, as described under [Script settings](./index.md#script-settings).
+If the alert method is still running when the rule fires again, **Trigger overlap** decides what happens, as described under [Script settings](./index.md#script-settings).
 
 A threshold rule can start several of those firings in one evaluation.
 Moving up runs the actions of each step it enters, from the lower step to the higher one.
@@ -161,8 +161,8 @@ Profinity starts the next action without waiting for the script to finish.
 With **Drop**, a script that is still running discards that next action, and the rule does not try it again, because the step has already changed.
 The side effect then stays on a step the value has already left.
 
-Set **Trigger Overlap** to **Queue** when the script must carry out every step, including the step the value lands on.
-Actions beyond **Queue Depth** are still discarded.
+Set **Trigger overlap** to **Queue** when the script must carry out every step, including the step the value lands on.
+Actions beyond **Queue depth** are still discarded.
 The same choice applies when one step names the script more than once, because those actions also start one after another.
 
 For example, an indicator script with green, yellow, and red steps uses the clear action of each step to set the colour of the step below.

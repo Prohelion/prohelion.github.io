@@ -32,7 +32,7 @@ The Extensions Web server supports Secure Sockets Layer / Transport Layer Securi
 A certificate comes from either the Windows Certificate Store or a certificate file with its password.
 The certificate file option works on Windows, macOS, and Linux.
 
-When a certificate comes from the Windows Certificate Store, provide all of **Windows Cert Store**, **Windows Cert Store Location**, and **Windows Cert Store Subject**.
+When a certificate comes from the Windows Certificate Store, provide all of **Windows cert store**, **Windows cert store location**, and **Windows cert store subject**.
 Profinity validates that the named store and certificate exist.
 
 The options are the same as on the **Web** tab, described in [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md), including the certificate options. Refer to [Extensions Web](../../Administration/System_Configuration/Extensions_Web.md) for the **Enable Swagger on API** setting.
@@ -40,7 +40,7 @@ The options are the same as on the **Web** tab, described in [Profinity Web](../
 These settings are on the **Extensions Web** tab.
 The **Web** tab has its own copy of the same settings for the Profinity web interface, with default ports 18080 and 18443.
 
-Saving the configuration with **Redirect all Http traffic to Https** enabled while **Enable Https** is off is rejected with the message "You can only redirect traffic if Https is enabled".
+Saving the configuration with **Redirect all HTTP traffic to HTTPS** enabled while **Enable HTTPS** is off is rejected with the message "You can only redirect traffic if Https is enabled".
 Turn off **Enable Swagger on API** in a production environment that does not need it.
 
 An application hosted here calls the same [Profinity REST APIs](../../Integrating_to_Profinity/APIs/index.md) that Profinity itself uses.

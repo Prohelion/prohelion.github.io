@@ -24,23 +24,23 @@ A CAN bus adapter adds a warning when the bus is quiet, as described under [Stat
 
 ## Turning connections on and off {#the-auto-connect-switch}
 
-Every one of these components except the Elcon charger has the same **Auto Connect** setting.
-The Elcon charger has no **Auto Connect** setting, because it communicates over CAN and has no connection step.
-**Auto Connect** decides only whether the connection is made when the profile loads.
+Every one of these components except the Elcon charger has the same **Auto connect** setting.
+The Elcon charger has no **Auto connect** setting, because it communicates over CAN and has no connection step.
+**Auto connect** decides only whether the connection is made when the profile loads.
 After that the component is a switch that you turn on with **Connect** (or **Start**) and off with **Disconnect** (or **Stop**).
 
-- With **Auto Connect** on, the component connects when the profile loads.
-- With **Auto Connect** off, the component stays **Off** and makes connection attempts only after you manually switch it on.
+- With **Auto connect** on, the component connects when the profile loads.
+- With **Auto connect** off, the component stays **Off** and makes connection attempts only after you manually switch it on.
 - Switched on, the component keeps trying until it is connected. Switched off, it stops trying and stays off, and loading or changing the profile does not switch it back on.
 
 The default depends on the kind of component:
 
-| Component | **Auto Connect** default |
+| Component | **Auto connect** default |
 | --- | --- |
 | CAN bus adapters, loggers, historians, the MQTT Publisher and Subscriber, the Webhook Publisher, the ThingsBoard Logger, and the Tag Relay sender and receiver | On |
 | TDK and Siglent power supplies, and the Modbus, BACnet, S7, EtherNet/IP, and OPC UA components | Off |
 
-For a component that defaults to off, turn **Auto Connect** on in its settings if it should connect whenever the profile loads.
+For a component that defaults to off, turn **Auto connect** on in its settings if it should connect whenever the profile loads.
 
 ## Starting when the other end is not there
 
@@ -48,9 +48,9 @@ A component starts even when what it connects to is unavailable.
 It does not stop at start with an error.
 It shows **Error**, writes the reason to the [Logs](../Administration/Logs_Config.md) once, and keeps trying.
 
-The TDK and Siglent power supplies have an **Auto Reconnect** setting, which is on by default.
+The TDK and Siglent power supplies have an **Auto reconnect** setting, which is on by default.
 With it off, they make one attempt, report a failure and do not connect later.
-Every other component, and these power supplies with **Auto Reconnect** on, connects by itself when the broker, device, server, or database appears, and the status changes to **On**.
+Every other component, and these power supplies with **Auto reconnect** on, connects by itself when the broker, device, server, or database appears, and the status changes to **On**.
 
 This includes a login that is rejected.
 Profinity keeps trying and shows the reason, so fixing the credentials in the settings needs no restart.
@@ -80,7 +80,7 @@ Profinity retries every 5 seconds unless the component has its own setting.
 
 | Component | Retry interval |
 | --- | --- |
-| TDK and Siglent power supplies | **Reconnect delay (ms)** setting (default 5000 ms), when **Auto Reconnect** is on |
+| TDK and Siglent power supplies | **Reconnect delay (ms)** setting (default 5000 ms), when **Auto reconnect** is on |
 | Modbus, BACnet, S7, EtherNet/IP, OPC UA client | **Reconnect delay (ms)** setting (default 2000 ms) |
 | Tag Relay sender | 1 second |
 | All others | 5 seconds |

@@ -26,7 +26,7 @@ flowchart LR
 <figcaption>The TAG File Logger writes the values in tag collections to log files on the local file system, and the TAG SFTP Logger transmits them to an SFTP server</figcaption>
 </figure>
 
-Both loggers have **Auto Connect**, which is on by default, so a logger begins logging when the Profile loads.
+Both loggers have **Auto connect**, which is on by default, so a logger begins logging when the Profile loads.
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how it behaves.
 
 The TAG File Logger has no destination setting.
@@ -41,8 +41,8 @@ This quick start covers the **TAG File Logger**. The TAG SFTP Logger also needs 
 1. Create a tag collection that holds the tags to log, as described in [Tag collections](../../Tags/Collections/index.md).
 2. Add a **TAG File Logger** from the **Loggers** group, as described in [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md).
 3. Under **Collections**, add the collection from step 1. The logger does not start until a collection is configured.
-4. Leave **Logging mode** as **Snapshot**, **Update Interval (seconds)** as 10 and **File Format** as **CSV**, unless you need other values.
-5. Select **ADD COMPONENT** at the bottom of the dialog. Leave **Auto Connect** on, which is its default, so the logger starts when the profile loads.
+4. Leave **Logging mode** as **Snapshot**, **Update interval (seconds)** as 10 and **File format** as **CSV**, unless you need other values.
+5. Select **ADD COMPONENT** at the bottom of the dialog. Leave **Auto connect** on, which is its default, so the logger starts when the profile loads.
 6. On the Logger Dashboard, check that **STATUS** shows **On**.
 7. Select **TAG LOGS REPOSITORY** on the Logger Dashboard and open the file. The first line is a header row. Each sample line shows a tag ID and its quality, such as Good.
 
@@ -56,9 +56,9 @@ A logger shows **Off** and needs a collection before it can start, so create and
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
 | **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
-| **Update Interval (seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. A value outside this range is refused, and the dialog shows "The field IntervalSec must be between 1 and 86400." Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
+| **Update interval (seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. A value outside this range is refused, and the dialog shows "The field IntervalSec must be between 1 and 86400." Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Logging mode** | Choice | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **File Format** | Choice | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
+| **File format** | Choice | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
 
 ### File formats {#file-formats}
 

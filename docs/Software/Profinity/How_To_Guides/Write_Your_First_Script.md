@@ -25,10 +25,10 @@ Before you start, you need:
 
 ## Enable scripting
 
-1. Select **ADMIN** in the side menu, then the **System Configuration** pill, and open the **Application Config** tab.
+1. Select **ADMIN** in the side menu, then the **System Configuration** pill, and open the **Application config** tab.
    [Application Config](../Administration/System_Configuration/Application_Config.md) describes the tab.
-2. Find the **Optional Capabilities** section.
-3. Turn on **Enable Python Scripting**, which this tutorial uses.
+2. Find the **Optional capabilities** section.
+3. Turn on **Enable Python scripting**, which this tutorial uses.
 4. Select **Save**.
 
 ## Add a script component and set its mode
@@ -41,8 +41,8 @@ This guide uses a run script, which starts on demand from the menu.
 2. Select the **Python Script** component.
    The script component settings and the script editor open together.
 3. Set the component name, and add a description if wanted. If the script file name is empty when the settings are checked, Profinity sets it to the component name plus `.py`.
-4. Set **Script Mode** to **Run On Demand**.
-5. Enable **Log Script Output**, which is off by default, so that the script's output appears in the Profinity log.
+4. Set **Script mode** to **Run On Demand**.
+5. Enable **Log script output**, which is off by default, so that the script's output appears in the Profinity log.
 
 ## Write the script
 
@@ -63,18 +63,18 @@ Python needs no `import profinity`, because Profinity provides the `Profinity` h
 
 Select **Save** to save the script and the component settings together.
 The script component appears in your profile.
-Run the script from the script component's menu by selecting **Run Script**, which is available when **Script Mode** is **Run On Demand**.
+Run the script from the script component's menu by selecting **Run Script**, which is available when **Script mode** is **Run On Demand**.
 Use **Cancel Script** to stop a script that is still running.
 
-With **Log Script Output** enabled, the output appears in the Profinity log at the `Info` level.
+With **Log script output** enabled, the output appears in the Profinity log at the `Info` level.
 To open the log, select **ADMIN**, then **Logs**.
 The entry reads `Script <script file name>: This is my first Profinity script.`, followed by a line for `Profinity.Message`. The script file name is the file's name only, not its folder.
 The second line reads `Script <script file name>: Hello from Profinity`, the default value of `Profinity.Message`.
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The script does not run. | Python scripting is turned off in the Application Config, so Profinity does not run Python scripts. | Confirm that **Enable Python Scripting** is on and that you added the **Python Script** component. |
-| Compile and script errors always appear in the Profinity log, whether or not **Log Script Output** is on. | Script errors always go to the main Profinity log. Script output goes there only when **Log Script Output** is on. | Review the error message, fix the script, and run it again. |
+| The script does not run. | Python scripting is turned off in the Application Config, so Profinity does not run Python scripts. | Confirm that **Enable Python scripting** is on and that you added the **Python Script** component. |
+| Compile and script errors always appear in the Profinity log, whether or not **Log script output** is on. | Script errors always go to the main Profinity log. Script output goes there only when **Log script output** is on. | Review the error message, fix the script, and run it again. |
 
 For more examples, refer to [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md).
 

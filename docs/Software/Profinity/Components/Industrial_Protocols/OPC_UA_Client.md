@@ -37,7 +37,7 @@ Viewing the dashboard requires the **Security administration** permission, descr
 2. Check that **Name** is unique within the profile. The default is `OPC UA Client`.
 3. In the **Points** tab, select **New point**, then enter a **Name** and a **NodeId**.
 4. Select **Save**.
-5. If **Auto Connect** is off, which is its default, switch the component on with the **Connect / Disconnect** menu action.
+5. If **Auto connect** is off, which is its default, switch the component on with the **Connect / Disconnect** menu action.
 6. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true. The tags under the component's `Points` tags show Good quality and a changing value.
 
 ## Settings
@@ -53,9 +53,9 @@ Viewing the dashboard requires the **Security administration** permission, descr
 | **Poll interval (ms)** | Whole number (ms) | `1000` | How often the node map is read, in milliseconds. Between `50` and `600000`. |
 | **Request timeout (ms)** | Whole number (ms) | `5000` | How long Profinity waits for the server to answer a request, in milliseconds. Between `50` and `60000`. |
 | **Reconnect delay (ms)** | Whole number (ms) | `2000` | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
-| **Auto Connect** | On or off | Off | Connects to the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Auto connect** | On or off | Off | Connects to the server automatically when the profile is loaded, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
-With **Auto Connect** on, Profinity keeps trying to connect when the server is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
+With **Auto connect** on, Profinity keeps trying to connect when the server is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto connect** off, it connects only after you switch the component on.
 
 !!! warning "Trusting certificates"
     **Trust all server certificates** removes the check that proves you are talking to the server you intended.

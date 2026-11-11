@@ -39,34 +39,34 @@ You can change the settings in the Communications settings section later from th
 You need a Modbus TCP slave that this computer can reach over the network, and its IP address. Viewing the dashboard needs you to be signed in and allowed to see the component.
 
 1. Select **ADD COMPONENT**, then select **Modbus Device** in the **Industrial Protocols** group.
-2. Leave **Connection Mode** as **TCP**, and set **Host** to the IP address of the slave.
+2. Leave **Connection mode** as **TCP**, and set **Host** to the IP address of the slave.
 3. In the **Point map**, add one row with a **Name** and the **Address** of the register. Leave **Table** as **HoldingRegister** and **Data type** as **Word**.
 4. Select **ADD COMPONENT** at the bottom of the dialog.
-5. If **Auto Connect** is off, which is its default, select **Connect / Disconnect** from the component's menu to start polling.
+5. If **Auto connect** is off, which is its default, select **Connect / Disconnect** from the component's menu to start polling.
 6. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true.
 
 ## Communications settings
 
-Which settings apply depends on the **Connection Mode**.
+Which settings apply depends on the **Connection mode**.
 
 | Setting | Type | Default | Applies to | Description |
 |---|---|---|---|---|
 | **Name** | Text | `Modbus Device` | Both | The name of the component. Must be unique within the profile. |
-| **Connection Mode** | Choice | `Tcp` | Both | `Tcp` or `Rtu`, shown as TCP or RTU in the UI. |
+| **Connection mode** | Choice | `Tcp` | Both | `Tcp` or `Rtu`, shown as TCP or RTU in the UI. |
 | **Host** | Text | `127.0.0.1` | TCP | The IP address of the slave. Required. |
 | **Port** | Whole number | `502` | TCP | The TCP port. Between `1` and `65535`. |
-| **Serial Port** | Choice | Empty | RTU | The serial port the slave is connected to. Required for RTU. |
-| **Baud Rate** | Whole number | `9600` | RTU | The serial baud rate. |
+| **Serial port** | Choice | Empty | RTU | The serial port the slave is connected to. Required for RTU. |
+| **Baud rate** | Whole number | `9600` | RTU | The serial baud rate. |
 | **Parity** | Choice | `None` | RTU | The serial parity. |
-| **Data Bits** | Whole number | `8` | RTU | `7` or `8`. |
-| **Stop Bits** | Choice | `One` | RTU | The number of stop bits. |
+| **Data bits** | Whole number | `8` | RTU | `7` or `8`. |
+| **Stop bits** | Choice | `One` | RTU | The number of stop bits. |
 | **Unit ID** | Whole number | `1` | Both | The Modbus unit (slave) address. Between `0` and `255`. |
 | **Poll interval (ms)** | Time | `1000` | Both | How often the point map is read, in milliseconds. Between `50` and `600000`. |
 | **Request timeout (ms)** | Time | `1000` | Both | How long Profinity waits for the slave to answer a request, in milliseconds. Between `50` and `60000`. |
 | **Reconnect delay (ms)** | Time | `2000` | Both | How long Profinity waits between connection attempts, in milliseconds. Between `0` and `600000`. |
-| **Auto Connect** | On or off | Off | Both | Connects automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Auto connect** | On or off | Off | Both | Connects automatically when the profile is loaded. Off by default, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
-With **Auto Connect** on, profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto Connect** off, it connects only after you switch the component on.
+With **Auto connect** on, profinity keeps trying to connect when the device is down at start and after a connection is lost, as described in [Connections and reconnecting](../Connections_and_Reconnecting.md). With **Auto connect** off, it connects only after you switch the component on.
 
 Match the serial settings to those configured on the slave.
 If they differ, the slave does not answer.
@@ -163,7 +163,7 @@ Check the usual causes in this table before reading the [Log](../../Administrati
 |---|---|---|
 | The point is marked as bad quality. | The **Address** is one higher or lower than the device manual states. | Use the zero-based protocol address. Register `40001` in a one-based manual is address `0` of the holding registers. |
 | The point is marked as bad quality. | The **Unit ID** differs from the slave. | Set **Unit ID** to the slave's unit address. |
-| The point is marked as bad quality. | The serial settings differ from the slave. | Match **Baud Rate**, **Parity**, **Data Bits** and **Stop Bits** to those configured on the slave. |
+| The point is marked as bad quality. | The serial settings differ from the slave. | Match **Baud rate**, **Parity**, **Data bits** and **Stop bits** to those configured on the slave. |
 | The point is marked as bad quality. | The **Data type** does not match the register. | Choose the data type that matches the register. |
 
 Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md) for how the Log records failed reads and recovery.

@@ -67,8 +67,8 @@ These components start only when at least one collection is configured.
 ## Start the logger or publisher
 
 Make sure the logger or publisher is added to the active profile.
-The **Auto Connect** setting starts the component when the profile loads, and [Connections and reconnecting](../Components/Connections_and_Reconnecting.md) describes its default.
-With **Auto Connect** off, select **Connect** (or **Start**) on the component to start it. Its status shows **On** once it is running.
+The **Auto connect** setting starts the component when the profile loads, and [Connections and reconnecting](../Components/Connections_and_Reconnecting.md) describes its default.
+With **Auto connect** off, select **Connect** (or **Start**) on the component to start it. Its status shows **On** once it is running.
 Then check the component's status in the component list.
 
 ## Check that data is flowing
@@ -85,7 +85,7 @@ Find the symptom in the first column, then follow the cause and the fix in the s
 |--------------|-------|------------|
 | No data is logged | A logger or publisher that writes nothing is usually inactive, or has no tag collection to log. | Check that the component is active. For a TAG logger, TAG Local Historian, TAG SQL Historian, InfluxDB, Prometheus, or a publisher, check that at least one tag collection is selected, because those components start only when a collection is configured. Then check that the components that feed the tags are receiving data. |
 | A connection error appears | The destination is unreachable or rejects the credentials. | Check the network connection to the destination and the credentials. For InfluxDB, confirm that the component type matches the installed InfluxDB version, because the wrong component type causes connection failures. The [Profinity logs](../Administration/Logs_Config.md) record connection errors. |
-| Gaps in logged data | Gaps usually come from a logging interval that is too long for the data, or from a component that stopped receiving data. | In **Snapshot** mode, a shorter **Update Interval (seconds)** gives more detailed data. [Logging modes](../Components/Logging_Modes.md) describes what the other modes do with it. Also check that the component that supplies the data is receiving it. |
+| Gaps in logged data | Gaps usually come from a logging interval that is too long for the data, or from a component that stopped receiving data. | In **Snapshot** mode, a shorter **Update interval (seconds)** gives more detailed data. [Logging modes](../Components/Logging_Modes.md) describes what the other modes do with it. Also check that the component that supplies the data is receiving it. |
 
 ## Next steps
 

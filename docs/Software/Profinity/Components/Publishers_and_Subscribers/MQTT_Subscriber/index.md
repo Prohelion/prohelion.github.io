@@ -41,7 +41,7 @@ The subscriber starts only when **Server URL**, **Topic filter**, **Host ID** an
 6. If the broker requires a login, enter the **Username** and **Password**.
 7. Save the settings.
 
-With **Auto Connect** on, which is the default, the subscriber connects when the profile loads, and its status shows **On** while it is connected.
+With **Auto connect** on, which is the default, the subscriber connects when the profile loads, and its status shows **On** while it is connected.
 To check that it works, wait for the edge node to publish.
 The tags then appear under the **Tag path prefix**, at the paths described in [Where tags appear](#where-tags-appear).
 
@@ -53,7 +53,7 @@ The tags then appear under the **Tag path prefix**, at the paths described in [W
 |---|---|---|---|---|
 | **Server URL** | Text | Yes | None | The broker's connection URL, for example `mqtt://broker.example.com` or `mqtts://broker.example.com`. Use `mqtts://` to enable Transport Layer Security (TLS). |
 | **Broker port** | Whole number | No | `1883` | The broker's port, from 1 to 65535. Defaults to `1883`. A port in the **Server URL** takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`, and any other value is used as entered. |
-| **Auto Connect** | On or off | No | On | Connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). |
+| **Auto connect** | On or off | No | On | Connects to the broker when the profile loads. On by default. Refer to [Connections and reconnecting](../../Connections_and_Reconnecting.md). |
 | **Trust all server certificates** | On or off | No | Off | Disables TLS server certificate validation. Enable only when connecting to a trusted broker that uses a self-signed certificate. |
 | **Username** / **Password** | Text and Secret | No | None | Credentials for broker authentication, when the broker requires them. The password is stored encrypted. |
 | **Client ID** | Text | No | Empty | The MQTT client ID. Leave blank to generate one. |

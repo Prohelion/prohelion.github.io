@@ -27,7 +27,7 @@ Profinity scripting automates tasks, processes CAN messages and creates custom o
     An administrator must review what each script does before it is enabled.
 
 To keep the Profinity environment secure, scripting is disabled until it is explicitly enabled.
-To enable Profinity Scripting, open [Application Config](../../Administration/System_Configuration/Application_Config.md) and turn on **Enable C# Scripting**, **Enable Python Scripting**, or **Enable Lua Scripting** for the language you use.
+To enable Profinity Scripting, open [Application Config](../../Administration/System_Configuration/Application_Config.md) and turn on **Enable C# scripting**, **Enable Python scripting**, or **Enable Lua scripting** for the language you use.
 
 <figure markdown>
 ![Profinity System Configuration page, where the Enable C# Scripting, Enable Python Scripting, and Enable Lua Scripting settings turn scripting on](../../images/app_configuration.png)
@@ -36,7 +36,7 @@ To enable Profinity Scripting, open [Application Config](../../Administration/Sy
 
 ## Script types
 
-Profinity has five script types, which between them cover seven values of the **Script Mode** setting:
+Profinity has five script types, which between them cover seven values of the **Script mode** setting:
 
 - [Run scripts](./Script_Types/Run_Scripts.md) cover manual and scheduled operations, in the Run On Demand, Run On Time Interval, and Run On CRON Schedule modes.
 - [Receive scripts](./Script_Types/Receive_Scripts.md) handle incoming CAN messages, in the Run On Receipt of CAN Message mode.

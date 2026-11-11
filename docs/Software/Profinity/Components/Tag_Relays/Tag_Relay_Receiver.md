@@ -46,7 +46,7 @@ To set up a sender and a receiver together for the first time, refer to [Set up 
    For HTTPS, follow [Receiving over HTTPS](#receiving-over-https).
 5. Save the settings.
    Saving restarts the receiver.
-   An MQTT receiver starts when the profile loads if **Auto Connect** is on. Otherwise it stays **Off** until you turn on the **Connect / Disconnect Toggle** on its component dashboard.
+   An MQTT receiver starts when the profile loads if **Auto connect** is on. Otherwise it stays **Off** until you turn on the **Connect / Disconnect Toggle** on its component dashboard.
    Otherwise its status shows **Off**, and you turn the toggle on.
    A receiver set to HTTPS starts running without a start step.
 
@@ -66,7 +66,7 @@ The relayed tags appear under the **Receiver tag path prefix**.
 
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
-| **Auto Connect** | On or off | On | Connects to the broker when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Auto connect** | On or off | On | Connects to the broker when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **MQTT broker URL** | URL starting `mqtt://`, `mqtts://`, `http://` or `https://` | None | Required for MQTT. The broker's connection URL. Use `mqtts://` for Transport Layer Security (TLS). |
 | **MQTT broker port** | Whole number, 1 to 65535 | `1883` | The broker's port. A port in the broker URL takes precedence. With an `mqtts://` URL that has no port, leaving this at `1883` connects on `8883`. |
 | **Trust all server certificates** | On or off | Off | Accepts the broker's TLS certificate without validating it. Turn it on only for a trusted broker that uses a self-signed certificate. |
@@ -85,7 +85,7 @@ Use a service account token, so the relay keeps working without anyone signing i
 1. On this instance, create a service account with a role that holds the **Receive external tags** permission.
    Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how to grant it.
 2. On the **User Actions** tab of the account, select **Generate Token**.
-   The **Service Account Token** dialog shows the token.
+   The **Service account token** dialog shows the token.
 3. Enter the token in the sender's **Bearer token**.
 
 An instance accepts relayed updates for one Tag Relay Receiver set to HTTPS, so add a single HTTPS receiver per instance.

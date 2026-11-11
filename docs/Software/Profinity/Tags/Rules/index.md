@@ -35,7 +35,7 @@ A rule runs only when the file, its group, and the rule itself are all enabled.
 
 A threshold rule holds ordered steps, and one evaluation can cross more than one of them.
 Profinity then runs an action for each step it enters or leaves, in order, and hands each one to a [rule script](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) without waiting for the script to finish.
-Set **Trigger Overlap** to **Queue** on that script when the action for the step the value lands on must still run.
+Set **Trigger overlap** to **Queue** on that script when the action for the step the value lands on must still run.
 
 **Drop**, the default, discards an action that arrives while the script is still running, and that action is not tried again.
 The setting is described under [Trigger overlap](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md#trigger-overlap).

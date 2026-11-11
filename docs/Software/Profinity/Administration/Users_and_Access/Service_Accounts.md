@@ -22,11 +22,11 @@ Treat the token like a password: store it in a secrets manager, and give the acc
 
 1. Select **ADMIN** in the side menu, then **Users & Groups**.
 2. Select **+ Add user**, or select the row of an existing automation user.
-3. Turn on **Service Account**.
+3. Turn on **Service account**.
 4. Under **Assigned roles**, choose the roles the account needs, as described in [Choose the permissions](#choose-the-permissions).
 5. Select **ADD USER** for a new account, or **SAVE** for an existing one. The account appears in the user list.
 6. Select the account's row, then select the **User Actions** tab.
-7. Select **Generate Token**, then confirm. The **Service Account Token** dialog shows the token in the **Token** box.
+7. Select **Generate Token**, then confirm. The **Service account token** dialog shows the token in the **Token** box.
 8. Select **Copy**, which reads **Copied** for a moment, and store the token in a secrets manager.
 9. Select **Close**.
 

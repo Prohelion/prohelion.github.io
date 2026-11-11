@@ -17,7 +17,7 @@ If the component is already deployed, read [Change the path on a deployed compon
 
 To nest a component:
 
-1. In the **Component Identifier** section of the component's settings dialog, go to **Tag tree path**.
+1. In the **Component identifier** section of the component's settings dialog, go to **Tag tree path**.
 2. Enter the parent folder as a slash-separated path, for example `Vehicles/Car1`.
 3. Select **SAVE**. The component's tags now appear under that folder in **Tag Explorer**.
 

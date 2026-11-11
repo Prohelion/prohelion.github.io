@@ -29,7 +29,7 @@ menuActions:
     script: scripts/calibrate_zero.py
 ```
 
-The upload field is **Actions YAML file (Optional)**.
+The upload field is **Actions YAML file (optional)**.
 Refer to [Custom Component files](Files.md).
 
 | `kind` | What the user gets |

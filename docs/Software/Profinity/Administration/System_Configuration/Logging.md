@@ -19,7 +19,7 @@ Refer to [System Configuration](index.md) for what to expect.
 | `Log Rollover Size (MB)` | Whole number | 1 | 1 to 4096 | The size a log file reaches before a new file is started. |
 | `Retained Logs` | Whole number | 10 | 1 to 1000000 | The number of log files kept, after which the oldest are deleted. |
 
-The default rollover size of 1 MB fills quickly on a busy instance, so raise **Log Rollover Size (MB)** when a lower log level is used for diagnosis.
+The default rollover size of 1 MB fills quickly on a busy instance, so raise **Log rollover size (MB)** when a lower log level is used for diagnosis.
 
 <figure markdown>
 ![Logging tab of System Configuration showing log level, rollover size and retained logs](../../images/logging_config.png)

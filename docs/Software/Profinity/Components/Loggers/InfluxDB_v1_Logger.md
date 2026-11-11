@@ -36,30 +36,30 @@ If the server needs a sign-in, you also need its user name and password.
 
 1. Select **ADD COMPONENT**.
 2. Select **InfluxDB v1 Logger** in the **Loggers** group.
-3. Set **InfluxDB Database** to the name of the database on the server.
+3. Set **InfluxDB database** to the name of the database on the server.
 4. Under **Collections**, add at least one tag collection whose tags you want to log.
-5. If the server needs a sign-in, set **InfluxDB Username** and **InfluxDB Password**.
-6. If the server is not at `http://localhost:8086/`, set **Influx Server URL** to its address.
+5. If the server needs a sign-in, set **InfluxDB username** and **InfluxDB password**.
+6. If the server is not at `http://localhost:8086/`, set **Influx server URL** to its address.
 7. Select **ADD COMPONENT**.
-8. Check that **STATUS** shows **On**. If **Auto Connect** is off, select **Start Logger** from the component's menu first.
+8. Check that **STATUS** shows **On**. If **Auto connect** is off, select **Start Logger** from the component's menu first.
 
-Data appears in the database after the first **Update Interval (seconds)**, 10 seconds by default.
+Data appears in the database after the first **Update interval (seconds)**, 10 seconds by default.
 
 ## Settings
 
 | Setting | Type | Default | Effect |
 |---|---|---|---|
-| **InfluxDB Database** | Text | None | The database that the data is written to. Required. |
-| **InfluxDB Username** | Text | Blank | The user name for a server that needs a sign-in. Leave it blank for a server without one. |
-| **InfluxDB Password** | Secret | Blank | The password for a server that needs a sign-in. Leave it blank for a server without one. |
-| **InfluxDB Retention Policy** | Text | `autogen` | The retention policy that the data is written with. |
-| **Influx Server URL** | Text | `http://localhost:8086/` | The address of the InfluxDB server. |
+| **InfluxDB database** | Text | None | The database that the data is written to. Required. |
+| **InfluxDB username** | Text | Blank | The user name for a server that needs a sign-in. Leave it blank for a server without one. |
+| **InfluxDB password** | Secret | Blank | The password for a server that needs a sign-in. Leave it blank for a server without one. |
+| **InfluxDB retention policy** | Text | `autogen` | The retention policy that the data is written with. |
+| **Influx server URL** | Text | `http://localhost:8086/` | The address of the InfluxDB server. |
 | **Dashboard URL** | Text | Blank | The full address of an InfluxDB dashboard. When it is set, Profinity shows a link to it. |
-| **InfluxDB Health Check** | On or off | On | Checks at regular intervals that the server answers. Turn it off for InfluxDB Cloud, which does not support the check. The check is the part that fails, not the connection. Refer to the InfluxDB documentation for what Cloud supports. |
+| **InfluxDB health check** | On or off | On | Checks at regular intervals that the server answers. Turn it off for InfluxDB Cloud, which does not support the check. The check is the part that fails, not the connection. Refer to the InfluxDB documentation for what Cloud supports. |
 | **Collections** | Choice | None | The [tag collections](../../Tags/Collections/index.md) whose tags are logged. The logger needs at least one before it can start. The picker shows each collection's display name, and the profile stores its `id`. |
-| **Update Interval (seconds)** | Time | `10` | How often data is sent, from 1 to 86400 seconds. |
+| **Update interval (seconds)** | Time | `10` | How often data is sent, from 1 to 86400 seconds. |
 | **Logging mode** | Choice | `Snapshot` | What is sent on each interval: `Snapshot`, `On Change`, or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
-| **Auto Connect** | On or off | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Auto connect** | On or off | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 ## Example
 
@@ -111,9 +111,9 @@ An Unavailable or Bad sample is written with a `quality` field and no `value`, s
 
 | What you see | Cause | What to do |
 |---|---|---|
-| **STATUS** shows **Off** | No collection is selected, or **Auto Connect** is off. | Add a collection under **Collections**, or select **Start Logger** from the component's menu. |
-| **STATUS** shows **Error** | The logger cannot reach the server, the database does not exist, or the sign-in is refused. Profinity writes the reason to the log once, then tries again every 5 seconds. | Read the reason on the [Logs](../../Administration/Logs_Config.md) page under **ADMIN**, then correct **Influx Server URL**, **InfluxDB Database**, or the sign-in. |
-| **STATUS** shows **Error**, and the log says the health check failed | The server, such as InfluxDB Cloud, does not answer the health check. | Turn off **InfluxDB Health Check**. |
+| **STATUS** shows **Off** | No collection is selected, or **Auto connect** is off. | Add a collection under **Collections**, or select **Start Logger** from the component's menu. |
+| **STATUS** shows **Error** | The logger cannot reach the server, the database does not exist, or the sign-in is refused. Profinity writes the reason to the log once, then tries again every 5 seconds. | Read the reason on the [Logs](../../Administration/Logs_Config.md) page under **ADMIN**, then correct **Influx server URL**, **InfluxDB database**, or the sign-in. |
+| **STATUS** shows **Error**, and the log says the health check failed | The server, such as InfluxDB Cloud, does not answer the health check. | Turn off **InfluxDB health check**. |
 | **STATUS** shows **On**, but a tag has no readings in InfluxDB | The tag does not hold a number, or it is not in a selected collection. | Check the tag in **TAG EXPLORER**, and add it to one of the selected collections. |
 
 To set up logging across a profile, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).

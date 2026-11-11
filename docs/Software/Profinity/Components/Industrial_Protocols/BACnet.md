@@ -41,7 +41,7 @@ You need:
 3. Set **Device instance** to the instance number of that device.
 4. In the **Point map**, add one row with a **Name**, an **Object type**, and an **Instance**.
 5. Select **ADD COMPONENT** at the bottom of the dialog.
-6. Select **Connect / Disconnect** from the component's menu. **Auto Connect** is off by default, so the component does not connect on its own.
+6. Select **Connect / Disconnect** from the component's menu. **Auto connect** is off by default, so the component does not connect on its own.
 7. On the component dashboard, check that **STATUS** shows **Connected** and **CONNECTED** is true, and that the tag for your row, under the component's **Points** folder, shows Good quality.
 
 To change the settings later, select **Change Settings** from the component's menu, then select **SAVE**.
@@ -57,7 +57,7 @@ To change the settings later, select **Change Settings** from the component's me
 | **Poll interval (ms)** | Time | `1000` | How often Profinity reads the point map, in milliseconds, from `50` to `600000`. |
 | **Request timeout (ms)** | Time | `1000` | How long Profinity waits for the device to answer a request, in milliseconds, from `50` to `60000`. |
 | **Reconnect delay (ms)** | Time | `2000` | How long Profinity waits between connection attempts, in milliseconds, from `0` to `600000`. |
-| **Auto Connect** | On or off | Off | Connects to the device when the profile loads, and keeps trying when the device is down or the connection is lost. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
+| **Auto connect** | On or off | Off | Connects to the device when the profile loads, and keeps trying when the device is down or the connection is lost. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md#the-auto-connect-switch). |
 
 Every BACnet device holds a Device object, which records its identity, including its instance number.
 Each time Profinity connects, and again after a read fails, it reads the Device object at the **Remote host** and compares its instance number with **Device instance**.

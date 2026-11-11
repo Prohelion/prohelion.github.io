@@ -61,7 +61,7 @@ Set the environment variable `PROFINITY_HOME` to the full path of the artefacts 
 - Use a staging or test layout outside the default path.
 - Match a non-standard mount root in a Docker or custom image.
 
-Give each instance its own `PROFINITY_HOME`, and its own HTTP and HTTPS ports, set in the **IP Port for Http** and **IP Port for Https** settings on the **Web** tab, as described on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page.
+Give each instance its own `PROFINITY_HOME`, and its own HTTP and HTTPS ports, set in the **IP port for HTTP** and **IP port for HTTPS** settings on the **Web** tab, as described on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page.
 Setting `PROFINITY_HOME` stops migration from the older locations, so copy any existing data you need into the new root first. Refer to [Automatic migration on startup](#automatic-migration-on-startup) for those locations.
 For example, in a Linux or macOS shell (for Windows commands, see [Set a variable](./Environment_Variables.md#set-a-variable)):
 
@@ -108,7 +108,7 @@ Restore the folders in this order:
 |--------------|-------|------------|
 | The profile is empty after an upgrade | Migration did not find your data. | Check **ADMIN > Logs** for migration messages. If `PROFINITY_HOME` is set, copy the old data across yourself or unset the variable. |
 | Linux reports a permission error | The account that runs Profinity does not own the artefacts directory. | Run `chown -R <service-account>:<service-group> <artefacts-root>` as root, with `sudo`. |
-| Two instances show the same profiles and settings | Both instances use the same artefacts directory, so they read the same `config.yaml`. |  Give each its own `PROFINITY_HOME`, and its own HTTP and HTTPS ports, set in the **IP Port for Http** and **IP Port for Https** settings on the **Web** tab, as described on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page. |
+| Two instances show the same profiles and settings | Both instances use the same artefacts directory, so they read the same `config.yaml`. |  Give each its own `PROFINITY_HOME`, and its own HTTP and HTTPS ports, set in the **IP port for HTTP** and **IP port for HTTPS** settings on the **Web** tab, as described on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page. |
 
 In the command, `<service-account>` and `<service-group>` are the user and group that run Profinity, and `<artefacts-root>` is the artefacts directory, such as `/var/lib/prohelion/profinity`. The Linux installer creates the `profinity` user and group, so on a default install use `profinity:profinity`. Run the command with `sudo`, because only root can change the owner of a folder.
 

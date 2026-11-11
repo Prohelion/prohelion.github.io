@@ -10,7 +10,7 @@ last_reviewed: 2026-10-20
 
 `settings_map.yaml` adds extra fields to the settings dialog of a [Custom Component](index.md).
 Each *section* is drawn as a tab, each *category* as a headed group on that tab, and each *field* as a control in that group.
-The upload field is **Settings Map YAML file (Optional)**.
+The upload field is **Settings map YAML file (optional)**.
 
 Refer to [Custom Component files](Files.md).
 The file must contain at least one field.
@@ -73,7 +73,7 @@ sections:
 Replace it with the port on the machine that runs Profinity.
 
 That file adds a **Communications** tab.
-**Serial Settings** heads **COM Port** and **Baud Rate**.
+**Serial settings** heads **COM Port** and **Baud rate**.
 **CAN Export** heads **Publish Telemetry To CAN** and **CAN Export Message ID**.
 **CAN Export Message ID** is shown only while **Publish Telemetry To CAN** is ticked.
 

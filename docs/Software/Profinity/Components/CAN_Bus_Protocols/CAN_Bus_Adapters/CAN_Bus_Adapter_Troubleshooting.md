@@ -70,4 +70,4 @@ A device changed from the default constrains the rest of the network.
 The CAN to Ethernet bridge does not terminate the bus, so terminate the CAN bus with 120 ohm resistors at each end.
 Refer to the [bridge DB9 connector datasheet](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/Datasheet/DB9_Connector.md).
 
-To change the bit rate of a CAN to Ethernet bridge, set **Bit Rate (kbps)** in its firmware settings, as described in [CAN Bridge Configuration](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md). For the parameters of each adapter, refer to [CAN bus adapter settings](CAN_Bus_Adapter_Settings.md).
+To change the bit rate of a CAN to Ethernet bridge, set **Bit rate (kbps)** in its firmware settings, as described in [CAN Bridge Configuration](../../../../../Solar_Car_Racing/CAN_Ethernet_Bridge/User_Manual/Bridge_Configuration.md). For the parameters of each adapter, refer to [CAN bus adapter settings](CAN_Bus_Adapter_Settings.md).

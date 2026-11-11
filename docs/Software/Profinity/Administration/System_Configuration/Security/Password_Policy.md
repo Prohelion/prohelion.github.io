@@ -18,7 +18,7 @@ Refer to [SSO and sign-in method](./SSO_and_Sign_In.md).
 You need the **System administration** permission to set the policy.
 
 1. Select **ADMIN** in the side menu, then **System Configuration**.
-2. On the **Security** tab, open the **Password Policy** group.
+2. On the **Security** tab, open the **Password policy** group.
 3. Change the settings in the following table, then save the tab.
 
 Saving the tab restarts Profinity and interrupts active sessions.

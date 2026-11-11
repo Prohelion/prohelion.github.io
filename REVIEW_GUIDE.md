@@ -72,6 +72,7 @@ The list below groups the checks and points to the rule that holds the detail.
 
 - Front matter has `title`, and on new or refactored pages `type`, `owner`, `last_reviewed` and a `description` of 70 to 160 characters.
 - UI labels are in bold, exactly as shown. Typed values, file names, paths and keys are in code format.
+- A UI label matches the shipped label. From 2.3 the product uses sentence case (ADR 0003), so a bold Title Case label is checked against the code: if the code now has the sentence case form, the page is out of date.
 - The first mention of each concept that has its own page is linked, with descriptive link text and relative `.md` paths (section 6).
 - Acronyms are expanded on first use on each page, except universal terms.
 - Examples are complete and copyable, placeholders are explained, and commands are given for each operating system the reader may use (section 4). Check each example separately: it names the file or editor it goes in, marks every value the reader changes as a placeholder (capitals in YAML and JSON, angle brackets in commands) and explains it after the block, and shows the expected result where the reader can check it. A path or command for a second operating system given in a sentence, not in a tab, is an improvement finding, not polish.

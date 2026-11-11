@@ -34,16 +34,16 @@ To create one from selected tags:
 | **Add tag(s) to dashboard…** | Leaf tags only | **Modify dashboards** |
 | **Create collection from tag(s)…** | Branch, leaf, or root | **Modify tag collections** |
 | **Create rule from tag(s)…** | Selected tags | **Modify tag rules** |
-| **Rules on this Tag** | Selected tags | **View tag rules** |
+| **Rules on this tag** | Selected tags | **View tag rules** |
 
 The actions behave as follows:
 
 - **Add tag(s) to dashboard…** opens a dashboard picker and creates a binding draft. Completing the bind still requires the dashboard editor.
 - **Create collection from tag(s)…** opens a submenu for the primary filter (**Branch**, **Meta type**, **Unit**, **Value**, or **Quality**). It then opens an insert-location picker, and then the collections visual editor with a draft collection.
 - **Create rule from tag(s)…** opens an insert-location picker, and then the rules visual editor with a draft rule.
-- **Rules on this Tag** lists the rules that run on the selection and opens the rules editor with the chosen rule selected.
+- **Rules on this tag** lists the rules that run on the selection and opens the rules editor with the chosen rule selected.
 
-**Rules on this Tag** shows each rule as the rule source, a colon, and the rule name.
+**Rules on this tag** shows each rule as the rule source, a colon, and the rule name.
 It is greyed out when no rule runs on the selection, so it is the check in **Tag Explorer** that a rule is attached to a tag.
 The create actions open the editor with a draft, and nothing is created until you save it in the editor.
 

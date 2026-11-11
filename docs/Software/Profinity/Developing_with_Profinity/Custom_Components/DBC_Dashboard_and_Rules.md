@@ -15,9 +15,9 @@ Which upload field holds each file is on [Custom Component files](Files.md).
 
 With a DBC file, the component menu includes **Messages and Signals** and **Edit DBC File**.
 The device's CAN traffic can then be read as named messages and signals, and the dashboard can bind those signals.
-The component runs with **Upload DBC File (Optional)** left empty.
+The component runs with **Upload DBC file (optional)** left empty.
 
-**Rebase DBC** and **Rebase Address** shift the loaded message identifiers onto the base address the device actually uses.
+**Rebase DBC** and **Rebase address** shift the loaded message identifiers onto the base address the device actually uses.
 **Edit DBC File** opens the DBC editor once a file is set, and a saved change is picked up automatically.
 If the file fails to parse, the component stays in the profile and **Messages and Signals** is left out until the file is fixed.
 The viewer is documented in [CAN bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md).
@@ -25,7 +25,7 @@ The viewer is documented in [CAN bus DBC](../../CAN_Utilities/CAN_Bus_DBC.md).
 ## Dashboard
 
 The dashboard YAML is the page the user opens.
-When **Upload Dashboard (Optional)** is left empty, Profinity writes a starter file named after the component, and the dashboard replaces it when you select **SAVE** in the dashboard editor.
+When **Upload dashboard (optional)** is left empty, Profinity writes a starter file named after the component, and the dashboard replaces it when you select **SAVE** in the dashboard editor.
 Layout, elements, and the visual editor are in the [Profinity dashboard development guide](../../Customising_Profinity/Dashboards/index.md).
 
 A binding that reads a CAN signal uses the DBC names, and a binding that reads a value the [main script](Main_Script.md) published uses a tag path.
@@ -38,6 +38,6 @@ Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/inde
 
 ## Rules
 
-**Rules YAML file (Optional)** is an optional [Tag rules](../../Tags/Rules/index.md) document for this component, evaluated when this component's tags change, and alerts raised from those rules appear in [Alerts Log](../../Tags/Alerts.md).
+**Rules YAML file (optional)** is an optional [Tag rules](../../Tags/Rules/index.md) document for this component, evaluated when this component's tags change, and alerts raised from those rules appear in [Alerts Log](../../Tags/Alerts.md).
 A tag rule can also run an action when a condition fires, which is not a menu action: menu entries are declared in `actions.yaml`.
 Refer to [Menu actions](Menu_Actions.md).

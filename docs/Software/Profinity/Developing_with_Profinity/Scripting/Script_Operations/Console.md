@@ -9,8 +9,8 @@ last_reviewed: 2026-10-14
 # Console
 
 Console output is available in every script and writes to two streams.
-Standard output reaches the Profinity log at the `Info` level only when the script's **Log Script Output** setting is on.
-The setting is off by default. It sits in the **Script Settings** group on the script component's **Settings** tab.
+Standard output reaches the Profinity log at the `Info` level only when the script's **Log script output** setting is on.
+The setting is off by default. It sits in the **Script settings** group on the script component's **Settings** tab.
 
 If the `print()` output of a script does not appear in the log, switch the setting on.
 Error output and script exceptions always reach the Profinity log at the `Error` level, whatever the setting.

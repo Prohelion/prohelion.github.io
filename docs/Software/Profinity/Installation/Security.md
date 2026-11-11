@@ -25,15 +25,15 @@ The [checklist](#production-deployment-checklist) at the end summarises the step
 
 ## HTTPS configuration
 
-HTTPS is on by default, but Profinity also listens on HTTP. When Profinity is accessed over a network, turn on **Redirect all Http traffic to Https** so that all communication uses HTTPS.
+HTTPS is on by default, but Profinity also listens on HTTP. When Profinity is accessed over a network, turn on **Redirect all HTTP traffic to HTTPS** so that all communication uses HTTPS.
 Without it, usernames, passwords, API tokens, and system data can be intercepted.
 
 Profinity supports HTTPS configuration through the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md#https-certificates) settings.
 Use a certificate from the Windows Certificate Store for a Windows deployment, or a `.pfx` or `.p12` certificate file for a cross-platform deployment.
 
-For production, turn on **Redirect all Http traffic to Https** so that every connection uses encryption.
+For production, turn on **Redirect all HTTP traffic to HTTPS** so that every connection uses encryption.
 Use certificates from a trusted Certificate Authority (CA), and plan certificate renewal so that an expiry does not interrupt the service.
-Binding HTTP to localhost only, with the **IP Address for Http** setting on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page, and requiring HTTPS for remote access keeps credentials off the network.
+Binding HTTP to localhost only, with the **IP address for HTTP** setting on the [Profinity Web](../Administration/System_Configuration/Profinity_Web.md) page, and requiring HTTPS for remote access keeps credentials off the network.
 
 [Profinity Mobile](../Mobile/index.md) connects over the local network, so keep the HTTPS port reachable from the networks that phones use.
 For the certificate steps, refer to [Profinity Web](../Administration/System_Configuration/Profinity_Web.md#https-certificates).
@@ -75,7 +75,7 @@ A script can:
 - Control connected hardware, including batteries, chargers, and motor controllers.
 
 Scripting is switched off by default.
-An administrator turns it on under **ADMIN > System Configuration**, with **Enable C# Scripting**, **Enable Python Scripting**, or **Enable Lua Scripting** for each language to allow.
+An administrator turns it on under **ADMIN > System Configuration**, with **Enable C# scripting**, **Enable Python scripting**, or **Enable Lua scripting** for each language to allow.
 The setting is available only when the licence includes the **Scripting** feature, which the Desktop, Server, and Enterprise editions include.
 An unlicensed instance does not include scripting.
 

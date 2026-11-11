@@ -34,11 +34,11 @@ You need an edition with the **Historians** licensed feature, as described in [L
 
 1. Select **ADD COMPONENT**, then select **TAG Local Historian** in the **Historians** group.
 2. Under **Collections**, add the collection that holds the tags to record. The historian needs a collection before it can start.
-3. Keep **Auto Connect** on, which is its default, so that the historian starts when the profile loads.
+3. Keep **Auto connect** on, which is its default, so that the historian starts when the profile loads.
 4. Select **ADD COMPONENT**.
 5. Check that the historian status shows **On**.
 
-The historian writes a row for each tag after every **Update Interval (seconds)**, 10 seconds by default.
+The historian writes a row for each tag after every **Update interval (seconds)**, 10 seconds by default.
 The other settings keep their defaults, which suit most profiles, and the following tables list them.
 
 ## Settings
@@ -47,8 +47,8 @@ The other settings keep their defaults, which suit most profiles, and the follow
 |---|---|---|---|
 | **Collections** | Choice | None | The [tag collections](../../Tags/Collections/index.md) whose tags are recorded. The picker shows each collection's display name, and the profile stores its `id`. |
 | **Logging mode** | Choice | `Snapshot` | What is written on each interval: `Snapshot`, `On Change`, or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
-| **Auto Connect** | On or off | On | Starts the historian when the profile loads. When it is off, start the historian with **Start Logger** from its menu. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-| **Update Interval (seconds)** | Whole number | `10` | The seconds between writes, from 1 to 86400. |
+| **Auto connect** | On or off | On | Starts the historian when the profile loads. When it is off, start the historian with **Start Logger** from its menu. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Update interval (seconds)** | Whole number | `10` | The seconds between writes, from 1 to 86400. |
 | **Retention (days)** | Whole number | `30` | After each write, Profinity deletes samples older than this many days. |
 | **Designated tag historian reader** | On or off | On | Makes this historian the one that dashboards and integrations read older tag history from. Turn it on for exactly one historian in the profile. Refer to [Designated historian](Designated_Historian.md). |
 
@@ -75,7 +75,7 @@ Each profile has its own folder in the `profiles` folder of the [artefacts direc
 ```
 
 Replace `YOUR_COLLECTION_ID` with the `id` of the collection, which is in the `collections.yaml` file of the profile.
-The keys match the settings in this order: `intervalSec` is **Update Interval (seconds)**, `logType` is **Logging mode**, `retentionDays` is **Retention (days)**, `designatedTagDataStore` is **Designated tag historian reader**, and `collections` is **Collections**.
+The keys match the settings in this order: `intervalSec` is **Update interval (seconds)**, `logType` is **Logging mode**, `retentionDays` is **Retention (days)**, `designatedTagDataStore` is **Designated tag historian reader**, and `collections` is **Collections**.
 
 ## Where the database is stored
 
@@ -115,7 +115,7 @@ The designated historian serves the older part of a dashboard's time window and 
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The status shows **Off** | No collection is selected under **Collections**, or **Auto Connect** is off. | Add a collection under **Collections**. If **Auto Connect** is off, select **Start Logger** from the historian's menu. |
+| The status shows **Off** | No collection is selected under **Collections**, or **Auto connect** is off. | Add a collection under **Collections**. If **Auto connect** is off, select **Start Logger** from the historian's menu. |
 | The status shows **Error** until a write succeeds | The database rejected a write, or the file cannot be opened. | Read the reason on the **Logs** page under **ADMIN**. Check that the drive that holds the artefacts directory is writable and has free space, and that no other program has the file open. |
 | A chart that reaches back to older values shows no data | More than one historian has **Designated tag historian reader** on, or none has. | Turn **Designated tag historian reader** on for exactly one historian in the profile. |
 

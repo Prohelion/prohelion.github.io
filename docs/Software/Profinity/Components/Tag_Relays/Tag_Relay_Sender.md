@@ -61,7 +61,7 @@ The total messages sent on the component dashboard has increased.
 | **Mode** | Choice of **Snapshot** or **On Change** | **Snapshot** | **Snapshot** sends every tag in the collections at each interval. **On Change** sends changed values between full snapshots, as described after this table. |
 | **Snapshot / change interval (seconds)** | Whole number of seconds, 5 to 86400 | `60` | In Snapshot mode, how often a full snapshot is sent. In On Change mode, how often changed values are sent. |
 | **Resync interval (seconds)** | Whole number of seconds, 5 to 86400 | `300` | On Change mode only. How often a full snapshot is sent again. It must be at least the **Snapshot / change interval (seconds)**. |
-| **Auto Connect** | On or off | On | Starts the sender when the profile loads. When it is off, start the sender with **Start Sender**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
+| **Auto connect** | On or off | On | Starts the sender when the profile loads. When it is off, start the sender with **Start Sender**. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 | **Collections** | List of collections | None | Required. The profile collections whose member tags the sender sends. The picker shows display names, with the group path where the collection sits in a group. |
 
 In On Change mode, the sender sends a full snapshot when it connects and each time it reconnects.

@@ -21,7 +21,7 @@ You can show those tags on a [dashboard](../../Customising_Profinity/Dashboards/
 
 For the Sparkplug messages and metric types that the MQTT Subscriber applies, refer to [MQTT Subscriber Sparkplug behaviour](MQTT_Subscriber/MQTT_Subscriber_Sparkplug_Behaviour.md).
 
-All three components have **Auto Connect** on by default.
+All three components have **Auto connect** on by default.
 The data format and the retry behaviour differ.
 The [Webhook Publisher](Webhook_Publisher.md) page lists what counts as a failed attempt.
 

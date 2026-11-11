@@ -19,8 +19,8 @@ For a single expression, use an expression-based [derived tag](index.md) instead
 To set one up:
 
 1. Add a **CSharp Script**, **Python Script**, or **Lua Script** component, or use an existing one.
-2. Set its **Script Mode** to **Run On Tag Change**.
-3. Add the source tags in its **Tag Paths** setting, one full tag path each, counted from the root of the tag tree (for example `Vehicles/Car1/SpeedMph`), or add a [collection](../Collections/Create_a_Collection.md) that holds them in its **Collections** setting.
+2. Set its **Script mode** to **Run On Tag Change**.
+3. Add the source tags in its **Tag paths** setting, one full tag path each, counted from the root of the tag tree (for example `Vehicles/Car1/SpeedMph`), or add a [collection](../Collections/Create_a_Collection.md) that holds them in its **Collections** setting.
 A collection must exist before you can select it.
 This follows [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).
 4. In the component's actions, select **Edit Script**.

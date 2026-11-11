@@ -33,9 +33,9 @@ The adapter publishes eight tags under its component path: `Properties/IsDesired
 You need a Peak or SocketCAN adapter in the same profile, added first, so the bridge has a CAN network to relay.
 
 1. Select **ADD COMPONENT**, then select **Prohelion Virtual CAN to Ethernet Bridge** in the **Adapters** group.
-2. Check that **Network Adapter** shows the interface that your clients can reach. Profinity selects the first available multicast interface by default.
-3. Check that **Bus Number** is not used by another bridge in the profile. The default is 13.
-4. Select **ADD COMPONENT** at the bottom of the dialog. **Auto Connect** is on by default, so the adapter starts when the profile loads.
+2. Check that **Network adapter** shows the interface that your clients can reach. Profinity selects the first available multicast interface by default.
+3. Check that **Bus number** is not used by another bridge in the profile. The default is 13.
+4. Select **ADD COMPONENT** at the bottom of the dialog. **Auto connect** is on by default, so the adapter starts when the profile loads.
 5. Check that the adapter's status reads **Connected** while CAN traffic flows, or **No CAN traffic** if no CAN packet has arrived for 5 seconds.
 
 ## Virtual adapter settings
@@ -44,12 +44,12 @@ To relay traffic, add a Virtual Adapter to the Profile after the adapter for the
 
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
-| **Network Protocol** | Choice | `TCP` or `UDP`. UDP is always available, even when TCP is running. | `TCP` |
-| **Bridge Protocol Version** | Choice | `V1` or `V2` matches the bridge firmware release, as described in [Virtual CAN adapter protocol and client support](Virtual_CAN_Adapter_Protocols.md). `All` speaks both protocols. | `All` |
-| **Network Adapter** | Choice | The network interface on which the Virtual Bridge runs. | The first available multicast interface |
-| **Bus Number** | Whole number | The bus number of the bridge. Profinity limits it to 0 to 13 for `V1` or `All`, because the version 1 protocol allows only a 4-bit bus number. For `V2` it accepts 0 to 32767. | 13 |
+| **Network protocol** | Choice | `TCP` or `UDP`. UDP is always available, even when TCP is running. | `TCP` |
+| **Bridge protocol version** | Choice | `V1` or `V2` matches the bridge firmware release, as described in [Virtual CAN adapter protocol and client support](Virtual_CAN_Adapter_Protocols.md). `All` speaks both protocols. | `All` |
+| **Network adapter** | Choice | The network interface on which the Virtual Bridge runs. | The first available multicast interface |
+| **Bus number** | Whole number | The bus number of the bridge. Profinity limits it to 0 to 13 for `V1` or `All`, because the version 1 protocol allows only a 4-bit bus number. For `V2` it accepts 0 to 32767. | 13 |
 | **UDP TTL** | Whole number | The time to live of the UDP packets that Profinity transmits, from 1 to 1024. | 128 |
-| **Auto Connect** | On or off | Enables the adapter when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). | On |
+| **Auto connect** | On or off | Enables the adapter when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). | On |
 
 The Virtual CAN Bridge runs inside Profinity, so the operating system of that machine sets its IP address.
 The bridge configuration tools and Profinity cannot change the address remotely.
@@ -80,15 +80,15 @@ Add this list item under the existing `components:` key in the `profile.yaml` fi
     autoConnect: true
 ```
 
-Replace `YOUR_NETWORK_INTERFACE` with the name of the network interface that the clients can reach, as listed in the **Network Adapter** setting.
+Replace `YOUR_NETWORK_INTERFACE` with the name of the network interface that the clients can reach, as listed in the **Network adapter** setting.
 The bus number `5` is an example, so choose a number that no other bridge on the network uses. When the adapter runs, its status reads **Connected**, or **No CAN traffic** if no CAN packet has arrived for 5 seconds.
 
 If a client cannot connect, check these things:
 
 | What you see | Cause | What to do |
 |---|---|---|
-| A client cannot connect to the Virtual Adapter | The **Network Adapter** is not the interface that the client can reach. | Check that the **Network Adapter** is the interface that the client can reach. |
-| A client cannot connect to the Virtual Adapter | The client speaks a protocol version that the **Bridge Protocol Version** does not cover. | Check that the client's protocol version is covered by the **Bridge Protocol Version**. |
+| A client cannot connect to the Virtual Adapter | The **Network adapter** is not the interface that the client can reach. | Check that the **Network adapter** is the interface that the client can reach. |
+| A client cannot connect to the Virtual Adapter | The client speaks a protocol version that the **Bridge protocol version** does not cover. | Check that the client's protocol version is covered by the **Bridge protocol version**. |
 | The status reads **No CAN traffic** | The usual cause is that no CAN traffic is coming from the bridged adapter. | Check the adapter that is bridged onto this bus. |
 
 For how the Virtual Bridge speaks both the V1 and V2 bridge protocols and serves several clients at once, refer to [Virtual CAN adapter protocol and client support](Virtual_CAN_Adapter_Protocols.md).

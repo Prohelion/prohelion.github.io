@@ -32,12 +32,12 @@ You need:
 
 ## The certificate Profinity generates
 
-When [**Cert File**](../../Administration/System_Configuration/Profinity_Web.md#https-certificates) and **Windows Cert Store** are empty, Profinity creates its own certificate the first time HTTPS starts.
+When [**Cert file**](../../Administration/System_Configuration/Profinity_Web.md#https-certificates) and **Windows cert store** are empty, Profinity creates its own certificate the first time HTTPS starts.
 The certificate file is `profinity_generated.pfx` in the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and it has no password.
 
-Profinity also creates this file in place of a **Cert File** that is missing, cannot be read, or has a wrong password.
-When you set **Cert File** and still find `profinity_generated.pfx` in the folder, Profinity could not use your file.
-Confirm the path in **Cert File** and the value in **Cert File Password**, as described in [HTTPS certificates](../../Administration/System_Configuration/Profinity_Web.md#https-certificates).
+Profinity also creates this file in place of a **Cert file** that is missing, cannot be read, or has a wrong password.
+When you set **Cert file** and still find `profinity_generated.pfx` in the folder, Profinity could not use your file.
+Confirm the path in **Cert file** and the value in **Cert file password**, as described in [HTTPS certificates](../../Administration/System_Configuration/Profinity_Web.md#https-certificates).
 
 The certificate names `localhost`, the computer's host name, `127.0.0.1`, `::1`, and the address of each network interface that was up when Profinity created it.
 The host in the MCP address has to be one of these names.
@@ -104,7 +104,7 @@ Follow these steps on the computer that runs the AI tool:
 
 ## Export a certificate you supplied
 
-When **Cert File** names your own certificate in a `.pfx` or `.p12` file with a **Cert File Password**, export the public certificate from that file in place of step 1.
+When **Cert file** names your own certificate in a `.pfx` or `.p12` file with a **Cert file password**, export the public certificate from that file in place of step 1.
 Then follow steps 3 to 5 of [Export and trust the certificate](#export-and-trust-the-certificate).
 
 === "macOS or Linux"
@@ -115,12 +115,12 @@ Then follow steps 3 to 5 of [Export and trust the certificate](#export-and-trust
     openssl pkcs12 -in "<path-to-your-certificate-file>" -nokeys -clcerts -passin pass:<password> | openssl x509 -out "$HOME/profinity.pem"
     ```
 
-    Replace `<password>` with the **Cert File Password**.
+    Replace `<password>` with the **Cert file password**.
     The command writes only the public certificate to `profinity.pem` in your home folder.
 
 === "Windows"
 
-    Run these commands in PowerShell, and enter the **Cert File Password** when PowerShell asks for it:
+    Run these commands in PowerShell, and enter the **Cert file password** when PowerShell asks for it:
 
     ```powershell
     $certificate = Get-PfxCertificate -FilePath "<path-to-your-certificate-file>" -Password (Read-Host -AsSecureString "Certificate file password")
@@ -129,7 +129,7 @@ Then follow steps 3 to 5 of [Export and trust the certificate](#export-and-trust
 
     PowerShell lists `profinity.cer` on the desktop, which holds the public certificate only.
 
-Replace `<path-to-your-certificate-file>` with the full path of the file that **Cert File** names.
+Replace `<path-to-your-certificate-file>` with the full path of the file that **Cert file** names.
 
 ## Check it worked
 

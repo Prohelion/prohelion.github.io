@@ -25,13 +25,13 @@ The HTTPS protocol also needs a [service account](../../Administration/Users_and
 2. On the receiving instance, add a **Tag Relay Receiver** and set **Protocol** to **HTTPS**.
 3. Set a unique **Receiver tag path prefix**, for example `Fleet`.
 4. On the receiving instance, create a service account with a role that holds the **Receive external tags** permission, as described in [Service accounts](../../Administration/Users_and_Access/Service_Accounts.md).
-   On the **User Actions** tab of the account, select **Generate Token**, and copy the token from the **Service Account Token** dialog.
+   On the **User Actions** tab of the account, select **Generate Token**, and copy the token from the **Service account token** dialog.
 5. On the sending instance, add a **Tag Relay Sender** and set **Protocol** to **HTTPS**.
 6. In **Collections**, select the collection from step 1.
 7. Optional: set a **Sender tag path prefix**, for example `Vehicle12`.
    With the receiver prefix from step 3, the tags then appear at `Fleet/Vehicle12/...`.
 8. Enter the receiver's address in **Remote base URL** and the token in **Bearer token**.
-9. If **Auto Connect** is off, select **Start Sender**.
+9. If **Auto connect** is off, select **Start Sender**.
    The sender shows **On**.
 
 Wait for one **Snapshot / change interval (seconds)**, then open Tag Explorer.
@@ -49,7 +49,7 @@ The tags appear under the receiver's prefix.
    With the receiver prefix from step 3, the tags then appear at `Fleet/Vehicle12/...`.
 8. Enter the **MQTT broker URL** and the **MQTT snapshot topic**.
    The snapshot topic must match the receiver's subscribe topic.
-9. If **Auto Connect** is off, select **Start Sender**.
+9. If **Auto connect** is off, select **Start Sender**.
    The sender shows **On**.
 
 Wait for one **Snapshot / change interval (seconds)**, then open Tag Explorer.

@@ -76,7 +76,7 @@ A Custom Component does not need one.
 
 2. On the **Hello** dashboard, select **Change Settings** in the dashboard menu to open the settings.
 3. Select the **Pack files** tab.
-4. Set **Upload DBC File (Optional)** to `hello.dbc`.
+4. Set **Upload DBC file (optional)** to `hello.dbc`.
 5. Select **SAVE**.
 
 The component menu includes **Messages and Signals** and **Edit DBC File**.
@@ -113,11 +113,11 @@ A [main script](Main_Script.md) is a long-running service that publishes tags fo
    The folder exists once the DBC file has been uploaded earlier in this tutorial. If it does not exist, create a folder named `Hello` in the `components` folder first.
 3. Open the settings from the three bar icon.
 4. Select the **Scripts** tab.
-5. Set **Main Script (Optional)** to `scripts/hello.py`.
-6. Turn on **Auto Start Main Script**.
+5. Set **Main script (optional)** to `scripts/hello.py`.
+6. Turn on **Auto start main script**.
 7. Select **SAVE**.
 
-Profinity starts the main script because **Auto Start Main Script** is on.
+Profinity starts the main script because **Auto start main script** is on.
 Select **TAG UTILITIES** in the side menu to open the [Tag Explorer](../../Tags/index.md), expand **Hello**, and find `count`.
 The value increases once a second.
 
@@ -160,7 +160,7 @@ This file binds `count` from the main script and `DBC/Temperature/Value` from th
 
 2. Open the settings from the three bar icon.
 3. Select the **Pack files** tab.
-4. Set **Upload Dashboard (Optional)** to `hello.yaml`.
+4. Set **Upload dashboard (optional)** to `hello.yaml`.
 5. Select **SAVE**.
 
 The **Hello** page shows **COUNT** updating once a second.
@@ -184,7 +184,7 @@ This file adds **Connect / Disconnect** for the main script.
 
 2. Open the settings from the three bar icon.
 3. Select the **Pack files** tab.
-4. Set **Actions YAML file (Optional)** to `actions.yaml`.
+4. Set **Actions YAML file (optional)** to `actions.yaml`.
 5. Select **SAVE**.
 
 The **Hello** menu includes **Connect / Disconnect**.
@@ -245,8 +245,8 @@ A Custom Component does not need them.
 
 6. Open the settings from the three bar icon.
 7. Select the **Pack files** tab.
-8. Set **Firmware Map YAML file (Optional)** to `firmware_map.yaml`.
-9. Set **Firmware Actions YAML file (Optional)** to `firmware.yaml`.
+8. Set **Firmware map YAML file (optional)** to `firmware_map.yaml`.
+9. Set **Firmware actions YAML file (optional)** to `firmware.yaml`.
 10. Select **SAVE**.
 
 The settings show a **Limits** tab with **Output Limit** at 100.

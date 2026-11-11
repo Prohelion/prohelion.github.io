@@ -22,7 +22,7 @@ Use names from your own DBC and profile in other profiles: **Component**, **Mess
 Confirm the names in the DBC viewer in Profinity.
 Refer to [DBC](Script_Operations/DBC.md).
 
-These examples are runnable scripts. Add one to a script component whose **Script Mode** is **Run On Demand**.
+These examples are runnable scripts. Add one to a script component whose **Script mode** is **Run On Demand**.
 
 The first example reads a DBC signal value.
 

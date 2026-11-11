@@ -28,10 +28,10 @@ Refer to [Who can sign in, by installation type](../../Installation/Applying_a_L
 
 | Field | Type | Description | Default |
 |-------|----|-------------|---------|
-| **Profinity Username** | Text | A unique name for the account, up to 256 characters, using only letters, numbers, periods, hyphens, underscores, and `@`. A name with any other character is rejected. | None |
+| **Profinity username** | Text | A unique name for the account, up to 256 characters, using only letters, numbers, periods, hyphens, underscores, and `@`. A name with any other character is rejected. | None |
 | **Password** | Secret | The initial password for local sign-in, which must meet the [Password policy](../System_Configuration/Security/Password_Policy.md). When editing an existing user, leave it blank to keep the current password. | None |
 | **Is the user currently enabled** | On or off | Only enabled users can sign in or use the API. Switching it off blocks a person's access without deleting the account. | On |
-| **Service Account** | On or off | Marks an account that exists for automation and produces a token that never expires, as described in [Service accounts](./Service_Accounts.md). | Off |
+| **Service account** | On or off | Marks an account that exists for automation and produces a token that never expires, as described in [Service accounts](./Service_Accounts.md). | Off |
 | **Require password change on next login** | On or off | Makes the person choose their own password the first time they sign in. | Off |
 | **Assigned roles** | Choice | The roles that decide what the user can do. | None |
 
@@ -111,7 +111,7 @@ The table in [Roles and permissions](./Roles_and_Permissions.md#when-a-person-ca
 
 | What you see | Cause | What to do |
 |---|---|---|
-| "Username may only contain letters, numbers, periods, hyphens, underscores, and @" | The **Profinity Username** contains a character that is not allowed | Change the name so that it uses only the allowed characters, then select **Save**. |
+| "Username may only contain letters, numbers, periods, hyphens, underscores, and @" | The **Profinity username** contains a character that is not allowed | Change the name so that it uses only the allowed characters, then select **Save**. |
 | "User account is disabled. Please contact an administrator." | **Is the user currently enabled** is switched off for the account | Open the user's settings dialog, switch on **Is the user currently enabled**, and select **Save**. |
 | The person sees fewer entries in the side menu than expected | The account lacks a permission that the entry needs | Check the permission in [Roles and permissions](./Roles_and_Permissions.md#when-a-person-cannot-see-something), then add it to a role the user holds. |
 

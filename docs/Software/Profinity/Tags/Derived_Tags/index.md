@@ -33,7 +33,7 @@ Select **DERIVED TAGS** under **TAG UTILITIES** in the side menu.
 The editor opens as a window over the current page.
 It needs the **View tag collections** permission and a loaded profile.
 
-The **Derived tags YAML file (Optional)** setting in the **Tags** category of the profile settings names the file the editor works on.
+The **Derived tags YAML file (optional)** setting in the **Tags** category of the profile settings names the file the editor works on.
 The editor shows derived tags in a tree of groups on its left side.
 Select a group or derived tag to open its settings in the inspector on the right.
 

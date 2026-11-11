@@ -26,7 +26,7 @@ To use InfluxDB Cloud:
 
 1. Sign up for [InfluxDB Cloud](https://cloud2.influxdata.com/) and create an organisation.
 2. Create a bucket for your data.
-3. Generate an API token with read and write access to the bucket. If you turn off **Allow Retrieval**, write access alone is enough.
+3. Generate an API token with read and write access to the bucket. If you turn off **Allow retrieval**, write access alone is enough.
 4. Note the organisation name, bucket name, API token, and the InfluxDB URL shown in your account.
 
 To use a self-hosted InfluxDB on Linux, macOS or Windows:
@@ -42,19 +42,19 @@ To use a self-hosted InfluxDB on Linux, macOS or Windows:
 ## Connect the InfluxDB v2 Historian
 
 1. Add the **InfluxDB v2 Historian** under Historians, as described in [How to add a component to your profile](./Add_Component_to_Profile.md#add-the-component).
-2. Enter the **Influx Server URL**.
+2. Enter the **Influx server URL**.
    For InfluxDB Cloud, use the URL shown in your account, such as `https://us-east-1-1.aws.cloud2.influxdata.com`.
    For a self-hosted server, use `http://<your-server>:8086`.
-3. Enter the **InfluxDB Organisation**, **InfluxDB Bucket**, and **InfluxDB Token**.
-4. For InfluxDB Cloud, set **InfluxDB Health Check** to false, because InfluxDB Cloud does not support the health check endpoint. As of November 2026, the [InfluxDB documentation](https://docs.influxdata.com/influxdb/cloud/reference/cli/influx/ping/) states that its health check does not work with InfluxDB Cloud. For a self-hosted server, leave it on, which is the default.
+3. Enter the **InfluxDB organisation**, **InfluxDB bucket**, and **InfluxDB token**.
+4. For InfluxDB Cloud, set **InfluxDB health check** to false, because InfluxDB Cloud does not support the health check endpoint. As of November 2026, the [InfluxDB documentation](https://docs.influxdata.com/influxdb/cloud/reference/cli/influx/ping/) states that its health check does not work with InfluxDB Cloud. For a self-hosted server, leave it on, which is the default.
 5. In **Collections**, add a row for each tag collection to log and select the collection in that row.
    The historian starts only when at least one collection is configured.
-6. Optional: set the **Update Interval (seconds)** and the **Logging mode**.
+6. Optional: set the **Update interval (seconds)** and the **Logging mode**.
    [Logging modes](../Components/Logging_Modes.md) describes what each mode sends.
 7. Select **ADD COMPONENT** at the bottom of the dialog.
 
 Replace `<your-server>` with the host name or address of your InfluxDB server.
-The historian starts when the profile loads if **Auto Connect** is on, and [Connections and reconnecting](../Components/Connections_and_Reconnecting.md) lists each component's default.
+The historian starts when the profile loads if **Auto connect** is on, and [Connections and reconnecting](../Components/Connections_and_Reconnecting.md) lists each component's default.
 
 ## Check that data is arriving
 
@@ -77,4 +77,4 @@ To send the same collections to another destination, refer to [How to configure 
 
 | What you see | What to do |
 |---|---|
-| The health check failed (InfluxDB Cloud has none; switch Health Check off in the settings). | For InfluxDB Cloud, set **InfluxDB Health Check** to false. |
+| The health check failed (InfluxDB Cloud has none; switch Health Check off in the settings). | For InfluxDB Cloud, set **InfluxDB health check** to false. |

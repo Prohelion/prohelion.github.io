@@ -22,7 +22,7 @@ It differs from a [Custom Component](../Custom_Components/Using_a_Custom_Compone
 
 1. Select **ADD COMPONENT**, then select **Dashboard Component** in the **Dashboards** group.
 2. Keep **Name** at `Dashboard Component`, or enter a name that is unique in the profile. Profinity refuses a name that matches an existing dashboard file, with the message "There is already a component in this profile with that name".
-3. Optional: To start from your own dashboard, select **Upload Dashboard (Optional)** and choose a `.yaml` file. Leave it empty to create a template.
+3. Optional: To start from your own dashboard, select **Upload dashboard (optional)** and choose a `.yaml` file. Leave it empty to create a template.
 4. Select **ADD COMPONENT** at the bottom of the dialog.
 5. If you left the upload empty, the dashboard editor opens on the template. Bind each element to a tag from another component by entering its absolute path, which starts with `/`, in the **Tag path** box (or choose the tag with **Browse tags**), such as `/Prohelion BMU/DBC/PackStateOfCharge/SOCPercent`.
 6. Open the component's dashboard, and check that the bound elements show the values of their tags.
@@ -30,7 +30,7 @@ It differs from a [Custom Component](../Custom_Components/Using_a_Custom_Compone
 ## Add the component {#add-a-dashboard-component}
 
 Add the component from **ADD COMPONENT** (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)), where it is listed under **Dashboards**.
-Its only setting besides the name is **Upload Dashboard (Optional)**, which takes a `.yaml` dashboard file.
+Its only setting besides the name is **Upload dashboard (optional)**, which takes a `.yaml` dashboard file.
 When no file is uploaded, Profinity creates a template dashboard that the dashboard editor opens for editing.
 A component name that matches an existing dashboard file in the profile is rejected with the message "There is already a component in this profile with that name".
 
@@ -50,7 +50,7 @@ Add it under `components:` in the `profile.yaml` file of the profile.
 
 Replace `YOUR_DASHBOARD_NAME` with a name that is unique in the profile.
 When you leave `dashboardFilename` out, Profinity uses the component name followed by `.yaml`.
-The dashboard file sits in the `dashboards` folder of the profile. Upload it with **Upload Dashboard (Optional)**, or let Profinity create the template there.
+The dashboard file sits in the `dashboards` folder of the profile. Upload it with **Upload dashboard (optional)**, or let Profinity create the template there.
 
 ## Building the dashboard
 

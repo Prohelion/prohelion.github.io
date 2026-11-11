@@ -101,16 +101,16 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder that the 2
     A dashboard that opens without the message **This dashboard no longer matches the schema** needs no change.
 
     !!! warning "Reset from Template removes customisations"
-        **Reset from Template** replaces the whole dashboard with the latest template, and every customisation is lost.
+        **Reset from template** replaces the whole dashboard with the latest template, and every customisation is lost.
         To keep a copy first, select **Edit Dashboard** in the dashboard title bar, select **YAML**, then copy all the YAML into a text file and save it.
 
-    b. If the message appears, select **Reset from Template** and confirm.
+    b. If the message appears, select **Reset from template** and confirm.
     The dashboard opens without the message.
     To keep the customisations instead, repair the dashboard as described in [Dashboard does not load](../../Customising_Profinity/Dashboards/Troubleshooting.md#dashboard-does-not-load).
 
     Profinity 2.3 does not accept a bind written in the dotted 2.2 form, such as `Component.Message.Signal`, so change it to a [slash path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
 
-6. If you change the firmware configuration of an M48 Gen2, C48 Gen2, or D1000 Gen2 battery management system (BMS), enter its **Firmware Configuration Key** first, as described in [Unlock administration firmware parameters](../../Components/Battery_Management_Systems/Prohelion_BMU/Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters).
+6. If you change the firmware configuration of an M48 Gen2, C48 Gen2, or D1000 Gen2 battery management system (BMS), enter its **Firmware configuration key** first, as described in [Unlock administration firmware parameters](../../Components/Battery_Management_Systems/Prohelion_BMU/Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters).
     Profinity 2.3 holds the key for a limited session of 30 minutes by default and never saves it in the profile, so enter it in each session in which you change the firmware configuration.
 
 7. In the **Change Settings** dialog of each Building Automation and Control Networks (BACnet) component, set **Device instance** to the instance number of the device at **Remote host**.

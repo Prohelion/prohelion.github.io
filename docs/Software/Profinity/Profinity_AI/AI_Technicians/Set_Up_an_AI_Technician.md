@@ -54,8 +54,8 @@ Each press of Run AI Technician counts towards **Daily limit**, which is in the 
 ## Schedule the review
 
 1. On the **Settings** tab, set **Schedule** to **Run On CRON Schedule**.
-2. Set **Cron Schedule** to a Quartz cron expression, such as `0 0 0 * * ?` for midnight every day.
-   For a repeating gap instead, set **Schedule** to **Run On Time Interval**, set **Time Interval** to a whole number of at least 1, and set **Time Interval Unit** to **Seconds**, **Minutes**, **Hours** or **Days**.
+2. Set **Cron schedule** to a Quartz cron expression, such as `0 0 0 * * ?` for midnight every day.
+   For a repeating gap instead, set **Schedule** to **Run On Time Interval**, set **Time interval** to a whole number of at least 1, and set **Time interval unit** to **Seconds**, **Minutes**, **Hours** or **Days**.
 3. Save, and check that the dashboard **NEXT** shows the next round in UTC.
 
 ## Send the findings on

@@ -24,7 +24,7 @@ Users who sign in through single sign-on (SSO) rely on their identity provider f
 ## Two-factor policy settings
 
 Switching on **Enforce two-factor for local users** requires every local user to enrol an authenticator before signing in.
-It also makes the **Two-Factor Policy** group appear.
+It also makes the **Two-factor policy** group appear.
 The group holds the settings in the following table.
 
 | Setting | Type | Default | Range | Description |

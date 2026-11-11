@@ -61,17 +61,17 @@ The format of each YAML file is in [Custom Component files](../../Developing_wit
 
 | Setting | Tab | Type | Default | Effect |
 |---|---|---|---|---|
-| **Rebase DBC** | **Settings** | On or off | Off | Resets the DBC file to the base address in **Rebase Address**. |
-| **Rebase Address** | **Settings** | Hexadecimal number | `0x0` | The base CAN address of the device, to which Profinity resets the addresses of the DBC file when **Rebase DBC** is on. |
-| **Upload DBC File (Optional)** | **Pack files** | File upload | None | The DBC file that decodes the component's CAN messages. |
-| **Upload Dashboard (Optional)** | **Pack files** | File upload | None | The dashboard YAML file that is the component's page. |
-| **Rules YAML file (Optional)** | **Pack files** | File upload | None | The [tag rules](../../Tags/Rules/index.md) for the component's tags. |
-| **Actions YAML file (Optional)** | **Pack files** | File upload | None | The menu actions the component offers. |
-| **Settings Map YAML file (Optional)** | **Pack files** | File upload | None | Extra settings that the component shows on its **Settings** tab. |
-| **Firmware Map YAML file (Optional)** | **Pack files** | File upload | None | The firmware fields the component shows. |
-| **Firmware Actions YAML file (Optional)** | **Pack files** | File upload | None | The firmware actions the component offers. |
-| **Main Script (Optional)** | **Scripts** | File upload | None | A C#, Python, or Lua script that runs for as long as the component runs, as described in [Main script](../../Developing_with_Profinity/Custom_Components/Main_Script.md). |
-| **Auto Start Main Script** | **Scripts** | On or off | Off | Starts the main script when the Profile loads. When off, start it with **Start Main Service** from the component's menu. |
+| **Rebase DBC** | **Settings** | On or off | Off | Resets the DBC file to the base address in **Rebase address**. |
+| **Rebase address** | **Settings** | Hexadecimal number | `0x0` | The base CAN address of the device, to which Profinity resets the addresses of the DBC file when **Rebase DBC** is on. |
+| **Upload DBC file (optional)** | **Pack files** | File upload | None | The DBC file that decodes the component's CAN messages. |
+| **Upload dashboard (optional)** | **Pack files** | File upload | None | The dashboard YAML file that is the component's page. |
+| **Rules YAML file (optional)** | **Pack files** | File upload | None | The [tag rules](../../Tags/Rules/index.md) for the component's tags. |
+| **Actions YAML file (optional)** | **Pack files** | File upload | None | The menu actions the component offers. |
+| **Settings map YAML file (optional)** | **Pack files** | File upload | None | Extra settings that the component shows on its **Settings** tab. |
+| **Firmware map YAML file (optional)** | **Pack files** | File upload | None | The firmware fields the component shows. |
+| **Firmware actions YAML file (optional)** | **Pack files** | File upload | None | The firmware actions the component offers. |
+| **Main script (optional)** | **Scripts** | File upload | None | A C#, Python, or Lua script that runs for as long as the component runs, as described in [Main script](../../Developing_with_Profinity/Custom_Components/Main_Script.md). |
+| **Auto start main script** | **Scripts** | On or off | Off | Starts the main script when the Profile loads. When off, start it with **Start Main Service** from the component's menu. |
 | **Mode** | **Security** | Choice | `All` | `All` lets everyone see the component, and `Restricted` limits it to **Allowed roles**. The tab is shown to users with the **Security administration** permission. |
 
 A component installed from a pack on another installation shows **Name**, **Tag tree path**, menu placement, and the fields from the pack's settings map, and it hides **Pack files** and **Scripts**, because those files belong to the pack.
@@ -99,14 +99,14 @@ Add it under `components:` in the `profile.yaml` file of the Profile.
     autoStart: true
 ```
 
-Replace `YOUR_COMPONENT_NAME` with a name that is unique in the Profile, and `YOUR_DASHBOARD` and `YOUR_SCRIPT` with the names of the files you uploaded in **Upload Dashboard (Optional)** and **Main Script (Optional)**, which store them in the profile's `dashboards` and `scripts` folders.
+Replace `YOUR_COMPONENT_NAME` with a name that is unique in the Profile, and `YOUR_DASHBOARD` and `YOUR_SCRIPT` with the names of the files you uploaded in **Upload dashboard (optional)** and **Main script (optional)**, which store them in the profile's `dashboards` and `scripts` folders.
 The script file can end in `.cs`, `.py`, or `.lua`.
-`autoStart` is **Auto Start Main Script**.
+`autoStart` is **Auto start main script**.
 
 ## Check the component {#check-the-component}
 
 1. Check that the component is in the side menu and opens its dashboard.
-2. If you set a main script and **Auto Start Main Script** is off, select **Start Main Service** from the component's menu.
+2. If you set a main script and **Auto start main script** is off, select **Start Main Service** from the component's menu.
 3. Check that the tags the script publishes update on the dashboard.
 4. If you attached a DBC file, open **Messages and Signals** and check that the device's messages arrive. To check without the device, supply recorded traffic as described in [How to replay CAN bus logs](../../How_To_Guides/Replay_CAN_Logs.md).
 
@@ -115,6 +115,6 @@ The script file can end in `.cs`, `.py`, or `.lua`.
 | What you see | Cause | What to do |
 |---|---|---|
 | "There is already a component in this profile with that name" | Another component in the Profile has the same name. | Enter a different **Name**. |
-| The script's tags do not update | The main script has not started, because **Auto Start Main Script** is off or the edition has no **Scripting** feature. | Select **Start Main Service** from the component's menu, or turn on **Auto Start Main Script**. If the action is not shown, check the edition in [Licensing](../../Licensing.md). |
-| **Messages and Signals** shows no messages | The device is not sending on a CAN adapter in the Profile, or the DBC addresses differ from the device's addresses. | Check that the CAN adapter is connected. If the device uses other addresses than the DBC file, set **Rebase DBC** and **Rebase Address** on the **Settings** tab. |
+| The script's tags do not update | The main script has not started, because **Auto start main script** is off or the edition has no **Scripting** feature. | Select **Start Main Service** from the component's menu, or turn on **Auto start main script**. If the action is not shown, check the edition in [Licensing](../../Licensing.md). |
+| **Messages and Signals** shows no messages | The device is not sending on a CAN adapter in the Profile, or the DBC addresses differ from the device's addresses. | Check that the CAN adapter is connected. If the device uses other addresses than the DBC file, set **Rebase DBC** and **Rebase address** on the **Settings** tab. |
 | **Pack files** and **Scripts** are missing from the settings | The component was installed from a pack, which owns its files. | Change the files in the pack and install it again, as described in [Pack a Custom Component for other installations](Pack_a_Custom_Component.md). |

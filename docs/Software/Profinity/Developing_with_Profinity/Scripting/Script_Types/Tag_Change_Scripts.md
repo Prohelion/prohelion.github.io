@@ -11,19 +11,19 @@ last_reviewed: 2026-10-14
 A Tag Change script runs each time the value of a watched tag changes.
 It suits reacting to another component's output, computing values that need more than a single expression, and chaining automation, without polling the tag on a timer.
 
-A script becomes a Tag Change script by setting its **Script Mode** to **Run On Tag Change**.
+A script becomes a Tag Change script by setting its **Script mode** to **Run On Tag Change**.
 It implements the `OnTagChange` method (C#) or the `on_tag_change` function (Python and Lua), which receives the tag's id and a sample holding the new value, quality, and timestamp.
 The script can read and write other tags with [Tags](../Script_Operations/Tags.md) and keep earlier values between calls with [State](../Script_Operations/State.md).
 
 ## Settings {#choosing-what-to-watch}
 
 Scripting must be enabled in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first, as every script type requires it.
-A Tag Change script is a **CSharp Script**, **Python Script** or **Lua Script** component with **Script Mode** set to **Run On Tag Change**.
-Its tags to watch are set in the **Tag Change Settings** category:
+A Tag Change script is a **CSharp Script**, **Python Script** or **Lua Script** component with **Script mode** set to **Run On Tag Change**.
+Its tags to watch are set in the **Tag change settings** category:
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| **Tag Paths** | List of full tag paths | Empty | Explicit full tag paths to watch. |
+| **Tag paths** | List of full tag paths | Empty | Explicit full tag paths to watch. |
 | **Collections** | List of tag collections | Empty | Tag [Collections](../../../Tags/Collections/index.md) to watch. Members are resolved from the profile collections file, `collections.yaml`. Refer to [Collections](../../../Tags/Collections/index.md). |
 
 The script watches the union of the two lists, and at least one tag path or collection is required.
@@ -74,7 +74,7 @@ Profinity calls the method once for each tag that changes, passing:
     end
     ```
 
-With **Log Script Output** on, each call writes a line to the Profinity log at the Info level. The line starts with `CSharp Tag Change :`, `Python Tag Change :` or `Lua Tag Change :`, followed by the tag ID, the new value and the previous value. Refer to [Console](../Script_Operations/Console.md).
+With **Log script output** on, each call writes a line to the Profinity log at the Info level. The line starts with `CSharp Tag Change :`, `Python Tag Change :` or `Lua Tag Change :`, followed by the tag ID, the new value and the previous value. Refer to [Console](../Script_Operations/Console.md).
 
 Profinity offers the matching template when you create a script of that type. To use an example, open the script in the **Edit Script** window and paste the example in place of the template.
 
@@ -152,8 +152,8 @@ Refer to [Derived tags](../../../Tags/Derived_Tags/index.md) for when to choose 
     ```
 
 The example needs the tags `SpeedMph` and `SpeedKmh` on the component that hosts the script.
-Then add the full path of `SpeedMph` to **Tag Paths**, from the tag tree root, starting with the component name, for example `/<COMPONENT>/SpeedMph`. The leading `/` is optional.
-Enter the path in the **Tag Path** field of the entry.
+Then add the full path of `SpeedMph` to **Tag paths**, from the tag tree root, starting with the component name, for example `/<COMPONENT>/SpeedMph`. The leading `/` is optional.
+Enter the path in the **Tag path** field of the entry.
 The script then runs each time `SpeedMph` changes. Refer to [How to write your first script](../../../How_To_Guides/Write_Your_First_Script.md) for the steps to build the example.
 
 Paths inside the script that start with a name are relative to the script's host component, so this script is meant to run on the component that owns both tags.
@@ -173,12 +173,12 @@ Only a change in value calls it. Writing the same value again, or a change of qu
 
 ### Trigger overlap
 
-If the method is still running when another change arrives, **Trigger Overlap** decides what happens, as described under [Script settings](./index.md#script-settings).
+If the method is still running when another change arrives, **Trigger overlap** decides what happens, as described under [Script settings](./index.md#script-settings).
 
 Keep the method fast.
 A slow script under **Queue** builds a backlog, and under **Drop** silently misses changes.
 Store previous values in [State](../Script_Operations/State.md) rather than recomputing them.
 
-To limit how long each run takes, set **Maximum Run Time (seconds)**. The limit sets `Profinity.ScriptCancelled` to true, and the handler stops early only when the script checks that flag.
+To limit how long each run takes, set **Maximum run time (seconds)**. The limit sets `Profinity.ScriptCancelled` to true, and the handler stops early only when the script checks that flag.
 
 For the other script modes, refer to [Script types](./index.md), and for a worked first script, refer to [How to write your first script](../../../How_To_Guides/Write_Your_First_Script.md).

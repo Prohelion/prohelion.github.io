@@ -130,7 +130,7 @@ A threshold rule still needs a rule-level `expression`, and `tag.HasValue` is th
 It takes its level from each step, so it must not set a rule-level `level`, `actions`, or `clearActions`.
 When one evaluation crosses more than one step, those steps' actions run in order.
 
-A script named by the actions needs **Trigger Overlap** set to **Queue**, or the action for the step the value lands on is discarded.
+A script named by the actions needs **Trigger overlap** set to **Queue**, or the action for the step the value lands on is discarded.
 Refer to [Trigger overlap](../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md#trigger-overlap).
 
 The `cell_over_voltage` rule is a boolean rule.
