@@ -13,7 +13,6 @@ Read them with [Upgrade from Profinity 2.2](../Installation/Upgrading/Upgrade_Fr
 The [Profinity 2.3 release notes](2.3.1.md) describe the new features and known issues.
 
 Each section says who is affected, what changed, and what to do.
-The sections start with the changes that affect every installation and end with the changes that affect plugin authors.
 
 ## Invalid settings files stop Profinity
 
@@ -50,7 +49,7 @@ Profinity 2.3 ignores these keys, which 2.2 wrote to `config.yaml` and 2.3 no lo
 Any other key that 2.3 does not define stops Profinity.
 
 Profinity checks both files when it starts, and writes nothing if a file is invalid.
-If Profinity stops at startup, correct the file that the message names, or restore its safety copy `<file>.bak`.
+If Profinity stops at startup, correct the file that the message names, or restore its safety copy by copying `<file>.bak` over the file, as described in [When a configuration file is invalid](../Administration/System_Configuration/Invalid_Configuration_Files.md).
 
 !!! warning "Deleting security.yaml resets its users, roles, and two-factor secrets"
     Copy the file to a safe place before you delete it.
@@ -157,7 +156,6 @@ Installations with a profile file under another name, a profile stored as a sing
 Profinity 2.3 reads a profile only from `profile.yaml` in the profile's folder.
 Profinity 2.2 also accepted other profile file names, and at startup it turned a single profile file in the `profiles` folder into a profile folder.
 Profinity 2.3 does neither.
-It renames a `Profile.yaml` file to `profile.yaml` itself.
 
 A key that Profinity does not define at the top level of a profile, such as a misspelt setting name, now stops the profile loading.
 In 2.2, Profinity ignored the key.
@@ -197,7 +195,7 @@ Dashboards and API integrations that use `store`, `timeRangeStart`, or `timeRang
 
 Profinity 2.3 removes the `store` setting from dashboard bindings and from the `TagQuerySet` API.
 It renames `timeRangeStart` and `timeRangeStop` to `start` and `stop`.
-Profinity reads recent data from memory and older data from the designated historian, so a binding no longer names a store.
+A binding no longer names a store, because Profinity reads recent data from memory and older data from the [designated historian](../Components/Historians/Designated_Historian.md).
 
 A dashboard that still uses `store`, `timeRangeStart`, or `timeRangeStop` is refused.
 The message names the setting and says to use `start` and `stop`.
@@ -275,7 +273,7 @@ Choose the sign-in method as described in [SSO and sign-in method](../Administra
 
 ## REST API errors
 
-Integrations that call the `/api/v2` REST API are affected.
+Integrations that call the `/api/v2` Representational State Transfer (REST) API are affected.
 
 Every `/api/v2` endpoint reports failure with the HTTP status code and an `application/problem+json` body, as defined in Request for Comments (RFC) 7807.
 The `200 OK` response with `{"success": false}` is gone.
@@ -319,7 +317,12 @@ If a profile turned **Auto Start** off for a component, turn **Auto Connect** of
 Components that connect to a broker, device, server, or database are affected, and so is anything that relied on a failed start to detect a missing device.
 
 A component that connects to another system now starts when that system is unavailable.
-It shows **Error**, and retries every five seconds, every second for the Tag Relay sender, or at its own reconnect setting.
+It shows **Error** and tries again at an interval that depends on the component:
+
+- The Tag Relay sender tries every second.
+- A component with its own reconnect setting, such as **Reconnect delay (ms)** on the industrial protocol components, uses that setting.
+- Every other component tries every five seconds.
+
 A component that showed **Off** after a failed start now shows **Error**.
 The MQTT and Tag Relay subscribers retry at a steady interval, in place of backing off to 60 seconds.
 
@@ -334,7 +337,7 @@ Refer to [Connections and reconnecting](../Components/Connections_and_Reconnecti
 
 Users of Gen2 battery management systems (BMS) are affected.
 
-Profinity holds the firmware configuration key and setup passcodes of a Gen2 BMS only for the current sign-in session, and keeps them out of the profile.
+Profinity holds the firmware configuration key and setup passcodes of a Gen2 BMS only for the current sign-in session, and keeps them out of the profile, so enter the key again after each sign-in when you need the Admin parameters.
 
 Refer to [Unlock administration firmware parameters](../Components/Battery_Management_Systems/Prohelion_BMU/Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters).
 

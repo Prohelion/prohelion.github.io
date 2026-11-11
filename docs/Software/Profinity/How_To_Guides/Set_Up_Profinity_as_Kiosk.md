@@ -3,126 +3,112 @@ title: How to set up Profinity as a kiosk application
 description: "Configure Kiosk Mode in Profinity and start a fullscreen browser on Windows, Linux, or macOS so a display shows a profile without a login page."
 type: task
 owner: Documentation
-last_reviewed: 2026-11-09
+last_reviewed: 2026-11-11
 ---
 
 # How to set up Profinity as a kiosk application
 
-Configure Profinity to run as a kiosk application that launches in fullscreen mode when the display starts.
-Two parts are involved:
+Set up a display that opens Profinity full screen when the computer starts and signs in on its own, with no login page.
+You turn on Kiosk Mode for a profile, which signs the display in as a chosen user, and then set the computer to open a browser full screen on Profinity.
+[Kiosk Mode](../Administration/Kiosk_Mode.md) describes how to choose the kiosk user and keep its session working.
 
-- Kiosk Mode in Profinity, which signs the display in automatically as a chosen user.
-- The browser and operating system setup, which opens Profinity fullscreen.
+You need:
 
-[Kiosk Mode](../Administration/Kiosk_Mode.md) is the full reference, including how to choose the kiosk user and manage its token.
+- Profinity running as a service or in Docker, so that it starts on its own when the computer starts, as described in [Run Profinity as a service](../Installation/Run_as_a_Service/index.md).
+- Administrator access to the computer that drives the display.
+- Google Chrome on Windows or macOS, or Chromium on Linux.
+- The [profile](../Getting_Started/Profiles.md) to display, and the **Modify profiles** permission.
+- An enabled [user account](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, with only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs. Creating user accounts needs the **Profinity Server** licensed feature, as described in [Licensing](../Licensing.md). For a Windows desktop installation without it, refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user).
 
-Before you start, you need:
+## Turn on Kiosk Mode
 
-- Profinity 2.3 installed as a service or in Docker with automatic start enabled, and running. The browser fails to connect if Profinity is not already running (refer to [Run Profinity as a service](../Installation/Run_as_a_Service/index.md)).
-- Administrator access to the system.
-- A [profile](../Getting_Started/Profiles.md) configured and ready to display, and the **Modify profiles** permission to change its settings. [Profiles](../Administration/Profiles.md) describes the profile settings, including Kiosk Mode.
-- An enabled [user](../Administration/Users_and_Access/Manage_Users.md) to act as the kiosk user, holding only the [permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) the display needs (refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user)).
-- A licence that includes the **Profinity Server** licensed feature, to create that user, and to keep the display working on a server installation, where restricted mode shows other users only the licence message. Kiosk Mode is available in every edition, but the kiosk user must be a user account, and **Users & Groups** creates user accounts only with that feature. For a Windows desktop installation without a Server licence, refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user). [Licensing](../Licensing.md) lists the features of each edition.
+Kiosk Mode is set for each profile and applies only to the active profile.
 
-## Configure Kiosk Mode in Profinity
+1. Select **ADMIN** in the side menu, then open the **Profile** pill.
+2. Select the name of the profile to display. **Profile Settings** opens.
+3. Select the **Home** tab, then turn on **Kiosk Mode**.
+4. In **Kiosk Mode User**, choose the kiosk user. Anyone at the display acts as this user.
+5. Select **Save**.
+6. If the profile is not already active, select **ACTIVATE** on its row in the profile list.
 
-Kiosk Mode is configured per profile.
-It authenticates the browser automatically as the configured kiosk user, so no login page is shown.
+The profile's row carries the **ACTIVE** marker.
+Profinity refuses the save when **Kiosk Mode User** is empty or names a user that is disabled.
 
-1. Select **ADMIN** in the side menu, then **Profile**.
-2. Select or create the profile to display, and open its profile settings.
-3. Open the **Home** tab and enable **Kiosk Mode**.
-4. Select a **Kiosk Mode User** from the dropdown.
-   The list shows all enabled users, and anyone at the display acts as the user you choose, so choose a dedicated user with minimal permissions.
-5. Save the profile settings.
-6. Make this profile the active profile, because Kiosk Mode applies only to the active profile.
+## Open the browser full screen at startup
 
-## Configure the browser for fullscreen display
+The browser's `--kiosk` switch fills the screen.
+Each operating system tab starts the browser at `http://localhost:18080`, the default Profinity address, which opens the home dashboard of the active profile.
+Profinity has to be running before the browser opens it, so each method starts the browser after the user signs in to the computer, by which time the Profinity service has started.
 
-!!! warning "Start Profinity before the browser"
-    The browser fails to connect if Profinity is not already running.
-    Profinity must start automatically as a service or in Docker, and the browser must start after it, with time for Profinity to finish starting.
+=== "Windows"
 
-The browser's own `--kiosk` switch provides the fullscreen display, and Profinity does not read query parameters that request fullscreen.
-The steps for each operating system use `http://localhost:18080`, the default Profinity web address. The Linux steps use Chromium (`chromium-browser`). The Windows and macOS steps use Google Chrome.
+    1. Create a desktop shortcut for Google Chrome.
+    2. Right-click the shortcut, then select **Properties**.
+    3. In **Target**, add `--kiosk http://localhost:18080` after the program path:
 
-### Windows
+        ```text
+        "C:\Program Files\Google\Chrome\Application\chrome.exe" --kiosk http://localhost:18080
+        ```
 
-The example assumes that Google Chrome is installed.
+    4. Select **OK**.
+    5. Press `Win + R`, type `shell:startup`, and press `Enter`. The startup folder opens.
+    6. Copy the shortcut into the startup folder.
 
-1. Create a desktop shortcut for the browser.
-2. Right-click the shortcut, and select **Properties**.
-3. In **Target**, add `--kiosk http://localhost:18080`, for example:
+=== "Linux"
 
-    ```text
-    "C:\Program Files\Google\Chrome\Application\chrome.exe" --kiosk http://localhost:18080
-    ```
+    These steps use the desktop's autostart folder, which GNOME, KDE Plasma, Xfce, and other desktops that follow the freedesktop.org autostart standard read when the user signs in.
 
-4. Press `Win + R`, and type `shell:startup`.
-   The startup folder opens.
-5. Copy the shortcut to the startup folder.
+    1. Sign in to the computer as the user that the display runs under.
+    2. Create the file `~/.config/autostart/profinity-kiosk.desktop` with this content:
 
-### Linux
+        ```ini
+        [Desktop Entry]
+        Type=Application
+        Name=Profinity kiosk
+        Exec=chromium --kiosk --noerrdialogs http://localhost:18080
+        X-GNOME-Autostart-enabled=true
+        ```
 
-1. Create a systemd service with `sudo nano /etc/systemd/system/profinity-kiosk.service`, and add this unit:
+    3. Check the browser command on your distribution with `which chromium chromium-browser`, and change `chromium` in the `Exec` line to the name it prints.
+    4. Set the computer to sign that user in automatically, in the desktop's user settings.
 
-    ```ini
-    [Unit]
-    Description=Profinity Kiosk Mode
-    After=graphical.target
+=== "macOS"
 
-    [Service]
-    Type=simple
-    User=your-username
-    ExecStart=/usr/bin/chromium-browser --kiosk --noerrdialogs http://localhost:18080
-    Restart=always
+    1. Open Automator and create a new **Application**.
+    2. Add a **Run Shell Script** action with this script:
 
-    [Install]
-    WantedBy=graphical.target
-    ```
+        ```bash
+        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk http://localhost:18080
+        ```
 
-2. Enable the service with `sudo systemctl enable profinity-kiosk.service`.
-3. Start the service with `sudo systemctl start profinity-kiosk.service`.
-4. Restart the computer and check that the browser opens on the display. The unit is an example, so change `User` and the browser path to suit your system.
+    3. Save the application.
+    4. Open **System Settings**, select **General**, then **Login Items & Extensions**. Older versions of macOS name the section **Login Items**.
+    5. Select the add button under the list of items, choose the application, and select **Add**.
 
-### macOS
+    As of November 2026, Apple describes these settings in [Open items automatically when you log in on Mac](https://support.apple.com/guide/mac-help/open-items-automatically-when-you-log-in-mh15189/mac).
 
-1. Open Automator and create a new Application.
-2. Add a **Run Shell Script** action and enter the script `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk http://localhost:18080`.
-3. Save it as an application.
-4. Open **System Settings** (**System Preferences** on older versions of macOS).
-5. Select **Users & Groups**, then **Login Items**.
-6. Add the kiosk application.
+To hide the side menu so that only the dashboard shows, add `?noMenu=true` to the address, so that it reads `http://localhost:18080/?noMenu=true`.
+On an address that already has a query string, add `&noMenu=true` instead.
+Profinity always shows the active profile, whatever the address.
 
-## Hide the side menu
+## Check the display
 
-Profinity pages that a dashboard renders accept the `noMenu=true` query parameter, which hides the side menu so that only the dashboard is shown.
-Append it to the address of the dashboard page that the browser opens.
-Add `?noMenu=true` after the page path, or `&noMenu=true` where the address already has a query string.
-Profinity does not read query parameters that select a profile, so it always shows the active profile.
+1. Restart the computer.
+2. Check that the browser opens full screen.
+3. Check that the dashboard of the kiosk profile appears without a login page.
+
+A kiosk session ends under the normal token expiry, after 120 minutes by default.
+For a display that runs unattended for longer, refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user).
 
 ## Lock down the display
 
-The browser's `--kiosk` switch fills the screen but does not disable operating system shortcuts such as Alt+F4 or Ctrl+Alt+Del.
-Lock the system down with the operating system's own facilities, for example Windows Group Policy.
-Hide the taskbar and system tray, and configure the system to restart the browser when it exits.
-The Linux unit in this guide does this with `Restart=always`.
-
-A kiosk session expires under the normal token expiry policy, which lasts 120 minutes by default, and [Kiosk Mode](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) describes how a display that runs unattended for months avoids this.
-
-## Test Kiosk Mode
-
-1. Restart the system.
-2. Confirm that Profinity starts automatically.
-3. Confirm that the browser opens fullscreen and loads the correct profile.
-4. Confirm that the browser signs in automatically and skips the login page.
+The `--kiosk` switch fills the screen, and operating system shortcuts such as `Alt+F4` and `Ctrl+Alt+Del` still work.
+Lock the computer down with the operating system's own tools, such as Group Policy on Windows, and hide the taskbar and system tray.
 
 ## Troubleshooting
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The browser does not open after a restart. | The browser usually starts before Profinity or before the display is ready. | Check the startup order and service dependencies so that the browser starts after Profinity. To run Profinity as a service, refer to [Run Profinity as a service](../Installation/Run_as_a_Service/index.md). |
-| The login page is shown, or the display shows the wrong profile. | The profile is not the active profile, Kiosk Mode is off on it, or no valid, enabled user is selected as the Kiosk Mode User. Kiosk Mode signs in only the active profile. | Refer to [Kiosk Mode](../Administration/Kiosk_Mode.md#troubleshooting). |
-| The display is blank, cropped, or slow. | The display resolution settings, or a dashboard that is too complex for the machine, usually cause this. | Check the display configuration and resolution settings. Monitor system resources, and simplify the dashboard. |
-
-To choose the kiosk user and manage its token, refer to [Kiosk Mode](../Administration/Kiosk_Mode.md).
+| The browser shows that it cannot connect after a restart | The browser opened before Profinity finished starting. | Select reload in the browser. If it happens at every restart, check that Profinity runs as a service, as described in [Run Profinity as a service](../Installation/Run_as_a_Service/index.md). |
+| The login page appears, or the display shows the wrong profile | The kiosk profile is not active, Kiosk Mode is off for it, or the **Kiosk Mode User** is disabled. | Activate the profile, and check its **Home** tab, as in [Turn on Kiosk Mode](#turn-on-kiosk-mode). Refer to [Kiosk Mode troubleshooting](../Administration/Kiosk_Mode.md#troubleshooting). |
+| The login page appears after the display has run for some hours | The kiosk session reached its token expiry. | Refer to [Choosing the kiosk user](../Administration/Kiosk_Mode.md#choosing-the-kiosk-user) for a session that does not expire. |

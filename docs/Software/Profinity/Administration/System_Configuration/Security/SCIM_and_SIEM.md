@@ -15,32 +15,50 @@ Saving the tab restarts Profinity and interrupts active sessions.
 
 ## SCIM provisioning
 
-!!! info "Licence required"
-    SCIM provisioning requires the **Enterprise Security** licensed feature, included in the **Enterprise** edition only.
-    **Enable SCIM user provisioning** takes effect only with the **Enterprise Security** licensed feature.
-    Refer to [Licensing](../../../Licensing.md) for what each edition includes.
+SCIM provisioning needs the **Enterprise Security** licensed feature, which only the Enterprise edition includes, as described in [Licensing](../../../Licensing.md).
+The **SCIM Provisioning** group appears while **Sign-in method** is **Sso**, because provisioned users sign in through the single sign-on (SSO) identity provider set up in [SSO and sign-in method](./SSO_and_Sign_In.md).
 
-The **SCIM Provisioning** group appears only when **Sign-in method** is **Sso**, because provisioned users sign in through the identity provider configured in [SSO and sign-in method](./SSO_and_Sign_In.md).
+To turn on provisioning:
 
-To enable provisioning:
-
-1. Switch on **Enable SCIM user provisioning**.
-2. Enter a long, random value of your choice in **SCIM bearer token**. Profinity does not generate it and sets no length or format rule. The field is required when **Enable SCIM user provisioning** is on.
+1. Turn on **Enable SCIM user provisioning**.
+2. In **SCIM bearer token**, enter a long, random value of your choice. Profinity accepts any length and format, and the field is required while provisioning is on.
 3. Optional: enter **Default assigned roles**.
-4. Save the tab.
+4. Select **SAVE**. Profinity restarts.
+5. Enter the same token in the identity provider's SCIM settings, with the address in [Endpoint and supported operations](#endpoint-and-supported-operations).
 
-To check the connection, send a `GET` request to `/scim/v2/ServiceProviderConfig` with the SCIM bearer token. A valid token returns `200` with the service provider settings as `application/scim+json`. An invalid token returns 401, and 404 means SCIM provisioning is off or the **Enterprise Security** feature is not licensed.
+To check the connection, run this command, replacing `<your-host>` with the Profinity address and `<token>` with the token:
 
-Profinity refuses to save in two cases:
+```bash
+curl -H "Authorization: Bearer <token>" https://<your-host>/scim/v2/ServiceProviderConfig
+```
 
-- The token is empty. It shows "SCIM bearer token is required when SCIM provisioning is enabled."
-- The single sign-on (SSO) group has no **Authority URL (IdP issuer)**. It shows "SSO must be configured when SCIM provisioning is enabled."
+A valid token returns status `200` and the service provider settings as `application/scim+json`.
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
 | **Enable SCIM user provisioning** | On or off | Off | Allows the identity provider to create and deactivate users through the SCIM 2.0 interface. |
-| **SCIM bearer token** | Secret | None | The long-lived secret the identity provider presents as `Authorization: Bearer`. Treat it like a password. To replace it, enter a new value here and save, then enter the same value in the identity provider. Requests with the old value return `401` from the moment you save, so make both changes in one sitting. To go back, enter the old value here again, so keep a copy of it until the new one works. |
+| **SCIM bearer token** | Secret | None | The long-lived secret that the identity provider sends as `Authorization: Bearer`. Treat it like a password. To change it, follow [Replace the SCIM bearer token](#replace-the-scim-bearer-token). |
 | **Default assigned roles** | Text | Empty | A comma-separated list of Profinity roles given to every user that SCIM creates. Names that match an existing role are assigned, and any other name is ignored. An empty list creates users with no role. |
+
+### Replace the SCIM bearer token
+
+Requests with the old token return `401` from the moment you save the new one, so make both changes in one sitting.
+
+1. Keep a copy of the current token in a password manager, so that you can go back to it.
+2. Enter the new value in **SCIM bearer token**, then select **SAVE**.
+3. Enter the same value in the identity provider's SCIM settings.
+4. Check the connection with the command in [SCIM provisioning](#scim-provisioning).
+
+To go back, enter the old token in **SCIM bearer token** and select **SAVE**.
+
+### Troubleshooting SCIM
+
+| What you see | Cause | What to do |
+|---|---|---|
+| "SCIM bearer token is required when SCIM provisioning is enabled." when you save | **SCIM bearer token** is empty. | Enter a token. |
+| "SSO must be configured when SCIM provisioning is enabled." when you save | The **SSO** group has no **Authority URL (IdP issuer)**. | Set up SSO first, as described in [Configuring the identity provider](./SSO_and_Sign_In.md#configuring-the-identity-provider). |
+| The check returns `401` | The token in the request differs from **SCIM bearer token**. | Send the token exactly as entered, or enter a new one in both places. |
+| The check returns `404` | **Enable SCIM user provisioning** is off, or the licence has no **Enterprise Security** feature. | Turn on **Enable SCIM user provisioning**, and check the edition in [Licensing](../../../Licensing.md). |
 
 ### Endpoint and supported operations
 
@@ -61,9 +79,8 @@ Profinity supports three operations:
 It publishes its capabilities at `/scim/v2/ServiceProviderConfig`.
 Deprovisioning deactivates the user in Profinity (the identity provider sends `active: false`) and does not delete the account.
 
-Profinity does not support replacing a user with `PUT`, deleting a user, or SCIM groups.
-Group membership in the identity provider therefore does not create or change Profinity roles.
-The **Default assigned roles** setting is the only role assignment SCIM provides.
+Replacing a user with `PUT`, deleting a user, and SCIM groups are not supported, so group membership in the identity provider leaves Profinity roles unchanged.
+**Default assigned roles** is the only role assignment that SCIM makes.
 Attribute mapping is configured in the identity provider, so follow its SCIM setup guide.
 
 Choose **Default assigned roles** with care, because every provisioned user receives them.
@@ -82,7 +99,7 @@ The other settings appear only after you switch on **Enable SIEM export**.
 | **SIEM port** | Whole number | 0 | The collector port, from 0 to 65535. Enter the port the collector listens on, because Profinity sends to port 0 when export is on and you leave the default. |
 | **Protocol** | Choice | UDP | The transport used to send events, either `UDP` (User Datagram Protocol) or `TCP` (Transmission Control Protocol). |
 | **Minimum log level** | Choice | Info | Only audit events at this level or higher are exported. The options are `Trace`, `Debug`, `Info`, `Warn`, `Error` and `Fatal`. |
-| **Format** | Choice | Syslog | The message format. Syslog is the only option, and each event is the plain text line described in [Event format](#event-format), not an RFC syslog message. |
+| **Format** | Choice | Syslog | The message format. Syslog is the only option, and each event is the plain text line described in [Event format](#event-format), not a Request for Comments (RFC) syslog message. |
 
 Profinity sends each event as the plain text line described in [Event format](#event-format), without a syslog priority or header.
 Set the collector to accept a plain line over UDP or TCP.
@@ -104,9 +121,19 @@ For example, a failed local sign-in looks like this:
 SECURITY|LoginFailure|username=admin|ip=192.168.1.10|authMode=Local|reason=BadPassword
 ```
 
-The event names are `LoginSuccess`, `LoginFailure`, `TokenRefresh`, `TokenRejected`, `UserCreated`, `UserUpdated`, `UserDeleted`, `PasswordChanged`, `GroupCreated`, `GroupUpdated`, `GroupDeleted`, `TwoFactorEnabled`, `TwoFactorDisabled`, `TwoFactorVerified`, `TwoFactorFailed`, `ExternalLoginSuccess`, `ExternalLoginFailure`, `SessionRevoked`, `SessionRevokeAll`, `ScimUserProvisioned`, `ScimUserDeactivated`, `LicenseApplied`, `TwoFactorResetByAdmin`, `ServiceAccountTokenViewed`, `RecoveryCodesPendingGenerated`, `RecoveryCodesPendingConfirmed`, `RecoveryCodesPendingDiscarded`, `PasswordResetRequestedByAdmin`, `MigrationCompleted`, `TwoFactorEnforcementCarriedForward`, `LicenseRejected`, `LicenseExpired`, `LicenseModifiedExternally`, `LicenseClockRollbackDetected`, `LicenseInstanceIdRegenerated`, `FirmwareManifestChecked`, `FirmwareImageDownloaded`, `FirmwareUpgradeStarted`, `FirmwareUpgradeCompleted` and `FirmwareUpgradeFailed`.
+The event names are:
+
+| Area | Events |
+|---|---|
+| Sign-in and sessions | `LoginSuccess`, `LoginFailure`, `ExternalLoginSuccess`, `ExternalLoginFailure`, `TokenRefresh`, `TokenRejected`, `SessionRevoked`, `SessionRevokeAll` |
+| Users and roles | `UserCreated`, `UserUpdated`, `UserDeleted`, `PasswordChanged`, `PasswordResetRequestedByAdmin`, `GroupCreated`, `GroupUpdated`, `GroupDeleted`, `ServiceAccountTokenViewed` |
+| Two-factor authentication | `TwoFactorEnabled`, `TwoFactorDisabled`, `TwoFactorVerified`, `TwoFactorFailed`, `TwoFactorResetByAdmin`, `TwoFactorEnforcementCarriedForward`, `RecoveryCodesPendingGenerated`, `RecoveryCodesPendingConfirmed`, `RecoveryCodesPendingDiscarded` |
+| SCIM | `ScimUserProvisioned`, `ScimUserDeactivated` |
+| Licence | `LicenseApplied`, `LicenseRejected`, `LicenseExpired`, `LicenseModifiedExternally`, `LicenseClockRollbackDetected`, `LicenseInstanceIdRegenerated` |
+| Firmware | `FirmwareManifestChecked`, `FirmwareImageDownloaded`, `FirmwareUpgradeStarted`, `FirmwareUpgradeCompleted`, `FirmwareUpgradeFailed` |
+| Upgrade | `MigrationCompleted` |
 
 ## Securing the integration
 
 The SCIM bearer token is stored encrypted in `config.yaml`, in the `config` folder of the [Artefacts directory](../../../Installation/Artifacts_Directory.md). Restrict access to that file, to its `config.yaml.bak` copy, and to any backup of the folder.
-Serve Profinity over HTTPS, as described in [Profinity Web](../Profinity_Web.md), so that sign-in and provisioning traffic is not exposed on the network.
+Serve Profinity over HTTPS, as described in [Profinity Web](../Profinity_Web.md), so that sign-in and provisioning traffic is encrypted on the network.

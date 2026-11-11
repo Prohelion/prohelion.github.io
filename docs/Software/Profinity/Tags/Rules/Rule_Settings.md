@@ -3,84 +3,82 @@ title: Rule settings
 description: Look up evaluation settings for a tag rule, including on update and related tags, how it publishes its state, and the permissions it needs.
 type: reference
 owner: Documentation
-last_reviewed: 2026-11-10
+last_reviewed: 2026-11-11
 ---
 
 # Rule settings
 
-This page lists the settings that control how a [tag rule](index.md) is evaluated and published, and the permissions that control who can view and edit rules.
-Every setting except `dwellMinutes` is available in the rules visual editor.
-Set `dwellMinutes` in `rules.yaml` only.
+The settings on this page control when a [tag rule](index.md) trips and clears, how it publishes its state, and who can view and edit rules.
+Each setting is in the rules visual editor and in the `rules.yaml` file, except `dwellMinutes`, which is in `rules.yaml` only.
 [Complete rules.yaml example](Rules_YAML_Example.md) shows most of them in one file.
 
-## Settings in the rules editor
+## Settings
 
-The editor exposes these settings for evaluation:
-
-- **Rule level** and **Rule type** for each rule.
-- **Dwell seconds**, **Throttle minutes**, **On update**, **Related tags**, and the **More information links** for each rule.
-- **When the tag is unreadable** for each rule.
-- **Clear value (deadband)** and **Clear expression (deadband)** for each threshold step, and **Clear expression (deadband)** for a boolean rule.
-- **Evaluation tick (seconds)** on the rule source of a profile or component.
-- **Publish state tag path** in the **Rule State** group of each rule.
-
-Dwell, throttle and the evaluation tick are off unless you set them. A rule's level is Info unless you set it.
+| Setting in the editor | YAML key | Type | Default | Effect |
+|---|---|---|---|---|
+| **Rule type** | `type` | Choice | `boolean`, or `threshold` when the rule has threshold steps | A boolean rule trips on one expression, and a threshold rule moves between steps. |
+| **Rule level** | `level` | Choice | Info | The alert level of a boolean rule. |
+| **Dwell seconds** | `dwellSeconds` | Whole number | None | How long the condition must hold before the rule trips. Refer to [Dwell and deadband](#dwell-and-deadband). |
+| None | `dwellMinutes` | Whole number | None | The dwell in minutes, in place of `dwellSeconds`. |
+| **Throttle minutes** | `throttleMinutes` | Whole number | None | The minutes before the rule's actions can run again for the same tag. Refer to [Throttle and more information links](#throttle-and-more-information-links). |
+| **On update** | `onUpdate` | On or off | Off | Runs the true actions again when the value changes while the rule stays tripped. Refer to [On update](#on-update). |
+| **Related tags** | `relatedTags` | Alias and tag path pairs | None | Other tags that the expression and the action message can read. Refer to [Related tags](#related-tags). |
+| **More information links** | `moreInformation` | Description and `https://` address pairs | None | Links shown with the alert in the Alerts Log. |
+| **When the tag is unreadable** | `onUnreadable` | Choice: `hold` or `evaluate` | `hold` | Whether the rule keeps its state or runs while its tag has no value. Refer to [Unreadable tags](#unreadable-tags). |
+| **Clear value (deadband)**, **Clear expression (deadband)** | `clearValue`, `clearExpression` | Number, expression | None | Where a threshold step or a boolean rule clears, when that differs from where it tripped. |
+| **Publish state tag path** | `publishStateTagPath` | Tag path | None | A tag that mirrors the rule's state. Refer to [Rule state publishing](#rule-state-publishing). |
+| **Evaluation tick (seconds)** | `evaluationTickSeconds` | Whole number, 1 to 3600 | None | An extra evaluation pass at this interval, set on the rule source of a profile or component. Refer to [Evaluation tick](#evaluation-tick). |
 
 ## Dwell and deadband
 
-Rules support two settings that stop an alert flickering on and off:
+Dwell and deadband stop an alert flickering on and off.
 
-- *Dwell*: the condition must hold for a set time before the alert trips. Set it with `dwellSeconds` or `dwellMinutes`, and use only one of them on a rule, because setting both is an error when the rules load.
-- *Deadband*: the alert clears at a different point from where it tripped. Set it with `clearValue` or `clearExpression` on a threshold step, and with `clearExpression` on a boolean rule.
+- *Dwell* makes the condition hold for a set time before the alert trips. Set `dwellSeconds` or `dwellMinutes` on a rule, not both, because a rule with both is an error when the rules load.
+- *Deadband* makes the alert clear at a different point from where it tripped. Set `clearValue` or `clearExpression` on a threshold step, or `clearExpression` on a boolean rule.
 
 ## On update
 
-**On update**, `onUpdate` in YAML, is off unless you set it.
-When it is on, the rule re-runs its true actions if the watched value changes while the alert stays true, or while a threshold rule stays on the same step.
-The Alerts Log records that as an `Updated` transition.
-A change that first trips the rule, or that moves to another threshold step, still uses the usual enter or leave behaviour and does not also fire as an update.
+When **On update** is on, the rule runs its true actions again each time the watched value changes while the alert stays tripped, or while a threshold rule stays on the same step.
+The Alerts Log records each of these as an `Updated` transition.
+The change that first trips the rule, and a change to another threshold step, run the usual trip and clear actions only.
 
-The same value does not send again.
-Throttle, silence, and the licence check still suppress the send.
-A suppressed send is not treated as already sent, so the next allowed change can still send.
-A rule with dwell only updates after it has activated.
+A value that is the same as the last one sent does not send again.
+A throttle, a silence that a user sets on the alert in the Alerts Log, or the licence check can each hold back a send, and the next change that is allowed then sends.
+A rule with a dwell sends updates only after it has tripped.
 
-After Profinity restarts, an active alert is restored.
-The first evaluation takes the current value as already sent, so the rule does not send again until the value changes.
-
-The [AI Technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#built-in-rules) **Findings message** rule uses **On update** so two attention findings with different text each send.
+After Profinity restarts, it restores each active alert and treats the current value as already sent, so the rule sends again when the value next changes.
+The [AI Technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#built-in-rules) **Findings message** rule uses **On update**, so two attention findings with different text each send.
 
 ## Related tags
 
-**Related tags**, `relatedTags` in YAML, is a map of alias to tag path, in the same shape as a derived tag's dependencies.
-An alias is available in the rule `expression` and `clearExpression`, with the same reading members as a derived-tag alias (`Value`, `Text`, `Bool`, `HasValue`, `Quality`, `IsStale`).
-The same alias is a `{alias}` token in the action message, as described under [Message placeholders](Actions/index.md#message-placeholders).
+**Related tags** is a map of alias to tag path, in the same form as the dependencies of a derived tag.
+The expression and the clear expression can read an alias with the same members as a derived-tag alias: `Value`, `Text`, `Bool`, `HasValue`, `Quality`, and `IsStale`.
+The action message can use the alias as a `{alias}` placeholder, as described in [Message placeholders](Actions/index.md#message-placeholders), and the Alerts Log detail dialog lists the paths under **RELATED TAGS**.
 
-A path with no leading `/` joins under the component's tag root on a component rules file, and is a path from the tag tree root on the profile file.
-A path that starts with `/` is from the tag tree root.
-The Alerts Log detail dialog lists the related tag paths under **RELATED TAGS**.
+A path that starts with `/` is a full path from the tag tree root.
+A path without a leading `/` is relative to the component in a component rules file, and is a full path in the profile rules file.
 
-The rule still evaluates only when its own scope tag changes.
-A change to an alias tag alone does not re-run the rule.
+The rule runs when its own scope tag changes, so a change to a related tag alone leaves the rule as it is.
+An alias tag that has no value has `HasValue` false in the expression, and is empty text in the message.
 
-An alias must start with a letter or underscore and then contain only letters, digits, and underscores.
-Profinity refuses an empty alias, a duplicate alias, and an alias that collides with `tag` or with a built-in message placeholder such as `Value` or `TagId`.
-An alias tag that has no value has `HasValue` false in the expression and expands to empty text in the message.
+An alias starts with a letter or underscore, followed by letters, digits, and underscores only.
+Profinity refuses an empty alias, a duplicate alias, and an alias that matches `tag` or a built-in message placeholder such as `Value` or `TagId`.
 
 ## Throttle and more information links
 
-- **Throttle minutes**, `throttleMinutes` in YAML, stops the actions of one rule on one tag from running again within that number of minutes. It applies to both the trip and the clear.
-- **More information links**, `moreInformation` in YAML, adds links to a rule. Each has a `description` label and an `https://` `url`, and the Alerts Log detail dialog lists them under **DOCUMENTATION**.
+**Throttle minutes** holds back the actions of one rule on one tag for that many minutes after they run, for both the trip and the clear.
+
+**More information links** adds links to a rule.
+Each link has a `description` and an `https://` `url`, and the Alerts Log detail dialog lists them under **DOCUMENTATION**.
 
 ## Unreadable tags
 
-A tag is unreadable when it has no value, for example while a device is offline.
-By default a rule holds its current state while its tag is unreadable.
-An alert that is active stays active, and an alert that is clear stays clear, until the tag can be read again.
-A short dropout therefore keeps an alert in its current state, because a missing reading leaves open whether the condition has passed.
+A tag is unreadable while it has no value, for example while its device is offline.
+With the default `hold`, a rule keeps its state while its tag is unreadable, so an active alert stays active and a clear alert stays clear until the tag can be read again.
+A short dropout therefore leaves the alert as it was.
 
-A rule that alerts on a lost reading, such as `!tag.HasValue`, must be evaluated while the tag is unreadable, or it cannot trip once the tag has been read.
-Set **When the tag is unreadable** to **Evaluate the rule** for that rule, or set `onUnreadable: evaluate` in YAML:
+A rule that alerts on a lost reading, such as `!tag.HasValue`, needs `evaluate`, because with `hold` it never runs while the tag is unreadable and so cannot trip.
+In YAML:
 
 ```yaml
 - rule:
@@ -89,61 +87,47 @@ Set **When the tag is unreadable** to **Evaluate the rule** for that rule, or se
     onUnreadable: evaluate
 ```
 
-The setting takes `hold` (the default) or `evaluate`.
-Any other value skips that rule, and the other rules in the file still load.
-Add `onUnreadable: evaluate` to any rule from an earlier release whose expression reads `HasValue` or `Quality`, because those rules stop running while the tag is unreadable, unless you ask.
-After a rules file is saved or reloaded, a tag that was readable before the save is still treated as one that has dropped out, so its rules hold their current alert state until it is read again.
+The entry goes in the list of rules inside a rules source, in the same place as the rules in [Complete rules.yaml example](Rules_YAML_Example.md).
+A value other than `hold` or `evaluate` skips that rule, and the other rules in the file still load.
+After a rules file is saved or reloaded, every tag starts as unreadable until it is read again, so each rule holds its alert state until then.
 
 ## Evaluation tick
 
-The **Evaluation tick (seconds)** setting, `evaluationTickSeconds` in YAML, takes a whole number from 1 to 3600.
-Profinity refuses an evaluation tick outside 1 to 3600 when you save the rules or upload a rules file. A value that you edit into `rules.yaml` by hand is not range-checked on load, so keep it within 1 to 3600.
-Rules evaluate whenever a tag in their scope changes.
-The tick adds a periodic extra pass.
+Rules run whenever a tag in their scope changes, and **Evaluation tick (seconds)** adds a pass at a fixed interval.
+The tick is the only way a `tag.IsStale` rule fires for a tag that has stopped changing, so a rule that tests for stale or missing data needs the tick set in at least one loaded rules file.
 
-This is the only way a `tag.IsStale` rule can fire for a tag that has stopped changing.
-A rule that tests for stale or missing data needs the tick to be set in at least one loaded rules file.
-When several rules files set a tick, the smallest value applies to the whole profile.
-A low value in one file therefore changes how often every file is evaluated.
+When several rules files set a tick, the smallest applies to the whole profile, so a low value in one file changes how often every file runs.
+Profinity refuses a value outside 1 to 3600 when you save rules or upload a rules file, and it does not check a value edited into `rules.yaml` by hand, so keep a hand-edited value within that range.
 
 ## Condition examples
 
-Conditions use the same `tag` expression language as collections, so a numeric trip and clear pair is written as follows.
-The first line trips the rule and the second line clears it, as its `clearExpression`:
+Conditions use the same `tag` expression language as collections.
+A numeric trip at 4.2, with a clear expression at 4.0:
 
 ```text
 tag.Value > 4.2
 tag.Value < 4.0
 ```
 
-A no-data or stale sensor condition is written as follows.
-The term `!tag.HasValue` is true while a tag has no value, including when its device is offline.
-Set the rule to evaluate while the tag is unreadable, as described under [Unreadable tags](#unreadable-tags):
+A sensor that has no data or has gone stale, which needs `onUnreadable: evaluate` as described in [Unreadable tags](#unreadable-tags):
 
 ```text
 !tag.HasValue || tag.IsStale
 ```
 
+`!tag.HasValue` is true while a tag has no value, including while its device is offline.
+
 ## Rule state publishing
 
-A rule can publish its own current state to a tag.
-Set **Publish state tag path** in the **Rule State** group of a rule in the Rules editor.
-Profinity then mirrors the rule's state to that tag path whenever it changes:
+With **Publish state tag path** set in the **Rule State** group of a rule, Profinity mirrors the rule's state to that tag whenever it changes.
+A boolean rule publishes `true` or `false`, and a threshold rule publishes the zero-based number of its active step, or `-1` when no step is active.
 
-- A boolean rule publishes `true` or `false`.
-- A threshold rule publishes the zero-based index of its active step, or `-1` when no step is active.
+The tag is read-only, so only the rule writes to it.
+When the rules load, the tag takes the rule's last state from the alert log, or `false` (`-1` for a threshold rule) when the rule has no history.
 
-The tag is read-only, so only the rule can write to it.
-When the rules load, the tag takes the state the rule last had, which Profinity restores from the alert log.
-If the rule has no history, the tag starts at `false` (`-1` for a threshold rule).
-
-A rule has a single state tag, even when its scope matches many tags.
-Every matching tag writes to the same state tag, so the value shown is that of whichever matching tag changed state most recently.
-It is not a summary of all of them.
-
-Where the state of each tag matters, define one rule per tag, each with its own **Publish state tag path**.
-Do not give two rules the same path.
-Profinity does not load the rules when two of them share a path, and the error names both rules.
+A rule has one state tag, even when its scope matches many tags, so the tag shows the state of whichever matching tag changed most recently.
+Where the state of each tag matters, define one rule per tag, each with its own path.
+Two rules cannot share a path: Profinity refuses to load the rules, and the error names both.
 
 ## Permissions
 
@@ -152,5 +136,3 @@ Profinity does not load the rules when two of them share a path, and the error n
 | View rules | **View tag rules** |
 | Edit rules | **Modify tag rules** |
 | View alerts | **View alerts** |
-
-To attach actions to a rule, refer to [Rule actions](Actions/index.md).

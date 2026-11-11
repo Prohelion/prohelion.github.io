@@ -1,55 +1,74 @@
 ---
 title: Read real-time and historical tag data
-description: "Query logged tag values from InfluxDB with TagQuerySet, poll for changes, and read the latest value of one tag or CAN database signal through the API."
+description: "Read the latest value and past values of tags through the Profinity API with TagQuerySet, poll for changes, and read one tag or CAN database signal."
 type: task
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-11
 ---
 
 # Read real-time and historical tag data
 
-The APIs provide both real-time and historical data when an InfluxDB database is configured in the profile.
-If no InfluxDB database is set up, only real-time data is available.
-Each request needs a Bearer token (refer to [Authenticate to the Profinity REST API](API_Authentication.md)).
+Read the latest value of a set of tags, or their values over a time window, from your own application, then poll the same set for changes.
+Profinity serves recent values from memory, and older values from the profile's [designated historian](../../Components/Historians/Designated_Historian.md).
 
-## Read historical data
+You need:
 
-Historical data is retrieved in three steps.
-Step 2 uses `POST /api/v2/TagQuerySet`, which requires the `TagView` permission (**View tags**).
-For more information on configuring InfluxDB, refer to [InfluxDB and Prometheus Logging](../../Components/Loggers/index.md).
+- A Bearer token for a user with the **View tags** permission, as described in [Authenticate to the Profinity REST API](API_Authentication.md).
+- For values older than those Profinity keeps in memory, a historian in the profile with **Designated tag historian reader** turned on, as described in [Designated historian](../../Components/Historians/Designated_Historian.md).
 
-1. Configure a historian in the profile, and enable **Designated tag historian reader** on it, as described in [Designated historian](../../Components/Historians/Designated_Historian.md).
-2. Send `POST /api/v2/TagQuerySet` with a body that holds an optional `srcSetId` and a list of `bindings`. The response carries the matching values and a `srcSetId`.
-    - Each binding names a tag `source`. Only `source` is required, and a binding with an empty `source` is skipped.
-    - A binding with no `start` or `stop` returns the latest value of the tag.
-    - A binding with a `start` or `stop` returns the values in that window, from memory and, for older values, from the designated historian. Refer to [Live and past data](../../Customising_Profinity/Dashboards/Data_Binding/index.md#live-and-past-data).
-    - A binding with a window can also carry `seriesMode`, `aggregationWindow` and `aggregationFunction` values. The aggregation applies only to the older values from the historian.
-    - A binding that uses `store`, `timeRangeStart` or `timeRangeStop` returns an error. Omit `store`, and use `start` and `stop` in place of the other two.
-    - If you omit `srcSetId`, the server numbers the set for you, and if you supply one, the server uses it and replaces any set that has the same identifier.
-3. Send `GET /api/v2/TagQuerySet/Delta/{sourceSet}` to poll that set, replacing `{sourceSet}` with the `srcSetId` from the response in step 2. It returns only the values that have changed since the previous poll.
+## Read a set of tags
 
-This request body reads the latest value of one tag and the last hour of another, averaged over one-minute windows:
+1. Send `POST /api/v2/TagQuerySet` with a JSON body that lists the tags in `bindings`. This body reads the latest value of one tag, and the last hour of another averaged over one-minute intervals:
 
-```json
-{
-  "bindings": [
-    { "source": "Charger/DBC/BMSInfo/Flag" },
-    { "source": "Charger/DBC/BMSInfo/Temp",
-      "start": "-1h", "stop": "now()",
-      "aggregationWindow": "1m", "aggregationFunction": "Mean" }
-  ]
-}
-```
+    ```json
+    {
+      "bindings": [
+        { "source": "<first tag path>" },
+        { "source": "<second tag path>",
+          "start": "-1h", "stop": "now()",
+          "aggregationWindow": "1m", "aggregationFunction": "Mean" }
+      ]
+    }
+    ```
 
-The response has the form `{ "srcSetId": "...", "data": [ ... ] }`, and each poll of the delta route returns an array of `{ "src", "val", "historicalTimeSeries" }` entries for the values that changed.
-The set expires 15 minutes after the last poll, and after that you send the full request again.
+    Replace each `<tag path>` with the full path of a tag, such as `Charger/DBC/BMSInfo/Temp`.
 
-A response that carries values for the requested time range shows the query worked.
+2. Check the response, which has the form `{ "srcSetId": "...", "data": [ ... ] }`, with an entry in `data` for each binding. Note the `srcSetId`, which names the set for step 3.
+3. Send `GET /api/v2/TagQuerySet/Delta/<srcSetId>` to poll the set, replacing `<srcSetId>` with the value from step 2. The response is an array of `{ "src", "val", "historicalTimeSeries" }` entries for the values that changed since the previous poll.
+
+The query worked when the response to step 2 holds values for each binding.
+Profinity keeps the set for 15 minutes after the last poll, so poll more often than that, or send the request in step 1 again.
+
+## Binding settings
+
+Each binding needs only `source`, and Profinity skips a binding whose `source` is empty.
+
+| Setting | Effect |
+|---|---|
+| `source` | The full path of the tag. |
+| `start`, `stop` | The time window. A binding without them returns the latest value, and a binding with either returns the values in the window. Values older than the memory window come from the designated historian, as described in [Live and past data](../../Customising_Profinity/Dashboards/Data_Binding/index.md#live-and-past-data). |
+| `seriesMode` | How the window is returned, as for a dashboard binding. |
+| `aggregationWindow`, `aggregationFunction` | The length of each interval and how it is reduced, such as `1m` and `Mean`. They apply only to the older values from the historian. |
+
+The settings have the same meaning as in a dashboard binding, described in [Binding settings reference](../../Customising_Profinity/Dashboards/Data_Binding/Binding_Settings_Reference.md).
+
+To choose the set's name yourself, add `srcSetId` to the body.
+Profinity then uses that name and replaces any set that already has it, and without `srcSetId` it names the set for you.
 
 ## Read the latest value of one item
 
-Two routes return the latest value of one item.
-`GET /api/v2/DBC/{component}/{message}/{signal}` returns the latest local value of a single signal from a CAN database (DBC) and needs the `DBCView` permission (**View DBC definitions**).
-`GET /api/v2/Tags/Sample/<full-tag-path>` returns the latest sample of a tag.
+`GET /api/v2/Tags/Sample/<tag path>` returns the latest sample of one tag, as shown in [Make your first API call](../First_API_Call.md).
+
+`GET /api/v2/DBC/<component>/<message>/<signal>` returns the latest value that Profinity holds for one signal from a component's CAN database (DBC) file.
+It needs the **View DBC definitions** permission.
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| A binding returns an error that names `store`, `timeRangeStart`, or `timeRangeStop` | The binding uses settings that Profinity 2.3 replaced. | Remove `store`, and rename `timeRangeStart` to `start` and `timeRangeStop` to `stop`. |
+| A poll of the delta route returns `400` with "Invalid source set." | The set expired, or `srcSetId` is mistyped. | Send the request in step 1 again, and poll with the new `srcSetId`. |
+| A binding with a window returns no older values | No historian has **Designated tag historian reader** on, or more than one has. | Turn it on for exactly one historian in the profile. |
+| `403` | The user does not have the **View tags** permission. | Give the user a role with **View tags**. |
 
 For the other routes, refer to the [Endpoint Reference](Endpoint_Reference.md).

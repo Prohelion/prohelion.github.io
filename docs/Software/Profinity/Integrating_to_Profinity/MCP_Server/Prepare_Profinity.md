@@ -3,56 +3,59 @@ title: Prepare Profinity for an MCP client
 description: "Turn on the Profinity MCP server, create a service account token, choose an address, and check that the server answers before you connect an AI tool."
 type: task
 owner: Documentation
-last_reviewed: 2026-11-05
+last_reviewed: 2026-11-11
 ---
 
 # Prepare Profinity for an MCP client
 
 Prepare a Profinity instance once so that Claude Code, Cursor, or Codex can read its live data through the Model Context Protocol (MCP) server.
-You switch the server on, create a token for the tool to sign in with, choose the address the tool uses, and check that the server answers.
-You need the **System administration** permission, the **AI** licensed feature, which the **Server** and **Enterprise** editions include, and the **Security administration** permission and a Server licence for **Users & Groups**.
-Refer to [Licensing](../../Licensing.md) and [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
+You turn the server on, create a token for the tool to sign in with, choose the address the tool uses, and check that the server answers.
 
-!!! warning "Enabling the MCP server restarts Profinity"
+You need:
+
+- An edition with the **AI** licensed feature, which the Server and Enterprise editions include. Refer to [Licensing](../../Licensing.md).
+- The **System administration** permission, to turn the server on.
+- The **Security administration** permission and the **Profinity Server** licensed feature, to create the service account in **Users & Groups**. Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
+
+!!! warning "Turning on the MCP server restarts Profinity"
     Saving the setting restarts Profinity, and the instance is unavailable to everyone until it is running again.
     Choose a time when a restart does not interrupt the people using it.
 
 ## Enable the MCP server
 
-The server stays off until an administrator enables it.
-Enabling Profinity AI also enables the server, because [AI Chat](../../Profinity_AI/AI_Chat.md) depends on it.
-You can enable the server on its own and leave Profinity AI off when only an external tool needs it.
-
-1. In the side menu, select **ADMIN > System Configuration**.
-2. Open the **Profinity AI** category, and find the **MCP Server** field group.
-3. Switch on **Enable MCP Server**.
-4. Select **Save**. Profinity restarts, and the web interface shows "Restarting, please wait..." until the engine is running again.
+1. In the side menu, select **ADMIN**, then **System Configuration**.
+2. Open the **Profinity AI** category and find the **MCP Server** group.
+3. Turn on **Enable MCP Server**.
+4. Select **Save**. The web interface shows "Restarting, please wait..." while Profinity restarts.
 
 When the settings load again, **Enable MCP Server** shows as on, and the server is ready.
-On an edition without the **AI** feature, **Enable MCP Server** is hidden.
-For the other settings in this group, refer to [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md).
+Turning on **Enable Profinity AI** turns the server on too, because [AI Chat](../../Profinity_AI/AI_Chat.md) uses it, so the server is already on when Profinity AI is in use.
+The server can also run on its own, with Profinity AI off, when only an external tool needs it.
+For the other settings in the group, refer to [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md).
 
 ## Create a service account token
 
 The AI tool sends a token with every call.
-Use a [service account](../../Administration/Users_and_Access/Service_Accounts.md), so the token does not expire while the tool is open.
-The account needs a role with **MCP integration**, **View tags**, and **View alerts**.
-The **Administrators** role includes all three, and a dedicated role with only these permissions is enough for a tool that reads data.
+A [service account](../../Administration/Users_and_Access/Service_Accounts.md) holds a token that does not expire, so the tool stays connected.
+Give the account a role with the **MCP integration**, **View tags**, and **View alerts** permissions.
+The **Administrators** role has all three, and a role with only these three is enough for a tool that reads data.
 
-1. In the side menu, select **ADMIN > Users & Groups**.
-2. Select **Add user**.
-3. Enter a name, such as `mcp-service`, and switch on **Service Account**.
-4. Under **Assigned roles**, select the role, then save the user.
-5. Select the user's row, open the **User Actions** tab, and select **Generate Token**. The dialog shows the token once.
-6. Copy the token into a password manager or secrets store.
+1. In the side menu, select **ADMIN**, then **Users & Groups**.
+2. Select **+ Add user**.
+3. Enter a name, such as `mcp-service`.
+4. Turn on **Service Account**.
+5. Under **Assigned roles**, choose the role.
+6. Select **ADD USER**.
+7. Select the new user's row, open the **User Actions** tab, and select **Generate Token**. The dialog shows the token once.
+8. Copy the token into a password manager or secrets store.
 
-Selecting **Generate Token** again replaces the token straight away.
-Every tool that holds the old token stops connecting until you give it the new one.
+Selecting **Generate Token** again replaces the token at once, and every tool that holds the old token stops connecting until you give it the new one.
 
 ## Store the token in an environment variable
 
 Cursor and Codex read the token from an environment variable named `PROFINITY_TOKEN` each time they start, and Claude Code reads it once, when you add the server.
-An app sees only the variables that were set before it started, so set the variable for your login session, not only in one terminal.
+An app sees only the variables set before it started, so set the variable for your whole sign-in session, as each tab shows.
+In each command, replace `<token>` with the service account token.
 
 === "macOS"
 
@@ -77,8 +80,8 @@ An app sees only the variables that were set before it started, so set the varia
     setx PROFINITY_TOKEN "<token>"
     ```
 
-    The variable is saved for your user account.
-    Apps and PowerShell windows opened after the command see it, and windows that were already open do not.
+    Windows saves the variable for your user account.
+    Apps and PowerShell windows that you open after the command see it.
 
 === "Linux"
 
@@ -88,48 +91,45 @@ An app sees only the variables that were set before it started, so set the varia
     export PROFINITY_TOKEN="<token>"
     ```
 
-Replace `<token>` with the service account token.
 After you generate a new token, set the variable again and restart Cursor or Codex.
 Claude Code keeps its own copy of the token, so remove its server and add it again, as described in [Connect Claude Code to Profinity](Connect_Claude_Code.md#add-the-server).
 
 ## Choose the MCP server address
 
 The MCP address is the Profinity web address with `/api/v2/Ai/Mcp` on the end.
-The ports are on the **Web** tab, and the defaults are 18080 for HTTP and 18443 for HTTPS.
-Refer to [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md).
+The default ports are 18080 for HTTP and 18443 for HTTPS, set on the **Web** tab described in [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md).
 
 === "Same computer as Profinity"
 
-    Use the HTTP address when **Redirect all Http traffic to Https** is off:
+    When **Redirect all Http traffic to Https** is off, use the HTTP address, which needs no certificate:
 
     ```text
     http://localhost:18080/api/v2/Ai/Mcp
     ```
 
-    This address needs no certificate.
-    When the redirect is on, use `https://localhost:18443/api/v2/Ai/Mcp`, and trust the certificate.
+    When the redirect is on, use `https://localhost:18443/api/v2/Ai/Mcp`, and trust the certificate as described after these tabs.
 
 === "Another computer"
 
-    Use the HTTPS address:
+    A tool on another computer can connect once a Server licence is applied, because until then Profinity listens only on `127.0.0.1`.
+    Open the HTTPS port through any firewall between the two computers, then use the HTTPS address:
 
     ```text
     https://<host>:18443/api/v2/Ai/Mcp
     ```
 
     Replace `<host>` with the host name or network address of the computer that runs Profinity.
-    It has to be one of the certificate names in [The certificate Profinity generates](Trust_HTTPS_Certificate.md#the-certificate-profinity-generates), and the port has to be open through any firewall between the two computers.
-    Until a Server licence is applied, Profinity listens only on `127.0.0.1`, so only a tool on the same computer can connect.
+    It must be one of the names listed in [The certificate Profinity generates](Trust_HTTPS_Certificate.md#the-certificate-profinity-generates).
 
-For an HTTPS address, [trust the HTTPS certificate](Trust_HTTPS_Certificate.md) on the computer that runs the AI tool before you continue.
-When Profinity runs on another computer, copy `profinity_generated.pfx` from its `certificates` folder to the computer that runs the AI tool first, as that page describes.
+For an HTTPS address, [trust the HTTPS certificate](Trust_HTTPS_Certificate.md) on the computer that runs the AI tool before you check the server.
+When Profinity runs on another computer, that page also describes how to copy `profinity_generated.pfx` from its `certificates` folder.
 
 ## Check the server answers
 
-Run the check from the computer that runs the AI tool.
-Opening the address in a browser does not test the server, so use the command for your operating system and address.
+Run the check from the computer that runs the AI tool, with the command for your operating system.
+Opening the address in a browser does not test the server.
 
-=== "macOS or Linux"
+=== "macOS"
 
     For the HTTP address, run:
 
@@ -137,42 +137,49 @@ Opening the address in a browser does not test the server, so use the command fo
     curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" http://localhost:18080/api/v2/Ai/Mcp
     ```
 
-    For the HTTPS address, run this command after you trust the certificate, so that it tests the operating system trust:
-
-    ```bash
-    curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
-    ```
-
-    On macOS, run the HTTPS command with `/usr/bin/curl` in place of `curl`, because the `curl` in `/usr/bin` checks the certificates in the keychain:
+    For an HTTPS address, run this command after you trust the certificate.
+    It uses `/usr/bin/curl`, which checks the certificates in the keychain:
 
     ```bash
     /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
-    A `curl` from another source can keep its own list of trusted certificates.
+=== "Linux"
+
+    For the HTTP address, run:
+
+    ```bash
+    curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" http://localhost:18080/api/v2/Ai/Mcp
+    ```
+
+    For an HTTPS address, run this command after you trust the certificate:
+
+    ```bash
+    curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
+    ```
 
 === "Windows"
 
-    Run this command in PowerShell, with the HTTP or HTTPS address:
+    For the HTTP address, run this command in PowerShell:
+
+    ```powershell
+    curl.exe -s -o NUL -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" http://localhost:18080/api/v2/Ai/Mcp
+    ```
+
+    For an HTTPS address, run this command after you trust the certificate.
+    Windows checks it against the certificates the operating system trusts:
 
     ```powershell
     curl.exe -s -o NUL -w "%{http_code}\n" -H "Accept: application/json, text/event-stream" https://<host>:18443/api/v2/Ai/Mcp
     ```
 
-    Windows checks an HTTPS address against the certificates the operating system trusts.
+In an HTTPS command, replace `<host>` with the host name from your address.
+The command prints `401`, which means the server is running and is waiting for a token, which the AI tool sends.
 
-Replace `<host>` with the host name from your address.
-The expected output is:
-
-```text
-401
-```
-
-A `401` means the server is running and is waiting for a token, which the AI tool sends.
 | What you see | Cause | What to do |
-|--------------|-------|------------|
-| A certificate error | The host name is missing from the certificate, or the certificate is untrusted | - |
-| Any response other than `401` | The MCP server is not enabled, so no MCP route is mapped, or the caller has exceeded the rate limit and receives a `429` response. | Refer to [MCP connection errors](Connection_Errors.md) |
+|---|---|---|
+| A certificate error | The host name in the address is not one of the certificate names, or the computer does not trust the certificate. | Use a host name from [The certificate Profinity generates](Trust_HTTPS_Certificate.md#the-certificate-profinity-generates), and follow [Fix a certificate error](Trust_HTTPS_Certificate.md#fix-a-certificate-error). |
+| `404` | **Enable MCP Server** is off, so Profinity has no MCP address. | Turn on **Enable MCP Server**, as described in [Enable the MCP server](#enable-the-mcp-server). For the other causes, refer to [MCP connection errors](Connection_Errors.md). |
 
 Next, connect your tool:
 

@@ -8,25 +8,22 @@ last_reviewed: 2026-11-10
 
 # Rule scripts
 
-!!! info "Licence required"
-    A script set to **Run On Alert** needs both the **Scripting** and **Tag Rule Actions** licensed features, so the **Server** or **Enterprise** edition.
-    A Desktop licence can add the script, but a rule does not run it.
-    An unlicensed instance cannot add or run scripts.
-    Refer to [Licensing](../../../Licensing.md).
+A rule script is a script component with **Script Mode** set to **Run On Alert**, which a [tag rule](../../../Tags/Rules/index.md) runs as one of its actions.
+The rule passes the details of the alert to the method the script implements.
 
-A rule script is a script component with **Script Mode** set to **Run On Alert**.
-You do not add a separate rule script component, and the rule passes its firing context directly as a parameter to the method the script implements.
+A rule runs the script only with both the **Scripting** and **Tag Rule Actions** licensed features, which the Server and Enterprise editions include.
+A Desktop edition can add the script, but a rule does not run it.
+Refer to [Licensing](../../../Licensing.md).
 
-## Settings
+## Set up a rule script
 
-Enable scripting in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first. Changing Application Config needs the system administration permission. In **Optional Capabilities**, select **Enable C# Scripting**, **Enable Python Scripting** or **Enable Lua Scripting** for the language your script uses.
-Then add a **CSharp Script**, **Python Script** or **Lua Script** component, or use an existing one.
-Set **Script Mode** to **Run On Alert**.
+A rule script needs these settings in place:
 
-Name that component in the `actions` list of a rule, in the same way any other rule action is referenced by component name.
+- The language is turned on in **Optional Capabilities** in [Application Config](../../../Administration/System_Configuration/Application_Config.md): **Enable C# Scripting**, **Enable Python Scripting**, or **Enable Lua Scripting**. Changing Application Config needs the **System administration** permission.
+- A **CSharp Script**, **Python Script**, or **Lua Script** component has **Script Mode** set to **Run On Alert**. The component's script holds the alert method shown in [Example](#example), which you edit with **Edit Script** on the component's menu.
+- A rule names the script component in its `actions` list, in the same way as any other rule action. Create the rule in `rules.yaml` or in the rules visual editor, which is under **TAG UTILITIES** > **RULES & ACTIONS**, as described in [Complete rules.yaml example](../../../Tags/Rules/Rules_YAML_Example.md).
 
-Add the rule to the profile rules file, `rules.yaml`, or create it in the rules visual editor under **TAG UTILITIES**, then **RULES & ACTIONS**. Refer to [Rules YAML example](../../../Tags/Rules/Rules_YAML_Example.md).
-The example rule calls a script component named `PackTempScript` when the pack temperature passes 45:
+This rule runs a script component named `PackTempScript` when the pack temperature passes 45:
 
 ```yaml
 version: "2.3"
@@ -51,30 +48,37 @@ rules:
 
 ## The alert context
 
-When the rule fires, Profinity calls the script's alert method once, passing the firing context as a parameter.
-This is the same context every other rule action receives.
-Refer to [Rule actions](../../../Tags/Rules/Actions/index.md).
-The context holds:
+When the rule fires, Profinity calls the script's alert method once, and passes it a context object that describes the alert.
+Every other rule action receives the same context, as described in [Rule actions](../../../Tags/Rules/Actions/index.md).
+The properties have the same names in C#, Python, and Lua.
 
-- The rule ID, name, and level.
-- The edge that fired.
-- The triggering tag.
-- `TriggeredTags`, which holds every tag in the rule's scope that is currently true.
-- `Parameters`, the optional named inputs from the rule's action entry (refer to [Rule actions](../../../Tags/Rules/Actions/index.md)).
+| Property | Type | Holds |
+|---|---|---|
+| `RuleId` | Text | The rule's `id`. |
+| `RuleName`, `RuleDisplayName` | Text | The rule's name, and its display name when it has one. |
+| `RuleDescription` | Text | The rule's description, when it has one. |
+| `RuleLevel` | Text | The alert level: `Trace`, `Debug`, `Info`, `Warning`, `Error`, or `Fatal`, as described in [Alert levels](../../../Tags/Alerts.md#alert-levels). |
+| `Transition` | Text | The change that fired the rule, listed after this table. |
+| `TriggerTagId` | Text | The full path of the tag that fired the rule. |
+| `Value`, `Quality`, `MetaType` | Value, text, text | The triggering tag's value, its quality, and its value type. |
+| `Message`, `ExpandedMessage` | Text | The rule's message, as written and with its placeholders filled in. |
+| `TriggeredTags` | List | Every tag in the rule's scope whose condition is true now. Each row has `TagId`, `Value`, `Quality`, and `MetaType`. |
+| `Parameters` | Dictionary | The named inputs from the action entry, as described after this table. |
 
-The context object has the properties `RuleId`, `RuleName`, `RuleDisplayName`, `RuleDescription`, `RuleLevel`, `Transition`, `TriggerTagId`, `Value`, `Quality`, `MetaType`, `Message`, `ExpandedMessage`, `TriggeredTags` and `Parameters`, with the same names in C#, Python and Lua.
-`RuleLevel` is one of `Trace`, `Debug`, `Info`, `Warning`, `Error` or `Fatal` (refer to [Alert levels](../../../Tags/Alerts.md#alert-levels)).
+`Transition` is one of these values:
 
-`Transition` is one of `EnteredTrue`, `EnteredFalse`, `EnteredStep`, `ExitedStep` or `Updated`.
-`EnteredStep` means the value entered a threshold step, and `ExitedStep` means it left one.
-`Updated` means the value changed while the alert stayed true, as described under [On update](../../../Tags/Rules/Rule_Settings.md#on-update).
-Each row in `TriggeredTags` has `TagId`, `Value`, `Quality` and `MetaType`.
+- `EnteredTrue` and `EnteredFalse`: a boolean rule tripped or cleared.
+- `EnteredStep` and `ExitedStep`: the value entered or left a threshold step, which is one band of a threshold rule with its own level and actions.
+- `Updated`: the value changed while the alert stayed tripped, as described under [On update](../../../Tags/Rules/Rule_Settings.md#on-update).
 
 `Parameters` is a dictionary keyed by the names written under `parameters` on the action entry.
-Literals arrive as their scalar values; a tag variable arrives as that tag's current value.
+A literal arrives as its value, and a tag variable arrives as that tag's current value.
 Read an entry by name, for example `context.Parameters["setpoint"]` in C# and Python, or `context.Parameters['setpoint']` in Lua.
 
 ## Example
+
+Each example is a complete alert script, which goes in the script component's editor, opened with **Edit Script**.
+It writes the alert details to the script output.
 
 === "C#"
 
@@ -132,15 +136,15 @@ Read an entry by name, for example `context.Parameters["setpoint"]` in C# and Py
     end
     ```
 
-The full files `CSharpAlertTemplate.cs`, `PythonAlertTemplate.py` and `LuaAlertTemplate.lua` are built into Profinity as the templates it offers when you create a script of that type.
+When you create a script component, its editor starts with a template that already holds an alert method in the same form.
 
 ## Behaviour
 
 !!! warning "Running the script by hand does not call this method"
-    The **Run Script** action on a component menu, and the Run On Demand and scheduled paths, do not call `OnAlert` or `on_alert`.
-    Only a rule firing does, so the alert method is tested by driving the rule's condition true.
+    Only a rule that fires calls `OnAlert` or `on_alert`, and the **Run Script** action, **Run On Demand**, and a schedule do not.
+    To test the method, make the rule's condition true, for example by lowering its threshold for a while, or by replaying a log that holds the alert, as described in [How to replay CAN bus logs](../../../How_To_Guides/Replay_CAN_Logs.md).
 
-**Run On Alert** has no start and stop lifecycle, because a rule invokes the script and the script stays idle between invocations.
+In **Run On Alert** mode the script is idle until a rule runs it, so it has no start or stop.
 Between firings its status reads **Not Run** or **Run N times**, and the status shows **Running** while `OnAlert` or `on_alert` is executing.
 
 The component's menu in this mode is **Edit Script** only.

@@ -3,14 +3,18 @@ title: InfluxDB v1 Logger
 description: "Log selected tag collections to an InfluxDB v1 server, with the settings, the health check option for InfluxDB Cloud, and what to check if no data arrives."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-11
 ---
 
 # InfluxDB v1 Logger
 
 The **InfluxDB v1 Logger** sends the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections/index.md) to an InfluxDB v1 server.
-A logger only writes data out.
-The InfluxDB v2 and v3 components are [historians](../Historians/index.md), which also allow the data to be read back.
+It sits in the **Loggers** group, and like every logger it only writes data out.
+For an InfluxDB v2 or v3 server, use the **InfluxDB v2 Historian** or **InfluxDB v3 Historian**, described in [InfluxDB historians](../Historians/InfluxDB_Historians.md), which can also read the data back.
+
+InfluxDB v1, v2, and v3 use different interfaces and sign-in methods, so a component for the wrong version cannot connect.
+Check the version of your InfluxDB server before you add a component.
+The [Loggers](index.md) page compares this logger with the others.
 
 <figure markdown>
 ```mermaid
@@ -20,96 +24,81 @@ flowchart LR
     end
     V1 --> Influx["InfluxDB v1 server"]
 ```
-<figcaption>The InfluxDB v1 Logger pushes the selected tag collections to an InfluxDB v1 server</figcaption>
+<figcaption>The InfluxDB v1 Logger sends the selected tag collections to an InfluxDB v1 server</figcaption>
 </figure>
 
 <figure markdown>
 ![InfluxDB dashboard with a Pack Voltage line chart falling from about 25.4k to 24.8k and a Pack Current line chart near -4.99k](../../images/InfluxDB.png)
-<figcaption>InfluxDB dashboard showing pack voltage and pack current logged by Profinity</figcaption>
+<figcaption>An InfluxDB dashboard showing pack voltage and pack current logged by Profinity</figcaption>
 </figure>
-
-[InfluxDB](https://www.influxdata.com) both stores and visualises data.
-InfluxDB v1, v2 and v3 are separate products with different APIs, authentication methods and configuration requirements.
-Using the wrong component type results in connection failures, so check the version of your InfluxDB server before you add a component to a [profile](../../Getting_Started/Profiles.md).
-
-For InfluxDB v2 and v3, use the **InfluxDB v2 Historian** or the **InfluxDB v3 Historian**, documented in [InfluxDB historians](../Historians/InfluxDB_Historians.md).
-It sits in the **Loggers** category. The [Loggers](index.md) page compares this logger with the others.
 
 ## Quick start
 
-**You need** a running InfluxDB v1 server with the database already created, because the logger does not create it. If the server requires a login, you also need its user name and password.
+You need a running InfluxDB v1 server and a database on it for the logger to write to, because the logger writes to an existing database.
+If the server needs a sign-in, you also need its user name and password.
 
-1. Select **ADD COMPONENT**, then select **InfluxDB v1 Logger** in the **Loggers** group.
-2. Set **InfluxDB Database** to the name of the database you created on the server.
-3. Under **Collections**, add at least one tag collection whose tags you want to log.
-4. If the server requires a login, set **InfluxDB Username** and **InfluxDB Password**. Leave them blank for an unsecured server.
-5. Optional: If InfluxDB is not at its default address, set **Influx Server URL** to the address of the server. The default is `http://localhost:8086/`.
-6. Select **ADD COMPONENT** at the bottom of the dialog, or **SAVE** when you change an existing logger.
-7. If **Auto Connect** is off, select **Start Logger** from the component's menu.
-8. Check that **STATUS** shows **On**. If it shows **Error**, the logger cannot write to InfluxDB, so check the logs as described under [If data does not arrive](#if-data-does-not-arrive).
+1. Select **ADD COMPONENT**.
+2. Select **InfluxDB v1 Logger** in the **Loggers** group.
+3. Set **InfluxDB Database** to the name of the database on the server.
+4. Under **Collections**, add at least one tag collection whose tags you want to log.
+5. If the server needs a sign-in, set **InfluxDB Username** and **InfluxDB Password**.
+6. If the server is not at `http://localhost:8086/`, set **Influx Server URL** to its address.
+7. Select **ADD COMPONENT**.
+8. Check that **STATUS** shows **On**. If **Auto Connect** is off, select **Start Logger** from the component's menu first.
 
-## Add the logger
+Data appears in the database after the first **Update Interval (Seconds)**, 10 seconds by default.
 
-InfluxDB v1 uses username and password authentication, and organises data into databases and retention policies.
-Install InfluxDB v1, confirm that it is running, and create the database that the logger will write to, because the logger does not create it. Then add an **InfluxDB v1 Logger** to the profile.
-Enter the **InfluxDB Database**, add at least one tag collection under **Collections**, and set the other settings as needed.
-Nothing is logged until you select at least one tag collection. When the logger is running, its status shows **On**. If it cannot write to InfluxDB, the status shows **Error**.
+## Settings
 
-| Setting | Type | Default | Purpose |
+| Setting | Type | Default | Effect |
 |---|---|---|---|
-| **InfluxDB Database** | Text | None | The InfluxDB database that the data is stored in. Required. |
-| **InfluxDB Username** | Text | Blank | The username for InfluxDB authentication. Leave blank for unsecured connections. |
-| **InfluxDB Password** | Secret | Blank | The password for InfluxDB authentication. Leave blank for unsecured connections. |
-| **InfluxDB Retention Policy** | Text | `autogen` | The InfluxDB retention policy used when writing data. |
-| **Influx Server URL** | Text | `http://localhost:8086/` | The endpoint URL that InfluxDB is running on. |
-| **Dashboard URL** | Text | Blank | The URL of the InfluxDB dashboard. Optional, and leaving it blank shows no dashboard link. |
-| **InfluxDB Health Check** | On or off | On | Checks the health of the connection at regular intervals. Turn it off for InfluxDB Cloud, which does not support the check. |
-| **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose tags are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the component starts. |
-| **Update Interval (Seconds)** | Time | 10 | How often log data is sent, from 1 to 86400 seconds. |
-| **Logging mode** | Choice | **Snapshot** | Sets what is sent on each interval: **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md). |
+| **InfluxDB Database** | Text | None | The database that the data is written to. Required. |
+| **InfluxDB Username** | Text | Blank | The user name for a server that needs a sign-in. Leave it blank for a server without one. |
+| **InfluxDB Password** | Secret | Blank | The password for a server that needs a sign-in. Leave it blank for a server without one. |
+| **InfluxDB Retention Policy** | Text | `autogen` | The retention policy that the data is written with. |
+| **Influx Server URL** | Text | `http://localhost:8086/` | The address of the InfluxDB server. |
+| **Dashboard URL** | Text | Blank | The full address of an InfluxDB dashboard. When it is set, Profinity shows a link to it. |
+| **InfluxDB Health Check** | On or off | On | Checks at regular intervals that the server answers. Turn it off for InfluxDB Cloud, where the logger reports that the health check failed. |
+| **Collections** | Choice | None | The [tag collections](../../Tags/Collections/index.md) whose tags are logged. The logger needs at least one before it can start. The picker shows each collection's display name, and the profile stores its `id`. |
+| **Update Interval (Seconds)** | Time | `10` | How often data is sent, from 1 to 86400 seconds. |
+| **Logging mode** | Choice | `Snapshot` | What is sent on each interval: `Snapshot`, `On Change`, or `Everything`. Refer to [Logging modes](../Logging_Modes.md). |
 | **Auto Connect** | On or off | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 ## Example
 
-This example shows an InfluxDB v1 Logger in the `components` list of the `profile.yaml` file in the profile folder.
+Add this item under `components:` in the `profile.yaml` file of the profile.
 Refer to [Profile folders](../../Administration/Profile_Folders.md) for where that file sits.
-It is an example only, so replace the placeholders with your own values.
 
 ```yaml
-components:
 - component:
     type: InfluxDbLoggerV1
     id: InfluxDbLoggerV11
     name: InfluxDB v1 Logger
     tagTreeParentPath: /
-    bucket: YOUR_DATABASE
+    bucket: <database>
     url: http://localhost:8086/
     retentionPolicy: autogen
     healthCheck: true
     intervalSec: 10
     logType: Snapshot
     collections:
-    - collectionName: YOUR_COLLECTION_ID
+    - collectionName: <collection id>
 ```
 
-`YOUR_DATABASE` is the InfluxDB database that the data is stored in. The YAML key is `bucket` for InfluxDB v1 too, although the UI labels the setting **InfluxDB Database**.
-`YOUR_COLLECTION_ID` is the id of a tag collection in the profile.
-The example leaves the username and password out, which suits an unsecured InfluxDB connection.
+Replace `<database>` with the InfluxDB database, which the profile stores under the `bucket` key, and `<collection id>` with the `id` of a collection in the profile's `collections.yaml` file.
+The example has no user name or password, which suits a server without a sign-in.
 
 ## What is stored
 
-Every sample is written with its quality in a `quality` field.
-A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale.
-A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`.
+Profinity writes each sample as one point in a measurement named after the profile.
+Spaces and other characters that are not letters or digits become underscores, so the profile `My Profile-2` writes to `My_Profile_2`.
 
-A chart can then show the gap instead of an invented reading.
-Only tags that hold a number are written, and a query for readings should ask for the `value` field.
-
-Each sample is stored as one point in a measurement named after the profile. The measurement is named after the profile, with spaces and other characters that are not letters or digits replaced by underscores. For example, `My Profile-2` becomes `My_Profile_2`.
-For example, a motor speed signal on a component called `Inverter` is stored like this:
+Each point has these tags and fields.
+The example is a motor speed signal on a component called `Inverter`.
 
 | Part | Example | Meaning |
 |---|---|---|
+| Tag `profile` | `My_Profile_2` | The profile that wrote the sample. |
 | Tag `component` | `Inverter` | The component that owns the tag. |
 | Tag `message` | `Status` | The CAN message the signal belongs to. |
 | Tag `signal` | `Speed` | The signal name. |
@@ -117,23 +106,18 @@ For example, a motor speed signal on a component called `Inverter` is stored lik
 | Field `value` | `23.4` | The reading. |
 | Field `quality` | `Good` | The quality of the reading. |
 
-In InfluxDB line protocol, that point is:
+Only tags that hold a number are written, and a query for readings asks for the `value` field.
+A Good or Stale sample has a `value` field, and a Stale sample keeps its last value.
+An Unavailable or Bad sample is written with a `quality` field and no `value`, so a chart shows a gap instead of an invented reading.
 
-```text
-MyProfile,profile=MyProfile,component=Inverter,message=Status,signal=Speed,full_tag_id=Inverter/DBC/Status/Speed value=23.4,quality="Good" 1792315200000000000
-```
-
-The `component`, `message` and `signal` tags identify the tag in the history.
-Characters other than letters and digits in these names are replaced with underscores.
-
-## If data does not arrive
-
-When the settings are correct, data flows into InfluxDB v1.
+## Troubleshooting {#if-data-does-not-arrive}
 
 | What you see | Cause | What to do |
 |---|---|---|
-| Data does not arrive in InfluxDB v1. | The settings are not correct. | Check the Profinity system logs, as described in [Logs](../../Administration/Logs_Config.md). |
-| The logger shows **Error**. | The logger cannot reach InfluxDB. | The logger writes the reason to the logs once, then retries every 5 seconds until the problem clears. |
+| **STATUS** shows **Off** | No collection is selected, or **Auto Connect** is off. | Add a collection under **Collections**, or select **Start Logger** from the component's menu. |
+| **STATUS** shows **Error** | The logger cannot reach the server, the database does not exist, or the sign-in is refused. Profinity writes the reason to the log once, then tries again every 5 seconds. | Read the reason on the [Logs](../../Administration/Logs_Config.md) page under **ADMIN**, then correct **Influx Server URL**, **InfluxDB Database**, or the sign-in. |
+| **STATUS** shows **Error**, and the log says the health check failed | The server, such as InfluxDB Cloud, does not answer the health check. | Turn off **InfluxDB Health Check**. |
+| **STATUS** shows **On**, but a tag has no readings in InfluxDB | The tag does not hold a number, or it is not in a selected collection. | Check the tag in **TAG EXPLORER**, and add it to one of the selected collections. |
 
-To add the logger and start it, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+To set up logging across a profile, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
 To send data to InfluxDB Cloud, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).

@@ -3,21 +3,15 @@ title: Charger components
 description: "Choose a TDK Power Supply, Siglent Power Supply or Elcon Charger component and add it to a profile with a Prohelion BMU to charge a battery pack."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-11
 ---
 
 # Charger components
 
-Profinity charges a pack by controlling a charger and a Prohelion Battery Management System (BMS) together.
-The charger must be one that Profinity can control remotely.
-A BMS that can only switch a charger on and off gives slow or poor balancing of the cells, as the [D1000 Gen1 Charger Control](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Operation/Charging.md) documentation describes.
-
-The D1000 Gen1 Battery Management Unit (BMU) raises the charge current setpoint until the highest cell voltage reaches the Balance Threshold and then reduces it to hold that voltage.
-On a D1000 Gen2 the BMS hardware handles charging, so refer to the [D1000 Gen2 documentation](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/index.md) for how charging is managed there.
-
-Profinity supports three charger types.
-A [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU/index.md) in the same Profile supplies the pack data.
-A user needs the **Control charging** permission to see the charging controls (refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md)).
+A charger component lets Profinity control a charger or programmable power supply, so that a Prohelion Battery Management Unit (BMU) in the same [Profile](../../Getting_Started/Profiles.md) can charge the pack.
+The components sit in the **Chargers & Power Supplies** group.
+How the BMU balances the cells while it charges is described in the hardware documentation, such as [D1000 Gen1 Charger Control](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen1/Operation/Charging.md).
+On a D1000 Gen2 the BMU hardware manages charging, as described in the [D1000 Gen2 documentation](../../../../Battery_Management_Systems/Prohelion_BMS_D1000_Gen2/index.md).
 
 <figure markdown>
 ```mermaid
@@ -33,47 +27,92 @@ flowchart LR
 <figcaption>A Prohelion BMU in the Profile supplies the pack data, and the charger component controls the charger, over TCP for a TDK or Siglent supply and over CAN for an Elcon charger</figcaption>
 </figure>
 
+## Supported chargers
+
+| Component | Controls | Connection |
+|---|---|---|
+| **Elcon Charger** | Elcon chargers | Controller Area Network (CAN), through a CAN adapter that is already in the Profile |
+| **Siglent Power Supply** | Siglent programmable power supplies that accept Standard Commands for Programmable Instruments (SCPI) commands, such as the SPD3303X-E, which suits desktop testing | Transmission Control Protocol (TCP) over the network |
+| **TDK Power Supply** | TDK programmable power supplies, such as the Genesys family, using SCPI commands | TCP over the network. A supply with only a serial port needs a TCP to serial converter between it and the network. |
+
 <figure markdown>
 ![Close-up of a two-channel power supply display: CH1 set to 32.00 V with 31.99 V and 0.00 A output, and CH2 set to 12.00 V with 12.00 V and 0.42 A output, both switched on.](../../images/SiglentCharger.png)
-<figcaption>Siglent Charger</figcaption>
+<figcaption>A Siglent SPD3303X-E power supply</figcaption>
 </figure>
 
 ## Quick start
 
-You need a charger that Profinity can control remotely, and a Prohelion BMU in the same profile with **Control Pack** on. This quick start covers the TDK and Siglent supplies. For an Elcon charger, which also needs a CAN adapter that is already configured in the profile, refer to [Charger settings](Charger_Settings.md).
+This quick start adds a TDK or Siglent supply. For an Elcon charger, refer to [Charger settings](Charger_Settings.md).
 
-1. Check that the profile contains a Prohelion BMU with **Control Pack** on. **Control Pack** is off by default.
-2. Add your charger from **ADD COMPONENT**, selecting **TDK Power Supply** or **Siglent Power Supply** under **Chargers & Power Supplies**.
-3. Set **Charger IP Address** and **Charger Port** to the address of the supply and its port, which is 5025 by default. If you use a TDK supply, also set **Charger ID**.
-4. Check that **Charger Voltage Limit**, **Charger Current Limit** and **Charger Power Limit** match the output of your charger.
-5. Select **ADD COMPONENT** at the bottom of the dialog.
-6. If **Auto Connect** is off, which is its default, switch the charger on with the **Connect / Disconnect** menu action.
-7. Check that the **IsConnected** tag of the charger is true.
+You need:
 
-## Supported chargers
+- A Prohelion BMU in the Profile with **Control Pack** on, because Profinity can engage and disengage the pack for a charge only when it is on. **Control Pack** is off by default, and it is described in [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU/index.md).
+- The IP address and TCP port of the supply, and for a TDK supply the charger ID that the supply is set to.
+- The **Control charging** permission to use the charging controls, as described in [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
 
-- **TDK Power Supply** controls TDK programmable power supplies such as the Genesys family using Standard Commands for Programmable Instruments (SCPI) over TCP.
-  A TDK supply that has only a serial interface needs a TCP to serial converter between it and the network, so that Profinity can reach it over TCP.
-- **Elcon Charger** controls an Elcon charger over CAN, so the charger must be connected to a CAN adapter that is already configured in the Profile.
-- **Siglent Power Supply** controls Siglent programmable power supplies that accept SCPI commands over TCP, such as the SPD3303X-E, which suits desktop testing.
-
-## Add a charger to the Profile
-
-Add a charger from **ADD COMPONENT** in the same way as any other device (refer to [How to add a component to your profile](../../How_To_Guides/Add_Component_to_Profile.md)).
-The Profile must also contain a Prohelion BMU with **Control Pack** switched on.
-**Control Pack** is off by default, and Profinity can engage and disengage the pack, which a charge needs, only when it is on.
-Once the charger is added it appears under **Chargers & Power Supplies** in the main menu with its own dashboard.
+1. Select **ADD COMPONENT**, then select **TDK Power Supply** or **Siglent Power Supply** in the **Chargers & Power Supplies** group.
+2. Set **Charger IP Address** to the IP address of the supply.
+3. Set **Charger Port** to the port the supply listens on. The default is `5025`.
+4. For a TDK supply, set **Charger ID** to the ID the supply is set to.
+5. Set **Charger Voltage Limit**, **Charger Current Limit**, and **Charger Power Limit** to the maximum output of your supply. The defaults are listed in [Charger settings](Charger_Settings.md).
+6. Select **ADD COMPONENT**.
+7. Select **Connect / Disconnect** from the charger's menu. **Auto Connect** is off by default.
+8. In **TAG EXPLORER**, check that the charger's `IsConnected` tag is true.
 
 <figure markdown>
 ![The Available Components screen filtered to Chargers & Power Supplies, listing Elcon Charger, Siglent Power Supply and TDK Power Supply.](../../images/add_charger.png)
-<figcaption>Add a Charger</figcaption>
+<figcaption>The three charger components in the Chargers & Power Supplies group</figcaption>
 </figure>
 
+The charger then appears under **Chargers & Power Supplies** in the main menu, with its own dashboard.
+To run a charge, refer to [Start a charge](Start_a_Charge.md).
 
-[Charger settings](Charger_Settings.md) lists the limits and communication settings that each charger asks for.
-To run a charge from the dashboard, refer to [Start a charge](Start_a_Charge.md).
+## Settings
+
+Every charger asks for its output limits and the limits of the supply that feeds it, and the TDK and Siglent supplies also ask for their network address.
+[Charger settings](Charger_Settings.md) lists every setting, with its type, default for each charger, and effect.
 
 ## Tags
 
-The charger publishes `ActualCurrent` and the status colour texts (`HardwareStatusColourText`, `TempStatusColourText`, `CommsStatusColourText`, `ACStatusColourText` and `DCStatusColourText`).
-SCPI and Elcon chargers also publish `ChargeController`, `BatteryManagementSystem` and `IsConnected`.
+Every charger publishes these tags:
+
+| Tag | Contents |
+|---|---|
+| `ActualCurrent` | The current the charger is delivering |
+| `HardwareStatusColourText`, `TempStatusColourText`, `CommsStatusColourText`, `ACStatusColourText`, `DCStatusColourText` | The status colour of the hardware, temperature, communications, AC input, and DC output indicators on the dashboard |
+
+The TDK, Siglent, and Elcon chargers also publish `ChargeController`, `BatteryManagementSystem`, and `IsConnected`.
+
+## Example
+
+This example adds a TDK supply at a network address you supply.
+Add it under `components:` in the `profile.yaml` file of the profile.
+
+```yaml
+- component:
+    type: TDKPowerSupply
+    id: TDKPowerSupply1
+    name: TDK Power Supply
+    tagTreeParentPath: /
+    chargerIpAddress: <supply IP address>
+    chargerPort: 5025
+    chargerId: <charger ID>
+    chargerVoltageLimit: 300
+    chargerCurrentLimit: 10
+    chargerPowerLimit: 3000
+    supplyVoltageLimit: 240
+    supplyCurrentLimit: 10
+    autoConnect: false
+```
+
+Replace `<supply IP address>` with the IP address of the supply and `<charger ID>` with the ID it is set to, and set the limits to match your supply.
+
+## Troubleshooting
+
+| What you see | Cause | What to do |
+|---|---|---|
+| "You must provide a charger Id for your charger" when you add a TDK supply | **Charger ID** is empty. | Set **Charger ID** to the ID the supply is set to. |
+| The `IsConnected` tag stays false after **Connect / Disconnect** | Profinity cannot reach the supply at **Charger IP Address** and **Charger Port**. | Check the address and port against the supply's network settings, and check that the supply is on the same network as the computer running Profinity. |
+| A charge does not start | **Control Pack** is off on the BMU, so Profinity cannot engage the pack. | Turn on **Control Pack** on the BMU, as described in [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU/index.md), then start the charge again. For the other causes, refer to [Start a charge](Start_a_Charge.md). |
+
+Related components: [Prohelion BMU](../Battery_Management_Systems/Prohelion_BMU/index.md) and the [CAN bus adapters](../CAN_Bus_Protocols/CAN_Bus_Adapters/index.md) that an Elcon charger uses.

@@ -8,7 +8,7 @@ last_reviewed: 2026-10-25
 
 # When a configuration file is invalid
 
-This page describes what Profinity does when one of its settings files is damaged, has an unrecognised key, or refers to an unset environment variable, and how to recover from these scenarios.
+Profinity checks its settings files, profiles, rules, collections, derived tags, and menu layouts when it loads them, and this page lists what it does with an invalid one and how to recover.
 For `config.yaml` and `security.yaml`, the two files that control how Profinity is secured and exposed, Profinity stops and shows a message.
 For the other settings files it carries on with a default and tells you in the log.
 
@@ -21,16 +21,16 @@ For the other settings files it carries on with a default and tells you in the l
 | `profile.yaml` | Profinity creates a new default profile, makes it the active profile, and writes the reason to the log. | Nothing in the invalid profile. The file is left exactly as it is. |
 | `plugins.yaml` | Profinity starts with no registered plugins. Plugin folders it finds are registered as disabled until the file is repaired. | Nothing. Profinity leaves the damaged file as it is. |
 | `theme.yaml` | Profinity starts with the default theme. | Nothing. |
-| `custom.yaml` | Because the file is invalid, the install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. Profinity never changes `custom.yaml`, which the OEM build supplies, so it must be corrected in that file. | Nothing. |
+| `custom.yaml` | Because the file is invalid, the install is not offered the [14-day local trial](../../Licensing.md#the-14-day-local-trial), and the component groups that the file hides are shown. Profinity never changes `custom.yaml`, which an original equipment manufacturer (OEM) build supplies, so ask the supplier for a corrected copy. | Nothing. |
 
 A file that does not exist counts as valid.
-Profinity creates the default for `config.yaml`, `security.yaml` and `plugins.yaml`, and uses the default theme and no custom settings for the others.
-`config.yaml`, `security.yaml`, `plugins.yaml` and `custom.yaml` are in the `config` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), `theme.yaml` is in the `themes` folder, and `profile.yaml` is in the profile folder.
+Profinity creates the default for `config.yaml`, `security.yaml`, and `plugins.yaml`, and uses the default theme and no custom settings for the others.
+`config.yaml`, `security.yaml`, `plugins.yaml`, and `custom.yaml` are in the `config` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), `theme.yaml` is in the `themes` folder, and `profile.yaml` is in the profile folder.
 `custom.yaml` holds the installer settings of an OEM build, such as the trial and the component groups it hides.
 
 ## Rules, collections, and derived tags
 
-These documents hold many separate items, so Profinity checks each item on its own and does not stop.
+These documents hold many separate items, so Profinity checks each item on its own and keeps running.
 An item that is not valid is skipped, and every other item still works.
 A skipped rule is inactive, and a skipped collection or derived tag is withheld.
 
@@ -90,7 +90,7 @@ A settings file is invalid when any of these is true:
 - The file has a key that Profinity does not define, such as a misspelt setting name.
 - The file refers to an environment variable, such as `${PROFINITY_ADMIN_USERNAME}`, that is not set.
 
-Profinity ignores the keys that 2.2 wrote to `config.yaml` and that 2.3 dropped, such as `mcp`, `enableScripting`, `urls` and `webSite`, so a `config.yaml` that 2.2 wrote still starts.
+Profinity ignores the keys that 2.2 wrote to `config.yaml` and that 2.3 dropped, such as `mcp`, `enableScripting`, `urls`, and `webSite`, so a `config.yaml` that 2.2 wrote still starts.
 Any other key that Profinity 2.3 does not define still makes the file invalid.
 
 ## Recover when Profinity will not start
@@ -109,17 +109,20 @@ It names the file and the reason.
    Then restore the last good copy by copying `<file>.bak` over it.
    For example, copy `config.yaml.bak` over `config.yaml`.
 3. If both fail, copy the file to a safe place if you have not already, then delete it to reset it.
-   Profinity creates the default on the next start.
-   Do not delete `custom.yaml`: the OEM build supplies it, so ask your supplier for a corrected copy.
+   Profinity creates the default on the next start, so a deleted `config.yaml` returns every setting to its default.
+   Keep `custom.yaml`, because the OEM build supplies it, and ask your supplier for a corrected copy.
 4. Start Profinity again.
+
+## Troubleshooting
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The message names an environment variable | The file refers to an environment variable that is not set | Set the variable and start again. The file itself is intact, so do not delete it. |
-| The message says the file could not be read | Profinity cannot read the file. The account that runs Profinity lacks permission to read it, or an input or output error occurs. | Check the file permissions for the account that runs Profinity. |
-
-
-Resetting `config.yaml` returns every setting to its default.
+| Profinity does not start, and the message names an environment variable | The file refers to an environment variable that is not set. | Set the variable and start Profinity again. The file itself is intact, so keep it. |
+| Profinity does not start, and the message says the file could not be read | The account that runs Profinity cannot read the file, or the disk reported an error. | Give the account that runs Profinity read access to the file, as described in [Artefacts directory](../../Installation/Artifacts_Directory.md#troubleshooting). |
+| Profinity does not start, and the message names a key or a value | The file has a key that Profinity does not define, or a value of the wrong type. | Follow [Recover when Profinity will not start](#recover-when-profinity-will-not-start). |
+| A different profile is active after a restart, and the log names your profile | Your profile has an unrecognised key or cannot be read, so Profinity started a default profile. | Correct the key that the log names, then activate your profile again, as described in [Profiles](#profiles). |
+| A rule, collection, or derived tag shows a red **Invalid** marker | The item fails its checks or has an unknown key, so Profinity skips it. | Point at the marker to read the reason, correct the item in its editor, and select **SAVE**. |
+| Every component is in its default menu group | The menu layout is invalid, so Profinity ignores it. | Read the notice in the **Menu Layout** editor, then save the layout from the editor. |
 
 ## The safety copy
 
@@ -133,8 +136,21 @@ Exported profile packs do not include safety copies, and importing a pack ignore
 ## Containers and services
 
 A container that restarts automatically will restart again and again while a file is invalid, and each attempt writes the same message to the log.
-Read the message, fix or restore the file in the data volume, and the next start succeeds.
-Check a configuration without starting Profinity by running `Profinity --preflight-only` with the Profinity executable on any operating system. The command checks the runtime and the configuration and security files without starting Profinity or writing anything. A valid set prints `[profinity] Preflight checks passed.` and exits with code 0. An invalid file prints its message and exits with code 2. The check runs the same way on each platform, reporting the runtime checks first and then each invalid file.
+Read the message, then correct or restore the file in the data volume, and the next start succeeds.
+
+To check the configuration without starting Profinity, run the Profinity executable with `--preflight-only`:
+
+```bash
+Profinity --preflight-only
+```
+
+The command checks the runtime, `config.yaml`, and `security.yaml`, and writes nothing.
+It reports the runtime checks first, then each invalid file with its message, and exits with code 2.
+When every check passes, it prints this line and exits with code 0:
+
+```text
+[profinity] Preflight checks passed.
+```
 
 ## Last sign-in times
 

@@ -3,13 +3,17 @@ title: Prometheus Logger
 description: "Serve selected tag collections to a Prometheus server, with the endpoint settings, the default data URL, and what to check if Prometheus shows no data."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-11
 ---
 
 # Prometheus Logger
 
-The **Prometheus Logger** serves the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections/index.md) to [Prometheus](https://prometheus.io).
-A logger only writes data out. It sits in the **Loggers** category.
+The **Prometheus Logger** publishes the values of the [tags](../../Tags/index.md) in selected [tag collections](../../Tags/Collections/index.md) at a web address that a [Prometheus](https://prometheus.io) server reads.
+It sits in the **Loggers** group.
+
+Prometheus collects data by calling the address on a schedule, which Prometheus calls scraping, so Profinity serves the latest values and Prometheus fetches them.
+The [InfluxDB v1 Logger](InfluxDB_v1_Logger.md) works the other way round, and sends its data to the server.
+To chart the data, pair Prometheus with a tool such as [Grafana](https://grafana.com).
 
 <figure markdown>
 ```mermaid
@@ -19,56 +23,40 @@ flowchart LR
     end
     Prometheus["Prometheus server"] --> Prom
 ```
-<figcaption>The Prometheus Logger serves the selected tag collections to a Prometheus server that calls Profinity to request the latest values</figcaption>
+<figcaption>The Prometheus Logger serves the selected tag collections, and a Prometheus server calls Profinity to read the latest values</figcaption>
 </figure>
-
-Prometheus logging works differently from [InfluxDB logging](InfluxDB_v1_Logger.md).
-InfluxDB expects its data to be pushed to it.
-Prometheus treats Profinity as a source of data and calls it to request the latest values.
-Prometheus stores data only and has no graphing capability out of the box, so it is usually coupled with a tool such as [Grafana](https://grafana.com) for visualisation.
 
 ## Quick start
 
-1. Select **ADD COMPONENT**, then select **Prometheus Logger** in the **Loggers** category.
-2. Under **Collections**, select at least one tag collection. The logger does not start without one.
-3. Keep **Server Hostname** as `localhost`, **Server Port** as `7065` and **Data endpoint URL** as `metrics/` to serve the data to a scraper on this computer.
-4. Select **ADD COMPONENT** at the bottom of the dialog. **Auto Connect** is on by default, so the logger starts when the profile loads. If it is off, select **Start Logger** from the component's menu.
+You need a [tag collection](../../Tags/Collections/index.md) that holds the tags to serve.
+
+1. Select **ADD COMPONENT**, then select **Prometheus Logger** in the **Loggers** group.
+2. Under **Collections**, select the collection. The logger needs at least one before it can start.
+3. Keep **Server Hostname** as `localhost`, **Server Port** as `7065`, and **Data endpoint URL** as `metrics/`, which serve the data to Prometheus on this computer.
+4. Select **ADD COMPONENT**. **Auto Connect** is on by default, so the logger starts at once.
 5. Check that **STATUS** shows **On**.
-6. Open `http://localhost:7065/metrics` in a browser on this computer, or point Prometheus at that address, and check that each tag in the selected collections appears as a gauge.
+6. Open `http://localhost:7065/metrics` in a browser on this computer, and check that the page lists a line for each tag in the collection.
 
-Adding a **Prometheus Logger** to Profinity is all that Prometheus logging needs on the Profinity side.
-The **Collections** setting selects one or more [tag collections](../../Tags/Collections/index.md) that are served (display names in the picker, id stored), and you must select at least one before the component starts.
-You can also set the following connection values.
+Then add `http://localhost:7065/metrics` to the scrape targets in your Prometheus configuration, as described in the [Prometheus documentation](https://prometheus.io/docs/).
 
-| Setting | Type | Default | Purpose |
+## Settings
+
+| Setting | Type | Default | Effect |
 |---|---|---|---|
-| **Collections** | Choice | None | The tag collections that are served. Select at least one before the logger starts. |
-| **Data endpoint URL** | Text | `metrics/` | The URL path, within the hostname and port, that the Prometheus data is served on. |
-| **Server Hostname** | Text | `localhost` | The host name or IP address that the Prometheus endpoint answers to. Refer to [Let another computer read the data](#let-another-computer-read-the-data). |
-| **Server Port** | Whole number | 7065 | The port that the endpoint runs on, from 1 to 65535. |
-| **Dashboard URL** | Text | Blank | The full URL of the Prometheus dashboard. Optional, and leaving it blank shows no dashboard link. |
-| **Update Interval (Seconds)** | Time | 10 | The seconds between samples, from 1 to 86400. |
-| **Auto Connect** | On or off | On | Starts the logger when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
-
-A tag that is not Good quality is reported as NaN.
-
-Once the Prometheus Logger is active, Prometheus can call Profinity on the data endpoint URL to receive data.
-With all settings left at their defaults, the data is served at:
-
-```text
-http://localhost:7065/metrics
-```
-
-Configuring Prometheus to receive and display this data is covered in the Prometheus documentation.
+| **Collections** | Choice | None | The [tag collections](../../Tags/Collections/index.md) that are served. The logger needs at least one before it can start. |
+| **Data endpoint URL** | Text | `metrics/` | The path of the address, after the host name and port, that serves the data. |
+| **Server Hostname** | Text | `localhost` | The host name or IP address that the address answers on. Refer to [Let another computer read the data](#let-another-computer-read-the-data). |
+| **Server Port** | Whole number | `7065` | The port of the address, from 1 to 65535. |
+| **Dashboard URL** | Text | Blank | The full address of a Prometheus or Grafana dashboard. When it is set, Profinity shows a link to it. |
+| **Update Interval (Seconds)** | Time | `10` | The seconds between samples, from 1 to 86400. |
+| **Auto Connect** | On or off | On | Starts the logger when the profile loads. When it is off, select **Start Logger** from the component's menu. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 ## Example
 
-This example shows a Prometheus Logger in the `components` list of the `profile.yaml` file in the profile folder.
+Add this item under `components:` in the `profile.yaml` file of the profile.
 Refer to [Profile folders](../../Administration/Profile_Folders.md) for where that file sits.
-It is an example only, so replace the placeholders with your own values.
 
 ```yaml
-components:
 - component:
     type: PrometheusLogger
     id: PrometheusLogger1
@@ -79,31 +67,39 @@ components:
     url: metrics/
     intervalSec: 10
     collections:
-    - collectionName: YOUR_COLLECTION_ID
+    - collectionName: <collection id>
 ```
 
-`YOUR_COLLECTION_ID` is the id of a tag collection in the profile.
+Replace `<collection id>` with the `id` of a collection in the profile's `collections.yaml` file.
 With these values, Prometheus reads the data from `http://localhost:7065/metrics`.
 
 ## Let another computer read the data {#let-another-computer-read-the-data}
 
-With **Server Hostname** set to `localhost`, only a scraper on the same computer can read the data.
-To let a scraper on another computer connect, enter the host name or IP address of the Profinity computer, or `+` to answer on every address.
-On Windows, listening on anything other than `localhost` needs a URL reservation or administrator rights. This section covers Windows only.
-For example, run this command to reserve the URL:
+With **Server Hostname** set to `localhost`, only Prometheus on the same computer can read the data.
+For Prometheus on another computer, set **Server Hostname** to the host name or IP address of the Profinity computer, or to `+` to answer on every address, and open **Server Port** through any firewall between the two computers.
 
-```text
-netsh http add urlacl url=http://+:7065/metrics user=DOMAIN\user
-```
+=== "Windows"
 
-Replace `7065` with your **Server Port**, and `DOMAIN\user` with the account that runs Profinity.
-Alternatively, run Profinity with administrator rights.
+    Windows lets a program answer on an address other than `localhost` only when the address is reserved for its account, or when the program runs with administrator rights.
+    To reserve it, run this command in an administrator PowerShell window:
+
+    ```powershell
+    netsh http add urlacl url=http://+:<port>/<path> user=<account>
+    ```
+
+    Replace `<port>` with **Server Port**, `<path>` with **Data endpoint URL**, and `<account>` with the account that runs Profinity, such as `DOMAIN\user`.
+
+=== "Linux and macOS"
+
+    No reservation is needed. Restart the logger after you change **Server Hostname**.
 
 ## What Prometheus receives
 
-Each tag in the selected collections is served as one gauge.
-The name is the profile, component, message and signal joined with underscores, and the labels identify the tag.
-For example, a motor speed signal on a component called `Inverter` is served like this:
+Profinity serves each tag in the selected collections as one gauge, a Prometheus value that can rise and fall.
+The gauge name is the profile, component, message, and signal joined with underscores, and its labels identify the tag.
+Characters other than letters and digits become underscores.
+
+For example, a motor speed signal on a component called `Inverter`, in a profile called `MyProfile`, is served like this:
 
 ```text
 # HELP MyProfile_Inverter_Status_Speed Inverter/DBC/Status/Speed
@@ -111,16 +107,16 @@ For example, a motor speed signal on a component called `Inverter` is served lik
 MyProfile_Inverter_Status_Speed{profile="MyProfile",component="Inverter",transmitter="",message="Status",signal="Speed",full_tag_id="Inverter_DBC_Status_Speed"} 23.4
 ```
 
-Characters other than letters and digits in names and labels are replaced with underscores, which is why the `full_tag_id` label shows underscores where the tag's path has slashes.
-The value is the latest reading, or `NaN` when the tag is not Good quality.
+The value is the latest reading of a tag with Good quality, and `NaN` for a tag with any other quality.
 
-## If Prometheus shows no data
+## Troubleshooting
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The logger shows **Error**. | The logger cannot open its Prometheus endpoint, for example because the port is in use. | The logger writes the reason to the Profinity system logs once, and retries every 5 seconds until the problem clears. Refer to [Logs](../../Administration/Logs_Config.md) for where to read them. |
-| Prometheus shows no data. | The logger is not running. | Check that the logger is running. |
-| Prometheus shows no data. | The scraper does not use the same hostname, port and endpoint path as the logger. | Check that the scraper uses the same hostname, port and endpoint path as the logger. |
-| Prometheus shows no data. | No tag collection with tags is selected. | Select at least one tag collection with tags. |
+| **STATUS** shows **Error** | The logger cannot open its address, for example because another program uses the port. Profinity writes the reason to the log once, then tries again every 5 seconds. | Read the reason on the [Logs](../../Administration/Logs_Config.md) page under **ADMIN**, then free the port or change **Server Port**. |
+| **STATUS** shows **Off** | No collection is selected, or **Auto Connect** is off. | Select a collection under **Collections**, or select **Start Logger** from the component's menu. |
+| Prometheus shows no data, and the address works in a browser | The scrape target in Prometheus differs from the logger's address. | Set the Prometheus scrape target to the same host name, port, and path as **Server Hostname**, **Server Port**, and **Data endpoint URL**. |
+| Prometheus on another computer cannot reach the address | **Server Hostname** is `localhost`, the port is blocked, or on Windows the address is not reserved. | Follow [Let another computer read the data](#let-another-computer-read-the-data). |
+| The address lists no tags | The selected collections hold no tags. | Add tags to the collection, or select another one. |
 
-To add the logger and start it, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
+To set up logging across a profile, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
