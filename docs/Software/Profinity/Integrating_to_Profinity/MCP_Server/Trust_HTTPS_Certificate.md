@@ -179,7 +179,7 @@ Stop and start Profinity in the way that suits your installation:
 
 | Installation | Stop and start |
 |--------------|----------------|
-| Windows desktop | Shut down the application, and start it from the Start menu, as described in [Install Profinity on Windows](../../Installation/Windows_Installation.md#install-profinity) |
+| Windows desktop | Shut down the application, and start it from the Start menu, as described in [Install Profinity on Windows](../../Installation/Windows_Installation.md) |
 | Windows service | Stop and start the service as you stop and start any other service on Windows. Refer to [Run Profinity as a Windows service](../../Installation/Run_as_a_Service/Run_as_a_Windows_Service.md) |
 | Linux service | Run `sudo systemctl stop profinity.service`, and start it with `sudo systemctl start profinity.service`. Refer to [Run Profinity as a Linux service](../../Installation/Run_as_a_Service/Run_as_a_Linux_Service.md#start-the-service) |
 | macOS service | Stop and start the service as you stop and start any other service on macOS. Refer to [Run Profinity as a macOS service](../../Installation/Run_as_a_Service/Run_as_a_macOS_Service.md) |
