@@ -40,7 +40,7 @@ You need the Historians licensed feature, a database that the Profinity server c
 1. Add a **TAG SQL Historian** from the **Historians** category.
 2. Set **Connection string** to the connection string for your database, in the format of the provider you choose.
 3. If the database is not SQLite, set **Database provider** to match it. SQLite is the default.
-4. Under **Collections**, add at least one tag collection. The historian cannot start without one.
+4. Under **Collections**, add at least one tag collection. The historian needs one before it can start.
 5. Select **ADD COMPONENT** at the bottom of the dialog.
 6. Check that the status shows **On**. In Snapshot mode, the default **Logging mode**, rows appear in the table named by **Table name** after each **Update interval (seconds)**, which is 10 seconds by default. If the status shows **Error**, read the [Logs](../../Administration/Logs_Config.md) for the reason.
 

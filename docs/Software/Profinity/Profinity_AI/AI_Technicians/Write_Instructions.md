@@ -1,6 +1,6 @@
 ---
 title: Write instructions
-description: Write AI technician instructions that say what to check, what counts as attention, and which severity to give, with two worked examples.
+description: Write AI Technician instructions that say what to check, what counts as attention, and which severity to give, with two worked examples.
 type: task
 owner: Documentation
 last_reviewed: 2026-11-11
@@ -11,7 +11,7 @@ last_reviewed: 2026-11-11
 The **Instructions** setting tells an [AI Technician](./AI_Technician.md) what to review and how to judge it.
 The technician reads the same instructions every round, so clear instructions give the same verdict on the same data.
 
-Add an [AI Technician](./AI_Technician.md) to the profile first, as described in [Set up an AI technician](./Set_Up_an_AI_Technician.md). Selecting **Run AI Technician** to check the instructions needs the **Allow component actions** permission.
+Add an [AI Technician](./AI_Technician.md) to the profile first, as described in [Set up an AI Technician](./Set_Up_an_AI_Technician.md). Selecting **Run AI Technician** to check the instructions needs the **Allow component actions** permission.
 
 ## What to put in instructions
 
@@ -30,7 +30,7 @@ A new technician starts with the midnight service check example.
 ## What to leave to rules
 
 A fixed limit, such as a temperature above 45 °C, belongs in a [tag rule](../../Tags/Rules/index.md), which checks every value as it arrives and costs nothing.
-Use instructions for judgements a rule cannot make: a trend over the time you named, a pattern across several tags, or whether a set of alerts points to one cause.
+Use instructions for the problems a fixed limit misses, such as a trend over the time you named, a pattern across several tags, or a set of alerts with one cause.
 
 ## Example: a midnight service check
 
@@ -50,13 +50,13 @@ Give attention when:
 
 Give clear when none of these apply.
 
-Write a message of one or two sentences that names the cell or tag and the values you saw.
+Write a message of one or two sentences that names the device or tag and the values you saw.
 In the report, list what you checked and what you found for each item.
 ```
 
 ## Example: an alert investigation
 
-This example suits a technician that a tag rule wakes when an alert fires, as described in [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md).
+This example suits a technician that a tag rule wakes when an alert fires, as described in [Investigate alerts with an AI Technician](./Investigate_Alerts_with_an_AI_Technician.md).
 
 ```text
 You are woken when an alert fires on the motor controller.

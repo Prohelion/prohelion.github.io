@@ -106,3 +106,79 @@ test('packages that are not installed are synced before linting', () => {
   assert.strictEqual(result.status, 0, result.stdout + result.stderr);
   assert.ok(fs.existsSync(dir), 'Microsoft package was not restored');
 });
+
+// Source: STYLE_GUIDE.md 2.6 and 2.6b, the AI-sounding prose patterns that the user flagged on the AI technicians page.
+// @business: prose that reads as machine-written fails the lint, so a page with these tells is sent back for rewriting
+const aiTellsPage = (body) => '---\ntitle: T\ndescription: "A description that is long enough to pass the seventy character minimum comfortably."\ntype: concept\nowner: Documentation\nlast_reviewed: 2026-11-12\n---\n\n# T\n\n' + body;
+
+test('a windup colon, an announced point and a stacked negative are each reported', () => {
+  const fs = require('fs');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'lint-'));
+  const file = path.join(tmp, 'tells.md');
+  fs.writeFileSync(file, aiTellsPage(
+    'It suits the judgements a rule cannot make:\n\n- A trend.\n- A pattern.\n- A cause.\n\n' +
+    'The result for the business is earlier warning.\n' +
+    'AI Chat is the better fit for a quick question.\n' +
+    'The logger cannot start without a collection.\n'));
+  const result = run(file, '--details');
+  assert.strictEqual(result.status, 1, result.stdout + result.stderr);
+  for (const expected of ['SetupColon', 'AnnouncedPoint', 'DoubleNegative']) {
+    assert.ok(result.stdout.includes(expected), `expected a ${expected} finding in:\n${result.stdout}`);
+  }
+});
+
+// @business: the rewrites in the style guide's before-and-after table pass, so the rules do not punish plain writing
+test('the plain rewrites from the before-and-after table raise none of those findings', () => {
+  const fs = require('fs');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'lint-'));
+  const file = path.join(tmp, 'plain.md');
+  fs.writeFileSync(file, aiTellsPage(
+    'Use a technician for the problems a fixed limit misses.\n' +
+    'A technician that reviews the last 24 hours every night spots the climb while there is still time to plan a repair.\n' +
+    'To ask a question yourself, use AI Chat.\n' +
+    'The logger needs a collection before it can start.\n'));
+  const result = run(file, '--details');
+  for (const rule of ['SetupColon', 'AnnouncedPoint', 'DoubleNegative']) {
+    assert.ok(!result.stdout.includes(rule), `did not expect a ${rule} finding in:\n${result.stdout}`);
+  }
+});
+
+// Source: STYLE_GUIDE.md 2.8, locate a setting in the GUI, not by its stored key; flagged on the Tag Tree Path page.
+// @business: a page that tells users where a setting is stored instead of where it is in the GUI fails the lint
+test('a sentence that locates a setting by its stored YAML key is reported', () => {
+  const fs = require('fs');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'lint-'));
+  const file = path.join(tmp, 'storage.md');
+  fs.writeFileSync(file, aiTellsPage("The setting is stored as `tagTreeParentPath` in the component's YAML.\n"));
+  const result = run(file, '--details');
+  assert.strictEqual(result.status, 1, result.stdout + result.stderr);
+  assert.ok(result.stdout.includes('StorageKey'), `expected a StorageKey finding in:\n${result.stdout}`);
+});
+
+// @business: naming where the setting sits in the GUI, or saying what Profinity stores, is not reported
+test('a GUI location and a plain description of stored data raise no StorageKey finding', () => {
+  const fs = require('fs');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'lint-'));
+  const file = path.join(tmp, 'gui.md');
+  fs.writeFileSync(file, aiTellsPage(
+    "You can find it in the **Component identifier** section of the component's settings, next to **Name**.\n" +
+    'Each sample is stored as one point in a measurement named after the profile.\n'));
+  const result = run(file, '--details');
+  assert.ok(!result.stdout.includes('StorageKey'), `did not expect a StorageKey finding in:\n${result.stdout}`);
+});
+
+// Source: STYLE_GUIDE.md 2.5, the product is named "AI Technician" and is capitalised the same way in every sentence.
+// @business: a page that writes the product name in lower case fails the lint, so the name reads the same across the docs
+test('a lower-case AI technician is reported and the capitalised name passes', () => {
+  const fs = require('fs');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'lint-'));
+  const bad = path.join(tmp, 'bad.md');
+  fs.writeFileSync(bad, aiTellsPage('Set up an AI technician for the charger.\n'));
+  const badResult = run(bad, '--details');
+  assert.strictEqual(badResult.status, 1, badResult.stdout + badResult.stderr);
+  assert.ok(badResult.stdout.includes('ProductNames'), `expected a ProductNames finding in:\n${badResult.stdout}`);
+  const good = path.join(tmp, 'good.md');
+  fs.writeFileSync(good, aiTellsPage('Set up an AI Technician for the charger.\n'));
+  const goodResult = run(good, '--details');
+  assert.ok(!goodResult.stdout.includes('ProductNames'), `did not expect a ProductNames finding in:\n${goodResult.stdout}`);
+});

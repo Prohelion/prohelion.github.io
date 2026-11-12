@@ -1,19 +1,19 @@
 ---
-title: Investigate alerts with an AI technician
-description: Add an AI technician as a rule action so a device alert starts a review, and read the technician's finding as a second alert.
+title: Investigate alerts with an AI Technician
+description: Add an AI Technician as a rule action so a device alert starts a review, and read the technician's finding as a second alert.
 type: task
 owner: Documentation
 last_reviewed: 2026-11-10
 ---
 
-# Investigate alerts with an AI technician
+# Investigate alerts with an AI Technician
 
 An [AI Technician](./AI_Technician.md) can be a [rule action](../../Tags/Rules/Actions/index.md), so an alert on a device starts a round.
 The device alert is raised straight away, and the technician's finding follows as a second alert from its own **Findings message** rule when the round ends.
 
 ## Before you start
 
-- The technician is set up and its first round has finished, as described in [Set up an AI technician](./Set_Up_an_AI_Technician.md).
+- The technician is set up and its first round has finished, as described in [Set up an AI Technician](./Set_Up_an_AI_Technician.md).
 - The instructions say what to look at when an alert wakes the technician, as in the alert investigation example in [Write instructions](./Write_Instructions.md#example-an-alert-investigation).
 - The profile has the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
 - You can edit the device's rules, as described in [Rule settings](../../Tags/Rules/Rule_Settings.md#permissions).
@@ -22,7 +22,7 @@ The device alert is raised straight away, and the technician's finding follows a
 
 1. Open the device rule in the rules visual editor, as described in [Create a rule](../../Tags/Rules/Create_a_Rule.md).
 2. In **Add action**, choose the technician by its component name, such as `MotorTechnician`.
-3. Add it to the rule's actions, or to the threshold step that should start a review.
+3. Add it to the rule's actions, or to the threshold step that starts a review.
    Do not add it to the clear actions, because the technician starts a round each time it runs, including when an alert clears.
 4. Save the rules.
 
@@ -68,7 +68,7 @@ rules:
 ```
 
 The `throttleMinutes` on the device rule and the technician's **Alert cooldown (minutes)** both limit how often the alert starts a round.
-A device that alerts often should rely on the throttle, so the technician's **Daily limit** is left for the alerts that matter.
+For a device that alerts often, set the throttle, so the technician's **Daily limit** is left for the alerts that matter.
 
 ## Read the finding
 

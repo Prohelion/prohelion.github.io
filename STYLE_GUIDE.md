@@ -140,6 +140,8 @@ Sentence rhythm depends on the page type. Prohelion's existing prose runs long a
 - Expand an acronym in full on its first use on every page, for example "Message Queuing Telemetry Transport (MQTT)", because readers arrive on a page from search; later uses on the same page are bare. Universal terms (API, CAN, URL, YAML, JSON, HTTP, HTTPS, UI, CSV, PDF, ID) are not expanded.
 - Write on-screen UI labels (buttons, tabs, menu items and field names) in **bold**, exactly as they appear, without quotation marks. Reserve backticks for values the reader types, file names, paths, YAML keys and code identifiers.
 - Keep configuration fields, parameters and code identifiers literal — don't "prettify" `serialNumber` into "Serial Number" where the text is referring to the actual field name.
+- Give each setting, button and control one name everywhere in the docs. When a page and the product differ, the product wins: change the page to the label the product shows. If the product itself names one thing two ways, do not pick one in the docs; list the variants and raise them with the developers.
+- The Battery Management System (BMS) is the whole system. It has a Battery Management Unit (BMU), the main unit that Profinity connects to, and the Cell Management Units (CMUs). Write BMU for the unit a component or page configures, CMU for the cell units, and BMS only for the system as a whole, or where the product shows it on screen (the default component name is BMS).
 
 - Write Australian English: colour, organisation, licence (noun), license (verb), catalogue, enrolment, artefact. This applies to prose only; configuration keys, UI labels as shipped, API fields and quoted output keep their literal spelling.
 - Use the serial comma in a list of three or more items: "Android, iOS, and Windows".
@@ -166,6 +168,12 @@ None of these patterns appear in Prohelion's existing documentation. Treat them 
 - Re-defining jargon a technical reader would already know
 - Negative-parallelism constructions ("It's not just X, it's Y")
 - A generic first-person-plural brand voice ("we" as narrator) — this belongs to ArrowPoint's open-source register only, which is out of scope for commercial docs (see 2.1)
+- A windup sentence that ends in a colon and only introduces a list: "It suits the judgements a rule cannot make:", "This suits these cases:"
+- Abstract nouns where a person, a device or a verb would do: "the judgements", "the line between a problem and normal behaviour", "the record of what it concluded"
+- Announcing the point instead of making it: "The result for the business is...", "AI Chat is the better fit"
+- Negative framing and stacked negatives: "does not say whether", "is not queued or tried again", "cannot start without one" (see 2.4)
+- A reflexive group of three, when the content has one or two real items: "on a schedule, on demand, or when an alert fires"
+- Abstract examples where a concrete one would land: "a fault that builds slowly" instead of "a motor that runs a few degrees hotter each day"
 
 This section was built from a mix of direct source review and automated page-fetch summaries. Formatting claims in particular are worth spot-checking against the live `.md` source before treating them as absolute — direct review of the BMS `Warnings.md` and `Precharge.md` source, for example, confirmed `!!! danger` / `!!! info` / `!!! tip` admonitions **are** used in that section, contrary to one research pass's read of the rendered page.
 
@@ -184,6 +192,22 @@ Over-structured pages read as machine-written, whatever the wording. The same sc
 
 Read each refactored page aloud before it is published. No linter can detect a page that feels machine-written, so a person reading it is the check. If a page reads like a form being filled in, remove structure until it reads like someone explaining the product.
 
+### 2.6b Before and after
+
+These sentences come from a drafted page that passed every rule above and still read as machine-written. The rewrites are the target: a concrete subject, an active verb, one point per sentence, and an example a customer would recognise. Write as if explaining the product to a customer at the bench.
+
+| Pattern | Before | After |
+|---|---|---|
+| Windup colon | It suits the judgements a rule cannot make: | Use a technician for the problems a fixed limit misses. |
+| Abstract example | A fault that builds slowly often stays inside every fixed limit until late. | A motor that runs a few degrees hotter each day stays under its 80 °C alarm until it is close to failing. |
+| Announced point | The result for the business is earlier warning of faults that develop slowly. | A technician that reviews the last 24 hours every night spots the climb while there is still time to plan a repair. |
+| Gerund subject | Answering that has meant an engineer opening the history, comparing tags, and reading back through the Alerts Log. | Normally an engineer opens the history, compares the nearby tags, and scrolls back through the Alerts Log. |
+| Abstract noun | The line between a problem and normal behaviour is the same on every round and every shift. | Every round applies the same checks, whoever is on shift. |
+| Announced point | For a question a person wants answered now, in their own words, AI Chat is the better fit. | To ask a question yourself, in your own words, use AI Chat. |
+| Stacked negative | A wake is dropped, and it is not queued or tried again. | A wake is dropped. To have it reviewed, start another round once the current one ends. |
+
+The Vale rules `Prohelion.SetupColon`, `Prohelion.AnnouncedPoint` and `Prohelion.DoubleNegative` catch the mechanical forms of these patterns. Abstract nouns, abstract examples and groups of three cannot be linted, so reading the page aloud remains the check.
+
 ### 2.7 Technical level
 - Assume technical competence but don't assume expertise
 - Define specialised terms on first use, briefly and in-line — not as a separate glossary entry
@@ -196,9 +220,11 @@ Published documentation is read by people who use Profinity, not by people who b
 
 - Describe what the user sees and does: which screen to open, what a setting controls, what happens when they change it, and what to expect afterwards. Start from the user's goal, not from how the feature is implemented.
 - Do not reference class names, method names, file paths in the source repository, database tables, internal service names or architecture layers unless the reader must type or select that exact thing. Where a name is visible in the product (a menu item, a field, a file the user edits, an API route the user calls), use it exactly as it appears; where it is not, describe the behaviour instead.
+- Locate a setting where the user finds it in the GUI: the screen or dialog, the tab or section, and the label as shipped ("in the **Component identifier** section of the component's settings"). Almost everyone configures Profinity through the GUI, so a sentence such as "stored as `tagTreeParentPath` in the component's YAML" tells them nothing they can act on. Name a YAML key or configuration file only where the reader has to edit that file, such as recovering from a lockout when the GUI cannot be reached, or on a page about writing YAML, such as the dashboard and rules YAML references. The Vale rule `Prohelion.StorageKey` catches the common forms.
 - Do not explain why the code is structured the way it is. Design rationale, refactoring history, "previously this was..." and "this was changed because..." belong in release notes or engineering records, not in the user guide. State the current behaviour as settled fact, dated to a version where it matters (see 2.4).
 - Do not point to internal artefacts: plan files, `tasks/` documents, review or finding IDs, branch names, pull requests, internal ticket numbers. If a limitation or upcoming change matters to the reader, state it in plain terms ("For the moment, Profinity does not...") without citing where it was tracked.
 - Do not use internal shorthand or codenames the reader has never been shown. If a term is not in the product UI, the public documentation or the glossary, define it in place or replace it with plain words.
+- Profinity monitors anything with a signal, and a battery system is only one of thousands of uses. In pages about a generic feature (AI, rules, tags, dashboards, collections, components and so on), use varied examples such as a pump, a motor, a compressor, a generator or a cooling system. Do not default to batteries, cells, chargers or other battery-pack terms, and keep those for pages about a battery product.
 - Prefer a worked example in user terms ("To alert when pack temperature exceeds 45 °C, open Alerts and...") over a description of the underlying mechanism. Include mechanism only when it changes what the user should do, such as a timing, ordering or limit that affects their configuration, and then explain it in one or two plain sentences.
 - Cover failure from the user's side: the message or symptom they will see, the likely cause in their setup, and the action that fixes it. Do not describe which internal component raised the error.
 
@@ -219,6 +245,15 @@ Readers arrive from a search engine or an AI assistant, often on a single page, 
 - **Alt text and captions.** Describe what an image shows in text. A diagram that carries meaning is also explained in the surrounding prose.
 - **Stable URLs.** Do not rename or move a published page without a redirect, and record the redirect in `mkdocs.yml`. Profinity 2.3 is not released: rename or delete the page and update in-tree links; do not add 2.3 redirects.
 - **Prune.** Delete placeholder pages and outdated procedures, and merge duplicates. Less content retrieves better than more.
+
+### 2.10 Standing content decisions for Profinity 2.3
+
+These decisions come from the product owners. Apply them without asking again.
+
+- **Releases.** Customers upgrade from Profinity 2.2 to 2.3, and the first customer build of 2.3 is 2.3.3. Builds 2.3.1 and 2.3.2 were development releases that no customer ran, so no page carries an upgrade path, known issue or migration advice for them. Describe 2.3 behaviour against 2.2. Only the release notes may name a patch number.
+- **Upgrade pages stay short.** Profinity migrates 2.2 data to 2.3 itself. An upgrade guide, release note or breaking-change page says what Profinity does for the reader and lists only the few actions a person has to take, such as applying a licence or updating an integration that calls a removed endpoint. Do not write preflight checklists or recovery and re-entry procedures for anything Profinity handles itself.
+- **`PROFINITY_HOME` is for exceptions.** The default data folder works for almost everyone, and in Docker the reader mounts a volume at the default path. Mention the `PROFINITY_HOME` environment variable only as an exception, such as running several instances, staging, or a non-standard mount. Never present it as required, and leave it out of compose examples.
+- **Unsupported claims come out.** If the code cannot back a claim, such as a time estimate or the source of a firmware or SDK, remove it and tell the product owners, rather than leaving it in as a guess.
 
 ## 3. Content elements
 

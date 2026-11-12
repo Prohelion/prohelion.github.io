@@ -33,6 +33,10 @@ Never guess a default, a permission name, a limit, a UI label, a file location o
 - Give each fact one authoritative page and link to it. Examples: licence and sign-in rules live on `Installation/Applying_a_Licence.md` (anchor `#who-can-sign-in`), and Auto Connect defaults live on `Components/Connections_and_Reconnecting.md`.
 - Do not add Co-Authored-By or "Generated with" lines, in commits or anywhere else.
 
+## Where rules live
+
+Rules about how the docs are written belong in this repository, in `STYLE_GUIDE.md` (and `REVIEW_GUIDE.md` for review method), so that every editor gets them, not only the person who gave the correction. When you are corrected on wording, terminology, structure or content scope, add the rule to `STYLE_GUIDE.md`, and a Vale rule in `.vale/styles/Prohelion/` with a test in `scripts/lint-docs.test.js` where the pattern can be matched mechanically. Do not leave it only in personal memory or in `tasks/`, which are local. `tasks/lessons.md` can hold the story behind a rule, but the rule itself goes in the style guide.
+
 ## Checks
 
 Run from the repository root unless stated. There is no BDD tooling for docs, so these checks stand in for it. Run them before calling a change done.

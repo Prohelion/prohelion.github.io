@@ -1,0 +1,11 @@
+extends: existence
+message: "'%s' announces the point instead of making it. State the fact directly (style guide 2.6)."
+level: warning
+ignorecase: true
+tokens:
+  - 'the (?:result|benefit|upshot|outcome) for (?:the )?\w+ is'
+  - 'the (?:key|main|important) (?:point|thing|takeaway) is'
+  - 'is (?:the|a) (?:better|best|right|good|natural) fit'
+  - 'it is worth (?:noting|mentioning|remembering)'
+  - 'plays an? (?:key|vital|crucial|central|important) role'
+  - 'what this means is'

@@ -1,14 +1,14 @@
 ---
-title: How AI technicians work
-description: Understand an AI technician round, the three things that wake it, why it only reads, and how its findings reach alerts through ordinary rules.
+title: How an AI Technician works
+description: Understand an AI Technician round, the three things that wake it, why it only reads, and how its findings reach alerts through ordinary rules.
 type: concept
 owner: Documentation
 last_reviewed: 2026-11-11
 ---
 
-# How AI technicians work
+# How an AI Technician works
 
-An AI technician runs a *round*: one unattended review by [Profinity AI](../How_Profinity_AI_Works.md), which ends with a finding published as tags.
+An AI Technician runs a *round*: one unattended review by [Profinity AI](../How_Profinity_AI_Works.md), which ends with a finding published as tags.
 The technician advises and never acts, so a person or an ordinary [tag rule](../../Tags/Rules/index.md) decides what happens next.
 
 ## What wakes a technician
@@ -20,7 +20,8 @@ Three things start a round:
 - An alert from a tag rule on another device that names the technician as one of its [rule actions](../../Tags/Rules/Actions/index.md).
 
 A technician runs one round at a time.
-A wake that arrives while a round is running is dropped, and it is not queued or tried again.
+A wake that arrives while a round is running is dropped.
+To have that wake reviewed, start another round once the current one ends.
 The next section lists the other limits that drop a wake.
 
 ## From a device rule to an alert
@@ -31,7 +32,7 @@ It publishes its finding on its own **Findings** tags, and the built-in rules on
 <figure markdown>
 ```mermaid
 flowchart LR
-    Device["Device rule"] --> Technician["AI technician"]
+    Device["Device rule"] --> Technician["AI Technician"]
     Technician --> Findings["Findings tags"]
     Findings --> Rule["Findings rules"]
     Rule --> Alert["Alert and actions"]
@@ -56,7 +57,7 @@ Three blocked rounds in a row raise the **Technician not working** alert instead
 Two attention findings with different messages each send, even when they share a severity.
 The same message does not send again.
 The shipped **Findings message** rule sends only `attention` rounds.
-Edit its expression if blocked or clear rounds should send as well.
+To send blocked or clear rounds as well, edit its expression.
 The full list of built-in rules is on [AI Technician](./AI_Technician.md#built-in-rules).
 
 ## What the AI sees and keeps
@@ -89,4 +90,4 @@ Each limit is a setting on the technician, described on [AI Technician](./AI_Tec
 Scheduled rounds ignore the cooldown and the daily limit, so a daily review always runs unless a round is already in progress.
 A press of Run AI Technician ignores the cooldown, because a person chose to run it, but still counts towards the daily limit.
 
-To add a technician to a profile, continue to [Set up an AI technician](./Set_Up_an_AI_Technician.md).
+To add a technician to a profile, continue to [Set up an AI Technician](./Set_Up_an_AI_Technician.md).

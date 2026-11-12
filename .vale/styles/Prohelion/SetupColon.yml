@@ -1,0 +1,8 @@
+extends: existence
+message: "'%s' is a windup that only introduces a list. Say what the list is about in plain words, or start the list without it (style guide 2.6)."
+level: warning
+ignorecase: true
+nonword: true
+tokens:
+  - '\b(?:it|they|this|technicians?|rules?) (?:suits?|excels? at|is good at|is built for|shines (?:at|in|when))\b[^.:\n]{0,60}:'
+  - '\b(?:judgements|judgments|capabilities|benefits|advantages|use cases|scenarios) (?:that )?(?:a|an|the) \w+ (?:cannot|can not|does not|is unable to) \w+:'

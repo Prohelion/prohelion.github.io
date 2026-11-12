@@ -45,7 +45,7 @@ The picker lists:
 - **None**, which records the alert in the Alerts Log only and rejects `message`, `level`, and `tagId`.
 - Every Email, Slack, Webhook, and MQTT action that has been added to the profile, listed by the name of its component.
 - Every **CSharp Script**, **Python Script** or **Lua Script** component whose mode is **Run on alert**, as described in [Rule scripts](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
-- Every **AI Technician** in the profile, listed by the name of its component, which starts a review each time the action runs, as described in [Investigate alerts with an AI technician](../../../Profinity_AI/AI_Technicians/Investigate_Alerts_with_an_AI_Technician.md).
+- Every **AI Technician** in the profile, listed by the name of its component, which starts a review each time the action runs, as described in [Investigate alerts with an AI Technician](../../../Profinity_AI/AI_Technicians/Investigate_Alerts_with_an_AI_Technician.md).
 
 In YAML the two built-in actions are written `ProfinityLog` and `None`.
 

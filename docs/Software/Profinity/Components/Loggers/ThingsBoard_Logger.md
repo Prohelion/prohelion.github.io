@@ -44,9 +44,9 @@ You need the Data Relay licensed feature, the ThingsBoard Logger plugin installe
 2. Add **ThingsBoard Logger** from **ADD COMPONENT**, under **Loggers**. A Profile holds only one.
 3. Enter the device's access token in **ThingsBoard access token**.
 4. Enter the device ID in **ThingsBoard device ID**.
-5. Under **Collections**, select at least one tag collection. The component cannot start without one.
+5. Under **Collections**, select at least one tag collection. The component needs one before it can start.
 6. Select **ADD COMPONENT** at the bottom of the dialog.
-   When the add succeeds, the dialog title is **Error**, with the error icon, and the message is **Successfully created the component**.
+   The dialog closes and the component appears in the profile.
 7. Check that the component status shows **On**. If it shows **Error**, read the Profinity System Logs for the reason.
 
 ## Add the component

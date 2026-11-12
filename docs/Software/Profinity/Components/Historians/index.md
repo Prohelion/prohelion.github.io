@@ -28,4 +28,4 @@ Loggers (file, Secure Shell File Transfer Protocol (SFTP), InfluxDB v1, Promethe
 - [Designated historian](Designated_Historian.md): choose which historian answers long-range history queries.
 
 The InfluxDB historians store only tags that hold a number.
-To keep the history of tags that hold text, such as the findings of an [AI technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#keep-a-history-of-findings), use the TAG Local Historian or the TAG SQL Historian.
+To keep the history of tags that hold text, such as the findings of an [AI Technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#keep-a-history-of-findings), use the TAG Local Historian or the TAG SQL Historian.

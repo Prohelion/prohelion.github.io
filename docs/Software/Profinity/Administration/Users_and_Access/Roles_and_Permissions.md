@@ -37,7 +37,7 @@ A note in the **What it allows** column means that switching the permission on a
 | Permission | What it allows |
 |------------|----------------|
 | **Modify components** | Adding and removing components and changing their settings |
-| **Allow component actions** | Running the action menu items of components and scripts, including **Run AI Technician** and **Cancel Run** on an [AI technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#actions) |
+| **Allow component actions** | Running the action menu items of components and scripts, including **Run AI Technician** and **Cancel Run** on an [AI Technician](../../Profinity_AI/AI_Technicians/AI_Technician.md#actions) |
 | **Modify dashboards** | Editing dashboard layouts and bindings |
 | **View firmware** | Seeing firmware information and status |
 | **Modify firmware** | Uploading and configuring firmware. Also turns on **View firmware** |

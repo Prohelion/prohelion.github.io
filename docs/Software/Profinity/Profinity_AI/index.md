@@ -9,7 +9,7 @@ last_reviewed: 2026-10-27
 # Profinity AI
 
 Profinity AI gives AI the context of a running Profinity system, so it can work across devices rather than one signal at a time.
-AI Chat, AI technicians and the built-in Model Context Protocol (MCP) server require the **AI** licensed feature, included in the **Server** and **Enterprise** editions, as listed in [Licensing](../Licensing.md).
+AI Chat, AI Technician and the built-in Model Context Protocol (MCP) server require the **AI** licensed feature, included in the **Server** and **Enterprise** editions, as listed in [Licensing](../Licensing.md).
 
 - [How Profinity AI uses your profile](./How_Profinity_AI_Works.md): what Profinity AI can see and how it reaches a diagnosis.
 
@@ -23,13 +23,13 @@ AI Chat, AI technicians and the built-in Model Context Protocol (MCP) server req
 
     [:octicons-arrow-right-24: AI Chat](./AI_Chat.md)
 
--   :material-robot-outline:{ .lg .middle } __AI technicians__
+-   :material-robot-outline:{ .lg .middle } __AI Technician__
 
     ---
 
     Unattended reviews of a device on a schedule or after an alert, with the verdict published as tags for alert rules.
 
-    [:octicons-arrow-right-24: AI technicians](./AI_Technicians/index.md)
+    [:octicons-arrow-right-24: AI Technician](./AI_Technicians/index.md)
 
 -   :material-toolbox-outline:{ .lg .middle } __AI Skills__
 

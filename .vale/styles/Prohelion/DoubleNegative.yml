@@ -1,0 +1,9 @@
+extends: existence
+message: "'%s' stacks two negatives. Write the positive form (style guide 2.4)."
+level: warning
+ignorecase: true
+tokens:
+  - '\bnot un[a-z]{3,}\b'
+  - '\b(?:not|never|cannot|no longer)\b[^.,;:\n]{0,30}\b(?:without|unless)\b'
+  - '\b(?:does|do|is|are|will) not \w+ until\b'
+  - '\bnot \w+ or \w+ again\b'

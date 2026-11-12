@@ -1,0 +1,8 @@
+extends: existence
+message: "'%s' points the reader at a stored key. Say where the setting is in the GUI instead, and name a key only where the reader has to edit the file (style guide 2.8)."
+level: warning
+ignorecase: true
+tokens:
+  - '(?:setting|option|field|value) is (?:stored|saved|persisted|kept) (?:as|in|under)\b'
+  - '(?:in|to) the (?:component|profile|component''s|profile''s) (?:YAML|config(?:uration)? file)\b'
+  - '\b(?:YAML|config) (?:key|property) (?:is|named|called)\b'

@@ -38,9 +38,6 @@ To change the method:
 After a change to **Sso**, link each person's account as described in [Linking SSO users to Profinity accounts](#linking-sso-users-to-profinity-accounts), then check that a linked person can sign in with the **Sign in with** button.
 Profinity keeps `config.yaml.bak`, a copy of the configuration as it was before the save, in the `config` folder of the [artefacts directory](../../../Installation/Artifacts_Directory.md).
 
-The security policy is stored in `config.yaml` under `securityPolicy`.
-The **Sign-in method** setting is stored as `authenticationMode` in that section, with the values `Local` or `Sso`.
-
 With **Local** selected, the tab also offers **Enforce two-factor for local users** and **Allow security-key sign-in**.
 Refer to [Two-factor authentication](./Two_Factor_Authentication/index.md) for both.
 With **Sso** selected, the **SSO** and **SCIM provisioning** groups appear.

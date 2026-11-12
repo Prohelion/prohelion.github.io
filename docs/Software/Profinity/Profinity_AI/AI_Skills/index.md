@@ -57,11 +57,9 @@ flowchart LR
 
 [AI Chat](../AI_Chat.md) is for everyone with the **Profinity AI** permission, and it needs no setup on their machine.
 You can use your own AI tool for the same job instead.
-This suits you if you want any of these:
-
-- Your own model or provider, rather than the single provider configured for the whole instance.
-- Conversations that persist, because AI Chat keeps history only for the current browser tab.
-- Other work in the same session, such as files, code, and other systems.
+With your own tool, you choose the model and provider, where AI Chat uses the one provider configured for the whole instance.
+Your conversations persist, where AI Chat keeps history only for the current browser tab.
+You can also work on files, code, and other systems in the same session.
 
 To do this, connect your tool from [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md).
 The connection gives Claude Code, Cursor, and Codex the same read-only live data that AI Chat uses: tags and their history, alert rules, active alerts, and alert history.

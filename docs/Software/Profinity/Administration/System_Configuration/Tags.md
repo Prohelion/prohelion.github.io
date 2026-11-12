@@ -26,4 +26,4 @@ Refer to [System Configuration](index.md) for what to expect.
 
 TTL stands for time to live.
 
-Whole number values must be at least 1. A value of 0 is not unlimited: Profinity uses the default instead. The maximums are 10,000,000 points per tag, 100,000,000 points in total, 1,000,000 dynamically tracked tags, and 100,080 minutes for the TTL settings.
+Whole number values must be at least 1. A value of 0 makes Profinity use the default. The maximums are 10,000,000 points per tag, 100,000,000 points in total, 1,000,000 dynamically tracked tags, and 100,080 minutes for the TTL settings.

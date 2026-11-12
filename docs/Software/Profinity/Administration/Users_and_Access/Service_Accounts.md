@@ -78,9 +78,9 @@ Authorization: Bearer <token>
 Replace `<token>` with the token from **Generate Token** or **View Token**.
 For an MCP client, refer to [Prepare Profinity for an MCP client](../../Integrating_to_Profinity/MCP_Server/Prepare_Profinity.md).
 
-## Run an AI technician {#run-an-ai-technician}
+## Run an AI Technician {#run-an-ai-technician}
 
-An [AI technician](../../Profinity_AI/AI_Technicians/index.md) runs as the user named in its **Run as** setting, and a service account is the usual choice, because its roles can be limited to reading.
+An [AI Technician](../../Profinity_AI/AI_Technicians/index.md) runs as the user named in its **Run as** setting, and a service account is the usual choice, because its roles can be limited to reading.
 Give the account a role with **MCP integration**, **View tags**, **View alerts**, and **View tag rules**, and with no permission that changes anything.
 The technician then sees only the components and collections that the account can see.
 
@@ -90,7 +90,7 @@ The session lasts for the technician's **Round timeout (seconds)** plus two minu
 ## Revoke access
 
 To stop the account signing in, turn off **Is the user currently enabled** for the account in **Users & Groups**, and select **SAVE**.
-Profinity then refuses every request with its token, and an AI technician that runs as the account stops, recording a `blocked` [finding](../../Profinity_AI/AI_Technicians/AI_Technician.md#findings-tags) on each round.
+Profinity then refuses every request with its token, and an AI Technician that runs as the account stops, recording a `blocked` [finding](../../Profinity_AI/AI_Technicians/AI_Technician.md#findings-tags) on each round.
 
 ## Troubleshooting
 
@@ -98,6 +98,6 @@ Profinity then refuses every request with its token, and an AI technician that r
 |---|---|---|
 | "Service account token is no longer valid. Please log in again or request a new token from an administrator." on requests that worked before | Someone selected **Generate Token** on the account, so the old token stopped working. | Select **View Token** on the account's **User Actions** tab, copy the current token, and update the integration with it. |
 | "User account is disabled. Please contact an administrator." | The account is disabled. | Turn on **Is the user currently enabled** for the account in **Users & Groups**, and select **SAVE**. |
-| The AI technician's `Outcome` findings tag reads `blocked` after every round | The account named in **Run as** is disabled. | Enable the account in **Users & Groups**. |
+| The AI Technician's `Outcome` findings tag reads `blocked` after every round | The account named in **Run as** is disabled. | Enable the account in **Users & Groups**. |
 
 To manage the other accounts on the instance, refer to [Managing users](Manage_Users.md).

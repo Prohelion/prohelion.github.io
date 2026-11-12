@@ -1,12 +1,12 @@
 ---
-title: Set up an AI technician
-description: Add an AI technician to a profile, give it a service account, instructions and a schedule, and check its first finding.
+title: Set up an AI Technician
+description: Add an AI Technician to a profile, give it a service account, instructions and a schedule, and check its first finding.
 type: task
 owner: Documentation
 last_reviewed: 2026-11-11
 ---
 
-# Set up an AI technician
+# Set up an AI Technician
 
 This page adds an [AI Technician](./AI_Technician.md) to a profile, runs its first round, and schedules a daily review.
 
@@ -65,4 +65,4 @@ To be told about a finding, add an action to **Findings message** with **Edit Ru
 That rule sends again when a new attention finding has different text, even at the same severity.
 Refer to [Built-in rules](./AI_Technician.md#built-in-rules) on the component page, and to [Rule actions](../../Tags/Rules/Actions/index.md) for the actions available.
 
-To have device alerts start a round, continue to [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md).
+To have device alerts start a round, continue to [Investigate alerts with an AI Technician](./Investigate_Alerts_with_an_AI_Technician.md).

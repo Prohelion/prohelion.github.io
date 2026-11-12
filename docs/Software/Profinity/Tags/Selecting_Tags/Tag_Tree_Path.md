@@ -11,7 +11,7 @@ last_reviewed: 2026-10-15
 A component can be placed inside a folder of the tag tree rather than at its root.
 By default each component mounts at the root under its own name.
 The **Tag tree path** setting gives it a parent folder, so that its tags nest under that location instead.
-The setting is stored as `tagTreeParentPath` in the component's YAML.
+You can find it in the **Component identifier** section of the component's settings, next to **Name**.
 
 Nesting suits profiles that model physical or logical groupings.
 Examples are several subsystems of one vehicle, or several instances of one component type that represent the bays, strings, or vehicles in a fleet.
@@ -64,7 +64,7 @@ On a dashboard belonging to that `Charger` component, the relative bind `DBC/BMS
 Dashboards that use the `{COMPONENT_NAME}` placeholder, documented in [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md), keep working.
 Profinity replaces the placeholder with an explicit relative or absolute path the next time the dashboard is saved.
 
-Every component has a **Tag tree path** setting, next to its **Name**, and its default is `/`.
+The default **Tag tree path** is `/`.
 Enter the path with or without a leading slash, such as `Vehicles/Car1` or `/Vehicles/Car1`. Both mount the component at the same place. The default `/` mounts it at the top of the Tag tree.
 For the dashboards that bind to these paths, refer to [Dashboards](../../Customising_Profinity/Dashboards/index.md).
 [Tag layer](../index.md) lists the rest of the tag pages.

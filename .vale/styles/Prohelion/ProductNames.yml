@@ -1,0 +1,7 @@
+extends: substitution
+message: "Write '%s', not '%s'. The product name is capitalised everywhere (style guide 2.5)."
+level: error
+ignorecase: false
+swap:
+  'AI technicians?': 'AI Technician'
+  'Ai Technicians?': 'AI Technician'

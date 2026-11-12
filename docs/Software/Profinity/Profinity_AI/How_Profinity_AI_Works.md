@@ -42,12 +42,12 @@ With that context in one place, Profinity AI can do these things:
 - Compare current readings against history and trends.
 - Propose a likely root cause and next steps, with the evidence it used.
 
-A question such as "Why is Cell 12 overheating?" can therefore be answered from the alert, the neighbouring cells, the cooling system, and the service manual together.
+A question such as "Why is Pump 3 running hot?" can therefore be answered from the alert, the neighbouring devices, the cooling system, and the service manual together.
 
 ## Choose how to use it
 
 AI Chat answers questions, and AI Skills helps you build things.
-An [AI technician](./AI_Technicians/index.md) asks the same kind of question without anyone at the screen, on a schedule or after an alert, and publishes its answer as tags that alert rules can use.
+An [AI Technician](./AI_Technicians/index.md) asks the same kind of question without anyone at the screen, on a schedule or after an alert, and publishes its answer as tags that alert rules can use.
 You can also pair AI Skills with the Model Context Protocol (MCP) server and use your own AI tool for the same questions.
 Users need the **Profinity AI** permission to open AI Chat, and the built-in **Administrators** role has it by default.
 [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md) lists the **Profinity AI** and **MCP integration** permissions.

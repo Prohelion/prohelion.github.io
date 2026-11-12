@@ -11,7 +11,7 @@ last_reviewed: 2026-11-11
 The AI Technician component, in the **AI Agents** group, has [Profinity AI](../index.md) review the profile and publishes the verdict as tags.
 It needs the **AI** licensed feature, included in the **Server** and **Enterprise** editions, and Profinity AI configured under [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md).
 Each review is a round, and a round starts on a wake: a schedule, the **Run AI Technician** action, or an alert.
-For what happens during a round, refer to [How AI technicians work](./How_AI_Technicians_Work.md).
+For what happens during a round, refer to [How an AI Technician works](./How_AI_Technicians_Work.md).
 
 <figure markdown>
 ```mermaid
@@ -39,7 +39,7 @@ You need:
 5. Select **Run AI Technician** from the technician's menu.
 6. When the round ends, check that the `Outcome` findings tag reads `attention` or `clear`.
 
-The full procedure, with a schedule, is in [Set up an AI technician](./Set_Up_an_AI_Technician.md).
+The full procedure, with a schedule, is in [Set up an AI Technician](./Set_Up_an_AI_Technician.md).
 
 ## Settings
 
@@ -130,7 +130,7 @@ Add the actions you want, such as an email at Warning and above.
 **Findings message** sends each distinct attention finding, even when two rounds give the same severity.
 Its **On update** setting is on, so it fires again while its expression is already true, as described under [On update](../../Tags/Rules/Rule_Settings.md#on-update).
 The shipped expression sends only `attention` rounds.
-Edit that expression if blocked or clear rounds should send as well.
+To send blocked or clear rounds as well, edit that expression.
 Its related tags name the other findings tags, so the expression and the action message can read them, as described under [Related tags](../../Tags/Rules/Rule_Settings.md#related-tags).
 
 Refer to [Rule actions](../../Tags/Rules/Actions/index.md) for the actions a rule can run.
@@ -163,7 +163,7 @@ A [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) or [TAG 
 | `Message` reads `Run as user was not found or is disabled` | **Run as** names no user, or a disabled user | Set **Run as** to an enabled user. A [service account](../../Administration/Users_and_Access/Service_Accounts.md) is the usual choice. |
 | `Message` reads `Model did not call record_finding` | The AI replied without giving a verdict | Make the instructions end with a clear instruction to give a verdict, as described in [Write instructions](./Write_Instructions.md). |
 | `Message` reads `Round timed out` | The round took longer than **Round timeout (seconds)** | Increase the timeout, or narrow the instructions. |
-| **Run AI Technician** or an alert does nothing | Profinity dropped the wake. The [Profinity log](../../Administration/Logs_Config.md) has a line `AI technician '<name>': dropped` with the reason, which the table in [Dropped wakes](#dropped-wakes) explains. | Fix the cause for the reason in the log. |
+| **Run AI Technician** or an alert does nothing | Profinity dropped the wake. The [Profinity log](../../Administration/Logs_Config.md) has a line `AI Technician '<name>': dropped` with the reason, which the table in [Dropped wakes](#dropped-wakes) explains. | Fix the cause for the reason in the log. |
 | A finding names data the technician should have seen as missing | The **Run as** account lacks the permission to view it | Add the view permissions to the account's role, as described in [Service accounts](../../Administration/Users_and_Access/Service_Accounts.md#run-an-ai-technician). |
 | Text findings are empty when a dashboard is viewed at a past time | The designated historian is an InfluxDB historian, which stores numbers only | Use a TAG SQL Historian or TAG Local Historian as the [designated historian](../../Components/Historians/Designated_Historian.md). |
 | **Technician not working** alert | Three rounds in a row were `blocked`. | Read the `Message` tag and find its text in this table. |
@@ -179,4 +179,4 @@ A [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) or [TAG 
 | `DroppedDailyLimit` | The day's alert and **Run AI Technician** rounds reached **Daily limit**. | Wait for the next day on the computer's clock, or raise **Daily limit**. |
 | `DroppedLoopGuard` | The alert came from a rule on the technician's own findings tags, which would start rounds in a loop. | Leave the technician out of the actions of its own findings rules. |
 
-To have device alerts start a round, continue to [Investigate alerts with an AI technician](./Investigate_Alerts_with_an_AI_Technician.md).
+To have device alerts start a round, continue to [Investigate alerts with an AI Technician](./Investigate_Alerts_with_an_AI_Technician.md).
