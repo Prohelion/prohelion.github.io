@@ -100,7 +100,7 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder that the 2
     a. Open the dashboard.
     A dashboard that opens without the message **This dashboard no longer matches the schema** needs no change.
 
-    !!! warning "Reset from Template removes customisations"
+    !!! warning "Reset from template removes customisations"
         **Reset from template** replaces the whole dashboard with the latest template, and every customisation is lost.
         To keep a copy first, select **Edit Dashboard** in the dashboard title bar, select **YAML**, then copy all the YAML into a text file and save it.
 

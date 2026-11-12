@@ -61,9 +61,9 @@ A script that could reference a missing name wraps the call in `try`/`catch` (C#
 
 The most important property of the returned `DbcSignal` object is `Value`, which returns the current physical value of the signal.
 `Value` is `NaN` (not a number) when no valid value is available.
-That happens when no packet has been received for the message, when the last packet is older than the Milliseconds Valid period, or when the signal is not present in the packet.
+That happens when no packet has been received for the message, when the last packet is older than the Milliseconds valid period, or when the signal is not present in the packet.
 
-The DBC validity period is the Milliseconds Valid setting of the device that sends the message. It defaults to 5000 ms on battery and charger components. A Receive script Milliseconds Valid setting does not change it.
+The DBC validity period is the Milliseconds valid setting of the device that sends the message. It defaults to 5000 ms on battery and charger components. A Receive script Milliseconds valid setting does not change it.
 The C# example holds statements for the body of a script method. Profinity adds common `using` directives such as `System`, and the script supplies its own class, as in the [Rule scripts](../Script_Types/Rule_Scripts.md#example) example.
 
 === "C#"

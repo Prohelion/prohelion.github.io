@@ -27,11 +27,11 @@ If Profinity does not start because `config.yaml` or `security.yaml` is invalid,
 
 | Tab                | What it controls | Page |
 |--------------------|------------------|------------|
-| Application Config| Packet retention, updates, tag history window and scripting| [Application Config](Application_Config.md) |
+| Application config| Packet retention, updates, tag history window and scripting| [Application config](Application_Config.md) |
 | AI| The Profinity AI assistant and the Model Context Protocol (MCP) server| [AI Settings](AI_Settings.md) |
 | Logging| Log level, rollover size and retained logs| [Logging](Logging.md) |
 | Discovery| The local area network (LAN) heartbeat that lets Profinity Mobile find this server| [Discovery](Discovery.md) |
 | Web| The main HTTP and HTTPS web server and its certificates| [Profinity Web](Profinity_Web.md) |
-| Extensions Web| A second web server for custom applications and the API| [Extensions Web](Extensions_Web.md) |
+| Extensions web| A second web server for custom applications and the API| [Extensions web](Extensions_Web.md) |
 | Tags| Limits for the in-memory tag history buffer| [Tags](Tags.md) |
 | Security| Sign-in, passwords, sessions, and lockout, two-factor, single sign-on (SSO), System for Cross-domain Identity Management (SCIM), and Security Information and Event Management (SIEM)| [Security](Security/index.md) |

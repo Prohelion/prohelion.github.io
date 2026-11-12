@@ -57,13 +57,13 @@ A logger shows **Off** and needs a collection before it can start, so create and
 |---|---|---|---|
 | **Collections** | Choice | None | One or more [tag collections](../../Tags/Collections/index.md) whose member values are logged. The picker shows display names (and group path); the profile stores the collection id. At least one collection must be configured before the logger starts. |
 | **Update interval (seconds)** | Time | 10 | The seconds between writes. The value must be between 1 and 86400. A value outside this range is refused, and the dialog shows "The field IntervalSec must be between 1 and 86400." Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
-| **Logging mode** | Choice | **Snapshot** | **Snapshot**, **On Change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
-| **File format** | Choice | **CSV** | **CSV** or **JSON Lines**. Refer to [File formats](#file-formats). |
+| **Logging mode** | Choice | **Snapshot** | **Snapshot**, **On change** or **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode writes. |
+| **File format** | Choice | **CSV** | **CSV** or **JSON lines**. Refer to [File formats](#file-formats). |
 
 ### File formats {#file-formats}
 
 - **CSV** writes one row per sample, with the header `Recv time,TagId,ValueType,Value,UtcTimestamp,Quality,Reason,Message`. The file uses a `.txt` extension.
-- **JSON Lines** writes one JSON object per line. The file uses a `.jsonl` extension.
+- **JSON lines** writes one JSON object per line. The file uses a `.jsonl` extension.
 
 `Recv time` is the local time the line was written.
 `UtcTimestamp` is the timestamp carried by the tag sample, so the two can differ.

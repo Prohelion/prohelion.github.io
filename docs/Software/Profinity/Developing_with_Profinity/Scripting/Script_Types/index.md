@@ -11,13 +11,13 @@ last_reviewed: 2026-10-28
 Profinity supports seven script modes, each with its own trigger and execution context.
 The **Script mode** setting selects the mode:
 
-- Run On Demand
-- Run On Receipt of CAN Message
-- Run On Tag Change
-- Run On Alert
-- Run On Time Interval
-- Run On CRON Schedule
-- Run as Service
+- Run on demand
+- Run on receipt of CAN message
+- Run on tag change
+- Run on alert
+- Run on time interval
+- Run on CRON schedule
+- Run as service
 
 This page explains the differences between the modes and when to use each one.
 A [Custom Component](../../Custom_Components/index.md) main script is a service script, and a firmware load, save, or action script runs once.
@@ -31,13 +31,13 @@ A [Custom Component](../../Custom_Components/index.md) main script is a service 
 
 | Script type | Mode | Use it for |
 |-------------|------|------------|
-| [Run Script](./Run_Scripts.md) | Run On Demand | Short jobs that need little state, such as one-time operations, testing, and troubleshooting. The operator starts the script. |
-| [Run Script](./Run_Scripts.md) | Run On Time Interval | Work that starts at a fixed interval, for example every 5 minutes or every hour. |
-| [Run Script](./Run_Scripts.md) | Run On CRON Schedule | Time-of-day, weekly, and monthly work. The script starts from a [Quartz cron expression](./Run_Scripts.md#settings). |
-| [Receive Script](./Receive_Scripts.md) | Run On Receipt of CAN Message | Answering a packet with a reply message. The script runs each time a matching CAN packet arrives. |
-| [Service Script](./Service_Scripts.md) | Run as Service | Continuous monitoring and other work that runs for a long time. The script implements a full lifecycle (start, stop, pause, and continue). |
-| [Tag Change Script](./Tag_Change_Scripts.md) | Run On Tag Change | Computed tags, reacting to another component's output and chained automation without polling. The script runs each time a watched tag changes. |
-| [Rule Script](./Rule_Scripts.md) | Run On Alert | Notifications and side effects beyond the built-in rule actions. The script runs when a rule names it as an action. |
+| [Run Script](./Run_Scripts.md) | Run on demand | Short jobs that need little state, such as one-time operations, testing, and troubleshooting. The operator starts the script. |
+| [Run Script](./Run_Scripts.md) | Run on time interval | Work that starts at a fixed interval, for example every 5 minutes or every hour. |
+| [Run Script](./Run_Scripts.md) | Run on CRON schedule | Time-of-day, weekly, and monthly work. The script starts from a [Quartz cron expression](./Run_Scripts.md#settings). |
+| [Receive Script](./Receive_Scripts.md) | Run on receipt of CAN message | Answering a packet with a reply message. The script runs each time a matching CAN packet arrives. |
+| [Service Script](./Service_Scripts.md) | Run as service | Continuous monitoring and other work that runs for a long time. The script implements a full lifecycle (start, stop, pause, and continue). |
+| [Tag Change Script](./Tag_Change_Scripts.md) | Run on tag change | Computed tags, reacting to another component's output and chained automation without polling. The script runs each time a watched tag changes. |
+| [Rule Script](./Rule_Scripts.md) | Run on alert | Notifications and side effects beyond the built-in rule actions. The script runs when a rule names it as an action. |
 
 Use a Service Script for continuous monitoring or real-time responses, and a Run Script for one-off or manual tasks.
 Keep a Receive, Tag Change or Rule Script handler short, because a new event that arrives while it is still running is handled according to **Trigger overlap**.
@@ -72,16 +72,16 @@ The schedule, receive, and tag change settings appear only for the mode that use
 
 | Setting | Type | Default | Applies to | Meaning |
 |---------|------|---------|------------|---------|
-| **Script mode** | Choice | Run On Demand | All | The mode the script runs in |
+| **Script mode** | Choice | Run on demand | All | The mode the script runs in |
 | **Auto start script** | On or off | Off | All | Starts the script automatically when the component loads: it starts a service, receiver, or watcher, runs an On Demand script once, and arms a scheduled script. Off by default |
 | **Log script output** | On or off | Off | All | Writes the script's console output to the script log. Off by default |
-| **Trigger overlap** | Choice | Drop | Run On Receipt of CAN Message, Run On Tag Change, Run On Alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
-| **Queue depth** | Whole number | 8 | Trigger Overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
-| **Time interval** and **Time interval unit** | Time and Choice | Empty, and Seconds | Run On Time Interval | How often the script runs, in seconds, minutes, hours, or days |
-| **Cron schedule** | Text | Empty | Run On CRON Schedule | The cron expression that decides when the script runs, as described in [Run scripts](./Run_Scripts.md) |
+| **Trigger overlap** | Choice | Drop | Run on receipt of CAN message, Run on tag change, Run on alert | What happens to an event that arrives while the handler is still running. **Drop** (the default) discards it, and **Queue** keeps a short backlog and runs it afterwards |
+| **Queue depth** | Whole number | 8 | Trigger overlap set to **Queue** | How many events may wait, from 1 to 100, with a default of 8. Further events are dropped |
+| **Time interval** and **Time interval unit** | Time and Choice | Empty, and Seconds | Run on time interval | How often the script runs, in seconds, minutes, hours, or days |
+| **Cron schedule** | Text | Empty | Run on CRON schedule | The cron expression that decides when the script runs, as described in [Run scripts](./Run_Scripts.md) |
 | **Maximum run time (seconds)** | Time (seconds) | Empty (no limit) | All | The time one run may take before it is cancelled. Blank means no limit. Trigger handlers stop only when the script checks `Profinity.ScriptCancelled` |
-| **Base address**, **Address range** and **Milliseconds valid** | Whole number and Time (ms) | 0, 0 and 5000 | Run On Receipt of CAN Message | The CAN addresses the script receives, as unsigned 32-bit numbers in hexadecimal, and how long traffic from the device counts as valid |
-| **Tag paths** and **Collections** | Text | Empty | Run On Tag Change | The tags and tag collections that trigger the script |
+| **Base address**, **Address range** and **Milliseconds valid** | Whole number and Time (ms) | 0, 0 and 5000 | Run on receipt of CAN message | The CAN addresses the script receives, as unsigned 32-bit numbers in hexadecimal, and how long traffic from the device counts as valid |
+| **Tag paths** and **Collections** | Text | Empty | Run on tag change | The tags and tag collections that trigger the script |
 
 **Milliseconds valid** defaults to 5000 and accepts -1 to 60000.
 A value of -1 means traffic never expires.

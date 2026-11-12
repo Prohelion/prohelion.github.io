@@ -50,7 +50,7 @@ The following tables describe every setting.
 
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
-| **Database provider** | Choice | SQLite | The SQL engine to connect to: **SQLite**, **SQL Server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. |
+| **Database provider** | Choice | SQLite | The SQL engine to connect to: **SQLite**, **SQL server / Azure SQL**, **PostgreSQL**, **MySQL** or **Oracle**. |
 | **Connection string** | Secret | None | The connection string for the chosen database provider, in that provider's own format. Required. Profinity encrypts it in the profile file when the profile is saved, unless it is an environment variable reference. |
 | **Table name** | Text | `TagChangeLog` | The table the historian writes rows to. Use letters, digits, and underscores only, and do not start with a digit. |
 | **Auto create table** | On or off | On | Creates the table when the historian starts, if it does not already exist. |

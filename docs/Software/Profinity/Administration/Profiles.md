@@ -41,7 +41,7 @@ Profiles support three features:
 - [Menu Layout](./Menu_Layout.md) sets up the side menu.
 
 You can change the Kiosk Mode settings of any profile, including the active one.
-Anyone at a kiosk inherits the permissions of its Kiosk Mode User, so choose a user with only the permissions the display needs, as described in [Kiosk Mode](./Kiosk_Mode.md#choosing-the-kiosk-user).
+Anyone at a kiosk inherits the permissions of its Kiosk mode user, so choose a user with only the permissions the display needs, as described in [Kiosk Mode](./Kiosk_Mode.md#choosing-the-kiosk-user).
 The steps are in [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
 
 To activate, rename, import, or download a profile, refer to [Manage profiles](./Manage_Profiles.md).

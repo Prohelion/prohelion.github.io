@@ -85,7 +85,7 @@ Profinity runs the copied file.
 2. Add a script component as described in [How to write your first script](../../How_To_Guides/Write_Your_First_Script.md).
    A script that belongs to a [Custom Component](../Custom_Components/index.md) goes in that component, under the name the component already uses.
    For a Python script, set **Upload script file (optional)** in the component's settings to the `.py` file. Alternatively, paste the script into the script editor and select **Save**.
-3. Review the script, then set **Script mode** to **Run On Demand** and select **Run Script**. The status reads `Run 1 time` after the first run.
+3. Review the script, then set **Script mode** to **Run on demand** and select **Run Script**. The status reads `Run 1 time` after the first run.
    A script in a profile runs with the same operating system permissions as Profinity.
 
 | What you see | Cause | What to do |

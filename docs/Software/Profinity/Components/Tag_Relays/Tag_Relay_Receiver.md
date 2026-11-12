@@ -11,7 +11,7 @@ last_reviewed: 2026-11-04
 The **Tag Relay Receiver** receives the tags sent by one or more [Tag Relay Senders](Tag_Relay_Sender.md) on other Profinity instances.
 It mounts them as read-only [tags](../../Tags/index.md) under a prefix that identifies where they came from.
 It sits in the **Tag Relays** category and receives over Message Queuing Telemetry Transport (MQTT) or HTTPS.
-It applies every update a sender sends, whether a full snapshot or the value changes that a sender in On Change mode sends between snapshots.
+It applies every update a sender sends, whether a full snapshot or the value changes that a sender in On change mode sends between snapshots.
 
 Relayed tags can be read like any local tag.
 You can browse them in **Tag Explorer**, place them in [collections](../../Tags/Collections/index.md), show them on a [dashboard](../../Customising_Profinity/Dashboards/index.md), log them, and use them in rules and scripts.

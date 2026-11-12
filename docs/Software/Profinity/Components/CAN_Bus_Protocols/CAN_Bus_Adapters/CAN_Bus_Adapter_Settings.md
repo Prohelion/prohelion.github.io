@@ -77,7 +77,7 @@ The **Peak Systems CAN Adapter** connects to a Peak CAN to USB adapter through t
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
 | **PCAN channel ID** | Choice | The channel of the adapter: USB 01 to USB 16, LAN 01 to LAN 16, or PCI 01 to PCI 16, where PCI is Peripheral Component Interconnect. Auto Discovery fills it in. | USB 01 |
-| **PCAN BaudRate** | Choice | 5K, 10K, 20K, 33K, 47K, 50K, 83K, 95K, 100K, 125K, 250K, 500K, 800K, or 1M Baud. | 500K Baud |
+| **PCAN BaudRate** | Choice | 5K, 10K, 20K, 33K, 47K, 50K, 83K, 95K, 100K, 125K, 250K, 500K, 800K, or 1M baud. | 500K baud |
 
 On Linux, a Peak adapter appears as a SocketCAN interface, so use the SocketCAN adapter instead (refer to [CAN bus adapters](index.md)).
 
@@ -89,7 +89,7 @@ It has the same **PCAN channel ID** as the Peak CAN adapter, and the bit rate pa
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
 | **Connect with CAN FD** | On or off | Runs the adapter in CAN FD mode. | Off |
-| **PCAN BaudRate** | Choice | The classic CAN bit rate, used when **Connect with CAN FD** is off. Same values as the Peak CAN adapter. | 500K Baud |
+| **PCAN BaudRate** | Choice | The classic CAN bit rate, used when **Connect with CAN FD** is off. Same values as the Peak CAN adapter. | 500K baud |
 | **PCAN BaudRate FD** | Choice | The CAN FD bit rate, used when **Connect with CAN FD** is on: J2284_4 (500 kbit/s, data 2 Mbit/s) or J2284_5 (500 kbit/s, data 5 Mbit/s). | J2284_4 |
 
 ### Ewert CANdapter
@@ -99,7 +99,7 @@ The **Ewert CANdapter** adapter connects to an Ewert Energy CANdapter over its U
 | Parameter | Type | Description | Default |
 |-----------|----|-------------|---------|
 | **Candapter COM port** | Choice | The USB serial port, such as `COM3` on Windows or `/dev/ttyUSB0` on Linux and macOS. Required. | None |
-| **Candapter BaudRate** | Choice | 10K, 20K, 50K, 100K, 125K, 250K, 500K, 800K, or 1M Baud. | 500K Baud |
+| **Candapter BaudRate** | Choice | 10K, 20K, 50K, 100K, 125K, 250K, 500K, 800K, or 1M baud. | 500K baud |
 
 ### Native SocketCAN
 

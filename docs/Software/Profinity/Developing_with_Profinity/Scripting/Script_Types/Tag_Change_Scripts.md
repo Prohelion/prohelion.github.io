@@ -11,14 +11,14 @@ last_reviewed: 2026-10-14
 A Tag Change script runs each time the value of a watched tag changes.
 It suits reacting to another component's output, computing values that need more than a single expression, and chaining automation, without polling the tag on a timer.
 
-A script becomes a Tag Change script by setting its **Script mode** to **Run On Tag Change**.
+A script becomes a Tag Change script by setting its **Script mode** to **Run on tag change**.
 It implements the `OnTagChange` method (C#) or the `on_tag_change` function (Python and Lua), which receives the tag's id and a sample holding the new value, quality, and timestamp.
 The script can read and write other tags with [Tags](../Script_Operations/Tags.md) and keep earlier values between calls with [State](../Script_Operations/State.md).
 
 ## Settings {#choosing-what-to-watch}
 
-Scripting must be enabled in [Application Config](../../../Administration/System_Configuration/Application_Config.md) first, as every script type requires it.
-A Tag Change script is a **CSharp Script**, **Python Script** or **Lua Script** component with **Script mode** set to **Run On Tag Change**.
+Scripting must be enabled in [Application config](../../../Administration/System_Configuration/Application_Config.md) first, as every script type requires it.
+A Tag Change script is a **CSharp Script**, **Python Script** or **Lua Script** component with **Script mode** set to **Run on tag change**.
 Its tags to watch are set in the **Tag change settings** category:
 
 | Setting | Type | Default | Description |
@@ -165,7 +165,7 @@ It returns the last value the script wrote.
 ## Behaviour
 
 !!! warning "Running the script by hand does not call this method"
-    Run On Demand and scheduled runs do not call `OnTagChange` or `on_tag_change`.
+    Run on demand and scheduled runs do not call `OnTagChange` or `on_tag_change`.
     Only a change to a watched tag does, so test by changing the tag.
 
 The method runs when a watched tag's value changes.

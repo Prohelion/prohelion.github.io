@@ -36,14 +36,14 @@ Refer to [Logs](../../Administration/Logs_Config.md) for where to read them.
 ## Archive, compression, and rotation
 
 Rotation closes the current log file and starts a new one.
-The **Rotate by** setting selects **No Rotation**, **Time** or **File Size**.
-It defaults to **No Rotation**, so a logger writes one growing file until you switch rotation on.
+The **Rotate by** setting selects **No rotation**, **Time** or **File size**.
+It defaults to **No rotation**, so a logger writes one growing file until you switch rotation on.
 
 | Setting | Type | Default | Effect |
 |---|---|---|---|
-| **Rotate by** | Choice | **No Rotation** | **No Rotation**, **Time** or **File Size**. |
+| **Rotate by** | Choice | **No rotation** | **No rotation**, **Time** or **File size**. |
 | **Rotation interval (seconds)** | Time | Follows **Update interval (seconds)** | Shown when **Rotate by** is **Time**. The seconds between rotations. When not set, it follows **Update interval (seconds)**, or is 600 seconds when neither is set. |
-| **Rotate MB** | Whole number | 0 | Shown when **Rotate by** is **File Size**. The size in megabytes at which the file rotates. 0 rotates at 10 MB. |
+| **Rotate MB** | Whole number | 0 | Shown when **Rotate by** is **File size**. The size in megabytes at which the file rotates. 0 rotates at 10 MB. |
 | **Archive the logs** | On or off | Off | Moves rotated log files into an `archive` folder beneath the log folder, so no archive directory needs to be provided. |
 | **Compress logs** | On or off | Off | Shown when **Archive the logs** is on. Compresses archived log files into `.zip` files. |
 | **Limit number of archive files** | On or off | Off | Shown when **Archive the logs** is on. Enables a limit on the number of log files retained in the archive. |
@@ -51,4 +51,4 @@ It defaults to **No Rotation**, so a logger writes one growing file until you sw
 
 The CAN SFTP Logger and the TAG SFTP Logger always archive, because they archive files before they upload them.
 They do not show **Archive the logs**, because it is always on for them.
-Compress Logs, Limit Number of Archive Files and Archive File Limit are always shown on these loggers.
+Compress logs, Limit number of archive files and Archive file limit are always shown on these loggers.

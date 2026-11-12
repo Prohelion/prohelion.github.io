@@ -34,7 +34,7 @@ Use instructions for judgements a rule cannot make: a trend over the time you na
 
 ## Example: a midnight service check
 
-This example suits a technician with **Schedule** set to **Run On CRON Schedule** and **Cron schedule** set to `0 0 0 * * ?`.
+This example suits a technician with **Schedule** set to **Run on CRON schedule** and **Cron schedule** set to `0 0 0 * * ?`.
 It is the text a new technician starts with.
 
 ```text

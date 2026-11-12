@@ -73,7 +73,7 @@ They match the **Reset MFA** (multi-factor authentication) and **Reset Password*
 | Method | Route | Purpose |
 |--------|-------|---------|
 | POST | `/api/v2/Relay/snapshot` | Receives the full collection tree from a [Tag Relay Sender](../../Components/Tag_Relays/Tag_Relay_Sender.md) in **Snapshot** mode that uses HTTPS. |
-| POST | `/api/v2/Relay/delta` | Receives a batch of changed tag samples from a sender in **On Change** mode. |
+| POST | `/api/v2/Relay/delta` | Receives a batch of changed tag samples from a sender in **On change** mode. |
 
 The rules for both routes are:
 

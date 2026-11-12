@@ -37,12 +37,12 @@ The full rule is in the **Remote web access needs a Server licence** note on [Li
 
 ## HTTPS certificates
 
-The **Web** tab and the [Extensions Web](Extensions_Web.md) tab both have these options, and each tab keeps its own values for its own server.
+The **Web** tab and the [Extensions web](Extensions_Web.md) tab both have these options, and each tab keeps its own values for its own server.
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | **Windows cert store** | Text | Empty | On Windows, the name of the certificate store that holds the HTTPS certificate, such as `My`, which is the Personal store. Profinity uses the store only when **Windows cert store location** is also set. |
-| **Windows cert store location** | Choice | None | The location of the store: **Current User** for certificates of the account that runs Profinity, or **Local Machine** for certificates of the whole computer. With **None**, Profinity does not use the Windows store, and uses **Cert file** instead, or the generated certificate when **Cert file** is empty. |
+| **Windows cert store location** | Choice | None | The location of the store: **Current user** for certificates of the account that runs Profinity, or **Local machine** for certificates of the whole computer. With **None**, Profinity does not use the Windows store, and uses **Cert file** instead, or the generated certificate when **Cert file** is empty. |
 | **Windows cert store subject** | Text | Empty | The subject name of the certificate in the store, exactly as the certificate shows it. |
 | **Cert file** | File upload | Empty | A certificate file for HTTPS, normally in `.pfx` or `.p12` format, in place of the Windows store. |
 | **Cert file password** | Secret | Empty | The password that protects **Cert file**. |

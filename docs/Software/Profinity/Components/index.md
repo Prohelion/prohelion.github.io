@@ -38,4 +38,4 @@ To add one, refer to [How to add a component to your profile](../How_To_Guides/A
 ## Behaviour shared by components
 
 - [Connections and reconnecting](Connections_and_Reconnecting.md): how components that connect start, show a problem and recover.
-- [Logging modes](Logging_Modes.md): how Snapshot, On Change and Everything choose which samples to write or send.
+- [Logging modes](Logging_Modes.md): how Snapshot, On change and Everything choose which samples to write or send.

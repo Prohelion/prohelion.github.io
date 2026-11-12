@@ -10,7 +10,7 @@ last_reviewed: 2026-10-14
 
 The **Webhook Publisher** pushes the current values of one or more profile [tag collections](../../Tags/Collections/index.md) to an HTTP or HTTPS address with an HTTP POST.
 It publishes on a fixed interval, whenever a member tag's value changes, or every sample.
-The **Logging mode** setting chooses between **Snapshot**, **On Change** and **Everything**, in the same way as on the [MQTT Publisher](MQTT_Publisher.md) and as described in [Logging modes](../Logging_Modes.md).
+The **Logging mode** setting chooses between **Snapshot**, **On change** and **Everything**, in the same way as on the [MQTT Publisher](MQTT_Publisher.md) and as described in [Logging modes](../Logging_Modes.md).
 Use it when the consumer is an ordinary web service rather than a Message Queuing Telemetry Transport (MQTT) broker.
 
 A publisher pushes to a receiver that is listening now, whereas a [logger](../Loggers/index.md) writes to a file or database for later retrieval.
@@ -56,7 +56,7 @@ To check that it works, look for the POST at your receiver.
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
 | **Collections** | Choice | None | The tag collections to publish. Add one or more, and choose each by name in the **Collection** field. An empty entry fails validation with "You must select a collection." |
-| **Logging mode** | Choice | **Snapshot** | What the publisher sends. **Snapshot** sends every member on each interval, and **On Change** sends only the members whose values changed since the previous interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
+| **Logging mode** | Choice | **Snapshot** | What the publisher sends. **Snapshot** sends every member on each interval, and **On change** sends only the members whose values changed since the previous interval. Refer to [Logging modes](../Logging_Modes.md) for the three modes and what each publishes. |
 | **Update interval (seconds)** | Time | 10 | From 1 to 86400 seconds. Refer to [Logging modes](../Logging_Modes.md) for how each mode uses it. |
 | **Auto connect** | On or off | On | Starts the publisher when the profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 

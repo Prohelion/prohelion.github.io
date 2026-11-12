@@ -35,7 +35,7 @@ At the end, the component:
   Refer to [Licensing](../../Licensing.md).
 - The **Modify components**, **View tags**, **View firmware**, **Modify firmware**, and **Allow firmware actions** permissions.
   Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md).
-- Scripting enabled on the [Application Config](../../Administration/System_Configuration/Application_Config.md) tab of System Configuration.
+- Scripting enabled on the [Application config](../../Administration/System_Configuration/Application_Config.md) tab of System Configuration.
 
 !!! warning "Scripts run with application permissions"
     A script runs inside Profinity with the same operating system permissions as the application, so review any script before running it.

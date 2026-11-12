@@ -13,7 +13,7 @@ Profinity checks the file's signature on the instance itself, so licensing works
 To apply a licence file, refer to [Apply a licence](Installation/Applying_a_Licence.md), and to read the licence state of an instance, refer to [License manager](Administration/License_Manager.md) or the licence summary in [System Information](Administration/System_Info.md).
 
 A licence sets the most that an instance can use, and configuration can switch parts of it off.
-A licensed feature, such as Profinity AI, is available whenever the licence includes it, unless the [site configuration](Administration/System_Configuration/index.md) (`config.yaml`) switches it off. Scripting and Profinity AI each have a setting that does this: the **Enable C# scripting**, **Enable Python scripting** and **Enable Lua scripting** settings on the [Application Config](Administration/System_Configuration/Application_Config.md) tab, and the [AI settings](Administration/System_Configuration/AI_Settings.md).
+A licensed feature, such as Profinity AI, is available whenever the licence includes it, unless the [site configuration](Administration/System_Configuration/index.md) (`config.yaml`) switches it off. Scripting and Profinity AI each have a setting that does this: the **Enable C# scripting**, **Enable Python scripting** and **Enable Lua scripting** settings on the [Application config](Administration/System_Configuration/Application_Config.md) tab, and the [AI settings](Administration/System_Configuration/AI_Settings.md).
 
 Components work differently.
 A component is available only when the licence, the original equipment manufacturer (OEM) customisation file (`custom.yaml`), and `config.yaml` all allow it, so either file can hide a component group or type that the licence includes.

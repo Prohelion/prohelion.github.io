@@ -14,7 +14,7 @@ You set it per [profile](Profiles.md), and it applies whenever that profile is t
 
 !!! warning "A kiosk session inherits the kiosk user's permissions"
     Anyone who can reach a kiosk display, or the Profinity web address of a kiosk profile, acts as the kiosk user with every permission that user holds.
-    Profinity lists any enabled user in the Kiosk Mode User dropdown, including administrators, so choose a dedicated user with the minimum permissions required.
+    Profinity lists any enabled user in the Kiosk mode user dropdown, including administrators, so choose a dedicated user with the minimum permissions required.
     Refer to [Choosing the kiosk user](#choosing-the-kiosk-user).
 
 ## Enabling Kiosk Mode
@@ -23,7 +23,7 @@ To set Kiosk Mode for a profile, open the **Home** tab of the profile settings, 
 The user must be enabled, as described in [Choosing the kiosk user](#choosing-the-kiosk-user).
 The steps, together with the browser and operating system setup that opens Profinity full screen on the display, are in [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).
 
-Profinity rejects the save if Kiosk Mode is enabled without a Kiosk Mode User.
+Profinity rejects the save if Kiosk Mode is enabled without a Kiosk mode user.
 It also rejects the save if the selected user no longer exists or has been disabled.
 
 Kiosk Mode applies only to the active profile.
@@ -42,7 +42,7 @@ Profinity checks Kiosk Mode continuously while the display is signed in.
 The display is signed out within a few seconds, and the normal login page is shown, if an administrator does any of these:
 
 - Disables Kiosk Mode.
-- Changes the Kiosk Mode User.
+- Changes the Kiosk mode user.
 - Switches to a profile without Kiosk Mode.
 
 The previous kiosk session can no longer be used.
@@ -72,10 +72,10 @@ Disable Kiosk Mode on any profile that no longer needs it.
 
 | What you see | Cause | What to do |
 |---|---|---|
-| The login page is shown instead of signing in. | The profile is inactive, Kiosk Mode is disabled on the profile, or no valid, enabled user is selected as the Kiosk Mode User. | Confirm that the profile is the active profile, that Kiosk Mode is enabled on it, and that a valid, enabled user is selected as the Kiosk Mode User. If the display was signed out on purpose, select **Return to kiosk**. |
+| The login page is shown instead of signing in. | The profile is inactive, Kiosk Mode is disabled on the profile, or no valid, enabled user is selected as the Kiosk mode user. | Confirm that the profile is the active profile, that Kiosk Mode is enabled on it, and that a valid, enabled user is selected as the Kiosk mode user. If the display was signed out on purpose, select **Return to kiosk**. |
 | The display shows the wrong profile. | Kiosk Mode signs in to the active profile only. | Make the intended profile active. |
-| The display was signed out unexpectedly. | Kiosk Mode was disabled, the Kiosk Mode User was changed, or a different profile was made active. | Check the profile settings and sign the display in again. |
-| A user is missing from the Kiosk Mode User dropdown. | Only enabled users are listed. | Enable the user in [Managing users](./Users_and_Access/Manage_Users.md). |
+| The display was signed out unexpectedly. | Kiosk Mode was disabled, the Kiosk mode user was changed, or a different profile was made active. | Check the profile settings and sign the display in again. |
+| A user is missing from the Kiosk mode user dropdown. | Only enabled users are listed. | Enable the user in [Managing users](./Users_and_Access/Manage_Users.md). |
 | The save is rejected. | Kiosk Mode needs an enabled user to provide the login credentials. | Select an existing, enabled user before saving. |
 
 To set up the display itself, refer to [How to set up Profinity as a kiosk application](../How_To_Guides/Set_Up_Profinity_as_Kiosk.md).

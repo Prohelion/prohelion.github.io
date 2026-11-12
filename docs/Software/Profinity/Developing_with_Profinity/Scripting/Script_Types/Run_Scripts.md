@@ -16,21 +16,21 @@ Refer to [Custom Component scripts](./index.md#custom-component-scripts).
 
 ## Settings
 
-A Run script has three modes, chosen with **Script mode**, which defaults to **Run On Demand**.
+A Run script has three modes, chosen with **Script mode**, which defaults to **Run on demand**.
 
-| Script Mode | Behaviour |
+| Script mode | Behaviour |
 |-------------|-----------|
-| **Run On Demand** | Runs the script when a user selects **Run Script** from the script component's menu. **Cancel Script** stops a run that is still going. |
-| **Run On Time Interval** | Runs the script automatically at a fixed interval set with **Time interval** and **Time interval unit**. |
-| **Run On CRON Schedule** | Runs the script from a [Quartz cron expression](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) entered in **Cron schedule**. |
+| **Run on demand** | Runs the script when a user selects **Run Script** from the script component's menu. **Cancel Script** stops a run that is still going. |
+| **Run on time interval** | Runs the script automatically at a fixed interval set with **Time interval** and **Time interval unit**. |
+| **Run on CRON schedule** | Runs the script from a [Quartz cron expression](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) entered in **Cron schedule**. |
 
 The scheduled modes use these settings.
 
 | Setting | Type | Default | Description |
 |---------|---|---------|-------------|
-| **Time interval** | Time | None | The interval between runs in **Run On Time Interval** mode, for example every 5 minutes or every hour. |
+| **Time interval** | Time | None | The interval between runs in **Run on time interval** mode, for example every 5 minutes or every hour. |
 | **Time interval unit** | Choice | Seconds | The unit of the interval: Seconds, Minutes, Hours, or Days. |
-| **Cron schedule** | Text | None | A Quartz cron expression for **Run On CRON Schedule** mode. |
+| **Cron schedule** | Text | None | A Quartz cron expression for **Run on CRON schedule** mode. |
 | **Auto start script** | On or off | Off | When on, a scheduled script starts by itself. Otherwise it is started with **Start Scheduled Script** and stopped with **Stop Scheduled Script**. |
 
 A Quartz expression has six or seven fields that start with seconds, which differs from a standard five-field cron expression, so `0 0 6 ? * MON-FRI` runs the script at 06:00 on every weekday.

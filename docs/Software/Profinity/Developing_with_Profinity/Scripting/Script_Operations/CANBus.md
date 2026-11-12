@@ -78,7 +78,7 @@ The setting defaults to 5000 and accepts -1 to 60000:
 
 A script saved earlier with 0 now sees no valid packets until you change the value to -1 or to a time window.
 The method returns null (`None` in Python, `nil` in Lua) when no valid packet exists.
-**Milliseconds valid** is shown only in Run On Receipt of CAN Message mode.
+**Milliseconds valid** is shown only in Run on receipt of CAN message mode.
 
 === "C#"
 

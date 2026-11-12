@@ -13,13 +13,13 @@ Examples are a computation with multiple steps, state carried between runs, or s
 For a single expression, use an expression-based [derived tag](index.md) instead.
 
 !!! info "Licence required"
-    A derived tag computed by a script needs the **Scripting** licensed feature, included from the Desktop edition upward, and scripting enabled in [Application Config](../../Administration/System_Configuration/Application_Config.md).
+    A derived tag computed by a script needs the **Scripting** licensed feature, included from the Desktop edition upward, and scripting enabled in [Application config](../../Administration/System_Configuration/Application_Config.md).
     Expression-based derived tags work on every edition.
 
 To set one up:
 
 1. Add a **CSharp Script**, **Python Script**, or **Lua Script** component, or use an existing one.
-2. Set its **Script mode** to **Run On Tag Change**.
+2. Set its **Script mode** to **Run on tag change**.
 3. Add the source tags in its **Tag paths** setting, one full tag path each, counted from the root of the tag tree (for example `Vehicles/Car1/SpeedMph`), or add a [collection](../Collections/Create_a_Collection.md) that holds them in its **Collections** setting.
 A collection must exist before you can select it.
 This follows [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).
@@ -102,6 +102,6 @@ Reading the published tag returns the last value the script published, and a rea
 Until the script is triggered, the tag has no value.
 
 Next, choose how the script is triggered.
-A computation that is not purely reactive to a tag change can use another trigger mode: **Run On Time Interval**, **Run On CRON Schedule**, or **Run as Service**.
+A computation that is not purely reactive to a tag change can use another trigger mode: **Run on time interval**, **Run on CRON schedule**, or **Run as service**.
 Refer to [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md) for each mode.
 For the expression-based alternative, refer to [Create a derived tag](Create_a_Derived_Tag.md) and [Tag expressions](../Selecting_Tags/Tag_Expressions.md).

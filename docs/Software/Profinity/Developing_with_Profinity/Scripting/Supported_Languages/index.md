@@ -11,7 +11,7 @@ last_reviewed: 2026-10-14
 Profinity scripting supports three languages: C#, Python (through [IronPython](https://ironpython.net/)) and Lua (through [NLua](https://github.com/NLua/NLua)).
 Each language runs on .NET, the Microsoft software framework Profinity is written in, so scripts can use .NET libraries directly.
 Each language supports the same [script types](../Script_Types/index.md): Run, Receive, Service, Tag Change and Rule scripts.
-A Rule script is a script set to Run On Alert mode.
+A Rule script is a script set to Run on alert mode.
 
 Each language also supports the same host operations, exposed through the `Profinity` script variable.
 The choice of language is a matter of preference and background.

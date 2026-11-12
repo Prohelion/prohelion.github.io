@@ -9,8 +9,8 @@ last_reviewed: 2026-11-09
 # ThingsBoard Logger
 
 The ThingsBoard Logger publishes the values of selected [tag collections](../../Tags/Collections/index.md) from a Profile to a device in ThingsBoard.
-In Snapshot mode it sends the current value of each member at each Update Interval (seconds).
-In On Change and Everything modes, the Update Interval sets the flush timing.
+In Snapshot mode it sends the current value of each member at each Update interval (seconds).
+In On change and Everything modes, the Update interval sets the flush timing.
 It appears under **Loggers** in **ADD COMPONENT** after the ThingsBoard Logger plugin is installed.
 A Profile holds only one.
 
@@ -62,7 +62,7 @@ Complete the settings in the following table.
 | **ThingsBoard device ID** | Text | None | The device ID in ThingsBoard. Required. Profinity also uses it as the MQTT client ID. |
 | **Update interval (seconds)** | Time | 60 | Seconds between samples sent to ThingsBoard, from 1 to 86400. |
 | **Collections** | Choice | None | The tag collections to send. At least one is required. |
-| **Logging mode** | Choice | Snapshot | Chooses between **Snapshot**, **On Change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
+| **Logging mode** | Choice | Snapshot | Chooses between **Snapshot**, **On change** and **Everything**. Refer to [Logging modes](../Logging_Modes.md) for what each mode sends. |
 | **Auto connect** | On or off | On | Starts sending when the Profile loads. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
 
 A collection must be selected before the component can start.

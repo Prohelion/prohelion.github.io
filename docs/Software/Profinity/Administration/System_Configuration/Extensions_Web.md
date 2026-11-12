@@ -9,10 +9,10 @@ last_reviewed: 2026-10-14
 # Extensions Web
 
 Profinity can run a second, separate web server that serves custom applications and provides access to the same APIs that Profinity itself uses for all functionality.
-You configure this second server on the **Extensions Web** tab.
+You configure this second server on the **Extensions web** tab.
 
 It is disabled by default and needs a Server licence (Server or Enterprise edition).
-Only with a Server licence is the **Extensions Web** tab shown, and only with a Server licence can the second web server be enabled.
+Only with a Server licence is the **Extensions web** tab shown, and only with a Server licence can the second web server be enabled.
 With a Server licence, the address options work as they do on the **Web** tab, so you can use 0.0.0.0 or a specific address.
 
 Saving changes on any System Configuration tab restarts Profinity.

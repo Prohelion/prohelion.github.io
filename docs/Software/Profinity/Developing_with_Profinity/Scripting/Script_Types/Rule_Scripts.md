@@ -8,7 +8,7 @@ last_reviewed: 2026-11-10
 
 # Rule scripts
 
-A rule script is a script component with **Script mode** set to **Run On Alert**, which a [tag rule](../../../Tags/Rules/index.md) runs as one of its actions.
+A rule script is a script component with **Script mode** set to **Run on alert**, which a [tag rule](../../../Tags/Rules/index.md) runs as one of its actions.
 The rule passes the details of the alert to the method the script implements.
 
 A rule runs the script only with both the **Scripting** and **Tag Rule Actions** licensed features, which the Server and Enterprise editions include.
@@ -19,8 +19,8 @@ Refer to [Licensing](../../../Licensing.md).
 
 A rule script needs these settings in place:
 
-- The language is turned on in **Optional capabilities** in [Application Config](../../../Administration/System_Configuration/Application_Config.md): **Enable C# scripting**, **Enable Python scripting**, or **Enable Lua scripting**. Changing Application Config needs the **System administration** permission.
-- A **CSharp Script**, **Python Script**, or **Lua Script** component has **Script mode** set to **Run On Alert**. The component's script holds the alert method shown in [Example](#example), which you edit with **Edit Script** on the component's menu.
+- The language is turned on in **Optional capabilities** in [Application config](../../../Administration/System_Configuration/Application_Config.md): **Enable C# scripting**, **Enable Python scripting**, or **Enable Lua scripting**. Changing Application config needs the **System administration** permission.
+- A **CSharp Script**, **Python Script**, or **Lua Script** component has **Script mode** set to **Run on alert**. The component's script holds the alert method shown in [Example](#example), which you edit with **Edit Script** on the component's menu.
 - A rule names the script component in its `actions` list, in the same way as any other rule action. Create the rule in `rules.yaml` or in the rules visual editor, which is under **TAG UTILITIES** > **RULES & ACTIONS**, as described in [Complete rules.yaml example](../../../Tags/Rules/Rules_YAML_Example.md).
 
 This rule runs a script component named `PackTempScript` when the pack temperature passes 45:
@@ -141,10 +141,10 @@ When you create a script component, its editor starts with a template that alrea
 ## Behaviour
 
 !!! warning "Running the script by hand does not call this method"
-    Only a rule that fires calls `OnAlert` or `on_alert`, and the **Run Script** action, **Run On Demand**, and a schedule do not.
+    Only a rule that fires calls `OnAlert` or `on_alert`, and the **Run Script** action, **Run on demand**, and a schedule do not.
     To test the method, make the rule's condition true, for example by lowering its threshold for a while, or by replaying a log that holds the alert, as described in [How to replay CAN bus logs](../../../How_To_Guides/Replay_CAN_Logs.md).
 
-In **Run On Alert** mode the script is idle until a rule runs it, so it has no start or stop.
+In **Run on alert** mode the script is idle until a rule runs it, so it has no start or stop.
 Between firings its status reads **Not Run** or **Run N times**, and the status shows **Running** while `OnAlert` or `on_alert` is executing.
 
 The component's menu in this mode is **Edit Script** only.

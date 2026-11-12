@@ -113,7 +113,7 @@ A metric name that contains `/` adds further segments beneath the device.
     The only thing that changes the value of one of these tags is the next Sparkplug message for that metric.
     A lost broker connection, or a death message for the node or device, marks the tags **Stale** and keeps their last value.
 
-To react to an incoming value, use a **Run On Tag Change** script that watches the tag.
+To react to an incoming value, use a **Run on tag change** script that watches the tag.
 The script reads the new sample as it would for any other tag change, and it is not given the raw MQTT payload.
 Refer to [Script Types](../../../Developing_with_Profinity/Scripting/Script_Types/index.md) for the script types.
 

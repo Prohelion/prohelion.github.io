@@ -11,7 +11,7 @@ last_reviewed: 2026-11-10
 A [tag rule](../index.md) watches the tags in its scope and, when its condition changes, records an alert and runs the actions attached to it.
 With **On update** on, it also runs those actions when the value changes while the alert stays true.
 Profinity 2.3 has two built-in actions, **Profinity Log** and **None**.
-It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run On Alert** mode.
+It also offers the Email, Slack, Webhook, and Message Queuing Telemetry Transport (MQTT) actions as components, and any [script](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md) set to **Run on alert** mode.
 
 Every action receives the list of tags in the rule's scope that are currently evaluating true.
 This list is named `TriggeredTags` in a script and `triggeringTags` in the Webhook and MQTT JSON message.
@@ -19,7 +19,7 @@ This list is named `TriggeredTags` in a script and `triggeringTags` in the Webho
 !!! info "Licence required"
     Rules, the [Alerts Log](../../Alerts.md) and the built-in actions **Profinity Log** and **None** work on every edition.
     The Email, Slack, Webhook, and MQTT actions need the **Tag Rule Actions** licensed feature, included in the **Server** and **Enterprise** editions.
-    A script set to **Run On Alert** needs both **Tag Rule Actions** and **Scripting** (included in the **Desktop**, **Server** and **Enterprise** editions).
+    A script set to **Run on alert** needs both **Tag Rule Actions** and **Scripting** (included in the **Desktop**, **Server** and **Enterprise** editions).
 
     Without **Tag Rule Actions** the rule still evaluates and the alert is still recorded.
     Only the licensed actions are skipped.
@@ -44,7 +44,7 @@ The picker lists:
 - **Profinity Log**, which writes a message to the Profinity log at the action's `level` and otherwise the rule's level.
 - **None**, which records the alert in the Alerts Log only and rejects `message`, `level`, and `tagId`.
 - Every Email, Slack, Webhook, and MQTT action that has been added to the profile, listed by the name of its component.
-- Every **CSharp Script**, **Python Script** or **Lua Script** component whose mode is **Run On Alert**, as described in [Rule scripts](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
+- Every **CSharp Script**, **Python Script** or **Lua Script** component whose mode is **Run on alert**, as described in [Rule scripts](../../../Developing_with_Profinity/Scripting/Script_Types/Rule_Scripts.md).
 - Every **AI Technician** in the profile, listed by the name of its component, which starts a review each time the action runs, as described in [Investigate alerts with an AI technician](../../../Profinity_AI/AI_Technicians/Investigate_Alerts_with_an_AI_Technician.md).
 
 In YAML the two built-in actions are written `ProfinityLog` and `None`.
@@ -87,14 +87,14 @@ For a group it is the group `id`.
 Each parent can list a given action name only once.
 A rule with `thresholds` cannot also have rule-level `actions` or `clearActions`, so its actions go on the steps.
 
-An action entry may be a bare name or an object. An object takes `action`, and optionally `message`, `level`, `tagId` and `value`. A parent action also takes `triggerLevel`, and a **Run On Alert** script action takes `parameters`.
+An action entry may be a bare name or an object. An object takes `action`, and optionally `message`, `level`, `tagId` and `value`. A parent action also takes `triggerLevel`, and a **Run on alert** script action takes `parameters`.
 
 - `message` replaces the text sent for this rule.
 - `level` sets the level that **Profinity Log** writes at.
 
 The `tagId` and `value` fields substitute a different tag path and value for those reported to the action.
 
-A **Run On Alert** script action may also carry optional `parameters`: a map of names to values that the script reads from the alert context.
+A **Run on alert** script action may also carry optional `parameters`: a map of names to values that the script reads from the alert context.
 Each value is either a literal (`string`, `number`, or `boolean`) or a tag variable written as `tag: <path>`, where the path is a full path from the root of the tag tree.
 When the rule fires, string literals expand the [message placeholders](#message-placeholders), and each tag variable becomes that tag's current value.
 A missing tag yields no value for that name; the script still runs.

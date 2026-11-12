@@ -52,9 +52,9 @@ Every setting is on the **Settings** tab, except **Instructions**, which has its
 | **Run as** | Dropdown of enabled users, required | None | The user each round signs in as. Its roles limit what the technician can see. |
 | **Instructions** | Text, required, full width | An example industrial drive review | Instructions for the technician. Refer to [Write instructions](./Write_Instructions.md). |
 | **Log output** | On or off | Off | Also writes the round log to the Profinity log. Dropped wakes and blocked rounds are written to the Profinity log whether this is on or off. |
-| **Schedule** | No schedule, Run On Time Interval, or Run On CRON Schedule | No schedule | When scheduled rounds run. With No schedule, rounds start only from **Run AI Technician** and from alerts. |
-| **Time interval** and **Time interval unit** | Whole number and a unit | Empty, seconds | Shown when **Schedule** is Run On Time Interval. |
-| **Cron schedule** | Text | Empty | Shown when **Schedule** is Run On CRON Schedule. |
+| **Schedule** | No schedule, Run on time interval, or Run on CRON schedule | No schedule | When scheduled rounds run. With No schedule, rounds start only from **Run AI Technician** and from alerts. |
+| **Time interval** and **Time interval unit** | Whole number and a unit | Empty, seconds | Shown when **Schedule** is Run on time interval. |
+| **Cron schedule** | Text | Empty | Shown when **Schedule** is Run on CRON schedule. |
 | **Round timeout (seconds)** | Whole number, 30 to 3600 | 300 | A round running longer than this stops with a `blocked` finding. |
 | **Alert cooldown (minutes)** | Whole number, 0 to 1440 | 60 | Alert wakes are dropped for this long after a round ends. 0 turns the cooldown off. |
 | **Daily limit** | Whole number, 0 to 1000 | 10 | The most alert and Run AI Technician rounds in one day. Scheduled rounds do not count. |

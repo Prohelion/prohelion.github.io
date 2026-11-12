@@ -37,7 +37,7 @@ Profinity validates that the named store and certificate exist.
 
 The options are the same as on the **Web** tab, described in [Profinity Web](../../Administration/System_Configuration/Profinity_Web.md), including the certificate options. Refer to [Extensions Web](../../Administration/System_Configuration/Extensions_Web.md) for the **Enable Swagger on API** setting.
 
-These settings are on the **Extensions Web** tab.
+These settings are on the **Extensions web** tab.
 The **Web** tab has its own copy of the same settings for the Profinity web interface, with default ports 18080 and 18443.
 
 Saving the configuration with **Redirect all HTTP traffic to HTTPS** enabled while **Enable HTTPS** is off is rejected with the message "You can only redirect traffic if Https is enabled".

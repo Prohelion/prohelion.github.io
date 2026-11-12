@@ -9,7 +9,7 @@ last_reviewed: 2026-10-14
 # Receive scripts
 
 Receive scripts handle incoming CAN (Controller Area Network) messages in real time.
-A script in Run On Receipt of CAN Message mode runs automatically when a matching CAN packet is received, and gets the packet as an argument.
+A script in Run on receipt of CAN message mode runs automatically when a matching CAN packet is received, and gets the packet as an argument.
 This suits CAN bus monitoring, protocol implementation, and any case where an immediate response to a CAN message is needed.
 The script implements a `Receive` method (C#) or a `receive` function (Python and Lua).
 
@@ -20,7 +20,7 @@ Three settings decide which packets reach the script.
 | Setting | Type | Default | Meaning |
 |---------|---|---------|---------|
 | **Base address** | Hexadecimal number | `0x0` | The base CAN address of the device, entered in hexadecimal. |
-| **Address range** | Hexadecimal number | `0x0` | The number of addresses above Base Address that the script receives, entered in hexadecimal. A packet is received when its CAN ID is from Base Address to Base Address plus Address Range, inclusive, so 0 receives only the Base Address. |
+| **Address range** | Hexadecimal number | `0x0` | The number of addresses above Base address that the script receives, entered in hexadecimal. A packet is received when its CAN ID is from Base address to Base address plus Address range, inclusive, so 0 receives only the Base address. |
 | **Milliseconds valid** | Time | 5000 | How long traffic from the device counts as valid before the connection is assumed lost. The range is -1 to 60000, and -1 means traffic never expires. |
 
 <figure markdown>

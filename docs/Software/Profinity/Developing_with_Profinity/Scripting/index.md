@@ -27,7 +27,7 @@ Profinity scripting automates tasks, processes CAN messages and creates custom o
     An administrator must review what each script does before it is enabled.
 
 To keep the Profinity environment secure, scripting is disabled until it is explicitly enabled.
-To enable Profinity Scripting, open [Application Config](../../Administration/System_Configuration/Application_Config.md) and turn on **Enable C# scripting**, **Enable Python scripting**, or **Enable Lua scripting** for the language you use.
+To enable Profinity Scripting, open [Application config](../../Administration/System_Configuration/Application_Config.md) and turn on **Enable C# scripting**, **Enable Python scripting**, or **Enable Lua scripting** for the language you use.
 
 <figure markdown>
 ![Profinity System Configuration page, where the Enable C# Scripting, Enable Python Scripting, and Enable Lua Scripting settings turn scripting on](../../images/app_configuration.png)
@@ -38,11 +38,11 @@ To enable Profinity Scripting, open [Application Config](../../Administration/Sy
 
 Profinity has five script types, which between them cover seven values of the **Script mode** setting:
 
-- [Run scripts](./Script_Types/Run_Scripts.md) cover manual and scheduled operations, in the Run On Demand, Run On Time Interval, and Run On CRON Schedule modes.
-- [Receive scripts](./Script_Types/Receive_Scripts.md) handle incoming CAN messages, in the Run On Receipt of CAN Message mode.
-- [Service scripts](./Script_Types/Service_Scripts.md) run continuously, in the Run as Service mode.
-- [Tag change scripts](./Script_Types/Tag_Change_Scripts.md) react when a watched tag changes, in the Run On Tag Change mode.
-- [Rule scripts](./Script_Types/Rule_Scripts.md) handle a rule firing, in the Run On Alert mode.
+- [Run scripts](./Script_Types/Run_Scripts.md) cover manual and scheduled operations, in the Run on demand, Run on time interval, and Run on CRON schedule modes.
+- [Receive scripts](./Script_Types/Receive_Scripts.md) handle incoming CAN messages, in the Run on receipt of CAN message mode.
+- [Service scripts](./Script_Types/Service_Scripts.md) run continuously, in the Run as service mode.
+- [Tag change scripts](./Script_Types/Tag_Change_Scripts.md) react when a watched tag changes, in the Run on tag change mode.
+- [Rule scripts](./Script_Types/Rule_Scripts.md) handle a rule firing, in the Run on alert mode.
 
 For each mode and when to use it, refer to [Script types](./Script_Types/index.md).
 For the rule actions that call a rule script, refer to [Rule actions](../../Tags/Rules/Actions/index.md).
