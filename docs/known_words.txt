@@ -126,6 +126,7 @@ uint
 bootloader
 timebases
 endian
+endianness
 sql
 show_sql
 servlet

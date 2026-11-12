@@ -1,6 +1,6 @@
 ---
 title: Install Profinity on Windows
-description: "Install Profinity on Windows with the Setup Wizard, open the web interface in a browser, and see what needs a Server licence."
+description: "Install Profinity on Windows with the Setup Wizard and start using it in the desktop window, and see what needs a Server licence for browser access."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-28
@@ -25,6 +25,9 @@ Sign in with an account that has administrator rights. The installer sets Profin
 Profinity opens its homepage in the desktop window.
 To stop Profinity, select **Close** at the top right of the window.
 
+The desktop window signs in automatically, so you do not need a licence or a web browser.
+To start using Profinity, work through the [Quick start guide](../Getting_Started/Quick_Start.md).
+
 <figure markdown>
 ![The Profinity welcome page, headed "Welcome to Profinity Version 2.3", with Documentation, Add Component and Help shortcuts.](../images/homepage.png)
 <figcaption>Profinity homepage</figcaption>
@@ -32,7 +35,12 @@ To stop Profinity, select **Close** at the top right of the window.
 
 ## Open Profinity in a web browser
 
-With Profinity running, open the URL set in the Profinity Web panel of [System configuration](../Administration/System_Configuration/Profinity_Web.md), which you reach from **ADMIN** in the side menu.
+!!! info "Most Windows installations do not need this section"
+    With a Desktop licence or no licence, a browser on this computer can reach the sign-in page, but there is no account to sign in with, because user accounts need a Server licence.
+    Use the desktop window instead, which signs in automatically.
+    To sign in from a browser, [apply a Server licence](./Applying_a_Licence.md).
+
+With Profinity running and a Server licence applied, open the URL set in the Profinity Web panel of [System configuration](../Administration/System_Configuration/Profinity_Web.md), which you reach from **ADMIN** in the side menu.
 The default URL is `http://localhost:18080`, and the browser opens the Profinity sign-in page.
 
 <figure markdown>

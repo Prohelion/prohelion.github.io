@@ -5,3 +5,4 @@ nav:
     - File_Logger_Rotation_Archive_and_SFTP.md
     - InfluxDB_v1_Logger.md
     - Prometheus_Logger.md
+    - ThingsBoard_Logger.md

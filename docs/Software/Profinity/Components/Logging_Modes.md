@@ -70,7 +70,7 @@ These components have a **Logging mode** setting:
 - The **InfluxDB v1 Logger**, on [InfluxDB v1 Logger](Loggers/InfluxDB_v1_Logger.md).
 - The **InfluxDB v2 Historian** and the **InfluxDB v3 Historian**, on [InfluxDB historians](Historians/InfluxDB_Historians.md).
 - The Message Queuing Telemetry Transport (MQTT) Publisher, on [MQTT Publisher](Publishers_and_Subscribers/MQTT_Publisher.md).
-- The **ThingsBoard Logger**, on [ThingsBoard Logger](Cloud_Dashboard/Prohelion_Cloud_Dashboard.md).
+- The **ThingsBoard Logger**, on [ThingsBoard Logger](Loggers/ThingsBoard_Logger.md).
 - The **TAG File Logger** and the **TAG SFTP Logger** (Secure Shell (SSH) File Transfer Protocol), on [Tag file and SFTP loggers](Loggers/Tag_File_and_SFTP_Loggers.md).
 - The **TAG Local Historian**, on [TAG Local Historian](Historians/TAG_Local_Historian.md).
 - The **TAG SQL Historian**, on [TAG SQL Historian](Historians/TAG_SQL_Historian.md).
