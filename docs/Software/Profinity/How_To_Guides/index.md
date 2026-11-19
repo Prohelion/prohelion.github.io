@@ -39,7 +39,7 @@ Start with the [Quick start guide](../Getting_Started/Quick_Start.md) if Profini
 
 ## Extend Profinity
 
-- [Connect an AI tool to Profinity](../Integrating_to_Profinity/MCP_Server/index.md): choose Claude Code, Cursor, Codex, or ChatGPT and open its setup guide.
+- [Connect an AI tool to Profinity](../Profinity_AI/MCP_Server/index.md): choose Claude Code, Cursor, Codex, or ChatGPT and open its setup guide.
 - [Make your first Custom Component](../Developing_with_Profinity/Custom_Components/First_Custom_Component.md): add a Custom Component with a CAN database (DBC) file, dashboard, main script, menu actions, and firmware.
 - [How to write your first script](./Write_Your_First_Script.md): enable scripting, add a script component, and run a first script.
 - [Script examples](../Developing_with_Profinity/Scripting/Script_Examples.md): read a DBC signal, send a CAN message, and keep script state.

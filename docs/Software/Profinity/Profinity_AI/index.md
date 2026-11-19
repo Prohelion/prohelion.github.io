@@ -39,9 +39,17 @@ AI Chat, AI Technician and the built-in Model Context Protocol (MCP) server requ
 
     [:octicons-arrow-right-24: AI Skills](./AI_Skills/index.md)
 
+-   :material-connection:{ .lg .middle } __MCP Server__
+
+    ---
+
+    The read-only connection to live data in your instance. AI Chat uses it inside Profinity, and Claude Code, Cursor, and Codex connect to it from your computer.
+
+    [:octicons-arrow-right-24: MCP Server](./MCP_Server/index.md)
+
 </div>
 
 - [Install AI Skills](./AI_Skills/Install_AI_Skills.md): set up AI Skills in your AI tool.
 - [AI Skills reference](./AI_Skills/AI_Skills_Reference.md): the skills and what each one does.
 - [Profinity AI settings](../Administration/System_Configuration/AI_Settings.md): administrator configuration, permissions, and data-handling notes.
-- [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md#choose-a-setup-guide): setup guides for using your own AI tool with the MCP server.
+- [Connect your AI tool](./MCP_Server/index.md#choose-a-setup-guide): setup guides for Claude Code, Cursor, and Codex.

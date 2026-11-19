@@ -12,7 +12,7 @@ This page adds an [AI Technician](./AI_Technician.md) to a profile, runs its fir
 
 ## Before you start
 
-- [Profinity AI](../index.md) is licensed and configured under [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md), and the [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md) is turned on.
+- [Profinity AI](../index.md) is licensed and configured under [Profinity AI settings](../../Administration/System_Configuration/AI_Settings.md), and the [MCP Server](../MCP_Server/index.md) is turned on.
 - You have the **Allow component actions** permission and the permission to change the profile.
 - You have the **Security administration** permission, to create the role and service account in the next section.
 

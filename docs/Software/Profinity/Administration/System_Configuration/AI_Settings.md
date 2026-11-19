@@ -44,7 +44,7 @@ Find the **Profinity AI** category and set the fields in the following table. **
 | **Enable web search** | On or off | Off | Lets the assistant search the web as part of answering a question. Available for **Claude**, **OpenAI**, and **OpenRouter**; not available for **Local**. |
 | **Reasoning** | Choice | Medium | **Low**, **Medium**, or **High**. Higher settings can produce better answers at the cost of a longer response time. |
 | **Response timeout (seconds)** | Time | 300 | 30 to 3600. Local and reasoning-heavy models often need several minutes to respond. |
-| **Enable MCP server** | On or off | Off | Shown as its own "MCP server" field group on this page. Enabling Profinity AI turns this on automatically. It can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. Refer to [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md). |
+| **Enable MCP server** | On or off | Off | Shown as its own "MCP server" field group on this page. Enabling Profinity AI turns this on automatically. It can also be turned on by itself, with Profinity AI left off, for external MCP clients that can send a bearer token. Refer to [MCP Server](../../Profinity_AI/MCP_Server/index.md). |
 
 Profinity rejects a save that leaves the configuration in an inconsistent state, according to these rules:
 
@@ -91,6 +91,6 @@ External MCP clients also need the **AI** licensed feature, because the MCP serv
 
 ## Related documentation
 
-- [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md): the live-data connection Profinity AI uses, and the guides for connecting Cursor, Claude Code, Codex, and ChatGPT.
+- [MCP Server](../../Profinity_AI/MCP_Server/index.md): the live-data connection Profinity AI uses, and the guides for connecting Cursor, Claude Code, Codex, and ChatGPT.
 - [AI Chat](../../Profinity_AI/AI_Chat.md): the guide to using the chat window.
 - [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#profinity-ai): the chat route, for integrators.

@@ -76,4 +76,4 @@ The administrator corrects the provider settings under **ADMIN > System Configur
 - The example prompts in the empty chat window are suggestions only, and Profinity AI is not limited to those topics.
 
 To build dashboards and other configuration with your own AI coding assistant instead, refer to [AI Skills](./AI_Skills/index.md).
-For the Model Context Protocol (MCP) connection that Profinity AI uses for live data, refer to [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md).
+For the Model Context Protocol (MCP) connection that Profinity AI uses for live data, refer to [MCP Server](./MCP_Server/index.md).

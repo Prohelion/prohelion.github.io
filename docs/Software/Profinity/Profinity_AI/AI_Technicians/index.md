@@ -59,7 +59,7 @@ Each review is called a *round*.
 A round starts on a schedule, when a user selects **Run AI Technician**, or when a rule on another device names the technician as one of its actions.
 
 During a round, Profinity AI follows your instructions.
-It reads tag values and history, alerts, and alert rules through the read-only tools of the [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md), signed in as the user named in **Run as**, so it sees what that user can see.
+It reads tag values and history, alerts, and alert rules through the read-only tools of the [MCP Server](../MCP_Server/index.md), signed in as the user named in **Run as**, so it sees what that user can see.
 When an alert started the round, the technician also gets the details of that alert.
 
 The round finishes with `attention` when a person needs to look, `clear` when all is well, or `blocked` when the round stopped early, for example because the AI provider timed out.

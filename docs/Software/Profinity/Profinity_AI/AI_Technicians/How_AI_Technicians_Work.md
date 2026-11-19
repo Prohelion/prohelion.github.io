@@ -63,7 +63,7 @@ The full list of built-in rules is on [AI Technician](./AI_Technician.md#built-i
 ## What the AI sees and keeps
 
 Each round signs in as the user named in **Run as**, so the AI sees only the tags, alerts, and rules that user's roles allow.
-The tools it uses are the read-only tools of the [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md), so a technician cannot change a tag, a setting, or a device.
+The tools it uses are the read-only tools of the [MCP Server](../MCP_Server/index.md), so a technician cannot change a tag, a setting, or a device.
 
 The AI receives the technician's instructions and the previous finding.
 When an alert wakes it, the AI also receives that alert, marked as device data to investigate and not as instructions.

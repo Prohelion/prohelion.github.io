@@ -68,4 +68,4 @@ Open Cursor's MCP logs (refer to Cursor's documentation for where they are), and
 | `profinity` is missing from **Customize** | The file is invalid JSON, or Cursor was last opened before the file was saved | Correct the file, then quit Cursor and open it again |
 
 For a 403 or another response, refer to [MCP connection errors](Connection_Errors.md).
-When Cursor can read the instance, install [AI Skills](../../Profinity_AI/AI_Skills/Install_AI_Skills.md) so that Cursor can build dashboards, rules, and other configuration from that data.
+When Cursor can read the instance, install [AI Skills](../AI_Skills/Install_AI_Skills.md) so that Cursor can build dashboards, rules, and other configuration from that data.

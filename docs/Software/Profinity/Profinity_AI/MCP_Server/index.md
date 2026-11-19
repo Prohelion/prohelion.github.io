@@ -12,9 +12,9 @@ The Profinity Model Context Protocol (MCP) server lets an AI tool read live data
 The server answers questions about components, tag values, tag history, and alerts, and has no tool that changes Profinity data.
 The AI tool sees only what its account is allowed to see.
 
-[AI Chat](../../Profinity_AI/AI_Chat.md) uses this server inside Profinity.
+[AI Chat](../AI_Chat.md) uses this server inside Profinity.
 Claude Code, Cursor, and Codex connect to it from your computer.
-With [AI Skills](../../Profinity_AI/AI_Skills/index.md) installed, those tools can then build dashboards, rules, and other configuration from what they read.
+With [AI Skills](../AI_Skills/index.md) installed, those tools can then build dashboards, rules, and other configuration from what they read.
 
 !!! info "Licence required"
     The MCP server requires the **AI** licensed feature, included in the **Server** and **Enterprise** editions.
@@ -28,8 +28,8 @@ Prepare the instance once, then connect the tool you use:
 2. [Trust the HTTPS certificate](Trust_HTTPS_Certificate.md): needed only when the tool uses an `https://` address.
 3. The guide for your tool: [Claude Code](Connect_Claude_Code.md), [Codex](Connect_Codex.md), or [Cursor](Connect_Cursor.md).
 
-ChatGPT cannot reach a private MCP server, so use a Custom GPT and the REST API instead. The [AI Skills reference](../../Profinity_AI/AI_Skills/AI_Skills_Reference.md) gives the reasons.
-To use ChatGPT with Profinity, refer to [Connect ChatGPT to Profinity](../../Profinity_AI/AI_Skills/Connect_ChatGPT.md).
+ChatGPT cannot reach a private MCP server, so use a Custom GPT and the REST API instead. The [AI Skills reference](../AI_Skills/AI_Skills_Reference.md) gives the reasons.
+To use ChatGPT with Profinity, refer to [Connect ChatGPT to Profinity](../AI_Skills/Connect_ChatGPT.md).
 
 ## What the server returns
 

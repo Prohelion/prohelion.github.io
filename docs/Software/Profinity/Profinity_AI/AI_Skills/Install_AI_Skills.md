@@ -9,7 +9,7 @@ last_reviewed: 2026-10-27
 # Install AI Skills
 
 Install the Profinity AI Skills pack into your AI tool so it can build dashboards, rules, collections, scripts, plugins, derived tags, and example apps from your instance.
-Claude Code, Cursor, and Codex read live tags and alerts through the [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md).
+Claude Code, Cursor, and Codex read live tags and alerts through the [MCP Server](../MCP_Server/index.md).
 ChatGPT uses a Custom GPT and the REST API instead.
 For what the skills do, refer to [AI Skills](./index.md) and [AI Skills reference](./AI_Skills_Reference.md).
 
@@ -17,11 +17,11 @@ Prohelion supplies the pack as `profinity-ai-skills.zip` with each Profinity rel
 Contact Prohelion for the zip that matches your release.
 As of November 2026, installing the agent skills with `npx` needs Node.js 22.20 or later, as the [skills CLI README](https://github.com/vercel-labs/skills) states.
 
-Before you install for Claude Code, Cursor, or Codex, finish [Prepare Profinity for an MCP client](../../Integrating_to_Profinity/MCP_Server/Prepare_Profinity.md), then the guide for your tool:
+Before you install for Claude Code, Cursor, or Codex, finish [Prepare Profinity for an MCP client](../MCP_Server/Prepare_Profinity.md), then the guide for your tool:
 
-- [Connect Cursor to Profinity](../../Integrating_to_Profinity/MCP_Server/Connect_Cursor.md)
-- [Connect Claude Code to Profinity](../../Integrating_to_Profinity/MCP_Server/Connect_Claude_Code.md)
-- [Connect Codex to Profinity](../../Integrating_to_Profinity/MCP_Server/Connect_Codex.md)
+- [Connect Cursor to Profinity](../MCP_Server/Connect_Cursor.md)
+- [Connect Claude Code to Profinity](../MCP_Server/Connect_Claude_Code.md)
+- [Connect Codex to Profinity](../MCP_Server/Connect_Codex.md)
 
 Without that connection, the skills can still use the REST API for schema and saves when the instance is reachable, but reading live tag and alert data needs Model Context Protocol (MCP).
 

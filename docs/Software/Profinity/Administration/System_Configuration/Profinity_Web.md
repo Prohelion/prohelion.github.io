@@ -53,7 +53,7 @@ To find the store and subject name of a certificate on Windows, open the certifi
 When **Windows cert store** and **Cert file** are empty, Profinity creates its own certificate the first time HTTPS starts.
 The file is `profinity_generated.pfx` in the `certificates` folder of the [artefacts directory](../../Installation/Artifacts_Directory.md), and it has no password.
 Profinity also creates the file when **Cert file** is missing, cannot be read, or has the wrong password, so a `profinity_generated.pfx` next to your own file means that Profinity did not use it.
-To export and trust the generated certificate, or to create a new one, refer to [Trust the HTTPS certificate](../../Integrating_to_Profinity/MCP_Server/Trust_HTTPS_Certificate.md).
+To export and trust the generated certificate, or to create a new one, refer to [Trust the HTTPS certificate](../../Profinity_AI/MCP_Server/Trust_HTTPS_Certificate.md).
 
 ## Troubleshooting
 

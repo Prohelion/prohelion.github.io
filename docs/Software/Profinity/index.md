@@ -21,7 +21,7 @@ For what changed since Profinity 2.2, refer to the [Release notes](Release_Notes
 [Actions](Tags/Rules/Actions/index.md) respond when a rule fires, for example by writing an entry to the Profinity log.
 
 Tags, Rules, and Actions can then describe both the active system state and the context of that state to [Profinity AI](Profinity_AI/AI_Chat.md).
-They can also describe it to external AI tools that connect through the [Model Context Protocol (MCP) server](Integrating_to_Profinity/MCP_Server/index.md).
+They can also describe it to external AI tools that connect through the [Model Context Protocol (MCP) server](Profinity_AI/MCP_Server/index.md).
 These tools can then help identify and address issues.
 
 [Plugins](Developing_with_Profinity/SDK/Developing_Plugins.md) add third-party or in-house components to Profinity in the same way as Prohelion components.

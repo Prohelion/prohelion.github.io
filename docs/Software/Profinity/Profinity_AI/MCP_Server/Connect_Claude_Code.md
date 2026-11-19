@@ -76,4 +76,4 @@ Run `/mcp`, read the status beside `profinity`, and match it to a row in this ta
 | `profinity` is missing | The add command did not save, or Claude Code runs under another user account | Run `claude mcp get profinity`, and add the server again |
 
 For a 403 or another response, refer to [MCP connection errors](Connection_Errors.md).
-When Claude Code can read the instance, install [AI Skills](../../Profinity_AI/AI_Skills/Install_AI_Skills.md) so that Claude Code can build dashboards, rules, and other configuration from that data.
+When Claude Code can read the instance, install [AI Skills](../AI_Skills/Install_AI_Skills.md) so that Claude Code can build dashboards, rules, and other configuration from that data.

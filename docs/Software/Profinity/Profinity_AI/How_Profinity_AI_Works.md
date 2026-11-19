@@ -25,7 +25,7 @@ Profinity AI is connected to your running system and draws on four kinds of cont
 - History and trends: long-term values from the historian, not just the latest reading.
 - Documentation: manuals, procedures, and how-to material from docs.prohelion.com.
 
-Live data, rules, alerts, and history reach the assistant through the [MCP Server](../Integrating_to_Profinity/MCP_Server/index.md), which is read-only.
+Live data, rules, alerts, and history reach the assistant through the [MCP Server](./MCP_Server/index.md), which is read-only.
 Profinity AI cannot change tags, alerts, or configuration through it.
 Profinity AI sees only what the signed-in user could already see in Profinity, so tags and alerts you do not have permission to view are left out of its answers.
 

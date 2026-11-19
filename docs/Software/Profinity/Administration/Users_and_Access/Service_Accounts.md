@@ -76,7 +76,7 @@ Authorization: Bearer <token>
 ```
 
 Replace `<token>` with the token from **Generate Token** or **View Token**.
-For an MCP client, refer to [Prepare Profinity for an MCP client](../../Integrating_to_Profinity/MCP_Server/Prepare_Profinity.md).
+For an MCP client, refer to [Prepare Profinity for an MCP client](../../Profinity_AI/MCP_Server/Prepare_Profinity.md).
 
 ## Run an AI Technician {#run-an-ai-technician}
 

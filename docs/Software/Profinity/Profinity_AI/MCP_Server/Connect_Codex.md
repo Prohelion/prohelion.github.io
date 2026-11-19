@@ -65,4 +65,4 @@ Run `/mcp`, and match what Codex shows to a row in this table:
 | `profinity` is missing from `/mcp` | The table heading is not `[mcp_servers.profinity]`, or Codex started with a different configuration file | Correct the heading, or add the server to the file Codex uses |
 
 For a 403 or another response, refer to [MCP connection errors](Connection_Errors.md).
-When Codex can read the instance, install [AI Skills](../../Profinity_AI/AI_Skills/Install_AI_Skills.md) so that Codex can build dashboards, rules, and other configuration from that data.
+When Codex can read the instance, install [AI Skills](../AI_Skills/Install_AI_Skills.md) so that Codex can build dashboards, rules, and other configuration from that data.

@@ -10,7 +10,7 @@ last_reviewed: 2026-10-29
 
 Connect ChatGPT to Profinity with a Custom GPT built from the [AI Skills](index.md) pack, so that ChatGPT can read your instance and save dashboards, rules, and collections to it.
 The Custom GPT calls the Profinity REST API, which every edition includes, so it does not need the **AI** licensed feature.
-ChatGPT cannot use the Profinity [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md), because it connects only to public servers that use a different sign-in from Profinity's token.
+ChatGPT cannot use the Profinity [MCP Server](../MCP_Server/index.md), because it connects only to public servers that use a different sign-in from Profinity's token.
 
 ChatGPT runs on the internet, so it cannot open `localhost` or trust a certificate that you accepted on your computer.
 Before you start, you need:

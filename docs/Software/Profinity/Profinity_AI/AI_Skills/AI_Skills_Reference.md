@@ -33,7 +33,7 @@ Your sign-in applies, so the same credentials and permissions apply as for any o
 A skill that saves a dashboard, rule, or collection needs the matching permission for the signed-in user.
 Examples are **Modify dashboards**, **Modify tag rules**, and **Modify tag collections** (refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md)).
 
-Some skills can also read from the Model Context Protocol (MCP) server of your instance, for extra schema discovery (refer to [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md)).
+Some skills can also read from the Model Context Protocol (MCP) server of your instance, for extra schema discovery (refer to [MCP Server](../MCP_Server/index.md)).
 This access is read-only, and it never pushes changes.
 It needs the **AI** licensed feature, which the **Server** and **Enterprise** editions include ([Licensing](../../Licensing.md) lists what each edition includes).
 
@@ -44,7 +44,7 @@ It does not guess an endpoint or use a remembered schema.
 ## What each tool can do
 
 [AI Skills](./index.md) supports four tools.
-The connection steps for Claude Code, Cursor, and Codex start from [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md).
+The connection steps for Claude Code, Cursor, and Codex start from [MCP Server](../MCP_Server/index.md).
 For ChatGPT, follow [Connect ChatGPT to Profinity](Connect_ChatGPT.md).
 
 | AI tool | Live MCP data | AI Skills form | Saves through the REST API | Runs local skill commands | Self-signed HTTPS |

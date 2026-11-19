@@ -29,7 +29,7 @@ For rules, collections, and derived tags, it reads the matching live definitions
 
 A skill uses two connections to your instance:
 
-- The Model Context Protocol (MCP) server of your instance (refer to [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md)), for live data such as tags and alerts.
+- The Model Context Protocol (MCP) server of your instance (refer to [MCP Server](../MCP_Server/index.md)), for live data such as tags and alerts.
 - The Representational State Transfer (REST) API, for the schema and for saving configuration. The MCP server does not serve dashboard, rule, collection, or derived tag documents.
 
 It grounds generation in Profinity's own example content rather than invented output.
@@ -61,7 +61,7 @@ With your own tool, you choose the model and provider, where AI Chat uses the on
 Your conversations persist, where AI Chat keeps history only for the current browser tab.
 You can also work on files, code, and other systems in the same session.
 
-To do this, connect your tool from [MCP Server](../../Integrating_to_Profinity/MCP_Server/index.md).
+To do this, connect your tool from [MCP Server](../MCP_Server/index.md).
 The connection gives Claude Code, Cursor, and Codex the same read-only live data that AI Chat uses: tags and their history, alert rules, active alerts, and alert history.
 Add AI Skills on top, and the same tool can also build and change things.
 It always shows you the payload before it saves.
@@ -81,7 +81,7 @@ Script and Plugin do not call the live instance.
 Use the skill that matches what you are building:
 
 - A first connection from Claude Code, Cursor, or Codex: Connect.
-  Finish [Prepare Profinity for an MCP client](../../Integrating_to_Profinity/MCP_Server/Prepare_Profinity.md) with that skill.
+  Finish [Prepare Profinity for an MCP client](../MCP_Server/Prepare_Profinity.md) with that skill.
   ChatGPT uses [Connect ChatGPT to Profinity](Connect_ChatGPT.md) instead, because it cannot use the MCP server.
 - A [dashboard](../../Customising_Profinity/Dashboards/index.md) or [component dashboard](../../Developing_with_Profinity/Custom_Components/index.md): Dashboard Builder.
 - [Alert rules](../../Tags/Rules/index.md), [tag collections](../../Tags/Collections/index.md), or [derived tags](../../Tags/Derived_Tags/index.md): Tag Rules, Tag Collections, Derived Tags.
