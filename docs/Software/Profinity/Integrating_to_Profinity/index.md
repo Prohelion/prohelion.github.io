@@ -8,33 +8,29 @@ last_reviewed: 2026-10-27
 
 # Integrating to Profinity
 
-Connected equipment feeds into Profinity, which hosts web apps and scripts on top of Tags, Collections, Rules, and Alerts, all protected by Security.
-Profinity exposes that platform through Representational State Transfer (REST) [APIs](./APIs/index.md) to business systems and applications.
-It exposes the platform to AI agents through the [Model Context Protocol (MCP)](./MCP_Server/index.md).
+Use the Profinity APIs and its Model Context Protocol (MCP) server to connect business systems, applications, and AI assistants to the tags, rules, and alerts in Profinity.
+Business systems and applications call the Representational State Transfer (REST) [APIs](./APIs/index.md).
+AI agents connect through the [MCP server](../Profinity_AI/MCP_Server/index.md).
 
 <figure markdown>
 ![Connected equipment feeds into Profinity, which exposes its platform through APIs to business systems and through MCP to AI agents](../images/diagram-extensibility.png)
-<figcaption>Profinity as the Hub of a Solution</figcaption>
+<figcaption>Connected equipment feeds Profinity, which exposes its data to business systems through APIs and to AI agents through MCP</figcaption>
 </figure>
 
 ## APIs
 
 Profinity provides REST interfaces to integrate with and extend its functionality.
-The [APIs](./APIs/index.md) are secured with Bearer tokens and use JSON, so custom applications can be built on them, or existing applications extended with them.
+The APIs are secured with Bearer tokens and use JSON, so custom applications can be built on them, or existing applications extended with them.
 They expose both real-time and historical data.
-They connect Profinity to other systems, to custom dashboards and to new applications built on Profinity's data.
+They connect Profinity to other systems, to custom dashboards, and to new applications built on Profinity's data.
 
-[Swagger](https://swagger.io/) is the interactive API page on your Profinity instance, which documents the available APIs and how to call them.
-The OpenAPI document that tools can import is at `/swagger/v2/swagger.json`.
-The [Endpoint Reference](./APIs/Endpoint_Reference.md) lists the routes that complement the screens described elsewhere in the documentation.
+The [APIs](./APIs/index.md) section documents every API, the interactive Swagger page on your instance, and the OpenAPI document that tools can import.
 To make a first authenticated call, follow [Make your first API call](./First_API_Call.md).
 
 ## MCP server
 
-Profinity includes an [MCP server](./MCP_Server/index.md), which lets [AI Chat](../Profinity_AI/AI_Chat.md) and external tools query system data and metadata.
-Claude Code, Cursor, and Codex use ten read-only tools for tag discovery, tag values and history, and alert state, over Streamable HTTP at `/api/v2/Ai/Mcp`.
-ChatGPT uses a Custom GPT and the REST API instead, because it cannot reach a private MCP server.
-Refer to [MCP Server](./MCP_Server/index.md) for the tool guides, and to the [MCP tool reference](./MCP_Server/Tool_Reference.md) for the tools.
+Profinity includes an [MCP server](../Profinity_AI/MCP_Server/index.md), which lets [AI Chat](../Profinity_AI/AI_Chat.md) and external tools query system data and metadata.
+The setup guides and the [MCP tool reference](../Profinity_AI/MCP_Server/Tool_Reference.md) are part of [Profinity AI](../Profinity_AI/index.md), under [MCP Server](../Profinity_AI/MCP_Server/index.md).
 
 ## Other ways to move data
 
@@ -50,12 +46,11 @@ The [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber/i
 Profinity offers two ways to extend its capabilities to meet the requirements of an application: [Scripting](../Developing_with_Profinity/Scripting/index.md) and APIs.
 The table compares them.
 
-| Scripting                                                                | APIs                                                                           |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| Scripts support C#, Python and Lua                                       | Any programming language that can call REST APIs and JSON can be used          |
-| Scripts are built in to Profinity and need no external frameworks or hosting | APIs are called from outside Profinity, in a custom environment, app, or cloud |
-| Scripts can be developed quickly to solve simple problems                | Applications can be as rich and complex as required and still use Profinity    |
-| Scripts can run without a user interface, on a schedule or triggered by CAN              | The application supplies its own logic for how it uses the API                 |
-| Scripts run inside Profinity                                             | Scripted API clients run outside Profinity and can be distributed              |
+| Scripting | APIs |
+|-----------|------|
+| Scripts support C#, Python, and Lua | Any programming language that can call REST APIs and JSON can be used |
+| Scripts are built in to Profinity and run inside it | API clients run outside Profinity, in a custom environment, app, or cloud, and can be distributed |
+| Scripts can be developed quickly to solve simple problems | Applications can be as rich and complex as required and still use Profinity |
+| Scripts can run without a user interface, on a schedule or triggered by CAN | The application supplies its own logic for how it uses the API |
 
 For compiled integrations and packaged components, refer to [Developing with Profinity](../Developing_with_Profinity/index.md).

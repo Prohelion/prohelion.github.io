@@ -93,4 +93,3 @@ External MCP clients also need the **AI** licensed feature, because the MCP serv
 
 - [MCP Server](../../Profinity_AI/MCP_Server/index.md): the live-data connection Profinity AI uses, and the guides for connecting Cursor, Claude Code, Codex, and ChatGPT.
 - [AI Chat](../../Profinity_AI/AI_Chat.md): the guide to using the chat window.
-- [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#profinity-ai): the chat route, for integrators.

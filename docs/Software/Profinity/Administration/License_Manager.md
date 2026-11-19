@@ -16,6 +16,7 @@ The page shows:
 
 - **State**: `Valid`, `Trial`, `Expiring`, `Expired`, `Invalid`, `WrongInstance`, `UnsupportedVersion`, or `Missing`.
   A licence file whose expiry is 30 days or less away is reported as `Expiring` instead of `Valid` or `Trial`.
+  The automatic in-product trial is reported as `Expiring` instead of `Trial` when seven days or fewer remain.
 - **Type**: `Commercial`, `Trial`, or `LocalTrial` (the automatic in-product trial).
 - **Edition**: the commercial edition name, shown for information only, because availability follows the individual features and components in the licence.
 - **Customer**: the customer name or ID recorded on the licence.

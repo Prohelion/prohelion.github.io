@@ -1,0 +1,9 @@
+extends: existence
+message: "Call a group of REST calls an API and one method and path an endpoint, not a route ('%s', style guide 2.5)."
+level: error
+ignorecase: true
+scope: text
+tokens:
+  - '\b(?:API|REST|data|alert|collection|rule|tag|HTTP)\s+routes?\b'
+  - '\broutes?\s+(?:returns?|accepts?|needs?|serves?|requires?|takes?)\b'
+  - '\b(?:the|these|those|each|every|other|matching)\s+routes\s+(?:in|for|under|that|the)\b'

@@ -31,7 +31,7 @@ Run these from `scripts`, or with `npm --prefix scripts run -s review -- <task>`
 
 | Task | What it does |
 |---|---|
-| `check` | Runs the lint, the build, the URL check and the tests, and says which passed. Run it before calling any docs change done. |
+| `check` | Runs the lint, the build, the URL check, the two route checks and the tests, and says which passed. Run it before calling any docs change done. The route checks run with Profinity offline. |
 | `status` | Shows the ledger counts, the blockers still counting and the pages that have most, pages awaiting re-review, and the objective counts from the latest pre-pass |
 | `prepass` | Runs the objective checks on every page and writes `tasks/reviews/prepass-latest.json` |
 | `score` | Runs a fresh pre-pass, scores every page and section from the ledger, writes `ranking-latest.md` and `scores-latest.json`, and shows the change in the mean score since last time |
@@ -41,6 +41,20 @@ Run these from `scripts`, or with `npm --prefix scripts run -s review -- <task>`
 | `all` | Runs `check`, `prepass`, `score` and `status` |
 
 `<run>` defaults to today's date.
+
+## Checks against the product
+
+Some checks compare the docs with the product. They read the Profinity code repository, so they run with Profinity offline.
+Set `PROFINITY_CODE` to the path of the code repository, or leave it unset when the repository sits next to this one as `../Profinity`.
+
+| Check | What it compares |
+|---|---|
+| `check-routes.js` | Every REST route the docs name against the OpenAPI contract that the Profinity build commits to the code repository. It reports a route the product does not have. |
+| `check-route-coverage.js` | The reverse: every product route against the docs. It reports a route that no page names. A route that is not for integrators carries `IgnoreApi` in the product code, which removes it from the contract. `route-allowlist.json` holds exceptions only, each with a reason, and an entry that matches no route fails the check. Run it with `--report` to list the gaps without failing. |
+| `check-permissions.js`, `check-env.js`, `check-code-links.js` | Permission names, environment variables and documentation links against the code. |
+
+`check-settings.js` and `check-examples.js` read a running instance, because component settings are built by the running engine, so they still need `PROFINITY_URL`.
+Set `PROFINITY_URL` on `check-routes.js` to check a running instance instead of the committed contract.
 
 ## How a full review runs
 

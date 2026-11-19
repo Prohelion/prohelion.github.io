@@ -247,6 +247,6 @@ To find a problem before it reaches the dashboard:
 
 - Read the **Schema validation issues** list in **Edit Dashboard** before you save.
 - Compare your dashboard with the annotated [Motor controller dashboard example](./Motor_Controller_Dashboard_Example.md) and the examples in the [Component reference](./Component_Reference/index.md).
-- Read the full schema for the exact property rules. Sign in to Profinity, then open `/api/v2/UI/schema` on the Profinity address. This route serves the web interface, so do not build integrations on it.
+- Read the full schema for the exact property rules. Sign in to Profinity, then open `/api/v2/UI/schema` on the Profinity address. This endpoint serves the web interface, so do not build integrations on it.
 
 If the problem persists, contact Prohelion through the [Prohelion website](https://www.prohelion.com/contact-us/) with the dashboard YAML, any error messages, and what you expected to see.

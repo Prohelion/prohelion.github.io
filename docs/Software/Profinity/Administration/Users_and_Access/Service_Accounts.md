@@ -10,7 +10,8 @@ last_reviewed: 2026-11-11
 
 Create a service account so that an integration or a Model Context Protocol (MCP) client signs in with an API token instead of a password.
 A service account is a user record for automation rather than a person, and its token stays valid until an administrator generates a new one or disables the account.
-Changing the account's roles keeps the same token.
+Changing the account's roles keeps the same token, and the account's permissions follow its current roles.
+Turning the account off ends its token for good, so after you turn it on again, generate a new token.
 
 You need the **Security administration** permission and the **Profinity Server** licensed feature, which **Users & Groups** uses.
 MCP access also needs the Profinity AI licensed feature, which the Server and Enterprise editions include.
@@ -38,10 +39,10 @@ Treat the token like a password: store it in a secrets manager, and give the acc
 To check the token, send it to Profinity from the computer that runs the integration, replacing `<token>` with the token:
 
 ```bash
-curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Users/Current
+curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Users/Refresh
 ```
 
-The response has status `200` and holds the account's details, with `isServiceAccount` set to `true`.
+The response has status `200` and returns the same token, with no `refreshToken`, as the [Users API](../../Integrating_to_Profinity/APIs/Reference/Users_API.md) describes.
 For an instance on another computer, use its address, as described in [Profinity Web](../System_Configuration/Profinity_Web.md).
 
 On an account that already has a token, **View Token** shows the current token again.

@@ -153,6 +153,7 @@ After the page checks, step back and read the section as one journey.
 - Concept and reference pages point to the task that applies them, and tasks point back to the reference for each setting they use.
 - The section index lists every page with one line saying what it lets the reader do.
 - Pages are not duplicated, padded or left as placeholders. Less content retrieves better than more (2.9).
+- A reference page or section index is complete for its subject. Ask what the product has that the page does not, such as routes, settings, permissions or components, and raise each gap as a query to the author. You do not open the code to find the gap: a page that calls itself a reference but covers a small part of its subject, or a section index that omits an obvious area, is the signal. The scripted completeness checks, such as `check-route-coverage.js` for REST routes, hold the exact list.
 
 ## 7. Report format
 
@@ -332,7 +333,7 @@ If a page has changed since, the findings still show the standard expected.
 | Polish | Reader success | The tag path `DBC/Status/LimitBusCurrent` is not marked as a value the reader replaces (section 4) |
 | Polish | Structure | The closing cross-reference does not use "refer to" (section 6) |
 
-**Connect Cursor to Profinity** (`Integrating_to_Profinity/MCP_Server/Connect_Cursor.md`, task): 87, Good.
+**Connect Cursor to Profinity** (`Profinity_AI/MCP_Server/Connect_Cursor.md`, task): 87, Good.
 
 | Group | Category | Finding |
 |---|---|---|

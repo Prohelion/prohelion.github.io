@@ -29,6 +29,7 @@ test('a badly written typed page fails and reports each problem', () => {
     'Minimising',      // really simple, just
     'Please',
     'Marketing',       // powerful
+    'ApiTerms',        // the API route returns
     'Abbreviations',   // e.g.
     'Directional',     // the one above
   ]) {

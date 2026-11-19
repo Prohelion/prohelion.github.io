@@ -12,6 +12,7 @@ type: task
 
 It's really simple to set up widgets, and you can just click Add. Please use the
 powerful widget editor e.g. the table above.
+The API route returns the widget list.
 
 - **Name:** the widget name
 - **Type:** the widget type

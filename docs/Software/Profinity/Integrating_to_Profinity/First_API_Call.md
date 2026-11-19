@@ -15,13 +15,18 @@ At the end you have a token and a JSON response that holds the tag's current val
 
 - A running Profinity instance on the same computer, which answers at `http://localhost:18080`. The API runs whenever Profinity runs.
 - The user name and password of a Profinity user with the **View tags** permission.
-- The full path of a tag that currently has a value, such as `MyBMS/DBC/MessageName/SignalName`. **TAG EXPLORER** shows each tag's path and current value.
+- The full path of a tag that currently has a value, such as `Pump/DBC/MotorStatus/Temperature`. **TAG EXPLORER** shows each tag's path and current value.
 - `curl`, which macOS, Linux, and Windows include, and on Windows, PowerShell.
 
 The tutorial uses `localhost`, so the password does not cross the network.
-An application on another computer needs HTTPS, as described in [Authenticate to the Profinity REST API](APIs/API_Authentication.md#sign-in-with-a-username-and-password).
+An application on another computer needs HTTPS.
+Refer to [Authenticate to the Profinity REST API](APIs/API_Authentication.md#what-you-need) for what a client on the network needs.
 
 ## Get a token
+
+!!! warning "Keep passwords out of scripts"
+    Do not put a real password in a script, in shell history, or in a file under version control.
+    For an application that runs unattended, use a [service account](../Administration/Users_and_Access/Service_Accounts.md), whose token has no expiry.
 
 1. Run the command for your operating system. Replace `<username>` and `<password>` with the user's sign-in details.
 
@@ -55,45 +60,42 @@ An application on another computer needs HTTPS, as described in [Authenticate to
     }
     ```
 
-3. Copy the value of `token`, without the quotation marks.
+3. Copy the value of `token`. In the JSON response, copy only the text between the quotation marks.
 
 If the response holds a `token`, you have signed in.
 
-!!! warning "Keep passwords out of scripts"
-    Do not put a real password in a script, in shell history, or in a file under version control.
-    For an application that runs unattended, use a [service account](../Administration/Users_and_Access/Service_Accounts.md), whose token does not expire.
-
 ## Call an endpoint with the token
 
-1. Run the command for your operating system. Replace `<token>` with the token you copied, and `<tag path>` with the full path of your tag.
+1. Run the command for your operating system. Replace `<token>` with the token you copied, and `<tag-path>` with the full path of your tag.
 
     === "macOS or Linux"
 
         ```bash
-        curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sample/<tag path>
+        curl -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sample/<tag-path>
         ```
 
     === "Windows"
 
-        Run this command in PowerShell, where `curl.exe` is needed because `curl` there is a name for another command:
+        Run this command in PowerShell. Use `curl.exe`, because `curl` is an alias for another command there.
 
         ```powershell
-        curl.exe -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sample/<tag path>
+        curl.exe -H "Authorization: Bearer <token>" http://localhost:18080/api/v2/Tags/Sample/<tag-path>
         ```
 
 2. Check the response. It is a JSON object like this, with your tag's values:
 
     ```json
     {
-        "fullTagId": "MyBMS/DBC/MessageName/SignalName",
+        "fullTagId": "Pump/DBC/MotorStatus/Temperature",
         "utcTimestamp": "2026-10-21T01:23:45.6789012Z",
         "quality": "Good",
         "reason": "ok",
-        "value": 3.31
+        "value": 41.5
     }
     ```
 
-`fullTagId` is the path you asked for, `utcTimestamp` is when the sample was taken, and `quality` and `value` give its state and reading.
+`fullTagId` is the path you asked for, `utcTimestamp` is when the sample was taken, and `value` is the reading.
+`quality` is `Good` when the value is current, and `Stale` when the value is older than Profinity allows for a current value.
 If the response shows your tag's value, the call worked.
 
 | What you see | Cause | What to do |
@@ -105,5 +107,5 @@ If the response shows your tag's value, the call worked.
 ## Next steps
 
 - Read a window of past values with [Read real-time and historical tag data](APIs/Read_Tag_Data.md).
-- Open the Swagger page, which lists every route and its parameters, by adding `/swagger` to the Profinity address. Apply your token there with **Authorize**, as described in [Pass the token in requests](APIs/API_Authentication.md#pass-the-token-in-requests).
-- Look up a route in the [Endpoint Reference](APIs/Endpoint_Reference.md).
+- Open the Swagger page, which lists every endpoint and its parameters, by adding `/swagger` to the Profinity address. Apply your token there with **Authorize**, and refer to [Use Swagger with a token](APIs/API_Authentication.md#use-swagger-with-a-token) for the steps.
+- Look up an API in the [API reference](APIs/Endpoint_Reference.md).

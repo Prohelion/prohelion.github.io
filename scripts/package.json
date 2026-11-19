@@ -11,7 +11,7 @@
     "update-2.3-checklist": "node verify-2.3-doc-urls.js -- --update-checklist",
     "validate-dashboards:all": "node validate-dashboard-examples.js --recursive",
     "lint-docs": "node lint-docs.js",
-    "test-lint": "node --test lint-docs.test.js review-pages.test.js review-ledger.test.js review.test.js",
+    "test-lint": "node --test lint-docs.test.js review-pages.test.js review-ledger.test.js review.test.js route-coverage.test.js",
     "review": "node review.js",
     "review-prepass": "node review-pages.js prepass",
     "review-phrasing": "node review-pages.js phrasing",
@@ -23,6 +23,7 @@
     "check-examples": "node check-examples.js",
     "check-code-links": "node check-code-links.js",
     "check-routes": "node check-routes.js",
+    "check-route-coverage": "node check-route-coverage.js",
     "check-env": "node check-env.js",
     "check-permissions": "node check-permissions.js",
     "check-anchors": "node check-anchors.js"

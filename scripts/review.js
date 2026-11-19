@@ -4,7 +4,7 @@
  *
  * Usage: npm run review -- <task> [options]
  *
- *   check              Lint, build, URL check and tests. Run before calling any docs change done.
+ *   check              Lint, build, URL check, route checks (offline, from the committed contract) and tests. Run before calling any docs change done.
  *   status             Ledger counts, blockers still open, pages awaiting re-review, and objective counts.
  *   prepass            Fresh objective pre-pass of every page.
  *   score              Fresh pre-pass, then scores and a ranking from the ledger, with the change since last time.
@@ -131,6 +131,16 @@ function check() {
     const r = node('verify-2.3-doc-urls.js');
     const m = r.out.match(/Pages: (\d+)\s+Missing on disk: (\d+)\s+HTTP failures: (\d+)/);
     return { ok: r.code === 0, detail: m ? `${m[1]} pages, ${m[2]} missing, ${m[3]} HTTP failures` : '' };
+  });
+  step('routes', () => {
+    const r = node('check-routes.js');
+    const m = r.out.match(/Findings: (\d+)/);
+    return { ok: r.code === 0, detail: m ? `${m[1]} routes the product does not have` : r.out.trim().split('\n').pop() };
+  });
+  step('route coverage', () => {
+    const r = node('check-route-coverage.js');
+    const m = r.out.match(/Not documented and not allowed: (\d+)/);
+    return { ok: r.code === 0, detail: m ? `${m[1]} product routes have no page` : r.out.trim().split('\n').pop() };
   });
   step('tests', () => {
     const r = run('npm', ['--prefix', __dirname, 'run', 'test-lint']);

@@ -90,7 +90,6 @@ Use a service account token, so the relay keeps working without anyone signing i
 
 An instance accepts relayed updates for one Tag Relay Receiver set to HTTPS, so add a single HTTPS receiver per instance.
 That receiver sets the **Receiver tag path prefix** and shows the receiving status.
-For the routes the sender posts to, refer to Tag Relay in the [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#tag-relay).
 
 ## Relayed tags
 

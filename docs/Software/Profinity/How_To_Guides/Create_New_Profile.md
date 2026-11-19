@@ -1,6 +1,6 @@
 ---
 title: How to create a new profile
-description: "Create a Profinity profile for a site, location, or test setup, then activate it and add components to it."
+description: "Create a Profinity profile for a site, location, or test setup, which becomes the active profile, then add components to it."
 type: task
 owner: Documentation
 last_reviewed: 2026-10-14
@@ -17,10 +17,12 @@ You need Profinity running, and the **Modify profiles** permission, which allows
 2. Select **Add profile**.
 3. Enter a unique **Profile name** that identifies the site or purpose, for example "Production Site" or "Test Rig".
 4. Optional: Add a description.
-5. Save the profile.
-6. In the list, select **ACTIVATE** on the row of the new profile.
-   The new profile becomes the active profile immediately, while Profinity keeps running.
-   The row of the new profile is marked **ACTIVE**, and the side menu shows components once you add some.
+5. Select **ADD PROFILE**.
+   Profinity creates the profile and makes it the active profile immediately, while Profinity keeps running.
+
+To check, close the dialog.
+The profile list reloads, and the row of the new profile is marked **ACTIVE**.
+The side menu shows components once you add some.
 
 To import a Profile Pack instead, use **Upload profile pack** and choose the ZIP file that you downloaded from the other Profinity instance, as [Manage profiles](../Administration/Manage_Profiles.md#import-a-profile-pack) describes.
 A Profile Pack is a ZIP of a profile's folder, and [Profiles](../Administration/Profiles.md#profile-packs) lists what it contains.

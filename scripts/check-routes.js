@@ -6,13 +6,20 @@
  * OpenAPI document (/swagger/v2/swagger.json). A route that the document does not list is reported. Routes that the
  * product maps outside the OpenAPI document are in the `outsideOpenApi` list below.
  *
- * Usage: PROFINITY_URL=http://localhost:18080 PROFINITY_TOKEN=<token> node scripts/check-routes.js [--out report.md]
+ * By default the check is offline: it reads the contract that the Profinity build commits to the code repository
+ * (see contract.js, found through PROFINITY_CODE). Set PROFINITY_URL to check a running instance instead.
+ *
+ * Usage: PROFINITY_CODE=/path/to/Profinity node scripts/check-routes.js [--out report.md] [--contract swagger.json] [--docs folder]
+ *        PROFINITY_URL=http://localhost:18080 PROFINITY_TOKEN=<token> node scripts/check-routes.js
  */
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..', 'docs', 'Software', 'Profinity');
-const base = (process.env.PROFINITY_URL || 'http://localhost:18080').replace(/\/$/, '');
+const { argValue, docsRoot, readContract, walk } = require('./contract');
+
+const root = docsRoot();
+const live = Boolean(process.env.PROFINITY_URL);
+const base = (process.env.PROFINITY_URL || '').replace(/\/$/, '');
 const outIndex = process.argv.indexOf('--out');
 const outFile = outIndex > -1 ? process.argv[outIndex + 1] : null;
 // Mapped by the MCP library or a first-party handler, so they are not in the OpenAPI document.
@@ -29,23 +36,19 @@ async function token() {
   return (await r.json()).token;
 }
 
-function walk(dir, files = []) {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, e.name);
-    if (e.isDirectory()) walk(full, files);
-    else if (e.name.endsWith('.md')) files.push(full);
-  }
-  return files;
-}
-
 const toRegex = (p) => new RegExp(`^${p.replace(/[.+?^$()|[\]\\]/g, '\\$&').replace(/\{\*[^}]+\}/g, '.+').replace(/\{[^}]+\}/g, '[^/]+')}/?$`, 'i');
 const docRoute = (r) => r.replace(/<[^>]+>/g, 'x').replace(/\{[^}]+\}/g, 'x').replace(/[.,;:)]+$/, '');
 
 async function main() {
-  const t = await token();
-  const r = await fetch(`${base}/swagger/v2/swagger.json`, { headers: { Authorization: `Bearer ${t}` } });
-  if (!r.ok) throw new Error(`OpenAPI document -> ${r.status}`);
-  const api = JSON.parse((await r.text()).replace(/^﻿/, ''));
+  let api;
+  if (live) {
+    const t = await token();
+    const r = await fetch(`${base}/swagger/v2/swagger.json`, { headers: { Authorization: `Bearer ${t}` } });
+    if (!r.ok) throw new Error(`OpenAPI document -> ${r.status}`);
+    api = JSON.parse((await r.text()).replace(/^\uFEFF/, ''));
+  } else {
+    api = readContract();
+  }
   const routes = Object.entries(api.paths).map(([p, ops]) => ({ re: toRegex(p), methods: new Set(Object.keys(ops).map((m) => m.toUpperCase())), p }));
 
   const findings = [];
@@ -64,7 +67,10 @@ async function main() {
         const fewest = Math.min(...hit.map((x) => (x.p.match(/\{/g) || []).length));
         hit = hit.filter((x) => (x.p.match(/\{/g) || []).length === fewest);
         // A group prefix such as /api/v2/Alerts names the routes beneath it. A route that the page describes as removed is not in the product.
-        if (!hit.length && routes.some((x) => x.p.toLowerCase().startsWith(`${route.toLowerCase()}/`))) continue;
+        // Only the name of a whole API (/api/v2/Alerts) is accepted as a group. A deeper partial path, such as
+        // /api/v2/Users/Current, must be an endpoint that exists, or it points readers at one that is not published.
+        const isApiName = /^\/(?:api|scim)\/v2\/[^/]+$/i.test(route);
+        if (!hit.length && isApiName && routes.some((x) => x.p.toLowerCase().startsWith(`${route.toLowerCase()}/`))) continue;
         if (!hit.length && /^\/api\/v2\/Data/.test(route) && (/^Release_Notes|Upgrade_From/.test(rel) || /removed|no longer|replaced/i.test(line))) continue;
         if (!hit.length) {
           findings.push(`${rel}:${i + 1} \`${m[2]}\` is not a route in the product's OpenAPI document`);
@@ -75,7 +81,7 @@ async function main() {
     });
   }
   const unique = [...new Set(findings)];
-  const report = `# API routes in the docs against the running product\n\nInstance: ${base}\nRoute mentions checked: ${checked}\nFindings: ${unique.length}\n\n${unique.map((f) => `- ${f}`).join('\n')}\n`;
+  const report = `# API routes in the docs against the running product\n\nSource: ${live ? base : 'committed contract'}\nRoute mentions checked: ${checked}\nFindings: ${unique.length}\n\n${unique.map((f) => `- ${f}`).join('\n')}\n`;
   if (outFile) fs.writeFileSync(outFile, report);
   console.log(report);
   process.exitCode = unique.length ? 1 : 0;

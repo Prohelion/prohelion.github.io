@@ -59,4 +59,4 @@ It is shown only when the site **Sign-in method** is **Local**.
 
 - [Managing users](Manage_Users.md)
 - [Roles and permissions](Roles_and_Permissions.md)
-- [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#account-resets), the matching routes for integrators
+- [Users API](../../Integrating_to_Profinity/APIs/Reference/Users_API.md), the matching endpoints for integrators

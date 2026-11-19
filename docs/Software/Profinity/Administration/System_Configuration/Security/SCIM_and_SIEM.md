@@ -22,7 +22,7 @@ To turn on provisioning:
 
 1. Turn on **Enable SCIM user provisioning**.
 2. In **SCIM bearer token**, enter a long, random value of your choice. Profinity accepts any length and format, and the field is required while provisioning is on.
-3. Optional: enter **Default assigned roles**.
+3. In **Default assigned roles**, enter at least one existing role name.
 4. Select **SAVE**. Profinity restarts.
 5. Enter the same token in the identity provider's SCIM settings, with the address in [Endpoint and supported operations](#endpoint-and-supported-operations).
 
@@ -38,7 +38,7 @@ A valid token returns status `200` and the service provider settings as `applica
 |---------|------|---------|-------------|
 | **Enable SCIM user provisioning** | On or off | Off | Allows the identity provider to create and deactivate users through the SCIM 2.0 interface. |
 | **SCIM bearer token** | Secret | None | The long-lived secret that the identity provider sends as `Authorization: Bearer`. Treat it like a password. To change it, follow [Replace the SCIM bearer token](#replace-the-scim-bearer-token). |
-| **Default assigned roles** | Text | Empty | A comma-separated list of Profinity roles given to every user that SCIM creates. Names that match an existing role are assigned, and any other name is ignored. An empty list creates users with no role. |
+| **Default assigned roles** | Text | Empty | A comma-separated list of Profinity roles given to every user that SCIM creates. Names that match an existing role are assigned, and any other name is ignored. Profinity creates a user only when at least one name matches an existing role, and otherwise returns `400`. |
 
 ### Replace the SCIM bearer token
 
@@ -58,6 +58,7 @@ To go back, enter the old token in **SCIM bearer token** and select **SAVE**.
 | "SCIM bearer token is required when SCIM provisioning is enabled." when you save | **SCIM bearer token** is empty. | Enter a token. |
 | "SSO must be configured when SCIM provisioning is enabled." when you save | The **SSO** group has no **Authority URL (IdP issuer)**. | Set up SSO first, as described in [Configuring the identity provider](./SSO_and_Sign_In.md#configuring-the-identity-provider). |
 | The check returns `401` | The token in the request differs from **SCIM bearer token**. | Send the token exactly as entered, or enter a new one in both places. |
+| The identity provider reports `400` and "At least one valid default assigned role must be configured for SCIM provisioning." when it creates a user | **Default assigned roles** is empty, or none of its names matches an existing role. | Enter at least one existing role name in **Default assigned roles**, then select **SAVE**. |
 | The check returns `404` | **Enable SCIM user provisioning** is off, or the licence has no **Enterprise Security** feature. | Turn on **Enable SCIM user provisioning**, and check the edition in [Licensing](../../../Licensing.md). |
 
 ### Endpoint and supported operations
@@ -74,10 +75,14 @@ Profinity supports three operations:
 
 - Creating a user (`POST`).
 - Listing users and reading one user by ID (`GET`).
-- Updating a user (`PATCH`).
+- Deactivating a user (`PATCH`).
 
-It publishes its capabilities at `/scim/v2/ServiceProviderConfig`.
-Deprovisioning deactivates the user in Profinity (the identity provider sends `active: false`) and does not delete the account.
+A `PATCH` request only deactivates the user.
+Profinity acts on a `replace` operation whose `path` is `active` and whose value is the boolean `false`, and skips every other operation in the request.
+It returns `400` when `Operations` is missing or empty, or when no operation sets `active` to `false`.
+
+Profinity publishes its capabilities at `/scim/v2/ServiceProviderConfig`.
+Deprovisioning deactivates the user in Profinity and does not delete the account.
 
 Replacing a user with `PUT`, deleting a user, and SCIM groups are not supported, so group membership in the identity provider leaves Profinity roles unchanged.
 **Default assigned roles** is the only role assignment that SCIM makes.

@@ -69,8 +69,8 @@ It needs the **View DBC definitions** permission.
 | What you see | Cause | What to do |
 |---|---|---|
 | A binding returns an error that names `store`, `timeRangeStart`, or `timeRangeStop` | The binding uses settings that Profinity 2.3 replaced. | Remove `store`, and rename `timeRangeStart` to `start` and `timeRangeStop` to `stop`. |
-| A poll of the delta route returns `400` with "Invalid source set." | The set expired, or `srcSetId` is mistyped. | Send the request in step 1 again, and poll with the new `srcSetId`. |
+| A poll of the delta endpoint returns `400` with "Invalid source set." | The set expired, or `srcSetId` is mistyped. | Send the request in step 1 again, and poll with the new `srcSetId`. |
 | A binding with a window returns no older values | No historian has **Designated tag historian reader** on, or more than one has. | Turn it on for exactly one historian in the profile. |
 | `403` | The user does not have the **View tags** permission. | Give the user a role with **View tags**. |
 
-For the other routes, refer to the [Endpoint Reference](Endpoint_Reference.md).
+For the other endpoints, refer to the [API reference](Endpoint_Reference.md).

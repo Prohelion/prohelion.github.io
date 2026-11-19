@@ -61,5 +61,5 @@ Each page in these groups covers one job.
 Integrations can work with tags, tag collections, tag rules, and alerts through the Representational State Transfer (REST) [API](../Integrating_to_Profinity/APIs/index.md) under `/api/v2`.
 The Swagger page, the interactive API page on your Profinity instance, lists every endpoint and the parameters it accepts.
 The older data endpoint under `/api/v2/Data` is removed.
-For new integrations, use `GET /api/v2/Tags` for values, `POST /api/v2/TagQuerySet` to query tags, and `/api/v2/Tags/History` for history.
+For new integrations, use `GET /api/v2/Tags` for values, `POST /api/v2/TagQuerySet` to query tags, and the [Tag history API](../Integrating_to_Profinity/APIs/Reference/Tag_History_API.md) for history.
 All endpoints require the appropriate permissions, which are listed in [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).

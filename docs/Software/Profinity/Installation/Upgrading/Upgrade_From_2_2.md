@@ -81,7 +81,7 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder that the 2
     The **State** shows `Valid`, or `Expiring` when 30 days or fewer remain.
     A Linux, macOS, or Docker installation starts the 14-day local trial the first time Profinity 2.3 runs with no licence installed, unless an OEM build turns trials off. An upgraded installation starts the trial too, because 2.2 recorded no licence or trial. A Windows desktop or service installation has no trial. When the trial ends, Profinity runs in restricted mode until the licence is applied. [Features by edition](../../Licensing.md#features-by-edition) lists the features of each edition, and [The 14-day local trial](../../Licensing.md#the-14-day-local-trial) describes the trial.
 
-4. Update each integration that calls one of these 2.2 data routes, which Profinity 2.3 removes, so that it uses the tag, tag collection, tag rule, and alert routes:
+4. Update each integration that calls one of these 2.2 data endpoints, which Profinity 2.3 removes, so that it uses the tag, tag collection, tag rule, and alert APIs:
 
     - `GET /api/v2/Data`
     - `GET /api/v2/Data/AllInfo`
@@ -91,8 +91,8 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder that the 2
     - `POST /api/v2/Data/Query`
     - `GET /api/v2/Data/QueryDelta/{sourceSet}`
 
-    To read tag values, refer to [Read real-time and historical tag data](../../Integrating_to_Profinity/APIs/Read_Tag_Data.md), and for the collection and alert routes, refer to the [Endpoint Reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md).
-    The Swagger page on the 2.3 instance lists every route, including the tag rule routes.
+    To read tag values, refer to [Read real-time and historical tag data](../../Integrating_to_Profinity/APIs/Read_Tag_Data.md), and for the collection and alert APIs, refer to the [API reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md).
+    The Swagger page on the 2.3 instance lists every endpoint, including those of the tag rules API.
     Change any integration that reads a `success` flag or a `message` field to read the HTTP status code and the `application/problem+json` body instead, as described in [REST API errors](../../Release_Notes/Breaking_Changes_2_3.md#rest-api-errors).
 
 5. Check each custom dashboard:

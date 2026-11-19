@@ -9,7 +9,7 @@ last_reviewed: 2026-10-28
 # How to add a component to your profile
 
 Add a component to the active [profile](../Getting_Started/Profiles.md) from the sidebar or homepage to monitor a CAN bus device, then check its status and connect it.
-You need Profinity running, an active profile, and the **Modify components** permission, which allows components to be added ([Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md)).
+You need Profinity running, an active profile, and the **Modify components** permission, which allows you to add a component, change its settings, and remove it, as described in [Roles and permissions](../Administration/Users_and_Access/Roles_and_Permissions.md).
 
 Some component types also need a licensed feature, such as a historian.
 A component type that is not licensed shows as unavailable.
@@ -114,6 +114,7 @@ Log files from file and SFTP loggers stay on the device, and data in an external
 To bring a deleted component back, import the profile pack that you downloaded before the deletion, as described in [Import a profile pack](../Administration/Manage_Profiles.md#import-a-profile-pack).
 The import adds the pack as a separate profile, and it is refused while a profile with the same name exists, so give the pack file a name that no profile uses.
 
+Deleting a component needs the **Modify components** permission.
 To remove a component that is no longer required:
 
 1. Download a profile pack, as described in [Download a profile pack](../Administration/Manage_Profiles.md#download-a-profile-pack).

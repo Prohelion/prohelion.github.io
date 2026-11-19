@@ -100,4 +100,3 @@ assets:
 </figure>
 
 The settings that control the rest of the system are in [System Configuration](../../Administration/System_Configuration/index.md).
-Integrators can read the theme through the [API](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md#themes).
