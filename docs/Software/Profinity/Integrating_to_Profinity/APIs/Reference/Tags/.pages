@@ -1,0 +1,9 @@
+title: Tags and alerts
+nav:
+    - Tags_API.md
+    - Tag_History_API.md
+    - Alerts_API.md
+    - Tag_Rules_API.md
+    - Tag_Collections_API.md
+    - Derived_Tags_API.md
+    - Tag_Expressions_API.md

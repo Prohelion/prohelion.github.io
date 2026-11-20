@@ -79,4 +79,4 @@ A logger or publisher re-checks which tags match its collection once per interva
 
 [Tag expressions](../Selecting_Tags/Tag_Expressions.md) describes the full expression vocabulary, covering path matching, values, metadata, and wildcards.
 For the rest of the tag layer, refer to [Tag layer](../index.md), [Alerts Log](../Alerts.md), and [Derived tags](../Derived_Tags/index.md).
-Integrators can use the [Tag collections API](../../Integrating_to_Profinity/APIs/Reference/Tag_Collections_API.md).
+Integrators can use the [Tag collections API](../../Integrating_to_Profinity/APIs/Reference/Tags/Tag_Collections_API.md).

@@ -59,7 +59,7 @@ Profinity then uses that name and replaces any set that already has it, and with
 
 ## Read the latest value of one item
 
-`GET /api/v2/Tags/Sample/<tag path>` returns the latest sample of one tag, as shown in [Make your first API call](../First_API_Call.md).
+`GET /api/v2/Tags/Sample/<tag path>` returns the latest sample of one tag, as shown in [Make your first API call](First_API_Call.md).
 
 `GET /api/v2/DBC/<component>/<message>/<signal>` returns the latest value that Profinity holds for one signal from a component's CAN database (DBC) file.
 It needs the **View DBC definitions** permission.
@@ -73,4 +73,4 @@ It needs the **View DBC definitions** permission.
 | A binding with a window returns no older values | No historian has **Designated tag historian reader** on, or more than one has. | Turn it on for exactly one historian in the profile. |
 | `403` | The user does not have the **View tags** permission. | Give the user a role with **View tags**. |
 
-For the other endpoints, refer to the [API reference](Endpoint_Reference.md).
+For the other endpoints, refer to the [API reference](Reference/index.md).

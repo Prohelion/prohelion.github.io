@@ -1,15 +1,8 @@
-title: All APIs
+title: API reference
 nav:
-    - Tags_API.md
-    - Tag_Rules_API.md
-    - Tag_Collections_API.md
-    - Derived_Tags_API.md
-    - Tag_Expressions_API.md
-    - Tag_History_API.md
-    - Alerts_API.md
-    - Profiles_API.md
-    - Active_Profile_API.md
-    - CAN_Bus_API.md
-    - DBC_API.md
-    - Actions_API.md
+    - index.md
     - Users_API.md
+    - Tags
+    - Profiles_and_Components
+    - CAN_Bus_and_DBC
+    - Actions_API.md

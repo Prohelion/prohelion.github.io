@@ -10,7 +10,7 @@ last_reviewed: 2026-11-19
 
 Get a Bearer token for the Profinity Representational State Transfer (REST) API, from a service account or a username and password sign-in, and send it with each request.
 Use an account that is dedicated to the client and holds only the permissions the client needs.
-For a guided first call, refer to [Make your first API call](../First_API_Call.md).
+For a guided first call, refer to [Make your first API call](First_API_Call.md).
 
 ## What you need
 
@@ -36,11 +36,11 @@ A sign-in token expires and comes with a refresh token, so it suits an interacti
 
 === "Username and password"
 
-    1. Send a `POST` request to `/api/v2/Users/Authenticate` with the `username` and `password` in a JSON body. Refer to [Get a token](../First_API_Call.md#get-a-token) for the command for each operating system.
+    1. Send a `POST` request to `/api/v2/Users/Authenticate` with the `username` and `password` in a JSON body. Refer to [Get a token](First_API_Call.md#get-a-token) for the command for each operating system.
     2. Copy the value of the `token` field in the response. If the response holds `preAuthToken` in place of `token`, complete the sign-in first, as described in [Sign-in responses](#sign-in-responses).
     3. Send the token in each request as an `Authorization: Bearer <token>` header.
 
-To check the token, send it to an endpoint that the account has the permission for, such as the tag sample call in [Call an endpoint with the token](../First_API_Call.md#call-an-endpoint-with-the-token).
+To check the token, send it to an endpoint that the account has the permission for, such as the tag sample call in [Call an endpoint with the token](First_API_Call.md#call-an-endpoint-with-the-token).
 A `200` response with data shows the token works.
 
 ## Use Swagger with a token

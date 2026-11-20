@@ -25,7 +25,7 @@ They expose both real-time and historical data.
 They connect Profinity to other systems, to custom dashboards, and to new applications built on Profinity's data.
 
 The [APIs](./APIs/index.md) section documents every API, the interactive Swagger page on your instance, and the OpenAPI document that tools can import.
-To make a first authenticated call, follow [Make your first API call](./First_API_Call.md).
+To make a first authenticated call, follow [Make your first API call](./APIs/First_API_Call.md).
 
 ## MCP server
 
@@ -43,8 +43,7 @@ The [MQTT Subscriber](../Components/Publishers_and_Subscribers/MQTT_Subscriber/i
 
 ## Scripting vs APIs
 
-Profinity offers two ways to extend its capabilities to meet the requirements of an application: [Scripting](../Developing_with_Profinity/Scripting/index.md) and APIs.
-The table compares them.
+Profinity also offer scripting to extend its capabilities to meet the requirements of an application, more information on [Scripting](../Developing_with_Profinity/Scripting/index.md) can be found in that section of the documentation.
 
 | Scripting | APIs |
 |-----------|------|
@@ -52,5 +51,7 @@ The table compares them.
 | Scripts are built in to Profinity and run inside it | API clients run outside Profinity, in a custom environment, app, or cloud, and can be distributed |
 | Scripts can be developed quickly to solve simple problems | Applications can be as rich and complex as required and still use Profinity |
 | Scripts can run without a user interface, on a schedule or triggered by CAN | The application supplies its own logic for how it uses the API |
+
+## Plugins and developing in Profinity directly
 
 For compiled integrations and packaged components, refer to [Developing with Profinity](../Developing_with_Profinity/index.md).

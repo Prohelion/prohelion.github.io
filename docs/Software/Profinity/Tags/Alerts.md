@@ -8,7 +8,7 @@ last_reviewed: 2026-11-10
 
 # Alerts Log
 
-Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indicators across the UI, and through the [Alerts API](../Integrating_to_Profinity/APIs/Reference/Alerts_API.md).
+Profinity 2.3 surfaces rule-generated alerts in the **Alerts Log**, in live indicators across the UI, and through the [Alerts API](../Integrating_to_Profinity/APIs/Reference/Tags/Alerts_API.md).
 Users with the **View alerts** permission can view and acknowledge alerts and silence their actions.
 An alert's text, level, and links come from the [rule](Rules/index.md) that raised it.
 

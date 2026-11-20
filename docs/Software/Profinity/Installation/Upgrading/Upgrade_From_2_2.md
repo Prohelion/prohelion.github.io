@@ -91,7 +91,7 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder that the 2
     - `POST /api/v2/Data/Query`
     - `GET /api/v2/Data/QueryDelta/{sourceSet}`
 
-    To read tag values, refer to [Read real-time and historical tag data](../../Integrating_to_Profinity/APIs/Read_Tag_Data.md), and for the collection and alert APIs, refer to the [API reference](../../Integrating_to_Profinity/APIs/Endpoint_Reference.md).
+    To read tag values, refer to [Read real-time and historical tag data](../../Integrating_to_Profinity/APIs/Read_Tag_Data.md), and for the collection and alert APIs, refer to the [API reference](../../Integrating_to_Profinity/APIs/Reference/index.md).
     The Swagger page on the 2.3 instance lists every endpoint, including those of the tag rules API.
     Change any integration that reads a `success` flag or a `message` field to read the HTTP status code and the `application/problem+json` body instead, as described in [REST API errors](../../Release_Notes/Breaking_Changes_2_3.md#rest-api-errors).
 

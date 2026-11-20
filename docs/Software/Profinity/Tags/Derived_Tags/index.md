@@ -98,6 +98,6 @@ Refer to [Create a derived tag with a script](Create_a_Derived_Tag_with_a_Script
 The derived tags editor uses the same permission pair as collections.
 Reading needs **View tag collections**, and saving needs **Modify tag collections**.
 Refer to [Roles and permissions](../../Administration/Users_and_Access/Roles_and_Permissions.md) for how permissions are granted.
-Integrators can also use the [Derived tags API](../../Integrating_to_Profinity/APIs/Reference/Derived_Tags_API.md).
+Integrators can also use the [Derived tags API](../../Integrating_to_Profinity/APIs/Reference/Tags/Derived_Tags_API.md).
 
 For the rest of the tag layer, refer to [Tag layer](../index.md), [Tag collections](../Collections/index.md), and [Script types](../../Developing_with_Profinity/Scripting/Script_Types/index.md).

@@ -14,13 +14,13 @@ A custom user interface can be hosted either externally or within Profinity itse
 
 ## Get started
 
-- [Make your first API call](../First_API_Call.md): sign in and request the latest sample of a tag with `curl`.
+- [Make your first API call](First_API_Call.md): sign in and request the latest sample of a tag with `curl`.
 - [Authenticate to the Profinity REST API](API_Authentication.md): get a Bearer token from a service account or a sign-in, pass it in requests, and handle 401 and 403 responses.
 - [Read real-time and historical tag data](Read_Tag_Data.md): read the latest and past values of a set of tags, with older values from the designated historian, poll for changes, and read one tag or signal.
 
 ## API reference
 
-- [API reference](Endpoint_Reference.md): the page for each API, grouped as tags and alerts, profiles and components, CAN bus and DBC, and actions and users.
+- [API reference](Reference/index.md): the page for each API, grouped as sign in, tags and alerts, profiles and components, CAN bus and DBC, and actions.
 
 ## API version and access
 

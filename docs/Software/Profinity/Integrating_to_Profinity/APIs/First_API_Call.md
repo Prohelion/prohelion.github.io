@@ -20,13 +20,13 @@ At the end you have a token and a JSON response that holds the tag's current val
 
 The tutorial uses `localhost`, so the password does not cross the network.
 An application on another computer needs HTTPS.
-Refer to [Authenticate to the Profinity REST API](APIs/API_Authentication.md#what-you-need) for what a client on the network needs.
+Refer to [Authenticate to the Profinity REST API](API_Authentication.md#what-you-need) for what a client on the network needs.
 
 ## Get a token
 
 !!! warning "Keep passwords out of scripts"
     Do not put a real password in a script, in shell history, or in a file under version control.
-    For an application that runs unattended, use a [service account](../Administration/Users_and_Access/Service_Accounts.md), whose token has no expiry.
+    For an application that runs unattended, use a [service account](../../Administration/Users_and_Access/Service_Accounts.md), whose token has no expiry.
 
 1. Run the command for your operating system. Replace `<username>` and `<password>` with the user's sign-in details.
 
@@ -101,11 +101,11 @@ If the response shows your tag's value, the call worked.
 | What you see | Cause | What to do |
 |---|---|---|
 | `404` | The path does not match a tag, the tag has no Good or Stale value at the moment, or the user cannot see the tag. | Copy the path from **TAG EXPLORER**, check that the tag shows a value there, and check that the user can see its component. |
-| `401` | The token is missing, mistyped, or has expired. | Get a new token, as in [Get a token](#get-a-token). For the other causes, refer to [Fix 401 and 403 responses](APIs/API_Authentication.md#fix-401-and-403-responses). |
+| `401` | The token is missing, mistyped, or has expired. | Get a new token, as in [Get a token](#get-a-token). For the other causes, refer to [Fix 401 and 403 responses](API_Authentication.md#fix-401-and-403-responses). |
 | `403` | The user does not have the **View tags** permission. | Give the user a role that holds **View tags**. |
 
 ## Next steps
 
-- Read a window of past values with [Read real-time and historical tag data](APIs/Read_Tag_Data.md).
-- Open the Swagger page, which lists every endpoint and its parameters, by adding `/swagger` to the Profinity address. Apply your token there with **Authorize**, and refer to [Use Swagger with a token](APIs/API_Authentication.md#use-swagger-with-a-token) for the steps.
-- Look up an API in the [API reference](APIs/Endpoint_Reference.md).
+- Read a window of past values with [Read real-time and historical tag data](Read_Tag_Data.md).
+- Open the Swagger page, which lists every endpoint and its parameters, by adding `/swagger` to the Profinity address. Apply your token there with **Authorize**, and refer to [Use Swagger with a token](API_Authentication.md#use-swagger-with-a-token) for the steps.
+- Look up an API in the [API reference](Reference/index.md).
