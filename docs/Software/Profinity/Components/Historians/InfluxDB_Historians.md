@@ -3,7 +3,7 @@ title: InfluxDB historians
 description: "Record tag history to an InfluxDB v2 or v3 server and read it back through the APIs, with setup, settings, and log messages that explain a failed connection."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-22
 ---
 
 # InfluxDB historians
@@ -125,11 +125,12 @@ Replace `YOUR_COLLECTION_ID` with the `id` of the collection, which is in the `c
 ## What is stored
 
 Every sample is written with its quality in a `quality` field.
-A Good sample also has a `value` field, and a Stale sample keeps its last `value` with quality Stale.
-A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value`.
+A tag that holds a number, or true or false, is written to the `value` field, and a Stale sample keeps its last `value` with quality Stale.
+Any other tag, such as text, a date, an identifier, or a list, is written to the `text` field instead, and a sample never has both.
+A tag that is Unavailable or Bad is written as a gap, with a `quality` field and no `value` or `text`.
 
 A chart can then show the gap instead of an invented reading.
-Only tags that hold a number are written, and a query for readings should ask for the `value` field.
+A query for numeric readings asks for the `value` field, and a query for text asks for the `text` field.
 
 Each sample is stored as one point in a measurement named after the profile.
 For example, a motor speed signal on a component called `Inverter`, in a profile called `MyProfile`, is stored like this:
@@ -141,10 +142,21 @@ For example, a motor speed signal on a component called `Inverter`, in a profile
 | Tag `message` | `Status` | The CAN message the signal belongs to. |
 | Tag `signal` | `Speed` | The signal name. |
 | Tag `full_tag_id` | `Inverter/DBC/Status/Speed` | The tag's path when the sample was written. |
-| Field `value` | `23.4` | The reading. |
+| Field `value` | `23.4` | The reading of a tag that holds a number, or true or false. |
+| Field `text` | `Running` | The reading of any other tag. |
+| Field `valueType` | `Double` | The kind of value the tag held, such as `Int16`, `Boolean` or `String`. |
 | Field `quality` | `Good` | The quality of the reading. |
 
 Characters other than letters and digits in these names are replaced with underscores.
+
+The historian reads history back as the kind of value that was written: a number, true or false, text, or a list.
+A list is stored as JSON text, such as `[0,500,1000]`.
+Values written before Profinity recorded `valueType` are read back as numbers.
+
+InfluxDB limits a text field to 64 KB, so the historian leaves out a longer value and writes the tag and the reason to the log once.
+A whole number above 9,007,199,254,740,992, or a decimal that a number field cannot hold exactly, is stored in the `text` field so that it is never rounded.
+InfluxDB returns a line break in text as a single line feed, so a carriage return followed by a line feed reads back as a line feed.
+For what every destination holds for each kind of tag, refer to [What each destination holds for a tag](../Logging_Modes.md#what-each-destination-holds-for-a-tag).
 
 For the full procedure to send data to InfluxDB Cloud or a self-hosted server, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).
 

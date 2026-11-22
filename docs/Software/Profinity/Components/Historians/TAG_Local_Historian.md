@@ -3,7 +3,7 @@ title: TAG Local Historian
 description: "Record tag history to a SQLite file that Profinity manages on the host, with no database server or connection string to set up."
 type: component
 owner: Documentation
-last_reviewed: 2026-11-11
+last_reviewed: 2026-11-22
 ---
 
 # TAG Local Historian
@@ -39,6 +39,8 @@ You need an edition with the **Historians** licensed feature, as described in [L
 5. Check that the historian status shows **On**.
 
 The historian writes a row for each tag after every **Update interval (seconds)**, 10 seconds by default.
+A tag that holds text, a date, an identifier, or a list is stored as text, with its kind recorded, and a list is JSON text such as `[0,500,1000]`.
+For what every destination holds for each kind of tag, refer to [What each destination holds for a tag](../Logging_Modes.md#what-each-destination-holds-for-a-tag).
 The other settings keep their defaults, which suit most profiles, and the following tables list them.
 
 ## Settings

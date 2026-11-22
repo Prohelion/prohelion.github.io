@@ -3,7 +3,7 @@ title: InfluxDB v1 Logger
 description: "Log selected tag collections to an InfluxDB v1 server, with the settings, the health check option for InfluxDB Cloud, and what to check if no data arrives."
 type: component
 owner: Documentation
-last_reviewed: 2026-11-11
+last_reviewed: 2026-11-22
 ---
 
 # InfluxDB v1 Logger
@@ -100,12 +100,20 @@ The example is a motor speed signal on a component called `Inverter`.
 | Tag `message` | `Status` | The CAN message the signal belongs to. |
 | Tag `signal` | `Speed` | The signal name. |
 | Tag `full_tag_id` | `Inverter/DBC/Status/Speed` | The tag's path when the sample was written. |
-| Field `value` | `23.4` | The reading. |
+| Field `value` | `23.4` | The reading of a tag that holds a number, or true or false. |
+| Field `text` | `Running` | The reading of any other tag. |
+| Field `valueType` | `Double` | The kind of value the tag held, such as `Int16`, `Boolean` or `String`. |
 | Field `quality` | `Good` | The quality of the reading. |
 
-Only tags that hold a number are written, and a query for readings asks for the `value` field.
-A Good or Stale sample has a `value` field, and a Stale sample keeps its last value.
-An Unavailable or Bad sample is written with a `quality` field and no `value`, so a chart shows a gap instead of an invented reading.
+A tag that holds a number, or true or false, is written to the `value` field.
+Any other tag, such as text, a date, an identifier, or a list, is written to the `text` field instead, and a point never has both.
+A list is stored as JSON text, such as `[0,500,1000]`.
+A Good or Stale sample has a `value` or `text` field, and a Stale sample keeps its last value.
+An Unavailable or Bad sample is written with a `quality` field and no `value` or `text`, so a chart shows a gap instead of an invented reading.
+
+InfluxDB limits a text field to 64 KB, so the logger leaves out a longer value and writes the tag and the reason to the log once.
+A whole number above 9,007,199,254,740,992, or a decimal that a number field cannot hold exactly, is written to the `text` field so that it is never rounded.
+For what every destination holds for each kind of tag, refer to [What each destination holds for a tag](../Logging_Modes.md#what-each-destination-holds-for-a-tag).
 
 ## Troubleshooting {#if-data-does-not-arrive}
 
@@ -114,7 +122,7 @@ An Unavailable or Bad sample is written with a `quality` field and no `value`, s
 | **STATUS** shows **Off** | No collection is selected, or **Auto connect** is off. | Add a collection under **Collections**, or select **Start Logger** from the component's menu. |
 | **STATUS** shows **Error** | The logger cannot reach the server, the database does not exist, or the sign-in is refused. Profinity writes the reason to the log once, then tries again every 5 seconds. | Read the reason on the [Logs](../../Administration/Logs_Config.md) page under **ADMIN**, then correct **Influx server URL**, **InfluxDB database**, or the sign-in. |
 | **STATUS** shows **Error**, and the log says the health check failed | The server, such as InfluxDB Cloud, does not answer the health check. | Turn off **InfluxDB health check**. |
-| **STATUS** shows **On**, but a tag has no readings in InfluxDB | The tag does not hold a number, or it is not in a selected collection. | Check the tag in **TAG EXPLORER**, and add it to one of the selected collections. |
+| **STATUS** shows **On**, but a tag has no readings in InfluxDB | The tag is not in a selected collection, or the logger left out its reading, such as text over 64 KB or a number that is not finite. | Check the tag in **TAG EXPLORER**, and add it to one of the selected collections. |
 
 To set up logging across a profile, refer to [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
 To send data to InfluxDB Cloud, refer to [How to log data to InfluxDB](../../How_To_Guides/Log_Data_to_InfluxDB.md).

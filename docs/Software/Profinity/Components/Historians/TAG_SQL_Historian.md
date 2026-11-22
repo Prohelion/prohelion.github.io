@@ -3,7 +3,7 @@ title: TAG SQL Historian
 description: "Record tag history to a SQLite, SQL Server, PostgreSQL, MySQL, or Oracle table, read it back through the APIs, and find the table layout and connection strings."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-22
 ---
 
 # TAG SQL Historian
@@ -70,6 +70,8 @@ The following tables describe every setting.
 Every sample is written with its quality.
 A Stale sample keeps its last value.
 A tag that is Unavailable or Bad is written with its quality and an empty value, so the table shows the gap.
+A tag that holds text, a date, an identifier, or a list is stored as text, with its kind in `ValueType`, and a list is JSON text such as `[0,500,1000]`.
+For what every destination holds for each kind of tag, refer to [What each destination holds for a tag](../Logging_Modes.md#what-each-destination-holds-for-a-tag).
 
 When **Auto create table** is enabled, the historian creates a table with these columns.
 The names are the same on every provider.

@@ -3,7 +3,7 @@ title: Webhook Publisher
 description: "Push profile tag collections to an HTTP or HTTPS endpoint with a POST and a JSON payload, on an interval or when a value changes."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-14
+last_reviewed: 2026-11-22
 ---
 
 # Webhook Publisher
@@ -96,7 +96,9 @@ The `reason`, `message` and `metadata` fields of that response are not sent.
 
 Each entry reports the quality the tag had when the sample was taken.
 A Stale entry carries its last `value`, and an entry for a tag that is Unavailable or Bad has `quality` and no `value`.
-A Good or Stale tag is included only when its value is a finite number, so text, for example, is skipped.
+The `value` is a JSON number, true or false, a string, or a list, the same form as in the [MQTT Publisher](MQTT_Publisher.md#payload-formats) JSON payload.
+A Good or Stale tag whose number is not finite is left out, and the log names the tag once.
+For what every destination holds for each kind of tag, refer to [What each destination holds for a tag](../Logging_Modes.md#what-each-destination-holds-for-a-tag).
 
 ## Delivery health
 

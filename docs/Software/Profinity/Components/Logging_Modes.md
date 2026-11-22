@@ -3,7 +3,7 @@ title: Logging modes
 description: "How Snapshot, On Change and Everything choose which tag samples to write or send, when to use each mode, and how the update interval applies."
 type: concept
 owner: Documentation
-last_reviewed: 2026-11-01
+last_reviewed: 2026-11-22
 ---
 
 # Logging modes {#logging-modes}
@@ -62,6 +62,25 @@ Routine logging and publishing use **Snapshot** or **On change**.
 In **Snapshot** mode the interval is how often the current value of each member is read and written or sent.
 In **On change** and **Everything** modes the interval is how often pending samples are flushed to the file, database, or destination.
 The setting appears as **Update interval (seconds)** on the component pages that offer **Logging mode**.
+
+## What each destination holds for a tag
+
+A tag can hold a number, true or false, text, a date, an identifier, or a list of values.
+Profinity keeps the kind of value, so a history or a payload gives back what was saved and does not turn every tag into a number.
+A list is held as JSON text, such as `[0,500,1000]`.
+
+| Destination | A number, or true or false | Text, a date, an identifier, or a list |
+|---|---|---|
+| [TAG Local Historian](Historians/TAG_Local_Historian.md) and [TAG SQL Historian](Historians/TAG_SQL_Historian.md) | Stored with its kind in `ValueType` | Stored as text, with its kind in `ValueType` |
+| [TAG File Logger and TAG SFTP Logger](Loggers/Tag_File_and_SFTP_Loggers.md) | Written with its kind in `ValueType` | Written as text, with its kind in `ValueType` |
+| [InfluxDB v1 Logger](Loggers/InfluxDB_v1_Logger.md) and [InfluxDB historians](Historians/InfluxDB_Historians.md) | The `value` field | The `text` field |
+| [MQTT Publisher](Publishers_and_Subscribers/MQTT_Publisher.md) with **JSON**, and [Webhook Publisher](Publishers_and_Subscribers/Webhook_Publisher.md) | A JSON number, or true or false | A JSON string, with a list as a JSON list |
+| MQTT Publisher with **Sparkplug B** | The matching Sparkplug datatype | The String, DateTime or Uuid datatype |
+| [Prometheus Logger](Loggers/Prometheus_Logger.md) | The gauge value | Shown as `NaN`, because a gauge holds only a number |
+
+A destination leaves out a tag it cannot hold, and the log names the tag and the reason once for that destination.
+The cases are a number that is not finite, text over 64 KB sent to InfluxDB, and a tag whose value Profinity cannot read.
+Every other tag is still written or sent.
 
 ## Components that offer logging modes
 

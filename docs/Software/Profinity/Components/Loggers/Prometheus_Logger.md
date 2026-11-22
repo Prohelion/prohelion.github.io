@@ -3,7 +3,7 @@ title: Prometheus Logger
 description: "Serve selected tag collections to a Prometheus server, with the endpoint settings, the default data URL, and what to check if Prometheus shows no data."
 type: component
 owner: Documentation
-last_reviewed: 2026-11-11
+last_reviewed: 2026-11-22
 ---
 
 # Prometheus Logger
@@ -107,7 +107,9 @@ For example, a motor speed signal on a component called `Inverter`, in a profile
 MyProfile_Inverter_Status_Speed{profile="MyProfile",component="Inverter",transmitter="",message="Status",signal="Speed",full_tag_id="Inverter_DBC_Status_Speed"} 23.4
 ```
 
-The value is the latest reading of a tag with Good quality, and `NaN` for a tag with any other quality. The `transmitter` label is always empty.
+The value is the latest reading of a tag with Good quality, and `NaN` for a tag with any other quality.
+A tag that does not hold a number, such as text, also shows `NaN`, because a gauge holds only a number, and the log names the tag once.
+The `transmitter` label is always empty.
 
 ## Troubleshooting
 

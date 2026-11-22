@@ -3,7 +3,7 @@ title: MQTT Publisher
 description: "Publish profile tag collections to MQTT brokers in JSON or Sparkplug B format on interval or change."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-22
 ---
 
 # MQTT Publisher
@@ -90,21 +90,31 @@ These settings are shown only when **Payload** is **Sparkplug B**:
 
 ## Payload formats
 
-**JSON** publishes a flat object of tag key to numeric value, with no timestamp, quality, or metadata alongside it.
+**JSON** publishes a flat object of tag key to value, with no timestamp, quality, or metadata alongside it.
 Each key is the tag path with every character other than a letter or digit replaced by an underscore, so `Vehicles/Car1/Speed` becomes the key `Vehicles_Car1_Speed`:
 
 ```json
 {
-  "Vehicles_Car1_Speed": 87.4
+  "Vehicles_Car1_Speed": 87.4,
+  "Vehicles_Car1_Gear": "Drive",
+  "Vehicles_Car1_WheelSpeeds": [87.1, 87.3, 87.2, 87.4]
 }
 ```
 
-A sample is included only when it has good quality and holds a finite number.
-The payload has no place for quality, so a tag that is not Good (Stale, Unavailable or Bad) or is not numeric is left out of it.
+A number is a JSON number, and true or false is a JSON boolean.
+Text, a date and an identifier are JSON strings, and a list is a JSON list.
+A Good tag with a value is included.
+The payload has no place for quality, so a Stale, Unavailable or Bad tag is left out of it.
+A number that is not finite is left out too, and the log names the tag once.
+For what every destination holds for each kind of tag, refer to [What each destination holds for a tag](../Logging_Modes.md#what-each-destination-holds-for-a-tag).
 
 **Sparkplug B** follows the [Sparkplug](https://sparkplug.eclipse.org/) convention for MQTT topics and payloads, which industrial platforms use.
 The publisher appears to a Sparkplug-aware platform as an edge node, identified by the **Group ID** and **Edge node ID**.
 It announces itself when it connects, and announces itself again when the platform asks.
+Each tag is published with the Sparkplug datatype that matches its value.
+Whole numbers use Int8 to Int64 or UInt8 to UInt64 by size, decimals use Float or Double, true or false uses Boolean, and a date uses DateTime.
+An identifier uses Uuid, and text and lists use String, with a list sent as JSON text.
+A tag that is new, or whose kind of value changes, is announced again before its data, because Sparkplug fixes a metric's datatype when it is announced.
 Sparkplug B is available on the MQTT Publisher only, not on the [Webhook Publisher](Webhook_Publisher.md).
 
 ## Status and troubleshooting

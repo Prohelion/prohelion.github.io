@@ -3,7 +3,7 @@ title: Tag file and SFTP loggers
 description: "Log selected tag collections to local CSV or JSON Lines files, or send them to a remote SFTP server, with logging mode, interval, and file format settings."
 type: component
 owner: Documentation
-last_reviewed: 2026-10-15
+last_reviewed: 2026-11-22
 ---
 
 # Tag file and SFTP loggers
@@ -51,6 +51,8 @@ This quick start covers the **TAG File Logger**. The TAG SFTP Logger also needs 
 Both loggers log the values of the tags in the collections selected in **Collections**.
 Every sample is written with its quality.
 A Stale tag keeps its last value, and a tag that is Unavailable or Bad is written with its quality and an empty value.
+A tag that holds text, a date, an identifier, or a list is written as text, with its kind in `ValueType`, and a list is JSON text such as `[0,500,1000]`.
+For what every destination holds for each kind of tag, refer to [What each destination holds for a tag](../Logging_Modes.md#what-each-destination-holds-for-a-tag).
 A logger shows **Off** and needs a collection before it can start, so create and select a collection first.
 
 | Setting | Type | Default | Purpose |

@@ -151,7 +151,7 @@ A historian that stores text can show that report at a past time, as described i
 
 To look back at past findings, record the findings tags with a historian, as described in [How to configure data logging](../../How_To_Guides/Configure_Data_Logging.md).
 `Outcome`, `SeverityName`, `Message`, `Wake`, and `Report` hold text.
-A [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) or [TAG Local Historian](../../Components/Historians/TAG_Local_Historian.md) stores text, and an [InfluxDB historian](../../Components/Historians/InfluxDB_Historians.md) stores only tags that hold a number.
+A [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md), a [TAG Local Historian](../../Components/Historians/TAG_Local_Historian.md) or an [InfluxDB historian](../../Components/Historians/InfluxDB_Historians.md) stores text.
 
 `Report` is the largest tag, so include it in the logged collection only when you want the report kept for every round.
 
@@ -165,7 +165,6 @@ A [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) or [TAG 
 | `Message` reads `Round timed out` | The round took longer than **Round timeout (seconds)** | Increase the timeout, or narrow the instructions. |
 | **Run AI Technician** or an alert does nothing | Profinity dropped the wake. The [Profinity log](../../Administration/Logs_Config.md) has a line `AI Technician '<name>': dropped` with the reason, which the table in [Dropped wakes](#dropped-wakes) explains. | Fix the cause for the reason in the log. |
 | A finding names data the technician should have seen as missing | The **Run as** account lacks the permission to view it | Add the view permissions to the account's role, as described in [Service accounts](../../Administration/Users_and_Access/Service_Accounts.md#run-an-ai-technician). |
-| Text findings are empty when a dashboard is viewed at a past time | The designated historian is an InfluxDB historian, which stores numbers only | Use a TAG SQL Historian or TAG Local Historian as the [designated historian](../../Components/Historians/Designated_Historian.md). |
 | **Technician not working** alert | Three rounds in a row were `blocked`. | Read the `Message` tag and find its text in this table. |
 
 
