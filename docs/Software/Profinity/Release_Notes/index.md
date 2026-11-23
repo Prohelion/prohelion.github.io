@@ -3,14 +3,14 @@ title: Release notes
 description: "Find the release notes for Profinity 2.3.6, 2.3.3, 2.3.2, 2.3.1 and 2.2.5, with new features, breaking changes and upgrade information."
 type: index
 owner: Documentation
-last_reviewed: 2026-11-22
+last_reviewed: 2026-11-24
 ---
 
 # Release notes
 
 Release notes for Profinity V2 list the user-visible changes, what to do when upgrading, and the known issues that affect deployments.
 
-- [Profinity 2.3.6 release notes](2.3.6.md): text, dates, identifiers, and lists in InfluxDB and the publishers, InfluxDB history at a past time, and one warning for each skipped tag.
+- [Profinity 2.3.6 release notes](2.3.6.md): exact tag paths, logging of every tag value, the M48 Gen2 cell readings, and fixes for components, collections, and copy.
 - [Profinity 2.3.3 release notes](2.3.3.md): stricter profile and settings files, one menu layout shape, and service accounts.
 - [Profinity 2.3.2 release notes](2.3.2.md): stale tags and quality in logs and history, component visibility, theme logos, and dashboard caption and chart colours.
 - [Profinity 2.3 release notes](2.3.1.md): editions and licensing, Profinity AI, derived tags, publishers, and subscribers, role-based access control (RBAC), single sign-on (SSO) and multi-factor authentication (MFA), mobile, Linux artefacts path, and known issues.
