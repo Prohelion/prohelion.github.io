@@ -3,7 +3,7 @@ title: Prometheus Logger
 description: "Serve selected tag collections to a Prometheus server, with the endpoint settings, the default data URL, and what to check if Prometheus shows no data."
 type: component
 owner: Documentation
-last_reviewed: 2026-11-22
+last_reviewed: 2026-11-25
 ---
 
 # Prometheus Logger
@@ -47,6 +47,7 @@ Then add `http://localhost:7065/metrics` to the scrape targets in your Prometheu
 | **Data endpoint URL** | Text | `metrics/` | The path of the address, after the host name and port, that serves the data. |
 | **Server hostname** | Text | `localhost` | The host name or IP address that the address answers on. Refer to [Let another computer read the data](#let-another-computer-read-the-data). |
 | **Server port** | Whole number | `7065` | The port of the address, from 1 to 65535. |
+| **Log** | Choice | Values only | What is served for each tag. **Values only** serves numbers and true or false, and leaves text tags out. **Values and text** also serves each text tag, as described in [Serve text tags](#serve-text-tags). |
 | **Dashboard URL** | Text | Blank | The full address of a Prometheus or Grafana dashboard. When it is set, Profinity shows a link to it. |
 | **Update interval (seconds)** | Time | `10` | The seconds between samples, from 1 to 86400. |
 | **Auto connect** | On or off | On | Starts the logger when the profile loads. When it is off, select **Start Logger** from the component's menu. Refer to [Connections and reconnecting](../Connections_and_Reconnecting.md). |
@@ -108,8 +109,27 @@ MyProfile_Inverter_Status_Speed{profile="MyProfile",component="Inverter",transmi
 ```
 
 The value is the latest reading of a tag with Good quality, and `NaN` for a tag with any other quality.
-A tag that does not hold a number, such as text, also shows `NaN`, because a gauge holds only a number, and the log names the tag once.
+A gauge holds only a number, so with **Log** set to **Values only** a tag that holds text is left out of the page, and the log names the tag once.
+Text that reads as a number, such as `12.5`, is served as a number.
 The `transmitter` label is always empty.
+
+Each Prometheus Logger serves its own page, which lists only the tags in its own collections.
+The page also carries lines about Profinity itself, such as `process_cpu_seconds_total` and `dotnet_total_memory_bytes`.
+
+### Serve text tags {#serve-text-tags}
+
+Set **Log** to **Values and text** to serve text tags as well.
+A text tag then appears as an info line, whose value is always 1 and whose `value` label holds the text:
+
+```text
+MyProfile_Inverter_Status_Mode_info{profile="MyProfile",component="Inverter",transmitter="",message="Status",signal="Mode",full_tag_id="Inverter_DBC_Status_Mode",value="Charging"} 1
+```
+
+When the text changes, the line for the old text disappears.
+Text longer than 128 characters is cut to 128, and the log names the tag once.
+
+Every new text value is a new line for Prometheus to store.
+Use **Values and text** for text that changes rarely, such as a name or a mode, and not for text that changes every few seconds.
 
 ## Troubleshooting
 
