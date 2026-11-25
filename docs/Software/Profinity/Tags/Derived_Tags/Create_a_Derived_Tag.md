@@ -17,6 +17,10 @@ Before you save, the source tag must already exist in the profile, or be a deriv
 3. Select **Add dependency** and add a dependency with the alias `a` that points at the tag `Vehicles/Car1/SpeedMph`.
 4. Set **Expression** to `a.Value * 1.60934`.
 
+A small icon in front of a **Mount path** field means the path starts from the mount path of a group above it.
+Hover over the icon, or tab to it, to see the full path and the group it comes from.
+A mount path that starts with `/` replaces the group's path, so it has no icon.
+
 Save the derived tags.
 The editor shows "Derived tags saved".
 A failed save shows "Save failed:" followed by the validation error.

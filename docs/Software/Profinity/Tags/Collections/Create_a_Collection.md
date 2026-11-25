@@ -17,6 +17,10 @@ Choosing **Restricted** also needs the **Security administration** permission, a
 3. Set its expression to `tag.Meta.Type == "dbc.signal" && tag.MatchesName("*Voltage") && tag.HasValue`.
 4. Set its security to **Restricted**, and allow the **Engineers** role.
 
+When a collection or group takes its scope from the group above it, a small icon appears in front of its **Scope** field.
+Hover over the icon, or tab to it, to see the full path and the group it comes from.
+A scope that starts with `/` replaces the group's scope instead, so it has no icon.
+
 To check it worked, open the collection picker in **Tag Explorer**.
 The collection appears there under its display name, and it selects every cell voltage signal under `Vehicles/Car1/Battery`.
 
