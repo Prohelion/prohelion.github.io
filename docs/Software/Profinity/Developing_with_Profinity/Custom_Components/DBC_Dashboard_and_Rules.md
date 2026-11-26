@@ -34,7 +34,7 @@ Profinity resolves it against the component's place in the tag tree, so the bind
 
 An absolute path begins with `/` and names some other place in the tree.
 Use a relative path to bind to this component, not an absolute path that names it.
-Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) and [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
+Refer to [Data binding](../../Customising_Profinity/Dashboards/Data_Binding/index.md) and [Tag paths](../../Tags/Selecting_Tags/Tag_Paths.md).
 
 ## Rules
 

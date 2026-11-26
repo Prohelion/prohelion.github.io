@@ -63,7 +63,7 @@ The leaf name anywhere:
 tag.MatchesName("OutputCurrent")
 ```
 
-Leaf name contains (case-insensitive):
+Leaf name contains (capitals must match):
 
 ```text
 tag.MatchesName("*Current*")
@@ -80,7 +80,7 @@ Path segments and leaf names use one `*` wildcard dialect:
 
 | Pattern | Matches |
 |---------|---------|
-| `OutputCurrent` | Exact segment (case-insensitive) |
+| `OutputCurrent` | Exact segment (capitals must match) |
 | `Output*` | Starts with |
 | `*Current` | Ends with |
 | `*putCurr*` | Contains |

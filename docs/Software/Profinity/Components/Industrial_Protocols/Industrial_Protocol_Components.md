@@ -49,6 +49,8 @@ A point can sit directly under **Points**, or inside a folder.
 Its tag path is the component name, then `Points`, then any folders, then the point name.
 The same point name can be used in different folders.
 A name must be unique among the points in one folder.
+A folder or point name is one part of a tag path, so it cannot contain `/` or `\`, be `.` or `..`, or start or end with a space.
+Capitals matter, so `Speed` and `speed` are two different points.
 
 **New folder** and **New point** add rows by hand.
 **Remove** deletes the points you tick in the table.

@@ -108,7 +108,9 @@ The 2.2 image kept its data in a `Profinity` folder inside the folder that the 2
     The dashboard opens without the message.
     To keep the customisations instead, repair the dashboard as described in [Dashboard does not load](../../Customising_Profinity/Dashboards/Troubleshooting.md#dashboard-does-not-load).
 
-    Profinity 2.3 does not accept a bind written in the dotted 2.2 form, such as `Component.Message.Signal`, so change it to a [slash path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
+    Profinity 2.3 does not accept a bind written in the dotted 2.2 form, such as `Component.Message.Signal`, so change it to a [slash path](../../Tags/Selecting_Tags/Tag_Paths.md).
+
+    Profinity 2.3 also compares capitals exactly in every tag path, and a relative path always starts from its component or group. Check the scopes in your rules, collections and derived tags, and the paths in your scripts, as described in the [Profinity 2.3 breaking changes](../../Release_Notes/Breaking_Changes_2_3.md#tag-paths).
 
 6. If you change the firmware configuration of an M48 Gen2, C48 Gen2, or D1000 Gen2 battery management system (BMS), enter its **Firmware configuration key** first, as described in [Unlock administration firmware parameters](../../Components/Battery_Management_Systems/Prohelion_BMU/Update_BMU_Configuration_and_Firmware.md#unlock-administration-firmware-parameters).
     Profinity 2.3 holds the key for a limited session of 30 minutes by default and never saves it in the profile, so enter it in each session in which you change the firmware configuration.

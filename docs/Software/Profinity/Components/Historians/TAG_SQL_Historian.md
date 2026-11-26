@@ -14,7 +14,7 @@ It sits in the **Historians** category.
 Use it when the history needs to live in a database that you already operate and query with ordinary SQL tools, rather than in a time-series database such as [InfluxDB](InfluxDB_Historians.md).
 
 If you only need on-box SQLite with no connection string, use the [TAG Local Historian](TAG_Local_Historian.md) instead.
-Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
+Each row the historian writes belongs to one [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Paths.md).
 
 <figure markdown>
 ```mermaid

@@ -31,7 +31,7 @@ Each page in these groups covers one job.
 ## Select, group, and derive tags
 
 - [Selecting tags](Selecting_Tags/index.md): how a tag's path in the tree and the expression language work together to pick tags.
-- [Tag tree paths and dashboard binds](Selecting_Tags/Tag_Tree_Path.md): how nesting a component in a folder of the tag tree affects scopes and binds.
+- [Tag paths](Selecting_Tags/Tag_Paths.md): how a tag path is written, where a relative path starts, what a path can contain, how capitals are compared, and how nesting a component affects scopes and binds.
 - [Nest a component in the tag tree](Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md): mount a component inside a folder of the tag tree.
 - [Tag expressions](Selecting_Tags/Tag_Expressions.md): the expression language shared by collections, rules, and derived tags.
 - [Tag collections](Collections/index.md): group tags with a membership expression. Open **COLLECTIONS** under **TAG UTILITIES** to open an editor window, which requires **View tag collections**.

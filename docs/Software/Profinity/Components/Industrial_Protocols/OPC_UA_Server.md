@@ -51,7 +51,7 @@ For where the server keeps its certificates, refer to [OPC UA certificates](OPC_
 
 The server reads every tag in the profile that holds a single readable value, and publishes no tags of its own.
 In the address space, the tags sit under **Objects** > **Profinity**, the folder with the NodeId `ns=2;s=Profinity`.
-Each tag is a node whose NodeId is `ns=2;s=` followed by the tag's [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md), so the tag `Inverter/DBC/Status/Speed` is `ns=2;s=Inverter/DBC/Status/Speed`.
+Each tag is a node whose NodeId is `ns=2;s=` followed by the tag's [tag tree path](../../Tags/Selecting_Tags/Tag_Paths.md), so the tag `Inverter/DBC/Status/Speed` is `ns=2;s=Inverter/DBC/Status/Speed`.
 
 The address space is read-only, so clients can view values and cannot change them.
 The server builds it when it starts, from the tags that are readable then, so a tag added to the profile later appears after the server restarts.

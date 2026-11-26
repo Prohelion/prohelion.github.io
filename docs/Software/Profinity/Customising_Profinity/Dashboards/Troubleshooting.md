@@ -41,7 +41,7 @@ Profinity has no restore command. To restore the replaced dashboard from its `.b
 
 | What you see | Cause | What to do |
 |---|---|---|
-| Components show static values, or do not change when the data changes | The binding `source` does not match a tag. | In **TAG EXPLORER**, check that the path in the binding matches the tag path exactly, including a leading `/` for a tag of another component. Check that the tag shows a current value with Good quality. For a `DBC/` tag, check that the CAN database (DBC) file defines the signal and that the component is connected and receiving data. |
+| Components show static values, or do not change when the data changes | The binding `source` does not match a tag. | In **TAG EXPLORER**, check that the path in the binding matches the tag path exactly, including its capitals and a leading `/` for a tag of another component. Check that the tag shows a current value with Good quality. For a `DBC/` tag, check that the CAN database (DBC) file defines the signal and that the component is connected and receiving data. |
 | The tag shows a value, but the component does not | The value does not convert to the type that `toType` sets, so the component shows the binding's fallback value. | Change `toType` to match the type the tag publishes, or remove `toType` so that the component converts the value itself. |
 | A number displays, but it does not drive a lamp or a chart | The number arrives as a string. | Set `toType: number` on the binding. |
 

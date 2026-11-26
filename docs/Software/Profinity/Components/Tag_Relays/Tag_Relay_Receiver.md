@@ -60,7 +60,7 @@ The relayed tags appear under the **Receiver tag path prefix**.
 | Setting | Type | Default | Purpose |
 |---|---|---|---|
 | **Protocol** | Choice of **HTTPS** or **MQTT** | **HTTPS** | With **HTTPS**, the sender posts each update straight to this instance, so every connection starts at the sender. With **MQTT**, the receiver subscribes to a topic on a broker and applies each update it receives. Set it to match the sender's **Protocol**. |
-| **Receiver tag path prefix** | Text | None | Required. The profile subtree that receives every update from the sender. It sits outside the tag path of every component and the prefix of every other receiver in the profile, and the check ignores case. The sender's **Sender tag path prefix** is added beneath it. Refer to [Tag tree paths and dashboard binds](../../Tags/Selecting_Tags/Tag_Tree_Path.md). |
+| **Receiver tag path prefix** | Text | None | Required. The profile subtree that receives every update from the sender. It sits outside the tag path of every component and the prefix of every other receiver in the profile, and the check ignores case. The sender's **Sender tag path prefix** is added beneath it. Refer to [Tag paths](../../Tags/Selecting_Tags/Tag_Paths.md). |
 
 ### MQTT settings
 

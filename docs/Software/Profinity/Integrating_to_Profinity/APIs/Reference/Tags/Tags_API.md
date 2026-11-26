@@ -29,7 +29,7 @@ To read the latest value of a set of tags, or a window of values with aggregatio
 
 `GET /api/v2/Tags` returns the tag tree that **TAG EXPLORER** shows, from the root.
 
-The nested form is an object with one key for each segment of the [tag path](../../../../Tags/Selecting_Tags/Tag_Tree_Path.md).
+The nested form is an object with one key for each segment of the [tag path](../../../../Tags/Selecting_Tags/Tag_Paths.md).
 Each tag in it, and each entry in the flat form, has `fullTagId`, `metaType`, `hasSample`, which is `true` for a tag that has a value to read, and `isWritable`.
 The flat form returns `items`, `totalCount`, `pageIndex`, and `pageSize`, and lists branch tags such as component roots as well as tags that hold a value.
 
@@ -107,7 +107,7 @@ This endpoint has no errors of its own beyond sign-in and permission.
 Returns the latest sample of one tag.
 It needs the **View tags** permission, and returns `200` with `fullTagId`, `utcTimestamp`, `quality`, and `reason`, and `value` and `message` where the tag has them.
 `quality` is `Good` or `Stale`.
-`{fullTagPath}` is the full [tag path](../../../../Tags/Selecting_Tags/Tag_Tree_Path.md), written in the address with its slashes.
+`{fullTagPath}` is the full [tag path](../../../../Tags/Selecting_Tags/Tag_Paths.md), written in the address with its slashes.
 
 === "macOS or Linux"
 

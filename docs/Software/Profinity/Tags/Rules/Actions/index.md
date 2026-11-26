@@ -132,6 +132,7 @@ Profinity replaces them when the action fires.
 - `{Value}` and `{TagValue}`, which both give the value reported to the action, normally that of the tag that caused the transition.
 - `{TriggeredTagIds}`, which is a comma-separated list.
 - `{ThresholdLevel}` and `{ThresholdMessage}`, which are filled only for threshold rules.
+- `{RuleMessage}`, which is the rule's own alert message. It is available only in the **Message** setting of the Email and Slack actions.
 - `{alias}` for each related-tag alias on the rule, such as `{coolantTemperature}`, as described under [Related tags](../Rule_Settings.md#related-tags).
   A name that is not an alias on this rule and not one of the tokens above is left as written.
 

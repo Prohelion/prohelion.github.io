@@ -11,7 +11,7 @@ last_reviewed: 2026-11-22
 The **InfluxDB v2 Historian** and the **InfluxDB v3 Historian** write the values of the tags in the [collections](../../Tags/Collections/index.md) you select to an InfluxDB server.
 Dashboards and integrations can read that history back.
 They sit in the **Historians** group.
-Each recorded value belongs to a [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
+Each recorded value belongs to a [tag](../../Tags/index.md), identified by its [tag tree path](../../Tags/Selecting_Tags/Tag_Paths.md).
 
 Use the **InfluxDB v2 Historian** if your InfluxDB server stores data in buckets that belong to an organisation.
 Use the **InfluxDB v3 Historian** if your InfluxDB server stores data in a single database.
@@ -120,7 +120,7 @@ The second is an InfluxDB v3 Historian, which takes a database in place of a buc
 
 Replace `YOUR_BUCKET`, `YOUR_ORGANISATION` and `YOUR_DATABASE` with the names in your InfluxDB server.
 Replace `YOUR_INFLUXDB_TOKEN` with your InfluxDB token, which Profinity stores encrypted.
-Replace `YOUR_COLLECTION_ID` with the `id` of the collection, which is in the `collections.yaml` file of the profile. Leave `tagTreeParentPath` as `/` to mount the historian at the root of the tag tree, as described in [Tag tree path](../../Tags/Selecting_Tags/Tag_Tree_Path.md).
+Replace `YOUR_COLLECTION_ID` with the `id` of the collection, which is in the `collections.yaml` file of the profile. Leave `tagTreeParentPath` as `/` to mount the historian at the root of the tag tree, as described in [Tag paths](../../Tags/Selecting_Tags/Tag_Paths.md).
 
 ## What is stored
 

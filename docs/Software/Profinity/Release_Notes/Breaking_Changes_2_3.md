@@ -174,8 +174,17 @@ Profinity 2.3 refuses these 2.2 forms:
 Profinity 2.3 does not convert the addresses in dashboards written for 2.2, so change each address to the slash form.
 Where a bind began with `{COMPONENT_NAME}`, use a path relative to the component, such as `DBC/Message/Signal`.
 
+Profinity 2.3 also reads every tag path the way a file system does, so some paths that 2.2 tolerated now behave differently:
+
+- Capitals matter everywhere. A scope of `pump` or an expression such as `tag.MatchesPath("pump")` no longer selects the tags under `Pump`.
+- A relative path always goes under its starting point, even when it begins with the same text. A group scope of `Pack1/Cells` inside a scope of `Pack1` now means `Pack1/Pack1/Cells`, and a script path such as `GPS Unit/position/latitude` run by the `GPS Unit` component now looks under `GPS Unit/GPS Unit`. Begin the path with `/` to start from the root.
+- A part of a path that starts or ends with a space, or contains `*` where a single tag is named, is refused. The rule, collection or derived tag that holds it is skipped, and the report names it.
+
+Profinity writes a warning to the logs for each scope that matches nothing as written but would match if capitals were ignored, and shows the spelling to use.
+Check each rule, collection, derived tag and script that names a tag after the upgrade.
+
 Check each dashboard after the upgrade, as described in the dashboard check in [Upgrade from Profinity 2.2](../Installation/Upgrading/Upgrade_From_2_2.md).
-Refer to [Tag tree paths and dashboard binds](../Tags/Selecting_Tags/Tag_Tree_Path.md).
+Refer to [Tag paths](../Tags/Selecting_Tags/Tag_Paths.md).
 
 ## Dashboard time range settings are renamed
 

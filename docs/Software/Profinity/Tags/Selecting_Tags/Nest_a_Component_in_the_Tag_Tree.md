@@ -9,7 +9,7 @@ last_reviewed: 2026-10-15
 # Nest a component in the tag tree
 
 By default each component mounts at the root of the tag tree under its own name, and the **Tag tree path** setting nests its tags under a parent folder instead.
-To see what nesting does to scopes and dashboard binds, refer to [Tag tree paths and dashboard binds](Tag_Tree_Path.md).
+To see what nesting does to scopes and dashboard binds, refer to [Tag paths](Tag_Paths.md).
 
 Editing the **Tag tree path** needs **Modify components**.
 
@@ -51,7 +51,7 @@ References you edited by hand after the move, and absolute binds in other compon
 
 Absolute binds in other components' dashboards are literal paths to the old location, so they are not updated.
 This includes binds that use the `[TimeSeries]` and `[TimeSeries_Delta]` source prefixes as well as those that begin with a slash.
-[Tag tree paths and dashboard binds](Tag_Tree_Path.md#absolute-and-relative-dashboard-binds) explains the two forms.
+[Tag paths](Tag_Paths.md#absolute-and-relative-dashboard-binds) explains the two forms.
 Before relocating a component that other dashboards reference by absolute path, search those dashboards for its old path and update any matching `source:` values by hand.
 
 History recorded by the [TAG SQL Historian](../../Components/Historians/TAG_SQL_Historian.md) under the old path is not migrated, so a trend from it spanning the move shows a break at that point.

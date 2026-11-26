@@ -29,11 +29,13 @@ How a path is written decides where it starts:
 
 A leading `/` means the same as it does in dashboards and rules: the root of the tag tree.
 A relative path that has several segments, such as `Battery/Voltage` or `position/latitude`, is still placed under the host component, so `Battery/Voltage` on `Inverter` is `Inverter/Battery/Voltage`.
-A relative path that already starts with the host component's name is used as it is, so `Inverter/SpeedKmh` and `SpeedKmh` are the same tag.
+A relative path is always placed under the host component, even when it starts with the component's name, so `Inverter/SpeedKmh` on `Inverter` is `Inverter/Inverter/SpeedKmh`.
+To name a tag by its full path, start it with `/`, as in `/Inverter/SpeedKmh`.
+Capitals matter, so `speedkmh` and `SpeedKmh` are different tags.
 
 Use a relative path for a script's own component, which keeps the script working if the component is renamed or copied.
 Use a leading `/` to read or write tags that belong to other components.
-If the component is mounted in a folder using a [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md), a relative path still starts at the component.
+If the component is mounted in a folder using a [Tag tree path](../../../Tags/Selecting_Tags/Tag_Paths.md#nest-a-component-with-a-tag-tree-path), a relative path still starts at the component.
 A path with a leading `/` starts at the root of the whole tree, so it includes that folder.
 
 !!! note "Paths are not a security boundary"

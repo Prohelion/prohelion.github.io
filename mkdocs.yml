@@ -664,7 +664,7 @@ plugins:
         'Profinity_Software/Profinity_Version_2.3/Tags/Selecting_Tags/Build_an_Expression.md': 'Software/Profinity/Tags/Selecting_Tags/Build_an_Expression.md'
         'Profinity_Software/Profinity_Version_2.3/Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md': 'Software/Profinity/Tags/Selecting_Tags/Nest_a_Component_in_the_Tag_Tree.md'
         'Profinity_Software/Profinity_Version_2.3/Tags/Selecting_Tags/Tag_Expressions.md': 'Software/Profinity/Tags/Selecting_Tags/Tag_Expressions.md'
-        'Profinity_Software/Profinity_Version_2.3/Tags/Selecting_Tags/Tag_Tree_Path.md': 'Software/Profinity/Tags/Selecting_Tags/Tag_Tree_Path.md'
+        'Profinity_Software/Profinity_Version_2.3/Tags/Selecting_Tags/Tag_Tree_Path.md': 'Software/Profinity/Tags/Selecting_Tags/Tag_Paths.md'
         'Profinity_Software/Profinity_Version_2.3/Tags/Selecting_Tags/Unsupported_Expression_Spellings.md': 'Software/Profinity/Tags/Selecting_Tags/Tag_Expressions.md'
         'Profinity_Software/Profinity_Version_2.3/Tags/Tag_Logs/index.md': 'Software/Profinity/Tags/Tag_Logs/index.md'
         'Profinity_Software/Profinity_Version_2.3/Tags/Tag_Logs/Log_Tags_to_a_File.md': 'Software/Profinity/Tags/Tag_Logs/Log_Tags_to_a_File.md'

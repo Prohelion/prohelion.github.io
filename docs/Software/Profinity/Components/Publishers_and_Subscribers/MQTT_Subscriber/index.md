@@ -69,7 +69,7 @@ The tags then appear under the **Tag path prefix**, at the paths described in [W
 
 | Setting | Type | Required | Default | Purpose |
 |---|---|---|---|---|
-| **Tag path prefix** | Text | Yes | None | The profile subtree that subscribed metrics are written under, for example `External`. The subscriber owns this subtree, so do not create tags beneath it from any other component or script. Refer to [Tag tree path](../../../Tags/Selecting_Tags/Tag_Tree_Path.md) for the path rules. |
+| **Tag path prefix** | Text | Yes | None | The profile subtree that subscribed metrics are written under, for example `External`. The subscriber owns this subtree, so do not create tags beneath it from any other component or script. Refer to [Tag paths](../../../Tags/Selecting_Tags/Tag_Paths.md) for the path rules. |
 
 ## Example
 
